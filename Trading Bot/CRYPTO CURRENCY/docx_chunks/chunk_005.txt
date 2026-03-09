@@ -1,0 +1,530 @@
+on loss under station projection. This is a structural aliasing defect, not numerical error, and is classified under the general “aliasing/leakage” defect family.
+
+04.R4 — Protocols (How to Compute / Verify)
+04.R4.a — Snap point computation (macro)
+def snap_radius_macro(d: int) -> int:
+    return 3 ** d
+
+def snap_exponent_macro(d: int) -> int:
+    return d
+
+
+04.R4.b — Orbit-length table generator (macro)
+def orbit_length_table(d_max: int, n_max: int):
+    out = {}
+    for d in range(1, d_max+1):
+        out[d] = {}
+        for n in range(0, n_max+1):
+            out[d][n] = orbit_length_B(d, n)
+    return out
+
+
+04.R4.c — Visibility verification against reported thresholds
+For a fixed macro radius (R=243=3^5) (i.e., (n=5)), the theorem predicts:
+tunnel-visible iff (5\ge d),
+pre-tunnel iff (d>5),
+matching the reported classification ((d=5) critical; (d=7) still invisible).
+
+04.R4.d — Explicit tunnel-family extractor (15-ring)
+def tunnel_families_15():
+    return [sorted([r + 3*k for k in range(5)]) for r in [0,1,2]]
+
+This returns (\mathcal{T}_0,\mathcal{T}_1,\mathcal{T}_2) as the canonical 5-cycle families.
+
+Ch04 — Gear-Loop Decomposition and “Visibility”
+Ch05 — Triangle Modes (global vs per-axis)
+Option A vs Option B as a Pinned Corridor Policy
+
+□ Square — Discrete Control Carriers (Policy Objects, State Types, and Serialization)
+05.S1 — Objects
+05.S1.a — Triangle phase alphabets and index sets
+Let (\mathbb{Z}3:={0,1,2}) with addition modulo (3).
+Let (d\in\mathbb{N}{\ge 1}) and let ([d]:={1,\dots,d}).
+Define the two admissible Triangle phase carriers:
+Option A (per-axis Triangle):
+[
+\mathcal{T}^{A}_d := (\mathbb{Z}_3)^d,
+\qquad
+\tau^{A}=(\tau_1,\dots,\tau_d)\in\mathcal{T}^{A}_d .
+]
+This is the higher-dimensional “triangle per axis” semantics.
+Option B (global Triangle):
+[
+\mathcal{T}^{B} := \mathbb{Z}_3,
+\qquad
+\tau^{B}\in\mathcal{T}^{B}.
+]
+This is the “one shared governor” semantics.
+
+05.S1.b — Control-state triple (recursion governor)
+Define the Triangle control state (governor state) as the canonical trit triple
+[
+G:=(t_0,t_1,t_2)\in \mathbb{Z}_3^3,
+]
+with pinned interpretation under a control profile digest.
+Define the serialization-only scalar encoding
+[
+\mathrm{val}(G):=t_0+3t_1+9t_2\in\mathbb{Z}_{27},
+]
+used strictly for indexing/serialization (control logic operates on components).
+Triangle is a governor: recursion/control events (carry/hatch) are the only legal mechanism to increase depth; Triangle cannot introduce new content, only controls legal refinement and nesting.
+
+05.S1.c — Corridor policy object pinning Triangle mode
+Define a TriangleModePolicy as a pinned policy object
+[
+\Pi_\triangle := (\mathrm{Mode},\ \mathrm{QuantizerID},\ \mathrm{MixID},\ \mathrm{AggID},\ \mathrm{Pins}),
+]
+where:
+(\mathrm{Mode}\in{\mathrm{AXIS},\mathrm{GLOBAL}}) selects Option A vs B.
+(\mathrm{QuantizerID}) pins the trit-extraction rule (including whether fractional-part reduction is used and how wrap scaling enters).
+(\mathrm{MixID}) pins the global mix operator (required iff (\mathrm{Mode}=\mathrm{GLOBAL})).
+(\mathrm{AggID}) pins the aggregation map from ((\mathbb{Z}_3)^d\to\mathbb{Z}_3) if the control-plane requires scalar gating but the observation plane is per-axis (optional; must be explicit if used).
+(\mathrm{Pins}) contains digests required by “no hidden knobs” discipline (any variability affecting meaning must be pinned or deterministically derived).
+Changing (\Pi_\triangle) is semantic (must be represented as an explicit evolution edge under the corpus’ transport discipline).
+
+05.S1.d — Typed Triangle state objects (A vs B)
+Let (\delta) be the depth budget and (\varepsilon) be pinned trigger thresholds (corridor-controlled). TriangleState is always accompanied by such budgets and pins.
+Define the Triangle subsystem state as:
+Option A state:
+[
+\mathsf{TriState}^{A}(d)
+:=
+(\tau^{A}\in(\mathbb{Z}_3)^d,\ G\in\mathbb{Z}3^3,\ \delta,\ \varepsilon,\ \Pi\triangle).
+]
+Option B state:
+[
+\mathsf{TriState}^{B}
+:=
+(\tau^{B}\in\mathbb{Z}_3,\ G\in\mathbb{Z}3^3,\ \delta,\ \varepsilon,\ \Pi\triangle).
+]
+Determinism requirement: all updates to (G) and to the triangle phase(s) are deterministic given inputs and pinned profiles.
+
+05.S2 — Operators
+05.S2.a — Core trit quantizer (discrete rule)
+Define the trit quantizer on a unit phase coordinate (u\in\mathbb{T}^1=\mathbb{R}/\mathbb{Z}) by
+[
+Q_3(u):=\big\lfloor 3u\big\rfloor\in\mathbb{Z}_3,
+]
+where (u) is represented as a canonical fractional representative in ([0,1)).
+Define the wrapped quantizer at wrap factor (R\in\mathbb{N}):
+[
+Q_3^{(R)}(\phi):=Q_3\big(\operatorname{frac}(R\phi)\big)\in\mathbb{Z}_3,
+\qquad \operatorname{frac}(x):=x-\lfloor x\rfloor.
+]
+This makes “triangle is a 3-phase operator on the circle coordinate” literal.
+
+05.S2.b — Option A operator: per-axis Triangle extraction
+Given a torus phase (\Phi=(\phi_1,\dots,\phi_d)\in\mathbb{T}^d) and wrap (R), define
+[
+\boxed{
+\mathsf{Tri}^{A}_{R}(\Phi)
+:=
+\big(Q_3^{(R)}(\phi_1),\dots,Q_3^{(R)}(\phi_d)\big)
+\in(\mathbb{Z}_3)^d.
+}
+]
+This is the componentwise triangle described for higher-D: “you have a triangle per axis unless intentionally collapsed.”
+The induced discrete product structure is the clean generalization of (12=4\times 3):
+[
+(\mathbb{Z}_4\times\mathbb{Z}_3)^d \cong (4\times 3)^d = 12^d.
+]
+
+05.S2.c — Option B operator: global Triangle extraction via pinned mix
+Option B requires a pinned combiner (\mathrm{mix}:\mathbb{T}^d\to\mathbb{T}^1) that is stable under the system’s holographic truncation discipline.
+A canonical lossless mix is induced by digit interleaving of the square address (a chart change that preserves the hologram):
+interleave base-4 digits into a single base-4 integer (J) with (kd) digits, and define
+[
+\phi_{\mathrm{global}}:=\frac{J}{4^{kd}}.
+]
+This yields a bijection
+[
+(\mathbb{Z}{4^k})^d \longleftrightarrow \mathbb{Z}{4^{kd}}.
+]
+Given such a pinned (\phi_{\mathrm{global}}), define
+[
+\boxed{
+\mathsf{Tri}^{B}{R}(\Phi)
+:=
+Q_3^{(R)}!\big(\phi{\mathrm{global}}(\Phi)\big)
+\in\mathbb{Z}_3.
+}
+]
+This is the “one global Triangle phase (shared governor)” semantics.
+
+05.S2.d — Mode policy gates and legal transitions
+Define the policy gate:
+[
+(\mathrm{Mode}=\mathrm{AXIS}) \Rightarrow \tau\in(\mathbb{Z}_3)^d,\qquad
+(\mathrm{Mode}=\mathrm{GLOBAL}) \Rightarrow \tau\in\mathbb{Z}_3.
+]
+A mode switch is a semantic change to the typed state space and therefore must be explicit under the corpus’ evolution discipline (“no silent forks; no hidden knobs”).
+If a conversion (F:(\mathbb{Z}_3)^d\to\mathbb{Z}3) is used (aggregation), then (F) is part of (\Pi\triangle) and must be pinned; otherwise the conversion is illegal.
+
+05.S3 — Invariants
+05.S3.a — Consistency: both modes are phase-locked admissible choices
+Both Option A and Option B are consistent higher-dimensional choices and are phase-locked when defined via pinned quantizers/mixers.
+Formally, for any pinned (R), the image sets are:
+[
+\mathsf{Tri}^A_R:\mathbb{T}^d\to(\mathbb{Z}_3)^d,\qquad
+\mathsf{Tri}^B_R:\mathbb{T}^d\to\mathbb{Z}_3,
+]
+and both commute with the canonical action of integer translation in wrap space up to modular equivalence on (\mathbb{Z}_3) (since the codomain is discrete).
+
+05.S3.b — Determinism and “no hidden knobs” invariants
+All Triangle updates are deterministic given inputs and pinned profile identity; any adaptive behavior must be encoded or deterministically derived.
+Any variability affecting decode/meaning must be pinned (digest) or deterministically derived from pinned tables and encoded artifacts.
+
+05.S3.c — Information relations between Option A and Option B
+Option A carries (d) trits per evaluation; Option B carries one trit per evaluation. Consequently:
+There exists a surjective aggregation map (F:(\mathbb{Z}_3)^d\to\mathbb{Z}_3) (many choices), but (F) is not canonical without a pinned policy.
+There is no injective map (\mathbb{Z}_3\to(\mathbb{Z}_3)^d) consistent with semantics without adding extra information.
+Thus, Option B is a quotient of Option A at the level of (\tau)-representation (even when (\phi_{\mathrm{global}}) is lossless).
+
+05.S3.d — Governor invariants (Triangle cannot create content; only gates refinement)
+Triangle is the recursion/control plane; it governs initiation/mixing/stabilization selection and the legality of depth change, while not introducing new content.
+Any depth increase must be represented by a certified hatch event and must pass trigger legality, depth budget, inheritance pin equality, checkpoint creation, and replay verification; implicit recursion is illegal.
+
+05.S4 — Protocols
+05.S4.a — Canonical digit-interleaving mix (lossless global phase)
+Given (d,k) and square coordinates (x_i\in{0,\dots,4^k-1}), write base-4 digits
+[
+x_i=\sum_{t=0}^{k-1} x_{i,t}4^{t},\qquad x_{i,t}\in{0,1,2,3}.
+]
+Define the interleaved integer
+[
+J:=\sum_{t=0}^{k-1}\sum_{i=1}^{d} 4^{dt+(i-1)},x_{i,t},
+\qquad
+\phi_{\mathrm{global}}:=\frac{J}{4^{kd}}.
+]
+This realizes the bijection ((\mathbb{Z}{4^k})^d\leftrightarrow \mathbb{Z}{4^{kd}}).
+
+05.S4.b — Reference implementation (Triangle phases A/B)
+from dataclasses import dataclass
+from typing import Callable, List, Literal, Tuple
+
+Mode = Literal["AXIS", "GLOBAL"]
+
+def frac(x: float) -> float:
+    # Canonical fractional part in [0,1)
+    return x - int(x // 1)
+
+def q3(u01: float) -> int:
+    # u01 in [0,1)
+    t = int(3 * u01)
+    return t if t < 3 else 2  # guard against u01=1.0 by float error
+
+def q3_wrapped(phi: float, R: int) -> int:
+    return q3(frac(R * phi))
+
+def interleave_base4_digits(x: List[int], d: int, k: int) -> int:
+    """
+    x: list length d with 0 <= x[i] < 4^k
+    returns interleaved J in [0, 4^(k*d)-1]
+    """
+    assert len(x) == d
+    J = 0
+    for t in range(k):
+        for i in range(d):
+            digit = (x[i] >> (2 * t)) & 0b11  # base-4 digit at level t
+            J |= (digit << (2 * (d * t + i)))
+    return J
+
+def phi_global_from_square(x: List[int], d: int, k: int) -> float:
+    J = interleave_base4_digits(x, d, k)
+    return J / float(4 ** (k * d))
+
+@dataclass(frozen=True)
+class TriangleModePolicy:
+    mode: Mode
+    quantizer_id: str
+    mix_id: str | None  # required for GLOBAL
+    agg_id: str | None  # optional
+    pins: Tuple[Tuple[str, str], ...]  # (key,digest) pairs
+
+def tri_A_from_phi(phi_vec: List[float], R: int) -> Tuple[int, ...]:
+    return tuple(q3_wrapped(phi, R) for phi in phi_vec)
+
+def tri_B_from_phi(phi_global: float, R: int) -> int:
+    return q3_wrapped(phi_global, R)
+
+
+05.S4.c — Policy validation harness
+def validate_policy(policy: TriangleModePolicy):
+    assert policy.mode in ("AXIS", "GLOBAL")
+    if policy.mode == "GLOBAL":
+        assert policy.mix_id is not None
+    # pins must be deterministic and ordered
+    assert all(isinstance(k, str) and isinstance(v, str) for k, v in policy.pins)
+
+def verify_interleave_bijection(d: int, k: int, samples: List[List[int]]):
+    # Empirical collision check on provided samples
+    seen = {}
+    for x in samples:
+        J = interleave_base4_digits(x, d, k)
+        if J in seen and seen[J] != x:
+            raise AssertionError("Collision detected (violates bijection on sample).")
+        seen[J] = x
+
+
+05.S4.d — Conformance obligations for mode selection
+A TriangleModePolicy instance (\Pi_\triangle) is publishable as OK only if:
+(\mathrm{Mode}) is pinned and referenced by digest in the registry/policy manifest (no hidden knobs).
+If (\mathrm{Mode}=\mathrm{GLOBAL}), (\mathrm{MixID}) pins a stable mixing operator; if interleaving is used, its correctness is witnessed by the bijection law.
+Any aggregation (F) used to feed scalar control gates from per-axis phases is pinned ((\mathrm{AggID})) and replay-verifiable.
+Any policy change is represented explicitly under corpus evolution (no silent forks).
+
+❀ Flower — Continuous Triangle Semantics on (\mathbb{T}^d) (Phase, Wraps, and Quantization)
+05.F1 — Objects
+05.F1.a — Torus phase and revolution scaling
+Let
+[
+\mathbb{T}^d := (\mathbb{R}/\mathbb{Z})^d,\qquad \Phi=(\phi_1,\dots,\phi_d)\in\mathbb{T}^d.
+]
+Higher-D “circle” is a torus.
+Define revolution scaling componentwise:
+[
+\Phi_R := {R\Phi} = ({R\phi_1},\dots,{R\phi_d}).
+]
+
+05.F1.b — Triangle extraction as a 3-partition of wrapped phase
+Define per-axis triangle as:
+[
+\tau_i(R):=\big\lfloor 3,{R\phi_i}\big\rfloor\in\mathbb{Z}_3.
+]
+This formalizes “Triangle (3-phase) becomes componentwise.”
+
+05.F1.c — Global collapse (chart change) enabling global Triangle
+A lossless collapse torus (\to) one global circle is realized by a bijection between ((\mathbb{Z}{4^k})^d) and (\mathbb{Z}{4^{kd}}) via digit interleaving into (J), inducing (\phi_{\mathrm{global}}=J/4^{kd}).
+This yields a canonical (pinned) (\mathrm{mix}) operator:
+[
+\mathrm{mix}{d,k}(\Phi):=\phi{\mathrm{global}}(\Phi)\in\mathbb{T}^1.
+]
+
+05.F1.d — Two correct higher-D Triangle choices (semantic statement)
+In higher dimension, triangle is per axis unless intentionally collapsed to a global one.
+Both choices are consistent and phase-locked:
+[
+\text{Option A: }\ \tau_i=\lfloor 3\phi_i\rfloor\in\mathbb{Z}_3,
+\qquad
+\text{Option B: }\ \tau=\lfloor 3,\mathrm{mix}(\Phi)\rfloor\in\mathbb{Z}_3.
+]
+
+05.F2 — Operators
+05.F2.a — Option A: torus-to-trit vector operator
+Define
+[
+\mathsf{Tri}^{A}:\mathbb{T}^d\times\mathbb{N}\to(\mathbb{Z}_3)^d,
+\qquad
+\mathsf{Tri}^{A}(\Phi;R):=(\tau_1(R),\dots,\tau_d(R)).
+]
+
+05.F2.b — Option B: torus-to-trit scalar operator via mix
+Define
+[
+\mathsf{Tri}^{B}:\mathbb{T}^d\times\mathbb{N}\to\mathbb{Z}_3,
+\qquad
+\mathsf{Tri}^{B}(\Phi;R):=\left\lfloor 3,{R,\mathrm{mix}(\Phi)}\right\rfloor.
+]
+If (\mathrm{mix}) is implemented via digit interleaving, it is a chart change, not a loss of information at the phase level.
+
+05.F2.c — Phase-advance operator (mode rotation)
+Define the mode rotation on (\mathbb{Z}_3):
+[
+\mathrm{Rot}_3(\tau):=\tau+1\pmod 3.
+]
+For Option A, define (\mathrm{Rot}_3) componentwise on ((\mathbb{Z}_3)^d).
+
+05.F2.d — Compatibility operator: scalarization of vector Triangle (pinned)
+If a scalar gate is required while observing per-axis phases, define a pinned map
+[
+F:(\mathbb{Z}_3)^d\to\mathbb{Z}3
+]
+(e.g., majority, parity, weighted sum mod 3, or a digest-pinned lookup). No such map is implied; it is admissible only if pinned in (\Pi\triangle).
+
+05.F3 — Invariants
+05.F3.a — Range invariants
+For any (\Phi) and (R),
+[
+\tau_i(R)\in{0,1,2},\qquad \mathsf{Tri}^{A}(\Phi;R)\in(\mathbb{Z}_3)^d,\qquad \mathsf{Tri}^{B}(\Phi;R)\in\mathbb{Z}_3.
+]
+
+05.F3.b — Wrap-scaling invariance class
+Triangle depends only on the wrapped phase ({R\phi}). Therefore, for any integer (m),
+[
+{R\phi}={(R+m)\phi}
+]
+holds iff (m\phi\in\mathbb{Z}) (i.e., the additional wraps land on an integer boundary). This characterizes when wrap increments are triangle-invisible.
+
+05.F3.c — Phase-lock compatibility with higher-D circle definition
+The system treats higher-D circle coordinates as (\Phi=(x_1/4^k,\dots,x_d/4^k)) under the canonical projection.
+Triangle extraction operates on these fractions via the quantizer; thus Triangle is a discrete shadow of the same hologram state, not an independent degree of freedom.
+
+05.F3.d — Structural interpretation invariant (axis vs global)
+Option A treats Triangle as an axis-factorized 3-phase traversal, yielding a product structure.
+Option B treats Triangle as a shared governor participating in a single meta-cycle.
+The chosen interpretation is part of the meaning-bearing policy and must be pinned.
+
+05.F4 — Protocols
+05.F4.a — Exact evaluation protocol at rational hubs
+For (\phi_i=p_i/q_i) with (q_i\mid R), ({R\phi_i}=0) and (\tau_i(R)=0).
+Thus hub fractions aligned with wrap scaling become exact Triangle reset points (a deterministic trigger surface candidate).
+
+05.F4.b — Cross-check protocol: global mode with lossless mix
+When (\mathrm{mix}) is implemented by digit interleaving (lossless), verify:
+[
+\Phi \leftrightarrow \phi_{\mathrm{global}}
+]
+is bijective at the Square address level ((\mathbb{Z}{4^k})^d \leftrightarrow \mathbb{Z}{4^{kd}}).
+Then Triangle scalar extraction is a deterministic function of the same underlying state.
+
+05.F4.c — Mode conformance test suite (analytic)
+A Triangle implementation passes conformance if:
+Option A returns a (d)-vector of trits and is componentwise consistent with (\tau_i(R)=\lfloor 3{R\phi_i}\rfloor).
+Option B returns a scalar trit and uses a pinned (\mathrm{mix}).
+Any use of a global Triangle when starting from per-axis phases is documented as either (i) lossless chart-change at the phase carrier level, or (ii) an intentional quotient at the trit shadow level (policy pinned).
+
+05.F4.d — Phase-to-control signal protocol (bridge contract)
+Define a pinned mapping from triangle phase(s) to control signals used by (G) (stress/defect/depth gate counters). The mapping is deterministic and referenced by the control profile digest.
+
+☁ Cloud — Distributions over Triangle Modes (Uncertainty, Identifiability, and Coarse-Graining)
+05.C1 — Objects
+05.C1.a — Distribution spaces for Triangle observations
+Define the simplices:
+[
+\Delta(\mathbb{Z}_3):={p\in\mathbb{R}^3:\ p_i\ge 0,\ \sum_i p_i=1},
+\qquad
+\Delta((\mathbb{Z}_3)^d):={p\in\mathbb{R}^{3^d}:\ p\ge 0,\ |p|_1=1}.
+]
+These represent uncertainty over global vs per-axis Triangle phase readouts.
+
+05.C1.b — Pushforward under quantization (observation channel)
+Let (\Phi) be a random variable on (\mathbb{T}^d) with law (\mu).
+Define the induced Triangle laws by pushforward:
+[
+p^{A} := (\mathsf{Tri}^{A}{R})# \mu \in \Delta((\mathbb{Z}3)^d),\qquad
+p^{B} := (\mathsf{Tri}^{B}{R})_# \mu \in \Delta(\mathbb{Z}_3).
+]
+
+05.C1.c — Policy-conditioning (mode is not inferential)
+Triangle mode selection is not inferred from data; it is pinned by (\Pi_\triangle) (a corridor/policy object).
+Therefore, probabilistic statements about (\tau) are always conditioned on the pinned mode.
+
+05.C1.d — Control context as a random variable under noise models
+If phase measurements are noisy, treat (\Phi) as an uncertain latent and (G) as a deterministic state updated from pinned signals; then the induced uncertainty in Triangle observations is entirely via the observation channel (\Phi\mapsto \tau) and never via unpinned update rules.
+
+05.C2 — Operators
+05.C2.a — Marginalization from Option A to Option B (pinned aggregator)
+Given (p^{A}\in\Delta((\mathbb{Z}3)^d)) and a pinned aggregator (F:(\mathbb{Z}3)^d\to\mathbb{Z}3), define
+[
+p^{B}{F} := F# p^{A}\in\Delta(\mathbb{Z}3),
+\qquad
+p^{B}{F}(t)=\sum{\mathbf{u}:F(\mathbf{u})=t} p^{A}(\mathbf{u}).
+]
+No default (F) exists without policy pins.
+
+05.C2.b — Fiber uniformity tests (lossless mix vs lossy aggregation)
+If Option B uses lossless (\mathrm{mix}) at the phase level, then (\Phi\leftrightarrow \phi_{\mathrm{global}}) is bijective (address-level).
+Any additional reduction to a scalar trit is a lossy coarse-graining; characterize its fibers as:
+[
+\mathsf{Tri}^{B}_{R}{}^{-1}(t)\subseteq \mathbb{T}^d.
+]
+
+05.C2.c — Entropy invariants under deterministic time evolution
+When the Triangle update on (\tau) is a deterministic permutation (e.g., (\tau\mapsto\tau+1) mod 3, componentwise), the induced distribution evolves by permutation, hence Shannon entropy is invariant:
+[
+H(p_{t+1}) = H(p_t).
+]
+
+05.C2.d — Identifiability criterion for per-axis vs global observation
+Given only scalar (\tau^B), the per-axis (\tau^A) is generally non-identifiable (multiple latent (\tau^A) map to the same observed (\tau^B)) unless additional observations or pinned constraints are provided. This is a structural uncertainty (many-to-one observation channel), not sampling noise.
+
+05.C3 — Invariants
+05.C3.a — Policy invariance of admissibility
+Mode (\mathrm{AXIS}) and (\mathrm{GLOBAL}) are both admissible choices; admissibility is determined by the corridor/policy, not by posterior probability.
+
+05.C3.b — Conservation of probability mass under Triangle permutations
+Triangle phase updates that are group actions preserve (\ell^1) mass and simplex constraints by construction.
+
+05.C3.c — No-hidden-knobs invariant for probabilistic statements
+Any statistical pipeline that outputs a claim about Triangle must include (\Pi_\triangle) pins in its digestable provenance; otherwise claims are invalid (policy not declared).
+
+05.C3.d — Governor constraint invariant (depth increases are not probabilistic accidents)
+Depth increases occur only via certified hatch events, not via stochastic drift; uncertainty may exist in trigger evidence, but the act of recursion is a typed event requiring verification.
+
+05.C4 — Protocols
+05.C4.a — Empirical estimator protocol for (p^A) and (p^B)
+Given samples (\Phi^{(n)}), estimate:
+[
+\widehat{p}^{A}(u)=\frac{1}{N}\sum_{n=1}^N \mathbf{1}{\mathsf{Tri}^{A}R(\Phi^{(n)})=u},
+\quad
+\widehat{p}^{B}(t)=\frac{1}{N}\sum{n=1}^N \mathbf{1}{\mathsf{Tri}^{B}R(\Phi^{(n)})=t}.
+]
+Attach the pinned (\Pi\triangle) digest to the estimator output.
+
+05.C4.b — Drift audit protocol
+If observed empirical frequencies shift across runs, the replay kernel must detect whether the shift is attributable to (i) changed pins, (ii) changed input digests, or (iii) nondeterminism; unpinned variability is a typed failure.
+
+05.C4.c — Aggregator conformance protocol (if used)
+If an aggregator (F) is used, produce a conformance witness containing:
+definition of (F) (table or formula),
+proof that (F) is deterministic,
+regression tests verifying identical output under replay.
+
+05.C4.d — Evidence-plan protocol for mode ambiguity claims
+If any pipeline claims uncertainty about whether Option A or Option B is “correct,” such a claim must be typed AMBIG and must return an evidence plan; however, within this framework the mode is a pinned policy choice, so “mode ambiguity” is treated as a policy conflict, not a data inference.
+
+✶ Fractal — Triangle as the Legal Recursion Plane (Carry, Hatch, and Replay Discipline)
+05.R1 — Objects
+05.R1.a — Tria Prima operator basis (control action families)
+Define the triadic operator basis
+[
+\mathsf{OT}:=(\mathsf{Su},\mathsf{Me},\mathsf{Sa}),
+]
+each a typed control interface producing a new control context and obligations.
+Interpretation: Su emphasizes initiation/partition, Me emphasizes mixing/transport, Sa emphasizes stabilization/sealing; behavior is pinned.
+
+05.R1.b — Carry hyperplanes and trigger predicates
+Define the carry hyperplane set (\mathrm{CH}) as the certified boundary locus where carry-free and carry-propagating laws diverge, detected by pinned deterministic detectors.
+Trigger predicates reference (\mathrm{CH}) and additional pinned signals (residual drift, lock proximity), all replayable.
+
+05.R1.c — HatchEvent object (the only legal recursion mechanism)
+Define HatchEvent as the only legal recursion mechanism:
+[
+\mathsf{HE}:=(\mathrm{HatchID},\mathrm{ParentSnapshot},\mathrm{TriggerEvidence},\mathrm{InheritanceSpec},\mathrm{ChildInitOffsets},\mathrm{Checkpoint},\mathrm{Obligations},\mathrm{ReplayPtr},\mathrm{Pins},\mathrm{PulseID}),
+]
+with mandatory checkpoint and replay pointer.
+
+05.R1.d — ControlContext object
+A control context (\mathsf{CC}) includes (G) and profile pins (and optional depth stack/offsets when recursion is enabled).
+
+05.R2 — Operators
+05.R2.a — Carry operator and hatch emission
+Define a deterministic carry operator
+[
+\mathrm{Carry}_\triangle:\mathsf{CC}\times\mathsf{Signals}\to(\mathsf{CC}',\ \mathsf{HE}\ \text{or}\ \emptyset),
+]
+consistent with the master operator-family schema.
+
+05.R2.b — Recursion legality operator (hatch verifier)
+Define (\mathrm{VerifyHatch}(\mathsf{HE})) which returns a truth type under corridor evaluation and requires replay verification for OK. Any implicit recursion is illegal.
+
+05.R2.c — Mode-consistent signal extraction for control updates
+Define a pinned mapping from (\tau^{A}) or (\tau^{B}) into control signals driving (G). The mapping is part of (\Pi_\triangle) and must be deterministic; it may depend on axis index only through declared tables (no implicit coupling).
+
+05.R2.d — Serialization and replay capsules for Triangle events
+All Triangle events (carry/hatch updates) must be replayable under pinned environment and pins; replay determinism is the criterion for OK closure.
+
+05.R3 — Invariants
+05.R3.a — Legal recursion invariant
+Any depth increase must be represented by a HatchEvent that passes trigger legality, depth budget, inheritance pin equality, checkpoint creation, and replay verification.
+
+05.R3.b — Triangle mediation invariant (admissibility gate)
+Triangle mediation is an admissibility gate constraining which Circle/Square couplings are legal; coupling affecting meaning requires declared bridges and pinned profile identity with witnesses/replays.
+
+05.R3.c — Control cannot introduce new content
+Triangle cannot introduce new content; it only governs legal refinement and nesting.
+
+05.R3.d — Mode pinning invariant across recursion boundaries
+Hatch inheritance must specify which profiles are inherited and which overrides (if any) are permitted; Triangle mode ((\Pi_\triangle)) is an inherited pin unless explicitly overridden under an inheritance spec that is itself pinned and verified.
+
+05.R4 — Protoc

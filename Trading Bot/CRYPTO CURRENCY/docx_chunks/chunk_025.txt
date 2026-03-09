@@ -1,0 +1,560 @@
+napshot (\mathsf{RegSnap}), the resolution of (k) is unique:
+[
+\left|{\mathsf{Value} : \mathsf{ResolveKey}(\mathsf{RegSnap},k)=\mathsf{Value}}\right|\le 1.
+]
+If multiple distinct values are admissible under the same pins, the registry is in CONFLICT state and must be fenced; routing must treat affected keys as non-OK-routable until resolved by explicit governance actions.
+D.S3.b — Append-only registry invariant
+Registry evolves only by DeltaPacks. No entry is deleted. Supersession is explicit via Supersedes? pointers and MIGRATE edges. Snapshot chain is linear in pulse order and anchored by previous snapshot digest.
+D.S3.c — Mandatory digest completeness invariant
+Any Manifest registered as deployable or publishable must contain the mandatory digests (router/corridor/grammar/policy/canonbytes/envpins/schema set/revocation/pulse policy). Missing mandatory digests forbids OK routing and import acceptance under strict policies.
+D.S3.d — Deterministic collision handling invariant
+If collisions occur, resolution is deterministic, minimal index is chosen, and a signed collision record is appended. Any non-deterministic collision resolution is forbidden.
+
+D.S4 — Protocols
+D.S4.a — Registry update protocol (DeltaPack)
+All registry modifications are expressed as DeltaPack ops (Ch20). The protocol for applying registry DPs is:
+Validate DP signature and policy epoch compatibility.
+Validate canonical serialization digests for all referenced objects.
+Apply ops in deterministic order; reject any op that would overwrite an existing binding without explicit supersession linkage.
+Recompute indices and snapshot digests deterministically.
+Emit RegistryCert and, if applicable, ForkPreventionCert.
+D.S4.b — Registry snapshot protocol
+At each PulseID (p), compute (\mathsf{RegSnap}(p)) as a deterministic function of:
+previous snapshot digest,
+all registry DPs in pulse order,
+pinned resolution policy,
+pinned canonicalization.
+D.S4.c — Import-side registry validation protocol
+Import verification must:
+verify registry snapshot chain,
+verify all referenced manifests and profiles by digest,
+apply revocations deterministically,
+reject or quarantine based on policy.
+D.S4.d — Deterministic resolution protocol for “current profile”
+If policy defines a “current” profile per manuscript, resolution must be deterministic and pinned, e.g.:
+latest-by-PulseID among non-revoked profiles,
+authority-rank tie-break,
+digest lexicographic final tie-break.
+Any ambiguity yields AMBIG or CONFLICT depending on whether an evidence plan exists; OK routing is forbidden in ambiguity.
+
+❀ D.F — Flower: Interpretation Stability, Policy Epochs, and Semantic Continuity
+D.F1 — Objects
+D.F1.a — Interpretation closure
+An InterpretationClosure is the minimal set of pinned objects required to interpret a corpus element:
+[
+\mathsf{IC} := \langle \mathsf{CanonBytesID},\ \mathsf{GrammarID},\ \mathsf{PolicyID},\ \mathsf{SchemaSetDigest},\ \mathsf{EnvPinsID} \rangle.
+]
+Every routable claim must carry an IC digest in its pin closure.
+D.F1.b — Policy epoch
+A policy epoch is identified by (\mathsf{PolicyID}). Changing policy epoch is meaning-bearing unless a MigrationWitness certifies equivalence of interpretation closure. Policy epoch changes are recorded as registry entries and referenced by manifests.
+D.F2 — Operators
+D.F2.a — Continuity predicate
+Define a continuity predicate:
+[
+\mathsf{Continuous}(\mathsf{IC}{old},\mathsf{IC}{new}) \in {\mathsf{true},\mathsf{false}}
+]
+which is true only if the pinned migration policy provides an explicit witness that interpretation semantics are preserved. Otherwise, claims must be re-validated under the new closure and cannot be treated as OK by inheritance.
+D.F3 — Invariants
+D.F3.a — Interpretation anchoring invariant
+Any route plan claiming OK must pin a single interpretation closure for each scope. Mixing closures without explicit EQUIV/MIGRATE witnesses is forbidden.
+D.F3.b — Manifest coherence invariant
+Manifest digests must resolve to policies and schemas that mutually agree on canonical encoding and grammar. Any mismatch is an import failure or quarantine condition.
+D.F4 — Protocols
+D.F4.a — Policy upgrade protocol
+Policy changes are introduced only by:
+new PolicyPack object,
+registry binding,
+optional migration witness that states what remains equivalent and what requires revalidation.
+
+☁ D.C — Cloud: Ambiguity, Conflicts, Revocations, and Quarantine Semantics
+D.C1 — Objects
+D.C1.a — Fork record
+A fork is a situation where the same typed key can resolve to multiple distinct values under identical pins. A ForkRecord is:
+[
+\mathsf{ForkRecord}:=\langle \mathsf{Key},\ \mathsf{Values},\ \mathsf{Witnesses},\ \mathsf{PulseID},\ \mathsf{ResolutionPolicyDigest}\rangle.
+]
+D.C1.b — Quarantine record
+A QuarantineRecord is a registry entry that marks a key/value as non-OK-routable:
+[
+\mathsf{QuarantineRecord}:=\langle \mathsf{Target},\ \mathsf{Reason},\ \mathsf{EffectivePulse},\ \mathsf{EvidenceRefs}\rangle.
+]
+D.C2 — Operators
+D.C2.a — Deterministic quarantine propagation
+Quarantine propagation computes the closure of quarantined digests through dependency closures. Propagation is deterministic and pinned by policy.
+D.C3 — Invariants
+D.C3.a — Revocation precedence invariant
+Revocation masks bindings: a revoked digest cannot be returned by ResolveKey/ResolveProfile unless policy explicitly permits quarantined resolution; such permission must be explicit and never treated as OK.
+D.C3.b — Conflict classification invariant
+If two admissible interpretations exist and neither is disambiguated by pinned policy, the result is CONFLICT, not OK; affected routes must be fenced.
+D.C4 — Protocols
+D.C4.a — Conflict response protocol
+On fork detection:
+Emit ForkRecord.
+Emit quarantine entries for affected keys.
+Require explicit governance action: either MIGRATE to unify, or explicit selection by new pinned policy with witness.
+
+✶ D.R — Fractal: Replayable Registry Evolution, Fork Prevention, and Certificates
+D.R1 — Objects
+D.R1.a — RegistryCert
+A RegistryCert attests:
+snapshot digest correctness,
+entry set correctness,
+index digest correctness,
+mandatory manifest digests present where required,
+deterministic resolution procedures.
+Minimum fields:
+[
+\mathsf{RegistryCert}:=\langle \mathsf{RegSnapDigest},\ \mathsf{PulseID},\ \mathsf{PolicyDigest},\ \mathsf{VerifierDigest},\ \mathsf{Result},\ \mathsf{Sig}\rangle.
+]
+D.R1.b — ForkPreventionCert
+A ForkPreventionCert attests that within a defined scope:
+no typed key resolves to multiple values under identical pins,
+all collisions are either absent or resolved deterministically with signed collision records,
+all forks are quarantined and fenced.
+Minimum fields:
+[
+\mathsf{ForkPreventionCert}:=\langle \mathsf{RegSnapDigest},\ \mathsf{Scope},\ \mathsf{ForkSetDigest},\ \mathsf{QuarantineSetDigest},\ \mathsf{VerifierDigest},\ \mathsf{Result},\ \mathsf{Sig}\rangle.
+]
+D.R2 — Operators
+D.R2.a — Snapshot replay operator
+[
+\mathsf{ReplayRegistry}(\mathsf{GenesisSnap}, {\mathsf{DP}}_{\le p}, \mathsf{PolicyEpochs}) \to \mathsf{RegSnap}(p)
+]
+Deterministic replay must reproduce snapshot digest exactly. Any mismatch yields FAIL/CONFLICT per policy and must be recorded as a conflict packet.
+D.R3 — Invariants
+D.R3.a — Replay closure invariant
+Registry state is defined by replay; snapshots are summaries. Any consumer must be able to reconstruct snapshot digests from the DP stream and pinned policy.
+D.R3.b — No hidden state invariant
+No registry query or resolution may depend on hidden state. All required state is pinned and content-addressed (snapshots + DP stream + policy).
+D.R4 — Protocols
+D.R4.a — Certificate issuance protocol
+At each pulse:
+Compute snapshot deterministically.
+Verify mandatory-digest completeness for newly registered manifests and profiles.
+Detect collisions and forks; apply deterministic quarantine.
+Emit RegistryCert and ForkPreventionCert.
+Append certificates as DeltaPack additions.
+
+AppD Tight Spec-Only Version (Normative Extraction)
+Registry is append-only and replay-defined; snapshots are deterministic summaries pinned to PulseID.
+Manifests require mandatory digests: router, corridor, grammar, policy, canonbytes, envpins, schema set, revocation set, pulse policy, signature policy.
+MsID/ProfileID/PolicyID are deterministically derived from canonical serialized objects with domain separation; collisions are resolved deterministically by minimal index rehash and recorded as signed collision records.
+Profiles are immutable; lifecycle is create → pin → migrate → revoke, with migration requiring explicit witnesses and revocation requiring authorized signatures.
+Registry queries are pure functions of snapshot digest and query input; no hidden state; deterministic tie-breakers are pinned.
+RegistryCert and ForkPreventionCert are required; forks are quarantined and fenced; OK routing is forbidden through unresolved ambiguity.
+
+AppD — Registry (IDs, Profiles, Pinned Policies)
+AppE — Circle Gear, Phase Profiles, and Tick/Carry Semantics
+Station role: ○ gear mechanics; phase profiles and carry semantics.
+Purpose: formalize phase representations, refinement policies, and tick/carry rules; provide replayable phase evolution and alignment hooks.
+
+□ E.S — Square: PhaseProfile Objects and Discrete Circle Carriers
+E.S1 — Objects
+E.S1.a — Circle carriers (coarse and refined)
+A phase carrier is a finite cyclic group (\Sigma_N := \mathbb{Z}_N) for a pinned integer (N\ge 2).
+Two canonical ring sizes are required:
+Coarse ring: (N=15), denoted (\Sigma_{15}), used as the 15-station metro carrier.
+Cross-dimensional refined ring: (N=B_d), denoted (\Sigma_{B_d}), where:
+[
+B_d := 15\cdot 3^{d-1}.
+]
+The refined ring refines the 15-station carrier by a factor (3^{d-1}) internal strata per station.
+E.S1.b — PhaseProfile schema (mandatory)
+A PhaseProfile is the pinned policy object defining the representation, refinement, and stepping semantics of circle evolution.
+[
+\mathsf{PhaseProfile} :=
+\langle
+\mathsf{PhaseVer},;
+\mathsf{PhaseID},;
+\mathsf{Mode},;
+\mathsf{Dim},;
+\mathsf{RingSize},;
+\mathsf{RefineRule},;
+\mathsf{DigitDecomp},;
+\mathsf{AlignSchedule},;
+\mathsf{BoundaryPolicy},;
+\mathsf{TickPolicy},;
+\mathsf{InverseTickPolicy},;
+\mathsf{CarryPolicy},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+Required fields:
+PhaseID: content-addressed identifier (\mathsf{did}(\mathsf{PhaseProfile})) with PhaseID field zeroed.
+Mode: enum {COARSE_15, REFINED_Bd, CUSTOM}.
+Dim: dimension (d\in\mathbb{N}_{\ge 1}) if Mode=REFINED_Bd; otherwise Dim=⊥ must be explicit.
+RingSize: integer (N) with:
+Mode=COARSE_15 ⇒ (N=15),
+Mode=REFINED_Bd ⇒ (N=B_d),
+Mode=CUSTOM ⇒ (N) pinned and justified by explicit corridor policy.
+RefineRule: pinned rule describing refinement between ring sizes (see E.S2.c).
+DigitDecomp: pinned digit decomposition policy (gear stack), see E.S1.c.
+AlignSchedule: pinned schedule specifying how phases align to StationHeader and to higher-level lanes/arcs (see E.S1.d).
+BoundaryPolicy: pinned boundary convention for quantization and wrap boundaries.
+TickPolicy: pinned definition of tick step(s) (\Delta) and step selection rules.
+InverseTickPolicy: pinned definition of inverse tick and its domain of validity.
+CarryPolicy: pinned carry extraction, carry logging, and carry propagation semantics.
+PinsDigest: digest of full pin closure required to interpret and replay phase evolution.
+SchemaPins: schema closure required to interpret phase artifacts.
+Sig: signature under pinned signature policy.
+E.S1.c — Digit decomposition (macro station + stratum digits)
+For Mode=REFINED_Bd with (N=B_d), define:
+macro station width (W_d := 3^{d-1})
+station projection:
+[
+\pi_{\mathrm{st}}^{(d)}(u) := \left\lfloor \frac{u}{W_d}\right\rfloor \in \Sigma_{15}
+]
+stratum coordinate:
+[
+\pi_{\mathrm{str}}^{(d)}(u) := u \bmod W_d \in \Sigma_{W_d}
+]
+ternary gear digits:
+[
+\pi_{\mathrm{str}}^{(d)}(u) = \sum_{i=1}^{d-1} t_i \cdot 3^{d-1-i},\quad t_i\in{0,1,2}.
+]
+DigitDecomp must pin:
+digit order (most-significant-first),
+encoding/decoding procedures,
+and canonical ordering for digit lists.
+E.S1.d — Alignment schedule
+AlignSchedule is a pinned function:
+[
+\mathsf{Align} : (\mathsf{PulseID},\ \mathsf{StationHeader},\ \mathsf{PhaseProfile}) \to \mathsf{PhaseAnchor}
+]
+where (\mathsf{PhaseAnchor}) is a canonical reference point in (\Sigma_N) or in (\mathbb{T}^1) if a continuous representation is used.
+AlignSchedule must specify:
+whether alignment is by omega (station ordinal), by lane, by arc, by triad role, or by explicit anchor tables,
+the exact mapping formula or lookup table,
+and how alignment interacts with refinement (coarse→refined mapping) and with tick indexing.
+
+E.S2 — Operators
+E.S2.a — Tick operator (deterministic translation)
+Given ring size (N) and step size (s\in\Sigma_N), define:
+[
+\mathsf{Tick}_{N,s}(u) := u + s \pmod N.
+]
+TickPolicy must define one of:
+Fixed step: (s) is a pinned constant.
+Scheduled step: (s = s(k,\Pi)) is a pinned deterministic function of step index (k) and pins (\Pi).
+Set step: (s\in S\subseteq\Sigma_N) chosen by pinned tie-break rules from a candidate set (no unpinned choice).
+Tick operator must emit:
+next state (u'),
+carry log entries as required by CarryPolicy,
+and a tick witness record (E.S3).
+E.S2.b — Inverse tick operator (when declared)
+If InverseTickPolicy declares invertibility, it must supply:
+[
+\mathsf{InvTick}_{N,s}(u) := u - s \pmod N,
+]
+together with a domain declaration specifying when inverse is admissible. If the tick is scheduled and depends on (k), inverse must be defined relative to the same pinned schedule and must include the required step index or schedule witness.
+If invertibility is not declared, inverse tick must not be assumed.
+E.S2.c — Refinement operator between ring sizes
+For refined mode:
+[
+B_{d+1}=3B_d.
+]
+Define projection:
+[
+\pi_{d+1\to d}(u) := \left\lfloor \frac{u}{3}\right\rfloor \in \Sigma_{B_d}.
+]
+Define lifts:
+[
+\lambda_{d\to d+1}^{(t)}(u) := 3u + t,\quad t\in{0,1,2}.
+]
+RefineRule must pin:
+which projections/lifts are used,
+how lift digit (t) is selected (pinned by corridor/triangle policy),
+boundary behavior and tie-break rules.
+E.S2.d — Carry extraction and logging
+CarryPolicy defines:
+the carry boundary sets,
+the carry extraction function,
+and the log schema.
+Minimum carry extraction for refined mode uses the macro/stratum decomposition.
+Let (u = W_d \sigma + \gamma). For a tick by step (s\in\Sigma_{B_d}), define:
+[
+u' = (u+s)\bmod B_d,\quad u' = W_d\sigma' + \gamma'.
+]
+Define carry event when macro station index changes:
+[
+\mathsf{Carry} := \mathbf{1}{\sigma'\neq \sigma}.
+]
+Optionally, define carry magnitude as:
+[
+\mathsf{CarryMag} := (\sigma'-\sigma)\bmod 15.
+]
+CarryPolicy must pin:
+whether carry is boolean or magnitude,
+whether stratum boundary carries are logged,
+and whether carry propagation across axes (for (\mathbb{T}^d)) is enabled.
+Carry logs must be emitted in a canonical order and must include:
+prior state digest,
+tick step digest,
+boundary condition digest,
+and resulting state digest.
+
+E.S3 — Phase Witness Formats (Ch16/Ch17 dependency)
+E.S3.a — TickWitness
+A TickWitness is the minimal witness artifact produced by a tick:
+[
+\mathsf{TickWitness} :=
+\langle
+\mathsf{PhaseID},;
+\mathsf{PulseID},;
+k,;
+N,;
+u,;
+s,;
+u',;
+\mathsf{CarrySummary},;
+\mathsf{PinsDigest},;
+\mathsf{TickDigest}
+\rangle
+]
+where:
+(k) is the tick index,
+(u) is previous phase state,
+(s) is the step (or step selector digest),
+(u') is next phase state,
+CarrySummary includes carry events and boundary digests,
+TickDigest is (\mathsf{did}(\mathsf{TickWitness})) with TickDigest field zeroed.
+TickWitness must be sufficient to replay the tick under pinned policy.
+E.S3.b — CarryLogRecord
+A CarryLogRecord is emitted when carry boundaries are crossed:
+[
+\mathsf{CarryLogRecord} :=
+\langle
+\mathsf{PhaseID},;
+\mathsf{PulseID},;
+k,;
+N,;
+u,;
+s,;
+u',;
+\mathsf{CarryType},;
+\mathsf{CarryValue},;
+\mathsf{BoundaryDigest},;
+\mathsf{PinsDigest},;
+\mathsf{RecordDigest}
+\rangle
+]
+CarryType ∈ {MACRO_CARRY, STRATUM_CARRY, AXIS_CARRY, CUSTOM} pinned by policy. BoundaryDigest must commit to the boundary rule definition used for this record.
+E.S3.c — AlignmentWitness
+An AlignmentWitness binds station header alignment to phase state:
+[
+\mathsf{AlignmentWitness} :=
+\langle
+\mathsf{PhaseID},;
+\mathsf{StationAddr},;
+\mathsf{StationHeaderDigest},;
+\mathsf{AlignScheduleDigest},;
+\mathsf{AnchorValue},;
+\mathsf{PinsDigest},;
+\mathsf{AlignDigest}
+\rangle
+]
+AnchorValue is a canonical representative of the anchor in (\Sigma_N) (or in (\mathbb{T}^1) if continuous anchor is declared), and must be derivable deterministically.
+
+E.S4 — Invariants
+E.S4.a — Deterministic evolution invariant
+For fixed PhaseProfile and fixed pinned environment:
+[
+(u,k,\Pi) \mapsto u' \text{ is deterministic.}
+]
+This implies (\mathsf{did}(\mathsf{TickWitness})) is deterministic for the same inputs.
+E.S4.b — Inverse correctness invariant (when declared)
+If InverseTickPolicy declares invertibility, then for all admissible (u):
+[
+\mathsf{InvTick}{N,s}(\mathsf{Tick}{N,s}(u)) = u.
+]
+If the tick is scheduled by (k), then:
+[
+\mathsf{InvTick}(k+1,\Pi)(\mathsf{Tick}(k,\Pi)(u)) = u
+]
+with admissibility conditions pinned in policy.
+E.S4.c — Refinement coherence invariant
+For refined profiles:
+[
+\pi_{d+1\to d}(\lambda_{d\to d+1}^{(t)}(u)) = u
+]
+for all (u) and all (t). Any digit selection policy affects which refined child is chosen, but projection must always return the parent.
+E.S4.d — Carry log completeness invariant
+If CarryPolicy requires carry logging, then every carry event must be logged, and the carry log digest must match the deterministic recomputation from the tick transcript. Missing carry logs is a deterministic failure.
+
+E.S5 — Protocols
+E.S5.a — Phase execution protocol (used by Ch16)
+Given UnifiedState at step (k), PhaseProfile, and pins:
+Compute step size (s) deterministically from TickPolicy.
+Compute (u'=\mathsf{Tick}_{N,s}(u)).
+Compute carry events and boundary digests per CarryPolicy.
+Emit TickWitness and CarryLogRecord(s) as required.
+Return (u') and the emitted witness artifacts.
+E.S5.b — Phase refinement protocol
+Given phase state (u_d \in \Sigma_{B_d}) and desired refinement (d\to d+1):
+Determine lift digit (t\in{0,1,2}) using pinned lift selection rules (may depend on triangle/corridor policy).
+Compute (u_{d+1}=\lambda_{d\to d+1}^{(t)}(u_d)).
+Emit refinement witness including digit selection justification pins.
+E.S5.c — Phase import protocol (used by AppN/AppO)
+On import, PhaseProfile and all pinned schedules must be validated. Any missing policy digest yields non-OK import classification. Phase state must be validated as belonging to (\Sigma_N) and must be consistent with any declared refinement commitments.
+
+❀ E.F — Flower: Continuous Phase Representation and Quantization Hooks
+E.F1 — Objects
+E.F1.a — Continuous phase form
+A continuous phase is (\phi\in\mathbb{T}^1) (or (\Phi\in\mathbb{T}^d)). If a continuous representation is enabled, PhaseProfile must pin:
+quantization operator (Q_d(\phi)=\lfloor B_d \phi \rfloor) with boundary policy,
+inverse mapping to interval representatives,
+and equivalence class semantics for boundary points.
+E.F1.b — Phase metric
+A pinned circular metric:
+[
+\mathrm{dist}_{\mathbb{T}^1}(a,b)=\min{|(a-b)\bmod 1|,\ 1-| (a-b)\bmod 1|}
+]
+is required when NEAR bounds or alignment residuals are used.
+E.F2 — Operators
+E.F2.a — Quantize-to-ring operator
+[
+Q_N(\phi)=\left\lfloor N\phi \right\rfloor \in \Sigma_N
+]
+with pinned boundary policy.
+E.F2.b — Dequantize interval representative
+A pinned representative function:
+[
+\mathsf{Rep}_N(u)=\frac{u+\beta}{N},\quad \beta\in[0,1]
+]
+with (\beta) pinned (e.g., (\beta=\tfrac12) for center).
+E.F3 — Invariants
+E.F3.a — Boundary determinism
+If (\phi) lies on a quantization boundary, boundary policy pins must force a unique representative. Otherwise the operation is AMBIG.
+E.F3.b — Alignment residual invariants
+AlignmentWitness may include residuals:
+[
+r = \mathrm{dist}{\mathbb{T}^1}(\phi,\phi{\mathrm{anchor}})
+]
+with pinned metric digest and bound for NEAR.
+
+☁ E.C — Cloud: Uncertainty, NEAR, and Phase Drift Ledgers
+E.C1 — Objects
+E.C1.a — PhaseResidualLedger
+A PhaseResidualLedger is required for NEAR phase claims:
+[
+\mathsf{PhaseResidualLedger} :=
+\langle
+\mathsf{MetricDigest},;
+\mathsf{Bound},;
+\mathsf{Observed},;
+\mathsf{Expected},;
+\mathsf{Scope},;
+\mathsf{ExpiryPulse},;
+\mathsf{ReplayPtr},;
+\mathsf{LedgerDigest}
+\rangle
+]
+Scope binds whether the ledger applies to:
+a specific tick,
+a range of ticks,
+an alignment schedule,
+or a refinement mapping.
+E.C2 — Operators
+E.C2.a — Drift monitoring function
+A pinned function mapping tick witnesses and alignments to drift measures. Drift is observational and must not affect tick semantics.
+E.C3 — Invariants
+E.C3.a — No silent NEAR
+Any non-zero residual in claimed deterministic equality must be represented as NEAR with a ledger, or must be FAIL if the corridor forbids approximation.
+
+✶ E.R — Fractal: Replay Closure and PhaseReplayCert
+E.R1 — Objects
+E.R1.a — PhaseReplayCapsule
+A PhaseReplayCapsule contains:
+PhaseProfile digest,
+initial phase state (u_0),
+tick count (K),
+pinned tick schedule inputs,
+expected sequence digest commitments:
+tick witness digests,
+carry log digests,
+final state digest.
+E.R2 — Operators
+E.R2.a — Phase replay executor
+Deterministic replay:
+[
+(u_0,\Pi,\mathsf{PhaseProfile},K)\to (u_K,\mathsf{TickWitnesses},\mathsf{CarryLogs})
+]
+and all digests must match expected commitments.
+E.R3 — Invariants
+E.R3.a — Replay determinism invariant
+For identical inputs and pins, the replay produces identical witness digests and final state digest.
+E.R3.b — Schedule determinism invariant
+If the tick schedule depends on (k) or other context, schedule derivation must be pinned and must be recorded in TickWitness or in schedule witness artifacts.
+E.R4 — Required Certificate
+E.R4.a — PhaseReplayCert
+A PhaseReplayCert attests that phase evolution replays identically under pinned environment and policy.
+Minimum fields:
+[
+\mathsf{PhaseReplayCert} :=
+\langle
+\mathsf{PhaseProfileDigest},;
+\mathsf{CapsuleDigest},;
+\mathsf{EnvPinsDigest},;
+\mathsf{ExpectedFinalDigest},;
+\mathsf{ObservedFinalDigest},;
+\mathsf{WitnessDigestSet},;
+\mathsf{Result},;
+\mathsf{Sig}
+\rangle
+]
+where Result is PASS iff all expected digests match observed digests, including carry logs.
+
+AppE Tight Spec-Only Version (Normative Extraction)
+PhaseProfile pins ring size (N), refinement rule, digit decomposition, alignment schedule, boundary policy, tick and inverse-tick policies, carry policy, and pin closure digest.
+Tick is a deterministic translation on (\Sigma_N); step selection is pinned; inverse tick is permitted only when explicitly declared and witnessed.
+Carry semantics and carry boundary logging are pinned; required carry events must be logged deterministically with boundary rule digests.
+For refined profiles (N=B_d), macro station and stratum decomposition is canonical; refinement satisfies (B_{d+1}=3B_d) with pinned lift digit selection and deterministic projection.
+Phase witness formats (TickWitness, CarryLogRecord, AlignmentWitness) are mandatory artifacts for Ch16/Ch17 and must be content-addressable.
+PhaseReplayCert is required and must validate deterministic replay of tick evolution, carry logs, and final state digests.
+
+AppE — Circle Gear, Phase Profiles, and Tick/Carry Semantics
+AppF — Transport (Rotation as Conjugacy), DUAL/EQUIV/MIGRATE Discipline
+Station role: lawful transport; conjugacy-based swaps; corridor budgets.
+Purpose: define transport legality as a contract over pinned normal forms and budgets; encode DUAL/EQUIV/MIGRATE semantics and commutation accounting.
+
+□ F.S — Square: Transport Objects, Legality Contracts, and Budgeted Proof Surfaces
+F.S1 — Objects
+F.S1.a — Typed endpoints and endpoint closure
+A transport is defined between typed endpoints. An Endpoint is a fully pinned address record:
+[
+\mathsf{Endpoint} :=
+\langle
+\mathsf{GlobalAddr},;
+\mathsf{Lens},;
+\mathsf{Dim},;
+\mathsf{Depth},;
+\mathsf{SchemaPinsDigest},;
+\mathsf{CanonBytesDigest},;
+\mathsf{NFProfileDigest},;
+\mathsf{MetricDigest},;
+\mathsf{CorridorDigest},;
+\mathsf{PolicyDigest},;
+\mathsf{EnvPinsDigest}
+\rangle
+]
+Endpoint closure rules:
+The endpoint is valid only if all referenced digests resolve under import policy.
+A transport claim is undefined if either endpoint lacks any required digest field.
+F.S1.b — Transport kinds
+Transport kind vocabulary is closed:
+[
+\mathsf{Kind} := {\mathsf{DUAL},\mathsf{EQUIV},\mathsf{MIGRATE}}.
+]
+A transport edge MUST be exactly one of these kinds. No implicit kind conversion is permitted.
+F.S1.c — Budget ledger
+Transport is budgeted by a pinned budget vector:
+[
+\mathsf{Budget} := \langle \kappa,\beta,\delta,\chi\rangle
+]
+with semantics:
+(\kappa): commutation residual budget (holonomy/spin residual capacity)
+(\beta): representational drift budget (approximation / metric residual capacity)
+(\delta): recursion depth budget (max nested verifications / hatch depth)
+(\chi): compute budget (max 

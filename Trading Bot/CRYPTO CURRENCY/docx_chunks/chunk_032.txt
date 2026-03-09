@@ -1,0 +1,204 @@
+ deterministically from the link record with InterID and signatures zeroed.
+P.S1.c — Compatibility edge objects (CompatRef)
+CompatRef points to one of:
+CompatMatrix (AppF/AppD): explicit compatibility mapping between profiles/policies/schemas.
+MigrateWitnessBundle: explicit MIGRATE witness with rollback/import constraints.
+EquivWitnessBundle: explicit EQUIV witness with replay closure.
+CompatRef is mandatory whenever a link would otherwise require implicit inference of equivalence between two different interpretation closures.
+P.S1.d — Cross-corpus pin requirements
+A cross-corpus link is admissible only if all of the following are pinned:
+Both MsIDs and their manifest digests.
+Both profile digests (Src and Dst) and their policy epochs.
+CanonBytes and Grammar digests for both sides (or a single shared closure, explicitly pinned).
+Corridor ID used for validation of the link kind.
+Import/verifier policy digests used to accept the referenced external artifacts.
+Revocation and fence sets effective in the referenced scope.
+Missing any required pin makes the link non-OK-routable; it must be AMBIG with an evidence plan or FAIL depending on corridor threshold.
+
+P.S2 — Operators
+P.S2.a — Scope membership predicate
+[
+\mathsf{InScope} : (\mathsf{Scope}, \mathsf{MsID}, \mathsf{ProfileDigest}, \mathsf{PolicyEpochDigest}) \to {\mathsf{true},\mathsf{false}}
+]
+A link is valid only if both endpoints are InScope under the active scope for the route/execution.
+P.S2.b — INTER link validation operator
+[
+\mathsf{ValidateINTER} : (\mathsf{INTERLink}, \mathsf{Scope}, \mathsf{CorridorProfile}) \to \mathsf{TruthType}
+]
+Validation must:
+Validate signatures and authority.
+Validate pin closure resolves and matches both profile closures.
+Validate both endpoints parse and resolve under pinned grammars.
+Apply LinkKind rules:
+REF: requires only addressability and closure validity.
+EQUIV: requires EquivWitnessBundle with replay closure.
+MIGRATE: requires CompatMatrix + MigrateWitnessBundle + import constraints.
+DATA: requires data import rules and schema closure.
+PROOF: requires proof verification closure and replay harness.
+EXEC: requires deployment corridor acceptance predicates and governance gates.
+Apply fences and revocations: any revoked dependency yields FAIL/QUARANTINE per policy.
+P.S2.c — Cross-corpus closure computation
+Given a route that traverses INTER links, compute the transitive closure of required artifacts across corpora:
+[
+\mathsf{CrossClosure}(\mathsf{RoutePlan}) := \bigcup \mathsf{Deps}(\text{visited nodes/edges}) \cup \mathsf{Deps}(\text{profiles}) \cup \mathsf{Deps}(\text{compat objects})
+]
+Closure computation is deterministic and bounded by budgets; truncation is permitted only if corridor allows AMBIG with evidence plan.
+
+P.S3 — Invariants
+P.S3.a — No hidden semantics invariant
+No external corpus may inject hidden semantics into the system. External references are admissible only through pinned connectors and explicit interpretation profiles. Raw external identifiers (URLs, filenames, informal labels) are never interpreted as meaning-bearing without a connector object that pins the mapping.
+P.S3.b — Interpretation closure separation invariant
+If SrcProfileDigest and DstProfileDigest differ, equivalence cannot be assumed. EQUIV/MIGRATE links require explicit witnesses. Absent witnesses, links are not OK-routable.
+P.S3.c — Fork and scope integrity invariant
+If a referenced MsID has multiple incompatible profile closures under identical pins (registry fork), scope integrity fails. Routes that depend on forked corpora must be quarantined or rejected under corridor policy.
+P.S3.d — Revocation precedence invariant
+Revoked or fenced artifacts in any included scope override route admissibility; cross-corpus routes cannot bypass revocation through aliasing.
+
+P.S4 — Protocols
+P.S4.a — INTER link issuance protocol
+To issue an INTER link:
+Resolve SrcMsID and DstMsID in registry snapshots and bind their manifest digests.
+Select SrcProfileDigest and DstProfileDigest explicitly; bind policy epoch digests.
+Validate endpoints parse under corresponding grammars and schemas.
+Determine LinkKind and required witness objects:
+REF: none beyond pin closure.
+EQUIV: EquivWitnessBundle required.
+MIGRATE: CompatMatrix + MigrateWitnessBundle + rollback/import constraints required.
+EXEC: Deployment profile and conformance suite references required.
+Construct PinsDigest closure including all required objects.
+Sign the INTER link under cross-corpus governance policy.
+Append as DeltaPack (Ch20) and include in EvidenceTable (AppB) for routable claims.
+P.S4.b — Scope-bound routing protocol (Ch19–Ch21)
+Route planning must:
+Declare an active Scope object.
+Reject traversal of any INTER link whose endpoints are out of scope.
+Compute CrossClosure and require import verification under AppO.
+Apply corridor truth typing and disclosure propagation across corpora:
+NEAR claims require disclosure bundles,
+AMBIG claims require evidence plans,
+FAIL/CONFLICT require conflict packets and fences.
+
+❀ P.F — Flower: Connector Abstraction and External Corpora Without Hidden Semantics
+P.F1 — Objects
+P.F1.a — Connector abstraction
+A Connector is the only allowed mechanism to reference external corpora. A connector pins the mapping from external identifiers to internal content-addressed artifacts.
+[
+\mathsf{Connector}:=
+\langle
+\mathsf{ConnVer},;
+\mathsf{ConnID},;
+\mathsf{ConnKind},;
+\mathsf{AuthorityDigest},;
+\mathsf{MappingSpecRef},;
+\mathsf{NormalizationSpecDigest},;
+\mathsf{FetchPolicyDigest},;
+\mathsf{CachePolicyDigest},;
+\mathsf{RedactionPolicyDigest},;
+\mathsf{SchemaPinsDigest},;
+\mathsf{Sig}
+\rangle
+]
+ConnKind ∈ {URL, FILESTORE, GIT, DATABASE, API, HUMAN_INDEXED} pinned enum.
+MappingSpecRef commits to the mapping from external IDs to internal digests (and includes domain separation tags).
+NormalizationSpecDigest pins canonicalization of external identifiers.
+FetchPolicyDigest pins allowed retrieval behavior; deploy corridors generally forbid nondeterministic remote fetch unless the fetched bytes are content-addressed and included in the bundle.
+CachePolicyDigest pins caching behavior; cache must not alter semantics and must be keyed by digest.
+RedactionPolicyDigest pins privacy and sanitization rules.
+P.F1.b — ExternalRef
+An ExternalRef is never used directly for routing. It must be resolved through a Connector.
+[
+\mathsf{ExternalRef}:=\langle \mathsf{ConnID},\ \mathsf{ExternalID},\ \mathsf{ExternalIDDigest}\rangle
+]
+ExternalIDDigest is computed after normalization by the connector.
+
+P.F2 — Operators
+P.F2.a — ResolveExternalRef
+[
+\mathsf{ResolveExternalRef} : (\mathsf{ExternalRef}, \mathsf{Connector}, \mathsf{Scope}) \to \mathsf{ARef} \cup \bot
+]
+Resolution must:
+normalize ExternalID deterministically,
+consult MappingSpec deterministically,
+return only content-addressed artifacts by digest,
+reject any “live” reference that cannot be pinned and exported.
+P.F2.b — Connector import discipline
+In published scopes, external references must be fully resolved and included as payload artifacts. Unresolved external references are forbidden for OK routing and must be treated as AMBIG/FAIL per corridor.
+
+P.F3 — Invariants
+P.F3.a — No hidden semantics from connectors
+Connector resolution must not infer meaning. It may map identifiers to content digests and schemas only. Any semantic interpretation of external content occurs only after import verification and corridor typing under pinned profiles.
+P.F3.b — Deterministic mapping invariant
+Given identical connector digest and identical external identifier, ResolveExternalRef must produce identical artifact digest or (\bot).
+
+☁ P.C — Cloud: Uncertainty Handling for Cross-Corpus Interfaces
+P.C1 — Objects
+P.C1.a — CrossCorpusEvidencePlan
+If a required external artifact cannot be resolved or imported deterministically, a bounded evidence plan must be emitted with:
+candidate external resolutions,
+discriminators (e.g., fetch and hash under pinned policy),
+stop rules and budgets,
+promotion hooks into Ch20 scheduler.
+P.C1.b — Quarantine triggers
+Cross-corpus routes become quarantined if:
+imported artifacts are revoked,
+connector mapping changes without explicit migration,
+forked registry states exist for required MsIDs.
+
+✶ P.R — Fractal: CrossCorpusCert and ScopeIntegrityCert
+P.R1 — Required certificates
+P.R1.a — CrossCorpusCert
+A CrossCorpusCert attests that a set of INTER links and/or connector resolutions are valid, import-verifiable, and corridor-compliant within a declared scope.
+[
+\mathsf{CrossCorpusCert}:=
+\langle
+\mathsf{CertVer},;
+\mathsf{ScopeID},;
+\mathsf{INTERSetDigest},;
+\mathsf{ConnectorSetDigest},;
+\mathsf{ClosureDigest},;
+\mathsf{ImportAcceptanceCertSetDigest},;
+\mathsf{ReplayCertSetDigest?},;
+\mathsf{Result},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Result is PASS iff:
+every INTER link validates under ValidateINTER,
+all required compat/witness objects verify,
+closure imports are accepted under AppO,
+and no revoked/fenced artifacts exist in closure.
+P.R1.b — ScopeIntegrityCert
+A ScopeIntegrityCert attests that scope boundaries are enforced deterministically and no out-of-scope traversal occurs in the certified route set.
+[
+\mathsf{ScopeIntegrityCert}:=
+\langle
+\mathsf{CertVer},;
+\mathsf{ScopeID},;
+\mathsf{RouteSetDigest},;
+\mathsf{ObservedMsSetDigest},;
+\mathsf{ObservedProfileSetDigest},;
+\mathsf{ForkCheckDigest},;
+\mathsf{RevocationCheckDigest},;
+\mathsf{FenceCheckDigest},;
+\mathsf{Result},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Result is PASS iff:
+observed manuscripts and profiles are subsets of scope sets,
+no registry forks affect referenced keys,
+revocation and fence policies are applied and block forbidden traversals,
+route evaluation is deterministic under pinned pins and environment.
+
+AppP Tight Spec-Only Version (Normative Extraction)
+Scope is a pinned boundary object committing to allowed manuscripts, profiles, policy epochs, schemas, connectors, and pulse bindings.
+INTER links require explicit Ms endpoints, explicit profile digests, explicit addresses, explicit link kind, and compat/witness references when semantics differ; unpinned links are non-OK-routable.
+Connector abstraction is the only allowed mechanism to reference external corpora; it pins deterministic mapping from external IDs to internal digests and forbids importing hidden semantics.
+Cross-corpus routing must compute deterministic closure, apply import verification, revocations, and fences, and enforce scope membership.
+CrossCorpusCert and ScopeIntegrityCert are required, import-verifiable, and bind closure validity and scope enforcement for cross-corpus routes.
+
+AppP — Mycelium Interface: Cross-Corpus Linking, External Connectors, and Scope
+
+

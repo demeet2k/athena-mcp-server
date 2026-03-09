@@ -1,0 +1,574 @@
+
+]
+with canonical reduction (n\mapsto n\bmod 15).
+
+03.R2.b — Canonical normal form of a route
+Define the canonical normal form:
+[
+\mathrm{NF}(\sigma_0,n):=(\sigma_0,\ n\bmod 15)\in \Sigma_{15}\times\Sigma_{15}.
+]
+Two routes are equivalent iff they share the same normal form.
+
+03.R2.c — Coarse-graining operators on station observables
+Given a coarse map (c:\Sigma_{15}\to Y), define the pushforward of a distribution (p\in\Delta_{15}) to (Y) by
+[
+(c_#p)(y):=\sum_{\sigma:\ c(\sigma)=y} p_\sigma.
+]
+For (c=w), this yields the induced distribution over lens-counts ({1,2,3,4}).
+
+03.R2.d — Orbit-equivalence classes of observables
+Define the orbit equivalence relation on observables (f:\Sigma_{15}\to X):
+[
+f\sim g \quad\Longleftrightarrow\quad \exists t\in\Sigma_{15}:\ g=\mathsf{T}^t f.
+]
+The orbit-invariant signature of (f) is any complete invariant under this relation; e.g., the power spectrum (|\widehat{f}(n)|^2).
+
+03.R3 — Invariants (What Stays)
+03.R3.a — Route equivalence invariant
+For all (\sigma_0) and all integers (n),
+[
+\mathrm{ORBIT_ADVANCE}(\sigma_0;n)=\mathrm{ORBIT_ADVANCE}(\sigma_0;n+15q)\quad(\forall q\in\mathbb{Z}),
+]
+hence route meaning depends only on (n\bmod 15).
+
+03.R3.b — Canonical compression invariant
+Any finite route word compresses to a single residue class in (\Sigma_{15}). This establishes a strict “holographic” compression property for orbit logs: route histories collapse to a residue without loss of net effect.
+
+03.R3.c — Coarse-map invariants under orbit permutations
+For any coarse map (c), the multiset ({c(\sigma):\sigma\in\Sigma_{15}}) is invariant under orbit permutations. In particular, the global counts of weights ((4,6,4,1)) remain invariant.
+
+03.R3.d — Minimal generator invariant
+(\mathrm{ORBIT_NEXT}) generates the full action of (\Sigma_{15}) on itself. Any orbit step is expressible as (\mathrm{ORBIT_NEXT}^t) for a unique (t\in\Sigma_{15}).
+
+03.R4 — Protocols (How to Compute / Verify)
+03.R4.a — Canonical route compression protocol
+Given a route word (n_1,\dots,n_T), compute (n_{\mathrm{tot}}=\sum n_t), reduce (n_{\mathrm{tot}}\bmod 15), output (\mathrm{NF}(\sigma_0,n_{\mathrm{tot}})).
+
+03.R4.b — Orbit-equivalence audit for observables
+Given (f,g:\Sigma_{15}\to\mathbb{R}), compute (|\widehat{f}(n)|^2) and (|\widehat{g}(n)|^2). If spectra differ, then (f\not\sim g). If spectra agree, optionally verify by direct shift search (t\in\Sigma_{15}) such that (g=\mathsf{T}^t f).
+
+03.R4.c — Coarse distribution protocol (weight map)
+Given (p\in\Delta_{15}), compute (p^{(w)}:=w_#p) on ({1,2,3,4}) by summing masses over stations of equal weight.
+
+03.R4.d — Deterministic reproducibility audit
+Audit requires that all mappings (\mathrm{ENC}), (\mathrm{DEC}), (\mathrm{ORBIT_NEXT}), and derived operators are uniquely determined by the pinned lens order ((\square,\flower,\cloud,\fractal)) and the choice (\Sigma_{15}=\mathbb{Z}_{15}). Reproducibility is certified by passing the verification harness in §03.S4.d.
+
+Ch03 — The 15-Station Ring as the Powerset Carrier
+Ch04 — Gear-Loop Decomposition and “Visibility”
+Cycle Decomposition on (N=15) and (N=B_d); Resolution Requirements for Higher-Dimensional Tunnel Observability
+
+□ Square — Discrete Gear Actions on Finite Rings (Cycle Structure as an Algebraic Invariant)
+04.S1 — Ontology (Objects)
+04.S1.a — Gear ring and step map
+Let (N\in\mathbb{N}{\ge 2}). Define the gear ring
+[
+\Sigma_N:=\mathbb{Z}N={0,1,\dots,N-1}
+]
+with addition modulo (N).
+For a step (s\in\Sigma_N), define the gear translation
+[
+T{N,s}:\Sigma_N\to\Sigma_N,\qquad T{N,s}(u):=u+s\pmod N.
+]
+
+04.S1.b — Orbit, cycle, and cycle decomposition
+For (u\in\Sigma_N), define the orbit
+[
+\mathcal{O}{N,s}(u):={T{N,s}^{,t}(u):t\in\mathbb{N}}.
+]
+A cycle is a finite orbit. The cycle decomposition of (T_{N,s}) is the partition of (\Sigma_N) into disjoint cycles under the action of the subgroup (\langle s\rangle\subseteq\Sigma_N).
+
+04.S1.c — Cycle invariants: period and multiplicity
+Define the orbit period (cycle length) at (u) as
+[
+\mathrm{per}{N,s}(u):=\min{,t\in\mathbb{N}{\ge 1}:\ T_{N,s}^{,t}(u)=u,}.
+]
+Define the cycle count
+[
+\mathrm{cyc}{N,s}:=#{\text{cycles in the decomposition of }T{N,s}}.
+]
+
+04.S1.d — Visibility carrier (projection to the 15-station semantics)
+Fix a dimension parameter (d\in\mathbb{N}_{\ge 1}). Define the dimension-indexed circle resolution
+[
+\boxed{B_d:=15\cdot 3^{d-1}}
+]
+as the canonical fine ring size required to represent the 15-station metro with (3^{d-1}) internal phase strata.
+Define the station projection
+[
+\pi_d:\Sigma_{B_d}\to\Sigma_{15},\qquad
+\pi_d(u):=\left\lfloor \frac{u}{3^{d-1}}\right\rfloor,
+]
+so each station block has size (3^{d-1}). Define the internal stratum coordinate
+[
+q_d(u):=u-3^{d-1}\pi_d(u)\in{0,\dots,3^{d-1}-1}.
+]
+Thus each (u\in\Sigma_{B_d}) has a unique decomposition
+[
+u = 3^{d-1}\sigma + q,\qquad \sigma=\pi_d(u)\in\Sigma_{15},\quad q=q_d(u)\in{0,\dots,3^{d-1}-1}.
+]
+
+04.S2 — Operators (Transforms)
+04.S2.a — Cycle decomposition theorem (gcd law)
+Let (N\in\mathbb{N}{\ge 2}), (s\in\Sigma_N). Let (g:=\gcd(N,s)). Then:
+[
+\boxed{\mathrm{cyc}{N,s}=g,\qquad \mathrm{per}{N,s}(u)=\frac{N}{g}\ \ \forall u\in\Sigma_N.}
+]
+Moreover, the cycles are the cosets of the subgroup (\langle s\rangle) and are precisely the residue classes modulo (g):
+[
+\boxed{
+\mathcal{O}{N,s}(u)={,u+t s\pmod N:\ t=0,1,\dots,\tfrac{N}{g}-1,}
+={,v\in\Sigma_N:\ v\equiv u\ (\mathrm{mod}\ g),}.
+}
+]
+
+04.S2.b — The (N=15) gear and the (R)-step specialization
+On the 15-ring, the canonical step values of interest are (s=R\pmod{15}), for gear parameter (R\in\mathbb{Z}). The resulting translation is
+[
+T_{15,R}(\sigma)=\sigma+R\pmod{15}.
+]
+The step (R=9) is a central case: the ring decomposes into three disjoint 5-cycles.
+
+04.S2.c — Explicit 15-ring cycle families at step (R=9)
+Let (N=15) and (s=9). Then (g=\gcd(15,9)=3), so there are (3) cycles of length (5). Concretely, the decomposition is by residue class modulo (3):
+Cycle family A ((\sigma\equiv 0\pmod 3)):
+[
+(0\to 9\to 3\to 12\to 6\to 0).
+]
+Cycle family B ((\sigma\equiv 1\pmod 3)):
+[
+(1\to 10\to 4\to 13\to 7\to 1).
+]
+Cycle family C ((\sigma\equiv 2\pmod 3)):
+[
+(2\to 11\to 5\to 14\to 8\to 2).
+]
+These are the same three 5-cycles reported as the “gear loops” induced by the (R=9) circle gear.
+
+04.S2.d — Transport of 15-ring cycles into station semantics (S/F/C/R subsets)
+Using the station decoding (\mathrm{DEC}\sigma:\Sigma{15}\to\mathcal{P}^\star(\mathbb{L}_4)) from Ch03, the three 5-cycles become three semantic loop families on the 15 nonempty lens subsets. For (R=9), the explicit station membership lists are:
+Family A: (\sigma={0,3,6,9,12}) with stations ({S,\ FC,\ R,\ SFCR,\ FCR}).
+Family B: (\sigma={1,4,7,10,13}) with stations ({SF,\ C,\ SR,\ SFC,\ SC}).
+Family C: (\sigma={2,5,8,11,14}) with stations ({F,\ CR,\ SFR,\ SCR,\ FR}).
+These families constitute the structural partition revealed “purely by the circle gear.”
+
+04.S3 — Invariants (What Stays)
+04.S3.a — Orbit length and cycle count are gcd invariants
+For a fixed (N), all orbits under (T_{N,s}) have identical length (N/\gcd(N,s)), and the number of cycles is (\gcd(N,s)). These are complete invariants of the translation’s cycle decomposition.
+
+04.S3.b — Residue-class invariance (coset partition)
+The partition of (\Sigma_N) induced by (T_{N,s}) equals the partition into congruence classes modulo (\gcd(N,s)). In particular, the 15-ring (R=9) decomposition is exactly the partition into (\sigma\bmod 3) classes.
+
+04.S3.c — Semantic cycle membership invariance under encoding choice
+Once the lens basis order and the station encoding (\sigma\leftrightarrow) (nonempty subsets of ({\square,\flower,\cloud,\fractal})) are pinned (Ch03), the induced semantic loop families are uniquely determined by the arithmetic of (T_{15,R}). The family membership sets ({0,3,6,9,12}), ({1,4,7,10,13}), ({2,5,8,11,14}) are fixed under that pinning.
+
+04.S3.d — Tunnel signature at (N=15) (5-cycle criterion)
+Define a 15-metro tunnel as a 5-cycle in (\Sigma_{15}) whose station set equals one of the residue-class cycles modulo (3). Under this definition, the tunnel signature is purely algebraic: it is the existence of a step (s) with (\gcd(15,s)=3), which yields exactly three disjoint 5-cycles. The “hidden corridors” are therefore equivalently characterized as 5-cycles in the 15-ring regime.
+
+04.S4 — Protocols (How to Compute / Verify)
+04.S4.a — Cycle decomposition algorithm (general (N,s))
+def cycle_decomposition(N: int, s: int):
+    """
+    Return disjoint cycles of translation u -> u+s mod N.
+    """
+    s %= N
+    seen = [False]*N
+    cycles = []
+    for u0 in range(N):
+        if seen[u0]:
+            continue
+        cyc = []
+        u = u0
+        while not seen[u]:
+            seen[u] = True
+            cyc.append(u)
+            u = (u + s) % N
+        cycles.append(cyc)
+    return cycles
+
+
+04.S4.b — gcd-based closed form checker
+import math
+
+def gcd_cycle_stats(N: int, s: int):
+    s %= N
+    g = math.gcd(N, s)
+    return {"gcd": g, "num_cycles": g, "cycle_length": N // g}
+
+
+04.S4.c — (N=15,R=9) verification harness
+cycles = cycle_decomposition(15, 9)
+stats = gcd_cycle_stats(15, 9)
+assert stats["gcd"] == 3 and stats["cycle_length"] == 5 and stats["num_cycles"] == 3
+assert sorted([sorted(c) for c in cycles]) == [[0,3,6,9,12],[1,4,7,10,13],[2,5,8,11,14]]
+
+This matches the reported three-family gear-loop partition at (R=9).
+
+04.S4.d — Station-semantic loop extraction (15-ring)
+# assumes enc/dec tables from Ch03 are available
+def cycles_in_semantics(step_R: int):
+    cycles = cycle_decomposition(15, step_R)
+    return [[dec_sigma(sig) for sig in cyc] for cyc in cycles]
+
+
+❀ Flower — Circle Gear as a Phase Router (From 15-Ring to (B_d)-Ring)
+04.F1 — Ontology (Objects)
+04.F1.a — Gear-locked phase increment (15-metro lock)
+Fix the 15-station metro. The canonical gear-lock chooses (\alpha=\tfrac{1}{15}) and defines
+[
+\boxed{\Delta(R)=\frac{R}{15}\pmod 1.}
+]
+Under spin step (S_+(R)), (\psi\mapsto \psi+\Delta(R)) and the induced station step is
+[
+\boxed{\sigma \xrightarrow{S_+(R)} (\sigma+R)\bmod 15, \qquad
+\sigma \xrightarrow{S_-(R)} (\sigma-R)\bmod 15.}
+]
+
+04.F1.b — Dimension-indexed refinement and the (B_d) circle resolution
+In higher dimension, the circle must be refined to resolve internal phase strata associated to the triangle-per-axis structure; the canonical fine circle grid is
+[
+\boxed{B_d = 15\cdot 3^{d-1}.}
+]
+
+The key requirement is that increasing (d) requires increasing circle phase resolution; otherwise aliasing collapses distinct higher-dimensional tunnel classes into the same observed shadows.
+
+04.F1.c — (B_d)-phase coordinate and station projection
+Let (\psi\in\mathbb{T}^1) and define the (B_d)-phase integer coordinate
+[
+u:=u_{d}(\psi):=\lfloor B_d,\psi\rfloor\in\Sigma_{B_d}.
+]
+Define the station projection (\pi_d:\Sigma_{B_d}\to\Sigma_{15}) and internal coordinate (q_d) as in §04.S1.d:
+[
+u = 3^{d-1}\sigma + q,\qquad \sigma=\pi_d(u),\ q=q_d(u).
+]
+
+04.F1.d — (B_d)-gear step for radial ladder (R=3^n)
+Fix the radial ladder (R=3^n), (n\in\mathbb{Z}). On the (B_d)-grid, the canonical integer step for (n\ge 0) is
+[
+\boxed{S_+(n):\ u\mapsto u+3^n\pmod{B_d}.}
+]
+When micro-scales (n<0) must be treated as integer steps on a single grid, refine by (3^5) so that (R=3^{-5}=1/243) becomes a unit step:
+[
+\boxed{M_d:=B_d\cdot 3^{5}=15\cdot 3^{d+4}.}
+]
+
+04.F2 — Operators (Transforms)
+04.F2.a — Orbit length on (B_d) under macro step (3^n)
+Let (B_d=15\cdot 3^{d-1}=5\cdot 3^d). For (n\ge 0), set (s=3^n). Then
+[
+\gcd(B_d,3^n)=3^{\min(d,n)},
+]
+and the orbit length is
+[
+\boxed{
+L_{B}(d,n) := \frac{B_d}{\gcd(B_d,3^n)}
+\begin{cases}
+5\cdot 3^{d-n}, & n\le d,\[4pt]
+5, & n\ge d.
+\end{cases}}
+]
+This is the (B_d)-analog of the master orbit-length law reported on the refined grid.
+
+04.F2.b — Induced station dynamics and the crawl regime
+Write (u=3^{d-1}\sigma+q). For step (u\mapsto u+3^n), the internal coordinate updates as
+[
+q\mapsto q+3^n\pmod{3^{d-1}},
+]
+and the station coordinate increments by the carry
+[
+\sigma\mapsto \sigma+\kappa(q;n)\pmod{15},
+\qquad
+\kappa(q;n):=\left\lfloor\frac{q+3^n}{3^{d-1}}\right\rfloor\in{0,1,2,\dots}.
+]
+For (n<d-1), (3^n<3^{d-1}) so (\kappa(q;n)\in{0,1}), yielding a deterministic crawl: (\sigma) advances by (1) once every (3^{d-1-n}) microsteps (on average) as (q) crosses the station boundary. This formalizes the “slow in high (d)” phenomenon.
+
+04.F2.c — The snap regime and tunnel collapse ((n=d))
+At (n=d) (i.e., (R=3^d)), the orbit length collapses to (5):
+[
+L_B(d,d)=5.
+]
+Equivalently, (u) advances by (3^d), which is (3\cdot 3^{d-1}), so the induced station step is (\sigma\mapsto \sigma+3\pmod{15}), forcing (\sigma) onto one of the three 5-cycles (residue classes modulo (3)). This is the precise “tunnel reveal” threshold and matches the snap-octave statement that at (R=3^d) the orbit is exactly a 5-cycle.
+
+04.F2.d — Unified macro/micro integer stepping on (M_d) (±243 coverage)
+On the refined grid (M_d=15\cdot 3^{d+4}), define the integer spin-step at radial exponent (n\in\mathbb{Z}) by
+[
+\boxed{S_+(n):\ u\mapsto u+3^{n+5}\pmod{M_d},}
+]
+so that (n=-5) yields step size (1).
+The orbit length is
+[
+\boxed{L(d,n)=\frac{M_d}{\gcd(M_d,3^{n+5})}}
+]
+with closed form
+[
+\boxed{
+L(d,n)=
+\begin{cases}
+5\cdot 3^{d-n}, & n\le d,\[4pt]
+5, & n\ge d.
+\end{cases}}
+]
+
+04.F3 — Invariants (What Stays)
+04.F3.a — Orbit length as the visibility invariant
+For fixed ((d,n)), the orbit length (L_B(d,n)) (macro on (B_d)) or (L(d,n)) (macro/micro on (M_d)) is invariant under choice of starting (u_0); it is the primary algebraic invariant determining whether the observed station projection can collapse to a 5-cycle.
+
+04.F3.b — Tunnel criterion on the station projection
+Define the 15-metro tunnel families (in station index space) as the three 5-cycles:
+[
+\mathcal{T}_0={0,3,6,9,12},\quad
+\mathcal{T}_1={1,4,7,10,13},\quad
+\mathcal{T}_2={2,5,8,11,14}.
+]
+These are exactly the gear-loop families revealed at (R=9) (equivalently, step (s\equiv 0\pmod 3) but (s\not\equiv 0\pmod{15})).
+A dimension-(d) orbit is tunnel-visible at exponent (n) if its station projection (\pi_d(\mathcal{O}_{B_d,3^n}(u_0))) is contained in a single (\mathcal{T}_r) and has period (5). The snap regime (n\ge d) is sufficient for tunnel visibility.
+
+04.F3.c — Dimension delays the reveal (threshold law)
+Higher dimension increases the internal 3-power strata (the (3^{d-1}) factor in (B_d)), which delays when the radial step (3^n) overwhelms internal strata and collapses to a 5-cycle regime.
+Formally, the threshold is
+[
+\boxed{n\ge d\quad\Longleftrightarrow\quad L_B(d,n)=5\quad(\text{tunnel regime}).}
+]
+
+04.F3.d — Resolution necessity as an aliasing invariant
+If the circle is sampled at insufficient resolution relative to (d), distinct internal strata (q) collapse under projection (\pi_d), producing an aliasing/leakage defect: many-to-one mapping from true phase states to observed station states. This is a Nyquist-corridor failure mode in the general holographic transition grammar (fold/unfold is many-to-one outside corridor).
+
+04.F4 — Protocols (How to Compute / Verify)
+04.F4.a — (B_d) builder and station projection
+def B_d(d: int) -> int:
+    return 15 * (3 ** (d - 1))
+
+def proj_sigma(u: int, d: int) -> int:
+    return u // (3 ** (d - 1))  # in {0..14} when 0 <= u < B_d(d)
+
+def proj_q(u: int, d: int) -> int:
+    return u % (3 ** (d - 1))
+
+
+04.F4.b — Orbit-length closed form (macro)
+import math
+
+def orbit_length_B(d: int, n: int) -> int:
+    N = B_d(d)
+    s = 3 ** n
+    return N // math.gcd(N, s)
+
+
+04.F4.c — Visibility threshold solver
+def snap_exponent(d: int) -> int:
+    # minimal n such that orbit length collapses to 5 (tunnel regime)
+    return d
+
+def snap_radius(d: int) -> int:
+    return 3 ** d
+
+
+04.F4.d — Station-trace generator (crawl vs tunnel)
+def station_trace(d: int, n: int, steps: int, u0: int = 0):
+    N = B_d(d)
+    s = 3 ** n
+    u = u0 % N
+    out = []
+    for _ in range(steps):
+        out.append(proj_sigma(u, d))
+        u = (u + s) % N
+    return out
+
+
+☁ Cloud — Visibility as an Observation Channel (Aliasing, Coarse-Graining, and Information Loss)
+04.C1 — Ontology (Objects)
+04.C1.a — Deterministic gear walk as a Markov kernel
+For (N) and step (s), define the deterministic Markov kernel on (\Sigma_N):
+[
+K_{N,s}(u,v):=\mathbf{1}{v=T_{N,s}(u)}.
+]
+This induces a permutation evolution on distributions (p\in\Delta_N):
+[
+p_{t+1}=K_{N,s#}p_t,\qquad (K_{N,s#}p)v=\sum_u p_u K{N,s}(u,v).
+]
+
+04.C1.b — Observation channel: station projection (\pi_d)
+Define the observation map (\pi_d:\Sigma_{B_d}\to\Sigma_{15}) (block projection).
+For a distribution (p\in\Delta_{B_d}), define the observed distribution
+[
+\bar p := (\pi_d)# p\in\Delta{15},\qquad
+\bar p_\sigma=\sum_{u:\ \pi_d(u)=\sigma} p_u.
+]
+
+04.C1.c — Visibility as an identifiability property
+A gear regime is observable at station level if the induced process on (\Sigma_{15}) is Markov and its state-transition structure is identifiable from (\bar p_t) without requiring access to the hidden variable (q).
+
+04.C1.d — Aliasing defect as many-to-one collapse
+The map (\pi_d) is many-to-one with fiber size (3^{d-1}). When the gear step is too small relative to the fiber size (crawl regime), the observed evolution (\bar p_t) loses information about the true orbit in (u)-space and can exhibit apparent stasis. This is the observation-channel analogue of spectral fold aliasing outside corridor.
+
+04.C2 — Operators (Transforms)
+04.C2.a — Coarse-grained evolution operator
+Define the coarse-grained evolution operator on observed distributions by:
+[
+\bar p_{t}:=(\pi_d)# p_t,\qquad p{t+1}=K_{B_d,3^n#}p_t.
+]
+In general,
+[
+\bar p_{t+1} \neq \bar K_# \bar p_t
+]
+for any kernel (\bar K) on (\Sigma_{15}) unless the hidden coordinate (q) decouples (i.e., unless step size is a multiple of (3^{d-1}) and carries vanish). This separation of visible and hidden dynamics is the formal statement of “tunnels invisible at low projection.”
+
+04.C2.b — Tunnel regime decoupling ((n\ge d))
+When (n\ge d), the orbit collapses to a 5-cycle at the (u)-level, and the induced station dynamics becomes a strict 5-cycle within one tunnel family:
+[
+\sigma\mapsto \sigma+3\pmod{15},
+]
+hence the observed process is deterministic and Markov on its support.
+
+04.C2.c — Crawl regime dwell-time scaling ((n<d-1))
+For (n<d-1), (\sigma) advances by carry only. The expected dwell time per station scale is
+[
+\boxed{\tau_{\mathrm{dwell}}(d,n)\asymp 3^{d-1-n},}
+]
+reflecting that (q) must accumulate (3^{d-1}) units in increments (3^n) to advance (\sigma) once.
+
+04.C2.d — Macro/micro unified channel on (M_d)
+On the refined grid (M_d), the observation map (\pi_d^{(M)}:\Sigma_{M_d}\to\Sigma_{15}) is defined by block size (3^{d+4}):
+[
+\pi_d^{(M)}(u):=\left\lfloor \frac{u}{3^{d+4}}\right\rfloor.
+]
+The same crawl/tunnel dichotomy is governed by the orbit length (L(d,n)).
+
+04.C3 — Invariants (What Stays)
+04.C3.a — Period invariance and non-mixing
+Since (K_{N,s}) is a permutation kernel, the evolution is periodic with period (N/\gcd(N,s)) and does not mix. All entropy functionals invariant under permutations remain constant.
+
+04.C3.b — Information-loss invariant under coarse-graining
+The channel ((\pi_d)_#) strictly decreases information unless the distribution is constant on fibers. This is a structural (not stochastic) uncertainty inflation: distinct (u)-states map to the same observed (\sigma)-state.
+
+04.C3.c — Visibility invariant = station-level support collapse
+A sufficient visibility invariant is:
+[
+|\mathrm{supp}(\pi_d(\mathcal{O}_{B_d,3^n}(u_0)))|\in{5,15}.
+]
+The tunnel regime yields size (5); the pre-tunnel regimes yield size (15) or slow coverage of (15) depending on (n) relative to (d).
+
+04.C3.d — Corridor interpretation (Nyquist analogy)
+The station projection is a sampling map. Insufficient circle resolution produces aliasing in the observation channel, matching the general defect family “aliasing/leakage” where fold is many-to-one outside the Nyquist corridor.
+
+04.C4 — Protocols (How to Compute / Verify)
+04.C4.a — Observed support size and dwell-time diagnostics
+def observed_support_size(d: int, n: int, steps: int, u0: int = 0):
+    trace = station_trace(d, n, steps, u0=u0)
+    return len(set(trace))
+
+def dwell_times(trace):
+    out = []
+    cur = trace[0]
+    run = 1
+    for x in trace[1:]:
+        if x == cur:
+            run += 1
+        else:
+            out.append((cur, run))
+            cur = x
+            run = 1
+    out.append((cur, run))
+    return out
+
+
+04.C4.b — Tunnel visibility test (station-level)
+T0 = {0,3,6,9,12}
+T1 = {1,4,7,10,13}
+T2 = {2,5,8,11,14}
+
+def is_tunnel_visible_station_level(d: int, n: int, steps: int = 10_000, u0: int = 0):
+    tr = station_trace(d, n, steps, u0=u0)
+    supp = set(tr)
+    return (supp <= T0) or (supp <= T1) or (supp <= T2)
+
+
+04.C4.c — Alias audit (fiber variability)
+def fiber_size(d: int) -> int:
+    return 3 ** (d - 1)
+
+def fiber_members(d: int, sigma: int):
+    # all u mapping to a given station sigma
+    b = 3 ** (d - 1)
+    start = sigma * b
+    return list(range(start, start + b))
+
+
+04.C4.d — Cross-check with orbit-length law
+def expected_tunnel(d: int, n: int) -> bool:
+    return n >= d  # equivalent to orbit length 5 in the macro B_d model
+
+
+✶ Fractal — Visibility Thresholds Across Dimension (Snap Octaves and Delayed Reveals)
+04.R1 — Ontology (Objects)
+04.R1.a — Dimension-indexed orbit length and snap exponent
+Define the macro orbit length on (B_d):
+[
+L_B(d,n)=\frac{B_d}{\gcd(B_d,3^n)}.
+]
+Define the snap exponent (n_\star(d)) as the smallest (n\ge 0) such that (L_B(d,n)=5).
+
+04.R1.b — Tunnel definition (intrinsic)
+A tunnel is defined as a 5-cycle regime in the station projection, equivalently the regime in which the underlying gear action collapses to 5-cycle orbits and the observed station orbit lies entirely in one of the three tunnel families (\mathcal{T}_0,\mathcal{T}_1,\mathcal{T}_2).
+
+04.R1.c — Dimension-dependent delay mechanism
+Higher dimension increases the internal (3)-power strata ((3^{d-1}) blocks), which delays when a radial step (3^n) reaches the snap regime.
+
+04.R1.d — Empirical visibility claims as schedule constraints
+The dimension-by-d visibility outcomes at fixed macro radius (e.g., (R=243)) and varying (d) are governed by the snap inequality (n\ge d). The reported thresholds (“(d=5) first reveal at (R=243)”; “(d=7) needs (R\ge 2187)”) instantiate this law.
+
+04.R2 — Operators (Transforms)
+04.R2.a — Visibility theorem (macro (B_d))
+Theorem (Visibility threshold on (B_d)).
+Let (B_d=15\cdot 3^{d-1}=5\cdot 3^d). Consider the macro gear step (u\mapsto u+3^n\pmod{B_d}) with (n\ge 0). Then:
+[
+L_B(d,n)=
+\begin{cases}
+5\cdot 3^{d-n}, & n\le d,\[4pt]
+5, & n\ge d.
+\end{cases}
+]
+In particular,
+[
+\boxed{n_\star(d)=d,\qquad R_\star(d)=3^d.}
+]
+At and beyond the snap exponent (n\ge d), every orbit in (u)-space is a 5-cycle and the station projection is confined to one tunnel family.
+Proof.
+(\gcd(B_d,3^n)=\gcd(5\cdot 3^d,3^n)=3^{\min(d,n)}). Substitute into (L_B(d,n)=B_d/\gcd(B_d,3^n)).
+
+04.R2.b — Refined visibility theorem (macro/micro (M_d))
+On the refined grid (M_d=15\cdot 3^{d+4}=5\cdot 3^{d+5}), with step (u\mapsto u+3^{n+5}), the orbit length is exactly
+[
+L(d,n)=
+\begin{cases}
+5\cdot 3^{d-n}, & n\le d,\[4pt]
+5, & n\ge d,
+\end{cases}
+]
+matching the reported master law.
+
+04.R2.c — Corollary (dimension-by-d snap points)
+From (R_\star(d)=3^d), the snap radii are:
+[
+d=3\Rightarrow R_\star=27,\quad
+d=4\Rightarrow R_\star=81,\quad
+d=5\Rightarrow R_\star=243,\quad
+d=6\Rightarrow R_\star=729,\quad
+d=7\Rightarrow R_\star=2187.
+]
+These values align with the reported dimension-by-d outcomes (“(d=3) see at (R\ge 27)”; “(d=5) first reveal at (R=243)”; “(d=7) needs (R\ge 2187)”).
+
+04.R2.d — Projection consequence (why “magic” appears)
+For fixed (d), as (n) increases through (d), the orbit length drops discretely from (15) (at (n=d-1)) to (5) (at (n=d)). At the station level this appears as a sudden transition from full-station traversal to confinement on a tunnel 5-cycle, which constitutes the precise mechanism of “sudden teleports” at higher dimension when the threshold is crossed.
+
+04.R3 — Invariants (What Stays)
+04.R3.a — Snap invariance under starting state
+For fixed ((d,n)), all orbits have identical length (L_B(d,n)) (or (L(d,n)) on (M_d)); thus the snap threshold depends only on ((d,n)), not on initial conditions.
+
+04.R3.b — Dimension monotonicity of the reveal
+The snap exponent (n_\star(d)=d) is strictly increasing with (d). Therefore, higher dimension strictly delays the first tunnel-visible octave.
+
+04.R3.c — Tunnel structure invariance (three families)
+When tunnel-visible, the station projection is confined to one of three invariant 5-cycles (the residue-class cycles modulo (3)) whose membership is independent of (d); only the internal strata (q) changes with (d).
+
+04.R3.d — Alias invariance as a defect-class marker
+Pre-snap regimes ((n<d)) necessarily involve nontrivial internal-stratum evolution and therefore nontrivial informati

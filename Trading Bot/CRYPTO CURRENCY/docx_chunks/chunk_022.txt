@@ -1,0 +1,450 @@
+21.3.3. Monitoring determinism law: monitoring reports pinned status only
+Monitoring is permitted only as reporting, never as semantic mutation. Monitoring outputs MUST be deterministic functions of:
+(\mathsf{did}(\mathsf{DPf})),
+(\mathsf{did}(\mathsf{CSt})),
+(\mathsf{did}(\mathsf{ELog}_{\le t})),
+and pinned monitor definitions.
+For any monitoring template (\mathsf{MTe}), the monitoring report at time (t) is:
+[
+\mathsf{MonReport}t \stackrel{\mathrm{def}}{=} \mathsf{EvalMon}(\mathsf{MTe},\mathsf{DPf},\mathsf{CSt},\mathsf{ELog}{\le t})
+]
+and determinism requires:
+[
+\mathsf{did}(\mathsf{ELog}{\le t}) = \mathsf{did}(\mathsf{ELog}'{\le t})
+;\Rightarrow;
+\mathsf{MonReport}_t = \mathsf{MonReport}'_t
+]
+under identical (\mathsf{MTe},\mathsf{DPf},\mathsf{CSt}) (by digest).
+
+21.4. Required constructions
+21.4.1. Conformance harness construction and container publication
+A conformance harness MUST be constructed as a deterministic, publishable container (or equivalent sealed executable artifact) whose execution is pinned by digest and whose inputs and outputs are canonically serialized.
+A conformant harness publication includes:
+the harness container digest (\mathsf{did}(\mathsf{Harness})),
+the conformance suite object (\mathsf{CSu}),
+schema pins required to interpret evidence,
+and a harness execution specification defining:
+entrypoint,
+required resources,
+deterministic runtime configuration,
+and explicit prohibition of non-pinned network access unless explicitly modeled and pinned.
+Let (\mathsf{RunHarness}) be:
+[
+\mathsf{RunHarness}(\mathsf{Harness},\mathsf{DPf},\mathsf{CSu}) \to \mathsf{EvidenceBundle}.
+]
+(\mathsf{EvidenceBundle}) MUST include:
+capsule-by-capsule run traces,
+contract evaluation results,
+digest commitments for all intermediate and final artifacts,
+resource/budget measurements under pinned measurement schemas,
+and a deterministic aggregate summary.
+All of the above MUST be publishable under the same publication/import discipline as other framework objects.
+
+21.4.2. Incident-to-DeltaPack pipeline construction
+Incident resolution MUST be a structured pipeline whose output is a DeltaPack (Ch20) and never a silent edit. The pipeline is defined as a deterministic process schema:
+[
+\mathsf{ResolveIncident} : (\mathsf{IPk}, \mathsf{DPf}, \mathsf{CSu}) \to \langle \mathsf{DP}, \mathsf{ResolutionEvidence}, \mathsf{NewDPfRef} \rangle
+]
+subject to:
+Reproducibility: (\mathsf{IPk.Reproducer}) MUST replay in a fenced environment and reproduce the failure under the pinned state.
+Explicit change: remediation MUST be expressed as one or more DeltaPacks (\mathsf{DP}) that apply to explicitly named artifacts (by digest) and yield new artifacts (by digest).
+No silent edits: any modification to code/config/schema/profile MUST produce new digests and must be published as new objects.
+Validation: the updated profile (\mathsf{DPf}') (if changed) and the updated dependency closure MUST pass import verification and conformance, and MUST satisfy corridor enforcement relative to the previous baseline unless a governance gate explicitly authorizes deviation.
+Resolution is complete iff (\mathsf{IPk.ResolutionCriteria}) evaluates to true over the resolution evidence under the updated pins.
+
+21.4.3. Compliance closure reporting construction
+Compliance closure is a deterministic audit bundle suitable for external verification. The construction produces an object:
+[
+\mathsf{AuditBundle} = \langle \mathsf{DPfRef}, \mathsf{CSuRef}, \mathsf{HarnessRef}, \mathsf{Certs}, \mathsf{RevocationState}, \mathsf{MonitoringEvidence}, \mathsf{IncidentLedger}, \mathsf{DeltaPackLedger}, \mathsf{SchemaPins} \rangle
+]
+where:
+(\mathsf{DPfRef}) is the digest of the deployed deployment profile.
+(\mathsf{CSuRef}) is the digest of the conformance suite used for acceptance.
+(\mathsf{HarnessRef}) is the digest of the harness container used to run the suite.
+(\mathsf{Certs}) is the set of certificates defined in §21.5.
+(\mathsf{RevocationState}) includes the pinned revocation lists (or revocation proofs) used to decide (\mathsf{Revoked}(\cdot)), and the resolved revocation closure over the dependency set.
+(\mathsf{MonitoringEvidence}) includes pinned monitoring reports keyed by event log prefix digests and profile digest.
+(\mathsf{IncidentLedger}) is the set of incident packets (\mathsf{IPk}) for relevant incidents within the audited window, referenced by digest.
+(\mathsf{DeltaPackLedger}) is the set of DeltaPacks produced by incident resolution and other governance processes that affected the deployed state.
+(\mathsf{SchemaPins}) is the schema pin closure required to interpret every object in the bundle.
+Determinism requirement.
+The audit bundle MUST be reproducible: given the bundle digest, an external verifier must be able to fetch all referenced objects (publication/import), recompute all digests, rerun conformance harnesses on pinned capsules, recompute monitoring outputs for pinned log prefixes, verify revocation closure, and re-derive the compliance decisions.
+
+21.5. Required certificates
+All certificates in this chapter are content-addressed objects with canonical serialization and verifiable signatures. A certificate binds at minimum:
+the digest of the subject object(s),
+the digest of the evidence object(s),
+the digest of the evaluation procedure (e.g., harness container digest and suite digest),
+issuance metadata expressed as schema-pinned, canonical fields,
+and signature(s) from authorized principals (as defined by governance gates and publication/import policy).
+Let (\mathsf{Cert}) be a certificate object and (\mathsf{VerifyCert}(\mathsf{Cert})\in{\mathsf{true},\mathsf{false}}) be a deterministic verification function using pinned keys.
+
+21.5.1. DeploymentConformanceCert
+A DeploymentConformanceCert certifies that a specific deployment profile passes a specific conformance suite under a specific harness, producing a reproducible evidence bundle.
+It binds:
+[
+\langle \mathsf{did}(\mathsf{DPf}), \mathsf{did}(\mathsf{CSu}), \mathsf{did}(\mathsf{Harness}), \mathsf{did}(\mathsf{EvidenceBundle}), \mathsf{did}(\mathsf{SchemaPins}) \rangle
+]
+and is valid only if:
+import verification is satisfied for the dependency closure,
+conformance replay is satisfied (all required capsules/contract checks pass or meet pinned tolerances),
+corridor and budgets are satisfied (or explicitly gated),
+the evidence bundle digest matches the bound evidence digest,
+certificate signatures verify under pinned governance rules.
+
+21.5.2. MonitoringCert
+A MonitoringCert certifies that monitoring outputs are deterministic functions of pinned corpus state and pinned event log prefixes, and that monitoring satisfies the non-interference law.
+It binds:
+(\mathsf{did}(\mathsf{MTe})),
+(\mathsf{did}(\mathsf{DPf})),
+(\mathsf{did}(\mathsf{SchemaPins})),
+and a pinned proof/evidence object demonstrating deterministic evaluation and non-interference (e.g., instrumentation equivalence checks, pinned test suites).
+Validity requires:
+determinism per §21.3.3,
+non-interference per §21.2.3.2,
+schema completeness for interpreting monitoring outputs.
+
+21.5.3. IncidentReplayCert
+An IncidentReplayCert certifies that an incident is reproducible, fenced, and resolvable only via explicit DeltaPacks and explicit profile/version evolution.
+It binds:
+(\mathsf{did}(\mathsf{IPk})),
+(\mathsf{did}(\mathsf{DPf})) under which it reproduces,
+(\mathsf{did}(\mathsf{ReproducerCapsule})) (or reproducer definition digest),
+(\mathsf{did}(\mathsf{FencePolicy})),
+(\mathsf{did}(\mathsf{ReproductionEvidence})).
+Validity requires:
+the reproducer replays and reproduces the triggering condition under fence constraints,
+the reproduction evidence is complete and schema-pinned,
+the resolution criteria are decidable and bind to explicit DeltaPack update mechanics (no hidden/manual steps).
+
+21.5.4. ComplianceCert
+A ComplianceCert certifies that an audit bundle is complete, deterministic, and publishable as an external verification artifact.
+It binds:
+(\mathsf{did}(\mathsf{AuditBundle})),
+the digests of all included certificate sets,
+and the digests of the verification procedures used.
+Validity requires:
+audit bundle completeness: all required fields and referenced objects resolve by digest and verify under publication/import.
+determinism: rerunning conformance and monitoring computations over pinned inputs reproduces bound evidence digests.
+revocation closure is computed and included, and no revoked artifact is deployed unless explicitly permitted by a pinned governance gate (and then such permission is explicitly bound in the audit bundle).
+incident closure: all incidents within scope either (i) have incident packets and replay certificates, and (ii) have DeltaPack-based resolutions or explicit quarantine/rollback decisions, all bound and published.
+
+21.6. Deterministic algorithms (normative)
+This section defines normative algorithms that any compliant implementation MUST realize with equivalent input/output behavior under canonical serialization and pinned schemas.
+
+21.6.1. Import verification over deployment closure
+Input: (\mathsf{DPf})
+Output: (\langle \mathsf{IVOK}, \mathsf{IVReport} \rangle)
+Compute (\mathsf{DepClosure}(\mathsf{DPf})) from (\mathsf{DPf.Scope}) and (\mathsf{DPf.Pins}) under pinned resolution rules.
+For each digest (d \in \mathsf{DepClosure}(\mathsf{DPf})):
+Verify integrity: fetched bytes hash to (d).
+Verify authorization: signatures/policies required by publication/import rules verify.
+Verify schema: schemas required to interpret the object are resolvable and pinned.
+Verify revocation: (\neg \mathsf{Revoked}(d)) unless policy explicitly permits quarantined import of (d).
+Emit (\mathsf{IVReport}) as a canonically serialized report keyed by digests and proof artifacts (signature chains, revocation proofs, schema proofs).
+(\mathsf{IVOK} = \mathsf{true}) iff all required verifications succeed and no policy violation is present.
+
+21.6.2. Conformance suite execution
+Input: (\mathsf{Harness}, \mathsf{DPf}, \mathsf{CSu})
+Output: (\mathsf{EvidenceBundle})
+For each capsule (k \in \mathsf{CSu.ReplayCapsules}), in canonical order:
+Resolve required artifacts strictly by digest from (\mathsf{DPf.Pins}) and capsule pins.
+Construct the pinned execution environment (E_k) (container digest, schema pins, RNG seed pins, fence policy if applicable).
+Execute the target invocation as specified by the capsule plan; record:
+canonical output,
+canonical trace,
+canonical resource measurements,
+canonical side-effect log (restricted to the meaning-bearing side-effect vocabulary).
+Compute digests of outputs/traces/measurements.
+Evaluate contracts (\mathsf{Contracts}) applicable to the capsule, producing contract results and proofs (where relevant).
+Compare observed digests to (\mathsf{ExpectedDigests}) and/or evaluate tolerance predicates bound in the capsule/contract definitions.
+Accumulate per-capsule evidence records.
+After all capsules:
+Evaluate regression set comparisons against pinned baselines.
+Evaluate corridor and budgets using the deterministic evidence.
+Emit the final (\mathsf{EvidenceBundle}) with canonical ordering and canonical aggregate summary.
+
+21.6.3. Acceptance decision
+Input: (\mathsf{DPf}_{-}) (baseline reference or null), (\mathsf{DPf}), (\mathsf{CSu}), (\mathsf{EvidenceBundle}), (\mathsf{IVReport})
+Output: (\langle \mathsf{Verdict}, \mathsf{DecisionRecord} \rangle)
+If (\mathsf{IVOK} = \mathsf{false}), set (\mathsf{Verdict} \in {\mathsf{REJECT},\mathsf{QUARANTINE}}) deterministically per (\mathsf{RevocationPolicy}) and publishability rules.
+Else compute (\mathsf{CorridorOK}(\mathsf{DPf}_{-},\mathsf{DPf})) and corridor/budget checks over evidence.
+Evaluate critical-set policy strictness: any critical-set failure forces REJECT unless an explicit governance gate waiver is present and bound.
+Apply (\mathsf{AcceptPred}(\mathsf{DPf},\mathsf{CSu},\mathsf{EvidenceBundle})) to obtain the final verdict.
+Emit (\mathsf{DecisionRecord}) as a canonically serialized object binding:
+(\mathsf{did}(\mathsf{DPf})),
+(\mathsf{did}(\mathsf{CSu})),
+(\mathsf{did}(\mathsf{Harness})),
+(\mathsf{did}(\mathsf{EvidenceBundle})),
+(\mathsf{did}(\mathsf{IVReport})),
+governance gate evaluations,
+corridor/budget evaluation results,
+and the verdict.
+
+21.6.4. Monitoring evaluation over pinned log prefixes
+Input: (\mathsf{MTe}, \mathsf{DPf}, \mathsf{CSt}, \mathsf{ELog}_{\le t})
+Output: (\mathsf{MonReport}_t)
+Verify schema pins resolve for monitoring report schemas.
+For each monitor (m\in \mathsf{MTe.Monitors}) in canonical order:
+compute (o_m = m(\mathsf{DPf},\mathsf{CSt},\mathsf{ELog}_{\le t})),
+serialize (o_m) canonically and digest it,
+key it by (\langle \mathsf{did}(\mathsf{DPf}), \mathsf{did}(\mathsf{CSt}), \mathsf{did}(\mathsf{ELog}_{\le t}), \mathrm{MonitorID}(m)\rangle).
+Evaluate alert thresholds deterministically against the computed observations.
+Emit (\mathsf{MonReport}_t) as a canonically serialized report object.
+
+21.7. Minimal completeness requirement for a publishable deployment
+A deployment is publishably real under this chapter only if the following are published (by digest) and verify:
+A (\mathsf{DPf}) with full pin closure, corridor, budgets, allowed edges, gates, critical/fallback/revocation policies, and schema pins.
+A (\mathsf{CSu}) with replay capsules and acceptance predicate.
+A published conformance harness container capable of producing evidence bundles deterministically.
+Monitoring templates and schemas sufficient to compute deterministic reports from pinned log prefixes.
+An incident packet format and fenced reproduction discipline, with postmortem templates that emit DeltaPacks.
+A compliance closure mechanism producing an (\mathsf{AuditBundle}) and a (\mathsf{ComplianceCert}).
+All of the above must be verifiable through publication/import without requiring private operational context.
+
+Ch21⟨0110⟩ — Deployment and Conformance: Publishable Reality
+AppA — Parsing, Symbols, Grammar, Entry Station
+Station role: parsing + symbol discipline; entry point for all other stations.
+Purpose / routing role: canonical parsing/AST, StationHeader derivation, canonical encodings; prevents ambiguity from entering the graph.
+
+□ A.S — Square: Formal Language, Canonical Parsing, and Address Discipline
+A.S1 — Objects
+A.S1.a — Text normalization domain
+All parseable inputs are byte strings interpreted as UTF-8 and normalized to a canonical Unicode form prior to tokenization.
+UnicodeNorm: NFC normalization.
+LineEnd: normalize CRLF and CR to LF.
+Whitespace: collapse runs of ASCII spaces and tabs to a single space except inside quoted strings and inside byte literals.
+NoHiddenChars: reject any non-printing control characters except LF and TAB; reject bidirectional override characters.
+A.S1.b — Token classes
+Tokenization yields a sequence of tokens from a finite vocabulary. The tokenizer is deterministic under a pinned TokenizerSpec digest.
+Required token classes:
+KW: keywords (reserved words)
+ID: identifiers (ASCII + restricted Unicode class)
+INT: nonnegative integers in base-10
+B4: base-4 digit strings over {0,1,2,3}
+HEX: hexadecimal strings over {0..9,a..f,A..F}
+PUNC: punctuation tokens (. : ; , ( ) [ ] { } < > ⟨ ⟩ _ - + = / \ |)
+QSTR: quoted strings (UTF-8, with pinned escape rules)
+BYTES: byte literal (pinned format, e.g., 0x… or b64:…)
+A.S1.c — Core syntactic categories
+The grammar MUST be unambiguous and MUST produce a unique AST for any valid input.
+Core categories:
+GlobalAddr (address of a node/edge/slot)
+StationHeader (deterministic header record)
+PinRef (digest-qualified reference to pinned objects)
+Manifest (self-describing container header)
+CorridorSpec (budgets, truth typing, legality constraints)
+PayloadSchemaID (schema identifier + version + digest)
+ProofRef (certificate / replay capsule reference)
+A.S1.d — Reserved symbol table
+Identifiers are partitioned into namespaces. Namespace is part of meaning and cannot be inferred from context.
+Required namespaces:
+ADDR (address symbols: Ch, App, Ms, GA, etc.)
+LENS (lens symbols: S, F, C, R)
+FACET (facet indices 1..4)
+ATOM (atom indices 1..4)
+BUDGET (budget keys: kappa, beta, delta, chi)
+TRUTH (truth keys: OK, NEAR, AMBIG, FAIL, CONFLICT)
+SCHEMA (schema IDs)
+DIGEST (digest algorithm tags and digest strings)
+MATH (math identifiers and operators; includes carrier symbols such as (\mathcal{S}_{d,k}), (\mathbb{T}^d), and canonical projection names)
+Reserved names in one namespace MUST NOT be interpreted in another namespace.
+
+A.S2 — Operators
+A.S2.a — Deterministic tokenizer
+Tokenizer is a total function:
+[
+\mathsf{Tokenize} : \mathbb{B}^\star \to \mathsf{Tok}^\star \cup \mathsf{LexError}
+]
+with deterministic longest-match rules and pinned precedence.
+Tokenizer requirements:
+Greedy longest-match.
+Keyword recognition precedes identifier recognition.
+Numeric forms have no leading +; negative numbers are represented as unary - token + INT.
+B4 is recognized only inside base-4 brackets ⟨ … ⟩ or after a pinned prefix b4:.
+HEX is recognized only after 0x or hex:.
+A.S2.b — Deterministic parser
+Parser is a total function:
+[
+\mathsf{Parse} : \mathsf{Tok}^\star \to \mathsf{AST} \cup \mathsf{ParseError}
+]
+where the grammar is unambiguous and LL/LR determinism is pinned by GrammarDigest.
+Parse errors are deterministic and must include:
+error_code (pinned enum)
+token_index
+expected_set_digest (digest of expected token set)
+context_digest (digest of parse stack summary)
+A.S2.c — AST canonicalizer
+Canonicalizer is a deterministic normalization:
+[
+\mathsf{CanonAST} : \mathsf{AST} \to \mathsf{AST}_{\mathrm{NF}}
+]
+that removes surface variation without changing semantics.
+Canonicalization requirements:
+Canonical field ordering in records.
+Canonical ordering in lists that are semantically sets (sort by canonical key).
+Alpha-canonicalization for binders (if present in Math AST): bound names renamed deterministically.
+Normalization of integers: no leading zeros.
+Normalization of digests: lowercase hex, fixed length, or canonical base64url (pinned).
+Normalization of whitespace in strings: only escape sequences allowed by pinned StringEscapesSpec.
+A.S2.d — Address and header derivation operators
+Address parsing and StationHeader derivation are defined as explicit functions.
+(\mathsf{ParseAddr}) maps address strings to GlobalAddrAST.
+(\mathsf{DeriveHeader}) maps chapter indices to StationHeader records (see A.S3.b).
+
+A.S3 — Invariants
+A.S3.a — Unambiguity invariant
+For any token stream (\tau), at most one AST is admissible:
+[
+\forall \tau:\ \left|{\mathsf{ast} : \mathsf{Parse}(\tau)=\mathsf{ast}}\right|\le 1.
+]
+If the grammar admits multiple parses, the grammar is invalid and cannot be certified.
+A.S3.b — StationHeader determinism invariant
+StationHeader is computed deterministically from ChapterIndex and pinned triad ordering.
+Let:
+ChapterIndex (XX\in{1,\dots})
+(\omega := XX-1)
+(\alpha := \left\lfloor \omega/3 \right\rfloor)
+(\rho := \alpha \bmod 3)
+(k := \omega \bmod 3)
+Triad := [Su, Me, Sa] (pinned)
+Define lane:
+[
+\nu := \mathrm{Triad}\big((k+\rho)\bmod 3\big).
+]
+Then the StationHeader is:
+[
+\mathsf{StationHeader}(XX):=\langle \alpha,\rho,\nu,\omega, \mathrm{SchemaVer}, \mathrm{HeaderRuleDigest}\rangle
+]
+with HeaderRuleDigest pinning the mapping above.
+A.S3.c — Canonical bytes invariant
+For any object (X) in a schema family (\Sigma), canonical encoding (\mathsf{enc}\Sigma(X)) is deterministic and injective over well-formed values:
+[
+X=Y \Rightarrow \mathsf{enc}\Sigma(X)=\mathsf{enc}_\Sigma(Y).
+]
+Any non-injectivity is a schema error.
+A.S3.d — Round-trip parse/canonicalize invariant
+For any valid text input (s):
+[
+\mathsf{CanonAST}(\mathsf{Parse}(\mathsf{Tokenize}(s)))=\mathsf{CanonAST}(\mathsf{Parse}(\mathsf{Tokenize}(\mathsf{Pretty}(\mathsf{CanonAST}(\cdot)))))
+]
+where Pretty is the pinned serializer for AST normal form. This is required for stable diffs and for replay determinism.
+
+A.S4 — Protocols
+A.S4.a — Canonical grammar: GlobalAddr
+EBNF (normative; unambiguous by construction):
+GlobalAddr     := ChapterAddr | AppendixAddr | ManuscriptAddr | RegistryAddr ;
+
+ChapterAddr    := "Ch" TwoDigit ChapterTag? "." Lens "." Facet "." Atom ;
+AppendixAddr   := "App" UpperLetter "." Lens "." Facet "." Atom ;
+ManuscriptAddr := "Ms" AngleHex ;
+RegistryAddr   := "GA" ":" ManuscriptAddr ":" (ChapterAddr | AppendixAddr) ;
+
+ChapterTag     := AngleB4 | AngleB4 "_" AngleB4 ;
+AngleB4        := "⟨" B4Digits "⟩" ;
+AngleHex       := "⟨" HexDigits "⟩" ;
+
+Lens           := "S" | "F" | "C" | "R" ;
+Facet          := "1" | "2" | "3" | "4" ;
+Atom           := "1" | "2" | "3" | "4" ;
+
+TwoDigit       := Digit Digit ;
+UpperLetter    := "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" ;
+
+B4Digits       := B4 {B4} ;
+B4             := "0" | "1" | "2" | "3" ;
+
+HexDigits      := Hex {Hex} ;
+Hex            := Digit | "a" | "b" | "c" | "d" | "e" | "f" | "A" | "B" | "C" | "D" | "E" | "F" ;
+
+Digit          := "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+A.S4.b — Canonical grammar: StationHeader
+StationHeader text form is derived, not authored. The canonical textual representation is:
+StationHeaderText := "[" "○Arc" SP Int SP "|" SP "○Rot" SP Int SP "|" SP "△Lane" SP Lane SP "|" SP "ω=" Int "]" ;
+Lane             := "Su" | "Me" | "Sa" ;
+SP               := " " ;
+Int              := Digit {Digit} ;
+
+A.S4.c — Canonical grammar: Manifest and corridor spec (minimal)
+Manifest := "MANIFEST" "{" ManifestField {"," ManifestField} "}" ;
+ManifestField :=
+    "schema=" SchemaID
+  | "container=" ContainerID
+  | "pins=" PinList
+  | "digests=" DigestList
+  | "scope=" ScopeSpec
+  | "pulse=" PulseSpec
+  | "revocations=" RevocationSpec ;
+
+CorridorSpec := "CORRIDOR" "{" CorridorField {"," CorridorField} "}" ;
+CorridorField :=
+    "truth=" TruthPolicy
+  | "budgets=" BudgetMap
+  | "allowed_edges=" EdgeKindSet
+  | "gates=" GateSet
+  | "tie_break=" TieBreakID ;
+
+PinList    := "[" PinRef {"," PinRef} "]" ;
+DigestList := "[" DigestRef {"," DigestRef} "]" ;
+
+PinRef     := PinKey ":" DigestRef ;
+DigestRef  := DigestAlg ":" HexDigest ;
+DigestAlg  := "blake3" | "sha256" | "sha512" ;   (* pinned allowed set *)
+HexDigest  := HexDigits ;
+PinKey     := ID ;
+
+TruthPolicy := "{" "OK" ":" RuleRef "," "NEAR" ":" RuleRef "," "AMBIG" ":" RuleRef "," "FAIL" ":" RuleRef "}" ;
+BudgetMap   := "{" "kappa" ":" Int "," "beta" ":" Int "," "delta" ":" Int "," "chi" ":" Int "}" ;
+
+RuleRef     := DigestRef ;
+SchemaID    := ID "@" Int ;
+ContainerID := ID "@" Int ;
+TieBreakID  := ID "@" Int ;
+
+ScopeSpec   := "LOCAL" | "INTER" ;
+PulseSpec   := "PulseID" ":" Int ;
+RevocationSpec := DigestRef | "none" ;
+
+All identifier resolution (SchemaID, ContainerID, RuleRef, TieBreakID) MUST be performed only by digest-pinned registry lookup under AppD/AppP policy, never by name-only resolution.
+A.S4.d — Test vectors (StationHeader derivation)
+Pinned Triad=[Su,Me,Sa]. Derived headers:
+Ch01: (XX=1\Rightarrow \omega=0,\ \alpha=0,\ \rho=0,\ \nu=Su)
+Ch15: (XX=15\Rightarrow \omega=14,\ \alpha=4,\ \rho=1,\ \nu=Su)
+Ch16: (XX=16\Rightarrow \omega=15,\ \alpha=5,\ \rho=2,\ \nu=Sa)
+Ch17: (XX=17\Rightarrow \omega=16,\ \alpha=5,\ \rho=2,\ \nu=Su)
+Ch20: (XX=20\Rightarrow \omega=19,\ \alpha=6,\ \rho=0,\ \nu=Me)
+Ch21: (XX=21\Rightarrow \omega=20,\ \alpha=6,\ \rho=0,\ \nu=Sa)
+
+❀ A.F — Flower: Symbol Discipline, Operator Namespaces, and Math AST
+A.F1 — Objects
+A.F1.a — Math identifiers and binding forms
+Math tokens are parsed into a MathAST distinct from MetaAST (addresses/manifests). MathAST supports:
+identifiers with subscripts/superscripts (normalized),
+indexed families (e.g., (A_{d,k})),
+function application, infix operators,
+binders (sum, integral, expectation) with alpha-canonicalization.
+A.F1.b — Operator namespace pinning
+All operator symbols that affect meaning must be pinned by an OperatorTableDigest. The parser MUST reject any operator symbol not present in the pinned operator table for the current scope.
+A.F1.c — Literal and numeral discipline
+Floats are forbidden in canonical math payloads unless a pinned FloatPolicy explicitly permits them. Default numeric representation is:
+integers,
+rationals as (num,den) reduced by gcd,
+modular integers tagged with modulus,
+fixed-point decimals tagged with scale.
+
+A.F2 — Operators
+A.F2.a — Alpha-canonicalization for binders
+All binders are normalized by deterministic renaming of bound variables in encounter order. Canonicalization must produce identical (\mathsf{did}(\mathsf{MathAST})) under logically equivalent alpha-renaming.
+A.F2.b — Normal-form printing
+A pinned PrettyMathDigest defines rendering of MathAST into text for diffs. Rendering is not used for semantics; semantics is AST + pins.
+
+A.F3 — Invariants
+A.F3.a — Symbol table completeness
+Any MathAST that depends on external operator meaning MUST carry:
+OperatorTableDigest,
+MathSchemaDigest,
+CanonBytesDigest.
+Absence is a typed failure; such payloads cannot be routed as OK.
+A.F3.b — Parse stability under equivalence
+Equivalent MathAST under alpha-renaming and canonical commutative reordering (o

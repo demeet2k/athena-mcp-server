@@ -1,0 +1,455 @@
+_d=15W_d), for all (\phi) not on a macro-station boundary (i.e., (15\phi\notin\mathbb{Z})),
+[
+\boxed{
+\pi_{\mathrm{st}}^{(d)}\bigl(Q_d(\phi)\bigr) = \sigma(\phi).
+}
+]
+The internal stratum is the (W_d)-quantization of the fractional position within the macro-station interval:
+[
+\boxed{
+\gamma(\phi)
+:= Q_d(\phi) - W_d,\sigma(\phi)
+= \left\lfloor W_d\cdot \mathrm{frac}(15\phi)\right\rfloor.
+}
+]
+A boundary policy is required to define (Q_d) on boundary points. The boundary policy is part of the corridor pins; absent a pinned boundary policy, cross-dimensional projections involving quantized phases are (\mathrm{AMBIG}).
+
+13.S5.2 — Compatibility of quantization with dimension projection
+For (d\ge d'\ge 1), define the quantizer (Q_{d'}(\phi)=\lfloor B_{d'}\phi\rfloor). If (\phi) avoids refinement boundaries at scale (B_d), then
+[
+\boxed{
+Q_{d'}(\phi) = \pi_{d\to d'}\bigl(Q_d(\phi)\bigr).
+}
+]
+This expresses the defining property of the refinement tower: coarsening by grouping triples agrees with direct coarser quantization, except at pinned boundary cases which must be resolved deterministically.
+
+13.S6 — Minimality of (B_d) under stratified metro requirements
+13.S6.1 — Stratified station requirement
+Fix dimension (d). Assume:
+The metro requires 15 macro-stations (\sigma\in\Sigma_{15}).
+Each macro-station must support (S_d) distinguishable internal strata, where (S_d=3^{d-1}) is the pinned stratification count (e.g., relative triangle-phase classes).
+The discretization of the circle is required to assign a unique discrete cell to each pair ((\sigma,\mathrm{stratum})) while preserving contiguity of macro-stations as blocks (each station occupies a contiguous interval).
+Under these requirements, any admissible discretization must have at least (15\cdot S_d) cells, and the block-refinement construction achieves equality.
+Theorem 13.S6.1 (Minimality).
+Any discretization satisfying the stratified station requirement must have
+[
+N \ge 15\cdot 3^{d-1}.
+]
+Moreover, (N=B_d) is achievable by subdividing each of the 15 station intervals into (3^{d-1}) equal subintervals, yielding the (B_d) metro ring (\Sigma_{B_d}).
+
+❀ Flower — Geometric Interpretation: A Triadic Covering Tower of the Circle
+13.F1 — The refinement tower as coverings of (S^1)
+Let (S^1=\mathbb{R}/\mathbb{Z}). The discretization at dimension (d) is the partition of (S^1) into (B_d) equal arcs:
+[
+I_u^{(d)} := \left[\frac{u}{B_d},\frac{u+1}{B_d}\right),\qquad u\in\Sigma_{B_d}.
+]
+The one-step projection (\pi_{d+1\to d}) is the triadic covering map on indices: it groups three consecutive fine arcs into one coarse arc. The lift maps (\lambda_{d\to d+1}^{(t)}) select one of the three subarcs inside a coarse arc.
+Thus, for each (d), the discretized metro ring is a cyclic refinement of the same underlying circle:
+[
+S^1 \xrightarrow{Q_d} \Sigma_{B_d}
+\quad\text{with}\quad
+\Sigma_{B_d}\xrightarrow{\pi_{d\to d'}}\Sigma_{B_{d'}} \ \text{for}\ d\ge d'.
+]
+
+13.F2 — Gear stacks as triadic addresses within each station
+Each macro-station interval has width (1/15). Inside a macro-station, the internal stratum coordinate (\gamma\in\Sigma_{3^{d-1}}) corresponds to a triadic refinement address of depth ((d-1)). The gear digits ((t_1,\dots,t_{d-1})) are the triadic address of the subinterval:
+[
+\left[\frac{\sigma}{15} + \frac{\gamma}{15\cdot 3^{d-1}}, \ \frac{\sigma}{15} + \frac{\gamma+1}{15\cdot 3^{d-1}} \right).
+]
+Multi-gear projection is geometric truncation of the triadic address; multi-gear lift is geometric extension by appending one triadic digit.
+
+13.F3 — Relative-phase stratification as a quotient geometry
+When triangle-phase is per-axis (\tau\in(\mathbb{Z}_3)^d) but only relative phase is physically discriminable, the quotient ((\mathbb{Z}_3)^d/\Delta) yields (3^{d-1}) strata. The triadic refinement depth ((d-1)) encodes exactly the stratification needed to lift the metro into dimension (d) without collapsing distinct relative-phase regimes into the same discrete cell.
+
+☁ Cloud — Legality, Truth Typing, and Failure Modes for Projections and Lifts
+13.C1 — Projection and lift claims are certified transforms
+A projection or lift is a meaning-bearing transform only when its rule is pinned and its execution is replayable. Define a projection claim
+[
+\mathsf{Claim}{\pi} := (\text{src}=\Sigma{B_d},\ \text{dst}=\Sigma_{B_{d'}},\ \text{map}=\pi_{d\to d'},\ \text{pins},\ \text{domain},\ \text{corridor}),
+]
+and analogously for lift claims (\lambda^{(t)}). A claim is eligible for (\mathrm{OK}) only if:
+the digits/order conventions are pinned,
+boundary policy is pinned (if phases (\phi) are inputs),
+deterministic replay reproduces identical outputs and identical digests, and
+any additional corridor invariants (station preservation, stratum policy constraints, hub constraints) are verified.
+
+13.C2 — Truth typing for lift-digit choice
+When projecting from (d) to (d+1), there are three lifts (\lambda^{(0)},\lambda^{(1)},\lambda^{(2)}). The digit selection is governed by corridor constraints:
+OK: the lift digit (t) is uniquely determined by pinned policy, or the corridor explicitly pins (t) as part of the claim input.
+AMBIG: multiple digits are admissible and no pinned tie-break exists; the outcome must include a bounded candidate set ({t}\subseteq{0,1,2}) and an evidence plan that selects (t).
+FAIL: the digit choice violates corridor invariants (e.g., violates a pinned corridor that forbids certain strata for the current target), or the policy is missing but required.
+NEAR: permitted only if the corridor explicitly allows approximate digit selection under a metric and a residual ledger (rare for discrete digit selection; generally disallowed).
+
+13.C3 — Boundary ambiguity for phase quantization
+If an input phase (\phi) lies on a quantization boundary (e.g., (B_d\phi\in\mathbb{Z})), then (Q_d(\phi)) depends on boundary conventions. Without pinned boundary conventions, the correct truth type is (\mathrm{AMBIG}) (bounded ambiguity among at most two indices). With pinned boundary conventions, the quantizer is deterministic and may be (\mathrm{OK}).
+A corridor that permits quantized-phase operations must specify:
+interval conventions (half-open policy),
+numeric representation policy (rational canonical form or pinned float policy), and
+replay rules for boundary cases.
+
+13.C4 — Aliasing failure as insufficient stratification
+If a system attempts to interpret a (d)-dimensional stratified state using a ring (N<B_d), then multiple strata must collapse into the same discrete cell. This is an aliasing failure mode:
+If the collapsed fiber is bounded and explicitly enumerated, the correct type is (\mathrm{AMBIG}) with a bounded candidate set and an evidence plan.
+If the fiber is unbounded under the corridor’s admissible state class (or cannot be enumerated within budget (\chi)), the correct type is (\mathrm{FAIL}).
+
+✶ Fractal — Gear-Stack Atlases, Replay Harness Expectations, and Regression Obligations
+13.R1 — The gear-stack atlas across dimensions
+Define the gear-stack atlas at dimension (d) as the collection of all certified maps:
+(\pi_{d\to d'}) for all (d'\le d),
+(\lambda_{d'\to d}^{(\mathbf{t})}) families with pinned digit policies,
+(\mathsf{GS}_d) and (\mathsf{GS}_d^{-1}),
+together with replay capsules and regression suites verifying:
+station preservation under projection,
+digit append/truncation laws,
+functoriality (\pi_{d\to d''}=\pi_{d'\to d''}\circ\pi_{d\to d'}), and
+deterministic behavior under pinned boundary policy.
+This atlas is a necessary substrate for any cross-dimensional routing that intends to be replay-verifiable.
+
+13.R2 — Replay harness expectations for (B_d) projections and lifts
+A conformant replay harness must provide deterministic routines for:
+Index normalization into (\Sigma_{B_d}) canonical representatives.
+Macro-station computation (\pi_{\mathrm{st}}^{(d)}) and stratum computation (\pi_{\mathrm{str}}^{(d)}).
+Digit extraction (\mathrm{digits}_d) and reconstruction.
+Projection verification for (\pi_{d\to d'}).
+Lift verification for (\lambda^{(t)}) with pinned digit selection rules.
+Round-trip laws: (\pi_{d+1\to d}\circ \lambda_{d\to d+1}^{(t)}=\mathrm{Id}), and tower consistency.
+Boundary policy tests if phase quantization is part of the subject.
+All verifier outputs must be digest-bound and reproducible under pinned environment pins.
+
+13.R3 — Regression suite obligations (minimum fixtures)
+A minimal regression suite for cross-dimensional metro must include fixtures for:
+All macro-station boundaries: values of (u) at (\sigma W_d) and ((\sigma+1)W_d-1).
+All lift digits: for each (t\in{0,1,2}), verify digit append law and right-inverse law.
+Multi-step functoriality: random (u) and multiple (d') verifying (\pi_{d\to d''}=\pi_{d'\to d''}\circ\pi_{d\to d'}).
+Digit stack extremes: (\gamma=0) (all digits zero) and (\gamma=3^{d-1}-1) (all digits two).
+Phase boundary cases: if (Q_d) is used, test boundary points under the pinned boundary convention.
+Failures must produce deterministic failure witnesses; unresolved ambiguity must produce evidence plans; all artifacts must be exportable and import-verifiable.
+
+13.R4 — Reference implementation (projection/lift/digit stack)
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import List, Tuple, Literal
+
+Digit = Literal[0, 1, 2]
+
+def B(d: int) -> int:
+    assert d >= 1
+    return 15 * (3 ** (d - 1))
+
+def W(d: int) -> int:
+    assert d >= 1
+    return 3 ** (d - 1)
+
+def proj_dim(u: int, d: int, d2: int) -> int:
+    """
+    Projection π_{d→d2} on indices, grouping triadic refinements.
+    u is assumed canonical in [0, B(d)-1].
+    """
+    assert 1 <= d2 <= d
+    return u // (3 ** (d - d2))
+
+def lift_dim(u: int, d: int, t: Digit) -> int:
+    """
+    One-step lift λ_{d→d+1}^{(t)}.
+    """
+    assert d >= 1
+    return 3 * u + int(t)
+
+def station(u: int, d: int) -> int:
+    """
+    Macro-station projection π_st^{(d)}(u) in {0,...,14}.
+    """
+    return u // W(d)
+
+def stratum(u: int, d: int) -> int:
+    """
+    Stratum projection π_str^{(d)}(u) in {0,...,W(d)-1}.
+    """
+    return u - station(u, d) * W(d)
+
+def digits_stratum(gamma: int, d: int) -> Tuple[Digit, ...]:
+    """
+    Convert gamma in [0, 3^{d-1}-1] to (t1,...,t_{d-1}) in base 3.
+    Most significant digit first. For d=1, returns empty tuple.
+    """
+    assert d >= 1
+    if d == 1:
+        return tuple()
+    out: List[Digit] = []
+    rem = gamma
+    for i in range(d - 1):
+        place = 3 ** (d - 2 - i)
+        ti = rem // place
+        rem = rem - ti * place
+        out.append(ti)  # type: ignore
+    return tuple(out)  # type: ignore
+
+def undigits_stratum(ts: Tuple[Digit, ...]) -> int:
+    """
+    Convert (t1,...,t_{m}) in base 3 to integer gamma.
+    """
+    m = len(ts)
+    gamma = 0
+    for i, ti in enumerate(ts):
+        place = 3 ** (m - 1 - i)
+        gamma += int(ti) * place
+    return gamma
+
+def gear_stack(u: int, d: int) -> Tuple[int, Tuple[Digit, ...]]:
+    """
+    Returns (sigma, (t1,...,t_{d-1})) for u in Σ_{B_d}.
+    """
+    sigma = station(u, d)
+    gamma = stratum(u, d)
+    ts = digits_stratum(gamma, d)
+    return sigma, ts
+
+def from_gear_stack(sigma: int, ts: Tuple[Digit, ...], d: int) -> int:
+    """
+    Inverse reconstruction GS_d^{-1}.
+    """
+    assert 0 <= sigma <= 14
+    assert len(ts) == max(0, d - 1)
+    gamma = undigits_stratum(ts)
+    assert 0 <= gamma < W(d)
+    return sigma * W(d) + gamma
+
+def multi_gear(u: int, d: int) -> Tuple[int, ...]:
+    """
+    Multi-gear readout MG_d(u) = (u^{(1)},...,u^{(d)}).
+    """
+    return tuple(proj_dim(u, d, r) for r in range(1, d + 1))
+
+
+Ch13 — Cross-Dimensional Metro (B_d ring + gear stacks)
+Ch14 — The Holographic Compiler Interface (Seed → State → Navigation)
+The aether seed as an invariant object and its instantiation into HD‑SCT state and deterministic navigation
+
+□ Square — Formal Interface: aether seed, compilation, and routable artifacts
+14.S1 Aether seed as a typed invariant object
+14.S1.1 Seed as canonical semantic object, not surface syntax
+An aether seed is the canonical semantic object from which all lens-representations are compiled. It is not a string, not a rendered equation, and not a file layout. It is a typed invariant structure supporting deterministic compilation.
+Define a seed (\mathcal{A}) as the tuple
+[
+\boxed{
+\mathcal{A}:=\bigl(\mathcal{V},\mathcal{O},\mathcal{T},\mathcal{R},\mathcal{I},\mathcal{U},\mathcal{G}\bigr)
+}
+]
+where:
+(\mathcal{V}) is a finite set of symbols (variables, constants, parameters, fields, random variables, operators).
+(\mathcal{O}) is a finite set of operators (function symbols) with arities and evaluation classes (algebraic, differential, integral, stochastic, functional, multiscale).
+(\mathcal{T}) is a type system specifying base types and constructors (scalars, vectors, tensors, fields on manifolds, measures, distributions, operators, scale-families, code objects), together with well-formedness judgments for terms.
+(\mathcal{R}) is a finite set of relations (axioms/constraints) expressed as typed equalities/inequalities/implications between well-typed terms.
+(\mathcal{I}) is a finite set of invariants that must be preserved by admissible representation changes (dimensional consistency, conservation laws, symmetries, normal-form equivalence, decode equivalence, commutation receipts, corridor legality).
+(\mathcal{U}) is a unit/gauge discipline (units, dimensional annotations, gauge choices, and any quotient identifications that define semantic equivalence classes).
+(\mathcal{G}) is a finite set of gauge freedoms and canonicalization constraints specifying which degrees of freedom are semantic and which are representational.
+The role of (\mathcal{G}) is to make “same seed” well-defined. If two surface forms differ only by allowed gauge transformations, they compile to the same canonical seed.
+
+14.S1.2 Term-graph representation and alpha-canonicalization
+Let (\mathrm{Term}(\mathcal{A})) be the set of well-typed terms over ((\mathcal{V},\mathcal{O},\mathcal{T})). To avoid dependence on symbol names and syntactic formatting, the seed is represented as a typed term graph:
+[
+\boxed{
+\mathsf{TG}(\mathcal{A}) := (N,E,\mathrm{op},\mathrm{ty},\mathrm{ann})
+}
+]
+where (N) are nodes (subterms), (E\subseteq N\times N) are directed edges (argument links), (\mathrm{op}) assigns an operator label to each internal node, (\mathrm{ty}) assigns a type to each node, and (\mathrm{ann}) stores canonical annotations (units, domains, axis tags, scale tags, measure tags).
+A seed (\mathcal{A}) is canonical if:
+its term graph is acyclic (or if cyclic, the cycle semantics are explicitly typed and pinned),
+all binders (integrals, sums, expectations) are alpha-canonicalized,
+node ordering is canonical (topological order with pinned tie-break), and
+every semantic degree of freedom is represented explicitly in (\mathcal{G}), with a pinned canonical gauge selection.
+Define the seed canonical bytes (\mathrm{Enc}(\mathcal{A})) by a pinned encoding schema, and define the seed identifier
+[
+\boxed{
+\mathrm{SeedID}(\mathcal{A}) := H(\mathrm{Enc}(\mathcal{A})).
+}
+]
+All compiled artifacts produced from (\mathcal{A}) are required to carry (\mathrm{SeedID}(\mathcal{A})) as a primary pin.
+
+14.S1.3 Seed equivalence and semantic equality
+Let (\sim_{\mathcal{G}}) be the equivalence relation generated by the allowed gauge transformations and definitional equalities specified in (\mathcal{G}). Two seeds (\mathcal{A},\mathcal{A}') are semantically equal if:
+[
+\boxed{
+\mathcal{A}\equiv \mathcal{A}' \quad \Longleftrightarrow \quad \mathcal{A}\sim_{\mathcal{G}}\mathcal{A}'.
+}
+]
+Canonicalization selects a unique representative (\mathrm{CanSeed}(\mathcal{A})) in each equivalence class. The compiler interface is defined on canonical seeds.
+
+14.S2 The compiler pipeline: Seed → State → Navigation
+14.S2.1 The compiler as a pure function of pinned inputs
+Fix pinned profiles:
+a CorridorProfile (\mathfrak{C}) (truth typing, budgets, legality),
+a RouterProfile (\pi_R) (≤6 hubs, deterministic order),
+a BuildProfile (\pi_B) (dimension-depth lock policy, resolution policy, boundary policy, normalization policy, export policy),
+an EnvironmentPin (\mathsf{EPn}) (replay determinism requirements).
+The holographic compiler is the pure function
+[
+\boxed{
+\mathrm{Compile}:\ (\mathcal{A},\pi_B,\mathfrak{C},\pi_R,\mathsf{EPn})\ \longrightarrow\ \mathsf{Program}
+}
+]
+where (\mathsf{Program}) is an addressable, replayable package containing:
+instantiated HD‑SCT state objects across chosen ((d,k)),
+certified transform edges and receipts needed to move between states,
+navigation indices and router-ready graph structures, and
+certificate bundles for replay/import verification.
+Purity requirement: compilation must not depend on unpinned randomness, clock time, network state, or mutable caches. Any such dependency forces (\mathrm{AMBIG}) or (\mathrm{FAIL}) under corridor policy.
+
+14.S2.2 HD‑SCT state as a four-carrier object
+For each locked dimension/scale pair ((d,k)), define the HD‑SCT state space
+[
+\boxed{
+\mathsf{HDState}(d,k)
+:= \mathsf{SqState}(d,k)\ \times\ \mathsf{CiState}(d,k)\ \times\ \mathsf{TrState}(d,k)\ \times\ \mathsf{FrState}(d,k).
+}
+]
+An instantiated state is
+[
+\boxed{
+\mathbf{x}{d,k}
+:=\bigl(x^\square{d,k},x^\circ_{d,k},x^\triangle_{d,k},x^{\mathfrak{f}}_{d,k}\bigr)\in\mathsf{HDState}(d,k).
+}
+]
+The seed-to-state instantiator is the function
+[
+\boxed{
+\mathrm{Instantiate}:\ (\mathcal{A},d,k;\pi_B,\mathfrak{C})\ \longrightarrow\ \mathbf{x}_{d,k}\ \text{ plus ledgers and receipts}.
+}
+]
+(i) Square carrier (\mathsf{SqState}(d,k)).
+This is the discrete address/structure carrier at locked depth. It must include:
+the locked dimension/scale tags ((d,k)),
+the square resolution policy (per-axis minimums, lock constraints),
+a canonical normal form object for square addresses/tiles,
+any square-encoded invariants derived from (\mathcal{A}) (symbol/type placements, adjacency constraints, operator wiring constraints).
+(ii) Circle carrier (\mathsf{CiState}(d,k)).
+This is the phase/metro carrier associated to (\mathbb{T}^d) and the refined metro ring. It must include:
+an axis-phase vector (\phi\in\mathbb{T}^d) or a discrete hub index in a pinned hub mesh (\mathcal{H}^d),
+a metro index (u\in\Sigma_{B_d}) where
+[
+\boxed{B_d=15\cdot 3^{d-1}},
+]
+the boundary policy and quantization policy binding (\phi) to (u) (or declaring the relationship as approximate with a residual ledger).
+(iii) Triangle carrier (\mathsf{TrState}(d,k)).
+This is the pinned corridor-policy state governing which corridors and routes are admissible (e.g., global vs per-axis triangle mode, pinned corridor selections, digit/lift selection policies). It must include:
+the triangle mode (\tau) (global or per-axis),
+the lift-digit policy binding triadic refinement choices to admissible states,
+policy witnesses for any forced choices (or evidence plans if not uniquely determined).
+(iv) Fractal carrier (\mathsf{FrState}(d,k)).
+This is the multiscale and cross-dimensional coherence carrier. It must include:
+the scale ladder and lift/projection receipts,
+Snap/meta-zero canonical representatives and residual ledgers,
+holonomy/spin receipts required for schedule commutation claims,
+certificate references needed to replay all above.
+Each carrier is an object with canonical bytes and a digest. The full state digest is the digest of the product encoding under pinned ordering.
+
+14.S2.3 Seed invariance law across carriers
+Compilation is valid only if the instantiated carriers remain attached to the same seed.
+For each lens (L\in{\square,\circ,\triangle,\mathfrak{f}}), define a deterministic evaluator
+[
+\mathrm{Eval}_L:\ \mathsf{LState}(d,k)\ \rightharpoonup\ \mathcal{A}
+]
+and a deterministic encoder
+[
+\mathrm{Enc}_L:\ \mathcal{A}\ \rightharpoonup\ \mathsf{LState}(d,k),
+]
+both pinned by profile digests and boundary policies.
+Define the seed invariance defect for lens (L) by
+[
+\Delta_L(\mathcal{A};d,k)
+:= \mathrm{Dist}_{\mathcal{A}}!\bigl(\mathrm{Eval}_L(\mathrm{Enc}L(\mathcal{A})),\ \mathcal{A}\bigr),
+]
+where (\mathrm{Dist}{\mathcal{A}}) is a pinned seed-distance functional (often discrete: (0) if canonical seed ID matches; (1) otherwise; or structural diff metrics when a corridor permits NEAR).
+Seed invariance requirement.
+A compiled program may claim (\mathrm{OK}) attachment to seed (\mathcal{A}) at ((d,k)) only if:
+[
+\boxed{
+\Delta_L(\mathcal{A};d,k)=0\quad\text{for all required lenses }L
+}
+]
+and all associated replays close. If (\Delta_L) is bounded but nonzero, the compiler must emit a residual ledger and type the attachment (\mathrm{NEAR}) or (\mathrm{AMBIG}) under corridor rules.
+
+14.S3 Snap-closure as the canonical state selector
+Seed instantiation is not generally unique because multiple representations and corridor constraints do not necessarily commute. The compiler therefore selects canonical representatives by Snap/meta-zero closure.
+Fix a pinned gate list (\mathbf{P}=(P_1,\dots,P_m)) acting on a product carrier (\mathsf{X}) that includes the necessary components of (\mathsf{HDState}(d,k)). Define the composite gate
+[
+T:=P_m\circ\cdots\circ P_1.
+]
+The Snap closure is:
+[
+\boxed{
+\mathrm{Snap}{\pi_B,\mathfrak{C}}(\mathbf{x})
+:=\lim{n\to\infty}T^n(\mathbf{x})
+}
+]
+when the limit exists under the pinned stopping rule and within the pinned computational budget (\chi). The Snap output is:
+[
+\boxed{
+\bigl(\mathbf{x}^\star,\ \mathsf{RL},\ \mathsf{SR},\ \mathsf{RC}\bigr)
+}
+]
+where:
+(\mathbf{x}^\star) is the canonical representative,
+(\mathsf{RL}) is the residual ledger bundle (per-gate defects, alias leakage, boundary defects),
+(\mathsf{SR}) is the set of required spin/holonomy receipts (when commutation constraints are part of the corridor),
+(\mathsf{RC}) is the replay capsule ensuring determinism of the Snap computation.
+The compiler must treat Snap as a first-class compilation stage: it is not an optimization, and it is not optional when canonical representatives are required for navigation or export.
+
+14.S4 Navigation as a compiled interface: queries, routes, and artifacts
+14.S4.1 Navigation objects: targets, intents, and start contexts
+Navigation operates on the compiled program (\mathsf{Program}) by issuing a navigation query
+[
+\boxed{
+\mathsf{NavQ}:=(\mathrm{SeedID},\mathrm{Ctx},\mathrm{Target},\mathsf{Intent},\tau_0,\mathsf{Pins})
+}
+]
+where:
+(\mathrm{Ctx}) identifies the current ((d,k)) (or a set of candidate ((d,k)) contexts),
+(\mathrm{Target}) is a strict address in the HD‑SCT address grammar,
+(\mathsf{Intent}) is a pinned intent class,
+(\tau_0\in{\mathrm{OK},\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL}}) is the initial truth state,
+(\mathsf{Pins}) pins router/corridor profiles and environment.
+Navigation outputs a RoutePlan (≤6 hubs, deterministic order) together with replayable artifacts:
+[
+\boxed{
+\mathrm{Navigate}(\mathsf{NavQ})
+\ \longrightarrow
+(\mathsf{RP},\ \mathsf{Tx},\ \mathsf{Out},\ \mathsf{RC}_{\mathrm{nav}})
+}
+]
+where:
+(\mathsf{RP}) is the deterministic hub ride to the target,
+(\mathsf{Tx}) is the execution transcript (append-only),
+(\mathsf{Out}) is the corridor truth-typed outcome bundle,
+(\mathsf{RC}_{\mathrm{nav}}) is a replay capsule for route selection and execution.
+
+14.S4.2 The compiled navigation index
+To guarantee deterministic routing without heuristic search explosion, the compiler emits a navigation index. Define:
+[
+\boxed{
+\mathsf{NavIndex}:=(\mathrm{AddrIndex},\mathrm{HubIndex},\mathrm{RingIndex},\mathrm{LiftIndex},\mathrm{ReceiptIndex},\mathrm{FenceIndex})
+}
+]
+where:
+(\mathrm{AddrIndex}) maps addresses to canonical nodes in the compiled graph.
+(\mathrm{HubIndex}) maps target classes to router base hubs and intent overlays under (\pi_R).
+(\mathrm{RingIndex}) maps circle-phase or metro objects to (u\in\Sigma_{B_d}), plus macro-station (\sigma\in\Sigma_{15}) and gear digits.
+(\mathrm{LiftIndex}) stores available lift/projection families between dimensions (including digit selection policies and admissibility).
+(\mathrm{ReceiptIndex}) stores spin/holonomy receipts and their scopes.
+(\mathrm{FenceIndex}) stores quarantines, revocations, and conflict packets.
+The router and executor are required to operate only on the index and pinned profiles; they must not re-infer semantics from prose or from mutable state.
+
+14.S4.3 The router/engine artifact contract
+For any navigation output, the compiler and executor must emit a minimal bundle:
+[
+\boxed{
+\mathsf{NavBundle}
+:= (\mathsf{RP},\mathsf{Tx},\mathsf{Out},\mathrm{SeedID},\mathrm{StateDigests},\mathrm{ProfileDigests},\mathrm{BudgetUse})
+}
+]
+with strict requirements:
+Deterministic hub order pinned by (\pi_R).
+≤6 unique hubs before the target (dedupe does not count as dropping).
+Truth overlay hubs inserted deterministically according to (\tau_0) and corridor policy.
+Replay closure: the navigation selection and execution transcript must be reproducible under pinned environment pins.
+Import verifiability: when exported, the bundle includes enough closure artifacts (capsules, witnesses, profiles) for an external ve

@@ -1,0 +1,398 @@
+y binding decision (including selection among multiple admissible edges) MUST be justified by pins and recorded in BridgePinWitness. If two distinct bindings satisfy constraints and no pins discriminate them, the operation is AMBIG unless the conflict resolution policy is itself fully pinned.
+17.2.5 Code Stage ((\mathsf{C}))
+Purpose. Encode/serialize the bridged structure into containers and exportable artifacts.
+Input type. (\mathsf{BOut}).
+Output type.
+[
+\mathsf{COut} := \langle \textsf{container_ref}:\mathsf{ARef},\ \textsf{cstate}:\mathsf{CState},\ \textsf{cart}:\mathsf{CArt}\rangle.
+]
+CState (required fields).
+[
+\mathsf{CState} :=
+\langle
+\textsf{container_format_id},
+\textsf{schema_bundle_ref},
+\textsf{encoding_policy},
+\textsf{compression_policy},
+\textsf{signature_policy},
+\textsf{c_pins_consumed}
+\rangle.
+]
+CArt (required artifacts).
+(\mathsf{CArt.Cont}): ContainerPayload (addressable): the exact serialized container bytes (or chunked bundle).
+(\mathsf{CArt.Man}): ExportManifest (addressable): lists all included artifacts by digest, schema IDs, sizes, and roles; includes pipeline and stage transcript digests.
+(\mathsf{CArt.Sig}): SignatureBundle (addressable): signatures, public-key identifiers, and verification chain if signing is enabled; else explicit “unsigned” record.
+(\mathsf{CArt.Inv}): CodeInvariantReport (addressable).
+The container MUST embed or reference sufficient information to permit import verification to reconstruct pins and validate all stage artifacts (ImportCert; AppI/AppM).
+17.3 Required Laws
+17.3.1 Stage Contract Completeness Law
+For every operation (\tau) admitted into the HD‑SCT transformation set, there MUST exist a PipelineSpec (\Pi) and a pin assignment (\mathsf{PinSet}) such that execution yields transcripts (T_P,T_Q,T_B,T_C) satisfying:
+Stage assignment completeness. Every effect of (\tau) is attributed to exactly one stage (\mathsf{P}/\mathsf{Q}/\mathsf{B}/\mathsf{C}) by the stage interpretation rules (AppA/AppD).
+Pin consumption completeness. Each stage transcript lists all pins consumed; no hidden dependency is permitted.
+Artifact emission completeness. Each stage emits the mandatory artifacts defined in 17.2, or explicit identity-stage artifacts where required.
+Invariant declaration and preservation. Each stage declares invariants and supplies an invariant report artifact evaluating them.
+A stage contract is a verifiable tuple:
+[
+\mathsf{Contract}(\mathsf{S}) :=
+\langle \textsf{pins_required},\ \textsf{pins_optional},\ \textsf{artifacts_required},\ \textsf{output_type},\ \textsf{invariants}\rangle
+]
+and MUST be included (by digest) in StageSpec.
+17.3.2 No Cross-Stage Ambiguity Law
+If an effect could be explained by more than one stage assignment, the framework SHALL force a unique assignment via pinned interpretation rules, otherwise the operation SHALL be classified AMBIG.
+Pinned interpretation rules. A total decision procedure (\mathsf{AssignStage}(\tau,\Pi,\mathsf{PinSet})) MUST exist (AppA/AppD). If (\mathsf{AssignStage}) returns multiple admissible stage assignments and no discriminating pin exists that is declared in the relevant StageSpec, then the operation is AMBIG.
+AMBIG prohibition. A pipeline run that is AMBIG MUST NOT produce a StageDeterminismCert nor PipelineReplayCert.
+Dominance principle (normative default). In the absence of explicit override pins, stage assignment SHALL be the earliest stage capable of explaining the effect under the following dominance ordering:
+Partition (structure of decomposition),
+Quantize (representation / discretization / codebook mapping),
+Bridge (interaction binding / corridor enforcement),
+Code (serialization / packaging / export).
+Overrides are allowed only when a dedicated, typed override pin is declared and consumed, and the override decision is recorded in the stage transcript.
+17.3.3 Composability Law
+Let (\Pi) be a PipelineSpec and let (R) be a run producing outputs with transcripts ((T_P,T_Q,T_B,T_C)). Composability requires:
+Type composability. The output type of each stage matches the next stage’s input type.
+Artifact referential integrity. Every reference digest in later stages MUST correspond to an artifact digest produced earlier or present in the ArtifactStore with verified digest.
+Invariant composability. Invariants declared by earlier stages that are required by later stages MUST be explicitly listed as preconditions in later StageSpecs. Any invariant relied upon but not declared is a contract violation.
+17.3.4 Invertibility Law and Witness Requirement
+Invertibility is stage-local and MUST be witnessed.
+A stage (\mathsf{S}) is invertible under pins if there exists a deterministic inverse executor (\mathsf{S}^{-1}) and an explicit witness (W_S) such that for all valid inputs (x) and pins (p),
+[
+\mathsf{S}^{-1}(\mathsf{S}(x,p),\ p,\ W_S) = x
+]
+and verification of digests succeeds.
+No stage inversion is assumed.
+If a stage is not invertible, it MUST emit an irreversibility witness describing what information is lost and what guarantees remain (e.g., error bounds in (\mathsf{QArt.Err})).
+Invertibility of the full pipeline requires invertibility of each stage or an explicit global inversion witness proving that information is recoverable from later-stage artifacts.
+Stage inversion witnesses MUST be addressable artifacts or embedded structured records with digests.
+17.3.5 Injection Discipline Law for ○□△
+Circle phase (○), Square kernel choice (□), and Triangle corridor decisions (△) MUST enter the pipeline only through declared injection points, implemented as pins.
+A stage may only depend on ○/□/△ decisions if:
+the corresponding pins are declared in StageSpec.pin_requirements, and
+the pins are explicitly listed in StageTranscript.pins_used, and
+the resulting decisions are recorded in the stage’s required artifacts (e.g., (\mathsf{BArt.Pins}), (\mathsf{QState.kernel_choice_id}), (\mathsf{BState.corridor_rule_ref})).
+Hidden side channels are forbidden: ambient iteration order, filesystem ordering, network timing, and unspecified hash map traversal are prohibited dependencies unless pinned and canonicalized.
+17.4 Deterministic Executors (Algorithms) Per Stage
+All executors below are normative: they define required behavior classes. Implementations MAY vary internally, but MUST produce identical transcripts and artifact digests for identical inputs and pin assignments, under the same StageSpec version and canonicalization rules.
+17.4.1 Deterministic Tie-Breaking and Canonical Ordering
+A deterministic executor MUST eliminate unordered structure ambiguity by canonical ordering rules:
+Any set of items MUST be converted to a sequence using a total order derived from canonical keys:
+[
+\textsf{key}(u) := (\textsf{schema_id}(u),\ \mathsf{Digest}(u),\ \textsf{stable_id}(u),\ \textsf{fallback_rank})
+]
+where (\textsf{fallback_rank}) is obtained from a declared tie-break pin if needed.
+If two items share identical keys and are semantically distinct, the executor MUST require an explicit tie-break pin. Absent such a pin, the run is AMBIG.
+17.4.2 Stage Executor: Partition ((\mathsf{P}))
+Input: (x:\mathcal{X}), (\mathsf{PinSet}_P), store
+Output: (\mathsf{POut}), transcript
+Algorithm (\mathsf{ExecP}):
+Validate pins. Validate (\mathsf{PinSet}_P) against (\mathsf{P_spec.pin_requirements}) and canonicalize pin values.
+Normalize input. Apply normalization rules specified by (\mathsf{PState.normalization_rules}) (either fixed by StageSpec or selected via pins).
+Compute partition. Apply (\textsf{partition_policy_id}) to derive candidate parts.
+Canonicalize ordering. Order parts using (\textsf{ordering_policy}); if ordering is underdetermined, consume a tie-break pin.
+Emit part payload artifacts. For each part, serialize payload, store as (\mathsf{ARef}) with digest.
+Build PartitionManifest and Provenance. Emit (\mathsf{PArt.Man}) and (\mathsf{PArt.Prov}) as addressable artifacts.
+Evaluate invariants. Produce (\mathsf{PArt.Inv}) (e.g., coverage, non-overlap, provenance completeness).
+Assemble transcript. Record input digest(s), pins used, state digest, artifact digests, output digest.
+Determinism requirement: for fixed (x) and pins, the manifest and all part digests MUST be identical across runs.
+17.4.3 Stage Executor: Quantize ((\mathsf{Q}))
+Input: (\mathsf{POut}), (\mathsf{PinSet}_Q), store
+Output: (\mathsf{QOut}), transcript
+Algorithm (\mathsf{ExecQ}):
+Validate/canonicalize pins; ensure kernel choice pin presence if StageSpec declares alternative kernels.
+Load referenced codebooks (if any) by digest; verify digests.
+For each part in PartitionManifest order:
+compute quantized symbol(s) using quantizer and kernel choice,
+apply rounding policy,
+if a tie arises (equal-distance codewords, ambiguous bin edges), consume tie-break pin and record the selected branch.
+Emit QuantizationTable artifact mapping parts → symbols with digests.
+Emit CodebookBundle artifact or explicit “none” record with full quantizer specification in QState.
+Emit QuantizationErrorCertificate:
+If lossless: provide bijection proof object and inverse lookup witness.
+If lossy: provide explicit distortion metrics, error bounds, and irreversibility flag.
+Evaluate invariants; emit QuantizationInvariantReport.
+Assemble transcript.
+Determinism requirement: all quantized symbols and QArt artifacts MUST be uniquely determined by pins; any unresolved tie yields AMBIG.
+17.4.4 Stage Executor: Bridge ((\mathsf{B}))
+Input: (\mathsf{QOut}), (\mathsf{PinSet}_B), store
+Output: (\mathsf{BOut}), transcript
+Algorithm (\mathsf{ExecB}):
+Validate/canonicalize pins; require explicit corridor rule pin if corridor is selectable.
+Load phase plan (\Phi), kernel binding descriptors, and corridor rules (\Gamma) via digests or pin-selected canonical IDs; verify.
+Construct candidate interaction graph:
+nodes: all QUnits plus required bridge nodes (phase nodes, kernel nodes, corridor gate nodes),
+edges: admissible interactions under (\Gamma) and (\Phi).
+Resolve binding choices:
+If multiple admissible edges/bindings exist, select using explicit pins (Bridge selection pins).
+If selection remains underdetermined, classify AMBIG.
+Canonicalize graph encoding (stable node IDs, stable edge ordering).
+Emit BridgeGraph artifact and BridgePinWitness (minimal pin projection):
+BridgePinWitness MUST contain exactly the pins necessary to reproduce every binding decision.
+Emit CorridorComplianceReport:
+either a proof object (if corridor rules are formalized) or a deterministic check log showing each constraint verified.
+Evaluate invariants; emit BridgeInvariantReport.
+Assemble transcript.
+Determinism requirement: the exact graph encoding digest MUST be reproduced on replay given the same pins and same upstream digests.
+17.4.5 Stage Executor: Code ((\mathsf{C}))
+Input: (\mathsf{BOut}), (\mathsf{PinSet}_C), store
+Output: (\mathsf{COut}), transcript
+Algorithm (\mathsf{ExecC}):
+Validate/canonicalize pins; select container format and encoding policy.
+Produce ExportManifest listing:
+pipeline spec digest(s),
+all stage transcript digests,
+all artifacts (PArt/QArt/BArt plus any embedded state artifacts),
+schema bundle digest(s).
+Serialize container deterministically:
+deterministic field ordering,
+deterministic compression settings (if used, they MUST be fully pinned),
+deterministic chunking (chunk size pinned if applicable).
+Emit ContainerPayload artifact (bytes) and its digest.
+Emit SignatureBundle:
+If signing enabled: deterministic signature scheme with pinned key ID and canonical signing input.
+Else: explicit unsigned record artifact.
+Evaluate invariants; emit CodeInvariantReport.
+Assemble transcript.
+Determinism requirement: container bytes digest MUST be identical on replay given identical inputs and pins.
+17.5 Pipeline Scheduler and Capsule Builder (Algorithms)
+17.5.1 Pipeline Scheduler
+The scheduler computes the required stage sequence and witnesses for a target operation (\tau). The universal spine always exists; the scheduler may assign identity StageSpecs where (\tau) does not affect that stage.
+Define:
+(\mathsf{StageImpact}(\tau)\subseteq {\mathsf{P},\mathsf{Q},\mathsf{B},\mathsf{C}}): stages affected by (\tau).
+(\mathsf{RequiredPins}(\Pi,\tau)): pins required by StageSpecs selected for (\tau).
+Algorithm (\mathsf{Schedule}(\tau,\textsf{policy})):
+Determine candidate stage impacts using interpretation rules (AppA/AppD).
+For each stage (\mathsf{S}):
+if (\mathsf{S}\in\mathsf{StageImpact}(\tau)), select a StageSpec (\mathsf{S_spec}) compatible with (\tau) and policy;
+else select identity StageSpec with explicit invariants and empty artifacts.
+Construct PipelineSpec (\Pi) and compute (\mathsf{RequiredPins}(\Pi,\tau)).
+If stage assignment is not unique under current pins and policy, return AMBIG classification with the set of discriminating pin types required to disambiguate.
+Output (\Pi) and required pin schema list.
+The scheduler MUST produce a compatibility proof (ContractCert input) that the selected StageSpecs compose and that all required artifacts for import are produced.
+17.5.2 Capsule Builder (Replay Capsule Construction)
+A replay capsule is the minimal self-contained object sufficient to reproduce a pipeline run and verify the output digests.
+Define:
+ReplayCapsule
+[
+\mathsf{Capsule} :=
+\langle
+\textsf{pipeline_spec_digest},
+\textsf{pinset_digest},
+\textsf{pins},
+\textsf{input_refs},
+\textsf{artifact_closure},
+\textsf{expected_transcripts},
+\textsf{expected_output_digests},
+\textsf{verification_policy}
+\rangle.
+]
+(\textsf{artifact_closure}) MUST include every artifact required to replay the run (or content-addressed locators whose retrieval is itself deterministic and verified by digest).
+Algorithm (\mathsf{BuildCapsule}(R)) for a completed run (R):
+Collect PipelineSpec digest and canonical pinset (including pin schemas).
+Collect all StageTranscripts and required artifacts:
+include (\mathsf{PArt.}), (\mathsf{QArt.}), (\mathsf{BArt.}), (\mathsf{CArt.}),
+include any codebooks, phase plans, corridor rules, schema bundles by digest.
+Compute artifact closure by transitive digest references from manifests.
+Record expected transcript digests and final container digest.
+Output capsule as an addressable artifact and emit its digest.
+Capsules are the primary witnesses for PipelineReplayCert.
+17.6 Required Certificates (Schemas and Verification)
+All certificates are explicit, addressable, and verifiable objects (AppC). A certificate is valid only if its verification procedure succeeds deterministically.
+17.6.1 StageDeterminismCert
+A StageDeterminismCert attests that a stage executor is deterministic under declared pins and canonicalization.
+StageDeterminismCert
+[
+\mathsf{StageDeterminismCert} :=
+\langle
+\textsf{stage_spec_digest},
+\textsf{pin_schema_digests},
+\textsf{canonicalization_digest},
+\textsf{tie_break_rules_digest},
+\textsf{determinism_statement},
+\textsf{verification_procedure_id},
+\textsf{proof_or_test_evidence_refs}
+\rangle.
+]
+Verification (\mathsf{VerifyStageDet}(cert)) MUST check:
+StageSpec and pin schemas exist and validate.
+Canonicalization and tie-break rules are total (no unpinned branch remains).
+Evidence is sufficient under policy: either formal proof object or deterministic conformance test suite with fixed seeds pinned and recorded.
+A StageSpec lacking StageDeterminismCert SHALL be treated as non-certified and SHALL NOT be used in deterministic lanes.
+17.6.2 PipelineReplayCert
+A PipelineReplayCert attests that the full (\mathsf{P}\to\mathsf{Q}\to\mathsf{B}\to\mathsf{C}) chain replays identically.
+PipelineReplayCert
+[
+\mathsf{PipelineReplayCert} :=
+\langle
+\textsf{capsule_ref},
+\textsf{pipeline_spec_digest},
+\textsf{stage_transcript_digests},
+\textsf{final_output_digest},
+\textsf{replay_verification_log_ref}
+\rangle.
+]
+Verification (\mathsf{VerifyReplay}(cert)):
+Load capsule, validate all included digests and pin schemas.
+Execute stages deterministically using the StageSpecs referenced.
+Recompute transcripts and output digests.
+Accept iff all transcript digests and final output digest match capsule expectations.
+Replay verification MUST be performed without external side effects not captured by artifacts (no network fetch unless digest-verified and declared in the capsule closure).
+17.6.3 ContractCert
+A ContractCert attests that stage contracts are complete and compatible with corridor rules and composability laws.
+ContractCert
+[
+\mathsf{ContractCert} :=
+\langle
+\textsf{pipeline_spec_digest},
+\textsf{stage_contract_digests},
+\textsf{type_compatibility_proof_ref},
+\textsf{invariant_compatibility_proof_ref},
+\textsf{corridor_rule_digest},
+\textsf{verification_log_ref}
+\rangle.
+]
+Verification MUST establish:
+Each StageSpec declares required pins and artifacts (completeness).
+The composed types match.
+Any invariant required downstream is declared upstream and verified upstream.
+Corridor compliance requirements appear explicitly in Bridge StageSpec and are satisfied by BArt.Corr.
+17.6.4 ImportCert
+An ImportCert attests that import verification reconstructs pins and validates all stage artifacts from a container.
+ImportCert
+[
+\mathsf{ImportCert} :=
+\langle
+\textsf{container_digest},
+\textsf{export_manifest_digest},
+\textsf{reconstructed_pinset_digest},
+\textsf{artifact_verification_log_ref},
+\textsf{schema_verification_log_ref}
+\rangle.
+]
+Verification (\mathsf{VerifyImport}(container)) (AppI/AppM):
+Decode container deterministically per (\textsf{container_format_id}).
+Load ExportManifest; verify its digest and that it lists all expected stage transcript digests and artifact digests.
+Reconstruct pins:
+pins MUST be present explicitly or reconstructible from manifest + declared pin witness artifacts (notably (\mathsf{BArt.Pins})),
+reconstructed pinset digest MUST match the manifest-stated pinset digest if provided.
+Verify every artifact payload digest matches its reference.
+Verify schema bundle and stage specs digests; verify signatures if present.
+Output ImportCert and accept only if all checks succeed.
+Import MUST NOT rely on implicit defaults; any missing pin required by StageSpec is an import failure.
+17.7 Universal Action Grammar: Semantic Normal Form
+A transformation in HD‑SCT is in spine normal form if it is represented by:
+[
+R = \langle \Pi,\ \mathsf{PinSet},\ x,\ T_P,T_Q,T_B,T_C,\ \mathsf{Capsule}\rangle
+]
+such that:
+(\Pi) is a valid PipelineSpec with ContractCert.
+Every stage spec in (\Pi) has a StageDeterminismCert.
+Execution produces transcripts (T_*) whose digests match the capsule.
+(\mathsf{VerifyReplay}) succeeds yielding PipelineReplayCert.
+(\mathsf{VerifyImport}) succeeds on the exported container yielding ImportCert.
+This normal form is the universal action grammar of the framework: any admissible operation is equivalent to exactly one spine normal form instance up to identity-stage substitution and canonical pin projection.
+17.8 Tight Spec-Only Version (Normative Extraction)
+17.8.1 Mandatory Stage Outputs
+For each stage (\mathsf{S}\in{\mathsf{P},\mathsf{Q},\mathsf{B},\mathsf{C}}), a valid run MUST emit:
+StageTranscript with: stage, stage_spec_digest, input_digests, pins_used, state_digest, artifacts[], output_digest, invariants_claimed.
+Stage state as a structured serializable record with digest.
+Required artifacts:
+Partition ((\mathsf{P})): PartitionManifest, PartitionProvenance, PartitionInvariantReport.
+Quantize ((\mathsf{Q})): QuantizationTable, CodebookBundle (or explicit none with full quantizer spec), QuantizationErrorCertificate, QuantizationInvariantReport.
+Bridge ((\mathsf{B})): BridgeGraph, BridgePinWitness, CorridorComplianceReport, BridgeInvariantReport.
+Code ((\mathsf{C})): ContainerPayload, ExportManifest, SignatureBundle (or explicit unsigned record), CodeInvariantReport.
+All artifacts MUST be addressable by digest ((\mathsf{ARef})).
+17.8.2 Mandatory Laws
+Contract completeness: stage assignment, pins consumed, artifacts emitted, invariants preserved are explicit.
+No cross-stage ambiguity: unique stage assignment enforced by pinned interpretation rules; else AMBIG.
+Composability: types, artifact references, and invariants compose along (\mathsf{P}\to\mathsf{Q}\to\mathsf{B}\to\mathsf{C}).
+Invertibility is witnessed: never assumed; losslessness/irreversibility is certified.
+Injection discipline: ○ phase, □ kernel, △ corridor decisions only via declared pins; no side channels.
+17.8.3 Mandatory Algorithms
+(\mathsf{ExecP},\mathsf{ExecQ},\mathsf{ExecB},\mathsf{ExecC}): deterministic, canonical ordering, pinned tie-breaks, emit required artifacts and transcripts.
+(\mathsf{Schedule}(\tau,\textsf{policy})): select StageSpecs (including identity) and required pin schemas; return AMBIG if not uniquely stage-assignable under pins.
+(\mathsf{BuildCapsule}(R)): compute artifact closure and expected transcript/output digests; emit replay capsule.
+17.8.4 Mandatory Certificates
+StageDeterminismCert per stage spec: verifies determinism under pins.
+ContractCert per pipeline spec: verifies completeness + compatibility + corridor alignment.
+PipelineReplayCert: verifies replay identical to capsule.
+ImportCert: verifies import reconstructs pins and validates all artifacts.
+All certificates are addressable artifacts with deterministic verification procedures.
+Ch17⟨0100⟩ — Transform Spine: (P→Q→B→C) as Universal Action Grammar
+Ch18⟨0101⟩ — Integration: Buckets, Codes, Containers, and Replay
+[○Arc 5 | ○Rot 2 | △Lane Me | ω=17]
+Workflow role: bucket invertibility; coder determinism; container self-description; salvage/seek.
+Primary hubs: → AppA → AppN → AppF → AppI → AppM.
+Chapter intent
+Ch18 turns the pipeline into a distributable artifact system: stable containers that can be exported, imported, and verified without “implicit context.” A container must carry everything needed to prove:
+Deterministic encoding (given pins)
+Deterministic decoding (given pins)
+Explicit pinned dependencies (bucket rules, codebooks/coders, schema/toolchain)
+Salvage doctrine for corruption (typed + truth-scoped outcomes)
+Replay harness expectations (what it means to “replay” and what must match)
+Compatibility + migration with explicit edges (no silent upgrades)
+Certificates are not “reports”; they are first-class objects that participate in verification.
+
+18.1 Core objects (minimum required set)
+18.1.1 Bucket
+A Bucket is an explicitly declared partition structure over some domain of items (records, tokens, nodes, segments, events, etc.). It exists to:
+Assign each item to a bucket (partition)
+Enable invertibility when declared: reconstruct membership deterministically
+Required fields
+BucketID: stable name
+Domain: what items it partitions
+Partition rule: canonical function (or rule set)
+Invertibility declaration:
+invertible: true|false
+If true: required inverse rule / reconstruction recipe
+If false: explicit failure modes + expected loss semantics
+Bucket law: invertibility where declared
+If invertible: true, then for all items in scope, the bucket must support:
+bucket_of(x) is deterministic under pins
+items_in(bucket) (or reconstruction mechanism) is deterministic under pins
+The composition must be identity on declared scope:
+x ∈ items_in(bucket_of(x))
+If a bucket is not invertible, the container MUST declare:
+what information is discarded,
+whether loss is bounded,
+which verification claims are weakened.
+
+18.1.2 Codebook / Coder tables
+A Codebook is a pinned mapping that makes encoding/decoding deterministic. A Coder is the executable implementation constrained by the pinned codebook.
+Required properties
+Deterministic: same inputs + same pins ⇒ same outputs
+Pinned: codebook and coder are referenced by digest and versioned identity
+Totality and failure modes are explicit:
+Unknown symbol handling
+Out-of-range values
+Overflow/underflow semantics
+“Reserved” codes policy
+Coder determinism law
+Given:
+payload P
+pins Π including bucket rules + codebooks + coder identities + canonicalization rules
+Then:
+encode(P, Π) MUST be bitwise deterministic
+decode(encode(P, Π), Π) MUST be deterministic
+Any nondeterminism (threading, ordering, locale, float mode, random seeds) MUST be pinned or forbidden.
+
+18.1.3 Container
+A Container is a self-describing bundle:
+manifest + payload + pins + witnesses + certificates
+It is not “a file.” It is an artifact with explicit identity and verifiability.
+Container invariants
+A container MUST:
+Describe itself (schema version, layout, canonicalization rules)
+Carry an explicit pin manifest
+Carry digests for integrity
+Provide verification hooks (witnesses + replay harness expectations)
+Reject ambiguous interpretation
+
+18.1.4 Replay harness specification
+A Replay Harness defines the import-verifiable procedure for decoding and checking claims.
+It specifies:
+Required pins and acceptable pin ranges (or exact digests)
+Deterministic runtime assumptions (or recorded execution traces)
+What constitutes “match” (exact bytes, structural equality, tolerances)
+What digests must match (manifest, payload chunks, decoded structure, derived outputs)
+Import verification MUST validate pins and replays before acceptance.
+
+18.1.5 Compatibility

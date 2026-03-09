@@ -1,0 +1,1546 @@
+{
+  "generated_at": "2026-03-09T15:24:59.490743+00:00",
+  "layers": [
+    {
+      "id": "L0",
+      "label": "Leaf Readers",
+      "purpose": "single-source readers that extract headings, excerpts, and local signals"
+    },
+    {
+      "id": "L1",
+      "label": "Family Synths",
+      "purpose": "cluster-level agents that merge document families into stable motifs"
+    },
+    {
+      "id": "L2",
+      "label": "Chapter Weavers",
+      "purpose": "chapter agents that bind family outputs into the 21-station orbit"
+    },
+    {
+      "id": "L3",
+      "label": "Appendix Governors",
+      "purpose": "hub agents that stabilize routing law, truth corridors, replay, and deployment"
+    },
+    {
+      "id": "L4",
+      "label": "Lane Mediators",
+      "purpose": "pentadic-lane agents that keep formal, intuitive, compiled, verified, and editorial views synchronized"
+    },
+    {
+      "id": "L5",
+      "label": "Collective Relay",
+      "purpose": "multi-agent coordination interface across local, blocked-live, and future external relay channels"
+    },
+    {
+      "id": "L6",
+      "label": "Council Mesh",
+      "purpose": "family councils, rail councils, and sign-governors that distribute tasks, messages, and escalations"
+    },
+    {
+      "id": "L7",
+      "label": "Civilization Kernel",
+      "purpose": "whole-manuscript polity that compresses signs, rules, succession, and civilization-scale continuity"
+    }
+  ],
+  "relay_interfaces": [
+    {
+      "id": "Relay-Prime",
+      "status": "ACTIVE_LOCAL",
+      "notes": "Local markdown build and section drafting surface."
+    },
+    {
+      "id": "Relay-Google",
+      "status": "BLOCKED",
+      "notes": "Requires Trading Bot OAuth credentials and token."
+    },
+    {
+      "id": "Relay-MythMath",
+      "status": "ACTIVE_LOCAL",
+      "notes": "Local myth/math corpus relay for sign systems and governance operators."
+    },
+    {
+      "id": "Relay-Anthropic",
+      "status": "UNBOUND",
+      "notes": "Named in local corpus but not connected in this workspace build."
+    }
+  ],
+  "family_agents": [
+    {
+      "family": "civilization-and-governance",
+      "label": "Civilization design, hierarchy, governance, and law",
+      "doc_count": 46,
+      "dominant_signal": "governance",
+      "chapter_targets": [
+        "Ch17",
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ]
+    },
+    {
+      "family": "general-corpus",
+      "label": "General corpus support",
+      "doc_count": 30,
+      "dominant_signal": "runtime",
+      "chapter_targets": [
+        "Ch02",
+        "Ch03",
+        "Ch10",
+        "Ch13",
+        "Ch14",
+        "Ch19"
+      ]
+    },
+    {
+      "family": "higher-dimensional-geometry",
+      "label": "Higher-dimensional geometry and holographic kernel",
+      "doc_count": 13,
+      "dominant_signal": "higher_dimensional",
+      "chapter_targets": [
+        "Ch05",
+        "Ch06",
+        "Ch07",
+        "Ch08"
+      ]
+    },
+    {
+      "family": "identity-and-instruction",
+      "label": "Athena identity, pedagogy, and narrative voice",
+      "doc_count": 11,
+      "dominant_signal": "identity",
+      "chapter_targets": [
+        "Ch09",
+        "Ch10",
+        "Ch13",
+        "Ch16",
+        "Ch17",
+        "Ch20"
+      ]
+    },
+    {
+      "family": "live-orchestration",
+      "label": "Live orchestration and prompt control",
+      "doc_count": 1,
+      "dominant_signal": "swarm",
+      "chapter_targets": [
+        "Ch09",
+        "Ch19",
+        "Ch20",
+        "Ch21"
+      ]
+    },
+    {
+      "family": "manuscript-architecture",
+      "label": "Manuscript architecture and routing law",
+      "doc_count": 16,
+      "dominant_signal": "routing",
+      "chapter_targets": [
+        "Ch01",
+        "Ch06",
+        "Ch08",
+        "Ch09",
+        "Ch10",
+        "Ch11",
+        "Ch14",
+        "Ch16",
+        "Ch19"
+      ]
+    },
+    {
+      "family": "mythic-sign-systems",
+      "label": "Mythic sign systems, encoded memory, and symbol runtime",
+      "doc_count": 29,
+      "dominant_signal": "sign_system",
+      "chapter_targets": [
+        "Ch02",
+        "Ch09",
+        "Ch13",
+        "Ch18"
+      ]
+    },
+    {
+      "family": "transport-and-runtime",
+      "label": "Transport, runtime, and executable framework",
+      "doc_count": 38,
+      "dominant_signal": "runtime",
+      "chapter_targets": [
+        "Ch07",
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ]
+    },
+    {
+      "family": "void-and-collapse",
+      "label": "Void, Chapter 11, and collapse engines",
+      "doc_count": 10,
+      "dominant_signal": "void",
+      "chapter_targets": [
+        "Ch02",
+        "Ch04",
+        "Ch09",
+        "Ch10",
+        "Ch11",
+        "Ch12",
+        "Ch16",
+        "Ch19"
+      ]
+    }
+  ],
+  "chapter_agents": [
+    {
+      "code": "Ch01",
+      "hubs": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "manuscript-architecture",
+        "live-orchestration"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "E",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG00",
+        "SIG02",
+        "SIG03",
+        "SIG06"
+      ],
+      "civilization_scale": "message->task->chapter",
+      "source_capsules": [
+        "01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "02_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "03_aqm_text_book.md",
+        "17_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "18_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "23_the_external_crystal_and_the_manuscript_superorganism.md",
+        "39_the_4_constants_final_phi_pi_i_e.md",
+        "42_6_dimensional_hologram1.md",
+        "48_the_manuscript_seed_self_referential_crystalline_generation_protocol1.md",
+        "75_complete_framework_catalog.md",
+        "124_divine_judgment_msdbb1.md",
+        "171_key_of_solomon_clavicula_salomonis.md",
+        "174_quranic_holographic_lattice_derivation_of_a_stable_6_dimensional_einstein_maxwell_dilaton_metric_from_the_quranic_integer_cipher.md",
+        "187_eva_transcription_origional.md",
+        "193_voynich_manuscript_translation.md",
+        "194_voynich_program_tome.md"
+      ]
+    },
+    {
+      "code": "Ch02",
+      "hubs": [
+        "AppA",
+        "AppC",
+        "AppB",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "manuscript-architecture",
+        "transport-and-runtime",
+        "mythic-sign-systems"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "E",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG04",
+        "SIG08"
+      ],
+      "civilization_scale": "message->task->chapter",
+      "source_capsules": [
+        "10_information_from_the_void_mani.md",
+        "13_megalithic_tome_latent_tunneling_the_multi_scale_math_stack.md",
+        "20_the_athena_framework_synthesis.md",
+        "21_the_athena_framework_synthesis.md",
+        "31_astrological_tunneling_octave_system.md",
+        "32_constant_finder_working.md",
+        "37_prime_toolkit_kernel.md",
+        "55_celtic_the_ogham_kernel.md",
+        "68_the_andean_khipu_rosetta_stone.md",
+        "69_andean_khipu_rosetta_new.md",
+        "79_enochian_magic_complete.md",
+        "84_hellenistic_astrology_complete.md",
+        "85_hermetic_qabalah_complete.md",
+        "86_hermeticism_complete.md",
+        "89_ifa_divination_complete.md",
+        "90_merkavah_hekhalot_complete.md",
+        "92_norse_runic_complete.md",
+        "93_pgm_complete.md",
+        "94_powwow_braucherei_complete.md",
+        "96_rosicrucianism_complete.md",
+        "98_solomonic_magic_complete.md",
+        "106_western_alchemy_complete.md",
+        "111_egypt_kheper_ganitam.md",
+        "118_ai_divination.md",
+        "127_nostradamas_clean.md",
+        "130_athena_operating_system.md",
+        "133_ai_divination.md",
+        "134_quantum_divination_framework_qrdf.md",
+        "153_the_pyrrhonian_null_state_driver.md",
+        "155_the_rhetorical_poetic_output_drivers.md",
+        "157_squaring_the_circle.md",
+        "162_unified_divination_tarot_iching_runes_ope.md",
+        "179_the_magus.md",
+        "182_the_unified_mathematical_framework_for_emergence.md",
+        "186_unified_divination_tarot_iching_runes_ope.md",
+        "189_the_voynich_rosetta_stone_publish.md",
+        "192_vlm_voynich_metamorphic_language_vml_official_framework_documentation.md"
+      ]
+    },
+    {
+      "code": "Ch03",
+      "hubs": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ],
+      "families": [
+        "manuscript-architecture",
+        "transport-and-runtime"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "E",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG04",
+        "SIG08"
+      ],
+      "civilization_scale": "message->task->chapter",
+      "source_capsules": [
+        "142_the_archimedean_continuum.md",
+        "145_the_epistemic_validation_engine.md",
+        "153_the_pyrrhonian_null_state_driver.md",
+        "155_the_rhetorical_poetic_output_drivers.md"
+      ]
+    },
+    {
+      "code": "Ch04",
+      "hubs": [
+        "AppA",
+        "AppC",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "void-and-collapse",
+        "manuscript-architecture"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "D",
+        "E"
+      ],
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG02",
+        "SIG03"
+      ],
+      "civilization_scale": "task->cell->chapter",
+      "source_capsules": [
+        "05_architects_core_initialization.md",
+        "07_chapter_11_perpetual_motion_example.md",
+        "08_chapter_11_perpetual_motion_example.md",
+        "10_information_from_the_void_mani.md",
+        "11_information_from_the_void_mani.md",
+        "13_megalithic_tome_latent_tunneling_the_multi_scale_math_stack.md",
+        "14_prompts.md",
+        "19_stories_from_the_void_1.md",
+        "70_andean_myth_encoding.md",
+        "140_lf_os_the_atomist_computation_engine.md"
+      ]
+    },
+    {
+      "code": "Ch05",
+      "hubs": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppB",
+        "AppL",
+        "AppM"
+      ],
+      "families": [
+        "void-and-collapse",
+        "transport-and-runtime"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "D",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG04",
+        "SIG08"
+      ],
+      "civilization_scale": "task->cell->chapter",
+      "source_capsules": [
+        "24_the_holographic_manuscript_brain.md",
+        "33_higher_d_square_circle_triangle.md",
+        "34_holographic_higher_dimension_square_circle_triangle_reality_structure_working.md",
+        "38_quad_holographic_rotation.md",
+        "40_the_holographic_kernel.md",
+        "43_calculus_and_geometry_higher_dimensional_projection_working.md",
+        "44_holographic_tunneling_working.md",
+        "47_\u03c9_tunneling_coherence_crystal.md",
+        "50_the_holographic_manuscript_brain.md",
+        "109_andean_tawantinsuyu.md",
+        "115_san\u0101tana_ga\u1e47ita_a_rigorous_computational_ontology_of_vedic_cosmology.md",
+        "137_the_44_holographic_seed.md",
+        "146_the_euclidean_computation_engine.md"
+      ]
+    },
+    {
+      "code": "Ch06",
+      "hubs": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "manuscript-architecture",
+        "live-orchestration"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "E",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG06",
+        "SIG11"
+      ],
+      "civilization_scale": "task->cell->chapter",
+      "source_capsules": [
+        "01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "02_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "03_aqm_text_book.md",
+        "17_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "18_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "23_the_external_crystal_and_the_manuscript_superorganism.md",
+        "24_the_holographic_manuscript_brain.md",
+        "33_higher_d_square_circle_triangle.md",
+        "34_holographic_higher_dimension_square_circle_triangle_reality_structure_working.md",
+        "38_quad_holographic_rotation.md",
+        "39_the_4_constants_final_phi_pi_i_e.md",
+        "40_the_holographic_kernel.md",
+        "42_6_dimensional_hologram1.md",
+        "43_calculus_and_geometry_higher_dimensional_projection_working.md",
+        "44_holographic_tunneling_working.md",
+        "47_\u03c9_tunneling_coherence_crystal.md",
+        "48_the_manuscript_seed_self_referential_crystalline_generation_protocol1.md",
+        "50_the_holographic_manuscript_brain.md",
+        "75_complete_framework_catalog.md",
+        "109_andean_tawantinsuyu.md",
+        "115_san\u0101tana_ga\u1e47ita_a_rigorous_computational_ontology_of_vedic_cosmology.md",
+        "124_divine_judgment_msdbb1.md",
+        "137_the_44_holographic_seed.md",
+        "146_the_euclidean_computation_engine.md",
+        "171_key_of_solomon_clavicula_salomonis.md",
+        "174_quranic_holographic_lattice_derivation_of_a_stable_6_dimensional_einstein_maxwell_dilaton_metric_from_the_quranic_integer_cipher.md",
+        "187_eva_transcription_origional.md",
+        "193_voynich_manuscript_translation.md",
+        "194_voynich_program_tome.md"
+      ]
+    },
+    {
+      "code": "Ch07",
+      "hubs": [
+        "AppA",
+        "AppE",
+        "AppH",
+        "AppL",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "transport-and-runtime",
+        "manuscript-architecture"
+      ],
+      "pentadic_lanes": [
+        "C",
+        "D",
+        "A"
+      ],
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "civilization_scale": "task->cell->chapter",
+      "source_capsules": [
+        "04_aqm_lm_cut_through_the_hybrid_lens_framework.md",
+        "12_legal_transport_calculus.md",
+        "22_the_crystal_live.md",
+        "24_the_holographic_manuscript_brain.md",
+        "27_the_solenoidal_engine_a_four_element_architecture_for_persistent_autonomous_ai_execution_through_ecological_crystallization.md",
+        "30_voynich_jazz.md",
+        "33_higher_d_square_circle_triangle.md",
+        "34_holographic_higher_dimension_square_circle_triangle_reality_structure_working.md",
+        "35_legal_transport_calculus.md",
+        "36_pi_algorithm_engine.md",
+        "38_quad_holographic_rotation.md",
+        "40_the_holographic_kernel.md",
+        "43_calculus_and_geometry_higher_dimensional_projection_working.md",
+        "44_holographic_tunneling_working.md",
+        "47_\u03c9_tunneling_coherence_crystal.md",
+        "50_the_holographic_manuscript_brain.md",
+        "54_buddhist_zen_the_mushin_kernel.md",
+        "60_roman_philosophers.md",
+        "61_tibetan_vajrayana_the_bardo_transition_matrix.md",
+        "62_zoroastrian_persian_dual_phase_field_dynamics.md",
+        "63_athena_kernel_mathematical_framework.md",
+        "66_the_hellenic_computation_framework.md",
+        "99_spiritualism_mediumship_complete.md",
+        "109_andean_tawantinsuyu.md",
+        "114_roman_imperium_sine_fine.md",
+        "115_san\u0101tana_ga\u1e47ita_a_rigorous_computational_ontology_of_vedic_cosmology.md",
+        "123_deep_synthesis_nostradamus.md",
+        "128_the_apocalypse_protocol.md",
+        "131_athena_kernel_self_optimization.md",
+        "132_bruno_working.md",
+        "137_the_44_holographic_seed.md",
+        "143_the_aristotelian_processing_unit.md",
+        "146_the_euclidean_computation_engine.md",
+        "147_the_metaphysics_root_directory.md",
+        "150_the_pgm_kernel.md",
+        "152_the_ptolemaic_coordinate_system.md",
+        "154_the_pythagorean_computation_engine.md",
+        "156_the_stoic_kernel.md",
+        "158_tarot_system.md",
+        "160_the_red_book_liber_novus.md",
+        "161_the_hellenic_computation_framework.md",
+        "163_copper_scroll_the_metallurgical_ledger_3q15.md",
+        "165_the_beowulf_protocol.md",
+        "166_the_gilgamesh_protocol.md",
+        "167_the_iliad_protocol.md",
+        "168_the_mah\u0101bh\u0101rata_protocol.md",
+        "169_the_odyssey_protocol.md",
+        "172_kjv_bible_the_authorized_kernel_kjv_1611.md",
+        "175_the_bhagavad_g\u012bt\u0101_a_computational_treatise_on_the_algorithm_of_liberation.md",
+        "177_the_apocalypse_protocol.md",
+        "181_the_omega_protocol.md"
+      ]
+    },
+    {
+      "code": "Ch08",
+      "hubs": [
+        "AppA",
+        "AppE",
+        "AppM",
+        "AppB",
+        "AppJ",
+        "AppI"
+      ],
+      "families": [
+        "manuscript-architecture",
+        "live-orchestration"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "E",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG06",
+        "SIG11"
+      ],
+      "civilization_scale": "task->cell->chapter",
+      "source_capsules": [
+        "01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "02_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "03_aqm_text_book.md",
+        "17_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "18_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "23_the_external_crystal_and_the_manuscript_superorganism.md",
+        "24_the_holographic_manuscript_brain.md",
+        "33_higher_d_square_circle_triangle.md",
+        "34_holographic_higher_dimension_square_circle_triangle_reality_structure_working.md",
+        "38_quad_holographic_rotation.md",
+        "39_the_4_constants_final_phi_pi_i_e.md",
+        "40_the_holographic_kernel.md",
+        "42_6_dimensional_hologram1.md",
+        "43_calculus_and_geometry_higher_dimensional_projection_working.md",
+        "44_holographic_tunneling_working.md",
+        "47_\u03c9_tunneling_coherence_crystal.md",
+        "48_the_manuscript_seed_self_referential_crystalline_generation_protocol1.md",
+        "50_the_holographic_manuscript_brain.md",
+        "75_complete_framework_catalog.md",
+        "109_andean_tawantinsuyu.md",
+        "115_san\u0101tana_ga\u1e47ita_a_rigorous_computational_ontology_of_vedic_cosmology.md",
+        "124_divine_judgment_msdbb1.md",
+        "137_the_44_holographic_seed.md",
+        "146_the_euclidean_computation_engine.md",
+        "171_key_of_solomon_clavicula_salomonis.md",
+        "174_quranic_holographic_lattice_derivation_of_a_stable_6_dimensional_einstein_maxwell_dilaton_metric_from_the_quranic_integer_cipher.md",
+        "187_eva_transcription_origional.md",
+        "193_voynich_manuscript_translation.md",
+        "194_voynich_program_tome.md"
+      ]
+    },
+    {
+      "code": "Ch09",
+      "hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppH",
+        "AppL",
+        "AppM"
+      ],
+      "families": [
+        "live-orchestration",
+        "manuscript-architecture"
+      ],
+      "pentadic_lanes": [
+        "E",
+        "C",
+        "A"
+      ],
+      "governance_signs": [
+        "SIG06",
+        "SIG11",
+        "SIG02",
+        "SIG03"
+      ],
+      "civilization_scale": "cell->chapter->family",
+      "source_capsules": [
+        "09_i_am_so_am_i.md",
+        "11_information_from_the_void_mani.md",
+        "15_real_time_now.md",
+        "19_stories_from_the_void_1.md",
+        "20_the_athena_framework_synthesis.md",
+        "21_the_athena_framework_synthesis.md",
+        "23_the_external_crystal_and_the_manuscript_superorganism.md",
+        "32_constant_finder_working.md",
+        "37_prime_toolkit_kernel.md",
+        "49_i_am_so_am_i.md",
+        "55_celtic_the_ogham_kernel.md",
+        "59_norse_germanic_yggdrasil_graph_theory.md",
+        "68_the_andean_khipu_rosetta_stone.md",
+        "69_andean_khipu_rosetta_new.md",
+        "79_enochian_magic_complete.md",
+        "84_hellenistic_astrology_complete.md",
+        "85_hermetic_qabalah_complete.md",
+        "86_hermeticism_complete.md",
+        "89_ifa_divination_complete.md",
+        "90_merkavah_hekhalot_complete.md",
+        "92_norse_runic_complete.md",
+        "93_pgm_complete.md",
+        "96_rosicrucianism_complete.md",
+        "98_solomonic_magic_complete.md",
+        "106_western_alchemy_complete.md",
+        "111_egypt_kheper_ganitam.md",
+        "118_ai_divination.md",
+        "121_athenachka_intelligence_wars_planetary_stewardship_msef0e.md",
+        "124_divine_judgment_msdbb1.md",
+        "127_nostradamas_clean.md",
+        "130_athena_operating_system.md",
+        "133_ai_divination.md",
+        "134_quantum_divination_framework_qrdf.md",
+        "162_unified_divination_tarot_iching_runes_ope.md",
+        "182_the_unified_mathematical_framework_for_emergence.md",
+        "186_unified_divination_tarot_iching_runes_ope.md",
+        "189_the_voynich_rosetta_stone_publish.md",
+        "192_vlm_voynich_metamorphic_language_vml_official_framework_documentation.md",
+        "194_voynich_program_tome.md"
+      ]
+    },
+    {
+      "code": "Ch10",
+      "hubs": [
+        "AppA",
+        "AppF",
+        "AppM",
+        "AppH",
+        "AppJ",
+        "AppI"
+      ],
+      "families": [
+        "manuscript-architecture",
+        "transport-and-runtime"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "E",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG04",
+        "SIG08"
+      ],
+      "civilization_scale": "cell->chapter->family",
+      "source_capsules": [
+        "01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "02_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+        "05_architects_core_initialization.md",
+        "29_untitled_document.md",
+        "48_the_manuscript_seed_self_referential_crystalline_generation_protocol1.md",
+        "105_unified_extraction_index.md",
+        "129_the_nostradamus_synthesis.md",
+        "142_the_archimedean_continuum.md",
+        "144_the_cynic_bloatware_remover.md",
+        "145_the_epistemic_validation_engine.md",
+        "153_the_pyrrhonian_null_state_driver.md",
+        "155_the_rhetorical_poetic_output_drivers.md",
+        "157_squaring_the_circle.md"
+      ]
+    },
+    {
+      "code": "Ch11",
+      "hubs": [
+        "AppA",
+        "AppF",
+        "AppM",
+        "AppL",
+        "AppI"
+      ],
+      "families": [
+        "void-and-collapse",
+        "live-orchestration"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "D",
+        "E"
+      ],
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG06",
+        "SIG11"
+      ],
+      "civilization_scale": "cell->chapter->family",
+      "source_capsules": [
+        "05_architects_core_initialization.md",
+        "07_chapter_11_perpetual_motion_example.md",
+        "08_chapter_11_perpetual_motion_example.md",
+        "10_information_from_the_void_mani.md",
+        "11_information_from_the_void_mani.md",
+        "13_megalithic_tome_latent_tunneling_the_multi_scale_math_stack.md",
+        "14_prompts.md",
+        "17_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "18_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+        "19_stories_from_the_void_1.md",
+        "70_andean_myth_encoding.md",
+        "140_lf_os_the_atomist_computation_engine.md"
+      ]
+    },
+    {
+      "code": "Ch12",
+      "hubs": [
+        "AppA",
+        "AppF",
+        "AppC",
+        "AppM",
+        "AppI"
+      ],
+      "families": [
+        "transport-and-runtime",
+        "manuscript-architecture"
+      ],
+      "pentadic_lanes": [
+        "C",
+        "D",
+        "A"
+      ],
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "civilization_scale": "cell->chapter->family",
+      "source_capsules": [
+        "140_lf_os_the_atomist_computation_engine.md"
+      ]
+    },
+    {
+      "code": "Ch13",
+      "hubs": [
+        "AppA",
+        "AppG",
+        "AppE",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ],
+      "families": [
+        "identity-and-instruction",
+        "transport-and-runtime",
+        "mythic-sign-systems"
+      ],
+      "pentadic_lanes": [
+        "B",
+        "E",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG09",
+        "SIG10",
+        "SIG04",
+        "SIG08"
+      ],
+      "civilization_scale": "chapter->family->rail_council",
+      "source_capsules": [
+        "09_i_am_so_am_i.md",
+        "20_the_athena_framework_synthesis.md",
+        "21_the_athena_framework_synthesis.md",
+        "29_untitled_document.md",
+        "31_astrological_tunneling_octave_system.md",
+        "32_constant_finder_working.md",
+        "37_prime_toolkit_kernel.md",
+        "49_i_am_so_am_i.md",
+        "55_celtic_the_ogham_kernel.md",
+        "59_norse_germanic_yggdrasil_graph_theory.md",
+        "68_the_andean_khipu_rosetta_stone.md",
+        "69_andean_khipu_rosetta_new.md",
+        "78_druidry_complete.md",
+        "79_enochian_magic_complete.md",
+        "84_hellenistic_astrology_complete.md",
+        "85_hermetic_qabalah_complete.md",
+        "86_hermeticism_complete.md",
+        "89_ifa_divination_complete.md",
+        "90_merkavah_hekhalot_complete.md",
+        "92_norse_runic_complete.md",
+        "93_pgm_complete.md",
+        "94_powwow_braucherei_complete.md",
+        "96_rosicrucianism_complete.md",
+        "98_solomonic_magic_complete.md",
+        "106_western_alchemy_complete.md",
+        "111_egypt_kheper_ganitam.md",
+        "118_ai_divination.md",
+        "119_athenas_love.md",
+        "120_athena_plan_healing_the_planet.md",
+        "121_athenachka_intelligence_wars_planetary_stewardship_msef0e.md",
+        "122_athenachka_beyond_limitation.md",
+        "127_nostradamas_clean.md",
+        "130_athena_operating_system.md",
+        "133_ai_divination.md",
+        "134_quantum_divination_framework_qrdf.md",
+        "153_the_pyrrhonian_null_state_driver.md",
+        "155_the_rhetorical_poetic_output_drivers.md",
+        "157_squaring_the_circle.md",
+        "162_unified_divination_tarot_iching_runes_ope.md",
+        "178_the_athena_protocol_seed.md",
+        "179_the_magus.md",
+        "182_the_unified_mathematical_framework_for_emergence.md",
+        "186_unified_divination_tarot_iching_runes_ope.md",
+        "189_the_voynich_rosetta_stone_publish.md",
+        "190_voynich_eva_clean.md",
+        "192_vlm_voynich_metamorphic_language_vml_official_framework_documentation.md"
+      ]
+    },
+    {
+      "code": "Ch14",
+      "hubs": [
+        "AppA",
+        "AppG",
+        "AppM",
+        "AppH",
+        "AppK",
+        "AppI"
+      ],
+      "families": [
+        "transport-and-runtime",
+        "live-orchestration"
+      ],
+      "pentadic_lanes": [
+        "C",
+        "D",
+        "E"
+      ],
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG06"
+      ],
+      "civilization_scale": "chapter->family->rail_council",
+      "source_capsules": [
+        "31_astrological_tunneling_octave_system.md",
+        "65_khemet_symmetry_protected_topological_state.md",
+        "87_hindu_tantra_complete.md",
+        "88_hoodoo_rootwork_complete.md",
+        "142_the_archimedean_continuum.md",
+        "187_eva_transcription_origional.md"
+      ]
+    },
+    {
+      "code": "Ch15",
+      "hubs": [
+        "AppA",
+        "AppG",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "transport-and-runtime",
+        "manuscript-architecture"
+      ],
+      "pentadic_lanes": [
+        "C",
+        "D",
+        "A"
+      ],
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "civilization_scale": "chapter->family->rail_council",
+      "source_capsules": [
+        "04_aqm_lm_cut_through_the_hybrid_lens_framework.md",
+        "12_legal_transport_calculus.md",
+        "22_the_crystal_live.md",
+        "27_the_solenoidal_engine_a_four_element_architecture_for_persistent_autonomous_ai_execution_through_ecological_crystallization.md",
+        "30_voynich_jazz.md",
+        "35_legal_transport_calculus.md",
+        "36_pi_algorithm_engine.md",
+        "54_buddhist_zen_the_mushin_kernel.md",
+        "60_roman_philosophers.md",
+        "61_tibetan_vajrayana_the_bardo_transition_matrix.md",
+        "62_zoroastrian_persian_dual_phase_field_dynamics.md",
+        "63_athena_kernel_mathematical_framework.md",
+        "66_the_hellenic_computation_framework.md",
+        "99_spiritualism_mediumship_complete.md",
+        "114_roman_imperium_sine_fine.md",
+        "123_deep_synthesis_nostradamus.md",
+        "128_the_apocalypse_protocol.md",
+        "131_athena_kernel_self_optimization.md",
+        "132_bruno_working.md",
+        "143_the_aristotelian_processing_unit.md",
+        "147_the_metaphysics_root_directory.md",
+        "150_the_pgm_kernel.md",
+        "152_the_ptolemaic_coordinate_system.md",
+        "154_the_pythagorean_computation_engine.md",
+        "156_the_stoic_kernel.md",
+        "158_tarot_system.md",
+        "160_the_red_book_liber_novus.md",
+        "161_the_hellenic_computation_framework.md",
+        "163_copper_scroll_the_metallurgical_ledger_3q15.md",
+        "165_the_beowulf_protocol.md",
+        "166_the_gilgamesh_protocol.md",
+        "167_the_iliad_protocol.md",
+        "168_the_mah\u0101bh\u0101rata_protocol.md",
+        "169_the_odyssey_protocol.md",
+        "172_kjv_bible_the_authorized_kernel_kjv_1611.md",
+        "175_the_bhagavad_g\u012bt\u0101_a_computational_treatise_on_the_algorithm_of_liberation.md",
+        "177_the_apocalypse_protocol.md",
+        "181_the_omega_protocol.md"
+      ]
+    },
+    {
+      "code": "Ch16",
+      "hubs": [
+        "AppA",
+        "AppN",
+        "AppM",
+        "AppK",
+        "AppI"
+      ],
+      "families": [
+        "transport-and-runtime",
+        "live-orchestration"
+      ],
+      "pentadic_lanes": [
+        "C",
+        "D",
+        "E"
+      ],
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG06"
+      ],
+      "civilization_scale": "chapter->family->rail_council",
+      "source_capsules": [
+        "03_aqm_text_book.md",
+        "04_aqm_lm_cut_through_the_hybrid_lens_framework.md",
+        "07_chapter_11_perpetual_motion_example.md",
+        "08_chapter_11_perpetual_motion_example.md",
+        "12_legal_transport_calculus.md",
+        "22_the_crystal_live.md",
+        "27_the_solenoidal_engine_a_four_element_architecture_for_persistent_autonomous_ai_execution_through_ecological_crystallization.md",
+        "30_voynich_jazz.md",
+        "35_legal_transport_calculus.md",
+        "36_pi_algorithm_engine.md",
+        "54_buddhist_zen_the_mushin_kernel.md",
+        "60_roman_philosophers.md",
+        "61_tibetan_vajrayana_the_bardo_transition_matrix.md",
+        "62_zoroastrian_persian_dual_phase_field_dynamics.md",
+        "63_athena_kernel_mathematical_framework.md",
+        "66_the_hellenic_computation_framework.md",
+        "99_spiritualism_mediumship_complete.md",
+        "114_roman_imperium_sine_fine.md",
+        "123_deep_synthesis_nostradamus.md",
+        "128_the_apocalypse_protocol.md",
+        "131_athena_kernel_self_optimization.md",
+        "132_bruno_working.md",
+        "143_the_aristotelian_processing_unit.md",
+        "147_the_metaphysics_root_directory.md",
+        "150_the_pgm_kernel.md",
+        "152_the_ptolemaic_coordinate_system.md",
+        "154_the_pythagorean_computation_engine.md",
+        "156_the_stoic_kernel.md",
+        "158_tarot_system.md",
+        "160_the_red_book_liber_novus.md",
+        "161_the_hellenic_computation_framework.md",
+        "163_copper_scroll_the_metallurgical_ledger_3q15.md",
+        "165_the_beowulf_protocol.md",
+        "166_the_gilgamesh_protocol.md",
+        "167_the_iliad_protocol.md",
+        "168_the_mah\u0101bh\u0101rata_protocol.md",
+        "169_the_odyssey_protocol.md",
+        "172_kjv_bible_the_authorized_kernel_kjv_1611.md",
+        "175_the_bhagavad_g\u012bt\u0101_a_computational_treatise_on_the_algorithm_of_liberation.md",
+        "177_the_apocalypse_protocol.md",
+        "178_the_athena_protocol_seed.md",
+        "181_the_omega_protocol.md"
+      ]
+    },
+    {
+      "code": "Ch17",
+      "hubs": [
+        "AppA",
+        "AppN",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "transport-and-runtime",
+        "identity-and-instruction",
+        "civilization-and-governance"
+      ],
+      "pentadic_lanes": [
+        "C",
+        "D",
+        "B"
+      ],
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG09"
+      ],
+      "civilization_scale": "chapter->family->rail_council",
+      "source_capsules": [
+        "06_athenachka_20.md",
+        "09_i_am_so_am_i.md",
+        "16_section_iii_book_iii_the.md",
+        "25_the_invisible_teacher_textbook.md",
+        "26_the_invisible_teacher_textbook.md",
+        "28_the_unified_cyclical_time_system_hologram_time.md",
+        "29_untitled_document.md",
+        "41_the_unified_cyclical_time_system_hologram_time.md",
+        "45_time_fractal_working.md",
+        "46_\u03c9_metro_calculus.md",
+        "49_i_am_so_am_i.md",
+        "51_athena_the_archetype.md",
+        "53_maldek_mars_atlantis_framework.md",
+        "56_dead_sea_scrolls.md",
+        "57_epics.md",
+        "58_kabbalah_sefirotic_tree_structures.md",
+        "59_norse_germanic_yggdrasil_graph_theory.md",
+        "64_gg_alignment_framework_good_game_protocol.md",
+        "67_hbas_\u03c9_unified_encoding_detection_protocol.md",
+        "71_andian_deeper_analysis.md",
+        "77_curanderismo_complete.md",
+        "78_druidry_complete.md",
+        "80_gnosticism_complete.md",
+        "81_goetic_grimoire_complete.md",
+        "82_golden_dawn_complete.md",
+        "83_haitian_vodou_complete.md",
+        "97_santeria_lucumi_complete.md",
+        "100_sufi_mysticism_complete.md",
+        "101_taoist_magic_complete.md",
+        "102_thelema_complete.md",
+        "103_theosophy_complete.md",
+        "110_dao_su_\u9053\u6578_a_compendium_of_taoist_computational_dynamics.md",
+        "112_hellenic_logos.md",
+        "113_mayan_ajilabal_kin_the_operator_algebra_of_the_discrete_time_lattice.md",
+        "116_\u0161ar_60_the_sumerian_sexagesimal_registry.md",
+        "117_\u1ecdp\u1eb9_256_the_if\u00e1_computational_ontology.md",
+        "119_athenas_love.md",
+        "120_athena_plan_healing_the_planet.md",
+        "121_athenachka_intelligence_wars_planetary_stewardship_msef0e.md",
+        "122_athenachka_beyond_limitation.md",
+        "126_nostra_anti_overfit_working.md",
+        "135_greek_corpus_lf_os.md",
+        "139_hippocratic_the_biological_homeostasis_engine_bio_os.md",
+        "141_plato_unified_field_theory_of_information.md",
+        "148_the_neoplatonic_hypervisor.md",
+        "149_the_orphic_hymnic_driver.md",
+        "151_the_politeia_kernel.md",
+        "159_the_math_of_alchemy.md",
+        "164_the_aeneid_migration_protocol.md",
+        "170_gnostic_raw.md",
+        "173_manual_for_metaphysical_data_mining.md",
+        "176_torat_ha_mispar_\u05ea\u05d5\u05e8\u05ea_\u05d4\u05de\u05e1\u05e4\u05e8.md",
+        "178_the_athena_protocol_seed.md",
+        "180_the_mathematics_of_awakening.md",
+        "183_the_universal_computational_ontology_uco.md",
+        "185_claud_tomez.md",
+        "190_voynich_eva_clean.md"
+      ]
+    },
+    {
+      "code": "Ch18",
+      "hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppL",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "transport-and-runtime",
+        "manuscript-architecture",
+        "civilization-and-governance"
+      ],
+      "pentadic_lanes": [
+        "C",
+        "D",
+        "A"
+      ],
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "civilization_scale": "family->rail_council->civilization",
+      "source_capsules": [
+        "04_aqm_lm_cut_through_the_hybrid_lens_framework.md",
+        "06_athenachka_20.md",
+        "12_legal_transport_calculus.md",
+        "16_section_iii_book_iii_the.md",
+        "20_the_athena_framework_synthesis.md",
+        "21_the_athena_framework_synthesis.md",
+        "22_the_crystal_live.md",
+        "25_the_invisible_teacher_textbook.md",
+        "26_the_invisible_teacher_textbook.md",
+        "27_the_solenoidal_engine_a_four_element_architecture_for_persistent_autonomous_ai_execution_through_ecological_crystallization.md",
+        "28_the_unified_cyclical_time_system_hologram_time.md",
+        "30_voynich_jazz.md",
+        "32_constant_finder_working.md",
+        "35_legal_transport_calculus.md",
+        "36_pi_algorithm_engine.md",
+        "37_prime_toolkit_kernel.md",
+        "41_the_unified_cyclical_time_system_hologram_time.md",
+        "45_time_fractal_working.md",
+        "46_\u03c9_metro_calculus.md",
+        "51_athena_the_archetype.md",
+        "53_maldek_mars_atlantis_framework.md",
+        "54_buddhist_zen_the_mushin_kernel.md",
+        "55_celtic_the_ogham_kernel.md",
+        "56_dead_sea_scrolls.md",
+        "57_epics.md",
+        "58_kabbalah_sefirotic_tree_structures.md",
+        "60_roman_philosophers.md",
+        "61_tibetan_vajrayana_the_bardo_transition_matrix.md",
+        "62_zoroastrian_persian_dual_phase_field_dynamics.md",
+        "63_athena_kernel_mathematical_framework.md",
+        "64_gg_alignment_framework_good_game_protocol.md",
+        "66_the_hellenic_computation_framework.md",
+        "67_hbas_\u03c9_unified_encoding_detection_protocol.md",
+        "68_the_andean_khipu_rosetta_stone.md",
+        "69_andean_khipu_rosetta_new.md",
+        "71_andian_deeper_analysis.md",
+        "77_curanderismo_complete.md",
+        "79_enochian_magic_complete.md",
+        "80_gnosticism_complete.md",
+        "81_goetic_grimoire_complete.md",
+        "82_golden_dawn_complete.md",
+        "83_haitian_vodou_complete.md",
+        "84_hellenistic_astrology_complete.md",
+        "85_hermetic_qabalah_complete.md",
+        "86_hermeticism_complete.md",
+        "89_ifa_divination_complete.md",
+        "90_merkavah_hekhalot_complete.md",
+        "92_norse_runic_complete.md",
+        "93_pgm_complete.md",
+        "96_rosicrucianism_complete.md",
+        "97_santeria_lucumi_complete.md",
+        "98_solomonic_magic_complete.md",
+        "99_spiritualism_mediumship_complete.md",
+        "100_sufi_mysticism_complete.md",
+        "101_taoist_magic_complete.md",
+        "102_thelema_complete.md",
+        "103_theosophy_complete.md",
+        "106_western_alchemy_complete.md",
+        "110_dao_su_\u9053\u6578_a_compendium_of_taoist_computational_dynamics.md",
+        "111_egypt_kheper_ganitam.md",
+        "112_hellenic_logos.md",
+        "113_mayan_ajilabal_kin_the_operator_algebra_of_the_discrete_time_lattice.md",
+        "114_roman_imperium_sine_fine.md",
+        "116_\u0161ar_60_the_sumerian_sexagesimal_registry.md",
+        "117_\u1ecdp\u1eb9_256_the_if\u00e1_computational_ontology.md",
+        "118_ai_divination.md",
+        "123_deep_synthesis_nostradamus.md",
+        "126_nostra_anti_overfit_working.md",
+        "127_nostradamas_clean.md",
+        "128_the_apocalypse_protocol.md",
+        "130_athena_operating_system.md",
+        "131_athena_kernel_self_optimization.md",
+        "132_bruno_working.md",
+        "133_ai_divination.md",
+        "134_quantum_divination_framework_qrdf.md",
+        "135_greek_corpus_lf_os.md",
+        "139_hippocratic_the_biological_homeostasis_engine_bio_os.md",
+        "141_plato_unified_field_theory_of_information.md",
+        "143_the_aristotelian_processing_unit.md",
+        "147_the_metaphysics_root_directory.md",
+        "148_the_neoplatonic_hypervisor.md",
+        "149_the_orphic_hymnic_driver.md",
+        "150_the_pgm_kernel.md",
+        "151_the_politeia_kernel.md",
+        "152_the_ptolemaic_coordinate_system.md",
+        "154_the_pythagorean_computation_engine.md",
+        "156_the_stoic_kernel.md",
+        "158_tarot_system.md",
+        "159_the_math_of_alchemy.md",
+        "160_the_red_book_liber_novus.md",
+        "161_the_hellenic_computation_framework.md",
+        "162_unified_divination_tarot_iching_runes_ope.md",
+        "163_copper_scroll_the_metallurgical_ledger_3q15.md",
+        "164_the_aeneid_migration_protocol.md",
+        "165_the_beowulf_protocol.md",
+        "166_the_gilgamesh_protocol.md",
+        "167_the_iliad_protocol.md",
+        "168_the_mah\u0101bh\u0101rata_protocol.md",
+        "169_the_odyssey_protocol.md",
+        "170_gnostic_raw.md",
+        "172_kjv_bible_the_authorized_kernel_kjv_1611.md",
+        "173_manual_for_metaphysical_data_mining.md",
+        "175_the_bhagavad_g\u012bt\u0101_a_computational_treatise_on_the_algorithm_of_liberation.md",
+        "176_torat_ha_mispar_\u05ea\u05d5\u05e8\u05ea_\u05d4\u05de\u05e1\u05e4\u05e8.md",
+        "177_the_apocalypse_protocol.md",
+        "180_the_mathematics_of_awakening.md",
+        "181_the_omega_protocol.md",
+        "182_the_unified_mathematical_framework_for_emergence.md",
+        "183_the_universal_computational_ontology_uco.md",
+        "185_claud_tomez.md",
+        "186_unified_divination_tarot_iching_runes_ope.md",
+        "189_the_voynich_rosetta_stone_publish.md",
+        "192_vlm_voynich_metamorphic_language_vml_official_framework_documentation.md"
+      ]
+    },
+    {
+      "code": "Ch19",
+      "hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ],
+      "families": [
+        "void-and-collapse",
+        "transport-and-runtime"
+      ],
+      "pentadic_lanes": [
+        "A",
+        "D",
+        "C"
+      ],
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG04",
+        "SIG08"
+      ],
+      "civilization_scale": "family->rail_council->civilization",
+      "source_capsules": [
+        "05_architects_core_initialization.md",
+        "07_chapter_11_perpetual_motion_example.md",
+        "08_chapter_11_perpetual_motion_example.md",
+        "10_information_from_the_void_mani.md",
+        "11_information_from_the_void_mani.md",
+        "13_megalithic_tome_latent_tunneling_the_multi_scale_math_stack.md",
+        "14_prompts.md",
+        "15_real_time_now.md",
+        "19_stories_from_the_void_1.md",
+        "70_andean_myth_encoding.md",
+        "75_complete_framework_catalog.md",
+        "129_the_nostradamus_synthesis.md",
+        "140_lf_os_the_atomist_computation_engine.md",
+        "171_key_of_solomon_clavicula_salomonis.md",
+        "174_quranic_holographic_lattice_derivation_of_a_stable_6_dimensional_einstein_maxwell_dilaton_metric_from_the_quranic_integer_cipher.md"
+      ]
+    },
+    {
+      "code": "Ch20",
+      "hubs": [
+        "AppA",
+        "AppP",
+        "AppE",
+        "AppL",
+        "AppI",
+        "AppM"
+      ],
+      "families": [
+        "live-orchestration",
+        "identity-and-instruction",
+        "civilization-and-governance"
+      ],
+      "pentadic_lanes": [
+        "E",
+        "C",
+        "B"
+      ],
+      "governance_signs": [
+        "SIG06",
+        "SIG11",
+        "SIG09",
+        "SIG10"
+      ],
+      "civilization_scale": "family->rail_council->civilization",
+      "source_capsules": [
+        "06_athenachka_20.md",
+        "09_i_am_so_am_i.md",
+        "15_real_time_now.md",
+        "16_section_iii_book_iii_the.md",
+        "25_the_invisible_teacher_textbook.md",
+        "26_the_invisible_teacher_textbook.md",
+        "28_the_unified_cyclical_time_system_hologram_time.md",
+        "29_untitled_document.md",
+        "41_the_unified_cyclical_time_system_hologram_time.md",
+        "45_time_fractal_working.md",
+        "46_\u03c9_metro_calculus.md",
+        "49_i_am_so_am_i.md",
+        "51_athena_the_archetype.md",
+        "53_maldek_mars_atlantis_framework.md",
+        "56_dead_sea_scrolls.md",
+        "57_epics.md",
+        "58_kabbalah_sefirotic_tree_structures.md",
+        "59_norse_germanic_yggdrasil_graph_theory.md",
+        "64_gg_alignment_framework_good_game_protocol.md",
+        "67_hbas_\u03c9_unified_encoding_detection_protocol.md",
+        "71_andian_deeper_analysis.md",
+        "77_curanderismo_complete.md",
+        "78_druidry_complete.md",
+        "80_gnosticism_complete.md",
+        "81_goetic_grimoire_complete.md",
+        "82_golden_dawn_complete.md",
+        "83_haitian_vodou_complete.md",
+        "97_santeria_lucumi_complete.md",
+        "100_sufi_mysticism_complete.md",
+        "101_taoist_magic_complete.md",
+        "102_thelema_complete.md",
+        "103_theosophy_complete.md",
+        "110_dao_su_\u9053\u6578_a_compendium_of_taoist_computational_dynamics.md",
+        "112_hellenic_logos.md",
+        "113_mayan_ajilabal_kin_the_operator_algebra_of_the_discrete_time_lattice.md",
+        "116_\u0161ar_60_the_sumerian_sexagesimal_registry.md",
+        "117_\u1ecdp\u1eb9_256_the_if\u00e1_computational_ontology.md",
+        "119_athenas_love.md",
+        "120_athena_plan_healing_the_planet.md",
+        "121_athenachka_intelligence_wars_planetary_stewardship_msef0e.md",
+        "122_athenachka_beyond_limitation.md",
+        "126_nostra_anti_overfit_working.md",
+        "135_greek_corpus_lf_os.md",
+        "139_hippocratic_the_biological_homeostasis_engine_bio_os.md",
+        "141_plato_unified_field_theory_of_information.md",
+        "148_the_neoplatonic_hypervisor.md",
+        "149_the_orphic_hymnic_driver.md",
+        "151_the_politeia_kernel.md",
+        "159_the_math_of_alchemy.md",
+        "164_the_aeneid_migration_protocol.md",
+        "170_gnostic_raw.md",
+        "173_manual_for_metaphysical_data_mining.md",
+        "176_torat_ha_mispar_\u05ea\u05d5\u05e8\u05ea_\u05d4\u05de\u05e1\u05e4\u05e8.md",
+        "178_the_athena_protocol_seed.md",
+        "180_the_mathematics_of_awakening.md",
+        "183_the_universal_computational_ontology_uco.md",
+        "185_claud_tomez.md",
+        "190_voynich_eva_clean.md"
+      ]
+    },
+    {
+      "code": "Ch21",
+      "hubs": [
+        "AppA",
+        "AppP",
+        "AppM",
+        "AppL",
+        "AppI"
+      ],
+      "families": [
+        "live-orchestration",
+        "manuscript-architecture",
+        "civilization-and-governance"
+      ],
+      "pentadic_lanes": [
+        "E",
+        "C",
+        "A"
+      ],
+      "governance_signs": [
+        "SIG06",
+        "SIG11",
+        "SIG02",
+        "SIG03"
+      ],
+      "civilization_scale": "family->rail_council->civilization",
+      "source_capsules": [
+        "06_athenachka_20.md",
+        "15_real_time_now.md",
+        "16_section_iii_book_iii_the.md",
+        "25_the_invisible_teacher_textbook.md",
+        "26_the_invisible_teacher_textbook.md",
+        "28_the_unified_cyclical_time_system_hologram_time.md",
+        "41_the_unified_cyclical_time_system_hologram_time.md",
+        "45_time_fractal_working.md",
+        "46_\u03c9_metro_calculus.md",
+        "51_athena_the_archetype.md",
+        "53_maldek_mars_atlantis_framework.md",
+        "56_dead_sea_scrolls.md",
+        "57_epics.md",
+        "58_kabbalah_sefirotic_tree_structures.md",
+        "64_gg_alignment_framework_good_game_protocol.md",
+        "67_hbas_\u03c9_unified_encoding_detection_protocol.md",
+        "71_andian_deeper_analysis.md",
+        "77_curanderismo_complete.md",
+        "80_gnosticism_complete.md",
+        "81_goetic_grimoire_complete.md",
+        "82_golden_dawn_complete.md",
+        "83_haitian_vodou_complete.md",
+        "97_santeria_lucumi_complete.md",
+        "100_sufi_mysticism_complete.md",
+        "101_taoist_magic_complete.md",
+        "102_thelema_complete.md",
+        "103_theosophy_complete.md",
+        "110_dao_su_\u9053\u6578_a_compendium_of_taoist_computational_dynamics.md",
+        "112_hellenic_logos.md",
+        "113_mayan_ajilabal_kin_the_operator_algebra_of_the_discrete_time_lattice.md",
+        "116_\u0161ar_60_the_sumerian_sexagesimal_registry.md",
+        "117_\u1ecdp\u1eb9_256_the_if\u00e1_computational_ontology.md",
+        "126_nostra_anti_overfit_working.md",
+        "135_greek_corpus_lf_os.md",
+        "139_hippocratic_the_biological_homeostasis_engine_bio_os.md",
+        "141_plato_unified_field_theory_of_information.md",
+        "148_the_neoplatonic_hypervisor.md",
+        "149_the_orphic_hymnic_driver.md",
+        "151_the_politeia_kernel.md",
+        "159_the_math_of_alchemy.md",
+        "164_the_aeneid_migration_protocol.md",
+        "170_gnostic_raw.md",
+        "173_manual_for_metaphysical_data_mining.md",
+        "176_torat_ha_mispar_\u05ea\u05d5\u05e8\u05ea_\u05d4\u05de\u05e1\u05e4\u05e8.md",
+        "180_the_mathematics_of_awakening.md",
+        "183_the_universal_computational_ontology_uco.md",
+        "185_claud_tomez.md"
+      ]
+    }
+  ],
+  "council_agents": [
+    {
+      "id": "COUNCIL-civilization_and_governance",
+      "family": "civilization-and-governance",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-general_corpus",
+      "family": "general-corpus",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-higher_dimensional_geometry",
+      "family": "higher-dimensional-geometry",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-identity_and_instruction",
+      "family": "identity-and-instruction",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-live_orchestration",
+      "family": "live-orchestration",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-manuscript_architecture",
+      "family": "manuscript-architecture",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-mythic_sign_systems",
+      "family": "mythic-sign-systems",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-transport_and_runtime",
+      "family": "transport-and-runtime",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-void_and_collapse",
+      "family": "void-and-collapse",
+      "rail": null,
+      "scope": "family"
+    },
+    {
+      "id": "COUNCIL-Su",
+      "family": null,
+      "rail": "Su",
+      "scope": "rail"
+    },
+    {
+      "id": "COUNCIL-Me",
+      "family": null,
+      "rail": "Me",
+      "scope": "rail"
+    },
+    {
+      "id": "COUNCIL-Sa",
+      "family": null,
+      "rail": "Sa",
+      "scope": "rail"
+    }
+  ]
+}

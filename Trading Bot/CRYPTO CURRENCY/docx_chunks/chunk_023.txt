@@ -1,0 +1,499 @@
+nly when explicitly declared commutative by the operator table) MUST canonicalize to a unique normal form.
+
+A.F4 — Protocols
+A.F4.a — Math payload schema header
+Every math payload object begins with a pinned header record:
+[
+\langle \mathrm{MathSchemaDigest},\ \mathrm{OperatorTableDigest},\ \mathrm{CanonBytesDigest},\ \mathrm{PinsDigest}\rangle
+]
+followed by the canonical-serialized MathAST.
+
+☁ A.C — Cloud: Ambiguity Rejection, Error Typing, and Deterministic Diagnostics
+A.C1 — Objects
+A.C1.a — Error objects
+All failures are structured error objects with deterministic codes.
+LexError: invalid UTF-8, forbidden chars, invalid literal encoding.
+ParseError: unexpected token, missing required token, invalid production.
+SchemaError: missing required fields, unknown schema id under pinned registry, invalid field types.
+PinError: missing pin, digest invalid, pin not allowed by pinned policy.
+A.C1.b — Deterministic diagnostic report
+Each error includes a Diag record:
+input_digest
+token_stream_digest (if tokenization succeeded)
+error_code
+index (byte offset and token index)
+expected_digest (digest of expected token set)
+context_digest
+grammar_digest
+tokenizer_digest
+
+A.C2 — Operators
+A.C2.a — Deterministic failure classification
+Given an error object, a pinned mapping (\mathsf{ClassifyError}) determines whether the failure is:
+FAIL (hard invalid input),
+AMBIG (only if policy explicitly allows a recovery plan; default is FAIL).
+Default: parsing errors do not produce AMBIG. AppA’s role is to prevent ambiguity from entering the graph.
+
+A.C3 — Invariants
+A.C3.a — No-AMBIG-by-grammar invariant
+Ambiguity cannot be produced by grammar ambiguity. AMBIG is a later-stage evidence condition; AppA grammar must be unambiguous.
+A.C3.b — Deterministic diagnostics invariant
+For identical inputs and pinned toolchain digests, diagnostics must match byte-for-byte.
+
+A.C4 — Protocols
+A.C4.a — Recovery prohibition
+Tokenizer and parser must not “auto-correct” inputs. Any recovery mechanism must be encoded as a separate, explicit tool with its own pins and certificates and must emit an EvidencePlan (AppL). AppA itself emits only OK or FAIL for parsing.
+
+✶ A.R — Fractal: Versioning, CanonBytes, and Certificates for Entry-Station Stability
+A.R1 — Objects
+A.R1.a — CanonBytesSpec
+A CanonBytesSpec is the pinned canonical encoding specification used across the corpus. It must define:
+canonical key order,
+canonical integer encoding,
+canonical byte-string encoding,
+canonical list encoding,
+canonical map encoding,
+canonical digest normalization,
+canonical treatment of optional fields (explicit omission rules).
+CanonBytesDigest := did(CanonBytesSpec).
+A.R1.b — ParserSpec
+A ParserSpec binds:
+TokenizerSpecDigest,
+GrammarDigest,
+ASTSchemaDigest,
+CanonASTDigest,
+PrettyDigest (optional),
+ErrorCodebookDigest.
+A.R1.c — TestVector suite
+A test vector is:
+[
+\langle \text{input bytes},\ \text{expected tokens digest},\ \text{expected AST digest},\ \text{expected CanonBytes digest}\rangle
+]
+and must be stored as content-addressed artifacts.
+
+A.R2 — Operators
+A.R2.a — Canonical CBOR-like encoding (normative requirements)
+If CBOR is used, encoding must satisfy canonical CBOR constraints:
+map keys sorted by canonical byte order,
+shortest form integers,
+definite-length items only (unless explicitly permitted),
+no floats by default,
+tagged types only under pinned tag registry.
+If a non-CBOR encoding is used, it must satisfy the same determinism and injectivity invariants and must be pinned as CanonBytesSpec.
+A.R2.b — Certificate verification
+Certificates must have deterministic verifiers pinned by digest.
+
+A.R3 — Invariants
+A.R3.a — CanonBytes stability invariant
+For any schema family (\Sigma), if CanonBytesSpecDigest is fixed, then for any (X\in\Sigma):
+[
+\mathsf{enc}_\Sigma(X)\ \text{is stable across machines and runs satisfying the pinned environment constraints.}
+]
+A.R3.b — Parser stability invariant
+For any parseable input (s):
+[
+\mathsf{did}(\mathsf{CanonAST}(\mathsf{Parse}(\mathsf{Tokenize}(s))))\ \text{is stable across machines and runs satisfying the pinned environment constraints.}
+]
+
+A.R4 — Protocols and Required Certificates
+A.R4.a — ParserCert
+A ParserCert attests bitwise stable parsing under pinned versions.
+Minimum fields:
+ParserSpecDigest
+CanonBytesSpecDigest
+GrammarDigest
+TokenizerSpecDigest
+ASTSchemaDigest
+CanonASTDigest
+TestVectorSuiteDigest
+ObservedDigests (map: testvector id → expected AST digest)
+VerifierDigest
+Signature (optional; if used, pinned key policy)
+Verification requires re-running Tokenize→Parse→CanonAST on all test vectors and matching digests exactly.
+A.R4.b — CanonBytesCert
+A CanonBytesCert attests bitwise stable canonical encoding.
+Minimum fields:
+CanonBytesSpecDigest
+SchemaSetDigest (list of schema IDs covered)
+EncodingVectorsDigest (map: object digest → canonical bytes digest)
+RoundTripVectorsDigest (map: object digest → decoded object digest)
+VerifierDigest
+Signature (optional)
+Verification requires:
+encoding outputs match expected bytes digests,
+decode(encode(x)) produces an object whose canonical encoding matches (and whose digest matches if schema requires strict identity),
+reject any float/nondeterministic forms unless explicitly permitted and pinned.
+A.R4.c — Entry-station conformance suite
+AppA conformance is the conjunction:
+ParserCert valid,
+CanonBytesCert valid,
+StationHeader test vectors pass,
+GlobalAddr grammar test vectors pass,
+Manifest/CorridorSpec grammar test vectors pass.
+Failure of any element blocks publication/import acceptance of higher hubs that depend on AppA.
+
+AppA Tight Spec-Only Version (Normative Extraction)
+AppA SHALL provide a pinned, unambiguous grammar for: GlobalAddr, StationHeaderText, payload schema identifiers, manifests, corridor specs.
+AppA SHALL provide a deterministic tokenizer with pinned precedence and a deterministic parser that returns either a unique AST or a structured ParseError.
+AppA SHALL provide a deterministic AST canonicalizer producing a unique normal form for any valid input.
+AppA SHALL define a deterministic StationHeader derivation function from ChapterIndex with pinned triad ordering and MUST publish test vectors for at least Ch01, Ch15–Ch21.
+AppA SHALL define a canonical encoding specification (CanonBytesSpec) for all core record families, including deterministic map-key ordering and deterministic integer/digest encoding.
+AppA SHALL forbid ambiguous parsing and shall not perform auto-correction; any recovery is external and must be explicitly routed via evidence planning.
+AppA SHALL provide ParserCert and CanonBytesCert, each verifiable by deterministic replay of pinned test vector suites.
+Any artifact lacking AppA pins required for its interpretation SHALL be classified non-routable for OK lanes.
+
+AppA — Parsing, Symbols, Grammar, Entry Station
+AppB — Evidence Tables, IDs, and the Stability Contract
+Station role: evidence ID discipline + tables; how “claims” become stable artifacts.
+Purpose: define evidence rows, IDs, and the stability contract that governs what counts as stable evidence across time and migrations.
+
+□ B.S — Square: EvidenceRow, EvidenceID, and Append-Only Evidence Tables
+B.S1 — Objects
+B.S1.a — EvidenceRow (normative schema)
+An EvidenceRow is the minimal canonical record that binds a claim to replayable evidence under pinned interpretation.
+[
+\mathsf{EvidenceRow} :=
+\langle
+\mathsf{EID},;
+\mathsf{ClaimAddr},;
+\mathsf{WitnessType},;
+\mathsf{Scope},;
+\mathsf{TruthType},;
+\mathsf{PinsDigest},;
+\mathsf{ReplayPtr},;
+\mathsf{WitnessPtr},;
+\mathsf{InputDigests},;
+\mathsf{OutputDigests},;
+\mathsf{Metrics},;
+\mathsf{IssuedPulse},;
+\mathsf{ExpiryPulse?},;
+\mathsf{Supersedes?},;
+\mathsf{SchemaVer}
+\rangle
+]
+Required fields:
+EID: EvidenceID (defined in B.S2.a).
+ClaimAddr: canonical GlobalAddr of the subject claim (node/edge/route/certificate).
+WitnessType: pinned enum describing what the row proves, at minimum:
+ReplayWitness (replay capsule proves claim),
+EquivWitness (EQUIV proof object),
+DualWitness (DUAL proof object),
+MigrationWitness (MIGRATE proof object),
+ResidualLedger (NEAR bounds),
+EvidencePlan (AMBIG plan),
+ConflictPacket (quarantine/fence evidence),
+AuditWitness (audit proof object).
+Scope: pinned enum {LOCAL, INTER} plus optional scope bindings:
+LOCAL: manuscript_id required.
+INTER: ordered pair (src_manuscript_id, dst_manuscript_id) required.
+TruthType: pinned enum {OK, NEAR, AMBIG, FAIL, CONFLICT}.
+PinsDigest: digest of the complete pin-closure required to interpret this row (AppA/AppD/AppI).
+ReplayPtr: pointer to replay capsule (or deterministic replay recipe) sufficient to reproduce the verdict. Required for OK and NEAR; optional for AMBIG when an EvidencePlan is the only object; required for FAIL/CONFLICT when reproducible.
+WitnessPtr: pointer to the primary witness artifact for the WitnessType.
+InputDigests: canonical ordered list of digests of inputs required by replay (containers, profiles, policies, codebooks).
+OutputDigests: canonical ordered list of digests of outputs claimed by the witness.
+Metrics: optional pinned metric outputs (residual bounds, commutation residuals) with metric digests and units. Mandatory for NEAR.
+IssuedPulse: PulseID at which this row is issued (Ch20).
+ExpiryPulse?: PulseID at which this row ceases to qualify for OK routing under the stability contract (mandatory for NEAR, optional otherwise).
+Supersedes?: optional EvidenceID of a prior row that this row supersedes (append-only supersession).
+SchemaVer: evidence schema version (pinned, immutable).
+B.S1.b — EvidenceTable
+An EvidenceTable is an append-only multiset of EvidenceRows with canonical ordering and index structures.
+[
+\mathsf{EvidenceTable} :=
+\langle
+\mathsf{TableID},;
+\mathsf{PolicyDigest},;
+\mathsf{CanonBytesDigest},;
+\mathsf{RowsDigest},;
+\mathsf{RowIndexDigest},;
+\mathsf{PulseDigestRef},;
+\mathsf{SchemaVer}
+\rangle
+]
+RowsDigest commits to the canonical list of rows.
+RowIndexDigest commits to canonical indices (by claim addr, by EID, by truth type, by witness type, by pulse).
+PulseDigestRef binds the table state to the pulse digest chain (Ch20).
+B.S1.c — Index invariants
+Indices are derived; the table commits to a canonical index digest. Index derivation must be deterministic and replayable:
+Index key order: canonical lexicographic order over serialized keys.
+Collision resolution: deterministic and logged.
+B.S1.d — StabilityContract record
+A StabilityContract is a pinned rule set specifying when an EvidenceRow may be treated as stable for routing under given corridor requirements.
+[
+\mathsf{StabilityContract} :=
+\langle
+\mathsf{ContractID},;
+\mathsf{Pins},;
+\mathsf{RulesOK},;
+\mathsf{RulesNEAR},;
+\mathsf{RulesAMBIG},;
+\mathsf{RulesFAIL},;
+\mathsf{RulesCONFLICT},;
+\mathsf{ExpiryPolicy},;
+\mathsf{RenewalPolicy},;
+\mathsf{MigrationPolicy},;
+\mathsf{SchemaVer}
+\rangle
+]
+
+B.S2 — Operators
+B.S2.a — EvidenceID derivation (pinned)
+EvidenceID MUST be content-derived and collision-resistant under pinned canonicalization.
+Define:
+(R := \mathsf{ser}(\mathsf{EvidenceRowZeroed})) where EID and any signature fields are zeroed and Supersedes? is preserved.
+(k :=) a pinned domain-separation tag "AppB/EvidenceRow".
+Then:
+[
+\boxed{
+\mathsf{EID} = \mathsf{H}\big(k ,|, \mathsf{H}(R) ,|, \mathsf{PinsDigest}\big)
+}
+]
+where (\mathsf{PinsDigest}) is the digest of the pin-closure referenced by the row.
+Collision handling.
+If an implementation detects (\mathsf{EID}) collision with a distinct row (distinct canonical bytes), it MUST:
+Treat as integrity failure (typed CONFLICT),
+Emit a ConflictPacket witness row (WitnessType=ConflictPacket) describing:
+both row digests,
+collision digest,
+reproduction procedure,
+Quarantine both rows for OK routing until resolved by schema/policy migration.
+No silent disambiguation suffixes are permitted; any disambiguation must be explicit via migration and pinned rule changes.
+B.S2.b — Row insertion and append-only discipline
+EvidenceTable update is a DeltaPack operation. Insertion is append-only:
+Rows are appended, never rewritten.
+Supersession is represented only by a new row referencing Supersedes?.
+Let (T_p) be the evidence table at pulse (p). Applying a DeltaPack at pulse (p+1) yields:
+[
+T_{p+1} = T_p \cup \Delta T_{p+1}
+]
+where (\Delta T_{p+1}) is the set of new rows.
+B.S2.c — Canonical row ordering in table commits
+EvidenceTable commits to a canonical ordering of rows by a pinned comparator:
+Primary key:
+IssuedPulse ascending
+ClaimAddr canonical order
+TruthType order (OK > NEAR > AMBIG > FAIL > CONFLICT) for deterministic grouping
+WitnessType canonical enum order
+EID lexicographic
+This ordering is used to compute RowsDigest. Any change to ordering rules is a meaning-bearing policy change and requires explicit migration.
+B.S2.d — Merge operator for evidence tables
+Evidence tables merge only through DeltaPack application and deterministic merge rules. For merging two sources (T^A, T^B) into (T^{A\cup B}), define:
+merge input: two row streams and their pulse ranges
+merge output: a unified row stream with deterministic conflict detection
+Merge algorithm:
+Validate chain integrity and policy compatibility (AppD/Ch20).
+Collect all rows, deduplicate by EID with exact equality of canonical row bytes.
+If two distinct rows share an EID, emit a merge conflict and quarantine (see B.S2.a collision handling).
+Recompute indices deterministically.
+Emit MergeDeterminismCert.
+
+B.S3 — Invariants
+B.S3.a — EvidenceRow well-formedness
+An EvidenceRow is well-formed iff:
+ClaimAddr parses under AppA grammar and resolves under pinned registry.
+PinsDigest resolves to a complete pin-closure required by the witness type.
+ReplayPtr presence matches truth type requirements:
+OK: required
+NEAR: required
+AMBIG: optional, but required if any deterministic selection is asserted
+FAIL/CONFLICT: required if reproducible, optional only if policy explicitly permits non-reproducible fails (not permitted in publish corridors)
+Metrics is present and complete if TruthType=NEAR.
+IssuedPulse is valid under PulseID policy.
+EID equals the pinned derivation function output.
+B.S3.b — Stability contract soundness
+If a StabilityContract marks an EvidenceRow as usable for OK routing, then:
+The row must be TruthType=OK
+Replay must close under the pinned replay harness, and all referenced digests must validate
+The row must not be expired under ExpiryPolicy
+The row must not be quarantined by any applicable quarantine/ revocation policy
+B.S3.c — Expiry and renewal monotonicity
+Expiry is monotone in time: once expired, a row cannot become unexpired. Renewal occurs only via a new EvidenceRow that supersedes prior evidence and references a later pulse and later replay.
+B.S3.d — Migration compatibility invariants
+If schema/policy pins change, evidence stability must be re-evaluated under MigrationPolicy:
+Rows referencing obsolete schema pins are not OK-routable unless explicitly migrated.
+Migration is represented by new rows with WitnessType=MigrationWitness and TruthType per corridor evaluation.
+
+B.S4 — Protocols
+B.S4.a — Evidence issuance protocol
+To issue evidence for a claim:
+Determine ClaimAddr and Scope.
+Select WitnessType and produce WitnessPtr and ReplayPtr.
+Compute PinsDigest for the complete closure required to interpret the witness and to replay verification.
+Compute input and output digests.
+Determine TruthType:
+OK: replay closes, digests match, invariants hold exactly
+NEAR: bounded residual, metrics provided, expiry defined, obligations recorded
+AMBIG: evidence plan or bounded candidate set, no unpinned tie-breaks
+FAIL/CONFLICT: deterministic failure witness or conflict packet
+Compute EID.
+Append as DeltaPack row insertion at IssuedPulse.
+B.S4.b — Evidence lookup protocol
+Given a claim address and a corridor requirement, lookup proceeds:
+Retrieve all rows matching ClaimAddr.
+Filter by Scope compatibility.
+Filter by valid pins under the current policy epoch (AppD/Ch20).
+Apply StabilityContract to determine which rows are admissible under the corridor.
+Choose the best admissible row by pinned preference order:
+prefer OK over NEAR over AMBIG over FAIL over CONFLICT
+prefer latest IssuedPulse subject to non-expiry
+tie-break by EID
+Emit selected evidence row plus any required disclosures (NEAR metrics) or evidence plan (AMBIG).
+B.S4.c — Table merge protocol under DeltaPacks
+Merge is performed by applying imported DeltaPacks and reconstructing the EvidenceTable deterministically. The merge procedure must:
+validate import integrity (digests, signatures),
+validate pulse chain integrity,
+validate row schemas and EIDs,
+detect collisions and conflicts deterministically,
+re-emit indices and RowsDigest,
+emit MergeDeterminismCert.
+B.S4.d — NEAR renewal protocol
+If a row is NEAR and ExpiryPulse is reached (or imminent under policy), renewal is performed by issuing a new row with Supersedes? set to the prior EID and with one of:
+OK upgrade via new replay closure, or
+NEAR renewal via tightened bounds or extended evidence, with a new expiry and replay pointer.
+Renewal must be deterministic and append-only.
+
+❀ B.F — Flower: Evidence Semantics as Typed Claims over Pinned Models
+B.F1 — Objects
+B.F1.a — Claim models and scope
+A claim is evaluated under a pinned model (M_\Pi) determined by policy pins. Evidence rows bind a claim to a witness inside (M_\Pi). The semantic statement of an evidence row is:
+If TruthType=OK: claim holds in (M_\Pi) under pinned evaluation.
+If TruthType=NEAR: claim holds up to bounded error in (M_\Pi) under pinned metric.
+If TruthType=AMBIG: claim is underdetermined; evidence plan required.
+If TruthType=FAIL/CONFLICT: claim cannot be relied on; quarantine and/or conflict resolution required.
+B.F1.b — Metric binding for NEAR
+NEAR evidence must bind a metric (d) by digest, and a bound (\epsilon), such that:
+[
+d(\text{observed}, \text{expected}) \le \epsilon.
+]
+The metric definition is pinned and import-verifiable.
+B.F2 — Operators
+B.F2.a — Promotion operator for truth types
+Evidence stability is monotone via supersession and renewal; upgrades must be explicit rows. No implicit promotions exist.
+B.F3 — Invariants
+B.F3.a — No semantic inference from REF
+Evidence semantics cannot be inferred from reference edges. Only witnessed types in EvidenceRow can promote a claim.
+
+☁ B.C — Cloud: Uncertainty, AMBIG Discipline, and Expiry as Safety Envelope
+B.C1 — Objects
+B.C1.a — EvidencePlan linkage for AMBIG
+If TruthType=AMBIG, EvidenceRow must include:
+WitnessType=EvidencePlan
+WitnessPtr pointing to a bounded candidate set plus discriminators and routes
+optional ReplayPtr if deterministic generation is asserted
+B.C1.b — ExpiryPolicy
+ExpiryPolicy is pinned and specifies:
+which witness types may expire (at minimum NEAR)
+default expiry windows
+conditions under which expiry is accelerated (e.g., policy epoch change)
+renewal obligations
+B.C2 — Operators
+B.C2.a — Quarantine overlay
+Quarantine is a masking layer over evidence: a quarantined row is not OK-routable even if TruthType=OK, until unquarantined by explicit governance procedures.
+B.C3 — Invariants
+B.C3.a — Evidence reliance requires stability contract satisfaction
+No route may treat evidence as stable unless the StabilityContract permits it under the corridor. Routes must carry disclosures and expiry obligations.
+
+✶ B.R — Fractal: Evidence Across Time, Migration, and Deterministic Merge
+B.R1 — Objects
+B.R1.a — Evidence lineage
+Supersession creates a lineage DAG:
+[
+\mathsf{EID}{0} \to \mathsf{EID}{1} \to \cdots
+]
+where edges are Supersedes? pointers. Lineage does not delete prior evidence; it layers it.
+B.R1.b — Policy epochs and evidence revalidation
+When policy pins change (new policy epoch), evidence must be revalidated or migrated. Rows remain addressable but may become non-routable for OK corridors.
+B.R2 — Operators
+B.R2.a — Deterministic merge as replayable operation
+Merging evidence tables is defined as replaying DP application and rebuilding the table deterministically. Any mismatch in merged digests is a deterministic failure.
+B.R3 — Invariants
+B.R3.a — Append-only integrity under time axis
+Evidence tables evolve only by appended rows under DeltaPacks; table digests are pinned to pulse chain digests. Any discontinuity in the chain is a quarantine condition.
+B.R4 — Required Certificates
+B.R4.a — EvidenceTableCert
+An EvidenceTableCert attests that:
+RowsDigest matches the canonical ordering of contained rows,
+index digests match deterministic index construction,
+all rows validate (schema, EID derivation, pin closure rules),
+pulse digest references validate.
+B.R4.b — MergeDeterminismCert
+A MergeDeterminismCert attests that a merge:
+is independent of import order (given pinned pulse ordering),
+yields the same merged RowsDigest and RowIndexDigest under replay,
+detects collisions deterministically and emits conflict packets when needed.
+Certificates must be import-verifiable: all referenced rows, pins, and replay artifacts must be resolvable by digest.
+
+AppB Tight Spec-Only Version (Normative Extraction)
+EvidenceRow is the canonical record binding ClaimAddr to a WitnessType under PinsDigest, producing a TruthType with ReplayPtr/WitnessPtr and digests.
+EvidenceID is derived as a pinned hash of the canonical EvidenceRow content and PinsDigest; collisions are CONFLICT and quarantined.
+EvidenceTable is append-only and updated only via DeltaPacks; row ordering and index construction are deterministic and pinned.
+StabilityContract specifies when evidence is OK-routable, including expiry/renewal rules for NEAR and migration rules across policy epochs.
+Table merge is deterministic under pinned pulse ordering; conflicts are detected and certified; no silent resolution.
+EvidenceTableCert and MergeDeterminismCert are required, import-verifiable, and bind table digests and merge outcomes.
+
+AppB — Evidence Tables, IDs, and the Stability Contract
+AppC — Square Interior (4^4 Tile), Addressing, and Local Proof Objects
+Station role: □ interior mechanics; local atom semantics; core addressability.
+Purpose: define the local 4^4 tile semantics as the storage surface of meaning; addresses, lenses, facets, atoms; local link kinds and invariants.
+
+□ C.S — Square: 4^4 Tile Semantics, Address Grammar, Local Links, Local Proof Objects
+C.S1 — Objects
+C.S1.a — The 4^4 tile and slot space
+A tile is the minimal storage surface of meaning inside the corpus graph. Each tile decomposes into slots by the product:
+[
+\mathsf{Slot} := \mathsf{Lens}\times\mathsf{Facet}\times\mathsf{Atom}
+]
+with:
+(\mathsf{Lens} := {S,F,C,R}) with pinned order (S \prec F \prec C \prec R),
+(\mathsf{Facet} := {1,2,3,4}) with numeric order,
+(\mathsf{Atom} := {1,2,3,4}) with numeric order.
+A tile slot is the triple ((L,f,a)\in\mathsf{Slot}). A tile instance binds a tile identifier (\mathsf{TileID}) to a finite set of slot payloads:
+[
+\mathsf{Tile}(\mathsf{TileID}) := {, (L,f,a) \mapsto \mathsf{PayloadRef}_{L,f,a},}.
+]
+Each payload reference is content-addressed by digest and schema ID:
+[
+\mathsf{PayloadRef} := \langle \mathsf{SchemaID},\ \mathsf{Digest},\ \mathsf{Size},\ \mathsf{Locator}\rangle.
+]
+C.S1.b — Addressing: GlobalAddr, SlotAddr, and LocalAddr
+All semantics are addressable.
+A GlobalAddr identifies a corpus object (chapter, appendix, registry object, or other globally routable node) and is parsed by AppA.
+A SlotAddr refines a GlobalAddr by selecting a lens/facet/atom:
+[
+\mathsf{SlotAddr} := \langle \mathsf{GlobalAddr},\ L,\ f,\ a\rangle.
+]
+A LocalAddr refines a SlotAddr to an internal object path inside the payload schema:
+[
+\mathsf{LocalAddr} := \langle \mathsf{SlotAddr},\ \mathsf{FieldPath}\rangle.
+]
+LocalAddr is the atomic reference unit for local proofs, local link targets, and deterministic expansions.
+C.S1.c — Formal address grammar and canonical ordering
+Addresses MUST be parsed by AppA and canonicalized by AppA canonical bytes rules. Slot selection is canonical and must not depend on presentation.
+Normative EBNF additions for SlotAddr and LocalAddr:
+SlotAddr   := GlobalAddr "." Lens "." Facet "." Atom ;
+LocalAddr  := SlotAddr ":" FieldPath ;
+
+FieldPath  := PathSeg { "/" PathSeg } ;
+PathSeg    := ID | ID "[" Int "]" ;
+
+Canonical ordering of SlotAddr is the lexicographic order on:
+[
+(\mathsf{GlobalAddrCanon},\ L,\ f,\ a)
+]
+where (L) uses the pinned lens order and (\mathsf{GlobalAddrCanon}) is the AppA canonical form.
+Canonical ordering of LocalAddr is lexicographic on:
+[
+(\mathsf{SlotAddrCanon},\ \mathsf{FieldPathCanon})
+]
+with FieldPathCanon computed by pinned normalization:
+normalize . and .. segments are forbidden,
+bracket indices are canonical integers (no leading zeros),
+path separators are / only.
+C.S1.d — Local node types and proof objects
+Within a tile, every payload schema MUST implement a minimal typed node vocabulary to support proof-carrying semantics.
+Minimum local node types:
+ClaimNode: a statement that can be true-typed under a corridor.
+DefNode: definition node (introduces names, types, or constraints).
+RuleNode: inference rule / rewrite rule node (typed, pinned).
+DerivationNode: derivation

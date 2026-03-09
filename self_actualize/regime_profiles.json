@@ -1,0 +1,107 @@
+{
+  "default": {
+    "keywords": [],
+    "preferred_top_levels": [],
+    "penalized_top_levels": [],
+    "preferred_role_tags": [],
+    "preferred_path_keywords": [],
+    "penalized_path_keywords": [],
+    "preferred_kinds": ["document", "text", "code", "data"],
+    "lens_mix": {
+      "square": 0.3,
+      "flower": 0.2,
+      "cloud": 0.25,
+      "fractal": 0.25
+    }
+  },
+  "atlas-build": {
+    "keywords": ["atlas", "corpus", "intake", "witness", "evidence", "index", "schema", "record", "skill", "self_actualize"],
+    "preferred_top_levels": ["self_actualize", "FRESH", "MATH"],
+    "penalized_top_levels": ["Athenachka Collective Books"],
+    "preferred_role_tags": ["orchestration", "atlas", "intake", "framework", "readable"],
+    "preferred_path_keywords": ["atlas", "intake", "schema", "self_actualize"],
+    "penalized_path_keywords": ["nightmare"],
+    "preferred_kinds": ["text", "code", "data", "document"],
+    "lens_mix": {
+      "square": 0.35,
+      "flower": 0.15,
+      "cloud": 0.2,
+      "fractal": 0.3
+    }
+  },
+  "manuscript-synthesis": {
+    "keywords": ["manuscript", "tome", "treatise", "chapter", "appendix", "crystal", "synthesis", "voynich", "book"],
+    "preferred_top_levels": ["FRESH", "MATH", "Athenachka Collective Books"],
+    "penalized_top_levels": ["self_actualize"],
+    "preferred_role_tags": ["manuscript", "readable", "formal-framework", "intake"],
+    "preferred_path_keywords": ["manuscript", "tome", "treatise", "crystal", "holographic"],
+    "penalized_path_keywords": ["benchmark", "test", "runtime"],
+    "preferred_kinds": ["document", "text", "pdf"],
+    "lens_mix": {
+      "square": 0.2,
+      "flower": 0.25,
+      "cloud": 0.2,
+      "fractal": 0.35
+    }
+  },
+  "neural-benchmark": {
+    "keywords": ["neural", "benchmark", "adversarial", "camouflage", "cluttered", "geometric", "optimizer", "regularization", "training", "robustness"],
+    "preferred_top_levels": ["NERUAL NETWORK"],
+    "penalized_top_levels": ["Athenachka Collective Books", "self_actualize", "MATH"],
+    "preferred_role_tags": ["runtime-learning", "benchmark", "tests", "executable"],
+    "preferred_path_keywords": ["benchmark", "nightmare", "athena", "adversarial", "camouflage"],
+    "penalized_path_keywords": ["prompt", "book", "appendix"],
+    "preferred_kinds": ["code", "text", "document"],
+    "lens_mix": {
+      "square": 0.3,
+      "flower": 0.15,
+      "cloud": 0.2,
+      "fractal": 0.35
+    }
+  },
+  "drive-sync": {
+    "keywords": ["google", "docs", "drive", "oauth", "token", "credentials", "trading", "sync", "memory", "bot"],
+    "preferred_top_levels": ["Trading Bot"],
+    "penalized_top_levels": ["Athenachka Collective Books", "self_actualize"],
+    "preferred_role_tags": ["external-retrieval", "orchestration", "readable", "executable"],
+    "preferred_path_keywords": ["docs_search", "credentials", "token", "trading bot", "memory docs"],
+    "penalized_path_keywords": ["nightmare", "camouflage"],
+    "preferred_kinds": ["code", "text", "document", "data"],
+    "lens_mix": {
+      "square": 0.4,
+      "flower": 0.1,
+      "cloud": 0.3,
+      "fractal": 0.2
+    }
+  },
+  "theorem-runtime": {
+    "keywords": ["theorem", "runtime", "bridge", "compiler", "proof", "holographic", "kernel", "atlasforge", "route", "replay"],
+    "preferred_top_levels": ["FRESH", "MATH", "NERUAL NETWORK", "self_actualize"],
+    "penalized_top_levels": ["Athenachka Collective Books"],
+    "preferred_role_tags": ["formal-framework", "runtime-learning", "atlas", "orchestration", "manuscript"],
+    "preferred_path_keywords": ["holographic", "atlas", "kernel", "runtime", "framework", "athena"],
+    "penalized_path_keywords": ["saved games"],
+    "preferred_kinds": ["document", "text", "code", "data"],
+    "lens_mix": {
+      "square": 0.35,
+      "flower": 0.15,
+      "cloud": 0.2,
+      "fractal": 0.3
+    }
+  },
+  "orchestration": {
+    "keywords": ["self", "prompt", "orchestrate", "continue", "framework", "runtime", "patch", "route", "witness", "next"],
+    "preferred_top_levels": ["self_actualize", "FRESH", "MATH"],
+    "penalized_top_levels": ["Athenachka Collective Books"],
+    "preferred_role_tags": ["orchestration", "atlas", "framework", "readable"],
+    "preferred_path_keywords": ["self_actualize", "prompt", "route", "witness"],
+    "penalized_path_keywords": ["nightmare"],
+    "preferred_kinds": ["text", "code", "data", "document"],
+    "lens_mix": {
+      "square": 0.3,
+      "flower": 0.2,
+      "cloud": 0.25,
+      "fractal": 0.25
+    }
+  }
+}

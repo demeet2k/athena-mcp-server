@@ -1,0 +1,87 @@
+# Swarm Hypergraph
+
+- Total edges: `1232`
+- Edge kinds: `source_to_family`, `source_to_chapter`, `family_to_chapter`, `family_to_council`, `chapter_to_hub`, `orbit`, `chapter_to_lane_mediator`, `chapter_to_rail_council`, `chapter_to_sign`
+
+## Sample edges
+
+- `source_to_family: SRC-01 -> manuscript-architecture`
+- `source_to_chapter: SRC-01 -> Ch01`
+- `source_to_chapter: SRC-01 -> Ch06`
+- `source_to_chapter: SRC-01 -> Ch08`
+- `source_to_chapter: SRC-01 -> Ch10`
+- `source_to_family: SRC-02 -> manuscript-architecture`
+- `source_to_chapter: SRC-02 -> Ch01`
+- `source_to_chapter: SRC-02 -> Ch06`
+- `source_to_chapter: SRC-02 -> Ch08`
+- `source_to_chapter: SRC-02 -> Ch10`
+- `source_to_family: SRC-03 -> manuscript-architecture`
+- `source_to_chapter: SRC-03 -> Ch01`
+- `source_to_chapter: SRC-03 -> Ch06`
+- `source_to_chapter: SRC-03 -> Ch08`
+- `source_to_chapter: SRC-03 -> Ch16`
+- `source_to_family: SRC-04 -> transport-and-runtime`
+- `source_to_chapter: SRC-04 -> Ch07`
+- `source_to_chapter: SRC-04 -> Ch15`
+- `source_to_chapter: SRC-04 -> Ch16`
+- `source_to_chapter: SRC-04 -> Ch18`
+- `source_to_family: SRC-05 -> void-and-collapse`
+- `source_to_chapter: SRC-05 -> Ch04`
+- `source_to_chapter: SRC-05 -> Ch11`
+- `source_to_chapter: SRC-05 -> Ch19`
+- `source_to_chapter: SRC-05 -> Ch10`
+- `source_to_family: SRC-06 -> civilization-and-governance`
+- `source_to_chapter: SRC-06 -> Ch17`
+- `source_to_chapter: SRC-06 -> Ch18`
+- `source_to_chapter: SRC-06 -> Ch20`
+- `source_to_chapter: SRC-06 -> Ch21`
+- `source_to_family: SRC-07 -> void-and-collapse`
+- `source_to_chapter: SRC-07 -> Ch04`
+- `source_to_chapter: SRC-07 -> Ch11`
+- `source_to_chapter: SRC-07 -> Ch19`
+- `source_to_chapter: SRC-07 -> Ch16`
+- `source_to_family: SRC-08 -> void-and-collapse`
+- `source_to_chapter: SRC-08 -> Ch04`
+- `source_to_chapter: SRC-08 -> Ch11`
+- `source_to_chapter: SRC-08 -> Ch19`
+- `source_to_chapter: SRC-08 -> Ch16`
+- `source_to_family: SRC-09 -> identity-and-instruction`
+- `source_to_chapter: SRC-09 -> Ch13`
+- `source_to_chapter: SRC-09 -> Ch17`
+- `source_to_chapter: SRC-09 -> Ch20`
+- `source_to_chapter: SRC-09 -> Ch09`
+- `source_to_family: SRC-10 -> void-and-collapse`
+- `source_to_chapter: SRC-10 -> Ch04`
+- `source_to_chapter: SRC-10 -> Ch11`
+- `source_to_chapter: SRC-10 -> Ch19`
+- `source_to_chapter: SRC-10 -> Ch02`
+- `source_to_family: SRC-11 -> void-and-collapse`
+- `source_to_chapter: SRC-11 -> Ch04`
+- `source_to_chapter: SRC-11 -> Ch11`
+- `source_to_chapter: SRC-11 -> Ch19`
+- `source_to_chapter: SRC-11 -> Ch09`
+- `source_to_family: SRC-12 -> transport-and-runtime`
+- `source_to_chapter: SRC-12 -> Ch07`
+- `source_to_chapter: SRC-12 -> Ch15`
+- `source_to_chapter: SRC-12 -> Ch16`
+- `source_to_chapter: SRC-12 -> Ch18`
+- `source_to_family: SRC-13 -> void-and-collapse`
+- `source_to_chapter: SRC-13 -> Ch04`
+- `source_to_chapter: SRC-13 -> Ch11`
+- `source_to_chapter: SRC-13 -> Ch19`
+- `source_to_chapter: SRC-13 -> Ch02`
+- `source_to_family: SRC-14 -> void-and-collapse`
+- `source_to_chapter: SRC-14 -> Ch04`
+- `source_to_chapter: SRC-14 -> Ch11`
+- `source_to_chapter: SRC-14 -> Ch19`
+- `source_to_family: SRC-15 -> live-orchestration`
+- `source_to_chapter: SRC-15 -> Ch09`
+- `source_to_chapter: SRC-15 -> Ch20`
+- `source_to_chapter: SRC-15 -> Ch21`
+- `source_to_chapter: SRC-15 -> Ch19`
+- `source_to_family: SRC-16 -> civilization-and-governance`
+- `source_to_chapter: SRC-16 -> Ch17`
+- `source_to_chapter: SRC-16 -> Ch18`
+- `source_to_chapter: SRC-16 -> Ch20`
+- `source_to_chapter: SRC-16 -> Ch21`
+- `source_to_family: SRC-17 -> manuscript-architecture`

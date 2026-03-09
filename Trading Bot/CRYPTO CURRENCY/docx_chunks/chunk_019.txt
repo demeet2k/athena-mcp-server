@@ -1,0 +1,598 @@
+ matrix + migration tools
+A container ecosystem MUST include:
+A compatibility matrix: which decoder/harness versions can accept which container schema versions
+Explicit MIGRATE edges:
+MIGRATE(vA → vB) is a named, versioned tool
+No silent upgrades during import
+If migration is needed, import must fail with an actionable migration path
+
+18.2 Required laws
+18.2.1 Deterministic encoding/decoding under pins
+For any container C with pins Π:
+Encode(Decoded(C), Π) must reproduce the same canonical payload bytes (or produce a canonical-equivalent payload under the container’s canonicalization law).
+Decode(Payload(C), Π) must reproduce the same decoded structure and derived outputs as claimed by witnesses/certs.
+If this cannot be achieved, the container type is invalid for distributable artifacts.
+
+18.2.2 Bucket invertibility and declared failure modes
+Buckets must obey their invertibility declarations, and any non-invertibility must:
+be declared in manifest
+have typed failure modes
+propagate into certificate truth scopes (see Salvage + Truth below)
+
+18.2.3 Salvage outcomes are typed and truth-scoped
+Corruption handling must not be hand-wavy. Every salvage attempt yields a typed result:
+OK: fully verified, no salvage needed
+NEAR: partially recovered, with bounded uncertainty
+FAIL: not recoverable to any meaningful verified claim
+“Truth-scoped” means: each claim in the container becomes one of:
+Proven true (verified by digest/replay)
+Unknown (missing/uncertain but not contradicted)
+Proven false (digest mismatch / replay mismatch)
+A salvage pipeline MUST produce a structured report that separates these scopes.
+
+18.2.4 Import verification validates pins + replay before acceptance
+An importer MUST:
+Parse manifest (schema validation)
+Validate pin manifest (all required pins present; digests match)
+Validate payload integrity (chunk digests, Merkle root, etc.)
+Validate certificates/witnesses per policy
+Execute replay harness (or verify recorded replay proof) per policy
+Only then: mark container as accepted/imported
+If any step fails, import fails with a typed error (no partial silent acceptance).
+
+18.3 Required constructions
+18.3.1 Encoder
+Encoder takes canonical source structure S plus pins Π and produces:
+Payload: encoded bytes (chunked)
+Manifest: self-description + layout + digests
+Pins: explicit pin manifest
+Witnesses: replay inputs/outputs as required
+Initial certificates (at least ExportCert; optionally ReplayCert)
+Encoder must enforce:
+canonical ordering rules,
+canonical serialization rules,
+deterministic bucket assignment,
+deterministic codebook usage.
+
+18.3.2 Decoder
+Decoder takes (Manifest, Payload, Pins) and produces decoded structure S'.
+Decoder must:
+refuse to run without required pins
+refuse ambiguous versions
+surface typed errors (pin missing, digest mismatch, schema mismatch, unsupported version, replay mismatch)
+
+18.3.3 Verifier
+Verifier is a policy-driven checker. Minimal verifier behavior:
+Verify pins by digest
+Verify payload chunk digests (and root digest if present)
+Verify manifest digest (if the manifest is itself signed/digested)
+Verify certificate chains
+Verify replay claims using harness rules
+A verifier produces a VerificationReport with:
+pass/fail
+which claims are verified
+which are unknown
+which are disproven
+
+18.3.4 Salvage pipeline
+The salvage pipeline runs when integrity checks fail.
+Salvage phases (required)
+Triage
+Identify corrupted regions: which chunks/digests mismatch, which pins missing, which certificate proofs broken.
+Seek (salvage/seek doctrine)
+Attempt recovery using redundancy:
+mirrored chunks
+erasure coding (if used)
+witness bundles (e.g., decoded summaries)
+replay traces (if they include sufficient reconstruction material)
+Rebuild candidate container
+Produce a new container candidate C* with:
+replaced/recovered chunks marked
+explicit salvage annotations
+updated digests
+salvage certificate (or salvage section inside ReplayCert/ExportCert)
+Truth-scope classification
+Mark each claim as true/unknown/false with reasons.
+Salvage output type (required)
+SalvageResult = { status: OK|NEAR|FAIL, report: SalvageReport, candidate_container?: C* }
+
+18.3.5 Migration tools
+Migration is explicit. A migration tool:
+takes container schema version v_old
+outputs container schema version v_new
+preserves claims only where provable
+emits a migration witness bundle and a compatibility certificate update
+No silent upgrades: a decoder may suggest migration but must not silently do it.
+
+18.4 Container format (normative expectations)
+18.4.1 Self-description: Manifest
+The manifest is the “constitution” of the container. It MUST include at least:
+container_schema_version
+payload_layout (chunking rules, ordering, compression/encryption declarations)
+canonicalization_rules (ordering, numeric/text normalization rules, endianness, float mode if relevant)
+bucket_spec references (by digest + semantic ID)
+codebook/coder references (by digest + semantic ID)
+pin_manifest_digest
+payload_digest_root (or list of chunk digests)
+witness_index (what witnesses exist and where)
+certificate_index
+Manifest must be canonicalizable
+Manifest serialization must be deterministic. Whatever format you use, the spec must define:
+canonical key ordering
+canonical number formatting
+canonical string normalization (if any)
+canonical whitespace/encoding rules
+If manifest canonicalization is not defined, deterministic encoding cannot be proven.
+
+18.4.2 Pins
+Pins are the explicit dependency lock. A pin manifest includes:
+Bucket specs (rules, versions, digests)
+Codebooks (tables, versions, digests)
+Coder implementations (artifact digests)
+Harness spec (digest)
+Any runtime constraints that affect determinism (e.g., float mode, locale, seed, algorithm flags)
+Pins are not optional metadata; they are part of the artifact’s identity.
+
+18.4.3 Witness bundles
+Witnesses are the minimal additional data needed to prove claims without relying on external context.
+Examples:
+expected decoded digest(s)
+sample replay traces
+derived output digests
+minimal test vectors for coder tables
+bucket reconstruction checks
+Witnesses must be explicitly scoped:
+what they prove
+what they do not prove
+
+18.5 Replay harness expectations
+18.5.1 Harness contract
+The replay harness defines:
+Inputs:
+container (manifest + payload + pins)
+policy (strictness level)
+Procedure:
+verify pins
+verify integrity
+decode deterministically
+run specified checks (bucket inversion checks, codebook test vectors, derived output reproduction)
+Outputs:
+ReplayReport
+ReplayCert (if issued)
+18.5.2 Replay matching modes (recommended)
+Define at least two modes:
+Strict mode: bitwise-equal payload and bitwise-equal derived outputs.
+Structural mode: semantic equivalence of decoded structure + digest equality of canonicalized decoded form.
+If “tolerances” exist (floats), they must be pinned and explicitly declared. Otherwise, they are a determinism violation.
+
+18.6 Compatibility + migration
+18.6.1 Compatibility matrix (required)
+Provide a matrix mapping:
+container schema versions ↔ decoder versions
+harness versions ↔ certificate versions
+bucket/codebook schema ↔ coder versions
+The matrix must explicitly say:
+supported
+unsupported
+supported with migration (and which MIGRATE edge applies)
+18.6.2 Migration edges (required)
+A MIGRATE edge is an object with:
+from_version
+to_version
+tool_id
+tool_digest
+preservation_claims (what is guaranteed preserved)
+known_losses (what may be dropped or reinterpreted)
+witness_requirements (what must be provided for migration)
+post_migration_verification (what must be rechecked)
+Importers must never apply migration implicitly.
+
+18.7 Certificates (first-class objects)
+All certificates share a common skeleton:
+cert_type
+cert_version
+subject_container_digest
+pins_digest
+harness_digest (if applicable)
+claims (typed)
+witness_bundle (or pointer to witnesses)
+issued_at
+issuer_id (tool identity; pinned)
+signature (optional but recommended if you support trust domains)
+18.7.1 ExportCert (required)
+Purpose: attests the container is a valid export artifact.
+Minimum claims:
+Manifest canonicalization succeeded
+Pins are complete and pinned
+Payload digests match manifest declarations
+Required objects exist (bucket, codebook/coder, container layout, harness spec)
+Witness bundle expectations:
+manifest digest
+pins digest
+payload root digest
+codebook test vectors (minimal)
+
+18.7.2 ReplayCert (required)
+Purpose: attests a replay was performed (or cryptographically proven) and matched expectations.
+Minimum claims:
+Verified pins (digests match)
+Decoded deterministically under harness
+Produced expected decoded digest(s)
+Bucket inversion checks passed where declared invertible
+Codebook/coder test vectors passed
+Witness bundle expectations:
+harness ID + digest
+decoded canonical digest(s)
+replay trace summary (or full trace if policy requires)
+environment pins relevant to determinism
+
+18.7.3 RegressionCert (required)
+Purpose: attests this container matches a baseline (or set of baselines) under specified regression rules.
+Minimum claims:
+Baseline identifiers and digests
+Comparison method (strict/structural/metric-based) pinned
+Result: pass/fail with deltas
+Witness bundle expectations:
+baseline digests
+diff artifacts (or digested diff summaries)
+metric outputs if relevant
+
+18.7.4 CompatCert (required)
+Purpose: attests compatibility assertions between container versions and decoder/harness versions.
+Minimum claims:
+Supported decoder/harness versions
+Required MIGRATE edges for unsupported pairs
+No silent upgrade rule enforced
+Witness bundle expectations:
+compatibility matrix snapshot digest
+migration tool digests where applicable
+
+18.8 Import acceptance procedure (normative)
+An importer must implement:
+Parse + validate manifest schema
+Verify manifest canonical digest (if declared)
+Verify pin manifest
+all required pins present
+digests match
+no unpinned required dependency
+Verify payload integrity
+chunk digests match
+root digest matches
+Verify ExportCert (required)
+Verify ReplayCert (required for acceptance)
+either run harness locally, or verify a replay proof accepted by policy
+Verify compatibility
+if unsupported: fail with explicit MIGRATE edge suggestion
+Accept container and record VerificationReport
+Any failure must produce a typed error:
+PIN_MISSING
+PIN_DIGEST_MISMATCH
+PAYLOAD_DIGEST_MISMATCH
+UNSUPPORTED_SCHEMA_VERSION
+MIGRATION_REQUIRED
+REPLAY_MISMATCH
+BUCKET_INVERSION_FAILED
+CODEBOOK_VECTOR_FAILED
+CERT_INVALID / CERT_MISSING
+
+18.9 Relationship to pipeline hubs (AppA→AppN→AppF→AppI→AppM)
+Ch18 is where the multi-app pipeline becomes artifact-stable:
+AppA/AppN: produce or transform structures that must be bucketed deterministically
+AppF/AppI: finalize encoding rules and enforce pin completeness
+AppM: import/verify/replay authority (or the canonical importer)
+The “integration” contract is: no stage may emit an artifact that cannot be replay-verified downstream.
+
+18.10 What this chapter “makes true”
+After Ch18, the framework can ship containers as stable artifacts where:
+Every container is self-describing
+Every decode is replay-verifiable
+Every dependency is pinned
+Every corruption path yields a typed salvage outcome with truth scopes
+Every version evolution is explicit via MIGRATE edges
+Certificates are first-class verifiable objects, not prose
+
+Ch19⟨0102⟩ — Mycelium Metro: Cross-Corpus Navigation as a Graph
+[○Arc 6 | ○Rot 0 | △Lane Su | ω=18]
+Workflow role: graph execution of “reading”; overlays; hub cap; cross-scope pins.
+Primary hubs: → AppA → AppP → AppC → AppI → AppM
+
+19.0 Chapter purpose in the HD‑SCT tome
+This chapter formalizes navigation as executable routing, not prose scanning.
+A “reading” is defined as:
+compiling an intent into one or more RoutePlans,
+deterministically constructing / re-constructing metro overlays (orbit / rail / triad),
+executing plans over a typed graph of globally addressable atoms, and
+producing only those claims whose evidence is backed by explicit routes + certificates.
+The system MUST specify:
+metro overlay edges (ORBIT_NEXT, RAIL_NEXT, ARC_TRIAD) as REF payloads,
+RoutePlan as the executable unit,
+HubCap discipline (≤ 6 hubs) with a mandatory signature,
+cross-manuscript pinning and INTER contract rules,
+a compilation model that turns “reading intent” into executable routes,
+certificates: OverlayCert, RouterDeterminismCert, HubCapCert, NarrativeCompileCert.
+
+19.1 Graph model
+19.1.1 Global atoms and addresses
+Atom: the smallest globally addressable unit of content (sentence, proposition, code cell, figure-caption, theorem, etc.).
+Each Atom has a globally unique Address.
+Address (normative minimal fields):
+manuscript_id (globally unique)
+station_id (within manuscript)
+atom_id (within station)
+version_id (content hash or immutable revision)
+profile_id (interpretation profile; see §19.6)
+A route is only executable over addresses that are pinned to manuscript + profile + version (or are proven internal to the current pinned scope).
+
+19.1.2 Stations and StationHeader
+Station: a container of atoms with a header that allows deterministic adjacency derivation.
+StationHeader (minimal normative fields sufficient for overlays):
+manuscript_id
+chapter_id
+station_id
+omega (ω): stable ordinal within manuscript traversal order
+lane_id (e.g., Su)
+arc_id (e.g., 6)
+rot_id (e.g., 0)
+triad_role ∈ {ENTRY, CORE, EXIT} (if the station participates in an arc triad; else NONE)
+scope_tags (for lane/arc eligibility)
+version_id
+StationHeader mapping rules are the only allowed source for overlay construction. Overlays are not curated facts; they are recomputations.
+
+19.1.3 Typed edges
+We assume a base typed graph:
+Node types: Station, Atom, Hub
+Edge types (minimum needed in this chapter):
+REF — intra-corpus navigation reference with structured payload
+INTER — cross-manuscript link (requires pins; §19.5)
+All metro overlays in this chapter are represented as REF edges with deterministic payloads.
+
+19.2 MetroOverlay edges as REF payloads
+19.2.1 MetroOverlay edge schema
+A MetroOverlay edge is a REF edge whose payload includes:
+overlay_type ∈ {ORBIT_NEXT, RAIL_NEXT, ARC_TRIAD}
+from_station (addressable)
+to_station (addressable)
+derivation_key (the exact key computed from StationHeader mapping)
+overlay_version (hash of overlay construction rules + input headers)
+constraints (optional, but deterministic when present)
+Normative payload skeleton:
+REF.payload := {
+  overlay_type: OverlayType,
+  from: StationAddress,
+  to: StationAddress,
+  derivation_key: bytes,
+  overlay_version: hash,
+  constraints: { ... }  // MUST be derivable, not editorial
+}
+
+
+19.2.2 ORBIT_NEXT (chapter orbit)
+Purpose: define the default “forward motion” through stations, across chapters, without prose scanning.
+Construction (deterministic):
+Let S be the list of all stations in a manuscript, sorted by (omega) ascending (or by a stable composite key if ω is not global).
+For each station S[i], define:
+next = S[i+1] if i+1 < |S|
+else next = ⊥ (explicit terminal) unless the manuscript declares cyclic traversal
+Then emit:
+REF( S[i] → next, overlay_type=ORBIT_NEXT ) for all valid next
+Derivation key MUST be a stable encoding of:
+(manuscript_id, omega, omega+1, version_id(s), overlay_rules_hash)
+Non-negotiable law: ORBIT_NEXT is never asserted manually. It is always recomputed. (§19.6.1)
+
+19.2.3 RAIL_NEXT (lane rail)
+Purpose: provide deterministic travel along a “lane” (theme/process lane), e.g. Lane Su.
+Construction (deterministic):
+For each lane_id = L, collect all stations whose StationHeader.lane_id = L.
+Sort them by (omega) ascending.
+Emit REF edges linking consecutive stations in this ordered list:
+RAIL_NEXT: lane=L
+Derivation key MUST encode:
+(manuscript_id, lane_id, omega_i, omega_{i+1}, versions, rules_hash)
+Lane eligibility MUST come only from headers and scope tags; no editorial insertion.
+
+19.2.4 ARC_TRIAD (arc triads)
+Purpose: create short-hop “triad jumps” inside a narrative/logic arc (Entry → Core → Exit), enabling structured revisit and cross-check.
+Construction (deterministic):
+For each (manuscript_id, arc_id = A):
+Collect all stations with StationHeader.arc_id = A and triad_role ≠ NONE.
+Partition by triad_group_id if the manuscript defines multiple triads per arc; otherwise the triad is the unique set of roles per arc.
+For each triad group, ensure exactly one of each role:
+ENTRY, CORE, EXIT
+Emit REF edges connecting each role to the others with payload identifying:
+arc_id, triad_group_id, from_role, to_role
+Minimal emission set:
+ENTRY → CORE, CORE → EXIT, EXIT → ENTRY (directed cycle)
+and optionally the full clique (ENTRY↔EXIT etc.) if declared by rules.
+Derivation key MUST encode:
+(manuscript_id, arc_id, triad_group_id, from_role, to_role, versions, rules_hash)
+
+19.3 RoutePlan: the executable unit of reading
+19.3.1 Definition
+A RoutePlan is an executable object that completely specifies a navigational read.
+A RoutePlan MUST contain:
+target (address / query / station-set selector)
+hub_sequence (ordered hubs, capped; §19.4)
+truth_intent (typed; §19.6.4)
+obligations (what must be produced during execution)
+drop_log (deterministic; §19.4.4)
+pins (cross-scope pins; §19.5)
+scope (which manuscripts + versions + profiles are valid)
+route_constraints (deterministic constraints: max hops, required overlays, disallowed edges, etc.)
+Normative skeleton:
+RoutePlan := {
+  plan_id: hash,
+  target: TargetSpec,
+  hub_sequence: [Hub]  // length ≤ HubCap
+  truth_intent: TruthType,
+  obligations: [Obligation],
+  scope: ScopeSpec,
+  pins: [Pin],
+  route_constraints: RouteConstraints,
+  drop_log: DropLog
+}
+
+Executable means: given (Graph, RoutePlan), execution is deterministic and yields a reproducible transcript (routes traversed, atoms visited, certificates produced).
+
+19.3.2 TargetSpec
+Target MUST be one of:
+a global address (Atom or Station),
+a station selector (lane=Su, arc=6, rot=0, omega∈[a,b]),
+a claim-needed selector (atoms that can satisfy a truth obligation),
+a pinned INTER destination (explicit manuscript + profile pins required).
+
+19.3.3 Obligations (minimum set)
+Every RoutePlan MUST declare its obligations. At minimum:
+EVIDENCE: list visited atom addresses used as support
+ROUTES: the exact edge-walks used (with overlay types)
+CERTS: required certificates (see §19.8)
+DROPS: explicit drops due to HubCap or missing pins
+AMBIG_MARKS: places where intent could not be satisfied
+
+19.4 Hub discipline and HubCap policy (≤ 6)
+19.4.1 Hubs are not metaphors
+A Hub is a typed execution phase in routing. Hubs are not UI screens; they are required steps in a deterministic router.
+Primary hubs (declared):
+AppA — Addressing / resolving targets into addresses and admissible scopes
+AppP — Planning / producing candidate routes under constraints
+AppC — Checking / enforcing contracts, pins, and cap; producing cert fragments
+AppI — Truth typing / interpretation profile application; obligation alignment
+AppM — Memo / replay / caching of route transcripts and evidence bundles
+(If your tome defines different semantics for these names, the structure here remains: addressing → planning → checking → truth → memo.)
+
+19.4.2 HubCap rule
+HubCap = 6 (max hubs in hub_sequence).
+HubCap policy:
+|hub_sequence| ≤ 6 MUST be enforced by the router.
+A mandatory signature MUST appear in every RoutePlan’s hub sequence:
+[
+\Sigma = {\mathrm{AppA, AppI, AppM}}
+]
+Meaning: every RoutePlan MUST include at least one occurrence of each of AppA, AppI, AppM (order may be constrained by compiler policy, but presence is mandatory).
+Truth overlay insertion rule: AppI MUST appear before any claim-bearing obligation is discharged (before emitting “supported claim” output).
+
+19.4.3 Cap enforcement is semantic, not cosmetic
+If an intent would require more than 6 hubs to satisfy obligations, the system MUST NOT silently exceed the cap. It must:
+split intent into multiple RoutePlans (compiler-level decomposition), or
+return AMBIG with an evidence plan, or
+drop non-essential subgoals with deterministic logging.
+
+19.4.4 DropLog (deterministic)
+DropLog is a required field of RoutePlan output and must be deterministic.
+DropLog entries MUST include:
+drop_reason ∈ {HUBCAP_EXCEEDED, PIN_MISSING, SCOPE_VIOLATION, EDGE_DISALLOWED, NO_ROUTE}
+drop_point (hub + step)
+what_was_dropped (subgoal / candidate route / edge type)
+required_fix (e.g., “add pins for manuscript X with profile Y”)
+replay_token (so the same drop can be reproduced)
+A DropLog is not “debug text”; it is a formal artifact that blocks false certainty.
+
+19.5 Cross-manuscript link contract (INTER)
+19.5.1 INTER edges are only routable when pinned
+Any cross-manuscript traversal uses an INTER edge.
+Contract: Any INTER edge traversal MUST include pins for:
+source manuscript ID + version + profile
+destination manuscript ID + version + profile
+Unpinned links are not OK-routable.
+
+19.5.2 Pin structure
+A Pin minimally contains:
+manuscript_id
+version_id (or immutable content hash)
+profile_id (interpretation profile)
+optional scope_label (human-friendly name; not used for determinism)
+
+19.5.3 Interpretation profiles are part of the address
+A route crossing manuscripts without explicit profile_id is undefined behavior.
+“Convenient default interpretation” is not allowed for executable reading.
+
+19.6 Required laws
+19.6.1 Overlay determinism law
+Law (Overlay Determinism): Metro overlays MUST be recomputable from StationHeader mapping rules and pinned corpus versions. They MUST NOT be asserted as freehand edges.
+Operational consequence:
+Overlays have a generator hash.
+Overlay edges must be derivable from headers and generator version.
+“I linked these because it felt right” is invalid in MetroOverlay space.
+
+19.6.2 Router determinism + HubCap enforcement law
+Law (Router Determinism): Given identical:
+pinned graph (content + headers),
+overlay rules hash,
+target + constraints,
+scope + pins,
+the router MUST output the same RoutePlan(s), the same route order, and the same DropLogs.
+Law (Cap Enforcement): Any route output violating HubCap is invalid and MUST be rejected at AppC.
+
+19.6.3 Cross-scope pin completeness law
+Law (Pin Completeness): Any executable plan that can traverse an INTER edge MUST carry complete pins for all manuscripts reachable under that plan.
+No “partial pins” and no “we’ll pin later” execution.
+
+19.6.4 Truth typing cannot be bypassed
+Law (Truth Typing Non-Bypass): Truth intent is a typed object in RoutePlan and MUST be inserted via AppI. No route may discharge claim-bearing obligations without passing through AppI.
+Minimal TruthType lattice (example; adjust to your tome):
+T0: QUOTE (verbatim / direct evidence)
+T1: PARAPHRASE (faithful restatement; requires alignment obligations)
+T2: DERIVE (logical derivation; requires rule references)
+T3: INFER (probabilistic inference; requires uncertainty bounds)
+T4: SPECULATE (explicitly marked; cannot be upgraded without new evidence)
+Routes that look “shorter” but skip truth typing are convenience routes and must be rejected.
+
+19.7 Required constructions
+19.7.1 Overlay construction procedure
+Input: pinned manuscripts, their StationHeaders, overlay generator version.
+Output: a set of REF edges with payloads (ORBIT_NEXT, RAIL_NEXT, ARC_TRIAD) + OverlayCert (§19.8.1).
+Construction steps:
+Normalize headers
+Validate required StationHeader fields exist and are pinned to versions.
+Build ORBIT_NEXT
+Sort by ω (or declared traversal key); link consecutive stations.
+Build RAIL_NEXT
+For each lane, filter stations by lane_id, sort by ω, link consecutive.
+Build ARC_TRIAD
+For each arc, assemble triads by roles; emit deterministic triad edges.
+Emit OverlayCert
+Hash:
+input headers (ordered)
+overlay generator version
+output edge list (ordered)
+producing overlay_version.
+
+19.7.2 Narrative compiler
+A Narrative is not a freeform story; it is a compiled artifact whose claims must be backed by executable routes.
+Narrative compilation:
+Input: IntentSpec (what you want to know / prove / summarize)
+Output:
+ordered list of RoutePlans,
+a claim set with evidence bindings,
+NarrativeCompileCert,
+possibly an AMBIG status with evidence plans.
+Validity rule:
+A narrative is VALID iff every claim used is supported by:
+explicit route transcript(s) produced by executing RoutePlans, and
+required certificates.
+Otherwise the narrative MUST remain AMBIG, and the compiler MUST output an evidence plan (RoutePlans that would resolve ambiguity if executed).
+
+19.8 Required certificates
+Certificates are the non-negotiable proof objects that prevent “hand-wavy reading.”
+19.8.1 OverlayCert
+Attests that overlays were generated deterministically.
+Must include:
+overlay_generator_id (hash/version)
+input_headers_hash
+output_edges_hash
+overlay_version
+scope_pins_used
+
+19.8.2 RouterDeterminismCert
+Attests deterministic planning and ordering.
+Must include:
+router_id (hash/version)
+inputs_hash (target, constraints, pins, overlay_version)
+routeplan_hashes (ordered)
+ordering_rule_id (stable sort description / tie-breaker hash)
+
+19.8.3 HubCapCert
+Attests HubCap compliance and signature inclusion.
+Must include:
+hubcap_value (≤ 6)
+hub_sequence
+proof of Σ={AppA,AppI,AppM} inclusion

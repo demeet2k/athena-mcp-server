@@ -1,0 +1,1341 @@
+{
+  "generated_at": "2026-03-09",
+  "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+  "basis": {
+    "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+    "record_count": 1646,
+    "live_docs_gate": {
+      "status": "BLOCKED",
+      "missing": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\credentials.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\token.json"
+      ]
+    }
+  },
+  "axes": {
+    "substrate": [
+      "manuscript-corpus",
+      "formal-framework",
+      "runtime-system",
+      "live-memory"
+    ],
+    "operator": [
+      "intake",
+      "routing",
+      "compilation",
+      "verification"
+    ],
+    "scale": [
+      "atom",
+      "packet",
+      "corpus",
+      "ecosystem"
+    ],
+    "closure": [
+      "witness",
+      "benchmark",
+      "governance",
+      "publication"
+    ]
+  },
+  "higher_dimensional_mapping": {
+    "ns_coord": [
+      "Addr4",
+      "Face6",
+      "Arc",
+      "Rail",
+      "Depth",
+      "Packet",
+      "Truth",
+      "Hub",
+      "Family",
+      "Regime"
+    ],
+    "face6": [
+      "Earth",
+      "Air",
+      "Water",
+      "Fire",
+      "Void",
+      "Aether"
+    ],
+    "arcs": [
+      "Arc0",
+      "Arc1",
+      "Arc2",
+      "Arc3",
+      "Arc4",
+      "Arc5",
+      "Arc6"
+    ],
+    "rails": [
+      "Su",
+      "Me",
+      "Sa"
+    ],
+    "hub16": [
+      "AppA",
+      "AppB",
+      "AppC",
+      "AppD",
+      "AppE",
+      "AppF",
+      "AppG",
+      "AppH",
+      "AppI",
+      "AppJ",
+      "AppK",
+      "AppL",
+      "AppM",
+      "AppN",
+      "AppO",
+      "AppP"
+    ],
+    "families": [
+      "Voynich",
+      "MATH",
+      "Trading Bot",
+      "DEEPER CRYSTALIZATION",
+      "self_actualize",
+      "ECOSYSTEM",
+      "NERUAL NETWORK",
+      "Athenachka Collective Books",
+      "FRESH"
+    ],
+    "depth_levels": {
+      "D0": "kernel",
+      "D1": "pillars",
+      "D2": "pantheon",
+      "D3": "workers",
+      "D4": "microcells"
+    },
+    "packet_classes": [
+      "task packet",
+      "worker packet",
+      "pod packet",
+      "receipt packet",
+      "ledger packet",
+      "neuron packet",
+      "ganglion packet",
+      "wave packet",
+      "queue packet",
+      "synthesis packet",
+      "session packet",
+      "manifest packet"
+    ],
+    "truth_classes": [
+      "OK",
+      "NEAR",
+      "AMBIG",
+      "FAIL"
+    ],
+    "regimes": [
+      "classical",
+      "stratified",
+      "quarantine",
+      "restart-token"
+    ]
+  },
+  "metallic_scales": {
+    "golden": {
+      "elements": 4,
+      "role": "base crystal decomposition"
+    },
+    "silver": {
+      "elements": 8,
+      "role": "higher-resolution hypermap and pod specialization"
+    },
+    "bronze": {
+      "elements": 12,
+      "role": "ganglion and archetype-family refinement"
+    },
+    "copper": {
+      "elements": 16,
+      "role": "microcell saturation when 4-way splits are too coarse"
+    }
+  },
+  "family_meta_swarm": [
+    {
+      "family": "Voynich",
+      "weight": 636,
+      "best_front": "manuscript-family metro map",
+      "preferred_artifact": "chapter-family receipt or map"
+    },
+    {
+      "family": "MATH",
+      "weight": 486,
+      "best_front": "archive-backed framework surfacing",
+      "preferred_artifact": "archive promotion manifest or live extraction"
+    },
+    {
+      "family": "Trading Bot",
+      "weight": 193,
+      "best_front": "live Docs gate unlock plus search manifest",
+      "preferred_artifact": "gate receipt, credentials bootstrap, docs manifest"
+    },
+    {
+      "family": "DEEPER CRYSTALIZATION",
+      "weight": 155,
+      "best_front": "mirrored nervous-system comparison",
+      "preferred_artifact": "precursor receipt or cross-map"
+    },
+    {
+      "family": "self_actualize",
+      "weight": 74,
+      "best_front": "runtime and atlas control plane",
+      "preferred_artifact": "route ledger, queue, runtime receipt"
+    },
+    {
+      "family": "ECOSYSTEM",
+      "weight": 58,
+      "best_front": "framework normalization",
+      "preferred_artifact": "canonical framework map or appendix surface"
+    },
+    {
+      "family": "NERUAL NETWORK",
+      "weight": 22,
+      "best_front": "executable bridge study",
+      "preferred_artifact": "integration note or routeable bridge file"
+    },
+    {
+      "family": "Athenachka Collective Books",
+      "weight": 13,
+      "best_front": "manuscript family intake",
+      "preferred_artifact": "family receipt"
+    },
+    {
+      "family": "FRESH",
+      "weight": 6,
+      "best_front": "intake triage",
+      "preferred_artifact": "manifest or placement note"
+    }
+  ],
+  "lane_order": [
+    "manuscript",
+    "formal-framework",
+    "runtime",
+    "live-memory",
+    "hypermap",
+    "neural-swarm",
+    "control-plane",
+    "swarm"
+  ],
+  "frontier_skills": [
+    {
+      "slug": "corpus-atlas-builder",
+      "name": "corpus-atlas-builder",
+      "priority": "P0",
+      "lane": "manuscript",
+      "address": "0030",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "description": "Build and refresh the canonical manuscript-first atlas across markdown, docx, pdf, txt, code, and archive mirrors.",
+      "rationale": "Atlas construction is the front door to the whole workspace.",
+      "depends_on": [],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\DEEPER_SKILLS_CORPUS_SYNTHESIS.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\16_CORPUS_ATLAS.md"
+      ]
+    },
+    {
+      "slug": "chapter-map-ledger",
+      "name": "chapter-map-ledger",
+      "priority": "P1",
+      "lane": "manuscript",
+      "address": "0122",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "governance",
+      "description": "Map chapter, appendix, arc, and station relationships across the routed manuscript bodies into one durable ledger.",
+      "rationale": "The chapter and metro structure is strong but still distributed across many files.",
+      "depends_on": [
+        "corpus-atlas-builder"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\_build\\nervous_system\\00_NERVOUS_SYSTEM_MAP.md"
+      ]
+    },
+    {
+      "slug": "capsule-promoter",
+      "name": "capsule-promoter",
+      "priority": "P1",
+      "lane": "manuscript",
+      "address": "0213",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "publication",
+      "description": "Promote dense docx and pdf source bodies into compact, routable markdown capsules.",
+      "rationale": "The archive still contains far more long-form source than promoted packet surfaces.",
+      "depends_on": [
+        "corpus-atlas-builder"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\README.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\toolkit\\03_recursive_corpus_synthesis_rule.md"
+      ]
+    },
+    {
+      "slug": "contradiction-ledger",
+      "name": "contradiction-ledger",
+      "priority": "P1",
+      "lane": "manuscript",
+      "address": "0322",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "governance",
+      "description": "Preserve unresolved manuscript conflicts, branch states, and non-collapsible readings in one explicit contradiction ledger.",
+      "rationale": "The corpus rejects premature collapse but still lacks a general contradiction-preservation surface.",
+      "depends_on": [
+        "chapter-map-ledger",
+        "capsule-promoter"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Voynich\\FULL_TRANSLATION\\manifests\\VOYNICH_SKILL_WISHLIST.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md"
+      ]
+    },
+    {
+      "slug": "archive-tree-extractor",
+      "name": "archive-tree-extractor",
+      "priority": "P0",
+      "lane": "formal-framework",
+      "address": "1020",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "witness",
+      "description": "Promote ZIP-backed formal framework trees into canonical live roots so they can be diffed, tested, and referenced like first-class source.",
+      "rationale": "Archive-backed code exists but still needs live-tree promotion.",
+      "depends_on": [],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_atlas.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_manifest.json"
+      ]
+    },
+    {
+      "slug": "kernel-route-mapper",
+      "name": "kernel-route-mapper",
+      "priority": "P1",
+      "lane": "formal-framework",
+      "address": "1112",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "governance",
+      "description": "Map how kernel theorems, framework documents, and runtime modules should route into one another.",
+      "rationale": "The theorem-to-runtime path is still too implicit.",
+      "depends_on": [
+        "archive-tree-extractor"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\HARD MATH\\ATHENA_KERNEL_MATHEMATICAL_FRAMEWORK.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\05_MYCELIUM_ROUTING.md"
+      ]
+    },
+    {
+      "slug": "theorem-to-runtime",
+      "name": "theorem-to-runtime",
+      "priority": "P0",
+      "lane": "formal-framework",
+      "address": "1210",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "witness",
+      "description": "Compile stable formal objects into tested runtime modules, schemas, or executable kernels with explicit theorem lineage.",
+      "rationale": "The theory layer is richer than the executable bridge layer.",
+      "depends_on": [
+        "kernel-route-mapper"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\engine.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\skills_registry.py"
+      ]
+    },
+    {
+      "slug": "archive-replay-harness",
+      "name": "archive-replay-harness",
+      "priority": "P1",
+      "lane": "formal-framework",
+      "address": "1321",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "description": "Replay extracted or archive-backed framework artifacts against declared checks so archive promotion becomes test-bearing.",
+      "rationale": "Archive visibility is not enough without replay and benchmark closure.",
+      "depends_on": [
+        "archive-tree-extractor",
+        "theorem-to-runtime"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_manifest.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\ultimate_bench.py"
+      ]
+    },
+    {
+      "slug": "witness-bundle-assembler",
+      "name": "witness-bundle-assembler",
+      "priority": "P0",
+      "lane": "runtime",
+      "address": "2010",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "witness",
+      "description": "Assemble route evidence, source excerpts, lineage pointers, and replay hooks into one packet-level witness bundle.",
+      "rationale": "The runtime contracts exist, but the reusable assembly layer is still thin.",
+      "depends_on": [
+        "corpus-atlas-builder"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\contracts.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\engine.py"
+      ]
+    },
+    {
+      "slug": "regime-router",
+      "name": "regime-router",
+      "priority": "P0",
+      "lane": "runtime",
+      "address": "2121",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "description": "Infer the active regime for a task and rebalance route strategy, evidence weighting, and lens mix accordingly.",
+      "rationale": "The corpus explicitly rejects one globally best strategy.",
+      "depends_on": [
+        "witness-bundle-assembler"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\regime_profiles.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\Hybrid Equations\\HYBRIDIZATION_COMPLETE_GUIDE.md"
+      ]
+    },
+    {
+      "slug": "packet-wave-planner",
+      "name": "packet-wave-planner",
+      "priority": "P1",
+      "lane": "runtime",
+      "address": "2232",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "description": "Compile a normalized objective into a bounded multi-wave packet manifest suitable for parallel execution without write collisions.",
+      "rationale": "The ecosystem has a protocol and now needs a reusable planning skill built on it.",
+      "depends_on": [
+        "regime-router"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\12_PARALLEL_ORCHESTRATION_PROTOCOL.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\19_PARALLEL_RUN_MANIFEST.md"
+      ]
+    },
+    {
+      "slug": "route-quality-auditor",
+      "name": "route-quality-auditor",
+      "priority": "P1",
+      "lane": "runtime",
+      "address": "2321",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "description": "Audit route outcomes across tasks so the runtime can learn which route patterns close lawfully and which ones stay weak.",
+      "rationale": "Route quality is logged but not yet turned into a dedicated improvement surface.",
+      "depends_on": [
+        "packet-wave-planner"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\route_quality_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\ultimate_bench.py"
+      ]
+    },
+    {
+      "slug": "drive-memory-sync",
+      "name": "drive-memory-sync",
+      "priority": "P0",
+      "lane": "live-memory",
+      "address": "3030",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "description": "Unlock and operate Google Docs as a witness-bearing memory surface alongside the local and archive-backed corpus.",
+      "rationale": "The live Docs bridge is a clearly blocked but high-leverage memory surface.",
+      "depends_on": [
+        "docs-gate-auditor"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\docs_search.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\15_GOOGLE_DOCS_GATEWAY.md"
+      ]
+    },
+    {
+      "slug": "docs-query-ledger",
+      "name": "docs-query-ledger",
+      "priority": "P1",
+      "lane": "live-memory",
+      "address": "3112",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "governance",
+      "description": "Turn live Docs queries into a governed ledger so memory search stays replayable.",
+      "rationale": "Once live Docs opens, query governance is immediately necessary.",
+      "depends_on": [
+        "drive-memory-sync"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\google_docs_memory_sync_bootstrap.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\docs_search.py"
+      ]
+    },
+    {
+      "slug": "live-docs-witness-binder",
+      "name": "live-docs-witness-binder",
+      "priority": "P1",
+      "lane": "live-memory",
+      "address": "3210",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "witness",
+      "description": "Mirror the relevant slice of a live Google Doc into a local witness packet without replacing the live source.",
+      "rationale": "Live retrieval must feed the same witness grammar as the local corpus.",
+      "depends_on": [
+        "docs-query-ledger"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\_build\\nervous_system\\toolkit\\LIVE_DOCS_GATE_PROTOCOL.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\README.md"
+      ]
+    },
+    {
+      "slug": "docs-gate-auditor",
+      "name": "docs-gate-auditor",
+      "priority": "P0",
+      "lane": "live-memory",
+      "address": "3332",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "description": "Audit the Google Docs gateway state, OAuth readiness, result provenance rules, and blocker receipts before any live-memory claim is treated as canonical.",
+      "rationale": "The corpus already says the gate must be named honestly when blocked.",
+      "depends_on": [],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\15_GOOGLE_DOCS_GATEWAY.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\docs_search.py"
+      ]
+    },
+    {
+      "slug": "face-manifold-router",
+      "name": "face-manifold-router",
+      "priority": "P0",
+      "lane": "hypermap",
+      "address": "2110",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "witness",
+      "metallic_scale": "silver",
+      "ns_coord": {
+        "face": "Aether",
+        "rail": "Su",
+        "depth": "D2",
+        "packet": "neuron packet",
+        "truth": "NEAR"
+      },
+      "description": "Route nervous-system transitions across the six-face transport manifold without illegal opposite jumps.",
+      "rationale": "The higher-dimensional mapping explicitly says the flat crystal is not enough and that major transitions require midpoint routing across Face6.",
+      "depends_on": [
+        "regime-router"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\02_TUNNELING_GEOMETRY.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\04_deeper_emergent_metro_supermap.md"
+      ]
+    },
+    {
+      "slug": "arc-rail-phase-router",
+      "name": "arc-rail-phase-router",
+      "priority": "P1",
+      "lane": "hypermap",
+      "address": "2122",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "governance",
+      "metallic_scale": "silver",
+      "ns_coord": {
+        "face": "Air",
+        "rail": "Me",
+        "depth": "D2",
+        "packet": "archetype packet",
+        "truth": "NEAR"
+      },
+      "description": "Map fronts by circle arc and triangle rail so pods know revisit order and long-range affinity.",
+      "rationale": "Arc and rail are operational routing laws in the corpus, not decorative overlays.",
+      "depends_on": [
+        "face-manifold-router",
+        "chapter-map-ledger"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_family_frontier_matrix.md"
+      ]
+    },
+    {
+      "slug": "packet-truth-typist",
+      "name": "packet-truth-typist",
+      "priority": "P1",
+      "lane": "hypermap",
+      "address": "2312",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "governance",
+      "metallic_scale": "golden",
+      "ns_coord": {
+        "face": "Earth",
+        "rail": "Sa",
+        "depth": "D3",
+        "packet": "queue packet",
+        "truth": "OK"
+      },
+      "description": "Type every packet by class and corridor truth so the swarm can distinguish mapped, witnessed, partial, and blocked work.",
+      "rationale": "The higher-dimensional coordinate requires packet and truth axes, and the current future-skill layer did not model them explicitly.",
+      "depends_on": [
+        "witness-bundle-assembler"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\contracts.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\13_MANIFEST_AND_PACKET_SCHEMA.md"
+      ]
+    },
+    {
+      "slug": "metallic-scale-planner",
+      "name": "metallic-scale-planner",
+      "priority": "P1",
+      "lane": "hypermap",
+      "address": "2221",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "metallic_scale": "bronze",
+      "ns_coord": {
+        "face": "Aether",
+        "rail": "Su",
+        "depth": "D4",
+        "packet": "swarm packet",
+        "truth": "NEAR"
+      },
+      "description": "Decide when a front should remain golden or escalate to silver, bronze, or copper resolution.",
+      "rationale": "The corpus has an explicit higher-dimensional scaling law, and some fronts are too coarse for 4-way decomposition alone.",
+      "depends_on": [
+        "face-manifold-router",
+        "microcell-specializer"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\.codex\\skills\\metallic-scaler\\SKILL.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\12_FRACTAL_CRYSTAL_AGENT_FRAMEWORK.md"
+      ]
+    },
+    {
+      "slug": "perturbation-chaos-discriminator",
+      "name": "perturbation-chaos-discriminator",
+      "priority": "P0",
+      "lane": "neural-swarm",
+      "address": "2111",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "benchmark",
+      "swarm_role": "Discriminate external shock from internal chaos before the swarm chooses a response.",
+      "family_targets": [
+        "NERUAL NETWORK",
+        "self_actualize"
+      ],
+      "ns_coord": {
+        "face": "Air",
+        "rail": "Sa",
+        "depth": "D2",
+        "packet": "worker packet",
+        "truth": "NEAR"
+      },
+      "description": "Distinguish perturbation, moderate chaos, extreme chaos, vanishing, and dead-network states so the swarm does not apply the wrong intervention.",
+      "rationale": "Branch 2 explicitly shows that perturbation and chaos can share symptoms but require opposite treatments.",
+      "depends_on": [
+        "regime-router"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\branch 2\\BRANCH2_INTEGRATION_GUIDE.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\branch 2\\athena_branch2_final.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md"
+      ]
+    },
+    {
+      "slug": "observer-corridor-nudge-compiler",
+      "name": "observer-corridor-nudge-compiler",
+      "priority": "P0",
+      "lane": "neural-swarm",
+      "address": "2222",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "governance",
+      "swarm_role": "Compile L0-L5 observer summaries into lawful nudge packages.",
+      "family_targets": [
+        "NERUAL NETWORK",
+        "ECOSYSTEM",
+        "self_actualize"
+      ],
+      "ns_coord": {
+        "face": "Aether",
+        "rail": "Me",
+        "depth": "D2",
+        "packet": "archetype packet",
+        "truth": "NEAR"
+      },
+      "description": "Compile observer, corridor, and nudge logic from the neural hierarchy into reusable swarm packets and governance surfaces.",
+      "rationale": "The Branch 2 integration guide defines a concrete L0-L5 observer-corridor-nudge architecture that the current future-skill system was not yet compiling.",
+      "depends_on": [
+        "perturbation-chaos-discriminator",
+        "packet-truth-typist"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\branch 2\\BRANCH2_INTEGRATION_GUIDE.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\athena_master_benchmark.py"
+      ]
+    },
+    {
+      "slug": "branch-fusion-router",
+      "name": "branch-fusion-router",
+      "priority": "P1",
+      "lane": "neural-swarm",
+      "address": "2123",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "publication",
+      "swarm_role": "Route findings across Branch 1, Branch 2, v74, and the current swarm cortex.",
+      "family_targets": [
+        "NERUAL NETWORK",
+        "MATH",
+        "self_actualize"
+      ],
+      "ns_coord": {
+        "face": "Water",
+        "rail": "Su",
+        "depth": "D2",
+        "packet": "neuron packet",
+        "truth": "NEAR"
+      },
+      "description": "Route branch-fusion learnings so stable neural findings can move into the shared skill and swarm surfaces without flattening their regime-specific meaning.",
+      "rationale": "The neural corpus contains branch-fusion and integration logic that still sits outside the future-skill registry.",
+      "depends_on": [
+        "observer-corridor-nudge-compiler",
+        "kernel-route-mapper"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\Strong versions\\v74\\ATHENA_v74_FINAL_SYNTHESIS.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\branch 2\\BRANCH2_INTEGRATION_GUIDE.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\02_interconnecter_neuron.md"
+      ]
+    },
+    {
+      "slug": "health-corridor-monitor",
+      "name": "health-corridor-monitor",
+      "priority": "P1",
+      "lane": "neural-swarm",
+      "address": "2310",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "witness",
+      "swarm_role": "Track layer, module, task, and meta-health across the neural swarm.",
+      "family_targets": [
+        "NERUAL NETWORK"
+      ],
+      "ns_coord": {
+        "face": "Earth",
+        "rail": "Sa",
+        "depth": "D3",
+        "packet": "receipt packet",
+        "truth": "OK"
+      },
+      "description": "Monitor layer health, corridor violations, and confidence thresholds so interventions remain conservative and replay-safe.",
+      "rationale": "The neural integration guide makes clear that over-intervention degrades performance and that health has to be tracked across levels.",
+      "depends_on": [
+        "observer-corridor-nudge-compiler"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\branch 2\\BRANCH2_INTEGRATION_GUIDE.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\branch 2\\athena_branch2_final.py"
+      ]
+    },
+    {
+      "slug": "neural-regime-benchmark-bridge",
+      "name": "neural-regime-benchmark-bridge",
+      "priority": "P1",
+      "lane": "neural-swarm",
+      "address": "2331",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "swarm_role": "Bridge swarm decisions to real ATHENA benchmark regimes and recovery curves.",
+      "family_targets": [
+        "NERUAL NETWORK",
+        "self_actualize"
+      ],
+      "ns_coord": {
+        "face": "Fire",
+        "rail": "Me",
+        "depth": "D1",
+        "packet": "final synthesis packet",
+        "truth": "NEAR"
+      },
+      "description": "Measure whether swarm-level routing and intervention choices actually improve convergence, recovery, and generalization on the ATHENA benchmark surfaces.",
+      "rationale": "Without a bridge back to real benchmark suites, the neural swarm remains conceptual instead of empirically constrained.",
+      "depends_on": [
+        "health-corridor-monitor",
+        "swarm-benchmark-ledger"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\athena_master_benchmark.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\ultimate_bench.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\Strong versions\\v74\\ATHENA_v74_FINAL_SYNTHESIS.md"
+      ]
+    },
+    {
+      "slug": "rail-load-balancer",
+      "name": "rail-load-balancer",
+      "priority": "P1",
+      "lane": "control-plane",
+      "address": "2120",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "witness",
+      "metallic_scale": "bronze",
+      "swarm_role": "Distribute family and pod fronts across Su, Me, and Sa without rail contention or orphaned fronts.",
+      "family_targets": [
+        "all active ganglia"
+      ],
+      "ns_coord": {
+        "face": "Water",
+        "rail": "Me",
+        "depth": "D2",
+        "packet": "swarm packet",
+        "truth": "NEAR",
+        "hub": "AppH",
+        "family": "self_actualize",
+        "regime": "stratified"
+      },
+      "description": "Balance family fronts across sulfur, mercury, and salt rails so hub traffic, packet class, and family ownership stay aligned under pressure.",
+      "rationale": "The rail surfaces already name distinct long-range roles, but the current future-skill frontier was not yet distributing load across them explicitly.",
+      "depends_on": [
+        "face-manifold-router",
+        "family-swarm-conductor"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_family_frontier_matrix.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\rails\\ME_RAIL.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\rails\\SA_RAIL.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\rails\\SU_RAIL.md"
+      ]
+    },
+    {
+      "slug": "hub-legality-enforcer",
+      "name": "hub-legality-enforcer",
+      "priority": "P0",
+      "lane": "control-plane",
+      "address": "2112",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "governance",
+      "metallic_scale": "silver",
+      "swarm_role": "Enforce lawful hub transitions across recursion, corridor truth, evidence promotion, and replay closure.",
+      "family_targets": [
+        "self_actualize",
+        "ECOSYSTEM",
+        "NERUAL NETWORK",
+        "Trading Bot"
+      ],
+      "ns_coord": {
+        "face": "Aether",
+        "rail": "Me",
+        "depth": "D2",
+        "packet": "neuron packet",
+        "truth": "OK",
+        "hub": "AppG",
+        "family": "self_actualize",
+        "regime": "restart-token"
+      },
+      "description": "Police which hub-to-hub transitions are legal so recursion, corridor truth, evidence promotion, and replay closure do not drift into contradictory routes.",
+      "rationale": "The higher-dimensional mapping defines a 16-hub control surface, but the future-skill system had not yet compiled hub legality into an explicit operator.",
+      "depends_on": [
+        "face-manifold-router",
+        "rail-load-balancer"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hubs\\00_hub_index.md"
+      ]
+    },
+    {
+      "slug": "truth-promotion-governor",
+      "name": "truth-promotion-governor",
+      "priority": "P0",
+      "lane": "control-plane",
+      "address": "2322",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "governance",
+      "metallic_scale": "silver",
+      "swarm_role": "Couple corridor truth, evidence promotion, quarantine, and residual ledgers to every packet verdict.",
+      "family_targets": [
+        "all active ganglia"
+      ],
+      "ns_coord": {
+        "face": "Earth",
+        "rail": "Sa",
+        "depth": "D3",
+        "packet": "ledger packet",
+        "truth": "NEAR",
+        "hub": "AppI",
+        "family": "ECOSYSTEM",
+        "regime": "stratified"
+      },
+      "description": "Govern movement between OK, NEAR, AMBIG, and FAIL using corridor health, evidence completeness, quarantine rules, and promotion receipts.",
+      "rationale": "Packet truth was named earlier, but the corpus also gives explicit corridor, quarantine, and evidence-promotion hubs that need to participate in verdict formation.",
+      "depends_on": [
+        "packet-truth-typist",
+        "health-corridor-monitor",
+        "hub-legality-enforcer"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\OLDER Versions\\branch 2\\BRANCH2_INTEGRATION_GUIDE.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hubs\\00_hub_index.md"
+      ]
+    },
+    {
+      "slug": "restart-seed-orchestrator",
+      "name": "restart-seed-orchestrator",
+      "priority": "P0",
+      "lane": "control-plane",
+      "address": "2233",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "metallic_scale": "bronze",
+      "swarm_role": "Compile replay-safe NS0 bundles and restart manifests after every wave.",
+      "family_targets": [
+        "sessions",
+        "manifests",
+        "waves",
+        "ledgers"
+      ],
+      "ns_coord": {
+        "face": "Void",
+        "rail": "Sa",
+        "depth": "D0",
+        "packet": "manifest packet",
+        "truth": "NEAR",
+        "hub": "AppM",
+        "family": "self_actualize",
+        "regime": "restart-token"
+      },
+      "description": "Compile the smallest truthful restart bundle after each swarm pass so active-run state, replay path, truth state, and next frontier survive interruption.",
+      "rationale": "The nervous-system zero point is defined as a restart-safe bundle, but the future-skill frontier had not yet created a dedicated skill that manufactures it.",
+      "depends_on": [
+        "cortex-writeback-manager",
+        "hub-legality-enforcer",
+        "truth-promotion-governor"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\ACTIVE_RUN.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ]
+    },
+    {
+      "slug": "weakest-front-reopener",
+      "name": "weakest-front-reopener",
+      "priority": "P1",
+      "lane": "control-plane",
+      "address": "2332",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "swarm_role": "Run the shadow audit, choose the thinnest layer, and reopen only the smallest lawful frontier.",
+      "family_targets": [
+        "current active front",
+        "next session"
+      ],
+      "ns_coord": {
+        "face": "Void",
+        "rail": "Me",
+        "depth": "D0",
+        "packet": "ledger packet",
+        "truth": "NEAR",
+        "hub": "AppG",
+        "family": "self_actualize",
+        "regime": "restart-token"
+      },
+      "description": "Score the active frontier after each pass, identify the thinnest structural layer, and reopen only that bounded front with an explicit restart seed.",
+      "rationale": "The recursion law becomes real only when shadow audit and next-front selection are executed as runtime operators instead of prose promises.",
+      "depends_on": [
+        "restart-seed-orchestrator",
+        "swarm-benchmark-ledger"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\FUTURE_SKILLS\\SHADOW_REPORT_WAVE_1.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\FUTURE_SKILLS\\FUTURE_SKILL_PLAN_256X256.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md"
+      ]
+    },
+    {
+      "slug": "ganglion-bootstrapper",
+      "name": "ganglion-bootstrapper",
+      "priority": "P0",
+      "lane": "swarm",
+      "address": "2032",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "swarm_role": "Create and refresh family-local ganglion surfaces.",
+      "family_targets": [
+        "Voynich",
+        "MATH",
+        "Trading Bot",
+        "DEEPER CRYSTALIZATION",
+        "self_actualize",
+        "ECOSYSTEM",
+        "NERUAL NETWORK",
+        "Athenachka Collective Books",
+        "FRESH"
+      ],
+      "ns_coord": {
+        "face": "Earth",
+        "rail": "Su",
+        "depth": "D1",
+        "packet": "swarm packet",
+        "truth": "OK"
+      },
+      "description": "Create durable family ganglia so the meta-swarm has local memory, local queues, and local maps instead of one flat coordination surface.",
+      "rationale": "The deeper emergent neural swarm says ganglion-level family surfaces are one of the still-missing layers.",
+      "depends_on": [],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_family_frontier_matrix.md"
+      ]
+    },
+    {
+      "slug": "neuron-library-builder",
+      "name": "neuron-library-builder",
+      "priority": "P0",
+      "lane": "swarm",
+      "address": "2012",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "governance",
+      "swarm_role": "Build reusable inter-family bridge cells.",
+      "family_targets": [
+        "MATH",
+        "self_actualize",
+        "ECOSYSTEM",
+        "Trading Bot",
+        "NERUAL NETWORK"
+      ],
+      "ns_coord": {
+        "face": "Water",
+        "rail": "Me",
+        "depth": "D2",
+        "packet": "neuron packet",
+        "truth": "NEAR"
+      },
+      "description": "Build a reusable neuron library that binds source families to targets through witnessed operators and replay paths.",
+      "rationale": "The swarm corpus already defines the interconnecter neuron as the minimal real bridge cell.",
+      "depends_on": [
+        "ganglion-bootstrapper"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\02_interconnecter_neuron.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md"
+      ]
+    },
+    {
+      "slug": "pod-frontier-splitter",
+      "name": "pod-frontier-splitter",
+      "priority": "P0",
+      "lane": "swarm",
+      "address": "2020",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "witness",
+      "swarm_role": "Split a family or front into pod-sized local coordination clusters.",
+      "family_targets": [
+        "Voynich",
+        "MATH",
+        "self_actualize",
+        "ECOSYSTEM"
+      ],
+      "ns_coord": {
+        "face": "Fire",
+        "rail": "Sa",
+        "depth": "D3",
+        "packet": "worker packet",
+        "truth": "NEAR"
+      },
+      "description": "Split family fronts into pods with clear packet families, contraction targets, and writeback scopes.",
+      "rationale": "The swarm object defines pods as the temporary local coordination clusters around each active front.",
+      "depends_on": [
+        "ganglion-bootstrapper"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\03_parallel_agent_reading_protocol.md"
+      ]
+    },
+    {
+      "slug": "wave-synchronizer",
+      "name": "wave-synchronizer",
+      "priority": "P1",
+      "lane": "swarm",
+      "address": "2230",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "swarm_role": "Synchronize many pods into one bounded swarm wave.",
+      "family_targets": [
+        "all active ganglia"
+      ],
+      "ns_coord": {
+        "face": "Aether",
+        "rail": "Su",
+        "depth": "D3",
+        "packet": "swarm packet",
+        "truth": "NEAR"
+      },
+      "description": "Synchronize pod execution into waves with a shared kernel, a bounded writeback set, and explicit stop conditions.",
+      "rationale": "A deeper swarm only exists when branches split, compare, contract, and write back in time-bounded waves.",
+      "depends_on": [
+        "pod-frontier-splitter",
+        "packet-wave-planner"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\12_PARALLEL_ORCHESTRATION_PROTOCOL.md"
+      ]
+    },
+    {
+      "slug": "cortex-writeback-manager",
+      "name": "cortex-writeback-manager",
+      "priority": "P0",
+      "lane": "swarm",
+      "address": "2330",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "swarm_role": "Contract swarm outputs back into the cortex surfaces.",
+      "family_targets": [
+        "metro maps",
+        "chapter files",
+        "toolkit",
+        "queues",
+        "receipts",
+        "ledgers"
+      ],
+      "ns_coord": {
+        "face": "Aether",
+        "rail": "Me",
+        "depth": "D1",
+        "packet": "final synthesis packet",
+        "truth": "OK"
+      },
+      "description": "Make sure pod and wave outputs contract into the cortex instead of generating heat without memory.",
+      "rationale": "The swarm corpus is explicit: if the swarm does not write into cortex, it is wasting heat.",
+      "depends_on": [
+        "wave-synchronizer"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\08_multi_agent_cooperation_protocol.md"
+      ]
+    },
+    {
+      "slug": "session-handoff-packer",
+      "name": "session-handoff-packer",
+      "priority": "P1",
+      "lane": "swarm",
+      "address": "2033",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "swarm_role": "Package restart continuity for the next swarm session.",
+      "family_targets": [
+        "sessions",
+        "queues",
+        "receipts"
+      ],
+      "ns_coord": {
+        "face": "Void",
+        "rail": "Sa",
+        "depth": "D0",
+        "packet": "receipt packet",
+        "truth": "NEAR"
+      },
+      "description": "Create session handoff packets so the meta-swarm can stop and resume without losing the active kernel or next frontier.",
+      "rationale": "The missing layer explicitly includes session handoff surfaces.",
+      "depends_on": [
+        "cortex-writeback-manager"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\sessions\\SESSION_2026-03-09_zero_point.md"
+      ]
+    },
+    {
+      "slug": "family-swarm-conductor",
+      "name": "family-swarm-conductor",
+      "priority": "P0",
+      "lane": "swarm",
+      "address": "2132",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "swarm_role": "Conduct the family federation rather than one giant flat swarm.",
+      "family_targets": [
+        "Voynich",
+        "MATH",
+        "Trading Bot",
+        "DEEPER CRYSTALIZATION",
+        "self_actualize",
+        "ECOSYSTEM",
+        "NERUAL NETWORK",
+        "Athenachka Collective Books",
+        "FRESH"
+      ],
+      "ns_coord": {
+        "face": "Water",
+        "rail": "Su",
+        "depth": "D1",
+        "packet": "swarm packet",
+        "truth": "NEAR"
+      },
+      "description": "Conduct the meta-swarm as a federation of local family crystals linked by neurons and ganglia.",
+      "rationale": "The deeper emergent neural swarm is explicitly not one giant flat 256, but a federation of local crystals.",
+      "depends_on": [
+        "ganglion-bootstrapper",
+        "neuron-library-builder",
+        "wave-synchronizer"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_family_frontier_matrix.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\08_multi_agent_cooperation_protocol.md"
+      ]
+    },
+    {
+      "slug": "microcell-specializer",
+      "name": "microcell-specializer",
+      "priority": "P1",
+      "lane": "swarm",
+      "address": "2200",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "witness",
+      "metallic_scale": "copper",
+      "swarm_role": "Descend from worker depth into explicit D4 microcells when needed.",
+      "family_targets": [
+        "high-density fronts only"
+      ],
+      "ns_coord": {
+        "face": "Fire",
+        "rail": "Me",
+        "depth": "D4",
+        "packet": "worker packet",
+        "truth": "AMBIG"
+      },
+      "description": "Open D4 microcell specialization only when worker-depth swarms are too coarse to capture the front cleanly.",
+      "rationale": "The higher-dimensional mapping explicitly defines D4 microcells and the metallic scaler gives the law for when 4-way decomposition becomes too coarse.",
+      "depends_on": [
+        "family-swarm-conductor"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\09_higher_dimensional_mapping.md",
+        "C:\\Users\\dmitr\\.codex\\skills\\metallic-scaler\\SKILL.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\12_FRACTAL_CRYSTAL_AGENT_FRAMEWORK.md"
+      ]
+    },
+    {
+      "slug": "swarm-benchmark-ledger",
+      "name": "swarm-benchmark-ledger",
+      "priority": "P1",
+      "lane": "swarm",
+      "address": "2320",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "witness",
+      "swarm_role": "Measure pod, ganglion, and wave quality across the meta-swarm.",
+      "family_targets": [
+        "all active waves"
+      ],
+      "ns_coord": {
+        "face": "Earth",
+        "rail": "Sa",
+        "depth": "D2",
+        "packet": "receipt packet",
+        "truth": "NEAR"
+      },
+      "description": "Benchmark the swarm itself so local throughput, contraction quality, and writeback closure become measurable surfaces.",
+      "rationale": "The project already benchmarks neural systems deeply; the swarm layer should be evaluated with the same seriousness.",
+      "depends_on": [
+        "family-swarm-conductor",
+        "route-quality-auditor"
+      ],
+      "references": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\athena_master_benchmark.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\route_quality_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\10_deeper_emergent_neural_swarm.md"
+      ]
+    }
+  ]
+}

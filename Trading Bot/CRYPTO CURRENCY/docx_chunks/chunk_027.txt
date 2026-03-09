@@ -1,0 +1,536 @@
+ \rho}.
+]
+(\rho) is pinned by corridor spec.
+G.F1.b — Allowed step set
+Let (\Delta\mathcal{H}\subset\mathbb{T}^1) be the pinned allowed 1D step set (e.g., sextile-based family plus fine denominators). The multi-axis step set is:
+[
+\Delta\mathcal{H}^{(d)} := {\delta\in\mathbb{T}^d:\delta_i\in\Delta\mathcal{H}\cup{0}}.
+]
+The exact set and its ordering are pinned by HubPolicyDigest.
+G.F2 — Operators
+G.F2.a — Hub-preserving legality predicate
+A tunnel step (\delta) applied at phase (\Phi) is legal if:
+(\delta\in\Delta\mathcal{H}^{(d)}),
+(\Phi\in\mathrm{Corr}\rho(\mathcal{H}^{(d)})) and (\Phi+\delta \in\mathrm{Corr}\rho(\mathcal{H}^{(d)})),
+any required commutation receipts for the step schedule are satisfied (Ch09),
+any required meta-zero snap constraints are satisfied or bounded by residual ledger (Ch10),
+corridor policy permits the step type under current truth threshold.
+Triangle governs which (\rho), which (\Delta\mathcal{H}), and which receipts are required via pinned CorridorPinSpec and HubPolicyDigest.
+G.F2.b — Hub-first routing constraint
+Triangle may require a hub-first plan:
+[
+\Phi \to \mathrm{Snap}{\mathcal{H}}(\Phi) \to \cdots \to \mathrm{Snap}{\mathcal{H}}(\Phi')
+]
+where Snap is pinned and must preserve coarse hub class under truncation. This requirement is part of corridor pinning and is enforced by TunnelLegalityWitness checks.
+G.F3 — Invariants
+G.F3.a — Coarse hub class stability under truncation
+The pinned hub classifier must be stable under declared truncation operators. Any instability must be treated as AMBIG/FAIL per corridor.
+G.F3.b — Visibility and resolution invariant
+If the phase profile uses refined ring (B_d), Triangle must enforce that circle resolution is adequate for dimension (d) when tunneling is claimed to be visible; otherwise, the operation is AMBIG due to aliasing.
+
+☁ G.C — Cloud: Truth Typing for Control Actions and Uncertainty Artifacts
+G.C1 — Objects
+G.C1.a — ControlTruth record
+Every triangle-governed decision emits a truth record:
+[
+\mathsf{CtrlTruth} :=
+\langle
+\mathsf{DecisionID},;
+\mathsf{TruthType},;
+\mathsf{ResidualLedgerRef?},;
+\mathsf{EvidencePlanRef?},;
+\mathsf{ConflictPacketRef?},;
+\mathsf{IssuedPulse}
+\rangle
+]
+OK: replay closes and invariants hold exactly.
+NEAR: bounded residual ledger is present.
+AMBIG: bounded candidate set and evidence plan is present.
+FAIL/CONFLICT: failure witness or conflict packet is present.
+G.C2 — Operators
+G.C2.a — Evidence plan requirement
+Any nondiscriminated discrete choice (corridor selection among multiple candidates, lift digit selection among multiple admissible digits, hub basin tie) must produce AMBIG with an evidence plan unless a pinned tie-break resolves it.
+G.C3 — Invariants
+G.C3.a — No silent NEAR and no silent AMBIG
+NEAR requires residual ledger; AMBIG requires evidence plan. Absence is FAIL.
+
+✶ G.R — Fractal: Recursion Governance, Checkpoint Sealing, and Certificates
+G.R1 — Objects
+G.R1.a — DepthCheckpoint
+A checkpoint is mandatory at hatch boundaries. A DepthCheckpoint binds:
+parent state digests,
+child state digests,
+corridor ID,
+TriMode policy digest,
+and replay pointer.
+G.R2 — Operators
+G.R2.a — Hatch replay verifier
+Replays hatch legality from the recorded witnesses and confirms:
+trigger evidence validity,
+inheritance correctness,
+child init correctness,
+checkpoint digest match.
+G.R3 — Invariants
+G.R3.a — Recursion is append-only
+A hatch creates a new branch frame; it cannot overwrite a prior frame. Any attempt to “rewrite past boundary” is illegal.
+G.R4 — Required certificates
+G.R4.a — TriangleGovernanceCert
+Certifies TriMode policy determinism, corridor selection determinism, and carry/hatch witness correctness under replay.
+G.R4.b — HatchCert
+Certifies HatchEvent legality, checkpoint match, and replay closure.
+G.R4.c — TunnelLegalityCert
+Certifies tunnel step legality under pinned hub mesh, corridor, commutation receipts, and meta-zero requirements.
+
+AppG Tight Spec-Only Version (Normative Extraction)
+Triangle mode policies (GLOBAL vs AXIS) are pinned and meaning-bearing; changes require explicit migration.
+Triangle selects corridors deterministically via pinned CorridorPinSpec and emits CorridorSelectionWitness; replay must reproduce selections.
+Depth is governed by DepthLedger with explicit budgets; depth increase is legal only via HatchEvent producing checkpoints and replay pointers.
+Carry events are boundary events emitted deterministically with boundary rule digests and pre/post state digests; carry semantics are pinned.
+Tunneling legality is governed by pinned hub mesh corridors, allowed step sets, commutation receipts, and meta-zero snap constraints; legality produces TunnelLegalityWitness and is truth typed.
+NEAR requires residual ledgers; AMBIG requires evidence plans; FAIL/CONFLICT require failure/conflict artifacts.
+Triangle governance, hatch behavior, and tunnel legality require certificates with replay closure.
+
+AppG — Triangle Governor, Depth/Recursion Policies, Carry/Hatch Interfaces
+AppH — Coupling and Topology (Multi-axis, Multi-rail Constraints)
+Station role: cross-axis coupling; topology constraints for multi-dimensional consistency.
+Purpose: define coupling constraints, product-structure invariants, and topology witnesses that prevent illegal cross-axis inference.
+
+□ H.S — Square: Coupling Contracts, Product-Structure Invariants, Multi-Rail Constraints
+H.S1 — Objects
+H.S1.a — Axis index set and state carriers
+Fix dimension (d\ge 1). Let ([d]:={1,\dots,d}). Axis-coupled structures are defined over:
+Phase torus (\mathbb{T}^d) or its discretizations (\Sigma_{B_d}).
+Square carrier (\mathcal{S}{d,k}) and its factorization into ((\mathbb{Z}{4^k})^d) or ((\mathbb{Z}_4)^{dk}) under pinned decomposition.
+Triangle carrier ((\mathbb{Z}_3)^d) (Option A) or (\mathbb{Z}_3) (Option B) under pinned mode policy.
+H.S1.b — Rail system and multi-rail constraints
+A rail is a pinned control schedule defining an axis-wise sequencing regime. A rail system is a tuple:
+[
+\mathsf{Rails}:=\langle \mathsf{RailID},\ \mathsf{LaneSet},\ \mathsf{ScheduleSpec},\ \mathsf{PinsDigest}\rangle
+]
+where:
+LaneSet is a finite set of lane identifiers (e.g., Su/Me/Sa) or extended lane alphabets pinned by policy.
+ScheduleSpec is a deterministic mapping:
+[
+\mathsf{Sched} : (\mathsf{PulseID}, k, \mathsf{StateSummary}) \to \mathsf{LaneSel}
+]
+with (\mathsf{LaneSel}) a finite selection describing which lane applies on which axis and which coupling constraints activate.
+A multi-rail constraint is a predicate restricting simultaneous lane assignments across axes. Multi-rail constraints are part of coupling contracts and must be pinned.
+H.S1.c — CouplingContract
+A CouplingContract is the meaning-bearing object defining when axes may be treated as independent and when they are coupled.
+[
+\mathsf{CouplingContract}:=
+\langle
+\mathsf{CoupleVer},;
+\mathsf{Dim},;
+\mathsf{CoupleMode},;
+\mathsf{AxisPartition},;
+\mathsf{AllowedCouplings},;
+\mathsf{DisallowedCouplings},;
+\mathsf{WitnessRequirements},;
+\mathsf{TieBreakSpec},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+Where:
+CoupleMode ∈ {PRODUCT, BLOCK, GLOBAL}.
+AxisPartition partitions ([d]) into disjoint blocks (B_1,\dots,B_m), pinned.
+PRODUCT: all blocks are singletons.
+BLOCK: blocks can be >1.
+GLOBAL: a single block ([d]).
+AllowedCouplings and DisallowedCouplings are finite sets of coupling patterns expressed as typed constraints over operations (tunnel steps, lifts, projections, and scheduling).
+WitnessRequirements is a pinned list of required witness families to assert coupling legality (see H.S2 and H.F).
+H.S1.d — Multi-axis tunnel step object
+A multi-axis tunnel step is a vector:
+[
+\delta \in \mathbb{T}^d
+]
+or a discrete ring step on (\Sigma_{B_d}) with associated lift/projection references. The canonical step object is:
+[
+\mathsf{TunnelStep} :=
+\langle
+\mathsf{StepVer},;
+\mathsf{Dim},;
+\mathsf{StepVector},;
+\mathsf{AxisSupport},;
+\mathsf{StepSetDigest},;
+\mathsf{RailSelDigest},;
+\mathsf{PinsDigest},;
+\mathsf{StepDigest}
+\rangle
+]
+AxisSupport is the set of axes where (\delta_i\neq 0).
+StepSetDigest pins the allowed step set (\Delta\mathcal{H}^{(d)}) (AppG/Ch06).
+RailSelDigest pins the lane selection applicable at the step.
+StepDigest is content-addressed.
+
+H.S2 — Operators
+H.S2.a — Coupling legality predicate
+Coupling legality is a deterministic predicate:
+[
+\mathsf{LegalCouple} :
+(\mathsf{CouplingContract},\mathsf{StateSummary},\mathsf{TunnelStep},\mathsf{CorridorID}) \to {\mathsf{true},\mathsf{false}}.
+]
+A tunnel step is legal under coupling if and only if all the following hold:
+AxisSupport respects AxisPartition: coupling constraints must allow simultaneous nonzero steps on the axis set selected.
+Multi-rail constraints: lane assignments on the axis set satisfy pinned multi-rail constraints.
+Allowed step membership: (\delta\in\Delta\mathcal{H}^{(d)}) (or equivalent discrete step membership) under pinned StepSetDigest.
+Corridor compliance: the step stays inside the pinned corridor neighborhood on (\mathbb{T}^d) or ring representation.
+Required topology receipts (spin/holonomy) are satisfied when noncommuting schedules could yield path dependence (H.F2).
+If any required condition cannot be decided due to missing pins, the result is AMBIG (by emitting evidence plan under AppL) rather than assuming legality.
+H.S2.b — Product-structure factorization operator
+For CoupleMode=PRODUCT, the operator family must factorize across axes:
+For any axis-separated operators (A_i) acting on axis (i), the combined operator satisfies:
+[
+A = \bigotimes_{i=1}^d A_i
+]
+or, for generators in Kronecker sum form:
+[
+G = \bigoplus_{i=1}^d G_i.
+]
+Coupling contracts must declare which factorization law applies. Any deviation from declared factorization is a coupling violation unless explicitly migrated.
+H.S2.c — Block-coupling operator
+For CoupleMode=BLOCK, axes in a block (B_j) may be treated as coupled. The coupled operator is constrained to act only within the block’s subspace and must be representable as:
+tensor product across blocks, and
+arbitrary (but pinned) operator inside each block.
+Formally:
+[
+\mathsf{Op} = \bigotimes_{j=1}^m \mathsf{Op}{B_j}
+]
+with each (\mathsf{Op}{B_j}) pinned by digest.
+H.S2.d — Cross-axis inference prohibition operator
+Define the prohibition rule:
+[
+\mathsf{Infer}(i \Rightarrow j) \text{ is forbidden unless }\mathsf{CoupleMode}\neq \mathsf{PRODUCT}\text{ and explicit witness exists.}
+]
+This is enforced by requiring that any inference edge whose source and target addresses lie on different axis blocks must reference a CouplingWitness proving that coupling is active and legal for the inference.
+
+H.S3 — Invariants
+H.S3.a — Axis partition stability invariant
+AxisPartition is pinned and meaning-bearing. Any change to AxisPartition requires MIGRATE and must invalidate prior coupling witnesses unless explicitly revalidated.
+H.S3.b — No illegal cross-axis inference
+Any claim that transfers information from axis (i) to axis (j) across different coupling blocks without a CouplingWitness is invalid for OK routing.
+H.S3.c — Multi-axis tunnel legality invariant
+A multi-axis tunnel step is admissible only if:
+coupling contract permits the axis support,
+multi-rail constraints permit the simultaneous lane selection,
+topology receipts for noncommutation are satisfied where required.
+H.S3.d — Deterministic tie-break invariant
+Any ambiguity in axis ordering, lane ordering, or step selection must be resolved by a pinned tie-break. Unpinned tie-breaks produce AMBIG.
+
+H.S4 — Protocols
+H.S4.a — Coupling witness generation protocol
+To assert legality of a multi-axis step, generate:
+CouplingLegalityWitness (H.F1.b) proving coupling contract compatibility.
+RailWitness proving the lane selection used and satisfying multi-rail constraints.
+TopologyReceiptSet proving required commutation/holonomy conditions (H.F2).
+A replay capsule pointer reproducing the above checks deterministically.
+H.S4.b — Multi-axis tunnel execution protocol
+Given a pinned state and tunnel step:
+Compute lane selection deterministically.
+Validate coupling legality.
+Validate topology receipts when required.
+Execute step (AppG/Ch06) and emit step witness plus coupling/topology witness references.
+H.S4.c — Square-local regression fixtures for coupling
+Fixtures must include:
+PRODUCT mode: verify factorization and forbid cross-axis inference without witness.
+BLOCK mode: verify allowed intra-block couplings and forbidden inter-block couplings.
+GLOBAL mode: verify that coupling is explicitly pinned and that topology receipts gate commutation-sensitive schedules.
+Multi-rail constraints: verify that forbidden lane combinations are rejected deterministically.
+Tie-break fixtures: verify deterministic resolution where multiple choices are allowed by contract.
+
+❀ H.F — Flower: Topology Invariants, Holonomy/Spin Receipts, and Noncommutation Control
+H.F1 — Objects
+H.F1.a — Topology policy and required receipts
+A topology policy specifies which commutation relations must be proven (or bounded) for certain composite actions.
+[
+\mathsf{TopoPolicy}:=
+\langle
+\mathsf{TopoVer},;
+\mathsf{Dim},;
+\mathsf{ReceiptRequirements},;
+\mathsf{MetricDigest},;
+\mathsf{KappaBudget},;
+\mathsf{PinsDigest},;
+\mathsf{Sig}
+\rangle
+]
+ReceiptRequirements is a pinned set of required receipt templates (spin loops, path-difference loops) keyed by operator IDs.
+H.F1.b — CouplingLegalityWitness
+[
+\mathsf{CoupleWit}:=
+\langle
+\mathsf{PulseID},;
+k,;
+\mathsf{CouplingContractDigest},;
+\mathsf{RailSelDigest},;
+\mathsf{TunnelStepDigest},;
+\mathsf{CorridorID},;
+\mathsf{LegalityResult},;
+\mathsf{DecisionTraceDigest},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest},;
+\mathsf{WitDigest}
+\rangle
+]
+LegalityResult is truth-typed; NEAR requires residual ledger; AMBIG requires evidence plan.
+H.F1.c — TopologyReceiptSet
+A TopologyReceiptSet is the set of receipts required by TopoPolicy for a specific action schedule:
+[
+\mathsf{TopoReceipts}:=
+\langle
+\mathsf{PulseID},;
+k,;
+\mathsf{TopoPolicyDigest},;
+\mathsf{ReceiptRefs},;
+\mathsf{AggregateResidual},;
+\mathsf{TruthType},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest}
+\rangle
+]
+ReceiptRefs is an ordered list of receipt digests; ordering is canonical by digest.
+
+H.F2 — Operators
+H.F2.a — Spin/holonomy receipts integration points
+Topology invariants are enforced by requiring receipts at specific integration points:
+Schedule commutation: when two operators are composed in different orders (lane swaps, axis ordering swaps), a SpinReceipt must be present to certify commutation or bound residual.
+Multi-axis vs sequential axis stepping: any claim that a simultaneous multi-axis step is equivalent to a sequence of single-axis steps requires a path-difference receipt.
+Refinement and projection coherence: when coupling claims involve refined ring transitions, receipts must show that refinement/projection commutes with tunnel steps under pinned rules or must bound residual drift.
+H.F2.b — Receipt evaluation
+Given a receipt with residual (r) under metric (d), and kappa budget (\kappa):
+OK iff (r=0) and replay closes.
+NEAR iff (0<r\le\kappa) with residual ledger and scope.
+FAIL iff (r>\kappa).
+CONFLICT iff replay disagreement.
+Receipt scope is critical: it must bind domain/spec and pins; receipts do not generalize beyond their declared scope.
+
+H.F3 — Invariants
+H.F3.a — Topology gating invariant
+If TopoPolicy requires a receipt for a schedule, the schedule is non-routable for OK without that receipt. Missing receipts produce AMBIG with evidence plan or FAIL depending on corridor policy.
+H.F3.b — Holonomy as path-dependence witness
+If two paths from the same start to the same end disagree under pinned normal forms, the disagreement is a topology defect. It must be recorded as a conflict packet if reproducible; it cannot be suppressed.
+
+H.F4 — Protocols
+H.F4.a — Receipt fixture protocol
+Regression must include:
+commuting templates (must produce OK receipts),
+near-commuting templates (must produce NEAR receipts with ledgers),
+noncommuting templates (must produce FAIL receipts),
+conflict templates (must produce CONFLICT and fences).
+
+☁ H.C — Cloud: Uncertainty Discipline for Coupling Claims
+H.C1 — Objects
+H.C1.a — CouplingResidualLedger
+When coupling is approximate, a residual ledger must bound the deviation from claimed factorization or commutation:
+[
+\mathsf{CoupleLedger}:=
+\langle
+\mathsf{MetricDigest},;
+\mathsf{Bound},;
+\mathsf{Observed},;
+\mathsf{Expected},;
+\mathsf{Scope},;
+\mathsf{ExpiryPulse},;
+\mathsf{ReplayPtr}
+\rangle
+]
+H.C1.b — CouplingEvidencePlan
+If coupling legality depends on unknown structure or missing receipts, an evidence plan must enumerate:
+candidate coupling states,
+required receipts,
+discriminators and replay routes,
+budgets and stop rules.
+H.C2 — Operators
+H.C2.a — Truth typing for coupling legality
+Coupling legality decisions are truth-typed:
+OK only if all receipts and constraints verify.
+NEAR only if bounded by ledger.
+AMBIG only if bounded candidates exist and evidence plan emitted.
+FAIL/CONFLICT when deterministically violated or replay disagrees.
+H.C3 — Invariants
+H.C3.a — No silent coupling
+Cross-axis coupling cannot be inferred from proximity or correlation; it must be pinned or witnessed.
+
+✶ H.R — Fractal: Certificates and Deterministic Coupling Governance
+H.R1 — Required certificates
+H.R1.a — CouplingDeterminismCert
+Certifies that coupling legality checks are deterministic under pinned inputs.
+[
+\mathsf{CouplingDeterminismCert}:=
+\langle
+\mathsf{CouplingContractDigest},;
+\mathsf{TopoPolicyDigest},;
+\mathsf{FixtureSetDigest},;
+\mathsf{ExpectedDecisionDigests},;
+\mathsf{ObservedDecisionDigests},;
+\mathsf{Result},;
+\mathsf{Sig}
+\rangle
+]
+Result is PASS iff all fixture decisions and witness digests match expected.
+H.R1.b — TopologyCert
+Certifies that topology receipts are present and valid for declared schedules and that required commutation/path-equivalence constraints are satisfied.
+[
+\mathsf{TopologyCert}:=
+\langle
+\mathsf{TopoPolicyDigest},;
+\mathsf{ReceiptSetDigest},;
+\mathsf{AggregateResidual},;
+\mathsf{TruthType},;
+\mathsf{ReplayPtr},;
+\mathsf{Sig}
+\rangle
+]
+TopologyCert is OK only if all required receipts are OK (or NEAR if allowed) and replay closes.
+H.R2 — Protocols
+H.R2.a — Certificate issuance protocol
+For each multi-axis operation admitted into an OK route:
+compute coupling legality witness,
+compute required receipts,
+emit CouplingDeterminismCert and TopologyCert,
+attach certificates to the operation’s evidence row (AppB) and to the route transcript (Ch11/Ch19).
+
+AppH Tight Spec-Only Version (Normative Extraction)
+CouplingContract pins axis partition, coupling mode, multi-rail constraints, allowed/disallowed coupling patterns, and tie-break rules.
+Multi-axis tunnels are legal only if coupling contract allows axis support, rail constraints are satisfied, and required topology receipts are present.
+Cross-axis inference is forbidden unless coupling is explicitly active and a coupling witness exists.
+Topology invariants are enforced via spin/holonomy receipts and path-difference receipts at declared integration points; missing receipts are not OK-routable.
+CouplingDeterminismCert and TopologyCert are required, import-verifiable, and bind replay closure for coupling legality and topology constraints.
+
+AppH — Coupling and Topology (Multi-axis, Multi-rail Constraints)
+AppI — Corridors, Truth Typing, and Routable Outcomes
+Station role: truth typing and corridor routing discipline (OK/NEAR/AMBIG/FAIL).
+Purpose: formalize corridor profiles, budgets, and truth typing so routing decisions are reproducible and auditable.
+
+□ I.S — Square: CorridorProfile, Budget Discipline, and Routability Semantics
+I.S1 — Objects
+I.S1.a — Truth lattice and routability threshold
+Truth typing is a closed vocabulary:
+[
+\mathsf{TruthType} := {\mathsf{OK},\mathsf{NEAR},\mathsf{AMBIG},\mathsf{FAIL},\mathsf{CONFLICT}}.
+]
+For routability and aggregation, corridors define a strict preorder (pinned):
+[
+\mathsf{OK} \succ \mathsf{NEAR} \succ \mathsf{AMBIG} \succ \mathsf{FAIL} \succ \mathsf{CONFLICT}.
+]
+A corridor defines a minimum admissible truth threshold:
+[
+\mathsf{MinTruth}(\mathsf{Corridor}) \in {\mathsf{OK},\mathsf{NEAR},\mathsf{AMBIG}}.
+]
+Paths whose composite truth is below (\mathsf{MinTruth}) are not routable under that corridor.
+I.S1.b — Budget vector
+A corridor budget is:
+[
+\mathsf{Budget} := \langle \kappa,\beta,\delta,\chi \rangle
+]
+with semantics:
+(\kappa): commutation residual budget (holonomy/spin allowance),
+(\beta): drift/approximation residual budget,
+(\delta): recursion depth budget,
+(\chi): compute/search/replay budget.
+Budgets are interpreted only under pinned budget semantics. A corridor must pin the aggregation mode for each component:
+additive, max, or mixed (e.g., max for (\delta), additive for (\chi)).
+I.S1.c — CorridorProfile schema (mandatory)
+A CorridorProfile is the meaning-bearing object that defines legality, truth typing, budgets, and escalation.
+[
+\mathsf{CorridorProfile} :=
+\langle
+\mathsf{CorrVer},;
+\mathsf{CorridorID},;
+\mathsf{Scope},;
+\mathsf{PinsDigest},;
+\mathsf{BudgetCaps},;
+\mathsf{BudgetAggSpec},;
+\mathsf{AllowedEdgeKinds},;
+\mathsf{RequiredArtifacts},;
+\mathsf{TypingRules},;
+\mathsf{EscalationRules},;
+\mathsf{PromotionRules},;
+\mathsf{DisclosureRules},;
+\mathsf{QuarantineRules},;
+\mathsf{RoutabilityRules},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+Required fields:
+CorridorID: content-addressed digest of CorridorProfile with CorridorID field zeroed.
+Scope: {LOCAL, INTER} plus scope bindings (manuscript IDs if INTER).
+PinsDigest: pin closure required to interpret this corridor (AppA/AppD).
+BudgetCaps: (\mathsf{Budget}) caps.
+BudgetAggSpec: per-component aggregation mode and charging rules.
+AllowedEdgeKinds: mapping from truth class to allowed edge kinds.
+RequiredArtifacts: mapping from truth class to mandatory artifact families.
+TypingRules: deterministic rule set mapping evidence to truth typing.
+EscalationRules: deterministic mapping specifying when failures trigger fences/quarantines.
+PromotionRules: deterministic obligations for NEAR→OK and AMBIG→NEAR/OK transitions.
+DisclosureRules: mandatory disclosure formats and propagation rules.
+QuarantineRules: deterministic quarantine triggers and propagation rules.
+RoutabilityRules: path acceptance predicates, tie-breaks, and thresholds.
+SchemaPins: schema closure required to interpret all corridor artifacts.
+I.S1.d — Allowed edge kinds per truth class
+CorridorProfile must define a total function:
+[
+\mathsf{AllowedEdgeKinds} : \mathsf{TruthType} \to \mathcal{P}(\mathsf{EdgeKind})
+]
+Minimum requirement:
+(\mathsf{AllowedEdgeKinds}(\mathsf{OK})) must exclude any edge kind that requires missing proofs or missing pins.
+(\mathsf{AllowedEdgeKinds}(\mathsf{NEAR})) must require residual ledger edge kinds and disclosure edges where appropriate.
+(\mathsf{AllowedEdgeKinds}(\mathsf{AMBIG})) must require EvidencePlan edges.
+(\mathsf{AllowedEdgeKinds}(\mathsf{FAIL})) must require FailureWitness or ConflictPacket edges if reproducible.
+(\mathsf{AllowedEdgeKinds}(\mathsf{CONFLICT})) must require fence/quarantine propagation edges.
+I.S1.e — Required artifact families per truth class
+CorridorProfile must define:
+[
+\mathsf{RequiredArtifacts} : \mathsf{TruthType} \to \mathcal{P}(\mathsf{ArtifactKind})
+]
+Minimum required artifacts:
+OK: ReplayCapsule, WitnessBundle, PinClosure, DigestCommitments.
+NEAR: all OK artifacts plus ResidualLedger and Expiry/renewal obligations.
+AMBIG: EvidencePlan, bounded candidate set, discriminators, routes to evidence.
+FAIL: FailureWitness and/or ReproRecipe (unless policy forbids non-reproducible failures).
+CONFLICT: ConflictPacket, FenceSpec, QuarantineRecord.
+
+I.S2 — Operators
+I.S2.a — Truth typing function
+Truth typing is a deterministic function:
+[
+\mathsf{Type} :
+(\mathsf{Claim},\mathsf{Evidence},\mathsf{CorridorProfile}) \to \mathsf{TypedOutcome}
+]
+where:
+[
+\mathsf{TypedOutcome} :=
+\langle
+\mathsf{TruthType},;
+\mathsf{WitnessRefs},;
+\mathsf{ReplayRefs?},;
+\mathsf{ResidualLedgerRef?},;
+\mathsf{EvidencePlanRef?},;
+\mathsf{FailureWitnessRef?},;
+\mathsf{ConflictPacketRef?},;
+\mathsf{BudgetLedgerRef},;
+\mathsf{Obligations},;
+\mathsf{OutcomeDigest}
+\rangle
+]
+TypingRules must pin:
+exact equality predicates (e.g., NF equality, digest equality),
+admissible metrics for residuals,
+required completeness checks,
+replay determinism requirements.
+Truth typing must reject any claim whose required artifacts are missing; missing artifacts cannot be downgraded silently to OK.
+I.S2.b — Budget charging operator
+A deterministic function computes the budget usage of an evaluation:
+[
+\mathsf{Charge} :
+(\mathsf{Evidence},\mathsf{TypingTrace},\mathsf{CorridorProfile}) \to \mathsf{BudgetLedger}
+]
+Charge must:
+attribute each charge to a witness digest,
+use pinned aggregation modes,
+be replayable (charge trace digest).
+If budget caps are exceeded, TypingRules must specify the resulting truth type (default FAIL, unless explicitly downgradable to AMBIG with evidence plan).
+I.S2.c — Path composi

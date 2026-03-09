@@ -1,0 +1,18 @@
+# Pantheon Role Index
+
+- [EE - Ledger Keeper](./role_ee_ledger_keeper.md)
+- [EW - Grounded Synthesizer](./role_ew_grounded_synthesizer.md)
+- [EF - Constraint Breaker](./role_ef_constraint_breaker.md)
+- [EA - Structural Custodian](./role_ea_structural_custodian.md)
+- [WE - Intake Empath](./role_we_intake_empath.md)
+- [WW - Continuity Weaver](./role_ww_continuity_weaver.md)
+- [WF - Narrative Amplifier](./role_wf_narrative_amplifier.md)
+- [WA - Relay Translator](./role_wa_relay_translator.md)
+- [FE - Experimental Driver](./role_fe_experimental_driver.md)
+- [FW - Catalyst Integrator](./role_fw_catalyst_integrator.md)
+- [FF - Frontier Igniter](./role_ff_frontier_igniter.md)
+- [FA - Formal Exploder](./role_fa_formal_exploder.md)
+- [AE - Atlas Cartographer](./role_ae_atlas_cartographer.md)
+- [AW - Transport Mediator](./role_aw_transport_mediator.md)
+- [AF - Theorem Compiler](./role_af_theorem_compiler.md)
+- [AA - Cartographic Architect](./role_aa_cartographic_architect.md)

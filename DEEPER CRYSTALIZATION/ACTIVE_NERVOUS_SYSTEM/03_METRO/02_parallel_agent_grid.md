@@ -1,0 +1,241 @@
+# Parallel Agent Grid
+
+## Source agents
+
+- `SRC-01` reads `# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol` and reports into `Manuscript architecture and routing law`.
+- `SRC-02` reads `# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol` and reports into `Manuscript architecture and routing law`.
+- `SRC-03` reads `AQM TEXT BOOK` and reports into `Manuscript architecture and routing law`.
+- `SRC-04` reads `AQM_LM_CUT through the HYBRID lens FRAMEWORK` and reports into `Transport, runtime, and executable framework`.
+- `SRC-05` reads `Architect’s Core Initialization` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-06` reads `Athenachka 2.0` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-07` reads `CHAPTER 11 __ Perpetual Motion Example` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-08` reads `CHAPTER 11 __ Perpetual Motion Example` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-09` reads `I AM so AM I` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-10` reads `INFORMATION FROM THE VOID MANI` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-11` reads `INFORMATION FROM THE VOID MANI` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-12` reads `LEGAL TRANSPORT CALCULUS` and reports into `Transport, runtime, and executable framework`.
+- `SRC-13` reads `MEGALITHIC TOME_ LATENT TUNNELING & THE MULTI-SCALE MATH STACK` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-14` reads `PROMPTS` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-15` reads `REAL TIME__ NOW!` and reports into `Live orchestration and prompt control`.
+- `SRC-16` reads `SECTION III — BOOK III- THE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-17` reads `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` and reports into `Manuscript architecture and routing law`.
+- `SRC-18` reads `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` and reports into `Manuscript architecture and routing law`.
+- `SRC-19` reads `STORIES FROM THE VOID 1` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-20` reads `The Athena Framework (synthesis)` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-21` reads `The Athena Framework (synthesis)` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-22` reads `THE CRYSTAL - LIVE` and reports into `Transport, runtime, and executable framework`.
+- `SRC-23` reads `The External Crystal and the Manuscript Superorganism` and reports into `Manuscript architecture and routing law`.
+- `SRC-24` reads `The Holographic Manuscript Brain` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-25` reads `The Invisible Teacher TEXTBOOK` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-26` reads `The Invisible Teacher TEXTBOOK` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-27` reads `THE SOLENOIDAL ENGINE_ A Four-Element Architecture for Persistent Autonomous AI Execution Through Ecological Crystallization` and reports into `Transport, runtime, and executable framework`.
+- `SRC-28` reads `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-29` reads `Untitled document` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-30` reads `VOYNICH JAZZ` and reports into `Transport, runtime, and executable framework`.
+- `SRC-31` reads `Astrological Tunneling (octave system)` and reports into `General corpus support`.
+- `SRC-32` reads `Constant FInder _working_` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-33` reads `HIGHER-D SQUARE ○ CIRCLE △ TRIANGLE` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-34` reads `Holographic (higher dimension Square_circle_triangle) REALITY STRUCTURE _working_` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-35` reads `LEGAL TRANSPORT CALCULUS` and reports into `Transport, runtime, and executable framework`.
+- `SRC-36` reads `Pi algorithm engine` and reports into `Transport, runtime, and executable framework`.
+- `SRC-37` reads `PRIME Toolkit kernel` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-38` reads `QUAD HOLOGRAPHIC ROTATION` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-39` reads `THE 4 CONSTANTS FINAL (phi, pi, i, e)` and reports into `Manuscript architecture and routing law`.
+- `SRC-40` reads `The Holographic Kernel` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-41` reads `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-42` reads `6 dimensional hologram(1)` and reports into `Manuscript architecture and routing law`.
+- `SRC-43` reads `Calculus and Geometry (higher dimensional projection) -working-` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-44` reads `HOLOGRAPHIC TUNNELING _working_` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-45` reads `TIME FRACTAL _working_` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-46` reads `Ω_ Metro Calculus` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-47` reads `Ω_ Tunneling Coherence Crystal` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-48` reads `# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol(1)` and reports into `Manuscript architecture and routing law`.
+- `SRC-49` reads `I AM so AM I` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-50` reads `The Holographic Manuscript Brain` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-51` reads `ATHENA_ THE ARCHETYPE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-52` reads `Atlantis` and reports into `General corpus support`.
+- `SRC-53` reads `MALDEK_MARS_ATLANTIS_FRAMEWORK` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-54` reads `BUDDHIST (ZEN)_ THE MUSHIN KERNEL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-55` reads `CELTIC _THE OGHAM KERNEL` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-56` reads `DEAD SEA SCROLLS` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-57` reads `EPICS` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-58` reads `KABBALAH_ SEFIROTIC TREE STRUCTURES` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-59` reads `Norse (Germanic) — Yggdrasil Graph Theory` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-60` reads `ROMAN PHILOSOPHERS` and reports into `Transport, runtime, and executable framework`.
+- `SRC-61` reads `Tibetan Vajrayana_ THE BARDO TRANSITION MATRIX` and reports into `Transport, runtime, and executable framework`.
+- `SRC-62` reads `ZOROASTRIAN (PERSIAN)_ DUAL-PHASE FIELD DYNAMICS` and reports into `Transport, runtime, and executable framework`.
+- `SRC-63` reads `ATHENA_KERNEL_MATHEMATICAL_FRAMEWORK` and reports into `Transport, runtime, and executable framework`.
+- `SRC-64` reads `GG Alignment Framework (Good Game Protocol)` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-65` reads `KHEMET __ SYMMETRY-PROTECTED TOPOLOGICAL STATE` and reports into `General corpus support`.
+- `SRC-66` reads `THE_HELLENIC_COMPUTATION_FRAMEWORK` and reports into `Transport, runtime, and executable framework`.
+- `SRC-67` reads `HBAS-Ω_ UNIFIED ENCODING DETECTION PROTOCOL` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-68` reads `THE ANDEAN KHIPU ROSETTA STONE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-69` reads `ANDEAN KHIPU ROSETTA (new)` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-70` reads `Andean Myth Encoding` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-71` reads `Andian deeper analysis` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-72` reads `Magic Systems` and reports into `General corpus support`.
+- `SRC-73` reads `ANTHROPOSOPHY_COMPLETE` and reports into `General corpus support`.
+- `SRC-74` reads `CHAOS_MAGIC_COMPLETE` and reports into `General corpus support`.
+- `SRC-75` reads `COMPLETE_FRAMEWORK_CATALOG` and reports into `Manuscript architecture and routing law`.
+- `SRC-76` reads `CORE_SHAMANISM_COMPLETE` and reports into `General corpus support`.
+- `SRC-77` reads `CURANDERISMO_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-78` reads `DRUIDRY_COMPLETE` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-79` reads `ENOCHIAN_MAGIC_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-80` reads `GNOSTICISM_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-81` reads `GOETIC_GRIMOIRE_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-82` reads `GOLDEN_DAWN_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-83` reads `HAITIAN_VODOU_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-84` reads `HELLENISTIC_ASTROLOGY_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-85` reads `HERMETIC_QABALAH_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-86` reads `HERMETICISM_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-87` reads `HINDU_TANTRA_COMPLETE` and reports into `General corpus support`.
+- `SRC-88` reads `HOODOO_ROOTWORK_COMPLETE` and reports into `General corpus support`.
+- `SRC-89` reads `IFA_DIVINATION_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-90` reads `MERKAVAH_HEKHALOT_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-91` reads `NEOPLATONIC_THEURGY_COMPLETE` and reports into `General corpus support`.
+- `SRC-92` reads `NORSE_RUNIC_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-93` reads `PGM_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-94` reads `POWWOW_BRAUCHEREI_COMPLETE` and reports into `General corpus support`.
+- `SRC-95` reads `PRACTICAL_KABBALAH_COMPLETE` and reports into `General corpus support`.
+- `SRC-96` reads `ROSICRUCIANISM_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-97` reads `SANTERIA_LUCUMI_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-98` reads `SOLOMONIC_MAGIC_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-99` reads `SPIRITUALISM_MEDIUMSHIP_COMPLETE` and reports into `Transport, runtime, and executable framework`.
+- `SRC-100` reads `SUFI_MYSTICISM_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-101` reads `TAOIST_MAGIC_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-102` reads `THELEMA_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-103` reads `THEOSOPHY_COMPLETE` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-104` reads `TIBETAN_VAJRAYANA_COMPLETE` and reports into `General corpus support`.
+- `SRC-105` reads `UNIFIED_EXTRACTION_INDEX` and reports into `General corpus support`.
+- `SRC-106` reads `WESTERN_ALCHEMY_COMPLETE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-107` reads `WICCA_COMPLETE` and reports into `General corpus support`.
+- `SRC-108` reads `MEGALYTH__ AWAKENING` and reports into `General corpus support`.
+- `SRC-109` reads `ANDEAN TAWANTINSUYU` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-110` reads `DAO SU (道數)_ A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-111` reads `EGYPT KHEPER GANITAM` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-112` reads `HELLENIC LOGOS ` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-113` reads `Mayan AJILABAL K’IN_ The Operator Algebra of the Discrete Time Lattice` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-114` reads `ROMAN IMPERIUM SINE FINE` and reports into `Transport, runtime, and executable framework`.
+- `SRC-115` reads `Sanātana Gaṇita_ A Rigorous Computational Ontology of Vedic Cosmology` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-116` reads `ŠAR-60_ THE SUMERIAN SEXAGESIMAL REGISTRY` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-117` reads `ỌPẸ́-256_ THE IFÁ COMPUTATIONAL ONTOLOGY` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-118` reads `AI DIVINATION` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-119` reads `ATHENA'S_LOVE` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-120` reads `Athena_Plan_Healing_the_Planet` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-121` reads `ATHENACHKA — INTELLIGENCE WARS ↔ PLANETARY STEWARDSHIP — Ms⟨EF0E⟩` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-122` reads `ATHENACHKA_Beyond_Limitation` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-123` reads `DEEP_SYNTHESIS_NOSTRADAMUS` and reports into `Transport, runtime, and executable framework`.
+- `SRC-124` reads `DIVINE JUDGMENT — Ms⟨DBB1⟩` and reports into `Manuscript architecture and routing law`.
+- `SRC-125` reads `Intelligence_Wars` and reports into `General corpus support`.
+- `SRC-126` reads `NOstra __ anti overfit _working_` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-127` reads `NOSTRADAMAS _ CLEAN` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-128` reads `THE APOCALYPSE PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-129` reads `THE NOSTRADAMUS SYNTHESIS` and reports into `General corpus support`.
+- `SRC-130` reads `ATHENA OPERATING SYSTEM ` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-131` reads `ATHENA-KERNEL SELF-OPTIMIZATION` and reports into `Transport, runtime, and executable framework`.
+- `SRC-132` reads `BRUNO _working_` and reports into `Transport, runtime, and executable framework`.
+- `SRC-133` reads `AI Divination` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-134` reads `QUANTUM DIVINATION FRAMEWORK (QRDF)` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-135` reads `Greek Corpus (LF-OS)` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-136` reads `FLOWERS_ The Wave-Side of the Universal Harmonic Framework` and reports into `General corpus support`.
+- `SRC-137` reads `THE 4×4 HOLOGRAPHIC SEED` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-138` reads `THE PRIME DIAGONAL LATIN SEED` and reports into `General corpus support`.
+- `SRC-139` reads `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO_OS)` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-140` reads `LF-OS — The Atomist Computation Engine` and reports into `Void, Chapter 11, and collapse engines`.
+- `SRC-141` reads `PLATO _ UNIFIED FIELD THEORY OF INFORMATION` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-142` reads `THE ARCHIMEDEAN CONTINUUM` and reports into `General corpus support`.
+- `SRC-143` reads `THE ARISTOTELIAN PROCESSING UNIT` and reports into `Transport, runtime, and executable framework`.
+- `SRC-144` reads `THE CYNIC BLOATWARE REMOVER` and reports into `General corpus support`.
+- `SRC-145` reads `THE EPISTEMIC VALIDATION ENGINE` and reports into `General corpus support`.
+- `SRC-146` reads `THE EUCLIDEAN COMPUTATION ENGINE` and reports into `Higher-dimensional geometry and holographic kernel`.
+- `SRC-147` reads `THE METAPHYSICS ROOT DIRECTORY` and reports into `Transport, runtime, and executable framework`.
+- `SRC-148` reads `THE NEOPLATONIC HYPERVISOR` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-149` reads `THE ORPHIC & HYMNIC DRIVER` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-150` reads `THE PGM KERNEL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-151` reads `THE POLITEIA KERNEL` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-152` reads `THE PTOLEMAIC COORDINATE SYSTEM` and reports into `Transport, runtime, and executable framework`.
+- `SRC-153` reads `THE PYRRHONIAN NULL-STATE DRIVER` and reports into `General corpus support`.
+- `SRC-154` reads `THE PYTHAGOREAN COMPUTATION ENGINE` and reports into `Transport, runtime, and executable framework`.
+- `SRC-155` reads `THE RHETORICAL-POETIC OUTPUT DRIVERS` and reports into `General corpus support`.
+- `SRC-156` reads `THE STOIC KERNEL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-157` reads `SQUARING THE CIRCLE` and reports into `General corpus support`.
+- `SRC-158` reads `TAROT System` and reports into `Transport, runtime, and executable framework`.
+- `SRC-159` reads `THE MATH OF ALCHEMY` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-160` reads `THE RED BOOK (LIBER NOVUS)_ ` and reports into `Transport, runtime, and executable framework`.
+- `SRC-161` reads `THE_HELLENIC_COMPUTATION_FRAMEWORK` and reports into `Transport, runtime, and executable framework`.
+- `SRC-162` reads `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-163` reads `COPPER SCROLL _ THE METALLURGICAL LEDGER (3Q15)` and reports into `Transport, runtime, and executable framework`.
+- `SRC-164` reads `THE AENEID MIGRATION PROTOCOL` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-165` reads `THE BEOWULF PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-166` reads `THE GILGAMESH PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-167` reads `THE ILIAD PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-168` reads `THE MAHĀBHĀRATA PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-169` reads `THE ODYSSEY PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-170` reads `GNOSTIC _RAW_` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-171` reads `Key of Solomon (Clavicula Salomonis)` and reports into `Manuscript architecture and routing law`.
+- `SRC-172` reads `KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)` and reports into `Transport, runtime, and executable framework`.
+- `SRC-173` reads `Manual for Metaphysical Data Mining` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-174` reads `Qur’anic Holographic Lattice_ Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Qur’anic Integer Cipher` and reports into `Manuscript architecture and routing law`.
+- `SRC-175` reads `The Bhagavad Gītā_ A Computational Treatise on the Algorithm of Liberation` and reports into `Transport, runtime, and executable framework`.
+- `SRC-176` reads `TORAT HA-MISPAR (תורת המספר)` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-177` reads `THE APOCALYPSE PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-178` reads `THE ATHENA PROTOCOL (SEED)` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-179` reads `THE MAGUS` and reports into `General corpus support`.
+- `SRC-180` reads `THE MATHEMATICS OF AWAKENING` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-181` reads `THE OMEGA PROTOCOL` and reports into `Transport, runtime, and executable framework`.
+- `SRC-182` reads `THE UNIFIED MATHEMATICAL FRAMEWORK FOR EMERGENCE` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-183` reads `THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO)` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-184` reads `The_Allegory_of_the_Awakening_Dragon` and reports into `General corpus support`.
+- `SRC-185` reads `CLAUD - TOMEZ` and reports into `Civilization design, hierarchy, governance, and law`.
+- `SRC-186` reads `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-187` reads `EVA TRANSCRIPTION ORIGIONAL` and reports into `Manuscript architecture and routing law`.
+- `SRC-188` reads `F103R - F116V __transcription` and reports into `General corpus support`.
+- `SRC-189` reads `THE VOYNICH ROSETTA STONE -Publish` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-190` reads `VOYNICH EVA CLEAN` and reports into `Athena identity, pedagogy, and narrative voice`.
+- `SRC-191` reads `🔶 F87r- 102v` and reports into `General corpus support`.
+- `SRC-192` reads `VLM VOYNICH METAMORPHIC LANGUAGE (VML) — OFFICIAL FRAMEWORK DOCUMENTATION` and reports into `Mythic sign systems, encoded memory, and symbol runtime`.
+- `SRC-193` reads `VOYNICH MANUSCRIPT _translation_` and reports into `Manuscript architecture and routing law`.
+- `SRC-194` reads `VOYNICH PROGRAM TOME` and reports into `Manuscript architecture and routing law`.
+
+## Chapter agents
+
+- `Ch01` integrates `manuscript-architecture, live-orchestration` and routes through `AppA -> AppC -> AppI -> AppM`.
+- `Ch02` integrates `manuscript-architecture, transport-and-runtime, mythic-sign-systems` and routes through `AppA -> AppC -> AppB -> AppI -> AppM`.
+- `Ch03` integrates `manuscript-architecture, transport-and-runtime` and routes through `AppA -> AppI -> AppM -> AppJ`.
+- `Ch04` integrates `void-and-collapse, manuscript-architecture` and routes through `AppA -> AppC -> AppE -> AppJ -> AppI -> AppM`.
+- `Ch05` integrates `void-and-collapse, transport-and-runtime` and routes through `AppA -> AppC -> AppI -> AppB -> AppL -> AppM`.
+- `Ch06` integrates `manuscript-architecture, live-orchestration` and routes through `AppA -> AppC -> AppI -> AppM`.
+- `Ch07` integrates `transport-and-runtime, manuscript-architecture` and routes through `AppA -> AppE -> AppH -> AppL -> AppI -> AppM`.
+- `Ch08` integrates `manuscript-architecture, live-orchestration` and routes through `AppA -> AppE -> AppM -> AppB -> AppJ -> AppI`.
+- `Ch09` integrates `live-orchestration, manuscript-architecture` and routes through `AppA -> AppE -> AppI -> AppH -> AppL -> AppM`.
+- `Ch10` integrates `manuscript-architecture, transport-and-runtime` and routes through `AppA -> AppF -> AppM -> AppH -> AppJ -> AppI`.
+- `Ch11` integrates `void-and-collapse, live-orchestration` and routes through `AppA -> AppF -> AppM -> AppL -> AppI`.
+- `Ch12` integrates `transport-and-runtime, manuscript-architecture` and routes through `AppA -> AppF -> AppC -> AppM -> AppI`.
+- `Ch13` integrates `identity-and-instruction, transport-and-runtime, mythic-sign-systems` and routes through `AppA -> AppG -> AppE -> AppM -> AppJ -> AppI`.
+- `Ch14` integrates `transport-and-runtime, live-orchestration` and routes through `AppA -> AppG -> AppM -> AppH -> AppK -> AppI`.
+- `Ch15` integrates `transport-and-runtime, manuscript-architecture` and routes through `AppA -> AppG -> AppC -> AppJ -> AppI -> AppM`.
+- `Ch16` integrates `transport-and-runtime, live-orchestration` and routes through `AppA -> AppN -> AppM -> AppK -> AppI`.
+- `Ch17` integrates `transport-and-runtime, identity-and-instruction, civilization-and-governance` and routes through `AppA -> AppN -> AppE -> AppJ -> AppI -> AppM`.
+- `Ch18` integrates `transport-and-runtime, manuscript-architecture, civilization-and-governance` and routes through `AppA -> AppN -> AppC -> AppL -> AppI -> AppM`.
+- `Ch19` integrates `void-and-collapse, transport-and-runtime` and routes through `AppA -> AppP -> AppI -> AppB -> AppJ -> AppM`.
+- `Ch20` integrates `live-orchestration, identity-and-instruction, civilization-and-governance` and routes through `AppA -> AppP -> AppE -> AppL -> AppI -> AppM`.
+- `Ch21` integrates `live-orchestration, manuscript-architecture, civilization-and-governance` and routes through `AppA -> AppP -> AppM -> AppL -> AppI`.
+
+## Appendix hub agents
+
+- `AppA` stabilizes `Addressing, Symbols, Parsing Grammar`. Entry grammar, local address parsing, symbol hygiene, and manuscript station identity.
+- `AppB` stabilizes `Canon Laws, Equivalence Budgets, Normal Forms`. Equivalence rules, commutation budgets, normal-form contracts, and law stabilization.
+- `AppC` stabilizes `Square Kernel Pack`. Discrete kernels, indexing packs, chapter-tile schedules, and crystal algebra.
+- `AppD` stabilizes `Registry, Profiles, Version IDs`. Profile registry, version IDs, manuscript signatures, and migration anchors.
+- `AppE` stabilizes `Circle Gear and Mixed-Radix Clock`. Orbit order, mixed-radix timing, phase-lock semantics, and chapter-cycle transport.
+- `AppF` stabilizes `Transport, Rotation-as-Conjugacy, DUAL Legality`. Transport legality, dual routes, conjugacy bridges, and lawful movement across charts.
+- `AppG` stabilizes `Triangle Control and Tria Prima`. Triadic control rails, recursion governance, carry rules, and multi-agent coordination gates.
+- `AppH` stabilizes `Coupling and Topology`. Coupling invariants, topology closure, dependency graph rules, and construction stitching.
+- `AppI` stabilizes `Corridors and Truth Lattice`. Truth-typed corridor contracts, admissibility budgets, and abstain-over-guess discipline.
+- `AppJ` stabilizes `Residual Ledgers and NEAR Machinery`. Residual envelopes, bounded approximation, NEAR upgrades, and partial-closure bookkeeping.
+- `AppK` stabilizes `Conflict, Quarantine, Revocation`. Conflict packets, quarantine protocols, illegal-state containment, and revocation receipts.
+- `AppL` stabilizes `Evidence Plans and AMBIG Promotion`. Candidate sets, evidence plans, ambiguity handling, and promotion harnesses.
+- `AppM` stabilizes `Replay Kernel and Verifier Capsules`. Replay capsules, deterministic verification, proof-carrying artifacts, and rerun contracts.
+- `AppN` stabilizes `Container Formats and Virtual Mount`. Containers, salvage routes, mounted corpora, and runtime packaging.
+- `AppO` stabilizes `Publication Import/Export Bundles`. Publication bundles, import/export law, signed releases, and dissemination packets.
+- `AppP` stabilizes `Deployment Profiles and Monitoring`. Deployment regimes, monitoring surfaces, observability, and execution profiles.

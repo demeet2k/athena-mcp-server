@@ -1,0 +1,522 @@
+{
+  "generated_at": "2026-03-09T15:25:00.482090+00:00",
+  "deep_pass": 6,
+  "tasks": [
+    {
+      "id": "TASK-Ch01",
+      "chapter": "Ch01",
+      "message": "MSG-Ch01",
+      "governance_signs": [
+        "SIG00",
+        "SIG02",
+        "SIG03",
+        "SIG06"
+      ],
+      "route": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch02",
+      "chapter": "Ch02",
+      "message": "MSG-Ch02",
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG04",
+        "SIG08"
+      ],
+      "route": [
+        "AppA",
+        "AppC",
+        "AppB",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch03",
+      "chapter": "Ch03",
+      "message": "MSG-Ch03",
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG04",
+        "SIG08"
+      ],
+      "route": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "id": "TASK-Ch04",
+      "chapter": "Ch04",
+      "message": "MSG-Ch04",
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG02",
+        "SIG03"
+      ],
+      "route": [
+        "AppA",
+        "AppC",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch05",
+      "chapter": "Ch05",
+      "message": "MSG-Ch05",
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG04",
+        "SIG08"
+      ],
+      "route": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppB",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch06",
+      "chapter": "Ch06",
+      "message": "MSG-Ch06",
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG06",
+        "SIG11"
+      ],
+      "route": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch07",
+      "chapter": "Ch07",
+      "message": "MSG-Ch07",
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "route": [
+        "AppA",
+        "AppE",
+        "AppH",
+        "AppL",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch08",
+      "chapter": "Ch08",
+      "message": "MSG-Ch08",
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG06",
+        "SIG11"
+      ],
+      "route": [
+        "AppA",
+        "AppE",
+        "AppM",
+        "AppB",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "id": "TASK-Ch09",
+      "chapter": "Ch09",
+      "message": "MSG-Ch09",
+      "governance_signs": [
+        "SIG06",
+        "SIG11",
+        "SIG02",
+        "SIG03"
+      ],
+      "route": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppH",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch10",
+      "chapter": "Ch10",
+      "message": "MSG-Ch10",
+      "governance_signs": [
+        "SIG02",
+        "SIG03",
+        "SIG04",
+        "SIG08"
+      ],
+      "route": [
+        "AppA",
+        "AppF",
+        "AppM",
+        "AppH",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "id": "TASK-Ch11",
+      "chapter": "Ch11",
+      "message": "MSG-Ch11",
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG06",
+        "SIG11"
+      ],
+      "route": [
+        "AppA",
+        "AppF",
+        "AppM",
+        "AppL",
+        "AppI"
+      ]
+    },
+    {
+      "id": "TASK-Ch12",
+      "chapter": "Ch12",
+      "message": "MSG-Ch12",
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "route": [
+        "AppA",
+        "AppF",
+        "AppC",
+        "AppM",
+        "AppI"
+      ]
+    },
+    {
+      "id": "TASK-Ch13",
+      "chapter": "Ch13",
+      "message": "MSG-Ch13",
+      "governance_signs": [
+        "SIG09",
+        "SIG10",
+        "SIG04",
+        "SIG08"
+      ],
+      "route": [
+        "AppA",
+        "AppG",
+        "AppE",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "id": "TASK-Ch14",
+      "chapter": "Ch14",
+      "message": "MSG-Ch14",
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG06"
+      ],
+      "route": [
+        "AppA",
+        "AppG",
+        "AppM",
+        "AppH",
+        "AppK",
+        "AppI"
+      ]
+    },
+    {
+      "id": "TASK-Ch15",
+      "chapter": "Ch15",
+      "message": "MSG-Ch15",
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "route": [
+        "AppA",
+        "AppG",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch16",
+      "chapter": "Ch16",
+      "message": "MSG-Ch16",
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG06"
+      ],
+      "route": [
+        "AppA",
+        "AppN",
+        "AppM",
+        "AppK",
+        "AppI"
+      ]
+    },
+    {
+      "id": "TASK-Ch17",
+      "chapter": "Ch17",
+      "message": "MSG-Ch17",
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG09"
+      ],
+      "route": [
+        "AppA",
+        "AppN",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch18",
+      "chapter": "Ch18",
+      "message": "MSG-Ch18",
+      "governance_signs": [
+        "SIG04",
+        "SIG08",
+        "SIG12",
+        "SIG02"
+      ],
+      "route": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppL",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch19",
+      "chapter": "Ch19",
+      "message": "MSG-Ch19",
+      "governance_signs": [
+        "SIG05",
+        "SIG07",
+        "SIG04",
+        "SIG08"
+      ],
+      "route": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch20",
+      "chapter": "Ch20",
+      "message": "MSG-Ch20",
+      "governance_signs": [
+        "SIG06",
+        "SIG11",
+        "SIG09",
+        "SIG10"
+      ],
+      "route": [
+        "AppA",
+        "AppP",
+        "AppE",
+        "AppL",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "TASK-Ch21",
+      "chapter": "Ch21",
+      "message": "MSG-Ch21",
+      "governance_signs": [
+        "SIG06",
+        "SIG11",
+        "SIG02",
+        "SIG03"
+      ],
+      "route": [
+        "AppA",
+        "AppP",
+        "AppM",
+        "AppL",
+        "AppI"
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "id": "MSG-Ch01",
+      "chapter": "Ch01",
+      "rail_council": "COUNCIL-Su",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch02",
+      "chapter": "Ch02",
+      "rail_council": "COUNCIL-Me",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch03",
+      "chapter": "Ch03",
+      "rail_council": "COUNCIL-Sa",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch04",
+      "chapter": "Ch04",
+      "rail_council": "COUNCIL-Me",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch05",
+      "chapter": "Ch05",
+      "rail_council": "COUNCIL-Sa",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch06",
+      "chapter": "Ch06",
+      "rail_council": "COUNCIL-Su",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch07",
+      "chapter": "Ch07",
+      "rail_council": "COUNCIL-Sa",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch08",
+      "chapter": "Ch08",
+      "rail_council": "COUNCIL-Su",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch09",
+      "chapter": "Ch09",
+      "rail_council": "COUNCIL-Me",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch10",
+      "chapter": "Ch10",
+      "rail_council": "COUNCIL-Su",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch11",
+      "chapter": "Ch11",
+      "rail_council": "COUNCIL-Me",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch12",
+      "chapter": "Ch12",
+      "rail_council": "COUNCIL-Sa",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch13",
+      "chapter": "Ch13",
+      "rail_council": "COUNCIL-Me",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch14",
+      "chapter": "Ch14",
+      "rail_council": "COUNCIL-Sa",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch15",
+      "chapter": "Ch15",
+      "rail_council": "COUNCIL-Su",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch16",
+      "chapter": "Ch16",
+      "rail_council": "COUNCIL-Sa",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch17",
+      "chapter": "Ch17",
+      "rail_council": "COUNCIL-Su",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch18",
+      "chapter": "Ch18",
+      "rail_council": "COUNCIL-Me",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch19",
+      "chapter": "Ch19",
+      "rail_council": "COUNCIL-Su",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch20",
+      "chapter": "Ch20",
+      "rail_council": "COUNCIL-Me",
+      "truth": "AMBIG"
+    },
+    {
+      "id": "MSG-Ch21",
+      "chapter": "Ch21",
+      "rail_council": "COUNCIL-Sa",
+      "truth": "AMBIG"
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+[
+  {
+    "detected_at": "2026-03-09T15:37:10.353322+00:00",
+    "fingerprint": "f6046b1b27a3ac0b51d323e2f9128880df8289f08a537f9892d0a366a30c00a6",
+    "summary": {
+      "added": 3543,
+      "modified": 0,
+      "removed": 0
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "relative_path": "self_actualize/runtime/swarm_board.py",
+        "top_level": "self_actualize",
+        "mtime_ns": 1773070611026056100,
+        "mtime_iso": "2026-03-09T15:36:51.026056+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/swarm-benchmark-ledger/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266788137200,
+        "mtime_iso": "2026-03-09T15:31:06.788137+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/cortex-writeback-manager/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266786590400,
+        "mtime_iso": "2026-03-09T15:31:06.786590+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/family-swarm-conductor/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266786590400,
+        "mtime_iso": "2026-03-09T15:31:06.786590+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/microcell-specializer/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266786590400,
+        "mtime_iso": "2026-03-09T15:31:06.786590+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/session-handoff-packer/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266786590400,
+        "mtime_iso": "2026-03-09T15:31:06.786590+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/neuron-library-builder/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266785593700,
+        "mtime_iso": "2026-03-09T15:31:06.785594+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/pod-frontier-splitter/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266785593700,
+        "mtime_iso": "2026-03-09T15:31:06.785594+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/wave-synchronizer/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266785593700,
+        "mtime_iso": "2026-03-09T15:31:06.785594+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/ganglion-bootstrapper/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266784600800,
+        "mtime_iso": "2026-03-09T15:31:06.784601+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/weakest-front-reopener/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266784600800,
+        "mtime_iso": "2026-03-09T15:31:06.784601+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/restart-seed-orchestrator/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266783591500,
+        "mtime_iso": "2026-03-09T15:31:06.783592+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/truth-promotion-governor/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266782651600,
+        "mtime_iso": "2026-03-09T15:31:06.782652+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/hub-legality-enforcer/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266781591300,
+        "mtime_iso": "2026-03-09T15:31:06.781591+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/rail-load-balancer/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266780592400,
+        "mtime_iso": "2026-03-09T15:31:06.780592+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/health-corridor-monitor/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266779615700,
+        "mtime_iso": "2026-03-09T15:31:06.779616+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/neural-regime-benchmark-bridge/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266779615700,
+        "mtime_iso": "2026-03-09T15:31:06.779616+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/branch-fusion-router/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266778557300,
+        "mtime_iso": "2026-03-09T15:31:06.778557+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/observer-corridor-nudge-compiler/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266778557300,
+        "mtime_iso": "2026-03-09T15:31:06.778557+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/perturbation-chaos-discriminator/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266778557300,
+        "mtime_iso": "2026-03-09T15:31:06.778557+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/arc-rail-phase-router/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266777560100,
+        "mtime_iso": "2026-03-09T15:31:06.777560+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/metallic-scale-planner/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266777560100,
+        "mtime_iso": "2026-03-09T15:31:06.777560+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/packet-truth-typist/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266777560100,
+        "mtime_iso": "2026-03-09T15:31:06.777560+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/docs-gate-auditor/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266776557200,
+        "mtime_iso": "2026-03-09T15:31:06.776557+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/face-manifold-router/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266776557200,
+        "mtime_iso": "2026-03-09T15:31:06.776557+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/docs-query-ledger/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266775589600,
+        "mtime_iso": "2026-03-09T15:31:06.775590+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/drive-memory-sync/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266775589600,
+        "mtime_iso": "2026-03-09T15:31:06.775590+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/live-docs-witness-binder/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266775589600,
+        "mtime_iso": "2026-03-09T15:31:06.775590+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/packet-wave-planner/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266774596900,
+        "mtime_iso": "2026-03-09T15:31:06.774597+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/route-quality-auditor/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266774596900,
+        "mtime_iso": "2026-03-09T15:31:06.774597+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/archive-replay-harness/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266773554700,
+        "mtime_iso": "2026-03-09T15:31:06.773555+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/regime-router/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266773554700,
+        "mtime_iso": "2026-03-09T15:31:06.773555+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/witness-bundle-assembler/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266773554700,
+        "mtime_iso": "2026-03-09T15:31:06.773555+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/archive-tree-extractor/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266772544700,
+        "mtime_iso": "2026-03-09T15:31:06.772545+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/kernel-route-mapper/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266772544700,
+        "mtime_iso": "2026-03-09T15:31:06.772545+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/theorem-to-runtime/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266772544700,
+        "mtime_iso": "2026-03-09T15:31:06.772545+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/capsule-promoter/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266771541300,
+        "mtime_iso": "2026-03-09T15:31:06.771541+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/chapter-map-ledger/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266771541300,
+        "mtime_iso": "2026-03-09T15:31:06.771541+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/skills/contradiction-ledger/FUTURE SKILL.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266771541300,
+        "mtime_iso": "2026-03-09T15:31:06.771541+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "ECOSYSTEM/FUTURE_SKILLS/META_SWARM_FAMILY_FRONTIER.md",
+        "top_level": "ECOSYSTEM",
+        "mtime_ns": 1773070266770541200,
+        "mtime_iso": "2026-03-09T15:31:06.770541+00:00"
+      }
+    ]
+  },
+  {
+    "detected_at": "2026-03-09T15:41:12.795835+00:00",
+    "fingerprint": "47730519926cfc3a401761aa1b7301a06935ca8723e695a7e899ac515c5517e9",
+    "summary": {
+      "added": 1,
+      "modified": 2,
+      "removed": 0
+    },
+    "changes": [
+      {
+        "kind": "modified",
+        "relative_path": "self_actualize/runtime/swarm_board.py",
+        "top_level": "self_actualize",
+        "mtime_ns": 1773070849791753200,
+        "mtime_iso": "2026-03-09T15:40:49.791753+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": ".gitignore",
+        "top_level": ".gitignore",
+        "mtime_ns": 1773070848716805500,
+        "mtime_iso": "2026-03-09T15:40:48.716805+00:00"
+      },
+      {
+        "kind": "modified",
+        "relative_path": ".claude/settings.local.json",
+        "top_level": ".claude",
+        "mtime_ns": 1773070826126210500,
+        "mtime_iso": "2026-03-09T15:40:26.126210+00:00"
+      }
+    ]
+  },
+  {
+    "detected_at": "2026-03-09T15:41:55.768449+00:00",
+    "fingerprint": "0948038edb7737bae2b860d964071417662f126e6f7922647fdab8723fd763f0",
+    "summary": {
+      "added": 1,
+      "modified": 1,
+      "removed": 0
+    },
+    "changes": [
+      {
+        "kind": "modified",
+        "relative_path": ".claude/settings.local.json",
+        "top_level": ".claude",
+        "mtime_ns": 1773070910734852300,
+        "mtime_iso": "2026-03-09T15:41:50.734852+00:00"
+      },
+      {
+        "kind": "added",
+        "relative_path": "README.md",
+        "top_level": "README.md",
+        "mtime_ns": 1773070883396187900,
+        "mtime_iso": "2026-03-09T15:41:23.396188+00:00"
+      }
+    ]
+  },
+  {
+    "detected_at": "2026-03-09T15:41:58.415660+00:00",
+    "fingerprint": "ff4bb7c2fffe8157bc29e96da5969e95fa2bc846ff6d5b99a9bcd46fb4264834",
+    "summary": {
+      "added": 1,
+      "modified": 0,
+      "removed": 0
+    },
+    "changes": [
+      {
+        "kind": "added",
+        "relative_path": "self_actualize/_watch_probe_stage3.tmp",
+        "top_level": "self_actualize",
+        "mtime_ns": 1773070917590519300,
+        "mtime_iso": "2026-03-09T15:41:57.590519+00:00"
+      }
+    ]
+  },
+  {
+    "detected_at": "2026-03-09T15:42:39.338767+00:00",
+    "fingerprint": "20cca41bcceb4305cd53b8d6dab204be48889daa4927249291261859b05dbb95",
+    "summary": {
+      "added": 0,
+      "modified": 1,
+      "removed": 1
+    },
+    "changes": [
+      {
+        "kind": "modified",
+        "relative_path": ".claude/settings.local.json",
+        "top_level": ".claude",
+        "mtime_ns": 1773070926464666000,
+        "mtime_iso": "2026-03-09T15:42:06.464666+00:00"
+      },
+      {
+        "kind": "removed",
+        "relative_path": "self_actualize/_watch_probe_stage3.tmp",
+        "top_level": "self_actualize",
+        "mtime_ns": 1773070917590519300,
+        "mtime_iso": "2026-03-09T15:41:57.590519+00:00"
+      }
+    ]
+  },
+  {
+    "detected_at": "2026-03-09T15:42:56.901449+00:00",
+    "fingerprint": "2d66dbf36e6f1a5ed43db4abf9059ad390c8d20b12c0bc73db4c7e102b6285e4",
+    "summary": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "changes": [
+      {
+        "kind": "modified",
+        "relative_path": ".claude/settings.local.json",
+        "top_level": ".claude",
+        "mtime_ns": 1773070969202241700,
+        "mtime_iso": "2026-03-09T15:42:49.202242+00:00"
+      }
+    ]
+  }
+]

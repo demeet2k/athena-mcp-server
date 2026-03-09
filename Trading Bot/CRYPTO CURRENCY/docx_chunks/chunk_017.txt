@@ -1,0 +1,521 @@
+_{\text{ckpt}}) — checkpoint policy pin
+(\pi_{\text{rng}}) — RNG/seed derivation pin (if any stochasticity exists)
+Rule: If any pin above is referenced by a replay capsule, it MUST be import‑verifiable (ImportCert, §16.8).
+
+16.1.2 UnifiedState (S_{\text{total}})
+A typed record combining □, ○, △ plus the pin context and step bookkeeping.
+Canonical record shape (minimum)
+[
+S_{\text{total}} ;=; \langle
+S_{\square},;
+S_{\circ},;
+S_{\triangle},;
+\Pi,;
+k,;
+R
+\rangle
+]
+Where:
+(S_{\square}) : Square carrier
+(S_{\circ}) : Circle carrier
+(S_{\triangle}) : Triangle carrier (default (\mathbb{Z}_3^3), or pinned HD generalization)
+(\Pi) : pin context (digests, not just names)
+(k \in \mathbb{N}) : current step index / tick
+(R) : replay determinism state (e.g., RNG state or master seed material)
+Hard requirement: The encoding of (S_{\text{total}}) used for digesting MUST be the pinned canonical encoding from (\pi_{\text{enc}}).
+
+16.1.3 SquareStep operator (T_{\square})
+A pinned operator on the square carrier.
+Inputs: (S_{\square}), pinned square profile (\pi_{\square}), read‑views of other carriers as permitted, boundary bus (below), step seed material as permitted.
+Output: updated (S_{\square}') and emitted boundary events.
+Bijection declaration
+SquareStep must declare exactly one of:
+BIJECTIVE: a pinned inverse exists (T_{\square}^{-1}) under (\pi_{\square}), and is supplied (or reference-supplied) as a pinned artifact; or
+NON‑BIJECTIVE: explicitly declared, including the precise information loss mechanism.
+
+16.1.4 CircleStep operator (T_{\circ})
+A pinned tick/carry operator on the circle carrier.
+Inputs: (S_{\circ}), (\pi_{\circ}), boundary bus, permitted read‑views, step seed.
+Output: (S_{\circ}') and carry events.
+Replay obligation: carries MUST reproduce identically under replay given pins + seed + inputs.
+If an inverse is declared, it must be pinned and replayable.
+
+16.1.5 TriangleStep operator (T_{\triangle})
+A pinned control update on Triangle carrier:
+Default carrier: (\mathbb{Z}_3^3)
+HD generalization: pinned by (\pi_{\triangle})
+TriangleStep includes:
+corridor policy (Option A/B as pinned in (\pi_{\text{corridor}}))
+hatch/carry boundary interactions (how boundary events are absorbed/produced)
+emissions that may constrain □ or interpret ○ carries
+
+16.2 Boundary bus and interfaces
+16.2.1 BoundaryBus (B)
+To make “explicit interfaces” concrete, all cross‑carrier interactions pass through a typed boundary bus rather than hidden side effects.
+Minimum bus fields:
+(B.\text{carry}): ordered list of carry events (from ○, possibly transformed by △ policy)
+(B.\text{hatch}): hatch/open/close boundary events (from △)
+(B.\text{corridor}): effective corridor state / policy snapshot for this step (from △)
+(B.\text{notes}): deterministic annotations (strictly pinned schema; used for transcript)
+Ordering rule: event ordering inside each list is canonical and pinned (either via (\pi_{\text{enc}}) or a bus schema pin).
+
+16.2.2 Read‑views (anti‑footgun rule)
+Each substep receives:
+its own carrier (mutable in the abstract)
+read‑views of other carriers (immutable snapshots) as explicitly declared by profile pins
+the bus (B) (read/write within declared subfields)
+No substep may mutate another carrier directly.
+This enforces “single coherent update” while still allowing pinned order semantics.
+
+16.3 Unified step (T_U)
+16.3.1 Order is pinned
+Let (\mathcal{O}) be the ordered list of substeps (a permutation of ({\square,\circ,\triangle})).
+Law (Order is pinned):
+(\mathcal{O}) is contained in (\pi_{\text{order}}).
+If (\mathcal{O}) changes, that is a MIGRATE event.
+Normative default for Ch16⟨0033⟩
+Unless overridden by (\pi_{\text{order}}) (i.e., you are explicitly migrating), the canonical order is:
+[
+\mathcal{O}_{0033} = [;\circ \rightarrow \triangle \rightarrow \square;]
+]
+Rationale (normative): ○ produces carries, △ consumes/mediates boundary interactions and corridor state, □ applies corridor‑constrained transformation.
+(If your system already standardized a different order earlier, keep that—just pin it here. The key is: declare it and digest it.)
+
+16.3.2 Definition of one unified step
+Given pinned profiles and order, one step is:
+[
+T_U(S_{\text{total}}, x_k) ;=; S_{\text{total}}'
+]
+Where (x_k) is the step input packet (possibly empty, but if present it is part of determinism).
+Operational semantics (AppA→AppM)
+AppA — Acquire & Assert
+Verify all required pins exist in (\Pi).
+Import/resolve pinned profiles (or ensure they are already resolved).
+Verify pin digests match (ImportCert surface).
+AppN — Normalize
+4. Canonicalize any inputs (x_k) under (\pi_{\text{enc}}).
+5. Derive step seed material:
+[
+\text{seed}k = \text{Derive}(\pi{\text{rng}}, R, k, \Pi)
+]
+Derive MUST be pinned and deterministic.
+AppO — Operate (ordered substeps)
+6. Initialize bus (B \leftarrow B_0(\Pi)) (empty, with pinned schema/version).
+7. For each (u \in \mathcal{O}):
+if (u=\circ): ((S_{\circ}, B, \ell_{\circ}) \leftarrow T_{\circ}(S_{\circ}, \pi_{\circ}, \text{seed}_k, x_k, \text{views}, B))
+if (u=\triangle): ((S_{\triangle}, B, \ell_{\triangle}) \leftarrow T_{\triangle}(S_{\triangle}, \pi_{\triangle}, \text{seed}_k, x_k, \text{views}, B))
+if (u=\square): ((S_{\square}, B, \ell_{\square}) \leftarrow T_{\square}(S_{\square}, \pi_{\square}, \text{seed}_k, x_k, \text{views}, B))
+AppI — Integrate
+8. Apply any pinned end‑of‑step bus reconciliation:
+corridor snapshot sealing
+hatch/carry finalization rules
+prohibition checks (e.g., “unconsumed carry” if policy demands)
+This reconciliation function is pinned (either part of (\pi_{\triangle}) or a dedicated pin).
+AppM — Manifest
+9. Increment step index (k \leftarrow k+1).
+10. Emit deterministic transcript entry (\ell_k) (see §16.6).
+11. Possibly emit checkpoint digest(s) based on (\pi_{\text{ckpt}}) (see §16.5).
+Return (S_{\text{total}}') where only carriers + bookkeeping changed, and (\Pi) remains pinned-identical (unless MIGRATE).
+
+16.4 Required laws
+16.4.1 Determinism under pinned environment
+Law: Same pins + same seed material + same inputs ⇒ identical trajectory digests.
+Formally, for any two runs (r_1,r_2):
+[
+(\Pi, S_{\text{total}}^{(0)}, {x_k}){r_1} = (\Pi, S{\text{total}}^{(0)}, {x_k})_{r_2}
+\Rightarrow
+\forall k,; D_k^{(r_1)} = D_k^{(r_2)}
+]
+Where (D_k) are checkpoint digests defined in §16.5.
+Environment pin (\pi_{\text{env}}) must cover all sources of nondeterminism that could affect results (numeric mode, concurrency model, etc.). If something cannot be pinned, it MUST be logged as a deterministic input (or forbidden).
+
+16.4.2 Invertibility where declared
+Let SquareStep declare BIJECTIVE with pinned inverse (T_{\square}^{-1}), and CircleStep declare an inverse (T_{\circ}^{-1}).
+Then the unified step MUST provide either:
+Inverse capsule for (T_U^{-1}), or
+An explicit statement of why invertibility fails (e.g., △ corridor clipping / lossy policy), with truth typing impact.
+Truth typing impact (minimum)
+Each substep has a truth type:
+(\mathsf{Bijective})
+(\mathsf{LeftInvertible})
+(\mathsf{RightInvertible})
+(\mathsf{Lossy}(\text{reason}))
+Unified truth type:
+(\mathsf{Bijective}) iff all substeps are bijective and bus reconciliation is bijective.
+Otherwise, the unified type is the meet/worst of the chain, and the reason must be attributable to a pinned policy.
+
+16.4.3 Checkpoint integrity
+Checkpoint digests are part of the witness surface.
+If expected digest ≠ computed digest during replay: FAIL/CONFLICT.
+The harness MUST report:
+first mismatching step index,
+expected vs actual digest,
+pin digest summary,
+transcript hash prefix (if enabled).
+
+16.5 Checkpointing and digests
+16.5.1 Digest function
+All digests are computed using the pinned hash suite (\pi_H) and pinned encoding (\pi_{\text{enc}}).
+Define:
+[
+\text{Enc}(S_{\text{total}};\pi_{\text{enc}}) \in {0,1}^*
+]
+Checkpoint digest at step (k):
+[
+D_k = H_{\pi_H}(
+\text{"HD-SCT/Ch16/Checkpoint"} ;|;
+k ;|;
+\text{PinsDigest}(\Pi) ;|;
+\text{Enc}(S_{\text{total}}^{(k)};\pi_{\text{enc}})
+)
+]
+Final digest (D_{\text{final}}) is either:
+(D_{K}) (if final step is checkpointed), or
+a separately domain-separated hash with “Final”.
+PinsDigest((\Pi)) is itself a canonical, pinned encoding of the pin digest set.
+
+16.5.2 Checkpoint policy (pinned)
+(\pi_{\text{ckpt}}) defines:
+checkpoint indices (explicit list) OR frequency (e.g., every (m) steps)
+whether step‑0 (initial) is checkpointed
+whether transcripts are also hashed into digests (optional but recommended)
+
+16.6 Transcript and deterministic logs
+16.6.1 Deterministic transcript entry
+For each step (k), produce a transcript entry (\ell_k) with pinned schema:
+Minimum fields:
+(k)
+(\mathcal{O}) (or hash pointer to (\pi_{\text{order}}))
+(\text{seed}_k) commitment (not necessarily raw seed; can be a hash if secrecy matters)
+boundary event summaries (counts + canonical hashes of event lists)
+substep logs (\ell_{\circ}, \ell_{\triangle}, \ell_{\square}) in the exact execution order
+checkpoint digest if produced at this step
+Rule: transcript ordering is part of semantics. Reordering log fields is a MIGRATE unless schema pin keeps old order.
+
+16.7 Required constructions (algorithms)
+(A) Unified-step executor (reference algorithm)
+Input: (S_{\text{total}}^{(0)}), step count (K), pinned profiles (resolved by pins), input stream ({x_k}).
+Output: (S_{\text{total}}^{(K)}), checkpoint digests, transcript.
+Pseudo-code (normative structure):
+ExecUnified(S_total, K, Profiles, Inputs):
+  AssertPinsPresentAndValid(S_total.Pi, Profiles)
+  transcript = []
+  checkpoints = []
+
+  for k in 0..K-1:
+    x = Inputs[k]  // may be empty but must be deterministic
+
+    // AppN: normalize + seed
+    xN = Canonicalize(x, Pi.pi_enc)
+    seed = DeriveSeed(Pi.pi_rng, S_total.R, S_total.k, S_total.Pi)
+
+    // AppO: ordered substeps
+    B = EmptyBus(Pi)  // pinned schema/version
+    for u in OrderFromPin(Pi.pi_order):
+      if u == "CIRCLE":
+        (S_total.C, B, logC) = CircleStep(S_total.C, Profiles.Circle, seed, xN, Views(S_total), B)
+      if u == "TRIANGLE":
+        (S_total.T, B, logT) = TriangleStep(S_total.T, Profiles.Triangle, seed, xN, Views(S_total), B)
+      if u == "SQUARE":
+        (S_total.Q, B, logQ) = SquareStep(S_total.Q, Profiles.Square, seed, xN, Views(S_total), B)
+
+    // AppI: reconcile bus
+    (S_total, B, logI) = ReconcileEndOfStep(S_total, B, Profiles)
+
+    // AppM: advance + log + checkpoint
+    S_total.k += 1
+    entry = MakeTranscriptEntry(S_total.k, Pi, seed, B, logC, logT, logQ, logI)
+    transcript.append(entry)
+
+    if ShouldCheckpoint(S_total.k, Pi.pi_ckpt):
+      D = CheckpointDigest(S_total, Pi.pi_enc, Pi.pi_H)
+      checkpoints.append((S_total.k, D))
+
+  finalD = FinalDigest(S_total, Pi.pi_enc, Pi.pi_H)
+  return (S_total, checkpoints, finalD, transcript)
+
+
+(B) Replay capsule format (minimum)
+Ch16 defines the minimal ReplayCapsule for unified steps.
+Minimum ReplayCapsule fields
+initial state: either embedded or hash pointer
+pins (or pin digest set)
+step count (K)
+expected checkpoint digests ({(k_i, D_{k_i})})
+expected final digest (D_{\text{final}})
+deterministic logs (ordered) OR transcript hash commitment (depending on size)
+A compact JSON-like schema:
+{
+  "capsule_version": "Ch16⟨0033⟩",
+  "initial_state_ref": { "type": "embedded|hashptr", "value": "..." },
+  "pins_digest": "H(Pi)",
+  "pins": { "pi_corridor": "...", "pi_router": "...", "...": "..." },
+  "order_pin": "pi_order_digest",
+  "step_count": 1000,
+  "checkpoint_policy_pin": "pi_ckpt_digest",
+  "expected_checkpoints": [
+    {"k": 100, "digest": "D_100"},
+    {"k": 200, "digest": "D_200"}
+  ],
+  "expected_final_digest": "D_final",
+  "transcript_mode": "full|commitment",
+  "expected_transcript_commitment": "H(transcript)"  // if commitment mode
+}
+
+Replay harness requirements (normative)
+A replay harness MUST:
+Import/validate all pins referenced (ImportCert).
+Reconstruct initial state.
+Run ExecUnified for (K) steps.
+Compare:
+each expected checkpoint digest
+final digest
+transcript (full equality or commitment equality)
+Output ReplayCert on success; FAIL/CONFLICT report on mismatch.
+
+16.8 Required certificates
+16.8.1 ReplayCert
+Asserts that replay reproduces identical trajectory and digests.
+Minimum contents:
+capsule digest
+pin digest summary
+runner identity (and its env pin digest)
+PASS/FAIL, and if FAIL: first mismatching step + expected/actual
+
+16.8.2 RegressionCert
+Covers boundary cases and edge conditions, at minimum:
+carry cascades (○ multi-carry propagation)
+hatch events (△ open/close transitions)
+corridor clipping (△ lossy boundary if Option A/B dictates)
+inverse edges (verify declared inverses; verify unified inverse capsule if applicable)
+“empty input” vs “non-empty input” determinism
+step-order invariance tests that MUST FAIL unless MIGRATE is invoked (guards against accidental reorder)
+
+16.8.3 ImportCert
+Importer/verifier validates:
+every referenced pin exists
+artifact digest matches
+pin dependency closure is satisfied (e.g., square profile references encoding spec; must match (\pi_{\text{enc}}))
+
+16.8.4 AuditCert
+Deterministic audit reports suitable for deployment conformance:
+deterministic transcript commitment
+checkpoint digest list
+pin digest list
+MIGRATE boundary detection (order/schema/version mismatches)
+
+16.9 Inverse capsule (when supported)
+16.9.1 When (T_U^{-1}) exists
+If all of the following hold:
+(T_{\square}) is BIJECTIVE with pinned inverse
+(T_{\circ}) has pinned inverse
+(T_{\triangle}) is invertible under pinned corridor policy (no clipping / no lossy reconcile)
+end‑of‑step reconciliation is invertible
+Then define inverse order:
+[
+\mathcal{O}^{-1} = \text{reverse}(\mathcal{O})
+]
+and:
+[
+T_U^{-1} = T_{o_1}^{-1} \circ T_{o_2}^{-1} \circ T_{o_3}^{-1}
+]
+(with the inverses aligned to the same pinned bus semantics).
+16.9.2 If invertibility fails
+The chapter MUST:
+identify the exact pinned policy causing failure (e.g., “corridor clipping under (\pi_{\text{corridor}})”)
+surface the truth type downgrade: (\mathsf{Lossy}(\cdot))
+specify what witness is still guaranteed (e.g., forward replay determinism still holds)
+
+16.10 Conformance checklist (for implementers)
+This chapter is satisfied iff:
+UnifiedState includes □, ○, △, step index, replay state, and full pin digest set.
+Pinned order is declared and digest-bound; order change triggers MIGRATE.
+Determinism: same pins+seed+inputs ⇒ identical trajectory digests.
+Checkpointing: digest function + checkpoint policy are pinned; mismatch is FAIL/CONFLICT.
+ReplayCapsule minimal fields are defined; replay harness is normative.
+Invertibility: declared bijections provide inverses or explicitly downgrade truth typing.
+Certificates: ReplayCert, RegressionCert, ImportCert, AuditCert are defined and emitted by the toolchain.
+Ch17⟨0100⟩ — Transform Spine: (P→Q→B→C) as Universal Action Grammar
+[○Arc 5 | ○Rot 2 | △Lane Su | ω=16]
+Primary hubs: → AppA → AppN → AppC → AppI → AppM
+17.0 Normative Scope: Universal Action Grammar
+This chapter defines the universal action grammar of HD‑SCT: every framework-permitted transformation SHALL be represented as a typed four-stage pipeline
+[
+\mathsf{P}\ \to\ \mathsf{Q}\ \to\ \mathsf{B}\ \to\ \mathsf{C},
+]
+with explicit pins, explicit stage state, and addressable artifacts at each stage. No transformation is well-formed unless it is fully placed into this spine with complete contracts and replay witnesses.
+The spine is a compiler-grade contract system: it eliminates hidden degrees of freedom by requiring that all choice, phase, kernel selection, and corridor control enter only via declared injection points, represented as typed pins, and that all outputs are explicit addressable artifacts. Any transformation that cannot be uniquely assigned to one stage under the pinned interpretation rules SHALL be classified AMBIG and rejected from the deterministic lane unless explicitly routed through the ambiguity protocol in AppA/AppD.
+17.1 Required Objects and Core Types
+17.1.1 Canonical Serialization, Digests, and Addressing
+Let (\mathsf{Ser}(\cdot)) be a canonical, deterministic, versioned serialization function (AppN) and (\mathsf{H}(\cdot)) be a cryptographic digest function.
+Digest
+[
+\mathsf{Digest}(x) := \mathsf{H}(\mathsf{Ser}(x)).
+]
+Addressable artifact reference
+[
+\mathsf{ARef} := \langle \textsf{kind},\ \textsf{schema_id},\ \textsf{digest},\ \textsf{size},\ \textsf{media},\ \textsf{loc}\rangle
+]
+where (\textsf{digest}=\mathsf{Digest}(\textsf{payload})), and (\textsf{loc}) is a retrieval locator (content-addressed store, bundle offset, or import container pointer).
+Every artifact emitted by any stage MUST be represented by an (\mathsf{ARef}). The payload MAY be embedded or external, but the digest MUST correspond to the canonical serialized payload.
+17.1.2 Pins, PinSets, and Pin Schemas
+A pin is the unique injection mechanism for all choice and control.
+Pin
+[
+\mathsf{Pin} := \langle \textsf{pin_id},\ \textsf{type_id},\ \textsf{value},\ \textsf{value_digest}\rangle
+]
+with (\textsf{value_digest}=\mathsf{Digest}(\textsf{value})).
+PinSet
+[
+\mathsf{PinSet} := \text{finite map }(\textsf{pin_id} \mapsto \mathsf{Pin})
+]
+with uniqueness of (\textsf{pin_id}).
+Pin schema
+[
+\mathsf{PinSchema} := \langle \textsf{type_id},\ \textsf{constraints},\ \textsf{canonicalization}\rangle
+]
+governing validation and canonical form (AppN).
+All nondeterminism MUST be eliminated by requiring that every potential tie, kernel choice, phase ordering decision, corridor routing, and any data-dependent branch that could vary across implementations be determined by pins. Any stage executor that reads ambient environment (time, host entropy, unspecified iteration order) without pin mediation violates determinism and SHALL fail certification.
+17.1.3 Stage State and Stage Artifacts
+A stage produces:
+stage output value (typed data flowing to the next stage),
+stage state (structured, explicit; never implicit prose),
+stage artifacts (addressable, replay-critical).
+Stage state MUST be serializable under (\mathsf{Ser}) and MUST have a digest. Stage state MAY be emitted as an artifact (recommended), but at minimum MUST appear as a structured object inside the stage transcript.
+Define a uniform stage transcript record:
+StageTranscript
+[
+\mathsf{StageTranscript} :=
+\langle
+\textsf{stage},\ \textsf{stage_spec_digest},\ \textsf{input_digests},\ \textsf{pins_used},\ \textsf{state_digest},\ \textsf{artifacts},\ \textsf{output_digest},\ \textsf{invariants_claimed}
+\rangle.
+]
+Each transcript MUST list exactly which pins were consumed and MUST include digests for inputs, state, and outputs.
+17.1.4 PipelineSpec ((\Pi)) as Typed Composition
+A PipelineSpec is the minimal typed object defining a spine instance:
+[
+\Pi := \mathsf{C}\circ \mathsf{B}\circ \mathsf{Q}\circ \mathsf{P}.
+]
+Formally, a PipelineSpec is a 4‑tuple of stage specifications with explicit types:
+StageSpec
+[
+\mathsf{StageSpec} :=
+\langle
+\textsf{stage},\ \textsf{version},\ \textsf{executor_id},\ \textsf{type_in},\ \textsf{type_out},\ \textsf{pin_requirements},\ \textsf{artifact_kinds},\ \textsf{invariants}
+\rangle.
+]
+PipelineSpec
+[
+\mathsf{PipelineSpec} :=
+\langle
+\mathsf{P_spec},\ \mathsf{Q_spec},\ \mathsf{B_spec},\ \mathsf{C_spec},\ \textsf{compatibility_proof}
+\rangle
+]
+where (\textsf{compatibility_proof}) attests that (\textsf{type_out}) matches (\textsf{type_in}) along the chain and that all required invariants are composable (ContractCert; AppC).
+Stages MAY be identity stages, but identity MUST be explicit with a StageSpec and transcript; “skipping” a stage is represented as an identity stage with explicit invariants and empty artifact list.
+17.2 Stage Interfaces and Required Artifacts
+17.2.1 Common Interface Template
+Each stage (\mathsf{S}\in{\mathsf{P},\mathsf{Q},\mathsf{B},\mathsf{C}}) MUST implement a deterministic partial function:
+[
+\mathsf{S} : (\textsf{Input},\ \mathsf{PinSet},\ \mathsf{ArtifactStore}) \to (\textsf{Output},\ \textsf{State},\ \textsf{Artifacts},\ \mathsf{StageTranscript})
+]
+subject to the determinism and contract laws (17.3–17.5).
+The ArtifactStore is content-addressed: retrieval by digest MUST be deterministic and MUST validate payload digest.
+17.2.2 Partition Stage ((\mathsf{P}))
+Purpose. Decompose an input into explicit parts under a declared partition policy.
+Input type. (\mathcal{X}) (framework input object, including imported containers already decoded when (\mathsf{C}^{-1}) exists).
+Output type.
+[
+\mathsf{POut} := \langle \textsf{parts}:\mathsf{Parts},\ \textsf{pstate}:\mathsf{PState},\ \textsf{part}:\mathsf{PArt}\rangle.
+]
+Parts.
+[
+\mathsf{Parts} := \text{finite sequence of }\langle \textsf{part_id},\ \textsf{payload_ref},\ \textsf{span_ref?},\ \textsf{attrs}\rangle
+]
+where (\textsf{payload_ref}) is an (\mathsf{ARef}) to the part payload and (\textsf{span_ref?}) optionally anchors provenance (source ranges, graph slices, object paths).
+PState (required fields).
+[
+\mathsf{PState} :=
+\langle
+\textsf{partition_policy_id},\
+\textsf{ordering_policy},\
+\textsf{normalization_rules},\
+\textsf{part_index},
+\textsf{p_pins_consumed}
+\rangle.
+]
+PArt (required artifacts).
+(\mathsf{PArt.Man}): PartitionManifest (addressable): list of parts with digests, stable ordering, schema IDs.
+(\mathsf{PArt.Prov}): PartitionProvenance (addressable): mapping from each (\textsf{part_id}) to source anchors and normalization steps (or explicit “none”).
+(\mathsf{PArt.Inv}): PartitionInvariantReport (addressable): evaluation results of claimed invariants.
+All three MUST be emitted as (\mathsf{ARef}) entries.
+17.2.3 Quantize Stage ((\mathsf{Q}))
+Purpose. Map parts into quantized units under an explicit quantizer and kernel policy. Quantization includes discretization, coding, normalization into finite alphabets, and any representation change that reduces or constrains degrees of freedom.
+Input type. (\mathsf{POut}).
+Output type.
+[
+\mathsf{QOut} := \langle \textsf{qunits}:\mathsf{QUnits},\ \textsf{qstate}:\mathsf{QState},\ \textsf{qart}:\mathsf{QArt}\rangle.
+]
+QUnits.
+[
+\mathsf{QUnits} := \text{finite sequence of }\langle \textsf{qunit_id},\ \textsf{symbol_ref},\ \textsf{source_part_id},\ \textsf{attrs}\rangle
+]
+where (\textsf{symbol_ref}) is an (\mathsf{ARef}) to the quantized symbol payload (token, bin index, lattice coordinate, codeword, etc.).
+QState (required fields).
+[
+\mathsf{QState} :=
+\langle
+\textsf{quantizer_id},
+\textsf{kernel_choice_id},
+\textsf{codebook_refs},
+\textsf{rounding_policy},
+\textsf{tie_break_policy},
+\textsf{q_pins_consumed}
+\rangle.
+]
+QArt (required artifacts).
+(\mathsf{QArt.Tab}): QuantizationTable (addressable): mapping parts → quantized symbols, including any residual policy.
+(\mathsf{QArt.CB}): CodebookBundle (addressable): referenced codebooks and versions; MAY be empty if quantization is purely structural but then the quantizer MUST be fully specified in QState.
+(\mathsf{QArt.Err}): QuantizationErrorCertificate (addressable): either (i) proof of losslessness / bijection, or (ii) explicit error bounds, distortion metrics, and irreversibility flag.
+(\mathsf{QArt.Inv}): QuantizationInvariantReport (addressable).
+The QuantizationErrorCertificate is mandatory: quantization invertibility is never assumed.
+17.2.4 Bridge Stage ((\mathsf{B}))
+Purpose. Bind circle/square/triangle interactions under pinned bridges, enforcing corridor constraints and resolving compatibility between phase (○), kernel (□), and corridor (△) decisions.
+Let:
+○ Circle phase be represented by a phase plan (\Phi) (ordering / staging / temporal or logical phases),
+□ Square kernel be represented by kernel identifiers (K) (algorithmic operator choice / basis),
+△ Triangle corridor be represented by corridor constraints (\Gamma) (allowed lanes, routing rules, admissible interactions).
+Bridge constructs an explicit interaction structure consistent with pins and corridor rules.
+Input type. (\mathsf{QOut}).
+Output type.
+[
+\mathsf{BOut} := \langle \textsf{bstruct}:\mathsf{BStruct},\ \textsf{bstate}:\mathsf{BState},\ \textsf{bart}:\mathsf{BArt}\rangle.
+]
+BStruct (minimal required form).
+[
+\mathsf{BStruct} :=
+\langle
+\textsf{nodes}:\mathsf{BNodes},
+\textsf{edges}:\mathsf{BEdges},
+\textsf{bindings}:\mathsf{Bindings}
+\rangle
+]
+where nodes include quantized units and bridge nodes; edges encode permitted interactions; bindings attach ○/□/△ semantics explicitly.
+BState (required fields).
+[
+\mathsf{BState} :=
+\langle
+\textsf{phase_plan_ref},
+\textsf{kernel_binding_ref},
+\textsf{corridor_rule_ref},
+\textsf{bridge_policy_id},
+\textsf{conflict_resolution_policy},
+\textsf{b_pins_consumed}
+\rangle.
+]
+BArt (required artifacts).
+(\mathsf{BArt.Graph}): BridgeGraph (addressable): canonical graph encoding nodes/edges/bindings with stable ordering.
+(\mathsf{BArt.Pins}): BridgePinWitness (addressable): minimal pin subset sufficient to reproduce all bridge choices (projection witness).
+(\mathsf{BArt.Corr}): CorridorComplianceReport (addressable): proof or check result that all interactions respect corridor constraints (△Lane Su included as corridor parameterization).
+(\mathsf{BArt.Inv}): BridgeInvariantReport (addressable).
+An

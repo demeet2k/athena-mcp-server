@@ -1,0 +1,556 @@
+mit to:
+the exact pins used,
+the revocation receipts applied,
+the fences applied,
+and the environment constraints.
+N.F1.b — ReplayHarness schema
+A replay harness is a deterministic executor specification:
+[
+\mathsf{ReplayHarness}:=
+\langle
+\mathsf{HarnessVer},;
+\mathsf{HarnessID},;
+\mathsf{EntryPoints},;
+\mathsf{InputSchemas},;
+\mathsf{OutputSchemas},;
+\mathsf{DeterminismChecklistDigest},;
+\mathsf{BudgetCaps},;
+\mathsf{ExpectedDigestRules},;
+\mathsf{Sig}
+\rangle
+]
+EntryPoints define callable replay programs by name and digest.
+DeterminismChecklistDigest pins forbidden unpinned dependencies (time, RNG, network).
+ExpectedDigestRules pins what digests are compared (bytes, NF digests, transcript digests).
+
+N.F2 — Operators
+N.F2.a — Mount operator
+[
+\mathsf{Mount} : (\mathsf{Container}, \mathsf{MountPolicy}) \to \mathsf{MountedView} \cup \mathsf{MountFail}
+]
+MountPolicy is pinned and must specify:
+Required integrity checks before mount.
+Pin resolution behavior: strict or permissive (deploy corridors require strict).
+Revocation enforcement: must apply all effective revocations.
+Fence enforcement: must apply all fences/quarantines.
+Allowed materialization: what indices are materialized into local caches (must not change semantics).
+MountedView is a content-addressed mapping from logical artifact roles to resolved artifact bytes and schema interpreters.
+N.F2.b — Seek operator (chunk retrieval)
+Seek retrieves chunk bytes by chunk ID.
+[
+\mathsf{Seek} : (\mathsf{MountedView}, \mathsf{ChunkID}) \to \mathsf{Bytes} \cup \mathsf{SeekFail}
+]
+SeekFail must be typed:
+missing chunk,
+digest mismatch,
+revocation blocked,
+fence blocked.
+Seek must validate chunk digest upon retrieval.
+N.F2.c — Replay operator
+[
+\mathsf{Replay} : (\mathsf{MountedView}, \mathsf{ReplayCapsule}, \mathsf{ReplayHarness}) \to \mathsf{ReplayReport}
+]
+Replay must:
+verify pin closure and schemas,
+execute deterministically under EnvPinsDigest,
+compute outputs and transcript digests,
+compare against expected digests.
+
+N.F3 — Invariants
+N.F3.a — Mount determinism invariant
+For identical container digest, pinned policies, and environment pins, Mount must produce identical MountedView digests and identical resolved pin digests.
+N.F3.b — Seek integrity invariant
+Seek must never return bytes whose digest does not match the ChunkDigest. Any mismatch yields FAIL.
+N.F3.c — Replay determinism invariant
+Replay outcomes and transcript digests must be stable under identical pins and environment constraints.
+
+☁ N.C — Cloud: Salvage Doctrine, Seek/Salvage Semantics, and Truth Typing
+N.C1 — Objects
+N.C1.a — SalvageReport schema
+A salvage operation produces a structured report:
+[
+\mathsf{SalvageReport}:=
+\langle
+\mathsf{SalvVer},;
+\mathsf{ContainerDigest},;
+\mathsf{IntegrityFailures},;
+\mathsf{RecoveredChunks},;
+\mathsf{UnrecoverableChunks},;
+\mathsf{RecoveredIndices},;
+\mathsf{TruthScope},;
+\mathsf{ResidualLedgerRefs?},;
+\mathsf{EvidencePlanRef?},;
+\mathsf{ReplayPtr?},;
+\mathsf{ResultTruthType},;
+\mathsf{IssuedPulse}
+\rangle
+]
+TruthScope partitions claims into:
+verified true under replay,
+unknown (missing required bytes or pins),
+disproven (digest mismatch or replay mismatch),
+blocked (revocation/fence).
+N.C1.b — SalvageOutcome truth typing
+Salvage outcomes are typed as:
+OK: container mounts and verifies; no salvage required.
+NEAR: partial recovery with bounded uncertainty; residual ledgers required.
+FAIL: unrecoverable; must include minimal failure witnesses and may include an evidence plan if bounded recovery is possible.
+CONFLICT: inconsistent recovery across replays; must emit conflict packet and fence.
+Salvage truth typing must be deterministic under pinned salvage policies.
+
+N.C2 — Operators
+N.C2.a — Salvage operator
+[
+\mathsf{Salvage} : (\mathsf{Bytes}, \mathsf{SalvagePolicy}) \to (\mathsf{CandidateContainer?}, \mathsf{SalvageReport})
+]
+SalvagePolicy is pinned and must specify:
+Redundancy mechanisms allowed (mirrors, erasure coding, witness reconstruction).
+Maximum salvage compute budget.
+Which indices may be reconstructed from witnesses.
+Whether reconstructed chunks are permitted; if yes, the new container must be a new content-addressed object, never altering the original digest.
+If salvage produces a candidate container, it must be explicitly marked as a new container with new digest; the original remains unchanged.
+N.C2.b — Salvage truth typing rules
+NEAR requires ResidualLedgerRefs bounding what is uncertain (AppJ).
+AMBIG requires EvidencePlanRef for further recovery steps (AppL).
+FAIL requires a reproducible failure witness set.
+
+N.C3 — Invariants
+N.C3.a — No silent salvage
+A salvaged container is never treated as the original; it is a new artifact. Any reliance on salvage must be disclosed via NEAR ledgers and salvage reports.
+N.C3.b — Revocation precedence
+Salvage cannot override revocation; if a chunk or key is revoked, salvage must treat it as blocked regardless of recoverability.
+
+N.C4 — Protocols: Salvage regression fixtures
+Salvage regression fixtures must cover:
+Single-chunk corruption detection and failure witness.
+Multi-chunk corruption with successful recovery via pinned redundancy.
+Index corruption with reconstruction from witness bundles.
+Pin manifest corruption: must fail or require evidence plan depending on policy.
+Replay-index missing: must prevent deploy acceptance.
+Conflict in reconstruction (two different recovered bytes): must emit conflict packet and fence.
+Each fixture must bind expected salvage truth type and expected report digests.
+
+✶ N.R — Fractal: Replay Harness Expectations and Certificates for Containers
+N.R1 — ContainerReplayCapsule
+A container replay capsule must include:
+container digest,
+required pin closure digest,
+replay harness digest,
+set of replay entrypoints to execute,
+expected output digests,
+expected transcript digest,
+environment pins digest.
+N.R2 — Required certificates
+N.R2.a — ContainerIntegrityCert
+Certifies manifest, index, and chunk digests match; required for import acceptance.
+N.R2.b — MountDeterminismCert
+Certifies that mounting produces a deterministic MountedView digest under pinned policies.
+N.R2.c — SalvageDeterminismCert
+Certifies salvage report and candidate container digest are deterministic under pinned salvage policy.
+N.R2.d — ContainerReplayCert
+Certifies replay harness execution over the mounted container reproduces expected digests and transcript digests under pinned environment.
+
+AppN Tight Spec-Only Version (Normative Extraction)
+Container schema includes deterministic manifest, chunk index with root digest, pin manifest with closure digest, and indices for witnesses, replay capsules, disclosures, fences, and revocations.
+BuildContainer must be deterministic under pinned layout/chunk/compression/encryption policies; container digest is content-addressed and reproducible for identical inputs.
+Mount must validate integrity, resolve pins, apply revocations and fences, and produce a deterministic MountedView; seek validates chunk digests on retrieval.
+Salvage is a pinned, deterministic procedure producing a SalvageReport typed as OK/NEAR/FAIL/CONFLICT; salvaged outputs are new artifacts with new digests; no silent salvage.
+Replay harnesses are pinned objects specifying deterministic execution and digest comparisons; replayable containers must include complete replay indices.
+Salvage truth typing and regression fixtures are mandatory; container integrity, mount determinism, salvage determinism, and container replay certificates are required for deploy corridors.
+
+AppN — Containers, Buckets, Mount/Salvage Doctrine, Replay Harnesses
+AppO — Publication, ExportBundles, ImportVerifiers, Governance Gates
+Station role: publish/import discipline; governance closure; production acceptance rules.
+Purpose: define mechanized publication (bundles, manifests, pins, signatures if enabled), import verification rules, and governance gates used by Ch20/Ch21.
+
+□ O.S — Square: ExportBundle Schema, Deterministic Manifests, and Governance Gates
+O.S1 — Objects
+O.S1.a — ExportBundle (normative schema)
+An ExportBundle is a content-addressed, import-verifiable publication unit containing payloads plus all governance-relevant overlays.
+[
+\mathsf{ExportBundle}:=
+\langle
+\mathsf{EBVer},;
+\mathsf{EBID},;
+\mathsf{BundleScope},;
+\mathsf{BundleManifestRef},;
+\mathsf{PayloadIndexRef},;
+\mathsf{PinManifestRef},;
+\mathsf{WitnessIndexRef},;
+\mathsf{ReplayIndexRef},;
+\mathsf{DisclosureIndexRef},;
+\mathsf{FenceIndexRef},;
+\mathsf{RevocationIndexRef},;
+\mathsf{SchemaIndexRef},;
+\mathsf{SignatureBundleRef?},;
+\mathsf{BundleDigest}
+\rangle
+]
+EBID is the content-addressed identifier derived from the bundle bytes under canonical encoding and hash.
+BundleDigest is the digest of the full bundle bytes (may equal EBID).
+All *Ref fields are addressable references (digest + schema + locator) and are mandatory except SignatureBundleRef which may be absent only if signature policy explicitly permits unsigned bundles.
+O.S1.b — BundleScope
+BundleScope binds what is being published:
+[
+\mathsf{BundleScope}:=
+\langle
+\mathsf{ScopeVer},;
+\mathsf{ScopeKind},;
+\mathsf{MsIDs},;
+\mathsf{PulseRange?},;
+\mathsf{SubjectSetDigest},;
+\mathsf{ImportCorridorID},;
+\mathsf{PolicyDigest}
+\rangle
+]
+ScopeKind ∈ {LOCAL, INTER, PULSE_RANGE, PROFILE_SET, CERT_SET, CUSTOM} pinned enum.
+MsIDs is required for INTER.
+PulseRange is required for PULSE_RANGE (Ch20).
+SubjectSetDigest commits to the ordered set of primary subjects (addresses/digests) published.
+ImportCorridorID pins the corridor to be enforced on import.
+PolicyDigest pins publication/import rules and governance gates.
+O.S1.c — BundleManifest (deterministic and mandatory)
+BundleManifest is the authoritative self-description of the bundle.
+[
+\mathsf{BundleManifest}:=
+\langle
+\mathsf{ManVer},;
+\mathsf{CanonBytesDigest},;
+\mathsf{HashAlgDigest},;
+\mathsf{PolicyDigest},;
+\mathsf{ImportCorridorID},;
+\mathsf{SchemaSetDigest},;
+\mathsf{PinsDigest},;
+\mathsf{PayloadRootDigest},;
+\mathsf{WitnessRootDigest},;
+\mathsf{ReplayRootDigest},;
+\mathsf{DisclosureRootDigest},;
+\mathsf{FenceRootDigest},;
+\mathsf{RevocationRootDigest},;
+\mathsf{RegistrySnapshotDigest?},;
+\mathsf{ProducedBy},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Determinism requirements:
+Manifest must be canonically serializable; key ordering and field omission rules are pinned by CanonBytesDigest.
+All *RootDigest fields are deterministic commits to their respective indices’ chunk sets (Merkle or canonical fold pinned by policy).
+RegistrySnapshotDigest is required when publishing time-axis slices (Ch20 pulse bundles) or cross-corpus bundles requiring registry anchoring.
+O.S1.d — Required indices
+Each index is a deterministic table mapping stable keys to artifact references.
+PayloadIndex: core payload artifacts (tiles, profiles, policies, code, data, tables).
+PinManifest: full pin closure (AppN) including schema and policy closure digests.
+WitnessIndex: proof objects, test fixtures, expected digests, transport receipts, certificates required by corridor.
+ReplayIndex: replay capsules and replay harness references required for import acceptance.
+DisclosureIndex: NEAR ledgers (AppJ) and AMBIG evidence plans (AppL), plus disclosure bundles.
+FenceIndex: conflict packets, fences, quarantines (AppK).
+RevocationIndex: revocation receipts and revocation sets effective in the published scope (AppK).
+SchemaIndex: schema closure required to interpret every object referenced in indices and to run import verifiers deterministically.
+All indices must be canonically ordered and must include their own index digests.
+O.S1.e — GovernanceGate object
+A GovernanceGate is a pinned, decidable predicate over a bundle and its closure.
+[
+\mathsf{GovGate}:=
+\langle
+\mathsf{GateVer},;
+\mathsf{GateID},;
+\mathsf{GateKind},;
+\mathsf{PredicateRef},;
+\mathsf{RequiredInputsDigest},;
+\mathsf{FailureActionSpec},;
+\mathsf{PinsDigest},;
+\mathsf{Sig}
+\rangle
+]
+GateKind ∈ {SIGNATURE_REQUIRED, KEY_ALLOWLIST, POLICY_EPOCH_MATCH, SCHEMA_COMPAT, REPLAY_REQUIRED, NO_REVOKED_DIGESTS, NO_FORKS, CORRIDOR_MIN_TRUTH, CUSTOM}.
+PredicateRef points to a deterministic predicate procedure/harness by digest.
+RequiredInputsDigest commits to the inputs required to evaluate the gate.
+FailureActionSpec pins whether failure results in REJECT or QUARANTINE and which quarantine records must be emitted.
+Governance gates are evaluated during import acceptance and may also be evaluated at publish time to produce PublicationCert.
+
+O.S2 — Operators
+O.S2.a — Bundle build operator
+[
+\mathsf{BuildBundle} : (\mathsf{SubjectSet},\mathsf{Policy},\mathsf{Corridor},\mathsf{RegistrySnap?}) \to \mathsf{ExportBundle}
+]
+BuildBundle must:
+Compute deterministic closure of subjects:
+all referenced payload artifacts,
+all pins and policy objects required,
+required witnesses and replay capsules required by ImportCorridorID,
+all required disclosures, fences, revocations, and schemas.
+Emit indices with canonical ordering.
+Compute root digests for each index.
+Emit deterministic BundleManifest and sign per signature policy.
+Serialize bundle deterministically and compute BundleDigest/EBID.
+O.S2.b — Bundle closure computation
+Closure is a deterministic graph reachability computation:
+[
+\mathsf{Closure}(\mathsf{SubjectSet}) = \mathsf{SubjectSet} \cup \mathsf{Deps}(\mathsf{SubjectSet}) \cup \mathsf{Deps}^2(\mathsf{SubjectSet}) \cup \dots
+]
+where (\mathsf{Deps}) is pinned and returns required dependencies of an object under the import corridor.
+Closure must terminate under pinned budgets and must emit an explicit truncation witness if policy permits partial closure; deploy corridors should forbid truncation.
+O.S2.c — Digest verification operator
+[
+\mathsf{VerifyDigests} : (\mathsf{ExportBundle}) \to {\mathsf{PASS},\mathsf{FAIL}}\times \mathsf{DigestReport}
+]
+DigestReport must include:
+manifest digest validation,
+index digests validation,
+chunk digests validation for all artifacts referenced,
+root digests validation.
+O.S2.d — Gate evaluation operator
+[
+\mathsf{EvalGates} : (\mathsf{ExportBundle}, \mathsf{GovGateSet}) \to \mathsf{GateReport}
+]
+GateReport is canonically ordered and binds:
+each GateID,
+pass/fail,
+evidence references,
+required action on failure.
+
+O.S3 — Invariants
+O.S3.a — Import-verifiability invariant
+A bundle is import-verifiable only if:
+all referenced digests resolve within the bundle or by allowed external resolution pinned in policy,
+all schemas required to interpret objects are present,
+all pins required for replay are present,
+and required replays can be executed deterministically under EnvPins.
+O.S3.b — No hidden state invariant
+Import acceptance depends only on:
+bundle bytes,
+pinned import verifier,
+pinned policies and schemas included in the bundle or resolvable by digest under policy.
+No external hidden state is permitted.
+O.S3.c — No silent fork invariant
+If the bundle introduces or depends on multiple incompatible interpretations of the same typed key under identical pins, import must reject or quarantine per policy. Fork detection must be deterministic (AppD).
+O.S3.d — Revocation precedence invariant
+Any revoked digest within the bundle’s closure must trigger failure according to revocation policy. Revocation cannot be overridden by convenience.
+
+❀ O.F — Flower: ImportVerifier Algorithm (Deterministic Acceptance Pipeline)
+O.F1 — Objects
+O.F1.a — ImportVerifier schema
+An ImportVerifier is a deterministic algorithm specification pinned by digest.
+[
+\mathsf{ImportVerifier}:=
+\langle
+\mathsf{IVerVer},;
+\mathsf{IVerID},;
+\mathsf{PolicyDigest},;
+\mathsf{CorridorID},;
+\mathsf{GateSetDigest},;
+\mathsf{ReplayPolicyDigest},;
+\mathsf{ForkPolicyDigest},;
+\mathsf{RevocationPolicyDigest},;
+\mathsf{BudgetCaps},;
+\mathsf{TieBreakSpec},;
+\mathsf{Sig}
+\rangle
+]
+TieBreakSpec pins:
+ordering of evaluations,
+deterministic selection among multiple replay capsules if policy permits choices,
+deterministic truncation behavior if allowed (deploy corridors should forbid).
+O.F1.b — ImportVerdict
+Import verification yields:
+[
+\mathsf{Verdict}\in{\mathsf{ACCEPT},\mathsf{REJECT},\mathsf{QUARANTINE}}
+]
+plus an import transcript and a publishable certificate (ImportAcceptanceCert).
+
+O.F2 — ImportVerifier algorithm (mandatory steps)
+Given bundle bytes (B):
+Parse and canonicalize
+Parse bundle into ExportBundle object and BundleManifest under CanonBytesDigest. Fail if parsing or canonicalization fails.
+Verify internal digests
+Run VerifyDigests; fail if any manifest/index/chunk digest mismatch.
+Resolve schema closure
+Load SchemaIndex and verify SchemaSetDigest closure is complete for all referenced objects. Reject if schema closure incomplete for deploy corridors; quarantine only if policy explicitly allows partial interpretability.
+Resolve pins and pin closure
+Load PinManifest; verify PinsDigest and ClosureDigest. Reject if missing required pins for ImportCorridorID.
+Evaluate revocations and fences
+Load RevocationIndex and FenceIndex. Compute effective revocation set and fence set under pinned propagation rules. If any required artifact is revoked, reject or quarantine per RevocationPolicy. Apply fences to routing/verification scope deterministically.
+Fork rejection and registry anchoring
+If bundle scope requires registry anchoring:
+resolve RegistrySnapshotDigest,
+verify RegistryCert and ForkPreventionCert in WitnessIndex,
+compute fork set under ForkPolicyDigest,
+reject/quarantine if forks detected per policy.
+Corridor enforcement pre-check
+Enforce static corridor constraints:
+allowed edge kinds,
+required artifacts present for MinTruth,
+required disclosures present if NEAR is admissible.
+Replay execution (mandatory where required)
+Using ReplayIndex, execute required replay capsules under ReplayPolicyDigest:
+verify harness digests,
+verify environment pins,
+execute deterministically,
+compare output and transcript digests to expected digests.
+If any required replay fails, reject/quarantine per policy.
+Evaluate governance gates
+Evaluate gate set; apply failure actions deterministically.
+Compute final verdict
+Combine outcomes deterministically using policy precedence:
+digest mismatch ⇒ REJECT
+revoked critical artifact ⇒ REJECT (unless policy allows quarantine)
+replay failure on required capsule ⇒ QUARANTINE or REJECT per policy
+gate failure ⇒ action per FailureActionSpec
+otherwise ACCEPT
+Emit import transcript and ImportAcceptanceCert
+Import transcript is canonically serialized and content-addressed. ImportAcceptanceCert binds verdict, used policies, digests, and executed replays.
+This algorithm is deterministic and must be replayable from bundle bytes and pinned verifier digest.
+
+☁ O.C — Cloud: Corridor Enforcement, Disclosures, and Quarantine Semantics on Import
+O.C1 — Objects
+O.C1.a — Import transcript
+An import transcript is:
+[
+\mathsf{ImportTx}:=
+\langle
+\mathsf{TxVer},;
+\mathsf{BundleDigest},;
+\mathsf{ImportVerifierID},;
+\mathsf{ManifestDigest},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaSetDigest},;
+\mathsf{RevocationSetDigest},;
+\mathsf{FenceSetDigest},;
+\mathsf{GateReportDigest},;
+\mathsf{ReplayReportDigest},;
+\mathsf{CorridorEvalDigest},;
+\mathsf{ForkEvalDigest},;
+\mathsf{Verdict},;
+\mathsf{Warnings},;
+\mathsf{Sig}
+\rangle
+]
+Warnings is a canonical list of typed warnings; warnings must not affect verdict unless policy specifies.
+O.C1.b — Corridor enforcement on import
+ImportCorridorID pins:
+MinTruth threshold,
+required disclosures,
+required witness classes.
+If bundle does not include required disclosure bundles for NEAR items that are used by any routable claim, bundle must be quarantined or rejected under corridor rules.
+
+✶ O.R — Fractal: PublicationCert and ImportAcceptanceCert
+O.R1 — PublicationCert (required)
+A PublicationCert attests that the published bundle is structurally complete, deterministically built, and governance-gate compliant under the publication corridor.
+[
+\mathsf{PublicationCert}:=
+\langle
+\mathsf{PubVer},;
+\mathsf{BundleDigest},;
+\mathsf{BundleManifestDigest},;
+\mathsf{PolicyDigest},;
+\mathsf{ImportCorridorID},;
+\mathsf{GateSetDigest},;
+\mathsf{BuildClosureDigest},;
+\mathsf{DigestReportDigest},;
+\mathsf{GateReportDigest},;
+\mathsf{Result},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+BuildClosureDigest commits to the deterministic closure computation used to assemble the bundle. Result is PASS iff:
+digest verification passes,
+gate evaluation passes,
+and mandatory indices are present and consistent.
+PublicationCert does not substitute for ImportAcceptanceCert; it provides publish-time attestation.
+O.R2 — ImportAcceptanceCert (required)
+An ImportAcceptanceCert attests the result of running the ImportVerifier algorithm on the bundle.
+[
+\mathsf{ImportAcceptanceCert}:=
+\langle
+\mathsf{IACVer},;
+\mathsf{BundleDigest},;
+\mathsf{ImportVerifierID},;
+\mathsf{PolicyDigest},;
+\mathsf{ImportCorridorID},;
+\mathsf{ImportTxDigest},;
+\mathsf{ExecutedReplaySetDigest},;
+\mathsf{GateReportDigest},;
+\mathsf{ForkEvalDigest},;
+\mathsf{RevocationEvalDigest},;
+\mathsf{Verdict},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Verdict is ACCEPT/REJECT/QUARANTINE. The cert is valid only if ImportTxDigest resolves and matches the transcript produced by the pinned verifier.
+
+AppO Tight Spec-Only Version (Normative Extraction)
+ExportBundle schema includes payloads, deterministic manifest, pin manifest, witness index, replay index, disclosure index, fence index, revocation index, schema index, and optional signature bundle under pinned policy.
+ImportVerifier is a deterministic algorithm that validates digests, schema closure, pin closure, revocations, fences, forks, corridor constraints, required replays, and governance gates to produce ACCEPT/REJECT/QUARANTINE.
+Import must reject or quarantine on digest mismatch, revoked closure intersections, replay failures, or fork detection per pinned policy; no hidden state is permitted.
+PublicationCert attests publish-time closure and gate compliance; ImportAcceptanceCert attests import-time verification and verdict under pinned verifier.
+Publication/import semantics are deployment-grade and are enforced by Ch20/Ch21; bundles must be import-verifiable and reproducible.
+
+AppO — Publication, ExportBundles, ImportVerifiers, Governance Gates
+AppP — Mycelium Interface: Cross-Corpus Linking, External Connectors, and Scope
+Station role: cross-corpus interface; connectors; INTER-scope routing discipline.
+Purpose: define cross-manuscript linking rules, scope boundaries, connector interfaces, and cross-corpus pin requirements used by Ch19–Ch21.
+
+□ P.S — Square: INTER Link Schema, Scope Boundaries, and Pin Requirements
+P.S1 — Objects
+P.S1.a — Scope boundary model
+A scope is a pinned boundary that determines what artifacts, policies, and interpretations are admissible for routing and verification.
+[
+\mathsf{Scope}:=
+\langle
+\mathsf{ScopeVer},;
+\mathsf{ScopeID},;
+\mathsf{ScopeKind},;
+\mathsf{MsSet},;
+\mathsf{ProfileSetDigest},;
+\mathsf{PolicyEpochSetDigest},;
+\mathsf{SchemaPinsDigest},;
+\mathsf{ConnectorSetDigest?},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+ScopeKind ∈ {LOCAL, INTER, CONNECTED, PUBLISHED} pinned enum.
+MsSet is the ordered set of MsIDs in scope (required for INTER and beyond).
+ProfileSetDigest commits to admissible profile digests per MsID.
+PolicyEpochSetDigest commits to admissible policy epochs for interpretation (AppD).
+SchemaPinsDigest commits to the schema closure required to interpret all referenced corpora.
+ConnectorSetDigest commits to the connector definitions allowed (required for CONNECTED and PUBLISHED).
+ScopeID is content-addressed and derived deterministically.
+P.S1.b — INTER link schema (mandatory)
+An INTER link is a typed edge that connects objects across manuscripts. It is never a raw URL; it is a pinned, interpreted link.
+[
+\mathsf{INTERLink}:=
+\langle
+\mathsf{InterVer},;
+\mathsf{InterID},;
+\mathsf{SrcMsID},;
+\mathsf{DstMsID},;
+\mathsf{SrcProfileDigest},;
+\mathsf{DstProfileDigest},;
+\mathsf{SrcAddr},;
+\mathsf{DstAddr},;
+\mathsf{LinkKind},;
+\mathsf{CompatRef?},;
+\mathsf{PinsDigest},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Required fields:
+SrcMsID/DstMsID: manuscript IDs (Ms⟨…⟩) resolvable in the registry.
+SrcProfileDigest/DstProfileDigest: explicit pinned interpretation profiles for both sides.
+SrcAddr/DstAddr: addressable endpoints (GlobalAddr/SlotAddr) under the corresponding profile’s grammar and schema pins.
+LinkKind: pinned enum:
+REF (addressability only),
+EQUIV (semantic equivalence, requires witness),
+MIGRATE (meaning-bearing evolution, requires witness),
+DATA (data dependency, requires import constraints),
+PROOF (proof dependency, requires verification closure),
+EXEC (execution dependency, requires deploy corridor and explicit governance).
+CompatRef?: compatibility/migration pointer required when LinkKind ∈ {EQUIV, MIGRATE, EXEC} or whenever profiles/policies differ across endpoints.
+PinsDigest: full pin closure required to interpret and validate the link, including both profiles and any compat objects.
+Sig: required signature under cross-corpus governance policy.
+InterID is content-addressed and derived

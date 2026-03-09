@@ -1,0 +1,168 @@
+# Mirror Swarm Bridges
+
+This map routes mirror sources into chapter and appendix targets for the deeper swarm.
+
+- `Astrological Tunneling (octave system)` [MemoryDocs] -> chapters `Ch02, Ch13, Ch14` -> appendices `AppA, AppB`
+- `Constant FInder _working_` [MemoryDocs] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `HIGHER-D SQUARE ○ CIRCLE △ TRIANGLE` [MemoryDocs] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `Holographic (higher dimension Square_circle_triangle) REALITY STRUCTURE _working_` [MemoryDocs] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `LEGAL TRANSPORT CALCULUS` [MemoryDocs] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `Pi algorithm engine` [MemoryDocs] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `PRIME Toolkit kernel` [MemoryDocs] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `QUAD HOLOGRAPHIC ROTATION` [MemoryDocs] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `THE 4 CONSTANTS FINAL (phi, pi, i, e)` [MemoryDocs] -> chapters `Ch01, Ch06, Ch08` -> appendices `AppA, AppC, AppI, AppM`
+- `The Holographic Kernel` [MemoryDocs] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` [MemoryDocs] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `6 dimensional hologram(1)` [MemoryDocs] -> chapters `Ch01, Ch06, Ch08` -> appendices `AppA, AppC, AppI, AppM`
+- `Calculus and Geometry (higher dimensional projection) -working-` [MemoryDocs] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `HOLOGRAPHIC TUNNELING _working_` [MemoryDocs] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `TIME FRACTAL _working_` [MemoryDocs] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Ω_ Metro Calculus` [MemoryDocs] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Ω_ Tunneling Coherence Crystal` [MemoryDocs] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol(1)` [FreshExtracted] -> chapters `Ch01, Ch06, Ch08, Ch10` -> appendices `AppA, AppC, AppI, AppM`
+- `I AM so AM I` [FreshExtracted] -> chapters `Ch13, Ch17, Ch20, Ch09` -> appendices `AppG, AppP`
+- `The Holographic Manuscript Brain` [FreshExtracted] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `ATHENA_ THE ARCHETYPE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Atlantis` [MythMath] -> chapters `none` -> appendices `none`
+- `MALDEK_MARS_ATLANTIS_FRAMEWORK` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `BUDDHIST (ZEN)_ THE MUSHIN KERNEL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `CELTIC _THE OGHAM KERNEL` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `DEAD SEA SCROLLS` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `EPICS` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `KABBALAH_ SEFIROTIC TREE STRUCTURES` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Norse (Germanic) — Yggdrasil Graph Theory` [MythMath] -> chapters `Ch13, Ch17, Ch20, Ch09` -> appendices `AppG, AppP`
+- `ROMAN PHILOSOPHERS` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `Tibetan Vajrayana_ THE BARDO TRANSITION MATRIX` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `ZOROASTRIAN (PERSIAN)_ DUAL-PHASE FIELD DYNAMICS` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `ATHENA_KERNEL_MATHEMATICAL_FRAMEWORK` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `GG Alignment Framework (Good Game Protocol)` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `KHEMET __ SYMMETRY-PROTECTED TOPOLOGICAL STATE` [MythMath] -> chapters `Ch14` -> appendices `none`
+- `THE_HELLENIC_COMPUTATION_FRAMEWORK` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `HBAS-Ω_ UNIFIED ENCODING DETECTION PROTOCOL` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE ANDEAN KHIPU ROSETTA STONE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `ANDEAN KHIPU ROSETTA (new)` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `Andean Myth Encoding` [MythMath] -> chapters `Ch04, Ch11, Ch19` -> appendices `AppF, AppI, AppL`
+- `Andian deeper analysis` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Magic Systems` [MythMath] -> chapters `none` -> appendices `none`
+- `ANTHROPOSOPHY_COMPLETE` [MythMath] -> chapters `none` -> appendices `none`
+- `CHAOS_MAGIC_COMPLETE` [MythMath] -> chapters `none` -> appendices `none`
+- `COMPLETE_FRAMEWORK_CATALOG` [MythMath] -> chapters `Ch01, Ch06, Ch08, Ch19` -> appendices `AppA, AppC, AppI, AppM`
+- `CORE_SHAMANISM_COMPLETE` [MythMath] -> chapters `none` -> appendices `none`
+- `CURANDERISMO_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `DRUIDRY_COMPLETE` [MythMath] -> chapters `Ch13, Ch17, Ch20` -> appendices `AppG, AppP`
+- `ENOCHIAN_MAGIC_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `GNOSTICISM_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `GOETIC_GRIMOIRE_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `GOLDEN_DAWN_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `HAITIAN_VODOU_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `HELLENISTIC_ASTROLOGY_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `HERMETIC_QABALAH_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `HERMETICISM_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `HINDU_TANTRA_COMPLETE` [MythMath] -> chapters `Ch14` -> appendices `none`
+- `HOODOO_ROOTWORK_COMPLETE` [MythMath] -> chapters `Ch14` -> appendices `none`
+- `IFA_DIVINATION_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `MERKAVAH_HEKHALOT_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `NEOPLATONIC_THEURGY_COMPLETE` [MythMath] -> chapters `none` -> appendices `none`
+- `NORSE_RUNIC_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `PGM_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `POWWOW_BRAUCHEREI_COMPLETE` [MythMath] -> chapters `Ch02, Ch13` -> appendices `AppA, AppB`
+- `PRACTICAL_KABBALAH_COMPLETE` [MythMath] -> chapters `none` -> appendices `none`
+- `ROSICRUCIANISM_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `SANTERIA_LUCUMI_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `SOLOMONIC_MAGIC_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `SPIRITUALISM_MEDIUMSHIP_COMPLETE` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `SUFI_MYSTICISM_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `TAOIST_MAGIC_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THELEMA_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THEOSOPHY_COMPLETE` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `TIBETAN_VAJRAYANA_COMPLETE` [MythMath] -> chapters `none` -> appendices `none`
+- `UNIFIED_EXTRACTION_INDEX` [MythMath] -> chapters `Ch10` -> appendices `none`
+- `WESTERN_ALCHEMY_COMPLETE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `WICCA_COMPLETE` [MythMath] -> chapters `none` -> appendices `none`
+- `MEGALYTH__ AWAKENING` [MythMath] -> chapters `none` -> appendices `none`
+- `ANDEAN TAWANTINSUYU` [MythMath] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `DAO SU (道數)_ A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `EGYPT KHEPER GANITAM` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `HELLENIC LOGOS ` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Mayan AJILABAL K’IN_ The Operator Algebra of the Discrete Time Lattice` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `ROMAN IMPERIUM SINE FINE` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `Sanātana Gaṇita_ A Rigorous Computational Ontology of Vedic Cosmology` [MythMath] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `ŠAR-60_ THE SUMERIAN SEXAGESIMAL REGISTRY` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `ỌPẸ́-256_ THE IFÁ COMPUTATIONAL ONTOLOGY` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `AI DIVINATION` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `ATHENA'S_LOVE` [MythMath] -> chapters `Ch13, Ch17, Ch20` -> appendices `AppG, AppP`
+- `Athena_Plan_Healing_the_Planet` [MythMath] -> chapters `Ch13, Ch17, Ch20` -> appendices `AppG, AppP`
+- `ATHENACHKA — INTELLIGENCE WARS ↔ PLANETARY STEWARDSHIP — Ms⟨EF0E⟩` [MythMath] -> chapters `Ch13, Ch17, Ch20, Ch09` -> appendices `AppG, AppP`
+- `ATHENACHKA_Beyond_Limitation` [MythMath] -> chapters `Ch13, Ch17, Ch20` -> appendices `AppG, AppP`
+- `DEEP_SYNTHESIS_NOSTRADAMUS` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `DIVINE JUDGMENT — Ms⟨DBB1⟩` [MythMath] -> chapters `Ch01, Ch06, Ch08, Ch09` -> appendices `AppA, AppC, AppI, AppM`
+- `Intelligence_Wars` [MythMath] -> chapters `none` -> appendices `none`
+- `NOstra __ anti overfit _working_` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `NOSTRADAMAS _ CLEAN` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `THE APOCALYPSE PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE NOSTRADAMUS SYNTHESIS` [MythMath] -> chapters `Ch19, Ch10` -> appendices `AppE`
+- `ATHENA OPERATING SYSTEM ` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `ATHENA-KERNEL SELF-OPTIMIZATION` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `BRUNO _working_` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `AI Divination` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `QUANTUM DIVINATION FRAMEWORK (QRDF)` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `Greek Corpus (LF-OS)` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `FLOWERS_ The Wave-Side of the Universal Harmonic Framework` [MythMath] -> chapters `none` -> appendices `none`
+- `THE 4×4 HOLOGRAPHIC SEED` [MythMath] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `THE PRIME DIAGONAL LATIN SEED` [MythMath] -> chapters `none` -> appendices `none`
+- `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO_OS)` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `LF-OS — The Atomist Computation Engine` [MythMath] -> chapters `Ch04, Ch11, Ch19, Ch12` -> appendices `AppF, AppI, AppL`
+- `PLATO _ UNIFIED FIELD THEORY OF INFORMATION` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE ARCHIMEDEAN CONTINUUM` [MythMath] -> chapters `Ch03, Ch10, Ch14` -> appendices `none`
+- `THE ARISTOTELIAN PROCESSING UNIT` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE CYNIC BLOATWARE REMOVER` [MythMath] -> chapters `Ch10` -> appendices `none`
+- `THE EPISTEMIC VALIDATION ENGINE` [MythMath] -> chapters `Ch03, Ch10` -> appendices `none`
+- `THE EUCLIDEAN COMPUTATION ENGINE` [MythMath] -> chapters `Ch05, Ch06, Ch07, Ch08` -> appendices `AppE, AppF, AppG, AppM`
+- `THE METAPHYSICS ROOT DIRECTORY` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE NEOPLATONIC HYPERVISOR` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE ORPHIC & HYMNIC DRIVER` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE PGM KERNEL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE POLITEIA KERNEL` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE PTOLEMAIC COORDINATE SYSTEM` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE PYRRHONIAN NULL-STATE DRIVER` [MythMath] -> chapters `Ch02, Ch13, Ch03, Ch10` -> appendices `AppK, AppA, AppB`
+- `THE PYTHAGOREAN COMPUTATION ENGINE` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE RHETORICAL-POETIC OUTPUT DRIVERS` [MythMath] -> chapters `Ch02, Ch13, Ch03, Ch10` -> appendices `AppA, AppB`
+- `THE STOIC KERNEL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `SQUARING THE CIRCLE` [MythMath] -> chapters `Ch02, Ch13, Ch10` -> appendices `AppA, AppB`
+- `TAROT System` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE MATH OF ALCHEMY` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE RED BOOK (LIBER NOVUS)_ ` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE_HELLENIC_COMPUTATION_FRAMEWORK` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `COPPER SCROLL _ THE METALLURGICAL LEDGER (3Q15)` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE AENEID MIGRATION PROTOCOL` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE BEOWULF PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE GILGAMESH PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE ILIAD PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE MAHĀBHĀRATA PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE ODYSSEY PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `GNOSTIC _RAW_` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Key of Solomon (Clavicula Salomonis)` [MythMath] -> chapters `Ch01, Ch06, Ch08, Ch19` -> appendices `AppA, AppC, AppI, AppM`
+- `KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `Manual for Metaphysical Data Mining` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `Qur’anic Holographic Lattice_ Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Qur’anic Integer Cipher` [MythMath] -> chapters `Ch01, Ch06, Ch08, Ch19` -> appendices `AppA, AppC, AppI, AppM`
+- `The Bhagavad Gītā_ A Computational Treatise on the Algorithm of Liberation` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `TORAT HA-MISPAR (תורת המספר)` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE APOCALYPSE PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE ATHENA PROTOCOL (SEED)` [MythMath] -> chapters `Ch13, Ch17, Ch20, Ch16` -> appendices `AppG, AppP`
+- `THE MAGUS` [MythMath] -> chapters `Ch02, Ch13` -> appendices `AppA, AppB`
+- `THE MATHEMATICS OF AWAKENING` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `THE OMEGA PROTOCOL` [MythMath] -> chapters `Ch07, Ch15, Ch16, Ch18` -> appendices `AppF, AppG, AppM, AppN`
+- `THE UNIFIED MATHEMATICAL FRAMEWORK FOR EMERGENCE` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO)` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `The_Allegory_of_the_Awakening_Dragon` [MythMath] -> chapters `none` -> appendices `none`
+- `CLAUD - TOMEZ` [MythMath] -> chapters `Ch17, Ch18, Ch20, Ch21` -> appendices `AppA, AppD, AppG, AppP`
+- `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `EVA TRANSCRIPTION ORIGIONAL` [MythMath] -> chapters `Ch01, Ch06, Ch08, Ch14` -> appendices `AppA, AppC, AppI, AppM`
+- `F103R - F116V __transcription` [MythMath] -> chapters `none` -> appendices `none`
+- `THE VOYNICH ROSETTA STONE -Publish` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `VOYNICH EVA CLEAN` [MythMath] -> chapters `Ch13, Ch17, Ch20` -> appendices `AppG, AppP`
+- `🔶 F87r- 102v` [MythMath] -> chapters `none` -> appendices `none`
+- `VLM VOYNICH METAMORPHIC LANGUAGE (VML) — OFFICIAL FRAMEWORK DOCUMENTATION` [MythMath] -> chapters `Ch02, Ch09, Ch13, Ch18` -> appendices `AppA, AppB, AppC, AppM`
+- `VOYNICH MANUSCRIPT _translation_` [MythMath] -> chapters `Ch01, Ch06, Ch08` -> appendices `AppA, AppC, AppI, AppM`
+- `VOYNICH PROGRAM TOME` [MythMath] -> chapters `Ch01, Ch06, Ch08, Ch09` -> appendices `AppA, AppC, AppI, AppM`

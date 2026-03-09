@@ -1,0 +1,546 @@
+]
+Elements are phase vectors (\Phi=(\phi_1,\dots,\phi_d)), (\phi_i\in\mathbb{R}/\mathbb{Z}). Representatives may be taken in ([0,1)).
+
+01.2.1.2 Angle coordinates and phase multiplication
+Define the angle map (\mathrm{ang}:\mathbb{R}/\mathbb{Z}\to\mathbb{R}/2\pi\mathbb{Z}) by
+[
+\mathrm{ang}(\phi)=2\pi\phi.
+]
+Phase multiplication by an integer (m\in\mathbb{Z}) is defined by
+[
+[m]:\mathbb{T}^d\to\mathbb{T}^d,
+\qquad
+m:=(m\phi_1,\dots,m\phi_d)\ \ (\mathrm{mod}\ 1).
+]
+
+01.2.1.3 Wrap function (octave index)
+Define the wrap function (R:\mathbb{N}{\ge 1}\to\mathbb{N}{\ge 1}) by
+[
+R(1)=1,\qquad R(k+1)=3,R(k).
+]
+Hence (R(k)=3^{k-1}).
+Define the depth-(k) wrapped angle representation of (\Phi\in\mathbb{T}^d) by
+[
+\Theta^{(k)}(\Phi);:=;\mathrm{ang}!\big(R(k)\big)\ \in\ (\mathbb{R}/2\pi\mathbb{Z})^d.
+]
+
+01.2.1.4 Triangle phase index as a 3-sheeted torsion parameter
+Let the triangle index be
+[
+\tau\in\mathbb{Z}3={0,1,2}.
+]
+Define the triangle torsion shift on (\mathbb{T}^d) by
+[
+\Delta{\tau}(\Phi);:=;\Phi;+;\frac{\tau}{3},\mathbf{1}_d
+\qquad(\mathrm{mod}\ 1),
+]
+where (\mathbf{1}_d=(1,\dots,1)). (Axis-wise triangle modes ((\mathbb{Z}_3)^d) replace (\tau,\mathbf{1}_d) with a coordinate vector; the global form above is the canonical carrier in Ch01.)
+Define the triangle-augmented wrapped angles:
+[
+\Theta^{(k,\tau)}(\Phi);:=;\Theta^{(k)}\big(\Delta_{\tau}(\Phi)\big).
+]
+
+01.2.2 Group Actions and Harmonic Structure (○-Structure)
+01.2.2.1 Translation action (gear steps on the torus)
+For any translation vector (\alpha\in\mathbb{T}^d), define
+[
+T_{\alpha}(\Phi):=\Phi+\alpha\quad(\mathrm{mod}\ 1).
+]
+This defines a transitive group action of (\mathbb{T}^d) on itself. Discrete gear steps correspond to (\alpha) lying in rational lattices.
+
+01.2.2.2 Character group and Fourier modes
+The Pontryagin dual of (\mathbb{T}^d) is (\mathbb{Z}^d). For (n\in\mathbb{Z}^d), define the character
+[
+\chi_n(\Phi):=\exp!\big(2\pi i,\langle n,\Phi\rangle\big),
+\qquad
+\langle n,\Phi\rangle=\sum_{i=1}^d n_i\phi_i.
+]
+These modes form an orthonormal basis for (L^2(\mathbb{T}^d)).
+
+01.2.2.3 Resonant fractions as phase invariants
+Define the rational lattice at depth (k)
+[
+\Lambda_{d,k}:=\left(\frac{1}{4^k}\mathbb{Z}/\mathbb{Z}\right)^d\subset\mathbb{T}^d.
+]
+Elements of (\Lambda_{d,k}) are exactly the torus phases representable by base-4 digit strings of length (k). This is the invariant image of (\mathcal{S}{d,k}) under the canonical projection (\Pi{\square\to\circ,k}) defined below.
+
+01.2.2.4 Compatibility of wraps with phase multiplication
+For any (\Phi\in\mathbb{T}^d),
+[
+\Theta^{(k+1)}(\Phi)=\mathrm{ang}!\big(3R(k)\big)=\mathrm{ang}!\big([3]\circR(k)\big).
+]
+Thus wrap lifting is equivalent to applying the degree-3 covering ([3]) to the depth-(k) wrapped phase.
+
+01.2.3 Canonical Operators (○-Operators)
+01.2.3.1 Wrap-lift operator (○)
+Define the wrap-lift between depth representations by the map on wrapped angles:
+[
+\mathcal{W}{k\to k+1}:\ (\mathbb{R}/2\pi\mathbb{Z})^d\to(\mathbb{R}/2\pi\mathbb{Z})^d,
+\qquad
+\mathcal{W}{k\to k+1}(\Theta):=3,
+]
+i.e. componentwise multiplication by (3) mod (2\pi). This is the representation-level form of (R(k+1)=3R(k)).
+
+01.2.3.2 Triangle shift operator (△ acting on ○)
+Define the triangle shift on torus phases as (\Delta_\tau) (§01.2.1.4). Its wrapped representation satisfies
+[
+\Theta^{(k,\tau)}(\Phi)=\Theta^{(k)}(\Phi)+2\pi,R(k),\frac{\tau}{3},\mathbf{1}_d\quad(\mathrm{mod}\ 2\pi).
+]
+
+01.2.3.3 Canonical projection (\Pi_{\square\to\circ,k}) and its quantized left inverse
+Define the depth-(k) projection
+[
+\Pi_{\square\to\circ,k}:\mathcal{S}{d,k}\to\mathbb{T}^d,
+\qquad
+\Pi{\square\to\circ,k}(\mathbf{x});:=;\big(\phi_4(x_1),\dots,\phi_4(x_d)\big)\ (\mathrm{mod}\ 1).
+]
+Define the depth-(k) quantized left inverse (digit extractor)
+[
+Q_{\circ\to\square,k}:\mathbb{T}^d\to\mathcal{S}{d,k}
+]
+by
+[
+\mathrm{enc}{4,k}\big(Q_{\circ\to\square,k}(\Phi)i\big);:=;\left\lfloor 4^k,\phi_i\right\rfloor
+\quad\text{for representatives }\phi_i\in[0,1).
+]
+Then, for all (\mathbf{x}\in\mathcal{S}{d,k}),
+[
+Q_{\circ\to\square,k}\big(\Pi_{\square\to\circ,k}(\mathbf{x})\big)=\mathbf{x}.
+]
+
+01.2.3.4 Lift-commuting diagram (projection vs truncation)
+Let (1\le j\le k). Then the projection satisfies the truncation commutation:
+[
+\Pi_{\square\to\circ,j}\circ \pi_{k\to j};=;\pi^{\circ}{k\to j}\circ \Pi{\square\to\circ,k},
+]
+where (\pi^{\circ}{k\to j}:\Lambda{d,k}\to\Lambda_{d,j}) is the torus quantization map induced by discarding base-4 digits beyond depth (j), equivalently
+[
+\pi^{\circ}{k\to j}(\Phi)\ :=\ \Pi{\square\to\circ,j}\Big(Q_{\circ\to\square,j}(\Phi)\Big),
+\qquad \Phi\in\Lambda_{d,k}.
+]
+
+01.2.4 Lock Laws (○-Lifts)
+01.2.4.1 Lock Law I (Resolution lift, ○)
+Let (\mathbf{x}\in\mathcal{S}{d,k}) and (\mathbf{x}^+=\mathcal{L}^{\square}{d,k}(\mathbf{x};\mathbf{s})\in\mathcal{S}{d,k+1}). Then
+[
+\pi^{\circ}{k+1\to k}\big(\Pi_{\square\to\circ,k+1}(\mathbf{x}^+)\big)
+;=;
+\Pi_{\square\to\circ,k}(\mathbf{x}).
+]
+Equivalently: coarse torus phase is invariant under square refinement.
+
+01.2.4.2 Lock Law II (Dimension lift, ○)
+Let (\mathbf{x}^{\uparrow}=\mathcal{L}^{\square}{d\to d+1,k}(\mathbf{x};\mathbf{s},\eta)\in\mathcal{S}{d+1,k+1}). Then
+[
+\pi^{\circ,\mathrm{axes}}{d+1\to d}\circ \pi^{\circ}{k+1\to k}\big(\Pi_{\square\to\circ,k+1}(\mathbf{x}^{\uparrow})\big)
+;=;
+\Pi_{\square\to\circ,k}(\mathbf{x}),
+]
+where (\pi^{\circ,\mathrm{axes}}_{d+1\to d}) deletes the ((d+1))-st phase coordinate. Thus the existing (d) phases remain invariant in the coarse sense under dimension lift, and the new axis contributes an additional phase coordinate at depth (k+1).
+
+01.2.4.3 Wrapped representation lock (asymptotic commutation)
+Define the unwrapped coordinate at depth (k) for (\mathbf{x}\in\mathcal{S}{d,k}) as
+[
+U_k(\mathbf{x});:=;[R(k)]\big(\Pi{\square\to\circ,k}(\mathbf{x})\big)\in\mathbb{T}^d.
+]
+Then for any refinement (\mathbf{x}^+=\mathcal{L}^{\square}{d,k}(\mathbf{x};\mathbf{s})),
+[
+U{k+1}(\mathbf{x}^+);=;[3]\big(U_k(\mathbf{x})\big);+;\delta_{k}(\mathbf{s}),
+]
+where (\delta_k(\mathbf{s})\in\mathbb{T}^d) satisfies the explicit bound (in ([0,1)) representatives)
+[
+|\delta_k(\mathbf{s})|_{\infty}\ \le\ 3^k,4^{-(k+1)}\cdot 3;=;3\left(\frac{3}{4}\right)^{k+1}.
+]
+Thus the wrap lift approaches exact commutation with the degree-3 covering as (k\to\infty).
+
+01.2.4.4 Triangle compatibility under lifts
+Triangle torsion commutes with projection and coarse truncation:
+[
+\Delta_{\tau}\circ \Pi_{\square\to\circ,k} ;=; \Pi_{\square\to\circ,k}\quad\text{followed by}\quad +\tfrac{\tau}{3}\mathbf{1}d,
+]
+and for any (j\le k),
+[
+\pi^{\circ}{k\to j}\big(\Delta_{\tau}(\Phi)\big)=\Delta_{\tau}\big(\pi^{\circ}_{k\to j}(\Phi)\big).
+]
+Thus triangle torsion is a depth-stable phase offset.
+
+01.3 Cloud — Measure Carrier (Ensemble-Capacity)
+01.3.1 Carrier Axioms (Σ-Carrier)
+01.3.1.1 Distributions on Square and Circle
+Let (\mathcal{P}(\mathcal{S}{d,k})) denote the probability simplex over the finite set (\mathcal{S}{d,k}).
+Let (\mathcal{P}(\mathbb{T}^d)) denote the set of Borel probability measures on (\mathbb{T}^d).
+
+01.3.1.2 Pushforward under projection
+For a measurable map (f:X\to Y) and a measure (\mu\in\mathcal{P}(X)), define the pushforward (f_#\mu\in\mathcal{P}(Y)) by
+[
+(f_#\mu)(A);:=;\mu(f^{-1}(A)).
+]
+In particular, ((\Pi_{\square\to\circ,k})#:\mathcal{P}(\mathcal{S}{d,k})\to\mathcal{P}(\mathbb{T}^d)) is well-defined.
+
+01.3.1.3 Coarse-graining by truncation
+Define the coarse-graining map on distributions induced by truncation:
+[
+(\pi_{k\to j})#:\mathcal{P}(\mathcal{S}{d,k})\to\mathcal{P}(\mathcal{S}_{d,j}).
+]
+This is the canonical depth-(j) marginal of a depth-(k) distribution.
+
+01.3.1.4 Kolmogorov consistency (projective family axiom)
+A family ({\mu_k}{k\ge 1}) with (\mu_k\in\mathcal{P}(\mathcal{S}{d,k})) is depth-consistent if for all (j\le k),
+[
+(\pi_{k\to j})_#\mu_k = \mu_j.
+]
+
+01.3.2 Channels and Kernels (Σ-Structure)
+01.3.2.1 Markov kernels on (\mathcal{S}_{d,k}) and (\mathbb{T}^d)
+A Markov kernel (K) on a measurable space (X) is a map (x\mapsto K(x,\cdot)\in\mathcal{P}(X)).
+Kernel composition defines a semigroup under the usual convolution.
+
+01.3.2.2 Compatibility of kernels with coarse-graining
+A kernel (K_k) on (\mathcal{S}{d,k}) is depth-compatible if for all (j\le k),
+[
+(\pi{k\to j})#\big(\mu K_k\big);=;\big((\pi{k\to j})#\mu\big)K_j
+\quad\text{for all }\mu\in\mathcal{P}(\mathcal{S}{d,k}),
+]
+for some kernel (K_j) on (\mathcal{S}_{d,j}).
+
+01.3.2.3 Pushforward of kernels under (\Pi_{\square\to\circ,k})
+Given a kernel (K_k) on (\mathcal{S}{d,k}), define the induced channel on (\mathbb{T}^d) by
+[
+\mathcal{K}k(\Phi,\cdot);:=;(\Pi{\square\to\circ,k})#\Big(K_k\big(Q_{\circ\to\square,k}(\Phi),\cdot\big)\Big).
+]
+This induced channel is canonical on the lattice (\Lambda_{d,k}\subset\mathbb{T}^d).
+
+01.3.2.4 Triangle torsion as a measure-preserving translation
+For any (\nu\in\mathcal{P}(\mathbb{T}^d)), define ((\Delta_\tau)#\nu). Since (\Delta\tau) is a group translation, it preserves Haar measure and transports any measure by translation.
+
+01.3.3 Canonical Operators (Σ-Operators)
+01.3.3.1 Depth lift of measures by refinement expansion
+Define the refinement expansion operator (\mathrm{Ref}{k\to k+1}) on measures by selecting a refinement kernel (J{k}) from (\mathcal{S}{d,k}) to (\mathcal{S}{d,k+1}) satisfying ((\pi_{k+1\to k})#(\mu J_k)=\mu). Then define
+[
+\mu^{+}:=\mu J_k\in\mathcal{P}(\mathcal{S}{d,k+1})
+]
+as a lifted ensemble consistent with coarse-graining.
+
+01.3.3.2 Dimension lift of measures by product extension
+Let (\rho\in\mathcal{P}(\mathbb{D}4)) be a law for the new axis digit. Define the dimension-lifted measure on (\mathcal{S}{d+1,k+1}) by
+[
+\mu^{\uparrow}:=(\mu J_k)\otimes \rho
+]
+under the identification (\mathcal{S}{d+1,k+1}\cong \mathcal{S}{d,k+1}\times \mathbb{D}_4) (new axis initialized as in §01.1.4.2).
+
+01.3.3.3 Projection-lifted measures on the torus
+Define
+[
+\nu_k := (\Pi_{\square\to\circ,k})_#\mu_k\in\mathcal{P}(\mathbb{T}^d).
+]
+Then ({\nu_k}) is the phase-space representation of the ensemble family ({\mu_k}).
+
+01.3.3.4 Depth-(k) entropy functional (finite carrier)
+For (\mu\in\mathcal{P}(\mathcal{S}{d,k})), define the Shannon entropy
+[
+H_k(\mu):=-\sum{\mathbf{x}\in\mathcal{S}{d,k}}\mu(\mathbf{x})\log \mu(\mathbf{x}).
+]
+This functional is compatible with coarse-graining in the standard sense (H_j((\pi{k\to j})_#\mu)\le H_k(\mu)).
+
+01.3.4 Lock Laws (Σ-Lifts)
+01.3.4.1 Lock Law I (Resolution lift, Σ)
+A lifted measure (\mu^+\in\mathcal{P}(\mathcal{S}{d,k+1})) is resolution-locked to (\mu\in\mathcal{P}(\mathcal{S}{d,k})) iff
+[
+(\pi_{k+1\to k})_#\mu^+=\mu.
+]
+
+01.3.4.2 Lock Law II (Dimension lift, Σ)
+A dimension-lifted measure (\mu^\uparrow\in\mathcal{P}(\mathcal{S}{d+1,k+1})) is dimension-locked to (\mu\in\mathcal{P}(\mathcal{S}{d,k})) iff
+[
+(\pi^{\mathrm{axes}}{d+1\to d}\circ \pi{k+1\to k})_#\mu^\uparrow = \mu.
+]
+
+01.3.4.3 Projection commutation on ensembles
+For any depth-consistent family ({\mu_k}),
+[
+\pi^{\circ}{k\to j}_#\big((\Pi{\square\to\circ,k})#\mu_k\big)
+;=;
+(\Pi{\square\to\circ,j})#\big((\pi{k\to j})#\mu_k\big)
+]
+for all (j\le k), where (\pi^{\circ}{k\to j}) is the torus digit-discarding map in §01.2.3.4, and (\pi^{\circ}_{k\to j}_#) its pushforward on measures.
+
+01.3.4.4 Triangle stability on ensembles
+For any (\nu\in\mathcal{P}(\mathbb{T}^d)),
+[
+(\Delta_\tau)#\big(\pi^{\circ}{k\to j}_#\nu\big)
+;=;
+\pi^{\circ}{k\to j}_#\big((\Delta\tau)_#\nu\big),
+]
+i.e. triangle torsion is compatible with depth coarse-graining on phase measures.
+
+01.4 Fractal — Multiscale Carrier (Projective-Limit Capacity)
+01.4.1 Scale Lattice (Ψ-Carrier)
+01.4.1.1 The depth tower as a projective system
+Fix (d). The family ({\mathcal{S}{d,k}}{k\ge 1}) with truncation morphisms (\pi_{k+1\to k}) forms a projective (inverse) system:
+[
+\mathcal{S}{d,1}\ \xleftarrow{\pi{2\to 1}}\ \mathcal{S}{d,2}\ \xleftarrow{\pi{3\to 2}}\ \cdots
+]
+Define its inverse limit
+[
+\mathcal{S}{d,\infty};:=;\varprojlim{k}\mathcal{S}{d,k}
+]
+as the set of compatible infinite digit tensors ((\mathbf{x}^{(k)}){k\ge 1}) satisfying (\pi_{k+1\to k}(\mathbf{x}^{(k+1)})=\mathbf{x}^{(k)}).
+
+01.4.1.2 Identification with base-4 solenoidal digits (4-adic-like structure)
+Each axis in (\mathcal{S}{d,\infty}) is an infinite base-4 digit string; coordinatewise, (\mathcal{S}{d,\infty}) is the compact totally disconnected space of 4-ary Cantor-type expansions equipped with the ultrametric induced by prefix agreement.
+
+01.4.1.3 The wrap tower on the torus
+The wrap maps ([3]:\mathbb{T}^d\to\mathbb{T}^d) form a projective system
+[
+\mathbb{T}^d\ \xleftarrow{[3]}\ \mathbb{T}^d\ \xleftarrow{[3]}\ \cdots
+]
+Define the inverse limit
+[
+\mathbb{T}^d_{(3)};:=;\varprojlim_{k}(\mathbb{T}^d,[3])
+]
+(the (d)-dimensional 3-adic solenoid), consisting of compatible wrapped phases ((\Phi^{(k)})_{k\ge 1}) with (3=\Phi^{(k)}).
+
+01.4.1.4 The mixed-radix HD-lock index
+The HD-SCT scaling index is the paired tower
+[
+k:\quad \mathcal{S}_{d,k}\ \text{(base-4 refinement)}\quad\text{and}\quad R(k)=3^{k-1}\ \text{(base-3 wrap refinement)}.
+]
+The lock laws constrain all admissible evolution to respect this coupled scaling.
+
+01.4.2 Renormalization and Consistency (Ψ-Structure)
+01.4.2.1 Coarse-to-fine and fine-to-coarse operators
+Define:
+coarse operator: truncation (\pi_{k+1\to k}) on (\mathcal{S}),
+coarse operator: ([3]) on (\mathbb{T}^d) (wrap collapse),
+fine operator: digit refinement (\iota_{k\to k+1}) on (\mathcal{S}),
+fine operator: section choice of ([3]) (wrap lift) on (\mathbb{T}^d) at the representation level (angles).
+
+01.4.2.2 Fractal invariants as inverse-limit coordinates
+An invariant at infinite depth is a function (I:\mathcal{S}{d,\infty}\to\mathcal{Y}) depending only on compatible prefixes. Finite-depth invariants (I_k:\mathcal{S}{d,k}\to\mathcal{Y}) are consistent iff
+[
+I_k\circ \pi_{k+1\to k}=I_{k+1}^{\downarrow}
+]
+for the appropriate restriction (I_{k+1}^{\downarrow}) (prefix dependence).
+
+01.4.2.3 Dimension lift as tower embedding
+Define the dimension-lift embedding between inverse limits by extending axes and depth consistently:
+[
+\mathcal{S}{d,\infty}\hookrightarrow \mathcal{S}{d+1,\infty},
+]
+implemented by appending a new axis digit stream (initialized per policy) and extending depth by one digit at the first lift step.
+
+01.4.2.4 Triangle torsion as a stable fiber over the tower
+Triangle torsion (\tau\in\mathbb{Z}3) is depth-stable (§01.2.4.4) and thus defines a constant fiber over the inverse limits:
+[
+(\mathcal{S}{d,\infty}\times \mathbb{T}^d_{(3)})\times \mathbb{Z}_3.
+]
+
+01.4.3 Algorithms (Ψ-Operators: Computable Spec)
+01.4.3.1 Deterministic digit encoding/decoding (base-4)
+Algorithm 01.4.A — EncodeDigits4
+Input: digit vector (x^{(1)},\dots,x^{(k)}\in\mathbb{D}_4).
+Output: integer (m\in{0,\dots,4^k-1}).
+Rule:
+[
+m\leftarrow 0;\quad
+\text{for }t=1\text{ to }k:\ m\leftarrow 4m+x^{(t)}.
+]
+Algorithm 01.4.B — DecodeDigits4
+Input: integer (m\in{0,\dots,4^k-1}).
+Output: digits (x^{(1)},\dots,x^{(k)}\in\mathbb{D}_4).
+Rule: for (t=k) down to (1): (x^{(t)}\leftarrow m\bmod 4); (m\leftarrow \lfloor m/4\rfloor).
+
+01.4.3.2 Projection and quantization (□↔○)
+Algorithm 01.4.C — ProjectSquareToTorus
+Input: (\mathbf{x}\in\mathcal{S}{d,k}).
+Output: (\Phi\in\Lambda{d,k}\subset\mathbb{T}^d).
+Rule: (\phi_i\leftarrow \sum_{t=1}^k x_i^{(t)}4^{-t}) (mod 1).
+Algorithm 01.4.D — QuantizeTorusToSquare
+Input: (\Phi\in\mathbb{T}^d) (representatives (\phi_i\in[0,1))).
+Output: (\mathbf{x}\in\mathcal{S}_{d,k}).
+Rule: (m_i\leftarrow \lfloor 4^k\phi_i\rfloor); decode (m_i) to digits.
+Correctness: (Q_{\circ\to\square,k}\circ \Pi_{\square\to\circ,k}=\mathrm{id}{\mathcal{S}{d,k}}).
+
+01.4.3.3 Lift operators (resolution and dimension)
+Algorithm 01.4.E — ResolutionLiftSquare
+Input: (\mathbf{x}\in\mathcal{S}_{d,k}), refinement digits (\mathbf{s}\in(\mathbb{D}4)^d).
+Output: (\mathbf{x}^+\in\mathcal{S}{d,k+1}).
+Rule: append (s_i) as digit (x_i^{(k+1)}\leftarrow s_i).
+Algorithm 01.4.F — DimensionLiftSquare
+Input: (\mathbf{x}\in\mathcal{S}_{d,k}), refinement digits (\mathbf{s}\in(\mathbb{D}_4)^d), new digit (\eta\in\mathbb{D}4).
+Output: (\mathbf{x}^{\uparrow}\in\mathcal{S}{d+1,k+1}).
+Rule: compute (\mathbf{x}^+=\mathrm{ResolutionLiftSquare}(\mathbf{x},\mathbf{s})); add axis (d+1) with digits (0,\dots,0,\eta).
+
+01.4.3.4 Verification harness (lock-law checks)
+Given (\mathbf{x}\in\mathcal{S}_{d,k}), (\mathbf{s}\in(\mathbb{D}4)^d), define (\mathbf{x}^+=\mathcal{L}^{\square}{d,k}(\mathbf{x};\mathbf{s})). The lock law check set is:
+(\pi_{k+1\to k}(\mathbf{x}^+)=\mathbf{x}).
+(\pi^{\circ}{k+1\to k}\big(\Pi{\square\to\circ,k+1}(\mathbf{x}^+)\big)=\Pi_{\square\to\circ,k}(\mathbf{x})).
+For dimension lift (\mathbf{x}^{\uparrow}), existing axes are preserved by combined truncation and axis deletion in both □ and ○ spaces.
+
+01.4.4 Lock Laws (Ψ-Global Closure)
+01.4.4.1 Projective closure axiom (□ tower)
+The depth tower ({\mathcal{S}{d,k},\pi{k+1\to k}}) is required to be projective: truncation must be surjective and consistent, yielding the inverse limit (\mathcal{S}_{d,\infty}).
+
+01.4.4.2 Projective closure axiom (○ wrap tower)
+The wrap tower ({\mathbb{T}^d,[3]}) is required to be projective: ([3]) is surjective, yielding the inverse limit (\mathbb{T}^d_{(3)}).
+
+01.4.4.3 Mixed lock law (coupled refinement)
+Admissible refinement steps are constrained to the coupled update:
+[
+k\mapsto k+1 \quad\text{with}\quad \text{Square refinement by one base-4 digit}\quad\text{and}\quad \text{Circle wrap refinement by factor }3.
+]
+All cross-space operators must respect this coupled index (no independent refinement of one carrier without the other).
+
+01.4.4.4 HD-SCT state primitive (minimal)
+The minimal higher-D □○△ state primitive at depth (k) is the tuple
+[
+\Psi_{d,k};:=;\big(\mathbf{x}\in\mathcal{S}{d,k},\ \Phi=\Pi{\square\to\circ,k}(\mathbf{x})\in\mathbb{T}^d,\ \tau\in\mathbb{Z}_3\big),
+]
+with the wrapped representation derived as (\Theta^{(k,\tau)}(\Phi)). Resolution and dimension lifts act by the lock laws in §§01.1.4 and 01.2.4, with triangle torsion stable under depth truncation.
+
+Ch01 — Axioms + Lock Laws
+Ch02 — Dimension–Depth Lock and Minimal Stable Scales
+Formalization of the Minimal Seed Law (k_{\min}(d)=d-1), Per-Axis Minimum (4^{d-1}), and the Locked Lift ((d,k)\mapsto(d+1,k+1))
+
+□ Square — Discrete Carrier Stability (Address-Capacity)
+02.S1 — Ontology (Objects)
+02.S1.a — Minimal Seed Index and Per-Axis Minimum
+Definition (Minimal seed index).
+For each dimension (d\in\mathbb{N}{\ge 2}), define the minimal stable depth
+[
+k{\min}(d);:=;d-1.
+]
+Define the minimal stable seed at dimension (d) as the pair ((d,k_{\min}(d))=(d,d-1)).
+Define the minimal stable per-axis resolution
+[
+N_{\min}(d);:=;4^{k_{\min}(d)};=;4^{d-1}.
+]
+Define the minimal stable Square carrier as
+[
+\mathcal{S}^{\min}d ;:=;(\mathbb{Z}{N_{\min}(d)})^d ;\cong;(\mathbb{Z}_{4^{d-1}})^d.
+]
+Claim ([AX]) (Per-axis minimum law).
+A dimension-(d) Square carrier is considered minimally stable only if its per-axis grid size satisfies
+[
+N ;\ge; 4^{d-1},
+]
+and the canonical minimal stable choice is (N=4^{d-1}).
+Verification.
+The minimal stable seeds instantiate as:
+(d=3:\ N_{\min}(3)=4^2=16\Rightarrow 16^3).
+(d=4:\ N_{\min}(4)=4^3=64\Rightarrow 64^4).
+(d=5:\ N_{\min}(5)=4^4=256\Rightarrow 256^5).
+In the operator-instantiated minimal seeds, the canonical ladder includes ((d=3,k=2)\Rightarrow 16^3) and ((d=4,k=3)\Rightarrow 64^4).
+Falsifier (Failure mode class).
+A claimed “minimal” ((d,k)) with (k<d-1) is rejected as minimally stable if any of the following are observed under pinned profiles:
+(i) axis-extension requires implicit retyping of depth-dependent semantics (hidden knob),
+(ii) corridor proofs (projection/round-trip) cease to be reproducible under lift, or
+(iii) lens-rotations cease to commute with the declared lift schedule (holonomy defect exceeds corridor bounds).
+
+02.S1.b — Digit Budget and State-Space Size at the Minimal Seed
+Definition (Digit budget).
+At dimension (d) and depth (k), the Square carrier is
+[
+\mathcal{S}{d,k} := (\mathbb{Z}{4^k})^d \cong (\mathbb{Z}_4)^{dk}.
+]
+Define the digit budget
+[
+B_{\square}(d,k);:=;dk.
+]
+At the minimal seed (k=d-1), the digit budget is
+[
+B_{\square}^{\min}(d);=;d(d-1).
+]
+Define the state-space cardinality
+[
+|\mathcal{S}_{d,k}|=4^{dk},
+\qquad
+|\mathcal{S}^{\min}_d| = 4^{d(d-1)} = (4^{d-1})^d.
+]
+Claim ([DER]) (Minimality expressed as saturation of the digit budget).
+The minimal seed condition (k=d-1) is equivalent to saturating the quadratic digit budget
+[
+B_{\square}(d,k);\ge;d(d-1)
+\quad\Longleftrightarrow\quad
+k;\ge;d-1,
+]
+with equality at minimal stability. This ties the minimal seed to the canonical growth in the number of independent axis–depth factors ((\mathbb{Z}_4)^{dk}).
+Verification.
+For the explicit minimal seeds:
+((d=3,k=2)\Rightarrow dk=6\Rightarrow (\mathbb{Z}_4)^6), reported as “3 axes × 2 digit levels.”
+((d=4,k=3)\Rightarrow dk=12\Rightarrow (\mathbb{Z}_4)^{12}), reported as “4 axes × 3 digit levels.”
+Falsifier.
+Any attempt to define a minimal seed with (dk<d(d-1)) that nevertheless claims full higher-dimensional phase-lock (i.e., declared commutation of lift/rotation and stable replay) must provide a constructive witness set that refutes the budget lower bound by explicit commuting lift maps and verified factorization identities; otherwise it is typed FAIL under the minimal-seed policy.
+
+02.S1.c — Minimal Seed Ladder (Dimension-Indexed Canon)
+Definition (Minimal seed ladder).
+Define the minimal seed ladder ({(d,k_{\min}(d))}_{d\ge 2}) by
+[
+(d,k);=;(2,1),(3,2),(4,3),(5,4),\dots,(d,d-1),\dots
+]
+with per-axis resolutions (4,16,64,256,\dots,4^{d-1},\dots)
+Claim ([AX]) (Minimal seed lock across dimension).
+The minimal seed ladder is the canonically pinned cross-dimensional schedule, i.e., the 3D seed is ((3,2)) and the 4D seed is ((4,3)) under the declared requirement (k=d-1).
+Verification.
+The explicit ladder anchors are instantiated as:
+(2)D minimal seed: ((d=2,k=1)\Rightarrow 4\times 4).
+(3)D minimal seed: ((d=3,k=2)\Rightarrow 16^3).
+(4)D minimal seed: ((d=4,k=3)\Rightarrow 64^4).
+Falsifier.
+If a proposed ladder increments dimension without the paired increment of depth while simultaneously claiming “minimal stability,” it contradicts the pinned minimal seed policy and is rejected unless a separate, explicitly named policy profile replaces the minimal-seed ladder.
+
+02.S1.d — Stability Predicate (Square-Side)
+Definition (Square stability predicate).
+Let (\mathcal{S}{d,k}) be the Square carrier and let (A{d,k}) denote the pinned constraint operator family on (\mathcal{S}{d,k}) (constructed from the fixed 4×4 seed constraints; §02.S2). Define the Square stability predicate:
+[
+\mathrm{Stable}{\square}(d,k);:=;\big(k\ge d-1\big)\ \wedge\ \mathrm{ReplayOK}(d,k)\ \wedge\ \mathrm{LiftCommuteOK}(d,k),
+]
+where (\mathrm{ReplayOK}) requires deterministic replay under pinned profiles, and (\mathrm{LiftCommuteOK}) requires that the declared lift relations for (A_{d,k}) hold exactly (as operator identities) at the algebra level.
+Claim ([AX]) (Minimal stable ⇔ stable at (k=d-1) and no smaller).
+[
+(d,k)\ \text{minimally stable}\quad\Longleftrightarrow\quad \mathrm{Stable}{\square}(d,k)\ \wedge\ \neg\mathrm{Stable}{\square}(d,k-1).
+]
+Verification.
+The canonically pinned “minimal seed” statements explicitly require (k=d-1) as the cross-dimensional stability lock.
+Falsifier.
+Any instance where lift identities fail to hold as equalities of operators (not merely approximate numerical matches) is classified as FAIL under this predicate.
+
+02.S2 — Operators (Transforms)
+02.S2.a — Resolution Lift on ((d,k))
+Definition (Resolution lift).
+The Square resolution lift is the depth increment
+[
+(d,k)\ \mapsto\ (d,k+1).
+]
+At the operator level, the resolution lift is encoded by the Kronecker-sum additivity rule:
+[
+\boxed{
+A_{d,k+1} ;=; A_{d,k}\ \oplus\ A_{d,1}
+}
+]
+
+where (\oplus) is the Kronecker sum (defined in §02.S2.c) and (A_{d,1}) is the “one-digit-layer” contribution replicated across axes.
+Claim ([AX]) (Resolution lift equals digit-layer addition).
+Resolution lift adds exactly one digit level per axis, and the corresponding constraint operator is a Kronecker-sum augmentation by a depth-1 block.
+Verification.
+In the explicit 2D factorization, repeated depth lift yields
+[
+A_{2,k}=\underbrace{A_{2,1}\ \oplus\ \cdots\ \oplus\ A_{2,1}}_{k\ \text{times}},
+]
+stated as the exact operator factorization under the hologram lift.
+Falsifier.
+If a purported “resolution lift” requires reparameterizing the seed constraints (changing the kernel) rather than adding a new digit-layer block under (\oplus), it is not a resolution lift; it is a MIGRATE.
+
+02.S2.b — Axis Lift and the Locked Lift ((d,k)\mapsto(d+1,k+1))
+Definition (Axis lift).
+An axis lift adds one dimension while holding depth fixed:
+[
+(d,k)\ \mapsto\ (d+1,k).
+]
+At the operator level, axis lift at fixed depth is encoded by
+[
+A_{d+1,k};=;A_{d,k}\ \oplus\ A_{1,k},
+]
+where (A_{1,k}) is the new-axis constraint block at depth (k).
+Definition (Locked lift).
+The dimension–depth locked lift is the paired incremen

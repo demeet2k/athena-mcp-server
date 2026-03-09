@@ -1,0 +1,714 @@
+inimal seed” for higher dimension.
+Verification.
+Use the minimal ladder instances.
+Falsifier.
+A smaller frame would need full lift certificates.
+
+02.R1.d — Recursion Meaning: Lift = Add Axis + Add Depth
+Definition.
+Define the Fractal meaning of the locked lift as the compound action “add axis + add digit depth,” with the operator-level realization of the same.
+Claim ([AX]).
+The locked lift is the minimal recursion move consistent with the dimensional phase-lock identity.
+Verification.
+Check the explicit combined form described for the 3D→4D minimal seed transition.
+Falsifier.
+If recursion changes meaning without explicit encoding, it is illegal under the general recursion discipline.
+
+02.R2 — Operators
+02.R2.a — Locked Lift as the Canonical Fractal Move
+Definition.
+Fractal lift operator:
+[
+\mathcal{L}{\mathrm{Fr}}:(A{d,k})\mapsto (A_{d+1,k+1})
+]
+implemented by the boxed operator identity.
+Claim ([AX]).
+Fractal lift is an exact algebraic operator move (not heuristic).
+Verification.
+Symbolic identity check.
+Falsifier.
+Any approximation-only lift is not the locked lift.
+
+02.R2.b — Resolution Lift as the Canonical Depth Move
+Definition.
+Depth lift:
+[
+A_{d,k+1}=A_{d,k}\oplus A_{d,1}.
+]
+Claim ([AX]).
+Depth is implemented as a Kronecker-sum digit-layer addition.
+Verification.
+Check the (A_{2,k}) identity.
+Falsifier.
+Kernel mutation under depth lift.
+
+02.R2.c — Minimal Seed Lift Composition
+Definition.
+Minimal seed lift step:
+[
+(d,d-1)\mapsto(d+1,d)
+]
+is realized as:
+[
+A_{d+1,d}=\big(A_{d,d-1}\oplus A_{d,1}\big)\oplus A_{1,d}.
+]
+(“add digit depth, then add axis at the new depth” as a structured composition).
+Claim ([AX]).
+This is the minimal-seed ladder move.
+Verification.
+Compare to the described combined lift logic.
+Falsifier.
+Non-associative or non-reproducible lift outcomes.
+
+02.R2.d — Tower Factorization Lemma
+Definition.
+Let (A_{d,k}=\bigoplus_{j=1}^{dk}A_4^{(j)}). Then each lift step appends additional (A_4) blocks in a strictly typed manner.
+Claim ([DER]).
+The tower is a strictly monotone factor extension in the Kronecker-sum sense.
+Verification.
+Count factors: (dk\mapsto(d+1)(k+1)=dk+d+k+1).
+Falsifier.
+Missing factors or extra hidden factors.
+
+02.R3 — Invariants
+02.R3.a — Schedule Invariant (k=d-1)
+Definition.
+In the minimal seed schedule, maintain (k_n=d_n-1).
+Claim ([AX]).
+This is the phase-lock identity for minimal stability.
+Verification.
+Check at each step.
+Falsifier.
+Violation without profile override.
+
+02.R3.b — Lift Commutation Invariant
+Definition.
+Lift commutation invariant requires that lift identities hold exactly as equalities of operators.
+Claim ([AX]).
+The boxed identities define the commutation invariants.
+Verification.
+Symbolic checks.
+Falsifier.
+Any identity failure.
+
+02.R3.c — Minimality Invariant (No Smaller Stable Seed)
+Definition.
+Minimality invariant asserts that (k=d-1) is the smallest depth satisfying the locked lift schedule.
+Claim ([AX]).
+Minimal seed lock explicitly enforces (k=d-1).
+Verification.
+Attempt (k=d-2) and observe lift/certificate failure under pinned policies.
+Falsifier.
+A full certificate set at (k=d-2).
+
+02.R3.d — Lens-Agreement Invariant Under Locked Lift
+Definition.
+Lens agreement means Square (operator identity), Flower (spectral tensorization), Cloud (semigroup factorization) remain simultaneously true under lift.
+Claim ([AX]).
+This joint agreement is enforced by the shared Kronecker-sum structure.
+Verification.
+Run Square/Flower/Cloud tests in §02.S4.d.
+Falsifier.
+Any cross-lens mismatch.
+
+02.R4 — Protocols
+02.R4.a — Minimal Seed Ladder Builder
+Definition.
+Algorithm:
+[
+(d_0,k_0)=(2,1);\quad \text{for }n\ge 0:\ (d_{n+1},k_{n+1})=(d_n+1,k_n+1).
+]
+Claim ([REP]).
+Builds ((d,k)=(d,d-1)) for all (d\ge 2).
+Verification.
+Direct.
+Falsifier.
+Deviation.
+
+02.R4.b — Lift Certificate Emitter
+Definition.
+Emit certificates:
+Square: verify boxed lift identities,
+Flower: verify tensorization/additivity,
+Cloud: verify semigroup factorization.
+Claim ([REP]).
+Sufficient for dimension–depth lock certification.
+Verification.
+Run on minimal seeds.
+Falsifier.
+Any failed certificate.
+
+02.R4.c — Counterexample Search Protocol
+Definition.
+Search for counterexamples by:
+selecting (k<d-1),
+attempting to construct lift-consistent (A_{d,k}) without kernel mutation,
+checking lift identities and cross-lens factorization.
+Claim ([REP]).
+This protocol generates falsifiers when minimality is violated.
+Verification.
+Run for (d=3,k=1) against minimal policy.
+Falsifier.
+No falsifier found implies either policy has been overridden or tests are incomplete.
+
+02.R4.d — Replay-Deterministic Schedule Audit
+Definition.
+Audit requires that the schedule and its operator tower are replay-deterministic under pinned profiles: same inputs yield identical (A_{d,k}) and certificates.
+Claim ([REP]).
+Determinism is guaranteed by fixed seed (A_4) and Kronecker-sum construction.
+Verification.
+Hash operator constructions and compare.
+Falsifier.
+Non-reproducible outputs under identical pins.
+
+Ch02 — Dimension–Depth Lock and Minimal Stable Scales
+Ch03 — The 15-Station Ring as the Powerset Carrier
+Station Encoding, (\sigma) Indexing, and (\mathrm{ORBIT_NEXT})
+
+□ Square — Combinatorial Carrier (Station Semantics and Bit Encoding)
+03.S1 — Ontology (Objects)
+03.S1.a — Lens basis set and nonempty powerset
+Let the lens basis be the ordered 4-tuple
+[
+\mathbb{L}_4 := (\square,\flower,\cloud,\fractal),
+]
+and its underlying set (by abuse of notation) ({\square,\flower,\cloud,\fractal}).
+Define the nonempty powerset carrier (the station semantics set)
+[
+\mathcal{P}^\star(\mathbb{L}_4) ;:=; \mathcal{P}({\square,\flower,\cloud,\fractal}) \setminus {\varnothing}.
+]
+Then
+[
+\big|\mathcal{P}^\star(\mathbb{L}_4)\big| = 2^4-1 = 15.
+]
+Elements (U\in\mathcal{P}^\star(\mathbb{L}_4)) are called stations (semantic stations).
+
+03.S1.b — Bitmask model of stations
+Define the bit index map aligned to (\mathbb{L}_4):
+[
+\mathrm{bit}(\square)=0,\quad \mathrm{bit}(\flower)=1,\quad \mathrm{bit}(\cloud)=2,\quad \mathrm{bit}(\fractal)=3.
+]
+For any station (U\in\mathcal{P}^\star(\mathbb{L}4)), define its indicator bits (b_j(U)\in{0,1}) by
+[
+b_j(U) := \mathbf{1}{,\ell\in U:\ \mathrm{bit}(\ell)=j,}.
+]
+Define the mask encoding (semantic code)
+[
+m(U) ;:=; \sum{j=0}^{3} b_j(U),2^j \ \in\ {1,2,\dots,15}.
+]
+Thus, semantic stations are represented uniquely by nonzero 4-bit masks.
+
+03.S1.c — Ring index set and canonical (\sigma) coordinates
+Define the 15-ring index set
+[
+\Sigma_{15} ;:=; \mathbb{Z}_{15} ;\cong; {0,1,\dots,14},
+]
+with addition modulo (15).
+Define the ring coordinate (\sigma) associated to a station (U) by
+[
+\sigma(U);:=;m(U)-1\ \in\ \Sigma_{15}.
+]
+Conversely, for (\sigma\in\Sigma_{15}) define (m(\sigma):=\sigma+1\in{1,\dots,15}).
+
+03.S1.d — Canonical bijections (\mathrm{ENC}) and (\mathrm{DEC})
+Define the canonical encodings:
+[
+\mathrm{ENC}{\mathrm{mask}}:\mathcal{P}^\star(\mathbb{L}4)\to{1,\dots,15},\quad \mathrm{ENC}{\mathrm{mask}}(U)=m(U),
+]
+[
+\mathrm{ENC}{\sigma}:\mathcal{P}^\star(\mathbb{L}4)\to\Sigma{15},\quad \mathrm{ENC}_{\sigma}(U)=\sigma(U).
+]
+Define the canonical decodings:
+[
+\mathrm{DEC}{\mathrm{mask}}:{1,\dots,15}\to\mathcal{P}^\star(\mathbb{L}4),
+]
+where for (m\in{1,\dots,15}), letting (b_j=\big\lfloor m/2^j\big\rfloor\bmod 2),
+[
+\mathrm{DEC}{\mathrm{mask}}(m);:=;{\ \ell\in\mathbb{L}4:\ b{\mathrm{bit}(\ell)}=1\ }.
+]
+Then
+[
+\mathrm{DEC}{\sigma}:\Sigma_{15}\to\mathcal{P}^\star(\mathbb{L}4),\quad \mathrm{DEC}{\sigma}(\sigma):=\mathrm{DEC}_{\mathrm{mask}}(\sigma+1).
+]
+Correctness (bijection laws):
+[
+\mathrm{DEC}{\mathrm{mask}}\circ \mathrm{ENC}{\mathrm{mask}}=\mathrm{id}{\mathcal{P}^\star(\mathbb{L}4)},
+\quad
+\mathrm{ENC}{\mathrm{mask}}\circ \mathrm{DEC}{\mathrm{mask}}=\mathrm{id}{{1,\dots,15}},
+]
+[
+\mathrm{DEC}{\sigma}\circ \mathrm{ENC}{\sigma}=\mathrm{id}{\mathcal{P}^\star(\mathbb{L}4)},
+\quad
+\mathrm{ENC}{\sigma}\circ \mathrm{DEC}{\sigma}=\mathrm{id}{\Sigma_{15}}.
+]
+
+03.S2 — Operators (Transforms)
+03.S2.a — Semantic set-operators on stations (mask realization)
+For stations (U,V\in\mathcal{P}^\star(\mathbb{L}_4)), define:
+[
+U\cup V,\quad U\cap V,\quad U\setminus V,\quad U\triangle V\ (\text{symmetric difference}).
+]
+Let (\vee,\wedge,\oplus) denote bitwise OR/AND/XOR on masks. Then
+[
+m(U\cup V)=m(U)\vee m(V),\qquad m(U\cap V)=m(U)\wedge m(V),
+]
+[
+m(U\triangle V)=m(U)\oplus m(V),
+]
+and (U\cup V\neq\varnothing) always; while (U\cap V) may be empty and thus is outside (\mathcal{P}^\star) unless explicitly retyped. When a set-operator yields (\varnothing), the operation is considered undefined in the station carrier unless a dedicated null station policy is introduced.
+Define the station weight (lens-count)
+[
+w(U):=|U|=\sum_{j=0}^{3} b_j(U);=;\mathrm{popcount}(m(U)).
+]
+
+03.S2.b — Canonical station labeling and normal forms
+Define the canonical label of a station (U) as the 4-bit string
+[
+\mathrm{bits}(U):=b_3(U)b_2(U)b_1(U)b_0(U)\in{0,1}^4\setminus{0000},
+]
+with the leftmost bit corresponding to (\fractal) and the rightmost to (\square).
+Define the canonical label of (\sigma\in\Sigma_{15}) as (\mathrm{bits}(\sigma):=\mathrm{bits}(\mathrm{DEC}_{\sigma}(\sigma))).
+These labels are canonical under the pinned bit ordering ((\square,\flower,\cloud,\fractal)).
+
+03.S2.c — (\mathrm{ORBIT_NEXT}) on the 15-ring ((\sigma)-space)
+Define the next-orbit operator on the ring as the endomorphism
+[
+\mathrm{ORBIT_NEXT}:\Sigma_{15}\to\Sigma_{15},
+\qquad
+\mathrm{ORBIT_NEXT}(\sigma):=\sigma+1\pmod{15}.
+]
+Define the (n)-step orbit advance for (n\in\mathbb{Z}) as
+[
+\mathrm{ORBIT_ADVANCE}(\sigma;n):=\sigma+n\pmod{15}.
+]
+Define orbit iteration:
+[
+\mathrm{ORBIT_NEXT}^{,t}(\sigma)=\sigma+t\pmod{15},\qquad t\in\mathbb{N}.
+]
+
+03.S2.d — (\mathrm{ORBIT_NEXT}) transported to station semantics (powerset space)
+Transport (\mathrm{ORBIT_NEXT}) to (\mathcal{P}^\star(\mathbb{L}4)) via (\mathrm{ENC}{\sigma}) and (\mathrm{DEC}{\sigma}):
+[
+\mathrm{ORBIT_NEXT}^\star
+:=
+\mathrm{DEC}{\sigma}\circ \mathrm{ORBIT_NEXT}\circ \mathrm{ENC}_{\sigma}
+:\mathcal{P}^\star(\mathbb{L}_4)\to\mathcal{P}^\star(\mathbb{L}4).
+]
+Equivalently, in mask coordinates (m\in{1,\dots,15}),
+[
+\mathrm{ORBIT_NEXT}^\star(U)=\mathrm{DEC}{\mathrm{mask}}!\left((m(U)\bmod 15)+1\right).
+]
+Define the directed edge set of the orbit graph:
+[
+E_{\mathrm{next}}:={,(\sigma,\mathrm{ORBIT_NEXT}(\sigma)):\ \sigma\in\Sigma_{15},}.
+]
+This is a single directed 15-cycle.
+
+03.S3 — Invariants (What Stays)
+03.S3.a — Encoding/decoding correctness invariants
+For all (U\in\mathcal{P}^\star(\mathbb{L}4)),
+[
+\mathrm{DEC}{\sigma}(\mathrm{ENC}{\sigma}(U))=U,\qquad
+\mathrm{DEC}{\mathrm{mask}}(\mathrm{ENC}{\mathrm{mask}}(U))=U.
+]
+For all (\sigma\in\Sigma{15}),
+[
+\mathrm{ENC}{\sigma}(\mathrm{DEC}{\sigma}(\sigma))=\sigma,\qquad
+\mathrm{ENC}{\mathrm{mask}}(\mathrm{DEC}{\mathrm{mask}}(\sigma+1))=\sigma+1.
+]
+
+03.S3.b — Cyclic group invariants of the orbit operator
+The operator (\mathrm{ORBIT_NEXT}) is a generator of the cyclic group action of (\Sigma_{15}) on itself:
+[
+\mathrm{ORBIT_NEXT}^{,15}=\mathrm{id}{\Sigma{15}},
+\qquad
+\mathrm{ORBIT_NEXT}^{,t}\neq \mathrm{id}\ \text{for}\ 1\le t<15.
+]
+Hence the orbit graph ((\Sigma_{15},E_{\mathrm{next}})) is strongly connected and has period (15).
+
+03.S3.c — Station-weight partition and cardinality invariants
+Define weight classes
+[
+\mathcal{W}_r:={,U\in\mathcal{P}^\star(\mathbb{L}_4):\ w(U)=r,},\qquad r\in{1,2,3,4}.
+]
+Then
+[
+|\mathcal{W}_1|=\binom{4}{1}=4,\quad
+|\mathcal{W}_2|=\binom{4}{2}=6,\quad
+|\mathcal{W}_3|=\binom{4}{3}=4,\quad
+|\mathcal{W}_4|=\binom{4}{4}=1,
+]
+and
+[
+\mathcal{P}^\star(\mathbb{L}4)=\bigsqcup{r=1}^{4}\mathcal{W}_r.
+]
+The orbit operator is a permutation of stations and therefore preserves this partition as a multiset (it permutes elements across classes but preserves the global counts).
+
+03.S3.d — Separation of semantics vs routing invariants
+There are two independent algebraic structures:
+Semantic algebra on stations (U) given by set operations (equivalently bitwise operations on masks).
+Routing algebra on indices (\sigma) given by addition modulo (15).
+No identification of these algebras is assumed; station semantics are transported along routing only through the pinned bijection (\mathrm{DEC}{\sigma}\circ\mathrm{ENC}{\sigma}). Any proof obligation involving semantics must be stated in semantic coordinates (powerset/mask), and any proof obligation involving orbit movement must be stated in routing coordinates ((\Sigma_{15})).
+
+03.S4 — Protocols (How to Compute / Verify)
+03.S4.a — Canonical station table (complete enumeration)
+Let the bit order be ((\fractal,\cloud,\flower,\square)) for display (MSB→LSB). Let (m=\sigma+1). The station mapping is:
+
+03.S4.b — Reference algorithms: (\mathrm{ENC}) and (\mathrm{DEC})
+# Lens basis order (LSB -> MSB): Square, Flower, Cloud, Fractal
+LENS = ["SQUARE", "FLOWER", "CLOUD", "FRACTAL"]  # indices 0..3
+
+def enc_mask(station: set[str]) -> int:
+    """
+    Input: station ⊆ {SQUARE,FLOWER,CLOUD,FRACTAL}, station ≠ ∅
+    Output: m ∈ {1..15}
+    """
+    m = 0
+    for j, name in enumerate(LENS):
+        if name in station:
+            m |= (1 << j)
+    assert 1 <= m <= 15
+    return m
+
+def dec_mask(m: int) -> set[str]:
+    """
+    Input: m ∈ {1..15}
+    Output: station ⊆ {SQUARE,FLOWER,CLOUD,FRACTAL}, station ≠ ∅
+    """
+    assert 1 <= m <= 15
+    station = set()
+    for j, name in enumerate(LENS):
+        if (m >> j) & 1:
+            station.add(name)
+    return station
+
+def enc_sigma(station: set[str]) -> int:
+    """
+    Output: σ ∈ Z_15 represented as {0..14}
+    """
+    return enc_mask(station) - 1
+
+def dec_sigma(sigma: int) -> set[str]:
+    """
+    Input: σ ∈ {0..14}
+    """
+    assert 0 <= sigma <= 14
+    return dec_mask(sigma + 1)
+
+
+03.S4.c — Reference algorithms: (\mathrm{ORBIT_NEXT}) and orbit utilities
+MOD = 15
+
+def orbit_next(sigma: int) -> int:
+    """
+    σ ↦ σ+1 mod 15
+    """
+    return (sigma + 1) % MOD
+
+def orbit_advance(sigma: int, n: int) -> int:
+    """
+    σ ↦ σ+n mod 15, n may be negative
+    """
+    return (sigma + (n % MOD)) % MOD
+
+def orbit_next_station(station: set[str]) -> set[str]:
+    """
+    Transport ORBIT_NEXT to station semantics.
+    """
+    return dec_sigma(orbit_next(enc_sigma(station)))
+
+def orbit_distance_forward(a: int, b: int) -> int:
+    """
+    Forward steps from a to reach b under ORBIT_NEXT.
+    """
+    return (b - a) % MOD
+
+def orbit_distance_min(a: int, b: int) -> int:
+    """
+    Minimal cyclic distance on the 15-ring.
+    """
+    fwd = orbit_distance_forward(a, b)
+    return min(fwd, MOD - fwd)
+
+
+03.S4.d — Verification harness (axioms as executable checks)
+def verify_bijections():
+    # ENC/DEC correctness on all σ
+    for sigma in range(15):
+        st = dec_sigma(sigma)
+        assert enc_sigma(st) == sigma
+
+    # ORBIT cycle length
+    for sigma0 in range(15):
+        sigma = sigma0
+        for _ in range(15):
+            sigma = orbit_next(sigma)
+        assert sigma == sigma0
+
+def verify_mask_ops_consistency():
+    # Semantic union/intersection via masks
+    for a in range(1, 16):
+        for b in range(1, 16):
+            Ua = dec_mask(a)
+            Ub = dec_mask(b)
+            assert enc_mask(Ua | Ub) == (a | b)
+            inter = Ua & Ub
+            if inter:
+                assert enc_mask(inter) == (a & b)
+
+
+❀ Flower — Cyclic Harmonic Carrier (Ring as Phase Orbit)
+03.F1 — Ontology (Objects)
+03.F1.a — Ring as a finite cyclic group
+Identify (\Sigma_{15}) with the cyclic group (G_{15}:=(\mathbb{Z}{15},+)). A ring coordinate (\sigma\in\Sigma{15}) is a group element.
+Define the orbit action of (G_{15}) on itself:
+[
+T_n(\sigma):=\sigma+n\pmod{15},\qquad n\in\mathbb{Z}_{15}.
+]
+Then (\mathrm{ORBIT_NEXT}=T_1).
+
+03.F1.b — Canonical embedding into the circle (\mathbb{T}^1)
+Define the phase embedding
+[
+\iota:\Sigma_{15}\to\mathbb{T}^1,\qquad \iota(\sigma):=\frac{\sigma}{15}\ (\mathrm{mod}\ 1).
+]
+Under (\iota), (\mathrm{ORBIT_NEXT}) corresponds to circle rotation by (1/15):
+[
+\iota(\mathrm{ORBIT_NEXT}(\sigma))=\iota(\sigma)+\frac{1}{15}\ (\mathrm{mod}\ 1).
+]
+
+03.F1.c — Function space and regular representation
+Let (\mathbb{C}^{15}\cong{f:\Sigma_{15}\to\mathbb{C}}). Define the shift operator (left translation)
+[
+(\mathsf{T}f)(\sigma):=f(\sigma-1\pmod{15}).
+]
+Then (\mathsf{T}) is the linear operator representing (\mathrm{ORBIT_NEXT}) on functions by pullback.
+
+03.F1.d — Characters (Fourier modes) on the ring
+For (n\in\Sigma_{15}), define the character
+[
+\chi_n(\sigma):=\exp!\left(2\pi i,\frac{n\sigma}{15}\right).
+]
+The set ({\chi_n}{n=0}^{14}) is an orthogonal basis of (\mathbb{C}^{15}) under the standard inner product
+[
+\langle f,g\rangle:=\sum{\sigma\in\Sigma_{15}} f(\sigma),\overline{g(\sigma)}.
+]
+
+03.F2 — Operators (Transforms)
+03.F2.a — Orbit translation operator on phases
+Under the phase embedding (\iota), translation by (n) acts as
+[
+\iota(T_n(\sigma))=\iota(\sigma)+\frac{n}{15}\ (\mathrm{mod}\ 1).
+]
+Thus the ring action is a discrete subgroup of circle rotations.
+
+03.F2.b — Diagonalization of (\mathrm{ORBIT_NEXT}) via characters
+The shift operator (\mathsf{T}) satisfies
+[
+\mathsf{T}\chi_n = \exp!\left(2\pi i,\frac{n}{15}\right)\chi_n,
+]
+so the Fourier basis diagonalizes (\mathrm{ORBIT_NEXT}) (as a unitary permutation on (\mathbb{C}^{15})).
+
+03.F2.c — Discrete Fourier transform (DFT(_{15}))
+Define the DFT and inverse DFT:
+[
+\widehat{f}(n):=\sum_{\sigma=0}^{14} f(\sigma),\exp!\left(-2\pi i,\frac{n\sigma}{15}\right),
+\qquad
+f(\sigma)=\frac{1}{15}\sum_{n=0}^{14}\widehat{f}(n),\exp!\left(2\pi i,\frac{n\sigma}{15}\right).
+]
+
+03.F2.d — Orbit power spectrum and shift invariants
+Define the power spectrum (P_f(n):=|\widehat{f}(n)|^2). Under orbit shift (T_a), the Fourier coefficients rotate by phases:
+[
+\widehat{(f\circ T_a)}(n)=\exp!\left(-2\pi i,\frac{na}{15}\right)\widehat{f}(n),
+]
+so (P_f(n)) is invariant under orbit translation.
+
+03.F3 — Invariants (What Stays)
+03.F3.a — Order and periodicity
+[
+\mathrm{ORBIT_NEXT}^{,15}=\mathrm{id},
+\qquad
+\mathrm{ORBIT_NEXT}^{,t}\neq\mathrm{id}\ \ (1\le t<15).
+]
+Equivalently, the rotation angle (2\pi/15) has exact order (15) in (\mathbb{T}^1).
+
+03.F3.b — Spectral invariants of the shift operator
+The eigenvalues of (\mathsf{T}) are precisely
+[
+\lambda_n=\exp!\left(2\pi i,\frac{n}{15}\right),\qquad n=0,\dots,14,
+]
+each with multiplicity (1).
+
+03.F3.c — Translation invariance of the power spectrum
+For any (f), the power spectrum (P_f) is invariant under orbit translations. This provides a canonical orbit-invariant signature for station-indexed observables.
+
+03.F3.d — Compatibility of phase embedding with orbit arithmetic
+For all (\sigma\in\Sigma_{15}) and (n\in\mathbb{Z}),
+[
+\iota(\mathrm{ORBIT_ADVANCE}(\sigma;n))=\iota(\sigma)+\frac{n}{15}\ (\mathrm{mod}\ 1).
+]
+Hence orbit arithmetic in (\Sigma_{15}) and phase arithmetic in (\mathbb{T}^1) are strictly compatible via (\iota).
+
+03.F4 — Protocols (How to Compute / Verify)
+03.F4.a — Fourier diagonal check for (\mathrm{ORBIT_NEXT})
+Compute the permutation matrix (P) of (\mathrm{ORBIT_NEXT}) on (\mathbb{C}^{15}). Compute the DFT matrix (F). Verify
+[
+F^{-1}PF=\mathrm{diag}(\lambda_0,\dots,\lambda_{14}).
+]
+
+03.F4.b — Phase embedding regression check
+Verify numerically (or symbolically) for all (\sigma):
+[
+\iota(\mathrm{ORBIT_NEXT}(\sigma))-\iota(\sigma)=\frac{1}{15}\ (\mathrm{mod}\ 1).
+]
+
+03.F4.c — Orbit-invariant signature protocol
+Given any station observable (f:\Sigma_{15}\to\mathbb{R}), compute (\widehat{f}) and output (P_f(n)=|\widehat{f}(n)|^2) as the orbit-invariant signature.
+
+03.F4.d — Character orthogonality check
+Verify:
+[
+\sum_{\sigma=0}^{14}\chi_n(\sigma)\overline{\chi_m(\sigma)}=15,\delta_{nm}.
+]
+
+☁ Cloud — Probabilistic Carrier (Distributions over Stations)
+03.C1 — Ontology (Objects)
+03.C1.a — Probability simplex over stations
+Let
+[
+\Delta_{15}:=\Big{,p\in\mathbb{R}^{15}:\ p_\sigma\ge 0,\ \sum_{\sigma=0}^{14}p_\sigma=1,\Big}
+]
+be the simplex of probability distributions over (\Sigma_{15}).
+
+03.C1.b — Station-measure interpretation in semantics space
+Equivalently, a distribution over semantic stations is a measure (\mu) on (\mathcal{P}^\star(\mathbb{L}4)). The bijection (\mathrm{ENC}{\sigma}) induces an identification
+[
+\mathcal{P}(\mathcal{P}^\star(\mathbb{L}4))\ \cong\ \Delta{15}
+]
+by pushforward/pullback.
+
+03.C1.c — Deterministic orbit kernel
+Define the Markov kernel (K_{\mathrm{next}}) on (\Sigma_{15}) by
+[
+K_{\mathrm{next}}(\sigma,\sigma'):=\mathbf{1}{\sigma'=\mathrm{ORBIT_NEXT}(\sigma)}.
+]
+Then (K_{\mathrm{next}}) is a permutation kernel (deterministic transition).
+
+03.C1.d — Pushforward of distributions under orbit maps
+For any measurable (T:\Sigma_{15}\to\Sigma_{15}), define the pushforward of (p\in\Delta_{15}) by
+[
+(T_#p){\sigma'}:=\sum{\sigma:\ T(\sigma)=\sigma'} p_\sigma.
+]
+For (T=\mathrm{ORBIT_NEXT}), this equals a cyclic shift.
+
+03.C2 — Operators (Transforms)
+03.C2.a — Distribution update under (\mathrm{ORBIT_NEXT})
+Let (p\in\Delta_{15}). Then
+[
+(\mathrm{ORBIT_NEXT}#p){\sigma}
+p_{\sigma-1\pmod{15}}.
+]
+
+03.C2.b — Permutation matrix representation
+Define (P\in{0,1}^{15\times 15}) by
+[
+P_{\sigma',\sigma}=K_{\mathrm{next}}(\sigma,\sigma')=\mathbf{1}{\sigma'=\sigma+1\pmod{15}}.
+]
+Then (p' = Pp) is the distribution update.
+
+03.C2.c — Composition of orbit kernels
+For (t\in\mathbb{N}), define (K_{\mathrm{next}}^{(t)}) by convolution (kernel composition). Then
+[
+K_{\mathrm{next}}^{(t)}(\sigma,\sigma')=\mathbf{1}{\sigma'=\sigma+t\pmod{15}},
+\qquad
+P^t\ \text{represents}\ K_{\mathrm{next}}^{(t)}.
+]
+
+03.C2.d — Semantic-station distribution update
+Transport the update to semantic station space:
+[
+(\mathrm{ORBIT_NEXT}^\star)_#\mu
+\big(\mathrm{DEC}{\sigma}\big)#\big(\mathrm{ORBIT_NEXT}#(\mathrm{ENC}{\sigma})#\mu\big).
+]
+All probabilistic updates over stations are therefore representable as updates in (\Delta{15}) composed with the fixed enc/dec bijections.
+
+03.C3 — Invariants (What Stays)
+03.C3.a — Mass conservation
+For all (p\in\Delta_{15}),
+[
+\sum_{\sigma=0}^{14} (\mathrm{ORBIT_NEXT}#p)\sigma=\sum_{\sigma=0}^{14}p_\sigma=1.
+]
+
+03.C3.b — Stationarity and periodicity
+The uniform distribution (u_\sigma:=1/15) satisfies (Pu=u).
+However, the chain is periodic with period (15); for any (p), the sequence (p_t=P^t p) is exactly periodic:
+[
+p_{t+15}=p_t.
+]
+
+03.C3.c — Entropy invariance under permutation dynamics
+For Shannon entropy (H(p):=-\sum_\sigma p_\sigma\log p_\sigma),
+[
+H(Pp)=H(p),
+]
+since (P) is a permutation.
+
+03.C3.d — Fourier-space transport of distributions
+Identifying (p) as a function on (\Sigma_{15}), the DFT satisfies
+[
+\widehat{(Pp)}(n)=\exp!\left(2\pi i,\frac{n}{15}\right)\widehat{p}(n),
+]
+so (|\widehat{p}(n)|) is invariant under orbit evolution.
+
+03.C4 — Protocols (How to Compute / Verify)
+03.C4.a — Kernel construction and validation
+Construct (K_{\mathrm{next}}) or (P). Verify:
+[
+\sum_{\sigma'}K_{\mathrm{next}}(\sigma,\sigma')=1\ \ (\forall\sigma),\qquad P\mathbf{1}=\mathbf{1}.
+]
+
+03.C4.b — Simulation protocol
+Given initial (p_0\in\Delta_{15}), compute (p_t=P^t p_0). Verify periodicity by checking (p_{15}=p_0).
+
+03.C4.c — Orbit-invariant statistics protocol
+Compute entropy (H(p_t)) and verify (H(p_t)) constant in (t). Compute (|\widehat{p_t}(n)|) and verify invariance in (t).
+
+03.C4.d — Semantic distribution alignment protocol
+Given a distribution (\mu) over semantic stations, push forward to (p=(\mathrm{ENC}{\sigma})#\mu), evolve (p) via (P), then pull back via (\mathrm{DEC}{\sigma}). Verify equivalence to directly evolving via ((\mathrm{ORBIT_NEXT}^\star)#).
+
+✶ Fractal — Recursive Carrier (Orbit Iteration, Route Logs, and Coarse-Graining)
+03.R1 — Ontology (Objects)
+03.R1.a — Orbit words and route logs
+Define the orbit word monoid ((\mathbb{Z},+)) acting on (\Sigma_{15}) by (\mathrm{ORBIT_ADVANCE}(\cdot;n)).
+A route log is a pair ((\sigma_0,n)) representing the map (\sigma\mapsto \sigma+n) applied at (\sigma_0), or a word (n_1n_2\cdots n_T) representing successive advances.
+
+03.R1.b — Canonical compression of route logs
+Any finite word (n_1,\dots,n_T\in\mathbb{Z}) composes to a single advance
+[
+n_{\mathrm{tot}}:=\sum_{t=1}^T n_t,
+\qquad
+\mathrm{ORBIT_ADVANCE}(\sigma_0;n_1)\circ\cdots\circ\mathrm{ORBIT_ADVANCE}(\sigma_0;n_T)
+\mathrm{ORBIT_ADVANCE}(\sigma_0;n_{\mathrm{tot}}).
+]
+Thus a route log canonically compresses to ((\sigma_0, n_{\mathrm{tot}}\bmod 15)).
+
+03.R1.c — Coarse observables on the station carrier
+Define coarse observables on semantic stations, e.g. the weight map
+[
+w:\mathcal{P}^\star(\mathbb{L}4)\to{1,2,3,4},\quad w(U)=|U|.
+]
+Transported to (\Sigma{15}) via (\mathrm{DEC}{\sigma}), define (w(\sigma):=w(\mathrm{DEC}{\sigma}(\sigma))).
+
+03.R1.d — Induced action on observables
+For any observable (f:\Sigma_{15}\to X), define its orbit-shifted version by
+[
+(\mathsf{T}f)(\sigma):=f(\sigma-1\pmod{15}),
+]
+and iterates (\mathsf{T}^t f(\sigma)=f(\sigma-t\pmod{15})). This defines the recursion/iteration layer for station-indexed structures.
+
+03.R2 — Operators (Transforms)
+03.R2.a — Route concatenation
+Concatenation corresponds to modular addition of advances:
+[
+(\sigma_0,n_1)\star(\sigma_0,n_2)=(\sigma_0,n_1+n_2),

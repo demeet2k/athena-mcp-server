@@ -1,0 +1,611 @@
+der policy).
+
+❀ L.F — Flower: Discriminators as Typed Separators and Certificate-Gated Proof Paths
+L.F1 — Objects
+L.F1.a — Separator semantics
+A discriminator partitions candidate space. For candidate set (C) and discriminator outcome (o), define:
+[
+C_o := {c\in C : \mathsf{Consistent}(c,o)}
+]
+where Consistent is pinned per discriminator.
+Discriminators must be sufficient to eliminate at least one candidate on some outcome branch; discriminators that never change the candidate set are permitted only if required by policy (e.g., import verification prerequisite) and must be flagged as prerequisite discriminators.
+L.F2 — Operators
+L.F2.a — Certificate-gated discriminator execution
+Some discriminators require certificates (ReplayCert, ImportCert, TransportCert). EvidencePlan must specify required certificates and reject outcomes that cannot be certified under pinned policies.
+L.F3 — Invariants
+L.F3.a — Outcome space completeness
+For each discriminator, the outcome space is closed and pinned; unknown outcomes are FAIL.
+
+☁ L.C — Cloud: Ambiguity Management, Quarantine, and Non-resolution Handling
+L.C1 — Objects
+L.C1.a — Non-resolution report
+If a plan terminates without resolution, it must emit:
+remaining candidates digest,
+executed discriminators and their outcomes digests,
+budget exhaustion witness or deadline witness,
+next-step obligations or quarantine decision.
+L.C2 — Operators
+L.C2.a — Quarantine on inconsistency
+If discriminator outcomes are inconsistent under replay (same input yields different outcome), classify CONFLICT and emit conflict packet plus fences (AppK). EvidencePlan execution must stop under StopOnConflict.
+
+✶ L.R — Fractal: EvidencePlanReplayCert and Deterministic Replay Closure
+L.R1 — EvidencePlanReplayCapsule
+An EvidencePlanReplayCapsule must include:
+EvidencePlan digest,
+corpus state digest at execution pulse,
+all inputs required (routes executed, fetched artifacts, log prefixes),
+expected PlanResult digest,
+expected decision log digest,
+environment pins digest.
+L.R2 — EvidencePlanReplayCert (required)
+An EvidencePlanReplayCert certifies that EvidencePlan construction and execution are deterministic and replayable.
+[
+\mathsf{EvidencePlanReplayCert}:=
+\langle
+\mathsf{EvidencePlanDigest},;
+\mathsf{CapsuleDigest},;
+\mathsf{EnvPinsDigest},;
+\mathsf{ExpectedPlanResultDigest},;
+\mathsf{ObservedPlanResultDigest},;
+\mathsf{ExpectedDecisionLogDigest},;
+\mathsf{ObservedDecisionLogDigest},;
+\mathsf{Result},;
+\mathsf{Sig}
+\rangle
+]
+Result is PASS iff:
+replay reproduces the same candidate set (including ordering),
+reproduces the same discriminator selection order,
+reproduces the same discriminator outcomes,
+reproduces the same stop condition,
+and reproduces the same promotion artifacts when resolution occurs.
+Failures are FAIL or CONFLICT per pinned policy and must trigger quarantine when reproducible disagreement exists.
+
+AppL Tight Spec-Only Version (Normative Extraction)
+EvidencePlan is mandatory for AMBIG and must include bounded candidates, discriminators, routes, budgets, stop rules, promotion hooks, expected outcome mapping, replay pointer, and pin closure digests.
+Candidate generation is deterministic and bounded; truncation must be explicit with witnesses.
+Discriminator selection and execution order are deterministic and pinned; unpinned heuristics are forbidden.
+Stop rules are deterministic and pinned; conflict outcomes must stop and emit conflict packets/fences.
+Promotion hooks integrate EvidencePlan execution into Ch20 scheduler; resolution emits append-only promotion artifacts and superseding evidence rows.
+EvidencePlanReplayCert is required and must verify replay closure of plan construction and execution.
+
+AppL — AMBIG Evidence Plans (Bounded Search, Discriminators, Stop Rules)
+AppM — Fractal/Recursion, Snap/Meta-zero, Scaling and Renormalization Interfaces
+Station role: recursion/multiscale carrier; snap/canonical representative + residual ledger interfaces.
+Purpose: define the fractal lens machinery: recursion policies, snap operators, and renormalization-compatible invariants.
+
+□ M.S — Square: Snap as Canonical Representative + Residual Ledger Emission
+M.S1 — Objects
+M.S1.a — Fractal state carrier
+A Fractal carrier is a multiscale control/state object providing:
+recursion frames (depth indexed),
+checkpointing,
+Snap computation state,
+and renormalization interfaces.
+[
+\mathsf{FrState}:=
+\langle
+\mathsf{FrVer},;
+\mathsf{SeedID},;
+\mathsf{PulseID},;
+\mathsf{DepthIndex},;
+\mathsf{DepthBudget},;
+\mathsf{ScaleIndex},;
+\mathsf{ScaleLadderDigest},;
+\mathsf{SnapPolicyDigest},;
+\mathsf{GateSeqDigest},;
+\mathsf{FrameStackDigest},;
+\mathsf{CheckpointChainDigest},;
+\mathsf{ReceiptsDigest},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+SeedID binds the aether seed identity (Ch14).
+DepthIndex and DepthBudget bind recursion legality (AppG).
+ScaleIndex binds multi-resolution level (scale ladder).
+SnapPolicyDigest pins Snap behavior (M.S1.c).
+GateSeqDigest pins the ordered corridor gate list.
+FrameStackDigest commits to the recursion frame stack (M.S3).
+CheckpointChainDigest commits to checkpoints (M.S4).
+ReceiptsDigest binds required holonomy/commutation receipts used in Snap gating (Ch09).
+M.S1.b — Meta-zero set and fixed corridor
+Let (\mathsf{X}) be the joint state space on which Snap acts (typically a product of □○△ carriers and pinned derived observables). Let ({P_i}_{i=1}^m) be a pinned gate family, each enforcing one corridor constraint.
+Define fixed sets:
+[
+Z_i := \mathrm{Fix}(P_i) = {x\in\mathsf{X}: P_i(x)=x}.
+]
+Define the meta-zero corridor:
+[
+\mathcal{Z}\star := \bigcap{i=1}^m Z_i.
+]
+Snap is the canonical procedure to compute a representative near (\mathcal{Z}_\star) together with a residual ledger describing distances to each (Z_i) and any noncommutation effects between gates.
+M.S1.c — SnapPolicy schema (normative)
+A SnapPolicy pins the exact Snap algorithm, including gate ordering, relaxation, stopping rules, and residual ledger semantics.
+[
+\mathsf{SnapPolicy}:=
+\langle
+\mathsf{SnapVer},;
+\mathsf{PolicyID},;
+\mathsf{GateSeq},;
+\mathsf{RelaxSpec},;
+\mathsf{StopSpec},;
+\mathsf{ResidualSpec},;
+\mathsf{ReceiptSpec},;
+\mathsf{BudgetCaps},;
+\mathsf{TieBreakSpec},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+Required fields:
+GateSeq: ordered list of gate references (\langle P_1,\dots,P_m\rangle) by digest.
+RelaxSpec: relaxation parameter specification (\lambda) and update form (M.S2.c).
+StopSpec: deterministic stopping rule (M.S2.d).
+ResidualSpec: which residual channels are computed, with pinned metrics and aggregation rules (M.S2.e).
+ReceiptSpec: which holonomy/spin receipts are required during Snap (M.F2).
+BudgetCaps: (\langle \kappa,\beta,\delta,\chi\rangle) interpreted for Snap iterations and receipt checks.
+TieBreakSpec: deterministic tie-break rules used for any ambiguous choices (candidate selection, multilevel scheduling).
+M.S1.d — Canonical representative and SnapResult schema
+A Snap computation returns a canonical representative and required evidence artifacts.
+[
+\mathsf{SnapResult}:=
+\langle
+\mathsf{SnapResultVer},;
+\mathsf{InputStateDigest},;
+\mathsf{OutputStateDigest},;
+\mathsf{GateSeqDigest},;
+\mathsf{IterCount},;
+\mathsf{ResidualLedgerBundleRef},;
+\mathsf{ReceiptBundleRef?},;
+\mathsf{CheckpointRef},;
+\mathsf{ReplayPtr},;
+\mathsf{TruthType},;
+\mathsf{PinsDigest},;
+\mathsf{Sig}
+\rangle
+]
+TruthType is typed under the corridor profile:
+OK: all residuals are zero (or satisfy exact criteria) and required receipts are OK; replay closes.
+NEAR: residuals are bounded and disclosed; required receipts are OK/NEAR per policy; replay closes.
+AMBIG: candidate ambiguity exists (e.g., multiple fixed points admissible) and an evidence plan is attached.
+FAIL/CONFLICT: Snap cannot meet corridor/budget requirements or determinism fails; conflict packet and fences may be required.
+ResidualLedgerBundleRef is mandatory for NEAR. ReceiptBundleRef is mandatory when receipt checking is required by policy.
+
+M.S2 — Operators
+M.S2.a — Gate operator interface
+Each gate (P_i) is a deterministic map:
+[
+P_i : \mathsf{X} \to \mathsf{X}
+]
+with:
+gate digest,
+metric digest for its residual,
+domain spec digest (where the gate is defined),
+and a canonical failure mode schema.
+Each gate must provide a residual channel:
+[
+r_i(x) := d_i(x, P_i(x))
+]
+where (d_i) is pinned in ResidualSpec.
+M.S2.b — Snap composite map
+Given GateSeq ((P_1,\dots,P_m)), define:
+[
+T := P_m\circ \cdots \circ P_1.
+]
+M.S2.c — Snap iteration (with pinned relaxation)
+Snap iteration is defined as a deterministic recurrence.
+Strict iteration:
+[
+x^{(n+1)} := T(x^{(n)}).
+]
+Relaxed iteration (when RelaxSpec specifies (\lambda\in(0,1])):
+[
+x^{(n+1)} := (1-\lambda)x^{(n)} + \lambda,T(x^{(n)}),
+]
+where the linear combination is interpreted in the pinned carrier (\mathsf{X}) (if (\mathsf{X}) is non-linear, RelaxSpec must pin the interpolation operator; no implicit interpolation is permitted).
+RelaxSpec must pin:
+exact numeric representation policy,
+rounding policy,
+and whether (\lambda) is constant or schedule-dependent.
+M.S2.d — StopSpec (deterministic stopping rules)
+StopSpec defines a deterministic stop predicate:
+[
+\mathsf{Stop}(x^{(n)},x^{(n+1)},\mathbf{r}^{(n)},n,\mathsf{Budget})\in{\mathsf{true},\mathsf{false}}
+]
+where (\mathbf{r}^{(n)}=(r_1(x^{(n)}),\dots,r_m(x^{(n)}))). Required stop components:
+MaxIter (bounded by (\chi)),
+ConvergenceThreshold (pinned metric over state difference),
+ResidualThresholds (pinned per-gate thresholds),
+CycleDetect (deterministic detection of periodicity under pinned hash history window),
+ReceiptGate (stop and fail/quarantine if required receipts fail).
+Stopping must not depend on wall clock; it depends only on pinned values and iteration index.
+M.S2.e — Residual ledger bundle emission
+ResidualSpec pins the set of residual channels:
+Minimum required channels:
+Gate residuals (r_i(x)) for each gate.
+Commutation residual(s) when gates are declared to commute or approximately commute:
+for gate pairs ((P_i,P_j)) required by policy, compute:
+[
+c_{ij}(x) := d_{ij}(P_i(P_j(x)), P_j(P_i(x)))
+]
+with pinned metric (d_{ij}) and budget (\kappa).
+Optional drift residuals measuring deviation from seed invariants or canonical normal forms (pins required).
+Residuals must be emitted as a ResidualLedgerBundle:
+[
+\mathsf{RLB}:=
+\langle
+\mathsf{BundleVer},;
+\mathsf{SubjectDigest},;
+\mathsf{LedgerRefs},;
+\mathsf{AggregateResidual},;
+\mathsf{BudgetLedgerRef},;
+\mathsf{PinsDigest}
+\rangle
+]
+where LedgerRefs is an ordered list of ResidualLedgers (AppJ schema) keyed by channel.
+M.S2.f — Snap function
+The Snap operator is:
+[
+\mathsf{Snap} : (\mathsf{X},\mathsf{SnapPolicy},\mathsf{CorridorProfile}) \to \mathsf{SnapResult}
+]
+Algorithmically:
+Initialize (x^{(0)}:=x).
+For (n=0,1,\dots):
+compute (x^{(n+1)}) by iteration rule,
+compute residual channels,
+verify receipts as required,
+update budget ledger,
+evaluate stop predicate.
+On stop:
+compute OutputStateDigest for (x^{(n_\star)}),
+emit ResidualLedgerBundleRef,
+emit required receipts bundle,
+emit checkpoint,
+emit replay capsule pointer,
+type truth under corridor rules.
+
+M.S3 — Recursion state schemas
+M.S3.a — Frame and FrameStack
+Recursion proceeds by explicit frames and checkpoints.
+A Frame is:
+[
+\mathsf{Frame}:=
+\langle
+\mathsf{FrameVer},;
+\mathsf{FrameID},;
+\mathsf{ParentFrameID?},;
+\mathsf{DepthIndex},;
+\mathsf{ScaleIndex},;
+\mathsf{StateDigest},;
+\mathsf{CorridorID},;
+\mathsf{PinsDigest},;
+\mathsf{IssuedPulse}
+\rangle
+]
+A FrameStack is a canonical ordered list of frames, top at the end, with digest commitments. FrameStackDigest commits to canonical serialization.
+M.S3.b — Recursion legality
+Depth transitions are permitted only via HatchEvents (AppG) and must update:
+DepthIndex,
+FrameStack,
+CheckpointChain.
+Any implicit increase in DepthIndex is illegal.
+M.S3.c — Scale ladder and renormalization interface
+ScaleLadderDigest commits to the sequence of scale levels and the allowed transitions:
+[
+\mathsf{ScaleLadder} := \langle s_0,\dots,s_L\rangle
+]
+with deterministic transition rules:
+refine (increase resolution),
+coarsen (decrease resolution),
+renormalize (apply pinned renormalization operator).
+All scale transitions are logged and require witness references when they impact semantics.
+
+M.S4 — Checkpointing
+M.S4.a — Checkpoint schema
+A checkpoint binds:
+pre-state digest,
+post-state digest,
+SnapPolicyDigest,
+GateSeqDigest,
+residual bundle digest,
+receipts digest (if applicable),
+replay capsule digest.
+[
+\mathsf{Checkpoint}:=
+\langle
+\mathsf{CkVer},;
+\mathsf{CkID},;
+\mathsf{IssuedPulse},;
+k,;
+\mathsf{PreStateDigest},;
+\mathsf{PostStateDigest},;
+\mathsf{SnapPolicyDigest},;
+\mathsf{ResidualBundleDigest},;
+\mathsf{ReceiptBundleDigest?},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest},;
+\mathsf{Sig}
+\rangle
+]
+Checkpoint chain is a hashed chain:
+[
+\mathsf{CkChain}(t) = \mathsf{H}(\mathsf{ser}(\mathsf{CkChain}(t-1), \mathsf{did}(\mathsf{Checkpoint}_t))).
+]
+This chain is committed inside FrState.
+M.S4.b — Checkpoint integrity invariant
+Mismatch between replayed checkpoint digest and recorded checkpoint digest is FAIL/CONFLICT under corridor policy. A checkpoint cannot be “fixed”; it can only be superseded by append-only new checkpoints and new policies.
+
+❀ M.F — Flower: Renormalization-Compatible Invariants and Topology Receipts
+M.F1 — Objects
+M.F1.a — Renormalization operator interface
+A renormalization operator (R_s) maps state at scale (s) to a canonical comparable state at another scale (s'):
+[
+R_{s\to s'} : \mathsf{X}s \to \mathsf{X}{s'}
+]
+pinned by digest and schema. Renormalization-compatible invariants are those preserved under (R_{s\to s'}) for declared transitions.
+M.F1.b — InvariantSpec
+An InvariantSpec is:
+[
+\mathsf{InvSpec}:=
+\langle
+\mathsf{InvVer},;
+\mathsf{InvID},;
+\mathsf{ScopeDigest},;
+\mathsf{PredicateRef},;
+\mathsf{MetricDigest?},;
+\mathsf{Tolerance?},;
+\mathsf{PinsDigest}
+\rangle
+]
+where PredicateRef is a digest-qualified procedure for checking the invariant.
+M.F2 — Operators
+M.F2.a — Receipt gating
+SnapPolicy may require topology receipts (spin/holonomy) as gates. ReceiptSpec pins which receipts are required for which gate pairs or schedule reorderings. Missing or failing receipts force AMBIG/FAIL per corridor.
+M.F3 — Invariants
+M.F3.a — Renormalization invariance
+If an invariant is declared renormalization-compatible, its check must commute with renormalization up to declared tolerance:
+[
+\mathsf{Inv}(R(x)) \approx \mathsf{Inv}(x)
+]
+with approximation semantics pinned by InvSpec.
+
+☁ M.C — Cloud: Truth Typing for Snap and Residual/AMBIG Discipline
+M.C1 — Objects
+M.C1.a — Snap truth typing
+Snap outcomes are typed by corridor rules:
+OK: all residual channels are zero (or satisfy exact criteria), required receipts OK, replay closes.
+NEAR: residual channels bounded by (\beta) and commutation bounded by (\kappa); residual ledgers required; replay closes.
+AMBIG: multiple admissible fixed points or multiple admissible gate schedules without pinned discrimination; requires EvidencePlan (AppL).
+FAIL/CONFLICT: determinism violation, budget overflow without allowed downgrade, or replay disagreement.
+M.C2 — Operators
+M.C2.a — Multi-solution ambiguity detection
+If SnapPolicy permits multiple initializations or multilevel schedules, ambiguity must be bounded and represented explicitly; otherwise failure is required.
+M.C3 — Invariants
+M.C3.a — No silent NEAR/AMBIG
+NEAR requires ResidualLedgerBundle; AMBIG requires EvidencePlan; absence is FAIL.
+
+✶ M.R — Fractal: Replay Closure and FractalReplayCert
+M.R1 — FractalReplayCapsule
+A FractalReplayCapsule must include:
+SnapPolicy digest,
+GateSeq digests and gate artifacts,
+initial state digest and retrieval closure,
+environment pins digest,
+expected SnapResult digest,
+expected residual bundle digest,
+expected checkpoint digest,
+required receipt digests (if any),
+budget caps and expected budget ledger digest.
+M.R2 — FractalReplayCert (required)
+A FractalReplayCert certifies that Snap and recursion/checkpoint behavior are reproducible under pinned environment and policies.
+[
+\mathsf{FractalReplayCert}:=
+\langle
+\mathsf{FrStateDigest},;
+\mathsf{SnapPolicyDigest},;
+\mathsf{CapsuleDigest},;
+\mathsf{EnvPinsDigest},;
+\mathsf{ExpectedSnapResultDigest},;
+\mathsf{ObservedSnapResultDigest},;
+\mathsf{ExpectedResidualBundleDigest},;
+\mathsf{ObservedResidualBundleDigest},;
+\mathsf{ExpectedCheckpointDigest},;
+\mathsf{ObservedCheckpointDigest},;
+\mathsf{Result},;
+\mathsf{Sig}
+\rangle
+]
+Result is PASS iff all expected digests match observed digests and all required receipts verify under pinned rules.
+Mismatch yields FAIL/CONFLICT per corridor policy and triggers quarantine when required.
+
+AppM Tight Spec-Only Version (Normative Extraction)
+SnapPolicy pins ordered corridor gates, relaxation, stopping rules, residual channels, receipt requirements, budgets, and tie-break rules.
+Snap returns a canonical representative plus ResidualLedgerBundle and checkpoint; truth typing is determined by corridor rules and must be replayable.
+Recursion is represented by explicit frames, depth ledgers, and hatch/ checkpoint boundaries; no implicit recursion is permitted.
+Scale transitions and renormalization operators are pinned and must preserve declared renormalization-compatible invariants within pinned tolerances.
+Residual and commutation channels are mandatory outputs; NEAR requires residual ledgers; AMBIG requires evidence plans; FAIL/CONFLICT require failure/conflict artifacts.
+FractalReplayCert is required and must validate deterministic replay of Snap results, residual bundles, receipt checks, and checkpoint digests.
+
+AppM — Fractal/Recursion, Snap/Meta-zero, Scaling and Renormalization Interfaces
+AppN — Containers, Buckets, Mount/Salvage Doctrine, Replay Harnesses
+Station role: container system backbone; mount/salvage rules; replay harness structure.
+Purpose: define container formats, mount rules, salvage outcomes, and replay harness expectations used by Ch18 and enforced in Ch21.
+
+□ N.S — Square: Container Schemas, Deterministic Manifests, and Content-Addressed Layout
+N.S1 — Objects
+N.S1.a — Container as a typed, self-describing bundle
+A Container is a self-describing, content-addressed package:
+[
+\mathsf{Container}:=
+\langle
+\mathsf{ContVer},;
+\mathsf{ContID},;
+\mathsf{ManifestRef},;
+\mathsf{PayloadLayoutRef},;
+\mathsf{ChunkIndexRef},;
+\mathsf{PinManifestRef},;
+\mathsf{WitnessIndexRef},;
+\mathsf{ReplayIndexRef},;
+\mathsf{DisclosureIndexRef},;
+\mathsf{FenceIndexRef},;
+\mathsf{RevocationIndexRef},;
+\mathsf{SignatureBundleRef?},;
+\mathsf{ContDigest}
+\rangle
+]
+ContID and ContDigest are content-addressed digests of the container bytes under canonical encoding.
+All *Ref fields are addressable references (digest + schema ID + locator).
+Missing required references invalidates import acceptance for deploy corridors.
+N.S1.b — Deterministic manifest schema (mandatory)
+A ContainerManifest is the authoritative self-description.
+[
+\mathsf{Manifest}:=
+\langle
+\mathsf{ManVer},;
+\mathsf{SchemaSetDigest},;
+\mathsf{CanonBytesDigest},;
+\mathsf{HashAlgDigest},;
+\mathsf{ContainerFormatID},;
+\mathsf{LayoutPolicyDigest},;
+\mathsf{ChunkPolicyDigest},;
+\mathsf{CompressionPolicyDigest},;
+\mathsf{EncryptionPolicyDigest?},;
+\mathsf{PinPolicyDigest},;
+\mathsf{ReplayPolicyDigest},;
+\mathsf{ImportPolicyDigest},;
+\mathsf{RevocationPolicyDigest},;
+\mathsf{DisclosurePolicyDigest},;
+\mathsf{FencePolicyDigest},;
+\mathsf{Scope},;
+\mathsf{PulseRange?},;
+\mathsf{ProducedBy},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Deterministic requirements:
+Manifest must be canonically serializable under CanonBytesDigest.
+Every referenced policy digest must resolve and be included in the pin closure.
+ContainerFormatID selects a concrete byte layout; format changes require migration.
+If encryption is enabled, EncryptionPolicyDigest must pin algorithm, mode, key identifier policy, and deterministic IV derivation rules (or explicitly permit nondeterministic IVs and mark output non-replayable for strict corridors; default forbids nondeterministic encryption for replayable containers).
+N.S1.c — Payload layout and chunk index
+Payload is represented as a set of chunks. A ChunkIndex is:
+[
+\mathsf{ChunkIndex}:=
+\langle
+\mathsf{ChunkVer},;
+\mathsf{ChunkPolicyDigest},;
+\mathsf{Chunks},;
+\mathsf{RootDigest},;
+\mathsf{IndexDigest}
+\rangle
+]
+Chunks is an ordered list:
+[
+\mathsf{Chunk}:=\langle \mathsf{ChunkID},\ \mathsf{Offset},\ \mathsf{Length},\ \mathsf{ChunkDigest},\ \mathsf{Role}\rangle
+]
+Ordering of chunks is pinned (by role then offset then digest).
+RootDigest is a Merkle root or canonical fold digest over ordered chunk digests (pinned by ChunkPolicyDigest).
+IndexDigest is content address for ChunkIndex with IndexDigest field zeroed.
+N.S1.d — PinManifest (mandatory)
+A PinManifest is the explicit pin closure required to interpret and replay the container.
+[
+\mathsf{PinManifest}:=
+\langle
+\mathsf{PinVer},;
+\mathsf{PinsDigest},;
+\mathsf{Pins},;
+\mathsf{ClosureDigest},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Pins is a canonical ordered map from pin keys to digests.
+ClosureDigest commits to the transitive closure of pinned digests required for interpretation (schemas, policies, profiles, codebooks, harnesses).
+PinsDigest is the digest of the canonical pins map.
+N.S1.e — Witness, replay, disclosure, fence, and revocation indices
+Indices are mandatory tables mapping semantic roles to artifact references.
+WitnessIndex: proofs, tests, expected digests, baseline pointers.
+ReplayIndex: replay capsules and harness entrypoints.
+DisclosureIndex: NEAR disclosure bundles (AppJ) and AMBIG evidence plans (AppL).
+FenceIndex: conflict packets and fences (AppK).
+RevocationIndex: revocation receipts or revocation list digests (AppK/AppO).
+Each index is a deterministic, canonically ordered table with an index digest.
+
+N.S2 — Operators
+N.S2.a — Deterministic container build operator
+[
+\mathsf{BuildContainer} : (\mathsf{PayloadArtifacts},\mathsf{PinClosure},\mathsf{Policies}) \to \mathsf{Container}
+]
+BuildContainer must:
+Canonicalize all referenced artifacts and policies.
+Construct deterministic layout and chunking per ChunkPolicyDigest.
+Compute chunk digests and root digest deterministically.
+Emit indices (PinManifest, WitnessIndex, ReplayIndex, DisclosureIndex, FenceIndex, RevocationIndex).
+Emit manifest and sign as required.
+Produce container bytes deterministically; ContDigest must match computed bytes digest.
+Any nondeterminism in layout, ordering, compression, or encryption must be pinned and reflected in corridor truth typing; strict replay corridors forbid unpinned nondeterminism.
+N.S2.b — Deterministic container parse operator
+[
+\mathsf{ParseContainer} : (\mathsf{Bytes}) \to (\mathsf{Container},\mathsf{Manifest},\mathsf{ChunkIndex},\ldots) \cup \mathsf{ParseFail}
+]
+Parsing must validate:
+schema versions,
+canonical encodings,
+chunk index and root digest consistency,
+manifest signature validity if required.
+N.S2.c — Deterministic integrity verification operator
+[
+\mathsf{VerifyIntegrity} : (\mathsf{Container}) \to {\mathsf{PASS},\mathsf{FAIL}}\times \mathsf{IntegrityReport}
+]
+IntegrityReport must include:
+manifest digest check,
+chunk digests check,
+root digest check,
+index digests check,
+pin manifest check.
+Failures are classified deterministically with minimal failure witnesses.
+
+N.S3 — Invariants
+N.S3.a — Deterministic manifest invariant
+For fixed inputs and pinned policies:
+[
+\mathsf{did}(\mathsf{Manifest})\ \text{is deterministic.}
+]
+Any manifest drift under identical inputs is a determinism failure.
+N.S3.b — Content-addressed closure invariant
+Every reference digest in indices must resolve to content whose digest matches the reference; otherwise the container is invalid.
+N.S3.c — Replay closure invariant for replayable containers
+If the container declares replayability under ReplayPolicyDigest, then:
+ReplayIndex must be complete,
+replay capsules must resolve,
+and replay must reproduce expected digests.
+A replayable container missing required replay capsules is invalid for deploy corridors.
+
+N.S4 — Protocols: Deterministic indices and canonical ordering
+N.S4.a — Canonical ordering rules
+All maps are encoded with keys in canonical byte order. All lists with semantic set meaning are sorted by pinned comparator. Chunk ordering is by (role, offset, digest).
+N.S4.b — Deterministic index construction
+All index digests must be recomputable from referenced artifacts. Index construction must not depend on file system ordering or network order.
+
+❀ N.F — Flower: Mount Rules, Seek Semantics, and Replay Harness Structure
+N.F1 — Objects
+N.F1.a — MountContext
+Mounting is interpreting a container into an executable artifact store view.
+[
+\mathsf{MountContext}:=
+\langle
+\mathsf{MountVer},;
+\mathsf{ContainerDigest},;
+\mathsf{PolicyDigests},;
+\mathsf{EnvPinsDigest},;
+\mathsf{ResolvedPinsDigest},;
+\mathsf{RevocationSetDigest},;
+\mathsf{FenceSetDigest},;
+\mathsf{MountDigest}
+\rangle
+]
+MountContext must be content-addressed and must com

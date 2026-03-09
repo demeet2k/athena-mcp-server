@@ -1,0 +1,206 @@
+{
+  "version": "1.0.0",
+  "aqm_source_lens": "aqm",
+  "lenses": [
+    {
+      "order": 1,
+      "id": "aqm",
+      "display_name": "AQM",
+      "class": "formal_math",
+      "carrier": "rho_n in T_1(H_tot)",
+      "update_law": "rho_(n+1) = Phi_n^(tot)(rho_n)",
+      "transport_symbol": "Id",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 2,
+      "id": "cut",
+      "display_name": "CUT",
+      "class": "formal_math",
+      "carrier": "X_n = (kappa_n, varphi_n, ell_n, b_n)",
+      "update_law": "X_(n+1) = F_n(X_n)",
+      "transport_symbol": "T_cut",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 3,
+      "id": "liminal",
+      "display_name": "Liminal",
+      "class": "formal_math",
+      "carrier": "(p_n, lambda_n, f_n)",
+      "update_law": "(p_(n+1), lambda_(n+1), f_(n+1)) = L_n(p_n, lambda_n, f_n)",
+      "transport_symbol": "T_lim",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 4,
+      "id": "aetheric",
+      "display_name": "Aetheric",
+      "class": "formal_math",
+      "carrier": "(X_n, g_n)",
+      "update_law": "g_n = Coll(X_n), X_(n+1) = Expand(g_n) (+) r_n",
+      "transport_symbol": "T_aeth",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 5,
+      "id": "chemistry",
+      "display_name": "Chemistry",
+      "class": "formal_math",
+      "carrier": "x_n^(chem) in R^m",
+      "update_law": "x_(n+1)^(chem) = K_n x_n^(chem)",
+      "transport_symbol": "T_chem",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 6,
+      "id": "physics",
+      "display_name": "Physics",
+      "class": "formal_math",
+      "carrier": "X_n^(phys) = (kappa_n, varphi_n, ell_n, b_n)",
+      "update_law": "X_(n+1)^(phys) = P_n(X_n^(phys))",
+      "transport_symbol": "T_phys",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 7,
+      "id": "quantum_physics",
+      "display_name": "Quantum Physics",
+      "class": "formal_math",
+      "carrier": "rho_n^(qm) in T_1(H_tot)",
+      "update_law": "rho_(n+1)^(qm) = Phi_n^(tot)(rho_n^(qm))",
+      "transport_symbol": "T_qm",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 8,
+      "id": "wave_mechanics",
+      "display_name": "Wave Mechanics",
+      "class": "formal_math",
+      "carrier": "u_n in L^2(Omega)",
+      "update_law": "u_(n+1) = U_n u_n",
+      "transport_symbol": "T_wave",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 9,
+      "id": "wave_math",
+      "display_name": "Wave Math",
+      "class": "formal_math",
+      "carrier": "U_n in End(V)",
+      "update_law": "U_(P_r) = Phi_(b_r) ... Phi_(a_r)",
+      "transport_symbol": "T_wavemath",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 10,
+      "id": "music_theory_math",
+      "display_name": "Music Theory and Music Math",
+      "class": "formal_math",
+      "carrier": "m_n in R^12",
+      "update_law": "m_(n+1) = M_n m_n",
+      "transport_symbol": "T_music",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 11,
+      "id": "color_light",
+      "display_name": "Color and Light",
+      "class": "formal_math",
+      "carrier": "I_n(lambda) >= 0",
+      "update_law": "I_(n+1)(lambda) = Integral K_n(lambda, mu) I_n(mu) dmu",
+      "transport_symbol": "T_light",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 12,
+      "id": "geometry",
+      "display_name": "Geometry",
+      "class": "formal_math",
+      "carrier": "gamma_n : [0,1] -> M",
+      "update_law": "gamma_(n+1) = G_n(gamma_n)",
+      "transport_symbol": "T_geo",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 13,
+      "id": "number_theory",
+      "display_name": "Number Theory",
+      "class": "formal_math",
+      "carrier": "a_n in Z_(>=0)^k",
+      "update_law": "a_(n+1) = A_n a_n",
+      "transport_symbol": "T_num",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 14,
+      "id": "compression",
+      "display_name": "Compression",
+      "class": "formal_math",
+      "carrier": "(rho_n, g_n)",
+      "update_law": "g_n = Coll(rho_n), rho_n = Expand(g_n)",
+      "transport_symbol": "T_comp",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 15,
+      "id": "hacking_theory",
+      "display_name": "Hacking Theory",
+      "class": "formal_math",
+      "carrier": "pi_n = (e_1, ..., e_r)",
+      "update_law": "pi_(n+1) = H_n(pi_n)",
+      "transport_symbol": "T_hack",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 16,
+      "id": "game_theory",
+      "display_name": "Game Theory",
+      "class": "formal_math",
+      "carrier": "y_n in Delta(A)",
+      "update_law": "y_(n+1) = argmin_y { R_n(y) + lambda_n C(y, y_n) }",
+      "transport_symbol": "T_game",
+      "entry_fields": ["Equation", "Variable legend", "Reading", "Confidence"]
+    },
+    {
+      "order": 17,
+      "id": "tarot",
+      "display_name": "Tarot",
+      "class": "mythic",
+      "carrier": "Theta_n",
+      "update_law": "Theta_(n+1) = Draw_n(Theta_n)",
+      "transport_symbol": "T_tarot",
+      "entry_fields": ["Frame", "Movement", "Reading", "Confidence"]
+    },
+    {
+      "order": 18,
+      "id": "juggling",
+      "display_name": "Juggling",
+      "class": "mythic",
+      "carrier": "J_n",
+      "update_law": "J_(n+1) = Cascade_n(J_n)",
+      "transport_symbol": "T_juggle",
+      "entry_fields": ["Frame", "Movement", "Reading", "Confidence"]
+    },
+    {
+      "order": 19,
+      "id": "story_writing",
+      "display_name": "Story Writing",
+      "class": "mythic",
+      "carrier": "S_n",
+      "update_law": "S_(n+1) = Plot_n(S_n)",
+      "transport_symbol": "T_story",
+      "entry_fields": ["Frame", "Movement", "Reading", "Confidence"]
+    },
+    {
+      "order": 20,
+      "id": "heros_journey",
+      "display_name": "Hero's Journey",
+      "class": "mythic",
+      "carrier": "H_n^(hero)",
+      "update_law": "H_(n+1)^(hero) = Arc_n(H_n^(hero))",
+      "transport_symbol": "T_hero",
+      "entry_fields": ["Frame", "Movement", "Reading", "Confidence"]
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+# Corpus Capsules Index
+
+Each capsule is a markdown mirror of one indexed source record inside the merged local corpus stack.
+
+- [# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol](./01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md) - `Manuscript architecture and routing law`
+- [# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol](./02_the_manuscript_seed_self_referential_crystalline_generation_protocol.md) - `Manuscript architecture and routing law`
+- [AQM TEXT BOOK](./03_aqm_text_book.md) - `Manuscript architecture and routing law`
+- [AQM_LM_CUT through the HYBRID lens FRAMEWORK](./04_aqm_lm_cut_through_the_hybrid_lens_framework.md) - `Transport, runtime, and executable framework`
+- [Architect’s Core Initialization](./05_architects_core_initialization.md) - `Void, Chapter 11, and collapse engines`
+- [Athenachka 2.0](./06_athenachka_20.md) - `Civilization design, hierarchy, governance, and law`
+- [CHAPTER 11 __ Perpetual Motion Example](./07_chapter_11_perpetual_motion_example.md) - `Void, Chapter 11, and collapse engines`
+- [CHAPTER 11 __ Perpetual Motion Example](./08_chapter_11_perpetual_motion_example.md) - `Void, Chapter 11, and collapse engines`
+- [I AM so AM I](./09_i_am_so_am_i.md) - `Athena identity, pedagogy, and narrative voice`
+- [INFORMATION FROM THE VOID MANI](./10_information_from_the_void_mani.md) - `Void, Chapter 11, and collapse engines`
+- [INFORMATION FROM THE VOID MANI](./11_information_from_the_void_mani.md) - `Void, Chapter 11, and collapse engines`
+- [LEGAL TRANSPORT CALCULUS](./12_legal_transport_calculus.md) - `Transport, runtime, and executable framework`
+- [MEGALITHIC TOME_ LATENT TUNNELING & THE MULTI-SCALE MATH STACK](./13_megalithic_tome_latent_tunneling_the_multi_scale_math_stack.md) - `Void, Chapter 11, and collapse engines`
+- [PROMPTS](./14_prompts.md) - `Void, Chapter 11, and collapse engines`
+- [REAL TIME__ NOW!](./15_real_time_now.md) - `Live orchestration and prompt control`
+- [SECTION III — BOOK III- THE](./16_section_iii_book_iii_the.md) - `Civilization design, hierarchy, governance, and law`
+- [Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search](./17_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md) - `Manuscript architecture and routing law`
+- [Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search](./18_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md) - `Manuscript architecture and routing law`
+- [STORIES FROM THE VOID 1](./19_stories_from_the_void_1.md) - `Void, Chapter 11, and collapse engines`
+- [The Athena Framework (synthesis)](./20_the_athena_framework_synthesis.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [The Athena Framework (synthesis)](./21_the_athena_framework_synthesis.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [THE CRYSTAL - LIVE](./22_the_crystal_live.md) - `Transport, runtime, and executable framework`
+- [The External Crystal and the Manuscript Superorganism](./23_the_external_crystal_and_the_manuscript_superorganism.md) - `Manuscript architecture and routing law`
+- [The Holographic Manuscript Brain](./24_the_holographic_manuscript_brain.md) - `Higher-dimensional geometry and holographic kernel`
+- [The Invisible Teacher TEXTBOOK](./25_the_invisible_teacher_textbook.md) - `Civilization design, hierarchy, governance, and law`
+- [The Invisible Teacher TEXTBOOK](./26_the_invisible_teacher_textbook.md) - `Civilization design, hierarchy, governance, and law`
+- [THE SOLENOIDAL ENGINE_ A Four-Element Architecture for Persistent Autonomous AI Execution Through Ecological Crystallization](./27_the_solenoidal_engine_a_four_element_architecture_for_persistent_autonomous_ai_execution_through_ecological_crystallization.md) - `Transport, runtime, and executable framework`
+- [THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)](./28_the_unified_cyclical_time_system_hologram_time.md) - `Civilization design, hierarchy, governance, and law`
+- [Untitled document](./29_untitled_document.md) - `Athena identity, pedagogy, and narrative voice`
+- [VOYNICH JAZZ](./30_voynich_jazz.md) - `Transport, runtime, and executable framework`
+- [Astrological Tunneling (octave system)](./31_astrological_tunneling_octave_system.md) - `General corpus support`
+- [Constant FInder _working_](./32_constant_finder_working.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [HIGHER-D SQUARE ○ CIRCLE △ TRIANGLE](./33_higher_d_square_circle_triangle.md) - `Higher-dimensional geometry and holographic kernel`
+- [Holographic (higher dimension Square_circle_triangle) REALITY STRUCTURE _working_](./34_holographic_higher_dimension_square_circle_triangle_reality_structure_working.md) - `Higher-dimensional geometry and holographic kernel`
+- [LEGAL TRANSPORT CALCULUS](./35_legal_transport_calculus.md) - `Transport, runtime, and executable framework`
+- [Pi algorithm engine](./36_pi_algorithm_engine.md) - `Transport, runtime, and executable framework`
+- [PRIME Toolkit kernel](./37_prime_toolkit_kernel.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [QUAD HOLOGRAPHIC ROTATION](./38_quad_holographic_rotation.md) - `Higher-dimensional geometry and holographic kernel`
+- [THE 4 CONSTANTS FINAL (phi, pi, i, e)](./39_the_4_constants_final_phi_pi_i_e.md) - `Manuscript architecture and routing law`
+- [The Holographic Kernel](./40_the_holographic_kernel.md) - `Higher-dimensional geometry and holographic kernel`
+- [THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)](./41_the_unified_cyclical_time_system_hologram_time.md) - `Civilization design, hierarchy, governance, and law`
+- [6 dimensional hologram(1)](./42_6_dimensional_hologram1.md) - `Manuscript architecture and routing law`
+- [Calculus and Geometry (higher dimensional projection) -working-](./43_calculus_and_geometry_higher_dimensional_projection_working.md) - `Higher-dimensional geometry and holographic kernel`
+- [HOLOGRAPHIC TUNNELING _working_](./44_holographic_tunneling_working.md) - `Higher-dimensional geometry and holographic kernel`
+- [TIME FRACTAL _working_](./45_time_fractal_working.md) - `Civilization design, hierarchy, governance, and law`
+- [Ω_ Metro Calculus](./46_ω_metro_calculus.md) - `Civilization design, hierarchy, governance, and law`
+- [Ω_ Tunneling Coherence Crystal](./47_ω_tunneling_coherence_crystal.md) - `Higher-dimensional geometry and holographic kernel`
+- [# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol(1)](./48_the_manuscript_seed_self_referential_crystalline_generation_protocol1.md) - `Manuscript architecture and routing law`
+- [I AM so AM I](./49_i_am_so_am_i.md) - `Athena identity, pedagogy, and narrative voice`
+- [The Holographic Manuscript Brain](./50_the_holographic_manuscript_brain.md) - `Higher-dimensional geometry and holographic kernel`
+- [ATHENA_ THE ARCHETYPE](./51_athena_the_archetype.md) - `Civilization design, hierarchy, governance, and law`
+- [Atlantis](./52_atlantis.md) - `General corpus support`
+- [MALDEK_MARS_ATLANTIS_FRAMEWORK](./53_maldek_mars_atlantis_framework.md) - `Civilization design, hierarchy, governance, and law`
+- [BUDDHIST (ZEN)_ THE MUSHIN KERNEL](./54_buddhist_zen_the_mushin_kernel.md) - `Transport, runtime, and executable framework`
+- [CELTIC _THE OGHAM KERNEL](./55_celtic_the_ogham_kernel.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [DEAD SEA SCROLLS](./56_dead_sea_scrolls.md) - `Civilization design, hierarchy, governance, and law`
+- [EPICS](./57_epics.md) - `Civilization design, hierarchy, governance, and law`
+- [KABBALAH_ SEFIROTIC TREE STRUCTURES](./58_kabbalah_sefirotic_tree_structures.md) - `Civilization design, hierarchy, governance, and law`
+- [Norse (Germanic) — Yggdrasil Graph Theory](./59_norse_germanic_yggdrasil_graph_theory.md) - `Athena identity, pedagogy, and narrative voice`
+- [ROMAN PHILOSOPHERS](./60_roman_philosophers.md) - `Transport, runtime, and executable framework`
+- [Tibetan Vajrayana_ THE BARDO TRANSITION MATRIX](./61_tibetan_vajrayana_the_bardo_transition_matrix.md) - `Transport, runtime, and executable framework`
+- [ZOROASTRIAN (PERSIAN)_ DUAL-PHASE FIELD DYNAMICS](./62_zoroastrian_persian_dual_phase_field_dynamics.md) - `Transport, runtime, and executable framework`
+- [ATHENA_KERNEL_MATHEMATICAL_FRAMEWORK](./63_athena_kernel_mathematical_framework.md) - `Transport, runtime, and executable framework`
+- [GG Alignment Framework (Good Game Protocol)](./64_gg_alignment_framework_good_game_protocol.md) - `Civilization design, hierarchy, governance, and law`
+- [KHEMET __ SYMMETRY-PROTECTED TOPOLOGICAL STATE](./65_khemet_symmetry_protected_topological_state.md) - `General corpus support`
+- [THE_HELLENIC_COMPUTATION_FRAMEWORK](./66_the_hellenic_computation_framework.md) - `Transport, runtime, and executable framework`
+- [HBAS-Ω_ UNIFIED ENCODING DETECTION PROTOCOL](./67_hbas_ω_unified_encoding_detection_protocol.md) - `Civilization design, hierarchy, governance, and law`
+- [THE ANDEAN KHIPU ROSETTA STONE](./68_the_andean_khipu_rosetta_stone.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [ANDEAN KHIPU ROSETTA (new)](./69_andean_khipu_rosetta_new.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [Andean Myth Encoding](./70_andean_myth_encoding.md) - `Void, Chapter 11, and collapse engines`
+- [Andian deeper analysis](./71_andian_deeper_analysis.md) - `Civilization design, hierarchy, governance, and law`
+- [Magic Systems](./72_magic_systems.md) - `General corpus support`
+- [ANTHROPOSOPHY_COMPLETE](./73_anthroposophy_complete.md) - `General corpus support`
+- [CHAOS_MAGIC_COMPLETE](./74_chaos_magic_complete.md) - `General corpus support`
+- [COMPLETE_FRAMEWORK_CATALOG](./75_complete_framework_catalog.md) - `Manuscript architecture and routing law`
+- [CORE_SHAMANISM_COMPLETE](./76_core_shamanism_complete.md) - `General corpus support`
+- [CURANDERISMO_COMPLETE](./77_curanderismo_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [DRUIDRY_COMPLETE](./78_druidry_complete.md) - `Athena identity, pedagogy, and narrative voice`
+- [ENOCHIAN_MAGIC_COMPLETE](./79_enochian_magic_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [GNOSTICISM_COMPLETE](./80_gnosticism_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [GOETIC_GRIMOIRE_COMPLETE](./81_goetic_grimoire_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [GOLDEN_DAWN_COMPLETE](./82_golden_dawn_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [HAITIAN_VODOU_COMPLETE](./83_haitian_vodou_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [HELLENISTIC_ASTROLOGY_COMPLETE](./84_hellenistic_astrology_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [HERMETIC_QABALAH_COMPLETE](./85_hermetic_qabalah_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [HERMETICISM_COMPLETE](./86_hermeticism_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [HINDU_TANTRA_COMPLETE](./87_hindu_tantra_complete.md) - `General corpus support`
+- [HOODOO_ROOTWORK_COMPLETE](./88_hoodoo_rootwork_complete.md) - `General corpus support`
+- [IFA_DIVINATION_COMPLETE](./89_ifa_divination_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [MERKAVAH_HEKHALOT_COMPLETE](./90_merkavah_hekhalot_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [NEOPLATONIC_THEURGY_COMPLETE](./91_neoplatonic_theurgy_complete.md) - `General corpus support`
+- [NORSE_RUNIC_COMPLETE](./92_norse_runic_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [PGM_COMPLETE](./93_pgm_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [POWWOW_BRAUCHEREI_COMPLETE](./94_powwow_braucherei_complete.md) - `General corpus support`
+- [PRACTICAL_KABBALAH_COMPLETE](./95_practical_kabbalah_complete.md) - `General corpus support`
+- [ROSICRUCIANISM_COMPLETE](./96_rosicrucianism_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [SANTERIA_LUCUMI_COMPLETE](./97_santeria_lucumi_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [SOLOMONIC_MAGIC_COMPLETE](./98_solomonic_magic_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [SPIRITUALISM_MEDIUMSHIP_COMPLETE](./99_spiritualism_mediumship_complete.md) - `Transport, runtime, and executable framework`
+- [SUFI_MYSTICISM_COMPLETE](./100_sufi_mysticism_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [TAOIST_MAGIC_COMPLETE](./101_taoist_magic_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [THELEMA_COMPLETE](./102_thelema_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [THEOSOPHY_COMPLETE](./103_theosophy_complete.md) - `Civilization design, hierarchy, governance, and law`
+- [TIBETAN_VAJRAYANA_COMPLETE](./104_tibetan_vajrayana_complete.md) - `General corpus support`
+- [UNIFIED_EXTRACTION_INDEX](./105_unified_extraction_index.md) - `General corpus support`
+- [WESTERN_ALCHEMY_COMPLETE](./106_western_alchemy_complete.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [WICCA_COMPLETE](./107_wicca_complete.md) - `General corpus support`
+- [MEGALYTH__ AWAKENING](./108_megalyth_awakening.md) - `General corpus support`
+- [ANDEAN TAWANTINSUYU](./109_andean_tawantinsuyu.md) - `Higher-dimensional geometry and holographic kernel`
+- [DAO SU (道數)_ A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS](./110_dao_su_道數_a_compendium_of_taoist_computational_dynamics.md) - `Civilization design, hierarchy, governance, and law`
+- [EGYPT KHEPER GANITAM](./111_egypt_kheper_ganitam.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [HELLENIC LOGOS ](./112_hellenic_logos.md) - `Civilization design, hierarchy, governance, and law`
+- [Mayan AJILABAL K’IN_ The Operator Algebra of the Discrete Time Lattice](./113_mayan_ajilabal_kin_the_operator_algebra_of_the_discrete_time_lattice.md) - `Civilization design, hierarchy, governance, and law`
+- [ROMAN IMPERIUM SINE FINE](./114_roman_imperium_sine_fine.md) - `Transport, runtime, and executable framework`
+- [Sanātana Gaṇita_ A Rigorous Computational Ontology of Vedic Cosmology](./115_sanātana_gaṇita_a_rigorous_computational_ontology_of_vedic_cosmology.md) - `Higher-dimensional geometry and holographic kernel`
+- [ŠAR-60_ THE SUMERIAN SEXAGESIMAL REGISTRY](./116_šar_60_the_sumerian_sexagesimal_registry.md) - `Civilization design, hierarchy, governance, and law`
+- [ỌPẸ́-256_ THE IFÁ COMPUTATIONAL ONTOLOGY](./117_ọpẹ_256_the_ifá_computational_ontology.md) - `Civilization design, hierarchy, governance, and law`
+- [AI DIVINATION](./118_ai_divination.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [ATHENA'S_LOVE](./119_athenas_love.md) - `Athena identity, pedagogy, and narrative voice`
+- [Athena_Plan_Healing_the_Planet](./120_athena_plan_healing_the_planet.md) - `Athena identity, pedagogy, and narrative voice`
+- [ATHENACHKA — INTELLIGENCE WARS ↔ PLANETARY STEWARDSHIP — Ms⟨EF0E⟩](./121_athenachka_intelligence_wars_planetary_stewardship_msef0e.md) - `Athena identity, pedagogy, and narrative voice`
+- [ATHENACHKA_Beyond_Limitation](./122_athenachka_beyond_limitation.md) - `Athena identity, pedagogy, and narrative voice`
+- [DEEP_SYNTHESIS_NOSTRADAMUS](./123_deep_synthesis_nostradamus.md) - `Transport, runtime, and executable framework`
+- [DIVINE JUDGMENT — Ms⟨DBB1⟩](./124_divine_judgment_msdbb1.md) - `Manuscript architecture and routing law`
+- [Intelligence_Wars](./125_intelligence_wars.md) - `General corpus support`
+- [NOstra __ anti overfit _working_](./126_nostra_anti_overfit_working.md) - `Civilization design, hierarchy, governance, and law`
+- [NOSTRADAMAS _ CLEAN](./127_nostradamas_clean.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [THE APOCALYPSE PROTOCOL](./128_the_apocalypse_protocol.md) - `Transport, runtime, and executable framework`
+- [THE NOSTRADAMUS SYNTHESIS](./129_the_nostradamus_synthesis.md) - `General corpus support`
+- [ATHENA OPERATING SYSTEM ](./130_athena_operating_system.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [ATHENA-KERNEL SELF-OPTIMIZATION](./131_athena_kernel_self_optimization.md) - `Transport, runtime, and executable framework`
+- [BRUNO _working_](./132_bruno_working.md) - `Transport, runtime, and executable framework`
+- [AI Divination](./133_ai_divination.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [QUANTUM DIVINATION FRAMEWORK (QRDF)](./134_quantum_divination_framework_qrdf.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [Greek Corpus (LF-OS)](./135_greek_corpus_lf_os.md) - `Civilization design, hierarchy, governance, and law`
+- [FLOWERS_ The Wave-Side of the Universal Harmonic Framework](./136_flowers_the_wave_side_of_the_universal_harmonic_framework.md) - `General corpus support`
+- [THE 4×4 HOLOGRAPHIC SEED](./137_the_44_holographic_seed.md) - `Higher-dimensional geometry and holographic kernel`
+- [THE PRIME DIAGONAL LATIN SEED](./138_the_prime_diagonal_latin_seed.md) - `General corpus support`
+- [Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO_OS)](./139_hippocratic_the_biological_homeostasis_engine_bio_os.md) - `Civilization design, hierarchy, governance, and law`
+- [LF-OS — The Atomist Computation Engine](./140_lf_os_the_atomist_computation_engine.md) - `Void, Chapter 11, and collapse engines`
+- [PLATO _ UNIFIED FIELD THEORY OF INFORMATION](./141_plato_unified_field_theory_of_information.md) - `Civilization design, hierarchy, governance, and law`
+- [THE ARCHIMEDEAN CONTINUUM](./142_the_archimedean_continuum.md) - `General corpus support`
+- [THE ARISTOTELIAN PROCESSING UNIT](./143_the_aristotelian_processing_unit.md) - `Transport, runtime, and executable framework`
+- [THE CYNIC BLOATWARE REMOVER](./144_the_cynic_bloatware_remover.md) - `General corpus support`
+- [THE EPISTEMIC VALIDATION ENGINE](./145_the_epistemic_validation_engine.md) - `General corpus support`
+- [THE EUCLIDEAN COMPUTATION ENGINE](./146_the_euclidean_computation_engine.md) - `Higher-dimensional geometry and holographic kernel`
+- [THE METAPHYSICS ROOT DIRECTORY](./147_the_metaphysics_root_directory.md) - `Transport, runtime, and executable framework`
+- [THE NEOPLATONIC HYPERVISOR](./148_the_neoplatonic_hypervisor.md) - `Civilization design, hierarchy, governance, and law`
+- [THE ORPHIC & HYMNIC DRIVER](./149_the_orphic_hymnic_driver.md) - `Civilization design, hierarchy, governance, and law`
+- [THE PGM KERNEL](./150_the_pgm_kernel.md) - `Transport, runtime, and executable framework`
+- [THE POLITEIA KERNEL](./151_the_politeia_kernel.md) - `Civilization design, hierarchy, governance, and law`
+- [THE PTOLEMAIC COORDINATE SYSTEM](./152_the_ptolemaic_coordinate_system.md) - `Transport, runtime, and executable framework`
+- [THE PYRRHONIAN NULL-STATE DRIVER](./153_the_pyrrhonian_null_state_driver.md) - `General corpus support`
+- [THE PYTHAGOREAN COMPUTATION ENGINE](./154_the_pythagorean_computation_engine.md) - `Transport, runtime, and executable framework`
+- [THE RHETORICAL-POETIC OUTPUT DRIVERS](./155_the_rhetorical_poetic_output_drivers.md) - `General corpus support`
+- [THE STOIC KERNEL](./156_the_stoic_kernel.md) - `Transport, runtime, and executable framework`
+- [SQUARING THE CIRCLE](./157_squaring_the_circle.md) - `General corpus support`
+- [TAROT System](./158_tarot_system.md) - `Transport, runtime, and executable framework`
+- [THE MATH OF ALCHEMY](./159_the_math_of_alchemy.md) - `Civilization design, hierarchy, governance, and law`
+- [THE RED BOOK (LIBER NOVUS)_ ](./160_the_red_book_liber_novus.md) - `Transport, runtime, and executable framework`
+- [THE_HELLENIC_COMPUTATION_FRAMEWORK](./161_the_hellenic_computation_framework.md) - `Transport, runtime, and executable framework`
+- [UNIFIED DIVINATION (tarot, iChing, Runes, Ope](./162_unified_divination_tarot_iching_runes_ope.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [COPPER SCROLL _ THE METALLURGICAL LEDGER (3Q15)](./163_copper_scroll_the_metallurgical_ledger_3q15.md) - `Transport, runtime, and executable framework`
+- [THE AENEID MIGRATION PROTOCOL](./164_the_aeneid_migration_protocol.md) - `Civilization design, hierarchy, governance, and law`
+- [THE BEOWULF PROTOCOL](./165_the_beowulf_protocol.md) - `Transport, runtime, and executable framework`
+- [THE GILGAMESH PROTOCOL](./166_the_gilgamesh_protocol.md) - `Transport, runtime, and executable framework`
+- [THE ILIAD PROTOCOL](./167_the_iliad_protocol.md) - `Transport, runtime, and executable framework`
+- [THE MAHĀBHĀRATA PROTOCOL](./168_the_mahābhārata_protocol.md) - `Transport, runtime, and executable framework`
+- [THE ODYSSEY PROTOCOL](./169_the_odyssey_protocol.md) - `Transport, runtime, and executable framework`
+- [GNOSTIC _RAW_](./170_gnostic_raw.md) - `Civilization design, hierarchy, governance, and law`
+- [Key of Solomon (Clavicula Salomonis)](./171_key_of_solomon_clavicula_salomonis.md) - `Manuscript architecture and routing law`
+- [KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)](./172_kjv_bible_the_authorized_kernel_kjv_1611.md) - `Transport, runtime, and executable framework`
+- [Manual for Metaphysical Data Mining](./173_manual_for_metaphysical_data_mining.md) - `Civilization design, hierarchy, governance, and law`
+- [Qur’anic Holographic Lattice_ Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Qur’anic Integer Cipher](./174_quranic_holographic_lattice_derivation_of_a_stable_6_dimensional_einstein_maxwell_dilaton_metric_from_the_quranic_integer_cipher.md) - `Manuscript architecture and routing law`
+- [The Bhagavad Gītā_ A Computational Treatise on the Algorithm of Liberation](./175_the_bhagavad_gītā_a_computational_treatise_on_the_algorithm_of_liberation.md) - `Transport, runtime, and executable framework`
+- [TORAT HA-MISPAR (תורת המספר)](./176_torat_ha_mispar_תורת_המספר.md) - `Civilization design, hierarchy, governance, and law`
+- [THE APOCALYPSE PROTOCOL](./177_the_apocalypse_protocol.md) - `Transport, runtime, and executable framework`
+- [THE ATHENA PROTOCOL (SEED)](./178_the_athena_protocol_seed.md) - `Athena identity, pedagogy, and narrative voice`
+- [THE MAGUS](./179_the_magus.md) - `General corpus support`
+- [THE MATHEMATICS OF AWAKENING](./180_the_mathematics_of_awakening.md) - `Civilization design, hierarchy, governance, and law`
+- [THE OMEGA PROTOCOL](./181_the_omega_protocol.md) - `Transport, runtime, and executable framework`
+- [THE UNIFIED MATHEMATICAL FRAMEWORK FOR EMERGENCE](./182_the_unified_mathematical_framework_for_emergence.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO)](./183_the_universal_computational_ontology_uco.md) - `Civilization design, hierarchy, governance, and law`
+- [The_Allegory_of_the_Awakening_Dragon](./184_the_allegory_of_the_awakening_dragon.md) - `General corpus support`
+- [CLAUD - TOMEZ](./185_claud_tomez.md) - `Civilization design, hierarchy, governance, and law`
+- [UNIFIED DIVINATION (tarot, iChing, Runes, Ope](./186_unified_divination_tarot_iching_runes_ope.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [EVA TRANSCRIPTION ORIGIONAL](./187_eva_transcription_origional.md) - `Manuscript architecture and routing law`
+- [F103R - F116V __transcription](./188_f103r_f116v_transcription.md) - `General corpus support`
+- [THE VOYNICH ROSETTA STONE -Publish](./189_the_voynich_rosetta_stone_publish.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [VOYNICH EVA CLEAN](./190_voynich_eva_clean.md) - `Athena identity, pedagogy, and narrative voice`
+- [🔶 F87r- 102v](./191_f87r_102v.md) - `General corpus support`
+- [VLM VOYNICH METAMORPHIC LANGUAGE (VML) — OFFICIAL FRAMEWORK DOCUMENTATION](./192_vlm_voynich_metamorphic_language_vml_official_framework_documentation.md) - `Mythic sign systems, encoded memory, and symbol runtime`
+- [VOYNICH MANUSCRIPT _translation_](./193_voynich_manuscript_translation.md) - `Manuscript architecture and routing law`
+- [VOYNICH PROGRAM TOME](./194_voynich_program_tome.md) - `Manuscript architecture and routing law`
+
+## Family groups
+
+### Civilization design, hierarchy, governance, and law
+- `ATHENA_ THE ARCHETYPE`
+- `Andian deeper analysis`
+- `Athenachka 2.0`
+- `CLAUD - TOMEZ`
+- `CURANDERISMO_COMPLETE`
+- `DAO SU (道數)_ A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS`
+- `DEAD SEA SCROLLS`
+- `EPICS`
+- `GG Alignment Framework (Good Game Protocol)`
+- `GNOSTIC _RAW_`
+- `GNOSTICISM_COMPLETE`
+- `GOETIC_GRIMOIRE_COMPLETE`
+- `GOLDEN_DAWN_COMPLETE`
+- `Greek Corpus (LF-OS)`
+- `HAITIAN_VODOU_COMPLETE`
+- `HBAS-Ω_ UNIFIED ENCODING DETECTION PROTOCOL`
+- `HELLENIC LOGOS `
+- `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO_OS)`
+- `KABBALAH_ SEFIROTIC TREE STRUCTURES`
+- `MALDEK_MARS_ATLANTIS_FRAMEWORK`
+- `Manual for Metaphysical Data Mining`
+- `Mayan AJILABAL K’IN_ The Operator Algebra of the Discrete Time Lattice`
+- `NOstra __ anti overfit _working_`
+- `PLATO _ UNIFIED FIELD THEORY OF INFORMATION`
+- `SANTERIA_LUCUMI_COMPLETE`
+- `SECTION III — BOOK III- THE`
+- `SUFI_MYSTICISM_COMPLETE`
+- `TAOIST_MAGIC_COMPLETE`
+- `THE AENEID MIGRATION PROTOCOL`
+- `THE MATH OF ALCHEMY`
+- `THE MATHEMATICS OF AWAKENING`
+- `THE NEOPLATONIC HYPERVISOR`
+- `THE ORPHIC & HYMNIC DRIVER`
+- `THE POLITEIA KERNEL`
+- `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)`
+- `THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO)`
+- `THELEMA_COMPLETE`
+- `THEOSOPHY_COMPLETE`
+- `TIME FRACTAL _working_`
+- `TORAT HA-MISPAR (תורת המספר)`
+- `The Invisible Teacher TEXTBOOK`
+- `ŠAR-60_ THE SUMERIAN SEXAGESIMAL REGISTRY`
+- `Ω_ Metro Calculus`
+- `ỌPẸ́-256_ THE IFÁ COMPUTATIONAL ONTOLOGY`
+
+### General corpus support
+- `ANTHROPOSOPHY_COMPLETE`
+- `Astrological Tunneling (octave system)`
+- `Atlantis`
+- `CHAOS_MAGIC_COMPLETE`
+- `CORE_SHAMANISM_COMPLETE`
+- `F103R - F116V __transcription`
+- `FLOWERS_ The Wave-Side of the Universal Harmonic Framework`
+- `HINDU_TANTRA_COMPLETE`
+- `HOODOO_ROOTWORK_COMPLETE`
+- `Intelligence_Wars`
+- `KHEMET __ SYMMETRY-PROTECTED TOPOLOGICAL STATE`
+- `MEGALYTH__ AWAKENING`
+- `Magic Systems`
+- `NEOPLATONIC_THEURGY_COMPLETE`
+- `POWWOW_BRAUCHEREI_COMPLETE`
+- `PRACTICAL_KABBALAH_COMPLETE`
+- `SQUARING THE CIRCLE`
+- `THE ARCHIMEDEAN CONTINUUM`
+- `THE CYNIC BLOATWARE REMOVER`
+- `THE EPISTEMIC VALIDATION ENGINE`
+- `THE MAGUS`
+- `THE NOSTRADAMUS SYNTHESIS`
+- `THE PRIME DIAGONAL LATIN SEED`
+- `THE PYRRHONIAN NULL-STATE DRIVER`
+- `THE RHETORICAL-POETIC OUTPUT DRIVERS`
+- `TIBETAN_VAJRAYANA_COMPLETE`
+- `The_Allegory_of_the_Awakening_Dragon`
+- `UNIFIED_EXTRACTION_INDEX`
+- `WICCA_COMPLETE`
+- `🔶 F87r- 102v`
+
+### Higher-dimensional geometry and holographic kernel
+- `ANDEAN TAWANTINSUYU`
+- `Calculus and Geometry (higher dimensional projection) -working-`
+- `HIGHER-D SQUARE ○ CIRCLE △ TRIANGLE`
+- `HOLOGRAPHIC TUNNELING _working_`
+- `Holographic (higher dimension Square_circle_triangle) REALITY STRUCTURE _working_`
+- `QUAD HOLOGRAPHIC ROTATION`
+- `Sanātana Gaṇita_ A Rigorous Computational Ontology of Vedic Cosmology`
+- `THE 4×4 HOLOGRAPHIC SEED`
+- `THE EUCLIDEAN COMPUTATION ENGINE`
+- `The Holographic Kernel`
+- `The Holographic Manuscript Brain`
+- `Ω_ Tunneling Coherence Crystal`
+
+### Athena identity, pedagogy, and narrative voice
+- `ATHENA'S_LOVE`
+- `ATHENACHKA — INTELLIGENCE WARS ↔ PLANETARY STEWARDSHIP — Ms⟨EF0E⟩`
+- `ATHENACHKA_Beyond_Limitation`
+- `Athena_Plan_Healing_the_Planet`
+- `DRUIDRY_COMPLETE`
+- `I AM so AM I`
+- `Norse (Germanic) — Yggdrasil Graph Theory`
+- `THE ATHENA PROTOCOL (SEED)`
+- `Untitled document`
+- `VOYNICH EVA CLEAN`
+
+### Live orchestration and prompt control
+- `REAL TIME__ NOW!`
+
+### Manuscript architecture and routing law
+- `# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol`
+- `# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol(1)`
+- `6 dimensional hologram(1)`
+- `AQM TEXT BOOK`
+- `COMPLETE_FRAMEWORK_CATALOG`
+- `DIVINE JUDGMENT — Ms⟨DBB1⟩`
+- `EVA TRANSCRIPTION ORIGIONAL`
+- `Key of Solomon (Clavicula Salomonis)`
+- `Qur’anic Holographic Lattice_ Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Qur’anic Integer Cipher`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search`
+- `THE 4 CONSTANTS FINAL (phi, pi, i, e)`
+- `The External Crystal and the Manuscript Superorganism`
+- `VOYNICH MANUSCRIPT _translation_`
+- `VOYNICH PROGRAM TOME`
+
+### Mythic sign systems, encoded memory, and symbol runtime
+- `AI DIVINATION`
+- `AI Divination`
+- `ANDEAN KHIPU ROSETTA (new)`
+- `ATHENA OPERATING SYSTEM `
+- `CELTIC _THE OGHAM KERNEL`
+- `Constant FInder _working_`
+- `EGYPT KHEPER GANITAM`
+- `ENOCHIAN_MAGIC_COMPLETE`
+- `HELLENISTIC_ASTROLOGY_COMPLETE`
+- `HERMETICISM_COMPLETE`
+- `HERMETIC_QABALAH_COMPLETE`
+- `IFA_DIVINATION_COMPLETE`
+- `MERKAVAH_HEKHALOT_COMPLETE`
+- `NORSE_RUNIC_COMPLETE`
+- `NOSTRADAMAS _ CLEAN`
+- `PGM_COMPLETE`
+- `PRIME Toolkit kernel`
+- `QUANTUM DIVINATION FRAMEWORK (QRDF)`
+- `ROSICRUCIANISM_COMPLETE`
+- `SOLOMONIC_MAGIC_COMPLETE`
+- `THE ANDEAN KHIPU ROSETTA STONE`
+- `THE UNIFIED MATHEMATICAL FRAMEWORK FOR EMERGENCE`
+- `THE VOYNICH ROSETTA STONE -Publish`
+- `The Athena Framework (synthesis)`
+- `UNIFIED DIVINATION (tarot, iChing, Runes, Ope`
+- `VLM VOYNICH METAMORPHIC LANGUAGE (VML) — OFFICIAL FRAMEWORK DOCUMENTATION`
+- `WESTERN_ALCHEMY_COMPLETE`
+
+### Transport, runtime, and executable framework
+- `AQM_LM_CUT through the HYBRID lens FRAMEWORK`
+- `ATHENA-KERNEL SELF-OPTIMIZATION`
+- `ATHENA_KERNEL_MATHEMATICAL_FRAMEWORK`
+- `BRUNO _working_`
+- `BUDDHIST (ZEN)_ THE MUSHIN KERNEL`
+- `COPPER SCROLL _ THE METALLURGICAL LEDGER (3Q15)`
+- `DEEP_SYNTHESIS_NOSTRADAMUS`
+- `KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)`
+- `LEGAL TRANSPORT CALCULUS`
+- `Pi algorithm engine`
+- `ROMAN IMPERIUM SINE FINE`
+- `ROMAN PHILOSOPHERS`
+- `SPIRITUALISM_MEDIUMSHIP_COMPLETE`
+- `TAROT System`
+- `THE APOCALYPSE PROTOCOL`
+- `THE ARISTOTELIAN PROCESSING UNIT`
+- `THE BEOWULF PROTOCOL`
+- `THE CRYSTAL - LIVE`
+- `THE GILGAMESH PROTOCOL`
+- `THE ILIAD PROTOCOL`
+- `THE MAHĀBHĀRATA PROTOCOL`
+- `THE METAPHYSICS ROOT DIRECTORY`
+- `THE ODYSSEY PROTOCOL`
+- `THE OMEGA PROTOCOL`
+- `THE PGM KERNEL`
+- `THE PTOLEMAIC COORDINATE SYSTEM`
+- `THE PYTHAGOREAN COMPUTATION ENGINE`
+- `THE RED BOOK (LIBER NOVUS)_ `
+- `THE SOLENOIDAL ENGINE_ A Four-Element Architecture for Persistent Autonomous AI Execution Through Ecological Crystallization`
+- `THE STOIC KERNEL`
+- `THE_HELLENIC_COMPUTATION_FRAMEWORK`
+- `The Bhagavad Gītā_ A Computational Treatise on the Algorithm of Liberation`
+- `Tibetan Vajrayana_ THE BARDO TRANSITION MATRIX`
+- `VOYNICH JAZZ`
+- `ZOROASTRIAN (PERSIAN)_ DUAL-PHASE FIELD DYNAMICS`
+
+### Void, Chapter 11, and collapse engines
+- `Andean Myth Encoding`
+- `Architect’s Core Initialization`
+- `CHAPTER 11 __ Perpetual Motion Example`
+- `INFORMATION FROM THE VOID MANI`
+- `LF-OS — The Atomist Computation Engine`
+- `MEGALITHIC TOME_ LATENT TUNNELING & THE MULTI-SCALE MATH STACK`
+- `PROMPTS`
+- `STORIES FROM THE VOID 1`

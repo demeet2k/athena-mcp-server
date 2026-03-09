@@ -1,0 +1,1871 @@
+{
+  "generated_at": "2026-03-09T15:24:59.636270+00:00",
+  "deep_pass": 6,
+  "edges": [
+    {
+      "kind": "family_council",
+      "src": "FAMILY-civilization-and-governance",
+      "dst": "COUNCIL-civilization_and_governance"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-general-corpus",
+      "dst": "COUNCIL-general_corpus"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-higher-dimensional-geometry",
+      "dst": "COUNCIL-higher_dimensional_geometry"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-identity-and-instruction",
+      "dst": "COUNCIL-identity_and_instruction"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-live-orchestration",
+      "dst": "COUNCIL-live_orchestration"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-manuscript-architecture",
+      "dst": "COUNCIL-manuscript_architecture"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-mythic-sign-systems",
+      "dst": "COUNCIL-mythic_sign_systems"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-transport-and-runtime",
+      "dst": "COUNCIL-transport_and_runtime"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-void-and-collapse",
+      "dst": "COUNCIL-void_and_collapse"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch01",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch01",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch01",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch01",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch01",
+      "dst": "Ch02"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch01",
+      "dst": "TASK-Ch01"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch01",
+      "dst": "MSG-Ch01"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch01",
+      "dst": "COUNCIL-Su"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch01",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch01",
+      "dst": "SIG00"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch01",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch01",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch01",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch01",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch01",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch02",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch02",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch02",
+      "dst": "AppB"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch02",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch02",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch02",
+      "dst": "Ch03"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch02",
+      "dst": "TASK-Ch02"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch02",
+      "dst": "MSG-Ch02"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch02",
+      "dst": "COUNCIL-Me"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch02",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch02",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch02",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch02",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch02",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch02",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch02",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch02",
+      "dst": "FAMILY-mythic-sign-systems"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch03",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch03",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch03",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch03",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch03",
+      "dst": "Ch04"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch03",
+      "dst": "TASK-Ch03"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch03",
+      "dst": "MSG-Ch03"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch03",
+      "dst": "COUNCIL-Sa"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch03",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch03",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch03",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch03",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch03",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch03",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch03",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch04",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch04",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch04",
+      "dst": "AppE"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch04",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch04",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch04",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch04",
+      "dst": "Ch05"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch04",
+      "dst": "TASK-Ch04"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch04",
+      "dst": "MSG-Ch04"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch04",
+      "dst": "COUNCIL-Me"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch04",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch04",
+      "dst": "SIG05"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch04",
+      "dst": "SIG07"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch04",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch04",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch04",
+      "dst": "FAMILY-void-and-collapse"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch04",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch05",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch05",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch05",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch05",
+      "dst": "AppB"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch05",
+      "dst": "AppL"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch05",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch05",
+      "dst": "Ch06"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch05",
+      "dst": "TASK-Ch05"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch05",
+      "dst": "MSG-Ch05"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch05",
+      "dst": "COUNCIL-Sa"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch05",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch05",
+      "dst": "SIG05"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch05",
+      "dst": "SIG07"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch05",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch05",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch05",
+      "dst": "FAMILY-void-and-collapse"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch05",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch06",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch06",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch06",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch06",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch06",
+      "dst": "Ch07"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch06",
+      "dst": "TASK-Ch06"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch06",
+      "dst": "MSG-Ch06"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch06",
+      "dst": "COUNCIL-Su"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch06",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch06",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch06",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch06",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch06",
+      "dst": "SIG11"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch06",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch06",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch07",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch07",
+      "dst": "AppE"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch07",
+      "dst": "AppH"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch07",
+      "dst": "AppL"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch07",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch07",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch07",
+      "dst": "Ch08"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch07",
+      "dst": "TASK-Ch07"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch07",
+      "dst": "MSG-Ch07"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch07",
+      "dst": "COUNCIL-Sa"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch07",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch07",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch07",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch07",
+      "dst": "SIG12"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch07",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch07",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch07",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch08",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch08",
+      "dst": "AppE"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch08",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch08",
+      "dst": "AppB"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch08",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch08",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch08",
+      "dst": "Ch09"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch08",
+      "dst": "TASK-Ch08"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch08",
+      "dst": "MSG-Ch08"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch08",
+      "dst": "COUNCIL-Su"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch08",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch08",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch08",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch08",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch08",
+      "dst": "SIG11"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch08",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch08",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch09",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch09",
+      "dst": "AppE"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch09",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch09",
+      "dst": "AppH"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch09",
+      "dst": "AppL"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch09",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch09",
+      "dst": "Ch10"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch09",
+      "dst": "TASK-Ch09"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch09",
+      "dst": "MSG-Ch09"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch09",
+      "dst": "COUNCIL-Me"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch09",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch09",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch09",
+      "dst": "SIG11"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch09",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch09",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch09",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch09",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch10",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch10",
+      "dst": "AppF"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch10",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch10",
+      "dst": "AppH"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch10",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch10",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch10",
+      "dst": "Ch11"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch10",
+      "dst": "TASK-Ch10"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch10",
+      "dst": "MSG-Ch10"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch10",
+      "dst": "COUNCIL-Su"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch10",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch10",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch10",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch10",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch10",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch10",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch10",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch11",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch11",
+      "dst": "AppF"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch11",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch11",
+      "dst": "AppL"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch11",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch11",
+      "dst": "Ch12"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch11",
+      "dst": "TASK-Ch11"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch11",
+      "dst": "MSG-Ch11"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch11",
+      "dst": "COUNCIL-Me"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch11",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch11",
+      "dst": "SIG05"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch11",
+      "dst": "SIG07"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch11",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch11",
+      "dst": "SIG11"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch11",
+      "dst": "FAMILY-void-and-collapse"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch11",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch12",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch12",
+      "dst": "AppF"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch12",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch12",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch12",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch12",
+      "dst": "Ch13"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch12",
+      "dst": "TASK-Ch12"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch12",
+      "dst": "MSG-Ch12"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch12",
+      "dst": "COUNCIL-Sa"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch12",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch12",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch12",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch12",
+      "dst": "SIG12"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch12",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch12",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch12",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch13",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch13",
+      "dst": "AppG"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch13",
+      "dst": "AppE"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch13",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch13",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch13",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch13",
+      "dst": "Ch14"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch13",
+      "dst": "TASK-Ch13"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch13",
+      "dst": "MSG-Ch13"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch13",
+      "dst": "COUNCIL-Me"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch13",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch13",
+      "dst": "SIG09"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch13",
+      "dst": "SIG10"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch13",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch13",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch13",
+      "dst": "FAMILY-identity-and-instruction"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch13",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch13",
+      "dst": "FAMILY-mythic-sign-systems"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch14",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch14",
+      "dst": "AppG"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch14",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch14",
+      "dst": "AppH"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch14",
+      "dst": "AppK"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch14",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch14",
+      "dst": "Ch15"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch14",
+      "dst": "TASK-Ch14"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch14",
+      "dst": "MSG-Ch14"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch14",
+      "dst": "COUNCIL-Sa"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch14",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch14",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch14",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch14",
+      "dst": "SIG12"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch14",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch14",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch14",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch15",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch15",
+      "dst": "AppG"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch15",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch15",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch15",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch15",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch15",
+      "dst": "Ch16"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch15",
+      "dst": "TASK-Ch15"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch15",
+      "dst": "MSG-Ch15"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch15",
+      "dst": "COUNCIL-Su"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch15",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch15",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch15",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch15",
+      "dst": "SIG12"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch15",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch15",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch15",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch16",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch16",
+      "dst": "AppN"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch16",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch16",
+      "dst": "AppK"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch16",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch16",
+      "dst": "Ch17"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch16",
+      "dst": "TASK-Ch16"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch16",
+      "dst": "MSG-Ch16"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch16",
+      "dst": "COUNCIL-Sa"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch16",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch16",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch16",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch16",
+      "dst": "SIG12"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch16",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch16",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch16",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch17",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch17",
+      "dst": "AppN"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch17",
+      "dst": "AppE"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch17",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch17",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch17",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch17",
+      "dst": "Ch18"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch17",
+      "dst": "TASK-Ch17"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch17",
+      "dst": "MSG-Ch17"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch17",
+      "dst": "COUNCIL-Su"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch17",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch17",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch17",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch17",
+      "dst": "SIG12"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch17",
+      "dst": "SIG09"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch17",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch17",
+      "dst": "FAMILY-identity-and-instruction"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch17",
+      "dst": "FAMILY-civilization-and-governance"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch18",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch18",
+      "dst": "AppN"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch18",
+      "dst": "AppC"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch18",
+      "dst": "AppL"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch18",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch18",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch18",
+      "dst": "Ch19"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch18",
+      "dst": "TASK-Ch18"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch18",
+      "dst": "MSG-Ch18"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch18",
+      "dst": "COUNCIL-Me"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch18",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch18",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch18",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch18",
+      "dst": "SIG12"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch18",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch18",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch18",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch18",
+      "dst": "FAMILY-civilization-and-governance"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch19",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch19",
+      "dst": "AppP"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch19",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch19",
+      "dst": "AppB"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch19",
+      "dst": "AppJ"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch19",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch19",
+      "dst": "Ch20"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch19",
+      "dst": "TASK-Ch19"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch19",
+      "dst": "MSG-Ch19"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch19",
+      "dst": "COUNCIL-Su"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch19",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch19",
+      "dst": "SIG05"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch19",
+      "dst": "SIG07"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch19",
+      "dst": "SIG04"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch19",
+      "dst": "SIG08"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch19",
+      "dst": "FAMILY-void-and-collapse"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch19",
+      "dst": "FAMILY-transport-and-runtime"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch20",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch20",
+      "dst": "AppP"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch20",
+      "dst": "AppE"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch20",
+      "dst": "AppL"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch20",
+      "dst": "AppI"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch20",
+      "dst": "AppM"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch20",
+      "dst": "Ch21"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch20",
+      "dst": "TASK-Ch20"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch20",
+      "dst": "MSG-Ch20"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch20",
+      "dst": "COUNCIL-Me"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch20",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch20",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch20",
+      "dst": "SIG11"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch20",
+      "dst": "SIG09"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch20",
+      "dst": "SIG10"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch20",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch20",
+      "dst": "FAMILY-identity-and-instruction"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch20",
+      "dst": "FAMILY-civilization-and-governance"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch21",
+      "dst": "AppA"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch21",
+      "dst": "AppP"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch21",
+      "dst": "AppM"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch21",
+      "dst": "AppL"
+    },
+    {
+      "kind": "chapter_hub",
+      "src": "Ch21",
+      "dst": "AppI"
+    },
+    {
+      "kind": "orbit",
+      "src": "Ch21",
+      "dst": "Ch01"
+    },
+    {
+      "kind": "chapter_task",
+      "src": "Ch21",
+      "dst": "TASK-Ch21"
+    },
+    {
+      "kind": "task_message",
+      "src": "TASK-Ch21",
+      "dst": "MSG-Ch21"
+    },
+    {
+      "kind": "chapter_rail_council",
+      "src": "Ch21",
+      "dst": "COUNCIL-Sa"
+    },
+    {
+      "kind": "chapter_tier",
+      "src": "Ch21",
+      "dst": "T4"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch21",
+      "dst": "SIG06"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch21",
+      "dst": "SIG11"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch21",
+      "dst": "SIG02"
+    },
+    {
+      "kind": "message_sign",
+      "src": "MSG-Ch21",
+      "dst": "SIG03"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch21",
+      "dst": "FAMILY-live-orchestration"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch21",
+      "dst": "FAMILY-manuscript-architecture"
+    },
+    {
+      "kind": "chapter_family",
+      "src": "Ch21",
+      "dst": "FAMILY-civilization-and-governance"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-manuscript_architecture",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-transport_and_runtime",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-void_and_collapse",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-civilization_and_governance",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-identity_and_instruction",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-live_orchestration",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-mythic_sign_systems",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-higher_dimensional_geometry",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
+      "src": "COUNCIL-general_corpus",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "rail_kernel",
+      "src": "COUNCIL-Su",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "rail_kernel",
+      "src": "COUNCIL-Me",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "rail_kernel",
+      "src": "COUNCIL-Sa",
+      "dst": "CIVILIZATION-KERNEL"
+    }
+  ]
+}

@@ -1,0 +1,548 @@
+ols
+05.R4.a — Deterministic hatch construction protocol
+A HatchEvent must include:
+parent snapshot including (\circ!\square!\triangle) state and pins,
+trigger evidence binding (\mathrm{CH}) evaluation,
+deterministic child init offsets,
+checkpoint creation,
+obligations list,
+replay pointer and pins.
+
+05.R4.b — Minimal replay capsule for Triangle legality
+A minimal replay capsule for hatch legality includes: pinned corridor profile, pinned TriangleModePolicy (\Pi_\triangle), trigger inputs, expected legality outcome, and canonical digests to compare.
+
+05.R4.c — Reference implementation (Triangle control-state skeleton)
+@dataclass
+class TriangleState:
+    # Governor trits
+    t0: int  # in {0,1,2}
+    t1: int
+    t2: int
+    # Budgets / thresholds (opaque but pinned)
+    depth_budget: int
+    pins: Tuple[Tuple[str, str], ...]
+
+def val_G(ts: TriangleState) -> int:
+    return (ts.t0 + 3*ts.t1 + 9*ts.t2) % 27
+
+def carry_triangle_step(ts: TriangleState, signals: dict) -> TriangleState:
+    """
+    Deterministic update rule placeholder.
+    The concrete rule is pinned by ControlProfileDigest; any variation must be encoded.
+    """
+    # Example deterministic skeleton:
+    t0 = (ts.t0 + int(signals.get("drive_inc", 0))) % 3
+    t1 = (ts.t1 + int(signals.get("defect_inc", 0))) % 3
+    t2 = (ts.t2 + int(signals.get("depth_gate_inc", 0))) % 3
+    return TriangleState(t0=t0, t1=t1, t2=t2, depth_budget=ts.depth_budget, pins=ts.pins)
+
+
+05.R4.d — Audit protocol for mode integrity
+At every recursion boundary (hatch), verify:
+(\Pi_\triangle) digest equality under inheritance (or explicit override with pinned justification),
+deterministic reproduction of (\tau) extraction given the same (\Phi) (or (\mathbf{x})) and wrap rule,
+deterministic reproduction of (G) updates under pinned control profile.
+Any mismatch under identical pins is a typed integrity failure requiring quarantine/fence propagation.
+
+Ch05 — Triangle Modes (global vs per-axis)
+Ch06 — Tunneling as Hub-Preserving Routing on (\mathbb{T}^d)
+Hub meshes (\mathcal{H}^{(d)}), multi-axis tunnel steps, and deterministic hub-first route synthesis
+
+□ Square — Hub Keys, Hub Classes, and Address-Compatible Routing
+06.S1 — Objects
+06.S1.a — The 1D hub set (\mathcal{H}) (nexus fractions)
+Let the hub denominator set be
+[
+\mathcal{D}:={2,3,4,6,12,36}.
+]
+Define the 1D hub set (modulo (1)) by
+[
+\boxed{
+\mathcal{H}
+:=
+\left{\frac{k}{d}\ \bmod 1:\ d\in\mathcal{D},\ k\in\mathbb{Z}\right}
+\subset \mathbb{T}^1.
+}
+]
+This (\mathcal{H}) is the explicit “tunneling skeleton” of stable nexus fractions.
+
+06.S1.b — The (d)-dimensional hub mesh (\mathcal{H}^{(d)})
+Define the hub mesh in (\mathbb{T}^d) as the Cartesian power
+[
+\boxed{
+\mathcal{H}^{(d)} := \mathcal{H}^d
+\subset \mathbb{T}^d.
+}
+]
+Equivalently, (\mathbf{h}\in\mathcal{H}^{(d)}) iff each coordinate (h_i\in\mathcal{H}).
+
+06.S1.c — Circle distance and nearest-hub selector (pinned)
+Define the circular distance on (\mathbb{T}^1) by
+[
+\mathrm{dist}{\mathbb{T}^1}(u,v)
+:=\min{m\in\mathbb{Z}}\big| (u-v)-m\big|\in\left[0,\tfrac12\right].
+]
+On (\mathbb{T}^d), fix a pinned product metric (\mathrm{Dist}{\mathbb{T}^d}) by policy; the default metric is
+[
+\mathrm{Dist}{\infty}(\Phi,\Psi)
+:=\max_{1\le i\le d}\mathrm{dist}{\mathbb{T}^1}(\phi_i,\psi_i).
+]
+Define the nearest-hub selector on (\mathbb{T}^1) by
+[
+\boxed{
+\mathrm{Hub}(\phi)
+:=\operatorname*{argmin}{q\in\mathcal{H}}\ \mathrm{dist}_{\mathbb{T}^1}(\phi,q),
+}
+]
+with a deterministic tie-break rule pinned in the corridor profile (e.g., minimal denominator then minimal residue class). The canonical hub selection rule is required to be stable under truncation: prefix truncation must not change the coarse hub class.
+Extend coordinatewise to (\mathbb{T}^d):
+[
+\boxed{
+\mathrm{Hub}^{(d)}(\Phi)
+:=
+\big(\mathrm{Hub}(\phi_1),\dots,\mathrm{Hub}(\phi_d)\big)
+\in \mathcal{H}^{(d)}.
+}
+]
+
+06.S1.d — The hub-preserving key (\psi_\star) and coarse hub class
+Define the hub-preserving key for (\phi\in\mathbb{T}^1) at octave/depth index (n\in\mathbb{N}{\ge 1}) as
+[
+\boxed{
+\psi\star(\phi;n):=(h,r,n),
+\qquad
+h=\mathrm{Hub}(\phi),\quad r=\phi-h\ (\mathrm{mod}\ 1)\in[-\tfrac12,\tfrac12).
+}
+]
+This key stores the nearest hub, signed residual, and octave level as the canonical holographic descriptor.
+In (d) dimensions, define
+[
+\boxed{
+\psi_\star^{(d)}(\Phi;n):=\big(\mathbf{h},\mathbf{r},n\big),
+\qquad
+\mathbf{h}=\mathrm{Hub}^{(d)}(\Phi),\quad
+\mathbf{r}=\Phi-\mathbf{h}\ (\mathrm{mod}\ 1)\in[-\tfrac12,\tfrac12)^d.
+}
+]
+Define the coarse hub class of (\Phi) as (\mathbf{h}\in\mathcal{H}^{(d)}). The primary requirement is that prefix truncation must not change this coarse hub class.
+
+06.S2 — Operators
+06.S2.a — Hub snap and residual extraction
+Define the hub snap (nearest-hub projection) on (\mathbb{T}^d) by
+[
+\boxed{
+\mathrm{Snap}(\Phi):=\mathrm{Hub}^{(d)}(\Phi)=\mathbf{h}.
+}
+]
+Define the residual extraction
+[
+\boxed{
+\mathrm{Res}(\Phi):=\Phi-\mathrm{Snap}(\Phi)\ (\mathrm{mod}\ 1),
+\quad \mathrm{Res}(\Phi)\in[-\tfrac12,\tfrac12)^d.
+}
+]
+These are the deterministic maps producing the hub-key ((\mathbf{h},\mathbf{r},n)).
+
+06.S2.b — Allowed 1D tunnel steps and the multi-axis step set
+Define the allowed 1D tunnel step set (hub group steps) by
+[
+\boxed{
+\Delta\mathcal{H}
+:=
+\left{
+\pm\frac{1}{6},\ \pm\frac{1}{12},\ \pm\frac{1}{4},\ \pm\frac{1}{3},\ \pm\frac{1}{36}
+\right}\subset\mathbb{T}^1.
+}
+]
+A “good tunnel” step on an axis is a translation by a value in (\Delta\mathcal{H}).
+Define the multi-axis tunnel step set on (\mathbb{T}^d) by
+[
+\boxed{
+\Delta\mathcal{H}^{(d)}
+:=
+\left{
+\delta\in\mathbb{T}^d:\ \delta_i\in\Delta\mathcal{H}\cup{0}\ \ \forall i
+\right}.
+}
+]
+A multi-axis tunnel step is permitted to change any subset of axes; every changed axis must use an allowed step.
+
+06.S2.c — Hub-preserving legality predicate (mesh corridor)
+Define the hub corridor around the mesh (\mathcal{H}^{(d)}) at radius (\rho\in(0,\tfrac12]) by
+[
+\mathrm{Corr}\rho(\mathcal{H}^{(d)})
+:=
+\bigcup{\mathbf{h}\in\mathcal{H}^{(d)}}
+\left{
+\Phi\in\mathbb{T}^d:\ \mathrm{Dist}{\infty}(\Phi,\mathbf{h})\le \rho
+\right}.
+]
+A route is hub-preserving if it remains inside (\mathrm{Corr}\rho(\mathcal{H}^{(d)})) for a pinned (\rho) and does not change coarse hub class under allowed truncations. The stability statement “good tunneling becomes a corridor mesh” is formalized by this definition.
+
+06.S2.d — Hub-first tunneling operator (route synthesis schema)
+Given start and target phases (\Phi_A,\Phi_B\in\mathbb{T}^d), define the canonical hub-first schema:
+Snap in: move (\Phi_A\to \mathbf{h}_A=\mathrm{Snap}(\Phi_A));
+Hub route: move (\mathbf{h}_A\to \mathbf{h}_B=\mathrm{Snap}(\Phi_B)) by a finite sequence of steps in (\Delta\mathcal{H}^{(d)});
+Snap out: move (\mathbf{h}_B\to \Phi_B).
+This is the explicit “Hub-first” routing strategy: snap to a nearest hub using small allowed steps, perform typed moves at hubs, then snap out to the target.
+The hub route is required to be deterministic under pinned policies (tie-break rules; axis ordering; step preference ordering), producing a replayable route artifact.
+
+06.S3 — Invariants
+06.S3.a — Coarse hub class invariance under truncation
+The hub-preserving requirement is: prefix truncation must not change the coarse hub class. Formally, for any admissible truncation operator (\pi) on the Square carrier inducing a coarse phase map on (\mathbb{T}^d), the induced hub class must satisfy
+[
+\mathrm{Snap}\big(\Pi(\pi(\mathbf{x}))\big)=\mathrm{Snap}\big(\Pi(\mathbf{x})\big)
+]
+whenever (\pi) is declared “coarse-preserving” in the corridor profile. The core requirement is explicitly stated: prefix truncation must not change the coarse hub class.
+
+06.S3.b — Mesh stability under allowed steps (hub-grid closure intent)
+A “good tunnel” step keeps the route on, or returns it to, the hub grids in each coordinate: moves are good if they keep you on (or land you on) the hub grid (\mathcal{H}^{(d)}).
+The admissibility predicate is therefore a mesh predicate: a step is legal if it maps hub neighborhoods to hub neighborhoods within corridor budget.
+
+06.S3.c — Hub key sufficiency and storage invariance
+The state key ((\mathbf{h},\mathbf{r},n)) is sufficient to reconstruct:
+hub identity (\mathbf{h}) (coarse class),
+residual (\mathbf{r}) (local offset),
+octave level (n) (resolution tag).
+Storing hubs/residual/octave is the explicit canonical strategy.
+
+06.S3.d — Deterministic bounded hub rides (route artifact invariant)
+A tunnel route is represented as a finite hub ride that is deterministic and replayable under pinned profiles (route plans include pins and are not allowed to vary by optimization that changes semantics).
+This chapter instantiates hub rides in (\mathbb{T}^d) using the hub mesh (\mathcal{H}^{(d)}) as the routing substrate.
+
+06.S4 — Protocols
+06.S4.a — Nearest-hub computation (1D and (d)D)
+from math import floor
+
+D = [2, 3, 4, 6, 12, 36]
+
+def dist_T1(a: float, b: float) -> float:
+    """a,b in [0,1). Circular distance on T^1."""
+    x = (a - b) % 1.0
+    return min(x, 1.0 - x)
+
+def hubs_1d():
+    """Enumerate canonical hubs in [0,1) with denominators in D."""
+    H = set()
+    for den in D:
+        for k in range(den):
+            H.add(k / den)
+    return sorted(H)
+
+H1 = hubs_1d()
+
+def nearest_hub_1d(phi: float) -> float:
+    """Deterministic nearest hub in H1 (ties broken by smaller denominator then smaller value)."""
+    phi %= 1.0
+    best = None
+    best_d = 1.0
+    for q in H1:
+        d = dist_T1(phi, q)
+        if d < best_d - 1e-15:
+            best, best_d = q, d
+        elif abs(d - best_d) <= 1e-15:
+            # tie-break: prefer smaller denominator representation; then smaller q
+            # implement by comparing minimal den in D that represents q exactly
+            def den_rank(x):
+                for den in D:
+                    if abs(x * den - round(x * den)) <= 1e-15:
+                        return den
+                return 10**9
+            if (den_rank(q), q) < (den_rank(best), best):
+                best, best_d = q, d
+    return best
+
+def snap(phi_vec):
+    return [nearest_hub_1d(phi) for phi in phi_vec]
+
+def residual(phi_vec, hub_vec):
+    out = []
+    for phi, h in zip(phi_vec, hub_vec):
+        r = (phi - h) % 1.0
+        if r >= 0.5:
+            r -= 1.0
+        out.append(r)
+    return out
+
+
+06.S4.b — Multi-axis tunnel steps and legality test
+STEP = [ 1/6, -1/6, 1/12, -1/12, 1/4, -1/4, 1/3, -1/3, 1/36, -1/36, 0.0 ]
+
+def in_step_set(x: float) -> bool:
+    return any(abs((x - s) % 1.0) <= 1e-15 for s in STEP)
+
+def legal_step(delta_vec) -> bool:
+    return all(in_step_set(d) for d in delta_vec)
+
+def apply_step(phi_vec, delta_vec):
+    return [ (phi + d) % 1.0 for phi, d in zip(phi_vec, delta_vec) ]
+
+
+06.S4.c — Hub-first route synthesis (coordinatewise canonical plan)
+def hub_first_route(phiA, phiB):
+    """
+    Returns a route artifact:
+      - hA, rA, hB, rB
+      - hub_steps: a list of delta vectors (each coordinate in STEP)
+    The hub path is constructed coordinatewise by reducing hub differences mod 1
+    into a short word over {±1/36, ±1/12, ±1/6, ±1/4, ±1/3}.
+    """
+    hA = snap(phiA)
+    hB = snap(phiB)
+    rA = residual(phiA, hA)
+    rB = residual(phiB, hB)
+
+    # Route on hubs: move hA -> hB in each coordinate using 1/36 granularity
+    # (since all denominators divide 36).
+    hub_steps = []
+    cur = hA[:]
+    # deterministic axis order: 1..d
+    d = len(cur)
+    for i in range(d):
+        # represent difference on i-th coordinate in [-1/2,1/2)
+        diff = (hB[i] - cur[i]) % 1.0
+        if diff >= 0.5:
+            diff -= 1.0
+        # exact rational step count in units of 1/36
+        m = round(diff * 36)
+        # apply |m| steps of ±1/36 on axis i
+        step = 1/36 if m > 0 else -1/36
+        for _ in range(abs(m)):
+            delta = [0.0]*d
+            delta[i] = step
+            hub_steps.append(delta)
+            cur = apply_step(cur, delta)
+
+    return {
+        "phiA": phiA, "hA": hA, "rA": rA,
+        "phiB": phiB, "hB": hB, "rB": rB,
+        "hub_steps": hub_steps
+    }
+
+This protocol implements the “Hub-first” schema: snap to nearest hubs, route along a hub-step generating set, then snap out.
+
+06.S4.d — Hub-preserving hash output (storage key)
+def hub_key(phi_vec, octave_n: int):
+    h = snap(phi_vec)
+    r = residual(phi_vec, h)
+    return {"h": h, "r": r, "n": octave_n}
+
+This is the explicit storage form ((\mathbf{h},\mathbf{r},n)) of the hologram key.
+
+❀ Flower — Hub Mesh Geometry on (\mathbb{T}^d) and Multi-Axis Tunnels
+06.F1 — Objects
+06.F1.a — Hub grids as rational sublattices of (\mathbb{T}^d)
+The mesh (\mathcal{H}^{(d)}=\mathcal{H}^d) is a finite union of rational grids in (\mathbb{T}^d), induced by denominators (\mathcal{D}).
+A hub vector (\mathbf{h}\in\mathcal{H}^{(d)}) is a multi-axis nexus point; “good tunneling becomes a lattice in (\mathbb{T}^d).”
+
+06.F1.b — Step geometry: the hub step set as a discrete subgroup
+Let
+[
+\Gamma := \left\langle \Delta\mathcal{H} \right\rangle \le \mathbb{T}^1
+]
+be the subgroup generated by the allowed steps. Since all step denominators divide (36), (\Gamma\subseteq \tfrac{1}{36}\mathbb{Z}/\mathbb{Z}) and thus (\Gamma) is a finite cyclic subgroup of order dividing (36).
+Define the multi-axis subgroup
+[
+\Gamma^{(d)}:=\Gamma^d\le \mathbb{T}^d.
+]
+Then every multi-axis tunnel step sequence is a word in (\Gamma^{(d)}).
+
+06.F1.c — Good tunnels as hub-grid preserving translations
+A good tunnel move is any translation that keeps you on (or lands you on) the hub grid in each coordinate, i.e., for each axis you are changing, the step size lies in the allowed list.
+Formally, a step (\delta\in\mathbb{T}^d) is admissible if (\delta\in\Delta\mathcal{H}^{(d)}), and a path is admissible if all of its steps are admissible.
+
+06.F1.d — The sextile spine as a universal router (pinned)
+Within the allowed step family, the sextile (\tfrac{1}{6}) is treated as a universal routing spine: it is explicitly used as a bridge among finer hubs and the primary quarter/third structure by composing small hub steps.
+
+06.F2 — Operators
+06.F2.a — Multi-axis tunnel step operator
+Define the multi-axis tunnel step operator:
+[
+\mathrm{Step}\delta:\mathbb{T}^d\to\mathbb{T}^d,\qquad
+\mathrm{Step}\delta(\Phi):=\Phi+\delta\ (\mathrm{mod}\ 1),
+]
+with admissibility constraint (\delta\in\Delta\mathcal{H}^{(d)}).
+
+06.F2.b — Hub-preserving route operator (geometric form)
+A hub-preserving route from (\Phi_A) to (\Phi_B) is a finite composition
+[
+\Phi_B
+\mathrm{Step}{\delta_T}\circ\cdots\circ \mathrm{Step}{\delta_1}(\Phi_A)
+]
+such that (i) each (\delta_t\in\Delta\mathcal{H}^{(d)}), and (ii) the path stays within a pinned corridor radius (\rho) of (\mathcal{H}^{(d)}). This is the torus-geometric rendering of the corridor mesh.
+
+06.F2.c — Hub-first routing (geometric contract)
+The hub-first routing contract is:
+[
+\Phi_A \xrightarrow{\text{snap}} \mathbf{h}_A
+\xrightarrow{\Delta\mathcal{H}^{(d)}} \mathbf{h}_B
+\xrightarrow{\text{snap}} \Phi_B,
+]
+where the hub middle segment is executed on the discrete mesh and the snap segments use bounded residual motion (within corridor budget). This contract is explicitly stated as the canonical routing strategy.
+
+06.F2.d — Hub-preserving hash as a chart-independent descriptor
+Define the chart-independent descriptor of (\Phi) by ((\mathbf{h},\mathbf{r},n)). The LensSwitch/interpretation maps are functions of this key rather than raw angles.
+
+06.F3 — Invariants
+06.F3.a — Mesh invariance under octave lift
+Octave lift preserves phase fractions: (\Phi) remains unchanged while the octave index increments and resolution changes.
+Therefore, (\mathbf{h}=\mathrm{Hub}^{(d)}(\Phi)) is invariant under octave lift (for fixed hub policy), and tunneling semantics are stable under higher-resolution renderings.
+
+06.F3.b — Axis-separability invariant for hub membership
+(\Phi\in\mathcal{H}^{(d)}) iff each (\phi_i\in\mathcal{H}). Thus, hub membership is axis-separable.
+
+06.F3.c — Admissible step invariance is coordinatewise
+A multi-axis step is admissible iff each changed axis uses an allowed step. This is the higher-D “phase-locked corridor” condition as a mesh.
+
+06.F3.d — Hub class invariance as the routing anchor
+The hub-preserving requirement “prefix truncation must not change the coarse hub class” is the anchor invariant; it guarantees that coarse routing decisions remain consistent under truncation and refinement.
+
+06.F4 — Protocols
+06.F4.a — Hub mesh builder in (\mathbb{T}^d) (finite enumeration at bounded denominator)
+To enumerate a finite working hub mesh, choose a denominator cap (default (36)) and form the rational grid
+[
+\mathcal{H}_{\le 36}
+\bigcup_{d\in\mathcal{D}}
+\left{\frac{k}{d}:k=0,\dots,d-1\right}.
+]
+Then (\mathcal{H}_{\le 36}^{(d)}) is the Cartesian product grid used by the router.
+
+06.F4.b — Deterministic axis ordering and step preference
+Pin:
+axis order ((1,2,\dots,d));
+step preference ordering (default: (\pm\tfrac{1}{36}\prec\pm\tfrac{1}{12}\prec\pm\tfrac{1}{6}\prec\pm\tfrac{1}{4}\prec\pm\tfrac{1}{3}));
+tie-break policy for nearest hubs.
+These pins are part of the corridor policy; changing them is a semantic change and must be explicit.
+
+06.F4.c — Hub-to-hub shortest path on the mesh (BFS)
+Construct a graph whose nodes are (\mathcal{H}_{\le 36}) and whose edges connect hubs differing by an element of (\Delta\mathcal{H}); run BFS from (h_A) to (h_B). Execute coordinatewise for (d) dimensions or in joint product space under a pinned cost model.
+
+06.F4.d — Route artifact structure (geometric)
+A route artifact records:
+(\psi_\star^{(d)}(\Phi_A;n)) and (\psi_\star^{(d)}(\Phi_B;n));
+hub sequence (intermediate (\mathbf{h}) waypoints) and step vectors;
+pinned policies (tie-break, cost, step preference, admissibility);
+replay hash and obligations.
+This “hub ride” form is a direct specialization of the general route-plan discipline (finite hub rides with pinned profiles).
+
+☁ Cloud — Residual-Based Uncertainty, Confidence, and Hub-Preserving Belief Transport
+06.C1 — Objects
+06.C1.a — Residual magnitude as uncertainty thickness
+For the hub-key ((\mathbf{h},\mathbf{r},n)), define residual magnitude (default (L^\infty)):
+[
+|\mathbf{r}|_\infty := \max_i |r_i|.
+]
+Residual size encodes “fog thickness”; smaller residual yields sharper certainty.
+
+06.C1.b — Hub posterior and confidence weight
+Given (\Phi\in\mathbb{T}^d), define the induced hub posterior over (\mathcal{H}^{(d)}) under a pinned noise model (\mathcal{N}) by
+[
+\mathbb{P}(\mathbf{h}\mid \Phi)\ \propto\ \exp!\left(-\frac{\mathrm{Dist}_{\infty}(\Phi,\mathbf{h})^2}{2\sigma^2}\right),
+]
+with (\sigma) pinned or derived as a monotone function of (|\mathbf{r}|). The minimal model ties (\sigma) to (|r|): smaller residual implies sharper certainty.
+
+06.C1.c — Hub-corridor belief state
+Define a belief state as a measure (\mu) on (\mathbb{T}^d) whose mass is concentrated in (\mathrm{Corr}_\rho(\mathcal{H}^{(d)})). The belief is hub-preserving if its pushforward under truncation preserves the same coarse hub class distribution (within typed tolerance).
+
+06.C1.d — Observation model: hub class and residual are sufficient statistics (pinned)
+Under the pinned model, the pair ((\mathbf{h},\mathbf{r})) is the sufficient descriptor for routing-relevant uncertainty: (\mathbf{h}) selects the macro basin; (\mathbf{r}) measures closeness and thus confidence.
+
+06.C2 — Operators
+06.C2.a — Belief transport under tunnel steps
+For an admissible step (\delta\in\Delta\mathcal{H}^{(d)}), define the transport of a measure (\mu) by pushforward:
+[
+(\mathrm{Step}\delta)#\mu(A):=\mu(A-\delta).
+]
+This is the exact measure transport induced by the deterministic tunnel move.
+
+06.C2.b — Belief snap and corridor projection
+Define the corridor projection operator (\Pi_{\mathrm{corr}}) that maps a general (\mu) to a corridor-supported (\tilde\mu) by snapping mass to nearby hub neighborhoods under a pinned rule (e.g., maximum a posteriori hub per sample). This is the probabilistic analog of the deterministic snap operator.
+
+06.C2.c — Confidence update rule under residual reduction
+If a snap operation reduces residual magnitude, update confidence monotonically. The minimal model implements confidence as an inverse function of (|\mathbf{r}|), consistent with “hub closeness = confidence; residual size = uncertainty thickness.”
+
+06.C2.d — Hub-first belief routing
+Execute belief routing by:
+concentrate mass near (\mathbf{h}_A) (snap-in),
+transport the concentrated belief along a mesh route (hub steps),
+expand to match target residual constraints (snap-out),
+all while maintaining corridor support and pinned policies.
+
+06.C3 — Invariants
+06.C3.a — Corridor mass invariant under admissible steps
+If (\mu) is supported in (\mathrm{Corr}\rho(\mathcal{H}^{(d)})) and (\delta) is a hub-step that maps hub neighborhoods to hub neighborhoods within the same (\rho), then ((\mathrm{Step}\delta)_#\mu) remains corridor-supported.
+
+06.C3.b — Deterministic hub class of a point is stable under truncation (policy)
+The deterministic hub class (\mathbf{h}=\mathrm{Snap}(\Phi)) is the routing anchor, and stability under prefix truncation is an explicit requirement.
+
+06.C3.c — Residual monotonicity under snap (when pinned to nearest hub)
+Under nearest-hub snap, (|\mathbf{r}|) is minimal among all candidate hub centers under the pinned metric. This enforces local optimality of snap.
+
+06.C3.d — Policy-pinned tie-break invariance
+All probabilistic claims involving (\mathrm{Hub}) must use the same pinned tie-break and metric; otherwise the induced posterior over hubs is not comparable across runs.
+
+06.C4 — Protocols
+06.C4.a — Posterior over hubs (finite mesh approximation)
+Approximate (\mathcal{H}) by (\mathcal{H}{\le 36}) and compute unnormalized weights
+[
+w(\mathbf{h})=\exp!\left(-\frac{\mathrm{Dist}{\infty}(\Phi,\mathbf{h})^2}{2\sigma^2}\right),
+]
+then normalize over the finite set.
+
+06.C4.b — Corridor-support audit
+Audit a belief state by estimating (\mathbb{P}[\Phi\in\mathrm{Corr}_\rho(\mathcal{H}^{(d)})]) under (\mu). If it falls below a pinned threshold, the state is outside the corridor.
+
+06.C4.c — Route-confidence transcript
+Emit a transcript recording, at each hop:
+hub waypoint,
+residual statistics,
+confidence measures,
+corridor support status,
+pinned policy digest.
+
+06.C4.d — Evidence plan when hub posterior is ambiguous
+If multiple hubs are tied or near-tied under the pinned metric and tie-break is insufficient (rare under exact rational states), the output is typed AMBIG and the plan requires additional constraints or higher resolution.
+
+✶ Fractal — Multi-Scale Tunneling: Octave Lifts, Fixed-Corridor Convergence, and Hub Stability
+06.R1 — Objects
+06.R1.a — Octave index and stability under lifting
+The hub key ((\mathbf{h},\mathbf{r},n)) carries octave index (n). Octave lift advances (n) while preserving phase fractions, and thus preserves hub fractions.
+
+06.R1.b — Fixed corridor and convergence descriptor
+Define the fixed corridor as (\mathrm{Corr}_\rho(\mathcal{H}^{(d)})) for pinned (\rho). The Fractal shadow of a state reads:
+stability of the hub under octave lifting,
+whether residual shrinks under lift+snap rules, i.e., convergence to the corridor fixed set.
+
+06.R1.c — Multi-scale hub mesh (two-tier refinement)
+A multi-tier hub system refines coarse policy hubs by inserting finer hubs inside basins without replacing the macro backbone. This produces a two-tier routing rule: macro spine selection followed by micro hub snapping within the chosen basin.
+
+06.R1.d — Tunnel as a transport operator with certificate obligations
+Tunneling is a transport operator: it must be explicit, replayable, and corridor-gated; it must obey truth typing and certificate obligations (never bypass corridor validation).
+
+06.R2 — Operators
+06.R2.a — Lift–Snap operator (one recursion step)
+Define the Lift–Snap operator on keys:
+[
+\mathsf{LS}:\ (\mathbf{h},\mathbf{r},n)\ \mapsto\ (\mathbf{h}',\mathbf{r}',n+1),
+]
+where (n\mapsto n+1) (octave lift), then ((\mathbf{h}',\mathbf{r}')) is recomputed by applying (\mathrm{Snap}) and (\mathrm{Res}) at the refined resolution under the pinned policy. Hub stability under lifting is a primary output.
+
+06.R2.b — Fixed-corridor contraction test
+Define the contraction test:
+[
+|\mathbf{r}'| \le \kappa |\mathbf{r}|
+]
+for pinned (\kappa\in(0,1]). If (\kappa<1) holds repeatedly, the route converges to the hub mesh under lift–snap recursion.
+
+06.R2.c — Two-tier snap operator (macro then micro)
+Under a two-tier hub policy, define:
+select dominant macro denominator (d^\star\in{2,3,4,6}) by pinned basin rule;
+within that basin, snap to the nearest micro hub (k/12).
+This operator refines placement while preserving the macro routing backbone.
+
+06.R2.d — RoutePlan and replay closure for tunnels
+A tunnel RoutePlan is a finite hub ride plus obligations and pins; it is replay-verified, and any mismatch produces a conflict packet under fork-guard rules.
+
+06.R3 — Invariants
+06.R3.a — Hub stability under octave lift
+Since phase fractions are unchanged by octave lift, hub fractions are stab

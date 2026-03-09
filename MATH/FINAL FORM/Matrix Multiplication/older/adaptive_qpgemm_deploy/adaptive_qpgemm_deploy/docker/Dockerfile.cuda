@@ -1,0 +1,49 @@
+# Dockerfile.cuda
+#
+# CUDA container template for:
+# - building C++ LibTorch (CUDA build) executables
+# - running Python export/bench/stress scripts (GPU)
+#
+# Requirements:
+# - Host must have NVIDIA drivers installed.
+# - Docker must be configured with nvidia-container-toolkit.
+#
+# Build:
+#   docker build -f docker/Dockerfile.cuda -t qpgemm_cuda \
+#       --build-arg LIBTORCH_URL="<paste libtorch CUDA zip URL>" .
+#
+# Run:
+#   docker run --rm -it --gpus all qpgemm_cuda bash
+
+FROM nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+ARG LIBTORCH_URL=""
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates wget unzip git cmake g++ \
+    python3 python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --no-cache-dir numpy pytest
+
+# LibTorch (CUDA build)
+RUN if [ -z "$LIBTORCH_URL" ]; then echo "ERROR: LIBTORCH_URL is required." && exit 1; fi
+RUN mkdir -p /opt && \
+    wget -O /opt/libtorch.zip "$LIBTORCH_URL" && \
+    unzip /opt/libtorch.zip -d /opt && \
+    rm /opt/libtorch.zip
+
+ENV LIBTORCH=/opt/libtorch
+
+WORKDIR /workspace
+COPY cpp/ /workspace/cpp/
+COPY python/ /workspace/python/
+COPY docs/ /workspace/docs/
+COPY README.md /workspace/README.md
+
+RUN cd /workspace/cpp && mkdir -p build && cd build && \
+    cmake -DCMAKE_PREFIX_PATH=${LIBTORCH} -DCMAKE_BUILD_TYPE=Release .. && \
+    cmake --build . --config Release -j
+
+CMD ["bash"]

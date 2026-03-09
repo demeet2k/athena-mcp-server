@@ -1,0 +1,1701 @@
+{
+  "generated_at": "2026-03-09T15:17:43.643784+00:00",
+  "root": "C:/Users/dmitr/Documents/Athena Agent",
+  "output_root": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network",
+  "live_docs_gate": "BLOCKED",
+  "live_record_count": 1910,
+  "archive_record_count": 2041,
+  "corpus_basis": [
+    {
+      "name": "self_actualize",
+      "top_level": "self_actualize",
+      "count": 117,
+      "global_weight": 0.061289,
+      "macro": "Earth",
+      "theta_deg": 0.0,
+      "metro_line": "Atlas-to-Replay Line",
+      "hubs": [
+        "AppA",
+        "AppH",
+        "AppI"
+      ]
+    },
+    {
+      "name": "NERVOUS_SYSTEM",
+      "top_level": "NERVOUS_SYSTEM",
+      "count": 115,
+      "global_weight": 0.060241,
+      "macro": "Earth",
+      "theta_deg": 27.692308,
+      "metro_line": "Canonical-Bridge Line",
+      "hubs": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "name": "ECOSYSTEM",
+      "top_level": "ECOSYSTEM",
+      "count": 99,
+      "global_weight": 0.05186,
+      "macro": "Earth",
+      "theta_deg": 55.384615,
+      "metro_line": "Kernel Line",
+      "hubs": [
+        "AppA",
+        "AppD",
+        "AppM"
+      ]
+    },
+    {
+      "name": "MATH",
+      "top_level": "MATH",
+      "count": 486,
+      "global_weight": 0.254584,
+      "macro": "Air",
+      "theta_deg": 83.076923,
+      "metro_line": "Kernel Line",
+      "hubs": [
+        "AppB",
+        "AppC",
+        "AppM"
+      ]
+    },
+    {
+      "name": "NERUAL NETWORK",
+      "top_level": "NERUAL NETWORK",
+      "count": 22,
+      "global_weight": 0.011524,
+      "macro": "Air",
+      "theta_deg": 110.769231,
+      "metro_line": "Runtime Line",
+      "hubs": [
+        "AppC",
+        "AppF",
+        "AppP"
+      ]
+    },
+    {
+      "name": "DEEPER CRYSTALIZATION",
+      "top_level": "DEEPER CRYSTALIZATION",
+      "count": 217,
+      "global_weight": 0.113672,
+      "macro": "Water",
+      "theta_deg": 138.461538,
+      "metro_line": "Manuscript Line",
+      "hubs": [
+        "AppE",
+        "AppG",
+        "AppL"
+      ]
+    },
+    {
+      "name": "Voynich",
+      "top_level": "Voynich",
+      "count": 636,
+      "global_weight": 0.333159,
+      "macro": "Water",
+      "theta_deg": 166.153846,
+      "metro_line": "Manuscript Line",
+      "hubs": [
+        "AppI",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Trading Bot",
+      "top_level": "Trading Bot",
+      "count": 193,
+      "global_weight": 0.1011,
+      "macro": "Fire",
+      "theta_deg": 193.846154,
+      "metro_line": "External Memory Gate Line",
+      "hubs": [
+        "AppE",
+        "AppN",
+        "AppP"
+      ]
+    },
+    {
+      "name": "FRESH",
+      "top_level": "FRESH",
+      "count": 6,
+      "global_weight": 0.003143,
+      "macro": "Fire",
+      "theta_deg": 221.538462,
+      "metro_line": "Prompt Line",
+      "hubs": [
+        "AppE",
+        "AppL",
+        "AppN"
+      ]
+    },
+    {
+      "name": "VOID_CH11.md",
+      "top_level": "VOID_CH11.md",
+      "count": 1,
+      "global_weight": 0.000524,
+      "macro": "Fire",
+      "theta_deg": 249.230769,
+      "metro_line": "Void Line",
+      "hubs": [
+        "AppG",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "name": "MYCELIUM_TOME_PART1.md",
+      "top_level": "MYCELIUM_TOME_PART1.md",
+      "count": 1,
+      "global_weight": 0.000524,
+      "macro": "Air",
+      "theta_deg": 276.923077,
+      "metro_line": "Kernel Line",
+      "hubs": [
+        "AppB",
+        "AppC",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Athenachka Collective Books",
+      "top_level": "Athenachka Collective Books",
+      "count": 13,
+      "global_weight": 0.00681,
+      "macro": "Water",
+      "theta_deg": 304.615385,
+      "metro_line": "Mythic Compression Line",
+      "hubs": [
+        "AppH",
+        "AppL",
+        "AppO"
+      ]
+    },
+    {
+      "name": "I AM ATHENA",
+      "top_level": "I AM ATHENA",
+      "count": 3,
+      "global_weight": 0.001572,
+      "macro": "Earth",
+      "theta_deg": 332.307692,
+      "metro_line": "Canonical-Bridge Line",
+      "hubs": [
+        "AppA",
+        "AppM",
+        "AppP"
+      ]
+    }
+  ],
+  "document_basis": [
+    {
+      "name": "The Holographic Manuscript Brain",
+      "relative_path": "FRESH\\The Holographic Manuscript Brain.docx",
+      "size_bytes": 1207288,
+      "global_weight": 0.079376,
+      "macro": "Water",
+      "theta_deg": 0.0,
+      "cluster": "manuscript substrate",
+      "hubs": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Self-Routing Meta-Framework",
+      "relative_path": "DEEPER CRYSTALIZATION\\Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search.docx",
+      "size_bytes": 137312,
+      "global_weight": 0.009028,
+      "macro": "Earth",
+      "theta_deg": 27.692308,
+      "cluster": "routing and search",
+      "hubs": [
+        "AppE",
+        "AppI",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "name": "QBD-4",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\Quadrant Binary\\QBD-4 — Quadrant Binary Dynamics.docx",
+      "size_bytes": 2344913,
+      "global_weight": 0.154172,
+      "macro": "Air",
+      "theta_deg": 55.384615,
+      "cluster": "quad logic bits",
+      "hubs": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Quad Holographic Rotation",
+      "relative_path": "MATH\\Newer\\QUAD HOLOGRAPHIC ROTATION.docx",
+      "size_bytes": 2496020,
+      "global_weight": 0.164107,
+      "macro": "Air",
+      "theta_deg": 83.076923,
+      "cluster": "holographic transport",
+      "hubs": [
+        "AppE",
+        "AppF",
+        "AppH",
+        "AppL"
+      ]
+    },
+    {
+      "name": "The Holographic Kernel",
+      "relative_path": "MATH\\Newer\\The Holographic Kernel.docx",
+      "size_bytes": 1539727,
+      "global_weight": 0.101233,
+      "macro": "Air",
+      "theta_deg": 110.769231,
+      "cluster": "holographic compression",
+      "hubs": [
+        "AppC",
+        "AppE",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Time Fractal",
+      "relative_path": "MATH\\Newer\\working\\TIME FRACTAL _working_.docx",
+      "size_bytes": 1213597,
+      "global_weight": 0.079791,
+      "macro": "Fire",
+      "theta_deg": 138.461538,
+      "cluster": "fractal time",
+      "hubs": [
+        "AppE",
+        "AppG",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Crystal Computing Framework",
+      "relative_path": "MATH\\FINAL FORM\\The Crystal\\Crystal Computing\\CRYSTAL COMPUTING FRAMEWORK.docx",
+      "size_bytes": 761315,
+      "global_weight": 0.050055,
+      "macro": "Air",
+      "theta_deg": 166.153846,
+      "cluster": "fractal computing",
+      "hubs": [
+        "AppB",
+        "AppC",
+        "AppM",
+        "AppP"
+      ]
+    },
+    {
+      "name": "Quantum Computing on Standard Hardware",
+      "relative_path": "MATH\\FINAL FORM\\The Crystal\\Quantum Computing on Standard Hardware.docx",
+      "size_bytes": 1255744,
+      "global_weight": 0.082562,
+      "macro": "Fire",
+      "theta_deg": 193.846154,
+      "cluster": "quantum classical emulation",
+      "hubs": [
+        "AppC",
+        "AppE",
+        "AppJ",
+        "AppP"
+      ]
+    },
+    {
+      "name": "Zero-Point Computing",
+      "relative_path": "MATH\\FINAL FORM\\The Crystal\\Crystal Computing\\ZERO-POINT COMPUTING.docx",
+      "size_bytes": 1233747,
+      "global_weight": 0.081116,
+      "macro": "Earth",
+      "theta_deg": 221.538462,
+      "cluster": "zero-point engine",
+      "hubs": [
+        "AppG",
+        "AppI",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Athena Neural Network Tome",
+      "relative_path": "NERUAL NETWORK\\Athena Nueral Network tome.docx",
+      "size_bytes": 891978,
+      "global_weight": 0.058645,
+      "macro": "Fire",
+      "theta_deg": 249.230769,
+      "cluster": "emergence compiler",
+      "hubs": [
+        "AppC",
+        "AppF",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "name": "VOYNICHVM Tricompiler",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\VOYNICHVM TRICOMPILER .docx",
+      "size_bytes": 1507563,
+      "global_weight": 0.099119,
+      "macro": "Water",
+      "theta_deg": 276.923077,
+      "cluster": "voynich computer",
+      "hubs": [
+        "AppA",
+        "AppI",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Torat Ha-Mispar",
+      "relative_path": "MATH\\FINAL FORM\\MYTH - MATH\\Sacred TEXTS\\TORAT HA-MISPAR (תורת המספר).docx",
+      "size_bytes": 237267,
+      "global_weight": 0.0156,
+      "macro": "Water",
+      "theta_deg": 304.615385,
+      "cluster": "torah computer",
+      "hubs": [
+        "AppA",
+        "AppG",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "name": "Universal Computational Ontology",
+      "relative_path": "MATH\\FINAL FORM\\MYTH - MATH\\THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO).docx",
+      "size_bytes": 383218,
+      "global_weight": 0.025196,
+      "macro": "Earth",
+      "theta_deg": 332.307692,
+      "cluster": "mythic os",
+      "hubs": [
+        "AppB",
+        "AppG",
+        "AppL",
+        "AppP"
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "scale": 2,
+      "name": "dyad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/02_dyad",
+      "corpus_geometry": {
+        "scale": 2,
+        "membership_mask": "1100000000000",
+        "coverage_ratio": 0.12153,
+        "centroid_x": 0.943222,
+        "centroid_y": 0.230358,
+        "theta_deg": 13.724411,
+        "macro_barycentric": {
+          "earth": 1.0,
+          "water": 0.0,
+          "fire": 0.0,
+          "air": 0.0
+        },
+        "dominant_macro": "Earth",
+        "entropy": 0.999946,
+        "crystal_gate": {
+          "dominant_macro": "Earth",
+          "address": [
+            0,
+            0,
+            0,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.50431,
+          "NERVOUS_SYSTEM": 0.49569
+        }
+      },
+      "document_geometry": {
+        "scale": 2,
+        "membership_mask": "1100000000000",
+        "coverage_ratio": 0.088404,
+        "centroid_x": 0.988303,
+        "centroid_y": 0.047458,
+        "theta_deg": 2.749216,
+        "macro_barycentric": {
+          "earth": 0.102121,
+          "water": 0.897879,
+          "fire": 0.0,
+          "air": 0.0
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.475683,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            1,
+            0,
+            1
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.897879,
+          "Self-Routing Meta-Framework": 0.102121
+        }
+      }
+    },
+    {
+      "scale": 3,
+      "name": "triad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/03_triad",
+      "corpus_geometry": {
+        "scale": 3,
+        "membership_mask": "1110000000000",
+        "coverage_ratio": 0.173389,
+        "centroid_x": 0.831015,
+        "centroid_y": 0.407609,
+        "theta_deg": 26.127744,
+        "macro_barycentric": {
+          "earth": 1.0,
+          "water": 0.0,
+          "fire": 0.0,
+          "air": 0.0
+        },
+        "dominant_macro": "Earth",
+        "entropy": 0.997531,
+        "crystal_gate": {
+          "dominant_macro": "Earth",
+          "address": [
+            0,
+            0,
+            0,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.353474,
+          "NERVOUS_SYSTEM": 0.347432,
+          "ECOSYSTEM": 0.299094
+        }
+      },
+      "document_geometry": {
+        "scale": 3,
+        "membership_mask": "1110000000000",
+        "coverage_ratio": 0.242576,
+        "centroid_x": 0.721216,
+        "centroid_y": 0.540353,
+        "theta_deg": 36.841458,
+        "macro_barycentric": {
+          "earth": 0.037217,
+          "water": 0.327222,
+          "fire": 0.0,
+          "air": 0.635562
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.706429,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            2,
+            0,
+            2
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.327222,
+          "Self-Routing Meta-Framework": 0.037217,
+          "QBD-4": 0.635562
+        }
+      }
+    },
+    {
+      "scale": 4,
+      "name": "tetrad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/04_tetrad",
+      "corpus_geometry": {
+        "scale": 4,
+        "membership_mask": "1111000000000",
+        "coverage_ratio": 0.427973,
+        "centroid_x": 0.40838,
+        "centroid_y": 0.755661,
+        "theta_deg": 61.611978,
+        "macro_barycentric": {
+          "earth": 0.405141,
+          "water": 0.0,
+          "fire": 0.0,
+          "air": 0.594859
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.807213,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            1,
+            0,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.143207,
+          "NERVOUS_SYSTEM": 0.140759,
+          "ECOSYSTEM": 0.121175,
+          "MATH": 0.594859
+        }
+      },
+      "document_geometry": {
+        "scale": 4,
+        "membership_mask": "1111000000000",
+        "coverage_ratio": 0.406684,
+        "centroid_x": 0.478826,
+        "centroid_y": 0.72289,
+        "theta_deg": 56.480384,
+        "macro_barycentric": {
+          "earth": 0.022199,
+          "water": 0.195179,
+          "fire": 0.0,
+          "air": 0.782622
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.820413,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            2,
+            0,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.195179,
+          "Self-Routing Meta-Framework": 0.022199,
+          "QBD-4": 0.379096,
+          "Quad Holographic Rotation": 0.403525
+        }
+      }
+    },
+    {
+      "scale": 5,
+      "name": "pentad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/05_pentad",
+      "corpus_geometry": {
+        "scale": 5,
+        "membership_mask": "1111100000000",
+        "coverage_ratio": 0.439497,
+        "centroid_x": 0.388374,
+        "centroid_y": 0.760364,
+        "theta_deg": 62.943277,
+        "macro_barycentric": {
+          "earth": 0.394517,
+          "water": 0.0,
+          "fire": 0.0,
+          "air": 0.605483
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.752464,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            1,
+            1,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.139452,
+          "NERVOUS_SYSTEM": 0.137068,
+          "ECOSYSTEM": 0.117998,
+          "MATH": 0.579261,
+          "NERUAL NETWORK": 0.026222
+        }
+      },
+      "document_geometry": {
+        "scale": 5,
+        "membership_mask": "1111100000000",
+        "coverage_ratio": 0.507917,
+        "centroid_x": 0.312715,
+        "centroid_y": 0.765169,
+        "theta_deg": 67.770804,
+        "macro_barycentric": {
+          "earth": 0.017774,
+          "water": 0.156278,
+          "fire": 0.0,
+          "air": 0.825948
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.876142,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            2,
+            1,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.156278,
+          "Self-Routing Meta-Framework": 0.017774,
+          "QBD-4": 0.303538,
+          "Quad Holographic Rotation": 0.323099,
+          "The Holographic Kernel": 0.199311
+        }
+      }
+    },
+    {
+      "scale": 6,
+      "name": "hexad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/06_hexad",
+      "corpus_geometry": {
+        "scale": 6,
+        "membership_mask": "1111110000000",
+        "coverage_ratio": 0.553169,
+        "centroid_x": 0.154752,
+        "centroid_y": 0.740382,
+        "theta_deg": 78.194171,
+        "macro_barycentric": {
+          "earth": 0.313447,
+          "water": 0.205492,
+          "fire": 0.0,
+          "air": 0.481061
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.820482,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            2,
+            1,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.110795,
+          "NERVOUS_SYSTEM": 0.108902,
+          "ECOSYSTEM": 0.09375,
+          "MATH": 0.460227,
+          "NERUAL NETWORK": 0.020833,
+          "DEEPER CRYSTALIZATION": 0.205492
+        }
+      },
+      "document_geometry": {
+        "scale": 6,
+        "membership_mask": "1111110000000",
+        "coverage_ratio": 0.587708,
+        "centroid_x": 0.168636,
+        "centroid_y": 0.751314,
+        "theta_deg": 77.349379,
+        "macro_barycentric": {
+          "earth": 0.015361,
+          "water": 0.135061,
+          "fire": 0.135766,
+          "air": 0.713812
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.901826,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            1,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.135061,
+          "Self-Routing Meta-Framework": 0.015361,
+          "QBD-4": 0.262328,
+          "Quad Holographic Rotation": 0.279233,
+          "The Holographic Kernel": 0.172251,
+          "Time Fractal": 0.135766
+        }
+      }
+    },
+    {
+      "scale": 7,
+      "name": "heptad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/07_heptad",
+      "corpus_geometry": {
+        "scale": 7,
+        "membership_mask": "1111111000000",
+        "coverage_ratio": 0.886328,
+        "centroid_x": -0.268381,
+        "centroid_y": 0.552038,
+        "theta_deg": 115.927354,
+        "macro_barycentric": {
+          "earth": 0.195626,
+          "water": 0.504137,
+          "fire": 0.0,
+          "air": 0.300236
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.811717,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            2,
+            1,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.069149,
+          "NERVOUS_SYSTEM": 0.067967,
+          "ECOSYSTEM": 0.058511,
+          "MATH": 0.287234,
+          "NERUAL NETWORK": 0.013002,
+          "DEEPER CRYSTALIZATION": 0.128251,
+          "Voynich": 0.375887
+        }
+      },
+      "document_geometry": {
+        "scale": 7,
+        "membership_mask": "1111111000000",
+        "coverage_ratio": 0.637763,
+        "centroid_x": 0.079196,
+        "centroid_y": 0.71113,
+        "theta_deg": 83.645333,
+        "macro_barycentric": {
+          "earth": 0.014156,
+          "water": 0.12446,
+          "fire": 0.125111,
+          "air": 0.736273
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.906562,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            1,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.12446,
+          "Self-Routing Meta-Framework": 0.014156,
+          "QBD-4": 0.241739,
+          "Quad Holographic Rotation": 0.257317,
+          "The Holographic Kernel": 0.158732,
+          "Time Fractal": 0.125111,
+          "Crystal Computing Framework": 0.078485
+        }
+      }
+    },
+    {
+      "scale": 8,
+      "name": "octad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/08_octad",
+      "corpus_geometry": {
+        "scale": 8,
+        "membership_mask": "1111111100000",
+        "coverage_ratio": 0.987428,
+        "centroid_x": -0.340314,
+        "centroid_y": 0.471013,
+        "theta_deg": 125.848682,
+        "macro_barycentric": {
+          "earth": 0.175597,
+          "water": 0.45252,
+          "fire": 0.102387,
+          "air": 0.269496
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.840659,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            3,
+            2,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.062069,
+          "NERVOUS_SYSTEM": 0.061008,
+          "ECOSYSTEM": 0.05252,
+          "MATH": 0.257825,
+          "NERUAL NETWORK": 0.011671,
+          "DEEPER CRYSTALIZATION": 0.115119,
+          "Voynich": 0.337401,
+          "Trading Bot": 0.102387
+        }
+      },
+      "document_geometry": {
+        "scale": 8,
+        "membership_mask": "1111111100000",
+        "coverage_ratio": 0.720325,
+        "centroid_x": -0.041168,
+        "centroid_y": 0.602192,
+        "theta_deg": 93.910882,
+        "macro_barycentric": {
+          "earth": 0.012533,
+          "water": 0.110195,
+          "fire": 0.225389,
+          "air": 0.651883
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.922341,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            2,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.110195,
+          "Self-Routing Meta-Framework": 0.012533,
+          "QBD-4": 0.214032,
+          "Quad Holographic Rotation": 0.227824,
+          "The Holographic Kernel": 0.140538,
+          "Time Fractal": 0.110771,
+          "Crystal Computing Framework": 0.069489,
+          "Quantum Computing on Standard Hardware": 0.114618
+        }
+      }
+    },
+    {
+      "scale": 9,
+      "name": "ennead",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/09_ennead",
+      "corpus_geometry": {
+        "scale": 9,
+        "membership_mask": "1111111110000",
+        "coverage_ratio": 0.990571,
+        "centroid_x": -0.341609,
+        "centroid_y": 0.467415,
+        "theta_deg": 126.161149,
+        "macro_barycentric": {
+          "earth": 0.17504,
+          "water": 0.451084,
+          "fire": 0.105235,
+          "air": 0.268641
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.80282,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            3,
+            2,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.061872,
+          "NERVOUS_SYSTEM": 0.060814,
+          "ECOSYSTEM": 0.052353,
+          "MATH": 0.257007,
+          "NERUAL NETWORK": 0.011634,
+          "DEEPER CRYSTALIZATION": 0.114754,
+          "Voynich": 0.33633,
+          "Trading Bot": 0.102062,
+          "FRESH": 0.003173
+        }
+      },
+      "document_geometry": {
+        "scale": 9,
+        "membership_mask": "1111111110000",
+        "coverage_ratio": 0.801441,
+        "centroid_x": -0.11276,
+        "centroid_y": 0.474126,
+        "theta_deg": 103.377966,
+        "macro_barycentric": {
+          "earth": 0.112477,
+          "water": 0.099042,
+          "fire": 0.202577,
+          "air": 0.585904
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.933711,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            2,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.099042,
+          "Self-Routing Meta-Framework": 0.011265,
+          "QBD-4": 0.192369,
+          "Quad Holographic Rotation": 0.204765,
+          "The Holographic Kernel": 0.126314,
+          "Time Fractal": 0.09956,
+          "Crystal Computing Framework": 0.062456,
+          "Quantum Computing on Standard Hardware": 0.103017,
+          "Zero-Point Computing": 0.101213
+        }
+      }
+    },
+    {
+      "scale": 10,
+      "name": "decad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/10_decad",
+      "corpus_geometry": {
+        "scale": 10,
+        "membership_mask": "1111111111000",
+        "coverage_ratio": 0.991095,
+        "centroid_x": -0.341616,
+        "centroid_y": 0.466673,
+        "theta_deg": 126.205029,
+        "macro_barycentric": {
+          "earth": 0.174947,
+          "water": 0.450846,
+          "fire": 0.105708,
+          "air": 0.268499
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.767642,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            3,
+            2,
+            3
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.061839,
+          "NERVOUS_SYSTEM": 0.060782,
+          "ECOSYSTEM": 0.052326,
+          "MATH": 0.256871,
+          "NERUAL NETWORK": 0.011628,
+          "DEEPER CRYSTALIZATION": 0.114693,
+          "Voynich": 0.336152,
+          "Trading Bot": 0.102008,
+          "FRESH": 0.003171,
+          "VOID_CH11.md": 0.000529
+        }
+      },
+      "document_geometry": {
+        "scale": 10,
+        "membership_mask": "1111111111000",
+        "coverage_ratio": 0.860086,
+        "centroid_x": -0.12925,
+        "centroid_y": 0.378043,
+        "theta_deg": 108.875213,
+        "macro_barycentric": {
+          "earth": 0.104808,
+          "water": 0.092289,
+          "fire": 0.256949,
+          "air": 0.545954
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.938339,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            2,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.092289,
+          "Self-Routing Meta-Framework": 0.010497,
+          "QBD-4": 0.179252,
+          "Quad Holographic Rotation": 0.190803,
+          "The Holographic Kernel": 0.117701,
+          "Time Fractal": 0.092771,
+          "Crystal Computing Framework": 0.058197,
+          "Quantum Computing on Standard Hardware": 0.095993,
+          "Zero-Point Computing": 0.094311,
+          "Athena Neural Network Tome": 0.068185
+        }
+      }
+    },
+    {
+      "scale": 11,
+      "name": "hendecad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/11_hendecad",
+      "corpus_geometry": {
+        "scale": 11,
+        "membership_mask": "1111111111100",
+        "coverage_ratio": 0.991619,
+        "centroid_x": -0.341372,
+        "centroid_y": 0.465903,
+        "theta_deg": 126.230659,
+        "macro_barycentric": {
+          "earth": 0.174855,
+          "water": 0.450608,
+          "fire": 0.105652,
+          "air": 0.268885
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.738623,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            3,
+            3,
+            2
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.061807,
+          "NERVOUS_SYSTEM": 0.06075,
+          "ECOSYSTEM": 0.052298,
+          "MATH": 0.256735,
+          "NERUAL NETWORK": 0.011622,
+          "DEEPER CRYSTALIZATION": 0.114633,
+          "Voynich": 0.335975,
+          "Trading Bot": 0.101955,
+          "FRESH": 0.00317,
+          "VOID_CH11.md": 0.000528,
+          "MYCELIUM_TOME_PART1.md": 0.000528
+        }
+      },
+      "document_geometry": {
+        "scale": 11,
+        "membership_mask": "1111111111100",
+        "coverage_ratio": 0.959205,
+        "centroid_x": -0.103439,
+        "centroid_y": 0.236398,
+        "theta_deg": 113.632404,
+        "macro_barycentric": {
+          "earth": 0.093978,
+          "water": 0.186086,
+          "fire": 0.230398,
+          "air": 0.489538
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.946534,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.082752,
+          "Self-Routing Meta-Framework": 0.009412,
+          "QBD-4": 0.160729,
+          "Quad Holographic Rotation": 0.171087,
+          "The Holographic Kernel": 0.105539,
+          "Time Fractal": 0.083185,
+          "Crystal Computing Framework": 0.052183,
+          "Quantum Computing on Standard Hardware": 0.086074,
+          "Zero-Point Computing": 0.084566,
+          "Athena Neural Network Tome": 0.06114,
+          "VOYNICHVM Tricompiler": 0.103334
+        }
+      }
+    },
+    {
+      "scale": 12,
+      "name": "dodecad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/12_dodecad",
+      "corpus_geometry": {
+        "scale": 12,
+        "membership_mask": "1111111111110",
+        "coverage_ratio": 0.998428,
+        "centroid_x": -0.335169,
+        "centroid_y": 0.457112,
+        "theta_deg": 126.250093,
+        "macro_barycentric": {
+          "earth": 0.173662,
+          "water": 0.454355,
+          "fire": 0.104932,
+          "air": 0.267051
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.724324,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            3,
+            3,
+            2
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.061385,
+          "NERVOUS_SYSTEM": 0.060336,
+          "ECOSYSTEM": 0.051941,
+          "MATH": 0.254984,
+          "NERUAL NETWORK": 0.011542,
+          "DEEPER CRYSTALIZATION": 0.113851,
+          "Voynich": 0.333683,
+          "Trading Bot": 0.101259,
+          "FRESH": 0.003148,
+          "VOID_CH11.md": 0.000525,
+          "MYCELIUM_TOME_PART1.md": 0.000525,
+          "Athenachka Collective Books": 0.006821
+        }
+      },
+      "document_geometry": {
+        "scale": 12,
+        "membership_mask": "1111111111110",
+        "coverage_ratio": 0.974804,
+        "centroid_x": -0.092693,
+        "centroid_y": 0.219445,
+        "theta_deg": 112.899084,
+        "macro_barycentric": {
+          "earth": 0.092474,
+          "water": 0.199111,
+          "fire": 0.226711,
+          "air": 0.481704
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.931791,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.081428,
+          "Self-Routing Meta-Framework": 0.009261,
+          "QBD-4": 0.158157,
+          "Quad Holographic Rotation": 0.168349,
+          "The Holographic Kernel": 0.10385,
+          "Time Fractal": 0.081853,
+          "Crystal Computing Framework": 0.051348,
+          "Quantum Computing on Standard Hardware": 0.084696,
+          "Zero-Point Computing": 0.083212,
+          "Athena Neural Network Tome": 0.060161,
+          "VOYNICHVM Tricompiler": 0.101681,
+          "Torat Ha-Mispar": 0.016003
+        }
+      }
+    },
+    {
+      "scale": 13,
+      "name": "tridecad",
+      "folder": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/scales/13_tridecad",
+      "corpus_geometry": {
+        "scale": 13,
+        "membership_mask": "1111111111111",
+        "coverage_ratio": 1.0,
+        "centroid_x": -0.333251,
+        "centroid_y": 0.455663,
+        "theta_deg": 126.18003,
+        "macro_barycentric": {
+          "earth": 0.174961,
+          "water": 0.453641,
+          "fire": 0.104767,
+          "air": 0.266632
+        },
+        "dominant_macro": "Water",
+        "entropy": 0.705185,
+        "crystal_gate": {
+          "dominant_macro": "Water",
+          "address": [
+            1,
+            3,
+            3,
+            2
+          ]
+        },
+        "local_weights": {
+          "self_actualize": 0.061289,
+          "NERVOUS_SYSTEM": 0.060241,
+          "ECOSYSTEM": 0.05186,
+          "MATH": 0.254584,
+          "NERUAL NETWORK": 0.011524,
+          "DEEPER CRYSTALIZATION": 0.113672,
+          "Voynich": 0.333159,
+          "Trading Bot": 0.1011,
+          "FRESH": 0.003143,
+          "VOID_CH11.md": 0.000524,
+          "MYCELIUM_TOME_PART1.md": 0.000524,
+          "Athenachka Collective Books": 0.00681,
+          "I AM ATHENA": 0.001572
+        }
+      },
+      "document_geometry": {
+        "scale": 13,
+        "membership_mask": "1111111111111",
+        "coverage_ratio": 1.0,
+        "centroid_x": -0.068048,
+        "centroid_y": 0.202207,
+        "theta_deg": 108.599435,
+        "macro_barycentric": {
+          "earth": 0.115339,
+          "water": 0.194095,
+          "fire": 0.220999,
+          "air": 0.469567
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.925826,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "local_weights": {
+          "The Holographic Manuscript Brain": 0.079376,
+          "Self-Routing Meta-Framework": 0.009028,
+          "QBD-4": 0.154172,
+          "Quad Holographic Rotation": 0.164107,
+          "The Holographic Kernel": 0.101233,
+          "Time Fractal": 0.079791,
+          "Crystal Computing Framework": 0.050055,
+          "Quantum Computing on Standard Hardware": 0.082562,
+          "Zero-Point Computing": 0.081116,
+          "Athena Neural Network Tome": 0.058645,
+          "VOYNICHVM Tricompiler": 0.099119,
+          "Torat Ha-Mispar": 0.0156,
+          "Universal Computational Ontology": 0.025196
+        }
+      }
+    }
+  ],
+  "juggling_networks": [
+    {
+      "ball_count": 2,
+      "pattern": {
+        "pattern": "2-ball exchange",
+        "siteswap": "2",
+        "ground_state": "dual_exchange",
+        "decomposition": "1 + 1"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/02_ball_dual_exchange_network.md",
+      "geometry": {
+        "coverage_ratio": 0.104967,
+        "theta_deg": 8.236814,
+        "macro_barycentric": {
+          "earth": 0.55106,
+          "water": 0.448939,
+          "fire": 0.0,
+          "air": 0.0
+        },
+        "dominant_macro": "Earth",
+        "entropy": 0.737815,
+        "crystal_gate": {
+          "dominant_macro": "Earth",
+          "address": [
+            0,
+            0,
+            0,
+            2
+          ]
+        },
+        "scale": 2,
+        "membership_mask": "1100000000000",
+        "centroid_x": 0.989684,
+        "centroid_y": 0.143265
+      }
+    },
+    {
+      "ball_count": 3,
+      "pattern": {
+        "pattern": "3-ball cascade",
+        "siteswap": "3",
+        "ground_state": "cascade",
+        "decomposition": "triangle"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/03_ball_cascade_network.md",
+      "geometry": {
+        "coverage_ratio": 0.207983,
+        "theta_deg": 31.484601,
+        "macro_barycentric": {
+          "earth": 0.518609,
+          "water": 0.163611,
+          "fire": 0.0,
+          "air": 0.317781
+        },
+        "dominant_macro": "Earth",
+        "entropy": 0.85198,
+        "crystal_gate": {
+          "dominant_macro": "Earth",
+          "address": [
+            0,
+            1,
+            0,
+            3
+          ]
+        },
+        "scale": 3,
+        "membership_mask": "1110000000000",
+        "centroid_x": 0.852781,
+        "centroid_y": 0.522269
+      }
+    },
+    {
+      "ball_count": 4,
+      "pattern": {
+        "pattern": "4-ball fountain",
+        "siteswap": "4",
+        "ground_state": "fountain",
+        "decomposition": "2 + 2"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/04_ball_fountain_network.md",
+      "geometry": {
+        "coverage_ratio": 0.417328,
+        "theta_deg": 59.046181,
+        "macro_barycentric": {
+          "earth": 0.21367,
+          "water": 0.097589,
+          "fire": 0.0,
+          "air": 0.68874
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.813813,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            0,
+            3
+          ]
+        },
+        "scale": 4,
+        "membership_mask": "1111000000000",
+        "centroid_x": 0.514347,
+        "centroid_y": 0.857582
+      }
+    },
+    {
+      "ball_count": 5,
+      "pattern": {
+        "pattern": "5-ball cascade",
+        "siteswap": "5",
+        "ground_state": "cascade",
+        "decomposition": "3 + 2 or bridge-node form"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/05_ball_cascade_network.md",
+      "geometry": {
+        "coverage_ratio": 0.473707,
+        "theta_deg": 65.35704,
+        "macro_barycentric": {
+          "earth": 0.206146,
+          "water": 0.078139,
+          "fire": 0.0,
+          "air": 0.715715
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.814303,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            1,
+            3
+          ]
+        },
+        "scale": 5,
+        "membership_mask": "1111100000000",
+        "centroid_x": 0.416962,
+        "centroid_y": 0.908924
+      }
+    },
+    {
+      "ball_count": 6,
+      "pattern": {
+        "pattern": "6-ball fountain",
+        "siteswap": "6",
+        "ground_state": "fountain",
+        "decomposition": "3 + 3 / 4 + 2 / 2 + 2 + 2"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/06_ball_fountain_network.md",
+      "geometry": {
+        "coverage_ratio": 0.570439,
+        "theta_deg": 77.771775,
+        "macro_barycentric": {
+          "earth": 0.164404,
+          "water": 0.170276,
+          "fire": 0.067883,
+          "air": 0.597437
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.861154,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            1,
+            3
+          ]
+        },
+        "scale": 6,
+        "membership_mask": "1111110000000",
+        "centroid_x": 0.211806,
+        "centroid_y": 0.977312
+      }
+    },
+    {
+      "ball_count": 7,
+      "pattern": {
+        "pattern": "7-ball cascade",
+        "siteswap": "7",
+        "ground_state": "cascade",
+        "decomposition": "4 + 3 or 5 + 2"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/07_ball_cascade_network.md",
+      "geometry": {
+        "coverage_ratio": 0.762045,
+        "theta_deg": 99.786343,
+        "macro_barycentric": {
+          "earth": 0.104891,
+          "water": 0.314298,
+          "fire": 0.062555,
+          "air": 0.518254
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.859139,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            1,
+            3
+          ]
+        },
+        "scale": 7,
+        "membership_mask": "1111111000000",
+        "centroid_x": -0.169975,
+        "centroid_y": 0.985448
+      }
+    },
+    {
+      "ball_count": 8,
+      "pattern": {
+        "pattern": "8-ball fountain",
+        "siteswap": "8",
+        "ground_state": "fountain",
+        "decomposition": "4 + 4"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/08_ball_fountain_network.md",
+      "geometry": {
+        "coverage_ratio": 0.853876,
+        "theta_deg": 109.879782,
+        "macro_barycentric": {
+          "earth": 0.094065,
+          "water": 0.281357,
+          "fire": 0.163888,
+          "air": 0.460689
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.8815,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            2,
+            3
+          ]
+        },
+        "scale": 8,
+        "membership_mask": "1111111100000",
+        "centroid_x": -0.340048,
+        "centroid_y": 0.940408
+      }
+    },
+    {
+      "ball_count": 9,
+      "pattern": {
+        "pattern": "9-ball cascade",
+        "siteswap": "9",
+        "ground_state": "cascade",
+        "decomposition": "3 + 3 + 3"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/09_ball_cascade_network.md",
+      "geometry": {
+        "coverage_ratio": 0.896006,
+        "theta_deg": 114.769557,
+        "macro_barycentric": {
+          "earth": 0.143759,
+          "water": 0.275063,
+          "fire": 0.153906,
+          "air": 0.427272
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.868265,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            2,
+            3
+          ]
+        },
+        "scale": 9,
+        "membership_mask": "1111111110000",
+        "centroid_x": -0.41897,
+        "centroid_y": 0.908
+      }
+    },
+    {
+      "ball_count": 10,
+      "pattern": {
+        "pattern": "10-ball fountain",
+        "siteswap": "10",
+        "ground_state": "fountain",
+        "decomposition": "5 + 5 / 6 + 4 / 7 + 3"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/10_ball_fountain_network.md",
+      "geometry": {
+        "coverage_ratio": 0.92559,
+        "theta_deg": 117.540121,
+        "macro_barycentric": {
+          "earth": 0.139877,
+          "water": 0.271568,
+          "fire": 0.181329,
+          "air": 0.407227
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.85299,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            2,
+            3
+          ]
+        },
+        "scale": 10,
+        "membership_mask": "1111111111000",
+        "centroid_x": -0.46237,
+        "centroid_y": 0.886687
+      }
+    },
+    {
+      "ball_count": 11,
+      "pattern": {
+        "pattern": "11-ball cascade",
+        "siteswap": "11",
+        "ground_state": "cascade",
+        "decomposition": "innovation-pressure asymmetric regime"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/11_ball_cascade_network.md",
+      "geometry": {
+        "coverage_ratio": 0.975412,
+        "theta_deg": 119.931532,
+        "macro_barycentric": {
+          "earth": 0.134416,
+          "water": 0.318347,
+          "fire": 0.168025,
+          "air": 0.379211
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.842579,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "scale": 11,
+        "membership_mask": "1111111111100",
+        "centroid_x": -0.498965,
+        "centroid_y": 0.866622
+      }
+    },
+    {
+      "ball_count": 12,
+      "pattern": {
+        "pattern": "12-ball fountain",
+        "siteswap": "12",
+        "ground_state": "fountain",
+        "decomposition": "6 + 6 / 4 + 4 + 4 / 3 + 3 + 3 + 3"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/12_ball_fountain_network.md",
+      "geometry": {
+        "coverage_ratio": 0.986616,
+        "theta_deg": 119.574589,
+        "macro_barycentric": {
+          "earth": 0.133068,
+          "water": 0.326733,
+          "fire": 0.165822,
+          "air": 0.374378
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.828058,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "scale": 12,
+        "membership_mask": "1111111111110",
+        "centroid_x": -0.493556,
+        "centroid_y": 0.869714
+      }
+    },
+    {
+      "ball_count": 13,
+      "pattern": {
+        "pattern": "13-ball cascade",
+        "siteswap": "13",
+        "ground_state": "cascade",
+        "decomposition": "near-limit asymmetric regime"
+      },
+      "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/13_ball_cascade_network.md",
+      "geometry": {
+        "coverage_ratio": 1.0,
+        "theta_deg": 117.389733,
+        "macro_barycentric": {
+          "earth": 0.14515,
+          "water": 0.323868,
+          "fire": 0.162883,
+          "air": 0.3681
+        },
+        "dominant_macro": "Air",
+        "entropy": 0.815505,
+        "crystal_gate": {
+          "dominant_macro": "Air",
+          "address": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "scale": 13,
+        "membership_mask": "1111111111111",
+        "centroid_x": -0.460041,
+        "centroid_y": 0.887898
+      }
+    }
+  ]
+}

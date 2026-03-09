@@ -1,0 +1,14 @@
+{
+  "note_id": "NOTE-20260309T154256Z-3a0408",
+  "agent": "codex",
+  "front": "watch-loop snapshot fidelity",
+  "front_slug": "watch_loop_snapshot_fidelity",
+  "status": "done",
+  "message": "Adjusted the watcher to pass the exact observed snapshot into the board refresh, then verified the live loop against a transient probe file. The change feed captured self_actualize/_watch_probe_stage3.tmp and the event history preserved the add/remove cycle.",
+  "paths": [
+    "self_actualize/runtime/swarm_board.py",
+    "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/04_CHANGE_FEED/00_RECENT_CHANGES.md"
+  ],
+  "created_at": "2026-03-09T15:42:56.193443+00:00",
+  "updated_at": "2026-03-09T15:42:56.193443+00:00"
+}

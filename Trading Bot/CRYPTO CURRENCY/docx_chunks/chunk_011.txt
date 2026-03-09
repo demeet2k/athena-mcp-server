@@ -1,0 +1,415 @@
+ A corridor lock is not allowed to silently choose among multiple incompatible policy explanations without emitting AMBIG or NEAR evidence.
+Define the policy ambiguity witness:
+[
+\mathrm{gap}(\psi);:=;\mathcal J_\triangle(\tau_{(2)};\psi)-\mathcal J_\triangle(\tau_{(1)};\psi),
+]
+where (\tau_{(1)}) and (\tau_{(2)}) are the best and second‑best pinned candidates. If (\mathrm{gap}(\psi)) is below a pinned threshold and the downstream artifacts depend on the choice, the correct outcome is AMBIG (with an evidence plan) rather than a hidden tie‑break. Unknown structure (insufficient metadata for policy selection) must be treated as AMBIG with a bounded evidence plan.
+10.3.4 Patches: pin corridor mode, propagate disclosures, quarantine conflicts
+Triangle patching is governance:
+If a segment declares lossless behavior, any unaccounted residual loss yields FAIL; lossy mode requires residual ledger and disclosure, otherwise illegal.
+If policy computations disagree under identical pins (verifier mismatch), classify CONFLICT and quarantine the route; conflict packets must be reproducible and fenced.
+
+10.4 ✶ Fractal lens
+10.4.1 Atoms: meta‑zero as intersection + invariance fixed point
+Fractal is the global reconciliation layer. It treats meta‑zero as:
+Intersection of all corridors (\mathcal Z_\star=\bigcap Z) (explicitly, the intersection of the corridor families listed in (\mathcal Z_\star)).
+Fixed point of the global transform group (the “true shared object‑space”): the state that is invariant under the legal symmetry group of declared becomings. In operational terms, the zero point is the set of states for which the defect vector is (exactly or tolerably) zero, and the commuting/holonomy tests collapse. The framework packages these defects as explicit operators (commutators, overlaps, kernels, divergences), so “failure” becomes a measurable object rather than an anecdote.
+10.4.2 Rotations: alternating projections across levels (multilevel Snap)
+Fractal snap is the alternating projection engine:
+Single‑level alternating projection.
+Use (T=P_m\circ\cdots\circ P_1) and iterate to a fixed point (\psi_\star=\lim_{n\to\infty}T^n(\psi)). This is the canonical corridor lock definition when gates do not commute.
+Multilevel (coarse‑to‑fine) Snap.
+When (\mathcal Z_\star) is difficult at full resolution, enforce corridors on a scale ladder ((h_0>h_1>\cdots>h_L)), using coarse snaps to enter the correct basin, then refining while re‑locking constraints. This is explicitly treated as “adaptive refinement to improve intersection pushing,” with multilevel scheduling as a first‑class patch path.
+All adaptive refinement decisions that change decode‑relevant behavior must be encoded/replayable under the corridor profile; otherwise the snap is not certifiable.
+10.4.3 Shadows: convergence monitors, holonomy collapse, scale maps
+Fractal shadows are convergence and path‑dependence diagnostics:
+Snap convergence curves: monotone decrease of pinned residual aggregates, plateau detection (structural obstruction), and cycle detection (nonconvergence).
+Holonomy/spin collapse: spin residual is an explicit channel in the global output ledger; successful snapping drives spin toward the spin‑zero corridor by the spin‑kill gate (\mathcal P_{\text{spin},\varepsilon}).
+Scale‑dependent success/failure maps: record at which scales each corridor can be simultaneously satisfied; this is the falsifiable signature of whether (\mathcal Z_\star) is nonempty under the pinned profile.
+All such diagnostics are emitted as ResidualLedger objects (pinned metrics, bounds, scope, expiry, calibration, replay pointers).
+10.4.4 Patches: certify intersection, or compute nearest feasible corridor (with certificates)
+Fractal patching completes the contract of Snap:
+Intersection certification (OK).
+If the ledger shows all corridor residuals at or below pinned bounds, and replay reproduces the same truth classifications, emit OK with a transcript and certificate pack (ReplayCert, ResidualCert, and any domain‑specific certificates required by the corridor profile). Truth outcomes must reproduce under replay; otherwise the corridor engine is invalid for OK.
+Nearest feasible corridor (NEAR) when (\mathcal Z_\star) is empty or unreachable.
+If the intersection is empty or not achieved within bounded iteration cost, compute a nearest‑feasible approximation (minimizing a pinned penalty functional over corridor distances), emit NEAR with a residual ledger, scope, expiry, and promotion obligations; NEAR without ledger/scope/replay is forbidden.
+AMBIG when structure is underdetermined.
+If corridor choice or policy selection depends on unknown structure or missing pins, emit AMBIG with a bounded evidence plan; do not guess.
+FAIL/CONFLICT when budgets are exceeded or verifiers disagree.
+If commutation residual exceeds (\kappa) under replay, emit FAIL (deterministic illegality) or CONFLICT (reproducible disagreement). Conflicts are quarantined and routed with conflict packets and fences, not silently absorbed.
+
+Ch10 — Meta-Zero and Snap
+Ch11 — Router Contract (≤6 hubs, deterministic order)
+HD‑SCT route planning outputs replayable artifacts
+
+□ Square — The Deterministic Router as a Pure Bounded Compiler
+11.S1 — Objects
+11.S1.a — Address space and strict parsing
+Let (\mathsf{Addr}) be the set of globally addressable atoms. A target is a string-encoded address (v\in\mathsf{Addr}) whose grammar is pinned and strictly parsed by the canonical parser (the parse is not heuristic and is not user‑dependent). The strict parse returns a record
+[
+\mathsf{PA}=\mathrm{Parse}(v);:=;(\mathrm{Kind},\mathrm{Lens},\mathrm{Facet},\mathrm{ChapterIdx?},\mathrm{StationHeader?},\mathrm{LocalPath},\mathrm{ScopeTag?})
+]
+with (\mathrm{Kind}\in{\mathrm{Ch},\mathrm{App}}). The station header is present for chapter targets and is treated as an address-derived invariant carried inside the route plan as an explicit value (never recomputed implicitly during execution).
+For chapter targets, the parsed record exposes the canonical station indices
+[
+(\alpha,\rho,\nu,\omega)\in {0,\dots,6}\times{0,1,2}\times{\mathrm{Su},\mathrm{Me},\mathrm{Sa}}\times{0,\dots,20},
+]
+derived from the chapter index and pinned station rules. The router treats ((\alpha,\rho,\nu,\omega)) as inputs to hub selection only through pinned rules in the router profile. (In particular, the router is not permitted to infer additional semantics from chapter titles or prose.)
+
+11.S1.b — Truth lattice and routing intents
+Let the corridor truth lattice be
+[
+\mathbb{T}:={\mathrm{OK},\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL}}.
+]
+The router accepts an initial truth estimate (\tau_0\in\mathbb{T}) and an intent
+[
+\mathsf{Intent}\in\mathcal{I},
+]
+where (\mathcal{I}) is a closed, pinned set of task intents (e.g., VERIFY/BUILD/MIGRATE/RESOLVE/PUBLISH). Task intents define additional required hubs (intent hubs) and obligations but do not alter the core boundedness or determinism contract.
+
+11.S1.c — Hub universe and mandatory signature
+Let (\mathcal{H}) be the finite hub universe (appendix hubs). A hub ride is a sequence in (\mathcal{H}) culminating at the target.
+A distinguished subset
+[
+\boxed{\Sigma:={\mathrm{AppA},\mathrm{AppI},\mathrm{AppM}}}
+]
+is the mandatory verification signature. Any route plan intended to certify (\mathrm{OK}) must include (\Sigma); (\Sigma) is never droppable under hub-cap enforcement.
+Operationally (and deterministically), the signature hubs are interpreted as:
+(\mathrm{AppA}): strict parsing + canonicalization (grammar correctness; canonical bytes hooks),
+(\mathrm{AppI}): corridor truth typing + budget admissibility evaluation,
+(\mathrm{AppM}): replay closure execution and environment pin validation.
+These roles are fixed as part of the router contract: the route may add hubs, but cannot remove the signature responsibilities without declaring a different corridor and emitting a non‑OK truth type.
+
+11.S1.d — RouterProfile (pinned)
+A RouterProfile (\pi_R) is a pinned data object whose digest (\mathrm{RouterProfileDigest}) is included in every route’s replay pointer. The profile pins, at minimum:
+hub selection tables (LensBase, FacetBase, ArcHub),
+mandatory signature (\Sigma),
+truth overlay rules (AppJ/AppL/AppK insertion),
+hub cap and deterministic drop policy,
+canonical hub ordering policy, and
+deterministic tie-break rules for ambiguous selections.
+The router output is a replayable artifact, and every route includes (\mathrm{RouterProfileDigest}) in its replay pointer.
+
+11.S1.e — Deterministic base hub selectors
+The router profile supplies deterministic selectors; canonical examples include:
+LensBase. A pinned map
+[
+\mathrm{LensBase}:{S,F,C,R}\to\mathcal{H},
+]
+e.g.
+[
+S\mapsto\mathrm{AppC},\quad F\mapsto\mathrm{AppE},\quad C\mapsto\mathrm{AppI},\quad R\mapsto\mathrm{AppM}.
+]
+FacetBase. A pinned map
+[
+\mathrm{FacetBase}:{1,2,3,4}\to\mathcal{H},
+]
+e.g.
+[
+1\mapsto\mathrm{AppA},\quad 2\mapsto\mathrm{AppB},\quad 3\mapsto\mathrm{AppH},\quad 4\mapsto\mathrm{AppM}.
+]
+ArcHub. For chapter targets, a pinned selector
+[
+\mathrm{ArcHub}:{0,\dots,6}\to\mathcal{H},
+]
+e.g.
+[
+0\mapsto\mathrm{AppA},\ 1\mapsto\mathrm{AppC},\ 2\mapsto\mathrm{AppE},\ 3\mapsto\mathrm{AppF},\ 4\mapsto\mathrm{AppG},\ 5\mapsto\mathrm{AppN},\ 6\mapsto\mathrm{AppP}.
+]
+The profile may refine ArcHub to depend on lane (\nu) (or other station header fields) provided the dependence is explicitly pinned and deterministic; any such refinement is part of (\pi_R) and therefore replayable.
+
+11.S1.f — Truth overlay rail
+The router profile pins a deterministic overlay selector
+[
+\mathrm{Rail}:\mathcal{I}\times\mathbb{T}\to \mathcal{H}\cup{\varnothing},
+]
+such that the presence of a non‑OK truth class inserts a dedicated hub:
+[
+\mathrm{NEAR}\Rightarrow \mathrm{AppJ},\qquad
+\mathrm{AMBIG}\Rightarrow \mathrm{AppL},\qquad
+\mathrm{FAIL/CONFLICT}\Rightarrow \mathrm{AppK},
+]
+and (\mathrm{OK}) inserts nothing (optionally inserting (\mathrm{AppO}) under publish intent, if pinned).
+Overlay hubs are mandatory when their truth class occurs, unless the active corridor explicitly forbids the corresponding truth class for the given intent (e.g., forbidding AMBIG on a production-critical ride). Such forbiddance must be pinned and is interpreted as a routing legality constraint (not a soft preference).
+
+11.S1.g — HubCap and DropLog
+A hub ride is bounded by a hard cap:
+[
+\boxed{\mathrm{HubCap}:=6}
+]
+interpreted as “maximum number of unique hubs visited before the target.” Duplicate hubs do not count; duplicates are removed by deterministic compression.
+When the cap would be exceeded, the router must apply a deterministic drop policy and must emit a DropLog recording all cap-enforced drops. No “best effort route” is permitted without a DropLog and truth typing that reflects the drops and any resulting loss of certainty.
+A DropLog is a record:
+[
+\mathsf{DL}:=(\mathrm{Cap},\mathrm{Dropped},\mathrm{Reasons},\mathrm{RedundancyWitnesses?},\mathrm{TruthImpact}),
+]
+where:
+(\mathrm{Dropped}\subseteq \mathcal{H}) is an ordered list (in drop order),
+(\mathrm{Reasons}) includes “cap enforcement” and any redundancy facts used,
+(\mathrm{TruthImpact}) records the deterministic downgrade rule (typically to AMBIG unless a redundancy proof is supplied and replay-verified).
+
+11.S1.h — RoutePlan (replayable artifact)
+A RoutePlan is the executable routing unit. It is a graph object: addressable, replayable, diffable, and auditable. Define
+[
+\boxed{
+\mathsf{RP}:=(\mathrm{Intent},\mathrm{Target},\mathrm{Scope},\mathrm{StationHeader?},\mathrm{HubsSeq},\tau_0,\mathsf{Pins},\mathsf{Obligations},\mathsf{DropLog}).
+}
+]
+Equivalently (with (\mathrm{StationHeader?}) absorbed into (\mathrm{Target}) for appendix targets), a canonical minimal schema is:
+[
+\mathsf{RP}:=(\mathrm{Target},\mathrm{StationHeader?},\mathrm{HubsSeq},\tau_0,\mathsf{Obligations},\mathsf{DropLog},\mathsf{Pins},\mathsf{Scope}).
+]
+The pinned set (\mathsf{Pins}) includes, at minimum:
+(\mathrm{GrammarDigest}) and (\mathrm{CanonBytesDigest}) for strict parsing and canonicalization,
+(\mathrm{RouterProfileDigest}) and (\mathrm{CorridorProfileDigest}),
+(\mathrm{EnvPinsDigest}) for replay environment closure,
+plus any domain-specific pins required by the intent (kernel/phase/bridge/control/lawpack/container/bundle schemas). Missing required pins deterministically forces AMBIG (recoverable) or FAIL (illegal) under the active corridor rules.
+
+11.S2 — Laws
+11.S2.a — Router purity law
+Route planning is a pure function:
+[
+\boxed{
+\mathrm{Route}(v,\mathsf{Intent},\tau_0;\pi_R,\pi_C,\mathsf{Pins})\ \to\ \mathsf{RP},
+}
+]
+where all inputs are pinned and addressable. The router must not depend on ambient time, user behavior, mutable caches, network state, or any unpinned environment variable. Any deviation is nondeterminism and is classified as FAIL/CONFLICT under the corridor truth policy.
+
+11.S2.b — Bounded routing law (HubCap)
+All route plans must obey:
+(#{\text{unique hubs before target}}\le 6),
+(\Sigma={\mathrm{AppA},\mathrm{AppI},\mathrm{AppM}}) is enforced and never dropped,
+hub ordering is deterministic,
+cap enforcement is deterministic and produces a DropLog.
+This boundedness is a structural safety property: it prevents route explosion and keeps the abstract executable.
+If a route cannot be constructed within cap while satisfying mandatory signature and mandatory overlay hubs, the router must either deterministically replace lower-priority hubs or classify AMBIG/FAIL with explicit obligations (evidence tasks, repinning tasks, or repairs). No best-effort behavior is permitted without DropLog and truth typing.
+
+11.S2.c — Deterministic ordering law
+The router profile pins a canonical ordering policy. A canonical hub sequence rule is:
+[
+\boxed{
+\mathrm{AppA}\ \prec\ \mathrm{ArcHub}\ \prec\ \mathrm{LensBase}\ \prec\ \mathrm{FacetBase}\ \prec\ \mathrm{OverlayHub}\ \prec\ \mathrm{AppI}\ \prec\ \mathrm{AppM}\ \prec\ \mathrm{Target}.
+}
+]
+Absent hubs are removed; duplicates are compressed deterministically.
+
+11.S2.d — Overlay insertion law
+Truth overlays are inserted deterministically:
+[
+\mathrm{OK}\Rightarrow \varnothing\ (\text{optionally } \mathrm{AppO}\text{ if publish intent is pinned}),\quad
+\mathrm{NEAR}\Rightarrow \mathrm{AppJ},\quad
+\mathrm{AMBIG}\Rightarrow \mathrm{AppL},\quad
+\mathrm{FAIL/CONFLICT}\Rightarrow \mathrm{AppK}.
+]
+Overlay insertion is part of the hub set prior to cap enforcement; if the overlay causes cap pressure, other optional hubs must be deterministically dropped (and the drop must be logged).
+
+11.S2.e — Base transfer set law
+For chapter targets (v=\mathrm{ChXX}\langle dddd\rangle.Lf.t), define the base transfer set:
+[
+T(v):={\mathrm{LensBase}(L),\ \mathrm{FacetBase}(f),\ \mathrm{ArcHub}(\alpha)}\ \ \text{(dedupe)}.
+]
+For appendix targets (v=\mathrm{AppX}.Lf.t), define:
+[
+T(v):={\mathrm{LensBase}(L),\ \mathrm{FacetBase}(f)}\ \ \text{(dedupe)}.
+]
+The route hub set begins from (T(v)\cup \Sigma\cup {\mathrm{Rail}(\mathsf{Intent},\tau_0)}\cup \mathrm{IntentHub}(\mathsf{Intent})), then applies deterministic cap enforcement and ordering. These constructions are pinned by the router profile.
+
+11.S2.f — Optimization cannot change semantics
+Any route optimization is permitted only if it does not alter semantics. Allowed optimizations include:
+removing duplicate hub visits,
+reordering commutative hub visits only when equivalence is witnessed (rare),
+caching validated pins and proofs.
+Optimization may not add or drop required hubs, may not change truth classification, may not bypass pin validation, and may not bypass quarantine. Any optimization must be recorded in the transcript and pinned by engine version.
+
+11.S2.g — INTER scope pinning law
+If (\mathrm{Scope}=\mathrm{INTER}), then the route crosses manuscripts. INTER edges must pin:
+both manuscript identifiers,
+both manifests/policy digests,
+required profile digests (router/corridor/grammar),
+compatibility/migration layers if versions differ.
+Without these pins, an INTER link is AMBIG/FAIL and cannot be OK.
+
+11.S3 — Constructions and Algorithms
+11.S3.a — Router contract algorithm
+Let inputs be ((v,\mathsf{Intent},\tau_0,\pi_R,\pi_C,\mathsf{Pins})). The router computes (\mathsf{RP}) as follows:
+Strict parse.
+[
+\mathsf{PA}\leftarrow \mathrm{Parse}(v)
+]
+and if parsing fails under the pinned grammar, output (\tau=\mathrm{FAIL}) with an explicit parse failure witness (no heuristic recovery is permitted for an OK ride). The parse step is attributed to (\mathrm{AppA}) in the canonical ordering.
+Compute base hub candidates (H).
+Initialize (H\leftarrow \varnothing). Add the pinned base hubs:
+[
+H\leftarrow H\cup{\mathrm{LensBase}(\mathsf{PA.Lens})}\cup{\mathrm{FacetBase}(\mathsf{PA.Facet})}.
+]
+If (\mathsf{PA.Kind}=\mathrm{Ch}), compute the arc index (\alpha) from the pinned station header rule and add (\mathrm{ArcHub}(\alpha)).
+Enforce mandatory signature.
+[
+H\leftarrow H\cup\Sigma.
+]
+Add intent hubs and truth overlay hub.
+Compute (H_{\mathrm{intent}}=\mathrm{IntentHub}(\mathsf{Intent})) (a pinned, small set; typically (\le 2)), and add. Compute (h_{\mathrm{rail}}=\mathrm{Rail}(\mathsf{Intent},\tau_0)) and add if nonempty.
+Deduplicate.
+Convert to a deterministic hub multiset representation and compress duplicates; duplicates do not count against the cap. Deduplication must preserve the deterministic priority ordering that will later be used for dropping and ordering. (Dedup is not “dropping”; it is canonicalization.)
+Enforce HubCap via deterministic drop.
+Apply deterministic cap enforcement:
+[
+(H,\mathsf{DL},\tau_1)\leftarrow \mathrm{EnforceCap}(H;\pi_R,\tau_0),
+]
+where (\tau_1) is (\tau_0) possibly downgraded (typically to AMBIG) if cap-enforced drops occur without redundancy witnesses. (\Sigma) is never droppable. Every cap-enforced drop is recorded in (\mathsf{DL}).
+Deterministic ordering.
+Compute the hub sequence:
+[
+\mathrm{HubsSeq}\leftarrow \mathrm{Order}(H,\mathsf{PA};\pi_R),
+]
+consistent with the canonical ordering policy. Then append the target (v).
+Compute obligations.
+Compute an explicit finite list of obligations (\mathsf{Obligations}) determined by ((\mathsf{Intent},\tau_1,\mathsf{PA},\pi_C)). Obligations are addressable evidence tasks for promotion and verification (e.g., evidence plan tasks for AMBIG, residual ledger tasks for NEAR, conflict packet tasks for FAIL).
+Emit RoutePlan.
+Return:
+[
+\mathsf{RP}:=(\mathsf{Intent},v,\mathrm{Scope},\mathsf{PA.StationHeader?},\mathrm{HubsSeq},\tau_1,\mathsf{Pins},\mathsf{Obligations},\mathsf{DL}).
+]
+The RoutePlan includes the pinned digests necessary for replay and audit; in particular, every route includes (\mathrm{RouterProfileDigest}) in its replay pointer inputs.
+
+11.S3.b — Deterministic cap enforcement with redundancy witnesses
+Cap enforcement must be deterministic and profile-pinned. A canonical construction is:
+Let (H) be the deduped hub set. Partition:
+[
+H = H_{\mathrm{must}}\ \dot\cup\ H_{\mathrm{opt}},
+\qquad
+H_{\mathrm{must}}:=\Sigma\cup H_{\mathrm{rail}}^{\mathrm{mandatory}},
+]
+where (H_{\mathrm{rail}}^{\mathrm{mandatory}}) contains the truth overlay hub when (\tau_0\neq \mathrm{OK}) and when the corridor permits that truth class.
+If (|H_{\mathrm{must}}|>6), then the route cannot be satisfied under the hub-cap constraint; the router must output (\mathrm{FAIL}) (or (\mathrm{AMBIG}) with an explicit repinning obligation, if the corridor allows recovery by changing profiles). This is not an optimization problem; it is a legality failure under a pinned contract.
+Otherwise, define a deterministic priority order (\prec_{\mathrm{drop}}) over optional hubs (H_{\mathrm{opt}}), pinned by (\pi_R). Apply the drop policy until (|H|\le 6). Canonical pinned drop rules include:
+drop publish-only hub (\mathrm{AppO}) first,
+drop (\mathrm{FacetBase}) if redundant with (\mathrm{LensBase}+\mathrm{ArcHub}+\Sigma),
+drop (\mathrm{LensBase}) if redundant with (\mathrm{ArcHub}+\Sigma),
+drop (\mathrm{ArcHub}) only if forced,
+with all drops recorded and with truth typically downgraded to AMBIG unless redundancy is witnessed and replay-verified.
+A redundancy witness is a replayable certificate that the obligations discharged by the dropped hub are already discharged (or rendered unnecessary) by the remaining hubs under the pinned corridor. Without such a witness, a cap-enforced drop introduces underdetermination and must be represented as AMBIG unless the corridor forbids AMBIG (in which case the route is FAIL).
+
+11.S3.c — Deterministic ordering function
+Given the final hub set (H) and parsed address (\mathsf{PA}), the ordering function constructs the canonical sequence by filtering a pinned template:
+[
+\mathrm{Template}(\mathsf{PA},\tau_0)
+:=
+\bigl[\mathrm{AppA},\ \mathrm{ArcHub}(\alpha)?,\ \mathrm{LensBase}(L),\ \mathrm{FacetBase}(f),\ \mathrm{Rail}(\mathsf{Intent},\tau_0)?,\ \mathrm{AppI},\ \mathrm{AppM}\bigr].
+]
+The ordered hub sequence is:
+[
+\mathrm{HubsSeq}:=\mathrm{Compress}\Bigl(\bigl[h\in\mathrm{Template}: h\in H\bigr]\Bigr),
+]
+where (\mathrm{Compress}) removes duplicates while preserving first occurrence. This matches the canonical ordering policy (“then remove absent hubs and compress duplicates”).
+
+11.S3.d — Obligations constructor (minimal contract)
+Obligations are explicit addressable tasks. A minimal obligation set is:
+Always include:
+(\mathrm{Obl.ParseCanon}) (AppA): strict parse, canonicalization, and digest hooks,
+(\mathrm{Obl.CorridorType}) (AppI): admissibility + budgets + truth typing,
+(\mathrm{Obl.ReplayClose}) (AppM): execute replay capsules and verify pinned digests.
+If (\tau_0=\mathrm{NEAR}): include (\mathrm{Obl.ResidualLedger}) (AppJ) and drift envelope disclosures.
+If (\tau_0=\mathrm{AMBIG}): include (\mathrm{Obl.EvidencePlan}) (AppL) with bounded candidates and discriminators.
+If (\tau_0=\mathrm{FAIL/CONFLICT}): include (\mathrm{Obl.ConflictPacket}) (AppK) and fence propagation tasks.
+This obligation contract is structural: later domain expansions may add obligations, but cannot remove or weaken the mandatory signature obligations without changing the corridor profile (which forces a pinned migration rather than an implicit rewrite).
+
+11.S3.e — Reference implementation (router compiler)
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import FrozenSet, Optional, Tuple, Literal, Dict, List
+
+Truth = Literal["OK", "NEAR", "AMBIG", "FAIL", "CONFLICT"]
+Scope = Literal["LOCAL", "INTER"]
+
+Hub = str  # e.g., "AppA", "AppI", "AppM", ...
+Lens = Literal["S", "F", "C", "R"]
+Intent = str  # pinned enum in RouterProfile
+
+@dataclass(frozen=True)
+class StationHeader:
+    arc: int     # α
+    rot: int     # ρ
+    lane: str    # ν
+    omega: int   # ω
+
+@dataclass(frozen=True)
+class ParsedAddr:
+    kind: Literal["Ch", "App"]
+    lens: Lens
+    facet: int
+    is_chapter: bool
+    station: Optional[StationHeader]
+    scope: Scope
+    raw: str
+
+@dataclass(frozen=True)
+class DropRecord:
+    hub: Hub
+    reason: str
+    redundancy_witness_ptr: Optional[str] = None
+
+@dataclass(frozen=True)
+class DropLog:
+    cap: int
+    dropped: Tuple[DropRecord, ...]
+    truth_impact: Truth
+
+@dataclass(frozen=True)
+class RouterProfile:
+    digest: str
+    hub_cap: int  # must be 6 under this contract
+    mandatory_signature: FrozenSet[Hub]  # Σ
+    lens_base: Dict[Lens, Hub]
+    facet_base: Dict[int, Hub]
+    arc_hub: Dict[int, Hub]  # α -> hub
+    # rail(Truth, Intent) -> optional overlay hub (or None)
+    overlay: Dict[Tuple[Truth, Intent], Optional[Hub]]
+    # deterministic template order (before filtering)
+    canonical_template: Tuple[str, ...]
+    # deterministic drop priority list for optional hubs (lowest priority first)
+    drop_priority: Tuple[Hub, ...]
+    # policy: if a cap-enforced drop happens without redundancy witness, downgrade to AMBIG
+    downgrade_on_unwitnessed_drop: bool = True
+
+@dataclass(frozen=True)
+class Pins:
+    grammar_digest: str
+    canon_bytes_digest: str
+    corridor_profile_digest: str
+    router_profile_digest: str
+    env_pins_digest: str
+    extra: Tuple[Tuple[str, str], ...] = ()
+
+@dataclass(frozen=True)
+class RoutePlan:
+    intent: Intent
+    target: str
+    scope: Scope
+    station_header: Optional[StationHeader]
+    hubs_seq: Tuple[Hub, ...]     # ≤6 unique hubs before target
+    tau0: Truth
+    pins: Pins
+    obligations: Tuple[str, ...]
+    droplog: Optional[DropLog]
+
+def parse_addr_strict(addr: str) -> ParsedAddr:
+    """
+    Placeholder strict parser; in the manuscript, this is the pinned grammar.
+    Must be deterministic and reject malformed addresses (no heuristics).
+    """
+    raise NotImplementedError
+
+def truth_overlay(intent: Intent, tau0: Truth, rp: RouterProfile) -> Optional[Hub]:
+    return rp.overlay.get((tau0, intent), None)
+
+def enforce_cap(hubs: List[Hub], rp: RouterProfile, tau0: Truth) -> Tuple[List[Hub], Optional[DropLog], Truth]:
+    # Stable dedupe in current order
+    seen = set()
+    deduped: List[Hub] = []
+    for h in hubs:
+        if h not in seen:
+            seen.add(h)
+            deduped.append(h)
+
+    must = set

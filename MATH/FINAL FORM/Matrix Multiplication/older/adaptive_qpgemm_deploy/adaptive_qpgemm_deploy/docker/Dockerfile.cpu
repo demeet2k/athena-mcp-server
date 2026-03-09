@@ -1,0 +1,51 @@
+# Dockerfile.cpu
+#
+# CPU-only container for:
+# - building C++ LibTorch executables
+# - running Python export/bench/stress scripts
+#
+# Build:
+#   docker build -f docker/Dockerfile.cpu -t qpgemm_cpu \
+#       --build-arg LIBTORCH_URL="<paste libtorch CPU zip URL>" .
+#
+# Run (example):
+#   docker run --rm -it qpgemm_cpu bash
+#
+# Notes:
+# - You must supply a valid LIBTORCH_URL matching the PyTorch version you used to export.
+# - This container is a template; adapt to your organization's base image and security policies.
+
+FROM ubuntu:22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+ARG LIBTORCH_URL=""
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates wget unzip git cmake g++ \
+    python3 python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python deps (pin versions as needed)
+RUN pip3 install --no-cache-dir numpy pytest
+
+# LibTorch
+RUN if [ -z "$LIBTORCH_URL" ]; then echo "ERROR: LIBTORCH_URL is required." && exit 1; fi
+RUN mkdir -p /opt && \
+    wget -O /opt/libtorch.zip "$LIBTORCH_URL" && \
+    unzip /opt/libtorch.zip -d /opt && \
+    rm /opt/libtorch.zip
+
+ENV LIBTORCH=/opt/libtorch
+
+WORKDIR /workspace
+COPY cpp/ /workspace/cpp/
+COPY python/ /workspace/python/
+COPY docs/ /workspace/docs/
+COPY README.md /workspace/README.md
+
+# Build C++
+RUN cd /workspace/cpp && mkdir -p build && cd build && \
+    cmake -DCMAKE_PREFIX_PATH=${LIBTORCH} -DCMAKE_BUILD_TYPE=Release .. && \
+    cmake --build . --config Release -j
+
+CMD ["bash"]

@@ -1,0 +1,98 @@
+{
+  "ns_coord": [
+    "Addr4",
+    "Face6",
+    "Arc",
+    "Rail",
+    "Depth",
+    "Packet",
+    "Truth",
+    "Hub",
+    "Family",
+    "Regime"
+  ],
+  "face6": [
+    "Earth",
+    "Air",
+    "Water",
+    "Fire",
+    "Void",
+    "Aether"
+  ],
+  "arcs": [
+    "Arc0",
+    "Arc1",
+    "Arc2",
+    "Arc3",
+    "Arc4",
+    "Arc5",
+    "Arc6"
+  ],
+  "rails": [
+    "Su",
+    "Me",
+    "Sa"
+  ],
+  "hub16": [
+    "AppA",
+    "AppB",
+    "AppC",
+    "AppD",
+    "AppE",
+    "AppF",
+    "AppG",
+    "AppH",
+    "AppI",
+    "AppJ",
+    "AppK",
+    "AppL",
+    "AppM",
+    "AppN",
+    "AppO",
+    "AppP"
+  ],
+  "families": [
+    "Voynich",
+    "MATH",
+    "Trading Bot",
+    "DEEPER CRYSTALIZATION",
+    "self_actualize",
+    "ECOSYSTEM",
+    "NERUAL NETWORK",
+    "Athenachka Collective Books",
+    "FRESH"
+  ],
+  "depth_levels": {
+    "D0": "kernel",
+    "D1": "pillars",
+    "D2": "pantheon",
+    "D3": "workers",
+    "D4": "microcells"
+  },
+  "packet_classes": [
+    "task packet",
+    "worker packet",
+    "pod packet",
+    "receipt packet",
+    "ledger packet",
+    "neuron packet",
+    "ganglion packet",
+    "wave packet",
+    "queue packet",
+    "synthesis packet",
+    "session packet",
+    "manifest packet"
+  ],
+  "truth_classes": [
+    "OK",
+    "NEAR",
+    "AMBIG",
+    "FAIL"
+  ],
+  "regimes": [
+    "classical",
+    "stratified",
+    "quarantine",
+    "restart-token"
+  ]
+}

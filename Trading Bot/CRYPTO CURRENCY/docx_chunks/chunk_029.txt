@@ -1,0 +1,529 @@
+t disagree:
+[
+\mathsf{PathRef}:=\langle \mathsf{PathID},\ \mathsf{EdgeDigestList},\ \mathsf{ReplayPtr},\ \mathsf{OutcomeDigest}\rangle
+]
+MinimalWitnessSet: minimal list of witness objects sufficient to reproduce the disagreement (K.S1.c).
+ReproRecipe: deterministic replay procedure binding exact inputs and ordering (K.S1.d).
+ExpectedDigests / ObservedDigests: canonical digest maps binding mismatch.
+Classification: enum {CONFLICT, FAIL_REPRODUCIBLE, FAIL_NONREPRODUCIBLE}.
+FenceSpec: deterministic exclusion boundary object (K.S1.e).
+RevocationHints?: optional list of suspected compromised artifacts; hints are non-authoritative.
+K.S1.c — MinimalWitnessSet schema
+[
+\mathsf{MinimalWitnessSet}:=
+\langle
+\mathsf{OrderRuleDigest},;
+\mathsf{WitnessRefs}
+\rangle
+]
+where WitnessRefs is an ordered list of:
+[
+\mathsf{WitRef}:=\langle \mathsf{Kind},\ \mathsf{Digest},\ \mathsf{Addr?},\ \mathsf{Role}\rangle
+]
+with Kind ∈ {ReplayCapsule, Transcript, ProofObject, ResidualLedger, EvidencePlan, TransportCert, PhaseWitness, RegressionResult, LogPrefix}.
+Minimality ordering is pinned; default minimization order:
+minimize number of distinct addresses in scope,
+minimize number of witness refs,
+minimize total byte size of referenced payloads,
+tie-break lexicographically by digest.
+Any claim of certified minimality must include minimization trace digest.
+K.S1.d — ReproRecipe schema
+A ReproRecipe is the complete deterministic replay plan:
+[
+\mathsf{ReproRecipe}:=
+\langle
+\mathsf{RecipeVer},;
+\mathsf{EntryCapsuleDigest},;
+\mathsf{InputsClosureDigest},;
+\mathsf{ExecutionPlan},;
+\mathsf{DeterminismChecklistDigest},;
+\mathsf{StopConditions},;
+\mathsf{OutputSelectionRuleDigest}
+\rangle
+]
+EntryCapsuleDigest points to a replay capsule that must run.
+InputsClosureDigest commits to the closure of inputs required by replay (containers, policies, schemas).
+ExecutionPlan is an ordered list of step invocations (by tool digest and step parameters).
+DeterminismChecklistDigest pins what must be pinned for determinism.
+StopConditions specify when to stop (step limits, resource limits, mismatch detected).
+OutputSelectionRuleDigest pins which outputs are compared and how.
+K.S1.e — FenceSpec schema (exclude disputed routes deterministically)
+A FenceSpec defines deterministic exclusions.
+[
+\mathsf{FenceSpec}:=
+\langle
+\mathsf{FenceVer},;
+\mathsf{FenceID},;
+\mathsf{IssuedPulse},;
+\mathsf{Scope},;
+\mathsf{FenceTargets},;
+\mathsf{PropagationRuleDigest},;
+\mathsf{AllowlistRuleDigest},;
+\mathsf{DenylistRuleDigest},;
+\mathsf{ExpiryPulse?},;
+\mathsf{Sig}
+\rangle
+]
+FenceTargets is a canonical set of excluded items:
+[
+\mathsf{FenceTargets}:=\langle \mathsf{EdgeDigestSet},\ \mathsf{RouteDigestSet},\ \mathsf{ArtifactDigestSet},\ \mathsf{AddrSetDigest} \rangle
+]
+PropagationRuleDigest pins how exclusions propagate to dependent routes and derived claims.
+Allowlist/Denylist rules are deterministic predicates over digests and scope.
+ExpiryPulse may be absent for permanent fences; presence means fence must be re-evaluated for continued enforcement.
+FenceID is content-addressed; fence application is deterministic.
+K.S1.f — RevocationReceipt schema
+A RevocationReceipt records an authoritative revocation decision.
+[
+\mathsf{RevocationReceipt}:=
+\langle
+\mathsf{RevVer},;
+\mathsf{RevID},;
+\mathsf{IssuedPulse},;
+\mathsf{AuthorityID},;
+\mathsf{AuthorityKeyDigest},;
+\mathsf{TargetKind},;
+\mathsf{TargetDigest},;
+\mathsf{ReasonCode},;
+\mathsf{EvidenceRefs},;
+\mathsf{EffectivePulse},;
+\mathsf{PropagationRuleDigest},;
+\mathsf{ImportPolicyDigest},;
+\mathsf{Sig}
+\rangle
+]
+TargetKind ∈ {Artifact, Profile, Certificate, Policy, Schema, Key} (pinned enum).
+TargetDigest is the digest of the revoked object.
+ReasonCode is a pinned codebook entry.
+EvidenceRefs is an ordered list of supporting evidence digests.
+EffectivePulse is the first pulse where revocation applies for enforcement.
+PropagationRuleDigest pins deterministic propagation semantics.
+ImportPolicyDigest pins how import must treat the revocation.
+RevID is content-addressed and derived deterministically from the receipt with RevID and Sig zeroed.
+
+K.S2 — Operators
+K.S2.a — Content-addressed IDs
+ConflictPacket ID:
+[
+\mathsf{CPID} := \mathsf{H}(\textsf{"AppK/ConflictPacket"} ,|, \mathsf{H}(\mathsf{ser}(\mathsf{ConflictPacketZeroed})) ,|, \mathsf{PinsDigest})
+]
+FenceID and RevID are derived analogously with domain separation tags "AppK/Fence" and "AppK/Revocation".
+Any ID collision between distinct canonical bytes is CONFLICT and must emit a higher-level conflict packet plus quarantine of both IDs.
+K.S2.b — Conflict classification operator
+Given two admissible derivations that produce incompatible digests under identical pins, classify as CONFLICT and generate a ConflictPacket.
+Deterministic classifier:
+[
+\mathsf{ClassifyConflict} : (\mathsf{EvidenceA},\mathsf{EvidenceB},\mathsf{Pins}) \to \mathsf{Classification}
+]
+Where:
+CONFLICT if both sides replay deterministically and disagree on committed digests,
+FAIL_REPRODUCIBLE if replay deterministically fails under pinned conditions,
+FAIL_NONREPRODUCIBLE only if policy permits and determinism cannot be established.
+K.S2.c — Fence application operator
+Fence application is a deterministic function:
+[
+\mathsf{ApplyFence} : (\mathsf{FenceSpec}, \mathsf{GraphState}) \to \mathsf{MaskedGraphState}
+]
+Masking removes routability of:
+excluded edges,
+excluded routes,
+excluded artifacts,
+and any dependent routes by propagation rule.
+Masking is overlay-only; the underlying objects remain present.
+K.S2.d — Revocation propagation algorithm
+Revocation propagation is deterministic and depends only on:
+revocation receipts valid through pulse (p),
+pinned propagation rules,
+and dependency closure computation rules.
+Let (\mathsf{DepClosure}(x)) compute the dependency closure of digest (x) under pinned rules.
+For each effective revocation receipt (r) with target digest (d), define the revoked set:
+[
+\mathsf{RevSet}p := \bigcup{r:\ \mathsf{EffectivePulse}(r)\le p} \left({d}\cup \mathsf{Propagate}(d,r)\right)
+]
+where (\mathsf{Propagate}(d,r)) is defined by PropagationRuleDigest and may include:
+forward closure: revoke all objects that depend on (d),
+backward closure: revoke all objects (d) depends on (optional),
+key-based closure: revoke all artifacts signed by compromised key digest (if TargetKind=Key),
+profile closure: revoke profiles referencing revoked schemas/policies.
+Propagation must be explicit and pinned. Unpinned propagation is illegal.
+
+K.S3 — Invariants
+K.S3.a — Minimal reproducibility invariant
+A ConflictPacket must include sufficient information to reproduce the contradiction under pinned environment and pins. Absence of required reproduction inputs is a schema failure.
+K.S3.b — Deterministic fence invariant
+Given the same FenceSpec and same graph state digest, ApplyFence must produce identical masked-state digest. Any nondeterminism is CONFLICT.
+K.S3.c — Revocation precedence invariant
+Revocation overrides prior OK evidence for routing and import. If an artifact digest is in (\mathsf{RevSet}_p), then:
+it is not admissible for OK routing,
+it is not admissible for import acceptance under strict import policies,
+any dependent claims must be downgraded via quarantine overlays.
+K.S3.d — Append-only governance invariant
+Conflicts, fences, quarantines, and revocations are appended as new objects and referenced via DeltaPacks (Ch20). No deletion or rewriting occurs.
+
+K.S4 — Protocols
+K.S4.a — ConflictPacket emission protocol
+On detection of disagreement:
+Confirm identical PinsDigest and EnvPinsDigest for the competing runs; if they differ, the disagreement is first typed as MIGRATE/PolicyMismatch, not CONFLICT.
+Collect candidate witness objects and compute MinimalWitnessSet using pinned minimization order, within compute budget (\chi).
+Construct ReproRecipe that:
+references entry replay capsule(s),
+binds closure digests for all required inputs,
+defines deterministic step ordering.
+Construct ExpectedDigests and ObservedDigests maps.
+Construct FenceSpec:
+include minimal exclusion targets necessary to prevent disputed routes from being used for OK.
+Emit ConflictPacket with signatures.
+Append ConflictPacket and FenceSpec via DeltaPack.
+Update evidence tables (AppB) marking affected claims/routes as quarantined.
+K.S4.b — Fence propagation protocol
+For each FenceSpec:
+Apply PropagationRuleDigest to compute the closure of excluded items:
+edges directly excluded,
+routes containing excluded edges,
+claims whose only support is via excluded routes,
+certificates that depend on excluded artifacts.
+Emit a deterministic FenceExpansionReport artifact containing:
+original targets digests,
+expanded targets digests,
+a proof trace digest for propagation.
+Update the masked graph overlay state.
+K.S4.c — Revocation issuance and import enforcement protocol
+Revocation issuance:
+Authority signs RevocationReceipt.
+Receipt is appended via DeltaPack at IssuedPulse; EffectivePulse is enforced by policy.
+Import enforcement:
+Importer computes (\mathsf{RevSet}_p) for the pulse window it accepts (or for the current pulse under online acceptance).
+If imported bundle contains any digest in (\mathsf{RevSet}_p), importer must:
+reject, or
+quarantine (only if policy allows), with explicit QuarantineRecord.
+Importer must record the revocation receipts used (by digest) in the import transcript.
+Revocation may require fallback deployment under Ch21 rules; fallback selection must be deterministic.
+
+❀ K.F — Flower: Path-Dependence, Holonomy Localization, and Conflict Localization
+K.F1 — Objects
+K.F1.a — HolonomyWitness binding
+Conflict packets may include holonomy/spin receipts as localization evidence. A holonomy witness is admissible only if:
+operator IDs are pinned,
+domain spec is pinned,
+residual is computed under pinned metric,
+replay closes.
+Holonomy evidence is supportive; revocation and fencing decisions remain governed by pinned policies.
+K.F2 — Operators
+K.F2.a — PathDifference localization
+Given two paths (P,Q) between the same endpoints, conflict localization is computed by the loop:
+[
+L = Q^{-1}\circ P
+]
+and its residual. If the residual is non-zero under pinned metric, the disagreement is path-dependent and must be represented in the ConflictPacket.
+
+☁ K.C — Cloud: Quarantine Boundaries and Non-Trust States
+K.C1 — Objects
+K.C1.a — QuarantineRecord
+A quarantine record is an overlay object that masks routability and/or import acceptance.
+[
+\mathsf{QuarantineRecord}:=
+\langle
+\mathsf{QuarVer},;
+\mathsf{QuarID},;
+\mathsf{IssuedPulse},;
+\mathsf{TargetsDigest},;
+\mathsf{ReasonCode},;
+\mathsf{EvidenceRefs},;
+\mathsf{FenceRef?},;
+\mathsf{ExpiryPulse?},;
+\mathsf{Sig}
+\rangle
+]
+Quarantine is not revocation. Quarantine marks uncertainty or conflict; revocation marks invalidity or compromised trust.
+K.C2 — Operators
+K.C2.a — Quarantine propagation
+Quarantine propagation is deterministic and may be narrower than revocation propagation. It is pinned by QuarantineRules in the active corridor or deployment profile.
+
+✶ K.R — Fractal: Governance Closure Across Time and Deployment
+K.R1 — Integration points with Ch20/Ch21
+ConflictPacket, FenceSpec, and RevocationReceipt are time-indexed objects appended via DeltaPacks (Ch20).
+Deployment acceptance (Ch21) must enforce:
+all required fences/quarantines,
+all effective revocations,
+and must reject or quarantine deployments whose closures intersect revoked sets.
+K.R2 — Required certificates
+K.R2.a — ConflictReplayCert
+Certifies that ConflictPacket reproduces deterministically and that ExpectedDigests/ObservedDigests mismatch is stable under pinned replay.
+K.R2.b — FenceDeterminismCert
+Certifies that fence propagation and masking are deterministic and produce expected masked graph digests.
+K.R2.c — RevocationPropagationCert
+Certifies that revocation set computation and propagation produce the expected revoked closure under pinned rules and that import enforcement applies it correctly.
+
+AppK Tight Spec-Only Version (Normative Extraction)
+ConflictPacket is the minimal reproducible contradiction object: it must include minimal witness set, deterministic reproduction recipe, expected vs observed digest commitments, and a FenceSpec.
+FenceSpec defines deterministic exclusion boundaries; fences mask routability without deleting artifacts; fence propagation is deterministic and replayable.
+RevocationReceipt is an authoritative signed object binding target digest, reason, effective pulse, and pinned propagation rules; revocation overrides OK routing and import acceptance under strict policies.
+Conflicts, fences, quarantines, and revocations are append-only and time-indexed via DeltaPacks; no silent resolution exists.
+Deterministic certificates are required for conflict replay, fence determinism, and revocation propagation.
+
+AppK — FAIL/CONFLICT, Quarantine, Revocation Receipts
+AppL — AMBIG Evidence Plans (Bounded Search, Discriminators, Stop Rules)
+Station role: AMBIG is a plan, not a shrug; bounded evidence generation and discriminators.
+Purpose: define EvidencePlan objects, bounded candidate generation, and deterministic stop rules to turn ambiguity into a managed workflow.
+
+□ L.S — Square: EvidencePlan as a Deterministic, Bounded Workflow Object
+L.S1 — Objects
+L.S1.a — AMBIG semantics
+AMBIG is a truth class indicating underdetermination under pinned rules. AMBIG is admissible only when ambiguity is bounded, and when an explicit EvidencePlan exists that specifies how to collapse ambiguity via deterministic discriminators and routable tasks.
+L.S1.b — EvidencePlan schema (mandatory)
+An EvidencePlan is a content-addressed object:
+[
+\mathsf{EvidencePlan}:=
+\langle
+\mathsf{EPVer},;
+\mathsf{EPID},;
+\mathsf{IssuedPulse},;
+\mathsf{Scope},;
+\mathsf{Subject},;
+\mathsf{PinsDigest},;
+\mathsf{EnvPinsDigest},;
+\mathsf{Candidates},;
+\mathsf{Discriminators},;
+\mathsf{Routes},;
+\mathsf{Budgets},;
+\mathsf{StopRules},;
+\mathsf{PromotionHooks},;
+\mathsf{ExpectedOutcomes},;
+\mathsf{ReplayPtr},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+Required fields:
+EPID: content-addressed ID derived deterministically (L.S2.a).
+IssuedPulse: time binding (Ch20).
+Scope: {LOCAL, INTER} with manuscript bindings for INTER.
+Subject: canonical reference to the claim(s) or route(s) that are ambiguous:
+[
+\mathsf{Subject}:=\langle \mathsf{ClaimAddrSetDigest},\ \mathsf{EndpointRefs?},\ \mathsf{CorridorID}\rangle
+]
+PinsDigest: full pin closure required to interpret candidates, run discriminators, and evaluate stop rules.
+EnvPinsDigest: pinned environment assumptions for deterministic replay.
+Candidates: bounded candidate set with canonical ordering (L.S1.c).
+Discriminators: bounded set of tests/proofs/log extractions with deterministic evaluation semantics (L.S1.d).
+Routes: routable plans to acquire discriminator evidence (L.S1.e).
+Budgets: bounded compute/search/replay budgets for executing the plan (L.S1.f).
+StopRules: deterministic stop conditions (L.S1.g).
+PromotionHooks: integration into Ch20 scheduler (L.S1.h).
+ExpectedOutcomes: mapping from discriminator outcomes to candidate elimination/promotion states (L.S1.i).
+ReplayPtr: replay capsule pointer reproducing plan construction and plan execution logic.
+Sig: signature under pinned policy.
+L.S1.c — Candidate schema (bounded)
+A candidate is an explicit, pinned hypothesis element. Candidate kinds are closed and must be pinned by schema.
+[
+\mathsf{Candidate}:=
+\langle
+\mathsf{CandID},;
+\mathsf{CandKind},;
+\mathsf{TargetRef},;
+\mathsf{AssumptionsDigest},;
+\mathsf{PriorityKey},;
+\mathsf{CandDigest}
+\rangle
+]
+CandKind ∈ {PATH, PINSET, PROFILE, MAP, DOMAIN, MODEL, OTHER} with OTHER requiring schema migration.
+TargetRef is a digest-qualified reference (e.g., a transport path, a profile digest, a pinset completion).
+AssumptionsDigest commits to extra assumptions required by that candidate (must be explicit).
+PriorityKey is used for deterministic ordering and tie-break.
+CandDigest is content-addressed.
+Candidate set requirements:
+Candidates must be finite and bounded in size by Budgets.
+Candidates must be canonical ordered by:
+CandKind (pinned enum order),
+PriorityKey,
+CandDigest lexicographic.
+Any missing candidate required to represent ambiguity is a schema failure; EvidencePlan must not omit plausible candidates unless disallowed by pinned policy.
+L.S1.d — Discriminator schema
+A discriminator is a deterministic test that, when executed, partitions or eliminates candidates.
+[
+\mathsf{Discriminator}:=
+\langle
+\mathsf{DiscID},;
+\mathsf{DiscKind},;
+\mathsf{InputsSpecDigest},;
+\mathsf{ProcedureRef},;
+\mathsf{OutcomeSpaceDigest},;
+\mathsf{CostSpec},;
+\mathsf{DeterminismSpecDigest},;
+\mathsf{DiscDigest}
+\rangle
+]
+DiscKind ∈ {REPLAY_CHECK, PIN_COMPLETENESS, COMMUTATION_RECEIPT, METRIC_MEASURE, DOMAIN_TEST, REGRESSION_TEST, IMPORT_VERIFY, CUSTOM} with CUSTOM requiring schema migration.
+ProcedureRef points to a deterministic procedure or harness by digest.
+OutcomeSpaceDigest commits to the outcome labels and their canonical ordering.
+CostSpec gives deterministic cost estimation used by budget scheduling.
+DeterminismSpecDigest pins environment and tie-break requirements.
+Discriminators must be finite and must have bounded cost under Budgets.
+L.S1.e — Route schema (routable evidence acquisition)
+Routes are executable plans for producing required evidence. Each route is a RoutePlan-like object (Ch11/Ch19) restricted to evidence acquisition.
+[
+\mathsf{EvidenceRoute}:=
+\langle
+\mathsf{RouteID},;
+\mathsf{Target},;
+\mathsf{HubSeq},;
+\mathsf{TruthIntent},;
+\mathsf{Obligations},;
+\mathsf{PinsDigest},;
+\mathsf{BudgetClass},;
+\mathsf{RouteDigest}
+\rangle
+]
+HubSeq must respect HubCap constraints; routes must be deterministic under pins. TruthIntent is typically {AMBIG_EVIDENCE} and cannot be treated as a semantic claim without later promotion.
+L.S1.f — Budgets schema
+EvidencePlan budgets are explicit:
+[
+\mathsf{EPBudget}:=
+\langle
+\kappa,\beta,\delta,\chi,;
+\mathsf{MaxCandidates},;
+\mathsf{MaxDiscriminators},;
+\mathsf{MaxRoutes},;
+\mathsf{MaxBytes},;
+\mathsf{MaxSteps}
+\rangle
+]
+(\chi) bounds compute/search cost; other components can be used to bound commutation tests or residual evaluations when relevant.
+L.S1.g — StopRules schema (deterministic)
+Stop rules define when the evidence plan halts:
+[
+\mathsf{StopRules}:=
+\langle
+\mathsf{StopVer},;
+\mathsf{StopOnUnique},;
+\mathsf{StopOnBudgetExhaust},;
+\mathsf{StopOnDeadlinePulse?},;
+\mathsf{StopOnConflict},;
+\mathsf{StopTieBreakDigest}
+\rangle
+]
+StopOnUnique: stop when a unique remaining candidate exists.
+StopOnBudgetExhaust: stop when budget is exhausted.
+StopOnDeadlinePulse: optional; if present, must be pinned and enforced.
+StopOnConflict: stop if discriminator outcomes are inconsistent under replay, requiring conflict handling.
+StopTieBreakDigest pins tie-break rules for choosing which discriminators to run next.
+L.S1.h — PromotionHooks schema (integration with Ch20 scheduler)
+PromotionHooks bind the evidence plan to the time-axis promotion scheduler.
+[
+\mathsf{PromotionHooks}:=
+\langle
+\mathsf{HookVer},;
+\mathsf{EligibleAfterPulse},;
+\mathsf{PriorityClass},;
+\mathsf{ScheduleKeyDigest},;
+\mathsf{OnResolution},;
+\mathsf{OnBudgetExhaust},;
+\mathsf{OnDeadline}
+\rangle
+]
+EligibleAfterPulse: earliest PulseID the plan may be executed.
+PriorityClass: deterministic priority category used by scheduling.
+ScheduleKeyDigest: digest of the deterministic key used for tie-break among multiple evidence plans.
+OnResolution: specifies what artifacts must be emitted when a candidate becomes unique (promotion to NEAR or OK, or issuance of a new EvidenceRow).
+OnBudgetExhaust: specifies what must be emitted when budget stops without resolution (remain AMBIG with updated plan or quarantine).
+OnDeadline: specifies action if deadline reached without resolution (policy-defined; may force FAIL/quarantine).
+L.S1.i — ExpectedOutcomes schema
+ExpectedOutcomes is a deterministic mapping from discriminator outcomes to candidate elimination or promotion transitions:
+[
+\mathsf{ExpectedOutcomes}:=
+\langle
+\mathsf{OutcomeMapDigest},;
+\mathsf{Rules}
+\rangle
+]
+where Rules is a canonical list of rules:
+[
+\mathsf{Rule}:=\langle \mathsf{DiscID},\ \mathsf{OutcomeLabel},\ \mathsf{EliminateSetDigest},\ \mathsf{PromoteActionDigest?}\rangle
+]
+EliminateSetDigest references a canonical subset of CandID values to remove; PromoteActionDigest optionally references a promotion emission action (e.g., emit NEAR ledger, emit EQUIV witness, emit MIGRATE proposal).
+
+L.S2 — Operators
+L.S2.a — EvidencePlan ID derivation
+[
+\mathsf{EPID} := \mathsf{H}(\textsf{"AppL/EvidencePlan"} ,|, \mathsf{H}(\mathsf{ser}(\mathsf{EvidencePlanZeroed})) ,|, \mathsf{PinsDigest})
+]
+where EvidencePlanZeroed is the plan with EPID and signatures zeroed. Collisions between distinct canonical bytes are CONFLICT and must produce a conflict packet plus quarantine.
+L.S2.b — Candidate generation operator (bounded)
+Candidate generation is deterministic:
+[
+\mathsf{GenCandidates} : (\mathsf{Subject},\mathsf{Pins},\mathsf{Policy}) \to \mathsf{Candidates}
+]
+Constraints:
+must enumerate candidates in canonical order,
+must stop at MaxCandidates,
+must record truncation as an explicit “candidate truncation witness” artifact when MaxCandidates is reached,
+must not omit candidates based on heuristics unless explicitly disallowed by pinned policy.
+If bounded enumeration cannot be achieved under budget, the result is FAIL (or AMBIG with explicit truncation witness if corridor allows).
+L.S2.c — Discriminator selection operator (deterministic scheduling within plan)
+EvidencePlan contains multiple discriminators; execution order must be deterministic:
+[
+\mathsf{PickNextDisc} : (\mathsf{RemainingCandidates},\mathsf{DiscSet},\mathsf{State},\mathsf{StopRules}) \to \mathsf{DiscID}
+]
+Selection must be pinned; default ordering key:
+lowest estimated cost,
+highest expected elimination power (pinned heuristic table),
+lexicographic DiscID.
+Any heuristic must be pinned by digest; otherwise discriminator selection is illegal.
+L.S2.d — EvidencePlan execution operator
+[
+\mathsf{RunPlan} : (\mathsf{EvidencePlan},\mathsf{CorpusStateAtPulse}) \to \mathsf{PlanResult}
+]
+PlanResult includes:
+executed discriminators and their outcomes,
+updated candidate set,
+emitted evidence artifacts,
+decision log digest,
+stop condition triggered.
+Plan execution is deterministic under pins and environment pins.
+L.S2.e — Resolution operator
+If candidates become unique:
+[
+|\mathsf{Candidates}| = 1 \Rightarrow \mathsf{Resolve}(\mathsf{EvidencePlan}) \to \mathsf{ResolutionArtifactSet}
+]
+ResolutionArtifactSet must include:
+updated EvidenceRow superseding AMBIG,
+any required witness bundle or residual ledger,
+PromotionRecord for Ch20 scheduler.
+
+L.S3 — Invariants
+L.S3.a — Boundedness invariant
+EvidencePlan is valid only if:
+candidates set is finite and ≤ MaxCandidates,
+discriminators set is finite and ≤ MaxDiscriminators,
+routes set is finite and ≤ MaxRoutes,
+execution budget caps are finite and pinned.
+Any unbounded search is forbidden.
+L.S3.b — Determinism invariant
+For identical corpus state digest, pins digest, environment pins digest, and plan digest, execution produces identical PlanResult digest.
+L.S3.c — Stop rule determinism invariant
+Stop condition must be uniquely determined for any execution state under pinned StopRules. If multiple stop conditions fire simultaneously, StopTieBreakDigest pins which one is recorded as primary.
+L.S3.d — No silent promotion invariant
+AMBIG cannot be promoted to NEAR/OK without emitting explicit promotion artifacts and evidence rows (AppB/Ch20). EvidencePlan must specify PromotionHooks; promotions must be append-only.
+
+L.S4 — Protocols
+L.S4.a — EvidencePlan issuance protocol
+To issue an EvidencePlan:
+Bind Subject and CorridorID; compute Subject digest commitments.
+Bind PinsDigest and EnvPinsDigest closures.
+Generate bounded candidate set deterministically; emit truncation witness if truncated.
+Define discriminators; bind ProcedureRefs and outcome spaces by digest.
+Define evidence routes required to acquire discriminator inputs; ensure HubCap compliance.
+Bind budgets and stop rules; pin tie-break policies.
+Bind promotion hooks for Ch20 integration.
+Construct ExpectedOutcomes rules.
+Produce ReplayPtr sufficient to replay candidate generation and plan execution.
+Compute EPID and sign.
+Append EvidencePlan as a witness row (AppB) and attach to the AMBIG-typed claim under corridor rules (AppI).
+L.S4.b — EvidencePlan execution protocol (time axis)
+At pulse (p), the Ch20 scheduler may select EvidencePlans whose EligibleAfterPulse ≤ p. Execution must:
+Validate pins and import closure.
+Run deterministically with budget enforcement.
+Emit PlanResult and DecisionLog artifacts.
+If resolved, emit promotion artifacts (NEAR/OK) and supersede prior AMBIG evidence row.
+If not resolved, emit an updated EvidencePlan (superseding) with remaining candidates and updated obligations.
+If budget exhausted or deadline hit, apply OnBudgetExhaust/OnDeadline actions deterministically (may include quarantine or conversion to FAIL un

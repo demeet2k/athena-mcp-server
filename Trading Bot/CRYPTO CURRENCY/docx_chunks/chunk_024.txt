@@ -1,0 +1,560 @@
+ structure applying rules to premises.
+WitnessNode: evidence object binding claim to replay or proof artifacts.
+DataNode: dataset / instance / trace / log prefix digest.
+CodeNode: code artifact pointer with schema and digest.
+IndexNode: local index structure enabling deterministic traversal.
+MetaNode: pinned metadata required to interpret the above (schema/pins).
+A LocalProofObject is a structured node family that binds a ClaimNode to its verification artifact set. Minimum local proof object types:
+ReplayProof: references a replay capsule and expected digests.
+FormalProof: references a derivation graph with axioms/rules pinned.
+TestProof: references regression fixtures and pass/fail digests.
+BoundedProof: references a residual ledger for NEAR.
+Every proof object MUST be content-addressed and must include the pin closure required to interpret it.
+
+C.S2 — Operators
+C.S2.a — Canonicalization operators for tile payloads
+Each payload schema (\mathsf{SchemaID}) MUST define:
+(\mathsf{Parse}_{\mathsf{Schema}}) : bytes → AST (total or typed error),
+(\mathsf{NF}_{\mathsf{Schema}}) : AST → canonical normal form,
+(\mathsf{Enc}_{\mathsf{Schema}}) : normal form → canonical bytes.
+Schema-level canonicalization MUST satisfy determinism and stability:
+[
+\mathsf{NF}{\mathsf{Schema}}(\mathsf{Parse}{\mathsf{Schema}}(b))\ \text{is unique for valid }b.
+]
+C.S2.b — Local closure operator
+Define the local closure check for a tile:
+[
+\mathsf{Close}(\mathsf{Tile}) \in {\mathsf{true},\mathsf{false}}
+]
+which returns true iff all LocalAddr references inside the tile resolve to:
+existing payload refs by digest,
+existing internal nodes by FieldPath,
+and existing schemas by SchemaID,
+under the pinned registry and import policy.
+Closure failures are typed and must produce a local failure witness object.
+C.S2.c — Local expansion operator
+A local expansion is a deterministic function that produces derived nodes/edges inside the same tile or produces new tiles via explicit expansion rules.
+Define:
+[
+\mathsf{Expand} : (\mathsf{Tile},\ \mathsf{ExpandRuleID},\ \mathsf{Pins}) \to (\mathsf{Tile}',\ \mathsf{ExpansionWitness})
+]
+where:
+(\mathsf{ExpandRuleID}) is pinned,
+(\mathsf{Tile}') is the tile after appending derived objects (append-only locally),
+(\mathsf{ExpansionWitness}) commits to:
+inputs digests,
+rule digest,
+derived outputs digests,
+deterministic ordering used.
+Expansions are permitted only if explicitly declared by rule and if their outputs remain in the tile’s local closure.
+C.S2.d — Local proof verification operator
+Define:
+[
+\mathsf{VerifyLocalProof} : (\mathsf{LocalProofObject},\ \mathsf{Pins},\ \mathsf{CorridorSpec}) \to \mathsf{TruthType}
+]
+which produces ({\mathsf{OK},\mathsf{NEAR},\mathsf{AMBIG},\mathsf{FAIL},\mathsf{CONFLICT}}) and must also emit:
+replay transcript digest if replay is required,
+residual ledger if NEAR,
+evidence plan if AMBIG,
+conflict packet if CONFLICT.
+Verification is deterministic under pinned environment and pinned tie-break rules.
+
+C.S3 — Local Link Typing (REF/IMPL/PROOF/…) and Permission Rules
+Local links are edges whose endpoints are LocalAddr or SlotAddr. Every edge is typed by LinkKind and is permitted only when the typing judgment holds.
+C.S3.a — LinkKind vocabulary (minimum)
+[
+\mathsf{LinkKind} := {\mathsf{REF},\mathsf{IMPL},\mathsf{PROOF},\mathsf{TEST},\mathsf{DATA},\mathsf{CERT},\mathsf{EQUIV},\mathsf{DUAL},\mathsf{MIGRATE},\mathsf{CONFLICT}}
+]
+A tile MAY define additional link kinds only by schema migration; additional kinds must not be inferred.
+C.S3.b — LocalEdge schema
+[
+\mathsf{LocalEdge} :=
+\langle
+\mathsf{EdgeID},;
+\mathsf{From},;
+\mathsf{Kind},;
+\mathsf{To},;
+\mathsf{PayloadRef?},;
+\mathsf{PinsDigest},;
+\mathsf{IssuedPulse}
+\rangle
+]
+where:
+(\mathsf{From},\mathsf{To}\in{\mathsf{LocalAddr},\mathsf{SlotAddr}}),
+(\mathsf{PayloadRef?}) is required for kinds whose meaning depends on additional structure (PROOF/TEST/CERT/MIGRATE/CONFLICT),
+(\mathsf{PinsDigest}) pins the interpretation closure,
+(\mathsf{IssuedPulse}) binds the edge to time axis semantics (Ch20).
+C.S3.c — Typing judgments
+Let (\Gamma) be the local typing environment derived from pinned schema + pinned policy:
+[
+\Gamma := \langle \mathsf{SchemaPins},\ \mathsf{CorridorPins},\ \mathsf{PolicyPins},\ \mathsf{OperatorTablePins} \rangle.
+]
+Let (\Gamma \vdash u : \tau) denote that node/address (u) has type (\tau) under (\Gamma).
+Edge permission is defined by judgments of the form:
+[
+\Gamma \vdash (u \xrightarrow{K} v)\ \mathsf{perm}
+]
+Minimum permission rules:
+REF
+[
+\frac{\Gamma \vdash u:_* \quad \Gamma \vdash v:_*}{\Gamma \vdash (u \xrightarrow{\mathsf{REF}} v)\ \mathsf{perm}}
+]
+REF is allowed only as addressability; it carries no semantic commitment unless accompanied by PROOF/EQUIV/DUAL/MIGRATE.
+IMPL (implementation link)
+[
+\frac{\Gamma \vdash u:\mathsf{SpecNode} \quad \Gamma \vdash v:\mathsf{CodeNode}}{\Gamma \vdash (u \xrightarrow{\mathsf{IMPL}} v)\ \mathsf{perm}}
+]
+IMPL payload MUST include:
+code digest,
+build pins,
+interface contract digest,
+and must be stable under corridor pins.
+PROOF
+[
+\frac{\Gamma \vdash u:\mathsf{ClaimNode} \quad \Gamma \vdash v:\mathsf{LocalProofObject}}{\Gamma \vdash (u \xrightarrow{\mathsf{PROOF}} v)\ \mathsf{perm}}
+]
+PROOF payload MUST include:
+proof object digest,
+replay capsule digest (if applicable),
+expected output digests,
+and must pin the corridor spec used.
+TEST
+[
+\frac{\Gamma \vdash u:\mathsf{ClaimNode} \quad \Gamma \vdash v:\mathsf{TestProof}}{\Gamma \vdash (u \xrightarrow{\mathsf{TEST}} v)\ \mathsf{perm}}
+]
+TEST payload MUST include:
+fixture set digest,
+harness digest,
+pass/fail summary digest.
+DATA
+[
+\frac{\Gamma \vdash u:\mathsf{ClaimNode} \quad \Gamma \vdash v:\mathsf{DataNode}}{\Gamma \vdash (u \xrightarrow{\mathsf{DATA}} v)\ \mathsf{perm}}
+]
+DATA is evidence attachment; its semantics are defined by Proof nodes that consume it.
+CERT
+[
+\frac{\Gamma \vdash u:_* \quad \Gamma \vdash v:\mathsf{CertNode}}{\Gamma \vdash (u \xrightarrow{\mathsf{CERT}} v)\ \mathsf{perm}}
+]
+CERT payload MUST include certificate digest and verification policy pins.
+EQUIV / DUAL / MIGRATE
+These are meaning-bearing and require explicit witnesses:
+[
+\Gamma \vdash (u \xrightarrow{\mathsf{EQUIV}} v)\ \mathsf{perm}
+\Rightarrow
+\exists w:\mathsf{EquivWitness}\ \text{such that } u \xrightarrow{\mathsf{PROOF}} w \ \wedge\ v \xrightarrow{\mathsf{PROOF}} w.
+]
+Analogous requirements apply for DUAL and MIGRATE with corresponding witness types and corridor legality constraints. No EQUIV/DUAL/MIGRATE is permitted without witness payload references.
+CONFLICT
+CONFLICT links are permitted only to conflict packets:
+[
+\frac{\Gamma \vdash u:_* \quad \Gamma \vdash v:\mathsf{ConflictPacket}}{\Gamma \vdash (u \xrightarrow{\mathsf{CONFLICT}} v)\ \mathsf{perm}}
+]
+CONFLICT payload MUST include:
+minimal witness set digests,
+reproduction recipe digest,
+fence spec digest.
+C.S3.d — Forbidden inferences
+No edge kind implies any other edge kind. In particular:
+REF does not imply EQUIV.
+IMPL does not imply correctness of implementation.
+DATA does not imply validity.
+Only PROOF/TEST/CERT evidence objects can upgrade truth status under AppI/AppM.
+
+C.S4 — Invariants: Determinism, Local Closure, and Local Soundness
+C.S4.a — Determinism of local expansions
+For any fixed tile (\mathsf{Tile}), fixed rule ID (\mathsf{ExpandRuleID}), and fixed pins (\mathsf{Pins}):
+[
+\mathsf{did}(\mathsf{Expand}(\mathsf{Tile},\mathsf{ExpandRuleID},\mathsf{Pins}).\mathsf{Tile}')\ \text{is deterministic.}
+]
+If multiple expansions are possible without discriminating pins, the expansion is AMBIG and must emit an EvidencePlan (AppL) rather than selecting arbitrarily.
+C.S4.b — Local closure invariant
+A tile is locally closed iff:
+all referenced digests resolve,
+all referenced LocalAddr paths resolve within payload schemas,
+all edge permission judgments hold under pinned typing environment (\Gamma).
+Local closure failure is non-routable for OK and must be surfaced via typed failure nodes and, if exported, via container quarantine.
+C.S4.c — Local proof soundness invariant
+A ClaimNode may be treated as OK-routable only if:
+there exists a PROOF or TEST edge to a witness object,
+the witness verifies deterministically under pinned corridor spec,
+and no applicable CONFLICT or revocation fences mask the claim.
+C.S4.d — Canonical ordering invariants
+All sequences committed to digests inside a tile MUST use pinned canonical ordering. Any unordered collection must be converted to an ordered sequence via pinned comparator prior to serialization/digesting.
+
+C.S5 — Protocols: Local Construction, Validation, and Regression Fixtures
+C.S5.a — Tile construction protocol
+To construct a tile:
+Allocate (\mathsf{TileID}) and bind to a GlobalAddr context.
+For each slot ((L,f,a)) to be populated:
+select schema ID,
+construct payload AST,
+canonicalize to normal form,
+encode to canonical bytes,
+store payload and record digest in (\mathsf{PayloadRef}_{L,f,a}).
+Construct local nodes and edges:
+every edge must pass permission judgments,
+every meaning-bearing edge must include witness payload references.
+Compute tile digest as the digest of canonical encoding of:
+tile header,
+ordered slot list,
+ordered edge list,
+ordered local indices.
+C.S5.b — Local validation protocol
+Validation produces a LocalValidationReport artifact:
+closure checks,
+schema resolution checks,
+edge permission checks,
+proof verification checks (for those requested by corridor),
+and deterministic digests of the report.
+C.S5.c — Square-local regression fixtures
+A square-local regression suite MUST include:
+Address grammar fixtures
+canonical SlotAddr/LocalAddr parsing and ordering.
+Edge typing fixtures
+minimal graphs that exercise each LinkKind rule, including rejection cases.
+Closure fixtures
+dangling digest reference detection,
+dangling LocalAddr path detection,
+schema mismatch detection.
+Determinism fixtures
+repeated local expansion yields identical digests.
+Witness fixtures
+PROOF and TEST objects verify deterministically or fail deterministically.
+Conflict fixtures
+conflict packet reproduction and fence behavior.
+Export fixtures
+tile containerization retains digests and validates on import.
+Each fixture set must commit to expected digests and must be replayable under pinned environment. A fixture failure blocks publication for corridors that require OK proofs for local claims.
+C.S5.d — Local export protocol
+Local tile export must include:
+slot payloads (or references),
+edge set and indices,
+schema pins,
+proofs and required certificates,
+and a manifest describing required verification steps.
+
+❀ C.F — Flower: Local Basis Changes and Interpretation-Preserving Views
+C.F1 — Objects
+C.F1.a — View objects
+A view is an interpretation-preserving projection of square-local payloads into alternative representations (e.g., spectral coordinates, harmonic summaries, normalized invariants). Views are auxiliary and do not replace the square payload.
+A view is:
+[
+\mathsf{View} := \langle \mathsf{SourceSlotAddr},\ \mathsf{ViewType},\ \mathsf{ViewPayloadRef},\ \mathsf{PinsDigest}\rangle
+]
+and must be derived deterministically.
+C.F1.b — View schemas and operator tables
+Every view must pin:
+its view schema digest,
+the operator table digest defining any symbols in the view,
+the canonical bytes digest.
+C.F2 — Operators
+C.F2.a — View derivation
+[
+\mathsf{DeriveView} : (\mathsf{Tile},\ \mathsf{ViewType},\ \mathsf{Pins}) \to \mathsf{View}
+]
+Deterministic under pins. If multiple derivations are possible without discriminating pins, derivation is AMBIG.
+C.F3 — Invariants
+C.F3.a — View non-authoritativeness
+Views must not change the authoritative square payload; any discrepancy between view and payload is resolved by reverting to square-local proofs and witnesses. Views cannot upgrade truth type without explicit proof objects.
+C.F4 — Protocols
+C.F4.a — View regression fixtures
+Fixtures must verify:
+view derivation determinism,
+stable digest commitments,
+and that view computations do not introduce unpinned numerical nondeterminism.
+
+☁ C.C — Cloud: Uncertainty, Approximate Locals, and NEAR/AMBIG Artifacts
+C.C1 — Objects
+C.C1.a — Residual ledger local form
+A local residual ledger binds:
+metric digest,
+bound,
+scope (LocalAddr ranges),
+expiry pulse,
+replay pointer.
+NEAR truth for local claims requires residual ledgers. AMBIG requires evidence plans.
+C.C2 — Operators
+C.C2.a — Local ambiguity plan
+EvidencePlan objects are local-address scoped and must enumerate bounded candidate sets and discriminators. No implicit ambiguity resolution is permitted.
+C.C3 — Invariants
+C.C3.a — No silent NEAR
+NEAR is illegal without residual ledger and expiry/renewal obligations.
+C.C4 — Protocols
+C.C4.a — Local uncertainty regression fixtures
+Fixtures must ensure:
+NEAR requires ledger,
+AMBIG requires evidence plan,
+and truth typing upgrades are impossible without explicit witnesses.
+
+✶ C.R — Fractal: Local Recursion, Expansion Ladders, and Sealing
+C.R1 — Objects
+C.R1.a — Local expansion ladder
+Local expansions may define a ladder of derived objects. Each rung is content-addressed, and transitions are explicit edges with witnesses. No implicit recursion is permitted.
+C.R2 — Operators
+C.R2.a — Seal operator
+A tile (or a tile subset) can be sealed by emitting a SealCert that binds:
+tile digest,
+closure report digest,
+regression suite digest,
+and applicable corridor policy digest.
+Sealing is append-only and produces a new cert node.
+C.R3 — Invariants
+C.R3.a — Sealed tile invariants
+A sealed tile must remain verifiable under the pinned environment assumptions; if those assumptions change, the seal remains historically valid but may require migration or re-sealing under new policy.
+C.R4 — Protocols
+C.R4.a — Local sealing workflow
+Seal requires:
+closure report PASS,
+regression fixtures PASS,
+proof witnesses resolved and verified,
+absence of unresolved conflicts or revocations in scope.
+
+AppC Tight Spec-Only Version (Normative Extraction)
+A tile is a slot-indexed payload set over (\mathsf{Lens}\times\mathsf{Facet}\times\mathsf{Atom}).
+SlotAddr and LocalAddr are canonical address forms; ordering is pinned and deterministic.
+Local edges are typed by LinkKind; permission rules are stated as typing judgments under pinned environment (\Gamma).
+REF provides addressability only; EQUIV/DUAL/MIGRATE require explicit witnesses.
+Local closure requires digest resolvability, path resolvability, schema resolvability, and edge permission validity.
+Local expansions are deterministic under pins; ambiguity requires EvidencePlan rather than arbitrary choice.
+Local proofs are explicit objects; claim truth is upgraded only by verified proof/test/cert objects under pinned corridors.
+Square-local regression fixtures must cover grammar, edge typing, closure, determinism, witnesses, conflicts, and export/import behavior.
+
+AppC — Square Interior (4^4 Tile), Addressing, and Local Proof Objects
+AppD — Registry (IDs, Profiles, Pinned Policies)
+Station role: profile pinning + registry discipline; prevents silent forks.
+Purpose: define Ms⟨mmmm⟩ IDs, profile digests, pinned policies; registry as the anchor of interpretation and routing stability.
+
+□ D.S — Square: Registry Data Model, IDs, and Mandatory Manifests
+D.S1 — Objects
+D.S1.a — Canonical bytes and digests
+Let (\mathsf{ser}(\cdot)) be the pinned canonical serialization (AppA CanonBytesSpec). Let (\mathsf{H}(\cdot)) be the pinned digest function. For any object (X),
+[
+\mathsf{did}(X) := \mathsf{H}(\mathsf{ser}(X)).
+]
+All registry keys, values, and certificates are computed only from (\mathsf{ser}) and (\mathsf{H}) under pinned versions.
+
+D.S1.b — ID types
+IDs are stable, typed, canonical references.
+MsID (manuscript identifier): textual form Ms⟨Hex⟩, value is 128-bit (or larger, pinned) derived deterministically (D.S2.a).
+ProfileID: typed identifier for profile objects; derived deterministically (D.S2.b).
+PolicyID: typed identifier for policy packs; derived deterministically (D.S2.c).
+SchemaID: typed identifier for schema objects; derived deterministically.
+RouterID / CorridorID / GrammarID / CanonBytesID / EnvPinsID: typed identifiers for mandatory interpretation components.
+Each ID type is a pair (\langle \textsf{type_tag}, \textsf{value}\rangle) where (\textsf{type_tag}) is a pinned enum and (\textsf{value}) is a fixed-length byte string encoded as hex in canonical form.
+
+D.S1.c — Manifest schema (mandatory digests)
+A Manifest is the minimal record required to interpret any published artifact set under deterministic routing and verification. Manifest is mandatory for: manuscripts, bundles, profiles, corridors, routers, and replay harnesses.
+[
+\mathsf{Manifest} :=
+\langle
+\mathsf{ManifestVer},;
+\mathsf{Scope},;
+\mathsf{MsID},;
+\mathsf{PolicyID},;
+\mathsf{RouterID},;
+\mathsf{CorridorID},;
+\mathsf{GrammarID},;
+\mathsf{CanonBytesID},;
+\mathsf{EnvPinsID},;
+\mathsf{SchemaSetDigest},;
+\mathsf{RevocationSetDigest},;
+\mathsf{PulsePolicyDigest},;
+\mathsf{SignaturePolicyDigest},;
+\mathsf{Issuer},;
+\mathsf{Sig}
+\rangle
+]
+Mandatory fields and constraints:
+RouterID, CorridorID, GrammarID, PolicyID, CanonBytesID, EnvPinsID are mandatory and must resolve by digest in the registry.
+SchemaSetDigest must resolve to the complete schema closure required to interpret all objects referenced by the manifest.
+RevocationSetDigest must resolve to the revocation policy inputs used by import verification.
+PulsePolicyDigest must resolve to the PulseID mapping policy (Ch20).
+The manifest must be signed (or explicitly marked unsigned under a pinned signature policy that permits it).
+A manifest lacking any mandatory digest is invalid for OK routing and must be treated as non-importable under strict import policies.
+
+D.S1.d — RegistrySnapshot and RegistryLog
+The registry is an append-only system with snapshot views.
+RegistrySnapshot:
+[
+\mathsf{RegSnap} :=
+\langle
+\mathsf{SnapVer},;
+\mathsf{PulseID},;
+\mathsf{PrevSnapDigest},;
+\mathsf{EntrySetDigest},;
+\mathsf{IndexDigest},;
+\mathsf{PolicyDigest},;
+\mathsf{Sig}
+\rangle
+]
+where:
+PrevSnapDigest chains snapshots,
+EntrySetDigest commits to the canonical set of entries,
+IndexDigest commits to canonical indices,
+PolicyDigest pins registry rules used to build the snapshot.
+RegistryLog is the append-only sequence of registry update events expressed as DeltaPacks (Ch20). The authoritative state at pulse (p) is the deterministic replay of all registry DPs up to (p), summarized by (\mathsf{RegSnap}(p)).
+
+D.S1.e — RegistryEntry schema
+A RegistryEntry binds a typed key to a value under pinned rules.
+[
+\mathsf{RegEntry} :=
+\langle
+\mathsf{Key},;
+\mathsf{Value},;
+\mathsf{EntryType},;
+\mathsf{PinsDigest},;
+\mathsf{IssuedPulse},;
+\mathsf{Supersedes?},;
+\mathsf{Sig?}
+\rangle
+]
+Key: typed identifier or typed composite key (e.g., (MsID, ProfileID), (SchemaID), (RouterID)).
+Value: either a digest, a structured record digest, or a pointer record containing digest + retrieval info.
+EntryType: enum describing semantics:
+BIND (key binds to value),
+ALIAS (key aliases another key),
+MIGRATE (key transitions to new key/value with witness),
+REVOKE (value revoked),
+FENCE (quarantine/fence entry),
+NOTE (non-semantic annotation; forbidden for interpretation-critical keys).
+PinsDigest: pin closure required to interpret the entry (at minimum CanonBytesID + PolicyID).
+IssuedPulse: Ch20 pulse binding.
+Supersedes?: prior entry pointer for the same key (append-only replacement).
+Sig?: signature if required by policy for the entry type.
+
+D.S1.f — Profile object schema
+A Profile is a pinned interpretation object used by routing and verification (router/corridor/grammar/policy compositions, schema sets, determinism constraints).
+[
+\mathsf{Profile} :=
+\langle
+\mathsf{ProfileVer},;
+\mathsf{ProfileID},;
+\mathsf{ManifestDigest},;
+\mathsf{Components},;
+\mathsf{PolicyClosureDigest},;
+\mathsf{SchemaPins},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Components must include at least: RouterID, CorridorID, GrammarID, CanonBytesID, EnvPinsID, and any lane/overlay policies required by routing (Ch19).
+PolicyClosureDigest must commit to all policies the profile depends on (including Pulse policy, signature policy, import policy).
+Profiles are immutable; updates are represented only as MIGRATE edges with witnesses (D.S2.d).
+
+D.S1.g — PolicyPack schema
+A PolicyPack is the pinned set of rules governing interpretation and verification.
+[
+\mathsf{PolicyPack} :=
+\langle
+\mathsf{PolicyVer},;
+\mathsf{PolicyID},;
+\mathsf{Rules},;
+\mathsf{TieBreakRules},;
+\mathsf{ImportRules},;
+\mathsf{RevocationRules},;
+\mathsf{PulseRules},;
+\mathsf{SchemaRules},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+All rule sets are objects referenced by digest and must be canonically serialized.
+
+D.S2 — Operators
+D.S2.a — MsID derivation and deterministic collision resolution
+Let (\mathsf{ManuscriptSeed}) be the canonical seed record for a manuscript:
+[
+\mathsf{ManuscriptSeed}:=\langle \mathsf{ManifestDigest},\ \mathsf{GenesisPulse},\ \mathsf{GenesisPolicyDigest},\ \mathsf{Issuer}\rangle
+]
+with canonical serialization.
+Define the base MsID candidate:
+[
+\mathsf{MsID}0 := \mathrm{Trunc}{128}\big(\mathsf{H}(\textsf{"MsID"}\ |\ \mathsf{did}(\mathsf{ManuscriptSeed}))\big)
+]
+encoded as Ms⟨Hex⟩.
+Collision resolution is deterministic:
+Let (\mathsf{MsID}i := \mathrm{Trunc}{128}\big(\mathsf{H}(\textsf{"MsID/"}i\ |\ \mathsf{did}(\mathsf{ManuscriptSeed}))\big)) for (i\ge 1).
+If (\mathsf{MsID}_0) is already bound to a different manuscript seed digest, choose the smallest (i\ge 1) such that (\mathsf{MsID}_i) is unbound or bound to the same seed digest. Record the collision resolution as a registry event with:
+EntryType=NOTE forbidden; collision resolution must be BIND plus a CollisionRecord artifact signed under policy.
+Any binding of a MsID must include the manuscript seed digest in its value payload to prevent silent forks.
+
+D.S2.b — ProfileID derivation
+Define:
+[
+\mathsf{ProfileID} := \mathrm{Trunc}_{128}\big(\mathsf{H}(\textsf{"ProfileID"}\ |\ \mathsf{did}(\mathsf{Profile}))\big)
+]
+where (\mathsf{Profile}) is serialized with ProfileID field zeroed. Collision handling follows the same deterministic suffix rule as MsID and must be recorded as a signed collision record if it occurs.
+
+D.S2.c — PolicyID derivation
+Define:
+[
+\mathsf{PolicyID} := \mathrm{Trunc}_{128}\big(\mathsf{H}(\textsf{"PolicyID"}\ |\ \mathsf{did}(\mathsf{PolicyPack}))\big)
+]
+with analogous deterministic collision handling.
+
+D.S2.d — Profile lifecycle operators (create, pin, migrate, revoke)
+CreateProfile
+[
+\mathsf{CreateProfile}(\mathsf{Manifest}, \mathsf{Components}, \mathsf{PolicyClosure}) \to \mathsf{Profile}
+]
+Requirements:
+all component digests resolve,
+manifest mandatory digests present,
+schema pin closure present,
+profile signed under signature policy.
+PinProfile
+Pinning is binding a ProfileID to a stable registry entry:
+[
+\mathsf{PinProfile}(\mathsf{Profile}) \to \mathsf{RegEntry}
+]
+EntryType = BIND, Key = ProfileID, Value = (\mathsf{did}(\mathsf{Profile})).
+MigrateProfile
+Migration is append-only evolution:
+[
+\mathsf{MigrateProfile}(\mathsf{ProfileID}{old},\mathsf{ProfileID}{new},\mathsf{MigrateWitness}) \to (\mathsf{RegEntry},\mathsf{Cert})
+]
+Requirements:
+new profile object exists and is pinned,
+MIGRATE witness certificate exists and verifies,
+migration policy allows the transition,
+migration is recorded as EntryType=MIGRATE with a payload referencing witness digest.
+RevokeProfile / RevokeDigest
+Revocation is a signed registry entry:
+[
+\mathsf{Revoke}(d,\mathsf{Reason},\mathsf{EffectivePulse}) \to \mathsf{RegEntry}
+]
+EntryType = REVOKE, Key = digest or typed key, Value includes reason and effective pulse. Revocation must be signed by authorized revocation authority.
+Revocation is never deletion; it is an overlay constraint applied by import verification and routing.
+
+D.S2.e — Registry queries as deterministic functions
+All registry queries are pure functions of a RegistrySnapshot digest and query input.
+Let (\mathsf{RegSnap}) be the pinned snapshot. Define:
+ResolveKey:
+[
+\mathsf{ResolveKey}(\mathsf{RegSnap}, \mathsf{Key}) \to \mathsf{Value} \cup \bot
+]
+Returns the latest effective binding for Key, after applying:
+MIGRATE chains,
+revocation overlays,
+fences/quarantines,
+under pinned resolution policy.
+ResolveProfile:
+[
+\mathsf{ResolveProfile}(\mathsf{RegSnap}, \mathsf{ProfileID}) \to \mathsf{ProfileDigest} \cup \bot
+]
+Must verify profile not revoked and schema pins are compatible with the caller policy.
+ResolveManifest:
+[
+\mathsf{ResolveManifest}(\mathsf{RegSnap}, \mathsf{MsID}) \to \mathsf{ManifestDigest} \cup \bot
+]
+Must resolve manuscript seed binding deterministically.
+ListActive:
+[
+\mathsf{ListActive}(\mathsf{RegSnap}, \mathsf{TypeTag}) \to \text{canonical ordered list of keys}
+]
+Ordering is pinned (lexicographic by canonical key bytes).
+No query may depend on external state beyond the snapshot and pinned policies. Any caching must be keyed by snapshot digest and query digest and must not affect results.
+
+D.S3 — Invariants
+D.S3.a — No silent forks invariant
+For any typed key (k) and s

@@ -1,0 +1,370 @@
+(rp.mandatory_signature)
+    # Overlay hubs are treated as must if present
+    # (The corridor may forbid some truths; forbiddance must be encoded upstream as FAIL.)
+    # Here we treat any overlay hub already included as mandatory to keep.
+    for h in deduped:
+        if h in {"AppJ", "AppL", "AppK"}:
+            must.add(h)
+
+    if len(must) > rp.hub_cap:
+        # Cannot satisfy cap with mandatory hubs: classify FAIL (or CONFLICT) deterministically
+        dl = DropLog(cap=rp.hub_cap, dropped=tuple(), truth_impact="FAIL")
+        return list(must), dl, "FAIL"
+
+    drops: List[DropRecord] = []
+    truth_out: Truth = tau0
+
+    # Deterministic drop: remove optional hubs in pinned priority order until within cap.
+    # Never drop must hubs.
+    while len(deduped) > rp.hub_cap:
+        dropped_any = False
+        for candidate in rp.drop_priority:
+            if candidate in deduped and candidate not in must:
+                deduped.remove(candidate)
+                drops.append(DropRecord(hub=candidate, reason="cap_enforcement"))
+                dropped_any = True
+                break
+        if not dropped_any:
+            # No droppable hub available: deterministic failure
+            dl = DropLog(cap=rp.hub_cap, dropped=tuple(drops), truth_impact="FAIL")
+            return deduped, dl, "FAIL"
+
+    if drops:
+        if rp.downgrade_on_unwitnessed_drop and truth_out == "OK":
+            truth_out = "AMBIG"
+        dl = DropLog(cap=rp.hub_cap, dropped=tuple(drops), truth_impact=truth_out)
+        return deduped, dl, truth_out
+
+    return deduped, None, truth_out
+
+def order_hubs_deterministically(hubs_set: FrozenSet[Hub], pa: ParsedAddr, intent: Intent, tau0: Truth, rp: RouterProfile) -> Tuple[Hub, ...]:
+    # Build templated hubs (string tokens allow placeholder names in canonical_template)
+    computed: Dict[str, Optional[Hub]] = {
+        "AppA": "AppA",
+        "ArcHub": rp.arc_hub.get(pa.station.arc) if (pa.is_chapter and pa.station is not None) else None,
+        "LensBase": rp.lens_base.get(pa.lens),
+        "FacetBase": rp.facet_base.get(pa.facet),
+        "Overlay": truth_overlay(intent, tau0, rp),
+        "AppI": "AppI",
+        "AppM": "AppM",
+    }
+    seq: List[Hub] = []
+    seen = set()
+    for token in rp.canonical_template:
+        h = computed.get(token, token)  # allow direct hub names or tokens
+        if h is None:
+            continue
+        if h in hubs_set and h not in seen:
+            seen.add(h)
+            seq.append(h)
+    return tuple(seq)
+
+def compute_obligations(intent: Intent, tau0: Truth) -> Tuple[str, ...]:
+    obls = ["Obl.ParseCanon(AppA)", "Obl.CorridorType(AppI)", "Obl.ReplayClose(AppM)"]
+    if tau0 == "NEAR":
+        obls.append("Obl.ResidualLedger(AppJ)")
+    elif tau0 == "AMBIG":
+        obls.append("Obl.EvidencePlan(AppL)")
+    elif tau0 in ("FAIL", "CONFLICT"):
+        obls.append("Obl.ConflictPacket(AppK)")
+    # intent-specific obligations can be added deterministically by a pinned table
+    return tuple(obls)
+
+def route(addr: str, intent: Intent, tau0: Truth, rp: RouterProfile, pins: Pins) -> RoutePlan:
+    pa = parse_addr_strict(addr)
+
+    hubs: List[Hub] = []
+    # Base hubs from lens/facet
+    hubs.append(rp.lens_base[pa.lens])
+    hubs.append(rp.facet_base[pa.facet])
+
+    # Arc hub for chapters
+    if pa.is_chapter and pa.station is not None:
+        hubs.append(rp.arc_hub[pa.station.arc])
+
+    # Enforce mandatory Σ
+    hubs.extend(list(rp.mandatory_signature))
+
+    # Truth overlay
+    overlay_hub = truth_overlay(intent, tau0, rp)
+    if overlay_hub is not None:
+        hubs.append(overlay_hub)
+
+    # Cap enforcement
+    hubs2, droplog, tau1 = enforce_cap(hubs, rp, tau0)
+
+    # Ordering
+    hubs_seq = order_hubs_deterministically(frozenset(hubs2), pa, intent, tau1, rp)
+
+    # Obligations
+    obligations = compute_obligations(intent, tau1)
+
+    return RoutePlan(intent=intent, target=addr, scope=pa.scope, station_header=pa.station,
+                     hubs_seq=hubs_seq, tau0=tau1, pins=pins, obligations=obligations, droplog=droplog)
+
+The reference implementation is intentionally structured so that every degree of freedom (tables, ordering, drop priority, overlay mapping) is pinned inside the router profile, ensuring router purity and replayability. The hub cap is enforced as a hard contract; drops are logged; and cap‑enforced unwitnessed drops deterministically degrade intended truth to AMBIG (or FAIL if the corridor forbids AMBIG).
+
+11.S4 — Route execution outputs (replayable artifacts)
+11.S4.a — Metro ride execution engine
+Given a RoutePlan (\mathsf{RP}), the execution engine performs:
+visit hubs in (\mathrm{HubsSeq}) order,
+perform hub-specific normalizations and validations (parsing, corridor checks, replay),
+gather witnesses and replay capsules,
+evaluate truth typing under the corridor,
+emit an execution transcript.
+The engine output is deterministic and replayable. Any divergence under identical pins is a determinism failure and must be quarantined as FAIL/CONFLICT under the corridor truth rules.
+
+11.S4.b — Transcript schema (minimum)
+An execution transcript (\mathsf{Tx}) is an append-only record:
+[
+\mathsf{Tx}:=(\mathsf{RP},\mathrm{HubVisits},\mathrm{WitnessPtrs},\mathrm{ReplayPtrs},\tau_{\mathrm{final}},\mathrm{BudgetsUsed},\mathrm{ObligationsClosed},\mathrm{ObligationsOpened},\mathrm{EngineVer}).
+]
+Each hub visit record includes:
+hub identifier,
+inputs (digests of pulled artifacts),
+performed actions (schema-bound operations),
+produced outputs (digests),
+witness and replay pointers,
+any truth transitions (promotion/downgrade triggers).
+Transcripts are governance-ready artifacts; route plans and transcripts are the executable substrate of cross-reference semantics.
+
+❀ Flower — Canonical Ride Selection as Constraint Projection with Lexicographic Minimality
+11.F1 — The constraint system
+Let the router constraints be:
+(C_{\Sigma}): include (\Sigma),
+(C_{\mathrm{cap}}): (\le 6) unique hubs pre-target,
+(C_{\mathrm{rail}}): include mandatory overlay hub induced by ((\mathsf{Intent},\tau_0)),
+(C_{\mathrm{base}}): include base hubs induced by (\mathrm{LensBase},\mathrm{FacetBase},\mathrm{ArcHub}) (as applicable),
+(C_{\mathrm{order}}): impose canonical ordering.
+A candidate hub ride is a finite sequence (\mathbf{h}\in\mathcal{H}^{\le 6}). The router contract is equivalently the computation of a canonical feasible point of this constraint system under pinned tie-break rules.
+
+11.F2 — Alternating projection interpretation
+Define projectors on a “hub multiset space”:
+(P_{\Sigma}): add (\Sigma),
+(P_{\mathrm{rail}}): add the overlay hub induced by ((\mathsf{Intent},\tau_0)),
+(P_{\mathrm{base}}): add base hubs induced by the parsed address,
+(P_{\mathrm{cap}}): apply deterministic cap enforcement with DropLog,
+(P_{\mathrm{order}}): map multiset to ordered sequence via canonical ordering template and compression.
+Then the router is the finite composition:
+[
+\mathbf{h}\star = P{\mathrm{order}}\circ P_{\mathrm{cap}}\circ P_{\mathrm{rail}}\circ P_{\Sigma}\circ P_{\mathrm{base}}(\varnothing),
+]
+with the understanding that each projector is deterministic under (\pi_R). The “projection” language here is not analytic; it is the formal statement that routing is constraint satisfaction via deterministic normalization.
+
+11.F3 — Lexicographic minimality and deterministic tie-break
+Whenever multiple feasible rides exist (e.g., due to optional intent hubs or alternative ArcHub refinements), the router selects the unique ride minimizing a pinned lexicographic objective:
+[
+\min_{\mathbf{h}\in\mathcal{F}}\ \Bigl(\mathrm{CapViol}(\mathbf{h}),\ \mathrm{DropCount}(\mathbf{h}),\ \mathrm{DropPriorityScore}(\mathbf{h}),\ \mathrm{OrderKey}(\mathbf{h})\Bigr),
+]
+where (\mathcal{F}) is the feasible set given the pinned base hubs and mandatory signature/rail constraints. This objective must be pinned as part of (\pi_R) (or equivalently realized by pinned deterministic drop+order functions). Any unpinned tie-break introduces nondeterminism and violates the router purity law.
+
+11.F4 — Ride equivalence and witnessed commutation
+If an optimization proposes a different hub visit ordering, it is legal only if commutation is witnessed. In this chapter’s contract, this means: the engine may reorder only when it possesses a replayable equivalence witness that the reordered ride yields identical outputs and identical truth typing under pinned profiles. Otherwise the canonical ordering stands. This enforces the rule that reordering commutative hub visits is rare and must be witnessed; it cannot be assumed.
+
+☁ Cloud — Uncertainty Discipline, AMBIG Plans, and Determinism Under Missing Pins
+11.C1 — Missing prerequisites implies AMBIG plan
+If any required prerequisite is missing (missing required profile digests, missing manifests for INTER edges, missing replay environment pins), the router and/or execution engine must output AMBIG (recoverable) with:
+bounded candidate set if applicable,
+an explicit evidence plan and obligations,
+insertion of (\mathrm{AppL}) via the overlay rail,
+and must not claim OK. This is a routing law, not a stylistic preference.
+
+11.C2 — Determinism under uncertainty
+Uncertainty is represented as explicit artifacts (evidence plans, candidate sets, obligations), never as randomness. Any sampling, randomized tie-break, or nondeterministic cache use is illegal unless pinned by a reproducible seed and an explicit inference rule (and such pinning becomes part of the corridor profile and replay capsule, not an implicit engine behavior). This is a corollary of router purity: identical pins imply identical routes and identical artifacts.
+
+11.C3 — Truth overlays as routable uncertainty channels
+Truth overlays turn epistemic states into routable destinations:
+NEAR routes through (\mathrm{AppJ}) to emit residual ledgers and drift envelopes,
+AMBIG routes through (\mathrm{AppL}) to emit evidence plans and discriminator routes,
+FAIL/CONFLICT routes through (\mathrm{AppK}) to fence contradictions and package conflict receipts.
+Overlay insertion is deterministic and profile-pinned; omission of a required overlay hub is illegal unless the corridor forbids that truth class for the ride.
+
+11.C4 — Cap-induced ambiguity and DropLog semantics
+When cap enforcement forces a drop of an optional hub, the route’s epistemic status changes unless redundancy is witnessed. The contract requires:
+DropLog emission,
+deterministic downgrade (typically to AMBIG),
+obligations specifying which evidence would re-enable the dropped hub or prove redundancy.
+This is the mechanism by which bounded routing remains sound: it never pretends completeness when completeness could not be achieved within the cap.
+
+✶ Fractal — RoutePlans as Composable Units of Corpus Execution
+11.R1 — RoutePlan composability and task rides
+A RoutePlan is not merely navigation; it is a composable execution unit. Task-based rides are deterministic templates specialized by router rules and truth overlays, for example:
+[
+\begin{aligned}
+\mathrm{VERIFY}&:\ \mathrm{AppA}\to\mathrm{AppI}\to\mathrm{AppM}\to\mathrm{Targets},\
+\mathrm{BUILD}&:\ \mathrm{AppA}\to\mathrm{AppH}\to\mathrm{AppC}\to\mathrm{AppM}\to\mathrm{Targets},\
+\mathrm{MIGRATE}&:\ \mathrm{AppA}\to\mathrm{AppD}\to\mathrm{AppB}\to\mathrm{AppM}\to\mathrm{AppO},\
+\mathrm{RESOLVE}&:\ \mathrm{AppA}\to\mathrm{AppK}\to\mathrm{AppM}\to\mathrm{AppB},\
+\mathrm{PUBLISH}&:\ \mathrm{AppA}\to\mathrm{AppO}\to\mathrm{AppM}\to\mathrm{AppD}\to\mathrm{AppP}.
+\end{aligned}
+]
+These are not informal reading suggestions; they are deterministic ride templates executed by the engine, producing transcripts and replay artifacts.
+
+11.R2 — Narrative compilation as a deterministic list of RoutePlans
+A narrative is valid only insofar as it compiles to a finite set of RoutePlans and their certificates. A narrative compiler is therefore a deterministic procedure:
+[
+(\mathsf{Intent},\mathrm{Targets})\ \mapsto\ \bigl[\mathsf{RP}_1,\dots,\mathsf{RP}_N\bigr],
+]
+with explicit address citations and truth typing. Claims unsupported by OK routes must remain AMBIG and must cite evidence plans and discriminator routes. This embeds “documentation” into the same proof-carrying graph substrate as transport legality, ensuring the manuscript remains executable rather than rhetorical.
+
+11.R3 — Certificates for router conformance
+Router correctness is witnessed by explicit certificates. A minimal certificate suite includes:
+RouterDeterminismCert: witness that router outputs identical hub sequences and DropLogs under identical pins, that mandatory signature is enforced, and that cap enforcement is deterministic.
+HubCapCert: witness that all route plans respect (\le 6) unique hubs pre-target, that any cap enforcement is recorded in DropLog, and that violations are classified AMBIG/FAIL (never silently ignored).
+EngineReplayCert: witness that execution transcripts replay under pinned profiles reproducing identical outputs and identical fingerprints for all edges typed OK; any mismatch forces FAIL/CONFLICT quarantine under the corridor policy. (This cert binds the router contract to the replay contract.)
+Certificates are addressable artifacts and can themselves be targets of RoutePlans.
+
+11.R4 — Optional cross-scope tunneling under pinned gateways
+If cross-corpus tunneling is enabled, it must be declared via a pinned gateway profile:
+deterministic mapping between scopes,
+replayable and auditable,
+never bypassing corridor truth typing or pin validation.
+Otherwise tunneling is forbidden. This prevents hidden jumps that violate router purity and auditability.
+
+Ch11 — Router Contract (≤6 hubs, deterministic order)
+Ch12 — Certificates (ReplayCert, RegressionCert, ExportCert)
+Defines HD‑SCT witness bundles + replay harness expectations (import‑verifiable)
+
+12.0 Preliminaries: canonical bytes, digests, and subject closure
+12.0.1 Canonical bytes and pinned hash
+Fix a pinned hash algorithm (\mathsf{HashAlg}) with hash function
+[
+H:{0,1}^\star \to {0,1}^{\ell}.
+]
+Every certifiable object (X) in HD‑SCT admits a pinned canonical encoding (\mathrm{Enc}(X)\in{0,1}^\star) (sorted keys, canonical integers, canonical list ordering, and pinned byte ordering rules). The fingerprint of (X) is
+[
+\mathrm{fp}(X);:=;H(\mathrm{Enc}(X)).
+]
+Any change to (\mathrm{Enc}) rules is a schema change and must be routed as a MIGRATE‑managed change at the publication/import layer; it cannot be treated as “harmless formatting.”
+12.0.2 Subjects, scopes, and dependency closure
+Let (\mathcal{G}) be the HD‑SCT corpus graph of atoms/edges, each addressable by a (\mathrm{GlobalAddr}). A certificate subject is one of:
+an atom (a\in\mathrm{Atoms}(\mathcal{G})),
+an edge (e\in\mathrm{Edges}(\mathcal{G})),
+a profile object (router/corridor/kernel/phase/bridge/control/container schemas),
+a replay capsule (\mathsf{RC}),
+a regression suite (\mathsf{RS}),
+an export bundle (\mathsf{EB}),
+or a finite subject set (S\subseteq\mathrm{Subjects}) (closure‑certs).
+Each certificate is parameterized by (\mathrm{Scope}\in{\mathrm{LOCAL},\mathrm{INTER}}). INTER subjects must include the precise manifest digests and profile digests for both sides of the crossing in their pinned requirements; missing inter‑pins prevents OK certification.
+Define a pinned dependency function (\mathrm{Deps}(\cdot)) returning the finite set of prerequisite objects required to verify a subject under the active corridor class. The verification closure of subject (S) is
+[
+\mathrm{Cl}(S);:=;S;\cup;\mathrm{Deps}(S);\cup;\mathrm{Deps}(\mathrm{Deps}(S));\cup\cdots
+]
+which is required to stabilize to a finite set under bounded corridors. Export and certificate packaging is defined on (\mathrm{Cl}(S)).
+12.0.3 Proof‑carrying determinism as an operational law
+HD‑SCT treats replay determinism as the operational definition of verified truth: identical pins and inputs imply identical outputs and identical fingerprints; any mismatch under identical pins is a deterministic failure or a reproducible contradiction, and cannot be ignored.
+A claim is OK only if required witness artifacts exist, required replays close, pins validate, budgets are satisfied, and no fences are violated.
+Certificates are the formalization of this law into import‑verifiable bundles.
+
+12.1 ReplayCapsule and the replay harness contract
+12.1.1 ReplayCapsule (\mathsf{RC}): the minimal import‑verifiable verifier packet
+A ReplayCapsule is the smallest self‑contained unit enabling an independent verifier to re‑run a claim check deterministically. Define:
+[
+\boxed{
+\mathsf{RC}:=(\mathrm{RCID},\mathrm{TargetAddr},\mathrm{Scope},\mathrm{Pins},\mathrm{EnvPins},\mathrm{Seeds},\mathrm{Inputs},\mathrm{Steps},\mathrm{ExpectedDigests},\mathrm{OutputsSpec},\mathrm{LogsSpec},\mathrm{SchemaVer})
+}
+]
+where:
+(\mathrm{TargetAddr}) is the (\mathrm{GlobalAddr}) node/edge being verified,
+(\mathrm{Pins}) includes all profile digests required to interpret the claim (router/corridor/grammar/canonbytes/kernel/phase/bridge/control/container schema),
+(\mathrm{EnvPins}) pins runtime/platform/dependency behavior sufficient for deterministic replay,
+(\mathrm{Seeds}) pins any randomness (empty if randomness is forbidden for the capsule class),
+(\mathrm{Inputs}) are embedded canonical bytes or digest‑referenced canonical bytes,
+(\mathrm{Steps}) is a deterministic execution recipe,
+(\mathrm{ExpectedDigests}) are intermediate and final digests binding the claimed outcome,
+(\mathrm{OutputsSpec}) and (\mathrm{LogsSpec}) pin output/log canonicalization.
+A capsule is self‑contained relative to determinism: everything that can affect the outcome must be pinned or embedded; otherwise it cannot certify OK.
+A canonical schema requires (unless policy explicitly permits omission):
+[
+{\mathrm{TargetAddr},\ \mathrm{RouterProfileDigest},\ \mathrm{CorridorProfileDigest},\ \mathrm{EnvPins},\ \mathrm{Seeds},\ \mathrm{Inputs},\ \mathrm{Steps},\ \mathrm{ExpectedDigests},\ \mathrm{Outputs},\ \mathrm{Logs}}.
+]
+12.1.2 ReplayRecipe (\mathsf{RRc}) and strict ordering
+Define the replay program carried inside (\mathsf{RC}) as:
+[
+\mathsf{RRc}:=(\mathrm{StepList},\mathrm{StepPins},\mathrm{StepDigests},\mathrm{OrderingPolicy})
+]
+where:
+(\mathrm{StepList}=(s_1,\dots,s_n)) is a sequence of named steps (parse, canonicalize, compute NF, apply kernel, decode stream, compute digest, compare),
+(\mathrm{StepPins}) lists required profile digests per step,
+(\mathrm{StepDigests}) optionally pins intermediate digests for localization,
+(\mathrm{OrderingPolicy}) is pinned; steps execute in strict order.
+The recipe forbids best‑effort skipping; if a step cannot run, outcome is AMBIG/FAIL according to the corridor policy.
+12.1.3 EnvironmentPin (\mathsf{EPn}) and numeric determinism
+An EnvironmentPin is the minimal set of version identifiers needed to make replay deterministic across machines:
+[
+\mathsf{EPn}:=(\mathrm{OSID},\mathrm{ArchID},\mathrm{RuntimeID},\mathrm{LibDigests},\mathrm{Compiler/VMID?},\mathrm{FloatingPolicy},\mathrm{EndianPolicy},\mathrm{SchemaPins}).
+]
+Missing environment pins prevent OK certification; at best the result is AMBIG (recoverable) or FAIL (policy forbids).
+12.1.4 DeterminismChecklist (\mathsf{DCk}): what must be pinned
+A DeterminismChecklist is an explicit list of “knobs that must be pinned” for a capsule class:
+[
+\mathsf{DCk}:=(\mathrm{CapsuleClass},\mathrm{RequiredPins},\mathrm{OptionalPins},\mathrm{ForbiddenUnpinned},\mathrm{FallbackPolicy}),
+]
+including forbidden unpinned dependencies such as unpinned RNG, time dependence, network dependence, or unspecified platform behavior. (\mathsf{DCk}) is itself pinned by digest and referenced by verifiers.
+12.1.5 Verifier engine (V): deterministic replay execution and failure classification
+Fix a pinned verifier engine version (\mathrm{VerifierVer}). The verifier executes (\mathsf{RC}) as a deterministic state machine whose internal state includes step index, loaded pins, loaded inputs, digest accumulator, transcript buffer, and budget counters (\chi).
+Given (\mathsf{RC}), (V) must:
+validate pins via the registry snapshot (existence, digest match, not revoked),
+validate schema versions (capsule schema, container schema),
+load inputs (embedded or fetched by digest under pinned policy),
+execute steps in order producing intermediate digests,
+compare observed digests to (\mathrm{ExpectedDigests}),
+emit a canonical transcript and a truth classification under corridor mapping.
+Mismatch handling is strict:
+FAIL if mismatch is deterministic under a pinned environment,
+CONFLICT if mismatches disagree across independently pinned replays (fork indicator),
+AMBIG only if evaluation cannot be completed due to missing pins/inputs and recovery is permitted.
+Mismatch cannot be ignored or downgraded to OK.
+
+12.2 Certificate algebra: types, schemas, and verification semantics
+12.2.1 Certificate object (\mathsf{Cert})
+A certificate is a replay‑verifiable witness object with a typed claim. Define:
+[
+\boxed{
+\mathsf{Cert}:=(\mathrm{CertID},\mathrm{CertType},\mathrm{Subject},\mathrm{Scope},\mathrm{Pins},\mathrm{EnvPins},\mathrm{Claims},\mathrm{WitnessRefs},\mathrm{ReplayRefs},\mathrm{ExpectedDigests},\mathrm{Budgets},\mathrm{TranscriptDigest},\mathrm{IssuedAtPulse},\mathrm{Prev?},\mathrm{Signatures?},\mathrm{SchemaVer})
+}
+]
+with:
+(\mathrm{CertType}\in{\mathrm{ReplayCert},\mathrm{RegressionCert},\mathrm{ExportCert}}),
+(\mathrm{Subject}) an addressable subject set or single subject,
+(\mathrm{WitnessRefs}) references to required witnesses (tests, measurement logs, diffs),
+(\mathrm{ReplayRefs}) references to (\mathsf{RC}) objects required for verification,
+(\mathrm{ExpectedDigests}) binding certificate‑level outputs (not only subject outputs),
+(\mathrm{Budgets}) binding maximum allowable verification cost,
+(\mathrm{TranscriptDigest}) binding the canonical verifier transcript emitted during certification,
+(\mathrm{Signatures?}) optional signatures under a pinned signature discipline.
+A certificate is valid only if its verification reduces to deterministic replay execution(s) plus deterministic ledger checks, all under pinned profiles and environment.
+12.2.2 Import‑verifiable certificates
+A certificate is import‑verifiable if an independent verifier can validate it without privileged access: all required pins, inputs, witnesses, and replays are embedded or content‑addressed by digest and included in the import closure, and the verification procedure is fully specified and deterministic.
+Formally, let (\mathsf{Bundle}) be an importable package (see §12.4). A certificate (\mathsf{Cert}) is import‑verifiable within (\mathsf{Bundle}) if:
+[
+\mathrm{Cl}({\mathsf{Cert}})\subseteq \mathrm{Contents}(\mathsf{Bundle})
+]
+and if executing the pinned verification algorithm on (\mathsf{Bundle}) yields the same transcript digest and same truth mapping across all conformant environments satisfying (\mathrm{EnvPins}).
+
+12.3 ReplayCert: replay closure as a certificate
+12.3.1 ReplayCert: definition
+A ReplayCert attests that replay verification closes for a subject (or subject set) under pinned environment and pins.
+Define a ReplayCert for subject (S) as:
+[
+\boxed{
+\mathsf{ReplayCert}(S):=(\mathrm{CertID},\mathrm{Subject}=S,\mathrm{Pins},\mathrm{EnvPins},\mathrm{RCSet},\mathrm{RCExpected},\mathrm{OutputsDigest},\mathrm{TranscriptDigest},\mathrm{Budgets},\mathrm{Result},\mathrm{IssuedAtPulse},\mathrm{SchemaVer})
+}
+]
+where:
+(\mathrm{RCSet}={\mathsf{RC}_1,\dots,\mathsf{RC}_m}) is the required capsule set for (S) under the active corridor,
+(\mathrm{RCExpected}) binds each capsule fingerprint (\mathrm{fp}(\mathsf{RC}_i)) and its expected digest map,
+(\mathrm{OutputsDigest}) binds the final aggregated outputs (e.g., subject fingerprints, registry entries, or explicit atom digests),
+(\mathrm{Result}\in{\mathrm{PASS},\mathrm{QUARANTINE},\mathrm{REJECT}}) is computed deterministically from the capsule outcomes and fence policies.
+Replay closure is an operational requirement for OK: without replay closure, the strongest admissible truth class is AMBIG (or FAIL in strict corridors).
+12.3.2 ReplayCert verification algorithm
+Let (V) be the pinned verifier engine. Verification of (\mathsf{ReplayCert}(S)) is:
+Pin validation. Verify (\mathrm{Pins}) against the registry snapshot: required digests exist, match, and are not revoked.
+Capsule integrity. For each (\mathsf{RC}_i\in \mathrm{RCSet}), verify:
+(\mathrm{fp}(\mathsf{RC}_i)) matches (\mathrm{RCExpected}),
+all required pins/inputs present (relative to (\mathsf{DCk}) for the capsule class). Missing required pins prohibits OK closure.
+Deterministic execution. Execute each capsule with (V), respecting per‑capsule and global budget counters (\chi). Record observed intermediate/final digests and the deterministic failure classifier output.
+Digest equality checks. Compare observed digests to (\mathrm{ExpectedDigests}). Apply mismatch rule:
+deterministic mismatch (\Rightarrow) FAIL/REJECT,
+cross‑environment mismatch disagreement (\Rightarrow) CONFLICT/QUARANTINE,
+missing inputs/pins with permitted recovery (\Rig

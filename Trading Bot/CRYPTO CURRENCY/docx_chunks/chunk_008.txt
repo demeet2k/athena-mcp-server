@@ -1,0 +1,512 @@
+, AMBIG/NEAR Discipline, and Publishing Risk Envelopes
+07.C1 — Objects
+07.C1.a — Transport corridor profile
+Define a transport corridor profile (\mathfrak{C}_{\mathrm{transport}}) that pins:
+allowed kinds (DUAL/EQUIV/MIGRATE/CONFLICT),
+(\kappa) and (\beta) budgets,
+required replay closure for OK,
+mandatory quarantine behavior for conflicts.
+
+07.C1.b — Risk envelope for publishing
+Publishing forbids unresolved AMBIG on critical paths, allows NEAR only with disclosed residual bounds and warnings, and forbids traversal of quarantined regions.
+
+07.C1.c — Evidence plans and residual ledgers as first-class outputs
+AMBIG outputs must include bounded candidate set, evidence plan id, routes to generate evidence, and explicit classification of what is missing (pins, witnesses, or definitions).
+NEAR outputs must include a residual ledger (bounds, scope, metric, expiry), promotion obligations, and replay recipe; NEAR disclosures must travel with claims into narratives, seals, and publication bundles.
+
+07.C2 — Laws
+07.C2.a — AMBIG when multiple plausible transports exist
+If multiple plausible transports exist and deterministic tie-break is not pinned, output AMBIG with bounded candidates and an evidence plan.
+
+07.C2.b — FAIL when no legal lift path exists
+If AP yields no legal chain between lenses or maps cannot compose under declared domains, output FAIL and quarantine any route depending on the impossible transport.
+
+07.C2.c — CONFLICT when disagreement is reproducible
+If two lawful paths disagree under replay and identical pins, output CONFLICT, build a conflict packet, and quarantine. Any resolution must be replay-verifiable and must preserve fingerprints or record diffs explicitly.
+
+07.C2.d — Budget violations cannot be ignored
+Budget violations cannot be ignored; corridor rules may permit downgrade OK→NEAR with disclosures, otherwise FAIL.
+
+07.C3 — Constructions
+07.C3.a — Evidence plan generator for transport ambiguity
+Generate evidence plans by enumerating bounded candidate paths, selecting discriminators (commutation tests, invariant checks, replay comparisons), routing to hubs that can generate required artifacts, and defining promotion rules that uniquely select a path upon sufficient evidence.
+
+07.C3.b — Quarantine fence propagation
+Fence propagation excludes conflicting edges, any dependent edges requiring them, and any route plan traversing fenced regions for OK/publish; propagation is deterministic and replayable.
+
+07.C3.c — Repair plan generator (EQUIV strengthening vs MIGRATE)
+Generate repair candidates by either strengthening EQUIV proofs (new witnesses, tighter NF/metrics, expanded regression sets) or introducing MIGRATE with compat and regressions; revoke incorrect artifacts when necessary.
+
+07.C3.d — Conflict reproduction recipe
+Construct reproduction recipes containing minimal witness inputs, exact pinned profiles, exact replay steps, and expected divergent digests.
+
+07.C4 — Certificates
+Cloud-side certificates bind uncertainty handling to determinism:
+EvidencePlanCert (bounded candidates, concrete discriminators, routable obligations),
+ResidualBoundCert (metric pinned, bound (\beta), scope correct, replayable),
+FenceCert (deterministic fence generation/propagation),
+RepairCert (repair obligations and routes are minimal and replay-verifiable),
+QuarantineTriggerCert (deterministic triggers and correct fences/packets).
+
+✶ Fractal — Replay Closure, Transcripts, Regression, and Migration Governance
+07.R1 — Objects
+07.R1.a — Transport transcripts (append-only)
+A transport transcript records:
+endpoints (GlobalAddr),
+selected path and DropLog,
+maps used and fingerprints,
+residual metrics and bounds,
+corridor/profile pins,
+replay capsule ids,
+truth classification,
+and is address-indexed and append-only.
+
+07.R1.b — Replay capsules and deterministic verification
+Replay capsules reconstruct planner choice, map composition, commutation checks, endpoint comparisons, and classification; replay must reproduce outcomes under identical pins.
+
+07.R1.c — Regression suites for transport packs
+Regression fixtures cover adjacent swaps, composite lift chains, near-commutation cases, conflict reproduction cases, and AP migration cases; regression failures trigger quarantine.
+
+07.R1.d — Transport atlas index
+Construct an atlas that maps each pair ((\mathcal{R}_A,\mathcal{R}_B)) to known transport paths and their truth status, records best-known EQUIV/DUAL/MIGRATE options, records conflicts and fences, and is replay-verifiable; atlas entries are certified graph objects, not recommendations.
+
+07.R2 — Laws
+07.R2.a — Replay determinism binds legality
+Transport legality is defined by replay determinism: reproducible verifier disagreement under identical pins is CONFLICT.
+
+07.R2.b — Map changes require MIGRATE mediation
+Meaning-bearing changes in maps/witnesses invalidate prior EQUIV claims; resolution is MIGRATE or issuance of a new EQUIV claim with new witnesses and pins.
+
+07.R2.c — Registry collisions resolved by manifest change
+Any collision of ids/digests is resolved only by changing manifest inputs and producing explicit MIGRATE edges; never by silent overwrite.
+
+07.R2.d — Conflicts remain quarantined until resolved
+Quarantines cannot be lifted by time or preference; resolution requires replay-verifiable repair/migration or permanent quarantine with revocation receipts.
+
+07.R3 — Constructions
+07.R3.a — Reusable transport harness
+Construct a deterministic transport harness that:
+computes lift paths,
+constructs maps,
+runs conjugacy checks and commutation tests,
+emits transcripts, residual ledgers, and conflict packets,
+packages replay capsules.
+
+07.R3.b — Exporter/importer for transport bundles
+Define a bundle format containing maps, invariants, residual ledgers, transcripts, replay capsules, and all required pinned profiles; the importer replays and validates before admitting claims into OK routes.
+
+07.R3.c — AP migration plan template
+When (\mathsf{AP}) changes, compute impacted lift paths, build compat matrix old-vs-new AP features, rerun critical transport replays, emit MIGRATE edges for AP profile, quarantine routes relying on now-illegal swaps.
+
+07.R3.d — Audit reports for transport usage
+Audit reports list transport paths used, commutation residuals and NEAR disclosures, open obligations and quarantines, and migration histories; audits must be deterministic and suitable for governance.
+
+07.R4 — Protocols
+07.R4.a — Replay closure protocol for OK transport
+A transport claim is OK only if replay reproduces planner outputs, residual computations, endpoint comparisons, and final truth classification under pinned profiles.
+
+07.R4.b — Conflict packet protocol
+On reproducible mismatch:
+compute minimal witness set (bounded under (\chi)),
+include deterministic reproduction recipe,
+generate quarantine fences and propagate,
+propose resolution candidates (repair or migration).
+
+07.R4.c — Migration acceptance protocol
+A MIGRATE edge is accepted only if:
+compat matrices are complete over declared scope,
+regressions succeed under replay,
+rollback plan exists,
+importer validates pins and replays before admission.
+
+07.R4.d — HD-SCT specialization: transport endpoints are ((d,k))-typed
+In HD-SCT, all transport endpoints and domain specs must explicitly bind ((d,k)) and any meaning-bearing policy digests (NF profile, canonical bytes profile, metric profile, corridor profile). Any attempt to transport across ((d,k)) without an explicit map and explicit invariants is invalid and must be typed AMBIG/FAIL by corridor rules; any attempt to change profiles without MIGRATE is invalid by governance law.
+
+Ch07 — Transport Legality (DUAL/EQUIV/MIGRATE) in HD-SCT
+Ch08 — Corridors, Truth Typing, and Failure Modes
+(\mathrm{OK}/\mathrm{NEAR}/\mathrm{AMBIG}/\mathrm{FAIL}) as Routable Outcomes
+
+□ Square — Corridors as Typed Constraints on Transforms and Routes
+08.S1 — Corridor Objects
+08.S1.a — Corridor profile as a first-class policy object
+A corridor is a pinned policy object that constrains which transforms are legal, how transforms are verified, and how outcomes are typed. A corridor is not a heuristic; it is a contract.
+Define a CorridorProfile as the tuple
+[
+\boxed{
+\mathfrak{C}:=\big(\mathrm{CorrID},\ \mathrm{Scope},\ \mathrm{Pins},\ \mathbf{b},\ \mathrm{Rules},\ \mathrm{Promote},\ \mathrm{RoutePolicy},\ \mathrm{SchemaVer}\big)
+}
+]
+with components:
+(\mathrm{CorrID}): unique identifier (digest) of the corridor profile.
+(\mathrm{Scope}): typed scope of applicability (address ranges; lens pairs; ((d,k))-ranges; operator families).
+(\mathrm{Pins}): complete pinset required to interpret legality (normal-form profile, metric profile, serialization profile, adjacency profile, triangle mode policy, hub policy, etc.).
+(\mathbf{b}): budget vector
+[
+\boxed{\mathbf{b}:=(\kappa,\beta,\delta,\chi)}
+]
+where (\kappa) bounds commutation residuals, (\beta) bounds approximation drift, (\delta) bounds recursion depth/verification depth, and (\chi) bounds computational work (step count, search expansion, replay cost).
+(\mathrm{Rules}): outcome typing rules and mandatory artifacts.
+(\mathrm{Promote}): promotion obligations and procedures (e.g., (\mathrm{NEAR}\to\mathrm{OK})).
+(\mathrm{RoutePolicy}): routability constraints for planning (allowed truth thresholds, tie-break ordering, and publication gating).
+(\mathrm{SchemaVer}): schema version.
+Any claim that depends on unpinned corridor content is invalid under the corridor and is typed (\mathrm{AMBIG}) or (\mathrm{FAIL}) per rules below.
+
+08.S1.b — Certified claim object and endpoint typing
+Let (\mathcal{R}) denote the union of all representation types used by HD‑SCT across lenses and resolutions. A claim is a typed transform assertion between endpoints:
+[
+\boxed{
+\mathsf{Claim}:=(\mathrm{Src},\mathrm{Dst},\mathrm{Kind},T,\mathcal{I},\mathrm{Domain},\mathfrak{C})
+}
+]
+where:
+(\mathrm{Src},\mathrm{Dst}) are typed endpoints (must pin lens (L\in{S,F,C,R}), dimension (d), scale (k), and all decode-relevant policy digests).
+(\mathrm{Kind}) is the transport kind (e.g., DUAL/EQUIV/MIGRATE), when the corridor requires kinded transport.
+(T) is an explicit forward map (partial function) (T:\mathcal{R}{\mathrm{Src}}\rightharpoonup\mathcal{R}{\mathrm{Dst}}).
+(\mathcal{I}) is the invariant set declared by the claim (NF invariance, decode invariance, schedule invariance, commutation constraints, etc.).
+(\mathrm{Domain}) is a DomainSpec (where (T) is defined; where verification is valid).
+(\mathfrak{C}) is the corridor profile governing evaluation.
+A claim without explicit endpoints and explicit domain is not eligible for (\mathrm{OK}).
+
+08.S1.c — Evidence artifacts as mandatory outputs
+Corridor evaluation produces an Outcome accompanied by structured evidence artifacts.
+Define the evidence artifact types:
+ReplayCapsule (\mathsf{RC}): deterministic procedure and inputs sufficient to reproduce evaluation, including all pins and digests.
+Witness (\mathsf{W}): concrete check results (hash matches, invariant checks, commutation checks, decode checks).
+ResidualLedger (\mathsf{RL}): a bounded residual disclosure required for (\mathrm{NEAR}).
+EvidencePlan (\mathsf{EP}): a bounded candidate set and discriminators required for (\mathrm{AMBIG}).
+FailureWitness (\mathsf{FW}): minimal counterexample or deterministic failure certificate required for (\mathrm{FAIL}) (including a reproduction recipe).
+Evidence objects are routable: they may be traversed and composed along paths and are required to be address-indexed.
+
+08.S1.d — Outcome object and truth typing
+Define the truth type set
+[
+\boxed{
+\mathbb{T}_4:={\mathrm{OK},\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL}}.
+}
+]
+Define the Outcome object:
+[
+\boxed{
+\mathsf{Out}:=(\tau,\ \mathsf{RC},\ \mathsf{W},\ \mathsf{RL?},\ \mathsf{EP?},\ \mathsf{FW?},\ \mathrm{BudgetUse},\ \mathrm{Obligations})
+}
+]
+with:
+(\tau\in\mathbb{T}_4) the truth label.
+(\mathsf{RC}) a replay capsule pointer (mandatory for (\mathrm{OK}) and (\mathrm{NEAR}); optional but recommended for (\mathrm{AMBIG}); mandatory for (\mathrm{FAIL}) when reproducible).
+(\mathsf{W}) the witness pointer set.
+(\mathsf{RL}) present iff (\tau=\mathrm{NEAR}).
+(\mathsf{EP}) present iff (\tau=\mathrm{AMBIG}).
+(\mathsf{FW}) present iff (\tau=\mathrm{FAIL}) (unless corridor permits “unknown failure” classification; such corridors are non-publication corridors).
+(\mathrm{BudgetUse}) records charged ((\kappa,\beta,\delta,\chi)) usage.
+(\mathrm{Obligations}) is a list of promotion/repair obligations.
+Outcome objects are first-class vertices in the routing layer: they are not annotations; they determine which routes exist.
+
+08.S2 — Truth Algebra for Routing
+08.S2.a — Truth order and meet/join semantics
+Define a total preorder on (\mathbb{T}_4) by quality:
+[
+\boxed{\mathrm{FAIL}\prec \mathrm{AMBIG}\prec \mathrm{NEAR}\prec \mathrm{OK}.}
+]
+Define meet (\wedge) and join (\vee) as:
+[
+\tau_1\wedge\tau_2:=\min(\tau_1,\tau_2)\quad(\text{worst-link composition}),
+\qquad
+\tau_1\vee\tau_2:=\max(\tau_1,\tau_2)\quad(\text{best alternative}).
+]
+
+08.S2.b — Sequential composition of outcomes (path typing)
+Given a path (P=(e_1,\dots,e_m)) with per-edge outcomes (\mathsf{Out}i), define the composite truth:
+[
+\boxed{
+\tau(P):=\bigwedge{i=1}^m \tau(e_i).
+}
+]
+Define budget accumulation with pinned aggregation operators, defaulting to:
+[
+\kappa(P):=\sum_i \kappa_i,\quad
+\beta(P):=\sum_i \beta_i,\quad
+\delta(P):=\max_i \delta_i,\quad
+\chi(P):=\sum_i \chi_i,
+]
+and corridor acceptance requires:
+[
+\kappa(P)\le \kappa_{\max},\
+\beta(P)\le \beta_{\max},
+\delta(P)\le \delta_{\max},
+\chi(P)\le \chi_{\max}.
+]
+Corridors may replace (\sum) with (\max) for (\kappa,\beta) if the semantics are “peak residual” rather than “spent residual,” but the choice must be pinned in (\mathfrak{C}).
+Composite evidence is the union of pointers; composite obligations are concatenated and deduplicated.
+
+08.S2.c — Routability predicate
+A corridor declares a route admissibility threshold (\tau_{\min}\in\mathbb{T}4). A path is routable under corridor (\mathfrak{C}) iff:
+[
+\boxed{
+\tau(P)\succeq \tau{\min}
+\quad\text{and}\quad
+\mathrm{BudgetUse}(P)\le \mathbf{b}
+\quad\text{and}\quad
+\mathrm{AllMandatoryArtifactsPresent}(P).
+}
+]
+Common thresholds:
+Operational corridor: (\tau_{\min}=\mathrm{NEAR}) permitted with mandatory residual ledger disclosures.
+Publication corridor: (\tau_{\min}=\mathrm{OK}) only.
+Exploration corridor: (\tau_{\min}=\mathrm{AMBIG}) permitted, but must return evidence plans.
+Threshold selection is itself pinned in (\mathfrak{C}).
+
+08.S2.d — Promotion operator and closure
+Define a promotion relation (\leadsto) between outcomes:
+[
+\boxed{
+\mathsf{Out}_{\mathrm{NEAR}} \leadsto \mathsf{Out}_{\mathrm{OK}}
+}
+]
+when all obligations in (\mathrm{Obligations}) are discharged and replay verifies the strengthened witness set under the same pins (or an explicit MIGRATE to new pins).
+Promotion is not a rewrite: the promoted outcome is a new outcome with a new digest, new witness pointers, and a replay capsule reproducing the new checks.
+
+08.S3 — Corridor Evaluation: Deterministic Typing Rules
+08.S3.a — Minimal conditions for each truth type
+Let (\mathsf{Claim}) be evaluated under corridor (\mathfrak{C}). Define deterministic outcome rules:
+(1) (\mathrm{OK}) iff all conditions hold:
+All required pins are present and match corridor scope.
+DomainSpec is well-typed and non-empty.
+Mandatory artifacts are present (maps, reverse maps where required, invariants).
+Replay capsule reproduces the evaluation exactly.
+All declared invariants (\mathcal{I}) are proved under pinned metrics and pinned NF/codec policies.
+All residuals are exactly zero where the corridor requires exactness (e.g., NF equality), and commutation residuals satisfy (r_\kappa=0) when exact commutation is required.
+(2) (\mathrm{NEAR}) iff:
+All required pins are present and match corridor scope.
+Replay reproduces evaluation deterministically.
+Invariants hold within bounded residuals, with residual bounds (\le \beta) and commutation residuals (\le \kappa).
+A ResidualLedger exists and includes metric id, bound, scope, obligations, and replay pointer.
+(3) (\mathrm{AMBIG}) iff:
+The claim cannot be made (\mathrm{OK}) or (\mathrm{NEAR}) because of underdetermination, but the corridor can bound the ambiguity into a finite candidate set; and
+An EvidencePlan exists describing candidates, discriminators, routes, and promotion rules.
+Typical AMBIG causes:
+missing pins but corridor can propose required pinset;
+multiple legal routes without pinned tie-break;
+multiple normal forms under incomplete canonicalization;
+domain ambiguity (uncertain applicability).
+(4) (\mathrm{FAIL}) otherwise, including:
+illegality under corridor (forbidden transform, forbidden swap, forbidden domain);
+budget violation beyond corridor downgrade rules;
+invariant violation beyond (\beta) or commutation residual beyond (\kappa);
+nondeterminism or replay failure;
+unbounded ambiguity (no finite candidate set within (\chi));
+contradiction (two replayed witnesses disagree under identical pins for the same claim).
+FAIL must include a FailureWitness with a reproduction recipe unless the corridor explicitly permits “non-reproducible fail” classification (not permitted for publication corridors).
+
+08.S3.b — Corridors as recognizers of legality languages
+Let (\mathcal{E}) be the set of all candidate edges (primitive transforms) and (\mathcal{P}) the set of all finite paths over (\mathcal{E}). A corridor defines a recognized language
+[
+\mathcal{L}_{\mathfrak{C}} \subseteq \mathcal{P}
+]
+of legal routable paths under its thresholds and budgets. Truth typing is the mechanism that assigns each word (P\in\mathcal{P}) to (\mathbb{T}4) and therefore determines membership in (\mathcal{L}{\mathfrak{C}}).
+
+08.S3.c — Deterministic evaluation function
+Define the corridor evaluation function
+[
+\boxed{
+\mathrm{Eval}_{\mathfrak{C}}:\mathsf{Claim}\to\mathsf{Out}
+}
+]
+as a deterministic function of:
+claim payload,
+pinned corridor profile,
+declared invariants and metrics,
+bounded computational budget (\chi).
+Determinism requirement: given identical claim digests and identical corridor pins, (\mathrm{Eval}_{\mathfrak{C}}) must return identical outcome digests and identical truth types.
+
+08.S3.d — Route planning as a certified optimization problem
+Define a transport/transform graph (G=(V,E)) whose edges are claims (or families of claims) and whose edge evaluation is (\mathrm{Eval}_{\mathfrak{C}}). A route planner must produce:
+the selected path,
+the per-edge outcomes,
+a composite outcome,
+a replay capsule reproducing planning choices (tie-breaks and search ordering must be pinned).
+The objective function is corridor-defined. A canonical objective is lexicographic:
+[
+\text{maximize }\tau(P),\ \text{then minimize }\chi(P),\ \text{then minimize }\beta(P),\ \text{then minimize }\kappa(P),
+]
+subject to admissibility constraints.
+
+08.S4 — Reference Algorithms and Data Structures
+08.S4.a — Truth and outcome composition
+from dataclasses import dataclass
+from typing import List, Optional, Tuple, Literal
+
+Truth = Literal["OK","NEAR","AMBIG","FAIL"]
+
+TRUTH_RANK = {"FAIL":0, "AMBIG":1, "NEAR":2, "OK":3}
+
+def truth_meet(a: Truth, b: Truth) -> Truth:
+    return a if TRUTH_RANK[a] <= TRUTH_RANK[b] else b
+
+def truth_join(a: Truth, b: Truth) -> Truth:
+    return a if TRUTH_RANK[a] >= TRUTH_RANK[b] else b
+
+@dataclass(frozen=True)
+class Budget:
+    kappa: float
+    beta: float
+    delta: int
+    chi: int
+
+@dataclass(frozen=True)
+class ResidualLedger:
+    metric_id: str
+    bound: float
+    scope: Tuple[str, ...]
+    obligations: Tuple[str, ...]
+    replay_ptr: str
+
+@dataclass(frozen=True)
+class EvidencePlan:
+    candidates: Tuple[str, ...]
+    discriminators: Tuple[str, ...]
+    routes: Tuple[str, ...]
+    promotion_rules: Tuple[str, ...]
+    replay_ptrs: Tuple[str, ...]
+
+@dataclass(frozen=True)
+class FailureWitness:
+    reason: str
+    repro_recipe_ptr: str
+    minimal_counterexample_ptr: Optional[str]
+
+@dataclass(frozen=True)
+class Outcome:
+    truth: Truth
+    replay_ptr: Optional[str]
+    witness_ptrs: Tuple[str, ...]
+    residual_ledger: Optional[ResidualLedger]
+    evidence_plan: Optional[EvidencePlan]
+    failure_witness: Optional[FailureWitness]
+    budget_use: Budget
+    obligations: Tuple[str, ...]
+
+def compose_outcomes(outs: List[Outcome], budget_cap: Budget) -> Outcome:
+    truth: Truth = "OK"
+    kappa = 0.0
+    beta = 0.0
+    delta = 0
+    chi = 0
+    witnesses = []
+    obligations = []
+    replay_ptrs = []
+
+    for o in outs:
+        truth = truth_meet(truth, o.truth)
+        kappa += o.budget_use.kappa
+        beta  += o.budget_use.beta
+        delta = max(delta, o.budget_use.delta)
+        chi  += o.budget_use.chi
+        witnesses.extend(o.witness_ptrs)
+        obligations.extend(o.obligations)
+        if o.replay_ptr is not None:
+            replay_ptrs.append(o.replay_ptr)
+
+    # budget enforcement
+    if kappa > budget_cap.kappa or beta > budget_cap.beta or delta > budget_cap.delta or chi > budget_cap.chi:
+        truth = "FAIL"
+
+    # composite artifacts: NEAR requires at least one residual ledger; AMBIG requires at least one evidence plan.
+    rl = next((o.residual_ledger for o in outs if o.residual_ledger is not None), None)
+    ep = next((o.evidence_plan for o in outs if o.evidence_plan is not None), None)
+    fw = next((o.failure_witness for o in outs if o.failure_witness is not None), None)
+
+    if truth == "NEAR" and rl is None:
+        truth = "FAIL"
+    if truth == "AMBIG" and ep is None:
+        truth = "FAIL"
+    if truth == "FAIL" and fw is None:
+        fw = FailureWitness(reason="Composite failure (budget/edge failure)", repro_recipe_ptr="REPRO_TODO", minimal_counterexample_ptr=None)
+
+    return Outcome(
+        truth=truth,
+        replay_ptr=replay_ptrs[-1] if replay_ptrs else None,
+        witness_ptrs=tuple(witnesses),
+        residual_ledger=rl,
+        evidence_plan=ep,
+        failure_witness=fw,
+        budget_use=Budget(kappa=kappa, beta=beta, delta=delta, chi=chi),
+        obligations=tuple(dict.fromkeys(obligations)),
+    )
+
+
+08.S4.b — Deterministic edge evaluation skeleton
+from typing import Callable, Dict, Any
+
+@dataclass(frozen=True)
+class CorridorProfile:
+    corr_id: str
+    pins: Tuple[Tuple[str,str], ...]
+    budget_cap: Budget
+    truth_threshold: Truth
+    schema_ver: str
+
+@dataclass(frozen=True)
+class Claim:
+    claim_id: str
+    src: str
+    dst: str
+    kind: str
+    domain_spec: str
+    invariants: Tuple[str, ...]
+    map_fwd_id: str
+    map_bwd_id: Optional[str]
+    pins: Tuple[Tuple[str,str], ...]  # claim pins (must cover corridor pins)
+    # pointers to optional artifacts
+    witness_ptr: Optional[str]
+    replay_ptr: Optional[str]
+
+def eval_claim(claim: Claim, C: CorridorProfile, verifier: Callable[[Claim, CorridorProfile], Dict[str, Any]]) -> Outcome:
+    """
+    verifier returns a dict including:
+      - replay_ok: bool
+      - pins_ok: bool
+      - domain_ok: bool
+      - invariants_ok: bool
+      - residual_beta: float
+      - residual_kappa: float
+      - chi_cost: int
+      - witness_ptrs: list[str]
+      - obligations: list[str]
+      - evidence_plan: EvidencePlan|None
+      - failure_witness: FailureWitness|None
+    """
+    r = verifier(claim, C)
+
+    # hard gating
+    if not r.get("pins_ok", False) or not r.get("domain_ok", False):
+        return Outcome("FAIL", claim.replay_ptr, tuple(r.get("witness_ptrs", [])),
+                       None, None, r.get("failure_witness", FailureWitness("Pins/domain illegal", "REPRO_TODO", None)),
+                       Budget(r.get("residual_kappa",0.0), r.get("residual_beta",0.0), 0, r.get("chi_cost",0)),
+                       tuple(r.get("obligations", [])))
+
+    if not r.get("replay_ok", False) and C.truth_threshold in ("NEAR","OK"):
+        return Outcome("FAIL", claim.replay_ptr, tuple(r.get("witness_ptrs", [])),
+                       None, None, r.get("failure_witness", FailureWitness("Replay failed", "REPRO_TODO", None)),
+                       Budget(r.get("residual_kappa",0.0), r.get("residual_beta",0.0), 0, r.get("chi_cost",0)),
+                       tuple(r.get("obligations", [])))
+
+    inv_ok = bool(r.get("invariants_ok", False))
+    beta = float(r.get("residual_beta", 0.0))
+    kappa = float(r.get("residual_kappa", 0.0))
+    chi = int(r.get("chi_cost", 0))
+
+    # typing
+    if inv_ok and beta == 0.0 and kappa == 0.0 and claim.replay_ptr is not None:
+        truth: Truth = "OK"
+        rl = None
+        ep = None
+        fw = None
+    elif inv_ok and beta <= C.budget_cap.beta and kappa <= C.budget_cap.kappa and claim.replay_ptr is not None:
+        truth = "NEAR"
+        rl = ResidualLedger(metric_id="METRIC_PINNED", bound=max(beta,kappa), scope=(claim.claim_id,), obligations=tuple(r.get("obligations", ())), replay_ptr=claim.replay_ptr)
+        ep = None
+        fw = None
+    else:
+        # if bounded candidates exist, allow AMBIG with evidence plan; otherwise FAIL
+        ep = r.get("evidence_plan", None)
+        if ep is not N

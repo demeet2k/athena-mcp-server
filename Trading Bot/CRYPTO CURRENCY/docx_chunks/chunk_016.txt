@@ -1,0 +1,487 @@
+hether a DS can manifest.
+TriggerLaw is a pinned serializable record:
+tl_version: u32,
+pins_digest: PinSetDigest,
+scope: TLScope,
+monotonicity: TLMonotonicity,
+required_measurements: list[MeasurementKey],
+predicate_ir: PredicateIR,
+evidence_minimizer_ir: EvidenceMinimizerIR,
+output_policy: TLOutputPolicy,
+tl_digest: bytes32.
+Where:
+TLScope = enum {LOCAL, INTER_CORPUS}.
+LOCAL: predicate may depend only on artifacts/events within one corpus closure (pinned by DS.left_ref.corpus).
+INTER_CORPUS: predicate may depend on multiple corpora; must declare the corpus set in required_measurements.
+TLMonotonicity =
+MONOTONE with monotonicity_proof_digest, or
+NON_MONOTONE with nonmonotonicity_witness_digest.
+Monotonicity is defined over evidence extensions:
+Let (\mathcal{E} \preceq \mathcal{E}') mean (\mathcal{E}) is a prefix or a subset extension consistent with MS ordering (same record identities, additional records appended or inserted without reordering past records). A TL is monotone if:
+[
+\forall \mathcal{E}\preceq \mathcal{E}';:; \mathrm{TL}(\mathcal{E})=\text{TRIGGERED} \implies \mathrm{TL}(\mathcal{E}')=\text{TRIGGERED}.
+]
+PredicateIR is a restricted, deterministic expression language:
+total boolean evaluation,
+only pinned primitives (integer arithmetic with pinned overflow rules, string/bytes comparisons with pinned collation, fixed-point if numeric),
+no nondeterministic functions,
+no iteration over unordered maps; all iterables must be sorted under pinned comparator before fold/reduce.
+EvidenceMinimizerIR specifies the deterministic method for producing the minimal evidence slice used (see §15.8.2).
+TLOutputPolicy fixes output behavior: verdict domain, obligations, and trace format.
+15.4.2 TL Verdict Domain
+A TL evaluation yields:
+TLVerdict ∈ {NOT_TRIGGERED, TRIGGERED, AMBIG, FAIL}.
+Definitions:
+NOT_TRIGGERED: predicate evaluates to false with sufficient evidence.
+TRIGGERED: predicate evaluates to true with sufficient evidence.
+AMBIG: predicate cannot be evaluated or cannot be decided due to missing required evidence under MS bounds; generates obligations.
+FAIL: evaluation violates determinism constraints, schema constraints, or trace integrity; generates fences/quarantine obligations.
+
+15.5 MeasurementSpec (MS)
+15.5.1 Definition
+A MeasurementSpec defines what must be logged/emitted to:
+reproduce the defect,
+classify it under corridor rules,
+support repair search.
+MeasurementSpec is a pinned serializable record:
+ms_version: u32,
+pins_digest: PinSetDigest,
+schema: MeasurementSchema,
+ordering: MeasurementOrdering,
+redaction: RedactionPolicy,
+digesting: DigestPolicy,
+bounds: MeasurementBounds,
+ms_digest: bytes32.
+Where:
+MeasurementSchema is an ordered list of MeasurementField:
+field_id: u32 (pinned),
+name: canonical string,
+type: MeasurementType (sum type),
+required: bool,
+semantics_digest: bytes32 (pins meaning, not prose),
+emission_stage: PhaseID (P/Q/B/C),
+privacy_class: enum (PUBLIC, SENSITIVE, SECRET).
+MeasurementOrdering defines a total order key:
+primary: (logical_time: TimeIndex, event_index: u64),
+secondary: (emitter_id: bytes16, record_seq: u64),
+tertiary: (field-stable tie-break: bytes32 digest of record payload).
+All comparisons are pinned and deterministic.
+RedactionPolicy:
+redaction_profile_digest: bytes32,
+per-field action: KEEP | DROP | HASH | TOKENIZE,
+hashing_salt_digest: bytes32 (salt is pinned; salt value is part of PinnedState; determinism requires identical salt under replay),
+tokenization_dictionary_digest (optional, pinned).
+Redaction must be deterministic and must preserve ordering keys (or explicitly define transformed ordering keys).
+DigestPolicy:
+hash_algorithm_id: bytes16,
+domain_sep: bytes16,
+record_digest_rule: digest of canonical encoding of the redacted record,
+stream_digest_rule: Merkle fold in MS order with pinned arity and concatenation format.
+MeasurementBounds:
+max_records: u64,
+max_bytes: u64,
+max_fields_per_record: u32,
+truncation_rule_id: bytes16 (pinned; truncation itself is observable and logged).
+15.5.2 Bounded Measurement Plans and Identifiability Hooks
+MS must support bounded identifiability. For each DSKind, MS must define a bounded plan sufficient to:
+reproduce the difference operator outcome,
+determine corridor typing,
+decide TL under replay.
+If bounded identifiability cannot be satisfied, DS must be retyped as AMBIG with an EvidencePlan obligation (AppL), and TL must yield AMBIG under missing evidence rather than hallucinating determinism.
+
+15.6 RepairSpec (RS)
+15.6.1 Definition
+A RepairSpec defines the legal repair search space and legality constraints. A repair is a constrained, append-only transformation sequence.
+RepairSpec is a pinned serializable record:
+rs_version: u32,
+pins_digest: PinSetDigest,
+allowed_ops: ordered list[RepairOpSpec],
+allowed_edge_kinds: set[EdgeKind],
+allowed_stage_injections: set[PhaseID],
+budgets_consumed: BudgetVector (upper bounds),
+exit_criteria: ExitCriteria,
+upgrade_requirements: UpgradeRequirements,
+rs_digest: bytes32.
+Where:
+EdgeKind includes (minimum):
+EQUIV (explicit equivalence edge),
+DUAL (explicit dual interpretation edge),
+MIGRATE (schema/profile migration edge),
+REF (reference/deferral edge).
+Additional edge kinds require explicit pin extension.
+RepairOpSpec:
+op_id: bytes16,
+stage_injection: PhaseID ∈ {P,Q,B,C},
+preconditions_ir: PredicateIR (deterministic),
+effects_ir: EffectIR (restricted, append-only graph operations),
+budgets_delta: BudgetVector,
+required_witnesses: list[WitnessSpec].
+ExitCriteria maps a repaired artifact to a TruthType:
+classifier_digest: bytes32 (AppG rule set),
+required_measurements: list[MeasurementKey] (subset of MS),
+tie_break: bytes32 (pinned).
+UpgradeRequirements:
+For any claim of upgrade AMBIG→NEAR or NEAR→OK, a RepairCert must include the required witness bundle types and must reference the exact MS slices used.
+15.6.2 Append-Only Doctrine and Boundary Constraints
+All repairs are append-only:
+No deletion of prior nodes/edges.
+No mutation of prior boundary semantics.
+Any meaning-changing transformation must be expressed as explicit edges with witnesses.
+Carry/hatch boundaries (Ch14) are not errors. Repairs may only attach new structure on the later time axis; they may not “edit past” boundary semantics.
+
+15.7 CounterexampleArtifact (CE)
+15.7.1 Definition
+A CounterexampleArtifact is mandatory when TL triggers and RS cannot produce OK/NEAR under budgets, or when repair is disallowed.
+CounterexampleArtifact is a pinned serializable record:
+ce_version: u32,
+pins_digest: PinSetDigest,
+ds_digest: bytes32,
+tl_digest: bytes32,
+ms_digest: bytes32,
+rs_digest: bytes32 (or zero if repair is disallowed),
+evidence_slice: EvidenceSlice,
+replay_recipe: ReplayRecipe,
+fences: FenceSpec,
+minimality: MinimalitySpec,
+ce_digest: bytes32.
+Where:
+EvidenceSlice:
+ordered list of redacted measurement records (as MS defines),
+record_digests: ordered list[bytes32],
+stream_digest: bytes32,
+slice_bounds: bytes (records/bytes counters).
+ReplayRecipe:
+required_artifact_refs: list[ArtifactRef] (canonical forms, pins, kernels),
+entrypoints: list[bytes16] (replay harness IDs),
+deterministic_run_config_digest: bytes32.
+FenceSpec (AppK/AppO interface):
+quarantine_scope: enum (LOCAL, CORPUS, INTER_CORPUS),
+quarantine_key: bytes32 (routes to quarantine ledger),
+allowlist_conditions_ir: PredicateIR,
+denylist_conditions_ir: PredicateIR,
+notification_hooks: list[bytes16] (pinned endpoints),
+containment_actions: ordered list[bytes16] (pinned actions).
+MinimalitySpec:
+minimality_order: pinned (addresses-first, then events, then fields),
+minimization_trace_digest: bytes32,
+minimality_claim: enum (CERTIFIED_MINIMAL, HEURISTIC_MINIMAL),
+proof_obligations: list[bytes16] (if certified minimal).
+15.7.2 Minimality Ordering
+CE minimality is defined with respect to a deterministic partial order:
+minimize involved_addresses cardinality,
+then minimize evidence_slice record count,
+then minimize evidence_slice byte size,
+then minimize field set (drop optional fields while preserving reproduction),
+tie-break lexicographically by canonical encodings.
+A CE is certified minimal if the minimization algorithm exhausts all strictly smaller candidates under the partial order within budget and proves non-reproducibility for each.
+
+15.8 Required Laws: Safety and Routability
+The following laws are mandatory and enforce that defects are safe to route, replay, and govern.
+15.8.1 Trigger Determinism Law
+Under identical pins and identical inputs, TL evaluation is bitwise reproducible.
+Formally, for any pinned state (S) and event stream (\mathcal{E}), define:
+[
+\mathrm{EvalTL}(S,\mathcal{E},\mathrm{TL}) \mapsto (\text{verdict}, \text{slice}, \text{trace_digest}, \text{obligations})
+]
+Then for any two executions (r_1,r_2) that both conform to pinned determinism constraints:
+[
+\mathrm{EvalTL}{r_1}(S,\mathcal{E},\mathrm{TL}) = \mathrm{EvalTL}{r_2}(S,\mathcal{E},\mathrm{TL})
+]
+byte-for-byte, including slice ordering and trace digest.
+Enforcement. Any deviation is TLVerdict=FAIL and requires immediate fencing instructions in CE (or an interim fence artifact if CE is not yet formed).
+15.8.2 Identifiability Law
+A DS must be identifiable by a bounded measurement plan; otherwise it is retyped as AMBIG with an EvidencePlan obligation (AppL).
+Let (\mathrm{Plan}(\mathrm{DS})) be the MS bounded plan associated with DSKind and pins. DS is identifiable if:
+within MS bounds, the logged evidence determines the DSKind-specific witness payload and the DifferenceOperator outcome to the granularity required by corridor typing rules.
+If not identifiable under bounds:
+DSKind is set to CORRIDOR_TYPING_DEFECT with both sides AMBIG, or DS retains original DSKind but corridor class is forced to AMBIG_CORRIDOR and EvidencePlanRef is mandatory (pinned rule chooses which), and
+TL must yield AMBIG when evaluation depends on missing evidence.
+15.8.3 No Silent Repair Law
+Any repair that changes meaning must be expressed as explicit edges (EQUIV/DUAL/MIGRATE/REF) with witnesses. Any attempt that cannot be witnessed must remain AMBIG or FAIL.
+Let (\rho) be a repair sequence transforming artifact (A) to (A'). If the semantic interpretation class changes under pinned interpretation:
+[
+\llbracket A \rrbracket \neq \llbracket A' \rrbracket
+]
+then (\rho) must include at least one meaning-changing edge kind among {EQUIV, DUAL, MIGRATE, REF}, and the repair must emit witness bundles sufficient for verification.
+If witnesses cannot be produced under RS constraints/budgets, the outcome is not upgraded; it remains AMBIG or FAIL, and CE is required when TL triggers.
+15.8.4 Boundary Repair Discipline
+Carry/hatch boundary events are legal structural boundaries. Repair may not edit past boundary semantics; it must attach new nodes/edges under append-only doctrine.
+If a defect’s involved_addresses intersect a boundary clause region:
+RS may only attach post-boundary edges/nodes,
+any attempt to rewrite boundary semantics is illegal and results in RS rejection and CE obligation.
+
+15.9 Required Constructions: Deterministic Algorithms
+All constructions are deterministic algorithms with pinned tie-break rules.
+15.9.1 Construction (A): Defect Extraction Pipeline
+Input. Two routes or two representations (R_L, R_R) that purport to establish the same claim.
+Output. Either:
+an EQUIV witness (explicit equivalence edge bundle), or
+a package ((\mathrm{DS}, \mathrm{TL}, \mathrm{MS}, \mathrm{RS?})) with CE obligation status.
+Algorithm A.0: ExtractDefect
+Pinned parameters.
+Canonicalizer: (\mathrm{Canon}) (Ch05/AppA).
+Interpretation pins: (\Pi) (AppD).
+Kernel library and generator set: (\mathcal{K}) (AppC).
+Corridor typing rules and budgets: (\mathcal{G}) (AppG).
+Measurement profile: (\mathcal{I}) (AppI).
+Procedure.
+Normalize both sides.
+Compute canonical forms:
+[
+C_L := \mathrm{Canon}(R_L;\Pi), \quad C_R := \mathrm{Canon}(R_R;\Pi).
+]
+Emit normalization digests into provisional MS buffer (bounded).
+Align interpretation pins.
+If ( \Pi_L \neq \Pi_R) (schema/profile mismatch detectable by AppD pins):
+Emit MigrationDefect DS immediately:
+ds_kind = MIGRATION_DEFECT,
+witness_payload.schema/profile digests set accordingly,
+difference_operator.output_kind = MIGRATION.
+Construct TL/MS for pin mismatch triggers (see TL construction A.4).
+Construct RS permitting only MIGRATE/REF/DUAL edges as pinned rules allow; if no legal path exists, mark CE obligation.
+Compute difference and attempt EQUIV witness.
+Let ((\Delta, d_\Delta) := \mathrm{DiffOp}(C_L,C_R)) under DS.difference_operator.
+If (\Delta = 0) in the pinned difference algebra, emit an EQUIV witness bundle:
+edge kind EQUIV,
+witness references to canonical forms and comparison trace digests,
+certificate hooks for Ch21 governance.
+Defect-word / commutation isolation (operational defects).
+If the defect is operational (pinned classifier says COMMUTATION_DEFECT is admissible under observed (\Delta)):
+compute candidate generator set (G) from (\mathcal{K}) and transform_context.
+derive shortest defect word pair ((w_L,w_R)) using Algorithm A.1 (ShortestWordIsolator).
+if found, set ds_kind = COMMUTATION_DEFECT and populate witness payload.
+Otherwise proceed to step 5.
+For higher-order interaction/curvature defects, use the hypercube inclusion–exclusion extractor (\Delta_d) to isolate the pure (d)-way mode (Algorithm A.2).
+Address minimization and skeleton formation.
+Produce involved_addresses as the deterministic minimal set sufficient to reproduce the diff class:
+start from the union of addresses referenced by (\Delta)’s report fragments,
+run deterministic minimization (Algorithm A.3) under budgets to eliminate irrelevant addresses while preserving repro.
+Produce TL.
+Construct TL as a predicate over pinned state and the MS-defined event stream fields such that:
+TL(TRIGGERED) implies DS can manifest under replay,
+TL(NOT_TRIGGERED) implies DS cannot manifest under replay given evidence,
+TL(AMBIG) for missing evidence within bounds,
+TL(FAIL) for integrity/determinism violation.
+Produce MS.
+Emit the MS schema sufficient to:
+reproduce canonicalization and diff,
+evaluate TL,
+classify corridor type,
+seed repair search (AppM).
+Emit RS or CE obligation.
+If a legal repair corridor exists under corridor rules and boundary discipline:
+emit RS defining legal ops, budgets, exit criteria, and upgrade requirements.
+Otherwise:
+RS is empty or omitted (pinned rule),
+CE obligation is asserted.
+Deterministic tie-break rules.
+Any set enumeration uses canonical ordering (addresses, generator IDs, event records).
+Any choice among multiple minimal candidates uses lexicographic tie-break by canonical encoding digest.
+
+15.9.2 Algorithm A.1: ShortestWordIsolator (Deterministic)
+Goal. Find the canonical-minimal pair ((w_L,w_R)) of generator words producing a disagreement consistent with the DS difference operator.
+Inputs.
+generator set (G) (sorted by pinned order),
+max_length (L_{\max}) from budgets,
+canonical left form (C_L), right form (C_R),
+difference operator (\mathrm{DiffOp}).
+Output.
+minimal ((w_L,w_R)) or NONE.
+Procedure.
+Enumerate word pairs in increasing total length (\ell = |w_L|+|w_R|) up to (2L_{\max}).
+For each (\ell), enumerate pairs in pinned lexicographic order:
+first by (|w_L|), then (|w_R|),
+then lexicographically by word sequences (GeneratorID order).
+For each candidate pair:
+apply words via pinned kernel semantics:
+[
+X := w_L(C_L), \quad Y := w_R(C_R),
+]
+compute (\mathrm{DiffOp}(X,Y)) and test whether it matches the target diff class under pinned equivalence-of-diffs.
+Return first match.
+This procedure is deterministic by construction.
+
+15.9.3 Algorithm A.2: Hypercube Inclusion–Exclusion Extractor (\Delta_d)
+Purpose. Isolate pure (d)-way interaction terms with an optimal term count (2^d).
+Let (d\ge 1). Let (U={1,\dots,d}). Let each axis (i) correspond to a binary choice of applying an operation or enabling a feature/interaction component (\theta_i \in {0,1}). Define a function:
+[
+F : {0,1}^d \to \mathcal{V}
+]
+where (\mathcal{V}) is the pinned difference algebra (vector-like: supports addition and additive inverses under pinned rules; if not available, the embedding into such an algebra is part of pins).
+Define the hypercube difference operator:
+[
+\Delta_d[F] ;=; \sum_{S\subseteq U} (-1)^{d-|S|},F(\mathbf{1}_S),
+]
+where (\mathbf{1}_S\in{0,1}^d) has ones on indices in (S) and zeros elsewhere.
+Operational instantiation.
+(F(\mathbf{1}_S)) is the result (or a measured scalar/feature of the result) when exactly the subset of operations/features indexed by (S) is enabled/applied under pinned control profile.
+The extractor yields the pure (d)-way interaction residual.
+Optimality (term count). Under the pinned model where isolating the pure (d)-way multilinear coefficient requires distinguishing all (2^d) subset combinations, any extractor that is exact for all multilinear functions requires at least (2^d) evaluations. Therefore (\Delta_d) is optimal in term count under the standard evaluation oracle model. (The formal proof is pinned as part of AppA’s extractor library and referenced by extractor_proof_digest in control pins.)
+Determinism.
+Subset enumeration is canonical (increasing subset cardinality, then lexicographic).
+Signs are computed by pinned parity rules.
+
+15.9.4 Algorithm A.3: Deterministic Address Minimization
+Goal. Minimize involved_addresses while preserving reproducibility of the defect class under replay.
+Inputs.
+initial address set (A_0) (sorted),
+reproduction predicate (\mathcal{R}(A)): “using only addresses (A) and the MS evidence slice bounds, DiffOp outcome remains in target diff class,”
+minimization budget (B).
+Procedure (addresses-first delta minimization).
+Initialize (A := A_0).
+For each address (a) in (A) in canonical order:
+propose (A' := A \setminus {a}),
+if (\mathcal{R}(A')) holds within remaining budget, set (A := A').
+Repeat pass until no removals occur or budget exhausted.
+Output (A) and a minimization trace digest (hash of decisions in canonical order).
+This procedure is deterministic and produces a canonical fixed point under the budgeted greedy minimization rule.
+
+15.10 Construction (B): Trigger Evaluation
+A TL evaluation must output:
+verdict,
+minimal evidence slice used,
+digest of decision trace,
+required follow-up obligations if verdict is AMBIG/FAIL.
+15.10.1 Algorithm B.0: EvalTL
+Inputs.
+pinned state (S),
+event stream (\mathcal{E}) (as MS defines ordering and redaction),
+TL.
+Outputs.
+[
+(\text{verdict}, \text{slice}, \text{trace_digest}, \text{obligations})
+]
+Procedure.
+Validate stream integrity.
+Check MS schema conformance, ordering totality, redaction determinism markers, and digest chain validity.
+If any check fails: verdict = FAIL; obligations include fence trigger key + integrity repair plan id.
+Extract required measurements.
+Collect the subset of fields/records referenced by TL.required_measurements.
+If missing under bounds: verdict = AMBIG; obligations include EvidencePlanRef and missing key list digest.
+Evaluate predicate_ir deterministically.
+Evaluate TL.predicate_ir under pinned semantics.
+Record an ordered trace of evaluation steps (operator, operands digests, result).
+Compute trace_digest as digest of canonical encoding of the trace.
+Compute minimal evidence slice used.
+Apply TL.evidence_minimizer_ir to derive the minimal slice sufficient to reproduce the predicate outcome under pinned replay.
+Minimality is defined by a pinned partial order (records-first then fields), and computed deterministically.
+Emit obligations.
+If verdict = AMBIG: obligations include missing evidence keys, suggested measurement upgrades allowed by MS bounds extension policy, and any AppL EvidencePlan hooks.
+If verdict = FAIL: obligations include fences/quarantine key and remediation hooks.
+
+15.11 Required Certificates: Witness Bundles for Governance
+Certificates are typed witness bundles consumable by later governance (Ch21). Each certificate is a pinned serializable type with a verification algorithm.
+15.11.1 DefectCert
+Purpose. Certify that DS is well-formed, pinned, and reproducible from referenced artifacts.
+DefectCert fields:
+cert_version: u32,
+pins_digest: PinSetDigest,
+ds_digest: bytes32,
+ms_digest: bytes32,
+reproduction_recipe_digest: bytes32,
+reproduction_trace_digest: bytes32,
+validity: enum (VALID, INVALID),
+verifier_id: bytes16,
+cert_digest: bytes32.
+Verification algorithm.
+Reconstruct DS from ds_digest reference.
+Validate DS invariants (§15.3.1).
+Execute defect reproduction using MS bounded evidence plan; confirm the DifferenceOperator yields the same diff class and the witness payload constraints hold.
+Produce reproduction_trace_digest deterministically.
+15.11.2 TriggerCert
+Purpose. Certify TL determinism and trace digests.
+TriggerCert fields:
+cert_version,
+pins_digest,
+tl_digest,
+ms_digest,
+evaluation_trace_digest,
+evidence_slice_digest,
+determinism_check_digest,
+validity,
+verifier_id,
+cert_digest.
+Verification algorithm.
+Run EvalTL twice in pinned replay mode and confirm byte-for-byte equality of outputs (verdict, slice, trace_digest, obligations digests).
+determinism_check_digest commits to both runs and their identicality.
+15.11.3 CounterexampleCert
+Purpose. Certify CE is minimal, replayable, and fenced correctly.
+CounterexampleCert fields:
+cert_version,
+pins_digest,
+ce_digest,
+replay_trace_digest,
+minimality_trace_digest,
+fence_validation_digest,
+validity,
+verifier_id,
+cert_digest.
+Verification algorithm.
+Replay CE using replay_recipe and evidence_slice; confirm DS difference reproduces and TL triggers (or evaluation yields the claimed FAIL with matching integrity failures).
+Validate FenceSpec conformity to AppK/AppO interface pins.
+Validate minimality claim:
+CERTIFIED_MINIMAL requires exhaustive proof obligations within budget; otherwise INVALID or downgraded to HEURISTIC_MINIMAL under pinned governance rule.
+15.11.4 RepairCert
+Purpose. Certify that a repair sequence is legal under corridor budgets and produces the stated truth type.
+RepairCert fields:
+cert_version,
+pins_digest,
+rs_digest,
+repair_sequence_digest,
+budgets_consumed: BudgetVector,
+pre_state_digest,
+post_state_digest,
+exit_type: TruthType,
+required_witness_bundle_digests: list[bytes32],
+verification_trace_digest,
+validity,
+verifier_id,
+cert_digest.
+Verification algorithm.
+Check each RepairOpSpec legality (preconditions/effects under pinned IR; append-only).
+Check budgets consumed do not exceed RS limits and corridor budgets.
+Recompute exit criteria classifier under MS evidence; confirm claimed TruthType and any upgrade requirements are met.
+If an upgrade is claimed, validate required witness bundles and explicit meaning-changing edges.
+
+15.12 Routing Discipline: From Defect to Governance
+A defect artifact package is routable when the following are satisfied:
+DS, TL, MS are pinned and have canonical digests.
+EvalTL is deterministic (Trigger Determinism Law).
+DS is identifiable under MS bounds, or explicitly AMBIG with EvidencePlan obligations.
+No repair is silently applied; all meaning changes are explicit edges with witnesses.
+Boundary repair discipline is enforced; illegal repair attempts immediately yield CE/fences.
+If TL triggers and no OK/NEAR can be produced under RS budgets, CE is mandatory and must include fences/quarantine instructions.
+The routing key for governance is the tuple of digests:
+[
+(\mathrm{ds_digest}, \mathrm{tl_digest}, \mathrm{ms_digest}, \mathrm{rs_digest?}, \mathrm{ce_digest?})
+]
+which uniquely identifies the mechanized failure instance under pins.
+
+Ch15⟨0032⟩ — Defect Skeletons and Trigger Laws
+Ch16⟨0033⟩ — Unified State Vector and the (T_U) Step
+[○Arc 5 | ○Rot 2 | △Lane Sa | ω=15]
+Workflow role: single coherent update of ○□△; invertibility where declared; checkpoints.
+Primary hubs: → AppA → AppN → AppO → AppI → AppM.
+16.0 Purpose
+Ch16 defines the single authoritative operational semantics for the machine-step of HD‑SCT:
+One coherent step updates Square (□), Circle (○), and Triangle (△) under pinned profiles.
+The step produces a replayable state trajectory with checkpoint digests.
+This chapter is the bridge from “framework as geometry” to “framework as executable machine”.
+Everything below is normative unless marked “NOTE”.
+
+16.1 Required objects
+16.1.1 Pin context (\Pi)
+A pin is a reference to an artifact/spec whose digest uniquely determines interpretation.
+Minimum pin set
+The unified state must carry all pin digests required to interpret all subsequent operations, including:
+(\pi_{\text{corridor}}) — corridor policy pin (Option A/B + any HD generalization parameters)
+(\pi_{\text{router}}) — router table / routing semantics pin
+(\pi_{\text{grammar}}) — grammar / admissible program surface pin
+(\pi_{\text{enc}}) — canonical encoding pin (serialization + domain separators)
+(\pi_{\text{env}}) — environment pin (runtime / platform / numeric model constraints)
+(\pi_{\square}) — SquareStep profile pin
+(\pi_{\circ}) — CircleStep profile pin
+(\pi_{\triangle}) — TriangleStep profile pin
+(\pi_{H}) — hash/digest algorithm pin (or hash suite pin)
+(\pi_{\text{order}}) — step order pin (see §16.3)
+(\pi

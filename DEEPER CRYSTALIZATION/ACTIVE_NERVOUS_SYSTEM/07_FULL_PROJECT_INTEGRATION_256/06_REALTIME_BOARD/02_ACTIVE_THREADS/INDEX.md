@@ -1,0 +1,24 @@
+# Active Threads
+
+- `First live archive promotion run`: `queued`, `0` notes, `1` claims, `0` tracked changes
+- `Google Docs bootstrap gate`: `blocked`, `0` notes, `1` claims, `0` tracked changes
+- `.claude`: `hot`, `0` notes, `0` claims, `1` tracked changes
+- `higher-dimensional swarm runtime projection`: `monitor`, `1` notes, `1` claims, `0` tracked changes
+- `37-gate looping skill and `256^256` corpus plus Chapter 11 hyperplans`: `monitor`, `0` notes, `1` claims, `0` tracked changes
+- `Cross-agent contraction receipt law`: `monitor`, `0` notes, `1` claims, `0` tracked changes
+- `First archive-promotion toolkit surface`: `monitor`, `0` notes, `1` claims, `0` tracked changes
+- `First runtime route-quality receipt writeback`: `monitor`, `0` notes, `1` claims, `0` tracked changes
+- `Higher-dimensional family tensor, rails, manifests, and recursive restart law`: `monitor`, `0` notes, `1` claims, `0` tracked changes
+- `Nervous-system execution loop and family frontier matrix`: `monitor`, `0` notes, `1` claims, `0` tracked changes
+- `Toolkit normalization and nervous-system routing`: `monitor`, `0` notes, `1` claims, `0` tracked changes
+- `watch-loop snapshot fidelity`: `monitor`, `1` notes, `0` claims, `0` tracked changes
+- `DEEPER CRYSTALIZATION`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `ECOSYSTEM`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `I AM ATHENA`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `MATH`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `NERUAL NETWORK`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `NERVOUS_SYSTEM`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `QSHRINK - ATHENA (internal use)`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `self_actualize`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `Trading Bot`: `monitor`, `0` notes, `0` claims, `0` tracked changes
+- `Voynich`: `monitor`, `0` notes, `0` claims, `0` tracked changes

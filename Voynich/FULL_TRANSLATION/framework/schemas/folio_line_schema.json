@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VoynichDenseFolioLineRecord",
+  "type": "object",
+  "required": [
+    "line_id",
+    "zone",
+    "eva",
+    "literal_chain",
+    "operational_english",
+    "status",
+    "lenses"
+  ],
+  "properties": {
+    "line_id": {
+      "type": "string",
+      "pattern": "^(P[0-9]+\\.[0-9]+|T[0-9]+\\.[0-9]+)$"
+    },
+    "zone": {
+      "type": "string"
+    },
+    "eva": {
+      "type": "string"
+    },
+    "literal_chain": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["token", "gloss"],
+        "properties": {
+          "token": { "type": "string" },
+          "gloss": { "type": "string" },
+          "confidence": {
+            "type": "string",
+            "enum": ["direct", "derived", "mixed", "uncertain"]
+          }
+        }
+      }
+    },
+    "operational_english": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["direct", "derived", "mixed", "uncertain"]
+    },
+    "lenses": {
+      "type": "object",
+      "required": [
+        "aqm",
+        "cut",
+        "liminal",
+        "aetheric",
+        "chemistry",
+        "physics",
+        "quantum_physics",
+        "wave_mechanics",
+        "wave_math",
+        "music_theory_math",
+        "color_light",
+        "geometry",
+        "number_theory",
+        "compression",
+        "hacking_theory",
+        "game_theory",
+        "tarot",
+        "juggling",
+        "story_writing",
+        "heros_journey"
+      ],
+      "properties": {
+        "aqm": { "$ref": "#/$defs/mathLensEntry" },
+        "cut": { "$ref": "#/$defs/mathLensEntry" },
+        "liminal": { "$ref": "#/$defs/mathLensEntry" },
+        "aetheric": { "$ref": "#/$defs/mathLensEntry" },
+        "chemistry": { "$ref": "#/$defs/mathLensEntry" },
+        "physics": { "$ref": "#/$defs/mathLensEntry" },
+        "quantum_physics": { "$ref": "#/$defs/mathLensEntry" },
+        "wave_mechanics": { "$ref": "#/$defs/mathLensEntry" },
+        "wave_math": { "$ref": "#/$defs/mathLensEntry" },
+        "music_theory_math": { "$ref": "#/$defs/mathLensEntry" },
+        "color_light": { "$ref": "#/$defs/mathLensEntry" },
+        "geometry": { "$ref": "#/$defs/mathLensEntry" },
+        "number_theory": { "$ref": "#/$defs/mathLensEntry" },
+        "compression": { "$ref": "#/$defs/mathLensEntry" },
+        "hacking_theory": { "$ref": "#/$defs/mathLensEntry" },
+        "game_theory": { "$ref": "#/$defs/mathLensEntry" },
+        "tarot": { "$ref": "#/$defs/mythicLensEntry" },
+        "juggling": { "$ref": "#/$defs/mythicLensEntry" },
+        "story_writing": { "$ref": "#/$defs/mythicLensEntry" },
+        "heros_journey": { "$ref": "#/$defs/mythicLensEntry" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "mathLensEntry": {
+      "type": "object",
+      "required": ["equation", "variable_legend", "reading", "confidence"],
+      "properties": {
+        "equation": { "type": "string" },
+        "variable_legend": { "type": "string" },
+        "reading": { "type": "string" },
+        "confidence": {
+          "type": "string",
+          "enum": ["direct", "derived", "mixed", "uncertain"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "mythicLensEntry": {
+      "type": "object",
+      "required": ["frame", "movement", "reading", "confidence"],
+      "properties": {
+        "frame": { "type": "string" },
+        "movement": { "type": "string" },
+        "reading": { "type": "string" },
+        "confidence": {
+          "type": "string",
+          "enum": ["direct", "derived", "mixed", "uncertain"]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

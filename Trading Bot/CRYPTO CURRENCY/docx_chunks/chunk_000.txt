@@ -1,0 +1,382 @@
+HIGHER-D SQUARE ○ CIRCLE △ TRIANGLE
+The Interconnected Holographic Framework + Internal Navigation Tome (HD-SCT)
+Tome status: v0.1 (new build)
+Prime directive: This tome defines the higher-dimensional Square/Circle/Triangle machine as its own operational system, with an explicit navigation layer (routes, hubs, edges, certificates) that lets you traverse the framework like a metro—deterministically.
+
+Abstract Contract and Corpus Metro Map
+0.1 What HD-SCT is
+HD-SCT is a mechanized higher-dimensional semantics engine defined by three coupled carriers and one reconciliation carrier:
+□ Square (address-capacity / structure / discreteness).
+At locked dimension (d) and depth (k), the Square carrier is the base-4 digit tensor space (\mathcal{S}_{d,k} := (\mathbb{D}_4^{,k})^{d}), where each axis carries a length-(k) base-4 fractional digit string and admits canonical integer encoding/decoding.
+Square refinement is prefix-locked: coarse addresses are complete holographic prefixes of all refinements.
+○ Circle (phase-capacity / rotation / synchronization).
+At dimension (d), the circle carrier is the torus (\mathbb{T}^d := (\mathbb{R}/\mathbb{Z})^d).
+Circle resolution is governed by the wrap ladder (R(1)=1), (R(k+1)=3R(k)), hence (R(k)=3^{k-1}).
+Circle “rotation” is treated as a pinned, replayable operator family on (\mathbb{T}^d) (translation/gear action), and circle representations can be discretized into stratified metro rings when visibility requires it.
+△ Triangle (control / carry / recursion legality).
+Triangle is the governance plane. In its canonical global form, triangle is a 3-sheet torsion parameter (\tau\in\mathbb{Z}3) acting as a shift on phases (\Delta\tau(\Phi)=\Phi+\frac{\tau}{3}\mathbf{1}_d\pmod 1).
+Higher-D variants include axis-wise triangle modes ((\mathbb{Z}_3)^d) (pinned), but the defining rule remains: triangle does not add meaning; it governs legality, pinning, carry/hatch boundaries, and what counts as an admissible refinement/route.
+✶ Fractal (meta-zero / snap / multiscale reconciliation).
+Fractal is the canonicalization engine that reconciles noncommuting constraints by a pinned Snap procedure (alternating projections / deterministic scripts) and emits a canonical representative plus residual ledgers and receipts. Snap turns “almost” into typed, scoped, replay-verifiable disclosures (NEAR), turns underdetermination into bounded plans (AMBIG), and turns reproducible disagreement into fenced contradictions (CONFLICT/FAIL).
+HD-SCT is therefore not a metaphor: it is a finite object language + a deterministic execution semantics + a routable evidence and governance system whose outputs are import-verifiable artifacts.
+
+0.2 The minimal primitives and the locked scaling laws
+HD-SCT is indexed by ((d,k)) and is phase-locked by coupled lift laws: increasing the representational “height” is not a free choice; it is governed by explicit lock schedules.
+Square carrier primitive.
+(\mathcal{S}_{d,k}) is the digit tensor carrier with canonical truncation/refinement and cell nesting.
+Circle carrier primitive.
+(\mathbb{T}^d) is the higher-D circle; wrap scaling (R(k)=3^{k-1}) is the octave index controlling rotation density without changing phase fractions.
+Triangle primitive.
+Triangle torsion is a depth-stable, pinned phase offset (\Delta_\tau) acting on (\mathbb{T}^d).
+Minimal stability law (Square).
+A dimension-(d) Square carrier is minimally stable only if per-axis resolution satisfies (N\ge 4^{d-1}); the canonical minimal stable choice is (N_{\min}(d)=4^{d-1}) and the minimal stable carrier is (\mathcal{S}^{\min}d\cong(\mathbb{Z}{4^{d-1}})^d).
+Cross-dimensional metro law (Circle discretization).
+When the circle is discretized as a station-stratified metro, the minimal ring size required to support 15 macro-stations with (3^{d-1}) internal strata is (N\ge 15\cdot 3^{d-1}), achieved by the canonical ring (B_d=15\cdot 3^{d-1}).
+This is the formal “visibility requirement”: higher dimension demands higher circle resolution to prevent alias collapse of distinct higher-D strata.
+These laws ensure that “higher-D” is not an aesthetic flourish: it is a set of explicit growth schedules and admissibility thresholds that keep lifts, transports, and routes replay-stable.
+
+0.3 The station system: why this tome is a metro, not a linear book
+This tome is designed to be traversed and executed like a metro system:
+Stations (Chapters): Ch01–Ch21 are the linear spine; each chapter is a station that defines one segment of the operational system.
+Hubs (Appendices): AppA–AppP are not “supplementary”; they are the hub system that makes the tome executable (parsing, registries, corridors, ledgers, containers, publication, connectors).
+Four lines (Lenses): Square / Circle / Triangle / Fractal appear as four mutually linked projections of the same seed-anchored semantics.
+Four platforms (Facets): Objects, Laws, Constructions, Certificates (what exists, what must hold, how to compute, how to verify).
+Four atoms (Closure levels): a–d (from local primitives to global closure obligations).
+The 15-station metro core is itself mechanized: the nonempty powerset of the four lenses has cardinality (2^4-1=15) and is treated as the canonical station semantics set.
+Its routing index carrier is the 15-ring (\Sigma_{15}\cong\mathbb{Z}_{15}) and the canonical orbit successor is (\mathrm{ORBIT_NEXT}(\sigma)=\sigma+1\pmod{15}).
+Crucially, this tome keeps semantic station algebra (powerset/masks) separate from routing algebra (ring addition): semantics must be proved in semantic coordinates; movement must be proved in routing coordinates.
+Result: every “reading path” is a deterministic RoutePlan object; every claim used in any narrative must be backed by explicit routes and certificates; ambiguity and approximation become explicit graph objects rather than prose hedges.
+
+0.4 What the corpus contains (complete spine)
+Ch01 — Axioms + Lock Laws.
+Defines (\mathcal{S}{d,k}), (\mathbb{T}^d), the □→○ projection, wrap ladder (R(k)), triangle torsion (\Delta\tau), and the coupled lift commutations that prevent desynchronization.
+Ch02 — Dimension–Depth Lock and Minimal Stable Scales.
+Pins the minimal seed law and the per-axis minimum (4^{d-1}), and defines the locked lift schedule that prevents “cheap” higher-D claims.
+Ch03 — The 15-Station Ring as the Powerset Carrier.
+Defines the 15 semantic stations as the nonempty powerset of the four lenses, their canonical mask/σ encodings, and the ORBIT_NEXT generator of the routing ring.
+Ch04 — Gear-Loop Decomposition and Visibility.
+Defines the cycle/gear decomposition laws on (\Sigma_{15}) and on refined rings; proves when higher-D structure becomes visible vs aliased; formalizes the “snap threshold” as a gcd/orbit-length invariant.
+Ch05 — Triangle Modes (global vs per-axis).
+Defines triangle as control and corridor selection; pins the mode choice (global or axis-wise) as meaning-bearing; defines carry/hatch governance interfaces.
+Ch06 — Tunneling as Hub-Preserving Routing on (\mathbb{T}^d).
+Defines hub meshes (\mathcal{H}^{(d)}), admissible multi-axis tunnel steps, and hub-first route synthesis. Establishes the routing substrate for phase navigation.
+Ch07 — Transport Legality (DUAL/EQUIV/MIGRATE) in HD-SCT.
+Defines typed transport edges across representations with budgets and replay closure; establishes legality and map-witness discipline.
+Ch08 — Corridors, Truth Typing, and Failure Modes.
+Defines truth typing as a routing calculus: OK/NEAR/AMBIG/FAIL; mandates evidence artifacts (replays, ledgers, plans, failure witnesses).
+Ch09 — Spin and Holonomy as Path-Dependence Witness.
+Defines loop receipts (spin/holonomy) as commutation evidence; makes path-dependence measurable and routable.
+Ch10 — Meta-Zero and Snap.
+Defines the corridor-lock engine: alternating projections over pinned gates → canonical representative + residual ledger + obligations; makes “canonicalization” a verified operation.
+Ch11 — Router Contract (≤6 hubs, deterministic order).
+Defines RoutePlan objects, mandatory hub signature, truth overlays, cap enforcement, DropLogs, and replay-deterministic routing as a pure bounded compiler.
+Ch12 — Certificates (ReplayCert, RegressionCert, ExportCert).
+Defines witness bundles and replay harness expectations; import-verifiable certification is the operational definition of “verified.”
+Ch13 — Cross-Dimensional Metro ( (B_d) ring + gear stacks ).
+Defines (B_d=15\cdot 3^{d-1}), its projections and lifts, and the triadic gear stack; formalizes the stratified metro carrier for higher-D station visibility.
+Ch14 — The Holographic Compiler Interface (Seed → State → Navigation).
+Defines the aether seed as the invariant semantic object; defines compilation into HD-SCT state across □○△✶; defines compiled navigation indices and executable routes.
+Ch15⟨0032⟩ — Defect Skeletons and Trigger Laws.
+Mechanizes failures into typed artifacts (DS/TL/MS/RS/CE) and routes them into certificates and governance.
+Ch16⟨0033⟩ — Unified State Vector and the (T_U) Step.
+Defines the single authoritative operational semantics: one coherent update step for □○△ with checkpoints and replay capsules.
+Ch17⟨0100⟩ — Transform Spine: (P\to Q\to B\to C) as Universal Action Grammar.
+Defines the universal action grammar and injection discipline; prevents hidden degrees of freedom by forcing every operation into a typed stage contract.
+Ch18⟨0101⟩ — Integration: Buckets, Codes, Containers, and Replay.
+Turns transforms into distributable artifacts: deterministic encoding/decoding, pin manifests, salvage doctrine, replay harness expectations.
+Ch19⟨0102⟩ — Mycelium Metro: Cross-Corpus Navigation as a Graph.
+Defines navigation as deterministic route planning over typed graph overlays; formalizes RoutePlans as executable reading units.
+Ch20⟨0103⟩ — Time Axis: Retro-Weaving, DeltaPacks, and Evidence Promotion.
+Defines append-only time evolution, PulseIDs, retro-indexing without semantic rewrite, and deterministic promotion scheduling from AMBIG→NEAR→OK.
+Ch21⟨0110⟩ — Deployment and Conformance: Publishable Reality.
+Defines deployment profiles, conformance suites, monitoring packets, incident-to-deltapack pipelines, and compliance closure.
+
+0.5 The hub system (AppA–AppP) and the mandatory verification signature
+The appendices are the hub network that makes the spine executable. Each hub is a strict spec station, not an “appendix note.”
+Mandatory signature hubs (present on every certifying route):
+AppA — Parsing, Symbols, Grammar, Entry Station (strict parsing, canonical AST/bytes).
+AppI — Corridors, Truth Typing, Routable Outcomes (OK/NEAR/AMBIG/FAIL calculus + budgets).
+AppM — Fractal/Recursion, Snap/Meta-Zero (canonical representative + residual ledger + replay closure).
+Operational hubs (the remaining infrastructure):
+AppB — Evidence Tables, IDs, Stability Contract (evidence as stable artifacts across time/migration).
+AppC — Square Interior, Addressing, Local Proof Objects (tile semantics; local link kinds and closure).
+AppD — Registry (MsIDs, profiles, pinned policies) preventing silent forks.
+AppE — Circle Gear, phase profiles, tick/carry semantics (replayable phase evolution).
+AppF — Transport discipline: DUAL/EQUIV/MIGRATE contracts; commutation receipts; migration protocol.
+AppG — Triangle governor: recursion legality; carry/hatch interfaces; tunnel legality gates.
+AppH — Coupling/topology constraints (multi-axis legality; spin/holonomy integration points).
+AppJ — NEAR disclosure ledger (residuals, calibration, expiry, promotion checklist).
+AppK — FAIL/CONFLICT, quarantine, revocation receipts (conflict packets + fences + propagation).
+AppL — AMBIG evidence plans (bounded candidates, discriminators, stop rules, promotion hooks).
+AppN — Containers & mount/salvage doctrine (deterministic manifests; replay harness structure).
+AppO — Publication/import discipline (export bundles; import verifiers; governance gates).
+AppP — Mycelium interface (INTER scope; connectors; cross-corpus pin requirements).
+These hubs define the “metro controls”: how to parse, pin, route, replay, export, import, and deploy without hidden semantics.
+
+0.6 Navigation legend: how to traverse the corpus deterministically
+0.6.1 Addressability
+Everything is addressable. The corpus is a graph of globally addressable atoms with lens slots and local paths. The only admissible cross-references are typed edges that include pins, witnesses, and truth typing under corridors.
+0.6.2 RoutePlans (the executable reading unit)
+A RoutePlan is the deterministic unit of navigation: it specifies:
+target address,
+scope (LOCAL/INTER),
+hub sequence (bounded),
+required overlays (NEAR/AMBIG/FAIL),
+pins and budgets,
+obligations and DropLog (if cap enforcement drops optional hubs).
+A RoutePlan is replayable; the same pins and inputs yield the same ride and the same transcript.
+0.6.3 Truth overlays (uncertainty is a station, not a footnote)
+Truth class inserts the corresponding hub:
+NEAR → AppJ (ResidualLedger + expiry + promotion obligations)
+AMBIG → AppL (EvidencePlan: bounded candidates + discriminators + stop rules)
+FAIL/CONFLICT → AppK (ConflictPacket + FenceSpec + quarantine propagation)
+0.6.4 Standard ride templates (metro lines)
+These are canonical deterministic ride templates; each is a hub-bounded execution plan:
+VERIFY (publication-grade): AppA → AppI → AppM → Target → (AppO if exporting)
+BUILD (construct artifacts): AppA → AppC/AppE/AppG (as needed) → AppI → AppM → Target
+MIGRATE (meaning evolution): AppA → AppD → AppF → AppI → AppM → AppO
+RESOLVE (conflict repair): AppA → AppK → AppM → AppB/AppF → AppI
+PUBLISH (export/import closure): AppA → AppO → AppN → AppI → AppM → AppD/AppP
+DEPLOY (production conformance): AppA → AppO → AppN → AppI → AppM → Ch21
+Each template is a deterministic compilation of obligations: parse/canonicalize, check corridor legality, replay closure, then publish or execute governance gates.
+
+0.7 The corpus metro map (textual topology)
+0.7.1 Spine line: chapters as the operational build graph
+SPINE:
+Ch01 → Ch02 → Ch03 → Ch04 → Ch05 → Ch06 → Ch07 → Ch08 → Ch09 → Ch10 → Ch11 → Ch12 → Ch13 → Ch14 → Ch15 → Ch16 → Ch17 → Ch18 → Ch19 → Ch20 → Ch21
+Interpretation:
+Ch01–Ch06 establish carriers and legal motion (□○△ with hub routing).
+Ch07–Ch10 establish legality, truth typing, holonomy receipts, and canonical Snap.
+Ch11–Ch14 establish deterministic navigation as executable routing and compilation.
+Ch15–Ch21 establish mechanized failure, unified execution, integration/containers, time evolution, publication/import, and deployment conformance.
+0.7.2 Hub line: appendices as the executor backbone
+HUB RING (in functional order):
+AppA → AppD → AppC → AppE → AppG → AppH → AppF → AppI → AppJ → AppL → AppK → AppM → AppN → AppO → AppP → AppB → (back to AppA)
+Interpretation:
+Entry/Interpretation: AppA, AppD
+Local semantics: AppC, AppE, AppG
+Cross-axis and transport: AppH, AppF
+Truth and uncertainty: AppI, AppJ, AppL, AppK
+Canonical reconciliation: AppM
+Packaging and governance: AppN, AppO, AppP
+Evidence persistence: AppB
+0.7.3 The “15-station semantic ring” as the internal navigation carrier
+Inside each chapter/appendix, the 15 semantic stations are the nonempty powerset of the four lenses (S/F/C/R).
+Their routing carrier is (\Sigma_{15}) with ORBIT_NEXT generator (\sigma\mapsto\sigma+1\pmod{15}).
+Semantic station algebra (mask/powerset) and routing algebra (ring addition) are kept separate and linked only by pinned bijections.
+
+0.8 The operational deliverables (what this tome produces)
+This tome defines a closed system of objects, algorithms, and certificates that collectively enable:
+Seed-anchored compilation: seed → state across □○△✶ with pinned profiles and canonicalization (Ch14).
+Executable updates: a unified (T_U) step with checkpoints (Ch16).
+Universal action grammar: every transformation is a typed stage in (P\to Q\to B\to C) (Ch17).
+Deterministic navigation: RoutePlans as bounded hub rides with replay closure (Ch11, Ch19).
+Truth typing and governance: OK/NEAR/AMBIG/FAIL as routable outcomes with mandatory artifacts (Ch08, AppI–AppL).
+Conflict discipline: reproducible contradictions become conflict packets and fences (AppK).
+Time evolution without rewrite: append-only DeltaPacks and promotion scheduling (Ch20).
+Publication/import closure: export bundles, import verifiers, governance gates (AppO), with container doctrine (AppN).
+Deployment conformance: production acceptance is defined by replayable suites and audit closure (Ch21).
+
+0.9 Reader contract: what “understanding” means in HD-SCT
+A statement is considered usable only if it is routable to:
+an explicit address,
+an explicit set of pinned policies (no hidden knobs),
+an explicit witness surface (replay capsules, receipts, ledgers, evidence plans),
+a truth type (OK/NEAR/AMBIG/FAIL),
+and (where required) an import-verifiable certificate chain.
+If any of these are absent, the correct output is not prose confidence; it is AMBIG (bounded plan) or FAIL/CONFLICT (fenced contradiction).
+
+HD-SCT — Title / Abstract / Corpus Metro Map
+Ch01 — Axioms + Lock Laws
+Higher-Dimensional □○△: Carriers, Projections, Wraps, and Lift Commutation
+
+01.1 Square — Discrete Carrier □ (Address-Capacity)
+01.1.1 Carrier Axioms (□-Carrier)
+01.1.1.1 Digit alphabet, depth, and axis set
+Let (\mathbb{D}4 := {0,1,2,3}).
+Let (d\in\mathbb{N}{\ge 1}) denote dimension (axis count) and (k\in\mathbb{N}_{\ge 1}) denote depth (base-4 resolution level).
+Define the axis index set ([d] := {1,2,\dots,d}) and the digit index set ([k] := {1,2,\dots,k}).
+
+01.1.1.2 Square carrier as a base-4 fractional address space
+Define the depth-(k) Square carrier in dimension (d) as the set of digit-tensors
+[
+\mathcal{S}{d,k} ;:=; \big(\mathbb{D}4^{,k}\big)^{d}
+;=;\Big{,\mathbf{x}=(x_i){i\in[d]}:; x_i=(x_i^{(t)}){t\in[k]},\ x_i^{(t)}\in\mathbb{D}_4,\Big}.
+]
+Each axis (i) carries a base-4 fractional digit string (x_i^{(1)}x_i^{(2)}\cdots x_i^{(k)}) (digits “after the radix point”).
+Define the associated rational coordinate (base-4 fraction)
+[
+\phi_{4}(x_i);:=;\sum_{t=1}^{k} x_i^{(t)},4^{-t}\ \in\ \left{0,\frac{1}{4^k},\dots,\frac{4^k-1}{4^k}\right}\subset[0,1).
+]
+Define the integer encoding
+[
+\mathrm{enc}{4,k}(x_i);:=;\sum{t=1}^{k} x_i^{(t)},4^{k-t}\ \in\ {0,1,\dots,4^k-1}.
+]
+Then
+[
+\phi_{4}(x_i);=;\frac{\mathrm{enc}{4,k}(x_i)}{4^k}.
+]
+For (\mathbf{x}\in\mathcal{S}{d,k}), write (\mathrm{enc}{4,k}(\mathbf{x}) := (\mathrm{enc}{4,k}(x_i)){i\in[d]}\in(\mathbb{Z}{4^k})^d).
+
+01.1.1.3 Cell interpretation (□ as a partition of the unit cube)
+Define the depth-(k) hyper-cell associated to (\mathbf{x}\in\mathcal{S}{d,k}) by
+[
+\mathrm{cell}{d,k}(\mathbf{x})
+;:=;\prod_{i=1}^{d}\left[\phi_{4}(x_i),\ \phi_{4}(x_i)+4^{-k}\right)
+;\subset;[0,1)^d.
+]
+Thus ([0,1)^d) is partitioned into (4^{kd}) disjoint half-open cells of side length (4^{-k}), indexed by (\mathcal{S}_{d,k}).
+Define the canonical cell center representative
+[
+\mathrm{ctr}{d,k}(\mathbf{x})
+;:=;\big(\phi{4}(x_i)+\tfrac12,4^{-k}\big)_{i=1}^d
+;\in;[0,1)^d.
+]
+
+01.1.1.4 Truncation and refinement (depth morphisms)
+Define prefix truncation (\pi_{k\to j}:\mathcal{S}{d,k}\to\mathcal{S}{d,j}) for (1\le j\le k) by
+[
+\pi_{k\to j}(\mathbf{x})i^{(t)} := x_i^{(t)}\quad (t\in[j]).
+]
+Define suffix refinement (digit extension) (\iota{k\to k+m}:\mathcal{S}{d,k}\times(\mathbb{D}4^{,m})^{d}\to\mathcal{S}{d,k+m}) for (m\ge 1) by
+[
+\iota{k\to k+m}(\mathbf{x};\mathbf{s})i^{(t)} :=
+\begin{cases}
+x_i^{(t)}, & t\in[k],\
+s_i^{(t-k)}, & t\in{k+1,\dots,k+m},
+\end{cases}
+]
+where (\mathbf{s}=(s_i){i\in[d]}) and (s_i\in\mathbb{D}_4^{,m}).
+These satisfy the projective identities:
+[
+\pi_{k+m\to k}\circ \iota_{k\to k+m}(\mathbf{x};\mathbf{s})=\mathbf{x},
+\qquad
+\pi_{k\to j}\circ\pi_{k+m\to k}=\pi_{k+m\to j}.
+]
+
+01.1.2 Algebra and Metrics (□-Structure)
+01.1.2.1 Finite ring model and coordinatewise arithmetic
+Via integer encoding, (\mathcal{S}{d,k}) is identified with ((\mathbb{Z}{4^k})^d) (componentwise addition/multiplication mod (4^k)). When used, arithmetic is performed in ((\mathbb{Z}{4^k})^d) and transported back to digits by (\mathrm{dec}{4,k}) (the inverse digit map).
+
+01.1.2.2 Digitwise concatenation as a semidirect product operation
+Refinement by appending digits corresponds in integer encoding to
+[
+\mathrm{enc}{4,k+m}\big(\iota{k\to k+m}(\mathbf{x};\mathbf{s})\big)
+;=;4^{m},\mathrm{enc}{4,k}(\mathbf{x});+;\mathrm{enc}{4,m}(\mathbf{s}),
+]
+computed componentwise.
+
+01.1.2.3 Canonical ultrametric (depth-agreement metric)
+Define the depth-agreement index between (\mathbf{x},\mathbf{y}\in\mathcal{S}{d,k}) by
+[
+\lambda(\mathbf{x},\mathbf{y});:=;\max\Big{,j\in{0,1,\dots,k}:\ \pi{k\to j}(\mathbf{x})=\pi_{k\to j}(\mathbf{y}),\Big}.
+]
+Define the ultrametric
+[
+d_{\square,k}(\mathbf{x},\mathbf{y});:=;4^{-\lambda(\mathbf{x},\mathbf{y})}.
+]
+Then (d_{\square,k}) is an ultrametric on (\mathcal{S}{d,k}) and satisfies compatibility under truncation:
+[
+d{\square,j}\big(\pi_{k\to j}(\mathbf{x}),\pi_{k\to j}(\mathbf{y})\big)\ \le\ d_{\square,k}(\mathbf{x},\mathbf{y}).
+]
+
+01.1.2.4 Cell containment and truncation
+For (1\le j\le k),
+[
+\mathrm{cell}{d,k}(\mathbf{x})\subset \mathrm{cell}{d,j}(\pi_{k\to j}(\mathbf{x})).
+]
+Moreover (\mathrm{cell}_{d,j}(\mathbf{u})) is exactly the disjoint union of the (4^{(k-j)d}) depth-(k) cells refining it.
+
+01.1.3 Canonical Maps (□-Operators)
+01.1.3.1 Square-to-cube embedding (representative selection)
+Define the family of representative maps (\mathrm{rep}^{(\beta)}{d,k}:\mathcal{S}{d,k}\to[0,1)^d) for (\beta\in[0,1]) by
+[
+\mathrm{rep}^{(\beta)}{d,k}(\mathbf{x})
+;:=;\big(\phi_4(x_i)+\beta,4^{-k}\big){i=1}^d.
+]
+Canonical choices:
+left-edge representative: (\beta=0),
+center representative: (\beta=\tfrac12).
+
+01.1.3.2 Cube-to-Square quantization (depth-(k) digit extraction)
+Define the depth-(k) quantizer (\mathrm{q}{d,k}:[0,1)^d\to\mathcal{S}{d,k}) by, for each axis (i),
+[
+\mathrm{enc}{4,k}\big(\mathrm{q}{d,k}(\mathbf{u})i\big)
+;:=;\left\lfloor 4^k,u_i\right\rfloor.
+]
+Then (\mathbf{u}\in \mathrm{cell}{d,k}(\mathrm{q}_{d,k}(\mathbf{u}))).
+
+01.1.3.3 Square-to-Circle projection (□→○, depth-(k))
+Define the depth-(k) square phase vector
+[
+\Phi_{\square,k}(\mathbf{x});:=;\big(\phi_4(x_1),\dots,\phi_4(x_d)\big)\in[0,1)^d.
+]
+This vector becomes a torus element under the canonical quotient ([0,1)\to\mathbb{R}/\mathbb{Z}). The torus form is defined in §01.2.
+
+01.1.3.4 Resolution consistency of representatives
+For (\mathbf{x}\in\mathcal{S}{d,k}), (\mathbf{s}\in(\mathbb{D}4)^d), let (\mathbf{x}^+ := \iota{k\to k+1}(\mathbf{x};\mathbf{s})). Then
+[
+\mathrm{rep}^{(\beta)}{d,k+1}(\mathbf{x}^+)
+;=;\mathrm{rep}^{(\beta)}{d,k}(\mathbf{x});+;\big(s_i-\beta\big){i=1}^d,4^{-(k+1)}.
+]
+In particular, truncation recovers coarse cells:
+[
+\pi_{k+1\to k}(\mathbf{x}^+)=\mathbf{x}
+\quad\Longrightarrow\quad
+\mathrm{cell}{d,k+1}(\mathbf{x}^+)\subset \mathrm{cell}{d,k}(\mathbf{x}).
+]
+
+01.1.4 Lock Laws (□-Lifts)
+01.1.4.1 Lock Law I (Resolution lift, □)
+Define the resolution lift (depth lift) operator
+[
+\mathcal{L}^{\square}{d,k}:\mathcal{S}{d,k}\times(\mathbb{D}4)^d\to\mathcal{S}{d,k+1},
+\qquad
+\mathcal{L}^{\square}{d,k}(\mathbf{x};\mathbf{s}) := \iota{k\to k+1}(\mathbf{x};\mathbf{s}).
+]
+Coherence axiom:
+[
+\pi_{k+1\to k}\big(\mathcal{L}^{\square}_{d,k}(\mathbf{x};\mathbf{s})\big)=\mathbf{x}.
+]
+
+01.1.4.2 Lock Law II (Dimension lift, □)
+Define the dimension lift operator
+[
+\mathcal{L}^{\square}{d\to d+1,k}:\mathcal{S}{d,k}\times(\mathbb{D}4)^{d+1}\to\mathcal{S}{d+1,k+1}
+]
+by
+[
+\mathcal{L}^{\square}{d\to d+1,k}(\mathbf{x};\mathbf{s},\eta)
+;:=;\big(\iota{k\to k+1}(\mathbf{x};\mathbf{s}),\ \eta\big),
+]
+where (\mathbf{s}\in(\mathbb{D}_4)^d) refines existing axes and (\eta\in\mathbb{D}_4) is the new axis digit at level (k+1) (with no prior digits). Equivalently, the new axis is initialized as a length-((k+1)) digit string with first (k) digits (0) and ((k+1))-st digit (\eta).
+Coherence axiom:
+[
+\pi^{\mathrm{axes}}{d+1\to d}\circ \pi{k+1\to k}\big(\mathcal{L}^{\square}{d\to d+1,k}(\mathbf{x};\mathbf{s},\eta)\big)=\mathbf{x},
+]
+where (\pi^{\mathrm{axes}}{d+1\to d}) deletes the ((d+1))-st axis.
+
+01.1.4.3 Lift nesting and cell containment
+For any (\mathbf{x}\in\mathcal{S}{d,k}) and any refinement digits, both lift laws preserve nesting:
+[
+\mathrm{cell}{d,k+1}\big(\mathcal{L}^{\square}{d,k}(\mathbf{x};\mathbf{s})\big)\subset \mathrm{cell}{d,k}(\mathbf{x}),
+]
+[
+\mathrm{cell}{d+1,k+1}\big(\mathcal{L}^{\square}{d\to d+1,k}(\mathbf{x};\mathbf{s},\eta)\big)
+\subset
+\mathrm{cell}_{d,k}(\mathbf{x})\times[0,1).
+]
+
+01.1.4.4 Holographic prefix lemma (□)
+Let (k_1<k_2). For any (\mathbf{x}\in\mathcal{S}{d,k_1}) and any digit tensor (\mathbf{s}\in(\mathbb{D}4^{,k_2-k_1})^{d}),
+[
+\pi{k_2\to k_1}\big(\iota{k_1\to k_2}(\mathbf{x};\mathbf{s})\big)=\mathbf{x}.
+]
+Thus each depth-(k_1) address is a complete holographic prefix of any refinement to greater depth.
+
+01.2 Flower — Continuous Carrier ○ (Phase-Capacity)
+01.2.1 Carrier Axioms (○-Carrier)
+01.2.1.1 The (d)-torus as the circle carrier
+Define the (d)-torus
+[
+\mathbb{T}^d;:=;(\mathbb{R}/\mathbb{Z})^d.

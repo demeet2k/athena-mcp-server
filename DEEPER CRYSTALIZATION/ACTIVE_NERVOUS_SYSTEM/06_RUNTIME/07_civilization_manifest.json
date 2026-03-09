@@ -1,0 +1,364 @@
+{
+  "generated_at": "2026-03-09T15:25:00.250505+00:00",
+  "deep_pass": 6,
+  "live_docs_blocked": true,
+  "signs": [
+    {
+      "id": "SIG00",
+      "label": "SEED",
+      "purpose": "initialize a new branch, intake, or civilizational sub-cell",
+      "route": [
+        "Ch01",
+        "AppA",
+        "AppC"
+      ]
+    },
+    {
+      "id": "SIG01",
+      "label": "ENCODE",
+      "purpose": "bind a symbol system, glyph set, or memory carrier into the graph",
+      "route": [
+        "Ch02",
+        "AppA",
+        "AppB"
+      ]
+    },
+    {
+      "id": "SIG02",
+      "label": "ROUTE",
+      "purpose": "select lawful destination, corridor, and metro ride",
+      "route": [
+        "Ch09",
+        "AppA",
+        "AppI"
+      ]
+    },
+    {
+      "id": "SIG03",
+      "label": "BIND",
+      "purpose": "attach a message or task to a stable witness-bearing object",
+      "route": [
+        "Ch06",
+        "AppC",
+        "AppM"
+      ]
+    },
+    {
+      "id": "SIG04",
+      "label": "WITNESS",
+      "purpose": "promote a claim only when evidence and replay are present",
+      "route": [
+        "Ch12",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "id": "SIG05",
+      "label": "QUARANTINE",
+      "purpose": "contain unresolved conflict, paradox, or corruption",
+      "route": [
+        "Ch05",
+        "AppK",
+        "AppL"
+      ]
+    },
+    {
+      "id": "SIG06",
+      "label": "MERGE",
+      "purpose": "compose multiple agents or documents into one stabilized output",
+      "route": [
+        "Ch20",
+        "AppG",
+        "AppP"
+      ]
+    },
+    {
+      "id": "SIG07",
+      "label": "RESTART",
+      "purpose": "collapse a stale branch while preserving lawful continuity",
+      "route": [
+        "Ch11",
+        "AppF",
+        "AppL"
+      ]
+    },
+    {
+      "id": "SIG08",
+      "label": "DEPLOY",
+      "purpose": "hand a closed artifact into bounded execution",
+      "route": [
+        "Ch17",
+        "AppN",
+        "AppP"
+      ]
+    },
+    {
+      "id": "SIG09",
+      "label": "MEMORY",
+      "purpose": "persist state across passes, mirrors, and migrations",
+      "route": [
+        "Ch13",
+        "AppD",
+        "AppM"
+      ]
+    },
+    {
+      "id": "SIG10",
+      "label": "TEACH",
+      "purpose": "convert the current state into transmissible pedagogy",
+      "route": [
+        "Ch13",
+        "AppG",
+        "AppP"
+      ]
+    },
+    {
+      "id": "SIG11",
+      "label": "GOVERN",
+      "purpose": "apply explicit hierarchy, rule, and escalation law",
+      "route": [
+        "Ch20",
+        "AppD",
+        "AppG"
+      ]
+    },
+    {
+      "id": "SIG12",
+      "label": "MEASURE",
+      "purpose": "record metrics, drift, and performance envelopes",
+      "route": [
+        "Ch18",
+        "AppI",
+        "AppP"
+      ]
+    },
+    {
+      "id": "SIG13",
+      "label": "HEAL",
+      "purpose": "repair decay, incoherence, or motivational collapse",
+      "route": [
+        "Ch19",
+        "AppJ",
+        "AppK"
+      ]
+    },
+    {
+      "id": "SIG14",
+      "label": "PUBLISH",
+      "purpose": "emit signed release packets into wider circulation",
+      "route": [
+        "Ch21",
+        "AppO",
+        "AppP"
+      ]
+    },
+    {
+      "id": "SIG15",
+      "label": "SUCCESSION",
+      "purpose": "transfer continuity to the next agent, generation, or tome",
+      "route": [
+        "Ch21",
+        "AppD",
+        "AppP"
+      ]
+    }
+  ],
+  "tiers": [
+    {
+      "id": "T0",
+      "label": "Sign",
+      "purpose": "atomic governance symbols that encode admissible operations"
+    },
+    {
+      "id": "T1",
+      "label": "Message",
+      "purpose": "truth-typed packets routed across the swarm"
+    },
+    {
+      "id": "T2",
+      "label": "Task",
+      "purpose": "bounded work units with witnesses, replay, and exit conditions"
+    },
+    {
+      "id": "T3",
+      "label": "Cell",
+      "purpose": "small agent teams that hold a local region of the graph"
+    },
+    {
+      "id": "T4",
+      "label": "Chapter",
+      "purpose": "chapter weavers that stabilize one 4^4 tile"
+    },
+    {
+      "id": "T5",
+      "label": "Family",
+      "purpose": "thematic councils that govern recurring motifs across sources"
+    },
+    {
+      "id": "T6",
+      "label": "Rail Council",
+      "purpose": "lane-specific coordinators that balance Su, Me, and Sa traffic"
+    },
+    {
+      "id": "T7",
+      "label": "Civilization",
+      "purpose": "the whole manuscript polity as a self-regenerating nervous system"
+    }
+  ],
+  "family_councils": [
+    {
+      "id": "COUNCIL-civilization_and_governance",
+      "family": "civilization-and-governance",
+      "doc_count": 46,
+      "chapter_targets": [
+        "Ch17",
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ]
+    },
+    {
+      "id": "COUNCIL-general_corpus",
+      "family": "general-corpus",
+      "doc_count": 30,
+      "chapter_targets": [
+        "Ch02",
+        "Ch03",
+        "Ch10",
+        "Ch13",
+        "Ch14",
+        "Ch19"
+      ]
+    },
+    {
+      "id": "COUNCIL-higher_dimensional_geometry",
+      "family": "higher-dimensional-geometry",
+      "doc_count": 13,
+      "chapter_targets": [
+        "Ch05",
+        "Ch06",
+        "Ch07",
+        "Ch08"
+      ]
+    },
+    {
+      "id": "COUNCIL-identity_and_instruction",
+      "family": "identity-and-instruction",
+      "doc_count": 11,
+      "chapter_targets": [
+        "Ch09",
+        "Ch10",
+        "Ch13",
+        "Ch16",
+        "Ch17",
+        "Ch20"
+      ]
+    },
+    {
+      "id": "COUNCIL-live_orchestration",
+      "family": "live-orchestration",
+      "doc_count": 1,
+      "chapter_targets": [
+        "Ch09",
+        "Ch19",
+        "Ch20",
+        "Ch21"
+      ]
+    },
+    {
+      "id": "COUNCIL-manuscript_architecture",
+      "family": "manuscript-architecture",
+      "doc_count": 16,
+      "chapter_targets": [
+        "Ch01",
+        "Ch06",
+        "Ch08",
+        "Ch09",
+        "Ch10",
+        "Ch11",
+        "Ch14",
+        "Ch16",
+        "Ch19"
+      ]
+    },
+    {
+      "id": "COUNCIL-mythic_sign_systems",
+      "family": "mythic-sign-systems",
+      "doc_count": 29,
+      "chapter_targets": [
+        "Ch02",
+        "Ch09",
+        "Ch13",
+        "Ch18"
+      ]
+    },
+    {
+      "id": "COUNCIL-transport_and_runtime",
+      "family": "transport-and-runtime",
+      "doc_count": 38,
+      "chapter_targets": [
+        "Ch07",
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ]
+    },
+    {
+      "id": "COUNCIL-void_and_collapse",
+      "family": "void-and-collapse",
+      "doc_count": 10,
+      "chapter_targets": [
+        "Ch02",
+        "Ch04",
+        "Ch09",
+        "Ch10",
+        "Ch11",
+        "Ch12",
+        "Ch16",
+        "Ch19"
+      ]
+    }
+  ],
+  "rail_councils": [
+    {
+      "id": "COUNCIL-Su",
+      "lane": "Su",
+      "chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08",
+        "Ch10",
+        "Ch15",
+        "Ch17",
+        "Ch19"
+      ]
+    },
+    {
+      "id": "COUNCIL-Me",
+      "lane": "Me",
+      "chapters": [
+        "Ch02",
+        "Ch04",
+        "Ch09",
+        "Ch11",
+        "Ch13",
+        "Ch18",
+        "Ch20"
+      ]
+    },
+    {
+      "id": "COUNCIL-Sa",
+      "lane": "Sa",
+      "chapters": [
+        "Ch03",
+        "Ch05",
+        "Ch07",
+        "Ch12",
+        "Ch14",
+        "Ch16",
+        "Ch21"
+      ]
+    }
+  ]
+}

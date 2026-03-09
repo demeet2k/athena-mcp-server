@@ -1,0 +1,547 @@
+htarrow) AMBIG/QUARANTINE.
+Transcript binding. Compute the canonical transcript digest and compare to (\mathrm{TranscriptDigest}).
+Output digest binding. Compute (\mathrm{OutputsDigest}) from the verified outputs and compare to the certificate’s value.
+Acceptance requires PASS plus full transcript/output digest match. Any failure produces a deterministic quarantine/reject classification and an obligation packet (repair, migration, or conflict packet) according to corridor rules.
+12.3.3 ReplayCert construction algorithm
+Given subject (S) and corridor profile (\pi_C), the constructor:
+computes required capsule set (\mathrm{RCSet}) under the corridor’s closure class;
+materializes all required inputs/witnesses into content‑addressed storage;
+runs (V) to produce transcripts and observed digests;
+packages the resulting (\mathsf{ReplayCert}(S)) with transcript digest, output digest, and budget consumption;
+appends the certificate as an immutable artifact (superseding occurs by new cert, not rewrite).
+Replay transcripts are append‑only; corrections occur as new transcripts and new capsules rather than retro‑editing.
+
+12.4 RegressionCert: deterministic regression suites as certificates
+12.4.1 Regression suite object (\mathsf{RS})
+A Regression Suite is a finite set of replay capsules and fixtures designed to cover edge cases for a subject class. Define:
+[
+\boxed{
+\mathsf{RS}:=(\mathrm{RSID},\mathrm{SubjectClass},\mathrm{Scope},\mathrm{Pins},\mathrm{EnvPins},\mathrm{FixtureIndex},\mathrm{CapsuleIndex},\mathrm{ExpectedDigests},\mathrm{CoverageSpec},\mathrm{Budgets},\mathrm{SchemaVer})
+}
+]
+where:
+(\mathrm{FixtureIndex}) content‑addresses each fixture by digest and describes its role (normal, adversarial, boundary, migration‑compat),
+(\mathrm{CapsuleIndex}) lists (\mathsf{RC}) objects built from fixtures,
+(\mathrm{CoverageSpec}) pins the minimal required categories and corner cases for the subject class.
+Regression suites are required to be deterministic: fixtures may be randomized only under pinned seeds and pinned RNG policy. Missing coverage implies that claims relying on uncovered corners cannot be upgraded to OK without explicit caveat routing.
+12.4.2 RegressionCert: definition
+A RegressionCert attests that a regression suite (\mathsf{RS}) passes under deterministic replay and produces pinned expected digests.
+Define:
+[
+\boxed{
+\mathsf{RegressionCert}(\mathsf{RS}):=(\mathrm{CertID},\mathrm{RSID},\mathrm{Pins},\mathrm{EnvPins},\mathrm{RunTranscriptDigest},\mathrm{PassSetDigest},\mathrm{FailSetDigest},\mathrm{CoverageDigest},\mathrm{BudgetsUsed},\mathrm{Result},\mathrm{IssuedAtPulse},\mathrm{SchemaVer})
+}
+]
+where:
+(\mathrm{Result}\in{\mathrm{PASS},\mathrm{FAIL},\mathrm{CONFLICT}}),
+(\mathrm{PassSetDigest}) binds the set of passing capsule fingerprints,
+(\mathrm{FailSetDigest}) binds failing capsules plus minimal failure witnesses,
+(\mathrm{CoverageDigest}) binds the coverage evaluation (which categories were exercised and satisfied).
+Regression failures trigger quarantine of affected profiles/capsules/cert classes; affected routes cannot remain OK until repaired or migrated.
+12.4.3 Regression harness expectations
+The regression harness is a replay harness specialized to suites:
+validate suite pins and schema versions;
+load fixtures deterministically;
+execute each suite capsule under (V) with pinned budgets (\chi);
+collect transcripts and failure witnesses;
+compute the deterministic coverage evaluation;
+output a regression transcript and (\mathsf{RegressionCert}).
+Importers must not accept regressions “as declared”; they re‑run regression verification (or re‑run a pinned representative subset when policy permits and the suite supplies coverage‑preserving certificates).
+
+12.5 ExportCert: deterministic export and import‑verifiable closure
+12.5.1 ExportBundle (\mathsf{EB}): proof‑carrying publication package
+An ExportBundle is a proof‑carrying package that can be imported and independently verified. Define:
+[
+\boxed{
+\mathsf{EB}:=(\mathrm{BundleID},\mathrm{BundleSchemaID},\mathrm{Manifest},\mathrm{Index},\mathrm{PayloadSections},\mathrm{WitnessSections},\mathrm{ReplaySections},\mathrm{Disclosures},\mathrm{Fences},\mathrm{Revocations},\mathrm{Signatures},\mathrm{Pins},\mathrm{Digests})
+}
+]
+with canonical components:
+(\mathrm{Manifest}): sorted keys, canonical encoding, digests for all sections,
+(\mathrm{Index}): atom‑granular map (\mathrm{GlobalAddr}\to) offsets/digests,
+(\mathrm{PayloadSections}): serialized atoms/tiles, edge lists, profiles, topology packs, container bytes,
+(\mathrm{WitnessSections}): tests/diffs/logs/measurement artifacts,
+(\mathrm{ReplaySections}): replay capsules required for verifying OK/NEAR claims in scope,
+(\mathrm{Disclosures}): NEAR residual disclosures and explicit AMBIG fences,
+(\mathrm{Fences/Revocations}): quarantine fences and revocation receipts,
+(\mathrm{Pins}): router/corridor/grammar/canonbytes and all referenced profile digests,
+(\mathrm{Digests}): per‑section and overall digests with pinned hash algorithm.
+Determinism requirement: the same target set and pins must produce identical bundle bytes (modulo signature nonces only if policy allows, and such nonces must be pinned/encoded).
+12.5.2 ImportVerifier (\mathsf{IV}): deterministic accept/quarantine/reject
+An ImportVerifier is the deterministic procedure for accepting, quarantining, or rejecting bundles:
+[
+\boxed{
+\mathsf{IV}:=(\mathrm{VerifierID},\mathfrak{C}_{\mathrm{import}},\mathrm{PinPolicy},\mathrm{ReplayPolicy},\mathrm{DiffPolicy},\mathrm{FencePolicy},\mathrm{SignaturePolicy},\mathrm{CompatPolicy},\mathrm{Pins})
+}
+]
+and must:
+validate bundle pins against the registry snapshot,
+validate signatures if required,
+run required replay capsules,
+enforce fences and revocations,
+compute atom‑granular diffs vs local corpus state,
+output a deterministic verdict (\in{\mathrm{ACCEPT},\mathrm{QUARANTINE},\mathrm{REJECT}}) with a transcript.
+Import acceptance requires validating pins, replaying required capsules, and matching expected digests and fingerprints; skipping required replays yields quarantine/reject per policy.
+12.5.3 ExportCert: definition
+An ExportCert attests that an export bundle is deterministic, complete with respect to its declared closure, and import‑verifiable under the pinned import verifier.
+Define:
+[
+\boxed{
+\mathsf{ExportCert}(\mathsf{EB}):=(\mathrm{CertID},\mathrm{BundleID},\mathrm{BundleDigest},\mathrm{ManifestDigest},\mathrm{IndexDigest},\mathrm{Pins},\mathrm{ImportVerifierID},\mathrm{ImportTranscriptDigest},\mathrm{ReplayCoverageDigest},\mathrm{DisclosureDigest},\mathrm{FenceDigest},\mathrm{SignatureDigest?},\mathrm{Result},\mathrm{IssuedAtPulse},\mathrm{SchemaVer})
+}
+]
+where:
+(\mathrm{BundleDigest}:=H(\mathrm{Enc}(\mathsf{EB}))),
+(\mathrm{ReplayCoverageDigest}) binds the set of RCs included and required by corridor closure for the bundle’s declared claim classes,
+(\mathrm{DisclosureDigest}) binds required NEAR disclosures and AMBIG fences,
+(\mathrm{FenceDigest}) binds quarantine and revocation enforcement artifacts.
+12.5.4 ExportCert verification algorithm (import‑verifiable)
+Given (\mathsf{EB}), (\mathsf{ExportCert}(\mathsf{EB})), and pinned (\mathsf{IV}):
+Bundle integrity checks. Verify bundle parses under schema, digests verify, index matches payload sections, pins complete, deterministic layout rules satisfied.
+Signature validation (if required). Verify signature semantics under pinned signature spec and canonical signed‑bytes rule.
+Pin validation and registry binding. Validate all profile digests referenced by the bundle. Bundles lacking required pins are rejected/quarantined per corridor policy; silent fallback is forbidden.
+Replay coverage closure. Compute the set of required replays for the bundle’s in‑scope claims (critical subjects under the corridor closure class) and verify that (\mathsf{EB}) contains those replay capsules and their required inputs. Missing required replay coverage implies QUARANTINE/REJECT per policy; it cannot be OK.
+Import replay execution. Execute the import pipeline: verify integrity/pins, run required replays, apply fences and revocations, compute diffs, emit a deterministic import transcript and verdict.
+Transcript binding. Compare the observed import transcript digest to (\mathrm{ImportTranscriptDigest}) in (\mathsf{ExportCert}). Any divergence indicates nondeterminism, missing pins, or schema drift and triggers QUARANTINE/FAIL under the corridor.
+12.5.5 ExportCert construction algorithm (deterministic export)
+Given target subject set (S), corridor profile (\pi_C), and bundle schema profile (\pi_O), the exporter:
+computes (\mathrm{Cl}(S)) under the bundle closure rules;
+serializes payloads and witnesses deterministically (address ordering by (\mathrm{GlobalAddr}));
+includes replay capsules required for verifying OK/NEAR claims in scope;
+includes required disclosures and fences;
+computes manifest/index/digests deterministically;
+applies signatures under a pinned signature discipline (if enabled);
+runs the pinned import verifier on the produced bytes to produce (\mathrm{ImportTranscriptDigest});
+emits (\mathsf{ExportCert}(\mathsf{EB})) binding the output.
+Publishing cannot hide missing evidence; AMBIG must remain fenced and explicit.
+
+12.6 Witness bundles: certificate‑complete proof packs for HD‑SCT routes
+12.6.1 WitnessBundle (\mathsf{WB}): typed bundle of certifiable artifacts
+A WitnessBundle is a minimal certificate‑complete pack for a declared subject set (S). Define:
+[
+\boxed{
+\mathsf{WB}(S):=(\mathrm{WBID},\mathrm{Subjects}=S,\mathrm{Scope},\mathrm{Pins},\mathrm{Witnesses},\mathrm{ReplayCapsules},\mathrm{RegressionSuites},\mathrm{Certificates},\mathrm{Transcripts},\mathrm{Disclosures},\mathrm{Fences},\mathrm{Revocations},\mathrm{SchemaVer})
+}
+]
+with the closure constraint:
+[
+\mathrm{Cl}(S)\ \subseteq\ \mathrm{Contents}(\mathsf{WB}(S)).
+]
+The witness bundle may be embedded in (\mathsf{EB}) as (\mathrm{WitnessSections}\cup\mathrm{ReplaySections}) and is required for import‑verifiable publication.
+12.6.2 Minimal certificate set for publishable claims
+Let (S) be the bundle’s declared claims in scope. A publish corridor that permits OK for (S) requires, at minimum:
+(\mathsf{ReplayCert}(S)) binding closure of required capsules,
+(\mathsf{RegressionCert}(\mathsf{RS}_{\mathrm{critical}})) for each critical verifier/profile class used in claims,
+(\mathsf{ExportCert}(\mathsf{EB})) binding deterministic export and import‑verifiable acceptance behavior.
+If any required certificate is absent, the highest admissible truth class for affected claims is AMBIG or NEAR (if bounded approximation is explicitly declared and certified), and publication must carry corresponding fences/disclosures.
+12.6.3 Relationship to NEAR and residual disclosures
+When a claim is NEAR, the witness bundle must include residual‑ledger evidence and measurement replays sufficient to validate bounded approximation under pinned metrics and calibration. NEAR is valid only when the replay capsule explicitly declares the approximation envelope and residual metrics; otherwise NEAR cannot be produced.
+12.6.4 Deterministic deltas, supersession, and append‑only certificates
+Certificates are append‑only: a certificate may be superseded by later certificates, but never overwritten. Supersession is represented as an explicit edge (\mathrm{Prev?}) and is itself subject to replay verification if it changes routability (e.g., revocation or quarantine propagation).
+
+12.7 Reference implementation: certificate schemas and verifier APIs
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Dict, List, Optional, Tuple, Literal, FrozenSet
+
+Truth = Literal["OK", "NEAR", "AMBIG", "FAIL", "CONFLICT"]
+Decision = Literal["ACCEPT", "QUARANTINE", "REJECT"]
+CertType = Literal["ReplayCert", "RegressionCert", "ExportCert"]
+
+Digest = str     # hex/base64 per pinned HashAlg
+GlobalAddr = str # strict grammar address
+
+@dataclass(frozen=True)
+class EnvPins:
+    os_id: str
+    arch_id: str
+    runtime_id: str
+    lib_digests: Tuple[Tuple[str, Digest], ...]
+    float_policy: str
+    endian_policy: str
+    schema_pins: Tuple[Tuple[str, str], ...]
+
+@dataclass(frozen=True)
+class ReplayCapsule:
+    rcid: str
+    target: GlobalAddr
+    scope: Literal["LOCAL", "INTER"]
+    pins: Tuple[Tuple[str, Digest], ...]
+    env: EnvPins
+    seeds: Tuple[Tuple[str, str], ...]
+    inputs: Tuple[Tuple[str, Digest], ...]          # name -> digest of canonical bytes
+    steps: Tuple[str, ...]                          # deterministic ops list
+    expected_digests: Tuple[Tuple[str, Digest], ...]# label -> digest
+    outputs_spec: Tuple[str, ...]
+    logs_spec: Tuple[str, ...]
+    schema_ver: str
+
+@dataclass(frozen=True)
+class BudgetSpec:
+    chi_max: int
+    byte_read_max: int
+    cpu_step_max: int
+
+@dataclass(frozen=True)
+class ReplayTranscript:
+    rcid: str
+    verifier_ver: str
+    pins_validated: Tuple[Tuple[str, Digest], ...]
+    steps_run: Tuple[str, ...]
+    digests_observed: Tuple[Tuple[str, Digest], ...]
+    failure_code: Optional[str]  # deterministic classifier label, None if pass
+    truth: Truth
+    chi_used: int
+    transcript_digest: Digest
+
+@dataclass(frozen=True)
+class ReplayCert:
+    cert_id: str
+    subject: Tuple[GlobalAddr, ...]
+    scope: Literal["LOCAL", "INTER"]
+    pins: Tuple[Tuple[str, Digest], ...]
+    env: EnvPins
+    rc_set: Tuple[str, ...]                    # RCIDs
+    rc_fps: Tuple[Tuple[str, Digest], ...]     # RCID -> fp(RC)
+    outputs_digest: Digest
+    transcript_digest: Digest
+    budgets: BudgetSpec
+    result: Decision
+    issued_pulse: str
+    schema_ver: str
+
+@dataclass(frozen=True)
+class RegressionSuite:
+    rsid: str
+    subject_class: str
+    scope: Literal["LOCAL", "INTER"]
+    pins: Tuple[Tuple[str, Digest], ...]
+    env: EnvPins
+    fixtures: Tuple[Tuple[str, Digest], ...]    # fixture id -> digest
+    capsules: Tuple[str, ...]                   # RCIDs
+    expected: Tuple[Tuple[str, Digest], ...]    # RCID -> final digest
+    coverage_spec: Tuple[str, ...]
+    budgets: BudgetSpec
+    schema_ver: str
+
+@dataclass(frozen=True)
+class RegressionCert:
+    cert_id: str
+    rsid: str
+    pins: Tuple[Tuple[str, Digest], ...]
+    env: EnvPins
+    run_transcript_digest: Digest
+    pass_set_digest: Digest
+    fail_set_digest: Digest
+    coverage_digest: Digest
+    budgets_used: BudgetSpec
+    result: Literal["PASS", "FAIL", "CONFLICT"]
+    issued_pulse: str
+    schema_ver: str
+
+@dataclass(frozen=True)
+class ExportBundle:
+    bundle_id: str
+    schema_id: str
+    manifest_digest: Digest
+    index_digest: Digest
+    payload_digest: Digest
+    witness_digest: Digest
+    replay_digest: Digest
+    disclosures_digest: Digest
+    fences_digest: Digest
+    revocations_digest: Digest
+    signatures_digest: Optional[Digest]
+    pins: Tuple[Tuple[str, Digest], ...]
+    bundle_digest: Digest
+
+@dataclass(frozen=True)
+class ImportTranscript:
+    bundle_id: str
+    pins_validated: Tuple[Tuple[str, Digest], ...]
+    replays_run: Tuple[str, ...]                 # RCIDs
+    fp_comparisons: Tuple[Tuple[GlobalAddr, Tuple[Digest, Digest]], ...]
+    fences_applied: Tuple[str, ...]
+    decision: Decision
+    warnings: Tuple[str, ...]
+    transcript_digest: Digest
+
+@dataclass(frozen=True)
+class ExportCert:
+    cert_id: str
+    bundle_id: str
+    bundle_digest: Digest
+    manifest_digest: Digest
+    index_digest: Digest
+    pins: Tuple[Tuple[str, Digest], ...]
+    import_verifier_id: str
+    import_transcript_digest: Digest
+    replay_coverage_digest: Digest
+    disclosure_digest: Digest
+    fence_digest: Digest
+    signature_digest: Optional[Digest]
+    result: Decision
+    issued_pulse: str
+    schema_ver: str
+
+A conformant implementation must provide deterministic constructors and verifiers for these objects and must bind canonical encodings to digests under pinned schema versions; any mismatch is a replay failure and cannot certify OK.
+
+Ch12 — Certificates (ReplayCert, RegressionCert, ExportCert)
+Ch13 — Cross-Dimensional Metro (B_d ring + gear stacks)
+The refined metro ring (B_d = 15\cdot 3^{d-1}) and multi-gear projections across dimension
+
+□ Square — The (B_d) Metro Ring as a Triadic Refinement Tower
+13.S1 — The (B_d) ring
+13.S1.1 — Definition of the cross-dimensional metro ring
+For each dimension (d\in\mathbb{N}{\ge 1}), define the cross-dimensional metro ring size
+[
+\boxed{B_d := 15\cdot 3^{,d-1}.}
+]
+Define the (B_d) metro ring as the cyclically ordered index set
+[
+\boxed{\Sigma{B_d} := {0,1,\dots,B_d-1},}
+]
+equipped with the cyclic adjacency relation (u\sim u\pm 1 \ (\mathrm{mod}\ B_d)).
+The case (d=1) recovers the base metro ring (\Sigma_{15}). For each increment in dimension, the metro ring refines by a factor of (3):
+[
+\boxed{B_{d+1} = 3B_d.}
+]
+
+13.S1.2 — Macro-stations and internal phase strata
+The (B_d) ring is a refinement of the 15-station metro. Define the macro-station width
+[
+\boxed{W_d := \frac{B_d}{15} = 3^{d-1}.}
+]
+Define the macro-station projection
+[
+\boxed{
+\pi_{\mathrm{st}}^{(d)}:\Sigma_{B_d}\to\Sigma_{15},
+\qquad
+\pi_{\mathrm{st}}^{(d)}(u):=\left\lfloor \frac{u}{W_d}\right\rfloor
+}
+]
+(where (\Sigma_{15}={0,\dots,14})). Thus the 15 macro-stations are the contiguous blocks
+[
+\boxed{
+\mathcal{B}{d}(\sigma) := {\sigma W_d,\ \sigma W_d +1,\ \dots,\ (\sigma+1)W_d -1},
+\qquad \sigma\in\Sigma{15}.
+}
+]
+Define the internal stratum coordinate
+[
+\boxed{
+\pi_{\mathrm{str}}^{(d)}:\Sigma_{B_d}\to\Sigma_{W_d},
+\qquad
+\pi_{\mathrm{str}}^{(d)}(u):=u-\pi_{\mathrm{st}}^{(d)}(u),W_d.
+}
+]
+Equivalently, (\pi_{\mathrm{str}}^{(d)}(u)=u\ \mathrm{mod}\ W_d) using canonical representatives in (\Sigma_{W_d}).
+Every (u\in \Sigma_{B_d}) admits a unique decomposition
+[
+\boxed{
+u = W_d\cdot \sigma ;+; \gamma
+\qquad
+\text{with }\sigma=\pi_{\mathrm{st}}^{(d)}(u)\in\Sigma_{15},\ \gamma=\pi_{\mathrm{str}}^{(d)}(u)\in\Sigma_{W_d}.
+}
+]
+
+13.S1.3 — Interpretation: “15 stations × (3^{d-1}) strata”
+The (B_d) ring is a structured carrier that simultaneously encodes:
+a metro station (\sigma\in\Sigma_{15}) (the 15-station powerset carrier), and
+an internal phase stratum (\gamma\in\Sigma_{3^{d-1}}) (the dimension-induced stratification).
+The meaning of “internal stratum” is pinned by the active corridor profile: it represents the discretized relative-triangle-phase (or an equivalent stratification variable) that becomes necessary to keep higher-dimensional cycles visible rather than aliased.
+
+13.S2 — Gear stacks: ternary factorization of the stratum coordinate
+13.S2.1 — Ternary digit stack (gear stack)
+Because (W_d=3^{d-1}), the stratum coordinate (\gamma\in\Sigma_{W_d}) has a canonical ternary expansion. Define the gear digits
+[
+\boxed{
+\mathrm{digits}{d}(\gamma) = (t_1,t_2,\dots,t{d-1})\in{0,1,2}^{d-1}
+}
+]
+by the unique equality
+[
+\boxed{
+\gamma = \sum_{i=1}^{d-1} t_i\cdot 3^{,d-1-i}.
+}
+]
+Equivalently, (t_1) is the most significant ternary digit and (t_{d-1}) is the least significant ternary digit.
+Define the gear-stack decomposition map
+[
+\boxed{
+\mathsf{GS}d:\Sigma{B_d}\to \Sigma_{15}\times{0,1,2}^{d-1}
+}
+]
+by
+[
+\boxed{
+\mathsf{GS}d(u) := \bigl(\sigma,\ t_1,\dots,t{d-1}\bigr)
+\quad\text{where}\quad
+\sigma=\pi_{\mathrm{st}}^{(d)}(u),\ \ (t_1,\dots,t_{d-1})=\mathrm{digits}d(\pi{\mathrm{str}}^{(d)}(u)).
+}
+]
+Define its inverse reconstruction map
+[
+\boxed{
+\mathsf{GS}d^{-1}(\sigma,t_1,\dots,t{d-1}) := \sigma W_d + \sum_{i=1}^{d-1} t_i\cdot 3^{,d-1-i}.
+}
+]
+Proposition 13.S2.1 (Bijection).
+(\mathsf{GS}d) is a bijection with inverse (\mathsf{GS}d^{-1}). Consequently,
+[
+\Sigma{B_d}\cong \Sigma{15}\times{0,1,2}^{d-1}
+]
+as finite sets, and the (B_d) ring is a 15-station metro with a ((d-1))-layer ternary gear stack inside each station.
+
+13.S2.2 — Relative triangle-phase model and the (3^{d-1}) count
+Let (\tau=(\tau_1,\dots,\tau_d)\in(\mathbb{Z}_3)^d) denote a per-axis triangle-phase assignment. Let (\Delta\subset(\mathbb{Z}_3)^d) be the diagonal subgroup
+[
+\Delta := {(a,a,\dots,a):a\in\mathbb{Z}_3}.
+]
+Define the relative phase class ([\tau]\in (\mathbb{Z}_3)^d/\Delta). Then
+[
+\left|(\mathbb{Z}3)^d/\Delta\right| = 3^{d-1}.
+]
+A corridor may pin an identification between internal strata (\gamma\in\Sigma{3^{d-1}}) and relative phase classes ([\tau]). A canonical gauge choice is:
+pick the unique representative with (\tau_d=0), and
+encode ((\tau_1,\dots,\tau_{d-1})\in(\mathbb{Z}_3)^{d-1}) into (\gamma) by ternary positional encoding.
+Under this gauge, the gear digits ((t_1,\dots,t_{d-1})) are the stored relative phase coordinates.
+
+13.S3 — Multi-gear projections between dimensions
+13.S3.1 — One-step dimension projection
+Because (B_{d+1}=3B_d), (\Sigma_{B_{d+1}}) refines (\Sigma_{B_d}) by splitting each cell into three subcells.
+Define the one-step projection
+[
+\boxed{
+\pi_{d+1\to d}:\Sigma_{B_{d+1}}\to \Sigma_{B_d},
+\qquad
+\pi_{d+1\to d}(u):=\left\lfloor\frac{u}{3}\right\rfloor.
+}
+]
+This is the canonical “forget the last ternary digit” map: it groups consecutive triples ({3v,3v+1,3v+2}) into (v).
+Proposition 13.S3.1 (Station preservation).
+For all (u\in\Sigma_{B_{d+1}}),
+[
+\pi_{\mathrm{st}}^{(d)}(\pi_{d+1\to d}(u)) = \pi_{\mathrm{st}}^{(d+1)}(u).
+]
+Thus the macro-station (\sigma\in\Sigma_{15}) is invariant under dimension projection.
+Proposition 13.S3.2 (Stratum truncation).
+If (\mathsf{GS}{d+1}(u)=(\sigma,t_1,\dots,t_d)), then
+[
+\mathsf{GS}{d}\bigl(\pi_{d+1\to d}(u)\bigr) = (\sigma,t_1,\dots,t_{d-1}).
+]
+The projection drops the last gear digit.
+
+13.S3.2 — Multi-step dimension projection (multi-gear projection)
+For (d\ge d'\ge 1), define the multi-step projection
+[
+\boxed{
+\pi_{d\to d'}:\Sigma_{B_d}\to\Sigma_{B_{d'}},
+\qquad
+\pi_{d\to d'}(u):=\left\lfloor \frac{u}{3^{d-d'}}\right\rfloor.
+}
+]
+This coarsens by removing the finest ((d-d')) ternary digits of the internal stratum coordinate.
+Proposition 13.S3.3 (Functoriality).
+For all (d\ge d'\ge d''\ge 1),
+[
+\boxed{\pi_{d\to d''} = \pi_{d'\to d''}\circ \pi_{d\to d'}.}
+]
+Proposition 13.S3.4 (Fiber size).
+For each (v\in\Sigma_{B_{d'}}), the fiber has cardinality
+[
+\left|\pi_{d\to d'}^{-1}(v)\right| = 3^{d-d'}.
+]
+
+13.S3.3 — Multi-gear readout as a tower of consistent indices
+Given (u\in\Sigma_{B_d}), define the multi-gear readout
+[
+\boxed{
+\mathsf{MG}d(u):=\bigl(u^{(1)},u^{(2)},\dots,u^{(d)}\bigr)
+\quad\text{where}\quad
+u^{(r)}:=\pi{d\to r}(u)\in\Sigma_{B_r}.
+}
+]
+Then
+[
+\boxed{
+u^{(r)}=\pi_{r+1\to r}\bigl(u^{(r+1)}\bigr)
+\quad\text{for all }r=1,\dots,d-1,
+}
+]
+so the tower is internally consistent.
+Conversely, any tower ((u^{(1)},\dots,u^{(d)})) satisfying the consistency constraints uniquely determines (u=u^{(d)}).
+
+13.S4 — Multi-gear lifts and gear-stack fibers
+13.S4.1 — One-step lift (three refinement choices)
+Define the one-step lift family
+[
+\boxed{
+\lambda_{d\to d+1}^{(t)}:\Sigma_{B_d}\to\Sigma_{B_{d+1}},
+\qquad
+\lambda_{d\to d+1}^{(t)}(u) := 3u + t,
+\qquad t\in{0,1,2}.
+}
+]
+Each (u\in\Sigma_{B_d}) has exactly three children in (\Sigma_{B_{d+1}}):
+[
+\boxed{
+\pi_{d+1\to d}^{-1}(u)={3u,\ 3u+1,\ 3u+2}.
+}
+]
+Proposition 13.S4.1 (Right inverse).
+For all (u\in\Sigma_{B_d}) and (t\in{0,1,2}),
+[
+\boxed{
+\pi_{d+1\to d}\bigl(\lambda_{d\to d+1}^{(t)}(u)\bigr)=u.
+}
+]
+Proposition 13.S4.2 (Digit append).
+If (\mathsf{GS}d(u)=(\sigma,t_1,\dots,t{d-1})), then
+[
+\mathsf{GS}{d+1}\bigl(\lambda{d\to d+1}^{(t)}(u)\bigr)=(\sigma,t_1,\dots,t_{d-1},t).
+]
+Thus the one-step lift appends exactly one ternary gear digit.
+
+13.S4.2 — Multi-step lifts
+For (d>d'), define the multi-step lift family
+[
+\boxed{
+\lambda_{d'\to d}^{(\mathbf{t})}(u):=3^{d-d'}u + \mathrm{code}(\mathbf{t}),
+\qquad
+\mathbf{t}\in{0,1,2}^{d-d'}.
+}
+]
+Here (\mathrm{code}(\mathbf{t})\in{0,\dots,3^{d-d'}-1}) is the ternary integer whose digits are (\mathbf{t}) (most significant first).
+Then
+[
+\boxed{
+\pi_{d\to d'}\bigl(\lambda_{d'\to d}^{(\mathbf{t})}(u)\bigr)=u,
+}
+]
+and the lift appends the digit block (\mathbf{t}) to the gear-stack representation.
+
+13.S4.3 — Deterministic lift selection (pinned policy)
+A lift (\lambda^{(t)}) is not canonical until (t) is specified. The digit choice (t) is a meaning-bearing decision because it selects a stratum of the refined ring. Therefore:
+the selection rule (t=\mathsf{LiftDigit}(u;\pi_{\triangle},\pi_{\mathrm{corr}})) must be pinned by digest,
+its inputs must be explicit and replayable, and
+its output must be recorded as part of any certified transport or routing plan that uses the lift.
+If multiple digit choices are admissible under corridor constraints, then either:
+the corridor pins a deterministic tie-break (yielding (\mathrm{OK}) for the choice), or
+the route is (\mathrm{AMBIG}) and must emit a bounded candidate set ({t=0,1,2}) together with discriminators that select the intended stratum.
+
+13.S5 — The ring as a discretization of (S^1)
+13.S5.1 — Phase quantization into (\Sigma_{B_d})
+Let (\phi\in [0,1)) be a circle phase. Define the (B_d) quantizer
+[
+\boxed{
+Q_d(\phi) := \left\lfloor B_d,\phi \right\rfloor \in \Sigma_{B_d}.
+}
+]
+Define the macro-station index
+[
+\boxed{
+\sigma(\phi):=\left\lfloor 15,\phi\right\rfloor \in \Sigma_{15}.
+}
+]
+Because (B

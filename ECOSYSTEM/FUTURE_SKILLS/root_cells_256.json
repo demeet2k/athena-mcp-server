@@ -1,0 +1,2310 @@
+{
+  "root_cell_count": 256,
+  "recursion_rule": "Apply the same 256-cell grammar to residuals from any validated skill output.",
+  "cells": [
+    {
+      "address": "0000",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-intake-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0001",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-intake-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0002",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-intake-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0003",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-intake-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0010",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-intake-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0011",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-intake-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0012",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-intake-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0013",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-intake-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0020",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-intake-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0021",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-intake-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0022",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-intake-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0023",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-intake-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0030",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-intake-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0031",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-intake-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0032",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-intake-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0033",
+      "substrate": "manuscript-corpus",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-intake-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0100",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-routing-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0101",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-routing-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0102",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-routing-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0103",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-routing-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0110",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-routing-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0111",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-routing-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0112",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-routing-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0113",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-routing-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0120",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-routing-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0121",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-routing-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0122",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-routing-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0123",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-routing-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0130",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-routing-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0131",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-routing-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0132",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-routing-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0133",
+      "substrate": "manuscript-corpus",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-routing-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0200",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-compilation-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0201",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-compilation-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0202",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-compilation-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0203",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-compilation-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0210",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-compilation-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0211",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-compilation-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0212",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-compilation-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0213",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-compilation-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0220",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-compilation-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0221",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-compilation-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0222",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-compilation-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0223",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-compilation-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0230",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-compilation-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0231",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-compilation-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0232",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-compilation-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0233",
+      "substrate": "manuscript-corpus",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-compilation-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0300",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-verification-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0301",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-verification-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0302",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-verification-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0303",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-verification-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0310",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-verification-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0311",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-verification-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0312",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-verification-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0313",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-verification-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0320",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-verification-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0321",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-verification-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0322",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-verification-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0323",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-verification-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "0330",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "manuscript-corpus-verification-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "0331",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "manuscript-corpus-verification-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "0332",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "manuscript-corpus-verification-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "0333",
+      "substrate": "manuscript-corpus",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "manuscript-corpus-verification-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1000",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "formal-framework-intake-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1001",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-intake-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1002",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "formal-framework-intake-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1003",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "formal-framework-intake-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1010",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "formal-framework-intake-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1011",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-intake-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1012",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "formal-framework-intake-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1013",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "formal-framework-intake-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1020",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "formal-framework-intake-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1021",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-intake-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1022",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "formal-framework-intake-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1023",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "formal-framework-intake-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1030",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "formal-framework-intake-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1031",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-intake-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1032",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "formal-framework-intake-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1033",
+      "substrate": "formal-framework",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "formal-framework-intake-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1100",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "formal-framework-routing-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1101",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-routing-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1102",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "formal-framework-routing-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1103",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "formal-framework-routing-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1110",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "formal-framework-routing-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1111",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-routing-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1112",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "formal-framework-routing-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1113",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "formal-framework-routing-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1120",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "formal-framework-routing-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1121",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-routing-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1122",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "formal-framework-routing-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1123",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "formal-framework-routing-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1130",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "formal-framework-routing-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1131",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-routing-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1132",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "formal-framework-routing-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1133",
+      "substrate": "formal-framework",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "formal-framework-routing-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1200",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "formal-framework-compilation-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1201",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-compilation-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1202",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "formal-framework-compilation-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1203",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "formal-framework-compilation-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1210",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "formal-framework-compilation-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1211",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-compilation-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1212",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "formal-framework-compilation-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1213",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "formal-framework-compilation-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1220",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "formal-framework-compilation-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1221",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-compilation-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1222",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "formal-framework-compilation-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1223",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "formal-framework-compilation-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1230",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "formal-framework-compilation-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1231",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-compilation-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1232",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "formal-framework-compilation-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1233",
+      "substrate": "formal-framework",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "formal-framework-compilation-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1300",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "formal-framework-verification-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1301",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-verification-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1302",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "formal-framework-verification-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1303",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "formal-framework-verification-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1310",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "formal-framework-verification-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1311",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-verification-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1312",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "formal-framework-verification-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1313",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "formal-framework-verification-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1320",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "formal-framework-verification-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1321",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-verification-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1322",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "formal-framework-verification-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1323",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "formal-framework-verification-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "1330",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "formal-framework-verification-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "1331",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "formal-framework-verification-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "1332",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "formal-framework-verification-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "1333",
+      "substrate": "formal-framework",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "formal-framework-verification-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2000",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "runtime-system-intake-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2001",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-intake-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2002",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "runtime-system-intake-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2003",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "runtime-system-intake-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2010",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "runtime-system-intake-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2011",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-intake-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2012",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "runtime-system-intake-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2013",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "runtime-system-intake-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2020",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "runtime-system-intake-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2021",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-intake-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2022",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "runtime-system-intake-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2023",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "runtime-system-intake-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2030",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "runtime-system-intake-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2031",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-intake-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2032",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "runtime-system-intake-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2033",
+      "substrate": "runtime-system",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "runtime-system-intake-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2100",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "runtime-system-routing-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2101",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-routing-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2102",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "runtime-system-routing-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2103",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "runtime-system-routing-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2110",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "runtime-system-routing-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2111",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-routing-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2112",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "runtime-system-routing-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2113",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "runtime-system-routing-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2120",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "runtime-system-routing-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2121",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-routing-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2122",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "runtime-system-routing-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2123",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "runtime-system-routing-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2130",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "runtime-system-routing-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2131",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-routing-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2132",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "runtime-system-routing-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2133",
+      "substrate": "runtime-system",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "runtime-system-routing-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2200",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "runtime-system-compilation-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2201",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-compilation-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2202",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "runtime-system-compilation-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2203",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "runtime-system-compilation-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2210",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "runtime-system-compilation-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2211",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-compilation-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2212",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "runtime-system-compilation-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2213",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "runtime-system-compilation-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2220",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "runtime-system-compilation-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2221",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-compilation-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2222",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "runtime-system-compilation-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2223",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "runtime-system-compilation-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2230",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "runtime-system-compilation-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2231",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-compilation-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2232",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "runtime-system-compilation-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2233",
+      "substrate": "runtime-system",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "runtime-system-compilation-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2300",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "runtime-system-verification-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2301",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-verification-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2302",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "runtime-system-verification-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2303",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "runtime-system-verification-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2310",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "runtime-system-verification-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2311",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-verification-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2312",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "runtime-system-verification-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2313",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "runtime-system-verification-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2320",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "runtime-system-verification-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2321",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-verification-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2322",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "runtime-system-verification-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2323",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "runtime-system-verification-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "2330",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "runtime-system-verification-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "2331",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "runtime-system-verification-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "2332",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "runtime-system-verification-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "2333",
+      "substrate": "runtime-system",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "runtime-system-verification-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3000",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "live-memory-intake-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3001",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-intake-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3002",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "live-memory-intake-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3003",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "live-memory-intake-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3010",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "live-memory-intake-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3011",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-intake-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3012",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "live-memory-intake-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3013",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "live-memory-intake-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3020",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "live-memory-intake-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3021",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-intake-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3022",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "live-memory-intake-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3023",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "live-memory-intake-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3030",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "live-memory-intake-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3031",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-intake-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3032",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "live-memory-intake-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3033",
+      "substrate": "live-memory",
+      "operator": "intake",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "live-memory-intake-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3100",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "live-memory-routing-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3101",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-routing-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3102",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "live-memory-routing-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3103",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "live-memory-routing-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3110",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "live-memory-routing-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3111",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-routing-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3112",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "live-memory-routing-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3113",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "live-memory-routing-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3120",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "live-memory-routing-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3121",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-routing-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3122",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "live-memory-routing-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3123",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "live-memory-routing-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3130",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "live-memory-routing-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3131",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-routing-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3132",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "live-memory-routing-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3133",
+      "substrate": "live-memory",
+      "operator": "routing",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "live-memory-routing-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3200",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "live-memory-compilation-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3201",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-compilation-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3202",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "live-memory-compilation-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3203",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "live-memory-compilation-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3210",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "live-memory-compilation-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3211",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-compilation-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3212",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "live-memory-compilation-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3213",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "live-memory-compilation-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3220",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "live-memory-compilation-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3221",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-compilation-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3222",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "live-memory-compilation-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3223",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "live-memory-compilation-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3230",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "live-memory-compilation-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3231",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-compilation-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3232",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "live-memory-compilation-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3233",
+      "substrate": "live-memory",
+      "operator": "compilation",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "live-memory-compilation-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3300",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "witness",
+      "seed_slug": "live-memory-verification-atom-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3301",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-verification-atom-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3302",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "governance",
+      "seed_slug": "live-memory-verification-atom-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3303",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "atom",
+      "closure": "publication",
+      "seed_slug": "live-memory-verification-atom-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3310",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "witness",
+      "seed_slug": "live-memory-verification-packet-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3311",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-verification-packet-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3312",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "governance",
+      "seed_slug": "live-memory-verification-packet-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3313",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "packet",
+      "closure": "publication",
+      "seed_slug": "live-memory-verification-packet-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3320",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "witness",
+      "seed_slug": "live-memory-verification-corpus-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3321",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-verification-corpus-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3322",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "governance",
+      "seed_slug": "live-memory-verification-corpus-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3323",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "corpus",
+      "closure": "publication",
+      "seed_slug": "live-memory-verification-corpus-publication",
+      "suggested_deliverable": "promoted artifact"
+    },
+    {
+      "address": "3330",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "witness",
+      "seed_slug": "live-memory-verification-ecosystem-witness",
+      "suggested_deliverable": "witness packet"
+    },
+    {
+      "address": "3331",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "benchmark",
+      "seed_slug": "live-memory-verification-ecosystem-benchmark",
+      "suggested_deliverable": "benchmark ledger"
+    },
+    {
+      "address": "3332",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "governance",
+      "seed_slug": "live-memory-verification-ecosystem-governance",
+      "suggested_deliverable": "decision ledger"
+    },
+    {
+      "address": "3333",
+      "substrate": "live-memory",
+      "operator": "verification",
+      "scale": "ecosystem",
+      "closure": "publication",
+      "seed_slug": "live-memory-verification-ecosystem-publication",
+      "suggested_deliverable": "promoted artifact"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Binary documents (too large for git)
+*.docx
+*.pdf
+*.xlsx
+*.pptx
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Executables
+*.exe
+*.dll
+*.so
+
+# Images (large)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Large data files
+*.csv
+*.dat
+
+# Credentials (NEVER commit)
+credentials.json
+token.json
+*.key
+*.pem
+.env
+
+# Large JSON atlas/data files (>1MB)
+archive_atlas.json
+scan_reconciliation.json
+corpus_atlas.json
+node_tensor_manifest.json
+*SYSTEM_SNAPSHOT.json
+last_snapshot.json
+
+# Google API discovery cache (huge)
+discovery_cache/
+
+# Claude local settings
+.claude/
+
+# Neural network weights and checkpoints
+*.pt
+*.pth
+*.h5
+*.ckpt
+
+# Node
+node_modules/
+
+# Temporary
+*.tmp
+*.bak
+*.swp
+*~

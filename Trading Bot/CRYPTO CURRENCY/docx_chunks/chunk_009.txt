@@ -1,0 +1,498 @@
+one:
+            truth = "AMBIG"
+            rl = None
+            fw = None
+        else:
+            truth = "FAIL"
+            rl = None
+            fw = r.get("failure_witness", FailureWitness("Invariant violation or unbounded ambiguity", "REPRO_TODO", None))
+
+    out = Outcome(
+        truth=truth,
+        replay_ptr=claim.replay_ptr,
+        witness_ptrs=tuple(r.get("witness_ptrs", [])),
+        residual_ledger=rl,
+        evidence_plan=ep,
+        failure_witness=fw,
+        budget_use=Budget(kappa=kappa, beta=beta, delta=0, chi=chi),
+        obligations=tuple(r.get("obligations", [])),
+    )
+
+    # corridor budget enforcement
+    if out.budget_use.chi > C.budget_cap.chi:
+        return Outcome("FAIL", out.replay_ptr, out.witness_ptrs, None, None,
+                       FailureWitness("Cost budget exceeded", "REPRO_TODO", None),
+                       Budget(out.budget_use.kappa, out.budget_use.beta, out.budget_use.delta, out.budget_use.chi),
+                       out.obligations)
+
+    return out
+
+
+08.S4.c — Route search with truth threshold and budgets
+import heapq
+from typing import Dict, List, Tuple, Optional
+
+@dataclass(frozen=True)
+class Edge:
+    claim: Claim
+    to_node: str
+
+def route_search(graph: Dict[str, List[Edge]], src: str, dst: str, C: CorridorProfile,
+                 verifier: Callable[[Claim, CorridorProfile], Dict[str, Any]]) -> Optional[Tuple[List[Outcome], Outcome]]:
+    """
+    Lexicographic best-first search:
+      maximize truth, then minimize chi, then minimize beta, then minimize kappa.
+    Only returns routes whose composite truth >= corridor threshold and budgets satisfied.
+    """
+    # priority: (-truth_rank, chi, beta, kappa)
+    pq = []
+    init_outs: List[Outcome] = []
+    init_comp = Outcome("OK", None, tuple(), None, None, None, Budget(0.0,0.0,0,0), tuple())
+    heapq.heappush(pq, (-TRUTH_RANK[init_comp.truth], 0, 0.0, 0.0, src, init_outs, init_comp))
+    best = {}
+
+    while pq:
+        neg_tr, chi, beta, kappa, node, outs, comp = heapq.heappop(pq)
+        key = (node, comp.truth, chi)
+        if key in best:
+            continue
+        best[key] = True
+
+        if node == dst:
+            # enforce threshold
+            if TRUTH_RANK[comp.truth] >= TRUTH_RANK[C.truth_threshold]:
+                return outs, comp
+            continue
+
+        for e in graph.get(node, []):
+            o = eval_claim(e.claim, C, verifier)
+            outs2 = outs + [o]
+            comp2 = compose_outcomes(outs2, C.budget_cap)
+            # prune below threshold early if desired
+            if TRUTH_RANK[comp2.truth] < TRUTH_RANK[C.truth_threshold]:
+                continue
+            heapq.heappush(pq, (-TRUTH_RANK[comp2.truth],
+                                comp2.budget_use.chi, comp2.budget_use.beta, comp2.budget_use.kappa,
+                                e.to_node, outs2, comp2))
+    return None
+
+
+08.S4.d — Routable outcome registry (edges as publishable graph items)
+A certified system must maintain an outcome registry in which every evaluated edge is stored as a graph item:
+edge id (\to) outcome digest,
+truth type and mandatory artifacts,
+corridor id and pinset digest,
+expiry window for residual ledgers (optional),
+promotion status.
+Routes are computed over this registry, not over raw transforms.
+
+❀ Flower — Corridors as Geometric Neighborhoods and Corridor-Nyquist Constraints
+08.F1 — Corridors as subsets of state space
+A corridor induces a set of admissible states and transitions. Let (\mathcal{X}) be a state manifold/carrier (e.g., (\mathbb{T}^d), a station ring (\Sigma_{B_d}), or a Square address lattice). A corridor specifies:
+a pinned metric (d_\pi) on (\mathcal{X}),
+a pinned admissible subset (\mathrm{Corr}\subseteq\mathcal{X}) defined by inequalities (hub-corridors, carry corridors, lock corridors),
+and a pinned set of admissible transitions (\mathcal{U}) (e.g., allowed tunnel steps, allowed wraps, allowed lifts).
+A claim is (\mathrm{OK}) only if it maps corridor states to corridor states and preserves pinned invariants; it is (\mathrm{NEAR}) if it maps corridor states into a bounded neighborhood of corridor with bounded residual.
+
+08.F2 — Commutation corridors and noncommutative residuals
+For transforms (T_1,T_2) on a shared corridor subset, the commutator residual
+[
+r_\kappa := d_\pi!\left(T_1\circ T_2,\ T_2\circ T_1\right)
+]
+is typed against (\kappa). This is the geometric form of “corridor commutation”: corridors constrain which operator reorderings are legal, and bound how far from exact commutation the system may drift.
+
+08.F3 — Resolution corridors and aliasing failure
+Corridors must include resolution constraints: if a projection reduces resolution (e.g., from (B_d) to (15)), the corridor must declare whether the projection is inside a Nyquist-like corridor where fold/unfold is invertible enough for the intended use. If not, the projection is many-to-one and must be typed (\mathrm{AMBIG}) (bounded ambiguity) or (\mathrm{FAIL}) (unbounded ambiguity), depending on whether the fiber can be bounded under (\chi).
+
+08.F4 — Corridor intersections and routing feasibility
+Corridor composition corresponds to intersection of admissible sets and conjunction of constraints. A route spanning multiple corridors is feasible only if there exists a nonempty intersection corridor on which all transforms and verifications are well-defined. Empty intersection implies route (\mathrm{FAIL}).
+
+☁ Cloud — Truth Typing as Uncertainty Management with Bounded Evidence
+08.C1 — (\mathrm{NEAR}) as bounded uncertainty with explicit disclosure
+(\mathrm{NEAR}) is not “almost OK.” It is a different truth class requiring an explicit residual ledger that bounds the deviation under a pinned metric and declares scope and obligations. Any route that traverses (\mathrm{NEAR}) edges must carry these disclosures as part of the route artifact, and publication corridors typically forbid (\mathrm{NEAR}).
+
+08.C2 — (\mathrm{AMBIG}) as bounded non-identifiability with a finite candidate set
+(\mathrm{AMBIG}) is legal only when the system can bound the ambiguity into a finite, explicitly enumerated set of candidates under budget (\chi), and when an evidence plan specifies discriminators that would collapse ambiguity (promotion). If ambiguity is unbounded or cannot be enumerated within (\chi), the correct type is (\mathrm{FAIL}), not (\mathrm{AMBIG}).
+
+08.C3 — Route-level uncertainty aggregation
+Given a path outcome (\tau(P)), the route-level semantics are:
+(\mathrm{OK}): route is fully certified under corridor.
+(\mathrm{NEAR}): route is admissible only if the corridor allows NEAR; disclosures are mandatory and are inherited by any downstream reasoning.
+(\mathrm{AMBIG}): route can be used only to generate an evidence plan; it cannot be used as a meaning-preserving rewrite.
+(\mathrm{FAIL}): route cannot be used; downstream routes depending on it are invalid.
+Thus truth typing is a routing calculus, not a narrative.
+
+08.C4 — Publishing envelopes
+A corridor defines a publishing envelope by specifying:
+forbidden truth types for publication (usually (\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL})),
+allowed disclosures (if any),
+required closure checks (replay closure, invariant suite closure),
+and quarantine behavior for failures.
+
+✶ Fractal — Failure Modes as Typed Defect Classes and Repair Loops
+08.R1 — Failure mode taxonomy (typed)
+Define the failure mode classes (non-exhaustive but closed under corridor extension), each mapped to a default truth type and mandatory artifact:
+PIN‑MISSING: unpinned meaning-bearing parameter (hidden knob).
+default: (\mathrm{FAIL}) for publication corridors; (\mathrm{AMBIG}) allowed only if a finite pin completion set exists with an evidence plan.
+DOMAIN‑ILLEGAL: transform applied outside declared domain; missing domain spec.
+default: (\mathrm{FAIL}) with minimal counterexample.
+INVAR‑VIOLATION: declared invariant fails beyond (\beta).
+default: (\mathrm{FAIL}) with failing witness.
+COMM‑VIOLATION: commutation residual exceeds (\kappa).
+default: (\mathrm{FAIL}) unless corridor permits downgrade to (\mathrm{NEAR}) with residual ledger (rare; must be explicit).
+ALIAS‑LEAK: many-to-one projection outside corridor, producing non-identifiability.
+default: (\mathrm{AMBIG}) if fibers are bounded and enumerated; otherwise (\mathrm{FAIL}).
+NONDET‑REPLAY: replay does not reproduce results under identical pins.
+default: (\mathrm{FAIL}) with reproduction recipe.
+BUDGET‑OVERFLOW: (\chi) overflow (search explosion), (\delta) overflow (verification depth), or residual overflow ((\beta,\kappa)).
+default: (\mathrm{FAIL}), or (\mathrm{AMBIG}) only if a bounded alternative plan exists.
+PATH‑DIVERGENCE: two admissible routes yield incompatible certified results under identical pins.
+default: (\mathrm{FAIL}) with deterministic minimal witness set; corridors may refine into a dedicated conflict class, but within (\mathbb{T}_4) it is treated as (\mathrm{FAIL}) with quarantine.
+
+08.R2 — Quarantine and fence propagation (routability closure)
+A corridor must define quarantine rules:
+An edge with outcome (\mathrm{FAIL}) is non-routable.
+Any path that requires a failed edge is non-routable.
+A fence is a deterministic exclusion set of edges and derived routes impacted by a failure witness.
+Fence propagation is computed by traversing dependency graphs of route artifacts and endpoint scopes.
+Quarantine is lifted only by:
+promotion (NEAR→OK) under identical pins and verified obligations, or
+explicit migration to new pins with certified compatibility and regression witnesses.
+
+08.R3 — Repair loops as corridor-governed recursion
+Repair is a typed recursion controlled by corridor rules:
+Repair from NEAR: discharge obligations (tighten bounds, add witnesses, improve resolution, refine domain specs), then re-evaluate under same pins; if residual becomes zero, promote to OK.
+Repair from AMBIG: execute evidence plan discriminators to collapse candidate set; if a unique candidate remains, re-evaluate and issue OK/NEAR; otherwise remain AMBIG.
+Repair from FAIL: produce either (i) new evidence that changes evaluation legitimately under same pins (rare; typically a missing artifact), or (ii) a MIGRATE to new pins with a compatibility matrix and regression suite.
+Repair outputs are new routable artifacts; repairs do not overwrite old artifacts.
+
+08.R4 — Certification closure for corridor correctness
+A corridor profile (\mathfrak{C}) is itself subject to certification:
+determinism of evaluation and planning,
+completeness of pinset requirements,
+explicit thresholds and budget semantics,
+mandatory artifact rules for each truth type,
+and regression suites proving that common failure modes are correctly typed and fenced.
+A corridor that cannot be replay-verified is non-admissible for any route claimed as (\mathrm{OK}).
+
+Ch08 — Corridors, Truth Typing, and Failure Modes
+Ch09 — Spin and Holonomy as Path-Dependence Witness
+Spin loops as commutation receipts in HD‑SCT
+
+□ Square — Discrete Holonomy in the Certified Transport Graph
+09.S1 — Objects
+09.S1.a — Typed endpoints and admissible morphisms
+Fix a dimension/scale pair ((d,k)) and a pinned corridor profile (\mathfrak{C}) with budget vector
+[
+\mathbf{b}=(\kappa,\beta,\delta,\chi).
+]
+Let (\mathcal{O}) be the set of typed endpoints (addresses) in HD‑SCT, where each endpoint includes:
+representation lens (L\in{S,F,C,R}),
+dimension (d) and scale (k),
+pinned normal-form profile digest,
+pinned metric profile digest,
+pinned codec/serialization profile digest,
+pinned corridor/profile digests required for decode and legality.
+A certified morphism (edge) is a proof-carrying transport/transform object
+[
+e:\ A \rightharpoonup B
+]
+equipped with:
+an explicit forward map (T_e),
+an explicit domain specification (\mathrm{Dom}(e)\subseteq \mathcal{R}_A),
+optional backward map (T_e^{-1}) when the claim asserts invertibility,
+declared invariant set (\mathcal{I}(e)),
+evaluation outcome (\tau(e)\in{\mathrm{OK},\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL}}) under corridor (\mathfrak{C}),
+replay capsule pointer and witness pointers.
+In this chapter, holonomy and spin are defined only for morphisms whose replay closure exists and whose domains are explicitly declared; holonomy is never asserted on implicit transport.
+
+09.S1.b — Paths, composite maps, and partiality
+A path (P) from (A) to (B) is a finite sequence of morphisms
+[
+P=(e_1,\dots,e_m),
+\qquad e_i:\ V_{i-1}\rightharpoonup V_i,
+\quad V_0=A,\ V_m=B.
+]
+The composite map of (P) is the partial map
+[
+T_P:=T_{e_m}\circ \cdots\circ T_{e_1},
+]
+with domain
+[
+\mathrm{Dom}(P):=\left{x\in\mathrm{Dom}(e_1):\ T_{e_1}(x)\in\mathrm{Dom}(e_2),\dots,\ T_{e_{m-1}}\circ\cdots\circ T_{e_1}(x)\in\mathrm{Dom}(e_m)\right}.
+]
+A path is evaluable at (x\in\mathcal{R}_A) iff (x\in\mathrm{Dom}(P)).
+
+09.S1.c — Loops and loop holonomy as endomorphism content
+A loop at endpoint (A) is a path (L) with identical endpoints:
+[
+L:\ A\rightharpoonup A.
+]
+The holonomy map of a loop (L) is the induced partial endomorphism (T_L:\mathcal{R}_A\rightharpoonup\mathcal{R}_A) with domain (\mathrm{Dom}(L)).
+A loop is identity-holonomic on a test set (U\subseteq\mathrm{Dom}(L)) if (T_L(x)=x) for all (x\in U) in the corridor’s exact-equality sense (typically equality of pinned normal forms and/or pinned fingerprints). Otherwise it has nontrivial holonomy.
+
+09.S1.d — Path-difference loop (holonomy witness for two routes)
+Let (P,Q) be two evaluable paths from (A) to (B). If (Q) admits a certified inverse path (Q^{-1}) on a declared codomain subset containing (T_P(U)), define the path-difference loop at (A) by
+[
+\boxed{
+\mathrm{Loop}(P,Q):=Q^{-1}\circ P:\ A\rightharpoonup A.
+}
+]
+When this loop is evaluable on (U\subseteq \mathrm{Dom}(P)\cap \mathrm{Dom}(Q)), it is the canonical witness of path dependence:
+[
+T_{\mathrm{Loop}(P,Q)}(x)=x \ \ \forall x\in U
+\quad\Longleftrightarrow\quad
+T_P(x)=T_Q(x)\ \ \forall x\in U.
+]
+This converts “two routes disagree” into a single loop endomorphism that can be measured, budgeted, replayed, and routed around.
+
+09.S1.e — Spin loop (commutator loop)
+Let (A) be a fixed endpoint and let (a,b:\ A\rightharpoonup A) be two certified endomorphisms (often composites of primitive steps). Suppose both admit certified partial inverses on a declared common corridor domain.
+Define the spin loop (group commutator path) by
+[
+\boxed{
+\mathrm{Spin}(a,b):=a\circ b\circ a^{-1}\circ b^{-1}:\ A\rightharpoonup A.
+}
+]
+Spin is a loop-valued invariant: it equals the identity loop exactly when (a) and (b) commute on the declared domain.
+
+09.S1.f — Holonomy residual and pinned metrics
+Fix a pinned metric (d_\pi) on (\mathcal{R}A) (or on its normal forms), and a pinned canonicalization operator (\mathrm{NF}\pi). Define the holonomy residual of a loop (L) on a test set (U\subseteq\mathrm{Dom}(L)) by
+[
+\boxed{
+\mathrm{Res}\pi(L;U)
+:=\sup{x\in U}\ d_\pi!\big(\mathrm{NF}\pi(T_L(x)),\ \mathrm{NF}\pi(x)\big).
+}
+]
+In corridors where equality is fingerprint equality, (d_\pi) may be the discrete metric on pinned fingerprints:
+[
+d_\pi(u,v):=
+\begin{cases}
+0,& \mathrm{fp}\pi(u)=\mathrm{fp}\pi(v),\
+1,& \text{otherwise}.
+\end{cases}
+]
+The corridor profile pins which metric is authoritative for each invariant family.
+
+09.S1.g — SpinReceipt (commutation receipt artifact)
+A SpinReceipt is the minimal proof-carrying artifact that records a measured spin loop (or general path-difference loop) under a corridor:
+[
+\boxed{
+\mathsf{SR}:=(A,\ \mathfrak{C},\ a,\ b,\ \mathrm{Spin}(a,b),\ U,\ d_\pi,\ \mathbf{b},\ \mathrm{Res}_\pi,\ \tau,\ \mathsf{RC},\ \mathsf{W},\ \mathsf{RL?},\ \mathsf{EP?},\ \mathsf{FW?}).
+}
+]
+A SpinReceipt is a routable object. A route planner may require SpinReceipts at planning time (commutation gating), and may attach them to lift chains, tunnel schedules, and lens-swap sequences as mandatory commutation evidence.
+
+09.S2 — Operators
+09.S2.a — Commutation check as a loop-evaluation operator
+Define the commutation-check operator
+[
+\boxed{
+\mathrm{CheckComm}\mathfrak{C}(a,b;U)
+:=\mathrm{Eval}\mathfrak{C}\big(\mathrm{Spin}(a,b);\ U\big),
+}
+]
+where (\mathrm{Eval}_\mathfrak{C}) is the corridor’s deterministic evaluator producing an outcome
+[
+\mathsf{Out}=(\tau,\mathsf{RC},\mathsf{W},\mathsf{RL?},\mathsf{EP?},\mathsf{FW?},\mathrm{BudgetUse},\mathrm{Obligations}).
+]
+The evaluator is required to:
+compute (\mathrm{Res}_\pi(\mathrm{Spin}(a,b);U)),
+charge commutation residual against (\kappa),
+charge any approximation drift against (\beta),
+charge search/replay cost against (\chi),
+produce (\mathrm{OK}) only under replay closure and exact invariant satisfaction.
+
+09.S2.b — Holonomy witness for two routes
+Given two certified paths (P,Q:A\rightharpoonup B) with declared evaluation set (U\subseteq\mathrm{Dom}(P)\cap\mathrm{Dom}(Q)), define:
+[
+\boxed{
+\mathrm{Hol}\mathfrak{C}(P,Q;U)
+:=\mathrm{Eval}\mathfrak{C}\big(\mathrm{Loop}(P,Q);\ U\big),
+}
+]
+when (Q^{-1}) is defined and certified on (T_P(U)).
+This operator is the universal mechanism for:
+detecting route disagreement,
+producing a witness of the disagreement,
+classifying the disagreement under budgets,
+and generating repair obligations (strengthen invariants, refine domains, migrate profiles, or quarantine).
+
+09.S2.c — Conjugation transport of operators across lenses
+Holonomy and spin are defined on endomorphisms of a single endpoint. For cross-lens operator families, define operator transport by conjugation.
+Let (u:\ A\rightharpoonup B) be an invertible certified transport and let (b:\ B\rightharpoonup B) be an endomorphism. Define the pullback of (b) to (A) by
+[
+\boxed{
+u^\ast b:=u^{-1}\circ b\circ u:\ A\rightharpoonup A.
+}
+]
+Define the pushforward of (a:\ A\rightharpoonup A) to (B) by
+[
+\boxed{
+u_\ast a:=u\circ a\circ u^{-1}:\ B\rightharpoonup B.
+}
+]
+Conjugation makes operator commutation testable “in one space” even when the original operators live naturally in different lenses.
+
+09.S2.d — Holonomy class and loop normalization
+A corridor may pin a loop normal form (\mathrm{NFLoop}_\pi) that canonicalizes a loop path (e.g., reduces adjacent inverse pairs, eliminates identity edges, normalizes edge ordering under pinned tie-break).
+Define the holonomy class of a loop (L) as:
+[
+\boxed{
+[L]\pi := \mathrm{NFLoop}\pi(L).
+}
+]
+Loop normalization is mandatory whenever receipts are deduplicated, indexed, or used as route constraints; without normalization, identical holonomy content can fragment across multiple syntactic loops.
+
+09.S3 — Invariants
+09.S3.a — Path-independence ⇔ trivial holonomy
+For evaluable routes (P,Q:A\rightharpoonup B) on test set (U), path-independence under corridor invariants is equivalent to trivial holonomy:
+[
+\mathrm{Res}\pi(\mathrm{Loop}(P,Q);U)=0
+\quad\Longleftrightarrow\quad
+\mathrm{NF}\pi(T_P(x))=\mathrm{NF}_\pi(T_Q(x))\ \ \forall x\in U.
+]
+Thus, holonomy is the canonical witness of path dependence.
+
+09.S3.b — Spin triviality ⇔ commutation
+For endomorphisms (a,b:A\rightharpoonup A) with certified inverses on a declared common domain:
+[
+\mathrm{Res}\pi(\mathrm{Spin}(a,b);U)=0
+\quad\Longleftrightarrow\quad
+\mathrm{NF}\pi(a(b(x)))=\mathrm{NF}_\pi(b(a(x)))\ \ \forall x\in U.
+]
+
+09.S3.c — Conjugacy invariance of holonomy magnitude
+Let (u:A\rightharpoonup B) be an invertible certified transport. For any loop (L) at (B), define the conjugated loop (u^\ast L:=u^{-1}\circ L\circ u) at (A). If the corridor pins metrics compatible under transport (i.e., (d_\pi) is transport-invariant on the declared domain), then:
+[
+\mathrm{Res}\pi(L;U)=\mathrm{Res}\pi(u^\ast L;\ u^{-1}(U)).
+]
+This is the formal statement that holonomy is a geometric invariant of the underlying structure, not an artifact of lens choice, when transports are certified as equivalences.
+
+09.S3.d — Budget monotonicity and route-level holonomy control
+Corridor budgets impose monotone constraints:
+(\kappa) bounds commutation residuals (spin magnitude),
+(\beta) bounds approximation drift,
+(\chi) bounds loop search and replay cost,
+(\delta) bounds recursion depth for receipts that require nested verification.
+For any composed loop (L=L_1\circ L_2), corridor-defined aggregation rules imply:
+[
+\mathrm{Res}\pi(L;U)\ \text{is bounded above by a pinned function of}\ \mathrm{Res}\pi(L_1;U)\ \text{and}\ \mathrm{Res}_\pi(L_2;U).
+]
+The corridor pins whether residuals are summed, maxed, or combined by a mixed rule; the combination semantics are part of meaning and must be pinned.
+
+09.S4 — Protocols and Algorithms
+09.S4.a — SpinReceipt construction protocol
+Given (A,\mathfrak{C},a,b,U):
+Domain intersection. Compute and certify a domain (U\subseteq \mathrm{Dom}(a)\cap\mathrm{Dom}(b)\cap\mathrm{Dom}(a^{-1})\cap\mathrm{Dom}(b^{-1})) sufficient for evaluation.
+Loop formation. Construct (L:=\mathrm{Spin}(a,b)=a\circ b\circ a^{-1}\circ b^{-1}).
+Replay capsule. Produce (\mathsf{RC}) that deterministically replays:
+evaluation set construction,
+map application order,
+canonicalization,
+metric computation,
+classification under ((\kappa,\beta,\delta,\chi)).
+Residual computation. Compute (\mathrm{Res}_\pi(L;U)), and any auxiliary commutator diagnostics pinned by the corridor.
+Truth typing. Output:
+(\mathrm{OK}) iff residual is (0) under the corridor’s exact metric and replay closes;
+(\mathrm{NEAR}) iff residual (\le\kappa) (and any drift (\le\beta)) with a ResidualLedger;
+(\mathrm{AMBIG}) iff the corridor can bound ambiguity (finite candidates) with an EvidencePlan;
+(\mathrm{FAIL}) otherwise with a FailureWitness.
+Indexing. Store ([L]_\pi) in the SpinAtlas (receipt registry), keyed by pinned digests of (A,\mathfrak{C},a,b,\pi).
+
+09.S4.b — Path-difference holonomy receipt (route comparison)
+Given two routes (P,Q:A\rightharpoonup B) and a test set (U\subseteq\mathrm{Dom}(P)\cap\mathrm{Dom}(Q)), construct:
+[
+L:=\mathrm{Loop}(P,Q)=Q^{-1}\circ P:\ A\rightharpoonup A
+]
+and evaluate as in 09.S4.a. This yields a RouteHolonomyReceipt that can be used to:
+certify that two routes are equivalent (OK),
+disclose bounded disagreement (NEAR) with scope,
+produce an evidence plan to disambiguate (AMBIG),
+or certify failure and fence the route (FAIL).
+
+09.S4.c — Canonical commutation receipt template library
+Corridors may require receipts for specific generator pairs, including (non-exhaustive):
+Lift–Spin receipts: commutation between scale lifts and circle/tunnel steps.
+Axis-order receipts: commutation between per-axis steps (\mathrm{Step}{\delta_i}) and (\mathrm{Step}{\delta_j}) under pinned multi-axis scheduling.
+DUAL-chain receipts: commutation receipts validating that alternative adjacency lift chains induce equivalent semantics (or bounded residual).
+Snap–Transport receipts: receipts that snapping into hub corridors does not change coarse hub class under pinned truncations, beyond budget.
+Each template fixes:
+generator identifiers (by digest),
+declared test sets,
+mandatory invariants,
+and required truth threshold for routability.
+
+09.S4.d — Reference implementation skeleton (loop receipts)
+from dataclasses import dataclass
+from typing import Callable, List, Optional, Tuple, Literal, Dict, Any
+
+Truth = Literal["OK","NEAR","AMBIG","FAIL"]
+
+@dataclass(frozen=True)
+class Budget:
+    kappa: float
+    beta: float
+    delta: int
+    chi: int
+
+@dataclass(frozen=True)
+class ResidualLedger:
+    metric_id: str
+    bound: float
+    scope: Tuple[str, ...]
+    obligations: Tuple[str, ...]
+    replay_ptr: str
+
+@dataclass(frozen=True)
+class EvidencePlan:
+    candidates: Tuple[str, ...]
+    discriminators: Tuple[str, ...]
+    routes: Tuple[str, ...]
+    promotion_rules: Tuple[str, ...]
+    replay_ptrs: Tuple[str, ...]
+
+@dataclass(frozen=True)
+class FailureWitness:
+    reason: str
+    repro_ptr: str
+    counterexample_ptr: Optional[str]
+
+@dataclass(frozen=True)
+class Outcome:
+    truth: Truth
+    replay_ptr: str
+    witness_ptrs: Tuple[str, ...]
+    residual_ledger: Optional[ResidualLedger]
+    evidence_plan: Optional[EvidencePlan]
+    failure_witness: Optional[FailureWitness]
+    budget_use: Budget
+    obligations: Tuple[str, ...]
+
+@dataclass(frozen=True)
+class LoopSpec:
+    loop_id: str
+    # callable maps on a shared state type; in the manuscript, these are typed partial maps
+    fwd: Callable[[Any], Any]
+    inv: Callable[[Any], Any]  # inverse on declared domain
+    domain_pred: Callable[[Any], bool]  # decides membership in declared evaluation domain
+
+def spin_loop(a: LoopSpec, b: LoopSpec) -> LoopSpec:
+    def fwd(x):
+        return a.fwd(b.fwd(a.inv(b.inv(x))))
+    def inv(x):
+        # inverse of commutator is commutator with swapped order: b a b^{-1} a^{-1}
+        return b.fwd(a.fwd(b.inv(a.inv(x))))
+    def dom(x):
+        return a.domain_pred(x) and b.domain_pred(x)
+    return LoopSpec(loop_id=f"Spin({a.loop_id},{b.loop_id})", fwd=fwd, inv=inv, domain_pred=dom)
+
+def holonomy_residual(loop: LoopSpec, U: List[Any], NF: Callable[[Any], Any], dist: Callable[[Any,Any], float]) -> float:
+    r = 0.0
+    for x in U:
+        if not loop.domain_pred(x):
+            continue
+        y = NF(loop.fwd(x))
+        x0 = NF(x)
+        r = max(r, dist(y, x0))
+  

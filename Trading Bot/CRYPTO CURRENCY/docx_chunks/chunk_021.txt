@@ -1,0 +1,341 @@
+udit report summarizes the evolution of the time axis across a range:
+Pulses present and missing (by PulseID).
+DP counts per pulse, authors, signature validity.
+Policy epoch boundaries and policy digests.
+Promotion counts per pulse by state transition.
+Replay validity status per pulse (valid, quarantined promotions, rejected anomalies).
+Bundle import/export events and their manifest digests.
+RetroIndex activity: new index keys, REF targets, and any EQUIV/MIGRATE witnesses added.
+Audit reports MUST be content-addressed and certifiable. The generator MUST emit AuditCert (20.10.4) over the report digest and coverage range.
+20.10 Required Certificates (Time Axis Obligations)
+All certificates in this chapter are deployment-grade obligations. Absence is a correctness failure under the corresponding policy requirements.
+20.10.1 ReplayCert
+A ReplayCert attests that a replay was performed and that specified digests matched.
+Minimum fields:
+[
+\mathsf{ReplayCert}=
+\langle
+[p_{\min},p_{\max}],;
+\mathsf{genesis_digest},;
+\mathsf{policy_epoch_digests},;
+{\mathsf{PulseDigest}(p)},;
+{\mathsf{CumDigest}(p)},;
+{\mathsf{DecisionLogDigest}(p)},;
+\mathsf{implementation_digest},;
+\mathsf{result},;
+\mathsf{sig}
+\rangle
+]
+where (\mathsf{result}\in{\mathsf{PASS},\mathsf{FAIL}}) with failure including mismatch digests and pointers to quarantine actions if produced.
+Verification predicate (pinned):
+signatures verify,
+recomputation matches asserted digests,
+decision log digests match recorded logs for the covered pulses (when logs exist and policy requires).
+20.10.2 ExportCert
+An ExportCert binds an exported bundle to its manifest and source lineage.
+Minimum fields:
+[
+\mathsf{ExportCert}=
+\langle
+\mathsf{bundle_manifest_digest},;
+[p_{\min},p_{\max}],;
+\mathsf{source_cumdigest}(p_{\max}),;
+\mathsf{exporter_id},;
+\mathsf{sig}
+\rangle
+]
+Verification predicate:
+manifest digest matches the referenced manifest object,
+exporter authorization verifies under policy,
+source cumdigest matches registry pins.
+20.10.3 RegressionCert
+A RegressionCert attests deterministic scheduler behavior against fixtures.
+Minimum fields:
+[
+\mathsf{RegressionCert}=
+\langle
+\mathsf{fixture_digests},;
+\mathsf{policy_digest},;
+\mathsf{implementation_digest},;
+\mathsf{expected_decisionlog_digests},;
+\mathsf{observed_decisionlog_digests},;
+\mathsf{result},;
+\mathsf{sig}
+\rangle
+]
+Verification predicate:
+fixture digests resolve to the referenced objects,
+observed digests equal expected digests for PASS,
+any mismatch is recorded with exact pulse and obligation IDs.
+20.10.4 AuditCert
+An AuditCert binds an audit report to a PulseID range and pinned integrity conditions.
+Minimum fields:
+[
+\mathsf{AuditCert}=
+\langle
+[p_{\min},p_{\max}],;
+\mathsf{audit_report_digest},;
+\mathsf{policy_digests_covered},;
+\mathsf{registry_pins_covered},;
+\mathsf{anomaly_summary},;
+\mathsf{sig}
+\rangle
+]
+Verification predicate:
+audit report digest resolves and matches,
+coverage range matches report,
+anomaly summary is consistent with report contents under pinned audit rules.
+
+Ch20⟨0103⟩ — Time Axis: Retro-Weaving, DeltaPacks, and Evidence Promotion
+Ch21⟨0110⟩ — Deployment and Conformance: Publishable Reality
+[○Arc 6 | ○Rot 0 | △Lane Sa | ω=20]
+21.0. Scope and workflow role
+This chapter specifies the minimal, verifiable machinery required to deploy the HD‑SCT framework as a production system whose operational reality is publishable: i.e., any third party with the published artifacts can deterministically replay deployment acceptance, reproduce incident evidence, verify revocation propagation, and audit compliance closure without relying on private context or operator narrative.
+The workflow role of this chapter is to define:
+Deployment profiles that pin meaning-bearing deployment semantics (corridors, budgets, allowed edges, governance gates, revocation and fallback behavior, schema pins).
+Conformance suites that deterministically decide deployment acceptance by replaying capsules under pinned conditions and applying acceptance predicates yielding ACCEPT, REJECT, or QUARANTINE.
+Monitoring templates whose outputs are deterministic functions of pinned corpus state and pinned event logs, and incident packets that encode minimal reproducible failures, pins, and regression contexts.
+Import verification and revocation propagation as mandatory preconditions for deployment acceptance and for continued operation under publication/import.
+Compliance closure as a publishable audit bundle, complete and deterministic, that closes the loop from deployment → monitoring → incidents → structured deltas (Ch20) → redeployment.
+Primary hubs (conceptual dependency corridor for this chapter):
+[
+\mathrm{AppA} \rightarrow \mathrm{AppP} \rightarrow \mathrm{AppO} \rightarrow \mathrm{AppI} \rightarrow \mathrm{AppM}.
+]
+This arrow denotes that (i) deployment semantics rely on the architecture basis (AppA), (ii) publication/import semantics (AppP) must be satisfied before any acceptance, (iii) object canonicalization and digest discipline (AppO) define determinism and reproducibility boundaries, (iv) incident semantics and replay discipline (AppI) determine resolvability, and (v) monitoring semantics (AppM) determine observability without semantic interference.
+
+21.1. Canonical primitives used in this chapter
+Let:
+(\mathbb{B}^*) be finite byte strings.
+(\mathsf{Digest}) be a fixed-length digest type (e.g., 256-bit).
+(\mathsf{H} : \mathbb{B}^* \to \mathsf{Digest}) be the canonical cryptographic hash used across the framework.
+Every framework object (X) has a canonical serialization (\mathsf{ser}(X)\in\mathbb{B}^*), and a content address:
+[
+\mathsf{did}(X) \stackrel{\mathrm{def}}{=} \mathsf{H}(\mathsf{ser}(X)).
+]
+A pin set is a finite map (\mathsf{Pins}: \mathsf{PinKey} \to \mathsf{Digest}) such that all referenced digests are resolvable via publication/import rules.
+A pinned corpus state (\mathsf{CSt}) is a content-addressable snapshot of the entire dependency closure required by a deployment, including code, data, schemas, policies, and declared external interfaces (as pinned contracts).
+An event log (\mathsf{ELog}) is an append-only sequence of events with canonical serialization per event and a canonical log digest (e.g., Merkle root) (\mathsf{did}(\mathsf{ELog})). For any prefix length (t), (\mathsf{ELog}_{\le t}) denotes the prefix; determinism claims are always stated relative to a fixed prefix digest.
+All objects defined below are required to be (i) canonically serializable, (ii) content-addressable, and (iii) publishable/importable under the publication discipline defined elsewhere.
+
+21.2. Required objects: minimum set
+21.2.1. DeploymentProfile (\mathsf{DPf})
+A DeploymentProfile is the meaning-bearing contract that defines what it means to deploy, validate, operate, and revoke a system instance under HD‑SCT. A (\mathsf{DPf}) is a tuple:
+[
+\mathsf{DPf} ;=; \langle \mathsf{Scope}, \mathsf{Pins}, \mathsf{Corridor}, \mathsf{Budgets}, \mathsf{AllowedEdges}, \mathsf{GovGates}, \mathsf{CriticalSetPolicy}, \mathsf{FallbackPolicy}, \mathsf{RevocationPolicy}, \mathsf{SchemaPins} \rangle
+]
+with the following components.
+(1) Scope (\mathsf{Scope}).
+A declarative specification of the deployment target boundary. It MUST determine:
+the set of deployable targets (\mathsf{Targets}(\mathsf{Scope})) (services, routes, batch jobs, pipelines, or other execution loci),
+the set of externally visible interfaces/contracts (\mathsf{Contracts}(\mathsf{Scope})),
+and the dependency closure (\mathsf{Dep}(\mathsf{Scope})) required to execute those targets.
+(2) Pins (\mathsf{Pins}).
+A pin set covering the entire meaning-bearing dependency closure of the deployment. At minimum, (\mathsf{Pins}) MUST include digests for:
+executable containers/binaries,
+configuration objects,
+contract objects used by conformance evaluation,
+replay capsule corpora required by the conformance suite,
+policy objects controlling import verification and revocation,
+and any model weights / rule sets treated as meaning-bearing.
+(3) Deployment corridor (\mathsf{Corridor}).
+A corridor is a typed set of allowable operational semantics for the deployment. It MUST be checkable during acceptance and must define:
+Invariant constraints (\mathsf{Inv}) that must hold exactly (e.g., “no new external egress edge kinds,” “schema major version unchanged,” “cryptographic verification enabled”).
+Tolerance constraints (\mathsf{Tol}) with bounded ranges (e.g., latency and error-rate bounds; bounded distribution shift thresholds).
+State transition constraints (\mathsf{Trans}) that bound allowed changes relative to a predecessor profile (\mathsf{DPf}{-}), formalized as a decidable predicate:
+[
+\mathsf{CorridorOK}(\mathsf{DPf}{-},\mathsf{DPf}) \in {\mathsf{true},\mathsf{false}}.
+]
+Corridor constraints MUST be expressed purely over pinned artifacts, pinned baselines, and explicitly pinned measurement corpora. Any corridor component that depends on live operational data MUST be implemented as a function over pinned log prefixes (\mathsf{ELog}_{\le t}) (see §21.2.3), so that verification remains deterministic per prefix digest.
+(4) Budgets (\mathsf{Budgets}).
+Budgets bound resource use and operational limits. Budgets are constraints of the form:
+[
+\mathsf{BudgetOK}(\mathsf{RunEvidence}) \in {\mathsf{true},\mathsf{false}}
+]
+where (\mathsf{RunEvidence}) is the deterministic evidence produced by conformance execution and/or pinned monitoring log evaluation. Budgets MUST include at least:
+compute (CPU/GPU/time) bounds,
+memory bounds,
+storage bounds,
+and if applicable, cost bounds (expressed against pinned pricing tables or pinned conversion functions, never live lookups).
+(5) Allowed edge kinds (\mathsf{AllowedEdges}).
+A finite set of allowed directed edge kinds (as typed relations) in the runtime dependency graph. Let (\mathsf{EdgeKind}) be a closed vocabulary; then:
+[
+\mathsf{AllowedEdges} \subseteq \mathsf{EdgeKind}.
+]
+A deployment MUST NOT introduce an edge kind not in (\mathsf{AllowedEdges}). This is enforced both statically (by import closure analysis) and dynamically (by monitoring templates that report observed edges, without enforcing them at runtime).
+(6) Governance gates (\mathsf{GovGates}).
+A governance gate is a required, verifiable predicate over published artifacts and signatures. Each gate is a predicate:
+[
+g_i(\mathsf{DPf}, \mathsf{Evidence}) \in {\mathsf{true},\mathsf{false}}.
+]
+Typical examples include: required signers present on the (\mathsf{DPf}), required review certificates present on referenced artifacts, explicit approval for corridor widening, and explicit approval for schema major changes. Gates MUST be decidable from published artifacts; they MUST NOT depend on oral approvals, private ticket systems, or ephemeral communications.
+(7) Critical-set policy (\mathsf{CriticalSetPolicy}).
+A policy defining a designated set of high-criticality contracts and replay capsules such that any violation yields REJECT (not QUARANTINE) unless explicitly overridden by a governance gate. Formally, it selects:
+[
+\mathsf{Crit}(\mathsf{DPf}) \subseteq \mathsf{CapsuleID} \cup \mathsf{ContractID}
+]
+and defines mandatory strict predicates for those elements.
+(8) Fallback policy (\mathsf{FallbackPolicy}).
+A deterministic rule for selecting a fallback deployment when acceptance yields QUARANTINE or when revocation forces rollback. It is a function:
+[
+\mathsf{FallbackPolicy} : (\mathsf{DPf}, \mathsf{Verdict}, \mathsf{RevocationState}) \to \mathsf{DPfRef}
+]
+where (\mathsf{DPfRef}) is a content-address (digest) of an approved prior profile, or a pinned safe baseline.
+Fallback selection MUST be deterministic and MUST be verifiable from the published state; it MUST NOT depend on operator discretion at runtime.
+(9) Revocation policy (\mathsf{RevocationPolicy}).
+A policy defining (i) what revocation signals are authoritative, (ii) how to quarantine or reject revoked artifacts, and (iii) how revocations propagate through publication/import. It MUST define:
+a revocation source set (\mathsf{Rsrc}) (pinned public keys / authorities),
+a revocation decision function (\mathsf{Revoked}(\mathsf{Digest})),
+propagation rules through dependency closure,
+and operational constraints upon revocation (halt, rollback, isolate, or degrade), all of which must be expressible as deterministic actions over pinned digests and pinned logs.
+(10) Schema pins (\mathsf{SchemaPins}).
+A pin set for all schemas required to interpret artifacts and logs. This includes schema objects for:
+(\mathsf{DPf}) itself,
+(\mathsf{CSu}),
+monitoring outputs,
+incident packets,
+DeltaPacks (Ch20),
+and compliance bundles.
+Schema pins MUST be part of the meaning-bearing set: changing schema pins is a meaning-bearing change requiring explicit (\mathsf{DPf}) versioning/migration discipline (below).
+
+21.2.1.1. Meaning-bearing change and explicit versioning discipline
+A change from (\mathsf{DPf}^{(k)}) to (\mathsf{DPf}^{(k+1)}) is meaning-bearing unless it is provably a serialization-preserving no-op (which is only possible if (\mathsf{did}) is unchanged). Therefore:
+Any edit that changes (\mathsf{did}(\mathsf{DPf})) MUST be treated as a new version.
+All deployments MUST refer to (\mathsf{DPf}) by digest, not by mutable name.
+A deployment MUST NOT “silently edit” a (\mathsf{DPf}) in-place; there is no in-place mutability in publishable reality.
+A migration discipline is required:
+If a deployment transitions from (\mathsf{DPf}{-}) to (\mathsf{DPf}), then (\mathsf{CorridorOK}(\mathsf{DPf}{-},\mathsf{DPf})) MUST hold, and every violated corridor constraint MUST be explicitly waived by an applicable governance gate whose waiver scope is itself pinned and published.
+Any corridor widening MUST be explicit: widening is defined as a strict relaxation in (\mathsf{Inv}) or (\mathsf{Tol}) and is not permitted unless gated.
+
+21.2.2. ConformanceSuite (\mathsf{CSu})
+A ConformanceSuite is a deterministic harness object that evaluates a (\mathsf{DPf}) against a pinned set of replay capsules and contracts to produce an acceptance verdict. A (\mathsf{CSu}) is a tuple:
+[
+\mathsf{CSu} ;=; \langle \mathsf{Targets}, \mathsf{Contracts}, \mathsf{ReplayCapsules}, \mathsf{RegressionSets}, \mathsf{ExpectedDigests}, \mathsf{AcceptPred} \rangle.
+]
+(1) Targets (\mathsf{Targets}).
+A finite, ordered list of executable targets (routes/jobs/services) to exercise. Target resolution MUST be pinned through (\mathsf{DPf.Pins}). Each target has a canonical target identifier (\mathsf{TID}) and a deterministic invocation signature.
+(2) Contracts (\mathsf{Contracts}).
+Contracts are declarative specifications of required behavior (input/output schemas, invariants, safety rules, and determinism requirements). Each contract is content-addressable and must specify a decidable predicate:
+[
+\mathsf{ContractOK}(c, \mathsf{RunTrace}) \in {\mathsf{true},\mathsf{false}}.
+]
+(3) Replay capsules (\mathsf{ReplayCapsules}).
+A replay capsule is a minimal, deterministic reproducer for target execution. Each capsule MUST include:
+pinned input payloads,
+pinned environment pins (including RNG seed discipline),
+pinned dependency closure digests required to replay,
+a canonical execution plan, and
+a canonical expected output representation (either exact digest match or tolerance window over a pinned metric function).
+A capsule yields a deterministic run trace (\mathsf{RunTrace}) given a pinned execution container and pinned environment.
+(4) Regression sets (\mathsf{RegressionSets}).
+Regression sets group capsules and define which baselines apply. Each set binds:
+a set of capsule IDs,
+an applicable baseline profile reference (\mathsf{DPfRef}) (or baseline evidence),
+and a comparison function defining “regression” in terms of corridor tolerances.
+(5) Expected digests (\mathsf{ExpectedDigests}).
+A map from capsule IDs (and/or contract IDs) to expected digests of canonical outputs, traces, and/or evidence bundles. Expected digests MUST be interpreted under pinned schemas and pinned canonicalization functions.
+(6) Acceptance predicate (\mathsf{AcceptPred}).
+A deterministic predicate that maps evidence to a ternary verdict:
+[
+\mathsf{AcceptPred} : (\mathsf{DPf}, \mathsf{CSu}, \mathsf{Evidence}) \to {\mathsf{ACCEPT},\mathsf{REJECT},\mathsf{QUARANTINE}}.
+]
+The acceptance predicate MUST incorporate (at minimum):
+import verification status (§21.3.1),
+corridor enforcement (§21.3.3),
+capsule replay outcomes and contract checks,
+regression comparisons,
+budgets,
+and critical-set policy strictness.
+Verdict semantics.
+ACCEPT: deployment may be published as deployable under the referenced (\mathsf{DPf}), and a conformance certificate (below) may be issued.
+REJECT: deployment MUST NOT be published as deployable; publishing may still occur for archival purposes if labeled non-deployable, but any importer enforcing deployment acceptance MUST reject it.
+QUARANTINE: deployment MUST NOT be deployed; it MAY be published only as quarantined, and must carry sufficient evidence to reproduce why it is quarantined. Fallback policy MUST deterministically select the operational profile if a deployment attempt occurs.
+
+21.2.3. Monitoring template and incident packet as an artifact family
+Monitoring and incident handling are specified as a coupled artifact family:
+(\mathsf{MTe}): MonitoringTemplate (monitor definitions).
+(\mathsf{IPk}): IncidentPacket (replay packet + pins + regressions).
+(\mathsf{PMTe}): PostmortemTemplate (structured emission of DeltaPacks).
+These objects MUST be publishable, content-addressable, and schema-pinned.
+
+21.2.3.1. MonitoringTemplate (\mathsf{MTe})
+A MonitoringTemplate defines monitors that produce outputs keyed to pinned identity (digests, route IDs, corpus state digests) and pinned event logs. Let (\mathsf{Obs}) be an observation space; then:
+[
+\mathsf{MTe} = \langle \mathsf{Monitors}, \mathsf{Keying}, \mathsf{Thresholds}, \mathsf{ReportSchemaPins} \rangle
+]
+where:
+(\mathsf{Monitors}) is a finite set of monitor definitions ({m_j}).
+Each monitor (m) defines a deterministic function:
+[
+m : (\mathsf{DPf}, \mathsf{CSt}, \mathsf{ELog}{\le t}) \to \mathsf{Obs}
+]
+where (\mathsf{CSt}) and (\mathsf{ELog}{\le t}) are pinned by digest.
+(\mathsf{Keying}) defines the stable keys of monitoring outputs, and MUST include keys for:
+deployment profile digest (\mathsf{did}(\mathsf{DPf})),
+corpus state digest (\mathsf{did}(\mathsf{CSt})),
+event log prefix digest (\mathsf{did}(\mathsf{ELog}_{\le t})),
+route/target identifiers where applicable.
+(\mathsf{Thresholds}) defines alerting conditions as predicates over (\mathsf{Obs}), producing deterministic alert events when evaluated against a pinned log prefix.
+Monitoring MUST include, at minimum, monitor families keyed by:
+Digests and pin integrity: detecting divergence between claimed and resolved digests.
+Route success rates: computed over pinned event logs; keyed by target IDs and profile digest.
+Truth-class drift: drift metrics defined as deterministic functions of pinned evaluation corpora and/or pinned annotated subsets derived from the event log prefix via pinned sampling rules.
+
+21.2.3.2. Non-interference law for monitoring
+Monitoring MUST be observationally pure: it MUST NOT change system semantics. Formally, for any execution of a target under profile (\mathsf{DPf}), let (\mathsf{Exec}) denote the operational semantics of the deployed system. Let (\mathsf{Exec}^{\mathsf{mon}}) denote the semantics when monitoring instrumentation is present.
+Monitoring satisfies non-interference iff for all pinned inputs (x) and pinned environment (e):
+[
+\mathsf{Exec}(\mathsf{DPf}, x, e) \equiv \mathsf{Exec}^{\mathsf{mon}}(\mathsf{DPf}, x, e)
+]
+where (\equiv) denotes equality of canonical outputs and equality of all meaning-bearing side effects as defined by the framework’s operational contract vocabulary.
+Instrumentation that changes scheduling, numerical precision, random seeds, or control flow violates this law unless such effects are explicitly included in the meaning-bearing specification and pinned (which is generally disallowed for monitoring).
+
+21.2.3.3. IncidentPacket (\mathsf{IPk})
+An IncidentPacket is a minimal, deterministic reproducer bundle sufficient to replay an incident under pinned conditions and to resolve it only through explicit DeltaPacks (Ch20) and explicit profile versioning. An incident packet is:
+[
+\mathsf{IPk} = \langle \mathsf{IncidentID}, \mathsf{TriggerEvidence}, \mathsf{Reproducer}, \mathsf{Pins}, \mathsf{RegressionContext}, \mathsf{FencePolicy}, \mathsf{ResolutionCriteria} \rangle
+]
+with:
+(\mathsf{TriggerEvidence}): pinned monitoring output(s) and pinned log prefix digest(s) demonstrating the triggering condition.
+(\mathsf{Reproducer}): a replay capsule (or capsule generator with pinned selection rules) sufficient to reproduce the failure. If the incident is a production-only condition, (\mathsf{Reproducer}) MUST be defined as a deterministic extraction from a pinned event log prefix under a pinned extraction schema.
+(\mathsf{Pins}): the exact (\mathsf{DPf}) digest and all dependency digests required to replay.
+(\mathsf{RegressionContext}): relevant regression sets from (\mathsf{CSu}), plus any pinned additional corpora used in diagnosing the regression.
+(\mathsf{FencePolicy}): mandatory containment boundaries for replay and remediation (e.g., sandbox restrictions, disallowed egress), expressed as decidable constraints over the execution environment.
+(\mathsf{ResolutionCriteria}): a decidable predicate defining what constitutes a resolved incident, typically: “the reproducer passes under updated pins and updated (\mathsf{DPf}), with corridor and budgets satisfied, and no new critical-set failures introduced.”
+
+21.2.3.4. PostmortemTemplate (\mathsf{PMTe}) and DeltaPack emission
+A postmortem MUST NOT be narrative-only. Postmortem output MUST be a structured emission of one or more DeltaPacks (Ch20) and associated evidence. The postmortem template defines:
+required structured fields (cause classification in the framework taxonomy, affected artifacts by digest, violated corridors, violated contracts),
+required replay evidence attachments (capsule digests, logs, run traces),
+and required DeltaPack emission constraints.
+A postmortem completion is valid only if it outputs:
+[
+\langle \mathsf{DP}, \mathsf{Evidence}, \mathsf{ImpactSummary} \rangle
+]
+where (\mathsf{DP}) is a DeltaPack whose application domain is explicit and whose application produces new content-addressed artifacts (including possibly a new (\mathsf{DPf})).
+
+21.3. Required laws
+21.3.1. Deployment acceptance law: import verification + replay + corridor enforcement
+A deployment is acceptable only if all three conditions hold:
+Import verification: every imported artifact in the dependency closure of the candidate deployment verifies under publication/import rules and under the active revocation policy.
+Replay: conformance suite replay executes deterministically and produces evidence matching expected digests or satisfying pinned tolerance predicates.
+Corridor enforcement: the candidate profile satisfies corridor constraints relative to its baseline and relative to pinned measurement corpora.
+Formally, given a candidate profile (\mathsf{DPf}) and suite (\mathsf{CSu}), define:
+(\mathsf{IV}(\mathsf{DPf}) \in {\mathsf{true},\mathsf{false}}): import verification over the full closure (§21.4.1).
+(\mathsf{REPLAY}(\mathsf{DPf},\mathsf{CSu}) \to \mathsf{Evidence}): deterministic harness execution.
+(\mathsf{COR}(\mathsf{DPf}_{-},\mathsf{DPf},\mathsf{Evidence}) \in {\mathsf{true},\mathsf{false}}): corridor enforcement (including budgets and governance gates).
+A necessary condition for ACCEPT is:
+[
+\mathsf{IV}(\mathsf{DPf}) \wedge \mathsf{COR}(\mathsf{DPf}_{-},\mathsf{DPf},\mathsf{Evidence}) \wedge \mathsf{ReplayOK}(\mathsf{Evidence}).
+]
+Sufficiency is delegated to (\mathsf{AcceptPred}), but (\mathsf{AcceptPred}) MUST imply the above conjunction for ACCEPT.
+
+21.3.2. Revocations and quarantines propagate deterministically through publication/import
+Revocation and quarantine semantics MUST be closure-stable and deterministic. Let (\mathsf{DepClosure}(\mathsf{DPf})) be the set of all digests required to execute the profile (transitive closure). Let (\mathsf{Revoked}(\cdot)) be defined by (\mathsf{DPf.RevocationPolicy}).
+Define the revoked closure:
+[
+\mathsf{RevClosure}(\mathsf{DPf}) = { d \in \mathsf{DepClosure}(\mathsf{DPf}) : \mathsf{Revoked}(d)=\mathsf{true} }.
+]
+Deterministic propagation law.
+If (\mathsf{RevClosure}(\mathsf{DPf}) \neq \varnothing), then any importer enforcing this chapter MUST map the deployment state to QUARANTINE or REJECT deterministically via the revocation policy; operational selection MUST then follow (\mathsf{FallbackPolicy}) deterministically.
+Quarantine is treated as a publishable state: quarantined artifacts MAY be published, but their state MUST be explicit, machine-checkable, and must include sufficient evidence to reproduce the reason for quarantine. The state label is part of the meaning-bearing published record.
+

@@ -1,0 +1,668 @@
+operations / search / replay cost)
+A BudgetLedger records budget usage for an execution:
+[
+\mathsf{BudgetLedger} :=
+\langle
+\mathsf{BudgetDigest},;
+\mathsf{Used}_{\kappa},;
+\mathsf{Used}_{\beta},;
+\mathsf{Used}_{\delta},;
+\mathsf{Used}_{\chi},;
+\mathsf{ChargeItems}
+\rangle
+]
+ChargeItems is an ordered list of ledger entries, each binding a charge to a witness digest and a scope.
+F.S1.d — Transport schema (declared endpoints + witness + ledger)
+A TransportEdge is the canonical record:
+[
+\mathsf{TransportEdge} :=
+\langle
+\mathsf{EdgeID},;
+\mathsf{Kind},;
+\mathsf{Src},;
+\mathsf{Dst},;
+\mathsf{MapFwdRef},;
+\mathsf{MapBwdRef?},;
+\mathsf{DomainSpec},;
+\mathsf{InvariantSet},;
+\mathsf{WitnessBundleRef},;
+\mathsf{BudgetLedgerRef},;
+\mathsf{TruthType},;
+\mathsf{IssuedPulse},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaVer}
+\rangle
+]
+Required fields:
+Src/Dst: Endpoint objects.
+MapFwdRef: addressable artifact reference to the forward map.
+MapBwdRef?: required when invertibility is claimed by invariants or kind.
+DomainSpec: declared domain/range restrictions; a transport is undefined outside DomainSpec.
+InvariantSet: the set of invariants claimed preserved (NF equality, decode equivalence, commutation constraints, schedule constraints).
+WitnessBundleRef: pointer to the witness bundle sufficient to validate the edge.
+BudgetLedgerRef: pointer to the ledger produced by evaluation or reserved by policy.
+TruthType: {OK, NEAR, AMBIG, FAIL, CONFLICT}.
+IssuedPulse: time axis binding (Ch20).
+PinsDigest: digest of pin closure required to interpret and replay this transport.
+F.S1.e — Witness bundle schema
+A witness bundle is a canonical list of addressable artifacts:
+[
+\mathsf{WitnessBundle} :=
+\langle
+\mathsf{BundleID},;
+\mathsf{BundleType},;
+\mathsf{Artifacts},;
+\mathsf{ReplayCapsules},;
+\mathsf{ExpectedDigests},;
+\mathsf{SchemaPinsDigest},;
+\mathsf{EnvPinsDigest}
+\rangle
+]
+BundleType must include at minimum:
+DualWitnessBundle
+EquivWitnessBundle
+MigrateWitnessBundle
+CommutationReceiptBundle
+ConflictPacketBundle
+Artifacts list ordering is canonical by digest.
+
+F.S2 — Operators
+F.S2.a — Normal form operator and equality predicate
+Transport legality is evaluated against pinned normal forms.
+For each endpoint, NFProfileDigest pins a canonical normal form operator:
+[
+\mathsf{NF} : \mathsf{Payload} \to \mathsf{NFPayload}.
+]
+Define NF equality under pins:
+[
+x \equiv_{\mathsf{NF}} y \iff \mathsf{did}(\mathsf{NF}(x)) = \mathsf{did}(\mathsf{NF}(y)).
+]
+NF equality is the default criterion for OK equivalence claims unless the corridor pins an alternative equivalence metric.
+F.S2.b — Conjugacy transport of operators (rotation as conjugacy)
+Let (u:\mathsf{Src}\to\mathsf{Dst}) be an invertible transport with inverse (u^{-1}). For any endomorphism (A) on Src, define pushforward:
+[
+u_{\ast}A := u\circ A\circ u^{-1}.
+]
+For any endomorphism (B) on Dst, define pullback:
+[
+u^{\ast}B := u^{-1}\circ B\circ u.
+]
+Conjugacy is the only permitted meaning-preserving operator transport semantics when invertibility is claimed.
+F.S2.c — Transport evaluation operator
+Define:
+[
+\mathsf{EvalTransport} : (\mathsf{TransportEdge}, \mathsf{CorridorSpec}) \to (\mathsf{TruthType}, \mathsf{BudgetLedger}, \mathsf{WitnessBundle})
+]
+Deterministic under pins. It must:
+validate endpoint pins,
+validate map digests and schema pins,
+validate domain applicability,
+evaluate invariant checks,
+compute commutation receipts when required,
+produce budget charges and truth typing.
+F.S2.d — Composition of transports (path)
+A transport path is a sequence of transport edges:
+[
+P = (e_1,\dots,e_n)
+]
+where (e_i:\mathsf{V}_{i-1}\to\mathsf{V}_i). The composite map exists only if domain/range specs compose. Truth typing is the meet of edge truth types under corridor ordering; budget usage aggregates under pinned ledger rules.
+
+F.S3 — Invariants
+F.S3.a — Kind-specific admissibility invariants
+DUAL invariant. DUAL is permitted only for adjacent lens swaps under a pinned adjacency profile; adjacency must be validated by witness bundle. DUAL must not be used to encode non-adjacent swaps; those require explicit chains or EQUIV/MIGRATE.
+EQUIV invariant. EQUIV requires:
+explicit forward and backward maps over declared domain,
+proof that the round trip preserves NF (or pinned equivalence metric),
+replay closure producing expected digests.
+MIGRATE invariant. MIGRATE is required when:
+interpretation pins change,
+NF profiles change,
+schemas change,
+semantic invariants are intentionally modified,
+or prior EQUIV claims no longer hold under the new pin closure.
+MIGRATE must include compatibility matrices, rollback plan, and import constraints.
+F.S3.b — No silent equivalence
+No transport can be treated as semantic equivalence without an explicit EQUIV witness bundle or a DUAL witness bundle validated under corridor rules. REF is not transport.
+F.S3.c — Deterministic tie-breaks
+If multiple candidate transport paths exist between endpoints, selection is deterministic only if tie-break rules are pinned. Otherwise the path selection must be typed AMBIG with evidence plan.
+F.S3.d — Conflict invariants
+If two admissible transport paths produce different NF digests under identical pins and identical inputs, the result is CONFLICT. CONFLICT must produce a conflict packet and trigger quarantine fences.
+
+F.S4 — Protocols
+F.S4.a — DUAL protocol
+A DUAL edge must include:
+adjacency proof under pinned adjacency profile,
+MapFwd and MapBwd (or explicit non-invertibility statement if corridor allows DUAL without invertibility; default forbids),
+NF-preservation check or pinned equivalence metric check,
+commutation receipts if required by corridor,
+budget ledger and truth typing.
+F.S4.b — EQUIV protocol
+An EQUIV edge must include:
+MapFwd and MapBwd,
+DomainSpec and RangeSpec,
+proof of round-trip NF equality:
+[
+x \equiv_{\mathsf{NF}} (g\circ f)(x)\quad\forall x\in\mathrm{Dom}
+]
+and
+[
+y \equiv_{\mathsf{NF}} (f\circ g)(y)\quad\forall y\in\mathrm{Range}
+]
+replay capsule proving the above (expected digests pinned),
+truth typing and residual ledger if NEAR.
+F.S4.c — Transport path agreement protocol
+If routing relies on path equivalence:
+build a holonomy witness loop and evaluate it under corridor rules,
+require commutation receipts and/or path-difference receipts to be OK (or NEAR if allowed with disclosure),
+otherwise mark AMBIG/CONFLICT.
+
+❀ F.F — Flower: Commutation Receipts and Spin/Holonomy Witnesses
+F.F1 — Objects
+F.F1.a — CommutationReceipt
+A CommutationReceipt is a witness object certifying that two operations commute (or do not) on a declared domain under pinned metrics.
+[
+\mathsf{CommutationReceipt} :=
+\langle
+\mathsf{ReceiptID},;
+\mathsf{Scope},;
+\mathsf{Endpoints},;
+\mathsf{OpARef},;
+\mathsf{OpBRef},;
+\mathsf{LoopRef},;
+\mathsf{DomainSpec},;
+\mathsf{MetricDigest},;
+\mathsf{Residual},;
+\mathsf{BudgetKappa},;
+\mathsf{TruthType},;
+\mathsf{ReplayPtr},;
+\mathsf{IssuedPulse}
+\rangle
+]
+Where:
+LoopRef is the commutator loop:
+[
+\mathrm{Spin}(A,B) = A\circ B\circ A^{-1}\circ B^{-1}.
+]
+Residual is the pinned metric distance from identity on the declared domain:
+[
+r = d(\mathrm{Spin}(A,B)(x), x).
+]
+Truth typing:
+OK if (r=0) under pinned metric and replay closes,
+NEAR if (0<r\le \kappa) with residual ledger,
+FAIL if (r>\kappa),
+CONFLICT if replay disagreement.
+F.F1.b — PathDifferenceReceipt
+A receipt comparing two paths (P,Q:\mathsf{Src}\to\mathsf{Dst}):
+[
+\mathsf{Loop}(P,Q)=Q^{-1}\circ P
+]
+with residual and truth typing as above.
+
+F.F2 — Operators
+F.F2.a — Receipt builder
+Receipt generation is deterministic: given operator references, domain spec, metric digest, and pins, the builder must produce identical receipt digest.
+F.F2.b — Receipt consumption rule
+A transport path may claim reorderings or equivalences only if it references receipts whose truth type meets corridor thresholds.
+
+F.F3 — Invariants
+F.F3.a — Receipt scope invariance
+Receipts are valid only over declared DomainSpec and pinned Endpoint closure. Any scope widening requires a new receipt.
+
+F.F4 — Protocols
+F.F4.a — Receipt regression fixtures
+Regression must include:
+commuting pairs that must be OK,
+near-commuting pairs that must be NEAR with ledger,
+non-commuting pairs that must FAIL,
+conflicting replays that must CONFLICT.
+
+☁ F.C — Cloud: Conflict Packet Format and Quarantine Interfaces
+F.C1 — Objects
+F.C1.a — ConflictPacket (required format)
+A ConflictPacket is the minimal reproducible contradiction record:
+[
+\mathsf{ConflictPacket} :=
+\langle
+\mathsf{ConflictID},;
+\mathsf{Src},;
+\mathsf{Dst},;
+\mathsf{PathARefs},;
+\mathsf{PathBRefs},;
+\mathsf{WitnessSet},;
+\mathsf{ReproRecipe},;
+\mathsf{ExpectedDigests},;
+\mathsf{ObservedDigests},;
+\mathsf{FenceSpec},;
+\mathsf{IssuedPulse},;
+\mathsf{Sig}
+\rangle
+]
+Required properties:
+WitnessSet is minimal under pinned minimization order (addresses-first then events then fields).
+ReproRecipe is deterministic and includes:
+pins digest,
+replay capsule digests,
+environment pins digest,
+exact step ordering.
+FenceSpec specifies which edges/routes are quarantined and how propagation is computed.
+F.C1.b — Quarantine record
+A quarantine record is an append-only certificate that masks routes/edges for OK routing until resolved.
+
+F.C2 — Operators
+F.C2.a — Conflict classifier
+If two admissible transports disagree under identical pins, classify CONFLICT, emit ConflictPacket, and quarantine affected edges and dependent routes.
+F.C2.b — Conflict resolution
+Resolution may occur only via:
+new EQUIV witness that collapses the disagreement with replay closure, or
+explicit MIGRATE with compat matrix and rollback plan.
+
+F.C3 — Invariants
+F.C3.a — No silent conflict resolution
+No conflict may be “resolved” by preference. Resolution must be explicit and evidenced.
+
+F.C4 — Protocols
+F.C4.a — Conflict regression fixtures
+Fixtures must include:
+deterministic reproduction,
+fence propagation correctness,
+resolution pathways producing new certs.
+
+✶ F.R — Fractal: MIGRATE Protocol, Compatibility Matrices, Rollback, and Import Constraints
+F.R1 — Objects
+F.R1.a — CompatibilityMatrix
+A compatibility matrix binds old/new profiles and specifies what remains valid.
+[
+\mathsf{CompatMatrix} :=
+\langle
+\mathsf{OldPinsDigest},;
+\mathsf{NewPinsDigest},;
+\mathsf{SchemaChanges},;
+\mathsf{NFChanges},;
+\mathsf{MetricChanges},;
+\mathsf{EdgeKindChanges},;
+\mathsf{TruthRuleChanges},;
+\mathsf{ImpactedScopes},;
+\mathsf{ImpactedClaimsDigest},;
+\mathsf{Sig}
+\rangle
+]
+F.R1.b — RollbackPlan
+A rollback plan is a deterministic mapping from new deployment state back to a pinned prior state:
+[
+\mathsf{RollbackPlan} :=
+\langle
+\mathsf{FromProfile},;
+\mathsf{ToProfile},;
+\mathsf{TriggerPredicates},;
+\mathsf{RollbackSteps},;
+\mathsf{ExpectedDigests},;
+\mathsf{Sig}
+\rangle
+]
+F.R1.c — ImportConstraints
+A MIGRATE must specify import constraints:
+[
+\mathsf{ImportConstraints} :=
+\langle
+\mathsf{MinSchemaVer},;
+\mathsf{RequiredCerts},;
+\mathsf{DisallowedOldPins},;
+\mathsf{MigrationToolsDigest},;
+\mathsf{Sig}
+\rangle
+]
+
+F.R2 — MIGRATE protocol (required)
+A MIGRATE edge is required when semantics or interpretation pins change. A valid MIGRATE must include:
+Old profile digest and new profile digest.
+CompatMatrix with explicit impacted claims and rule changes.
+Regression suite proving critical invariants remain valid or are intentionally revised.
+RollbackPlan that is deterministic and replay-verifiable.
+ImportConstraints that reject silent acceptance of obsolete artifacts.
+MigrationCert binding the above and attesting replay closure.
+MIGRATE issuance is append-only and binds to PulseID.
+
+F.R3 — Required certificates
+F.R3.a — TransportCert
+A TransportCert certifies that a TransportEdge is valid and its truth type is correctly typed under corridor rules.
+Minimum fields:
+[
+\mathsf{TransportCert} :=
+\langle
+\mathsf{TransportEdgeDigest},;
+\mathsf{Kind},;
+\mathsf{SrcDigest},;
+\mathsf{DstDigest},;
+\mathsf{WitnessBundleDigest},;
+\mathsf{BudgetLedgerDigest},;
+\mathsf{TruthType},;
+\mathsf{ReplayPtr},;
+\mathsf{VerifierDigest},;
+\mathsf{Sig}
+\rangle
+]
+Verification requires:
+endpoint pins resolve,
+map digests resolve,
+invariant checks and receipts validate,
+budget ledger matches computed charges,
+replay reproduces digests and truth typing.
+F.R3.b — MigrationCert
+A MigrationCert certifies MIGRATE correctness.
+Minimum fields:
+[
+\mathsf{MigrationCert} :=
+\langle
+\mathsf{OldProfileDigest},;
+\mathsf{NewProfileDigest},;
+\mathsf{CompatMatrixDigest},;
+\mathsf{RollbackPlanDigest},;
+\mathsf{ImportConstraintsDigest},;
+\mathsf{RegressionCertDigest},;
+\mathsf{ReplayCertDigest},;
+\mathsf{VerifierDigest},;
+\mathsf{Sig}
+\rangle
+]
+Verification requires:
+all referenced artifacts resolve,
+regression suites pass under pinned environment,
+replay validates migration mapping and post-migration behavior,
+rollback plan is executable and matches expected digests,
+import constraints enforce non-silent upgrades.
+
+AppF Tight Spec-Only Version (Normative Extraction)
+Transport endpoints are fully pinned Endpoint records; transports are undefined without endpoint closure.
+TransportEdge schema must include kind (DUAL/EQUIV/MIGRATE), explicit maps, domain spec, invariants, witness bundle, budget ledger, truth type, pins digest, issued pulse.
+Rotation as conjugacy is the only meaning-preserving operator transport semantics when invertibility is claimed.
+Commutation receipts are required artifacts: Spin/PathDifference loops with residuals typed against (\kappa); replay determinism is mandatory.
+Conflicts produce ConflictPackets with minimal witness sets, deterministic reproduction recipes, and quarantine fences; no silent resolution.
+MIGRATE protocol requires compatibility matrix, rollback plan, import constraints, regression suites, and MigrationCert; no silent upgrades.
+TransportCert and MigrationCert are required, import-verifiable, and bind truth typing and replay closure.
+
+AppF — Transport (Rotation as Conjugacy), DUAL/EQUIV/MIGRATE Discipline
+AppG — Triangle Governor, Depth/Recursion Policies, Carry/Hatch Interfaces
+Station role: △ control semantics; recursion legality; hatch/carry governance.
+Purpose: define triangle modes and corridor pinning; formalize how depth, carry, hatch events constrain legal recursion and tunneling.
+
+□ G.S — Square: Triangle Policy Objects, Depth Ledgers, and Legal Recursion Events
+G.S1 — Objects
+G.S1.a — Triangle carriers and mode policy
+Triangle is the control plane. Its role is to pin admissible corridors, govern depth/recursion legality, and mediate carry/hatch boundaries.
+Triangle phase alphabet:
+[
+\mathbb{Z}_3 := {0,1,2}.
+]
+Two admissible mode families are supported; selection is pinned and meaning-bearing.
+Global Triangle mode (B):
+[
+\mathcal{T}^{B} := \mathbb{Z}_3,\qquad \tau \in \mathcal{T}^{B}.
+]
+Per-axis Triangle mode (A):
+[
+\mathcal{T}^{A}_d := (\mathbb{Z}_3)^d,\qquad \boldsymbol{\tau}=(\tau_1,\dots,\tau_d)\in\mathcal{T}^{A}_d.
+]
+A TriangleModePolicy is:
+[
+\mathsf{TriMode} :=
+\langle
+\mathsf{TriVer},;
+\mathsf{Mode},;
+\mathsf{Dim},;
+\mathsf{QuantizerSpec},;
+\mathsf{MixSpec?},;
+\mathsf{AggSpec?},;
+\mathsf{CorridorPinSpec},;
+\mathsf{CarrySpec},;
+\mathsf{HatchSpec},;
+\mathsf{TieBreakSpec},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+where:
+Mode ∈ {AXIS, GLOBAL} selects Option A or B.
+Dim is required for AXIS.
+QuantizerSpec pins the trit extraction rule.
+MixSpec is required for GLOBAL when a scalar triangle is derived from multi-axis state.
+AggSpec is optional, but if used it must be pinned.
+CorridorPinSpec pins corridor selection rules.
+CarrySpec and HatchSpec pin carry/hatch semantics and triggers.
+TieBreakSpec pins all tie-breaking across discrete choices.
+PinsDigest commits to the full closure required for deterministic governance.
+G.S1.b — Corridor pinning as a triangle-governed selection
+Triangle pins which corridor profile is active at a step. Corridor selection is not inferred; it is a deterministic function of:
+triangle mode state,
+pinned corridor policy,
+pinned state summaries (phase/square/carriers),
+and pinned tie-break rules.
+Define:
+[
+\mathsf{SelectCorridor} :
+(\mathsf{TriState},\mathsf{StateSummary},\mathsf{TriMode}) \to \mathsf{CorridorID}
+]
+where (\mathsf{CorridorID}) is a digest-qualified corridor profile identifier.
+Any corridor change is an explicit event logged to the carry/hatch bus and committed to transcripts. Corridor selection must be replayable from pinned inputs.
+G.S1.c — Depth ledger types
+Triangle governs recursion depth. A DepthLedger is a canonical record:
+[
+\mathsf{DepthLedger} :=
+\langle
+\mathsf{LedgerVer},;
+\mathsf{PulseID},;
+\mathsf{Dim},;
+\mathsf{DepthIndex},;
+\mathsf{DepthBudget},;
+\mathsf{ActiveCorridorID},;
+\mathsf{HatchState},;
+\mathsf{CarryState},;
+\mathsf{PinsDigest},;
+\mathsf{LedgerDigest}
+\rangle
+]
+DepthIndex is the current recursion index (integer).
+DepthBudget is the maximum allowed depth under policy.
+HatchState and CarryState summarize open recursion windows and carry boundary state.
+LedgerDigest is did(DepthLedger) with LedgerDigest field zeroed.
+G.S1.d — Carry event schema (triangle-governed carry interface)
+Carry is the boundary mechanism by which incremental evolution crosses an admissibility threshold and triggers a legal update (e.g., station boundary, hub boundary, phase boundary, policy boundary).
+A CarryEvent is:
+[
+\mathsf{CarryEvent} :=
+\langle
+\mathsf{CarryVer},;
+\mathsf{PulseID},;
+k,;
+\mathsf{CarryType},;
+\mathsf{CarryKey},;
+\mathsf{CarryValue},;
+\mathsf{BoundaryRuleDigest},;
+\mathsf{PreStateDigests},;
+\mathsf{PostStateDigests},;
+\mathsf{CorridorIDPre},;
+\mathsf{CorridorIDPost},;
+\mathsf{PinsDigest},;
+\mathsf{CarryDigest}
+\rangle
+]
+Required fields:
+CarryType ∈ {PHASE_CARRY, HUB_CARRY, DEPTH_CARRY, POLICY_CARRY, CUSTOM} pinned vocabulary.
+CarryKey identifies the boundary locus (e.g., station index, hub coordinate, gear digit position, depth boundary).
+BoundaryRuleDigest commits to the carry predicate used to decide the event.
+PreStateDigests and PostStateDigests are digests of relevant state components.
+CorridorIDPre/Post are corridor pins before and after the carry.
+CarryDigest is did(CarryEvent) with CarryDigest field zeroed.
+CarryEvent ordering is canonical and must be stable under replay.
+G.S1.e — Hatch event schema (legal recursion boundary)
+A HatchEvent is the only legal mechanism to increase depth, spawn a new recursion frame, or introduce a higher-level observer state. Hatch is not “a rewrite”; it is an append-only boundary event.
+[
+\mathsf{HatchEvent} :=
+\langle
+\mathsf{HatchVer},;
+\mathsf{PulseID},;
+k,;
+\mathsf{ParentAddr},;
+\mathsf{ChildAddr},;
+\mathsf{TriggerDigest},;
+\mathsf{InheritanceSpecDigest},;
+\mathsf{ChildInitSpecDigest},;
+\mathsf{CheckpointRef},;
+\mathsf{Obligations},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest},;
+\mathsf{HatchDigest}
+\rangle
+]
+Required semantics:
+ParentAddr and ChildAddr are explicit; no implicit child creation.
+TriggerDigest commits to the hatch predicate evaluation evidence.
+InheritanceSpecDigest commits to which profiles/pins are inherited unchanged and which are overridden (overrides must be explicit).
+ChildInitSpecDigest commits to child initialization offsets (deterministic).
+CheckpointRef is mandatory: hatch creates a checkpoint boundary.
+ReplayPtr must reproduce hatch legality and child initialization.
+HatchDigest is did(HatchEvent) with HatchDigest field zeroed.
+G.S1.f — Triangle state (governor microstate)
+Triangle’s operational microstate is a fixed trit triple:
+[
+G := (t_0,t_1,t_2)\in\mathbb{Z}_3^3
+]
+with canonical encoding, used to select control modes, threshold gates, and governance phase under pinned semantics. Any expansion beyond (\mathbb{Z}_3^3) must be a schema-migrated profile, not an implicit extension.
+
+G.S2 — Operators
+G.S2.a — Triangle quantization operator
+Triangle reads phase/state and produces trits deterministically.
+Pinned base quantizer:
+[
+Q_3(u) := \lfloor 3u \rfloor \in \mathbb{Z}_3,\quad u\in[0,1).
+]
+Wrapped quantizer at wrap (R):
+[
+Q_3^{(R)}(\phi) := Q_3(\mathrm{frac}(R\phi)).
+]
+Option A (axis):
+[
+\mathsf{Tri}^{A}_R(\Phi) := (Q_3^{(R)}(\phi_1),\dots,Q_3^{(R)}(\phi_d))\in(\mathbb{Z}_3)^d.
+]
+Option B (global):
+[
+\mathsf{Tri}^{B}R(\Phi) := Q_3^{(R)}(\phi{\mathrm{global}}(\Phi))\in\mathbb{Z}3,
+]
+where (\phi{\mathrm{global}}) is pinned by MixSpec and must be deterministic.
+G.S2.b — Corridor selection operator
+Given triangle mode and state summaries, corridor selection is:
+[
+\mathsf{CorridorID} := \mathsf{SelectCorridor}(\mathsf{TriState},\mathsf{StateSummary},\mathsf{TriMode})
+]
+where:
+StateSummary is a digest-qualified summary of (i) phase carrier state, (ii) square carrier stability markers, (iii) prior carry/hatch states.
+SelectCorridor must be deterministic and must emit a selection witness (see G.S3).
+G.S2.c — Carry trigger operator
+Carry detection is a deterministic predicate family:
+[
+\mathsf{CarryTrig} : (\mathsf{PreState},\mathsf{PostState},\mathsf{TriMode},\mathsf{CarrySpec}) \to {\mathsf{true},\mathsf{false}}.
+]
+If true, a CarryEvent must be emitted with the boundary rule digest.
+Carry types may include:
+phase boundary crossing (E ring carry),
+hub basin crossing (Ch06 hub mesh),
+corridor threshold crossing (Ch08),
+or policy epoch boundary crossing (Ch20).
+All carry types must be enumerated and pinned; no ad-hoc carry emission is permitted.
+G.S2.d — Hatch legality operator
+Hatch occurs only when the hatch trigger is satisfied and budget allows.
+Define:
+[
+\mathsf{HatchAllowed} : (\mathsf{DepthLedger},\mathsf{TriggerEvidence},\mathsf{TriMode}) \to {\mathsf{true},\mathsf{false}}
+]
+with constraints:
+DepthIndex + 1 ≤ DepthBudget
+TriggerEvidence verifies under pinned witness rules
+InheritanceSpec is valid and pins are complete
+CheckpointRef is produced and valid
+If HatchAllowed is false and hatch is attempted, the action is illegal and must be recorded as a failure witness and quarantined when applicable.
+G.S2.e — TriangleStep operator (used by Ch16)
+TriangleStep updates:
+governor trits (G),
+DepthLedger,
+and emits carry/hatch events as required.
+TriangleStep is a deterministic function:
+[
+\mathsf{TriangleStep} : (\mathsf{TriState},\mathsf{StateSummary},\mathsf{TriMode},k,\mathsf{PulseID}) \to (\mathsf{TriState}',\mathsf{DepthLedger}',\mathsf{CarryEvents}^\star,\mathsf{HatchEvents}^\star,\mathsf{Witnesses})
+]
+with all outputs canonically ordered and digest-committed.
+
+G.S3 — Witness formats (interfaces to Ch06–Ch10 and Ch16–Ch18)
+G.S3.a — CorridorSelectionWitness
+[
+\mathsf{CorrSelWit} :=
+\langle
+\mathsf{PulseID},;
+k,;
+\mathsf{TriModeDigest},;
+\mathsf{TriStateDigest},;
+\mathsf{StateSummaryDigest},;
+\mathsf{SelectedCorridorID},;
+\mathsf{SelectionRuleDigest},;
+\mathsf{PinsDigest},;
+\mathsf{WitDigest}
+\rangle
+]
+SelectionRuleDigest pins the exact decision rule; WitDigest is content-addressed.
+G.S3.b — TunnelingLegalityWitness
+A tunnel step is legal only if it satisfies hub-preserving constraints and corridor constraints. Tunneling legality witness is:
+[
+\mathsf{TunnelLegWit} :=
+\langle
+\mathsf{PulseID},;
+k,;
+\mathsf{Dim},;
+\mathsf{PhaseProfileDigest},;
+\mathsf{HubPolicyDigest},;
+\mathsf{StepVector},;
+\mathsf{DomainSpecDigest},;
+\mathsf{CorridorID},;
+\mathsf{LegalityResult},;
+\mathsf{ResidualLedgerRef?},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest},;
+\mathsf{WitDigest}
+\rangle
+]
+LegalityResult ∈ {OK, NEAR, AMBIG, FAIL} typed under corridor rules. NEAR requires residual ledger.
+G.S3.c — HatchWitness
+A HatchWitness binds the hatch trigger, legality checks, and checkpoint digests:
+[
+\mathsf{HatchWit} :=
+\langle
+\mathsf{HatchDigest},;
+\mathsf{TriggerEvidenceDigest},;
+\mathsf{DepthLedgerPreDigest},;
+\mathsf{DepthLedgerPostDigest},;
+\mathsf{CheckpointDigest},;
+\mathsf{InheritanceSpecDigest},;
+\mathsf{ChildInitSpecDigest},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest}
+\rangle
+]
+
+G.S4 — Invariants
+G.S4.a — Pinned mode invariant
+Triangle mode (AXIS vs GLOBAL) is pinned. Any change requires explicit migration of TriMode policy and must be recorded as an append-only event.
+G.S4.b — No silent recursion invariant
+Depth increases are legal only via HatchEvents that satisfy HatchAllowed and produce checkpoints and replay pointers. Any implicit recursion is illegal.
+G.S4.c — Append-only boundary invariant
+Carry and hatch are boundary events. Boundary semantics cannot be rewritten; they can only be extended with new nodes/edges/certs under the time axis.
+G.S4.d — Corridor determinism invariant
+For identical inputs and pins, SelectCorridor must produce identical SelectedCorridorID and identical selection witness digest. Any mismatch is CONFLICT.
+G.S4.e — Budget adherence invariant
+Hatch and tunneling legality must charge budgets deterministically and must fail when budgets are exceeded. Budget overflow cannot be ignored.
+
+❀ G.F — Flower: Tunneling Legality and Hub-Preserving Constraints (Interface to Ch06–Ch10)
+G.F1 — Objects
+G.F1.a — Hub mesh and corridor neighborhood
+Let (\mathcal{H}^{(d)}\subset\mathbb{T}^d) be the pinned hub mesh. A hub corridor at radius (\rho) is:
+[
+\mathrm{Corr}\rho(\mathcal{H}^{(d)}) := \bigcup{\mathbf{h}\in\mathcal{H}^{(d)}} {\Phi\in\mathbb{T}^d:\mathrm{Dist}(\Phi,\mathbf{h})\le

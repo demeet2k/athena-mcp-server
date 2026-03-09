@@ -1,0 +1,18 @@
+# Appendix Index
+
+- [AppA - Addressing, Symbols, Parsing Grammar](./appendices/AppA_addressing_symbols_parsing_grammar.md)
+- [AppB - Canon Laws, Equivalence Budgets, Normal Forms](./appendices/AppB_canon_laws_equivalence_budgets_normal_forms.md)
+- [AppC - Square Kernel Pack](./appendices/AppC_square_kernel_pack.md)
+- [AppD - Registry, Profiles, Version IDs](./appendices/AppD_registry_profiles_version_ids.md)
+- [AppE - Circle Gear and Mixed-Radix Clock](./appendices/AppE_circle_gear_and_mixed_radix_clock.md)
+- [AppF - Transport, Rotation-as-Conjugacy, DUAL Legality](./appendices/AppF_transport_rotation_as_conjugacy_dual_legality.md)
+- [AppG - Triangle Control and Tria Prima](./appendices/AppG_triangle_control_and_tria_prima.md)
+- [AppH - Coupling and Topology](./appendices/AppH_coupling_and_topology.md)
+- [AppI - Corridors and Truth Lattice](./appendices/AppI_corridors_and_truth_lattice.md)
+- [AppJ - Residual Ledgers and NEAR Machinery](./appendices/AppJ_residual_ledgers_and_near_machinery.md)
+- [AppK - Conflict, Quarantine, Revocation](./appendices/AppK_conflict_quarantine_revocation.md)
+- [AppL - Evidence Plans and AMBIG Promotion](./appendices/AppL_evidence_plans_and_ambig_promotion.md)
+- [AppM - Replay Kernel and Verifier Capsules](./appendices/AppM_replay_kernel_and_verifier_capsules.md)
+- [AppN - Container Formats and Virtual Mount](./appendices/AppN_container_formats_and_virtual_mount.md)
+- [AppO - Publication Import/Export Bundles](./appendices/AppO_publication_importexport_bundles.md)
+- [AppP - Deployment Profiles and Monitoring](./appendices/AppP_deployment_profiles_and_monitoring.md)

@@ -1,0 +1,564 @@
+tion truth operator
+For a path (P=(e_1,\dots,e_n)) with typed outcomes (\tau_i), define composite truth:
+[
+\mathsf{Truth}(P) := \min_{\succ}{\tau_1,\dots,\tau_n}
+]
+under the pinned truth preorder.
+Budget aggregation uses BudgetAggSpec:
+[
+\mathsf{Budget}(P) := \mathsf{Agg}(\mathsf{Budget}(e_1),\dots,\mathsf{Budget}(e_n)).
+]
+A path is routable iff:
+(\mathsf{Truth}(P) \succeq \mathsf{MinTruth}(\mathsf{Corridor})),
+(\mathsf{Budget}(P)\le \mathsf{BudgetCaps}),
+required artifact families for (\mathsf{Truth}(P)) are present,
+no quarantine/fence blocks any edge.
+I.S2.d — Escalation operator (failure to fences)
+EscalationRules define a deterministic mapping:
+[
+\mathsf{Escalate} : \mathsf{TypedOutcome} \to \mathsf{EscalationActions}
+]
+where EscalationActions can include:
+emit fence/quarantine record,
+require conflict packet,
+require migration witness,
+require immediate rollback under deployment rules (Ch21).
+Escalation must be deterministic; any nondeterministic escalation is illegal.
+
+I.S3 — Truth typing rules (minimum required)
+TypingRules must define necessary and sufficient conditions for each truth class.
+I.S3.a — OK conditions
+A claim is typed OK iff all of the following hold:
+PinsDigest closure resolves and matches corridor requirements.
+Required artifacts for OK are present and verify (witness bundle, replay capsule, expected digests).
+Replay determinism holds: replay produces exactly the committed digests.
+All invariants in the claim’s InvariantSet evaluate true under pinned schemas.
+Budget caps are respected.
+No revocation or quarantine applies.
+I.S3.b — NEAR conditions
+A claim is typed NEAR iff:
+All pin closure and replay requirements hold,
+The claim fails at least one OK equality check but satisfies bounded residual constraints under a pinned metric,
+A ResidualLedger is present with:
+metric digest,
+bound,
+measured residual value,
+scope,
+expiry pulse,
+promotion obligations,
+replay pointer reproducing the measurement,
+Budget caps are respected,
+Disclosure rules are satisfied.
+NEAR must never be emitted without a residual ledger.
+I.S3.c — AMBIG conditions
+A claim is typed AMBIG iff:
+The corridor cannot decide OK or NEAR due to underdetermination,
+A bounded candidate set exists within compute budget,
+An EvidencePlan is emitted specifying:
+candidate set,
+discriminators,
+routes to obtain missing evidence,
+promotion rules,
+stop rules and budgets,
+The ambiguity is explicitly represented in the outcome artifacts.
+AMBIG must never be emitted without an evidence plan.
+I.S3.d — FAIL conditions
+A claim is typed FAIL iff any of the following holds:
+required pins missing,
+required artifacts missing for the attempted truth class,
+replay mismatch occurs where replay is required,
+budget caps exceeded and not downgradable,
+invariants violated beyond admissible bounds,
+domain violations (maps applied outside declared domain),
+illegal edge kinds under corridor.
+FAIL must include a FailureWitness if reproducible under pinned environment; otherwise it must be explicitly labeled non-reproducible only if corridor policy permits (not permitted for publish corridors).
+I.S3.e — CONFLICT conditions
+CONFLICT is typed when reproducible verifier disagreement exists under identical pins, or when two admissible paths yield incompatible digests and no pinned tie-break can select one.
+CONFLICT must produce a ConflictPacket and fence/quarantine actions per QuarantineRules.
+
+I.S4 — Promotion/demotion and disclosure obligations
+I.S4.a — Promotion rules
+PromotionRules define deterministic obligations for:
+NEAR→OK: specify required refinements, new witnesses, tightened bounds, or additional replays.
+AMBIG→NEAR/OK: specify discriminators and evidence acquisition routes.
+Promotions are append-only (Ch20): an OK outcome supersedes a NEAR/AMBIG outcome via explicit EvidenceRow supersession, not by overwriting.
+I.S4.b — Demotion rules
+Demotions are not performed by retyping old evidence. Instead, demotion occurs by quarantine/revocation overlays:
+if a previously OK witness is revoked or invalidated, it remains historically present but becomes non-routable by fence/quarantine.
+demotion is therefore represented by new quarantine records and by updated routing outcomes at later pulses.
+I.S4.c — Disclosure obligations
+DisclosureRules define mandatory propagation of:
+residual ledgers (NEAR),
+evidence plans (AMBIG),
+quarantine/fence references (FAIL/CONFLICT),
+expiry and renewal constraints.
+Any route transcript that cites NEAR evidence must include disclosure pointers; omission is a violation and must be typed FAIL at routing time.
+
+❀ I.F — Flower: Corridor Geometry and Metric Binding
+I.F1 — Objects
+I.F1.a — Metric binding
+A corridor pins metric digests for residual measurement. Metrics must be deterministic functions over canonically serialized objects or normal forms.
+Metric classes include:
+discrete equality metric (0 if digest equal, else 1),
+norm metrics over numeric vectors with pinned numeric policy,
+edit-distance-like metrics over canonical ASTs with pinned cost tables.
+I.F1.b — Corridor neighborhoods
+Corridor may define admissible neighborhoods for NEAR:
+[
+\mathsf{NearOK}(x) \iff d(x,\mathsf{Target}) \le \beta
+]
+with (\beta) pinned and scope defined.
+I.F2 — Operators
+I.F2.a — Residual computation
+Residuals must be computed deterministically from pinned metric and pinned canonical forms:
+[
+r := d(\mathsf{NF}(x), \mathsf{NF}(y)).
+]
+I.F3 — Invariants
+I.F3.a — Metric determinism
+Metric outputs must be stable across replays under pinned environment constraints.
+
+☁ I.C — Cloud: Routable Outcomes and Planning Discipline
+I.C1 — Objects
+I.C1.a — Routability summary
+A routability summary for a route plan includes:
+minimum truth threshold,
+composite truth result,
+budget usage and caps,
+disclosure pointers,
+fence/quarantine pointers.
+I.C2 — Operators
+I.C2.a — Route admissibility
+A route plan is admissible iff composite truth ≥ threshold and all required disclosures exist.
+I.C3 — Invariants
+I.C3.a — No bypass
+No routing decision may bypass corridor truth typing. Any “shortcut” route not passing through typing evaluation is invalid.
+
+✶ I.R — Fractal: CorridorReplayCert and Deterministic Verification
+I.R1 — CorridorReplayCapsule
+A CorridorReplayCapsule must include:
+CorridorProfile digest,
+set of claims evaluated (addresses and digests),
+all evidence artifacts and their digests,
+expected typed outcomes (digests),
+expected budget ledger digests,
+environment pins digest.
+I.R2 — CorridorReplayCert (required)
+A CorridorReplayCert certifies that corridor truth typing is reproducible under replay.
+[
+\mathsf{CorridorReplayCert} :=
+\langle
+\mathsf{CorridorProfileDigest},;
+\mathsf{CapsuleDigest},;
+\mathsf{EnvPinsDigest},;
+\mathsf{ExpectedOutcomeDigest},;
+\mathsf{ObservedOutcomeDigest},;
+\mathsf{Result},;
+\mathsf{Sig}
+\rangle
+]
+Result is PASS iff:
+corridor profile resolves and verifies,
+replay reproduces identical typed outcomes, ledger digests, and disclosures,
+any escalation actions are identical under pinned rules.
+Failure yields FAIL/CONFLICT per policy and must be recorded with reproduction pointers.
+
+AppI Tight Spec-Only Version (Normative Extraction)
+CorridorProfile pins budgets, aggregation rules, allowed edge kinds per truth class, required artifact families, typing rules, escalation rules, promotion rules, disclosure rules, quarantine rules, and routability thresholds.
+Truth typing is deterministic: OK requires replay closure and invariant satisfaction; NEAR requires residual ledger; AMBIG requires evidence plan; FAIL requires failure witness; CONFLICT requires conflict packet and fences.
+Routes are admissible only if composite truth meets corridor threshold, budgets are within caps, and disclosures are present; no bypass permitted.
+Promotions are append-only via new evidence; demotions occur only via quarantine/revocation overlays.
+CorridorReplayCert is required and must replay corridor typing identically under pinned environment constraints.
+
+AppI — Corridors, Truth Typing, and Routable Outcomes
+AppJ — NEAR Disclosure Ledger (Residuals, Bounds, Expiry)
+Station role: NEAR is explicit and quantitative; disclosure ledger is mandatory for production reliance.
+Purpose: define residual ledgers, calibration, expiry, and promotion checklists for NEAR claims.
+
+□ J.S — Square: ResidualLedger as a First-Class Evidence Object
+J.S1 — Objects
+J.S1.a — ResidualLedger (normative schema)
+A ResidualLedger is the mandatory disclosure object for any claim typed NEAR. It binds a bounded deviation to a pinned metric and calibration context, with explicit scope and expiry.
+[
+\mathsf{ResidualLedger}:=
+\langle
+\mathsf{RLVer},;
+\mathsf{RLID},;
+\mathsf{TruthType},;
+\mathsf{SubjectRefs},;
+\mathsf{MetricDigest},;
+\mathsf{MetricSpecRef},;
+\mathsf{Bound},;
+\mathsf{Observed},;
+\mathsf{Expected},;
+\mathsf{ResidualValue},;
+\mathsf{ResidualVector?},;
+\mathsf{AggregationRule},;
+\mathsf{Scope},;
+\mathsf{Calibration},;
+\mathsf{Expiry},;
+\mathsf{PromotionObligations},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+Constraints:
+TruthType MUST equal NEAR.
+SubjectRefs is a non-empty ordered list of references to the exact objects the ledger qualifies, each reference content-addressed by digest:
+[
+\mathsf{SubjectRef}:=\langle \mathsf{Addr},\ \mathsf{Digest},\ \mathsf{SchemaID}\rangle.
+]
+MetricDigest pins the metric function used to compute residuals; MetricSpecRef points to the metric definition artifact.
+Bound is the admissibility limit; its units and interpretation are part of MetricSpecRef.
+Observed and Expected are canonical references or canonical values (depending on metric family), sufficient to replay the computation.
+ResidualValue is the scalar residual used for truth typing; ResidualVector is optional and must be present when the metric is vector-valued or when the aggregation rule requires it.
+AggregationRule is a pinned enum {MAX, SUM, L2, L1, CUSTOM} with CUSTOM requiring a rule digest.
+Scope binds applicability and non-applicability (J.S1.c).
+Calibration binds how Bound and residuals are interpreted (J.S1.d).
+Expiry binds when reliance expires and how renewal is required (J.S1.e).
+PromotionObligations binds the upgrade pathway (J.S1.f).
+ReplayPtr must reproduce the residual computation and ledger digest deterministically.
+PinsDigest is the digest of the full pin-closure required to interpret and replay the ledger.
+J.S1.b — ResidualLedger ID (RLID)
+ResidualLedger is content-addressable. Define:
+[
+\mathsf{RLID}:=\mathsf{H}(\textsf{"AppJ/ResidualLedger"} ,|, \mathsf{H}(\mathsf{ser}(\mathsf{ResidualLedgerZeroed})) ,|, \mathsf{PinsDigest})
+]
+where ResidualLedgerZeroed is the ledger with RLID and signatures zeroed but all meaning-bearing fields preserved. Collisions are treated as CONFLICT and must emit a conflict packet plus quarantine.
+J.S1.c — Scope schema
+Scope is mandatory and must be explicit.
+[
+\mathsf{Scope}:=
+\langle
+\mathsf{ScopeVer},;
+\mathsf{ScopeKind},;
+\mathsf{AddrSetDigest},;
+\mathsf{DomainSpecDigest},;
+\mathsf{ExclusionsDigest},;
+\mathsf{ValidityWindow}
+\rangle
+]
+ScopeKind ∈ {LOCALADDR_RANGE, CLAIMSET, ROUTESEGMENT, PROFILESET, CUSTOM} with CUSTOM requiring schema migration.
+AddrSetDigest commits to the ordered set of addresses in scope.
+DomainSpecDigest commits to domain constraints (e.g., ranges of parameters, allowed input classes).
+ExclusionsDigest commits to explicitly excluded addresses or parameter regions.
+ValidityWindow binds time applicability:
+[
+\mathsf{ValidityWindow}:=\langle \mathsf{IssuedPulse},\ \mathsf{NotBeforePulse?},\ \mathsf{NotAfterPulse}\rangle
+]
+where NotAfterPulse is mandatory.
+J.S1.d — Calibration schema
+Calibration binds residual meaning to the operational environment and measurement protocols.
+[
+\mathsf{Calibration}:=
+\langle
+\mathsf{CalVer},;
+\mathsf{CalID},;
+\mathsf{CalibrationType},;
+\mathsf{BaselineRef},;
+\mathsf{SamplingPolicyDigest},;
+\mathsf{EstimatorSpecDigest},;
+\mathsf{ConfidenceSpec?},;
+\mathsf{UnitSpecDigest},;
+\mathsf{AssumptionsDigest}
+\rangle
+]
+CalibrationType ∈ {ABSOLUTE, RELATIVE_TO_BASELINE, STATISTICAL, ADVERSARIAL}.
+BaselineRef is required for relative calibration and binds the baseline digests used.
+SamplingPolicyDigest pins how any sampling is done (if any sampling exists).
+EstimatorSpecDigest pins estimator definition for computing residuals.
+ConfidenceSpec is required for statistical calibration and pins confidence intervals or tail bounds.
+UnitSpecDigest pins units and scaling conventions.
+AssumptionsDigest pins explicit assumptions about environment and data.
+Calibration is mandatory for production reliance. Absence forces FAIL for corridors that require calibrated NEAR.
+J.S1.e — Expiry schema
+Expiry binds renewal requirements and safety constraints.
+[
+\mathsf{Expiry}:=
+\langle
+\mathsf{ExpiryVer},;
+\mathsf{IssuedPulse},;
+\mathsf{ExpiryPulse},;
+\mathsf{RenewalMode},;
+\mathsf{RenewalTriggers},;
+\mathsf{AutoInvalidateOnPolicyChange}
+\rangle
+]
+ExpiryPulse is mandatory.
+RenewalMode ∈ {RENEW_TO_NEAR, PROMOTE_TO_OK, FORBID_AFTER_EXPIRY}.
+RenewalTriggers is a pinned set including at minimum:
+policy epoch change,
+schema change,
+metric change,
+baseline shift beyond pinned thresholds,
+drift monitor thresholds.
+AutoInvalidateOnPolicyChange is pinned boolean; if true, policy digest mismatch invalidates the ledger.
+J.S1.f — Promotion obligations schema (NEARPromotionChecklist binding)
+Promotion obligations are explicit tasks required to upgrade the claim to OK or to renew NEAR.
+[
+\mathsf{PromotionObligations}:=
+\langle
+\mathsf{OblVer},;
+\mathsf{TargetTruth},;
+\mathsf{Tasks},;
+\mathsf{CompletionPredicateDigest},;
+\mathsf{TieBreakDigest}
+\rangle
+]
+TargetTruth ∈ {OK, NEAR}.
+Tasks is an ordered list of task descriptors:
+[
+\mathsf{Task}:=\langle \mathsf{TaskID},\ \mathsf{TaskType},\ \mathsf{InputsDigest},\ \mathsf{OutputsDigest},\ \mathsf{DuePulse?}\rangle
+]
+CompletionPredicateDigest pins how tasks are checked as complete.
+TieBreakDigest pins ordering and prioritization when multiple tasks exist.
+
+J.S2 — Operators
+J.S2.a — Residual computation operator
+Given metric (d) pinned by MetricDigest, define:
+[
+r := d(\mathsf{Observed}, \mathsf{Expected})
+]
+computed deterministically under pinned numeric and ordering policies.
+If metric produces a vector (v), compute scalar residual via AggregationRule:
+MAX: (r = \max_i |v_i|)
+SUM: (r = \sum_i |v_i|)
+L2: (r=\sqrt{\sum_i v_i^2})
+L1: (r=\sum_i |v_i|)
+CUSTOM: (r = \mathsf{Agg}(v)) where (\mathsf{Agg}) is pinned.
+J.S2.b — Admissibility predicate
+A NEAR ledger is admissible iff:
+[
+r \le \mathsf{Bound}
+]
+and calibration requirements hold under corridor rules.
+J.S2.c — Ledger verification operator
+[
+\mathsf{VerifyRL} : (\mathsf{ResidualLedger},\mathsf{CorridorProfile}) \to {\mathsf{PASS},\mathsf{FAIL}}
+]
+Verification must check:
+PinsDigest closure resolves and matches corridor requirements.
+MetricSpecRef resolves and matches MetricDigest.
+ReplayPtr reproduces Observed/Expected extraction and residual computation.
+ResidualValue matches recomputation and satisfies bound.
+Scope and expiry are valid and non-contradictory.
+Calibration requirements are satisfied under corridor policy.
+J.S2.d — Renewal operator
+Renewal is append-only: a new ResidualLedger supersedes the old via evidence-table supersession (AppB). Renewal must satisfy RenewalMode and triggers. Renewal produces a new RLID and must not mutate old ledgers.
+
+J.S3 — Invariants
+J.S3.a — Mandatory NEAR disclosure invariant
+No claim may be typed NEAR without an attached ResidualLedger satisfying schema completeness, replay closure, and admissibility predicate under the corridor.
+J.S3.b — Scope soundness invariant
+The ledger must not be applied outside its scope. Any route that uses a NEAR claim must include the scope digest in its disclosure bundle and must validate applicability.
+J.S3.c — Expiry enforcement invariant
+If current pulse exceeds ExpiryPulse, the ledger is expired and cannot be used for OK-adjacent routing. Expired ledgers may remain addressable for historical audit but are non-routable for production reliance unless renewed.
+J.S3.d — Calibration completeness invariant
+If corridor requires calibrated NEAR, then Calibration must include required baseline and estimator specifications. Missing calibration forces FAIL.
+
+J.S4 — Protocols
+J.S4.a — Ledger issuance protocol
+To issue a NEAR ledger:
+Identify subject claims/edges/routes by digest and address; commit to SubjectRefs list.
+Select metric by digest and resolve MetricSpecRef.
+Extract Observed and Expected deterministically; commit to their digests.
+Compute ResidualValue and ResidualVector if required.
+Bind Scope and DomainSpec; compute scope digests.
+Bind Calibration record; compute calibration digests.
+Bind Expiry record; compute expiry pulse under policy.
+Construct PromotionObligations (NEARPromotionChecklist).
+Produce ReplayPtr sufficient to re-run 2–4 and verify 5–8.
+Compute RLID and sign per signature policy.
+Append ledger to EvidenceTable as a witness row (AppB) and link it to the NEAR-typed claim.
+J.S4.b — Disclosure formatting rules (canonical, import-verifiable)
+Disclosure is a canonical bundle format:
+[
+\mathsf{NearDisclosureBundle}:=
+\langle
+\mathsf{BundleVer},;
+\mathsf{SubjectRef},;
+\mathsf{RLDigest},;
+\mathsf{ScopeDigest},;
+\mathsf{CalibrationDigest},;
+\mathsf{ExpiryDigest},;
+\mathsf{PromotionObligationsDigest},;
+\mathsf{ReplayPtr},;
+\mathsf{PinsDigest},;
+\mathsf{Sig}
+\rangle
+]
+Rules:
+Disclosure bundles must be content-addressed and included in exported containers (Ch18/AppO) when NEAR evidence is cited.
+The bundle must contain only digests and minimal canonical fields; it must not require external context.
+Import verification must fail or quarantine any NEAR claim that lacks an import-verifiable disclosure bundle when the corridor threshold is NEAR or higher.
+J.S4.c — Expiry enforcement protocol
+During route planning and during deployment acceptance (Ch21), apply:
+If ExpiryPulse < current_pulse: treat NEAR claim as non-admissible.
+If ExpiryPulse is within pinned warning window: permit but emit renewal obligation in route transcript.
+If policy epoch changes and AutoInvalidateOnPolicyChange is true: invalidate.
+All decisions are deterministic and replayable.
+
+❀ J.F — Flower: Residual Geometry, Metrics, and Calibration Semantics
+J.F1 — Objects
+J.F1.a — Metric specification
+MetricSpecRef must resolve to a metric definition object:
+[
+\mathsf{MetricSpec}:=
+\langle
+\mathsf{MetricVer},;
+\mathsf{MetricID},;
+\mathsf{DomainType},;
+\mathsf{CodomainType},;
+\mathsf{ComputationRuleDigest},;
+\mathsf{NormalizationDigest},;
+\mathsf{UnitsDigest},;
+\mathsf{TieBreakDigest}
+\rangle
+]
+MetricSpec must define:
+domain (what is compared),
+normalization (canonicalization before measurement),
+computation rule,
+units and scaling,
+and any tie-break rules for ambiguous representations.
+J.F1.b — Calibration geometry
+CalibrationType determines meaning of Bound:
+ABSOLUTE: bound is absolute distance in pinned units.
+RELATIVE_TO_BASELINE: bound is relative to baseline reference (e.g., percent change).
+STATISTICAL: bound is tail probability or confidence interval width.
+ADVERSARIAL: bound is maximum deviation under pinned perturbation set.
+J.F2 — Operators
+J.F2.a — Calibration check
+A deterministic predicate verifies calibration is valid for a ledger under corridor rules, including baseline digest availability and estimator definition.
+J.F3 — Invariants
+J.F3.a — Metric stability
+Metric outputs must be stable under pinned environment. Any numerical nondeterminism not pinned is a violation.
+
+☁ J.C — Cloud: Uncertainty Discipline and NEAR as a Contract, Not a Vibe
+J.C1 — Objects
+J.C1.a — ConfidenceSpec for statistical NEAR
+If CalibrationType=STATISTICAL, ConfidenceSpec is mandatory and pins:
+confidence level,
+estimator method,
+sample selection method,
+RNG seed policy if sampling is used,
+and reproducible summary statistics.
+J.C2 — Operators
+J.C2.a — Uncertainty propagation rule
+Any route that uses NEAR evidence must propagate the NEARDisclosureBundle and must preserve scope and expiry semantics. Failure to propagate is a corridor violation.
+J.C3 — Invariants
+J.C3.a — No silent downgrades/overclaims
+NEAR cannot be treated as OK. Any overclaim is a deterministic failure and must be quarantined under AppK/AppO policies.
+
+✶ J.R — Fractal: NEARPromotionChecklist, Replay Closure, and Certificates
+J.R1 — NEARPromotionChecklist (required)
+A NEARPromotionChecklist is a canonical checklist object referenced by PromotionObligations.
+[
+\mathsf{NEARPromotionChecklist}:=
+\langle
+\mathsf{CheckVer},;
+\mathsf{ChecklistID},;
+\mathsf{TargetTruth},;
+\mathsf{RequiredArtifacts},;
+\mathsf{RequiredReplays},;
+\mathsf{RequiredRegressions},;
+\mathsf{RequiredCalibrations},;
+\mathsf{RequiredApprovals?},;
+\mathsf{CompletionPredicateDigest},;
+\mathsf{Sig}
+\rangle
+]
+Minimum required checklist entries for promotion NEAR→OK:
+Replay re-run passes with zero residual under pinned metric, or corridor permits exact equality under canonical NF digest equality.
+All inputs digests are current and not revoked; policy epoch compatibility holds.
+Regression suite specified by corridor passes for the affected scope.
+Calibration is refreshed if expired or if baseline shift trigger fired.
+A superseding EvidenceRow is emitted with TruthType=OK and explicit supersedes pointer (AppB).
+For renewal NEAR→NEAR:
+Residual recomputation under same metric passes bound.
+ExpiryPulse updated and recorded.
+Promotion obligations updated if necessary.
+J.R2 — Required certificate
+J.R2.a — ResidualLedgerCert
+A ResidualLedgerCert attests that:
+the ledger is well-formed,
+replay reproduces the residual,
+bound check passes,
+scope and expiry are valid,
+calibration requirements are satisfied.
+[
+\mathsf{ResidualLedgerCert}:=
+\langle
+\mathsf{RLDigest},;
+\mathsf{ReplayPtr},;
+\mathsf{ObservedResidual},;
+\mathsf{Bound},;
+\mathsf{Result},;
+\mathsf{VerifierDigest},;
+\mathsf{Sig}
+\rangle
+]
+Result is PASS iff all checks succeed deterministically.
+
+AppJ Tight Spec-Only Version (Normative Extraction)
+NEAR claims are valid only with a ResidualLedger that pins metric, bound, scope, calibration, expiry, promotion obligations, replay pointer, and full pin closure digest.
+ResidualLedger is content-addressed; replay must reproduce residual and admissibility predicate (r\le\text{Bound}).
+Disclosure formatting is canonical and import-verifiable; any NEAR usage in a route must carry a NearDisclosureBundle.
+Expiry is mandatory for NEAR; expired ledgers are non-routable for production reliance unless renewed by a superseding ledger.
+NEARPromotionChecklist defines the deterministic tasks required for NEAR→OK or renewal; promotions are append-only via superseding evidence rows.
+ResidualLedgerCert is required for deployment-grade NEAR reliance.
+
+AppJ — NEAR Disclosure Ledger (Residuals, Bounds, Expiry)
+AppK — FAIL/CONFLICT, Quarantine, Revocation Receipts
+Station role: conflict discipline; quarantine boundaries; revocation propagation.
+Purpose: define minimal reproducible contradiction packets, fences, revocation receipts, and propagation rules compatible with Ch20/Ch21 governance.
+
+□ K.S — Square: ConflictPacket, Fence Rules, Revocation Receipts
+K.S1 — Objects
+K.S1.a — Truth overlay and masking semantics
+FAIL and CONFLICT are not annotations; they are routability blockers. Quarantine and revocation are masking overlays:
+A quarantined artifact remains addressable but is non-routable for OK paths.
+A revoked artifact remains addressable but is forbidden to be trusted, imported, or executed under strict policies.
+All overlays are append-only and bind to PulseID (Ch20).
+K.S1.b — ConflictPacket schema (minimal witness set + reproduction recipe)
+A ConflictPacket is the minimal reproducible contradiction object. It must be self-contained relative to content-addressed references and pinned replay closure.
+[
+\mathsf{ConflictPacket}:=
+\langle
+\mathsf{CPVer},;
+\mathsf{CPID},;
+\mathsf{IssuedPulse},;
+\mathsf{Scope},;
+\mathsf{Subject},;
+\mathsf{PinsDigest},;
+\mathsf{EnvPinsDigest},;
+\mathsf{CompetingClaims},;
+\mathsf{Paths},;
+\mathsf{MinimalWitnessSet},;
+\mathsf{ReproRecipe},;
+\mathsf{ExpectedDigests},;
+\mathsf{ObservedDigests},;
+\mathsf{Classification},;
+\mathsf{FenceSpec},;
+\mathsf{RevocationHints?},;
+\mathsf{SchemaPins},;
+\mathsf{Sig}
+\rangle
+]
+Required fields:
+CPID: content-addressed identifier derived deterministically (K.S2.a).
+IssuedPulse: PulseID at which CP is issued.
+Scope: {LOCAL, INTER} with manuscript bindings for INTER.
+Subject: canonical references to the disputed objects:
+[
+\mathsf{Subject}:=\langle \mathsf{SrcEndpointRef},\ \mathsf{DstEndpointRef},\ \mathsf{ClaimAddrSetDigest}\rangle
+]
+PinsDigest: full pin closure required to reproduce the contradiction (AppA/AppD/AppI).
+EnvPinsDigest: environment pins required for deterministic replay (Ch16/Ch18/Ch21).
+CompetingClaims: ordered list of claim references:
+[
+\mathsf{ClaimRef}:=\langle \mathsf{ClaimAddr},\ \mathsf{ClaimDigest},\ \mathsf{TruthType}\rangle
+]
+Paths: canonical representation of at least two admissible routes/derivations tha

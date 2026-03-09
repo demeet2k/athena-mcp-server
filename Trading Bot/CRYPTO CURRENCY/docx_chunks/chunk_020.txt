@@ -1,0 +1,452 @@
+
+any DropLog entries caused by cap enforcement
+
+19.8.4 NarrativeCompileCert
+Attests the narrative-to-routes compilation.
+Must include:
+intent_hash
+routeplan_list_hash (ordered)
+claims_hash
+for each claim: list of supporting routeplan transcripts + evidence atom addresses
+status ∈ {VALID, AMBIG}
+if AMBIG: evidence plan RoutePlans
+
+19.9 Worked example (schematic)
+Intent: “Establish what Ch19 asserts about cross-corpus navigation, and which rules block unpinned links.”
+Compiler output (example RoutePlan set):
+RoutePlan #1
+target: StationSelector(chapter=Ch19, omega≈18)
+hub_sequence: [AppA, AppP, AppC, AppI, AppM]
+truth_intent: T0: QUOTE
+obligations: EVIDENCE, ROUTES, CERTS
+scope: {manuscript=HD‑SCT‑tome@vX, profile=default_strict}
+pins: (single-manuscript pins)
+result: produces evidence atoms stating “navigation is deterministic route planning + replay,” plus OverlayCert + HubCapCert.
+RoutePlan #2
+target: INTER contract rules (edge-type rule index)
+hub_sequence: [AppA, AppP, AppC, AppI, AppM]
+truth_intent: T2: DERIVE
+obligations include contract derivation + pin completeness check
+result: emits the “unpinned links are not OK-routable” rule with evidence atoms + RouterDeterminismCert.
+If, during execution, the router discovers an INTER traversal would be required but pins are missing, it MUST:
+refuse traversal, and
+emit DropLog{drop_reason=PIN_MISSING, required_fix=…}
+leading the narrative to remain AMBIG until pins are supplied.
+
+19.10 Summary: what this chapter makes impossible
+After Ch19, the system cannot:
+treat “reading” as informal scanning,
+insert metro edges by assertion,
+cross manuscripts without pinned IDs + profiles,
+bypass truth typing by taking “short routes,”
+claim anything without executable route transcripts + certificates,
+exceed hub discipline silently (HubCap ≤ 6), or hide drops.
+Ch19 turns navigation into deterministic, replayable graph execution—a metro system where every transfer is typed, pinned, certified, and cap-governed.
+Ch20⟨0103⟩ — Time Axis: Retro-Weaving, DeltaPacks, and Evidence Promotion
+[○Arc 6 | ○Rot 0 | △Lane Me | ω=19]
+Workflow role: append-only evolution; retro-indexing; deterministic promotion scheduling.
+Primary hubs: → AppA → AppP → AppF → AppI → AppM.
+20.1 Chapter Purpose and Non-Negotiable Constraint
+This chapter defines the time axis of the HD‑SCT corpus as an append-only coordinate. Time is introduced without permitting semantic rewrite: all evolution occurs as additive deltas, and all derived judgments (including evidence promotion) are reproducible by replay.
+Primary goal. Provide a deterministic, replayable mechanism for:
+Appending changes to the corpus as DeltaPacks.
+Pinning time to discrete PulseIDs derived from wall clock via policy.
+Retro-weaving new addresses/indices onto historical content by explicit reference rather than implicit equivalence.
+Deterministically promoting evidence states AMBIG→NEAR→OK under a pinned schedule and tie-breaker rules.
+Exporting/importing time slices (pulse bundles) with full historical integrity validation.
+Non-goals.
+No mechanism in this chapter permits in-place edits, deletion, or “silent correction” of prior content.
+No mechanism in this chapter allows a new address to assert semantic identity with old content without an explicit witness (EQUIV/MIGRATE).
+20.2 Core Mathematical Model
+20.2.1 Corpus as an Append-Only Typed Graph
+Let the corpus at time (p) be a typed directed multigraph with attachments:
+[
+\mathcal{C}_p = (V_p, E_p, \Sigma_p, \Pi_p)
+]
+where:
+(V_p) is a finite set of nodes (content, index, policy, profile, audit, etc.).
+(E_p \subseteq V_p \times \mathsf{EdgeType} \times V_p \times \mathsf{EdgePayload}) is a directed multiset of labeled edges.
+(\Sigma_p) is a finite set of certificates (typed, signed statements) attached to nodes/edges by reference.
+(\Pi_p) is the policy state pinned for the pulse range (includes PulseID mapping, scheduler rules, canonicalization rules, digest rules, export/import rules).
+Append-only constraint is enforced by defining evolution only via monotone inclusion:
+[
+V_p \subseteq V_{p'} ;\wedge; E_p \subseteq E_{p'} ;\wedge; \Sigma_p \subseteq \Sigma_{p'} \quad \text{for all } p \le p'.
+]
+20.2.2 Canonical Encoding and Digests
+A canonical encoding function (\mathsf{enc}(\cdot)) maps any object (node, edge, certificate, pack, manifest) to a canonical byte string. Canonicalization rules MUST be pinned by policy (\Pi) (AppP).
+A cryptographic digest function (H) is fixed by policy. The digest of an object (x) is:
+[
+\mathsf{dg}(x) = H(\mathsf{enc}(x)).
+]
+All integrity rules in this chapter refer to digests computed under the currently pinned ((\mathsf{enc}, H)).
+20.3 PulseID / PulseDay: Discrete Time Coordinate
+20.3.1 PulseID Definition
+Time is discretized into PulseIDs, which are integers in a totally ordered set:
+[
+\mathsf{PulseID} \subseteq \mathbb{Z}, \quad p < q \Rightarrow p \text{ precedes } q.
+]
+A policy-defined function maps wall clock into PulseID:
+[
+\mathsf{pulse}_\Pi : \mathsf{WallClock} \rightarrow \mathsf{PulseID}.
+]
+Authoritativeness. For any statement of time inside the corpus, the authoritative time coordinate is PulseID, not wall clock. Wall clock is admissible only as input to (\mathsf{pulse}_\Pi).
+Pinning requirement. The definition of (\mathsf{pulse}\Pi) (including time zone, epoch, boundary conditions, leap rules, and any calendar normalization) MUST be pinned in policy (AppD/AppP). Any change to (\mathsf{pulse}\Pi) constitutes a new policy epoch and therefore a new digest lineage.
+20.3.2 PulseDay Index
+A PulseDay index is a policy-defined partition of PulseIDs into “days” for bundling and reporting:
+[
+\mathsf{day}_\Pi : \mathsf{PulseID} \rightarrow \mathsf{PulseDayID}.
+]
+PulseDay is auxiliary; PulseID remains authoritative. Export, import, and scheduling MUST refer to exact PulseIDs.
+20.4 DeltaPack ((\mathsf{DP})): Atomic Unit of Corpus Evolution
+20.4.1 DeltaPack Role
+A DeltaPack is the atomic append-only unit by which the corpus evolves. It is the only allowed primitive for introducing new content into the time axis. All mutations are expressed as additive operations (new nodes, edges, certificates, and profile evolutions under MIGRATE discipline).
+20.4.2 DeltaPack Structure
+A DeltaPack is a record:
+[
+\mathsf{DP} =
+\langle
+\mathsf{dpid},;
+p,;
+\mathsf{policy_ref},;
+\mathsf{parents},;
+\mathsf{ops},;
+\mathsf{pins},;
+\mathsf{replay_ptrs},;
+\mathsf{author},;
+\mathsf{sig}
+\rangle
+]
+with:
+(\mathsf{dpid}): unique pack identifier (content-addressable or policy-scoped).
+(p \in \mathsf{PulseID}): the PulseID at which the pack is applied.
+(\mathsf{policy_ref}): digest pointer(s) to the active pinned policy (\Pi) for this DP.
+(\mathsf{parents}): ordered list of parent digests establishing DP lineage (see 20.4.4).
+(\mathsf{ops}): ordered list of append operations (see 20.4.3).
+(\mathsf{pins}): explicit pins (digests of referenced objects, schedules, tie-break keys) required for deterministic replay.
+(\mathsf{replay_ptrs}): pointers to prior state digests and decision logs used to validate replays.
+(\mathsf{author}): author identity (key ID and constraints pinned by policy).
+(\mathsf{sig}): signature over (\mathsf{enc}(\mathsf{DP})) under (\mathsf{author}).
+The pack digest is (\mathsf{dg}(\mathsf{DP})).
+20.4.3 Operation Types in (\mathsf{ops})
+Each operation is a typed constructor with canonical encoding. Minimum required operation families:
+AddNode
+[
+\mathsf{AddNode}(v, \mathsf{type}, \mathsf{payload}, \mathsf{node_digest})
+]
+where (\mathsf{node_digest} = \mathsf{dg}(\mathsf{enc}(v,\mathsf{type},\mathsf{payload}))).
+AddEdge
+[
+\mathsf{AddEdge}(u, \tau, v, \mathsf{payload}, \mathsf{edge_digest})
+]
+where (\tau\in\mathsf{EdgeType}).
+AddCert
+[
+\mathsf{AddCert}(\sigma, \mathsf{cert_digest})
+]
+where (\sigma) is a typed certificate object with signature and a deterministic verification predicate pinned by policy.
+AddProfile
+A profile is a node of type (\mathsf{Profile}) subject to MIGRATE discipline (20.6.1). Profiles MUST NOT be “updated”; evolution uses (\mathsf{MigrateProfile}) and witness certificates.
+MigrateProfile
+[
+\mathsf{MigrateProfile}(\mathsf{old}, \mathsf{new}, \mathsf{migrate_witness_refs})
+]
+which adds:
+a new Profile node (\mathsf{new}),
+a (\mathsf{MIGRATE}) edge (\mathsf{old} \xrightarrow{\mathsf{MIGRATE}} \mathsf{new}),
+required witness certificates (20.5.4).
+AddPromotionDecision
+Adds the scheduler output for the pulse as explicit decision artifacts, including inputs and tie-break keys (20.7).
+AddBundleRegistryEntry
+Adds or extends a registry mapping PulseIDs to pinned digests for bundle verification (20.8).
+Operation ordering is significant. Deterministic replay requires the operation list to be processed in the recorded order.
+20.4.4 DP Lineage and Chain Integrity
+DeltaPacks form an append-only lineage graph (\mathcal{L}) over their digests.
+Minimum chain form. For each DP, (\mathsf{parents}) MUST include at least one parent digest; genesis packs are allowed only under explicitly pinned genesis rules.
+Total order within PulseID. Policy MUST define a deterministic total order for DPs sharing the same PulseID (e.g., lexicographic order on (\mathsf{dg}(\mathsf{DP})) or a pinned sequence number). Let (\prec_\Pi) denote this order.
+For each pulse (p), define:
+[
+\mathsf{DPs}(p) = \text{the list of all DPs with PulseID } p \text{ sorted by } \prec_\Pi.
+]
+PulseDigest. The digest representing the pulse’s DP list:
+[
+\mathsf{PulseDigest}(p) = H(\mathsf{enc}(\mathsf{DPs}(p))).
+]
+CumulativeDigest. The digest representing the entire lineage through pulse (p):
+[
+\mathsf{CumDigest}(p) = H(\mathsf{enc}(\mathsf{CumDigest}(p-1),;\mathsf{PulseDigest}(p))).
+]
+Base case (\mathsf{CumDigest}(p_0)) is defined by pinned genesis.
+All exporters, importers, and replayers MUST validate (\mathsf{CumDigest}) consistency against the registry pins (20.8).
+20.5 RetroIndex Mapping: Retro-Weaving Without Semantic Rewrite
+20.5.1 Address Spaces and Retro-Addresses
+Let (\mathsf{Addr}) denote the address space used to retrieve content (human names, stable handles, index keys, etc.). Addresses are resolved by explicit index structures inside the corpus, never by mutation of existing objects.
+A RetroIndex mapping is a set of index nodes and edges that introduce new addressability over historical content while preserving the immutability of the referenced content.
+20.5.2 REF Semantics
+A REF edge is a non-assertive pointer:
+[
+\mathsf{IndexKey}(a) \xrightarrow{\mathsf{REF}} v
+]
+meaning: “address (a) points to node (v)”.
+REF law (non-equivalence). A REF edge alone MUST NOT be interpreted as semantic identity, equality, synonymy, or migration. It confers addressability only.
+REF edges are the only legal mechanism for “assigning new addresses to old content” without making semantic claims.
+20.5.3 EQUIV and MIGRATE Are Witnessed Relations
+Two special relations exist that do assert semantics, and both require explicit witnesses:
+EQUIV. Semantic equivalence between two nodes (x,y) is admissible only if there exists an (\mathsf{EQUIVCert}(x,y,\ldots)) that:
+Is signed by a policy-authorized authority.
+Specifies the equivalence scope (exact identity, observational equivalence, canonicalization equivalence, etc.) as pinned by policy.
+Includes replayable evidence references (digests of the compared objects and any proof artifacts).
+Verifies under pinned rules.
+MIGRATE. For profile evolution (and any other explicitly migratable object types), migration is admissible only if there exists a (\mathsf{MIGRATE}) edge plus a (\mathsf{MigrateCert}) witness as defined in 20.5.4.
+No other mechanism in the system may infer EQUIV or MIGRATE from REF adjacency, naming patterns, timestamps, or proximity.
+20.5.4 MIGRATE Discipline for Profiles
+Profiles are immutable snapshots of identity/attributes. Any “change” is modeled as migration to a new profile node.
+For a migration (\mathsf{old}\rightarrow\mathsf{new}), the DP MUST include:
+(\mathsf{AddProfile}(\mathsf{new},\ldots))
+(\mathsf{AddEdge}(\mathsf{old},\mathsf{MIGRATE},\mathsf{new},\ldots))
+(\mathsf{AddCert}(\mathsf{MigrateCert}))
+A MigrateCert MUST include at minimum:
+Subject: ((\mathsf{old_digest}, \mathsf{new_digest}))
+Transformation description class (\mathsf{XformClass}) pinned by policy (e.g., schema upgrade, attribute correction via new evidence, merge, split)
+Proof references: digests of evidence or rationale nodes
+Policy epoch digest
+Signatures and verification metadata
+Migration is monotone: multiple migrations can branch. Any selection of “current” profile is performed by explicit resolution policy (e.g., latest-by-pulse, authority precedence), never by overwriting old profiles.
+20.6 Evidence Promotion: State Lattice and Validity
+20.6.1 Promotion States
+Every promotable item (x) (claim, edge, certificate, profile assertion, etc.) has an evidence status in the lattice:
+[
+\mathsf{AMBIG} \prec \mathsf{NEAR} \prec \mathsf{OK}
+]
+with an orthogonal validity overlay (\mathsf{QUAR}) (quarantine) that can invalidate promotions without removing them.
+Define:
+(\mathsf{status}(x,p)\in{\mathsf{AMBIG},\mathsf{NEAR},\mathsf{OK}}) as the highest attained status by valid promotion certificates through pulse (p), defaulting to (\mathsf{AMBIG}) if none exist.
+(\mathsf{quarantined}(x,p)\in{0,1}) as whether an applicable quarantine certificate exists through pulse (p).
+Effective status.
+[
+\mathsf{effstatus}(x,p) =
+\begin{cases}
+\mathsf{AMBIG} & \text{if } \mathsf{quarantined}(x,p)=1\
+\mathsf{status}(x,p) & \text{otherwise}
+\end{cases}
+]
+Promotion is monotone in status, but quarantine may mask previously promoted outcomes while preserving append-only history.
+20.6.2 Promotion Artifacts
+A promotion is represented by a certificate:
+[
+\mathsf{PromoteCert}(x,; s_{\text{from}}\rightarrow s_{\text{to}},; p,; \mathsf{inputs},; \mathsf{tie_keys},; \mathsf{policy_digest},; \mathsf{sig})
+]
+where:
+(x) is referenced by digest.
+(p) is the PulseID at which the promotion decision is issued.
+(\mathsf{inputs}) includes digests of all evidence consulted (and MUST be complete under pinned rules).
+(\mathsf{tie_keys}) are the deterministic ordering keys used if selection was budgeted (20.7.4).
+(\mathsf{policy_digest}) pins the scheduler rules and canonicalization rules used.
+A promotion is valid iff:
+(\mathsf{PromoteCert}) verifies under pinned certificate rules, and
+Replay reproduces the decision (20.7.6), and
+No quarantine certificate supersedes it (20.6.4).
+20.6.3 Deterministic Promotion Obligations
+Promotion does not occur arbitrarily. Policy defines promotion obligations:
+[
+\mathsf{Obl}_\Pi = {; o = (\mathsf{selector},\mathsf{rule},\mathsf{deadline_fn},\mathsf{priority_fn},\mathsf{budget_class});}
+]
+where:
+(\mathsf{selector}) identifies candidate items (by type, tags, provenance, or explicit sets).
+(\mathsf{rule}) defines admissibility conditions and target status.
+(\mathsf{deadline_fn}) maps an item to a due PulseID.
+(\mathsf{priority_fn}) yields a stable priority key.
+(\mathsf{budget_class}) binds the obligation to a pinned budget and tie-break policy.
+Obligations are executed by the scheduler deterministically each pulse.
+20.6.4 Quarantine for Invalid Promotions
+If replay fails to reproduce a promotion decision (20.7.6), the promotion MUST NOT be treated as valid. The corpus remains append-only; the remedy is quarantine.
+A quarantine is represented by:
+[
+\mathsf{QuarantineCert}(x,; \mathsf{reason},; p,; \mathsf{conflict_refs},; \mathsf{policy_digest},; \mathsf{sig})
+]
+with (\mathsf{reason}\in{\mathsf{ReplayMismatch},\mathsf{PolicyEpochMismatch},\mathsf{MissingInput},\mathsf{DigestMismatch},\ldots}).
+The quarantine cert MUST include:
+the digest of the disputed promotion certificate(s),
+the expected replay decision digest,
+the observed decision digest,
+the pinned policy digest used in replay.
+20.7 Promotion Scheduler: Deterministic Scheduling and Replayable Decisions
+20.7.1 Scheduler Function
+Let (\mathcal{C}_{p^-}) denote the corpus state after applying all DPs up to and including pulse (p), but before issuing promotions scheduled for (p).
+The scheduler is a deterministic function pinned by policy:
+[
+\mathsf{Sched}\Pi : (\mathcal{C}{p^-}, p) \rightarrow (\Delta\Sigma_p, \mathsf{DecisionLog}_p)
+]
+where:
+(\Delta\Sigma_p) is the set of new certificates emitted at pulse (p) (PromoteCerts, QuarantineCerts if required, and scheduler audit certs).
+(\mathsf{DecisionLog}_p) is a canonical record of decisions, inputs, and tie-break outcomes.
+Scheduler output MUST be appended via a DP operation family (20.4.3(6)).
+20.7.2 Determinism Requirements
+Scheduler determinism is mandatory:
+Given identical:
+DP lineage through (p),
+pinned policy digests covering (p),
+canonicalization rules,
+and identical seed material if any (seed MUST be pinned; unpinned randomness is forbidden),
+the scheduler MUST produce identical (\mathsf{DecisionLog}_p) and identical emitted certificate digests.
+20.7.3 Candidate Enumeration and Canonical Ordering
+For each obligation (o\in\mathsf{Obl}\Pi), define:
+[
+\mathsf{Cand}(o,\mathcal{C}{p^-}) = {x \mid x \text{ matches } \mathsf{selector}(o)}
+]
+and eligibility predicate (\mathsf{Eligible}(o,x,\mathcal{C}_{p^-},p)).
+Candidates are enumerated in a canonical order pinned by policy:
+[
+\mathsf{Order}\Pi(\mathsf{Cand}) = \text{sorted list by key } \mathsf{K}\Pi(x)
+]
+where (\mathsf{K}_\Pi) MUST be stable and derived only from pinned inputs (e.g., digests, PulseIDs, authority ranks).
+20.7.4 Budgeting and Tie-Break Rules
+For each budget class (b), policy pins:
+(\mathsf{Budget}_\Pi(b,p)\in\mathbb{N}): max number of promotions issued from that class at pulse (p).
+(\mathsf{TieBreak}_\Pi(b)): total order comparator over candidates when budget is insufficient.
+(\mathsf{Backfill}_\Pi(b)): rule for carrying forward unserved eligible candidates to future pulses.
+Tie-break MUST be deterministic and MUST be recorded in (\mathsf{DecisionLog}_p) as explicit tie keys per selected item.
+20.7.5 Scheduler Algorithm (Normative Pseudocode)
+function RUN_SCHEDULER(C_pre, p, policy Π):
+    Decisions = []
+    EmittedCerts = []
+
+    for each obligation o in Π.Obligations in canonical order:
+        EligibleList = []
+        for x in CANONICAL_ENUMERATE( Cand(o, C_pre), Π ):
+            if Eligible(o, x, C_pre, p, Π):
+                key = PRIORITY_KEY(o, x, C_pre, p, Π)   // pinned
+                due = DEADLINE(o, x, C_pre, Π)          // pinned
+                EligibleList.append( (x, key, due) )
+
+        // Partition by budget class
+        b = o.budget_class
+        limit = Π.Budget(b, p)
+        // Deterministic sort: primary key = due then priority then digest tie-break
+        Sorted = SORT(EligibleList, Π.TieBreak(b))
+
+        Selected = TAKE_FIRST(Sorted, limit)
+        Deferred = DROP_FIRST(Sorted, limit)
+        RECORD_BACKFILL(Deferred, p, o, Π)              // via append-only backlog nodes/edges
+
+        for (x, key, due) in Selected:
+            inputs = COLLECT_INPUT_DIGESTS(o, x, C_pre, Π)  // MUST be complete
+            cert = MAKE_PROMOTE_CERT(x, CURRENT_STATUS(x,C_pre), TARGET_STATUS(o,x,C_pre,Π),
+                                     p, inputs, key, Π.digest)
+            EmittedCerts.append(cert)
+            Decisions.append(DECISION_RECORD(o, x, p, due, key, inputs, cert.digest))
+
+    DecisionLog = CANONICALIZE_DECISION_LOG(Decisions, Π)
+    return (EmittedCerts, DecisionLog)
+
+All helper functions are pure with respect to ((C_pre, p, Π)) and MUST depend only on pinned inputs.
+20.7.6 Replay Law for Promotions
+Let (\mathsf{DecisionLog}_p^\star) be the decision log stored in the corpus for pulse (p). Let ((\Delta\Sigma_p, \mathsf{DecisionLog}_p)) be the output of re-running the scheduler on replay.
+Replay law.
+[
+\mathsf{dg}(\mathsf{DecisionLog}_p) = \mathsf{dg}(\mathsf{DecisionLog}_p^\star)
+]
+and emitted certificate digests MUST match exactly. If mismatch occurs, all promotion certificates recorded for (p) MUST be quarantined via QuarantineCerts, and the pulse is marked replay-invalid in audit output.
+20.8 Required Laws (Global Invariants)
+20.8.1 Append-Only Chain Integrity
+No DP may remove or modify prior nodes, edges, or certificates.
+DP lineage MUST be verifiable by parent digests and signature checks.
+Pulse ordering MUST be consistent with PulseID order and (\prec_\Pi) within pulse.
+Violation results in import rejection or quarantine, depending on context.
+20.8.2 Replay-Reproducibility of Promotion Decisions
+A promotion is deployment-grade only if replay reproduces its decision log and emitted certificates under pinned policy. Non-replayable promotions are invalid and MUST be quarantined.
+20.8.3 Bundle Integrity: Exact PulseIDs and Registry Pins
+Every exported bundle MUST specify exact PulseID range ([p_{\min}, p_{\max}]).
+The registry MUST pin PulseDigest and CumDigest values for each pulse in the bundle.
+Import MUST validate:
+DP signatures,
+PulseDigest per pulse,
+CumDigest chain,
+policy epoch consistency for all included pulses,
+and replay validity for included promotion decisions when required by policy.
+20.9 Required Constructions (Deployment-Grade)
+20.9.1 Time Replay Harness
+A replay harness deterministically replays:
+DP application ordered by pulse and (\prec_\Pi),
+scheduler emission at each pulse,
+overlay snapshot regeneration,
+digest comparison to pinned registry values and recorded logs.
+Replay procedure (normative).
+Input: genesis reference, DP set covering pulses, pinned policies, optional expected digests.
+Output: ReplayCert (20.10.1) + mismatch reports.
+Normative replay algorithm:
+function REPLAY(genesis, DP_stream, policies Π_by_epoch):
+    C = INIT_CORPUS(genesis)
+    expectedCum = genesis.CumDigest
+    for each pulse p in increasing order:
+        Π = POLICY_FOR_PULSE(p, Π_by_epoch)
+        DPs = SORT(DPs_at_p, Π.PulseOrder)
+        for dp in DPs:
+            VERIFY_SIGNATURE(dp, Π)
+            VERIFY_PARENTS(dp, C, Π)
+            APPLY_OPS_APPEND_ONLY(C, dp.ops, Π)
+
+        // promotions
+        (certs, log) = RUN_SCHEDULER(C, p, Π)
+        // Compare to recorded scheduler artifacts if present
+        if RECORDED_DECISION_LOG_EXISTS(C, p):
+            if dg(log) != dg(RECORDED_LOG(C,p)):
+                EMIT_QUARANTINES(C, p, Π, mismatch_details)
+            else:
+                APPEND_CERTS(C, certs)
+
+        snapshot = BUILD_OVERLAY_SNAPSHOT(C, p, Π)
+        CHECK_SNAPSHOT_DIGESTS(snapshot, C, p, Π)
+
+        pulseDigest = H(enc(DPs))
+        expectedCum = H(enc(expectedCum, pulseDigest))
+        CHECK_REGISTRY_PINS(C, p, pulseDigest, expectedCum, Π)
+
+    return (C, BUILD_REPLAY_REPORT_AND_CERT(C, Π_by_epoch))
+
+Overlay snapshots MUST be reproducible artifacts whose digests are pinned or derivable under policy; they MUST NOT be used to justify semantic rewrite.
+20.9.2 Pulse Bundle Exporter/Importer (Import-Verifiable)
+A pulse bundle packages DPs and required auxiliary artifacts for a PulseID range.
+Bundle manifest.
+[
+\mathsf{BundleManifest}=
+\langle
+[p_{\min},p_{\max}],;
+\mathsf{policy_epochs},;
+{\mathsf{PulseDigest}(p)},;
+{\mathsf{CumDigest}(p)},;
+{\mathsf{DPdigests}},;
+\mathsf{exporter_id},;
+\mathsf{sig}
+\rangle
+]
+Exporter MUST:
+Select PulseID range ([p_{\min},p_{\max}]).
+Include all DPs in the range, plus any required policy objects referenced by (\mathsf{policy_ref}).
+Compute PulseDigest and CumDigest values and include them in the manifest.
+Emit ExportCert (20.10.2) referencing the manifest digest.
+Optionally emit ReplayCert for the bundle range if policy requires pre-export replay.
+Importer MUST:
+Verify ExportCert signature and manifest signature.
+Verify all DP signatures and parent digest consistency within the bundle.
+Verify PulseDigest and CumDigest values match manifest.
+Verify that policies referenced are present and pinned.
+Recompute and verify replay of promotion decisions if required.
+Append the imported DPs and certs as new corpus content without altering existing content.
+Import rejection occurs when lineage integrity fails. Quarantine occurs when optional artifacts fail replay but DP integrity remains valid and policy allows quarantine instead of rejection.
+20.9.3 Regression Fixtures for Scheduler Determinism
+Determinism is enforced by regression fixtures that MUST cover at minimum:
+Tie-break determinism: identical candidate sets yield identical selection order and tie keys.
+Budget exhaustion: overflow candidates are deferred deterministically with stable backlog representation.
+Backfill behavior: deferred candidates are reconsidered on subsequent pulses exactly as pinned by policy.
+Cross-epoch behavior: policy epoch transitions do not introduce nondeterminism; they are pinned and explicit.
+A regression fixture is a minimal DP sequence plus pinned policy and expected decision-log digests per pulse:
+[
+\mathsf{Fixture}=\langle \mathsf{genesis}, {\mathsf{DP}}, \Pi, {\mathsf{dg}(\mathsf{DecisionLog}_p)} \rangle
+]
+Regression runs MUST emit RegressionCert (20.10.3) bound to:
+fixture digests,
+policy digest,
+implementation build digest,
+results.
+20.9.4 Audit Report Generator for Timeline Evolution
+An a

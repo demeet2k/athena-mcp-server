@@ -1,0 +1,517 @@
+rifier to reproduce the outcome.
+If any requirement fails, the navigation output must be typed (\mathrm{AMBIG}) or (\mathrm{FAIL}), never (\mathrm{OK}).
+
+14.S5 Program output: the compiled package and certificate expectations
+Define the compiler output as
+[
+\boxed{
+\mathsf{Program}
+:=(\mathrm{SeedID},\mathrm{Manifests},\mathrm{Profiles},\mathrm{States},\mathrm{Graph},\mathrm{NavIndex},\mathrm{Receipts},\mathrm{Ledgers},\mathrm{Certificates},\mathrm{Exports})
+}
+]
+where:
+(\mathrm{States}) contains instantiated (\mathbf{x}^\star_{d,k}) for required ((d,k)) contexts, each with Snap closure and state digest.
+(\mathrm{Graph}) is the certified transform graph over these states (edges typed by corridor legality and carrying outcomes).
+(\mathrm{Receipts}) includes commutation receipts (spin/holonomy), lift/projection receipts, and any legality witnesses required by the corridor.
+(\mathrm{Ledgers}) includes residual ledgers for NEAR or Snap defects.
+(\mathrm{Certificates}) includes replay certificates, regression certificates, and export certificates required for import-verifiable publication.
+(\mathrm{Exports}) includes export bundles and their import verification transcripts.
+A program is eligible for publication corridors only when its certificate set is complete for the declared scope.
+
+14.S6 Reference interface specification and data model
+14.S6.1 Minimal type signatures
+Let (\mathrm{Bytes}) be byte strings and (\mathrm{Digest}) be digests under pinned (H). Define canonical interfaces:
+Seed canonicalization:
+[
+\mathrm{CanSeed}:\ \mathrm{SeedInput}\to \mathcal{A}
+]
+State instantiation:
+[
+\mathrm{Instantiate}:\ (\mathcal{A},d,k;\pi_B,\mathfrak{C})\to \mathbf{x}_{d,k}\times \mathsf{Out}
+]
+Snap closure:
+[
+\mathrm{Snap}:\ (\mathbf{x}{d,k};\pi_B,\mathfrak{C})\to \mathbf{x}^\star{d,k}\times \mathsf{Out}
+]
+Navigation compilation:
+[
+\mathrm{BuildNavIndex}:\ (\mathsf{Program};\pi_R,\mathfrak{C})\to \mathsf{NavIndex}
+]
+Navigation query execution:
+[
+\mathrm{Navigate}:\ (\mathsf{Program},\mathsf{NavQ})\to \mathsf{NavBundle}
+]
+Export:
+[
+\mathrm{Export}:\ (\mathsf{Program},S;\pi_B,\mathfrak{C})\to \mathsf{ExportBundle}\times \mathsf{ExportCert}
+]
+All functions are deterministic given their pinned profiles and environment pins.
+
+14.S6.2 Reference implementation skeleton (compiler core)
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Tuple, Literal, FrozenSet, Callable
+
+Truth = Literal["OK", "NEAR", "AMBIG", "FAIL", "CONFLICT"]
+Lens  = Literal["SQUARE", "CIRCLE", "TRIANGLE", "FRACTAL"]
+
+Digest = str
+
+@dataclass(frozen=True)
+class EnvPins:
+    os_id: str
+    arch_id: str
+    runtime_id: str
+    lib_digests: Tuple[Tuple[str, Digest], ...]
+    float_policy: str
+    endian_policy: str
+    schema_pins: Tuple[Tuple[str, str], ...]
+
+@dataclass(frozen=True)
+class CorridorProfile:
+    digest: Digest
+    truth_threshold: Truth
+    budget_kappa: float
+    budget_beta: float
+    budget_delta: int
+    budget_chi: int
+
+@dataclass(frozen=True)
+class RouterProfile:
+    digest: Digest
+    hub_cap: int  # must be 6 for the contract
+    mandatory_signature: FrozenSet[str]  # e.g., {"AppA","AppI","AppM"}
+    # plus deterministic tables (lens/facet/arc/overlay/drop priorities)
+
+@dataclass(frozen=True)
+class BuildProfile:
+    digest: Digest
+    dim_lock_policy: str
+    resolution_policy: str
+    boundary_policy: str
+    snap_script_digest: Digest
+
+@dataclass(frozen=True)
+class AetherSeed:
+    seed_id: Digest
+    # canonical term-graph + types + invariants + gauge constraints
+    payload_digest: Digest
+    schema_ver: str
+
+@dataclass(frozen=True)
+class ResidualLedger:
+    metric_id: str
+    value: float
+    bound: float
+    scope: Tuple[str, ...]
+    replay_ptr: str
+
+@dataclass(frozen=True)
+class Outcome:
+    truth: Truth
+    replay_ptr: Optional[str]
+    witness_ptrs: Tuple[str, ...]
+    residuals: Tuple[ResidualLedger, ...]
+    obligations: Tuple[str, ...]
+    budget_use: Tuple[float, float, int, int]  # (kappa,beta,delta,chi)
+
+@dataclass(frozen=True)
+class SquareState:
+    d: int
+    k: int
+    digest: Digest
+    nf_profile: Digest
+    data_digest: Digest
+
+@dataclass(frozen=True)
+class CircleState:
+    d: int
+    k: int
+    digest: Digest
+    B_d: int
+    u: int                    # metro index in Σ_{B_d}
+    phi_digest: Optional[Digest]
+    hub_digest: Optional[Digest]
+
+@dataclass(frozen=True)
+class TriangleState:
+    d: int
+    k: int
+    digest: Digest
+    mode: str                 # pinned mode spec
+    lift_digit_policy: Digest
+
+@dataclass(frozen=True)
+class FractalState:
+    d: int
+    k: int
+    digest: Digest
+    scale_ladder_digest: Digest
+    receipts_digest: Digest
+
+@dataclass(frozen=True)
+class HDState:
+    d: int
+    k: int
+    seed_id: Digest
+    square: SquareState
+    circle: CircleState
+    triangle: TriangleState
+    fractal: FractalState
+    digest: Digest
+
+@dataclass(frozen=True)
+class NavIndex:
+    digest: Digest
+    addr_index_digest: Digest
+    hub_index_digest: Digest
+    ring_index_digest: Digest
+    lift_index_digest: Digest
+    receipt_index_digest: Digest
+    fence_index_digest: Digest
+
+@dataclass(frozen=True)
+class Program:
+    seed_id: Digest
+    build_profile: Digest
+    corridor_profile: Digest
+    router_profile: Digest
+    env_pins: EnvPins
+    states: Tuple[HDState, ...]
+    graph_digest: Digest
+    nav_index: NavIndex
+    certificates_digest: Digest
+
+def compile_seed(seed: AetherSeed,
+                 bp: BuildProfile,
+                 C: CorridorProfile,
+                 R: RouterProfile,
+                 env: EnvPins,
+                 instantiate: Callable[[AetherSeed,int,int,BuildProfile,CorridorProfile,EnvPins], Tuple[HDState, Outcome]],
+                 build_nav_index: Callable[[Tuple[HDState,...], BuildProfile, CorridorProfile, RouterProfile], NavIndex],
+                 build_graph: Callable[[Tuple[HDState,...], CorridorProfile], Digest],
+                 build_certs: Callable[[Tuple[HDState,...], Digest, NavIndex, BuildProfile, CorridorProfile, RouterProfile, EnvPins], Digest]
+                 ) -> Program:
+    """
+    Deterministic compiler entrypoint: Seed → States → Graph/Index → Certificates.
+    All variability must be pinned by digests in bp, C, R, env.
+    """
+    # Dimension-depth selection is pinned by bp.dim_lock_policy; example: compile a minimal ladder
+    # (d0,k0) plus a fixed number of locked lifts. Here we stub a pinned set:
+    dk_targets = [(1, 0), (2, 1), (3, 2)]  # placeholder; must be derived deterministically
+
+    states: List[HDState] = []
+    outcomes: List[Outcome] = []
+
+    for d, k in dk_targets:
+        st, out = instantiate(seed, d, k, bp, C, env)
+        states.append(st)
+        outcomes.append(out)
+
+    # Graph and index depend only on compiled states and pinned profiles.
+    graph_digest = build_graph(tuple(states), C)
+    nav_index = build_nav_index(tuple(states), bp, C, R)
+
+    # Certificates bind replay closure, regressions, and export readiness.
+    certs_digest = build_certs(tuple(states), graph_digest, nav_index, bp, C, R, env)
+
+    return Program(
+        seed_id=seed.seed_id,
+        build_profile=bp.digest,
+        corridor_profile=C.digest,
+        router_profile=R.digest,
+        env_pins=env,
+        states=tuple(states),
+        graph_digest=graph_digest,
+        nav_index=nav_index,
+        certificates_digest=certs_digest,
+    )
+
+This skeleton is intentionally strict: all degrees of freedom must be pinned by profile digests and environment pins, and every artifact must be content-addressed. An implementation may extend the schema, but it may not weaken determinism, replay closure, or truth typing.
+
+❀ Flower — Geometric meaning: seed as coordinate-free object, state as charted representative, navigation as path selection
+14.F1 Seed as an equivalence class in a moduli space
+The aether seed (\mathcal{A}) may be regarded as a coordinate-free object: a point in a moduli space of typed relations modulo gauge. Each lens (L) provides a chart (a representational coordinate system) on (a portion of) that moduli space. Encoding (\mathrm{Enc}_L) selects a chart representative; evaluation (\mathrm{Eval}_L) maps back to the coordinate-free object.
+In this interpretation:
+seed invariance is chart-independence,
+Snap/meta-zero is canonical gauge fixing plus intersection of admissible corridor constraints,
+residual ledgers quantify failure to lie exactly in the intersection (distance-to-corridor).
+
+14.F2 State as a fibered structure over seed
+For fixed ((d,k)), the state space (\mathsf{HDState}(d,k)) is a fibered product of carriers:
+[
+\mathsf{HDState}(d,k)\ \longrightarrow\ \mathcal{A},
+]
+where the projection is “evaluate back to seed.” The fiber over (\mathcal{A}) contains all representations consistent with (\mathcal{A}) under pinned legality. Snap selects a canonical section of this fibration (or a best-approximate section, recorded as NEAR).
+
+14.F3 Cross-dimensional metro as a refinement tower of the circle
+The circle component of state binds a geometric phase object to the refined metro ring (\Sigma_{B_d}). The refinement law (B_{d+1}=3B_d) is a tower of coverings of the base 15-station circle partition. Gear-stack digits are the discrete internal coordinates within each macro-station induced by relative phase stratification.
+Thus “Seed → State” includes selecting a consistent refinement level for the seed’s dimensional deployment, and “State → Navigation” uses this consistent refinement to avoid aliasing and to keep higher-dimensional cycles visible.
+
+14.F4 Navigation as homotopy-aware routing with receipts
+When navigation asserts equivalence of two routes, that assertion is a holonomy statement. The compiled program therefore treats spin/holonomy receipts as geometric witnesses: they certify path-independence (or quantify the defect) under corridor metrics. Navigation is thereby a geometric process with explicit loop evidence, not an informal choice of links.
+
+☁ Cloud — Uncertainty: partial seeds, NEAR instantiation, and AMBIG navigation plans
+14.C1 Partial seeds and evidence plans
+If the input seed is missing required typing, gauge constraints, boundary policies, or legality pins, canonicalization cannot produce a unique (\mathcal{A}). In this case, compilation must return (\mathrm{AMBIG}) with:
+a bounded candidate set of completions ({\mathcal{A}_1,\dots,\mathcal{A}_m}) (when enumerable within (\chi)), and
+an evidence plan specifying discriminators that collapse ambiguity (additional typing facts, unit constraints, corridor selections, or canonical gauge selections).
+The compiler is forbidden to guess missing constraints while claiming OK.
+
+14.C2 NEAR instantiation and residual disclosure
+If the seed is canonical but exact corridor intersection is not achievable (Snap does not reach zero defect within budgets), compilation may emit (\mathrm{NEAR}) state with residual ledger bundle (\mathsf{RL}). NEAR is admissible only if:
+all residuals are computed under pinned metrics,
+bounds are explicit,
+scope is explicit (which parts of state/navigation are affected), and
+replay capsules reproduce the residual computation.
+NEAR states must be treated as first-class: navigation that depends on them must propagate residual disclosures and may be forbidden under strict corridors (e.g., publication).
+
+14.C3 Probabilistic seeds and pinned inference rules
+If the seed includes stochastic components (random variables, distributions, empirical measures), the seed is still an invariant object only if its probabilistic semantics are pinned:
+distribution families and parameters,
+sampling policies (if any),
+estimator definitions (if approximate),
+and replay policies (seeds/RNG discipline).
+Absent pinned inference rules, probabilistic compilation cannot be import-verifiable and must be typed AMBIG/FAIL under strict corridors.
+
+14.C4 Navigation under uncertainty is routable, not suppressed
+Uncertainty in compilation and navigation is represented by routable truth typing:
+(\mathrm{AMBIG}) produces evidence-plan routes rather than semantic routes,
+(\mathrm{NEAR}) produces residual-ledger routes with explicit disclosures,
+(\mathrm{FAIL}) produces fences and conflict packets,
+(\mathrm{OK}) produces publishable routes.
+This turns “compiler uncertainty” into explicit graph content.
+
+✶ Fractal — Multiscale compilation: locked lifts, gear stacks, and certificate-complete export
+14.R1 Locked lift ladder as the canonical dimension-depth schedule
+A build profile (\pi_B) pins a dimension-depth ladder
+[
+(d_0,k_0)\ \leadsto\ (d_1,k_1)\ \leadsto\ \cdots\ \leadsto\ (d_m,k_m)
+]
+typically by a locked law such as ((d,k)\mapsto(d+1,k+1)). Compilation must produce:
+states at each rung,
+lift/projection maps between rungs,
+receipts verifying functoriality and station preservation,
+and regression fixtures covering boundary and alias cases.
+This is the cross-dimensional backbone that makes a seed “holographically coherent” across dimensions.
+
+14.R2 Gear-stack coherence constraints
+For each rung (d), the circle carrier uses (\Sigma_{B_d}) with (B_d=15\cdot 3^{d-1}). Cross-dimensional coherence requires:
+projection compatibility across rungs (dropping gear digits by triadic coarsening),
+lift choice policies pinned by triangle carrier state,
+and boundary policies pinned for quantization and digit selection.
+Any failure of coherence yields nontrivial fibers (ambiguity) or aliasing (failure), and must be typed accordingly.
+
+14.R3 Compiler output must be certificate-complete for its declared claims
+A compiled program intended for import-verifiable sharing must include certificate bundles that bind:
+replay closure for critical state instantiation and navigation,
+regression coverage for key transforms, boundary rules, and lift/projection laws,
+export determinism and import verification transcripts.
+The compiler interface therefore treats certificates as output of compilation, not as external paperwork. Export without certificates is not a “release”; it is an explicitly non-verifiable draft package, and its truth claims must be bounded accordingly.
+
+14.R4 Incremental compilation and supersession without semantic drift
+Because certificates and state objects are content-addressed, the compiler supports incremental rebuild:
+unchanged seed and profiles imply unchanged digests,
+changed profiles require explicit MIGRATE semantics and compatibility receipts,
+supersession occurs by new artifacts linked to previous ones, never by overwriting.
+This establishes the holographic compiler as an append-only, replay-verifiable “build system for meaning.”
+
+Ch14 — The Holographic Compiler Interface (Seed → State → Navigation)
+Ch15⟨0032⟩ — Defect Skeletons and Trigger Laws
+[Arc 4 | Rot 1 | △Lane Su | ω=14]
+Workflow role: trigger loci, measurable laws, counterexamples, boundary repair discipline.
+Primary hubs: AppA (canonical encoding), AppD (pins), AppG (corridor budgets), AppC (kernels/phases), AppI (measurement/logging), AppM (repair search), AppK/AppO (fences/quarantine).
+
+15.0 Mechanization Thesis
+From this chapter forward, “failure” is not narrative. A failure is a structured, typed artifact whose semantics are enforced by pinned encodings, deterministic replay, measurable trigger laws, and explicit repair legality.
+A failure instance is represented by the minimal quintuple:
+[
+\mathcal{F} ;=; (\mathrm{DS}, \mathrm{TL}, \mathrm{MS}, \mathrm{RS}, \mathrm{CE?})
+]
+where:
+DefectSkeleton (DS) is the minimal witness class explaining a disagreement between two purportedly equivalent routes/representations.
+TriggerLaw (TL) is the deterministic predicate over pinned state and event stream that decides whether the DS can manifest.
+MeasurementSpec (MS) is the bounded, ordered, redactable emission contract sufficient to reproduce/classify/repair-search the defect.
+RepairSpec (RS) is the constrained set of legal repair operations (append-only) and budgets/exit criteria.
+CounterexampleArtifact (CE) is mandatory when TL triggers and RS cannot produce OK/NEAR under corridor budgets, or when repair is disallowed by boundary discipline.
+A mechanized defect is routable to certificates and replay harnesses without additional prose, and all decisions (triggering, typing, repair legality) are derivable by deterministic algorithms from pinned artifacts.
+
+15.1 Foundations: Pins, Canonical Encoding, and Deterministic Replays
+15.1.1 Pinned Canonical Encoding
+All types introduced in this chapter are pinned, serializable types with canonical encodings governed by AppA/AppD.
+Let (\mathrm{Enc}_A(T)) denote the AppA canonical encoding for instances of type (T).
+Let (\mathrm{Digest}(\cdot)) denote the pinned digest function (\mathsf{H}) (algorithm identifier + domain separation are part of the pin set).
+Canonical encoding requirements. For any type (T) defined in this chapter:
+Totality. (\mathrm{Enc}_A) is defined for all well-formed values of (T).
+Determinism. If (x=y) as values, then (\mathrm{Enc}_A(x)) is bitwise identical to (\mathrm{Enc}_A(y)).
+Canonical key ordering. All map/object key orderings are canonical (fixed ordering by tag/field-id), all lists requiring canonicality must be sorted by pinned comparator.
+No ambient dependence. Encoding depends only on value content and pins (not wall-clock time, locale, platform specifics).
+Each artifact carries a PinSet reference:
+PinSet: a record of immutable identifiers controlling canonicalization, schema, kernel versions, determinism profile, redaction profile, and digest algorithm identifiers.
+PinSetDigest: (\mathrm{Digest}(\mathrm{Enc}_A(\text{PinSet}))).
+15.1.2 Pinned State and Event Streams
+PinnedState is the minimal closure of artifacts required to interpret and replay a claim:
+canonical forms (Ch05/AppA),
+interpretation pins (AppD),
+kernel/phase profiles (AppC),
+corridor budgets and typing rules (AppG),
+measurement/logging profile (AppI).
+EventStream is an ordered sequence of records emitted under an MS:
+[
+\mathcal{E} = (e_0, e_1, \dots, e_{n-1})
+]
+where ordering is a total order defined by MS (not by ingestion time).
+A Replay is the deterministic evaluation of:
+canonical normalizers,
+defect extraction,
+TL evaluation,
+repair attempt,
+certificates verification,
+using only ((\text{PinnedState}, \mathcal{E}, \text{Inputs})) and pinned tie-break rules.
+
+15.2 Required Objects: Canonical Types
+All required objects are defined as pinned, serializable types. Each type below includes:
+canonical fields and invariants,
+deterministic ordering constraints,
+required digests.
+15.2.1 Shared Primitive Types
+Addressing primitives.
+CorpusID: bytes16 (pinned identifier).
+NodeID: bytes16.
+EdgeID: bytes16.
+FieldPath: canonical UTF-8 path with pinned normalization (AppA).
+TimeIndex: u64 logical index (not wall-clock).
+Address is a sum type:
+AtomAddress = ({\text{corpus}: \text{CorpusID}, \text{node}: \text{NodeID}, \text{field}: \text{FieldPath}, \text{time}: \text{TimeIndex}})
+EdgeAddress = ({\text{corpus}: \text{CorpusID}, \text{edge}: \text{EdgeID}, \text{time}: \text{TimeIndex}})
+The canonical ordering on addresses is a pinned lexicographic order:
+[
+(\text{tag}, \text{corpus}, \text{node/edge}, \text{field?}, \text{time})
+]
+where tag orders AtomAddress < EdgeAddress (pinned).
+Kernel/phase/control.
+KernelID: bytes16.
+PhaseID: enum ({\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C}}) (stage injection points).
+ControlProfileDigest: bytes32 digest of pinned control parameters.
+Corridor typing.
+TruthType: enum ({\mathbf{OK}, \mathbf{NEAR}, \mathbf{AMBIG}, \mathbf{FAIL}}) with pinned preorder:
+[
+\mathbf{OK} \succ \mathbf{NEAR} \succ \mathbf{AMBIG} \succ \mathbf{FAIL}.
+]
+Corridor budgets.
+BudgetVector: a fixed-key map (canonical field order) of nonnegative integers (u64):
+measurement_budget_bytes,
+measurement_budget_records,
+repair_budget_steps,
+repair_budget_search,
+kernel_budget (optional, pinned by AppC),
+quarantine_budget (optional, pinned by AppK/AppO).
+CorridorClass: enum ({\mathbf{OK_CORRIDOR}, \mathbf{NEAR_CORRIDOR}, \mathbf{AMBIG_CORRIDOR}, \mathbf{FAIL_CORRIDOR}}).
+Difference operator.
+DiffOpID: bytes16 (pinned).
+DiffReportDigest: bytes32.
+A DifferenceOperator is a record:
+diff_op_id: DiffOpID,
+params_digest: bytes32 (digest of pinned params),
+output_kind: enum (STRUCTURAL, SEMANTIC, TYPING, MIGRATION),
+normalization_pins_digest: bytes32,
+comparator_pins_digest: bytes32.
+Its semantics are:
+[
+\mathrm{DiffOp}(L,R) \mapsto (\text{DiffReport}, \text{DiffReportDigest})
+]
+where DiffReport is not required to be stored in DS; DS stores the operator identity plus digests, and MS defines how to log any necessary report fragments.
+
+15.3 DefectSkeleton (DS)
+15.3.1 Definition
+A DefectSkeleton is the minimal witness class explaining why two routes/representations disagree.
+DefectSkeleton is a pinned serializable record:
+ds_version: u32 (pinned),
+pins_digest: PinSetDigest,
+ds_kind: DSKind,
+left_ref: ArtifactRef,
+right_ref: ArtifactRef,
+involved_addresses: sorted unique list[Address],
+transform_context: TransformContext,
+budget_context: BudgetContext,
+difference_operator: DifferenceOperator,
+witness_payload: DSWitnessPayload,
+ds_digest: bytes32 (digest of the canonical encoding of the DS with ds_digest field zeroed).
+Where:
+ArtifactRef is:
+artifact_digest: bytes32,
+artifact_type: enum (ROUTE, REPRESENTATION, CLAIM, CANONICAL_FORM),
+artifact_schema_digest: bytes32.
+TransformContext is:
+kernel_id: KernelID,
+phase_id: PhaseID,
+control_profile_digest: ControlProfileDigest,
+determinism_profile_digest: bytes32,
+interpretation_pins_digest: bytes32 (AppD),
+canonicalizer_digest: bytes32 (Ch05/AppA).
+BudgetContext is:
+corridor_class: CorridorClass,
+budgets: BudgetVector,
+budget_profile_digest: bytes32 (AppG).
+Well-formedness invariants.
+involved_addresses are canonical-sorted and duplicate-free.
+left_ref and right_ref are pin-consistent with transform_context.interpretation_pins_digest.
+difference_operator normalization pins match transform_context canonicalizer pins.
+ds_digest equals (\mathrm{Digest}(\mathrm{Enc}_A(\mathrm{DS}_\text{zeroed}))).
+15.3.2 DS Kind System
+DS must support the following defect families; each family has a canonical witness payload with additional invariants.
+DSKind enum:
+COMMUTATION_DEFECT
+CARRY_HATCH_BOUNDARY_DEFECT
+CORRIDOR_TYPING_DEFECT
+MIGRATION_DEFECT
+OTHER_DEFECT (reserved, requires explicit extension pin)
+(i) Commutation Defect
+A CommutationDefect asserts that two sequences of legal operations (words) that should commute or be equivalent are not.
+Witness payload:
+generators_digest: bytes32 (pinned generator set identifier),
+word_left: list[GeneratorID],
+word_right: list[GeneratorID],
+word_ordering_pin: bytes32,
+result_left_digest: bytes32,
+result_right_digest: bytes32,
+commutation_claim: enum (COMMUTE, ASSOCIATE, DISTRIBUTE, FUSE, OTHER),
+minimality_trace_digest: bytes32 (optional but required when CE is minted).
+Invariant. word_left and word_right are the canonical-minimal pair under:
+shortest total length (|w_L|+|w_R|),
+then shorter max length (\max(|w_L|,|w_R|)),
+then lexicographic order by GeneratorID with pinned comparator,
+among all pairs producing the same diff class under the DifferenceOperator.
+(ii) Carry/Hatch Boundary Defect
+A Carry/HatchBoundaryDefect asserts that a disagreement arises at a legal recursion boundary (Ch14). These are structural boundaries, not bugs; legality is handled by boundary repair discipline.
+Witness payload:
+boundary_id: bytes16,
+boundary_type: enum (CARRY, HATCH),
+boundary_time: TimeIndex,
+attempted_action: enum (RECURSE, INLINE, REWRITE_PAST, RECLASSIFY, OTHER),
+boundary_clause_digest: bytes32 (digest of the boundary semantics statement),
+observed_effect_digest: bytes32 (digest of minimal observed contradiction).
+Invariant. attempted_action = REWRITE_PAST implies RS is empty (repair disallowed); CE obligation is immediate.
+(iii) Corridor Typing Defect
+A CorridorTypingDefect asserts that the same artifact is classified differently between corridors (OK/NEAR/AMBIG/FAIL), or that a classification is inconsistent with the evidence.
+Witness payload:
+left_type: TruthType,
+right_type: TruthType,
+typing_rule_digest: bytes32 (rule set in AppG),
+evidence_plan_ref: EvidencePlanRef (required if either side is AMBIG due to insufficient measurement),
+classification_trace_digest: bytes32.
+Invariant. If DSKind = CORRIDOR_TYPING_DEFECT and identifiability cannot be met under MS bounds, left_type and right_type must both be AMBIG and an EvidencePlanRef is mandatory.
+(iv) Migration Defect
+A MigrationDefect asserts a schema/profile mismatch between left and right.
+Witness payload:
+schema_left_digest: bytes32,
+schema_right_digest: bytes32,
+profile_left_digest: bytes32,
+profile_right_digest: bytes32,
+migration_edge_kind_required: enum (MIGRATE, REF, DUAL),
+mismatch_summary_digest: bytes32.
+Invariant. MigrationDefect must be emitted immediately upon pin mismatch during extraction; no defect-word search is allowed prior to pin alignment.
+
+15.4 TriggerLaw (TL)
+15.4.1 Definition
+A TriggerLaw is a predicate over pinned state and event stream that decides w

@@ -1,0 +1,555 @@
+le under lift when the hub selector is pinned.
+
+06.R3.b — Residual-to-corridor distance is the fixed-point distance
+The residual magnitude (|\mathbf{r}|) is the distance-to-mesh proxy. Fractal outputs “distance to fixed corridor” and “convergence under recursion” by tracking (|r|) under lift+snap.
+
+06.R3.c — Hub-first routes preserve coherence by returning to nexus lattice
+The hub-first routing strategy formalizes the coherence principle: stability comes from returning to the hub lattice before performing typed moves and before leaving to targets.
+
+06.R3.d — Forbidden implicit tunneling invariant
+Any tunneling not explicitly declared and pinned is forbidden; any cross-scope jump must be pinned and auditable.
+
+06.R4 — Protocols
+06.R4.a — Multi-scale tunnel execution protocol
+Protocol for a hub-preserving tunnel with recursion:
+compute ((\mathbf{h},\mathbf{r},n));
+route on (\mathcal{H}^{(d)}) using admissible steps;
+after each major hub waypoint, optionally apply Lift–Snap;
+verify corridor support and residual bounds;
+emit RoutePlan with pins and replay capsule.
+
+06.R4.b — Convergence audit under repeated Lift–Snap
+Run (m) iterations of Lift–Snap and record (|\mathbf{r}^{(t)}|). Output OK if the sequence decreases under pinned contraction criteria; otherwise output NEAR/AMBIG with obligations.
+
+06.R4.c — Two-tier hub refinement audit
+Verify that adding micro hubs refines inside macro basins without changing the macro hub sequence of a route (macro backbone preserved).
+
+06.R4.d — Replay capsule schema for tunnels
+A tunnel replay capsule includes:
+(\Phi_A,\Phi_B) digests (or their hub keys),
+hub mesh version and denominator set,
+admissible step set,
+distance metric and tie-break pins,
+corridor radius (\rho),
+route artifact (hub sequence, step vectors),
+verification outcomes and obligations.
+Tunneling is treated as a transport operator and must obey the same replay/certificate constraints as all transports.
+
+Ch06 — Tunneling as Hub-Preserving Routing on (\mathbb{T}^d)
+Ch07 — Transport Legality (DUAL/EQUIV/MIGRATE) in HD-SCT
+Certified transport schema, corridor budgets, and replay-bound legality across Higher-Dimensional Square–Circle–Triangle representations
+
+□ Square — Transport Objects and Typed Schemas
+07.S1 — Objects
+07.S1.a — Lens set and HD-SCT representation families
+Let the lens alphabet be
+[
+\mathcal{L}:={S,F,C,R},
+]
+where (S) denotes the Square lens, (F) the Flower lens, (C) the Cloud lens, and (R) the Fractal lens.
+An HD-SCT representation family is a pinned family of typed spaces
+[
+\mathcal{R}{L}^{(d,k)} \quad (L\in\mathcal{L},\ d\in\mathbb{N}{\ge1},\ k\in\mathbb{N}_{\ge0}),
+]
+whose elements encode the same semantic atom at a given ((d,k)) under lens (L), subject to pinned corridor profiles, pinned normal-form profiles, and pinned decoding/encoding rules.
+
+07.S1.b — GlobalAddr endpoints and lens slots
+Fix a station identifier (X) and a facet/atom identifier ((f,t)). The lens slots for that atom are
+[
+X.L.f.t \quad\text{for}\quad L\in\mathcal{L},
+]
+and transport edges always connect explicit slots (X.L.f.t\to X.L'.f.t) (or their cross-manuscript analogs) rather than implicit “same thing” claims.
+A GlobalAddr is a canonical endpoint record that uniquely specifies the atom and representation context:
+[
+\boxed{
+\mathsf{GA}:=(X,\ f,t,\ d,k,\ L,\ \pi_{\mathrm{NF}},\pi_{\mathrm{bytes}},\pi_{\mathrm{metric}},\pi_{\mathrm{corr}},\ \mathrm{SchemaVer}),
+}
+]
+where each (\pi_\star) is a pinned profile digest (or a registry key resolving to one).
+All transport transcripts and witnesses must cite endpoints as GlobalAddr (including intermediate nodes of any chain).
+
+07.S1.c — Corridor profile and the canonical budget vector
+A corridor is a typed policy object that pins allowed transport kinds, obligation rules, promotion/downgrade rules, and a budget vector.
+The canonical budget vector is
+[
+\boxed{
+\mathbf{b}:=(\kappa,\beta,\delta,\chi),
+}
+]
+with semantics:
+(\kappa): commutation residual budget (allowed non-commutation);
+(\beta): drift/approximation budget (allowed deviation from exact invariants);
+(\delta): depth budget (caps recursion/hatches relevant to transports that require nested verification);
+(\chi): cost budget (caps computational effort and replay work).
+Budgets are pinned per corridor; changing budget semantics or values is a meaning evolution and requires MIGRATE.
+
+07.S1.d — Fingerprints bind transport claims
+Let (\pi) denote the complete pinned profile tuple sufficient to interpret canonicalization and equivalence.
+Let (\mathrm{NF}\pi) be the pinned normal-form operator and (\mathrm{CanonBytes}\pi) the pinned canonical serialization. Define
+[
+\boxed{
+\mathrm{fp}\pi(x):=\mathrm{SHA256}!\big(\mathrm{CanonBytes}\pi(\mathrm{NF}_\pi(x))\big).
+}
+]
+Fingerprints bind equivalence claims, transport correctness, migrations, and publish/import integrity. Any fingerprint claim without (\pi) is AMBIG by definition.
+
+07.S1.e — Transport kind vs truth class
+A transport edge has:
+a kind (\in{\mathrm{DUAL},\mathrm{EQUIV},\mathrm{MIGRATE}}), and
+a truth class (\tau \in \mathbb{T}:={\mathrm{OK},\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL},\mathrm{CONFLICT}}),
+with truth typing governed by corridor rules and evidence closure.
+The kind classification rule (structural) is:
+DUAL: an adjacent-lens swap under a pinned adjacency profile (\mathsf{AP}), preserving declared invariants under replay (or yielding NEAR with bounded residual).
+EQUIV: a semantic equivalence bridge with explicit forward/backward maps and invariants, with commutation evidence under budgets.
+MIGRATE: a meaning evolution edge required when semantic fingerprints change or declared invariants are not preserved; requires compatibility matrix, regression witnesses, and rollback plan.
+
+07.S1.f — AdjacencyProfile (\mathsf{AP}) (legality graph for DUAL)
+An AdjacencyProfile is the pinned legality graph for lens swaps:
+[
+\boxed{
+\mathsf{AP}:=(\mathcal{L},E_{\mathrm{adj}},\mathrm{TieBreak},\mathrm{Pins}),
+\qquad
+\mathcal{L}={S,F,C,R}.
+}
+]
+Here (E_{\mathrm{adj}}\subseteq\mathcal{L}\times\mathcal{L}) is the set of legal adjacent swaps, and (\mathrm{TieBreak}) is a pinned comparator required for deterministic planning.
+Define the legality predicate:
+[
+\boxed{
+\mathrm{LegalDUAL}(L\to L') \iff (L,L')\in E_{\mathrm{adj}}\ \text{under pinned }\mathsf{AP}.
+}
+]
+DUAL is legal iff adjacency holds; otherwise a direct swap is forbidden and only an explicit adjacent chain is legal.
+
+07.S1.g — DUAL payload schema (single swap contract)
+A DUAL payload is the minimal proof-carrying object for a single adjacent swap:
+[
+\boxed{
+\mathsf{DUALPayload}:=(\mathrm{APDigest},\mathrm{Src},\mathrm{Dst},\mathrm{SrcLens},\mathrm{DstLens},\mathrm{MapFwd},\mathrm{MapBwd?},\mathcal{I},\mathbf{b},\mathrm{DomainSpec},\mathrm{WitnessPtr},\mathrm{ReplayPtr},\mathrm{SchemaVer}).
+}
+]
+Requirements include:
+(\mathrm{APDigest}) pins adjacency legality,
+(\mathrm{MapFwd}) explicit; (\mathrm{MapBwd}) mandatory where invertibility is claimed,
+invariant set (\mathcal{I}) explicit,
+budgets (\mathbf{b}=(\kappa,\beta,\delta,\chi)) explicit,
+(\mathrm{DomainSpec}) declares where maps are defined,
+(\mathrm{WitnessPtr}) and (\mathrm{ReplayPtr}) mandatory for OK/NEAR.
+DUAL is an edge kind with corridor truth typing and is not automatically OK.
+
+07.S1.h — EQUIV claim schema (bidirectional equivalence contract)
+An EQUIV claim is a proof-carrying object asserting “same meaning” between two endpoints under pinned profiles and budgets:
+[
+\boxed{
+\mathsf{Eq}_\pi(u,v):=(\mathrm{Src},\mathrm{Dst},\mathrm{Kind},\mathrm{MapFwd},\mathrm{MapBwd},\mathcal{I},\mathbf{b},\mathrm{ResidualLedger?},\mathrm{WitnessPtr},\mathrm{ReplayPtr}).
+}
+]
+Here (\mathrm{Kind}\in{\mathrm{EQUIV},\mathrm{DUAL}}) (with DUAL required to obey (\mathsf{AP})), and (\mathrm{ResidualLedger}) is mandatory whenever the truth class is NEAR.
+Minimum EQUIV requirements: explicit forward and backward maps on declared domains, declared invariants, commutation checks where required, and replay capsules reproducing checks; absent any requirement, the claim is AMBIG or FAIL, never OK.
+
+07.S1.i — MIGRATE payload schema (meaning evolution contract)
+A MIGRATE edge is required when fingerprints change or invariants are not preserved but an evolution is intended; the witness suite includes:
+fingerprint delta report (scoped by GlobalAddr),
+compatibility matrix,
+regression set and witnesses,
+rollback plan,
+replay capsules and pinned profiles.
+Formally define:
+[
+\boxed{
+\mathsf{MIGRATEPayload}:=(\mathrm{SrcProfile},\mathrm{DstProfile},\mathrm{DeltaReport},\mathrm{CompatMatrix},\mathrm{RegressSet},\mathrm{RollbackPlan},\mathrm{ReplayPtrs},\mathrm{Pins},\mathrm{SchemaVer}).
+}
+]
+
+07.S1.j — TransportPath schema (swap chain / composite transport)
+A TransportPath is a compositional transport object:
+[
+\boxed{
+\mathsf{Path}:=(e_1,e_2,\dots,e_m;\ \mathrm{Pins};\ \mathrm{BudgetLedger};\ \mathrm{CompositeMap?};\ \mathrm{Outcome})
+}
+]
+where each (e_i) is a LinkEdge (DUAL/EQUIV/MIGRATE/…). The path includes pins for all profiles used, a budget ledger recording (\kappa/\beta) spending and (\delta/\chi) enforcement, an optional composite map (if steps compose on compatible domains), and an outcome (\tau\in\mathbb{T}).
+Non-adjacent swaps require decomposition into an explicit AP-adjacent chain; all intermediate nodes and edges are first-class and must be routable. Failure to find a legal chain is FAIL; multiple plausible chains without pinned discriminators is AMBIG.
+
+07.S1.k — ConjugacyWitness schema (NF + metric + replay binding)
+A ConjugacyWitness (CW) is the evidence object that binds “same meaning under transport” to pinned normal forms and pinned metrics:
+[
+\boxed{
+\mathsf{CW}:=(\mathrm{NFProfileDigest},\mathrm{MetricDigest},\mathrm{DomainSpec},\mathcal{I},\kappa,\beta,\mathrm{ResidualLedger?},\mathrm{ReplayPtr},\mathrm{Outcome}).
+}
+]
+Outcome typing:
+OK if invariants hold and NF equality is proved under replay,
+NEAR if residual is bounded (requires residual ledger),
+AMBIG if underdetermined (multiple NFs or domain ambiguity),
+FAIL/CONFLICT if violated or disagreement reproducible.
+CW is required for EQUIV claims induced by transport and for any DUAL that asserts semantic invariance.
+
+07.S1.l — ResidualLedger, EvidencePlan, and ConflictPacket objects
+A ResidualLedger is mandatory for NEAR:
+metric definition,
+bound value,
+scope (exact addresses impacted),
+validity window/expiry,
+obligations for promotion to OK,
+replay recipe reproducing the measurement.
+An EvidencePlan is mandatory for AMBIG:
+bounded candidate set with ranks,
+discriminators (concrete tests/proofs/measurements),
+routes to generate required evidence,
+expected failure modes and classifications,
+promotion rules.
+A ConflictPacket is mandatory for reproducible disagreements between admissible paths:
+[
+\boxed{
+\mathsf{Payload}_{\mathrm{CONFLICT}}:=(\mathrm{Src},\mathrm{Dst},\mathsf{Path}_A,\mathsf{Path}_B,\mathrm{MinWitnessSet},\mathrm{ReproRecipe},\mathrm{FenceSpec},\mathrm{ProposedResolutions}).
+}
+]
+The minimal witness set must be computed deterministically (bounded search under (\chi)).
+
+07.S2 — Operators
+07.S2.a — Canonical fingerprint operator
+Given pinned profile (\pi), define:
+[
+\mathrm{fp}\pi(x)=\mathrm{SHA256}(\mathrm{CanonBytes}\pi(\mathrm{NF}_\pi(x))).
+]
+This operator is used by:
+EQUIV/DUAL semantic invariance checks (via equality of normal forms and/or fingerprints),
+MIGRATE detection (via fingerprint deltas),
+conflict detection (via reproducible divergence under identical pins).
+
+07.S2.b — DUAL legality and lift-chain planning
+Given (\mathsf{AP}) and lenses (L_s,L_d), define:
+[
+\mathrm{LegalDUAL}(L_s\to L_d)\iff (L_s,L_d)\in E_{\mathrm{adj}}.
+]
+If illegal, define the LiftPath operator that returns a shortest AP-legal chain:
+[
+\boxed{
+\mathrm{LiftPath}{\mathsf{AP}}(L_s,L_d):=(L_s=L{i_0}\to L_{i_1}\to\cdots\to L_{i_m}=L_d),
+}
+]
+computed by BFS on the adjacency graph with pinned (\mathrm{TieBreak}) for determinism.
+
+07.S2.c — Map composition and composite transport
+Given transport maps (T_i:\mathcal{R}{A_i}\rightharpoonup\mathcal{R}{B_i}) for the edges (e_i) of a path, define the composite partial map
+[
+T:=T_m\circ\cdots\circ T_1
+]
+when domains/codomains compose under explicit DomainSpec intersections; otherwise (\mathrm{CompositeMap?}=\emptyset) and the path cannot claim a composite equivalence map.
+Composite transport must preserve declared invariants or explicitly declare MIGRATE; silent invariant drift is forbidden.
+
+07.S2.d — Transport classification operator (kind + truth)
+Given a candidate edge with maps and pins, define the classifier:
+Determine Kind (\in{\mathrm{DUAL},\mathrm{EQUIV},\mathrm{MIGRATE}}):
+if adjacent under (\mathsf{AP}) and the edge is a lens swap contract (\Rightarrow) DUAL candidate;
+else if explicit fwd/bwd maps exist with declared invariants (\Rightarrow) EQUIV candidate;
+else if semantic fingerprint changes (or invariants not preserved but evolution intended) (\Rightarrow) MIGRATE required.
+Determine Truth Class (\tau\in\mathbb{T}) by corridor evaluation:
+OK: all schema obligations satisfied; replay closes; invariants proved;
+NEAR: residuals bounded by (\beta) or commutation residuals bounded by (\kappa), with a residual ledger and disclosures;
+AMBIG: underdetermined (missing pins, ambiguous domain, multiple plausible paths) with bounded candidate set and evidence plan;
+FAIL: illegality, missing mandatory artifacts where required, budget violation beyond policy;
+CONFLICT: reproducible disagreement under identical pins.
+
+07.S3 — Invariants
+07.S3.a — Adjacency restriction invariant
+If (L_1) and (L_2) are not adjacent under (\mathsf{AP}), a direct DUAL is illegal. Any legal transport must be decomposed into an explicit adjacent chain whose intermediate nodes/edges are first-class, witnessed, and replayable.
+
+07.S3.b — Explicit maps and pinned profiles invariant
+For DUAL and EQUIV:
+MapFwd must be explicit;
+MapBwd is mandatory where invertibility is claimed;
+invariants (\mathcal{I}) and budgets (\mathbf{b}) must be explicit;
+DomainSpec must declare where maps apply.
+Missing pins for decode-relevant transport is a quarantine trigger.
+
+07.S3.c — Commutation discipline invariant
+Composite transport is legal only if commutation residuals among interacting transforms stay within (\kappa). Violation yields FAIL (deterministic violation) or CONFLICT (reproducible verifier disagreement).
+
+07.S3.d — Replay determinism binds legality
+Transport legality is a property of replay: if two verifiers under identical pins disagree, the correct output is CONFLICT, not averaging or preference selection.
+Map changes that alter meaning-bearing behavior change fingerprints of maps/witnesses and therefore require MIGRATE (or a new EQUIV claim with new witnesses).
+
+07.S4 — Protocols
+07.S4.a — Certified DUAL protocol (single swap)
+To construct a certified DUAL edge (X.L.f.t \to X.L'.f.t):
+Validate adjacency: ((L,L')\in E_{\mathrm{adj}}) under pinned (\mathrm{APDigest}).
+Construct explicit (\mathrm{MapFwd}) (and (\mathrm{MapBwd}) if invertibility is claimed).
+Declare invariants (\mathcal{I}) and budgets (\mathbf{b}).
+Produce (\mathsf{CW}) if the DUAL asserts semantic invariance (NF invariance).
+Run replay closure; attach (\mathrm{WitnessPtr}) and (\mathrm{ReplayPtr}); output truth class by corridor evaluation.
+Illegal adjacency or missing mandatory artifacts yields FAIL (or AMBIG only if corridor explicitly permits missing information with an evidence plan).
+
+07.S4.b — Certified EQUIV protocol (bridge)
+To construct a certified EQUIV edge between representations (\mathcal{R}_A^{(d,k)}) and (\mathcal{R}_B^{(d,k)}):
+Provide explicit (\mathrm{MapFwd}) and (\mathrm{MapBwd}) on declared domains.
+Declare invariants (\mathcal{I}) including NF invariance and decode invariance where codec-relevant.
+Produce (\mathsf{CW}) (NFProfileDigest, MetricDigest, DomainSpec, residuals/ledger, replay).
+Run required commutation checks for interacting transforms; charge (\kappa).
+Output OK if invariants are proved and replay closes; NEAR only if bounded residual with residual ledger; otherwise AMBIG/FAIL/CONFLICT by corridor rules.
+
+07.S4.c — Certified MIGRATE protocol (meaning evolution)
+To construct a certified MIGRATE edge from old profile bundle (\pi_{\mathrm{old}}) to new profile bundle (\pi_{\mathrm{new}}):
+Compute fingerprint delta report listing impacted GlobalAddr.
+Build a compatibility matrix over declared features (NF rules, canonical bytes rules, metric selection, budget semantics, transport legality).
+Select and execute regression set; attach witnesses and replay capsules.
+Produce a rollback plan.
+Publish (\mathsf{MIGRATEPayload}) with pins and replay closure.
+
+07.S4.d — Reference implementation skeleton (schemas + planner + evaluator)
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Callable, Dict, Iterable, List, Literal, Optional, Sequence, Tuple
+
+Lens = Literal["S","F","C","R"]
+Truth = Literal["OK","NEAR","AMBIG","FAIL","CONFLICT"]
+Kind  = Literal["DUAL","EQUIV","MIGRATE"]
+
+Digest = str
+Ptr = str
+
+@dataclass(frozen=True)
+class Budget:
+    kappa: float   # commutation residual budget
+    beta: float    # drift / approximation budget
+    delta: int     # depth budget
+    chi: int       # cost budget
+
+@dataclass(frozen=True)
+class GlobalAddr:
+    station: str
+    facet: str
+    atom: str
+    d: int
+    k: int
+    lens: Lens
+    nf_digest: Digest
+    bytes_digest: Digest
+    metric_digest: Digest
+    corridor_digest: Digest
+    schema_ver: str
+
+@dataclass(frozen=True)
+class DomainSpec:
+    # Declarative description of the domain (addresses, constraints).
+    spec: str
+
+@dataclass(frozen=True)
+class AdjacencyProfile:
+    lenses: Tuple[Lens, ...]
+    adj: Dict[Tuple[Lens,Lens], bool]
+    tiebreak_digest: Digest
+    pins: Tuple[Tuple[str,str], ...]
+    ap_digest: Digest
+
+    def legal_dual(self, a: Lens, b: Lens) -> bool:
+        return bool(self.adj.get((a,b), False))
+
+@dataclass(frozen=True)
+class ResidualLedger:
+    metric_id: str
+    bound: float
+    scope: Tuple[str, ...]          # impacted GlobalAddr ids or ranges
+    expiry: Optional[str]
+    obligations: Tuple[str, ...]
+    replay_ptr: Ptr
+
+@dataclass(frozen=True)
+class EvidencePlan:
+    candidates: Tuple[str, ...]     # bounded candidate set ids
+    discriminators: Tuple[str, ...]
+    routes: Tuple[str, ...]
+    promotion_rules: Tuple[str, ...]
+    replay_ptrs: Tuple[Ptr, ...]
+
+@dataclass(frozen=True)
+class ConjugacyWitness:
+    nf_profile_digest: Digest
+    metric_digest: Digest
+    domain: DomainSpec
+    invariants: Tuple[str, ...]
+    kappa: float
+    beta: float
+    residual_ledger: Optional[ResidualLedger]
+    replay_ptr: Ptr
+    outcome: Truth
+
+@dataclass(frozen=True)
+class DualPayload:
+    ap_digest: Digest
+    src: GlobalAddr
+    dst: GlobalAddr
+    src_lens: Lens
+    dst_lens: Lens
+    map_fwd_id: str
+    map_bwd_id: Optional[str]
+    invariants: Tuple[str, ...]
+    budget: Budget
+    domain: DomainSpec
+    witness_ptr: Ptr
+    replay_ptr: Ptr
+    schema_ver: str
+    truth: Truth
+
+@dataclass(frozen=True)
+class EquivPayload:
+    src: GlobalAddr
+    dst: GlobalAddr
+    map_fwd_id: str
+    map_bwd_id: str
+    invariants: Tuple[str, ...]
+    budget: Budget
+    domain: DomainSpec
+    cw: ConjugacyWitness
+    witness_ptr: Ptr
+    replay_ptr: Ptr
+    schema_ver: str
+    truth: Truth
+
+@dataclass(frozen=True)
+class MigratePayload:
+    old_profile: Digest
+    new_profile: Digest
+    delta_report_ptr: Ptr
+    compat_matrix_ptr: Ptr
+    regress_set_ptr: Ptr
+    rollback_plan_ptr: Ptr
+    replay_ptrs: Tuple[Ptr, ...]
+    pins: Tuple[Tuple[str,str], ...]
+    schema_ver: str
+    truth: Truth
+
+LinkEdge = Tuple[Kind, object]  # payload object depends on kind
+
+@dataclass(frozen=True)
+class TransportPath:
+    edges: Tuple[LinkEdge, ...]
+    pins: Tuple[Tuple[str,str], ...]
+    budget_ledger_ptr: Ptr
+    composite_map_id: Optional[str]
+    outcome: Truth
+
+def bfs_lift_path(AP: AdjacencyProfile, src: Lens, dst: Lens) -> List[Lens]:
+    # Deterministic BFS over the adjacency graph; neighbors enumerated in pinned lens order.
+    from collections import deque
+    q = deque([src])
+    prev: Dict[Lens, Optional[Lens]] = {src: None}
+    order = list(AP.lenses)
+
+    def neighbors(L: Lens) -> List[Lens]:
+        return [L2 for L2 in order if AP.legal_dual(L, L2)]
+
+    while q:
+        x = q.popleft()
+        if x == dst:
+            break
+        for y in neighbors(x):
+            if y not in prev:
+                prev[y] = x
+                q.append(y)
+
+    if dst not in prev:
+        return []
+
+    # reconstruct
+    path: List[Lens] = []
+    cur: Optional[Lens] = dst
+    while cur is not None:
+        path.append(cur)
+        cur = prev[cur]
+    return list(reversed(path))
+
+def classify_commutation(residual: float, kappa: float, replay_agrees: bool) -> Truth:
+    if not replay_agrees:
+        return "CONFLICT"
+    if residual == 0.0:
+        return "OK"
+    if 0.0 < residual <= kappa:
+        return "NEAR"
+    return "FAIL"
+
+
+❀ Flower — Laws of Transport Under Pinned Normal Forms
+07.F1 — Objects
+07.F1.a — Transport operator as typed partial function
+A transport operator is a typed partial function
+[
+T:\mathcal{R}_A^{(d,k)}\rightharpoonup \mathcal{R}_B^{(d,k)}
+]
+equipped with:
+declared domain (\mathrm{Dom}(T)),
+declared invariants (\mathcal{I}(T)),
+declared budgets ((\kappa,\beta,\delta,\chi)),
+declared classification target (DUAL/EQUIV/MIGRATE).
+
+07.F1.b — Commutator and commutation residual
+For operators (T_1,T_2) on a common domain with inverses (or declared partial inverses), define the commutator:
+[
+\boxed{
+\mathrm{Comm}(T_1,T_2):=T_1\circ T_2\circ T_1^{-1}\circ T_2^{-1}.
+}
+]
+Let (d_\pi) be a pinned metric; define residual:
+[
+\boxed{
+r_\kappa:=d_\pi(\mathrm{Comm}(T_1,T_2),\mathrm{Id}).
+}
+]
+Typing:
+OK if (r_\kappa=0) under replay,
+NEAR if (0<r_\kappa\le\kappa) with residual ledger,
+FAIL if (r_\kappa>\kappa),
+CONFLICT if replays disagree under identical pins.
+
+07.F2 — Laws
+07.F2.a — Conjugacy law (transport under pinned normal forms)
+Representation change is legal only as transport under pinned normal forms:
+DUAL swaps must be adjacent under adjacency profile,
+EQUIV requires explicit forward/backward maps and invariants,
+MIGRATE is required when semantics change,
+and all transport claims are replay-verifiable; transport without replay closure cannot be OK.
+
+07.F2.b — Composite transport preserves invariants or declares MIGRATE
+Composite transport must preserve declared invariants:
+if invariants preserved (\Rightarrow) EQUIV may be asserted with witnesses/replay,
+if invariants not preserved but evolution intended (\Rightarrow) MIGRATE required,
+if invariants violated unexpectedly (\Rightarrow) FAIL/CONFLICT with quarantine.
+
+07.F2.c — Multiple legal paths disagreeing imply CONFLICT
+If two admissible transport paths from the same source to the same destination yield different replay-verified fingerprints under identical pins, the correct outcome is CONFLICT and affected regions are quarantined until resolved by replay-verifiable repair or explicit migration.
+
+07.F2.d — Map changes imply MIGRATE
+If MapFwd/MapBwd changes in a meaning-bearing way, fingerprint changes and the prior EQUIV claim is no longer the same claim; MIGRATE is required (or a new EQUIV with new witnesses).
+
+07.F3 — Constructions
+07.F3.a — Conjugacy witness test construction
+Given (T) and pinned normal forms (\mathrm{NF}_A,\mathrm{NF}_B), define discrepancy:
+[
+\Delta(x):=d!\left(\mathrm{NF}_B(T(x)),\mathrm{NF}_A(x)\right).
+]
+If (\sup_x\Delta(x)=0) under replay: OK; if (\sup_x\Delta(x)\le\beta): NEAR with residual ledger; otherwise FAIL/CONFLICT depending on reproducibility.
+
+07.F3.b — Deterministic planner construction (AP BFS)
+Given (L_s,L_d), compute shortest adjacency path via BFS; determinism requires pinned tie-break and pinned neighbor ordering; tie-break ambiguity yields AMBIG unless pinned.
+
+07.F3.c — Map-invariant checker library
+Construct a deterministic invariant checker library including:
+NF invariance checks,
+bijection checks (finite domains),
+checksum/structure invariants,
+schedule legality invariants,
+corridor adherence invariants (pins, budgets).
+
+07.F3.d — Budgeted commutator ledger construction
+Ledger entries bind commutation checks to pins, domains, metrics, and replay recipes; they are used for NEAR disclosures, promotion obligations, and conflict reproduction.
+
+07.F4 — Certificates
+Certified transport requires certificate-bearing artifacts, including:
+DUALLegalityCert (APDigest pinned, adjacency satisfied, payload includes maps and invariants, replay verifies),
+ConjugacyCert (NF preserved exactly or within (\beta) with residual ledger; commutation checks performed; replay reproduces),
+PathAgreementCert (two independent admissible paths agree under pinned profiles),
+ConflictPacketCert (minimal witness set, deterministic reproduction recipe, quarantine fences, resolution candidates),
+MigrationCert (compat matrices, regressions, rollback, pins, replay).
+
+☁ Cloud — Corridor Truth Typing

@@ -1,0 +1,624 @@
+t
+[
+\boxed{
+(d,k)\ \mapsto\ (d+1,k+1)
+}
+]
+implemented as “add an axis at depth (k+1)” together with the depth increment required by the minimal-seed ladder.
+At the operator level the locked lift is encoded by:
+[
+\boxed{
+A_{d+1,k+1};=;A_{d,k+1}\ \oplus\ A_{1,k+1}
+}
+]
+Claim ([AX]) (Locked lift is the canonical dimension increment rule).
+Dimension increases are implemented by an add-axis Kronecker-sum rule at the new depth level, i.e., axis addition occurs at depth (k+1) and preserves phase-lock by construction.
+Verification.
+The “whole ladder in one line” is stated as the locked lift rule
+[
+A_{d+1,k+1} = A_{d,k+1}\oplus A_{1,k+1},
+]
+and the resolution lift is stated as
+[
+A_{d,k+1}=A_{d,k}\oplus A_{d,1}.
+]
+Falsifier.
+Any lift schedule that increments (d) without incrementing (k) while simultaneously claiming minimal-seed compatibility violates the pinned minimal seed ladder and is rejected unless the manuscript explicitly switches profiles away from minimal stability.
+
+02.S2.c — Kronecker Sum Algebra (Square-Side)
+Definition (Kronecker sum).
+For square matrices (X\in\mathbb{R}^{m\times m}), (Y\in\mathbb{R}^{n\times n}), define the Kronecker sum:
+[
+X\oplus Y;:=;X\otimes I_n;+;I_m\otimes Y.
+]
+Iterated Kronecker sums are defined associatively.
+Claim ([DER]) (Additivity of local constraint blocks).
+If (A_{d,k}) is constructed as a sum of local seed constraints acting independently on each axis-digit factor, then (A_{d,k}) is an iterated Kronecker sum of the same base operator (A_4) placed in each of the (dk) tensor slots:
+[
+A_{d,k};=;\bigoplus_{j=1}^{dk} A_4^{(j)}.
+]
+This is the operator-level rendering of “add an axis = add a Kronecker-sum component” and “add a digit = add a Kronecker-sum component.”
+Verification.
+The Square carrier identification ((\mathbb{Z}_{4^k})^d\cong(\mathbb{Z}_4)^{dk}) and the add-axis rule are stated explicitly in the phase-locked lift construction.
+Falsifier.
+If a proposed constraint operator family requires cross-slot coupling terms that cannot be expressed as an iterated Kronecker sum under pinned kernels, then the lift laws in §02.S2 cannot hold as identities.
+
+02.S2.d — Dimensional Phase-Lock Identity (Operator Form)
+Definition (Dimensional phase-lock identity).
+For the minimal seed ladder and its operator family ({A_{d,k}}), define the dimensional phase-lock identity as the family of exact decompositions:
+[
+A_{d+1,k};=;A_{d,k}\ \oplus\ A_{1,k}
+\quad\text{(axis addition at fixed depth)},
+]
+and, for the locked lift,
+[
+A_{d+1,k+1};=;A_{d,k+1}\ \oplus\ A_{1,k+1}.
+]
+Claim ([AX]) (Minimal seed lock across dimension is add-axis + add-depth).
+The minimal seed transition ((d,d-1)\mapsto(d+1,d)) is realized as “add an axis + add a digit depth,” encoded by a nested Kronecker-sum composition of the appropriate axis blocks.
+Verification.
+The “minimal seed lock across dimension” is written concretely as a combined composition for the 3D→4D transition, described as “add axis + add digit depth.”
+Falsifier.
+If the operator family for minimal seeds cannot be expressed as a sequence of add-axis and add-depth Kronecker-sum steps without modifying the seed constraints, the phase-lock identity fails.
+
+02.S3 — Invariants (What Stays)
+02.S3.a — Prefix/Nesting Invariance Under the Locked Lift
+Definition (Nested address invariance).
+Let (\mathcal{S}{d,k}) be represented as digit tensors with truncation (\pi{k+1\to k}) and axis deletion (\pi^{\mathrm{axes}}{d+1\to d}) (as in Ch01). A locked lift state constructor (\mathcal{L}^{\square}{d,k}:\mathcal{S}{d,k}\to\mathcal{S}{d+1,k+1}) must satisfy:
+[
+\pi^{\mathrm{axes}}{d+1\to d}\circ \pi{k+1\to k}\big(\mathcal{L}^{\square}_{d,k}(\mathbf{x})\big)=\mathbf{x}.
+]
+Claim ([AX]) (Locked lift preserves parent address as a holographic prefix).
+The locked lift may refine representation, but it must preserve the parent state as the unique coarse truncation (no ambiguity unless explicitly typed). This is the Square-side instance of the “phase-locked” lift discipline.
+Verification.
+The phase-lock lift is characterized as “add axis + add digit depth,” with the operator lift preserving the decomposition structure exactly.
+Falsifier.
+Any lift that cannot be truncated back to the parent without auxiliary, non-derivable choices is classified as illegal recursion (hidden knob).
+
+02.S3.b — Spectral Additivity (Flower Consequence of Square Lock)
+Definition (Spectral additivity under Kronecker sums).
+If (A=X\oplus Y), then the spectrum satisfies
+[
+\mathrm{spec}(A)={,\lambda_X+\lambda_Y:\ \lambda_X\in\mathrm{spec}(X),\ \lambda_Y\in\mathrm{spec}(Y),},
+]
+and eigenvectors tensorize correspondingly.
+Claim ([AX]) (Square locked lift implies spectral tensorization).
+Under the Kronecker-sum lift structure, eigenvectors tensorize and eigenvalues add; thus dimension lift and resolution lift are dual renderings in the Square basis vs the Flower basis.
+Verification.
+The exact statement “eigenvectors tensorize, eigenvalues add” is given as the Flower consequence of Kronecker sums, supporting the phase-lock equivalence across bases.
+Falsifier.
+If cross-slot coupling terms break Kronecker-sum form, eigenvector tensorization fails, and the diagonalization basis can no longer be constructed as a tensor product.
+
+02.S3.c — Semigroup Factorization (Cloud Consequence of Square Lock)
+Definition (Semigroup factorization).
+Let (A) be a constraint operator generating a continuous-time Markov semigroup (P(t)=e^{-tA}). If (A=X\oplus Y), then
+[
+e^{-tA}=e^{-tX}\otimes e^{-tY}.
+]
+Claim ([AX]) (Minimal seed operator factorization implies probabilistic factorization).
+At the minimal seeds, the semigroup factorizes exactly as a tensor product of seed semigroups, yielding a phase-locked Cloud evolution that is compatible with dimension and depth lifts.
+Verification.
+For the 2D minimal seed, the Cloud consequence is explicitly recorded:
+[
+e^{-tA_{2,1}} = e^{-tA_4}\otimes e^{-tA_4}.
+]
+Falsifier.
+If a proposed operator includes non-separable couplings, (P(t)) will not factorize and Cloud evolution cannot remain phase-locked under the declared lift identities.
+
+02.S3.d — Minimality as an Exact Operator Decomposition Property
+Definition (Exact decomposition witness).
+Define the minimality witness for ((d,k)=(d,d-1)) as the existence of exact identities:
+[
+A_{d,d-1};=;\bigoplus_{\alpha=1}^{d}\bigoplus_{t=1}^{d-1} A_4^{(\alpha,t)}.
+]
+For explicit minimal seeds, this is presented as a sum over axis (\alpha) and digit-level (t).
+Claim ([AX]) (Minimal seed = minimal factor count with stable decomposition).
+The minimal seed is the smallest ((d,k)) for which the canonical decomposition as a sum (or iterated Kronecker sum) of seed blocks is admitted under the pinned lift schedule.
+Verification.
+The minimal seeds are explicitly written as:
+[
+A_{3,2}=\sum_{\alpha=1}^3\sum_{t=1}^2 A_4^{(\alpha,t)},\qquad
+A_{4,3}=\sum_{\alpha=1}^4\sum_{t=1}^3 A_4^{(\alpha,t)}.
+]
+Falsifier.
+If a smaller ((d,k)) purportedly achieves the same exact decomposition and replay stability, it must provide the explicit decomposition, lift commutation proofs, and pinned-profile regression receipts; otherwise the minimal seed law stands.
+
+02.S4 — Protocols (How to Compute / Verify)
+02.S4.a — MinimalSeed Constructor
+Definition (Constructor).
+Given (d\ge 2), define:
+[
+k\leftarrow d-1,\quad N\leftarrow 4^k,\quad \mathcal{S}^{\min}_d\leftarrow(\mathbb{Z}_N)^d.
+]
+Claim ([REP]) (Deterministic output).
+The constructor outputs the canonical minimal seed ((d,d-1)) and its per-axis resolution (4^{d-1}).
+Verification (Deterministic checks).
+Check:
+[
+N=4^{d-1},\qquad |\mathcal{S}^{\min}_d| = (4^{d-1})^d.
+]
+Falsifier.
+Any alternative constructor that outputs ((d,k)) with (k<d-1) is not a minimal-seed constructor; it is a different profile.
+
+02.S4.b — LockedLift Constructor (State-Level)
+Definition (Locked state lift).
+Let (\mathbf{x}\in\mathcal{S}{d,k}) be represented as axis-digit tensors. Define (\mathbf{x}^{\uparrow}\in\mathcal{S}{d+1,k+1}) by:
+append one new digit to each existing axis (depth refinement),
+introduce a new axis initialized with (k) zero digits and one terminal digit at depth (k+1).
+This realizes ((d,k)\mapsto(d+1,k+1)) as a single constructor.
+Claim ([AX]) (Truncation recovers parent).
+The constructor must satisfy:
+[
+\pi^{\mathrm{axes}}{d+1\to d}\circ\pi{k+1\to k}(\mathbf{x}^{\uparrow})=\mathbf{x}.
+]
+Verification.
+Run truncation and axis deletion; verify equality in the discrete carrier.
+Falsifier.
+If recovery requires any additional parameters not present in the parent state and the pinned lift policy, the constructor is illegal.
+
+02.S4.c — LockedLift Constructor (Operator-Level)
+Definition (Operator lift scripts).
+Given seed block (A_4), define:
+(A_{d,1}:=\bigoplus_{\alpha=1}^d A_4^{(\alpha,1)}) (one digit layer across (d) axes),
+(A_{d,k+1}:=A_{d,k}\oplus A_{d,1}) (resolution lift),
+(A_{d+1,k+1}:=A_{d,k+1}\oplus A_{1,k+1}) (locked dimension lift).
+Claim ([AX]) (Script correctness).
+The scripts reproduce the canonical dimension-depth lock identities exactly.
+Verification.
+Verification obligations:
+Shape check: operator dimensions match ((4^{k+1})^{d+1}\times(4^{k+1})^{d+1}).
+Algebra check: equality holds symbolically under Kronecker-sum expansions.
+Regression check: for (d=2,k=1), confirm the stated factorization patterns (e.g., semigroup tensor product).
+Falsifier.
+Any operator family not reproducible by the scripts without modifying (A_4) is outside the locked-lift class.
+
+02.S4.d — Minimal Stability Test Suite (Square)
+Definition (Test suite).
+A minimal stability test suite for ((d,k)) includes:
+Seed compliance: verify (k=d-1) for minimal stability claims.
+Lift identity tests: verify the two boxed identities for resolution and locked dimension lift.
+Spectral tests (Flower projection): verify eigenvalue additivity / eigenvector tensorization.
+Semigroup tests (Cloud projection): verify tensor product factorization of (e^{-tA}) in minimal seeds.
+Claim ([REP]) (Pass/fail criterion).
+A dimension-depth configuration passes minimal stability only if all tests pass under pinned profiles.
+Verification.
+For the canonical minimal seeds ((2,1)), ((3,2)), ((4,3)), run the test suite with the corresponding constructions explicitly listed in the minimal seed instantiations.
+Falsifier.
+Any configuration that fails operator lift identities, or breaks spectral/semigroup factorization where claimed, is rejected as minimally stable.
+
+❀ Flower — Spectral/Resonance Stability (Phase-Capacity Shadow of the Square Lock)
+02.F1 — Ontology (Objects)
+02.F1.a — Spectral Objects Induced by (A_{d,k})
+Definition.
+Given a Square constraint operator (A_{d,k}), define the Flower spectral triple:
+[
+\mathsf{Spec}{d,k}:=(U{d,k},\Lambda_{d,k},\widehat{\psi}{d,k}),
+\quad
+A{d,k}=U_{d,k}\Lambda_{d,k}U_{d,k}^{-1},
+\quad
+\widehat{\psi}{d,k}=U{d,k}^{-1}\psi_{d,k}.
+]
+Claim ([AX]) (Flower objects exist canonically under pinned diagonalization policy).
+When (A_{d,k}) is in the Kronecker-sum class, the diagonalization is compatible with lift by tensorization.
+Verification.
+Diagonalize seed blocks and verify tensor structure of eigenvectors under (\oplus).
+Falsifier.
+Non-separable coupling terms break tensor diagonalization, invalidating the Flower lift compatibility.
+
+02.F1.b — Minimal Stable Spectral Resolution (Dimension-Coupled)
+Definition.
+Define the minimal stable spectral regime at dimension (d) as the spectral object generated by the minimal seed ((d,d-1)):
+[
+\mathsf{Spec}^{\min}d := \mathsf{Spec}{d,d-1}.
+]
+Claim ([REP]) (Spectral minimal seed aligns with Square minimal seed).
+The Flower minimal stable scale is induced by the Square minimal stable seed, not chosen independently.
+Verification.
+Compute (\mathsf{Spec}_{d,k}) at ((d,d-1)) and confirm that lift to ((d+1,d)) follows the tensor rule.
+Falsifier.
+Any procedure that chooses Flower spectral scale independently from Square’s minimal seed violates phase-lock (unsynchronized lift schedule) unless explicitly reprofiled.
+
+02.F1.c — Dimension–Depth Lock as Spectral Additivity
+Definition.
+Under the locked lift, the operator identity
+[
+A_{d+1,k+1}=A_{d,k+1}\oplus A_{1,k+1}
+]
+implies the spectral additivity law:
+[
+\mathrm{spec}(A_{d+1,k+1})
+\mathrm{spec}(A_{d,k+1})+\mathrm{spec}(A_{1,k+1})
+]
+(Minkowski sum).
+Claim ([AX]).
+Dimension–depth lock is equivalent to spectral additivity in the Flower basis.
+Verification.
+Compute eigenvalues for small (d,k) and confirm additivity.
+Falsifier.
+Observed non-additive spectral shifts under locked lift contradict Kronecker-sum structure.
+
+02.F1.d — Minimal Seed Ladder as a Spectral Growth Schedule
+Definition.
+Define the spectral ladder:
+[
+\mathsf{Spec}^{\min}_2 \to \mathsf{Spec}^{\min}_3 \to \cdots \to \mathsf{Spec}^{\min}_d \to \cdots
+]
+induced by ((d,d-1)\mapsto(d+1,d)).
+Claim ([AX]).
+The spectral ladder is the Flower-side manifestation of the minimal seed ladder.
+Verification.
+Confirm spectral additivity at each ladder step.
+Falsifier.
+If ladder steps require renormalizing the seed kernel to maintain diagonalization, the ladder is not minimally stable.
+
+02.F2 — Operators
+02.F2.a — Diagonal Lift Operators
+Definition.
+Define the diagonal lift maps induced by Kronecker sum:
+[
+U_{X\oplus Y}=U_X\otimes U_Y,\qquad
+\Lambda_{X\oplus Y}=\Lambda_X\oplus \Lambda_Y.
+]
+Claim ([AX]).
+Eigenvectors tensorize and eigenvalues add under the Kronecker-sum lift.
+Verification.
+Direct computation at minimal seeds (2D/3D/4D) confirms the tensor structure.
+Falsifier.
+Failure of tensorization signals non-Kronecker coupling.
+
+02.F2.b — Locked Lift in the Flower Basis
+Definition.
+The Flower-basis locked lift is the mapping:
+[
+(U_{d,k+1},\Lambda_{d,k+1})\ \mapsto\ (U_{d+1,k+1},\Lambda_{d+1,k+1})
+]
+with
+[
+U_{d+1,k+1}=U_{d,k+1}\otimes U_{1,k+1}.
+]
+Claim ([AX]).
+The Flower locked lift is the diagonalization-equivalent of the Square locked lift.
+Verification.
+Compute and compare.
+Falsifier.
+If the Flower lift cannot be expressed by tensor extension, Square lift is not phase-locked.
+
+02.F2.c — Minimal Stable Spectral Band (Carrier-Dependent)
+Definition.
+Let (\Lambda_{d,k}) be ordered by magnitude. Define a minimal stable Flower band as the low-spectrum window pinned by profile:
+[
+\Lambda_{d,k}^{(\le \Lambda_\star)} := {\lambda\in\mathrm{spec}(A_{d,k}) : |\lambda|\le \Lambda_\star}.
+]
+Claim ([REP]).
+In minimal stability mode, (\Lambda_\star) is chosen as a function of ((d,d-1)) and inherited under lift (no silent retuning).
+Verification.
+Confirm inherited band selection under lift.
+Falsifier.
+Retuning (\Lambda_\star) without explicit profile change is a hidden knob.
+
+02.F2.d — Spectral Certificate for Lift Correctness
+Definition.
+A Flower lift certificate consists of:
+eigenvalue-additivity check: (\Lambda_{d+1,k+1} \approx \Lambda_{d,k+1}\oplus \Lambda_{1,k+1}) (exact in the algebraic model),
+eigenvector tensor structure check: (U_{d+1,k+1}=U_{d,k+1}\otimes U_{1,k+1}).
+Claim ([REP]).
+These certificates are sufficient to verify lift correctness in the Flower basis under Kronecker-sum structure.
+Verification.
+Execute certificate checks at minimal seeds.
+Falsifier.
+Any mismatch indicates a lift law violation.
+
+02.F3 — Invariants
+02.F3.a — Spectral Invariants Under Minimal Seed Ladder
+Definition.
+Define the spectral invariants as those preserved by Kronecker-sum lift (additivity/tensorization).
+Claim ([AX]).
+The minimal seed ladder preserves the spectral composition rule exactly.
+Verification.
+Check at each ladder step.
+Falsifier.
+Non-additive deviations violate the lock.
+
+02.F3.b — Stability as Spectral Separability
+Definition.
+Flower stability is separability of the diagonal basis with bounded holonomy across lift and lens-switch.
+Claim ([DER]).
+Separability is equivalent to Kronecker-sum structure in the Square basis.
+Verification.
+Confirm diagonal lift maps exist.
+Falsifier.
+Observed spectral entanglement beyond tensor products.
+
+02.F3.c — Dimension–Depth Lock Preserves Mode-Indexing Semantics
+Definition.
+Mode indexing is stable if mode labels at ((d,k)) embed deterministically into mode labels at ((d+1,k+1)).
+Claim ([REP]).
+Tensorization induces deterministic mode embedding.
+Verification.
+Construct embedding map on indices.
+Falsifier.
+Non-deterministic mode relabeling.
+
+02.F3.d — Minimality as the First Spectrally Complete Dimension
+Definition.
+Define “spectrally complete at dimension (d)” as the first (k) for which the spectral ladder admits the locked lift without retyping.
+Claim ([AX]).
+This occurs at (k=d-1) under the pinned minimal seed policy.
+Verification.
+Directly follow the minimal seed ladder.
+Falsifier.
+Any smaller depth satisfying the same criteria must provide full lift certificates.
+
+02.F4 — Protocols
+02.F4.a — Diagonalization Protocol Under Lift
+Definition.
+Protocol:
+construct (A_{d,k}),
+diagonalize to ((U_{d,k},\Lambda_{d,k})),
+lift via tensorization,
+verify reconstruction (A_{d,k}=U\Lambda U^{-1}).
+Claim ([REP]).
+This protocol is deterministic under pinned profiles.
+Verification.
+Execute for minimal seeds.
+Falsifier.
+Multiple incompatible diagonals without declared symmetry handling.
+
+02.F4.b — Spectral Regression Suite
+Definition.
+Regression suite checks:
+eigenvalue additivity,
+eigenvector tensorization,
+low-band invariance under lift.
+Claim ([REP]).
+Sufficient to certify Flower-side lock.
+Verification.
+Run suite.
+Falsifier.
+Mismatch on any check.
+
+02.F4.c — Spectral Falsifier Generator
+Definition.
+Generate perturbations that introduce cross-slot coupling; verify that tensorization fails.
+Claim ([REP]).
+This produces a constructive negative test class.
+Verification.
+Confirm failure when coupling is introduced.
+Falsifier.
+If coupling does not break tensorization, coupling was not genuine.
+
+02.F4.d — Spectral Minimal Seed Auditor
+Definition.
+Auditor verifies that the manuscript’s declared minimal seeds match the induced spectral ladder.
+Claim ([REP]).
+Auditor accepts only if (k=d-1) is enforced for minimal stability.
+Verification.
+Check ladder steps.
+Falsifier.
+Any ladder deviation without explicit reprofile.
+
+☁ Cloud — Statistical Stability (Ensemble-Capacity Shadow of the Square Lock)
+02.C1 — Ontology (Objects)
+02.C1.a — Markov Semigroup Objects Induced by (A_{d,k})
+Definition.
+Define the Cloud evolution semigroup:
+[
+P_{d,k}(t):=e^{-tA_{d,k}}.
+]
+Claim ([AX]).
+If (A_{d,k}) is a Kronecker sum, then (P_{d,k}(t)) factorizes as a tensor product.
+Verification.
+Check the explicit factorization at the minimal seed ((2,1)).
+Falsifier.
+Non-factorizable semigroup indicates non-Kronecker operator structure.
+
+02.C1.b — Minimal Stable Statistical Carrier at Dimension (d)
+Definition.
+Define the minimal Cloud carrier at dimension (d) as the probability simplex on the minimal Square seed:
+[
+\mathcal{P}^{\min}_d := \mathcal{P}(\mathcal{S}^{\min}_d).
+]
+Claim ([REP]).
+Cloud minimal stable scale is induced by Square minimal stable scale.
+Verification.
+Construct (\mathcal{P}(\mathcal{S}^{\min}_d)) and the induced semigroup.
+Falsifier.
+Independent Cloud scale selection without explicit profile change.
+
+02.C1.c — Dimension–Depth Lock as Product-Chain Expansion
+Definition.
+Under locked lift:
+[
+A_{d+1,k+1}=A_{d,k+1}\oplus A_{1,k+1}
+\quad\Longrightarrow\quad
+P_{d+1,k+1}(t)=P_{d,k+1}(t)\otimes P_{1,k+1}(t).
+]
+Claim ([AX]).
+Locked lift is the canonical product-chain extension rule.
+Verification.
+Apply exponentiation identity for Kronecker sums.
+Falsifier.
+Observed non-product transition kernels.
+
+02.C1.d — Minimal Seed Ladder as a Mixing-Structure Schedule
+Definition.
+Define the minimal mixing schedule as the Cloud evolution on (\mathcal{S}^{\min}_d) along the ladder (d\mapsto d+1).
+Claim ([REP]).
+The ladder preserves factorization, enabling deterministic cross-dimensional mixing comparisons under pinned profiles.
+Verification.
+Check tensor factorization at successive seeds.
+Falsifier.
+Loss of factorization.
+
+02.C2 — Operators
+02.C2.a — Tensorized Semigroup Lift
+Definition.
+Given (P_X(t)=e^{-tX}) and (P_Y(t)=e^{-tY}), define
+[
+P_{X\oplus Y}(t):=P_X(t)\otimes P_Y(t).
+]
+Claim ([AX]).
+This holds exactly for the minimal seeds.
+Verification.
+Evaluate directly at the 2D minimal seed case.
+Falsifier.
+If (X\oplus Y) form is violated, factorization fails.
+
+02.C2.b — Locked Lift as Add-One-Factor Kernel Extension
+Definition.
+Define the locked Cloud lift:
+[
+P_{d+1,k+1}(t)=P_{d,k+1}(t)\otimes P_{1,k+1}(t).
+]
+Claim ([AX]).
+This is the Cloud-side rendering of the locked lift identity.
+Verification.
+Check compatibility with operator lift.
+Falsifier.
+Kernel mismatch.
+
+02.C2.c — Minimal Stable Statistics as Lift-Invariant Estimators
+Definition.
+An estimator family ({\widehat{\mathcal{O}}_{d,k}}) is lift-invariant if it commutes with the tensor lift and marginalization induced by truncation/axis deletion.
+Claim ([REP]).
+Lift-invariant estimators exist naturally under product-chain structure.
+Verification.
+Construct estimator on factors and tensorize.
+Falsifier.
+Estimator requires cross-factor coupling not supported by the operator.
+
+02.C2.d — Cloud Certificates for Locked Lift
+Definition.
+Cloud certificate includes:
+semigroup factorization check,
+marginal consistency under axis deletion,
+stationarity preservation under lift (when applicable).
+Claim ([REP]).
+Sufficient to certify Cloud-side lock.
+Verification.
+Run certificate checks on minimal seeds.
+Falsifier.
+Any failure indicates lock violation.
+
+02.C3 — Invariants
+02.C3.a — Product Measure Preservation
+Definition.
+Under tensor semigroup evolution, product measures remain product measures when initialized productwise.
+Claim ([DER]).
+This follows from kernel tensorization.
+Verification.
+Direct from (P_X\otimes P_Y).
+Falsifier.
+Observed emergent correlations from a separable kernel.
+
+02.C3.b — Lift-Invariant Entropy Decomposition
+Definition.
+If (\mu=\mu_X\otimes\mu_Y), define
+[
+H(\mu)=H(\mu_X)+H(\mu_Y).
+]
+Claim ([DER]).
+Additivity holds under product structure.
+Verification.
+Standard entropy identity.
+Falsifier.
+Non-product measure.
+
+02.C3.c — Mixing Structure Stability Under Minimal Seed Ladder
+Definition.
+Mixing structure is stable if the spectral gap and mixing-time estimators can be decomposed across factors and compared across ladder steps.
+Claim ([REP]).
+Tensorized structure supports stable cross-dimensional comparison.
+Verification.
+Use spectral additivity (Flower) and semigroup factorization (Cloud).
+Falsifier.
+Non-decomposable mixing diagnostics.
+
+02.C3.d — Minimality and Observability of Higher-D Ensembles
+Definition.
+Cloud minimality inherits from Square minimality: higher-dimensional ensemble observability requires the minimal Square carrier.
+Claim ([AX]).
+Minimal stability is enforced by the Square minimal seed law (k=d-1).
+Verification.
+Use the minimal seed ladder.
+Falsifier.
+Claimed observability at (k<d-1) without certificates.
+
+02.C4 — Protocols
+02.C4.a — Kernel Construction Protocol
+Definition.
+Construct (A_{d,k}) then compute (P_{d,k}(t)=e^{-tA_{d,k}}). Use tensorization under lift.
+Claim ([REP]).
+Deterministic under pinned profiles.
+Verification.
+Check against factorization at minimal seeds.
+Falsifier.
+Mismatch in tensorization.
+
+02.C4.b — Statistical Regression Suite
+Definition.
+Regression suite checks:
+marginal invariance under truncation,
+tensor kernel factorization,
+estimator lift invariance.
+Claim ([REP]).
+Sufficient for Cloud lock certification.
+Verification.
+Run on minimal seeds.
+Falsifier.
+Any failure.
+
+02.C4.c — Noise/Correlation Falsifier
+Definition.
+Inject cross-factor coupling noise; verify product structure breaks as expected.
+Claim ([REP]).
+Produces negative controls.
+Verification.
+Confirm induced correlations appear.
+Falsifier.
+No correlation from coupling indicates mis-injection.
+
+02.C4.d — Minimal Scale Auditor (Cloud)
+Definition.
+Audits that the Cloud carrier is derived from the minimal Square carrier.
+Claim ([REP]).
+Accepts only if ((d,d-1)) is used for minimal stability.
+Verification.
+Check declared seeds.
+Falsifier.
+Any mismatch.
+
+✶ Fractal — Multiscale/Recursion Stability (Schedule-Capacity)
+02.R1 — Ontology (Objects)
+02.R1.a — Dimension–Depth Schedule Object
+Definition.
+Define the dimension–depth schedule as a sequence ({(d_n,k_n)}_{n\ge 0}). The minimal-seed schedule is:
+[
+d_n = d_0+n,\qquad k_n = k_0+n,\qquad k_0=d_0-1,
+]
+so that (k_n=d_n-1) for all (n).
+Claim ([AX]).
+The minimal seed lock across dimension is precisely the rule (k=d-1).
+Verification.
+Check invariance (k_n=d_n-1).
+Falsifier.
+Any step violating (k=d-1) without explicit profile override.
+
+02.R1.b — Lifted Operator Tower ({A_{d_n,k_n}})
+Definition.
+Define the operator tower under locked lift:
+[
+A_{d_{n+1},k_{n+1}} = A_{d_n,k_{n+1}}\oplus A_{1,k_{n+1}}.
+]
+Claim ([AX]).
+The tower is phase-locked by structured Kronecker-sum composition at each step.
+Verification.
+Check tower identities inductively.
+Falsifier.
+Any step requiring kernel mutation.
+
+02.R1.c — Minimal Seed as the First Admissible Recursion Frame
+Definition.
+Define the first recursion frame at dimension (d) as the first depth at which the locked-lift identities can be satisfied without retyping: (k=d-1).
+Claim ([AX]).
+This is the canonically pinned meaning of “m
