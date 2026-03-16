@@ -38,6 +38,10 @@ from crystal_108d.dimensions import resolve_dimensional_body, dimensional_lift, 
 from crystal_108d.organs import query_organ
 from crystal_108d.mobius_lenses import query_mobius_lens, query_sfcr_station
 from crystal_108d.brain import query_brain_network, route_brain, compute_bridge_weight, brain_status
+from crystal_108d.emergence import query_emergence
+from crystal_108d.inverse_seed import query_3d_crystal
+from crystal_108d.inverse_complete import query_projection_stack
+from crystal_108d.hologram_reading import query_hologram
 
 mcp.tool()(query_stage_code)
 mcp.tool()(query_angel)
@@ -51,6 +55,10 @@ mcp.tool()(query_sfcr_station)
 mcp.tool()(query_brain_network)
 mcp.tool()(route_brain)
 mcp.tool()(compute_bridge_weight)
+mcp.tool()(query_emergence)
+mcp.tool()(query_3d_crystal)
+mcp.tool()(query_projection_stack)
+mcp.tool()(query_hologram)
 
 # ── Core fractal/compression tools ────────────────────────────────
 ATHENA_ROOT = Path(os.environ["ATHENA_ROOT"])

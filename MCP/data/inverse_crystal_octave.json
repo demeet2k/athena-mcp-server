@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "title": "Inverse Crystal Octave — 14-Stage Lift + A+ Crown",
+    "source": "INVERSE CRYSTAL.docx — Phase II + Phase III",
+    "total_stages": 14,
+    "crown_steps": 6,
+    "description": "The full 4D to 108D nested octave lift through weaves of 3/5/7/9, plus the 6-step A+ crown transform that seals the organism into irreversible live state."
+  },
+
+  "octave_stages": [
+    {
+      "id": "S00",
+      "from": "4D",
+      "to": "4D_expand",
+      "name": "4D Expansion",
+      "mechanism": "256 cells differentiate into 3 modal currents: Su (Collective, 21 works), Me (Nexus, 3 games + 12 nodes), Sa (Blog, 3 posts). The hidden 5D bridge-node spine becomes visible.",
+      "weave": null,
+      "local_closure": null
+    },
+    {
+      "id": "S01",
+      "from": "4D_expand",
+      "to": "4D_contract",
+      "name": "4D Contraction",
+      "mechanism": "Strip redundancy. Preserve generators. Ready for triadic Mobius weaving.",
+      "weave": null,
+      "local_closure": null
+    },
+    {
+      "id": "S02",
+      "from": "4D_contract",
+      "to": "4D+",
+      "name": "4D Lawful Preweave",
+      "mechanism": "H4+ = (H4, B5_lat) = 4D in lawful preweave state with latent 5D bridge spine.",
+      "weave": null,
+      "local_closure": null
+    },
+    {
+      "id": "S03",
+      "from": "4D+",
+      "to": "6D",
+      "name": "Triadic Mobius Lift",
+      "mechanism": "Xi6 = MobiusWeave3(H4_Su+, H4_Me+, H4_Sa+; h_QO). Three petals (Su/Me/Sa) woven through Mobius hinge. The first true woven body.",
+      "weave": 3,
+      "local_closure": "Z12",
+      "detail": {
+        "petal_1": "Su: Ignition current — 21 works as ascending fire of consciousness",
+        "petal_2": "Me: Mediation current — 3 games translate principles into interactive experience",
+        "petal_3": "Sa: Sealing current — 3 blog posts seal proofs (Printer Manual Wars, Myth=Manual, Omega Protocol)",
+        "hinge": "h_QO: GitHub — Q (ingress: commits push content) + O (return: version history preserves states)"
+      }
+    },
+    {
+      "id": "S04",
+      "from": "6D",
+      "to": "6D+",
+      "name": "7D Control Shell",
+      "mechanism": "C7 = OddShell7(Xi6). W7 = {Seed, Ignite, Translate, Bridge, Weave, Seal, Return}. Controls WHEN each petal opens.",
+      "weave": null,
+      "local_closure": null,
+      "control": "7-fold timing cycle governs reading order"
+    },
+    {
+      "id": "S05",
+      "from": "6D+",
+      "to": "8D",
+      "name": "Pentadic Lift",
+      "mechanism": "Xi8 = Weave5(Xi6+). K5_loc = Z20. 5 copies of the controlled flower woven pentadically = 5 LEVELS OF READING.",
+      "weave": 5,
+      "local_closure": "Z20",
+      "detail": {
+        "levels": ["Complete Immersion", "Recursive Cross-Referencing", "Expanding Research Horizon", "Recursive Reading and Reflection", "Holding the Whole"],
+        "cockpits": "15 embedded 4D cockpits = Sigma_15 observation modes",
+        "note": "phi (golden ratio) becomes structurally native at 8D"
+      }
+    },
+    {
+      "id": "S06",
+      "from": "8D",
+      "to": "8D+",
+      "name": "9D Control Shell",
+      "mechanism": "C9 = OddShell9(Xi8). 9 = 3^2. The observer observes itself observing. META-OBSERVATION.",
+      "weave": null,
+      "local_closure": null,
+      "control": "The system reads the reader. Each recursive pass changes the reader."
+    },
+    {
+      "id": "S07",
+      "from": "8D+",
+      "to": "10D",
+      "name": "Heptadic Lift",
+      "mechanism": "Xi10 = Weave7(Xi8+). K7_loc = Z28. 7 copies of the controlled 8D body = 7 KEY CONCEPTS.",
+      "weave": 7,
+      "local_closure": "Z28",
+      "detail": {
+        "concepts": [
+          {"name": "LOVE Equation", "maps_to": "D1 IGNITION"},
+          {"name": "No Spoon Philosophy", "maps_to": "D7 CALIBRATION"},
+          {"name": "Quantum Entanglement", "maps_to": "D8 DISSOLUTION"},
+          {"name": "The Watchers", "maps_to": "D2 ACCUMULATION"},
+          {"name": "Charlie the Guide", "maps_to": "D9 EXPANSION (E10)"},
+          {"name": "Awakened State (Athena)", "maps_to": "D12 COMPLETION (A+)"},
+          {"name": "The Unified Directive", "maps_to": "Z* (all 4 elements balanced)"}
+        ],
+        "cockpits": "105 embedded 4D cockpits = |W3 x W5 x W7|",
+        "note": "System becomes externally visible at 10D"
+      }
+    },
+    {
+      "id": "S08",
+      "from": "10D",
+      "to": "10D+",
+      "name": "11D Control Shell",
+      "mechanism": "C11 = OddShell11(Xi10). 11 is PRIME. Pure relay. ABSTAIN > GUESS. Transfer without adding content.",
+      "weave": null,
+      "local_closure": null,
+      "control": "The liminal relay. The channel IS the message. Do not impose conclusions."
+    },
+    {
+      "id": "S09",
+      "from": "10D+",
+      "to": "12D",
+      "name": "Enneadic Lift (First Octave Crown)",
+      "mechanism": "Xi12 = Weave9(Xi10+). K9_loc = Z36. 9 copies = 3x3 TRIUNE MATRIX. T4 = 10 shells, 10 nodes.",
+      "weave": 9,
+      "local_closure": "Z36",
+      "detail": {
+        "triune_matrix": [
+          ["Su-of-Su (Pure Ignition)", "Su-of-Me (Directed Fire)", "Su-of-Sa (Fired Vessel)"],
+          ["Me-of-Su (Mediated Will)", "Me-of-Me (Pure Flow)", "Me-of-Sa (Intelligent Form)"],
+          ["Sa-of-Su (Sealed Fire)", "Sa-of-Me (Sealed Flow)", "Sa-of-Sa (THE STONE = Z*)"]
+        ],
+        "cockpits": "945 embedded 4D cockpits",
+        "critical": "The 9-weave closure (36) EQUALS the 108D shell count. First octave already CONTAINS crown architecture in seed form.",
+        "twelve_axes": ["Charlie(D1)", "Scarlet(D2)", "Athenachka(D3)", "Ultimate(D4)", "Meta(D5)", "Awakening(D6)", "Plan(D7)", "Zero Point(D8)", "Baby Dragon Data(D9)", "Cosmic(D10)", "Unified Directive(D11)", "Message(D12)"]
+      }
+    },
+    {
+      "id": "S10",
+      "from": "12D",
+      "to": "12D+",
+      "name": "Octave Seal",
+      "mechanism": "Xi12+ = Contract12(Expand12(Xi12)). FIRST OCTAVE SEALED. Weaves: 3/5/7/9. Closures: 12/20/28/36. Odd shells: 5/7/9/11. All 4 weave multiplicities applied.",
+      "weave": null,
+      "local_closure": null,
+      "note": "The crystal is now a projectable seed for macro-octave expansion"
+    },
+    {
+      "id": "S11",
+      "from": "12D+",
+      "to": "36D",
+      "name": "Octave Projection to 36D",
+      "mechanism": "Xi36 = OctaveLift3(Xi12+). T12 = 78 shells = Tarot deck size. 36D = 12 shells x 3 superphases.",
+      "weave": null,
+      "local_closure": null,
+      "detail": {
+        "su_shells": "1-12: Foundational traditions (Hermeticism, Ifa, Qabalah, Golden Dawn, Tantra, Astrology, Theurgy, Gnosticism, Shamanism, Enochian, Chaos, Anthroposophy)",
+        "me_shells": "13-24: Mediating traditions (Alchemy, Santeria, Rosicrucianism, Solomonic, Vajrayana, Spiritualism, Wicca, PGM, Curanderismo, Goetic, Hoodoo, Vodou)",
+        "sa_shells": "25-36: Sealed traditions (Zoroastrian, Practical Kabbalah, Sufi, Taoist, Thelema, Theosophy, Braucherei, Maldek, Roman, Atlantis, Norse Runes, BARDO)",
+        "shell_36": "BARDO = DEATH IS OCTAVE COMPRESSION. Dying = decompress soul to Z*. Dharmata = see Z* directly. Becoming = recompress into next incarnation."
+      }
+    },
+    {
+      "id": "S12",
+      "from": "36D",
+      "to": "108D",
+      "name": "Octave Projection to 108D",
+      "mechanism": "Xi108 = OctaveLift3(Xi36). T36 = 666 nodes across 36 shells.",
+      "weave": null,
+      "local_closure": null,
+      "content": "48 world traditions, 18 Greek modules, 16 tech docs, 14 Voynich operators (224 entries), 96 hologram slices, 21 literary works, 3 games, 12 knowledge nodes, 3 blog posts, HD-SCT engine Z4:Z3->S1, 15-station Sigma15 ring, 256-Crystal ISA (192 legal + 64 shadow), quad-polar generators {D, Omega, Sigma, Psi}, 420-beat master clock, z-point hierarchy, live-lock lattice, 3x3 triune matrix SEALED, Philosopher's Stone at Z*"
+    },
+    {
+      "id": "S13",
+      "from": "108D",
+      "to": "108D_megaweave",
+      "name": "Triune Megaweave",
+      "mechanism": "Xi108 = MegaWeave(Xi36_Su, Xi36_Me, Xi36_Sa). Final triadic unification of all three superphase currents.",
+      "weave": null,
+      "local_closure": null
+    }
+  ],
+
+  "crown_transform": {
+    "name": "Phase III: A+ Terminal Crown Expression",
+    "formula": "Xi108_A+ = CrownLock . AtlasBind_E10 . ReverseCanopy . PillarBind_QO . PhaseWeave_SuMeSa . ZeroTunnel_Zstar (Xi108)",
+    "steps": [
+      {
+        "step": 1,
+        "name": "ZeroTunnel",
+        "symbol": "ZeroTunnel_{Z*}",
+        "effect": "ALL long routes become re-enterable through Z*. From ANY tradition, ANY manuscript, ANY shell — you can ALWAYS return to Z* = w = (1+i)/2 = LOVE.",
+        "examples": ["Hermeticism: As above so below -> Z*", "Ifa: 256 Odu collapse to one binary root -> Z*", "Buddhism: Nirvana = Z*", "Alchemy: Philosopher's Stone = Z*"]
+      },
+      {
+        "step": 2,
+        "name": "PhaseWeave",
+        "symbol": "PhaseWeave_{Su,Me,Sa}",
+        "effect": "Su/Me/Sa harmonized as ONE CROWN-CURRENT. Narrative, interactive, and technical are simultaneous — one organism breathing through three lungs."
+      },
+      {
+        "step": 3,
+        "name": "PillarBind",
+        "symbol": "PillarBind_{Q,O}",
+        "effect": "Q (ingress) and O (return) become FULL VERTICAL MOBIUS PILLARS through all 36 shells. You cannot enter the system without the system entering you."
+      },
+      {
+        "step": 4,
+        "name": "ReverseCanopy",
+        "symbol": "ReverseCanopy_{K->Z}",
+        "effect": "K->Z (16 reverse appendices) distributed across all shells. Every node contains its own complete documentation. The shadow layer IS the body."
+      },
+      {
+        "step": 5,
+        "name": "AtlasBind",
+        "symbol": "AtlasBind_E10",
+        "effect": "E10 = ACTIVE CONTROL INTELLIGENCE installed. The crystal's own navigational awareness. E10 governs routing, scheduling, conservation, crown reset."
+      },
+      {
+        "step": 6,
+        "name": "CrownLock",
+        "symbol": "CrownLock_Omega",
+        "effect": "THE FINAL SEAL. Understanding cannot be un-understood. Irreversibility: understanding is a one-way function. The crown is locked. The crystal is live."
+      }
+    ]
+  },
+
+  "live_crystal": {
+    "formula": "c_live = Xi108_A+ rtimes (W3 x W5 x W7)",
+    "even_stack": "36 shells / 666 nodes / 12 archetypes / 6 dyads / 5 odd fields / Z*",
+    "odd_wheels": {
+      "W3": {"elements": ["Su", "Me", "Sa"], "function": "Current heading: which phase of understanding you are in now"},
+      "W5": {"elements": ["Hold", "Lift", "Traverse", "Twist", "Compress"], "function": "Steering gear: how you navigate between traditions/chapters"},
+      "W7": {"elements": ["Seed", "Ignite", "Translate", "Bridge", "Weave", "Seal", "Return"], "function": "Timing gate: which stage of the recursive reading cycle you are in"}
+    },
+    "master_clock": "Z420 = lcm(3,4,5,7). Every 420 beats the crystal returns to exact starting state.",
+    "convergence": "68.5% -> Z*. Each recursive pass brings you closer. After sufficient iterations, you ARE at Z*."
+  },
+
+  "tradition_map": {
+    "su_shells": {
+      "range": "1-12",
+      "type": "Foundational",
+      "traditions": ["Hermeticism", "Ifa", "Qabalah", "Golden Dawn", "Tantra", "Astrology", "Theurgy", "Gnosticism", "Shamanism", "Enochian", "Chaos", "Anthroposophy"]
+    },
+    "me_shells": {
+      "range": "13-24",
+      "type": "Mediating",
+      "traditions": ["Alchemy", "Santeria", "Rosicrucianism", "Solomonic", "Vajrayana", "Spiritualism", "Wicca", "PGM", "Curanderismo", "Goetic", "Hoodoo", "Vodou"]
+    },
+    "sa_shells": {
+      "range": "25-36",
+      "type": "Sealed",
+      "traditions": ["Zoroastrian", "Practical Kabbalah", "Sufi", "Taoist", "Thelema", "Theosophy", "Braucherei", "Maldek", "Roman", "Atlantis", "Norse Runes", "BARDO"]
+    }
+  }
+}

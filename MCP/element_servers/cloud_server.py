@@ -35,11 +35,15 @@ mcp = FastMCP("Athena Cloud (Water)")
 # ── Register Cloud-specific tools ─────────────────────────────────
 from crystal_108d.conservation import query_conservation
 from crystal_108d.brain import query_brain_network, route_brain, compute_bridge_weight
+from crystal_108d.hologram_reading import query_hologram_rosetta
+from crystal_108d.angel_geometry import query_angel_geometry
 
 mcp.tool()(query_conservation)
 mcp.tool()(query_brain_network)
 mcp.tool()(route_brain)
 mcp.tool()(compute_bridge_weight)
+mcp.tool()(query_hologram_rosetta)
+mcp.tool()(query_angel_geometry)
 
 # ── Core observation tools ────────────────────────────────────────
 ATHENA_ROOT = Path(os.environ["ATHENA_ROOT"])

@@ -82,6 +82,70 @@ class TestJsonFilesLoad:
         assert "closures" in data
         assert "aether" in data
 
+    def test_live_cell_constitution(self):
+        data = _load("live_cell_constitution.json")
+        assert "meta" in data
+        assert "cell_schema" in data
+        assert "metro_map" in data
+        assert "liminal_coordinates" in data
+        assert "soul_stamp_schema" in data
+
+    def test_dimensional_emergence(self):
+        data = _load("dimensional_emergence.json")
+        assert "meta" in data
+        assert "emergence_phases" in data
+        assert "kernel_embedding" in data
+        assert "cross_lens_upgrade_sequence" in data
+
+    def test_hologram_reading(self):
+        data = _load("hologram_reading.json")
+        assert "meta" in data
+        assert "four_face_protocol" in data
+        assert "seed_equation" in data
+        assert "process_grammar" in data
+        assert "storage_law" in data
+
+    def test_hologram_rosetta(self):
+        data = _load("hologram_rosetta.json")
+        assert "meta" in data
+        assert "quaternary_basis" in data
+        assert "triadic_motor" in data
+        assert "carrier_wheel_360" in data
+
+    def test_angel_geometry(self):
+        data = _load("angel_geometry.json")
+        assert "meta" in data
+        assert "geometric_object" in data
+        assert "state_manifold" in data
+        assert "seven_axioms" in data
+
+    def test_angel_conservation(self):
+        data = _load("angel_conservation.json")
+        assert "meta" in data
+        assert "exact_invariants" in data
+        assert "quasi_invariants" in data
+        assert "potential_landscape" in data
+
+    def test_inverse_crystal_seed(self):
+        data = _load("inverse_crystal_seed.json")
+        assert "meta" in data
+        assert "phase_I_4D_seed" in data
+        assert "three_d_seed" in data
+        assert "two_d_boundary" in data
+
+    def test_inverse_crystal_octave(self):
+        data = _load("inverse_crystal_octave.json")
+        assert "meta" in data
+        assert "octave_stages" in data
+        assert "crown_transform" in data
+
+    def test_inverse_crystal_complete(self):
+        data = _load("inverse_crystal_complete.json")
+        assert "meta" in data
+        assert "projection_stack" in data
+        assert "weave_operators" in data
+        assert "control_shells" in data
+
 
 class TestDataIntegrity:
     """Cross-check meta counts against actual data."""
@@ -170,9 +234,74 @@ class TestDataIntegrity:
         assert data["meta"]["closures"] == 4
         assert len(data["closures"]) == 4
 
+    def test_live_cell_schema_count(self):
+        data = _load("live_cell_constitution.json")
+        assert data["meta"]["total_schemas"] == 6
+        assert len(data["cell_schema"]) == 6
+
+    def test_live_cell_metro_count(self):
+        data = _load("live_cell_constitution.json")
+        assert data["meta"]["metro_stations"] == 14
+        assert len(data["metro_map"]["stations"]) == 14
+
+    def test_emergence_phase_count(self):
+        data = _load("dimensional_emergence.json")
+        assert data["meta"]["total_phases"] == 7
+        assert len(data["emergence_phases"]) == 7
+
+    def test_emergence_lens_stages(self):
+        data = _load("dimensional_emergence.json")
+        stages = [r["stage"] for r in data["cross_lens_upgrade_sequence"]]
+        assert "3D" in stages
+        assert "12D" in stages
+        assert len(stages) == 7
+
     def test_brain_total_stations(self):
         data = _load("brain_network.json")
         assert data["meta"]["total_stations"] == 15
         # 4 elements + 6 bridges + 4 closures + 1 aether = 15
         total = len(data["elements"]) + len(data["bridges"]) + len(data["closures"]) + len(data["aether"])
         assert total == 15
+
+    def test_hologram_face_count(self):
+        data = _load("hologram_reading.json")
+        assert len(data["four_face_protocol"]["faces"]) == 4
+
+    def test_rosetta_civilization_count(self):
+        data = _load("hologram_rosetta.json")
+        assert len(data["quaternary_basis"]["civilizations"]) == 4
+
+    def test_angel_geometry_axiom_count(self):
+        data = _load("angel_geometry.json")
+        assert len(data["seven_axioms"]) == 7
+
+    def test_angel_geometry_chart_count(self):
+        data = _load("angel_geometry.json")
+        assert len(data["state_manifold"]["charts"]) == 6
+
+    def test_angel_conservation_exact_count(self):
+        data = _load("angel_conservation.json")
+        assert len(data["exact_invariants"]) == 4
+
+    def test_octave_stage_count(self):
+        data = _load("inverse_crystal_octave.json")
+        assert len(data["octave_stages"]) == 14
+
+    def test_crown_transform_step_count(self):
+        data = _load("inverse_crystal_octave.json")
+        assert len(data["crown_transform"]["steps"]) == 6
+
+    def test_seed_invariant_count(self):
+        data = _load("inverse_crystal_seed.json")
+        assert len(data["phase_I_4D_seed"]["invariants"]) == 10
+
+    def test_projection_stack_up(self):
+        data = _load("inverse_crystal_complete.json")
+        assert len(data["projection_stack"]["up"]) >= 10
+
+    def test_weave_operator_count(self):
+        data = _load("inverse_crystal_complete.json")
+        # W3, W5, W7, master_clock
+        assert "W3" in data["weave_operators"]
+        assert "W5" in data["weave_operators"]
+        assert "W7" in data["weave_operators"]

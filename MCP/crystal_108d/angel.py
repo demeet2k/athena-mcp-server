@@ -36,6 +36,10 @@ def query_angel(component: str = "all") -> str:
         sr = d["self_reference"]
         lines.append(f"  {sr['theorem']}")
         lines.append(f"  Angel reading: {sr['angel_reading']}")
+        lines.append(f"\n### Geometric Extension")
+        lines.append(f"  See `query_angel_geometry()` for the full geometric lift:")
+        lines.append(f"  state manifold, metric, curvature, sheaf, 7 axioms.")
+        lines.append(f"  See `query_angel_conservation()` for conservation laws and potential landscape.")
         return "\n".join(lines)
 
     if component == "pieces":

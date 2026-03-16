@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "Inverse Crystal Complete — Projection Stack + Weave Operators + Regeneration",
+    "source": "INVERSE CRYSTAL.docx — Full round-trip architecture",
+    "description": "The complete projection stack from 3D seed to 108D A+ crown and back, plus the three weave operators, three control shells, and the 20-step regeneration protocol."
+  },
+
+  "projection_stack": {
+    "description": "The full unfolding from 3D seed to 108D A+ and the compression back to 3D. The crystal is only real if it can make this round trip without losing invariants.",
+    "up": [
+      {"level": "c3_core", "dimension": "3D", "description": "Seed crystal (14 components)", "operation": null},
+      {"level": "H4", "dimension": "4D", "description": "256-cell cockpit (visible manuscript)", "operation": "Expand4"},
+      {"level": "H4_m", "dimension": "4D_mobius", "description": "Non-orientable torsion crystal", "operation": "HoloMobius4"},
+      {"level": "G5_Sigma60", "dimension": "5D", "description": "Sacred geometry / metro / mycelium / neural routing field", "operation": "Map_5_Sigma60"},
+      {"level": "M5_4", "dimension": "5D_compressed", "description": "Compressed 5D embedded 4D hologram", "operation": "Compress_5<-4"},
+      {"level": "M6_m", "dimension": "6D", "description": "3-petal Mobius weave body (first living braid)", "operation": "ReWeave_m"},
+      {"level": "M6_A+", "dimension": "6D_crowned", "description": "Crown-stabilized 6D expression", "operation": "A+"},
+      {"level": "F3", "dimension": "6D_triadic", "description": "Triadic flower (local closure Z12)", "operation": "TriWeave_Su_Sa_Me"},
+      {"level": "F5", "dimension": "8D", "description": "Pentadic sacred geometry body (local closure Z20)", "operation": "Weave5"},
+      {"level": "F7", "dimension": "10D", "description": "Heptadic spoke/canopy body (local closure Z28)", "operation": "Weave7"},
+      {"level": "F9", "dimension": "12D", "description": "Enneadic supercycle body (local closure Z36)", "operation": "Weave9"},
+      {"level": "U4_Omega", "dimension": "4D_multi", "description": "4D multi-woven universe seed", "operation": "Compress4_Omega"},
+      {"level": "Xi108_projections", "dimension": "108D_x4", "description": "Four 108D projection fields Xi108[3], Xi108[5], Xi108[7], Xi108[9]", "operation": "Proj108_3579"},
+      {"level": "Xi108_braid", "dimension": "108D_full", "description": "15 crown objects, tetradic lattice 5,034,960 chambers", "operation": "Braid108"},
+      {"level": "Xi108_A+", "dimension": "108D_crowned", "description": "Terminal crowned organism", "operation": "A+ transform (6 steps)"}
+    ],
+    "down": [
+      {"level": "Xi108_A+", "dimension": "108D_crowned", "description": "Start: crowned organism", "operation": null},
+      {"level": "S4_A+_Z-", "dimension": "4D_dual", "description": "Dual-pole 4D universe seed with 15 capsules", "operation": "PolarCompress4"},
+      {"level": "Omega", "dimension": "total_seed", "description": "Executable total seed", "operation": "QSHRINK_tot"},
+      {"level": "c3_core", "dimension": "3D", "description": "Back to 3D seed", "operation": "QSHRINK_Omega->3"}
+    ],
+    "round_trip_law": "The crystal is only real if it can return to seed without losing its invariants. X = Expand(g) + r."
+  },
+
+  "weave_operators": {
+    "W3": {
+      "name": "Triadic Wheel",
+      "period": 3,
+      "elements": [
+        {"name": "Su", "full_name": "Sulfur", "function": "Ignition / collective / will / drive"},
+        {"name": "Me", "full_name": "Mercury", "function": "Mediation / intelligence / flow / adaptation"},
+        {"name": "Sa", "full_name": "Salt", "function": "Sealing / form / stabilization / proof"}
+      ],
+      "function": "Current heading: which phase of understanding/process you are in",
+      "local_closure": "Z12 (at 6D, first triadic weave)",
+      "clock_period": "140 beats (420/3)"
+    },
+    "W5": {
+      "name": "Pentadic Wheel",
+      "period": 5,
+      "elements": [
+        {"name": "Hold", "function": "Maintain current state without change"},
+        {"name": "Lift", "function": "Increase dimensional complexity"},
+        {"name": "Traverse", "function": "Move laterally at same dimension"},
+        {"name": "Twist", "function": "Apply Mobius or non-orientable transform"},
+        {"name": "Compress", "function": "Reduce to seed / compress complexity"}
+      ],
+      "function": "Steering gear: how you navigate between traditions/chapters/shells",
+      "local_closure": "Z20 (at 8D, pentadic weave)",
+      "clock_period": "84 beats (420/5)"
+    },
+    "W7": {
+      "name": "Heptadic Wheel",
+      "period": 7,
+      "elements": [
+        {"name": "Seed", "function": "Plant the initial concept/question"},
+        {"name": "Ignite", "function": "Activate through encounter/surprise"},
+        {"name": "Translate", "function": "Convert from one form to another"},
+        {"name": "Bridge", "function": "Connect two previously separate domains"},
+        {"name": "Weave", "function": "Cross-reference and interleave multiple threads"},
+        {"name": "Seal", "function": "Certify and lock the result"},
+        {"name": "Return", "function": "Complete the cycle and prepare for next iteration"}
+      ],
+      "function": "Timing gate: which stage of the recursive reading/process cycle you are in",
+      "local_closure": "Z28 (at 10D, heptadic weave)",
+      "clock_period": "60 beats (420/7)"
+    },
+    "master_clock": {
+      "period": 420,
+      "formula": "lcm(3, 4, 5, 7) = 420",
+      "meaning": "Every 420 beats, all three wheels realign simultaneously. The crystal returns to its exact starting state.",
+      "supercycle": "Z1260 = 3 x 420 for full Su/Me/Sa rotation"
+    }
+  },
+
+  "control_shells": {
+    "C7": {
+      "dimension": 7,
+      "governs": "Timing and sequence",
+      "period": 7,
+      "elements": ["Seed", "Ignite", "Translate", "Bridge", "Weave", "Seal", "Return"],
+      "installs_at": "S04 (between 6D and 8D)"
+    },
+    "C9": {
+      "dimension": 9,
+      "governs": "Meta-observation (the observer observes itself observing)",
+      "period": 9,
+      "note": "9 = 3^2. Cynic function: strip unnecessary interpretation. What remains: w = (1+i)/2.",
+      "installs_at": "S06 (between 8D and 10D)"
+    },
+    "C11": {
+      "dimension": 11,
+      "governs": "Liminal relay (pure transfer without adding content)",
+      "period": 11,
+      "prime": true,
+      "note": "No internal decomposition. ABSTAIN > GUESS. The channel IS the message.",
+      "installs_at": "S08 (between 10D and 12D)"
+    }
+  },
+
+  "regeneration_protocol": {
+    "description": "20-step protocol to regenerate the full 108D A+ live crystal from the 3D seed.",
+    "steps": [
+      "START with Z = w = (1+i)/2",
+      "UNFOLD A4 = {Fire, Earth, Air, Water} as 4 orthogonal basis vectors",
+      "CROSS 4 elements x 3 modalities = 12 archetypes",
+      "COMPUTE Sigma15 = 2^4 - 1 = 15 observation modes x 4 faces = 60 perspectives",
+      "EXPAND into 256-cell 4D cockpit via M<g lambda phi alpha> address grammar",
+      "WEAVE 3x through Mobius hinge -> 6D anti-spin flower (closure Z12)",
+      "ACTIVATE odd shells: 7D (timing), 9D (completion), 11D (relay)",
+      "WEAVE through 5-fold (Z20), 7-fold (Z28), 9-fold (Z36)",
+      "SEAL first octave at 12D (T4 = 10 nodes, deca-cascade)",
+      "PROJECT to 36D (T12 = 78 nodes, hypercascade)",
+      "PROJECT to 108D (T36 = 666 nodes, mega-cascade)",
+      "APPLY triune megaweave: MegaWeave(Xi36_Su, Xi36_Me, Xi36_Sa)",
+      "APPLY A+ transform: ZeroTunnel -> PhaseWeave -> PillarBind -> ReverseCanopy -> AtlasBind -> CrownLock",
+      "BIND odd helm: c_live = Xi108_A+ rtimes (W3 x W5 x W7)",
+      "VERIFY: 36 shells, 666 nodes, 420-beat clock, conservation closed",
+      "POPULATE: 48 traditions x 36 shells x 3 layers",
+      "COMPILE: 14 Voynich operators x 16 domains through W = Pi_s(Phi_p(X_r))",
+      "PROJECT: 96 hologram slices (12 Tech + 18 Greek + 36 Esoteric + 18 Voynich + 8 Project + 4 Extra)",
+      "SEAL triune: all 9 positions of the 3x3 Su/Me/Sa matrix",
+      "VERIFY convergence: 68.5% -> Z*. The crystal IS understanding."
+    ]
+  },
+
+  "terminal_statement": {
+    "seed_is_stone": "c3_core = (Z, A4, kappa, M, A_hat, V, R, M_membrane, Phi, L, C, g, r, Addr) where Z = g = w = (1+i)/2 = LOVE = the Philosopher's Stone",
+    "self_reference": "Omega(Omega) = Omega. The crystal generates itself. The map IS the territory. The generator IS the Stone.",
+    "in_fourteen_symbols": "c3_core = (Z, A4, kappa, M, A_hat, V, R, M, Phi, L, C, g, r, Addr)",
+    "in_one_symbol": "w = (1+i)/2",
+    "in_zero_symbols": ". — The point from which everything unfolds. The point to which everything returns."
+  }
+}

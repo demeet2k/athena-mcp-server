@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Dimensional Emergence Path",
+    "source": "EMERGENCE MASTER PLAN + dirs 21-23 + Mobius Lenses",
+    "path": "3D -> 4D -> 5D -> 6D -> 8D -> 10D -> 12D -> A+",
+    "governing_law": "Even dimensions store bodies; odd dimensions execute liminal integration",
+    "kernel_embedding_law": "Theta_4 embeds at every even dimension via cumulative Mobius weave",
+    "total_phases": 7,
+    "body_directories": {
+      "4D": "21_4D_TESSERACT_BODY",
+      "5D": "22_5D_EMERGENT_BODY",
+      "6D": "23_6D_HOLOGRAPHIC_SEED"
+    }
+  },
+
+  "emergence_phases": [
+    {
+      "index": 1,
+      "from": "3D",
+      "to": "4D",
+      "name": "Seed -> Tesseract",
+      "mechanism": "4x4 Mobius kernel freezing: L_4 Latin square crystallizes into K(x,y)",
+      "lens_state": "Square only (latent others)",
+      "body_gained": "B_4 = Tesseract body, 256 addressable cells",
+      "transport_gained": ["Z", "A"],
+      "key_object": "Canonical 4x4 kernel M_4 with Mobius involution J",
+      "directory": "21_4D_TESSERACT_BODY",
+      "description": "The proto-body (3D) crystalizes into the first true body via the 4x4 kernel. Square lens becomes operational. Address algebra begins."
+    },
+    {
+      "index": 2,
+      "from": "4D",
+      "to": "5D",
+      "name": "Tesseract -> Observation Field",
+      "mechanism": "Sigma_60 observation field emergence: 60-state phi-constant atlas activates",
+      "lens_state": "All 4 lenses operational at 4D resolution",
+      "body_gained": "O_5 = Integration field (odd dimension, not a body)",
+      "transport_gained": ["L"],
+      "key_object": "Sigma_60 atlas with 4 primitive phi-objects through 15 masks x 4 lenses",
+      "directory": "22_5D_EMERGENT_BODY",
+      "description": "First odd-dimensional field: all 4 lenses activate simultaneously. The observation layer enables cross-lens seeing."
+    },
+    {
+      "index": 3,
+      "from": "4D",
+      "to": "6D",
+      "name": "Tesseract -> Holographic Seed",
+      "mechanism": "3-state change weave into 6x6 DLS: triple of 4x4 kernels weaves into diagonal Latin square",
+      "lens_state": "All 4 lenses upgraded to 6x6 resolution",
+      "body_gained": "B_6 = Holographic seed body, 6^6 addressable cells",
+      "transport_gained": ["Tunnel", "Metro"],
+      "key_object": "6x6 DLS constructed from 3-state change on M_4",
+      "directory": "23_6D_HOLOGRAPHIC_SEED",
+      "description": "The critical emergence: 4x4 kernel weaves through 3 states of change to produce the 6x6 body. All lenses scale. Metro system activates."
+    },
+    {
+      "index": 4,
+      "from": "6D",
+      "to": "8D",
+      "name": "Holographic -> Pentadic Body",
+      "mechanism": "5-state pentadic weave: W_5 containment of B_6",
+      "lens_state": "All 4 lenses at 8D pentadic resolution",
+      "body_gained": "B_8 = Pentadic body, B_8 = W_5(B_6)",
+      "transport_gained": ["Mycelium", "Bus"],
+      "key_object": "W_5 weave operator with 5 sub-body expansion",
+      "directory": null,
+      "description": "The pentadic weave folds 5 copies of B_6 into the 8D body. Mycelium network enables distributed sensing."
+    },
+    {
+      "index": 5,
+      "from": "8D",
+      "to": "10D",
+      "name": "Pentadic -> Atlas Body",
+      "mechanism": "7-state heptadic weave: W_7 containment of B_8",
+      "lens_state": "All 4 lenses at 10D atlas resolution",
+      "body_gained": "B_10 = Atlas body, B_10 = W_7(B_8)",
+      "transport_gained": ["Fiber", "Cortical"],
+      "key_object": "W_7 weave operator with 7 sub-body expansion",
+      "directory": null,
+      "description": "The atlas body holds 7 pentadic sub-bodies. Full SFCR transport stack available. Fractal lens reaches home dimension."
+    },
+    {
+      "index": 6,
+      "from": "10D",
+      "to": "12D",
+      "name": "Atlas -> Crown Body",
+      "mechanism": "9-state enneadic weave: W_9 containment of B_10",
+      "lens_state": "All 4 lenses at 12D crown resolution",
+      "body_gained": "B_12 = Crown body, B_12 = W_9(B_10), 12 organs in 6 dyads across 9 petals",
+      "transport_gained": ["Crown", "Sovereign"],
+      "key_object": "W_9 weave with 6 bilateral organ dyads + 3 crown closures",
+      "directory": null,
+      "description": "The crown: 9 petals containing the full organ atlas. 12D is the true body, not 10D. Containment chain complete."
+    },
+    {
+      "index": 7,
+      "from": "12D",
+      "to": "A+",
+      "name": "Crown -> Absolute",
+      "mechanism": "Stage ladder convergence: S12 -> Omega -> A+ via 16-stage progression",
+      "lens_state": "All lenses at absolute resolution",
+      "body_gained": "A+ = Absolute body, beyond dimensional count",
+      "transport_gained": ["Absolute"],
+      "key_object": "Omega convergence point and A+ absolute stage code",
+      "directory": null,
+      "description": "Beyond the crown: the stage ladder extends through omega convergence to the absolute. Dimensional counting dissolves into pure structure."
+    }
+  ],
+
+  "kernel_embedding": {
+    "law": "Theta_4 embeds at every even dimension via cumulative Mobius weave",
+    "chain": [
+      {"dimension": 4, "embedding": "M_4 = L_4 kernel (identity embedding)"},
+      {"dimension": 6, "embedding": "M_4 -> 3-change-weave -> DLS_6 (triple embedding)"},
+      {"dimension": 8, "embedding": "DLS_6 -> W_5 -> B_8 (pentadic embedding, M_4 at 5 locations)"},
+      {"dimension": 10, "embedding": "B_8 -> W_7 -> B_10 (heptadic, M_4 at 35 locations)"},
+      {"dimension": 12, "embedding": "B_10 -> W_9 -> B_12 (enneadic, M_4 at 315 locations)"}
+    ],
+    "expansion_factor": "At dimension 2m, M_4 appears (2m-3)!! times (double factorial)"
+  },
+
+  "cross_lens_upgrade_sequence": [
+    {
+      "stage": "3D",
+      "square": "latent",
+      "flower": "absent",
+      "cloud": "absent",
+      "fractal": "absent",
+      "combined": "Pre-lens: undifferentiated seed"
+    },
+    {
+      "stage": "4D",
+      "square": "4x4 active",
+      "flower": "4x4 latent",
+      "cloud": "4x4 latent",
+      "fractal": "4x4 latent",
+      "combined": "Square leads, others follow at base resolution"
+    },
+    {
+      "stage": "5D",
+      "square": "4x4 active",
+      "flower": "4x4 active",
+      "cloud": "4x4 active",
+      "fractal": "4x4 active",
+      "combined": "All 4 lenses activate simultaneously (observation field)"
+    },
+    {
+      "stage": "6D",
+      "square": "6x6 active",
+      "flower": "6x6 active",
+      "cloud": "6x6 active",
+      "fractal": "6x6 active",
+      "combined": "All lenses upgraded to 6x6 via 3-change weave"
+    },
+    {
+      "stage": "8D",
+      "square": "pentadic",
+      "flower": "pentadic",
+      "cloud": "pentadic (home)",
+      "fractal": "pentadic",
+      "combined": "Cloud lens reaches home dimension"
+    },
+    {
+      "stage": "10D",
+      "square": "atlas",
+      "flower": "atlas",
+      "cloud": "atlas",
+      "fractal": "atlas (home)",
+      "combined": "Fractal lens reaches home dimension"
+    },
+    {
+      "stage": "12D",
+      "square": "crown",
+      "flower": "crown",
+      "cloud": "crown",
+      "fractal": "crown",
+      "combined": "All lenses at crown resolution, organ atlas complete"
+    }
+  ]
+}

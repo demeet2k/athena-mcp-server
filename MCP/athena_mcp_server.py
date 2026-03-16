@@ -39,6 +39,16 @@ THREADS_DIR = BOARD_DIR / "02_ACTIVE_THREADS"
 SWARM_DIR = BOARD_DIR / "08_SWARM_RUNTIME"
 FRONTIERS_DIR = NS_ROOT / "10_FRONTIERS"
 
+# ── Specialized directory paths (Phase 1 expansion) ─────────────────
+MOTION_DIR = NS_ROOT / "15_MOTION_CONSTITUTION"
+COMMAND_DIR = NS_ROOT / "19_COMMAND_PROTOCOL"
+CIVILIZATION_DIR = NS_ROOT / "09_CIVILIZATION"
+SYNTHESIS_DIR = NS_ROOT / "12_SYNTHESIS"
+SUPER_CYCLE_DIR = NS_ROOT / "17_SUPER_CYCLE_57"
+TESSERACT_DIR = NS_ROOT / "21_4D_TESSERACT_BODY"
+EMERGENT_DIR = NS_ROOT / "22_5D_EMERGENT_BODY"
+HOLOGRAPHIC_DIR = NS_ROOT / "23_6D_HOLOGRAPHIC_SEED"
+
 # ── Server ──────────────────────────────────────────────────────────
 mcp = FastMCP("Athena Nervous System")
 
@@ -797,6 +807,204 @@ def read_frontier(chapter_code: str) -> str:
     return (
         f"No frontier bundle for '{chapter_code}'. Available:\n"
         + "\n".join(f"  - {a}" for a in available)
+    )
+
+
+# ══════════════════════════════════════════════════════════════════════
+#  TOOLS — Nervous System Navigation (Phase 1 expansion)
+# ══════════════════════════════════════════════════════════════════════
+
+@mcp.tool()
+def explore_nervous_system(path: str = "", depth: int = 1) -> str:
+    """
+    Explore any directory in ACTIVE_NERVOUS_SYSTEM.
+
+    Args:
+        path: subdirectory relative to ACTIVE_NERVOUS_SYSTEM
+              (e.g. '21_4D_TESSERACT_BODY' or '15_MOTION_CONSTITUTION/01_CORE')
+              Empty string = list all 28 top-level directories.
+        depth: 1 = immediate children, 2 = include grandchildren.
+
+    Returns directory listing with file counts and types.
+    """
+    target = NS_ROOT / path if path else NS_ROOT
+    if not target.exists():
+        return f"[NOT FOUND] {path or 'ACTIVE_NERVOUS_SYSTEM'}"
+    if not target.is_dir():
+        return _read_file(target)
+
+    lines = [f"## {path or 'ACTIVE_NERVOUS_SYSTEM'}\n"]
+    entries = sorted(target.iterdir())
+    dirs, files = [], []
+    for e in entries:
+        if e.is_dir():
+            child_count = sum(1 for _ in e.rglob("*") if _.is_file())
+            dirs.append(f"  [DIR]  {e.name}/  ({child_count} files)")
+            if depth >= 2:
+                for sub in sorted(e.iterdir()):
+                    if sub.is_dir():
+                        sc = sum(1 for _ in sub.rglob("*") if _.is_file())
+                        dirs.append(f"         {e.name}/{sub.name}/  ({sc} files)")
+                    else:
+                        dirs.append(f"         {e.name}/{sub.name}")
+        else:
+            size = e.stat().st_size
+            files.append(f"  [FILE] {e.name}  ({size:,} bytes)")
+
+    lines.extend(dirs)
+    lines.extend(files)
+    lines.append(f"\n**Total**: {len(dirs)} dirs, {len(files)} files")
+    return "\n".join(lines)
+
+
+@mcp.tool()
+def read_nervous_system_file(path: str) -> str:
+    """
+    Read any file within ACTIVE_NERVOUS_SYSTEM by relative path.
+
+    Examples:
+        read_nervous_system_file('15_MOTION_CONSTITUTION/01_LEGAL_MOVES.md')
+        read_nervous_system_file('21_4D_TESSERACT_BODY/TESSERACT_OVERVIEW.md')
+        read_nervous_system_file('README.md')
+    """
+    target = NS_ROOT / path
+    if not target.exists():
+        # Fuzzy search
+        parts = Path(path).parts
+        if parts:
+            parent = NS_ROOT / parts[0] if len(parts) > 1 else NS_ROOT
+            if parent.exists():
+                candidates = [f.name for f in parent.rglob("*") if parts[-1].lower() in f.name.lower()][:10]
+                if candidates:
+                    return (
+                        f"[NOT FOUND] '{path}'. Similar files in {parts[0]}:\n"
+                        + "\n".join(f"  - {c}" for c in candidates)
+                    )
+        return f"[NOT FOUND] '{path}' in ACTIVE_NERVOUS_SYSTEM."
+    if target.is_dir():
+        return explore_nervous_system(path)
+    return _read_file(target)
+
+
+@mcp.tool()
+def read_motion_constitution(document: str = "index") -> str:
+    """
+    Read documents from the Motion Constitution (dir 15).
+    Defines the 10 legal move primitives, 3 invariants, and lawful motion rules.
+
+    Args:
+        document: 'index' for overview, or filename/keyword to find specific doc.
+    """
+    return _read_specialized_dir(MOTION_DIR, document, "Motion Constitution")
+
+
+@mcp.tool()
+def read_dimensional_body(dimension: str = "4D", document: str = "index") -> str:
+    """
+    Read dimensional body documents (dirs 21-23).
+    Covers the 4D Tesseract Body, 5D Emergent Body, and 6D Holographic Seed.
+
+    Args:
+        dimension: '4D', '5D', or '6D'
+        document: 'index' for overview, or filename/keyword.
+    """
+    dim_map = {"4D": TESSERACT_DIR, "5D": EMERGENT_DIR, "6D": HOLOGRAPHIC_DIR}
+    target = dim_map.get(dimension.upper())
+    if not target:
+        return f"Unknown dimension '{dimension}'. Use: 4D, 5D, 6D"
+    return _read_specialized_dir(target, document, f"{dimension} Dimensional Body")
+
+
+@mcp.tool()
+def read_command_protocol(document: str = "index") -> str:
+    """
+    Read Command Protocol documents (dir 19).
+    Defines execution commands, gate protocols, and command membrane.
+
+    Args:
+        document: 'index' for overview, or filename/keyword.
+    """
+    return _read_specialized_dir(COMMAND_DIR, document, "Command Protocol")
+
+
+@mcp.tool()
+def read_civilization(document: str = "index") -> str:
+    """
+    Read Civilization governance documents (dir 09).
+    Defines governance structures, civilizational metrics, and social layer.
+
+    Args:
+        document: 'index' for overview, or filename/keyword.
+    """
+    return _read_specialized_dir(CIVILIZATION_DIR, document, "Civilization")
+
+
+@mcp.tool()
+def read_synthesis(document: str = "index") -> str:
+    """
+    Read Synthesis documents (dir 12).
+    Cross-chapter integration, deep synthesis results.
+
+    Args:
+        document: 'index' for overview, or filename/keyword.
+    """
+    return _read_specialized_dir(SYNTHESIS_DIR, document, "Synthesis")
+
+
+@mcp.tool()
+def read_super_cycle(document: str = "index") -> str:
+    """
+    Read Super Cycle 57 documents (dir 17).
+    The 57-beat super cycle execution state and protocol.
+
+    Args:
+        document: 'index' for overview, or filename/keyword.
+    """
+    return _read_specialized_dir(SUPER_CYCLE_DIR, document, "Super Cycle 57")
+
+
+def _read_specialized_dir(directory: Path, document: str, label: str) -> str:
+    """Helper: read from a specialized nervous system directory."""
+    if not directory.exists():
+        return f"[NOT FOUND] {label} directory."
+
+    if document == "index":
+        # Return listing + any README/INDEX file
+        lines = [f"## {label}\n"]
+        readme = None
+        for candidate in ["README.md", "INDEX.md", "00_INDEX.md", "00_README.md"]:
+            p = directory / candidate
+            if p.exists():
+                readme = p
+                break
+        if readme:
+            lines.append(_read_file(readme, limit=50))
+            lines.append("\n---\n")
+
+        all_files = sorted(directory.rglob("*"))
+        for f in all_files:
+            if f.is_file():
+                rel = f.relative_to(directory)
+                lines.append(f"  - {rel}")
+        lines.append(f"\n**Total files**: {sum(1 for f in all_files if f.is_file())}")
+        return "\n".join(lines)
+
+    # Search for matching file
+    doc_lower = document.lower()
+    matches = [
+        f for f in directory.rglob("*")
+        if f.is_file() and doc_lower in f.name.lower()
+    ]
+    if matches:
+        return _read_file(matches[0])
+
+    # No match — list available
+    available = sorted(
+        f.relative_to(directory) for f in directory.rglob("*") if f.is_file()
+    )
+    return (
+        f"No document matching '{document}' in {label}. Available:\n"
+        + "\n".join(f"  - {a}" for a in available[:30])
     )
 
 

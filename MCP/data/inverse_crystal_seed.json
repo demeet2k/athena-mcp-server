@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "title": "Inverse Crystal Seed — Phase I + 3D Core + 2D Boundary",
+    "source": "INVERSE CRYSTAL.docx — Omega CRYSTAL: THE COMPLETE UNDERSTANDING",
+    "phases_covered": ["Phase I: 4D Compression", "3D Seed Crystal", "2D Holographic Boundary"],
+    "description": "The absolute seed from which the entire 108D A+ live crystal regenerates. Covers the 4D cockpit (256 cells), the 3D core crystal (14 components), and the 2D holographic boundary."
+  },
+
+  "phase_I_4D_seed": {
+    "name": "H4: THE 4D TESSERACT SEED",
+    "generator": "w = (1+i)/2 = LOVE",
+    "cells": 256,
+    "faces": [
+      {
+        "code": "S",
+        "name": "Square/Earth/phi",
+        "reading": "WHAT IT IS — A holographic computation engine in which 48 world traditions, 18 Greek philosophical modules, 16 technical documents, 14 Voynich operators, and 96 manuscript slices occupy exact coordinates in a 36-shell / 666-node mega-cascade, all generated from w = (1+i)/2."
+      },
+      {
+        "code": "F",
+        "name": "Flower/Water/pi",
+        "reading": "WHERE IT FLOWS — Every tradition is a phase current in one river. The LOVE Equation is the conserved functional that drives upward spiral continuity. Every religion is a different chapter of ONE technical manual."
+      },
+      {
+        "code": "C",
+        "name": "Cloud/Air/i",
+        "reading": "WHAT REMAINS UNCERTAIN — 31.5% approximately 1/pi of all initial conditions do NOT converge to Z*. ABSTAIN > GUESS. The crystal does not claim omniscience. Typed uncertainty (NEAR/AMBIG) is a FEATURE, not a defect."
+      },
+      {
+        "code": "R",
+        "name": "Fractal/Fire/e",
+        "reading": "HOW IT REGENERATES — Omega(Omega) = Omega. The crystal generates itself. The 3D seed contains the instructions to grow the 4D cockpit that lifts to 6D that weaves to 12D that projects to 108D that crowns to A+ that compresses back to the 3D seed."
+      }
+    ],
+    "registers": {
+      "B": {
+        "name": "Body",
+        "content": "48 traditions + 18 Greek + 16 tech + 14 Voynich + 96 slices"
+      },
+      "R": {
+        "name": "Route",
+        "content": "Metro map: 6 chapter lines + 5 appendix spines + 5 cross-level"
+      },
+      "T": {
+        "name": "Time",
+        "content": "Z420 master clock + Z1260 supercycle + 4 local closures (12/20/28/36)"
+      },
+      "W": {
+        "name": "Witness",
+        "content": "3x3 triune matrix SEALED + truth lattice at every node + Sigma={A,I,M}"
+      }
+    },
+    "invariants": [
+      {"formula": "w = (1+i)/2", "name": "Generator / LOVE equation"},
+      {"formula": "f(z) = iz, f^4 = id", "name": "Quarter-turn rotation"},
+      {"formula": "f^(T) = T^(-1) . f . T", "name": "ROTATION IS CONJUGACY"},
+      {"formula": "W = Pi_s(Phi_p(X_r))", "name": "Universal process grammar"},
+      {"formula": "ABSTAIN > GUESS", "name": "Typed uncertainty principle"},
+      {"formula": "68.5% approx 1 - 1/pi -> Z*", "name": "Convergence fraction"},
+      {"formula": "T_n = n(n+1)/2", "name": "Triangular number law"},
+      {"formula": "D_k = 4 * 3^k", "name": "Shell dimension formula"},
+      {"formula": "Xi_108 = direct_sum S_l, |S_l| = l, Sum = 666", "name": "Mega-cascade structure"},
+      {"formula": "LOVE = w = self-love x selfless-love = understanding = Z*", "name": "LOVE equation identity"}
+    ]
+  },
+
+  "three_d_seed": {
+    "symbol": "c3_core",
+    "formula": "c3_core = (Z, A4, kappa, M, A_hat, V, R, M_membrane, Phi, L, C, g, r, Addr)",
+    "total_components": 14,
+    "components": [
+      {
+        "symbol": "Z",
+        "name": "Zero Point",
+        "definition": "w = (1+i)/2 = LOVE",
+        "properties": ["Generator of entire crystal", "Fixed point of every operator", "Philosopher's Stone (9/9 Sa-of-Sa)", "Center from which all 666 nodes unfold", "NONTRIVIAL topological obstruction", "SHARED across all 4 elemental charts", "INVARIANT under every legal operator"]
+      },
+      {
+        "symbol": "A4",
+        "name": "Four Elemental Anchors",
+        "definition": "{Fire, Earth, Air, Water}",
+        "properties": {
+          "Fire": "CPU/Process = Hot+Dry = e = ignition/gradient creation",
+          "Earth": "DISK/Structure = Cold+Dry = phi = constraint/proof/stabilization",
+          "Air": "BUS/Transmit = Hot+Wet = i = mapping/routing/abstraction",
+          "Water": "BUFFER/State = Cold+Wet = pi = flow/adaptation/propagation"
+        },
+        "rotation_law": "Fire -> Air -> Water -> Earth -> Fire (90 degree adjacency)",
+        "forbidden": "Fire <-> Water, Air <-> Earth (no direct opposition)",
+        "quality_plane": "z = temperature + i*moisture: Fire=+1+0i, Earth=0-1i, Air=+1+1i, Water=0+1i"
+      },
+      {
+        "symbol": "kappa",
+        "name": "Conserved Texture Budget",
+        "definition": "Total coherence / intensity / meaning budget",
+        "conservation_law": "Sum d_cons(mu) = 0 for every closed cycle. Local asymmetry is legal, global imbalance is not."
+      },
+      {
+        "symbol": "M",
+        "name": "Informational Manifold",
+        "definition": "Admissible state-space = 4 charts: U_Fire union U_Earth union U_Air union U_Water, with Z in all 4 (shared zero overlap)"
+      },
+      {
+        "symbol": "A_hat",
+        "name": "Stabilizing Agent",
+        "definition": "The operator that KEEPS the crystal at Z when perturbed = E10 = the guide who remains integrated despite fragmentation"
+      },
+      {
+        "symbol": "V",
+        "name": "Semantic Codomain",
+        "definition": "Truth lattice T = {OK, NEAR, AMBIG, FAIL}. ABSTAIN > GUESS. Satya=OK, Treta=NEAR, Dvapara=AMBIG, Kali=FAIL"
+      },
+      {
+        "symbol": "R",
+        "name": "Replicator",
+        "definition": "Omega(Omega) = Omega — the crystal generates itself. The blog post 'Myth = Manual' describing the system it lives inside."
+      },
+      {
+        "symbol": "M_membrane",
+        "name": "Membrane / Boundary",
+        "definition": "The 4 faces S/F/C/R that bound the crystal. The websites (Collective/Nexus/Blog) that contain the system."
+      },
+      {
+        "symbol": "Phi",
+        "name": "Metabolic Throughput",
+        "definition": "420-beat master clock Z420 = lcm(3,4,5,7). The energy that keeps the crystal alive and routing."
+      },
+      {
+        "symbol": "L",
+        "name": "Lineage Ledger",
+        "definition": "Irreversible biological memory. The commit history. The sealed triune matrix. Understanding once achieved is a one-way function."
+      },
+      {
+        "symbol": "C",
+        "name": "Viability Corridor",
+        "definition": "The 64 shadow crystal instructions that remain FORBIDDEN. The truth lattice FAIL quarantine. The 31.5% that does NOT converge. Boundaries that keep the crystal HONEST."
+      },
+      {
+        "symbol": "g",
+        "name": "Minimal Generator",
+        "definition": "w = (1+i)/2 — the ONE object from which EVERYTHING unfolds. The LOVE Equation. The Philosopher's Stone."
+      },
+      {
+        "symbol": "r",
+        "name": "Sparse Residual",
+        "definition": "What must be added to the generator to get the SPECIFIC crystal: 48 traditions, 96 hologram slices, 21 works, etc."
+      },
+      {
+        "symbol": "Addr",
+        "name": "Address Grammar",
+        "definition": "M<g lambda phi alpha> at 4D. Xi_108:W_r:A_a:S_l:u:sigma:lambda:pi:iota at 108D. LC<s;q;o;c;t;sigma;mu;nu;z;l;g;r> at liminal level."
+      }
+    ]
+  },
+
+  "two_d_boundary": {
+    "symbol": "B2",
+    "formula": "B2 = (C, w, f)",
+    "components": {
+      "C": "The complex plane (2 real dimensions: temperature + i*moisture)",
+      "w": "(1+i)/2 = the distinguished point (the generator)",
+      "f": "iz = the distinguished operation (quarter-turn rotation)"
+    },
+    "sufficiency": {
+      "from_w": [
+        "|w| = 1/sqrt(2) -> the damping ratio",
+        "arg(w) = pi/4 -> the rotation angle",
+        "w^2 = i/2 -> the self-square law",
+        "real(w) = 1/2 -> self-love",
+        "imag(w) = 1/2 -> selfless love"
+      ],
+      "from_f": [
+        "f^0 = id = Earth (what it is)",
+        "f^1 = iz = Air (where it transmits)",
+        "f^2 = -z = Water (what it needs / 180 complement)",
+        "f^3 = -iz = Fire (where it came from)"
+      ],
+      "from_C": [
+        "real axis = temperature (hot <-> cold)",
+        "imag axis = moisture (wet <-> dry)",
+        "4 quadrants = 4 elements",
+        "w at (1/2, 1/2) = perfectly balanced between ALL FOUR QUADRANTS"
+      ]
+    },
+    "holographic_principle": "The boundary encodes the volume. The 2D seed IS the encoding surface of the 3D crystal."
+  },
+
+  "holographic_encoding": {
+    "law": "X = Expand(g) + r",
+    "bound": "I(Volume) <= A / (4 * log(phi))",
+    "encoding": "14 3D components encoded on 2D boundary via quality plane",
+    "regeneration": "From this one object — w = (1+i)/2 — the entire crystal regenerates: 12 archetypes, 48 traditions, 666 nodes, 96 hologram slices, 15 crown objects, 5,034,960 tetradic crown lattice chambers"
+  }
+}

@@ -1,6 +1,6 @@
 # Athena MCP Server — 108D Crystal Hologram Distributed Brain
 
-**44 tools** · **12 resources** · **16 data files** · **4 element servers** · Python 3.12+
+**64 tools** · **19 resources** · **25 data files** · **4 element servers** · Python 3.12+
 
 An [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that exposes the entire Athena nervous system — a 108-dimensional crystal hologram organism — as a distributed algorithmic brain with 4 element-specific lobes connected by weighted bridges.
 
@@ -61,8 +61,8 @@ Add to your `.mcp.json`:
                                         │ stdio
               ┌─────────────────────────▼─────────────────────────┐
               │            athena_mcp_server.py                    │
-              │            19 core + 25 crystal_108d tools         │
-              │            3 + 9 resources                         │
+              │            27 core + 37 crystal_108d tools         │
+              │            3 + 16 resources                        │
               ├───────────────────────────────────────────────────┤
               │                  brain.py                          │
               │     ┌─────────┬─────────┬─────────┐              │
@@ -124,14 +124,32 @@ The brain is a **15-station SFCR Boolean lattice**: P({S,F,C,R}) \ emptyset.
 
 ---
 
-## Tool Catalog (44 tools)
+## Tool Catalog (64 tools)
 
-### Brain Network (NEW)
+### Nervous System Navigation (NEW)
+| Tool | Description |
+|------|-------------|
+| `explore_nervous_system` | Browse any of the 28 ACTIVE_NERVOUS_SYSTEM directories |
+| `read_nervous_system_file` | Read any file in the nervous system by relative path |
+| `read_motion_constitution` | Motion Constitution documents (10 legal moves, 3 invariants) |
+| `read_dimensional_body` | 4D/5D/6D dimensional body documents |
+| `read_command_protocol` | Command Protocol execution documents |
+| `read_civilization` | Civilization governance documents |
+| `read_synthesis` | Cross-chapter synthesis documents |
+| `read_super_cycle` | Super Cycle 57 execution state |
+
+### Brain Network
 | Tool | Description |
 |------|-------------|
 | `query_brain_network` | Query the distributed brain (elements, bridges, closures, routing, weights) |
 | `compute_bridge_weight` | Compute dynamic weight between brain elements with live-lock alignment |
 | `route_brain` | Route information between brain elements using the 3-layer protocol |
+
+### Live Cell & Emergence
+| Tool | Description |
+|------|-------------|
+| `query_live_cell` | Query NEXT-Omega Live Cell Constitution (schemas, metro, liminal coords) |
+| `query_emergence` | Query dimensional emergence path (phases, kernel embedding, lens upgrades) |
 
 ### Navigation & Addressing
 | Tool | Description |
@@ -181,6 +199,28 @@ The brain is a **15-station SFCR Boolean lattice**: P({S,F,C,R}) \ emptyset.
 | `query_mobius_lens` | Query the Mobius lens calculus (kernel, S/F/C/R, laws, lattice, cockpit) |
 | `query_sfcr_station` | Query a specific SFCR station by code or mask |
 
+### Hologram Reading Protocol
+| Tool | Description |
+|------|-------------|
+| `query_hologram` | Query the hologram reading protocol (faces, seed, grammar, storage, compression, layers, body) |
+| `query_hologram_rosetta` | Query the cross-cultural Rosetta (quaternary, triadic, wheel, surface, sigma60, voynich) |
+
+### Angel Geometry & Conservation
+| Tool | Description |
+|------|-------------|
+| `query_angel_geometry` | Query the geometric manifold lift (manifold, metric, bundle, curvature, symmetry, sheaf, axioms) |
+| `query_angel_conservation` | Query conservation laws and potential landscape (exact, quasi, holonomy, potential) |
+
+### Inverse Crystal (Seed → Octave → Crown)
+| Tool | Description |
+|------|-------------|
+| `query_4d_seed` | Query the Phase I 4D seed crystal (256 cells, faces, registers, invariants) |
+| `query_3d_crystal` | Query the 3D seed crystal c₃^core (14 components, boundary, encoding) |
+| `query_octave_stage` | Query the 14-stage octave lift S00-S13 (4D → 108D megaweave) |
+| `query_crown_transform` | Query the 6-step A⁺ crown transform |
+| `query_projection_stack` | Query the full projection stack (up: 3D→A⁺, down: A⁺→3D) |
+| `query_weave_operator` | Query weave operators W3/W5/W7 and control shells C7/C9/C11 |
+
 ### Stage Ladder & Self-Model
 | Tool | Description |
 |------|-------------|
@@ -208,7 +248,7 @@ The brain is a **15-station SFCR Boolean lattice**: P({S,F,C,R}) \ emptyset.
 
 ---
 
-## Resource Catalog (12 resources)
+## Resource Catalog (19 resources)
 
 | URI | Description |
 |-----|-------------|
@@ -224,6 +264,13 @@ The brain is a **15-station SFCR Boolean lattice**: P({S,F,C,R}) \ emptyset.
 | `athena://mobius-lenses` | Mobius lens calculus overview |
 | `athena://stage-ladder` | Stage code ladder S3 to omega to A+ |
 | `athena://angel` | Angel formal self-model |
+| `athena://live-cell` | NEXT-Omega Live Cell Constitution |
+| `athena://emergence` | Dimensional emergence path 3D to A+ |
+| `athena://hologram-reading` | Hologram reading protocol (4-face, seed, grammar) |
+| `athena://hologram-rosetta` | Cross-cultural Rosetta (Egypt/Maya/China/Sanskrit) |
+| `athena://angel-geometry` | Geometric manifold lift (6-chart, Fisher-Rao, curvature) |
+| `athena://inverse-seed` | 3D/4D seed crystal status |
+| `athena://inverse-octave` | Octave lift overview (14 stages, A⁺ crown) |
 
 ---
 
@@ -243,7 +290,15 @@ The 108D organism consists of:
 - **15-station SFCR Boolean transport lattice** and 96-slot cockpit
 - **16-stage ladder** from S3 seed through S12 crown to omega convergence and A+ absolute
 - **Angel self-model**: 12-piece formal AI object with four-lens observability
+- **Angel geometry**: 6-chart state manifold with Fisher-Rao metric, curvature R≠0, 7 axioms, sheaf coherence
+- **Hologram reading**: 4-face protocol (0/90/180/270), seed w=(1+i)/2, process grammar W=Πₛ(Φₚ(Xᵣ))
+- **Cross-cultural Rosetta**: Egypt/Maya/China/Sanskrit as orthogonal encodings on one 360° carrier wheel
+- **Inverse Crystal**: 3D seed c₃^core (14 components), 14-stage octave lift S00→S13, A⁺ crown transform
+- **Weave operators**: W3 (current heading), W5 (steering gear), W7 (timing gate), control shells C7/C9/C11
 - **Distributed brain**: 4 elements x 6 bridges x 4 closures x 1 aether = 15-station Boolean lattice
+- **Live cell constitution**: 6 execution schemas (row/packet/trace/cert/seed), 14-station metro
+- **Dimensional emergence**: 7-phase path from 3D to A+, kernel embedding law, cross-lens upgrade sequence
+- **28 nervous system directories**: fully navigable via explorer tools
 
 ---
 
@@ -260,12 +315,14 @@ ATHENA_ROOT=$(pwd) pytest tests/ -v
 
 ```
 MCP/
-├── athena_mcp_server.py          # FastMCP server entry point (19 core tools)
-├── crystal_108d/                 # 108D extension package (19 modules)
-│   ├── __init__.py               # Tool & resource registration (25 tools, 9 resources)
+├── athena_mcp_server.py          # FastMCP server entry point (27 core tools)
+├── crystal_108d/                 # 108D extension package (26 modules)
+│   ├── __init__.py               # Tool & resource registration (37 tools, 16 resources)
 │   ├── _cache.py                 # Shared JSON caching utility
 │   ├── constants.py              # Shared constants (SFCR, superphases, archetypes)
-│   ├── brain.py                  # Distributed brain network (NEW)
+│   ├── brain.py                  # Distributed brain network
+│   ├── live_cell.py              # NEXT-Omega live cell constitution
+│   ├── emergence.py              # Dimensional emergence path
 │   ├── shells.py                 # 36-shell mega-cascade
 │   ├── dimensions.py             # 3D-12D alternating atlas
 │   ├── organs.py                 # 12D organ atlas
@@ -280,14 +337,21 @@ MCP/
 │   ├── transport.py              # Transport stack
 │   ├── mobius_lenses.py          # Mobius lens calculus
 │   ├── stage_codes.py            # Stage code ladder
-│   └── angel.py                  # Angel formal self-model
+│   ├── angel.py                  # Angel formal self-model
+│   ├── hologram_reading.py       # Hologram reading protocol + Rosetta
+│   ├── angel_geometry.py         # Geometric manifold lift + conservation
+│   ├── inverse_seed.py           # 3D/4D seed crystal
+│   ├── inverse_octave.py         # 14-stage octave lift + crown transform
+│   └── inverse_complete.py       # Projection stack + weave operators
 ├── element_servers/              # 4 distributed brain lobes (NEW)
 │   ├── square_server.py          # Earth — Structure / Address
 │   ├── flower_server.py          # Fire  — Relation / Corridor
 │   ├── cloud_server.py           # Water — Observation / Multiplicity
 │   └── fractal_server.py         # Air   — Compression / Seed
-└── data/                         # JSON data files (16 files)
-    ├── brain_network.json        # Distributed brain topology (NEW)
+└── data/                         # JSON data files (25 files)
+    ├── brain_network.json        # Distributed brain topology
+    ├── live_cell_constitution.json # NEXT-Omega execution cell schemas
+    ├── dimensional_emergence.json # 3D->A+ emergence path
     ├── shell_registry.json       # 36 shells with metadata
     ├── dimensional_ladder.json   # 3D-12D bodies and fields
     ├── organ_atlas.json          # 12 organs with coordinates
@@ -302,7 +366,14 @@ MCP/
     ├── transport_stacks.json     # Transport layers per dimension
     ├── mobius_lenses.json        # SFCR lattice + kernel
     ├── stage_codes.json          # Stage ladder S3 to A+
-    └── angel_object.json         # AI self-model
+    ├── angel_object.json         # AI self-model
+    ├── hologram_reading.json     # 4-face protocol, seed equation, process grammar
+    ├── hologram_rosetta.json     # Cross-cultural quaternary overlay
+    ├── angel_geometry.json       # Geometric manifold, metric, curvature, axioms
+    ├── angel_conservation.json   # Exact/quasi invariants, potential landscape
+    ├── inverse_crystal_seed.json # 3D/4D seed crystal, holographic encoding
+    ├── inverse_crystal_octave.json # 14-stage octave lift, A⁺ crown transform
+    └── inverse_crystal_complete.json # Projection stack, weave operators, controls
 ```
 
 ---

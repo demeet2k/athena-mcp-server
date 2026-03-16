@@ -27,6 +27,15 @@ _ALL_JSON_FILES = [
     "stage_codes.json",
     "angel_object.json",
     "brain_network.json",
+    "live_cell_constitution.json",
+    "dimensional_emergence.json",
+    "hologram_reading.json",
+    "hologram_rosetta.json",
+    "angel_geometry.json",
+    "angel_conservation.json",
+    "inverse_crystal_seed.json",
+    "inverse_crystal_octave.json",
+    "inverse_crystal_complete.json",
 ]
 
 

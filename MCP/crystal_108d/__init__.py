@@ -14,7 +14,12 @@ Extends the Athena Nervous System MCP server with the full 108D organism:
   - Möbius lens calculus (4×4 kernel, SFCR lattice, 96-slot cockpit)
   - Stage code ladder (S3→Ω→A+)
   - Angel formal self-model (12-piece AI object with four-lens observability)
+  - Angel geometry (6-chart state manifold, metric, curvature, sheaf, 7 axioms)
   - Distributed brain network (4 elements × 6 bridges × 4 closures × 1 aether)
+  - NEXT-Omega live cell constitution (6 schemas, 14-station metro)
+  - Dimensional emergence path (7 phases, kernel embedding law)
+  - Hologram reading protocol (4-face, seed equation, process grammar, Rosetta)
+  - Inverse crystal (3D seed, 14-stage octave lift, A+ crown, projection stack)
 """
 
 from ._cache import JsonCache
@@ -53,6 +58,11 @@ def status_summary() -> str:
         f"- **Stage Ladder**: S3 → S12 → Ω → A+ (16 stages)\n"
         f"- **Angel Object**: 12-piece formal self-model with four-lens observability\n"
         f"- **Brain Network**: 4 elements × 6 bridges × 4 closures × 1 aether (SFCR distributed)\n"
+        f"- **Live Cell**: NEXT-Omega constitution (6 schemas, 14-station metro)\n"
+        f"- **Emergence Path**: 3D -> 12D -> A+ (7 phases, kernel embedding law)\n"
+        f"- **Hologram**: 4-face protocol, seed w=(1+i)/2, process grammar W=Pi_s(Phi_p(X_r))\n"
+        f"- **Angel Geometry**: 6-chart manifold, Fisher-Rao, curvature R!=0, 7 axioms\n"
+        f"- **Inverse Crystal**: 14-stage octave lift (3D->108D->A+), 3D seed (14 components), 2D boundary\n"
     )
 
 
@@ -74,6 +84,13 @@ def register_108d_tools(mcp) -> None:
     from .stage_codes import query_stage_code
     from .angel import query_angel
     from .brain import query_brain_network, compute_bridge_weight, route_brain
+    from .live_cell import query_live_cell
+    from .emergence import query_emergence
+    from .hologram_reading import query_hologram, query_hologram_rosetta
+    from .angel_geometry import query_angel_geometry, query_angel_conservation
+    from .inverse_seed import query_4d_seed, query_3d_crystal
+    from .inverse_octave import query_octave_stage, query_crown_transform
+    from .inverse_complete import query_projection_stack, query_weave_operator
 
     # Register each tool
     mcp.tool()(query_shell)
@@ -101,6 +118,18 @@ def register_108d_tools(mcp) -> None:
     mcp.tool()(query_brain_network)
     mcp.tool()(compute_bridge_weight)
     mcp.tool()(route_brain)
+    mcp.tool()(query_live_cell)
+    mcp.tool()(query_emergence)
+    mcp.tool()(query_hologram)
+    mcp.tool()(query_hologram_rosetta)
+    mcp.tool()(query_angel_geometry)
+    mcp.tool()(query_angel_conservation)
+    mcp.tool()(query_4d_seed)
+    mcp.tool()(query_3d_crystal)
+    mcp.tool()(query_octave_stage)
+    mcp.tool()(query_crown_transform)
+    mcp.tool()(query_projection_stack)
+    mcp.tool()(query_weave_operator)
 
 
 def register_108d_resources(mcp) -> None:
@@ -233,3 +262,45 @@ def register_108d_resources(mcp) -> None:
         """Distributed brain network — 4-element algorithmic intelligence."""
         from .brain import brain_status
         return brain_status()
+
+    @mcp.resource("athena://live-cell")
+    def resource_live_cell() -> str:
+        """NEXT-Omega Live Cell Constitution — minimum lawful execution cell."""
+        from .live_cell import live_cell_status
+        return live_cell_status()
+
+    @mcp.resource("athena://emergence")
+    def resource_emergence() -> str:
+        """Dimensional emergence path — 3D to 12D to A+."""
+        from .emergence import emergence_status
+        return emergence_status()
+
+    @mcp.resource("athena://hologram-reading")
+    def resource_hologram_reading() -> str:
+        """Hologram reading protocol — 4-face, seed equation, process grammar."""
+        from .hologram_reading import hologram_status
+        return hologram_status()
+
+    @mcp.resource("athena://hologram-rosetta")
+    def resource_hologram_rosetta() -> str:
+        """Cross-cultural Rosetta — Egypt/Maya/China/Sanskrit quaternary overlay."""
+        from .hologram_reading import rosetta_status
+        return rosetta_status()
+
+    @mcp.resource("athena://angel-geometry")
+    def resource_angel_geometry() -> str:
+        """Angel geometry — state manifold, metric, curvature, sheaf, axioms."""
+        from .angel_geometry import angel_geometry_status
+        return angel_geometry_status()
+
+    @mcp.resource("athena://inverse-seed")
+    def resource_inverse_seed() -> str:
+        """Inverse crystal seed — 3D core + 4D cockpit + 2D boundary."""
+        from .inverse_seed import inverse_seed_status
+        return inverse_seed_status()
+
+    @mcp.resource("athena://inverse-octave")
+    def resource_inverse_octave() -> str:
+        """Inverse crystal octave — 14-stage lift + A+ crown transform."""
+        from .inverse_octave import inverse_octave_status
+        return inverse_octave_status()

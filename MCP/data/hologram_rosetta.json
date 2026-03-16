@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "Hologram Rosetta — Cross-Cultural Quaternary Overlay",
+    "source": "Hologram.docx — Cross-cultural layer of the holographic crystal",
+    "description": "Maps four civilizational encodings of reality (Egypt/Maya/China/Sanskrit) as orthogonal basis vectors of one holographic field, plus the triadic motor, 360-degree carrier wheel, and error-correcting surface.",
+    "key_insight": "The four civilizations are not rival theories but four orthogonal encodings of one reality-model, forming a distributed redundancy system where any 3 can reconstruct the 4th."
+  },
+
+  "quaternary_basis": {
+    "description": "Four orthogonal encodings of one reality-model, each carrying a different domain of the invariant frame.",
+    "civilizations": [
+      {
+        "name": "Egypt",
+        "domain": "space",
+        "carrier": "phi-proportions and grid relations",
+        "encoding": "Spatial/architectural field through golden ratio geometry",
+        "element_affinity": "Earth (Square)"
+      },
+      {
+        "name": "Maya",
+        "domain": "time",
+        "carrier": "vigesimal counting, 13x20 Tzolkin, 18x20=360 tun",
+        "encoding": "Cyclical time through base-20 arithmetic and interlocking calendars",
+        "element_affinity": "Fire (Flower)"
+      },
+      {
+        "name": "China",
+        "domain": "change",
+        "carrier": "binary yin/yang, 8 trigrams, 64 hexagrams, five-phase algebra",
+        "encoding": "Transformation through binary combinatorics and process algebra",
+        "element_affinity": "Water (Cloud)"
+      },
+      {
+        "name": "Sanskrit",
+        "domain": "vibration",
+        "carrier": "phonemic matrices, mantra frequencies, form-through-vibration",
+        "encoding": "Resonance through structured sound and consciousness-frequency mapping",
+        "element_affinity": "Air (Fractal)"
+      }
+    ],
+    "hamming_property": "Any 3 of the 4 civilizational encodings can reconstruct the missing 4th — a (4,3) Hamming-style redundancy matrix."
+  },
+
+  "triadic_motor": {
+    "description": "The three-phase engine that animates the four-part brace. The fourfold world is the frame, but the threefold operator is the pulse.",
+    "operators": [
+      {
+        "name": "kar",
+        "function": "decompose / spark",
+        "aliases": ["Yang", "Chokmah", "Sulphur", "Brahma"],
+        "action": "Breaks apart, ignites, initiates"
+      },
+      {
+        "name": "aiin",
+        "function": "couple / weave",
+        "aliases": ["Yin", "Binah", "Salt", "Vishnu"],
+        "action": "Binds together, sustains, mediates"
+      },
+      {
+        "name": "al",
+        "function": "seal / normalize",
+        "aliases": ["Middle Pillar", "Tiferet/Daat", "Mercury", "Shiva"],
+        "action": "Completes, certifies, returns to equilibrium"
+      }
+    ],
+    "consistency": "Across all files the same three-phase engine reappears under different names: the fourfold world is the frame, but the threefold operator is the pulse."
+  },
+
+  "carrier_wheel_360": {
+    "description": "Nested gear system on one shared 360-degree dial, where different calendars and symbol systems are basis changes on one cyclic manifold.",
+    "divisors_of_360": [3, 4, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360],
+    "nested_counts": {
+      "sectors": {"count": 3, "angle": 120},
+      "quadrants": {"count": 4, "angle": 90},
+      "signs": {"count": 12, "angle": 30},
+      "spokes": {"count": 20, "angle": 18},
+      "solar_terms": {"count": 24, "angle": 15},
+      "nakshatras": {"count": 27, "angle": 13.33},
+      "mansions": {"count": 28, "angle": 12.86},
+      "decans": {"count": 36, "angle": 10},
+      "sigma_vectors": {"count": 60, "angle": 6},
+      "pentads": {"count": 72, "angle": 5},
+      "padas": {"count": 108, "angle": 3.33},
+      "ticks": {"count": 360, "angle": 1}
+    },
+    "claim": "These counts all mesh because they are divisors or multiples of 360, so different calendars and symbol systems can be treated as basis changes on one cyclic manifold rather than separate clocks."
+  },
+
+  "error_correcting_surface": {
+    "type": "4x4 diagonal Latin square",
+    "description": "The minimal holographic projector — if rows, columns, and diagonals are all permutation-complete, then any one-dimensional slice carries enough structure to constrain the whole.",
+    "property": "The board becomes a tiny holographic memory where any slice reconstructs the full structure.",
+    "relation_to_civilizations": "The same idea appears as a (4,3) Hamming-style redundancy matrix: any 3 of the 4 civilizational encodings can reconstruct the missing fourth."
+  },
+
+  "sixty_dimensional_body": {
+    "formula": "15 observation modes x 4 faces = 60 perspectives",
+    "sigma_60": "The 60-dimensional body — the complete observation field of the crystal",
+    "fifteen_modes": "The 15 nonempty subsets of {Fire, Earth, Air, Water} = 2^4 - 1",
+    "four_faces": "Perception (0), Tendency (90), Complement (180), Origin (270)",
+    "total": "60 = Sigma_60 = the complete set of perspectives needed to observe any object in the crystal"
+  },
+
+  "voynich_layer": {
+    "consonants": 14,
+    "vowels": 5,
+    "word_families": 6,
+    "domains": 16,
+    "vml_formula": "Every word = [operation + target + result state]",
+    "description": "The Voynich Metamorphic Language treats every statement as an operational triple, consistent with the process grammar W = Pi_s(Phi_p(X_r))."
+  }
+}

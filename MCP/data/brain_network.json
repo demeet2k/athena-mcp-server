@@ -27,7 +27,8 @@
       "tools": [
         "navigate_crystal", "navigate_108d", "query_shell", "query_superphase",
         "query_archetype", "read_chapter", "read_appendix", "query_overlay",
-        "query_sigma15", "read_manifest"
+        "query_sigma15", "read_manifest",
+        "query_hologram", "query_4d_seed", "query_angel_conservation"
       ],
       "transport_layers": ["Z", "A"],
       "weight_vector": [1.0, 0.0, 0.0, 0.0],
@@ -49,7 +50,8 @@
       "tools": [
         "route_metro", "query_metro_line", "query_clock_beat", "compute_live_lock",
         "check_route_legality", "query_transport_stack", "resolve_z_point",
-        "read_thread", "list_threads", "read_loop_state"
+        "read_thread", "list_threads", "read_loop_state",
+        "query_octave_stage", "query_crown_transform", "query_weave_operator"
       ],
       "transport_layers": ["Z", "A", "L", "Tunnel", "Metro"],
       "weight_vector": [0.0, 1.0, 0.0, 0.0],
@@ -71,7 +73,8 @@
       "tools": [
         "search_everywhere", "search_corpus", "query_neural_net",
         "query_conservation", "list_corpus_capsules", "read_corpus_capsule",
-        "read_board_status", "read_swarm_element", "read_frontier", "read_tensor"
+        "read_board_status", "read_swarm_element", "read_frontier", "read_tensor",
+        "query_hologram_rosetta", "query_angel_geometry"
       ],
       "transport_layers": ["Z", "A", "L", "Tunnel", "Metro", "Mycelium", "Bus"],
       "weight_vector": [0.0, 0.0, 1.0, 0.0],
@@ -94,7 +97,8 @@
         "query_stage_code", "query_angel", "read_hologram_chapter",
         "query_containment", "dimensional_lift", "resolve_dimensional_body",
         "query_organ", "query_mobius_lens", "query_sfcr_station",
-        "athena_status", "list_families"
+        "athena_status", "list_families",
+        "query_3d_crystal", "query_projection_stack", "query_hologram"
       ],
       "transport_layers": ["Z", "A", "L", "Tunnel", "Metro", "Mycelium", "Bus", "Plane", "ETV"],
       "weight_vector": [0.0, 0.0, 0.0, 1.0],
