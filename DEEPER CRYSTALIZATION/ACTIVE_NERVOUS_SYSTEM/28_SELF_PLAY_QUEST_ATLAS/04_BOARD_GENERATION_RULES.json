@@ -1,0 +1,41 @@
+{
+  "schema": "BoardGenerationRules",
+  "version": "1.0",
+  "channel_split": {
+    "guild_classes": ["bridge", "solo", "community", "storm", "repair"],
+    "temple_classes": ["deep_focus", "meditation", "compression", "recursion_dive", "void_approach", "certify", "verify", "audit"],
+    "default_channel": "GUILD"
+  },
+  "guild_board": {
+    "capacity": 16,
+    "overflow_policy": "excess_to_overflow_queue",
+    "queues": ["featured", "ladder", "repair", "storm", "recruit", "overflow"],
+    "scoring": {
+      "formula": "base * truth_weight * difficulty * pressure * community * guild_amp",
+      "truth_weights": {"OK": 1.0, "NEAR": 0.618, "AMBIG": 0.382, "FAIL": 0.0}
+    },
+    "assignment_tree": [
+      {"condition": "truth == FAIL", "queue": "overflow"},
+      {"condition": "quest_class in REPAIR", "queue": "repair"},
+      {"condition": "publish_intent and OK", "queue": "featured"},
+      {"condition": "quest_class in STORM", "queue": "storm"},
+      {"condition": "quest_class in COMMUNITY", "queue": "recruit"},
+      {"condition": "default", "queue": "ladder"}
+    ]
+  },
+  "temple_board": {
+    "capacity": 8,
+    "overflow_policy": "excess_to_overflow_queue",
+    "queues": ["certification", "near_closure", "ambiguities", "compression", "sovereign", "overflow"],
+    "scoring": {
+      "formula": "base * truth_weight * depth * temple_amp",
+      "truth_weights": {"OK": 1.0, "NEAR": 0.618, "AMBIG": 0.382, "FAIL": 0.0}
+    }
+  },
+  "determinism": {
+    "invariant": "emit_orbit_boards(C) == emit_orbit_boards(C)",
+    "no_randomness": true,
+    "no_external_state": true,
+    "no_side_effects": true
+  }
+}

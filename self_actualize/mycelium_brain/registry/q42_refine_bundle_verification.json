@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-03-13T05:17:45.084663+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_q42_refine_bundle_closure",
+  "truth": "FAIL",
+  "checks": {
+    "docs_gate_blocked": true,
+    "task_matrix_active_qs64_24": false,
+    "task_matrix_next_seed_null": true,
+    "network_active_qs64_24": false,
+    "network_next_seed_null": false,
+    "canonical_bundle_active_qs64_24": false,
+    "canonical_bundle_next_seed_null": false,
+    "surfaces_aligned": false,
+    "no_hall_local_qs64_25": true,
+    "tq04_immediate_receiver_visible": false,
+    "q46_reserve_visible": false,
+    "q02_external_visible": false
+  },
+  "surface_checks": {
+    "quest_board": {
+      "path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": false,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "ok": true
+    },
+    "active_queue": {
+      "path": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": true,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "ok": true
+    },
+    "active_front": {
+      "path": "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": true,
+        "qs64_22": true,
+        "qs64_23": true,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": false,
+        "q02": true,
+        "qs64_25_raw": false,
+        "qs64_25_guard": false
+      },
+      "ok": false
+    },
+    "looped_plan": {
+      "path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/13_QSHRINK_LOOPED_AGENTIC_PLAN.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": true,
+        "qs64_22": true,
+        "qs64_23": false,
+        "qs64_24": false,
+        "tq04": false,
+        "q46": false,
+        "q02": false,
+        "qs64_25_raw": false,
+        "qs64_25_guard": false
+      },
+      "ok": false
+    },
+    "temple_state": {
+      "path": "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": false,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "ok": true
+    },
+    "next_self_prompt": {
+      "path": "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": false,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "ok": true
+    }
+  },
+  "expected_state": {
+    "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+    "next_hall_seed": null,
+    "next_hall_seed_display": "none; do not invent QS64-25",
+    "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "reserve_frontier": "Q46",
+    "blocked_external_front": "Q02"
+  }
+}

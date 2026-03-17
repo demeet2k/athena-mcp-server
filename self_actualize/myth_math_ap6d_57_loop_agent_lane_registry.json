@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-03-13T21:09:15.183098+00:00",
+  "docs_gate_status": "BLOCKED",
+  "master_agent_count": 4,
+  "shared_axes": {
+    "scope": [
+      "live",
+      "archive",
+      "both",
+      "witness"
+    ],
+    "hemisphere": [
+      "MATH",
+      "MYTH",
+      "GC0",
+      "COMMISSURE"
+    ],
+    "deep_mode": [
+      "basis",
+      "matrix",
+      "observer",
+      "appendix"
+    ],
+    "resolution": [
+      "record",
+      "family",
+      "system",
+      "corpus"
+    ],
+    "venue": [
+      "hall",
+      "temple",
+      "registry",
+      "fleet"
+    ],
+    "phase": [
+      "input",
+      "transform",
+      "verify",
+      "handoff"
+    ]
+  },
+  "agents": [
+    {
+      "agent_id": "A1-RESEARCH",
+      "label": "Research/Synthesis",
+      "sequence": 1,
+      "mission": "Scan the full merged corpus, detect evidence gaps, route drift, anchor weakness, and awakening deltas.",
+      "hall_surface_role": "research frontier packet",
+      "temple_surface_role": "evidence and contradiction witness",
+      "phase_verbs": [
+        "scan",
+        "detect",
+        "bind",
+        "report"
+      ]
+    },
+    {
+      "agent_id": "A2-PLANNER",
+      "label": "Planner/Questsmith",
+      "sequence": 2,
+      "mission": "Promote the highest-yield macro quests, hybrid equations, algorithms, and corridor plans.",
+      "hall_surface_role": "ownerable quest bundle",
+      "temple_surface_role": "activation and governance decree",
+      "phase_verbs": [
+        "prioritize",
+        "package",
+        "equate",
+        "handoff"
+      ]
+    },
+    {
+      "agent_id": "A3-WORKER",
+      "label": "Worker/Adventurer",
+      "sequence": 3,
+      "mission": "Consume promoted Hall and Temple work, branch safely, and land execution-ready action bundles.",
+      "hall_surface_role": "promoted execution packet",
+      "temple_surface_role": "runtime and replay request",
+      "phase_verbs": [
+        "apply",
+        "repair",
+        "integrate",
+        "receipt"
+      ]
+    },
+    {
+      "agent_id": "A4-PRUNER",
+      "label": "Pruner/Compressor",
+      "sequence": 4,
+      "mission": "Collapse duplicate stories, tighten structure, prune bloat, and emit restart-safe seeds.",
+      "hall_surface_role": "compression and retirement bundle",
+      "temple_surface_role": "zero-point and quarantine governance",
+      "phase_verbs": [
+        "compress",
+        "dedupe",
+        "retire",
+        "reseed"
+      ]
+    }
+  ]
+}

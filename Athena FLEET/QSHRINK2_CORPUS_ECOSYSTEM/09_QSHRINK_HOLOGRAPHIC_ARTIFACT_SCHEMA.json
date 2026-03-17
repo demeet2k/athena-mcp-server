@@ -1,0 +1,25 @@
+{
+  "schema_version": "qshrink-holographic-artifact/1.0",
+  "required_fields": [
+    "omega",
+    "four_elements",
+    "zero_point",
+    "delta_skeleton",
+    "witness",
+    "restart_seed"
+  ],
+  "optional_fields": [
+    "front_map",
+    "compression_level",
+    "source_surfaces",
+    "safety_class",
+    "quest_binding",
+    "notes"
+  ],
+  "compression_levels": {
+    "OMEGA+": "full expansion or source-preserving witness bundle",
+    "DELTA+": "section or node skeleton with route-preserving structure",
+    "ALPHA+": "seed plus developed zero point",
+    "Omega": "one sentence or equation generator"
+  }
+}

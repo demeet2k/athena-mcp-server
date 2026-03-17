@@ -1,0 +1,41 @@
+"""OA6 Operator Word Algebra Module - Six generators, normal forms, kernel transport."""
+
+from atlasforge.oa6.oa6 import (
+    OA6GeneratorType,
+    FoldIndex,
+    OA6Generator,
+    ComplementGenerator,
+    RotationGenerator,
+    GatewayGenerator,
+    KernelProjector,
+    DilationGenerator,
+    TemperleyLiebGenerator,
+    IdentityGenerator,
+    OA6Word,
+    ModularNormalForm,
+    KernelEffectTable,
+    OA6Algebra,
+    create_oa6_algebra,
+    modular_normal_form,
+    kernel_effect_summary,
+)
+
+__all__ = [
+    'OA6GeneratorType',
+    'FoldIndex',
+    'OA6Generator',
+    'ComplementGenerator',
+    'RotationGenerator',
+    'GatewayGenerator',
+    'KernelProjector',
+    'DilationGenerator',
+    'TemperleyLiebGenerator',
+    'IdentityGenerator',
+    'OA6Word',
+    'ModularNormalForm',
+    'KernelEffectTable',
+    'OA6Algebra',
+    'create_oa6_algebra',
+    'modular_normal_form',
+    'kernel_effect_summary',
+]

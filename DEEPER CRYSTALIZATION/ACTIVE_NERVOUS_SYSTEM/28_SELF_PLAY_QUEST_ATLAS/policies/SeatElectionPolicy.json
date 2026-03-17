@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "seat-election",
+  "description": "Seat election rules governing quarantine exclusion and host/steward scoring",
+  "election_rules": [
+    "Seat elections occur at Policy Forum (S18) governance events",
+    "Elections select hosts and stewards for atlas governance",
+    "Elections follow a ranked scoring system based on contribution metrics",
+    "Results are recorded as SEALED quests at S18"
+  ],
+  "quarantine_exclusion": {
+    "description": "Players on the ethics watchlist are excluded from all election participation",
+    "rules": [
+      "Watchlisted players cannot nominate themselves or others",
+      "Watchlisted players cannot vote in elections",
+      "Watchlisted players cannot serve as election witnesses",
+      "If a seated member is watchlisted mid-term, their seat is suspended until clearance",
+      "Suspended seats do not count toward quorum calculations"
+    ]
+  },
+  "scoring": {
+    "host_score": {
+      "description": "Score for host seat candidates",
+      "formula": "sealed_count * 0.382 + crown_count * 1.618 + witness_count * 0.236 + storm_participation * 0.618",
+      "components": {
+        "sealed_count": {
+          "weight": 0.382,
+          "description": "Total number of SEALED quests"
+        },
+        "crown_count": {
+          "weight": 1.618,
+          "description": "Number of SEALED Crown-class quests (phi multiplier)"
+        },
+        "witness_count": {
+          "weight": 0.236,
+          "description": "Number of times served as confirming witness"
+        },
+        "storm_participation": {
+          "weight": 0.618,
+          "description": "Number of storm events participated in"
+        }
+      }
+    },
+    "steward_score": {
+      "description": "Score for steward seat candidates",
+      "formula": "sealed_count * 0.236 + temple_count * 1.618 + dispute_resolution * 1.0 + policy_contributions * 0.618",
+      "components": {
+        "sealed_count": {
+          "weight": 0.236,
+          "description": "Total number of SEALED quests"
+        },
+        "temple_count": {
+          "weight": 1.618,
+          "description": "Number of SEALED TempleRite quests (phi multiplier)"
+        },
+        "dispute_resolution": {
+          "weight": 1.0,
+          "description": "Number of disputes resolved as witness"
+        },
+        "policy_contributions": {
+          "weight": 0.618,
+          "description": "Number of Policy-class quests contributed to"
+        }
+      }
+    }
+  },
+  "seat_parameters": {
+    "host_seats": 5,
+    "steward_seats": 8,
+    "term_length_epochs": 89,
+    "election_cooldown_epochs": 13,
+    "min_candidates_per_seat": 2,
+    "tiebreaker": "Candidate with higher unlock_level wins; if still tied, older account wins"
+  }
+}

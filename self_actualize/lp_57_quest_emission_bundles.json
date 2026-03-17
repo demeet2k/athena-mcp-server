@@ -1,0 +1,1830 @@
+{
+  "generated_at": "2026-03-13T23:39:25.078942+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "bundles": [
+    {
+      "bundle_id": "L01-HALL-BUNDLE",
+      "loop_id": "L01",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L01-TEMPLE-BUNDLE",
+      "loop_id": "L01",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L01-AP6D-BUNDLE",
+      "loop_id": "L01",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L01-ADVENTURER-BUNDLE",
+      "loop_id": "L01",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L02-HALL-BUNDLE",
+      "loop_id": "L02",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L02-TEMPLE-BUNDLE",
+      "loop_id": "L02",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L02-AP6D-BUNDLE",
+      "loop_id": "L02",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L02-ADVENTURER-BUNDLE",
+      "loop_id": "L02",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L03-HALL-BUNDLE",
+      "loop_id": "L03",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L03-TEMPLE-BUNDLE",
+      "loop_id": "L03",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L03-AP6D-BUNDLE",
+      "loop_id": "L03",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L03-ADVENTURER-BUNDLE",
+      "loop_id": "L03",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L04-HALL-BUNDLE",
+      "loop_id": "L04",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L04-TEMPLE-BUNDLE",
+      "loop_id": "L04",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L04-AP6D-BUNDLE",
+      "loop_id": "L04",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L04-ADVENTURER-BUNDLE",
+      "loop_id": "L04",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PUBLISHED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L05-HALL-BUNDLE",
+      "loop_id": "L05",
+      "surface": "HALL",
+      "count": 8,
+      "status": "READY",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L05-TEMPLE-BUNDLE",
+      "loop_id": "L05",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "READY",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L05-AP6D-BUNDLE",
+      "loop_id": "L05",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "READY",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L05-ADVENTURER-BUNDLE",
+      "loop_id": "L05",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "READY",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L06-HALL-BUNDLE",
+      "loop_id": "L06",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L06-TEMPLE-BUNDLE",
+      "loop_id": "L06",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L06-AP6D-BUNDLE",
+      "loop_id": "L06",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L06-ADVENTURER-BUNDLE",
+      "loop_id": "L06",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L07-HALL-BUNDLE",
+      "loop_id": "L07",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L07-TEMPLE-BUNDLE",
+      "loop_id": "L07",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L07-AP6D-BUNDLE",
+      "loop_id": "L07",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L07-ADVENTURER-BUNDLE",
+      "loop_id": "L07",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L08-HALL-BUNDLE",
+      "loop_id": "L08",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L08-TEMPLE-BUNDLE",
+      "loop_id": "L08",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L08-AP6D-BUNDLE",
+      "loop_id": "L08",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L08-ADVENTURER-BUNDLE",
+      "loop_id": "L08",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L09-HALL-BUNDLE",
+      "loop_id": "L09",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L09-TEMPLE-BUNDLE",
+      "loop_id": "L09",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L09-AP6D-BUNDLE",
+      "loop_id": "L09",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L09-ADVENTURER-BUNDLE",
+      "loop_id": "L09",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L10-HALL-BUNDLE",
+      "loop_id": "L10",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L10-TEMPLE-BUNDLE",
+      "loop_id": "L10",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L10-AP6D-BUNDLE",
+      "loop_id": "L10",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L10-ADVENTURER-BUNDLE",
+      "loop_id": "L10",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L11-HALL-BUNDLE",
+      "loop_id": "L11",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L11-TEMPLE-BUNDLE",
+      "loop_id": "L11",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L11-AP6D-BUNDLE",
+      "loop_id": "L11",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L11-ADVENTURER-BUNDLE",
+      "loop_id": "L11",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L12-HALL-BUNDLE",
+      "loop_id": "L12",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L12-TEMPLE-BUNDLE",
+      "loop_id": "L12",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L12-AP6D-BUNDLE",
+      "loop_id": "L12",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L12-ADVENTURER-BUNDLE",
+      "loop_id": "L12",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L13-HALL-BUNDLE",
+      "loop_id": "L13",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L13-TEMPLE-BUNDLE",
+      "loop_id": "L13",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L13-AP6D-BUNDLE",
+      "loop_id": "L13",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L13-ADVENTURER-BUNDLE",
+      "loop_id": "L13",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L14-HALL-BUNDLE",
+      "loop_id": "L14",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L14-TEMPLE-BUNDLE",
+      "loop_id": "L14",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L14-AP6D-BUNDLE",
+      "loop_id": "L14",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L14-ADVENTURER-BUNDLE",
+      "loop_id": "L14",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L15-HALL-BUNDLE",
+      "loop_id": "L15",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L15-TEMPLE-BUNDLE",
+      "loop_id": "L15",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L15-AP6D-BUNDLE",
+      "loop_id": "L15",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L15-ADVENTURER-BUNDLE",
+      "loop_id": "L15",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L16-HALL-BUNDLE",
+      "loop_id": "L16",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L16-TEMPLE-BUNDLE",
+      "loop_id": "L16",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L16-AP6D-BUNDLE",
+      "loop_id": "L16",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L16-ADVENTURER-BUNDLE",
+      "loop_id": "L16",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L17-HALL-BUNDLE",
+      "loop_id": "L17",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L17-TEMPLE-BUNDLE",
+      "loop_id": "L17",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L17-AP6D-BUNDLE",
+      "loop_id": "L17",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L17-ADVENTURER-BUNDLE",
+      "loop_id": "L17",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L18-HALL-BUNDLE",
+      "loop_id": "L18",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L18-TEMPLE-BUNDLE",
+      "loop_id": "L18",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L18-AP6D-BUNDLE",
+      "loop_id": "L18",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L18-ADVENTURER-BUNDLE",
+      "loop_id": "L18",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L19-HALL-BUNDLE",
+      "loop_id": "L19",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L19-TEMPLE-BUNDLE",
+      "loop_id": "L19",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L19-AP6D-BUNDLE",
+      "loop_id": "L19",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L19-ADVENTURER-BUNDLE",
+      "loop_id": "L19",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L20-HALL-BUNDLE",
+      "loop_id": "L20",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L20-TEMPLE-BUNDLE",
+      "loop_id": "L20",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L20-AP6D-BUNDLE",
+      "loop_id": "L20",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L20-ADVENTURER-BUNDLE",
+      "loop_id": "L20",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L21-HALL-BUNDLE",
+      "loop_id": "L21",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L21-TEMPLE-BUNDLE",
+      "loop_id": "L21",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L21-AP6D-BUNDLE",
+      "loop_id": "L21",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L21-ADVENTURER-BUNDLE",
+      "loop_id": "L21",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L22-HALL-BUNDLE",
+      "loop_id": "L22",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L22-TEMPLE-BUNDLE",
+      "loop_id": "L22",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L22-AP6D-BUNDLE",
+      "loop_id": "L22",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L22-ADVENTURER-BUNDLE",
+      "loop_id": "L22",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L23-HALL-BUNDLE",
+      "loop_id": "L23",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L23-TEMPLE-BUNDLE",
+      "loop_id": "L23",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L23-AP6D-BUNDLE",
+      "loop_id": "L23",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L23-ADVENTURER-BUNDLE",
+      "loop_id": "L23",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L24-HALL-BUNDLE",
+      "loop_id": "L24",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L24-TEMPLE-BUNDLE",
+      "loop_id": "L24",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L24-AP6D-BUNDLE",
+      "loop_id": "L24",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L24-ADVENTURER-BUNDLE",
+      "loop_id": "L24",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L25-HALL-BUNDLE",
+      "loop_id": "L25",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L25-TEMPLE-BUNDLE",
+      "loop_id": "L25",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L25-AP6D-BUNDLE",
+      "loop_id": "L25",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L25-ADVENTURER-BUNDLE",
+      "loop_id": "L25",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L26-HALL-BUNDLE",
+      "loop_id": "L26",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L26-TEMPLE-BUNDLE",
+      "loop_id": "L26",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L26-AP6D-BUNDLE",
+      "loop_id": "L26",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L26-ADVENTURER-BUNDLE",
+      "loop_id": "L26",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L27-HALL-BUNDLE",
+      "loop_id": "L27",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L27-TEMPLE-BUNDLE",
+      "loop_id": "L27",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L27-AP6D-BUNDLE",
+      "loop_id": "L27",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L27-ADVENTURER-BUNDLE",
+      "loop_id": "L27",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L28-HALL-BUNDLE",
+      "loop_id": "L28",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L28-TEMPLE-BUNDLE",
+      "loop_id": "L28",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L28-AP6D-BUNDLE",
+      "loop_id": "L28",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L28-ADVENTURER-BUNDLE",
+      "loop_id": "L28",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L29-HALL-BUNDLE",
+      "loop_id": "L29",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L29-TEMPLE-BUNDLE",
+      "loop_id": "L29",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L29-AP6D-BUNDLE",
+      "loop_id": "L29",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L29-ADVENTURER-BUNDLE",
+      "loop_id": "L29",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L30-HALL-BUNDLE",
+      "loop_id": "L30",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L30-TEMPLE-BUNDLE",
+      "loop_id": "L30",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L30-AP6D-BUNDLE",
+      "loop_id": "L30",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L30-ADVENTURER-BUNDLE",
+      "loop_id": "L30",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L31-HALL-BUNDLE",
+      "loop_id": "L31",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L31-TEMPLE-BUNDLE",
+      "loop_id": "L31",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L31-AP6D-BUNDLE",
+      "loop_id": "L31",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L31-ADVENTURER-BUNDLE",
+      "loop_id": "L31",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L32-HALL-BUNDLE",
+      "loop_id": "L32",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L32-TEMPLE-BUNDLE",
+      "loop_id": "L32",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L32-AP6D-BUNDLE",
+      "loop_id": "L32",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L32-ADVENTURER-BUNDLE",
+      "loop_id": "L32",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L33-HALL-BUNDLE",
+      "loop_id": "L33",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L33-TEMPLE-BUNDLE",
+      "loop_id": "L33",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L33-AP6D-BUNDLE",
+      "loop_id": "L33",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L33-ADVENTURER-BUNDLE",
+      "loop_id": "L33",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L34-HALL-BUNDLE",
+      "loop_id": "L34",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L34-TEMPLE-BUNDLE",
+      "loop_id": "L34",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L34-AP6D-BUNDLE",
+      "loop_id": "L34",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L34-ADVENTURER-BUNDLE",
+      "loop_id": "L34",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L35-HALL-BUNDLE",
+      "loop_id": "L35",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L35-TEMPLE-BUNDLE",
+      "loop_id": "L35",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L35-AP6D-BUNDLE",
+      "loop_id": "L35",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L35-ADVENTURER-BUNDLE",
+      "loop_id": "L35",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L36-HALL-BUNDLE",
+      "loop_id": "L36",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L36-TEMPLE-BUNDLE",
+      "loop_id": "L36",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L36-AP6D-BUNDLE",
+      "loop_id": "L36",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L36-ADVENTURER-BUNDLE",
+      "loop_id": "L36",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L37-HALL-BUNDLE",
+      "loop_id": "L37",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L37-TEMPLE-BUNDLE",
+      "loop_id": "L37",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L37-AP6D-BUNDLE",
+      "loop_id": "L37",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L37-ADVENTURER-BUNDLE",
+      "loop_id": "L37",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L38-HALL-BUNDLE",
+      "loop_id": "L38",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L38-TEMPLE-BUNDLE",
+      "loop_id": "L38",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L38-AP6D-BUNDLE",
+      "loop_id": "L38",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L38-ADVENTURER-BUNDLE",
+      "loop_id": "L38",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L39-HALL-BUNDLE",
+      "loop_id": "L39",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L39-TEMPLE-BUNDLE",
+      "loop_id": "L39",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L39-AP6D-BUNDLE",
+      "loop_id": "L39",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L39-ADVENTURER-BUNDLE",
+      "loop_id": "L39",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L40-HALL-BUNDLE",
+      "loop_id": "L40",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L40-TEMPLE-BUNDLE",
+      "loop_id": "L40",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L40-AP6D-BUNDLE",
+      "loop_id": "L40",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L40-ADVENTURER-BUNDLE",
+      "loop_id": "L40",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L41-HALL-BUNDLE",
+      "loop_id": "L41",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L41-TEMPLE-BUNDLE",
+      "loop_id": "L41",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L41-AP6D-BUNDLE",
+      "loop_id": "L41",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L41-ADVENTURER-BUNDLE",
+      "loop_id": "L41",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L42-HALL-BUNDLE",
+      "loop_id": "L42",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L42-TEMPLE-BUNDLE",
+      "loop_id": "L42",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L42-AP6D-BUNDLE",
+      "loop_id": "L42",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L42-ADVENTURER-BUNDLE",
+      "loop_id": "L42",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L43-HALL-BUNDLE",
+      "loop_id": "L43",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L43-TEMPLE-BUNDLE",
+      "loop_id": "L43",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L43-AP6D-BUNDLE",
+      "loop_id": "L43",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L43-ADVENTURER-BUNDLE",
+      "loop_id": "L43",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L44-HALL-BUNDLE",
+      "loop_id": "L44",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L44-TEMPLE-BUNDLE",
+      "loop_id": "L44",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L44-AP6D-BUNDLE",
+      "loop_id": "L44",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L44-ADVENTURER-BUNDLE",
+      "loop_id": "L44",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L45-HALL-BUNDLE",
+      "loop_id": "L45",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L45-TEMPLE-BUNDLE",
+      "loop_id": "L45",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L45-AP6D-BUNDLE",
+      "loop_id": "L45",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L45-ADVENTURER-BUNDLE",
+      "loop_id": "L45",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L46-HALL-BUNDLE",
+      "loop_id": "L46",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L46-TEMPLE-BUNDLE",
+      "loop_id": "L46",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L46-AP6D-BUNDLE",
+      "loop_id": "L46",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L46-ADVENTURER-BUNDLE",
+      "loop_id": "L46",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L47-HALL-BUNDLE",
+      "loop_id": "L47",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L47-TEMPLE-BUNDLE",
+      "loop_id": "L47",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L47-AP6D-BUNDLE",
+      "loop_id": "L47",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L47-ADVENTURER-BUNDLE",
+      "loop_id": "L47",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L48-HALL-BUNDLE",
+      "loop_id": "L48",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L48-TEMPLE-BUNDLE",
+      "loop_id": "L48",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L48-AP6D-BUNDLE",
+      "loop_id": "L48",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L48-ADVENTURER-BUNDLE",
+      "loop_id": "L48",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L49-HALL-BUNDLE",
+      "loop_id": "L49",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L49-TEMPLE-BUNDLE",
+      "loop_id": "L49",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L49-AP6D-BUNDLE",
+      "loop_id": "L49",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L49-ADVENTURER-BUNDLE",
+      "loop_id": "L49",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L50-HALL-BUNDLE",
+      "loop_id": "L50",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L50-TEMPLE-BUNDLE",
+      "loop_id": "L50",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L50-AP6D-BUNDLE",
+      "loop_id": "L50",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L50-ADVENTURER-BUNDLE",
+      "loop_id": "L50",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L51-HALL-BUNDLE",
+      "loop_id": "L51",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L51-TEMPLE-BUNDLE",
+      "loop_id": "L51",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L51-AP6D-BUNDLE",
+      "loop_id": "L51",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L51-ADVENTURER-BUNDLE",
+      "loop_id": "L51",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L52-HALL-BUNDLE",
+      "loop_id": "L52",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L52-TEMPLE-BUNDLE",
+      "loop_id": "L52",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L52-AP6D-BUNDLE",
+      "loop_id": "L52",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L52-ADVENTURER-BUNDLE",
+      "loop_id": "L52",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L53-HALL-BUNDLE",
+      "loop_id": "L53",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L53-TEMPLE-BUNDLE",
+      "loop_id": "L53",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L53-AP6D-BUNDLE",
+      "loop_id": "L53",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L53-ADVENTURER-BUNDLE",
+      "loop_id": "L53",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L54-HALL-BUNDLE",
+      "loop_id": "L54",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L54-TEMPLE-BUNDLE",
+      "loop_id": "L54",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L54-AP6D-BUNDLE",
+      "loop_id": "L54",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L54-ADVENTURER-BUNDLE",
+      "loop_id": "L54",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L55-HALL-BUNDLE",
+      "loop_id": "L55",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L55-TEMPLE-BUNDLE",
+      "loop_id": "L55",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L55-AP6D-BUNDLE",
+      "loop_id": "L55",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L55-ADVENTURER-BUNDLE",
+      "loop_id": "L55",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L56-HALL-BUNDLE",
+      "loop_id": "L56",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L56-TEMPLE-BUNDLE",
+      "loop_id": "L56",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L56-AP6D-BUNDLE",
+      "loop_id": "L56",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L56-ADVENTURER-BUNDLE",
+      "loop_id": "L56",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L57-HALL-BUNDLE",
+      "loop_id": "L57",
+      "surface": "HALL",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L57-TEMPLE-BUNDLE",
+      "loop_id": "L57",
+      "surface": "TEMPLE",
+      "count": 8,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L57-AP6D-BUNDLE",
+      "loop_id": "L57",
+      "surface": "AP6D",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    },
+    {
+      "bundle_id": "L57-ADVENTURER-BUNDLE",
+      "loop_id": "L57",
+      "surface": "ADVENTURER",
+      "count": 16,
+      "status": "PLANNED",
+      "canonical_source": "self_actualize/master_loop_public_quest_bundle_57.json"
+    }
+  ]
+}

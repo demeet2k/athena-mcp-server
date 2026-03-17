@@ -1,0 +1,19 @@
+{
+  "claim_id": "CLM-20260314T002156Z-38b844",
+  "frontier": "build_queue::CMD-000044",
+  "front_slug": "build_queue_cmd_000044",
+  "level": "command-event",
+  "owner": "BUILD-QUEUE-A3-WORKER",
+  "status": "done",
+  "output_target": "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+  "receipt": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/receipts/CMD-000044.md",
+  "source": "board",
+  "paths": [
+    "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+    "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/receipts/CMD-000044.json",
+    "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/receipts/CMD-000044.md"
+  ],
+  "note": "synthetic command membrane test for polling_event_drop_v2.txt",
+  "created_at": "2026-03-14T00:21:56.309890+00:00",
+  "updated_at": "2026-03-14T00:21:57.312710+00:00"
+}

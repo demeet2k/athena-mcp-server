@@ -12,9 +12,6 @@
 - `blocked` `Google Docs bootstrap gate` (Trading Bot)
 - `monitor` `37-gate looping skill and `256^256` corpus plus Chapter 11 hyperplans` (DEEPER CRYSTALIZATION)
 - `monitor` `First archive-promotion toolkit surface` (MATH)
-- `monitor` `DEEPER CRYSTALIZATION` (DEEPER CRYSTALIZATION)
-- `monitor` `MATH` (MATH)
-- `monitor` `Trading Bot` (Trading Bot)
 
 ## Frontier Gaps
 - `Ch10` Multi-Lens Solution Construction

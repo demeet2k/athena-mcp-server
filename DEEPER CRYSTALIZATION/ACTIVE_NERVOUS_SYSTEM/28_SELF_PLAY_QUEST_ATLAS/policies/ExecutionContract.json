@@ -1,0 +1,32 @@
+{
+  "policy_id": "ExecutionContract",
+  "version": "1.0",
+  "rules": {
+    "loop_execution": {
+      "max_duration_per_loop": "configurable",
+      "timeout_action": "force_close_with_partial_receipt",
+      "retry_policy": "once_then_overflow"
+    },
+    "receipt_requirements": {
+      "every_action_produces_receipt": true,
+      "receipts_form_hash_chain": true,
+      "chain_must_be_unbroken": true
+    },
+    "ledger_requirements": {
+      "append_only": true,
+      "no_modification": true,
+      "no_deletion": true
+    },
+    "determinism": {
+      "kernel_functions_pure": true,
+      "no_external_state_reads": true,
+      "no_side_effects": true
+    },
+    "orbit_boundary": {
+      "carry_forward_required": true,
+      "pheromone_decay": 0.618,
+      "level_persistence": true,
+      "xp_persistence": true
+    }
+  }
+}

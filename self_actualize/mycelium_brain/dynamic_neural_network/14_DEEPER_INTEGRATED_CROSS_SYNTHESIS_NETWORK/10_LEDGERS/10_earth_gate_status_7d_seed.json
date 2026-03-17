@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "dimension_stage": "7D_SEED",
+  "canonical_earth_package_root": "13_6D_EARTH_CONTROL",
+  "legacy_earth_package_root": "12_6D_EARTH_CONTROL",
+  "state_counts": {
+    "passed": 4,
+    "quarantined": 2
+  },
+  "promotion_rule": "No route promotes into 7D_SEED without explicit Water continuity, AIR topology, Earth admissibility, AppI truth basis, and AppM replay basis.",
+  "gate_records": [
+    {
+      "route_id": "seed_fire_water_compression",
+      "earth_gate_state": "passed",
+      "return_checkpoint": "13_6D_EARTH_CONTROL/01_admissibility_and_zero_point.md"
+    },
+    {
+      "route_id": "seed_water_air_legibility",
+      "earth_gate_state": "passed",
+      "return_checkpoint": "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+    },
+    {
+      "route_id": "seed_air_earth_promotion",
+      "earth_gate_state": "passed",
+      "return_checkpoint": "00_CONTROL/07_7D_CROSS_AGENT_SEED.md"
+    },
+    {
+      "route_id": "seed_q_ingress_hold",
+      "earth_gate_state": "quarantined",
+      "return_checkpoint": "08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md"
+    },
+    {
+      "route_id": "seed_o_return_hold",
+      "earth_gate_state": "quarantined",
+      "return_checkpoint": "08_APPENDIX_CRYSTAL/AppO_export_bundles.md"
+    },
+    {
+      "route_id": "seed_chapter_spine_reentry",
+      "earth_gate_state": "passed",
+      "return_checkpoint": "Ch12<0023>/Ch13<0030>/Ch16<0033>"
+    }
+  ]
+}

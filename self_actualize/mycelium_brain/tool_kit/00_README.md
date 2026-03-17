@@ -8,6 +8,11 @@ This folder stores the normalized internal prompt contracts that drive the mycel
 2. Give future cycles stable entry points for drafting, synthesis, tome construction, and live-memory intake.
 3. Prevent repeated reinvention of the same internal operating prompts.
 
+## Canonicality
+
+This is the canonical prompt-contract lane for `self_actualize/mycelium_brain/`.
+The sibling `toolkit/` folder has been pruned into bridge shims so older paths stay valid without creating dual-maintenance drift.
+
 ## Load Order
 
 1. `01_live_docs_first_protocol.md`

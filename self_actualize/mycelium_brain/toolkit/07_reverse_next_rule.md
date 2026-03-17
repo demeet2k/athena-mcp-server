@@ -1,10 +1,8 @@
 # Reverse Next Rule
 
-If the user explicitly activates the reverse recursion mode and then types `NEXT`:
+Bridge shim only.
 
-1. move to the chapter immediately before the current one
-2. regenerate it procedurally
-3. allow prior assumptions to be corrected during backward motion
-4. preserve the stronger current synthesis instead of blindly preserving the older outline
+Canonical contract: `../tool_kit/06_descending_next_protocol.md`
 
-This rule is active only when the user explicitly invokes the reverse walk.
+Pruning reason: reverse recursion is a routing behavior, not a second standalone ruleset.
+This file now exists only to preserve backward-compatible pathing.

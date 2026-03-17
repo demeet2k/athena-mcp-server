@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-03-13T23:37:05.889399+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "protocol_display_name": "LP-57Omega",
+  "status": "L01 complete / L02 seeded",
+  "truth_regime": "local-witnessed",
+  "live_docs_blocked": true,
+  "hall_macro_front": "NEXT57",
+  "temple_macro_front": "TQ07",
+  "active_membrane": "Q41 / TQ06",
+  "control_stack": [
+    "Q42",
+    "TQ04",
+    "Q50",
+    "Q46",
+    "Q02"
+  ],
+  "loop_authority_source": "HΣ First",
+  "pointer_layer_classification": {
+    "dense_shell_role": "L01-closed substrate enhancement",
+    "packet_truth_sync_role": "L02 Packet Truth Sync input witness"
+  },
+  "visible_promotion_law": {
+    "hall": 1,
+    "temple": 1,
+    "runtime": 1,
+    "compression": 1
+  },
+  "shell_record_count": 65,
+  "active_dense_record_count": 64,
+  "enriched_transfer_record_count": 45,
+  "phase_binding_count": 60,
+  "concrete_pointer_count": 60,
+  "shell_truth": "NEAR-derived",
+  "sigma_path": [
+    "AppA",
+    "AppI",
+    "AppM"
+  ],
+  "current_completed_loop": 1,
+  "next_ready_loop": 2,
+  "loop_catalog_path": "ACTIVE_NERVOUS_SYSTEM/18_LP_57OMEGA_PROTOCOL/09_LOOP_CATALOG.json"
+}

@@ -3,53 +3,82 @@
 ## Purpose
 Maps all source documents in the project to their corpus regions and manuscript families.
 
+Last reconciled: `2026-03-13`
+Indexed witness: `7713`
+Archive witness: `2041`
+
 ## Domain Inventory
 
-### DEEPER CRYSTALIZATION (30 sources -- INDEXED)
-- Family: Manuscript architecture and routing law (12 sources)
-- Family: Void, Chapter 11, and collapse engines (6 sources)
-- Family: Live orchestration and prompt control (3 sources)
-- Family: Athena identity, pedagogy, and narrative voice (2 sources)
-- Family: Transport, runtime, and executable framework (1 source)
-- Capsule location: `50_CORPUS_CAPSULES/deeper_crystalization/`
+### DEEPER CRYSTALIZATION (`443` indexed live records)
+- status: `canonical capsule family already populated`
+- family bands: routing law, void/restart engines, prompt control, transport/runtime, identity voice
+- capsule location: `50_CORPUS_CAPSULES/deeper_crystalization/`
 
-### MATH/FINAL FORM (~486 sources -- NOT YET INDEXED)
-- Subdomain: AQM tomes (5+ volumes)
-- Subdomain: LM tomes (5+ volumes)
-- Subdomain: Tunneling / Compendium
-- Subdomain: Hybrid Equations (2 frameworks)
-- Subdomain: Crystal Computing
-- Subdomain: Matrix Multiplication (PoleStarGEMM, QPGEMM)
-- Subdomain: MYTH-MATH (Nostradamus, Sacred Texts, Philosophy, Magic Systems, Khipu, Atlantis, Myth)
-- Subdomain: 4-Bit, Algorithms, Latin Rose Math
-- Region: R1 Kernel-Math, R8 Mythic-Operator
+### MATH (`601` indexed live records + archive-heavy reserve)
+- status: `atlas-backed family bundle complete`
+- subdomains: AQM, LM, Crystal Computing, Hybrid Equations, matrix multiplication, myth-math
+- capsule location: `50_CORPUS_CAPSULES/math/`
+- archive pressure: strongest hidden implementation substrate in `archive_atlas.json`
 
-### Voynich (~636 sources -- NOT YET INDEXED)
-- Subdomain: FULL_TRANSLATION (500+ folios)
-- Subdomain: Crystals (per-section master crystals)
-- Subdomain: VML framework documentation
-- Subdomain: EVA transcription system
-- Region: R3 Voynich-Manuscript
+### Voynich (`689` indexed live records)
+- status: `atlas-backed family bundle complete`
+- subdomains: FULL_TRANSLATION, crystals, VML, EVA, formal compiler surfaces
+- capsule location: `50_CORPUS_CAPSULES/voynich/`
 
-### NERUAL NETWORK (~22 sources -- NOT YET INDEXED)
-- Subdomain: Athena NN v1 (original)
-- Subdomain: Athena NN v2 Quantum
-- Subdomain: Athena NN v3 Color
-- Subdomain: Older versions (v44, v74)
-- Subdomain: Test suites (Nightmare)
-- Region: R4 Neural-Runtime
+### NERUAL NETWORK (`59` indexed live records)
+- status: `seeded and graph-linked`
+- subdomains: Athena NN v1-v3, older branches, benchmarks, integrated neural crystal
+- capsule location: `50_CORPUS_CAPSULES/neural_network/`
 
-### ECOSYSTEM (~56 sources -- NOT YET INDEXED)
-- Subdomain: 21 framework files (00_README through 21_NEXT_SELF_PROMPT)
-- Subdomain: CPU_FRAMEWORK (10+ files)
-- Subdomain: Skills (10 files)
-- Region: R6 Routing-Governance
+### ECOSYSTEM (`112` indexed live records)
+- status: `atlas-backed family bundle complete`
+- subdomains: framework files, CPU framework, skills, protocol surfaces
+- capsule location: `50_CORPUS_CAPSULES/ecosystem/`
 
-### Athenachka Collective Books (13 PDFs -- NOT YET INDEXED)
-- Published book collection
-- Region: Mixed
+### Published Books (`18` indexed live records)
+- status: `atlas-backed family bundle complete`
+- body: `Athenachka Collective Books`
+- capsule location: `50_CORPUS_CAPSULES/published_books/`
 
-### Root Files (2 sources -- NOT YET INDEXED)
-- MYCELIUM_TOME_PART1.md (54KB)
-- VOID_CH11.md (53KB)
-- Region: R2, R6
+### QSHRINK (`1315` indexed live records)
+- status: `atlas-backed family bundle complete`
+- body: `QSHRINK - ATHENA (internal use)`
+- capsule location: `50_CORPUS_CAPSULES/qshrink/`
+
+### GAMES (`498` indexed live records)
+- status: `atlas-backed family bundle complete`
+- bridge note: `Stoicheia` remains a named reserve sibling
+- capsule location: `50_CORPUS_CAPSULES/games/`
+
+### Identity (`15` indexed live records)
+- status: `atlas-backed family bundle complete`
+- body: `I AM ATHENA`
+- bridge note: `Phase 3 self-hosting surfaces now appear directly in the support map`
+- capsule location: `50_CORPUS_CAPSULES/identity/`
+
+### ORGIN (`153` indexed live records)
+- status: `atlas-backed family bundle complete`
+- role: origin reservoir and precursor memory shelf
+- bridge note: `readable mirror set now makes the docx-heavy entry shell human-usable`
+- capsule location: `50_CORPUS_CAPSULES/orgin/`
+
+### Athena FLEET (`17` indexed live records)
+- status: `atlas-backed family bundle complete`
+- role: fleet-tesseract and self-steer branch surface
+- capsule location: `50_CORPUS_CAPSULES/athena_fleet/`
+
+### Stoicheia (`133` indexed cross-root records)
+- status: `reserve-thin shelf`
+- role: visual and puzzle asset shelf with most indexed presence still flowing through `GAMES` plus the direct Stoicheia asset shelf
+- capsule location: `50_CORPUS_CAPSULES/stoicheia/`
+
+### CLEAN (`15` indexed live records)
+- status: `reserve-thin shelf`
+- role: clean staging shelf for strong root manuscripts
+- capsule location: `50_CORPUS_CAPSULES/clean/`
+
+### Root Files (`3` root anchors)
+- `MYCELIUM_TOME_PART1.md`
+- `VOID_CH11.md`
+- `FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md`
+- capsule location: `50_CORPUS_CAPSULES/root_files/`

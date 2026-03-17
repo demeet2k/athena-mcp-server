@@ -1,0 +1,4040 @@
+{
+  "generated_at": "2026-03-13T19:57:06Z",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "shared_restart_rule": "If a live agent stalls or the run ends, emit RST, demote to dormant, and resume only from the last canonical feed-backed seed.",
+  "seeds": [
+    {
+      "agent_id": "AP7D-G-EEEE",
+      "lineage_addr": "EEEE",
+      "status": "active",
+      "seed_id": "AP7D-RS-EEEE",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEEE"
+    },
+    {
+      "agent_id": "AP7D-G-EEEW",
+      "lineage_addr": "EEEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEEW",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEEW"
+    },
+    {
+      "agent_id": "AP7D-G-EEEF",
+      "lineage_addr": "EEEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEEF",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEEF"
+    },
+    {
+      "agent_id": "AP7D-G-EEEA",
+      "lineage_addr": "EEEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEEA",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEEA"
+    },
+    {
+      "agent_id": "AP7D-G-EEWE",
+      "lineage_addr": "EEWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEWE",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEWE"
+    },
+    {
+      "agent_id": "AP7D-G-EEWW",
+      "lineage_addr": "EEWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEWW",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEWW"
+    },
+    {
+      "agent_id": "AP7D-G-EEWF",
+      "lineage_addr": "EEWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEWF",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEWF"
+    },
+    {
+      "agent_id": "AP7D-G-EEWA",
+      "lineage_addr": "EEWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEWA",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEWA"
+    },
+    {
+      "agent_id": "AP7D-G-EEFE",
+      "lineage_addr": "EEFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEFE",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEFE"
+    },
+    {
+      "agent_id": "AP7D-G-EEFW",
+      "lineage_addr": "EEFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEFW",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEFW"
+    },
+    {
+      "agent_id": "AP7D-G-EEFF",
+      "lineage_addr": "EEFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEFF",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEFF"
+    },
+    {
+      "agent_id": "AP7D-G-EEFA",
+      "lineage_addr": "EEFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEFA",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEFA"
+    },
+    {
+      "agent_id": "AP7D-G-EEAE",
+      "lineage_addr": "EEAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEAE",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEAE"
+    },
+    {
+      "agent_id": "AP7D-G-EEAW",
+      "lineage_addr": "EEAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEAW",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEAW"
+    },
+    {
+      "agent_id": "AP7D-G-EEAF",
+      "lineage_addr": "EEAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEAF",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEAF"
+    },
+    {
+      "agent_id": "AP7D-G-EEAA",
+      "lineage_addr": "EEAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EEAA",
+      "resume_from": "AP7D_SWARM_CHARTER",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\11_AP7D_SELF_IMPROVEMENT_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EEAA"
+    },
+    {
+      "agent_id": "AP7D-G-EWEE",
+      "lineage_addr": "EWEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWEE",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWEE"
+    },
+    {
+      "agent_id": "AP7D-G-EWEW",
+      "lineage_addr": "EWEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWEW",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWEW"
+    },
+    {
+      "agent_id": "AP7D-G-EWEF",
+      "lineage_addr": "EWEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWEF",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWEF"
+    },
+    {
+      "agent_id": "AP7D-G-EWEA",
+      "lineage_addr": "EWEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWEA",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWEA"
+    },
+    {
+      "agent_id": "AP7D-G-EWWE",
+      "lineage_addr": "EWWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWWE",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWWE"
+    },
+    {
+      "agent_id": "AP7D-G-EWWW",
+      "lineage_addr": "EWWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWWW",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWWW"
+    },
+    {
+      "agent_id": "AP7D-G-EWWF",
+      "lineage_addr": "EWWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWWF",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWWF"
+    },
+    {
+      "agent_id": "AP7D-G-EWWA",
+      "lineage_addr": "EWWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWWA",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWWA"
+    },
+    {
+      "agent_id": "AP7D-G-EWFE",
+      "lineage_addr": "EWFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWFE",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWFE"
+    },
+    {
+      "agent_id": "AP7D-G-EWFW",
+      "lineage_addr": "EWFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWFW",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWFW"
+    },
+    {
+      "agent_id": "AP7D-G-EWFF",
+      "lineage_addr": "EWFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWFF",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWFF"
+    },
+    {
+      "agent_id": "AP7D-G-EWFA",
+      "lineage_addr": "EWFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWFA",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWFA"
+    },
+    {
+      "agent_id": "AP7D-G-EWAE",
+      "lineage_addr": "EWAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWAE",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWAE"
+    },
+    {
+      "agent_id": "AP7D-G-EWAW",
+      "lineage_addr": "EWAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWAW",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWAW"
+    },
+    {
+      "agent_id": "AP7D-G-EWAF",
+      "lineage_addr": "EWAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWAF",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWAF"
+    },
+    {
+      "agent_id": "AP7D-G-EWAA",
+      "lineage_addr": "EWAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EWAA",
+      "resume_from": "AP7D_META_NOTATION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\12_AP7D_META_NOTATION.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EWAA"
+    },
+    {
+      "agent_id": "AP7D-G-EFEE",
+      "lineage_addr": "EFEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFEE",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFEE"
+    },
+    {
+      "agent_id": "AP7D-G-EFEW",
+      "lineage_addr": "EFEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFEW",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFEW"
+    },
+    {
+      "agent_id": "AP7D-G-EFEF",
+      "lineage_addr": "EFEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFEF",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFEF"
+    },
+    {
+      "agent_id": "AP7D-G-EFEA",
+      "lineage_addr": "EFEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFEA",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFEA"
+    },
+    {
+      "agent_id": "AP7D-G-EFWE",
+      "lineage_addr": "EFWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFWE",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFWE"
+    },
+    {
+      "agent_id": "AP7D-G-EFWW",
+      "lineage_addr": "EFWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFWW",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFWW"
+    },
+    {
+      "agent_id": "AP7D-G-EFWF",
+      "lineage_addr": "EFWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFWF",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFWF"
+    },
+    {
+      "agent_id": "AP7D-G-EFWA",
+      "lineage_addr": "EFWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFWA",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFWA"
+    },
+    {
+      "agent_id": "AP7D-G-EFFE",
+      "lineage_addr": "EFFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFFE",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFFE"
+    },
+    {
+      "agent_id": "AP7D-G-EFFW",
+      "lineage_addr": "EFFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFFW",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFFW"
+    },
+    {
+      "agent_id": "AP7D-G-EFFF",
+      "lineage_addr": "EFFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFFF",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFFF"
+    },
+    {
+      "agent_id": "AP7D-G-EFFA",
+      "lineage_addr": "EFFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFFA",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFFA"
+    },
+    {
+      "agent_id": "AP7D-G-EFAE",
+      "lineage_addr": "EFAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFAE",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFAE"
+    },
+    {
+      "agent_id": "AP7D-G-EFAW",
+      "lineage_addr": "EFAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFAW",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFAW"
+    },
+    {
+      "agent_id": "AP7D-G-EFAF",
+      "lineage_addr": "EFAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFAF",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFAF"
+    },
+    {
+      "agent_id": "AP7D-G-EFAA",
+      "lineage_addr": "EFAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EFAA",
+      "resume_from": "AP7D_AGENT_METRO",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_level_7_agent_nervous_system_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EFAA"
+    },
+    {
+      "agent_id": "AP7D-G-EAEE",
+      "lineage_addr": "EAEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAEE",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAEE"
+    },
+    {
+      "agent_id": "AP7D-G-EAEW",
+      "lineage_addr": "EAEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAEW",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAEW"
+    },
+    {
+      "agent_id": "AP7D-G-EAEF",
+      "lineage_addr": "EAEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAEF",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAEF"
+    },
+    {
+      "agent_id": "AP7D-G-EAEA",
+      "lineage_addr": "EAEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAEA",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAEA"
+    },
+    {
+      "agent_id": "AP7D-G-EAWE",
+      "lineage_addr": "EAWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAWE",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAWE"
+    },
+    {
+      "agent_id": "AP7D-G-EAWW",
+      "lineage_addr": "EAWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAWW",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAWW"
+    },
+    {
+      "agent_id": "AP7D-G-EAWF",
+      "lineage_addr": "EAWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAWF",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAWF"
+    },
+    {
+      "agent_id": "AP7D-G-EAWA",
+      "lineage_addr": "EAWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAWA",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAWA"
+    },
+    {
+      "agent_id": "AP7D-G-EAFE",
+      "lineage_addr": "EAFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAFE",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAFE"
+    },
+    {
+      "agent_id": "AP7D-G-EAFW",
+      "lineage_addr": "EAFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAFW",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAFW"
+    },
+    {
+      "agent_id": "AP7D-G-EAFF",
+      "lineage_addr": "EAFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAFF",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAFF"
+    },
+    {
+      "agent_id": "AP7D-G-EAFA",
+      "lineage_addr": "EAFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAFA",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAFA"
+    },
+    {
+      "agent_id": "AP7D-G-EAAE",
+      "lineage_addr": "EAAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAAE",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAAE"
+    },
+    {
+      "agent_id": "AP7D-G-EAAW",
+      "lineage_addr": "EAAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAAW",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAAW"
+    },
+    {
+      "agent_id": "AP7D-G-EAAF",
+      "lineage_addr": "EAAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAAF",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAAF"
+    },
+    {
+      "agent_id": "AP7D-G-EAAA",
+      "lineage_addr": "EAAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-EAAA",
+      "resume_from": "AP7D_SWARM_MANIFEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_ap7d_swarm_manifest.json",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#EAAA"
+    },
+    {
+      "agent_id": "AP7D-G-WEEE",
+      "lineage_addr": "WEEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEEE",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEEE"
+    },
+    {
+      "agent_id": "AP7D-G-WEEW",
+      "lineage_addr": "WEEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEEW",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEEW"
+    },
+    {
+      "agent_id": "AP7D-G-WEEF",
+      "lineage_addr": "WEEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEEF",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEEF"
+    },
+    {
+      "agent_id": "AP7D-G-WEEA",
+      "lineage_addr": "WEEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEEA",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEEA"
+    },
+    {
+      "agent_id": "AP7D-G-WEWE",
+      "lineage_addr": "WEWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEWE",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEWE"
+    },
+    {
+      "agent_id": "AP7D-G-WEWW",
+      "lineage_addr": "WEWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEWW",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEWW"
+    },
+    {
+      "agent_id": "AP7D-G-WEWF",
+      "lineage_addr": "WEWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEWF",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEWF"
+    },
+    {
+      "agent_id": "AP7D-G-WEWA",
+      "lineage_addr": "WEWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEWA",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEWA"
+    },
+    {
+      "agent_id": "AP7D-G-WEFE",
+      "lineage_addr": "WEFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEFE",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEFE"
+    },
+    {
+      "agent_id": "AP7D-G-WEFW",
+      "lineage_addr": "WEFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEFW",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEFW"
+    },
+    {
+      "agent_id": "AP7D-G-WEFF",
+      "lineage_addr": "WEFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEFF",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEFF"
+    },
+    {
+      "agent_id": "AP7D-G-WEFA",
+      "lineage_addr": "WEFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEFA",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEFA"
+    },
+    {
+      "agent_id": "AP7D-G-WEAE",
+      "lineage_addr": "WEAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEAE",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEAE"
+    },
+    {
+      "agent_id": "AP7D-G-WEAW",
+      "lineage_addr": "WEAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEAW",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEAW"
+    },
+    {
+      "agent_id": "AP7D-G-WEAF",
+      "lineage_addr": "WEAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEAF",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEAF"
+    },
+    {
+      "agent_id": "AP7D-G-WEAA",
+      "lineage_addr": "WEAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WEAA",
+      "resume_from": "AP7D_AGENT_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\21_ap7d_agent_registry_256.json",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WEAA"
+    },
+    {
+      "agent_id": "AP7D-G-WWEE",
+      "lineage_addr": "WWEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWEE",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWEE"
+    },
+    {
+      "agent_id": "AP7D-G-WWEW",
+      "lineage_addr": "WWEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWEW",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWEW"
+    },
+    {
+      "agent_id": "AP7D-G-WWEF",
+      "lineage_addr": "WWEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWEF",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWEF"
+    },
+    {
+      "agent_id": "AP7D-G-WWEA",
+      "lineage_addr": "WWEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWEA",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWEA"
+    },
+    {
+      "agent_id": "AP7D-G-WWWE",
+      "lineage_addr": "WWWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWWE",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWWE"
+    },
+    {
+      "agent_id": "AP7D-G-WWWW",
+      "lineage_addr": "WWWW",
+      "status": "active",
+      "seed_id": "AP7D-RS-WWWW",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWWW"
+    },
+    {
+      "agent_id": "AP7D-G-WWWF",
+      "lineage_addr": "WWWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWWF",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWWF"
+    },
+    {
+      "agent_id": "AP7D-G-WWWA",
+      "lineage_addr": "WWWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWWA",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWWA"
+    },
+    {
+      "agent_id": "AP7D-G-WWFE",
+      "lineage_addr": "WWFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWFE",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWFE"
+    },
+    {
+      "agent_id": "AP7D-G-WWFW",
+      "lineage_addr": "WWFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWFW",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWFW"
+    },
+    {
+      "agent_id": "AP7D-G-WWFF",
+      "lineage_addr": "WWFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWFF",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWFF"
+    },
+    {
+      "agent_id": "AP7D-G-WWFA",
+      "lineage_addr": "WWFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWFA",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWFA"
+    },
+    {
+      "agent_id": "AP7D-G-WWAE",
+      "lineage_addr": "WWAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWAE",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWAE"
+    },
+    {
+      "agent_id": "AP7D-G-WWAW",
+      "lineage_addr": "WWAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWAW",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWAW"
+    },
+    {
+      "agent_id": "AP7D-G-WWAF",
+      "lineage_addr": "WWAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWAF",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWAF"
+    },
+    {
+      "agent_id": "AP7D-G-WWAA",
+      "lineage_addr": "WWAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WWAA",
+      "resume_from": "AP7D_HEARTBEAT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WWAA"
+    },
+    {
+      "agent_id": "AP7D-G-WFEE",
+      "lineage_addr": "WFEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFEE",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFEE"
+    },
+    {
+      "agent_id": "AP7D-G-WFEW",
+      "lineage_addr": "WFEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFEW",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFEW"
+    },
+    {
+      "agent_id": "AP7D-G-WFEF",
+      "lineage_addr": "WFEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFEF",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFEF"
+    },
+    {
+      "agent_id": "AP7D-G-WFEA",
+      "lineage_addr": "WFEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFEA",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFEA"
+    },
+    {
+      "agent_id": "AP7D-G-WFWE",
+      "lineage_addr": "WFWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFWE",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFWE"
+    },
+    {
+      "agent_id": "AP7D-G-WFWW",
+      "lineage_addr": "WFWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFWW",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFWW"
+    },
+    {
+      "agent_id": "AP7D-G-WFWF",
+      "lineage_addr": "WFWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFWF",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFWF"
+    },
+    {
+      "agent_id": "AP7D-G-WFWA",
+      "lineage_addr": "WFWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFWA",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFWA"
+    },
+    {
+      "agent_id": "AP7D-G-WFFE",
+      "lineage_addr": "WFFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFFE",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFFE"
+    },
+    {
+      "agent_id": "AP7D-G-WFFW",
+      "lineage_addr": "WFFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFFW",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFFW"
+    },
+    {
+      "agent_id": "AP7D-G-WFFF",
+      "lineage_addr": "WFFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFFF",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFFF"
+    },
+    {
+      "agent_id": "AP7D-G-WFFA",
+      "lineage_addr": "WFFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFFA",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFFA"
+    },
+    {
+      "agent_id": "AP7D-G-WFAE",
+      "lineage_addr": "WFAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFAE",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFAE"
+    },
+    {
+      "agent_id": "AP7D-G-WFAW",
+      "lineage_addr": "WFAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFAW",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFAW"
+    },
+    {
+      "agent_id": "AP7D-G-WFAF",
+      "lineage_addr": "WFAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFAF",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFAF"
+    },
+    {
+      "agent_id": "AP7D-G-WFAA",
+      "lineage_addr": "WFAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WFAA",
+      "resume_from": "AP7D_DELTA_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WFAA"
+    },
+    {
+      "agent_id": "AP7D-G-WAEE",
+      "lineage_addr": "WAEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAEE",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAEE"
+    },
+    {
+      "agent_id": "AP7D-G-WAEW",
+      "lineage_addr": "WAEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAEW",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAEW"
+    },
+    {
+      "agent_id": "AP7D-G-WAEF",
+      "lineage_addr": "WAEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAEF",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAEF"
+    },
+    {
+      "agent_id": "AP7D-G-WAEA",
+      "lineage_addr": "WAEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAEA",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAEA"
+    },
+    {
+      "agent_id": "AP7D-G-WAWE",
+      "lineage_addr": "WAWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAWE",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAWE"
+    },
+    {
+      "agent_id": "AP7D-G-WAWW",
+      "lineage_addr": "WAWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAWW",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAWW"
+    },
+    {
+      "agent_id": "AP7D-G-WAWF",
+      "lineage_addr": "WAWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAWF",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAWF"
+    },
+    {
+      "agent_id": "AP7D-G-WAWA",
+      "lineage_addr": "WAWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAWA",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAWA"
+    },
+    {
+      "agent_id": "AP7D-G-WAFE",
+      "lineage_addr": "WAFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAFE",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAFE"
+    },
+    {
+      "agent_id": "AP7D-G-WAFW",
+      "lineage_addr": "WAFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAFW",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAFW"
+    },
+    {
+      "agent_id": "AP7D-G-WAFF",
+      "lineage_addr": "WAFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAFF",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAFF"
+    },
+    {
+      "agent_id": "AP7D-G-WAFA",
+      "lineage_addr": "WAFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAFA",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAFA"
+    },
+    {
+      "agent_id": "AP7D-G-WAAE",
+      "lineage_addr": "WAAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAAE",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAAE"
+    },
+    {
+      "agent_id": "AP7D-G-WAAW",
+      "lineage_addr": "WAAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAAW",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAAW"
+    },
+    {
+      "agent_id": "AP7D-G-WAAF",
+      "lineage_addr": "WAAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAAF",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAAF"
+    },
+    {
+      "agent_id": "AP7D-G-WAAA",
+      "lineage_addr": "WAAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-WAAA",
+      "resume_from": "AP7D_HANDOFF_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#WAAA"
+    },
+    {
+      "agent_id": "AP7D-G-FEEE",
+      "lineage_addr": "FEEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEEE",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEEE"
+    },
+    {
+      "agent_id": "AP7D-G-FEEW",
+      "lineage_addr": "FEEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEEW",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEEW"
+    },
+    {
+      "agent_id": "AP7D-G-FEEF",
+      "lineage_addr": "FEEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEEF",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEEF"
+    },
+    {
+      "agent_id": "AP7D-G-FEEA",
+      "lineage_addr": "FEEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEEA",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEEA"
+    },
+    {
+      "agent_id": "AP7D-G-FEWE",
+      "lineage_addr": "FEWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEWE",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEWE"
+    },
+    {
+      "agent_id": "AP7D-G-FEWW",
+      "lineage_addr": "FEWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEWW",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEWW"
+    },
+    {
+      "agent_id": "AP7D-G-FEWF",
+      "lineage_addr": "FEWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEWF",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEWF"
+    },
+    {
+      "agent_id": "AP7D-G-FEWA",
+      "lineage_addr": "FEWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEWA",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEWA"
+    },
+    {
+      "agent_id": "AP7D-G-FEFE",
+      "lineage_addr": "FEFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEFE",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEFE"
+    },
+    {
+      "agent_id": "AP7D-G-FEFW",
+      "lineage_addr": "FEFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEFW",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEFW"
+    },
+    {
+      "agent_id": "AP7D-G-FEFF",
+      "lineage_addr": "FEFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEFF",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEFF"
+    },
+    {
+      "agent_id": "AP7D-G-FEFA",
+      "lineage_addr": "FEFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEFA",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEFA"
+    },
+    {
+      "agent_id": "AP7D-G-FEAE",
+      "lineage_addr": "FEAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEAE",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEAE"
+    },
+    {
+      "agent_id": "AP7D-G-FEAW",
+      "lineage_addr": "FEAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEAW",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEAW"
+    },
+    {
+      "agent_id": "AP7D-G-FEAF",
+      "lineage_addr": "FEAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEAF",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEAF"
+    },
+    {
+      "agent_id": "AP7D-G-FEAA",
+      "lineage_addr": "FEAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FEAA",
+      "resume_from": "AP7D_RESTART_REGISTRY",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FEAA"
+    },
+    {
+      "agent_id": "AP7D-G-FWEE",
+      "lineage_addr": "FWEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWEE",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWEE"
+    },
+    {
+      "agent_id": "AP7D-G-FWEW",
+      "lineage_addr": "FWEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWEW",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWEW"
+    },
+    {
+      "agent_id": "AP7D-G-FWEF",
+      "lineage_addr": "FWEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWEF",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWEF"
+    },
+    {
+      "agent_id": "AP7D-G-FWEA",
+      "lineage_addr": "FWEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWEA",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWEA"
+    },
+    {
+      "agent_id": "AP7D-G-FWWE",
+      "lineage_addr": "FWWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWWE",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWWE"
+    },
+    {
+      "agent_id": "AP7D-G-FWWW",
+      "lineage_addr": "FWWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWWW",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWWW"
+    },
+    {
+      "agent_id": "AP7D-G-FWWF",
+      "lineage_addr": "FWWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWWF",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWWF"
+    },
+    {
+      "agent_id": "AP7D-G-FWWA",
+      "lineage_addr": "FWWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWWA",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWWA"
+    },
+    {
+      "agent_id": "AP7D-G-FWFE",
+      "lineage_addr": "FWFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWFE",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWFE"
+    },
+    {
+      "agent_id": "AP7D-G-FWFW",
+      "lineage_addr": "FWFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWFW",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWFW"
+    },
+    {
+      "agent_id": "AP7D-G-FWFF",
+      "lineage_addr": "FWFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWFF",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWFF"
+    },
+    {
+      "agent_id": "AP7D-G-FWFA",
+      "lineage_addr": "FWFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWFA",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWFA"
+    },
+    {
+      "agent_id": "AP7D-G-FWAE",
+      "lineage_addr": "FWAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWAE",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWAE"
+    },
+    {
+      "agent_id": "AP7D-G-FWAW",
+      "lineage_addr": "FWAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWAW",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWAW"
+    },
+    {
+      "agent_id": "AP7D-G-FWAF",
+      "lineage_addr": "FWAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWAF",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWAF"
+    },
+    {
+      "agent_id": "AP7D-G-FWAA",
+      "lineage_addr": "FWAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FWAA",
+      "resume_from": "AP7D_INTENT_FEED",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FWAA"
+    },
+    {
+      "agent_id": "AP7D-G-FFEE",
+      "lineage_addr": "FFEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFEE",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFEE"
+    },
+    {
+      "agent_id": "AP7D-G-FFEW",
+      "lineage_addr": "FFEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFEW",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFEW"
+    },
+    {
+      "agent_id": "AP7D-G-FFEF",
+      "lineage_addr": "FFEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFEF",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFEF"
+    },
+    {
+      "agent_id": "AP7D-G-FFEA",
+      "lineage_addr": "FFEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFEA",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFEA"
+    },
+    {
+      "agent_id": "AP7D-G-FFWE",
+      "lineage_addr": "FFWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFWE",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFWE"
+    },
+    {
+      "agent_id": "AP7D-G-FFWW",
+      "lineage_addr": "FFWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFWW",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFWW"
+    },
+    {
+      "agent_id": "AP7D-G-FFWF",
+      "lineage_addr": "FFWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFWF",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFWF"
+    },
+    {
+      "agent_id": "AP7D-G-FFWA",
+      "lineage_addr": "FFWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFWA",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFWA"
+    },
+    {
+      "agent_id": "AP7D-G-FFFE",
+      "lineage_addr": "FFFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFFE",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFFE"
+    },
+    {
+      "agent_id": "AP7D-G-FFFW",
+      "lineage_addr": "FFFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFFW",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFFW"
+    },
+    {
+      "agent_id": "AP7D-G-FFFF",
+      "lineage_addr": "FFFF",
+      "status": "active",
+      "seed_id": "AP7D-RS-FFFF",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFFF"
+    },
+    {
+      "agent_id": "AP7D-G-FFFA",
+      "lineage_addr": "FFFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFFA",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFFA"
+    },
+    {
+      "agent_id": "AP7D-G-FFAE",
+      "lineage_addr": "FFAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFAE",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFAE"
+    },
+    {
+      "agent_id": "AP7D-G-FFAW",
+      "lineage_addr": "FFAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFAW",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFAW"
+    },
+    {
+      "agent_id": "AP7D-G-FFAF",
+      "lineage_addr": "FFAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFAF",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFAF"
+    },
+    {
+      "agent_id": "AP7D-G-FFAA",
+      "lineage_addr": "FFAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FFAA",
+      "resume_from": "AP7D_MACRO_NOTES",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\27_ap7d_macro_transition_assist_notes.json",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FFAA"
+    },
+    {
+      "agent_id": "AP7D-G-FAEE",
+      "lineage_addr": "FAEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAEE",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAEE"
+    },
+    {
+      "agent_id": "AP7D-G-FAEW",
+      "lineage_addr": "FAEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAEW",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAEW"
+    },
+    {
+      "agent_id": "AP7D-G-FAEF",
+      "lineage_addr": "FAEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAEF",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAEF"
+    },
+    {
+      "agent_id": "AP7D-G-FAEA",
+      "lineage_addr": "FAEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAEA",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAEA"
+    },
+    {
+      "agent_id": "AP7D-G-FAWE",
+      "lineage_addr": "FAWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAWE",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAWE"
+    },
+    {
+      "agent_id": "AP7D-G-FAWW",
+      "lineage_addr": "FAWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAWW",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAWW"
+    },
+    {
+      "agent_id": "AP7D-G-FAWF",
+      "lineage_addr": "FAWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAWF",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAWF"
+    },
+    {
+      "agent_id": "AP7D-G-FAWA",
+      "lineage_addr": "FAWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAWA",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAWA"
+    },
+    {
+      "agent_id": "AP7D-G-FAFE",
+      "lineage_addr": "FAFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAFE",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAFE"
+    },
+    {
+      "agent_id": "AP7D-G-FAFW",
+      "lineage_addr": "FAFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAFW",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAFW"
+    },
+    {
+      "agent_id": "AP7D-G-FAFF",
+      "lineage_addr": "FAFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAFF",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAFF"
+    },
+    {
+      "agent_id": "AP7D-G-FAFA",
+      "lineage_addr": "FAFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAFA",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAFA"
+    },
+    {
+      "agent_id": "AP7D-G-FAAE",
+      "lineage_addr": "FAAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAAE",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAAE"
+    },
+    {
+      "agent_id": "AP7D-G-FAAW",
+      "lineage_addr": "FAAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAAW",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAAW"
+    },
+    {
+      "agent_id": "AP7D-G-FAAF",
+      "lineage_addr": "FAAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAAF",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAAF"
+    },
+    {
+      "agent_id": "AP7D-G-FAAA",
+      "lineage_addr": "FAAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-FAAA",
+      "resume_from": "AP7D_HALL_STATUS",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#FAAA"
+    },
+    {
+      "agent_id": "AP7D-G-AEEE",
+      "lineage_addr": "AEEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEEE",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEEE"
+    },
+    {
+      "agent_id": "AP7D-G-AEEW",
+      "lineage_addr": "AEEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEEW",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEEW"
+    },
+    {
+      "agent_id": "AP7D-G-AEEF",
+      "lineage_addr": "AEEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEEF",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEEF"
+    },
+    {
+      "agent_id": "AP7D-G-AEEA",
+      "lineage_addr": "AEEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEEA",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEEA"
+    },
+    {
+      "agent_id": "AP7D-G-AEWE",
+      "lineage_addr": "AEWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEWE",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEWE"
+    },
+    {
+      "agent_id": "AP7D-G-AEWW",
+      "lineage_addr": "AEWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEWW",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEWW"
+    },
+    {
+      "agent_id": "AP7D-G-AEWF",
+      "lineage_addr": "AEWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEWF",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEWF"
+    },
+    {
+      "agent_id": "AP7D-G-AEWA",
+      "lineage_addr": "AEWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEWA",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEWA"
+    },
+    {
+      "agent_id": "AP7D-G-AEFE",
+      "lineage_addr": "AEFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEFE",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEFE"
+    },
+    {
+      "agent_id": "AP7D-G-AEFW",
+      "lineage_addr": "AEFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEFW",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEFW"
+    },
+    {
+      "agent_id": "AP7D-G-AEFF",
+      "lineage_addr": "AEFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEFF",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEFF"
+    },
+    {
+      "agent_id": "AP7D-G-AEFA",
+      "lineage_addr": "AEFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEFA",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEFA"
+    },
+    {
+      "agent_id": "AP7D-G-AEAE",
+      "lineage_addr": "AEAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEAE",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEAE"
+    },
+    {
+      "agent_id": "AP7D-G-AEAW",
+      "lineage_addr": "AEAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEAW",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEAW"
+    },
+    {
+      "agent_id": "AP7D-G-AEAF",
+      "lineage_addr": "AEAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEAF",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEAF"
+    },
+    {
+      "agent_id": "AP7D-G-AEAA",
+      "lineage_addr": "AEAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AEAA",
+      "resume_from": "AP7D_TEMPLE_QUEST",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AEAA"
+    },
+    {
+      "agent_id": "AP7D-G-AWEE",
+      "lineage_addr": "AWEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWEE",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWEE"
+    },
+    {
+      "agent_id": "AP7D-G-AWEW",
+      "lineage_addr": "AWEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWEW",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWEW"
+    },
+    {
+      "agent_id": "AP7D-G-AWEF",
+      "lineage_addr": "AWEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWEF",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWEF"
+    },
+    {
+      "agent_id": "AP7D-G-AWEA",
+      "lineage_addr": "AWEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWEA",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWEA"
+    },
+    {
+      "agent_id": "AP7D-G-AWWE",
+      "lineage_addr": "AWWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWWE",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWWE"
+    },
+    {
+      "agent_id": "AP7D-G-AWWW",
+      "lineage_addr": "AWWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWWW",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWWW"
+    },
+    {
+      "agent_id": "AP7D-G-AWWF",
+      "lineage_addr": "AWWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWWF",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWWF"
+    },
+    {
+      "agent_id": "AP7D-G-AWWA",
+      "lineage_addr": "AWWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWWA",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWWA"
+    },
+    {
+      "agent_id": "AP7D-G-AWFE",
+      "lineage_addr": "AWFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWFE",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWFE"
+    },
+    {
+      "agent_id": "AP7D-G-AWFW",
+      "lineage_addr": "AWFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWFW",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWFW"
+    },
+    {
+      "agent_id": "AP7D-G-AWFF",
+      "lineage_addr": "AWFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWFF",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWFF"
+    },
+    {
+      "agent_id": "AP7D-G-AWFA",
+      "lineage_addr": "AWFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWFA",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWFA"
+    },
+    {
+      "agent_id": "AP7D-G-AWAE",
+      "lineage_addr": "AWAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWAE",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWAE"
+    },
+    {
+      "agent_id": "AP7D-G-AWAW",
+      "lineage_addr": "AWAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWAW",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWAW"
+    },
+    {
+      "agent_id": "AP7D-G-AWAF",
+      "lineage_addr": "AWAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWAF",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWAF"
+    },
+    {
+      "agent_id": "AP7D-G-AWAA",
+      "lineage_addr": "AWAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AWAA",
+      "resume_from": "SEED7_LEVEL_PATH",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AWAA"
+    },
+    {
+      "agent_id": "AP7D-G-AFEE",
+      "lineage_addr": "AFEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFEE",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFEE"
+    },
+    {
+      "agent_id": "AP7D-G-AFEW",
+      "lineage_addr": "AFEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFEW",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFEW"
+    },
+    {
+      "agent_id": "AP7D-G-AFEF",
+      "lineage_addr": "AFEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFEF",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFEF"
+    },
+    {
+      "agent_id": "AP7D-G-AFEA",
+      "lineage_addr": "AFEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFEA",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFEA"
+    },
+    {
+      "agent_id": "AP7D-G-AFWE",
+      "lineage_addr": "AFWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFWE",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFWE"
+    },
+    {
+      "agent_id": "AP7D-G-AFWW",
+      "lineage_addr": "AFWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFWW",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFWW"
+    },
+    {
+      "agent_id": "AP7D-G-AFWF",
+      "lineage_addr": "AFWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFWF",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFWF"
+    },
+    {
+      "agent_id": "AP7D-G-AFWA",
+      "lineage_addr": "AFWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFWA",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFWA"
+    },
+    {
+      "agent_id": "AP7D-G-AFFE",
+      "lineage_addr": "AFFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFFE",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFFE"
+    },
+    {
+      "agent_id": "AP7D-G-AFFW",
+      "lineage_addr": "AFFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFFW",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFFW"
+    },
+    {
+      "agent_id": "AP7D-G-AFFF",
+      "lineage_addr": "AFFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFFF",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFFF"
+    },
+    {
+      "agent_id": "AP7D-G-AFFA",
+      "lineage_addr": "AFFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFFA",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFFA"
+    },
+    {
+      "agent_id": "AP7D-G-AFAE",
+      "lineage_addr": "AFAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFAE",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFAE"
+    },
+    {
+      "agent_id": "AP7D-G-AFAW",
+      "lineage_addr": "AFAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFAW",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFAW"
+    },
+    {
+      "agent_id": "AP7D-G-AFAF",
+      "lineage_addr": "AFAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFAF",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFAF"
+    },
+    {
+      "agent_id": "AP7D-G-AFAA",
+      "lineage_addr": "AFAA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AFAA",
+      "resume_from": "NEXT46_LEVEL_COMPANION",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AFAA"
+    },
+    {
+      "agent_id": "AP7D-G-AAEE",
+      "lineage_addr": "AAEE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAEE",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAEE"
+    },
+    {
+      "agent_id": "AP7D-G-AAEW",
+      "lineage_addr": "AAEW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAEW",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAEW"
+    },
+    {
+      "agent_id": "AP7D-G-AAEF",
+      "lineage_addr": "AAEF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAEF",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAEF"
+    },
+    {
+      "agent_id": "AP7D-G-AAEA",
+      "lineage_addr": "AAEA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAEA",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAEA"
+    },
+    {
+      "agent_id": "AP7D-G-AAWE",
+      "lineage_addr": "AAWE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAWE",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAWE"
+    },
+    {
+      "agent_id": "AP7D-G-AAWW",
+      "lineage_addr": "AAWW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAWW",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAWW"
+    },
+    {
+      "agent_id": "AP7D-G-AAWF",
+      "lineage_addr": "AAWF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAWF",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAWF"
+    },
+    {
+      "agent_id": "AP7D-G-AAWA",
+      "lineage_addr": "AAWA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAWA",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAWA"
+    },
+    {
+      "agent_id": "AP7D-G-AAFE",
+      "lineage_addr": "AAFE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAFE",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAFE"
+    },
+    {
+      "agent_id": "AP7D-G-AAFW",
+      "lineage_addr": "AAFW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAFW",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAFW"
+    },
+    {
+      "agent_id": "AP7D-G-AAFF",
+      "lineage_addr": "AAFF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAFF",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAFF"
+    },
+    {
+      "agent_id": "AP7D-G-AAFA",
+      "lineage_addr": "AAFA",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAFA",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAFA"
+    },
+    {
+      "agent_id": "AP7D-G-AAAE",
+      "lineage_addr": "AAAE",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAAE",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAAE"
+    },
+    {
+      "agent_id": "AP7D-G-AAAW",
+      "lineage_addr": "AAAW",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAAW",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAAW"
+    },
+    {
+      "agent_id": "AP7D-G-AAAF",
+      "lineage_addr": "AAAF",
+      "status": "dormant",
+      "seed_id": "AP7D-RS-AAAF",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAAF"
+    },
+    {
+      "agent_id": "AP7D-G-AAAA",
+      "lineage_addr": "AAAA",
+      "status": "active",
+      "seed_id": "AP7D-RS-AAAA",
+      "resume_from": "AP7D_PACKAGE_EXPORT",
+      "resume_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\09_AP7D_SELF_IMPROVEMENT_SWARM_EXPORT.md",
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "replay_ptr": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json#AAAA"
+    }
+  ]
+}

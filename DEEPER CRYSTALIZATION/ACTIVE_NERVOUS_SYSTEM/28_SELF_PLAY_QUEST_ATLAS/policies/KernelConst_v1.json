@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "kernel-const",
+  "description": "All kernel constants used across the Quest Atlas",
+  "golden_ratio": {
+    "phi": 1.618033988749895,
+    "phi_inv": 0.618033988749895,
+    "phi_sq": 2.618033988749895,
+    "phi_inv_sq": 0.381966011250105,
+    "phi_inv_cube": 0.2360679774997896,
+    "phi_inv_4": 0.14589803375031546,
+    "phi_inv_5": 0.09016994374947424
+  },
+  "fibonacci_sequence": [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233],
+  "fibonacci_unlock_levels": [1, 3, 5, 8, 13, 21, 34, 55, 89],
+  "station_count": 19,
+  "capsule_range": {
+    "start": 198,
+    "end": 226
+  },
+  "truth_states": ["OK", "NEAR", "AMBIG", "VOID"],
+  "element_keys": ["fire", "air", "water", "earth"],
+  "pass_count": 3,
+  "pass_names": ["Discovery", "Refinement", "Mastery"],
+  "difficulty_levels": ["trivial", "standard", "hard", "legendary"],
+  "difficulty_multipliers": {
+    "trivial": 0.382,
+    "standard": 1.0,
+    "hard": 1.618,
+    "legendary": 2.618
+  },
+  "quest_classes": [
+    "Solo", "Guild", "Community", "Repair", "TempleRite",
+    "Storm", "Crown", "Certification", "Resonance", "Publish",
+    "Seeding", "Governance", "Policy", "Migration"
+  ],
+  "timing": {
+    "epoch_duration_seconds": 3600,
+    "max_quest_epochs": 64,
+    "storm_base_duration_epochs": 5,
+    "migration_freeze_epochs": 13
+  },
+  "limits": {
+    "max_queue_depth": 256,
+    "hub_cap": 6,
+    "capsule_clamp": 16,
+    "epoch_clamp": 64,
+    "max_witnesses": 21,
+    "min_witness_quorum": 3
+  },
+  "hashes": {
+    "algorithm": "SHA-256",
+    "format": "sha256:<hex64>"
+  }
+}

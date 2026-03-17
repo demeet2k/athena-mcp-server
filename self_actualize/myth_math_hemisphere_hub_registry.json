@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-03-13T21:08:35.271573+00:00",
+  "derivation_version": "2026-03-12.hemisphere-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_myth_math_hemisphere_brain",
+  "docs_gate_status": "BLOCKED",
+  "hubs": [
+    {
+      "hub_id": "GC0-UNIFIED-CORPUS",
+      "kind": "unified_hub",
+      "label": "Unified Corpus Hub",
+      "grand_central": "GC0",
+      "connected_records": 502,
+      "connected_hubs": [
+        "HC-MATH",
+        "HC-MYTH"
+      ]
+    },
+    {
+      "hub_id": "HC-MATH",
+      "kind": "hemisphere_hub",
+      "label": "MATH Hemisphere Crystal",
+      "primary_hemisphere": "MATH",
+      "grand_central": "GCL",
+      "connected_records": 403,
+      "top_families": [
+        [
+          "transport-and-runtime",
+          140
+        ],
+        [
+          "general-corpus",
+          86
+        ],
+        [
+          "manuscript-architecture",
+          67
+        ],
+        [
+          "civilization-and-governance",
+          51
+        ],
+        [
+          "higher-dimensional-geometry",
+          22
+        ]
+      ]
+    },
+    {
+      "hub_id": "HC-MYTH",
+      "kind": "hemisphere_hub",
+      "label": "MYTH Hemisphere Crystal",
+      "primary_hemisphere": "MYTH",
+      "grand_central": "GCR",
+      "connected_records": 99,
+      "top_families": [
+        [
+          "mythic-sign-systems",
+          28
+        ],
+        [
+          "void-and-collapse",
+          28
+        ],
+        [
+          "civilization-and-governance",
+          13
+        ],
+        [
+          "identity-and-instruction",
+          12
+        ],
+        [
+          "general-corpus",
+          12
+        ]
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "HUB-UNIFIED-MATH",
+      "source_hub_id": "GC0-UNIFIED-CORPUS",
+      "target_hub_id": "HC-MATH",
+      "kind": "hemisphere_attachment"
+    },
+    {
+      "edge_id": "HUB-UNIFIED-MYTH",
+      "source_hub_id": "GC0-UNIFIED-CORPUS",
+      "target_hub_id": "HC-MYTH",
+      "kind": "hemisphere_attachment"
+    },
+    {
+      "edge_id": "HUB-MATH-MYTH-COMMISSURE",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "kind": "commissure_backbone",
+      "bridge_record_count": 110
+    }
+  ]
+}

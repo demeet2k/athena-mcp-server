@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-03-13T21:35:30.338853+00:00",
+  "derivation_version": "2026-03-13.motion-constitution-l1.v0",
+  "truth": "FAIL",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "checks": {
+    "package_test_suite": true,
+    "all_actions_covered": true,
+    "fixture_case_count_is_9": true,
+    "gate_precedence_verified": true,
+    "hysteresis_verified": true,
+    "control_plane_mentions_selection_membrane": true,
+    "active_queue_has_motion_front": false,
+    "change_feed_mentions_motion": false,
+    "guildmaster_mentions_motion": false,
+    "q42_lane_preserved": false,
+    "docs_gate_still_blocked": true,
+    "atlas_refresh_complete": true
+  },
+  "test_result": {
+    "command": "NERUAL NETWORK\\TEST SUITES\\verify_motion_constitution_l1.py",
+    "returncode": 0,
+    "stdout": "{\n  \"public_contracts\": {\n    \"action_count\": 9,\n    \"source_kind_count\": 5,\n    \"actions\": [\n      \"ACTIVATE_NOW\",\n      \"HOLD\",\n      \"REQUEST_WITNESSES\",\n      \"REQUEST_HELP\",\n      \"REPLAY_FIRST\",\n      \"QUARANTINE\",\n      \"COMPRESS_TO_SEED\",\n      \"ESCALATE_TO_COMMITTEE\",\n      \"REFUSE_INADMISSIBLE\"\n    ],\n    \"source_kinds\": [\n      \"quest_board\",\n      \"agent_registry\",\n      \"committee_output\",\n      \"immune_scheduler_output\",\n      \"continuation_seed\"\n    ]\n  },\n  \"fixture_actions\": {\n    \"activate\": \"ACTIVATE_NOW\",\n    \"hold\": \"HOLD\",\n    \"request_witnesses\": \"REQUEST_WITNESSES\",\n    \"request_help\": \"REQUEST_HELP\",\n    \"replay_first\": \"REPLAY_FIRST\",\n    \"quarantine\": \"QUARANTINE\",\n    \"compress_to_seed\": \"COMPRESS_TO_SEED\",\n    \"escalate_to_committee\": \"ESCALATE_TO_COMMITTEE\",\n    \"refuse\": \"REFUSE_INADMISSIBLE\"\n  },\n  \"gate_precedence\": {\n    \"refusal_beats_quarantine\": \"REFUSE_INADMISSIBLE\",\n    \"quarantine_beats_replay\": \"QUARANTINE\",\n    \"replay_beats_help_and_witness\": \"REPLAY_FIRST\",\n    \"committee_beats_seed_compression\": \"ESCALATE_TO_COMMITTEE\",\n    \"activation_never_bypasses_witness\": \"REQUEST_WITNESSES\"\n  },\n  \"hysteresis\": {\n    \"refusal_requires_new_witness_or_replay\": \"OK\",\n    \"quarantine_requires_new_immune_or_replay_state\": \"OK\"\n  }\n}",
+    "stderr": "",
+    "truth": "OK",
+    "report": {
+      "public_contracts": {
+        "action_count": 9,
+        "source_kind_count": 5,
+        "actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "source_kinds": [
+          "quest_board",
+          "agent_registry",
+          "committee_output",
+          "immune_scheduler_output",
+          "continuation_seed"
+        ]
+      },
+      "fixture_actions": {
+        "activate": "ACTIVATE_NOW",
+        "hold": "HOLD",
+        "request_witnesses": "REQUEST_WITNESSES",
+        "request_help": "REQUEST_HELP",
+        "replay_first": "REPLAY_FIRST",
+        "quarantine": "QUARANTINE",
+        "compress_to_seed": "COMPRESS_TO_SEED",
+        "escalate_to_committee": "ESCALATE_TO_COMMITTEE",
+        "refuse": "REFUSE_INADMISSIBLE"
+      },
+      "gate_precedence": {
+        "refusal_beats_quarantine": "REFUSE_INADMISSIBLE",
+        "quarantine_beats_replay": "QUARANTINE",
+        "replay_beats_help_and_witness": "REPLAY_FIRST",
+        "committee_beats_seed_compression": "ESCALATE_TO_COMMITTEE",
+        "activation_never_bypasses_witness": "REQUEST_WITNESSES"
+      },
+      "hysteresis": {
+        "refusal_requires_new_witness_or_replay": "OK",
+        "quarantine_requires_new_immune_or_replay_state": "OK"
+      }
+    }
+  },
+  "local_candidate_count": 6,
+  "fixture_case_count": 9,
+  "top_candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+  "next_seed": "MotionConstitution_L1::Parameterization"
+}

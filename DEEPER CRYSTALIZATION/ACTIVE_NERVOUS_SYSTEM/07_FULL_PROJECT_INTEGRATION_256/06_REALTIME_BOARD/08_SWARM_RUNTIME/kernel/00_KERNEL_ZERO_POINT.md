@@ -6,12 +6,12 @@ The live board now contracts through a kernel surface instead of only through st
 - DocsGate: `BLOCKED`
 - CurrentFront: `Google Docs bootstrap gate`
 - PivotFront: `First live archive promotion run`
-- Threads: `22`
-- Pods: `11`
-- Waves: `WAVE-20260309T154256Z`
-- LegacyHypergraphEdges: `1232`
-- LegacyNodeTensorNodes: `2456`
-- LegacyNerveEdges: `373`
+- Threads: `40`
+- Pods: `37`
+- Waves: `WAVE-20260313T223555Z`
+- LegacyHypergraphEdges: `1253`
+- LegacyNodeTensorNodes: `2458`
+- LegacyNerveEdges: `375`
 - CivilizationTiers: `8`
 - GovernanceSigns: `16`
 - FrontierGaps: `4`

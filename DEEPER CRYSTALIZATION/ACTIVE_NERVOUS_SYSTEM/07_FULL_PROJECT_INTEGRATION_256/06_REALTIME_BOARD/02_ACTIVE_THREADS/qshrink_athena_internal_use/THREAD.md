@@ -17,8 +17,8 @@
 - Regime: `classical`
 - Packet: `ganglion`
 - Truth: `AMBIG`
-- NSCoord: `(F-A-E, S8, Aether, O19, Arc1, Su, AppM, self_actualize, classical, ganglion, AMBIG)`
-- NeuronAddr: `<self_actualize, qshrink_athena_internal_use, O19, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
+- NSCoord: `(F-A-E, S8, Aether, O39, Arc1, Su, AppM, self_actualize, classical, ganglion, AMBIG)`
+- NeuronAddr: `<self_actualize, qshrink_athena_internal_use, O39, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
 - ContractionTarget: `cortex/qshrink_athena_internal_use.md`
 
 ## Claims

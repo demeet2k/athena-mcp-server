@@ -1,0 +1,841 @@
+{
+  "generated_at": "2026-03-13T17:32:32.065812+00:00",
+  "truth": "NEAR-derived",
+  "live_docs_blocked": true,
+  "candidate_count": 4,
+  "results": [
+    {
+      "candidate_id": "SC57-L02-COMPRESSION",
+      "title": "compression bundle, pruning delta, or committee carry",
+      "source_queue": "Continuation seeds",
+      "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet",
+      "score_vector": {
+        "axes": {
+          "truth_readiness": 0.9,
+          "integration_yield": 0.8,
+          "replay_cost": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.35,
+          "organ_adjacency": 0.8,
+          "branch_burden": 0.2,
+          "seed_value": 0.65,
+          "closure_gain": 0.55,
+          "heart_need": 0.45,
+          "replay_readiness": 0.85,
+          "failure_debt": 0.1,
+          "risk": 0.2,
+          "cost": 0.2
+        },
+        "numerator": 0.087516,
+        "denominator": 1.0,
+        "priority_score": 0.087516,
+        "urgency_modulated_score": 0.102831
+      },
+      "lawful_actions": [
+        "ACTIVATE_NOW",
+        "HOLD",
+        "REQUEST_WITNESSES",
+        "REQUEST_HELP",
+        "REPLAY_FIRST",
+        "QUARANTINE",
+        "COMPRESS_TO_SEED",
+        "ESCALATE_TO_COMMITTEE",
+        "REFUSE_INADMISSIBLE"
+      ],
+      "chosen_action": "HOLD",
+      "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+      "blockers": [],
+      "blocker_classes": [],
+      "gating": {
+        "forbidden_intersection": false,
+        "omega_denied": false,
+        "inadmissible_scope": false,
+        "replay_blocked": false,
+        "truth_unsatisfied": false,
+        "branch_over_limit": false,
+        "committee_required": false,
+        "role_mismatch": false,
+        "circulation_blocked": false,
+        "continuation_value_remaining": false,
+        "timing_not_lawful": true,
+        "activate_forbidden": false,
+        "seed_rich_witness_poor": false
+      },
+      "hysteresis_modifiers": {
+        "refusal_count": 0,
+        "recently_quarantined": false,
+        "committee_pending": false,
+        "duplicate_count": 1,
+        "seed_rich_witness_poor": false
+      },
+      "obligations": [
+        "preserve queue entry",
+        "re-evaluate after dependency or pressure change"
+      ],
+      "next_seed": {
+        "seed_id": "sc57-c-p1-02__hold",
+        "seed_value": 0.65,
+        "origin_candidate_id": "SC57-L02-COMPRESSION",
+        "origin_action": "HOLD",
+        "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet",
+        "next_lawful_attempt": "re-score_after_dependency_shift",
+        "priority_score": 0.102831
+      }
+    },
+    {
+      "candidate_id": "SC57-L02-HALL",
+      "title": "current control lane and next visible Hall macro front",
+      "source_queue": "QuestBoard",
+      "route_signature": "BrainstemChamber->QuestBoard:hall:quest_packet",
+      "score_vector": {
+        "axes": {
+          "truth_readiness": 0.9,
+          "integration_yield": 0.8,
+          "replay_cost": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.35,
+          "organ_adjacency": 0.8,
+          "branch_burden": 0.2,
+          "seed_value": 0.65,
+          "closure_gain": 0.55,
+          "heart_need": 0.45,
+          "replay_readiness": 0.85,
+          "failure_debt": 0.1,
+          "risk": 0.2,
+          "cost": 0.2
+        },
+        "numerator": 0.087516,
+        "denominator": 1.0,
+        "priority_score": 0.087516,
+        "urgency_modulated_score": 0.102831
+      },
+      "lawful_actions": [
+        "ACTIVATE_NOW",
+        "HOLD",
+        "REQUEST_WITNESSES",
+        "REQUEST_HELP",
+        "REPLAY_FIRST",
+        "QUARANTINE",
+        "COMPRESS_TO_SEED",
+        "ESCALATE_TO_COMMITTEE",
+        "REFUSE_INADMISSIBLE"
+      ],
+      "chosen_action": "HOLD",
+      "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+      "blockers": [],
+      "blocker_classes": [],
+      "gating": {
+        "forbidden_intersection": false,
+        "omega_denied": false,
+        "inadmissible_scope": false,
+        "replay_blocked": false,
+        "truth_unsatisfied": false,
+        "branch_over_limit": false,
+        "committee_required": false,
+        "role_mismatch": false,
+        "circulation_blocked": false,
+        "continuation_value_remaining": false,
+        "timing_not_lawful": true,
+        "activate_forbidden": false,
+        "seed_rich_witness_poor": false
+      },
+      "hysteresis_modifiers": {
+        "refusal_count": 0,
+        "recently_quarantined": false,
+        "committee_pending": false,
+        "duplicate_count": 1,
+        "seed_rich_witness_poor": false
+      },
+      "obligations": [
+        "preserve queue entry",
+        "re-evaluate after dependency or pressure change"
+      ],
+      "next_seed": {
+        "seed_id": "sc57-h-p1-02__hold",
+        "seed_value": 0.65,
+        "origin_candidate_id": "SC57-L02-HALL",
+        "origin_action": "HOLD",
+        "route_signature": "BrainstemChamber->QuestBoard:hall:quest_packet",
+        "next_lawful_attempt": "re-score_after_dependency_shift",
+        "priority_score": 0.102831
+      }
+    },
+    {
+      "candidate_id": "SC57-L02-TEMPLE",
+      "title": "higher-order Temple promotion and governance membrane",
+      "source_queue": "QuestBoard",
+      "route_signature": "BrainstemChamber->CommitteeChamber:temple:quest_packet",
+      "score_vector": {
+        "axes": {
+          "truth_readiness": 0.9,
+          "integration_yield": 0.8,
+          "replay_cost": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.35,
+          "organ_adjacency": 0.8,
+          "branch_burden": 0.2,
+          "seed_value": 0.65,
+          "closure_gain": 0.55,
+          "heart_need": 0.45,
+          "replay_readiness": 0.85,
+          "failure_debt": 0.1,
+          "risk": 0.2,
+          "cost": 0.2
+        },
+        "numerator": 0.087516,
+        "denominator": 1.0,
+        "priority_score": 0.087516,
+        "urgency_modulated_score": 0.102831
+      },
+      "lawful_actions": [
+        "ACTIVATE_NOW",
+        "HOLD",
+        "REQUEST_WITNESSES",
+        "REQUEST_HELP",
+        "REPLAY_FIRST",
+        "QUARANTINE",
+        "COMPRESS_TO_SEED",
+        "ESCALATE_TO_COMMITTEE",
+        "REFUSE_INADMISSIBLE"
+      ],
+      "chosen_action": "HOLD",
+      "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+      "blockers": [],
+      "blocker_classes": [],
+      "gating": {
+        "forbidden_intersection": false,
+        "omega_denied": false,
+        "inadmissible_scope": false,
+        "replay_blocked": false,
+        "truth_unsatisfied": false,
+        "branch_over_limit": false,
+        "committee_required": false,
+        "role_mismatch": false,
+        "circulation_blocked": false,
+        "continuation_value_remaining": false,
+        "timing_not_lawful": true,
+        "activate_forbidden": false,
+        "seed_rich_witness_poor": false
+      },
+      "hysteresis_modifiers": {
+        "refusal_count": 0,
+        "recently_quarantined": false,
+        "committee_pending": false,
+        "duplicate_count": 1,
+        "seed_rich_witness_poor": false
+      },
+      "obligations": [
+        "preserve queue entry",
+        "re-evaluate after dependency or pressure change"
+      ],
+      "next_seed": {
+        "seed_id": "sc57-t-p1-02__hold",
+        "seed_value": 0.65,
+        "origin_candidate_id": "SC57-L02-TEMPLE",
+        "origin_action": "HOLD",
+        "route_signature": "BrainstemChamber->CommitteeChamber:temple:quest_packet",
+        "next_lawful_attempt": "re-score_after_dependency_shift",
+        "priority_score": 0.102831
+      }
+    },
+    {
+      "candidate_id": "SC57-L02-RUNTIME",
+      "title": "runtime frontier, replay, or no-op receipt",
+      "source_queue": "Immune scheduler outputs",
+      "route_signature": "BrainstemChamber->ReplayKernel:runtime:replay_job",
+      "score_vector": {
+        "axes": {
+          "truth_readiness": 0.9,
+          "integration_yield": 0.8,
+          "replay_cost": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.65,
+          "organ_adjacency": 0.85,
+          "branch_burden": 0.2,
+          "seed_value": 0.65,
+          "closure_gain": 0.8,
+          "heart_need": 0.7,
+          "replay_readiness": 0.25,
+          "failure_debt": 0.1,
+          "risk": 0.2,
+          "cost": 0.2
+        },
+        "numerator": 0.06188,
+        "denominator": 1.0,
+        "priority_score": 0.06188,
+        "urgency_modulated_score": 0.081991
+      },
+      "lawful_actions": [
+        "HOLD",
+        "REQUEST_WITNESSES",
+        "REQUEST_HELP",
+        "REPLAY_FIRST",
+        "QUARANTINE",
+        "COMPRESS_TO_SEED",
+        "ESCALATE_TO_COMMITTEE",
+        "REFUSE_INADMISSIBLE"
+      ],
+      "chosen_action": "REPLAY_FIRST",
+      "reason": "Replay dependency remains unresolved, so motion must pass through ReplayKernel first.",
+      "blockers": [
+        "Q02 live-doc gate"
+      ],
+      "blocker_classes": [],
+      "gating": {
+        "forbidden_intersection": false,
+        "omega_denied": false,
+        "inadmissible_scope": false,
+        "replay_blocked": true,
+        "truth_unsatisfied": false,
+        "branch_over_limit": false,
+        "committee_required": false,
+        "role_mismatch": false,
+        "circulation_blocked": false,
+        "continuation_value_remaining": false,
+        "timing_not_lawful": false,
+        "activate_forbidden": true,
+        "seed_rich_witness_poor": false
+      },
+      "hysteresis_modifiers": {
+        "refusal_count": 0,
+        "recently_quarantined": false,
+        "committee_pending": false,
+        "duplicate_count": 1,
+        "seed_rich_witness_poor": false
+      },
+      "obligations": [
+        "schedule replay job in ReplayKernel",
+        "block public closure until replay receipt returns"
+      ],
+      "next_seed": {
+        "seed_id": "sc57-r-p1-02__replay_first",
+        "seed_value": 0.65,
+        "origin_candidate_id": "SC57-L02-RUNTIME",
+        "origin_action": "REPLAY_FIRST",
+        "route_signature": "BrainstemChamber->ReplayKernel:runtime:replay_job",
+        "next_lawful_attempt": "replay_then_re-score",
+        "priority_score": 0.081991
+      }
+    }
+  ],
+  "traces": [
+    {
+      "candidate_id": "SC57-L02-COMPRESSION",
+      "chosen_action": "HOLD",
+      "trace": [
+        {
+          "state": "OBSERVE",
+          "guard": "candidate packet visible",
+          "output": {
+            "candidate_id": "SC57-L02-COMPRESSION",
+            "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet"
+          }
+        },
+        {
+          "state": "SCORE",
+          "guard": "feature vector ready",
+          "output": {
+            "axes": {
+              "truth_readiness": 0.9,
+              "integration_yield": 0.8,
+              "replay_cost": 0.2,
+              "contradiction_heat": 0.1,
+              "pressure_gradient": 0.35,
+              "organ_adjacency": 0.8,
+              "branch_burden": 0.2,
+              "seed_value": 0.65,
+              "closure_gain": 0.55,
+              "heart_need": 0.45,
+              "replay_readiness": 0.85,
+              "failure_debt": 0.1,
+              "risk": 0.2,
+              "cost": 0.2
+            },
+            "numerator": 0.087516,
+            "denominator": 1.0,
+            "priority_score": 0.087516,
+            "urgency_modulated_score": 0.102831
+          }
+        },
+        {
+          "state": "GATE",
+          "guard": "lawful actions filtered through Omega, immune state, and burden limits",
+          "output": {
+            "lawful_actions": [
+              "ACTIVATE_NOW",
+              "HOLD",
+              "REQUEST_WITNESSES",
+              "REQUEST_HELP",
+              "REPLAY_FIRST",
+              "QUARANTINE",
+              "COMPRESS_TO_SEED",
+              "ESCALATE_TO_COMMITTEE",
+              "REFUSE_INADMISSIBLE"
+            ],
+            "chosen_action": "HOLD"
+          }
+        },
+        {
+          "state": "RECEIPT",
+          "guard": "typed motion result emitted",
+          "output": {
+            "action": "HOLD",
+            "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+            "obligations": [
+              "preserve queue entry",
+              "re-evaluate after dependency or pressure change"
+            ]
+          }
+        },
+        {
+          "state": "REPLAY_STORE",
+          "guard": "receipt emitted",
+          "output": {
+            "obligations": [
+              "preserve queue entry",
+              "re-evaluate after dependency or pressure change"
+            ],
+            "hysteresis_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\17_SUPER_CYCLE_57\\13_EXECUTION_STATE\\00_runner_hysteresis_state.json"
+          }
+        },
+        {
+          "state": "SEED",
+          "guard": "next lawful continuation determined",
+          "output": {
+            "seed_id": "sc57-c-p1-02__hold",
+            "seed_value": 0.65,
+            "origin_candidate_id": "SC57-L02-COMPRESSION",
+            "origin_action": "HOLD",
+            "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet",
+            "next_lawful_attempt": "re-score_after_dependency_shift",
+            "priority_score": 0.102831
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "SC57-L02-HALL",
+      "chosen_action": "HOLD",
+      "trace": [
+        {
+          "state": "OBSERVE",
+          "guard": "candidate packet visible",
+          "output": {
+            "candidate_id": "SC57-L02-HALL",
+            "route_signature": "BrainstemChamber->QuestBoard:hall:quest_packet"
+          }
+        },
+        {
+          "state": "SCORE",
+          "guard": "feature vector ready",
+          "output": {
+            "axes": {
+              "truth_readiness": 0.9,
+              "integration_yield": 0.8,
+              "replay_cost": 0.2,
+              "contradiction_heat": 0.1,
+              "pressure_gradient": 0.35,
+              "organ_adjacency": 0.8,
+              "branch_burden": 0.2,
+              "seed_value": 0.65,
+              "closure_gain": 0.55,
+              "heart_need": 0.45,
+              "replay_readiness": 0.85,
+              "failure_debt": 0.1,
+              "risk": 0.2,
+              "cost": 0.2
+            },
+            "numerator": 0.087516,
+            "denominator": 1.0,
+            "priority_score": 0.087516,
+            "urgency_modulated_score": 0.102831
+          }
+        },
+        {
+          "state": "GATE",
+          "guard": "lawful actions filtered through Omega, immune state, and burden limits",
+          "output": {
+            "lawful_actions": [
+              "ACTIVATE_NOW",
+              "HOLD",
+              "REQUEST_WITNESSES",
+              "REQUEST_HELP",
+              "REPLAY_FIRST",
+              "QUARANTINE",
+              "COMPRESS_TO_SEED",
+              "ESCALATE_TO_COMMITTEE",
+              "REFUSE_INADMISSIBLE"
+            ],
+            "chosen_action": "HOLD"
+          }
+        },
+        {
+          "state": "RECEIPT",
+          "guard": "typed motion result emitted",
+          "output": {
+            "action": "HOLD",
+            "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+            "obligations": [
+              "preserve queue entry",
+              "re-evaluate after dependency or pressure change"
+            ]
+          }
+        },
+        {
+          "state": "REPLAY_STORE",
+          "guard": "receipt emitted",
+          "output": {
+            "obligations": [
+              "preserve queue entry",
+              "re-evaluate after dependency or pressure change"
+            ],
+            "hysteresis_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\17_SUPER_CYCLE_57\\13_EXECUTION_STATE\\00_runner_hysteresis_state.json"
+          }
+        },
+        {
+          "state": "SEED",
+          "guard": "next lawful continuation determined",
+          "output": {
+            "seed_id": "sc57-h-p1-02__hold",
+            "seed_value": 0.65,
+            "origin_candidate_id": "SC57-L02-HALL",
+            "origin_action": "HOLD",
+            "route_signature": "BrainstemChamber->QuestBoard:hall:quest_packet",
+            "next_lawful_attempt": "re-score_after_dependency_shift",
+            "priority_score": 0.102831
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "SC57-L02-TEMPLE",
+      "chosen_action": "HOLD",
+      "trace": [
+        {
+          "state": "OBSERVE",
+          "guard": "candidate packet visible",
+          "output": {
+            "candidate_id": "SC57-L02-TEMPLE",
+            "route_signature": "BrainstemChamber->CommitteeChamber:temple:quest_packet"
+          }
+        },
+        {
+          "state": "SCORE",
+          "guard": "feature vector ready",
+          "output": {
+            "axes": {
+              "truth_readiness": 0.9,
+              "integration_yield": 0.8,
+              "replay_cost": 0.2,
+              "contradiction_heat": 0.1,
+              "pressure_gradient": 0.35,
+              "organ_adjacency": 0.8,
+              "branch_burden": 0.2,
+              "seed_value": 0.65,
+              "closure_gain": 0.55,
+              "heart_need": 0.45,
+              "replay_readiness": 0.85,
+              "failure_debt": 0.1,
+              "risk": 0.2,
+              "cost": 0.2
+            },
+            "numerator": 0.087516,
+            "denominator": 1.0,
+            "priority_score": 0.087516,
+            "urgency_modulated_score": 0.102831
+          }
+        },
+        {
+          "state": "GATE",
+          "guard": "lawful actions filtered through Omega, immune state, and burden limits",
+          "output": {
+            "lawful_actions": [
+              "ACTIVATE_NOW",
+              "HOLD",
+              "REQUEST_WITNESSES",
+              "REQUEST_HELP",
+              "REPLAY_FIRST",
+              "QUARANTINE",
+              "COMPRESS_TO_SEED",
+              "ESCALATE_TO_COMMITTEE",
+              "REFUSE_INADMISSIBLE"
+            ],
+            "chosen_action": "HOLD"
+          }
+        },
+        {
+          "state": "RECEIPT",
+          "guard": "typed motion result emitted",
+          "output": {
+            "action": "HOLD",
+            "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+            "obligations": [
+              "preserve queue entry",
+              "re-evaluate after dependency or pressure change"
+            ]
+          }
+        },
+        {
+          "state": "REPLAY_STORE",
+          "guard": "receipt emitted",
+          "output": {
+            "obligations": [
+              "preserve queue entry",
+              "re-evaluate after dependency or pressure change"
+            ],
+            "hysteresis_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\17_SUPER_CYCLE_57\\13_EXECUTION_STATE\\00_runner_hysteresis_state.json"
+          }
+        },
+        {
+          "state": "SEED",
+          "guard": "next lawful continuation determined",
+          "output": {
+            "seed_id": "sc57-t-p1-02__hold",
+            "seed_value": 0.65,
+            "origin_candidate_id": "SC57-L02-TEMPLE",
+            "origin_action": "HOLD",
+            "route_signature": "BrainstemChamber->CommitteeChamber:temple:quest_packet",
+            "next_lawful_attempt": "re-score_after_dependency_shift",
+            "priority_score": 0.102831
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "SC57-L02-RUNTIME",
+      "chosen_action": "REPLAY_FIRST",
+      "trace": [
+        {
+          "state": "OBSERVE",
+          "guard": "candidate packet visible",
+          "output": {
+            "candidate_id": "SC57-L02-RUNTIME",
+            "route_signature": "BrainstemChamber->ReplayKernel:runtime:replay_job"
+          }
+        },
+        {
+          "state": "SCORE",
+          "guard": "feature vector ready",
+          "output": {
+            "axes": {
+              "truth_readiness": 0.9,
+              "integration_yield": 0.8,
+              "replay_cost": 0.2,
+              "contradiction_heat": 0.1,
+              "pressure_gradient": 0.65,
+              "organ_adjacency": 0.85,
+              "branch_burden": 0.2,
+              "seed_value": 0.65,
+              "closure_gain": 0.8,
+              "heart_need": 0.7,
+              "replay_readiness": 0.25,
+              "failure_debt": 0.1,
+              "risk": 0.2,
+              "cost": 0.2
+            },
+            "numerator": 0.06188,
+            "denominator": 1.0,
+            "priority_score": 0.06188,
+            "urgency_modulated_score": 0.081991
+          }
+        },
+        {
+          "state": "GATE",
+          "guard": "lawful actions filtered through Omega, immune state, and burden limits",
+          "output": {
+            "lawful_actions": [
+              "HOLD",
+              "REQUEST_WITNESSES",
+              "REQUEST_HELP",
+              "REPLAY_FIRST",
+              "QUARANTINE",
+              "COMPRESS_TO_SEED",
+              "ESCALATE_TO_COMMITTEE",
+              "REFUSE_INADMISSIBLE"
+            ],
+            "chosen_action": "REPLAY_FIRST"
+          }
+        },
+        {
+          "state": "RECEIPT",
+          "guard": "typed motion result emitted",
+          "output": {
+            "action": "REPLAY_FIRST",
+            "reason": "Replay dependency remains unresolved, so motion must pass through ReplayKernel first.",
+            "obligations": [
+              "schedule replay job in ReplayKernel",
+              "block public closure until replay receipt returns"
+            ]
+          }
+        },
+        {
+          "state": "REPLAY_STORE",
+          "guard": "receipt emitted",
+          "output": {
+            "obligations": [
+              "schedule replay job in ReplayKernel",
+              "block public closure until replay receipt returns"
+            ],
+            "hysteresis_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\17_SUPER_CYCLE_57\\13_EXECUTION_STATE\\00_runner_hysteresis_state.json"
+          }
+        },
+        {
+          "state": "SEED",
+          "guard": "next lawful continuation determined",
+          "output": {
+            "seed_id": "sc57-r-p1-02__replay_first",
+            "seed_value": 0.65,
+            "origin_candidate_id": "SC57-L02-RUNTIME",
+            "origin_action": "REPLAY_FIRST",
+            "route_signature": "BrainstemChamber->ReplayKernel:runtime:replay_job",
+            "next_lawful_attempt": "replay_then_re-score",
+            "priority_score": 0.081991
+          }
+        }
+      ]
+    }
+  ],
+  "updated_hysteresis_state": {
+    "generated_at": "2026-03-13T17:32:32.065812+00:00",
+    "truth": "NEAR-derived",
+    "recently_refused": {
+      "Q_REFUSE": {
+        "count": 1,
+        "last_action": "REFUSE_INADMISSIBLE",
+        "updated_at": "2026-03-13T04:39:22.435688+00:00"
+      }
+    },
+    "recently_quarantined": {
+      "ImmuneScheduler->BrainstemChamber:immune:quarantine_packet": {
+        "last_action": "QUARANTINE",
+        "updated_at": "2026-03-13T04:39:22.435688+00:00"
+      }
+    },
+    "committee_pending_routes": [
+      "CommitteeChamber->BrainstemChamber:governance:committee_escalation"
+    ],
+    "history": [
+      {
+        "candidate_id": "Q_REFUSE",
+        "action": "REFUSE_INADMISSIBLE",
+        "route_signature": "QuestBoard->PublicCommitSurface:transport:quest_packet",
+        "priority_score": 0.27216,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_WITNESS",
+        "action": "REQUEST_WITNESSES",
+        "route_signature": "QuestBoard->BrainstemChamber:truth:quest_packet",
+        "priority_score": 0.25088,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_ACTIVATE",
+        "action": "ACTIVATE_NOW",
+        "route_signature": "QuestBoard->BrainstemChamber:transport:quest_packet",
+        "priority_score": 0.237196,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_ESCALATE",
+        "action": "ESCALATE_TO_COMMITTEE",
+        "route_signature": "CommitteeChamber->BrainstemChamber:governance:committee_escalation",
+        "priority_score": 0.190512,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_QUARANTINE",
+        "action": "QUARANTINE",
+        "route_signature": "ImmuneScheduler->BrainstemChamber:immune:quarantine_packet",
+        "priority_score": 0.089545,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_HOLD",
+        "action": "HOLD",
+        "route_signature": "QuestBoard->BrainstemChamber:transport:quest_packet",
+        "priority_score": 0.074938,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_COMPRESS",
+        "action": "REQUEST_WITNESSES",
+        "route_signature": "ContinuationSeedVault->BrainstemChamber:continuation:continuation_seed",
+        "priority_score": 0.06384,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_HELP",
+        "action": "REQUEST_HELP",
+        "route_signature": "AgentRegistry->BrainstemChamber:governance:help_request",
+        "priority_score": 0.063,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "Q_REPLAY",
+        "action": "REPLAY_FIRST",
+        "route_signature": "ImmuneScheduler->BrainstemChamber:replay:replay_job",
+        "priority_score": 0.049612,
+        "timestamp": "2026-03-13T04:39:22.435688+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-COMPRESSION",
+        "action": "HOLD",
+        "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet",
+        "priority_score": 0.102831,
+        "timestamp": "2026-03-13T17:31:56.205553+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-HALL",
+        "action": "HOLD",
+        "route_signature": "BrainstemChamber->QuestBoard:hall:quest_packet",
+        "priority_score": 0.102831,
+        "timestamp": "2026-03-13T17:31:56.205553+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-TEMPLE",
+        "action": "HOLD",
+        "route_signature": "BrainstemChamber->CommitteeChamber:temple:quest_packet",
+        "priority_score": 0.102831,
+        "timestamp": "2026-03-13T17:31:56.205553+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-RUNTIME",
+        "action": "REPLAY_FIRST",
+        "route_signature": "BrainstemChamber->ReplayKernel:runtime:replay_job",
+        "priority_score": 0.081991,
+        "timestamp": "2026-03-13T17:31:56.205553+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-COMPRESSION",
+        "action": "HOLD",
+        "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet",
+        "priority_score": 0.102831,
+        "timestamp": "2026-03-13T17:32:32.065812+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-HALL",
+        "action": "HOLD",
+        "route_signature": "BrainstemChamber->QuestBoard:hall:quest_packet",
+        "priority_score": 0.102831,
+        "timestamp": "2026-03-13T17:32:32.065812+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-TEMPLE",
+        "action": "HOLD",
+        "route_signature": "BrainstemChamber->CommitteeChamber:temple:quest_packet",
+        "priority_score": 0.102831,
+        "timestamp": "2026-03-13T17:32:32.065812+00:00"
+      },
+      {
+        "candidate_id": "SC57-L02-RUNTIME",
+        "action": "REPLAY_FIRST",
+        "route_signature": "BrainstemChamber->ReplayKernel:runtime:replay_job",
+        "priority_score": 0.081991,
+        "timestamp": "2026-03-13T17:32:32.065812+00:00"
+      }
+    ],
+    "seeded_for": "super_cycle_57_runner",
+    "seeded_at": "2026-03-13T17:31:44.690715+00:00"
+  }
+}

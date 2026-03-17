@@ -1,0 +1,17 @@
+{
+  "protocol_id": "COMMAND_MEMBRANE_V1",
+  "canonical_authority": "NEXT57",
+  "canonical_surface": "GLOBAL COMMAND",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "witness_class": "LOCAL_WITNESS_ONLY",
+    "detail": "blocked-by-missing-credentials",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "credentials_exists": false,
+    "token_exists": false
+  },
+  "state_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane_state.json"
+}

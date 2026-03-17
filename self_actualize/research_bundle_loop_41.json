@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L41",
+  "status": "PENDING",
+  "lead_agent": "PRUNER",
+  "objective": "synthesize redundancy within family capsules",
+  "advancement_tuple": {
+    "focus_family": "capsules",
+    "frontier_type": "capsule-tightening",
+    "dominant_evidence_class": "capsule-ledger",
+    "compression_target": "intra-family-bloat"
+  },
+  "truth_state": "NEAR"
+}

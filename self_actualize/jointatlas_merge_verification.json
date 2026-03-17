@@ -1,0 +1,103 @@
+{
+  "generated_at": "2026-03-13T04:17:38.653667+00:00",
+  "derivation_version": "2026-03-13.jointatlas-merge-automaton-v0",
+  "derivation_command": "python -m self_actualize.runtime.derive_jointatlas_merge_automaton",
+  "truth": "OK",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "package_test": {
+    "command": "NERUAL NETWORK\\TEST SUITES\\verify_jointatlas_merge_automaton.py",
+    "returncode": 0,
+    "stdout": "{\n  \"transition_graph\": {\n    \"graph_state_count\": 10\n  },\n  \"terminal_destinations\": {\n    \"terminal_destinations\": {\n      \"DECIDED_COMMIT\": \"COMMIT\",\n      \"DECIDED_DEFER_NEAR\": \"DEFER_NEAR\",\n      \"DECIDED_DEFER_AMBIG\": \"DEFER_AMBIG\",\n      \"DECIDED_REFUSE\": \"REFUSE\",\n      \"DECIDED_QUARANTINE\": \"QUARANTINE_FAIL\"\n    }\n  },\n  \"commit_path\": {\n    \"final_state\": \"DECIDED_COMMIT\",\n    \"destination\": \"COMMIT\",\n    \"ledger_entry\": \"MLE-0001\"\n  },\n  \"defer_near_path\": {\n    \"destination\": \"DEFER_NEAR\"\n  },\n  \"defer_ambig_path\": {\n    \"destination\": \"DEFER_AMBIG\"\n  },\n  \"quarantine_path\": {\n    \"destination\": \"QUARANTINE_FAIL\"\n  },\n  \"refuse_path\": {\n    \"destination\": \"REFUSE\"\n  },\n  \"forbidden_bypasses\": {\n    \"forbidden_bypasses_checked\": 2\n  },\n  \"guard_failures\": {\n    \"guard_failures_checked\": 3\n  }\n}",
+    "stderr": "",
+    "truth": "OK",
+    "report": {
+      "transition_graph": {
+        "graph_state_count": 10
+      },
+      "terminal_destinations": {
+        "terminal_destinations": {
+          "DECIDED_COMMIT": "COMMIT",
+          "DECIDED_DEFER_NEAR": "DEFER_NEAR",
+          "DECIDED_DEFER_AMBIG": "DEFER_AMBIG",
+          "DECIDED_REFUSE": "REFUSE",
+          "DECIDED_QUARANTINE": "QUARANTINE_FAIL"
+        }
+      },
+      "commit_path": {
+        "final_state": "DECIDED_COMMIT",
+        "destination": "COMMIT",
+        "ledger_entry": "MLE-0001"
+      },
+      "defer_near_path": {
+        "destination": "DEFER_NEAR"
+      },
+      "defer_ambig_path": {
+        "destination": "DEFER_AMBIG"
+      },
+      "quarantine_path": {
+        "destination": "QUARANTINE_FAIL"
+      },
+      "refuse_path": {
+        "destination": "REFUSE"
+      },
+      "forbidden_bypasses": {
+        "forbidden_bypasses_checked": 2
+      },
+      "guard_failures": {
+        "guard_failures_checked": 3
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "package_test_suite",
+      "truth": "OK",
+      "detail": "NERUAL NETWORK\\TEST SUITES\\verify_jointatlas_merge_automaton.py"
+    },
+    {
+      "name": "fixture_case_count",
+      "truth": "OK",
+      "detail": 5
+    },
+    {
+      "name": "ledger_entry_ids_monotonic",
+      "truth": "OK",
+      "detail": [
+        "MLE-0001",
+        "MLE-0002",
+        "MLE-0003",
+        "MLE-0004",
+        "MLE-0005"
+      ]
+    },
+    {
+      "name": "control_plane_grammar_mentions_adjudication",
+      "truth": "OK",
+      "detail": "self_actualize\\mycelium_brain\\nervous_system\\22_control_plane_grammar.md"
+    },
+    {
+      "name": "promotion_protocol_mentions_decided_commit_gate",
+      "truth": "OK",
+      "detail": "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\06_GUILD_PROMOTION_PROTOCOL.md"
+    },
+    {
+      "name": "hall_writeback_mentions_motion_constitution_l1",
+      "truth": "OK",
+      "detail": [
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\04_CHANGE_FEED_BOARD.md"
+      ]
+    },
+    {
+      "name": "docs_gate_still_blocked",
+      "truth": "OK",
+      "detail": "blocked-by-missing-credentials"
+    },
+    {
+      "name": "atlas_refresh_complete",
+      "truth": "OK",
+      "detail": 7769
+    }
+  ],
+  "next_seed": "MotionConstitution_L1"
+}

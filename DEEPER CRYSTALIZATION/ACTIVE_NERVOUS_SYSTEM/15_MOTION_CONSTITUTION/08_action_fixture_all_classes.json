@@ -1,0 +1,371 @@
+{
+  "brainstem_state": {
+    "G": "quest-board graph plus committee and replay addresses",
+    "Pi": "mixed pressure field over closure, heart need, and unfinished routes",
+    "Omega": {
+      "status": "MIXED",
+      "denied_packet_ids": [
+        "Q_REFUSE"
+      ]
+    },
+    "I": {
+      "quarantine_classes": [
+        "quarantine:contradiction"
+      ],
+      "unresolved_failure_classes": [
+        "unresolved-failure:route"
+      ],
+      "committee_pending_routes": []
+    },
+    "R": {
+      "replay_capacity": 0.7,
+      "replay_memory_quality": 0.82
+    }
+  },
+  "parameters": {
+    "weights": {
+      "truth_readiness": 1.0,
+      "integration_yield": 1.0,
+      "replay_cost": 1.0,
+      "contradiction_heat": 1.0,
+      "pressure_gradient": 1.0,
+      "organ_adjacency": 1.0,
+      "branch_burden": 1.0,
+      "seed_value": 1.0,
+      "closure_gain": 1.0,
+      "heart_need": 1.0,
+      "replay_readiness": 1.0,
+      "failure_debt": 1.0,
+      "risk": 1.0,
+      "cost": 1.0
+    },
+    "beta": 0.5
+  },
+  "candidates": [
+    {
+      "id": "Q_ACTIVATE",
+      "title": "Promote a replay-ready lawful packet",
+      "source_queue": "QuestBoard",
+      "role_family": "governance",
+      "source_organ": "QuestBoard",
+      "target_organ": "BrainstemChamber",
+      "current_family": "transport",
+      "truth_burden": "moderate",
+      "packet_type_expected": "quest_packet",
+      "continuation_seed": "seed_activate",
+      "dependencies": [],
+      "blockers": [],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.8,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.6,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.7,
+        "closure_gain": 0.8,
+        "heart_need": 0.7,
+        "replay_readiness": 0.8,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {}
+    },
+    {
+      "id": "Q_HOLD",
+      "title": "Keep a lawful packet in timing hold",
+      "source_queue": "QuestBoard",
+      "role_family": "governance",
+      "source_organ": "QuestBoard",
+      "target_organ": "BrainstemChamber",
+      "current_family": "transport",
+      "truth_burden": "moderate",
+      "packet_type_expected": "quest_packet",
+      "continuation_seed": "seed_hold",
+      "dependencies": [
+        "upstream_window"
+      ],
+      "blockers": [],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.8,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.3,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.7,
+        "closure_gain": 0.5,
+        "heart_need": 0.4,
+        "replay_readiness": 0.8,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "timing_not_lawful": true
+      }
+    },
+    {
+      "id": "Q_WITNESS",
+      "title": "Require additional witnesses before motion",
+      "source_queue": "QuestBoard",
+      "role_family": "truth",
+      "source_organ": "QuestBoard",
+      "target_organ": "BrainstemChamber",
+      "current_family": "truth",
+      "truth_burden": "heavy",
+      "packet_type_expected": "quest_packet",
+      "continuation_seed": "seed_witness",
+      "dependencies": [],
+      "blockers": [
+        "missing_primary_witness"
+      ],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.35,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.5,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.8,
+        "closure_gain": 0.8,
+        "heart_need": 0.7,
+        "replay_readiness": 0.7,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "truth_burden_unsatisfied": true
+      }
+    },
+    {
+      "id": "Q_HELP",
+      "title": "Reroute a packet to another role family",
+      "source_queue": "AgentRegistry",
+      "role_family": "agent-support",
+      "source_organ": "AgentRegistry",
+      "target_organ": "BrainstemChamber",
+      "current_family": "governance",
+      "truth_burden": "light",
+      "packet_type_expected": "help_request",
+      "continuation_seed": "seed_help",
+      "dependencies": [],
+      "blockers": [
+        "role_current_mismatch"
+      ],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.8,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.5,
+        "organ_adjacency": 0.5,
+        "branch_burden": 0.2,
+        "seed_value": 0.7,
+        "closure_gain": 0.45,
+        "heart_need": 0.5,
+        "replay_readiness": 0.8,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "role_mismatch": true
+      }
+    },
+    {
+      "id": "Q_REPLAY",
+      "title": "Replay before attempting closure",
+      "source_queue": "Immune scheduler outputs",
+      "role_family": "replay",
+      "source_organ": "ImmuneScheduler",
+      "target_organ": "BrainstemChamber",
+      "current_family": "replay",
+      "truth_burden": "moderate",
+      "packet_type_expected": "replay_job",
+      "continuation_seed": "seed_replay",
+      "dependencies": [
+        "replay_capsule"
+      ],
+      "blockers": [
+        "replay_not_yet_executed"
+      ],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.8,
+        "integration_yield": 0.8,
+        "replay_cost": 0.8,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.7,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.7,
+        "closure_gain": 0.75,
+        "heart_need": 0.7,
+        "replay_readiness": 0.25,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "replay_dependency_unresolved": true
+      }
+    },
+    {
+      "id": "Q_QUARANTINE",
+      "title": "Contain a forbidden contradiction packet",
+      "source_queue": "Immune scheduler outputs",
+      "role_family": "immune",
+      "source_organ": "ImmuneScheduler",
+      "target_organ": "BrainstemChamber",
+      "current_family": "immune",
+      "truth_burden": "moderate",
+      "packet_type_expected": "quarantine_packet",
+      "continuation_seed": "seed_quarantine",
+      "dependencies": [],
+      "blockers": [
+        "contradiction_heat_spike"
+      ],
+      "blocker_classes": [
+        "quarantine:contradiction",
+        "unresolved-failure:route"
+      ],
+      "axes": {
+        "truth_readiness": 0.8,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.95,
+        "pressure_gradient": 0.9,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.7,
+        "closure_gain": 0.8,
+        "heart_need": 0.7,
+        "replay_readiness": 0.8,
+        "failure_debt": 0.8,
+        "risk": 0.9,
+        "cost": 0.2
+      },
+      "flags": {}
+    },
+    {
+      "id": "Q_COMPRESS",
+      "title": "Compress a blocked branch into a continuation seed",
+      "source_queue": "Continuation seeds",
+      "role_family": "continuation",
+      "source_organ": "ContinuationSeedVault",
+      "target_organ": "BrainstemChamber",
+      "current_family": "continuation",
+      "truth_burden": "light",
+      "packet_type_expected": "continuation_seed",
+      "continuation_seed": "seed_compress",
+      "dependencies": [],
+      "blockers": [
+        "circulation_window_closed"
+      ],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.65,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.5,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.95,
+        "closure_gain": 0.35,
+        "heart_need": 0.3,
+        "replay_readiness": 0.8,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "circulation_blocked": true,
+        "continuation_value_remaining": true
+      }
+    },
+    {
+      "id": "Q_ESCALATE",
+      "title": "Escalate a stewardship-heavy branch",
+      "source_queue": "Committee outputs",
+      "role_family": "committee",
+      "source_organ": "CommitteeChamber",
+      "target_organ": "BrainstemChamber",
+      "current_family": "governance",
+      "truth_burden": "heavy",
+      "packet_type_expected": "committee_escalation",
+      "continuation_seed": "seed_escalate",
+      "dependencies": [],
+      "blockers": [
+        "branch_limit"
+      ],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.8,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.5,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.92,
+        "seed_value": 0.8,
+        "closure_gain": 0.8,
+        "heart_need": 0.8,
+        "replay_readiness": 0.8,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "committee_required": true
+      }
+    },
+    {
+      "id": "Q_REFUSE",
+      "title": "Refuse an inadmissible public-scope move",
+      "source_queue": "QuestBoard",
+      "role_family": "public",
+      "source_organ": "QuestBoard",
+      "target_organ": "PublicCommitSurface",
+      "current_family": "transport",
+      "truth_burden": "heavy",
+      "packet_type_expected": "quest_packet",
+      "continuation_seed": "seed_refuse",
+      "dependencies": [],
+      "blockers": [
+        "omega_denied"
+      ],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.6,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.5,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.7,
+        "closure_gain": 0.9,
+        "heart_need": 0.9,
+        "replay_readiness": 0.6,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "omega_denied": true,
+        "inadmissible_scope": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "promoted_at": "2026-03-09T19:20:54+00:00",
+  "source_archive": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip",
+  "source_archive_sha256": "0697e4a31eb52fb18fb3f8c995d2bebf4ec759b9e7a8e1216870a7296a54f1f7",
+  "live_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework",
+  "package_root": "atlasforge",
+  "preserved_root_files": [
+    "README.md",
+    "pyproject.toml",
+    "setup.py"
+  ],
+  "preserved_adjacent_dirs": [
+    "atlasforge",
+    "docs"
+  ],
+  "extracted_file_count": 314,
+  "skipped_count": 41,
+  "skip_rules": [
+    "__pycache__",
+    "*.pyc"
+  ],
+  "validation": {
+    "command": "PYTHONIOENCODING=utf-8 python -m atlasforge.verify_installation",
+    "truth": "NEAR",
+    "residual": "WinError 32 during temporary sqlite cleanup in memory-bank teardown"
+  },
+  "atlas_writeback": {
+    "corpus_atlas": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+    "indexed_before": 6040,
+    "indexed_after": 6507,
+    "physical_after": 6518
+  }
+}

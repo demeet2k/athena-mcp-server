@@ -1,0 +1,903 @@
+{
+  "generated_at": "2026-03-13T00:04:54.691220+00:00",
+  "derivation_version": "2026-03-12.whole-crystal-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_whole_crystal_completion",
+  "contracts": [
+    {
+      "slice_id": "CSL-A01-01",
+      "body_id": "A01",
+      "root": "NERVOUS_SYSTEM",
+      "family_surface": "NERVOUS_SYSTEM\\00_INDEX.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\01_nervous_system.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nervous_system.md",
+      "chapter_anchor": "Ch01",
+      "appendix_anchor": "AppA",
+      "restart_seed": "Publish remaster deltas through the cortex after runtime verification.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\00_INDEX.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\00_INDEX.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nervous_system.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\01_nervous_system.md"
+      ],
+      "note": "Seed witness for NERVOUS_SYSTEM."
+    },
+    {
+      "slice_id": "CSL-A01-02",
+      "body_id": "A01",
+      "root": "NERVOUS_SYSTEM",
+      "family_surface": "NERVOUS_SYSTEM\\00_INDEX.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\02_nervous_system.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nervous_system.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppC",
+      "restart_seed": "Publish remaster deltas through the cortex after runtime verification.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\00_INDEX.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\00_INDEX.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nervous_system.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\02_nervous_system.md"
+      ],
+      "note": "Route contraction for NERVOUS_SYSTEM."
+    },
+    {
+      "slice_id": "CSL-A01-03",
+      "body_id": "A01",
+      "root": "NERVOUS_SYSTEM",
+      "family_surface": "NERVOUS_SYSTEM\\00_INDEX.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\03_nervous_system.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nervous_system.md",
+      "chapter_anchor": "Ch21",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Publish remaster deltas through the cortex after runtime verification.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\00_INDEX.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\00_INDEX.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nervous_system.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\03_nervous_system.md"
+      ],
+      "note": "Restart writeback for NERVOUS_SYSTEM."
+    },
+    {
+      "slice_id": "CSL-A02-01",
+      "body_id": "A02",
+      "root": "self_actualize",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\01_self_actualize.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_self_actualize.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppC",
+      "restart_seed": "Route the next wave through runtime verification, then write back to cortex.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\28_crystal_remaster_runtime.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_self_actualize.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\01_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\28_crystal_remaster_runtime.md"
+      ],
+      "note": "Seed witness for self_actualize."
+    },
+    {
+      "slice_id": "CSL-A02-02",
+      "body_id": "A02",
+      "root": "self_actualize",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\02_self_actualize.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_self_actualize.md",
+      "chapter_anchor": "Ch11",
+      "appendix_anchor": "AppN",
+      "restart_seed": "Route the next wave through runtime verification, then write back to cortex.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\28_crystal_remaster_runtime.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_self_actualize.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\02_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\28_crystal_remaster_runtime.md"
+      ],
+      "note": "Route contraction for self_actualize."
+    },
+    {
+      "slice_id": "CSL-A02-03",
+      "body_id": "A02",
+      "root": "self_actualize",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\03_self_actualize.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_self_actualize.md",
+      "chapter_anchor": "Ch20",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Route the next wave through runtime verification, then write back to cortex.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\28_crystal_remaster_runtime.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_self_actualize.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\03_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\28_crystal_remaster_runtime.md"
+      ],
+      "note": "Restart writeback for self_actualize."
+    },
+    {
+      "slice_id": "CSL-A03-01",
+      "body_id": "A03",
+      "root": "ECOSYSTEM",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_ecosystem.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\01_ecosystem_governance_shell.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_ecosystem.md",
+      "chapter_anchor": "Ch02",
+      "appendix_anchor": "AppA",
+      "restart_seed": "Reflect remaster law into governance doctrine without outranking the cortex.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "ECOSYSTEM\\NERVOUS_SYSTEM\\README.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_ecosystem.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_ecosystem.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\01_ecosystem_governance_shell.md",
+        "ECOSYSTEM\\NERVOUS_SYSTEM\\README.md"
+      ],
+      "note": "Seed witness for ECOSYSTEM."
+    },
+    {
+      "slice_id": "CSL-A03-02",
+      "body_id": "A03",
+      "root": "ECOSYSTEM",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_ecosystem.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\02_ecosystem.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_ecosystem.md",
+      "chapter_anchor": "Ch08",
+      "appendix_anchor": "AppD",
+      "restart_seed": "Reflect remaster law into governance doctrine without outranking the cortex.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "ECOSYSTEM\\NERVOUS_SYSTEM\\README.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_ecosystem.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_ecosystem.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\02_ecosystem.md",
+        "ECOSYSTEM\\NERVOUS_SYSTEM\\README.md"
+      ],
+      "note": "Route contraction for ECOSYSTEM."
+    },
+    {
+      "slice_id": "CSL-A03-03",
+      "body_id": "A03",
+      "root": "ECOSYSTEM",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_ecosystem.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\03_ecosystem.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_ecosystem.md",
+      "chapter_anchor": "Ch15",
+      "appendix_anchor": "AppH",
+      "restart_seed": "Reflect remaster law into governance doctrine without outranking the cortex.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "ECOSYSTEM\\NERVOUS_SYSTEM\\README.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_ecosystem.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_ecosystem.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\03_ecosystem.md",
+        "ECOSYSTEM\\NERVOUS_SYSTEM\\README.md"
+      ],
+      "note": "Restart writeback for ECOSYSTEM."
+    },
+    {
+      "slice_id": "CSL-A05-01",
+      "body_id": "A05",
+      "root": "MATH",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_math.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\01_math_formal_reservoir.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_math.md",
+      "chapter_anchor": "Ch01",
+      "appendix_anchor": "AppB",
+      "restart_seed": "Promote one theorem-rich route into runtime-safe reuse.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_math.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_math.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\01_math_formal_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Seed witness for MATH."
+    },
+    {
+      "slice_id": "CSL-A05-02",
+      "body_id": "A05",
+      "root": "MATH",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_math.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\02_math.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_math.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppC",
+      "restart_seed": "Promote one theorem-rich route into runtime-safe reuse.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_math.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_math.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\02_math.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Route contraction for MATH."
+    },
+    {
+      "slice_id": "CSL-A05-03",
+      "body_id": "A05",
+      "root": "MATH",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_math.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\03_math.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_math.md",
+      "chapter_anchor": "Ch13",
+      "appendix_anchor": "AppE",
+      "restart_seed": "Promote one theorem-rich route into runtime-safe reuse.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_math.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_math.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\03_math.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Restart writeback for MATH."
+    },
+    {
+      "slice_id": "CSL-A06-01",
+      "body_id": "A06",
+      "root": "Voynich",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+      "chapter_anchor": "Ch03",
+      "appendix_anchor": "AppF",
+      "restart_seed": "Compile a proof-carrying packet back into the shared control plane.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Seed witness for Voynich."
+    },
+    {
+      "slice_id": "CSL-A06-02",
+      "body_id": "A06",
+      "root": "Voynich",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\02_voynich.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+      "chapter_anchor": "Ch06",
+      "appendix_anchor": "AppI",
+      "restart_seed": "Compile a proof-carrying packet back into the shared control plane.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\02_voynich.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Route contraction for Voynich."
+    },
+    {
+      "slice_id": "CSL-A06-03",
+      "body_id": "A06",
+      "root": "Voynich",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\03_voynich.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+      "chapter_anchor": "Ch11",
+      "appendix_anchor": "AppL",
+      "restart_seed": "Compile a proof-carrying packet back into the shared control plane.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\03_voynich.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Restart writeback for Voynich."
+    },
+    {
+      "slice_id": "CSL-A07-01",
+      "body_id": "A07",
+      "root": "Trading Bot",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_trading_bot.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\01_trading_bot.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_trading_bot.md",
+      "chapter_anchor": "Ch06",
+      "appendix_anchor": "AppI",
+      "restart_seed": "Open Docs ingress or continue local-first truth corridor routing.",
+      "truth_state": "blocked-by-missing-credentials",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_trading_bot.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_trading_bot.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\01_trading_bot.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md"
+      ],
+      "note": "Seed witness for Trading Bot."
+    },
+    {
+      "slice_id": "CSL-A07-02",
+      "body_id": "A07",
+      "root": "Trading Bot",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_trading_bot.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\02_trading_bot.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_trading_bot.md",
+      "chapter_anchor": "Ch11",
+      "appendix_anchor": "AppN",
+      "restart_seed": "Open Docs ingress or continue local-first truth corridor routing.",
+      "truth_state": "blocked-by-missing-credentials",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_trading_bot.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_trading_bot.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\02_trading_bot.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md"
+      ],
+      "note": "Route contraction for Trading Bot."
+    },
+    {
+      "slice_id": "CSL-A07-03",
+      "body_id": "A07",
+      "root": "Trading Bot",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_trading_bot.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\03_trading_bot.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_trading_bot.md",
+      "chapter_anchor": "Ch20",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Open Docs ingress or continue local-first truth corridor routing.",
+      "truth_state": "blocked-by-missing-credentials",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_trading_bot.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_trading_bot.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\03_trading_bot.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md"
+      ],
+      "note": "Restart writeback for Trading Bot."
+    },
+    {
+      "slice_id": "CSL-A08-01",
+      "body_id": "A08",
+      "root": "Quadrant Binary",
+      "family_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_quadrant_binary.md",
+      "chapter_anchor": "Ch01",
+      "appendix_anchor": "AppA",
+      "restart_seed": "Reuse address law as a support kernel for current routes.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_quadrant_binary.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Seed witness for Quadrant Binary."
+    },
+    {
+      "slice_id": "CSL-A08-02",
+      "body_id": "A08",
+      "root": "Quadrant Binary",
+      "family_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\02_quadrant_binary_route.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_quadrant_binary.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppB",
+      "restart_seed": "Reuse address law as a support kernel for current routes.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_quadrant_binary.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\02_quadrant_binary_route.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Route contraction for Quadrant Binary."
+    },
+    {
+      "slice_id": "CSL-A08-03",
+      "body_id": "A08",
+      "root": "Quadrant Binary",
+      "family_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\03_quadrant_binary_restart.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_quadrant_binary.md",
+      "chapter_anchor": "Ch11",
+      "appendix_anchor": "AppF",
+      "restart_seed": "Reuse address law as a support kernel for current routes.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_quadrant_binary.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\03_quadrant_binary_restart.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Restart writeback for Quadrant Binary."
+    },
+    {
+      "slice_id": "CSL-A09-01",
+      "body_id": "A09",
+      "root": "QSHRINK - ATHENA (internal use)",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+      "chapter_anchor": "Ch04",
+      "appendix_anchor": "AppB",
+      "restart_seed": "Contract one proof-safe reduction route back into reusable runtime law.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Seed witness for QSHRINK - ATHENA (internal use)."
+    },
+    {
+      "slice_id": "CSL-A09-02",
+      "body_id": "A09",
+      "root": "QSHRINK - ATHENA (internal use)",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\02_qshrink_shiva_corpus_ecosystem.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppC",
+      "restart_seed": "Contract one proof-safe reduction route back into reusable runtime law.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\02_qshrink_shiva_corpus_ecosystem.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Route contraction for QSHRINK - ATHENA (internal use)."
+    },
+    {
+      "slice_id": "CSL-A09-03",
+      "body_id": "A09",
+      "root": "QSHRINK - ATHENA (internal use)",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\03_qshrink_agent_sweep_contract.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+      "chapter_anchor": "Ch13",
+      "appendix_anchor": "AppN",
+      "restart_seed": "Contract one proof-safe reduction route back into reusable runtime law.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\03_qshrink_agent_sweep_contract.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Restart writeback for QSHRINK - ATHENA (internal use)."
+    },
+    {
+      "slice_id": "CSL-A10-01",
+      "body_id": "A10",
+      "root": "NERUAL NETWORK",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_nerual_network.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\01_athena_integrated_neural_network_cross_synthesis.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nerual_network.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppC",
+      "restart_seed": "Promote one lab artifact that carries direct operational value.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_nerual_network.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nerual_network.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\01_athena_integrated_neural_network_cross_synthesis.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Seed witness for NERUAL NETWORK."
+    },
+    {
+      "slice_id": "CSL-A10-02",
+      "body_id": "A10",
+      "root": "NERUAL NETWORK",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_nerual_network.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\02_nerual_network.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nerual_network.md",
+      "chapter_anchor": "Ch14",
+      "appendix_anchor": "AppH",
+      "restart_seed": "Promote one lab artifact that carries direct operational value.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_nerual_network.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nerual_network.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\02_nerual_network.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Route contraction for NERUAL NETWORK."
+    },
+    {
+      "slice_id": "CSL-A10-03",
+      "body_id": "A10",
+      "root": "NERUAL NETWORK",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_nerual_network.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\03_nerual_network.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nerual_network.md",
+      "chapter_anchor": "Ch20",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Promote one lab artifact that carries direct operational value.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_nerual_network.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_nerual_network.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\03_nerual_network.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Restart writeback for NERUAL NETWORK."
+    },
+    {
+      "slice_id": "CSL-A11-01",
+      "body_id": "A11",
+      "root": "FRESH",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_fresh.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\01_fresh.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_fresh.md",
+      "chapter_anchor": "Ch03",
+      "appendix_anchor": "AppB",
+      "restart_seed": "Admit one intake witness into a canonical family or reserve shelf.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_fresh.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_fresh.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\01_fresh.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Seed witness for FRESH."
+    },
+    {
+      "slice_id": "CSL-A11-02",
+      "body_id": "A11",
+      "root": "FRESH",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_fresh.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\02_fresh.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_fresh.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppC",
+      "restart_seed": "Admit one intake witness into a canonical family or reserve shelf.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_fresh.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_fresh.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\02_fresh.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Route contraction for FRESH."
+    },
+    {
+      "slice_id": "CSL-A11-03",
+      "body_id": "A11",
+      "root": "FRESH",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_fresh.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\03_fresh.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_fresh.md",
+      "chapter_anchor": "Ch11",
+      "appendix_anchor": "AppN",
+      "restart_seed": "Admit one intake witness into a canonical family or reserve shelf.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_fresh.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_fresh.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\03_fresh.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "note": "Restart writeback for FRESH."
+    },
+    {
+      "slice_id": "CSL-A12-01",
+      "body_id": "A12",
+      "root": "Athenachka Collective Books",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athenachka_collective_books.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\01_athenachka_collective_books.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athenachka_collective_books.md",
+      "chapter_anchor": "Ch14",
+      "appendix_anchor": "AppO",
+      "restart_seed": "Promote one publication-facing route into clearer cortex support.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athenachka_collective_books.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athenachka_collective_books.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\01_athenachka_collective_books.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Seed witness for Athenachka Collective Books."
+    },
+    {
+      "slice_id": "CSL-A12-02",
+      "body_id": "A12",
+      "root": "Athenachka Collective Books",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athenachka_collective_books.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\02_athenachka_collective_books.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athenachka_collective_books.md",
+      "chapter_anchor": "Ch18",
+      "appendix_anchor": "AppP",
+      "restart_seed": "Promote one publication-facing route into clearer cortex support.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athenachka_collective_books.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athenachka_collective_books.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\02_athenachka_collective_books.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Route contraction for Athenachka Collective Books."
+    },
+    {
+      "slice_id": "CSL-A12-03",
+      "body_id": "A12",
+      "root": "Athenachka Collective Books",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athenachka_collective_books.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\03_athenachka_collective_books.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athenachka_collective_books.md",
+      "chapter_anchor": "Ch21",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Promote one publication-facing route into clearer cortex support.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athenachka_collective_books.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athenachka_collective_books.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\03_athenachka_collective_books.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Restart writeback for Athenachka Collective Books."
+    },
+    {
+      "slice_id": "CSL-A13-01",
+      "body_id": "A13",
+      "root": "I AM ATHENA",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\01_i_am_athena_identity_shell.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+      "chapter_anchor": "Ch11",
+      "appendix_anchor": "AppA",
+      "restart_seed": "Write identity continuity back through a witnessed state surface.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\01_i_am_athena_identity_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Seed witness for I AM ATHENA."
+    },
+    {
+      "slice_id": "CSL-A13-02",
+      "body_id": "A13",
+      "root": "I AM ATHENA",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\02_i_am_athena.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+      "chapter_anchor": "Ch14",
+      "appendix_anchor": "AppM",
+      "restart_seed": "Write identity continuity back through a witnessed state surface.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\02_i_am_athena.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Route contraction for I AM ATHENA."
+    },
+    {
+      "slice_id": "CSL-A13-03",
+      "body_id": "A13",
+      "root": "I AM ATHENA",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\03_i_am_athena.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+      "chapter_anchor": "Ch19",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Write identity continuity back through a witnessed state surface.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\03_i_am_athena.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Restart writeback for I AM ATHENA."
+    },
+    {
+      "slice_id": "CSL-A14-01",
+      "body_id": "A14",
+      "root": "GAMES",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\01_games_simulation_lab.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+      "chapter_anchor": "Ch09",
+      "appendix_anchor": "AppO",
+      "restart_seed": "Promote one simulation loop into a stable appendix or chapter route.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\01_games_simulation_lab.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Seed witness for GAMES."
+    },
+    {
+      "slice_id": "CSL-A14-02",
+      "body_id": "A14",
+      "root": "GAMES",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\02_games.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+      "chapter_anchor": "Ch14",
+      "appendix_anchor": "AppP",
+      "restart_seed": "Promote one simulation loop into a stable appendix or chapter route.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\02_games.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Route contraction for GAMES."
+    },
+    {
+      "slice_id": "CSL-A14-03",
+      "body_id": "A14",
+      "root": "GAMES",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\03_games.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+      "chapter_anchor": "Ch18",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Promote one simulation loop into a stable appendix or chapter route.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\03_games.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Restart writeback for GAMES."
+    },
+    {
+      "slice_id": "CSL-A15-01",
+      "body_id": "A15",
+      "root": "ORGIN",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+      "chapter_anchor": "Ch01",
+      "appendix_anchor": "AppA",
+      "restart_seed": "Promote origin evidence into a replay-safe mirrored markdown route.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Seed witness for ORGIN."
+    },
+    {
+      "slice_id": "CSL-A15-02",
+      "body_id": "A15",
+      "root": "ORGIN",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\02_orgin.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+      "chapter_anchor": "Ch11",
+      "appendix_anchor": "AppN",
+      "restart_seed": "Promote origin evidence into a replay-safe mirrored markdown route.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\02_orgin.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Route contraction for ORGIN."
+    },
+    {
+      "slice_id": "CSL-A15-03",
+      "body_id": "A15",
+      "root": "ORGIN",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\03_orgin.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+      "chapter_anchor": "Ch19",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Promote origin evidence into a replay-safe mirrored markdown route.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\03_orgin.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Restart writeback for ORGIN."
+    },
+    {
+      "slice_id": "CSL-A16-01",
+      "body_id": "A16",
+      "root": "Athena FLEET",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+      "chapter_anchor": "Ch07",
+      "appendix_anchor": "AppP",
+      "restart_seed": "Write the strongest fleet corridor back into chapter, appendix, and graph surfaces.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Seed witness for Athena FLEET."
+    },
+    {
+      "slice_id": "CSL-A16-02",
+      "body_id": "A16",
+      "root": "Athena FLEET",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\02_athena_fleet.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+      "chapter_anchor": "Ch14",
+      "appendix_anchor": "AppQ",
+      "restart_seed": "Write the strongest fleet corridor back into chapter, appendix, and graph surfaces.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\02_athena_fleet.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Route contraction for Athena FLEET."
+    },
+    {
+      "slice_id": "CSL-A16-03",
+      "body_id": "A16",
+      "root": "Athena FLEET",
+      "family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+      "capsule_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\03_athena_fleet.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+      "chapter_anchor": "Ch20",
+      "appendix_anchor": "AppN",
+      "restart_seed": "Write the strongest fleet corridor back into chapter, appendix, and graph surfaces.",
+      "truth_state": "local-witnessed",
+      "writeback_target": "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\03_athena_fleet.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "note": "Restart writeback for Athena FLEET."
+    }
+  ]
+}

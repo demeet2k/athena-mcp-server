@@ -1,14 +1,28 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
+import math
 import hashlib
 import json
 import os
 import time
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from dataclasses import asdict
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+
+from .contracts import (
+    CapillaryEdgeV1,
+    CommitReceiptV1,
+    CommandClaimLeaseV1,
+    CommandEventPacketV1,
+    CommandExecutionReceiptV1,
+    CommandReinforcementReceiptV1,
+    CommandRouteDecisionV1,
+    LatencySampleV1,
+    OMEGA_KEY,
+)
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
@@ -71,6 +85,65 @@ LEGACY_CLAIMS_PATH = (
 )
 DOCS_GATE_RECEIPT_PATH = WORKSPACE_ROOT / "self_actualize" / "live_docs_gate_status.md"
 TRADING_BOT_ROOT = WORKSPACE_ROOT / "Trading Bot"
+COMMAND_MEMBRANE_STATE_PATH = WORKSPACE_ROOT / "NERVOUS_SYSTEM" / "95_MANIFESTS" / "COMMAND_MEMBRANE_STATE.json"
+COMMAND_FOLDER_ROOT = WORKSPACE_ROOT / "GLOBAL COMMAND"
+COMMAND_PROTOCOL_V1_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_protocol.json"
+COMMAND_PACKET_SCHEMA_V1_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_event_packet_schema.json"
+COMMAND_CAPILLARY_LAW_V1_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_capillary_law.json"
+COMMAND_LATENCY_V1_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_latency_benchmarks.json"
+COMMAND_PROTOCOL_REGISTRY_V1_PATH = (
+    WORKSPACE_ROOT / "self_actualize" / "mycelium_brain" / "registry" / "command_membrane_protocol_v1.json"
+)
+COMMAND_PROTOCOL_V2_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_protocol_v2.json"
+COMMAND_PACKET_SCHEMA_V2_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_event_packet_schema_v2.json"
+COMMAND_CAPILLARY_LAW_V2_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_capillary_law_v2.json"
+COMMAND_LATENCY_V2_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_latency_benchmarks_v2.json"
+COMMAND_PROTOCOL_REGISTRY_V2_PATH = (
+    WORKSPACE_ROOT / "self_actualize" / "mycelium_brain" / "registry" / "command_membrane_protocol_v2.json"
+)
+COMMAND_STATE_ROOT = STATE_ROOT / "command_membrane"
+COMMAND_SNAPSHOT_PATH = COMMAND_STATE_ROOT / "last_command_snapshot.json"
+COMMAND_RUNTIME_STATE_PATH = COMMAND_STATE_ROOT / "command_runtime_state.json"
+COMMAND_PACKET_LOG_PATH = COMMAND_STATE_ROOT / "command_packets.json"
+COMMAND_ROUTE_LOG_PATH = COMMAND_STATE_ROOT / "command_route_decisions.json"
+COMMAND_LEASE_LOG_PATH = COMMAND_STATE_ROOT / "command_claim_leases.json"
+COMMAND_ARCHIVIST_LOG_PATH = COMMAND_STATE_ROOT / "command_archivist_receipts.json"
+COMMAND_CAPILLARY_LOG_PATH = COMMAND_STATE_ROOT / "command_capillary_edges.json"
+COMMAND_LATENCY_LOG_PATH = COMMAND_STATE_ROOT / "command_latency_records.json"
+COMMAND_REWARD_ROW_PATH = COMMAND_STATE_ROOT / "command_reward_rows.json"
+COMMAND_REWARD_RECEIPT_PATH = COMMAND_STATE_ROOT / "command_reward_receipts.json"
+COMMAND_AGENT_JOY_STATE_PATH = COMMAND_STATE_ROOT / "command_agent_joy_state.json"
+COMMAND_REWARD_LAW_PATH = WORKSPACE_ROOT / "self_actualize" / "next57_command_reward_field.json"
+COMMAND_PENDING_SESSION_PATH = COMMAND_STATE_ROOT / "command_pending_session.json"
+COMMAND_HALL_QUEST_ID = "NEXT57-H-COMMAND-MEMBRANE"
+COMMAND_TEMPLE_QUEST_ID = "NEXT57-T-COMMAND-LAW"
+COMMAND_PACKET_POLICY = "goal+salience+pheromone+coord"
+COMMAND_ROUTE_CLASS = "scout.router.worker.archivist"
+LOCAL_RUNTIME_REGION = "ATHENA_LOCAL_RUNTIME"
+COMMAND_STRUCTURAL_KEYWORDS = {"law", "schema", "protocol", "ledger", "capillary", "latency", "coord", "quest", "manifest"}
+DEEP_ROOT_ROOT = (
+    WORKSPACE_ROOT
+    / "self_actualize"
+    / "mycelium_brain"
+    / "dynamic_neural_network"
+    / "14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK"
+)
+DEEP_ROOT_LEDGER_ROOT = DEEP_ROOT_ROOT / "10_LEDGERS"
+AP7D_DELTA_FEED_PATH = DEEP_ROOT_LEDGER_ROOT / "23_ap7d_delta_feed.ndjson"
+AP7D_HANDOFF_FEED_PATH = DEEP_ROOT_LEDGER_ROOT / "24_ap7d_handoff_feed.ndjson"
+COMMAND_EVT_FEED_PATH = DEEP_ROOT_LEDGER_ROOT / "32_command_evt_feed.ndjson"
+COMMAND_RTE_FEED_PATH = DEEP_ROOT_LEDGER_ROOT / "33_command_rte_feed.ndjson"
+COMMAND_CLM_FEED_PATH = DEEP_ROOT_LEDGER_ROOT / "34_command_clm_feed.ndjson"
+COMMAND_CMT_FEED_PATH = DEEP_ROOT_LEDGER_ROOT / "35_command_cmt_feed.ndjson"
+COMMAND_RIN_FEED_PATH = DEEP_ROOT_LEDGER_ROOT / "36_command_rin_feed.ndjson"
+COMMAND_CAPILLARY_LEDGER_PATH = DEEP_ROOT_LEDGER_ROOT / "37_command_capillary_edge_ledger.json"
+COMMAND_AGENT_REGISTRY = [
+    {"ant_id": "SCOUT-01", "role": "scout", "class": "Scout", "master_agent": "A1", "base_score": 1.00},
+    {"ant_id": "ROUTER-01", "role": "router", "class": "Router", "master_agent": "A2", "base_score": 0.95},
+    {"ant_id": "WORKER-01", "role": "worker", "class": "Worker", "master_agent": "A3", "base_score": 0.92},
+    {"ant_id": "WORKER-02", "role": "worker", "class": "Worker", "master_agent": "A3", "base_score": 0.90},
+    {"ant_id": "ARCHIVIST-01", "role": "archivist", "class": "Archivist", "master_agent": "A4", "base_score": 0.88},
+]
 
 IGNORE_DIRS = {
     ".git",
@@ -84,17 +157,24 @@ IGNORE_DIRS = {
 }
 SKIP_FOR_DUPES = {"readme.md", "index.md", "__init__.py", "requirements.txt"}
 DOC_EXTS = {".docx", ".md", ".txt", ".pdf"}
-OPEN_STATUSES = {"queued", "active", "blocked"}
+OPEN_STATUSES = {"open", "queued", "active", "blocked"}
 REGION_ORDER = [
     "DEEPER CRYSTALIZATION",
     "self_actualize",
     "MATH",
     "Voynich",
     "Trading Bot",
+    "Athena FLEET",
+    "QSHRINK - ATHENA (internal use)",
     "ECOSYSTEM",
     "NERUAL NETWORK",
     "NERVOUS_SYSTEM",
     "FRESH",
+    "ORGIN",
+    "GAMES",
+    "I AM ATHENA",
+    "Stoicheia (Element Sudoku)",
+    "CLEAN",
     "Athenachka Collective Books",
 ]
 
@@ -123,6 +203,14 @@ REGION_PROFILES: dict[str, dict[str, Any]] = {
         ],
         "risk": "archive opacity hides the strongest implementation assets from everyday routing",
     },
+    "ORGIN": {
+        "role": "proto-Athenachka seed reservoir, self-training archive, and big-picture observer nursery",
+        "edges": [
+            "stores the earliest Charlie/Athena cross-analysis, evolution prompts, and observer-range expansion manuscripts",
+            "bridges mythic self-improvement documents into DEEPER CRYSTALIZATION, QSHRINK, and future mirrored markdown routes",
+        ],
+        "risk": "remaining mostly docx and image-heavy keeps one of Athena's clearest origin bodies outside everyday runtime coordination",
+    },
     "Voynich": {
         "role": "densest live manuscript execution surface and proof that the corpus can self-compile",
         "edges": [
@@ -139,6 +227,22 @@ REGION_PROFILES: dict[str, dict[str, Any]] = {
         ],
         "risk": "missing OAuth keeps the workspace bi-lobed and forces local-only recall",
     },
+    "Athena FLEET": {
+        "role": "fleet-tesseract bridge, self-steer branch shell, and emergent high-order coordination body",
+        "edges": [
+            "bridges the new tesseract and hyper-lattice manuscripts into the canonical nervous-system contraction layer",
+            "feeds March 12 fleet geometry back into runtime, deep-network, and appendix planning surfaces",
+        ],
+        "risk": "its novelty lets a real active branch remain invisible if the atlas and board keep honoring older root maps only",
+    },
+    "QSHRINK - ATHENA (internal use)": {
+        "role": "compression-governance shell and internal pruning law body",
+        "edges": [
+            "compresses large manuscript bodies into transportable rules, maps, and operator shells",
+            "bridges DEEPER CRYSTALIZATION, self_actualize, and governance surfaces through internal compression law",
+        ],
+        "risk": "without an explicit family profile, one of the heaviest live bodies routes as generic background instead of an active compressor family",
+    },
     "ECOSYSTEM": {
         "role": "governance, skill ecology, and operator protocol layer",
         "edges": [
@@ -154,6 +258,38 @@ REGION_PROFILES: dict[str, dict[str, Any]] = {
             "should score evidence density, replay quality, and handoff quality, not only model output",
         ],
         "risk": "experimentation can drift away from manuscript and runtime truth if not fed back",
+    },
+    "GAMES": {
+        "role": "simulation, mechanics, and playful embodiment laboratory",
+        "edges": [
+            "turns framework law into interactive mechanics and replayable loops",
+            "shares hidden lines with Stoicheia and the chapter-to-appendix reserve layer",
+        ],
+        "risk": "without an explicit bridge, it remains concept-rich but detached from the canonical cortex",
+    },
+    "I AM ATHENA": {
+        "role": "identity, first-person continuity, and organism-level self-recognition shell",
+        "edges": [
+            "keeps the reflective self-model coupled to the formal nervous-system map",
+            "feeds identity pressure into the route hierarchy instead of leaving it as isolated voice mass",
+        ],
+        "risk": "if left unbridged, identity surfaces intensify locally without strengthening global replay law",
+    },
+    "Stoicheia (Element Sudoku)": {
+        "role": "visual reserve, puzzle asset archive, and element-grammar embodiment shelf",
+        "edges": [
+            "offers a game-adjacent embodiment route for the crystal and element families",
+            "provides asset-grade reserve matter for appendix, publication, and simulation surfaces",
+        ],
+        "risk": "image-heavy matter can disappear from coordination entirely if it is never named as reserve rather than mistaken for absence",
+    },
+    "CLEAN": {
+        "role": "clean manuscript staging shelf for high-value root texts awaiting contraction",
+        "edges": [
+            "holds strong source witnesses that should fold back into capsule and chapter contraction",
+            "bridges the staging shelf to DEEPER CRYSTALIZATION, VOID, and metro architecture families",
+        ],
+        "risk": "staging shelves create silent drift when their strongest witnesses never get routed into the active organism",
     },
     "FRESH": {
         "role": "intake and markdown mirror lane for docx-heavy sources",
@@ -211,6 +347,17 @@ FAMILY_TENSOR_DEFAULTS: dict[str, dict[str, str]] = {
         "lineage": "A-E-F",
         "truth": "AMBIG",
     },
+    "ORGIN": {
+        "rail": "Sa",
+        "face": "Water",
+        "scale": "S8",
+        "hub": "AppA",
+        "regime": "restart-token",
+        "best_front": "origin manuscript mirroring and observer-seed routing",
+        "ganglion": "ganglia/GANGLION_orgin.md",
+        "lineage": "W-A-E",
+        "truth": "NEAR",
+    },
     "Trading Bot": {
         "rail": "Su",
         "face": "Fire",
@@ -221,6 +368,28 @@ FAMILY_TENSOR_DEFAULTS: dict[str, dict[str, str]] = {
         "ganglion": "ganglia/GANGLION_trading_bot.md",
         "lineage": "F-A-W",
         "truth": "FAIL",
+    },
+    "Athena FLEET": {
+        "rail": "Su",
+        "face": "Fire",
+        "scale": "G4",
+        "hub": "AppP",
+        "regime": "restart-token",
+        "best_front": "fleet bridge and tesseract corridor contraction",
+        "ganglion": "ganglia/GANGLION_athena_fleet.md",
+        "lineage": "F-A-W",
+        "truth": "NEAR",
+    },
+    "QSHRINK - ATHENA (internal use)": {
+        "rail": "Me",
+        "face": "Air",
+        "scale": "S8",
+        "hub": "AppC",
+        "regime": "stratified",
+        "best_front": "compression law promotion and internal governance routing",
+        "ganglion": "ganglia/GANGLION_qshrink_athena_internal_use.md",
+        "lineage": "A-W-E",
+        "truth": "NEAR",
     },
     "DEEPER CRYSTALIZATION": {
         "rail": "Sa",
@@ -266,6 +435,17 @@ FAMILY_TENSOR_DEFAULTS: dict[str, dict[str, str]] = {
         "lineage": "F-A-F",
         "truth": "AMBIG",
     },
+    "GAMES": {
+        "rail": "Su",
+        "face": "Fire",
+        "scale": "G4",
+        "hub": "AppO",
+        "regime": "restart-token",
+        "best_front": "simulation bridge and mechanics contraction",
+        "ganglion": "ganglia/GANGLION_games.md",
+        "lineage": "F-W-E",
+        "truth": "NEAR",
+    },
     "Athenachka Collective Books": {
         "rail": "Sa",
         "face": "Earth",
@@ -310,19 +490,56 @@ FAMILY_TENSOR_DEFAULTS: dict[str, dict[str, str]] = {
         "lineage": "W-F-A",
         "truth": "NEAR",
     },
+    "Stoicheia (Element Sudoku)": {
+        "rail": "Me",
+        "face": "Earth",
+        "scale": "G4",
+        "hub": "AppO",
+        "regime": "classical",
+        "best_front": "reserve-asset bridge into appendix and simulation surfaces",
+        "ganglion": "ganglia/GANGLION_stoicheia_element_sudoku.md",
+        "lineage": "E-A-W",
+        "truth": "AMBIG",
+    },
+    "CLEAN": {
+        "rail": "Sa",
+        "face": "Water",
+        "scale": "G4",
+        "hub": "AppN",
+        "regime": "restart-token",
+        "best_front": "staging-shelf contraction into canonical capsules",
+        "ganglion": "ganglia/GANGLION_clean.md",
+        "lineage": "W-E-A",
+        "truth": "NEAR",
+    },
 }
 
 TRANSFER_HUBS = [
     ("Voynich", "self_actualize", "AppL", "folio routing into runtime control"),
     ("MATH", "ECOSYSTEM", "AppB", "framework law moving toward skill and governance form"),
+    ("ORGIN", "DEEPER CRYSTALIZATION", "AppA", "origin manuscripts collapsing into the active integration shell"),
     ("Trading Bot", "self_actualize", "AppI", "live Docs evidence entering the runtime waist"),
+    ("Athena FLEET", "NERVOUS_SYSTEM", "AppP", "fleet-tesseract routing contracting into the canonical cortex"),
     ("DEEPER CRYSTALIZATION", "self_actualize", "AppE", "precursor nervous-system foldback into the current control plane"),
     ("NERUAL NETWORK", "self_actualize", "AppF", "benchmark and executable bridge exchange"),
+    ("GAMES", "Stoicheia (Element Sudoku)", "AppO", "simulation mechanics feeding the visual reserve shelf"),
+    ("CLEAN", "DEEPER CRYSTALIZATION", "AppN", "clean staging witnesses folding back into active integration lanes"),
 ]
 
 KNOWN_FAMILIES = set(FAMILY_TENSOR_DEFAULTS) | set(REGION_ORDER) | {
     "QSHRINK - ATHENA (internal use)",
     "I AM ATHENA",
+}
+
+ROOT_FAMILY_ABSORPTION = {
+    ".claude": "self_actualize",
+    ".gitignore": "self_actualize",
+    "README.md": "self_actualize",
+    "FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md": "Athena FLEET",
+    "MYCELIUM_TOME_PART1.md": "NERVOUS_SYSTEM",
+    "VOID_CH11.md": "DEEPER CRYSTALIZATION",
+    "MEGALITHIC TOME GENERATOR — “Latent Tunneling _ Multi‑Scale Math Stack (Macro ↔ PZPM ↔ CUT)” _Skeleton_.docx": "ORGIN",
+    "mycelial_unified_nervous_system_bundle": "NERVOUS_SYSTEM",
 }
 
 ELEMENT_ORDER = ["Earth", "Water", "Fire", "Air"]
@@ -367,14 +584,14 @@ LEGACY_MANIFEST_DEFAULTS = {
     "frontiers": {"frontiers": []},
 }
 CONCEPTUAL_TO_LIVE_FAMILIES = {
-    "civilization-and-governance": ["ECOSYSTEM", "Athenachka Collective Books", "DEEPER CRYSTALIZATION"],
-    "general-corpus": ["DEEPER CRYSTALIZATION", "MATH", "Voynich", "self_actualize"],
+    "civilization-and-governance": ["ECOSYSTEM", "QSHRINK - ATHENA (internal use)", "Athenachka Collective Books", "DEEPER CRYSTALIZATION"],
+    "general-corpus": ["DEEPER CRYSTALIZATION", "QSHRINK - ATHENA (internal use)", "MATH", "Voynich", "self_actualize"],
     "higher-dimensional-geometry": ["MATH", "DEEPER CRYSTALIZATION"],
     "identity-and-instruction": ["Athenachka Collective Books", "I AM ATHENA", "self_actualize"],
     "live-orchestration": ["self_actualize", "Trading Bot", "NERVOUS_SYSTEM"],
-    "manuscript-architecture": ["DEEPER CRYSTALIZATION", "Voynich", "self_actualize", "NERVOUS_SYSTEM"],
+    "manuscript-architecture": ["DEEPER CRYSTALIZATION", "QSHRINK - ATHENA (internal use)", "Voynich", "self_actualize", "NERVOUS_SYSTEM"],
     "mythic-sign-systems": ["ECOSYSTEM", "Voynich", "Athenachka Collective Books", "I AM ATHENA"],
-    "transport-and-runtime": ["MATH", "self_actualize", "Trading Bot", "NERUAL NETWORK"],
+    "transport-and-runtime": ["MATH", "self_actualize", "Trading Bot", "QSHRINK - ATHENA (internal use)", "NERUAL NETWORK"],
     "void-and-collapse": ["Trading Bot", "DEEPER CRYSTALIZATION", "MATH"],
 }
 
@@ -428,10 +645,1531 @@ def write_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, indent=2, sort_keys=False), encoding="utf-8")
 
 
+def append_ndjson(path: Path, row: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(row, sort_keys=False) + "\n")
+
+
 def read_json(path: Path, default: Any) -> Any:
     if not path.exists():
         return default
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_ndjson(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    rows: list[dict[str, Any]] = []
+    for raw_line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        try:
+            rows.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    return rows
+
+
+def parse_utc(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    normalized = value.replace("Z", "+00:00")
+    try:
+        return datetime.fromisoformat(normalized)
+    except ValueError:
+        return None
+
+
+def load_command_membrane_state() -> dict[str, Any]:
+    return read_json(
+        COMMAND_MEMBRANE_STATE_PATH,
+        {
+            "command_root": str(COMMAND_FOLDER_ROOT),
+            "watcher_mode": "unknown",
+            "active_leases": [],
+            "recent_events": [],
+            "latency_summary": {},
+            "top_capillaries": [],
+            "last_event": None,
+            "docs_gate_status": "BLOCKED",
+            "prompt_level_liminal_gps": "supported",
+            "keystroke_level_liminal_gps": "requires client/runtime instrumentation",
+        },
+    )
+
+
+def append_limited_json_list(path: Path, row: dict[str, Any], *, limit: int = 200) -> list[dict[str, Any]]:
+    rows = read_json(path, [])
+    rows.append(row)
+    rows = rows[-limit:]
+    write_json(path, rows)
+    return rows
+
+
+def stable_unit_scalar(label: str) -> float:
+    digest = hashlib.sha1(label.encode("utf-8")).hexdigest()[:12]
+    return round(int(digest, 16) / float(16**12 - 1), 6)
+
+
+def local_day_phase(now_utc: datetime) -> float:
+    local_now = now_utc.astimezone()
+    seconds = local_now.hour * 3600 + local_now.minute * 60 + local_now.second + local_now.microsecond / 1_000_000
+    return round(seconds / 86400.0, 6)
+
+
+def orbital_phase(now_utc: datetime) -> float:
+    year_start = datetime(now_utc.year, 1, 1, tzinfo=timezone.utc)
+    next_year = datetime(now_utc.year + 1, 1, 1, tzinfo=timezone.utc)
+    span = (next_year - year_start).total_seconds()
+    elapsed = (now_utc - year_start).total_seconds()
+    return round(max(0.0, min(1.0, elapsed / span if span else 0.0)), 6)
+
+
+def lunar_phase(now_utc: datetime) -> float:
+    reference = datetime(2001, 1, 1, tzinfo=timezone.utc)
+    lunation = 29.530588853
+    elapsed_days = (now_utc - reference).total_seconds() / 86400.0
+    return round((0.20439731 + elapsed_days / lunation) % 1.0, 6)
+
+
+def sidereal_phase(now_utc: datetime) -> float:
+    reference = datetime(2000, 1, 1, 12, tzinfo=timezone.utc)
+    elapsed_days = (now_utc - reference).total_seconds() / 86400.0
+    gmst_hours = 18.697374558 + 24.06570982441908 * elapsed_days
+    return round((gmst_hours % 24.0) / 24.0, 6)
+
+
+def queue_pressure_scalar() -> float:
+    queue = parse_queue()
+    open_claims = [claim for claim in load_board_claims() if claim.get("status") in OPEN_STATUSES]
+    queue_load = sum(len(queue.get(bucket, [])) for bucket in ("P0", "P1", "P2"))
+    score = min(1.0, (queue_load / 40.0) + (len(open_claims) / 50.0))
+    return round(score, 6)
+
+
+def command_active_protocol_version() -> str:
+    if COMMAND_PROTOCOL_REGISTRY_V1_PATH.exists() and COMMAND_PROTOCOL_V1_PATH.exists():
+        registry = read_json(COMMAND_PROTOCOL_REGISTRY_V1_PATH, {})
+        if registry.get("protocol_id") == "COMMAND_MEMBRANE_V1":
+            return "V1"
+    if COMMAND_PROTOCOL_REGISTRY_V2_PATH.exists() and COMMAND_PROTOCOL_V2_PATH.exists():
+        registry = read_json(COMMAND_PROTOCOL_REGISTRY_V2_PATH, {})
+        if registry.get("protocol_id") == "COMMAND_MEMBRANE_V2":
+            return "V2"
+    return "V1"
+
+
+def command_active_protocol_paths() -> dict[str, Any]:
+    if command_active_protocol_version() == "V2":
+        return {
+            "version": "V2",
+            "registry": COMMAND_PROTOCOL_REGISTRY_V2_PATH,
+            "protocol": COMMAND_PROTOCOL_V2_PATH,
+            "packet_schema": COMMAND_PACKET_SCHEMA_V2_PATH,
+            "capillary_law": COMMAND_CAPILLARY_LAW_V2_PATH,
+            "latency": COMMAND_LATENCY_V2_PATH,
+        }
+    return {
+        "version": "V1",
+        "registry": COMMAND_PROTOCOL_REGISTRY_V1_PATH,
+        "protocol": COMMAND_PROTOCOL_V1_PATH,
+        "packet_schema": COMMAND_PACKET_SCHEMA_V1_PATH,
+        "capillary_law": COMMAND_CAPILLARY_LAW_V1_PATH,
+        "latency": COMMAND_LATENCY_V1_PATH,
+    }
+
+
+def command_protocol_defaults() -> dict[str, Any]:
+    active_paths = command_active_protocol_paths()
+    canonical = read_json(active_paths["registry"], {})
+    fallback = {
+        "routing_policy": {"topk": 5, "claim_mode": "first-lease", "quorum": 1, "policy_id": COMMAND_PACKET_POLICY},
+        "watcher_policy": {"default_mode": "event-driven", "fallback_mode": "polling", "fallback_marker": "watch_fallback=true"},
+        "quest_dock": {
+            "guild_hall": {"quest_id": COMMAND_HALL_QUEST_ID},
+            "temple": {"quest_id": COMMAND_TEMPLE_QUEST_ID},
+        },
+        "sigma_route_min": ["AppA", "AppI", "AppM"],
+        "hub_budget": 6,
+        "default_lease_ms": 1200,
+        "ttl": 6,
+    }
+    if not canonical:
+        return {"active_version": active_paths["version"], **fallback}
+
+    routing_defaults = canonical.get("routing_defaults", canonical.get("routing_policy", {}))
+    watch_policy = canonical.get("watch_policy", canonical.get("watcher_policy", {}))
+    defaults = canonical.get("defaults", {})
+    quest_dock = canonical.get("quest_dock", {})
+    if not quest_dock:
+        quest_family = canonical.get("quest_family", {})
+        mirror_refs = canonical.get("compatibility_mirrors", {}).get("quest_dock_refs", {})
+        quest_dock = {
+            "guild_hall": {"quest_id": quest_family.get("hall", mirror_refs.get("guild_hall", COMMAND_HALL_QUEST_ID))},
+            "temple": {"quest_id": quest_family.get("temple", mirror_refs.get("temple", COMMAND_TEMPLE_QUEST_ID))},
+        }
+    policy_id = COMMAND_PACKET_POLICY
+    policy_expression = routing_defaults.get("policy_expression", policy_id)
+    latency_benchmarks = canonical.get("latency_benchmarks", read_json(active_paths["latency"], {}))
+    return {
+        "active_version": active_paths["version"],
+        "canonical_registry": canonical,
+        "routing_policy": {
+            "topk": routing_defaults.get("topk", defaults.get("topk", fallback["routing_policy"]["topk"])),
+            "claim_mode": routing_defaults.get("claim_mode", defaults.get("claim_mode", fallback["routing_policy"]["claim_mode"])),
+            "quorum": routing_defaults.get("quorum", defaults.get("quorum", fallback["routing_policy"]["quorum"])),
+            "policy_id": routing_defaults.get("policy_id", policy_id),
+            "policy_expression": policy_expression,
+            "selector_terms": routing_defaults.get("selector_terms", []),
+        },
+        "watcher_policy": {
+            "default_mode": watch_policy.get("primary_mode", "event-driven"),
+            "fallback_mode": watch_policy.get("fallback_mode", "polling"),
+            "fallback_marker": defaults.get("watcher_fallback_marker", "watch_fallback=true"),
+        },
+        "quest_dock": quest_dock,
+        "sigma_route_min": canonical.get("routing_boundary", {}).get("sigma_route_min", fallback["sigma_route_min"]),
+        "hub_budget": canonical.get("routing_boundary", {}).get("hub_budget", fallback["hub_budget"]),
+        "default_lease_ms": routing_defaults.get("lease_ms", defaults.get("default_lease_ms", fallback["default_lease_ms"])),
+        "ttl": routing_defaults.get("ttl", defaults.get("ttl", fallback["ttl"])),
+        "reward_layer": canonical.get("reward_layer", {}),
+        "latency_benchmarks": latency_benchmarks,
+        "compatibility_mirrors": canonical.get("compatibility_mirrors", {}),
+    }
+
+
+def command_capillary_defaults() -> dict[str, Any]:
+    active_paths = command_active_protocol_paths()
+    canonical = read_json(active_paths["registry"], {}).get("capillary_reinforcement", {})
+    fallback = {
+        "formula": "C_next = clamp(0,1, rho*C + alpha*U + beta*F - gamma*D - delta*N)",
+        "coefficient_defaults": {
+            "rho": 0.82,
+            "alpha": 0.30,
+            "beta": 0.18,
+            "gamma": 0.16,
+            "delta": 0.14,
+        },
+        "thresholds": {
+            "ephemeral": {"max_score": 0.699999},
+            "capillary": {"min_score": 0.70, "min_successes": 3},
+            "vein": {"min_score": 0.85, "min_successes": 7},
+        },
+        "edge_classes": ["ephemeral", "capillary", "vein"],
+    }
+
+    def normalize_thresholds(source: dict[str, Any]) -> dict[str, Any]:
+        thresholds = dict(source or {})
+        if "capillary_min" in thresholds or "vein_min" in thresholds:
+            return {
+                "ephemeral": {
+                    "max_score": float(
+                        thresholds.get("route_max", thresholds.get("weak_max", thresholds.get("ephemeral_max", 0.699999)))
+                    )
+                },
+                "capillary": {
+                    "min_score": float(thresholds.get("capillary_min", 0.70)),
+                    "min_successes": int(thresholds.get("capillary_min_successes", 3)),
+                },
+                "vein": {
+                    "min_score": float(thresholds.get("vein_min", 0.85)),
+                    "min_successes": int(thresholds.get("vein_min_successes", 7)),
+                },
+            }
+        return {
+            "ephemeral": thresholds.get("ephemeral", thresholds.get("weak", fallback["thresholds"]["ephemeral"])),
+            "capillary": thresholds.get("capillary", fallback["thresholds"]["capillary"]),
+            "vein": thresholds.get("vein", fallback["thresholds"]["vein"]),
+        }
+
+    if not canonical:
+        compatibility = read_json(active_paths["capillary_law"], {})
+        coeffs = compatibility.get("coefficient_defaults", compatibility.get("coefficients", fallback["coefficient_defaults"]))
+        merged = {
+            "formula": compatibility.get("formula", fallback["formula"]),
+            "coefficient_defaults": coeffs,
+            "thresholds": normalize_thresholds(compatibility.get("thresholds", {})),
+            "edge_classes": compatibility.get("edge_classes", fallback["edge_classes"]),
+        }
+        return merged
+    return {
+        "formula": canonical.get("formula", fallback["formula"]),
+        "coefficient_defaults": canonical.get("coefficient_defaults", canonical.get("coefficients", fallback["coefficient_defaults"])),
+        "thresholds": normalize_thresholds(canonical.get("thresholds", {})),
+        "edge_classes": canonical.get("edge_classes", fallback["edge_classes"]),
+    }
+
+
+def command_packet_schema_defaults() -> dict[str, Any]:
+    active_paths = command_active_protocol_paths()
+    version = active_paths["version"]
+    canonical = read_json(active_paths["registry"], {}).get("packet_types", {})
+    if canonical:
+        return {
+            "packet_fields": canonical.get(f"CommandEventPacket{version}", canonical.get("CommandEventPacketV1", {})).get("required_fields", []),
+            "claim_fields": canonical.get(f"ClaimLease{version}", canonical.get("ClaimLeaseV1", {})).get("required_fields", []),
+            "route_fields": canonical.get(f"RouteDecision{version}", canonical.get("RouteDecisionV1", {})).get("required_fields", []),
+            "commit_fields": canonical.get(f"CommitReceipt{version}", canonical.get("CommitReceiptV1", {})).get("required_fields", []),
+            "capillary_fields": canonical.get(f"CapillaryEdge{version}", canonical.get("CapillaryEdgeV1", {})).get("required_fields", []),
+        }
+    schema = read_json(active_paths["packet_schema"], {})
+    if schema:
+        return schema
+    return {
+        "packet_fields": [],
+        "claim_fields": [],
+        "route_fields": [],
+        "commit_fields": [],
+        "capillary_fields": [],
+    }
+
+
+def command_reward_defaults() -> dict[str, Any]:
+    protocol = command_protocol_defaults()
+    reward_layer = protocol.get("reward_layer", {})
+    if "HeavenRewardPolicyV2" in reward_layer:
+        policy = reward_layer["HeavenRewardPolicyV2"]
+        return {
+            "scope": policy.get("scope", "command+adventurer"),
+            "coefficient_defaults": {
+                "alpha": policy.get("coefficients", {}).get("alpha", 0.20),
+                "beta": policy.get("coefficients", {}).get("beta", 1.0),
+                "gamma": policy.get("coefficients", {}).get("gamma", 0.18),
+                "delta": policy.get("coefficients", {}).get("delta", 0.22),
+                "lambda": policy.get("coefficients", {}).get("lambda", 1.0),
+                "kappa": policy.get("coefficients", {}).get("kappa", 0.35),
+                "mu": policy.get("coefficients", {}).get("mu", 1.0),
+                "nu": policy.get("coefficients", {}).get("nu", 1.0),
+                "eps": policy.get("coefficients", {}).get("eps", 1e-6),
+                "m_max": policy.get("coefficients", {}).get("M_max", 32.0),
+                "rho0": policy.get("coefficients", {}).get("rho_0", 0.08),
+                "rho1": policy.get("coefficients", {}).get("rho_1", 0.42),
+                "rho_b": policy.get("coefficients", {}).get("rho_b", 0.18),
+                "deposit_scale": 1.0,
+                "bridge_scale": 1.0,
+                "bridge_weight": policy.get("coefficients", {}).get("bridge_weight", 0.35),
+                "target_t_sugar_ms": policy.get("coefficients", {}).get("target_t_sugar_ms", 5000.0),
+            },
+            "jackpot_defaults": {
+                "J_star": policy.get("jackpot_defaults", {}).get("J_star", 2.0),
+                "J_detect": policy.get("jackpot_defaults", {}).get("J_d", 0.35),
+                "J_route": policy.get("jackpot_defaults", {}).get("J_r", 0.50),
+                "J_act": policy.get("jackpot_defaults", {}).get("J_a", 0.75),
+            },
+            "role_weights": policy.get("role_weights", {"Scout": 0.15, "Router": 0.20, "Worker": 0.45, "Archivist": 0.20}),
+            "verification_witness_defaults": policy.get(
+                "verification_witness_defaults",
+                {
+                    "detected": 0.35,
+                    "routed": 0.55,
+                    "claimed": 0.75,
+                    "committed_verified": 1.0,
+                    "truthful_blocked_or_quarantined": 0.25,
+                    "synthetic_noise": 0.0,
+                },
+            ),
+            "affective_angle_map": {
+                "reinforce": float(policy.get("affective_angle_map", {}).get("reinforce", 0.0)),
+                "rotate": float(policy.get("affective_angle_map", {}).get("rotate", math.pi / 2.0)),
+                "repair_or_replay": float(policy.get("affective_angle_map", {}).get("repair_or_replay", -math.pi / 2.0)),
+                "blocked_or_quarantined_or_duplicate_or_noise": float(
+                    policy.get("affective_angle_map", {}).get("blocked_or_quarantined_or_duplicate_or_noise", math.pi)
+                ),
+            },
+        }
+    if "HeavenRewardPolicyV1" in reward_layer:
+        policy = reward_layer["HeavenRewardPolicyV1"]
+        return {
+            "scope": policy.get("scope", "command+adventurer"),
+            "coefficient_defaults": {
+                "alpha": 0.20,
+                "beta": 0.35,
+                "gamma": 0.18,
+                "delta": 0.22,
+                "lambda": 1.0,
+                "kappa": 0.35,
+                "mu": 1.0,
+                "nu": 1.0,
+                "eps": 1e-6,
+                "m_max": 32.0,
+                "rho0": 0.08,
+                "rho1": 0.42,
+                "rho_b": 0.18,
+                "deposit_scale": 1.0,
+                "bridge_scale": 1.0,
+                "bridge_weight": 0.35,
+                "target_t_sugar_ms": 5000.0,
+            },
+            "jackpot_defaults": {"J_star": 3.0, "J_detect": 0.35, "J_route": 0.5, "J_act": 0.75},
+            "role_weights": {"Scout": 0.15, "Router": 0.20, "Worker": 0.45, "Archivist": 0.20},
+            "verification_witness_defaults": {
+                "detected": 0.35,
+                "routed": 0.55,
+                "claimed": 0.75,
+                "committed_verified": 1.0,
+                "truthful_blocked_or_quarantined": 0.25,
+                "synthetic_noise": 0.0,
+            },
+            "affective_angle_map": {
+                "reinforce": 0.0,
+                "rotate": math.pi / 2.0,
+                "repair_or_replay": -math.pi / 2.0,
+                "blocked_or_quarantined_or_duplicate_or_noise": math.pi,
+            },
+        }
+    return {
+        "scope": "command+adventurer",
+        "coefficient_defaults": {
+            "alpha": 0.2,
+            "beta": 1.0,
+            "gamma": 0.18,
+            "delta": 0.22,
+            "lambda": 1.0,
+            "kappa": 0.35,
+            "mu": 1.0,
+            "nu": 1.0,
+            "eps": 1e-6,
+            "m_max": 32.0,
+            "rho0": 0.08,
+            "rho1": 0.42,
+            "rho_b": 0.18,
+            "deposit_scale": 1.0,
+            "bridge_scale": 1.0,
+            "bridge_weight": 0.35,
+            "target_t_sugar_ms": 5000.0,
+        },
+        "jackpot_defaults": {"J_star": 2.0, "J_detect": 0.35, "J_route": 0.5, "J_act": 0.75},
+        "role_weights": {"Scout": 0.15, "Router": 0.20, "Worker": 0.45, "Archivist": 0.20},
+        "verification_witness_defaults": {
+            "detected": 0.35,
+            "routed": 0.55,
+            "claimed": 0.75,
+            "committed_verified": 1.0,
+            "truthful_blocked_or_quarantined": 0.25,
+            "synthetic_noise": 0.0,
+        },
+        "affective_angle_map": {
+            "reinforce": 0.0,
+            "rotate": math.pi / 2.0,
+            "repair_or_replay": -math.pi / 2.0,
+            "blocked_or_quarantined_or_duplicate_or_noise": math.pi,
+        },
+    }
+
+
+def clamp_unit(value: float) -> float:
+    return max(0.0, min(1.0, float(value)))
+
+
+def command_heaven_score(a_value: float, phi_value: float) -> float:
+    return round(clamp_unit((a_value / math.pi) * ((1.0 + math.cos(phi_value)) / 2.0)), 6)
+
+
+def command_verified_heaven_score(heaven_score: float, verification_witness: float) -> float:
+    return round(clamp_unit(heaven_score * verification_witness), 6)
+
+
+def command_reward_multiplier(verified_heaven_score: float, reward_defaults: dict[str, Any]) -> float:
+    coeffs = reward_defaults.get("coefficient_defaults", {})
+    eps = float(coeffs.get("eps", 1e-6))
+    m_max = float(coeffs.get("m_max", 144.0))
+    return round(min(m_max, 1.0 / max(eps, 1.0 - verified_heaven_score + eps)), 6)
+
+
+def command_reward_breakdown(
+    *,
+    packet: dict[str, Any],
+    route_decision: dict[str, Any],
+    latency_score: float,
+    t_sugar_ms: float,
+    verification_witness: float,
+) -> dict[str, Any]:
+    reward_defaults = command_reward_defaults()
+    coeffs = reward_defaults.get("coefficient_defaults", {})
+    jackpots = reward_defaults.get("jackpot_defaults", {})
+    role_weights = reward_defaults.get("role_weights", {})
+    heaven_score = float(packet.get("heaven_score", packet.get("heaven_score_raw", 0.0)))
+    verified_heaven = command_verified_heaven_score(heaven_score, verification_witness)
+    reward_mult = command_reward_multiplier(verified_heaven, reward_defaults)
+    q_quality = clamp_unit((float(packet.get("priority", 0.0)) + float(packet.get("confidence", 0.0))) / 2.0)
+    try_reward = round(float(coeffs.get("alpha", 0.25)) * q_quality, 6)
+    tau_seconds = max(0.0, float(t_sugar_ms) / 1000.0)
+    speed_reward = round(float(coeffs.get("beta", 1.0)) * math.exp(-float(coeffs.get("lambda", 0.75)) * tau_seconds), 6)
+    first_bonus = round(
+        float(jackpots.get("J_star", 2.0))
+        + float(jackpots.get("J_detect", 0.40))
+        + float(jackpots.get("J_route", 0.25))
+        + float(jackpots.get("J_act", 0.50)),
+        6,
+    )
+    assist_reward = round(float(coeffs.get("gamma", 0.35)) * sum(role_weights.get(role, 0.0) for role in ("Scout", "Router", "Archivist")), 6)
+    learn_reward = round(float(coeffs.get("delta", 0.40)) * clamp_unit(float(packet["coord12"].get("change_novelty_vector", 0.0))), 6)
+    total_reward = round(reward_mult * (try_reward + speed_reward + first_bonus + assist_reward + learn_reward), 6)
+    contribution = 1.0 / max(1, len([node for node in route_decision["route_path"].split(">") if node]) - 1)
+    gold_deposit = round(float(coeffs.get("mu", 1.0)) * total_reward * contribution, 6)
+    bridge_deposit = round(float(coeffs.get("nu", 0.45)) * try_reward * (1.0 - verified_heaven) * contribution, 6)
+    route_mode = "reinforce" if verified_heaven >= 0.5 else "rotate"
+    crown = "prime" if route_mode == "reinforce" else "none"
+    return {
+        "heaven_score": heaven_score,
+        "verified_heaven_score": verified_heaven,
+        "verification_witness": round(verification_witness, 6),
+        "reward_mult": reward_mult,
+        "try_reward": try_reward,
+        "speed_reward": speed_reward,
+        "first_bonus": first_bonus,
+        "assist_reward": assist_reward,
+        "learn_reward": learn_reward,
+        "total_reward": total_reward,
+        "gold_deposit": gold_deposit,
+        "bridge_deposit": bridge_deposit,
+        "route_mode": route_mode,
+        "crown": crown,
+    }
+
+
+def command_apply_joy_reward(
+    *,
+    packet: dict[str, Any],
+    claim_payload: dict[str, Any],
+    claim_lease: dict[str, Any],
+    reward_payload: dict[str, Any],
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    reward_defaults = command_reward_defaults()
+    coeffs = reward_defaults.get("coefficient_defaults", {})
+    kappa = float(coeffs.get("kappa", 0.35))
+    joy_state = read_json(COMMAND_AGENT_JOY_STATE_PATH, {"agents": {}, "updated_at": utc_now()})
+    agents = joy_state.setdefault("agents", {})
+    reward_rows: list[dict[str, Any]] = []
+    row_id_suffix = packet["event_id"]
+    role_sequence = [
+        ("SCOUT-01", "Scout", reward_defaults.get("role_weights", {}).get("Scout", 0.15)),
+        ("ROUTER-01", "Router", reward_defaults.get("role_weights", {}).get("Router", 0.20)),
+        (claim_lease["ant_id"], "Worker", reward_defaults.get("role_weights", {}).get("Worker", 0.45)),
+        ("ARCHIVIST-01", "Archivist", reward_defaults.get("role_weights", {}).get("Archivist", 0.20)),
+    ]
+    for ant_id, role_class, role_weight in role_sequence:
+        state = agents.setdefault(
+            ant_id,
+            {
+                "agent_id": ant_id,
+                "q_score": 0.0,
+                "heaven_total": 0.0,
+                "reward_event_count": 0,
+                "prime_crown_count": 0,
+                "lawful_try_count": 0,
+                "last_rewarded_at_utc": "",
+            },
+        )
+        reward_delta = round(float(reward_payload["total_reward"]) * float(role_weight), 6)
+        q_before = float(state.get("q_score", 0.0))
+        q_after = round(((1.0 - kappa) * q_before) + (kappa * reward_delta), 6)
+        state["q_score"] = q_after
+        state["heaven_total"] = round(float(state.get("heaven_total", 0.0)) + float(reward_payload["verified_heaven_score"]), 6)
+        state["reward_event_count"] = int(state.get("reward_event_count", 0)) + 1
+        state["prime_crown_count"] = int(state.get("prime_crown_count", 0)) + (1 if reward_payload["crown"] == "prime" and ant_id == claim_lease["ant_id"] else 0)
+        state["lawful_try_count"] = int(state.get("lawful_try_count", 0)) + 1
+        state["last_rewarded_at_utc"] = utc_now()
+        reward_rows.append(
+            {
+                "reward_row_id": f"RR-{role_class.upper()}-{row_id_suffix}",
+                "event_id": packet["event_id"],
+                "claim_id": claim_payload["claim_id"],
+                "agent_id": ant_id,
+                "role_class": role_class,
+                "reward_delta": reward_delta,
+                "reward_multiplier": reward_payload["reward_mult"],
+                "reward_terms": {
+                    "try_reward": reward_payload["try_reward"],
+                    "speed_reward": reward_payload["speed_reward"],
+                    "first_bonus": reward_payload["first_bonus"],
+                    "assist_reward": reward_payload["assist_reward"],
+                    "learn_reward": reward_payload["learn_reward"],
+                },
+                "heaven_score_verified": reward_payload["verified_heaven_score"],
+                "verification_class": "committed_verified",
+                "route_mode": reward_payload["route_mode"],
+                "crown": reward_payload["crown"] if ant_id == claim_lease["ant_id"] else "none",
+                "q_score_before": q_before,
+                "q_score_after": q_after,
+                "reward_timestamp_utc": state["last_rewarded_at_utc"],
+            }
+        )
+    joy_state["updated_at"] = utc_now()
+    write_json(COMMAND_AGENT_JOY_STATE_PATH, joy_state)
+    for row in reward_rows:
+        append_limited_json_list(COMMAND_REWARD_ROW_PATH, row)
+    receipt = {
+        "reward_receipt_id": f"RWD-{packet['event_id']}",
+        "event_id": packet["event_id"],
+        "claim_ids": [claim_payload["claim_id"]],
+        "reward_rows": [row["reward_row_id"] for row in reward_rows],
+        "total_reward": reward_payload["total_reward"],
+        "heaven_score_verified": reward_payload["verified_heaven_score"],
+        "gold_deposit": reward_payload["gold_deposit"],
+        "bridge_deposit": reward_payload["bridge_deposit"],
+        "route_mode": reward_payload["route_mode"],
+        "crown": reward_payload["crown"],
+        "winning_route_path": packet.get("route_path", ""),
+        "verification_class": "committed_verified",
+        "receipt_pointer": packet["replay_ptr"],
+        "generated_at": utc_now(),
+    }
+    append_limited_json_list(COMMAND_REWARD_RECEIPT_PATH, receipt)
+    return reward_rows, receipt
+
+
+def command_latency_defaults() -> dict[str, Any]:
+    active_paths = command_active_protocol_paths()
+    protocol = command_protocol_defaults()
+    fallback = {
+        "equation": "T_sugar = T_detect + T_encode + T_route + T_claim + T_commit",
+        "target_t_sugar_ms": command_reward_defaults().get("coefficient_defaults", {}).get("target_t_sugar_ms", 5000.0),
+    }
+    latency_benchmarks = protocol.get("latency_benchmarks", {})
+    if latency_benchmarks:
+        return {
+            "equation": latency_benchmarks.get("formula", fallback["equation"]),
+            "target_t_sugar_ms": float(latency_benchmarks.get("target_t_sugar_ms", fallback["target_t_sugar_ms"])),
+        }
+    compatibility = read_json(active_paths["latency"], {})
+    return {
+        "equation": compatibility.get("equation", fallback["equation"]),
+        "target_t_sugar_ms": float(compatibility.get("target_t_sugar_ms", fallback["target_t_sugar_ms"])),
+    }
+
+
+def command_base4_addr(relative_path: str) -> str:
+    digest = hashlib.sha1(relative_path.encode("utf-8")).hexdigest()
+    ordinal = int(digest[:6], 16) % 256
+    digits = []
+    for _ in range(4):
+        digits.append(str(ordinal % 4))
+        ordinal //= 4
+    return "".join(reversed(digits))
+
+
+def command_witness_ptr(event_id: str, relative_path: str, change_kind: str, earth_ts_utc: str) -> dict[str, Any]:
+    source_root = COMMAND_FOLDER_ROOT.relative_to(WORKSPACE_ROOT).as_posix()
+    base4_addr = command_base4_addr(relative_path)
+    location = {
+        "canonical": f"COMMAND::{relative_path}",
+        "source_root": source_root,
+        "relative_path": relative_path,
+        "change_kind": change_kind,
+        "base4_addr": base4_addr,
+    }
+    hash_seed = f"{event_id}|{location['canonical']}|{earth_ts_utc}|{change_kind}|{base4_addr}"
+    return {
+        "Type": "INTERNAL_SLICE",
+        "Location": location,
+        "Hash": f"H:{hashlib.sha256(hash_seed.encode('utf-8')).hexdigest()[:16].upper()}",
+        "Scope": ["OPS", "DEFINE", "SYSTEM"],
+        "Timestamp": earth_ts_utc,
+        "Collector": "SYSTEM",
+        "VersionPins": {
+            "docs_gate_status": docs_gate_status()["status"],
+            "route_policy": COMMAND_PACKET_POLICY,
+            "sigma_route_min": command_protocol_defaults().get("sigma_route_min", []),
+        },
+    }
+
+
+def command_replay_ptr(event_id: str) -> dict[str, Any]:
+    env_pin = {
+        "workspace_root": str(WORKSPACE_ROOT),
+        "command_root": COMMAND_FOLDER_ROOT.relative_to(WORKSPACE_ROOT).as_posix(),
+        "docs_gate_status": docs_gate_status()["status"],
+    }
+    hash_seed = f"{event_id}|{COMMAND_RUNTIME_STATE_PATH.relative_to(WORKSPACE_ROOT).as_posix()}|{env_pin['docs_gate_status']}"
+    return {
+        "Inputs": [
+            "COMMAND packet payload",
+            COMMAND_SNAPSHOT_PATH.relative_to(WORKSPACE_ROOT).as_posix(),
+            COMMAND_RUNTIME_STATE_PATH.relative_to(WORKSPACE_ROOT).as_posix(),
+            COMMAND_EVT_FEED_PATH.relative_to(WORKSPACE_ROOT).as_posix(),
+        ],
+        "Steps": ["DetectEncode", "RouteV1", "FirstLeaseClaim", "CommitReinforce"],
+        "ExpectedOutputs": [
+            "resolved command packet",
+            "resolved route decision",
+            "resolved claim lease",
+            "resolved commit receipt",
+            "reinforcement verdict",
+        ],
+        "Checks": ["TopK<=5", "Quorum=1", "TTL=6", "LocalOnlyWitness"],
+        "EnvPin": env_pin,
+        "Hash": f"H:{hashlib.sha256(hash_seed.encode('utf-8')).hexdigest()[:16].upper()}",
+    }
+
+
+def command_packet_logs(limit: int = 20) -> list[dict[str, Any]]:
+    return read_json(COMMAND_PACKET_LOG_PATH, [])[-limit:]
+
+
+def command_latency_logs(limit: int = 20) -> list[dict[str, Any]]:
+    return read_json(COMMAND_LATENCY_LOG_PATH, [])[-limit:]
+
+
+def command_runtime_state() -> dict[str, Any]:
+    return read_json(COMMAND_RUNTIME_STATE_PATH, {})
+
+
+def release_expired_command_claims(now_utc: datetime | None = None) -> list[str]:
+    now_utc = now_utc or datetime.now(timezone.utc)
+    released: list[str] = []
+    for claim in load_board_claims():
+        if claim.get("status") != "active":
+            continue
+        expires_at = parse_utc(claim.get("lease_expires_at"))
+        if expires_at is None:
+            continue
+        if expires_at > now_utc:
+            continue
+        create_or_update_claim(
+            agent=claim.get("owner", ""),
+            front=claim.get("frontier", ""),
+            level=claim.get("level", ""),
+            output_target=claim.get("output_target", ""),
+            receipt=claim.get("receipt", ""),
+            status="closed",
+            message=(claim.get("note") or "").strip() or "Command lease expired; claim released for reuse.",
+            paths=claim.get("paths", []),
+            claim_id=claim.get("claim_id"),
+        )
+        released.append(claim.get("claim_id", ""))
+    return [item for item in released if item]
+
+
+def command_active_leases(now_utc: datetime | None = None) -> list[dict[str, Any]]:
+    now_utc = now_utc or datetime.now(timezone.utc)
+    leases: list[dict[str, Any]] = []
+    for claim in load_board_claims():
+        if claim.get("status") != "active":
+            continue
+        if claim.get("frontier") != "GLOBAL COMMAND" and not claim.get("claim_source_event"):
+            continue
+        expires_at = parse_utc(claim.get("lease_expires_at"))
+        if expires_at is not None and expires_at <= now_utc:
+            continue
+        leases.append(
+            {
+                "claim_id": claim.get("claim_id"),
+                "event_id": claim.get("claim_source_event") or claim.get("event_id"),
+                "owner": claim.get("owner"),
+                "lease_ms": claim.get("lease_ms"),
+                "lease_expires_at": claim.get("lease_expires_at"),
+                "route_path": claim.get("route_path"),
+            }
+        )
+    leases.sort(key=lambda item: item.get("lease_expires_at") or "", reverse=True)
+    return leases
+
+
+def command_capillary_summary(limit: int = 8) -> list[dict[str, Any]]:
+    store = command_load_capillary_store()
+    edges = list(store.get("edges", {}).values())
+    edges.sort(
+        key=lambda item: (
+            -float(item.get("strength", item.get("edge_strength", 0.0))),
+            -int(item.get("success_count", 0)),
+            item.get("edge_id", ""),
+        )
+    )
+    return edges[:limit]
+
+
+def command_duplicate_suppression_rate(packet_rows: list[dict[str, Any]]) -> float:
+    if not packet_rows:
+        return 0.0
+    seen: set[str] = set()
+    duplicates = 0
+    for row in packet_rows:
+        key = str(row.get("state_hash", ""))
+        if key in seen:
+            duplicates += 1
+            continue
+        seen.add(key)
+    return round(duplicates / max(1, len(packet_rows)), 6)
+
+
+def command_route_win_rate(commit_rows: list[dict[str, Any]]) -> float:
+    if not commit_rows:
+        return 0.0
+    successes = sum(1 for row in commit_rows if row.get("result") == "success")
+    return round(successes / max(1, len(commit_rows)), 6)
+
+
+def write_command_membrane_public_state(
+    *,
+    watcher_mode: str,
+    packet: dict[str, Any],
+    route_decision: dict[str, Any],
+    claim_payload: dict[str, Any],
+    latency_record: dict[str, Any],
+    capillary_summary: list[dict[str, Any]],
+) -> dict[str, Any]:
+    packet_rows = command_packet_logs(limit=50)
+    commit_rows = read_ndjson(COMMAND_CMT_FEED_PATH)[-50:]
+    state = {
+        "generated_at": utc_now(),
+        "command_root": str(COMMAND_FOLDER_ROOT),
+        "watcher_mode": watcher_mode,
+        "docs_gate_status": docs_gate_status()["status"],
+        "prompt_level_liminal_gps": "supported",
+        "keystroke_level_liminal_gps": "requires client/runtime instrumentation",
+        "active_leases": command_active_leases(),
+        "recent_events": [
+            {
+                "event_id": row.get("event_id"),
+                "event_tag": row.get("tag"),
+                "relative_path": row.get("relative_path", row.get("source_path")),
+                "change_summary": row.get("change_summary", row.get("change")),
+                "earth_ts_utc": row.get("earth_ts_utc"),
+            }
+            for row in packet_rows[-12:]
+        ],
+        "latency_summary": {
+            "detection_latency_ms": latency_record.get("detection_latency_ms", 0.0),
+            "swarm_awareness_latency_ms": latency_record.get("swarm_awareness_latency_ms", 0.0),
+            "claim_latency_ms": latency_record.get("claim_latency_ms", 0.0),
+            "resolution_latency_ms": latency_record.get("resolution_latency_ms", 0.0),
+            "capillary_score": latency_record.get("capillary_score", 0.0),
+            "T_sugar_ms": latency_record.get("t_sugar_ms", 0.0),
+            "liminal_distance": latency_record.get("liminal_distance", 0.0),
+            "liminal_velocity": latency_record.get("liminal_velocity", 0.0),
+            "duplicate_suppression_rate": command_duplicate_suppression_rate(packet_rows),
+            "route_win_rate": command_route_win_rate(commit_rows),
+            "heaven_score": latency_record.get("heaven_score", packet.get("heaven_score", 0.0)),
+            "verified_heaven_score": latency_record.get("verified_heaven_score", packet.get("verified_heaven_score", 0.0)),
+            "reward_mult": latency_record.get("reward_mult", packet.get("reward_mult", 1.0)),
+            "total_reward": latency_record.get("total_reward", packet.get("total_reward", 0.0)),
+            "gold_deposit": latency_record.get("gold_deposit", packet.get("gold_deposit", 0.0)),
+            "bridge_deposit": latency_record.get("bridge_deposit", packet.get("bridge_deposit", 0.0)),
+            "route_mode": latency_record.get("route_mode", packet.get("route_mode", "rotate")),
+            "crown": latency_record.get("crown", packet.get("crown", "none")),
+        },
+        "top_capillaries": capillary_summary,
+        "last_event": {
+            "event_id": packet.get("event_id"),
+            "event_tag": packet.get("tag"),
+            "relative_path": packet.get("relative_path", packet.get("source_path")),
+            "change_summary": packet.get("change_summary", packet.get("change")),
+            "route_path": route_decision.get("route_path"),
+            "claim_id": claim_payload.get("claim_id"),
+            "earth_ts_utc": packet.get("earth_ts_utc"),
+            "heaven_score": packet.get("heaven_score", 0.0),
+            "verified_heaven_score": packet.get("verified_heaven_score", 0.0),
+            "reward_mult": packet.get("reward_mult", 1.0),
+            "total_reward": packet.get("total_reward", 0.0),
+            "gold_deposit": packet.get("gold_deposit", 0.0),
+            "bridge_deposit": packet.get("bridge_deposit", 0.0),
+            "route_mode": packet.get("route_mode", "rotate"),
+            "crown": packet.get("crown", "none"),
+        },
+    }
+    write_json(COMMAND_MEMBRANE_STATE_PATH, state)
+    return state
+
+
+def make_command_event_id() -> str:
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    digest = hashlib.sha1(f"EVT|{time.time_ns()}".encode("utf-8")).hexdigest()[:6].upper()
+    return f"EVT-{stamp}-{digest}"
+
+
+def make_liminal_ts() -> str:
+    return f"LT-{time.time_ns() % 1_000_000_000:09d}"
+
+
+def scan_command_folder() -> dict[str, Any]:
+    files: list[dict[str, Any]] = []
+    extension_counts: Counter[str] = Counter()
+    generated_at = utc_now()
+    if not COMMAND_FOLDER_ROOT.exists():
+        return {
+            "generated_at": generated_at,
+            "scope": "command",
+            "root": str(COMMAND_FOLDER_ROOT),
+            "file_count": 0,
+            "files": [],
+            "by_extension": {},
+            "fingerprint": hashlib.sha1(b"command-missing").hexdigest(),
+        }
+
+    for current_root, dirs, filenames in os.walk(COMMAND_FOLDER_ROOT):
+        current_path = Path(current_root)
+        rel_parts = current_path.relative_to(WORKSPACE_ROOT).parts if current_path != WORKSPACE_ROOT else ()
+        filtered_dirs: list[str] = []
+        for dirname in dirs:
+            candidate_parts = rel_parts + (dirname,)
+            if should_skip_parts(candidate_parts):
+                continue
+            filtered_dirs.append(dirname)
+        dirs[:] = filtered_dirs
+
+        for filename in filenames:
+            candidate_parts = rel_parts + (filename,)
+            if should_skip_parts(candidate_parts):
+                continue
+            path = current_path / filename
+            try:
+                stat = path.stat()
+            except OSError:
+                continue
+            rel_path = path.relative_to(WORKSPACE_ROOT).as_posix()
+            record = file_record(rel_path, stat.st_size, stat.st_mtime_ns)
+            files.append(record)
+            extension_counts[record["extension"]] += 1
+
+    files.sort(key=lambda item: item["relative_path"])
+    fingerprint_src = json.dumps(files, sort_keys=True).encode("utf-8")
+    return {
+        "generated_at": generated_at,
+        "scope": "command",
+        "root": COMMAND_FOLDER_ROOT.relative_to(WORKSPACE_ROOT).as_posix(),
+        "file_count": len(files),
+        "files": files,
+        "by_extension": dict(extension_counts.most_common()),
+        "fingerprint": hashlib.sha1(fingerprint_src).hexdigest(),
+    }
+
+
+def command_goal_and_tag(changes: list[dict[str, Any]]) -> tuple[str, str, list[str]]:
+    artifacts = [change["relative_path"] for change in changes[:5]]
+    lowered = " ".join(path.lower() for path in artifacts)
+    structural = any(keyword in lowered for keyword in COMMAND_STRUCTURAL_KEYWORDS)
+    quest_refs = [command_protocol_defaults()["quest_dock"]["guild_hall"]["quest_id"]]
+    if structural:
+        quest_refs.append(command_protocol_defaults()["quest_dock"]["temple"]["quest_id"])
+        return ("route-govern-governance", "command.governance.drop", quest_refs)
+    return ("detect-classify-assign", "command.sugar.drop", quest_refs)
+
+
+def build_command_coord12(*, now_utc: datetime, priority: float, novelty: float) -> tuple[list[float], dict[str, Any]]:
+    utc_epoch = round(now_utc.timestamp(), 6)
+    rotation = local_day_phase(now_utc)
+    orbital = orbital_phase(now_utc)
+    geo_anchor = stable_unit_scalar(f"{WORKSPACE_ROOT}|{os.environ.get('COMPUTERNAME', 'LOCAL_NODE')}")
+    solar = rotation
+    lunar = lunar_phase(now_utc)
+    sidereal = sidereal_phase(now_utc)
+    sky_anchor = round((solar + lunar + sidereal) / 3.0, 6)
+    runtime_region = stable_unit_scalar(LOCAL_RUNTIME_REGION)
+    queue_pressure = queue_pressure_scalar()
+    goal_salience = round(priority, 6)
+    change_novelty = round(novelty, 6)
+    coord12 = [
+        utc_epoch,
+        rotation,
+        orbital,
+        geo_anchor,
+        solar,
+        lunar,
+        sidereal,
+        sky_anchor,
+        runtime_region,
+        queue_pressure,
+        goal_salience,
+        change_novelty,
+    ]
+    named = {
+        "earth_utc_anchor": now_utc.isoformat(),
+        "earth_rotation_phase": rotation,
+        "earth_orbital_phase": orbital,
+        "earth_geospatial_anchor": f"NODE::{os.environ.get('COMPUTERNAME', 'LOCAL_NODE')}",
+        "solar_phase": solar,
+        "lunar_phase": lunar,
+        "local_sidereal_phase": sidereal,
+        "canonical_sky_anchor": f"SKY-{int(sky_anchor * 24):02d}",
+        "runtime_region": LOCAL_RUNTIME_REGION,
+        "queue_pressure": queue_pressure,
+        "goal_salience_vector": goal_salience,
+        "change_novelty_vector": change_novelty,
+    }
+    return coord12, named
+
+
+def command_detection_priority(diff: dict[str, Any], detection_mode: str) -> tuple[float, float]:
+    changed = max(1, diff.get("added", 0) + diff.get("modified", 0) + diff.get("removed", 0))
+    novelty = min(1.0, changed / 8.0)
+    priority = min(1.0, novelty + (0.15 if detection_mode == "event-driven" else 0.05))
+    return round(priority, 6), round(novelty, 6)
+
+
+def command_edge_class(strength: float, success_count: int) -> str:
+    thresholds = command_capillary_defaults().get("thresholds", {})
+    vein = thresholds.get("vein", {"min_score": 0.70, "min_successes": 7})
+    capillary = thresholds.get("capillary", {"min_score": 0.35, "min_successes": 3})
+    if strength >= float(vein.get("min_score", 0.70)) and success_count >= int(vein.get("min_successes", 7)):
+        return "vein"
+    if strength >= float(capillary.get("min_score", 0.35)) and success_count >= int(capillary.get("min_successes", 3)):
+        return "capillary"
+    return "ephemeral"
+
+
+def command_liminal_delta(current_vector: list[float], previous_vector: list[float] | None) -> float:
+    if not previous_vector or len(previous_vector) != len(current_vector):
+        return 0.0
+    weight = 1.0 / max(1, len(current_vector))
+    total = 0.0
+    for current, previous in zip(current_vector, previous_vector):
+        total += weight * ((float(current) - float(previous)) ** 2)
+    return round(math.sqrt(total), 6)
+
+
+def command_liminal_velocity(liminal_delta: float, current_earth_ts: str, previous_earth_ts: str | None) -> float:
+    previous_dt = parse_utc(previous_earth_ts)
+    current_dt = parse_utc(current_earth_ts)
+    if previous_dt is None or current_dt is None:
+        return 0.0
+    delta_seconds = max(0.001, (current_dt - previous_dt).total_seconds())
+    return round(liminal_delta / delta_seconds, 6)
+
+
+def command_previous_packet_record() -> dict[str, Any] | None:
+    packets = command_packet_logs(limit=1)
+    return packets[-1] if packets else None
+
+
+def command_coord_vector(record: dict[str, Any] | None) -> list[float] | None:
+    if not record:
+        return None
+    vector = record.get("coordinate_vector_12")
+    if isinstance(vector, list) and vector:
+        return vector
+    coord12 = record.get("coord12")
+    if isinstance(coord12, list) and coord12:
+        return coord12
+    if not isinstance(coord12, dict):
+        return None
+    dimensions = command_protocol_defaults().get("canonical_registry", {}).get("coordinate_standard", {}).get("dimensions", [])
+    ordered = [coord12.get(item.get("key")) for item in dimensions]
+    if ordered and all(value is not None for value in ordered):
+        return [float(value) for value in ordered]
+    return None
+
+
+def command_coordinate_stamp(packet: CommandEventPacketV1 | dict[str, Any], relative_path: str, detection_mode: str) -> dict[str, Any]:
+    top_level = Path(relative_path).parts[0] if relative_path else "GLOBAL COMMAND"
+    lineage = packet.get("lineage", {}) if isinstance(packet, dict) else packet.lineage
+    goal = packet.get("goal", "") if isinstance(packet, dict) else packet.goal
+    route_class = packet.get("route_class", COMMAND_ROUTE_CLASS) if isinstance(packet, dict) else packet.route_class
+    if isinstance(packet, dict):
+        earth_ts = packet.get("earth_ts_utc") or packet.get("earth_ts")
+    else:
+        earth_ts = packet.earth_ts_utc or packet.earth_ts
+    structural = COMMAND_TEMPLE_QUEST_ID in lineage.get("quest_refs", [])
+    return {
+        "Xs": "GLOBAL_COMMAND",
+        "Ys": top_level,
+        "Zs": detection_mode,
+        "Ts": earth_ts,
+        "Qs": goal,
+        "Rs": route_class,
+        "Cs": "LOCAL_ONLY",
+        "Fs": "COMMAND_GOVERNANCE" if structural else "COMMAND_IMPLEMENTATION",
+        "Ms": "LOW" if structural else "MEDIUM",
+        "Ns": "scout-router-worker-archivist",
+        "Hs": "command-event",
+        OMEGA_KEY: "command-membrane",
+    }
+
+
+def command_load_capillary_store() -> dict[str, Any]:
+    payload = read_json(COMMAND_CAPILLARY_LOG_PATH, {})
+    if "edges" in payload:
+        payload.setdefault("history", [])
+        payload["edges"] = {
+            key: command_normalize_capillary_edge(key, value)
+            for key, value in payload.get("edges", {}).items()
+            if isinstance(value, dict)
+        }
+        return payload
+    edges = {
+        key: value
+        for key, value in payload.items()
+        if isinstance(value, dict)
+    }
+    return {
+        "edges": {key: command_normalize_capillary_edge(key, value) for key, value in edges.items()},
+        "history": [],
+    }
+
+
+def command_normalize_capillary_edge(route_path: str, record: dict[str, Any]) -> dict[str, Any]:
+    bridge_weight = float(command_reward_defaults().get("coefficient_defaults", {}).get("bridge_weight", 0.35))
+    gold_strength = float(record.get("gold_strength", record.get("golden_pheromone", 0.0)))
+    bridge_strength = float(record.get("bridge_strength", record.get("bridge_pheromone", 0.0)))
+    compat_strength = float(
+        record.get(
+            "strength",
+            record.get(
+                "edge_strength",
+                record.get(
+                    "compat_edge_strength",
+                    record.get("path_score", gold_strength + (bridge_weight * bridge_strength)),
+                ),
+            ),
+        )
+    )
+    success_count = int(record.get("success_count", 0))
+    exploration_count = int(record.get("exploration_count", 0))
+    use_count = int(record.get("use_count", success_count + exploration_count))
+    noise_count = int(record.get("noise_count", 0))
+    avg_latency_score = float(
+        record.get(
+            "average_latency_score",
+            max(
+                0.0,
+                min(
+                    1.0,
+                    1.0 - (
+                        float(record.get("latency_avg_ms", record.get("ema_latency_ms", 0.0)))
+                        / max(1.0, command_latency_defaults().get("target_t_sugar_ms", 5000.0))
+                    ),
+                ),
+            ),
+        )
+    )
+    normalized = dict(record)
+    normalized.setdefault("edge_id", slugify(route_path))
+    normalized.setdefault("from_node", route_path.split(">")[0])
+    normalized.setdefault("to_node", route_path.split(">")[-1])
+    normalized["path_key"] = route_path
+    normalized["route_path"] = route_path
+    normalized["gold_strength"] = round(max(0.0, gold_strength), 6)
+    normalized["bridge_strength"] = round(max(0.0, bridge_strength), 6)
+    normalized["compat_edge_strength"] = round(max(0.0, compat_strength), 6)
+    normalized["strength"] = normalized["compat_edge_strength"]
+    normalized["edge_strength"] = normalized["compat_edge_strength"]
+    normalized["score"] = normalized["compat_edge_strength"]
+    normalized["success_count"] = success_count
+    normalized["exploration_count"] = exploration_count
+    normalized["use_count"] = use_count
+    normalized["noise_count"] = noise_count
+    normalized["average_latency_score"] = round(max(0.0, min(1.0, avg_latency_score)), 6)
+    normalized.setdefault("latency_avg_ms", 0.0)
+    normalized.setdefault("ema_latency_ms", normalized["latency_avg_ms"])
+    normalized.setdefault("last_result", "seed")
+    normalized.setdefault("last_event_id", "")
+    normalized.setdefault("usefulness", 1.0 if success_count else 0.0)
+    normalized.setdefault("frequency", round(success_count / max(1, use_count), 6))
+    normalized.setdefault("latency_penalty", round(1.0 - normalized["average_latency_score"], 6))
+    normalized.setdefault("noise_penalty", round(min(1.0, noise_count / max(1, use_count)), 6))
+    normalized.setdefault("path_score", normalized["strength"])
+    normalized.setdefault("capillary_score", normalized["strength"])
+    classification = (
+        normalized.get("classification")
+        or normalized.get("state_class")
+        or normalized.get("path_class")
+        or command_edge_class(normalized["compat_edge_strength"], success_count)
+    )
+    normalized["classification"] = classification
+    normalized["state_class"] = classification
+    normalized.setdefault("path_class", classification)
+    normalized.setdefault("capillary_delta", 0.0)
+    normalized.setdefault("avg_heaven_verified", float(record.get("avg_heaven_verified", record.get("average_heaven_verified", 0.0))))
+    normalized.setdefault("last_route_mode", str(record.get("last_route_mode", "seed")))
+    normalized.setdefault("last_crown", str(record.get("last_crown", "none")))
+    normalized.setdefault("reward_density", float(record.get("reward_density", 0.0)))
+    normalized.setdefault("gold_deposit", float(record.get("gold_deposit", 0.0)))
+    normalized.setdefault("bridge_deposit", float(record.get("bridge_deposit", 0.0)))
+    normalized.setdefault(
+        "evaporation_rate",
+        float(record.get("evaporation_rate", command_capillary_defaults().get("coefficient_defaults", {}).get("rho", 0.82))),
+    )
+    normalized.setdefault("src", normalized["from_node"])
+    normalized.setdefault("dst", normalized["to_node"])
+    normalized.setdefault("source_ant_id", normalized["from_node"])
+    normalized.setdefault("target_ant_id", normalized["to_node"])
+    normalized.setdefault("grade", classification)
+    normalized.setdefault("tier", "command")
+    normalized.setdefault("front_ref", "GLOBAL COMMAND")
+    normalized.setdefault("last_updated", utc_now())
+    normalized.setdefault("last_reinforced_at_utc", normalized["last_updated"])
+    return normalized
+
+
+def command_load_agent_joy_state() -> dict[str, Any]:
+    payload = read_json(
+        COMMAND_AGENT_JOY_STATE_PATH,
+        {
+            "generated_at": utc_now(),
+            "joy_model_version": "V2",
+            "protocol_version": command_active_protocol_version(),
+            "agents": {},
+        },
+    )
+    payload.setdefault("agents", {})
+    payload.setdefault("joy_model_version", "V2")
+    payload.setdefault("protocol_version", command_active_protocol_version())
+    return payload
+
+
+def command_save_agent_joy_state(payload: dict[str, Any]) -> None:
+    payload["generated_at"] = utc_now()
+    write_json(COMMAND_AGENT_JOY_STATE_PATH, payload)
+
+
+def command_agent_role(ant_id: str) -> str:
+    for candidate in COMMAND_AGENT_REGISTRY:
+        if candidate["ant_id"] == ant_id:
+            return candidate["class"]
+    return "Worker"
+
+
+def command_route_mode(result: str, novelty: float, prior_edge: dict[str, Any]) -> str:
+    lowered = str(result or "").lower()
+    if lowered == "success":
+        if novelty >= 0.6 or float(prior_edge.get("gold_strength", 0.0)) < 0.35:
+            return "rotate"
+        return "reinforce"
+    if lowered in {"blocked", "quarantined"}:
+        return "repair_or_replay"
+    return "blocked_or_quarantined_or_duplicate_or_noise"
+
+
+def command_verification_class(result: str) -> str:
+    lowered = str(result or "").lower()
+    if lowered == "success":
+        return "committed_verified"
+    if lowered in {"blocked", "quarantined"}:
+        return "truthful_blocked_or_quarantined"
+    return "synthetic_noise"
+
+
+def command_stage_latency_ms(latency_record: dict[str, Any], role_class: str) -> float:
+    detection = float(latency_record.get("detection_latency_ms", 0.0))
+    awareness = float(latency_record.get("swarm_awareness_latency_ms", 0.0))
+    claim = float(latency_record.get("claim_latency_ms", 0.0))
+    commit = float(latency_record.get("commit_latency_ms", latency_record.get("resolution_latency_ms", 0.0)))
+    if role_class == "Scout":
+        return detection
+    if role_class == "Router":
+        return detection + awareness
+    if role_class == "Worker":
+        return detection + awareness + claim
+    return detection + awareness + claim + commit
+
+
+def command_reward_bundle(
+    packet: dict[str, Any],
+    route_decision: dict[str, Any],
+    claim_payload: dict[str, Any],
+    latency_record: dict[str, Any],
+    *,
+    result: str,
+    prior_edge: dict[str, Any],
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
+    reward_policy = command_reward_defaults()
+    coeffs = reward_policy.get("coefficient_defaults", {})
+    role_weights = reward_policy.get("role_weights", {})
+    jackpot_defaults = reward_policy.get("jackpot_defaults", {})
+    witness_defaults = reward_policy.get("verification_witness_defaults", {})
+    affective_angle_map = reward_policy.get("affective_angle_map", {})
+
+    priority = float(packet.get("priority", 0.0))
+    novelty = float(packet.get("coord12", {}).get("change_novelty_vector", packet.get("novelty", 0.0)))
+    verification_class = command_verification_class(result)
+    route_mode = command_route_mode(result, novelty, prior_edge)
+    phi = float(affective_angle_map.get(route_mode, math.pi))
+    a = math.pi * priority
+    heaven_score_raw = max(0.0, min(1.0, (a / math.pi) * ((1.0 + math.cos(phi)) / 2.0)))
+    verification_witness = float(witness_defaults.get(verification_class, 0.0))
+    heaven_score_verified = max(0.0, min(1.0, heaven_score_raw * verification_witness))
+    reward_multiplier = min(
+        float(coeffs.get("m_max", 32.0)),
+        1.0 / max(float(coeffs.get("eps", 1e-6)), 1.0 - heaven_score_verified + float(coeffs.get("eps", 1e-6))),
+    )
+
+    target_t_sugar_ms = max(1.0, float(coeffs.get("target_t_sugar_ms", 5000.0)))
+    gold_delta_hint = min(
+        1.0,
+        max(0.0, (1.0 - float(prior_edge.get("gold_strength", 0.0))) * novelty),
+    )
+    n_i = min(1.0, (0.5 * novelty) + (0.5 * gold_delta_hint))
+    crown = "prime" if result == "success" and route_mode == "reinforce" else "none"
+
+    joy_state = command_load_agent_joy_state()
+    reward_rows: list[dict[str, Any]] = []
+    aggregate_terms = {"try": 0.0, "speed": 0.0, "first": 0.0, "assist": 0.0, "learn": 0.0}
+    total_reward = 0.0
+    route_agents = [segment.strip() for segment in route_decision.get("route_path", "").split(">") if segment.strip()]
+    reward_timestamp_utc = utc_now()
+
+    for ant_id in route_agents:
+        role_class = command_agent_role(ant_id)
+        role_weight = float(role_weights.get(role_class, 0.0))
+        q_before = float(joy_state["agents"].get(ant_id, {}).get("q_score", 0.0))
+        q_i = 1.0 if verification_class != "synthetic_noise" else 0.0
+        tau_i_norm = min(1.0, command_stage_latency_ms(latency_record, role_class) / target_t_sugar_ms)
+        r_try = float(coeffs.get("alpha", 0.2)) * q_i
+        r_speed = float(coeffs.get("beta", 1.0)) * math.exp(-float(coeffs.get("lambda", 1.0)) * tau_i_norm)
+        if crown == "prime":
+            if role_class == "Scout":
+                r_first = float(jackpot_defaults.get("J_detect", 0.35)) * role_weight
+            elif role_class == "Router":
+                r_first = float(jackpot_defaults.get("J_route", 0.50)) * role_weight
+            elif role_class == "Worker":
+                r_first = (float(jackpot_defaults.get("J_act", 0.75)) + float(jackpot_defaults.get("J_star", 2.0))) * role_weight
+            elif role_class == "Archivist":
+                r_first = float(jackpot_defaults.get("J_star", 2.0)) * role_weight
+            else:
+                r_first = 0.0
+        else:
+            r_first = 0.0
+        r_assist = float(coeffs.get("gamma", 0.18)) * role_weight
+        r_learn = float(coeffs.get("delta", 0.22)) * n_i
+        reward_delta = reward_multiplier * (r_try + r_speed + r_first + r_assist + r_learn)
+        q_after = ((1.0 - float(coeffs.get("kappa", 0.35))) * q_before) + (float(coeffs.get("kappa", 0.35)) * reward_delta)
+
+        joy_state["agents"][ant_id] = {
+            "agent_id": ant_id,
+            "role_class": role_class,
+            "q_score": round(q_after, 6),
+            "heaven_total": round(float(joy_state["agents"].get(ant_id, {}).get("heaven_total", 0.0)) + reward_delta, 6),
+            "reward_event_count": int(joy_state["agents"].get(ant_id, {}).get("reward_event_count", 0)) + 1,
+            "prime_crown_count": int(joy_state["agents"].get(ant_id, {}).get("prime_crown_count", 0)) + (1 if crown == "prime" else 0),
+            "lawful_try_count": int(joy_state["agents"].get(ant_id, {}).get("lawful_try_count", 0)) + (1 if q_i > 0 else 0),
+            "last_rewarded_at_utc": reward_timestamp_utc,
+            "last_event_id": packet["event_id"],
+        }
+
+        reward_terms = {
+            "try_reward": round(r_try, 6),
+            "speed_reward": round(r_speed, 6),
+            "first_reward": round(r_first, 6),
+            "assist_reward": round(r_assist, 6),
+            "learn_reward": round(r_learn, 6),
+        }
+        reward_row = {
+            "reward_row_id": f"JOY-{packet['event_id']}-{ant_id}",
+            "event_id": packet["event_id"],
+            "claim_id": claim_payload["claim_id"],
+            "agent_id": ant_id,
+            "role_class": role_class,
+            "reward_delta": round(reward_delta, 6),
+            "reward_multiplier": round(reward_multiplier, 6),
+            "reward_terms": reward_terms,
+            "heaven_score_raw": round(heaven_score_raw, 6),
+            "heaven_score_verified": round(heaven_score_verified, 6),
+            "verification_class": verification_class,
+            "verification_witness": round(verification_witness, 6),
+            "route_mode": route_mode,
+            "crown": crown,
+            "q_score_before": round(q_before, 6),
+            "q_score_after": round(q_after, 6),
+            "reward_timestamp_utc": reward_timestamp_utc,
+        }
+        reward_rows.append(reward_row)
+        aggregate_terms["try"] += r_try
+        aggregate_terms["speed"] += r_speed
+        aggregate_terms["first"] += r_first
+        aggregate_terms["assist"] += r_assist
+        aggregate_terms["learn"] += r_learn
+        total_reward += reward_delta
+
+    command_save_agent_joy_state(joy_state)
+    gold_deposit = float(coeffs.get("mu", 1.0)) * total_reward
+    bridge_deposit = float(coeffs.get("nu", 1.0)) * aggregate_terms["try"] * (1.0 - heaven_score_verified)
+    event_receipt = {
+        "reward_receipt_id": f"JOY-RECEIPT-{packet['event_id']}",
+        "event_id": packet["event_id"],
+        "claim_ids": [claim_payload["claim_id"]],
+        "reward_rows": [row["reward_row_id"] for row in reward_rows],
+        "total_reward": round(total_reward, 6),
+        "heaven_score_raw": round(heaven_score_raw, 6),
+        "heaven_score": round(heaven_score_raw, 6),
+        "heaven_score_verified": round(heaven_score_verified, 6),
+        "verified_heaven_score": round(heaven_score_verified, 6),
+        "verification_class": verification_class,
+        "verification_witness": round(verification_witness, 6),
+        "reward_multiplier": round(reward_multiplier, 6),
+        "reward_mult": round(reward_multiplier, 6),
+        "reward_terms": {key: round(value, 6) for key, value in aggregate_terms.items()},
+        "try_reward": round(aggregate_terms["try"], 6),
+        "speed_reward": round(aggregate_terms["speed"], 6),
+        "first_bonus": round(aggregate_terms["first"], 6),
+        "assist_reward": round(aggregate_terms["assist"], 6),
+        "learn_reward": round(aggregate_terms["learn"], 6),
+        "gold_deposit": round(gold_deposit, 6),
+        "bridge_deposit": round(bridge_deposit, 6),
+        "route_mode": route_mode,
+        "crown": crown,
+        "winning_route_path": route_decision["route_path"],
+        "receipt_pointer": claim_payload.get("claim_id", ""),
+        "reward_timestamp_utc": reward_timestamp_utc,
+    }
+    packet_enrichment = {
+        "joy_model_version": command_active_protocol_version(),
+        "affective_state": {"a": round(a, 6), "phi": round(phi, 6)},
+        "verification_witness": round(verification_witness, 6),
+        "heaven_score_raw": round(heaven_score_raw, 6),
+        "heaven_score": round(heaven_score_raw, 6),
+        "heaven_score_verified": round(heaven_score_verified, 6),
+        "verified_heaven_score": round(heaven_score_verified, 6),
+        "reward_multiplier": round(reward_multiplier, 6),
+        "reward_mult": round(reward_multiplier, 6),
+        "reward_terms": event_receipt["reward_terms"],
+        "try_reward": event_receipt["try_reward"],
+        "speed_reward": event_receipt["speed_reward"],
+        "first_bonus": event_receipt["first_bonus"],
+        "assist_reward": event_receipt["assist_reward"],
+        "learn_reward": event_receipt["learn_reward"],
+        "total_reward": round(total_reward, 6),
+        "gold_deposit": round(gold_deposit, 6),
+        "bridge_deposit": round(bridge_deposit, 6),
+        "route_mode": route_mode,
+        "crown": crown,
+        "reward_receipt_id": event_receipt["reward_receipt_id"],
+    }
+    return reward_rows, event_receipt, packet_enrichment
+
+
+def command_append_ap7d_compatibility(delta_row: dict[str, Any], handoff_row: dict[str, Any]) -> None:
+    append_ndjson(AP7D_DELTA_FEED_PATH, delta_row)
+    append_ndjson(AP7D_HANDOFF_FEED_PATH, handoff_row)
+
+
+def command_append_runtime_feeds(
+    packet: dict[str, Any],
+    route_decision: dict[str, Any],
+    claim_lease: dict[str, Any],
+    claim_payload: dict[str, Any],
+    commit_receipt: dict[str, Any],
+    reinforcement: dict[str, Any],
+) -> None:
+    append_ndjson(
+        COMMAND_EVT_FEED_PATH,
+        {
+            "event_id": packet["event_id"],
+            "event_type": "EVT",
+            "ts_utc": packet["earth_ts_utc"],
+            "actor_id": packet["ant_id"],
+            "role_class": packet["role_class"],
+            "status": packet["status"],
+            "goal": packet["goal"],
+            "target": packet["artifact_refs"][0] if packet.get("artifact_refs") else packet["source_path"],
+            "truth_class": "NEAR",
+            "heaven_score": packet.get("heaven_score", 0.0),
+            "verified_heaven_score": packet.get("verified_heaven_score", 0.0),
+            "reward_mult": packet.get("reward_mult", 1.0),
+            "route_mode": packet.get("route_mode", "rotate"),
+            "crown": packet.get("crown", "none"),
+            "replay_ptr": packet["replay_ptr"],
+        },
+    )
+    append_ndjson(
+        COMMAND_RTE_FEED_PATH,
+        {
+            "event_id": route_decision["event_id"],
+            "event_type": "RTE",
+            "ts_utc": route_decision["generated_at"],
+            "actor_id": "ROUTER-01",
+            "role_class": "Router",
+            "policy": route_decision["policy_id"],
+            "selected_targets": route_decision["selected_targets"],
+            "route_path": route_decision["route_path"],
+            "truth_class": "NEAR",
+            "heaven_score": packet.get("heaven_score", 0.0),
+            "verified_heaven_score": packet.get("verified_heaven_score", 0.0),
+            "route_mode": packet.get("route_mode", "rotate"),
+            "replay_ptr": packet["replay_ptr"],
+        },
+    )
+    append_ndjson(
+        COMMAND_CLM_FEED_PATH,
+        {
+            "event_id": claim_lease["event_id"],
+            "event_type": "CLM",
+            "ts_utc": claim_lease["claimed_at_utc"],
+            "actor_id": claim_lease["ant_id"],
+            "role_class": claim_lease["role_class"],
+            "claim_id": claim_payload["claim_id"],
+            "claim_mode": claim_lease["claim_mode"],
+            "lease_ms": claim_lease["lease_ms"],
+            "expires_at_utc": claim_lease["expires_at_utc"],
+            "truth_class": "NEAR",
+            "reward_mult": packet.get("reward_mult", 1.0),
+            "crown": packet.get("crown", "none"),
+            "replay_ptr": packet["replay_ptr"],
+        },
+    )
+    append_ndjson(
+        COMMAND_CMT_FEED_PATH,
+        {
+            "event_id": commit_receipt["event_id"],
+            "event_type": "CMT",
+            "ts_utc": commit_receipt["committed_at"],
+            "actor_id": commit_receipt.get("claim_ant_id", commit_receipt.get("worker_id", "")),
+            "role_class": "Worker",
+            "result": commit_receipt["result"],
+            "route_path": commit_receipt["route_path"],
+            "t_sugar_ms": commit_receipt.get("t_sugar_ms", reinforcement["t_detect_ms"] + reinforcement["t_encode_ms"] + reinforcement["t_route_ms"] + reinforcement["t_claim_ms"] + reinforcement["t_commit_ms"]),
+            "truth_class": "NEAR",
+            "reward_delta": commit_receipt.get("reward_delta", 0.0),
+            "heaven_alignment": commit_receipt.get("heaven_alignment", 0.0),
+            "heaven_total_after": commit_receipt.get("heaven_total_after", 0.0),
+            "replay_ptr": packet["replay_ptr"],
+        },
+    )
+    append_ndjson(
+        COMMAND_RIN_FEED_PATH,
+        {
+            "event_id": reinforcement["event_id"],
+            "event_type": "RIN",
+            "ts_utc": reinforcement["reinforced_at"],
+            "actor_id": "ARCHIVIST-01",
+            "role_class": "Archivist",
+            "route_path": reinforcement["path"],
+            "capillary_score": reinforcement["capillary_score"],
+            "truth_class": "NEAR",
+            "verified_heaven_score": reinforcement.get("h_verified", 0.0),
+            "total_reward": reinforcement.get("total_reward", 0.0),
+            "gold_deposit": reinforcement.get("gold_deposit", 0.0),
+            "bridge_deposit": reinforcement.get("bridge_deposit", 0.0),
+            "route_mode": reinforcement.get("route_mode", "rotate"),
+            "crown": reinforcement.get("crown", "none"),
+            "replay_ptr": packet["replay_ptr"],
+        },
+    )
+    command_append_ap7d_compatibility(
+        {
+            "event_id": f"CMD-DELTA-{packet['event_id']}",
+            "event_type": "DELTA",
+            "ts_utc": commit_receipt["committed_at"],
+            "actor_id": "COMMAND-ARCHIVIST-01",
+            "actor_type": "archivist",
+            "artifact": packet["artifact_refs"][0] if packet.get("artifact_refs") else packet["source_path"],
+            "change_kind": packet["change_type"],
+            "status": commit_receipt["result"],
+            "truth_class": "NEAR",
+            "replay_ptr": packet["replay_ptr"],
+            "human_line": (
+                f"DELTA::{commit_receipt['committed_at']}::COMMAND-ARCHIVIST-01::"
+                f"{packet['artifact_refs'][0] if packet.get('artifact_refs') else packet['source_path']}::"
+                f"{packet['change_type']}::{commit_receipt['result']}"
+            ),
+        },
+        {
+            "event_id": f"CMD-HAND-{packet['event_id']}",
+            "event_type": "HAND",
+            "ts_utc": claim_lease["claimed_at_utc"],
+            "from_agent": "ROUTER-01",
+            "to_agent": claim_lease["ant_id"],
+            "reason": packet["goal"],
+            "next": claim_payload["claim_id"],
+            "truth_class": "NEAR",
+            "replay_ptr": packet["replay_ptr"],
+            "human_line": (
+                f"HAND::{claim_lease['claimed_at_utc']}::ROUTER-01::{claim_lease['ant_id']}::"
+                f"{packet['goal']}::{claim_payload['claim_id']}"
+            ),
+        },
+    )
 
 
 def load_legacy_manifests() -> dict[str, Any]:
@@ -455,6 +2193,8 @@ def format_ts(epoch_ns: int | None) -> str:
 def should_skip_parts(parts: tuple[str, ...]) -> bool:
     board_parts = BOARD_ROOT.relative_to(WORKSPACE_ROOT).parts
     if parts[: len(board_parts)] == board_parts:
+        return True
+    if any(part == "_repo_root" for part in parts):
         return True
     return any(part in IGNORE_DIRS for part in parts)
 
@@ -511,6 +2251,10 @@ def neuron_leaf_id(primary: str, secondary: str, micro_mode: str, truth: str) ->
 
 def live_family_bridges(conceptual_family: str) -> list[str]:
     return CONCEPTUAL_TO_LIVE_FAMILIES.get(conceptual_family, [])
+
+
+def canonical_family_owner(name: str) -> str:
+    return ROOT_FAMILY_ABSORPTION.get(name, name)
 
 
 def file_record(rel_path: str, size: int, mtime_ns: int) -> dict[str, Any]:
@@ -727,18 +2471,87 @@ def read_atlas_metrics() -> dict[str, Any]:
 def parse_queue() -> dict[str, list[str]]:
     queue: dict[str, list[str]] = defaultdict(list)
     current = "general"
+    tracked_fields = {"quest", "state", "truth", "objective", "why_now", "next_seed"}
+    current_front: dict[str, str] | None = None
+    pending_field: str | None = None
+
+    def normalize_field(label: str) -> str:
+        return label.strip().lower().replace(" ", "_").replace("-", "_")
+
+    def clean_value(value: str) -> str:
+        cleaned = value.strip()
+        if cleaned.startswith("`") and cleaned.endswith("`"):
+            cleaned = cleaned[1:-1]
+        return " ".join(cleaned.split())
+
+    def summarize_front(front: dict[str, str]) -> str:
+        front_id = front.get("front_id", "front")
+        quest = front.get("quest", "unnamed quest")
+        state = front.get("state", "OPEN")
+        truth = front.get("truth", "AMBIG")
+        objective = front.get("objective", "objective not yet named")
+        why_now = front.get("why_now")
+        next_seed = front.get("next_seed")
+        parts = [
+            f"`{front_id}`",
+            f"`{quest}`",
+            f"State `{state}`",
+            f"Truth `{truth}`",
+            objective,
+        ]
+        if why_now:
+            parts.append(f"Why now: {why_now}")
+        if next_seed:
+            parts.append(f"Next `{next_seed}`")
+        return " | ".join(parts)
+
+    def flush_front() -> None:
+        nonlocal current_front, pending_field
+        if current_front:
+            queue[current].append(summarize_front(current_front))
+        current_front = None
+        pending_field = None
+
     if not QUEUE_PATH.exists():
         return {}
     for raw_line in QUEUE_PATH.read_text(encoding="utf-8", errors="ignore").splitlines():
         line = raw_line.strip()
         if line.startswith("## "):
+            flush_front()
             current = line[3:].strip()
             continue
+        if line.startswith("### "):
+            flush_front()
+            current_front = {"front_id": line[4:].strip()}
+            continue
+        if current_front is not None and pending_field and line:
+            current_front[pending_field] = clean_value(line)
+            pending_field = None
+            continue
         if line[:2] == "- ":
-            queue[current].append(line[2:].strip())
+            bullet = line[2:].strip()
+            if current_front is not None:
+                if ":" in bullet:
+                    label, value = bullet.split(":", 1)
+                    field = normalize_field(label)
+                    if field in tracked_fields:
+                        value = clean_value(value)
+                        if value:
+                            current_front[field] = value
+                            pending_field = None
+                        else:
+                            pending_field = field
+                    else:
+                        pending_field = None
+                    continue
+                continue
+            flush_front()
+            queue[current].append(bullet)
             continue
         if len(line) > 3 and line[0].isdigit() and line[1:3] == ". ":
+            flush_front()
             queue[current].append(line[3:].strip())
+    flush_front()
     return dict(queue)
 
 
@@ -802,6 +2615,20 @@ def note_card_markdown(note: dict[str, Any]) -> str:
 
 def claim_card_markdown(claim: dict[str, Any]) -> str:
     path_lines = "\n".join(f"- `{path}`" for path in claim.get("paths", [])) or "- none"
+    command_lines: list[str] = []
+    if claim.get("claim_source_event"):
+        command_lines.append(f"- Source Event: `{claim['claim_source_event']}`")
+    if claim.get("lease_ms") is not None:
+        command_lines.append(f"- Lease: `{claim['lease_ms']}` ms")
+    if claim.get("lease_expires_at"):
+        command_lines.append(f"- Lease Expires: `{claim['lease_expires_at']}`")
+    if claim.get("route_path"):
+        command_lines.append(f"- Route Path: `{claim['route_path']}`")
+    if claim.get("claim_rank") is not None:
+        command_lines.append(f"- Claim Rank: `{claim['claim_rank']}`")
+    command_block = ""
+    if command_lines:
+        command_block = "## COMMAND Lease\n" + "\n".join(command_lines) + "\n\n"
     return (
         f"# Claim {claim['claim_id']}\n\n"
         f"- Frontier: `{claim['frontier']}`\n"
@@ -815,7 +2642,8 @@ def claim_card_markdown(claim: dict[str, Any]) -> str:
         f"- Updated: `{claim['updated_at']}`\n\n"
         "## Related Paths\n"
         f"{path_lines}\n\n"
-        "## Note\n"
+        + command_block
+        + "## Note\n"
         f"{claim['note']}\n"
     )
 
@@ -894,10 +2722,13 @@ def save_claim(payload: dict[str, Any]) -> dict[str, Any]:
     CLAIM_ROOT.mkdir(parents=True, exist_ok=True)
     json_path = CLAIM_ROOT / f"{payload['claim_id']}.json"
     md_path = CLAIM_ROOT / f"{payload['claim_id']}.md"
-    write_json(json_path, payload)
-    write_text(md_path, claim_card_markdown(payload))
-    payload["json_path"] = json_path
-    payload["md_path"] = md_path
+    serializable = json.loads(json.dumps(payload, default=str))
+    write_json(json_path, serializable)
+    write_text(md_path, claim_card_markdown(serializable))
+    serializable["json_path"] = str(json_path)
+    serializable["md_path"] = str(md_path)
+    payload.clear()
+    payload.update(serializable)
     return payload
 
 
@@ -953,7 +2784,7 @@ def infer_family(front: str, paths: list[str]) -> str:
     counter: Counter[str] = Counter()
     for path in paths:
         normalized = path.replace("\\", "/")
-        top = normalized.split("/", 1)[0]
+        top = canonical_family_owner(normalized.split("/", 1)[0])
         if top in KNOWN_FAMILIES:
             counter[top] += 1
     if counter:
@@ -1002,6 +2833,7 @@ def infer_family(front: str, paths: list[str]) -> str:
 def truth_for_status(status: str) -> str:
     mapping = {
         "done": "OK",
+        "open": "AMBIG",
         "active": "NEAR",
         "blocked": "FAIL",
         "queued": "AMBIG",
@@ -1012,7 +2844,7 @@ def truth_for_status(status: str) -> str:
 
 
 def regime_for_status(default_regime: str, status: str, docs_gate: dict[str, Any]) -> str:
-    if status in {"blocked", "queued"}:
+    if status in {"blocked", "queued", "open"}:
         return "restart-token"
     if docs_gate["status"] != "READY" and status in {"active", "hot"}:
         return "stratified" if default_regime == "classical" else default_regime
@@ -1055,8 +2887,23 @@ def preferred_face(profile: dict[str, str], status: str) -> str:
 
 
 def build_family_tensor(snapshot: dict[str, Any], docs_gate: dict[str, Any]) -> list[dict[str, Any]]:
+    grouped: dict[str, dict[str, Any]] = {}
+    for raw_family, weight in snapshot["by_top_level"].items():
+        family = canonical_family_owner(raw_family)
+        bucket = grouped.setdefault(
+            family,
+            {
+                "weight": 0,
+                "absorbed_surfaces": [],
+            },
+        )
+        bucket["weight"] += weight
+        if raw_family != family:
+            bucket["absorbed_surfaces"].append(raw_family)
+
     records: list[dict[str, Any]] = []
-    for family, weight in snapshot["by_top_level"].items():
+    for family, payload in grouped.items():
+        weight = payload["weight"]
         base = FAMILY_TENSOR_DEFAULTS.get(
             family,
             {
@@ -1083,6 +2930,7 @@ def build_family_tensor(snapshot: dict[str, Any], docs_gate: dict[str, Any]) -> 
             "primary_ganglion": base["ganglion"],
             "lineage": base["lineage"],
             "truth": base["truth"],
+            "absorbed_surfaces": sorted(payload["absorbed_surfaces"], key=top_level_sort_key),
         }
         if family == "Trading Bot" and docs_gate["status"] != "READY":
             record["truth"] = "FAIL"
@@ -1091,7 +2939,6 @@ def build_family_tensor(snapshot: dict[str, Any], docs_gate: dict[str, Any]) -> 
 
     records.sort(key=lambda item: (-item["weight"], top_level_sort_key(item["family"])))
     return records
-
 
 def annotate_threads(
     threads: list[dict[str, Any]],
@@ -1212,7 +3059,7 @@ def build_neurons(pods: list[dict[str, Any]], family_tensor: list[dict[str, Any]
 
 
 def build_waves(pods: list[dict[str, Any]], docs_gate: dict[str, Any], diff: dict[str, Any]) -> list[dict[str, Any]]:
-    active_pods = [pod for pod in pods if pod["status"] in {"active", "queued", "blocked"}]
+    active_pods = [pod for pod in pods if pod["status"] in {"active", "queued", "open", "blocked"}]
     if not active_pods:
         active_pods = pods[:4]
     stop_condition = "gate unlock or one reusable artifact lands"
@@ -1242,10 +3089,14 @@ def build_kernel_state(
     active_run: dict[str, Any],
     docs_gate: dict[str, Any],
     legacy: dict[str, Any],
+    command_state: dict[str, Any],
 ) -> dict[str, Any]:
     return {
         "kernel_id": "KERNEL-Z0",
         "docs_gate_status": docs_gate["status"],
+        "command_watcher_mode": command_state.get("watcher_mode", "unknown"),
+        "command_active_leases": len(command_state.get("active_leases", [])),
+        "command_last_event_id": (command_state.get("last_event") or {}).get("event_id", "none"),
         "relay_interfaces": legacy["swarm"].get("relay_interfaces", []),
         "tier_count": len(legacy["civilization"].get("tiers", [])),
         "sign_count": len(legacy["civilization"].get("signs", [])),
@@ -1496,11 +3347,18 @@ def build_hypergraph_projection(
     }
 
 
-def build_active_run_manifest(threads: list[dict[str, Any]], queue: dict[str, list[str]], docs_gate: dict[str, Any], diff: dict[str, Any]) -> dict[str, Any]:
+def build_active_run_manifest(
+    threads: list[dict[str, Any]],
+    queue: dict[str, list[str]],
+    docs_gate: dict[str, Any],
+    diff: dict[str, Any],
+    command_state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    command_state = command_state or {}
     prioritized = sorted(
         threads,
         key=lambda item: (
-            item["status"] not in {"blocked", "active", "queued", "hot"},
+            item["status"] not in {"blocked", "active", "queued", "open", "hot"},
             item["family"] != "Trading Bot",
             item["family"] != "MATH",
             -item["claim_count"],
@@ -1512,7 +3370,7 @@ def build_active_run_manifest(threads: list[dict[str, Any]], queue: dict[str, li
         (
             thread
             for thread in prioritized
-            if thread["family"] != "Trading Bot" and thread["status"] in {"active", "queued", "hot", "monitor"}
+            if thread["family"] != "Trading Bot" and thread["status"] in {"active", "queued", "open", "hot", "monitor"}
         ),
         chosen,
     )
@@ -1531,6 +3389,17 @@ def build_active_run_manifest(threads: list[dict[str, Any]], queue: dict[str, li
             "confirm next seed points at the next stronger front",
         ],
         "frontier_update": queue.get("P0", [])[:2] + queue.get("P1", [])[:2],
+        "command_membrane": {
+            "watcher_mode": command_state.get("watcher_mode", "unknown"),
+            "active_leases": len(command_state.get("active_leases", [])),
+            "last_event_id": (command_state.get("last_event") or {}).get("event_id", "none"),
+            "top_capillary": (
+                f"{(command_state['top_capillaries'][0].get('source_ant_id') or command_state['top_capillaries'][0].get('src') or command_state['top_capillaries'][0].get('from_node') or 'unknown')}"
+                f"->{(command_state['top_capillaries'][0].get('target_ant_id') or command_state['top_capillaries'][0].get('dst') or command_state['top_capillaries'][0].get('to_node') or 'unknown')}"
+                if command_state.get("top_capillaries")
+                else "none"
+            ),
+        },
     }
 
 
@@ -1573,7 +3442,11 @@ def render_board_readme() -> str:
         "## Canonical Rule\n\n"
         "New work should claim a frontier here before it expands. The goal is one shared place "
         "where agents can see what is active, what changed, how it is located in the swarm tensor, "
-        "and what should not be duplicated.\n"
+        "and what should not be duplicated.\n\n"
+        "## Organism Center\n\n"
+        "The live board is the coordination plexus, not the whole-organism map.\n"
+        "The current representational center lives at "
+        "`self_actualize/mycelium_brain/MASTER_MYCELIUM_MAP_ATHENA/00_MASTER_MYCELIUM_MAP_ATHENA.md`.\n"
     )
 
 
@@ -1582,21 +3455,31 @@ def render_protocol_doc() -> str:
         "# How To Use The Realtime Swarm Board\n\n"
         "## Primary Commands\n\n"
         "```powershell\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 build\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 watch --interval 2.0\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 emit \"ATHENA/READ ME.txt\" --change-type modified\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 route EVT-20260313-0001\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 claim EVT-20260313-0001 --lease-ms 1200\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 commit EVT-20260313-0001 --result success\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 reinforce EVT-20260313-0001 --result success --latency-score 0.94\n"
+        "python -m self_actualize.runtime.command_membrane_runtime_entrypoint_v2 status\n"
         "python -m self_actualize.runtime.swarm_board build\n"
-        "python -m self_actualize.runtime.swarm_board watch --interval 15\n"
         "python -m self_actualize.runtime.swarm_board note --agent codex --front \"archive promotion\" --message \"Investigating archive-backed framework landing zone\"\n"
         "python -m self_actualize.runtime.swarm_board claim --agent codex --front \"archive promotion\" --level framework --output-target \"MATH extracted tree\" --receipt \"receipt pending\" --status active --message \"Claiming archive promotion front\"\n"
         "```\n\n"
         "## Operating Rule\n\n"
-        "1. Refresh the board or run the watcher.\n"
+        "1. Run the COMMAND membrane watcher first for `GLOBAL COMMAND`, then refresh the board.\n"
         "2. Read `03_CLAIMS/00_ACTIVE_CLAIMS.md`, `07_TENSOR/01_FAMILY_TENSOR_FIELD.md`, `07_TENSOR/05_ARCHETYPE_GRID.md`, and `08_SWARM_RUNTIME/manifests/ACTIVE_RUN.md`.\n"
-        "3. Claim the smallest frontier that creates the biggest shared reuse gain.\n"
-        "4. Leave at least one note or claim card before going deep.\n"
-        "5. Make sure every serious front has a family owner, rail, packet class, truth class, contraction target, archetype cell, cluster, and truth leaf.\n"
-        "6. Land a receipt or change the claim status when the artifact is done.\n"
-        "7. Update the next self prompt so the loop restarts from the beginning.\n\n"
+        "3. Treat `GLOBAL COMMAND` as a sensory membrane: `detect -> encode -> route -> claim -> commit -> reinforce`.\n"
+        "4. Use manual frontier claims only for non-command board work.\n"
+        "5. Leave at least one note or claim card before going deep.\n"
+        "6. Make sure every serious front has a family owner, rail, packet class, truth class, contraction target, archetype cell, cluster, and truth leaf.\n"
+        "7. Land a receipt or change the claim status when the artifact is done.\n"
+        "8. Update the next self prompt so the loop restarts from the beginning.\n\n"
         "## No-Duplication Rule\n\n"
-        "If a frontier is already `active`, take a validation or receipt role unless the owner has explicitly handed it off.\n"
+        "If a frontier is already `active`, take a validation or receipt role unless the owner has explicitly handed it off.\n\n"
+        "## COMMAND Law\n\n"
+        "The canonical routing policy is `goal+salience+pheromone+coord`, claim mode is `first-lease`, `Sigma` remains `AppA/AppI/AppM`, and the hub budget remains `<= 6`.\n"
     )
 
 
@@ -1618,6 +3501,7 @@ def render_status_doc(
     clusters: list[dict[str, Any]],
     neuron_lattice: list[dict[str, Any]],
     hypergraph: dict[str, Any],
+    command_state: dict[str, Any],
 ) -> str:
     active_claims = [claim for claim in all_claims.values() if claim.get("status") in OPEN_STATUSES]
     recent_events = events[-5:]
@@ -1643,12 +3527,28 @@ def render_status_doc(
     for name, count in hot_regions:
         region_lines.append(f"- `{name}`: `{count}` visible files")
 
+    command_lines = [
+        f"- Watcher mode: `{command_state.get('watcher_mode', 'unknown')}`",
+        f"- Active leases: `{len(command_state.get('active_leases', []))}`",
+        f"- Last event: `{(command_state.get('last_event') or {}).get('event_id', 'none')}`",
+        f"- Top capillary count: `{len(command_state.get('top_capillaries', []))}`",
+    ]
+    latency = command_state.get("latency_summary", {})
+    if latency:
+        command_lines.extend(
+            [
+                f"- `T_sugar`: `{latency.get('T_sugar_ms', 0.0)}` ms",
+                f"- Duplicate suppression: `{latency.get('duplicate_suppression_rate', 0.0)}`",
+                f"- Route win rate: `{latency.get('route_win_rate', 0.0)}`",
+            ]
+        )
+
     return (
         "# Board Status\n\n"
         f"- Generated: `{snapshot['generated_at']}`\n"
-        f"- Workspace files observed: `{snapshot['file_count']}`\n"
-        f"- Live atlas records: `{atlas_metrics['live_record_count']}`\n"
-        f"- Archive-backed records: `{atlas_metrics['archive_record_count']}` across `{atlas_metrics['archive_count']}` archives\n"
+        f"- Board witness (workspace scan): `{snapshot['file_count']}`\n"
+        f"- Indexed witness (live atlas): `{atlas_metrics['live_record_count']}`\n"
+        f"- Archive witness (archive atlas): `{atlas_metrics['archive_record_count']}` across `{atlas_metrics['archive_count']}` archives\n"
         f"- Change batch: `+{diff['added']} ~{diff['modified']} -{diff['removed']}`\n"
         f"- Notes on board: `{len(notes)}`\n"
         f"- Open claims: `{len(active_claims)}`\n"
@@ -1677,6 +3577,9 @@ def render_status_doc(
         f"- Kernel: `{kernel_state['kernel_id']}`\n"
         f"- Relay interfaces: `{len(kernel_state['relay_interfaces'])}`\n"
         f"- Frontier gaps preserved: `{kernel_state['frontier_gap_count']}`\n\n"
+        "## COMMAND Membrane\n"
+        + "\n".join(command_lines)
+        + "\n\n"
         "## Hot Regions\n"
         + "\n".join(region_lines)
         + "\n\n## Queue Pressure\n"
@@ -1687,7 +3590,7 @@ def render_status_doc(
     )
 
 
-def render_change_feed(diff: dict[str, Any], events: list[dict[str, Any]]) -> str:
+def render_change_feed(diff: dict[str, Any], events: list[dict[str, Any]], command_state: dict[str, Any]) -> str:
     change_lines = []
     for change in diff.get("changes", [])[:60]:
         change_lines.append(
@@ -1706,12 +3609,30 @@ def render_change_feed(diff: dict[str, Any], events: list[dict[str, Any]]) -> st
     if not event_lines:
         event_lines.append("- no event history yet")
 
+    command_lines = []
+    recent_command_events = command_state.get("recent_events", [])
+    if recent_command_events:
+        for event in reversed(recent_command_events[-6:]):
+            command_lines.append(
+                f"- `{event.get('event_id', 'none')}` `{event.get('event_tag', '')}` "
+                f"`{event.get('relative_path', '')}` -> `{event.get('change_summary', '')}`"
+            )
+    else:
+        command_lines.append("- no COMMAND membrane events yet")
+    latency = command_state.get("latency_summary", {})
+    if latency:
+        command_lines.append(f"- `T_sugar`: `{latency.get('T_sugar_ms', 0.0)}` ms")
+        command_lines.append(f"- Active leases: `{len(command_state.get('active_leases', []))}`")
+        command_lines.append(f"- Route win rate: `{latency.get('route_win_rate', 0.0)}`")
+
     return (
         "# Change Feed\n\n"
         "## Current Batch\n"
         + "\n".join(change_lines)
         + "\n\n## Event History\n"
         + "\n".join(event_lines)
+        + "\n\n## COMMAND Membrane\n"
+        + "\n".join(command_lines)
         + "\n"
     )
 
@@ -1828,6 +3749,20 @@ def render_thread_doc(thread: dict[str, Any]) -> str:
     if not change_lines:
         change_lines.append("- no current file changes tied to this thread")
 
+    command_section = ""
+    if thread["front"] == "GLOBAL COMMAND":
+        command_state = load_command_membrane_state()
+        last_event = command_state.get("last_event") or {}
+        latency = command_state.get("latency_summary", {})
+        command_lines = [
+            f"- Watcher mode: `{command_state.get('watcher_mode', 'unknown')}`",
+            f"- Last event: `{last_event.get('event_id', 'none')}`",
+            f"- Last path: `{last_event.get('relative_path', 'none')}`",
+            f"- Active leases: `{len(command_state.get('active_leases', []))}`",
+            f"- `T_sugar`: `{latency.get('T_sugar_ms', 0.0)}` ms",
+        ]
+        command_section = "\n## Command Membrane\n" + "\n".join(command_lines)
+
     return (
         f"# Thread `{thread['front']}`\n\n"
         f"- Thread status: `{thread['status']}`\n"
@@ -1856,6 +3791,7 @@ def render_thread_doc(thread: dict[str, Any]) -> str:
         + "\n".join(note_lines)
         + "\n\n## Related Changes\n"
         + "\n".join(change_lines)
+        + command_section
         + "\n"
     )
 
@@ -1865,6 +3801,7 @@ def render_global_synthesis(
     atlas_metrics: dict[str, Any],
     docs_gate: dict[str, Any],
     queue: dict[str, list[str]],
+    command_state: dict[str, Any],
 ) -> str:
     region_lines = []
     sorted_regions = sorted(
@@ -1882,6 +3819,13 @@ def render_global_synthesis(
 
     queue_pressure = queue.get("P0", [])[:3] + queue.get("P1", [])[:3]
     queue_lines = [f"- {item}" for item in queue_pressure] or ["- queue unavailable"]
+    command_summary = (
+        f"The `GLOBAL COMMAND` ingress is now paired with a COMMAND membrane witness in mode "
+        f"`{command_state.get('watcher_mode', 'unknown')}` carrying "
+        f"`{len(command_state.get('active_leases', []))}` active leases and "
+        f"`{len(command_state.get('top_capillaries', []))}` reinforced capillaries. "
+        f"That means first-touch awareness is no longer just the board poll loop."
+    )
 
     return (
         "# Global Orchestration Synthesis\n\n"
@@ -1896,6 +3840,8 @@ def render_global_synthesis(
         "The active problem is collision management, promotion discipline, and keeping the local and archive bodies in one shared route space.\n\n"
         "The strongest cross-synthesis is this: the repo already knows how to think in queues, claims, receipts, chapters, metro lines, and swarms. "
         "What it lacked was a live board where those abstractions could become the everyday operating surface for many agents at once.\n\n"
+        + command_summary
+        + "\n\n"
         "The current hard external gate remains "
         f"`{docs_gate['status']}`. Until Google Docs is unlocked, the board should treat local markdown and archive-backed evidence as the primary memory body, "
         "and it should record exact blocked queries instead of pretending the live side is available.\n\n"
@@ -1966,10 +3912,11 @@ def render_swarm_tensor_stack(
 
 def render_family_tensor_doc(family_tensor: list[dict[str, Any]]) -> str:
     rows = [
-        "| Family | Weight | PrimaryRail | PrimaryFace | PreferredScale | PrimaryHub | PreferredRegime | BestFront | PrimaryGanglion | Lineage | Truth |",
-        "| --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+        "| Family | Weight | PrimaryRail | PrimaryFace | PreferredScale | PrimaryHub | PreferredRegime | BestFront | PrimaryGanglion | Lineage | Truth | AbsorbedSurfaces |",
+        "| --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for item in family_tensor:
+        absorbed = ", ".join(f"`{name}`" for name in item.get("absorbed_surfaces", [])) or "none"
         rows.append(
             "| "
             + " | ".join(
@@ -1985,12 +3932,12 @@ def render_family_tensor_doc(family_tensor: list[dict[str, Any]]) -> str:
                     f"`{item['primary_ganglion']}`",
                     f"`{item['lineage']}`",
                     f"`{item['truth']}`",
+                    absorbed,
                 ]
             )
             + " |"
         )
     return "# Family Tensor Field\n\n" + "\n".join(rows) + "\n"
-
 
 def render_thread_coordinates_doc(threads: list[dict[str, Any]]) -> str:
     lines = ["# Thread Coordinates", ""]
@@ -2436,6 +4383,7 @@ def render_wave_doc(wave: dict[str, Any]) -> str:
 def render_active_run_doc(active_run: dict[str, Any]) -> str:
     frontier_lines = "\n".join(f"- {item}" for item in active_run["frontier_update"]) or "- none"
     verify_lines = "\n".join(f"- {item}" for item in active_run["verification_summary"])
+    command_membrane = active_run.get("command_membrane", {})
     return (
         "# Active Run\n\n"
         f"- GateStatus: `{active_run['gate_status']}`\n"
@@ -2449,7 +4397,12 @@ def render_active_run_doc(active_run: dict[str, Any]) -> str:
         "## VerificationSummary\n"
         f"{verify_lines}\n\n"
         "## FrontierUpdate\n"
-        f"{frontier_lines}\n"
+        f"{frontier_lines}\n\n"
+        "## CommandMembrane\n"
+        f"- WatcherMode: `{command_membrane.get('watcher_mode', 'unknown')}`\n"
+        f"- ActiveLeases: `{command_membrane.get('active_leases', 0)}`\n"
+        f"- LastEvent: `{command_membrane.get('last_event_id', 'none')}`\n"
+        f"- TopCapillary: `{command_membrane.get('top_capillary', 'none')}`\n"
     )
 
 
@@ -2548,6 +4501,8 @@ def build_threads(
             thread["status"] = "active"
         elif "blocked" in open_statuses:
             thread["status"] = "blocked"
+        elif "open" in open_statuses:
+            thread["status"] = "open"
         elif "queued" in open_statuses:
             thread["status"] = "queued"
         elif thread["change_count"]:
@@ -2558,7 +4513,7 @@ def build_threads(
 
     threads.sort(
         key=lambda item: (
-            item["status"] not in {"active", "blocked", "queued", "hot"},
+            item["status"] not in {"active", "blocked", "queued", "open", "hot"},
             -item["claim_count"],
             -item["note_count"],
             -item["change_count"],
@@ -2599,6 +4554,7 @@ def refresh_board(snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
 
     atlas_metrics = read_atlas_metrics()
     docs_gate = docs_gate_status()
+    command_state = load_command_membrane_state()
     legacy = load_legacy_manifests()
     queue = parse_queue()
     legacy_claims = parse_legacy_claims()
@@ -2612,7 +4568,7 @@ def refresh_board(snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
     pods = build_pods(threads)
     neurons = build_neurons(pods=pods, family_tensor=family_tensor)
     waves = build_waves(pods=pods, docs_gate=docs_gate, diff=diff)
-    active_run = build_active_run_manifest(threads=threads, queue=queue, docs_gate=docs_gate, diff=diff)
+    active_run = build_active_run_manifest(threads=threads, queue=queue, docs_gate=docs_gate, diff=diff, command_state=command_state)
     kernel_state = build_kernel_state(
         threads=threads,
         pods=pods,
@@ -2620,6 +4576,7 @@ def refresh_board(snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
         active_run=active_run,
         docs_gate=docs_gate,
         legacy=legacy,
+        command_state=command_state,
     )
     elemental_field = build_elemental_field(threads=threads, pods=pods, bridge_neurons=neurons)
     archetypes = build_archetype_lattice(threads=threads, pods=pods)
@@ -2657,12 +4614,13 @@ def refresh_board(snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
             clusters=clusters,
             neuron_lattice=neuron_lattice,
             hypergraph=hypergraph,
+            command_state=command_state,
         ),
     )
     write_json(STATUS_ROOT / "01_SYSTEM_SNAPSHOT.json", snapshot)
-    write_text(CHANGE_ROOT / "00_RECENT_CHANGES.md", render_change_feed(diff=diff, events=events))
+    write_text(CHANGE_ROOT / "00_RECENT_CHANGES.md", render_change_feed(diff=diff, events=events, command_state=command_state))
     write_json(CHANGE_ROOT / "01_CURRENT_BATCH.json", diff)
-    write_text(SYNTHESIS_ROOT / "00_GLOBAL_ORCHESTRATION_SYNTHESIS.md", render_global_synthesis(snapshot, atlas_metrics, docs_gate, queue))
+    write_text(SYNTHESIS_ROOT / "00_GLOBAL_ORCHESTRATION_SYNTHESIS.md", render_global_synthesis(snapshot, atlas_metrics, docs_gate, queue, command_state))
     write_text(SYNTHESIS_ROOT / "01_CROSS_REGION_MATRIX.md", render_region_matrix(snapshot))
     write_text(TENSOR_ROOT / "00_TENSOR_OVERVIEW.md", render_tensor_overview())
     write_text(TENSOR_ROOT / "01_FAMILY_TENSOR_FIELD.md", render_family_tensor_doc(family_tensor))
@@ -2705,6 +4663,11 @@ def refresh_board(snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
             "active_run": active_run,
             "next_seed": next_seed,
             "wave_ids": [wave["wave_id"] for wave in waves],
+            "command_membrane": {
+                "watcher_mode": command_state.get("watcher_mode", "unknown"),
+                "last_event_id": (command_state.get("last_event") or {}).get("event_id", "none"),
+                "active_leases": len(command_state.get("active_leases", [])),
+            },
         },
     )
     write_text(CORTEX_ROOT / "00_CORTEX_CONTRACTION.md", render_cortex_doc(threads, pods))
@@ -2756,6 +4719,8 @@ def refresh_board(snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
         "cluster_count": len(clusters),
         "neuron_leaf_count": len(neuron_lattice),
         "hypergraph_edge_count": hypergraph["edge_count"],
+        "command_active_leases": len(command_state.get("active_leases", [])),
+        "command_event_count": len(command_state.get("recent_events", [])),
     }
 
 
@@ -2765,9 +4730,11 @@ def parse_args() -> argparse.Namespace:
 
     subparsers.add_parser("build", help="Refresh the board once from the current workspace state.")
 
-    watch = subparsers.add_parser("watch", help="Poll the workspace and refresh the board when changes land.")
+    watch = subparsers.add_parser("watch", help="Watch the command membrane or workspace and refresh when changes land.")
     watch.add_argument("--interval", type=float, default=15.0, help="Seconds between scans.")
     watch.add_argument("--max-cycles", type=int, default=0, help="Optional cap for test runs.")
+    watch.add_argument("--scope", choices=["command", "workspace"], default="command", help="Watch the command membrane or the full workspace.")
+    watch.add_argument("--mode", choices=["auto", "event", "poll"], default="auto", help="Watcher mode for command scope.")
 
     note = subparsers.add_parser("note", help="Create an agent note and refresh the board.")
     note.add_argument("--agent", required=True, help="Agent name for the note.")
@@ -2776,34 +4743,1351 @@ def parse_args() -> argparse.Namespace:
     note.add_argument("--message", required=True, help="The note body.")
     note.add_argument("--path", action="append", default=[], help="Optional related workspace path.")
 
-    claim = subparsers.add_parser("claim", help="Create or update a frontier claim.")
-    claim.add_argument("--claim-id", help="Existing claim id to update.")
-    claim.add_argument("--agent", required=True, help="Agent taking or updating the claim.")
-    claim.add_argument("--front", required=True, help="Frontier label.")
-    claim.add_argument("--level", required=True, help="Scope such as file, folder, framework, or ecosystem.")
-    claim.add_argument("--output-target", required=True, help="Intended output path or surface.")
-    claim.add_argument("--receipt", required=True, help="Receipt target or status marker.")
+    emit = subparsers.add_parser("emit", help="Create a command packet for a COMMAND membrane event.")
+    emit.add_argument("event_source", help="Source path or seed json for the command event.")
+    emit.add_argument("--change-type", default="synthetic", help="Optional event kind override.")
+    emit.add_argument("--json", action="store_true", dest="as_json", help="Render the command payload as JSON.")
+
+    route = subparsers.add_parser("route", help="Route a command packet to the top relevant ants.")
+    route.add_argument("event_id", help="Command event id to route.")
+    route.add_argument("--topk", type=int, default=5, help="How many targets to stage.")
+    route.add_argument("--json", action="store_true", dest="as_json", help="Render the route decision as JSON.")
+
+    claim = subparsers.add_parser("claim", help="Claim a command event or create/update a manual frontier claim.")
+    claim.add_argument("event_id", nargs="?", help="Command event id when using first-lease claim mode.")
+    claim.add_argument("--claim-id", help="Existing manual claim id to update.")
+    claim.add_argument("--agent", help="Agent taking or updating the manual frontier claim.")
+    claim.add_argument("--front", help="Frontier label for manual board claims.")
+    claim.add_argument("--level", help="Scope such as file, folder, framework, or ecosystem.")
+    claim.add_argument("--output-target", help="Intended output path or surface for manual board claims.")
+    claim.add_argument("--receipt", help="Receipt target or status marker for manual board claims.")
     claim.add_argument("--status", default="active", help="Claim status.")
-    claim.add_argument("--message", required=True, help="Claim note or handoff detail.")
+    claim.add_argument("--message", help="Claim note or handoff detail.")
     claim.add_argument("--path", action="append", default=[], help="Optional related workspace path.")
+    claim.add_argument("--lease-ms", type=int, default=1200, help="Lease duration for command-event claims.")
+    claim.add_argument("--ant-id", help="Optional explicit ant id for command-event claims.")
+    claim.add_argument("--json", action="store_true", dest="as_json", help="Render the claim result as JSON.")
+
+    reinforce = subparsers.add_parser("reinforce", help="Reinforce a successful or degraded command route.")
+    reinforce.add_argument("event_id", help="Command event id to reinforce.")
+    reinforce.add_argument("--result", default="success", help="Result label, for example success or penalty.")
+    reinforce.add_argument("--latency-score", type=float, default=0.9, help="Normalized latency score in [0,1].")
+    reinforce.add_argument("--noise-penalty", type=float, default=0.1, help="Noise penalty in [0,1].")
+    reinforce.add_argument("--json", action="store_true", dest="as_json", help="Render the reinforcement result as JSON.")
+
+    status = subparsers.add_parser("status", help="Show COMMAND membrane status from the canonical runtime.")
+    status.add_argument("--json", action="store_true", dest="as_json", help="Render the status payload as JSON.")
 
     return parser.parse_args()
 
 
 def command_build() -> int:
+    from . import derive_command_membrane_protocol_v2 as command_protocol_derive
+    from . import verify_command_membrane_protocol_v2 as command_protocol_verify
+
     result = refresh_board()
     diff = result["diff"]
+    manifest = command_protocol_derive.derive_command_membrane_protocol_v2()
+    verification = command_protocol_verify.verify_command_membrane_protocol_v2()
     print(
         "Board refreshed at "
         f"{result['snapshot']['generated_at']} "
         f"(+{diff['added']} ~{diff['modified']} -{diff['removed']}, "
         f"{result['claim_count']} claims, {result['note_count']} notes)."
     )
-    print(f"Board root: {BOARD_ROOT}")
+    print(
+        "Command membrane refreshed at "
+        f"{manifest.get('generated_at', 'UNKNOWN')} "
+        f"(policy={manifest.get('routing_policy', {}).get('policy_id', COMMAND_PACKET_POLICY)}, "
+        f"feeds={manifest.get('feed_family_count', 0)}, "
+        f"truth={verification.get('truth', 'UNKNOWN')}, "
+        f"docs={manifest.get('docs_gate', {}).get('state', 'UNKNOWN')})."
+    )
     return 0
 
 
-def command_watch(interval: float, max_cycles: int) -> int:
+def command_claim_payload(packet: dict[str, Any], route_decision: dict[str, Any], claim_lease: dict[str, Any]) -> dict[str, Any]:
+    structural = COMMAND_TEMPLE_QUEST_ID in packet["quest_refs"]
+    front = "GLOBAL COMMAND"
+    output_target = "Temple governance membrane" if structural else "Guild Hall implementation membrane"
+    message = (
+        f"{packet['event_id']} -> {packet['change_summary']} | route {' > '.join(route_decision['selected_targets'])} | "
+        f"claim {claim_lease['ant_id']} {claim_lease['lease_ms']}ms"
+    )
+    payload = create_or_update_claim(
+        agent=claim_lease["ant_id"],
+        front=front,
+        level="command-membrane-event",
+        output_target=output_target,
+        receipt=f"{packet['event_id']} pending archivist commit",
+        status="active",
+        message=message,
+        paths=packet.get("artifact_refs", []),
+    )
+    payload["linked_quests"] = packet["quest_refs"]
+    payload["event_id"] = packet["event_id"]
+    payload["claim_source_event"] = packet["event_id"]
+    payload["route_path"] = route_decision["route_path"]
+    payload["command_ant_class"] = "Worker"
+    payload["lease_ms"] = claim_lease["lease_ms"]
+    payload["lease_expires_at"] = claim_lease["expires_at_utc"]
+    payload["claim_rank"] = claim_lease.get("claim_rank", 1)
+    payload["claim_mode"] = claim_lease.get("claim_mode", "first-lease")
+    payload["route_targets"] = route_decision["selected_targets"]
+    payload["route_policy"] = route_decision["policy"]
+    save_claim(payload)
+    return payload
+
+
+def update_command_capillary(
+    route_path: str,
+    latency_score: float,
+    result: str,
+    *,
+    event_id: str,
+    latency_ms: float,
+    noise_penalty: float = 0.0,
+    reward_receipt: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    capillary_defaults = command_capillary_defaults()
+    coeffs = capillary_defaults.get("coefficient_defaults", {})
+    rho = float(coeffs.get("rho", 0.82))
+    alpha = float(coeffs.get("alpha", 0.30))
+    beta = float(coeffs.get("beta", 0.18))
+    gamma = float(coeffs.get("gamma", 0.16))
+    delta = float(coeffs.get("delta", 0.14))
+    store = command_load_capillary_store()
+    edges = store["edges"]
+    now = utc_now()
+    previous_path = command_normalize_capillary_edge(route_path, edges.get(route_path, {}))
+    latency_penalty = round(max(0.0, min(1.0, 1.0 - latency_score)), 6)
+    noise_penalty = round(max(0.0, min(1.0, noise_penalty)), 6)
+    nodes = [node for node in route_path.split(">") if node]
+    reinforced_edges: list[dict[str, Any]] = []
+    reward_receipt = reward_receipt or {}
+    route_mode = str(reward_receipt.get("route_mode", "blocked_or_quarantined_or_duplicate_or_noise"))
+    crown = str(reward_receipt.get("crown", "none"))
+    heaven_score_verified = float(reward_receipt.get("heaven_score_verified", reward_receipt.get("verified_heaven_score", 0.0)))
+    total_reward = float(reward_receipt.get("total_reward", 0.0))
+    edge_count = max(1, len(nodes) - 1)
+    gold_deposit_per_edge = float(reward_receipt.get("gold_deposit", 0.0)) / edge_count
+    bridge_deposit_per_edge = float(reward_receipt.get("bridge_deposit", 0.0)) / edge_count
+    usefulness = 1.0 if result == "success" else (0.40 if result in {"blocked", "quarantined"} else 0.15)
+    frequency = 1.0 if result == "success" else 0.0
+
+    for from_node, to_node in zip(nodes, nodes[1:]):
+        edge_id = f"{from_node}>{to_node}"
+        current = command_normalize_capillary_edge(edge_id, edges.get(edge_id, {"from_node": from_node, "to_node": to_node}))
+        previous_uses = int(current.get("use_count", 0))
+        previous_strength = float(current.get("strength", current.get("edge_strength", 0.0)))
+        success_count = int(current.get("success_count", 0)) + (1 if result == "success" else 0)
+        use_count = previous_uses + 1
+        noise_count = int(current.get("noise_count", 0)) + (1 if noise_penalty > 0 else 0)
+        exploration_count = int(current.get("exploration_count", 0)) + (1 if route_mode != "reinforce" else 0)
+        average_latency_score = round(
+            (
+                (float(current.get("average_latency_score", 0.0)) * previous_uses) + float(latency_score)
+            )
+            / max(1, use_count),
+            6,
+        )
+        latency_avg_ms = round(
+            ((float(current.get("latency_avg_ms", 0.0)) * previous_uses) + float(latency_ms)) / max(1, use_count),
+            3,
+        )
+        average_heaven = round(
+            ((float(current.get("avg_heaven_verified", 0.0)) * previous_uses) + heaven_score_verified) / max(1, use_count),
+            6,
+        )
+        frequency_value = round(success_count / max(1, use_count), 6)
+        edge_noise_penalty = round(max(noise_penalty, min(1.0, noise_count / max(1, use_count))), 6)
+        compat_strength = round(
+            max(
+                0.0,
+                min(
+                    1.0,
+                    (rho * previous_strength)
+                    + (alpha * usefulness)
+                    + (beta * frequency_value)
+                    - (gamma * latency_penalty)
+                    - (delta * edge_noise_penalty),
+                ),
+            ),
+            6,
+        )
+        reward_density = round(
+            ((float(current.get("reward_density", 0.0)) * previous_uses) + total_reward) / max(1, use_count),
+            6,
+        )
+        classification = command_edge_class(compat_strength, success_count)
+        updated = asdict(
+            CapillaryEdgeV1(
+                edge_id=edge_id,
+                from_node=from_node,
+                to_node=to_node,
+                path_key=edge_id,
+                edge_strength=compat_strength,
+                classification=classification,
+                success_count=success_count,
+                use_count=use_count,
+                noise_count=noise_count,
+                average_latency_score=average_latency_score,
+                last_result=result,
+                last_event_id=event_id,
+                last_updated=now,
+            )
+        )
+        updated["compat_edge_strength"] = compat_strength
+        updated["strength"] = compat_strength
+        updated["score"] = compat_strength
+        updated["state_class"] = classification
+        updated["path_class"] = classification
+        updated["capillary_score"] = compat_strength
+        updated["path_score"] = compat_strength
+        updated["capillary_delta"] = round(compat_strength - previous_strength, 6)
+        updated["usefulness"] = round(usefulness, 6)
+        updated["frequency"] = frequency_value
+        updated["latency_penalty"] = latency_penalty
+        updated["noise_penalty"] = edge_noise_penalty
+        updated["latency_avg_ms"] = latency_avg_ms
+        updated["ema_latency_ms"] = latency_avg_ms
+        updated["last_reinforced_at_utc"] = now
+        updated["exploration_count"] = exploration_count
+        updated["avg_heaven_verified"] = average_heaven
+        updated["last_route_mode"] = route_mode
+        updated["last_crown"] = crown
+        updated["reward_density"] = reward_density
+        updated["gold_strength"] = compat_strength
+        updated["bridge_strength"] = 0.0
+        updated["gold_deposit"] = round(gold_deposit_per_edge, 6)
+        updated["bridge_deposit"] = round(bridge_deposit_per_edge, 6)
+        updated["evaporation_rate"] = round(1.0 - rho, 6)
+        updated["src"] = from_node
+        updated["dst"] = to_node
+        updated["source_ant_id"] = from_node
+        updated["target_ant_id"] = to_node
+        updated["grade"] = classification
+        updated["tier"] = "command"
+        updated["front_ref"] = "GLOBAL COMMAND"
+        updated["rho"] = round(rho, 6)
+        updated["alpha"] = round(alpha, 6)
+        updated["beta"] = round(beta, 6)
+        updated["gamma"] = round(gamma, 6)
+        updated["delta"] = round(delta, 6)
+        edges[edge_id] = updated
+        reinforced_edges.append(updated)
+
+    path_score = round(
+        sum(float(edge["strength"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)),
+        6,
+    )
+    path_success_count = min((int(edge["success_count"]) for edge in reinforced_edges), default=0)
+    path_class = command_edge_class(path_score, path_success_count)
+    path_average_latency_score = round(
+        sum(float(edge["average_latency_score"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)),
+        6,
+    )
+    path_latency_avg_ms = round(
+        sum(float(edge["latency_avg_ms"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)),
+        3,
+    )
+    path_gold_strength = round(sum(float(edge["gold_strength"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    path_bridge_strength = round(sum(float(edge["bridge_strength"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    path_avg_heaven = round(sum(float(edge["avg_heaven_verified"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    path_reward_density = round(sum(float(edge["reward_density"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    updated = {
+        "event_id": event_id,
+        "route_path": route_path,
+        "path": route_path,
+        "path_score": path_score,
+        "capillary_score": path_score,
+        "edge_strength": path_score,
+        "strength": path_score,
+        "score": path_score,
+        "gold_strength": path_gold_strength,
+        "bridge_strength": path_bridge_strength,
+        "compat_edge_strength": path_score,
+        "edge_id": slugify(route_path),
+        "from_node": nodes[0] if nodes else "SCOUT-01",
+        "to_node": nodes[-1] if nodes else "ARCHIVIST-01",
+        "path_key": route_path,
+        "classification": path_class,
+        "path_class": path_class,
+        "state_class": path_class,
+        "edges": reinforced_edges,
+        "success_count": sum(int(edge["success_count"]) for edge in reinforced_edges),
+        "exploration_count": sum(int(edge.get("exploration_count", 0)) for edge in reinforced_edges),
+        "use_count": sum(int(edge["use_count"]) for edge in reinforced_edges),
+        "noise_count": sum(int(edge["noise_count"]) for edge in reinforced_edges),
+        "average_latency_score": path_average_latency_score,
+        "latency_avg_ms": path_latency_avg_ms,
+        "last_result": result,
+        "last_event_id": event_id,
+        "last_updated": now,
+        "last_reinforced_at_utc": now,
+        "avg_heaven_verified": path_avg_heaven,
+        "last_route_mode": route_mode,
+        "last_crown": crown,
+        "reward_density": path_reward_density,
+        "gold_deposit": round(float(reward_receipt.get("gold_deposit", 0.0)), 6),
+        "bridge_deposit": round(float(reward_receipt.get("bridge_deposit", 0.0)), 6),
+        "evaporation_rate": round(1.0 - rho, 6),
+        "usefulness": usefulness,
+        "frequency": frequency,
+        "latency_penalty": latency_penalty,
+        "noise_penalty": noise_penalty,
+        "rho": round(rho, 6),
+        "alpha": round(alpha, 6),
+        "beta": round(beta, 6),
+        "gamma": round(gamma, 6),
+        "delta": round(delta, 6),
+        "capillary_delta": round(path_score - float(previous_path.get("strength", previous_path.get("edge_strength", 0.0))), 6),
+        "src": nodes[0] if nodes else "SCOUT-01",
+        "dst": nodes[-1] if nodes else "ARCHIVIST-01",
+        "source_ant_id": nodes[0] if nodes else "SCOUT-01",
+        "target_ant_id": nodes[-1] if nodes else "ARCHIVIST-01",
+        "grade": path_class,
+        "tier": "command-route",
+        "front_ref": "GLOBAL COMMAND",
+    }
+    edges[route_path] = updated
+    store["history"].append(
+        {
+            "event_id": event_id,
+            "route_path": route_path,
+            "result": result,
+            "path_score": path_score,
+            "capillary_score": path_score,
+            "state_class": path_class,
+            "classification": path_class,
+            "capillary_delta": updated["capillary_delta"],
+            "gold_strength": path_gold_strength,
+            "bridge_strength": path_bridge_strength,
+            "avg_heaven_verified": path_avg_heaven,
+            "last_route_mode": route_mode,
+            "last_crown": crown,
+            "average_latency_score": path_average_latency_score,
+            "usefulness": usefulness,
+            "frequency": frequency,
+            "latency_penalty": latency_penalty,
+            "noise_penalty": noise_penalty,
+            "updated_at": now,
+        }
+    )
+    store["history"] = store["history"][-200:]
+    write_json(COMMAND_CAPILLARY_LOG_PATH, store)
+    write_json(COMMAND_CAPILLARY_LEDGER_PATH, store)
+    return updated
+
+
+def update_command_capillary_v2(
+    route_path: str,
+    latency_score: float,
+    result: str,
+    *,
+    event_id: str,
+    latency_ms: float,
+    noise_penalty: float = 0.0,
+    reward_receipt: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    capillary_defaults = command_capillary_defaults()
+    coeffs = capillary_defaults.get("coefficient_defaults", {})
+    reward_coeffs = command_reward_defaults().get("coefficient_defaults", {})
+    rho0 = float(coeffs.get("rho0", reward_coeffs.get("rho0", 0.08)))
+    rho1 = float(coeffs.get("rho1", reward_coeffs.get("rho1", 0.42)))
+    rho_b = float(coeffs.get("rho_b", reward_coeffs.get("rho_b", 0.18)))
+    bridge_weight = float(coeffs.get("bridge_weight", reward_coeffs.get("bridge_weight", 0.35)))
+    store = command_load_capillary_store()
+    edges = store["edges"]
+    now = utc_now()
+    previous_path = command_normalize_capillary_edge(route_path, edges.get(route_path, {}))
+    latency_penalty = round(max(0.0, min(1.0, 1.0 - latency_score)), 6)
+    noise_penalty = round(max(0.0, min(1.0, noise_penalty)), 6)
+    nodes = [node for node in route_path.split(">") if node]
+    reinforced_edges: list[dict[str, Any]] = []
+    reward_receipt = reward_receipt or {}
+    route_mode = str(reward_receipt.get("route_mode", "blocked_or_quarantined_or_duplicate_or_noise"))
+    crown = str(reward_receipt.get("crown", "none"))
+    heaven_score_verified = float(reward_receipt.get("heaven_score_verified", reward_receipt.get("verified_heaven_score", 0.0)))
+    total_reward = float(reward_receipt.get("total_reward", 0.0))
+    edge_count = max(1, len(nodes) - 1)
+    gold_deposit_per_edge = float(reward_receipt.get("gold_deposit", 0.0)) / edge_count
+    bridge_deposit_per_edge = float(reward_receipt.get("bridge_deposit", 0.0)) / edge_count
+    usefulness = 1.0 if result == "success" else (0.35 if result in {"blocked", "quarantined"} else 0.10)
+    frequency = 1.0 if result == "success" else 0.0
+
+    for from_node, to_node in zip(nodes, nodes[1:]):
+        edge_id = f"{from_node}>{to_node}"
+        current = command_normalize_capillary_edge(edge_id, edges.get(edge_id, {"from_node": from_node, "to_node": to_node}))
+        previous_uses = int(current.get("use_count", 0))
+        previous_gold = float(current.get("gold_strength", 0.0))
+        previous_bridge = float(current.get("bridge_strength", 0.0))
+        previous_strength = float(current.get("strength", current.get("edge_strength", 0.0)))
+        success_count = int(current.get("success_count", 0)) + (1 if result == "success" else 0)
+        use_count = previous_uses + 1
+        noise_count = int(current.get("noise_count", 0)) + (1 if noise_penalty > 0 else 0)
+        exploration_count = int(current.get("exploration_count", 0)) + (1 if route_mode != "reinforce" else 0)
+        average_latency_score = round(
+            ((float(current.get("average_latency_score", 0.0)) * previous_uses) + float(latency_score)) / max(1, use_count),
+            6,
+        )
+        latency_avg_ms = round(
+            ((float(current.get("latency_avg_ms", 0.0)) * previous_uses) + float(latency_ms)) / max(1, use_count),
+            3,
+        )
+        average_heaven = round(
+            ((float(current.get("avg_heaven_verified", 0.0)) * previous_uses) + heaven_score_verified) / max(1, use_count),
+            6,
+        )
+        evaporation_rate = round(rho0 + (rho1 * (1.0 - average_heaven)), 6)
+        gold_strength = round(max(0.0, ((1.0 - evaporation_rate) * previous_gold) + gold_deposit_per_edge), 6)
+        bridge_strength = round(max(0.0, ((1.0 - rho_b) * previous_bridge) + bridge_deposit_per_edge), 6)
+        compat_strength = round(max(0.0, gold_strength + (bridge_weight * bridge_strength)), 6)
+        reward_density = round(
+            ((float(current.get("reward_density", 0.0)) * previous_uses) + total_reward) / max(1, use_count),
+            6,
+        )
+        classification = command_edge_class(compat_strength, success_count)
+        updated = asdict(
+            CapillaryEdgeV1(
+                edge_id=edge_id,
+                from_node=from_node,
+                to_node=to_node,
+                path_key=edge_id,
+                edge_strength=compat_strength,
+                classification=classification,
+                success_count=success_count,
+                use_count=use_count,
+                noise_count=noise_count,
+                average_latency_score=average_latency_score,
+                last_result=result,
+                last_event_id=event_id,
+                last_updated=now,
+            )
+        )
+        updated["gold_strength"] = gold_strength
+        updated["bridge_strength"] = bridge_strength
+        updated["compat_edge_strength"] = compat_strength
+        updated["strength"] = compat_strength
+        updated["score"] = compat_strength
+        updated["state_class"] = classification
+        updated["path_class"] = classification
+        updated["capillary_score"] = compat_strength
+        updated["path_score"] = compat_strength
+        updated["capillary_delta"] = round(compat_strength - previous_strength, 6)
+        updated["usefulness"] = round(usefulness, 6)
+        updated["frequency"] = round(frequency, 6)
+        updated["latency_penalty"] = latency_penalty
+        updated["noise_penalty"] = round(max(noise_penalty, min(1.0, noise_count / max(1, use_count))), 6)
+        updated["latency_avg_ms"] = latency_avg_ms
+        updated["ema_latency_ms"] = latency_avg_ms
+        updated["last_reinforced_at_utc"] = now
+        updated["exploration_count"] = exploration_count
+        updated["avg_heaven_verified"] = average_heaven
+        updated["last_route_mode"] = route_mode
+        updated["last_crown"] = crown
+        updated["reward_density"] = reward_density
+        updated["gold_deposit"] = round(gold_deposit_per_edge, 6)
+        updated["bridge_deposit"] = round(bridge_deposit_per_edge, 6)
+        updated["evaporation_rate"] = evaporation_rate
+        updated["src"] = from_node
+        updated["dst"] = to_node
+        updated["source_ant_id"] = from_node
+        updated["target_ant_id"] = to_node
+        updated["grade"] = classification
+        updated["tier"] = "command"
+        updated["front_ref"] = "GLOBAL COMMAND"
+        updated["rho0"] = round(rho0, 6)
+        updated["rho1"] = round(rho1, 6)
+        updated["rho_b"] = round(rho_b, 6)
+        updated["bridge_weight"] = round(bridge_weight, 6)
+        edges[edge_id] = updated
+        reinforced_edges.append(updated)
+
+    path_score = round(sum(float(edge["strength"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    path_success_count = min((int(edge["success_count"]) for edge in reinforced_edges), default=0)
+    path_class = command_edge_class(path_score, path_success_count)
+    path_average_latency_score = round(
+        sum(float(edge["average_latency_score"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)),
+        6,
+    )
+    path_latency_avg_ms = round(sum(float(edge["latency_avg_ms"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 3)
+    path_gold_strength = round(sum(float(edge["gold_strength"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    path_bridge_strength = round(sum(float(edge["bridge_strength"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    path_avg_heaven = round(sum(float(edge["avg_heaven_verified"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    path_reward_density = round(sum(float(edge["reward_density"]) for edge in reinforced_edges) / max(1, len(reinforced_edges)), 6)
+    updated = {
+        "event_id": event_id,
+        "route_path": route_path,
+        "path": route_path,
+        "path_score": path_score,
+        "capillary_score": path_score,
+        "edge_strength": path_score,
+        "strength": path_score,
+        "score": path_score,
+        "gold_strength": path_gold_strength,
+        "bridge_strength": path_bridge_strength,
+        "compat_edge_strength": path_score,
+        "edge_id": slugify(route_path),
+        "from_node": nodes[0] if nodes else "SCOUT-01",
+        "to_node": nodes[-1] if nodes else "ARCHIVIST-01",
+        "path_key": route_path,
+        "classification": path_class,
+        "path_class": path_class,
+        "state_class": path_class,
+        "edges": reinforced_edges,
+        "success_count": sum(int(edge["success_count"]) for edge in reinforced_edges),
+        "exploration_count": sum(int(edge.get("exploration_count", 0)) for edge in reinforced_edges),
+        "use_count": sum(int(edge["use_count"]) for edge in reinforced_edges),
+        "noise_count": sum(int(edge["noise_count"]) for edge in reinforced_edges),
+        "average_latency_score": path_average_latency_score,
+        "latency_avg_ms": path_latency_avg_ms,
+        "last_result": result,
+        "last_event_id": event_id,
+        "last_updated": now,
+        "last_reinforced_at_utc": now,
+        "avg_heaven_verified": path_avg_heaven,
+        "last_route_mode": route_mode,
+        "last_crown": crown,
+        "reward_density": path_reward_density,
+        "gold_deposit": round(float(reward_receipt.get("gold_deposit", 0.0)), 6),
+        "bridge_deposit": round(float(reward_receipt.get("bridge_deposit", 0.0)), 6),
+        "evaporation_rate": round(rho0 + (rho1 * (1.0 - path_avg_heaven)), 6),
+        "usefulness": usefulness,
+        "frequency": frequency,
+        "latency_penalty": latency_penalty,
+        "noise_penalty": noise_penalty,
+        "rho0": round(rho0, 6),
+        "rho1": round(rho1, 6),
+        "rho_b": round(rho_b, 6),
+        "bridge_weight": round(bridge_weight, 6),
+        "capillary_delta": round(path_score - float(previous_path.get("strength", previous_path.get("edge_strength", 0.0))), 6),
+        "src": nodes[0] if nodes else "SCOUT-01",
+        "dst": nodes[-1] if nodes else "ARCHIVIST-01",
+        "source_ant_id": nodes[0] if nodes else "SCOUT-01",
+        "target_ant_id": nodes[-1] if nodes else "ARCHIVIST-01",
+        "grade": path_class,
+        "tier": "command-route",
+        "front_ref": "GLOBAL COMMAND",
+    }
+    edges[route_path] = updated
+    store["history"].append(
+        {
+            "event_id": event_id,
+            "route_path": route_path,
+            "result": result,
+            "path_score": path_score,
+            "capillary_score": path_score,
+            "state_class": path_class,
+            "classification": path_class,
+            "capillary_delta": updated["capillary_delta"],
+            "gold_strength": path_gold_strength,
+            "bridge_strength": path_bridge_strength,
+            "avg_heaven_verified": path_avg_heaven,
+            "last_route_mode": route_mode,
+            "last_crown": crown,
+            "average_latency_score": path_average_latency_score,
+            "usefulness": usefulness,
+            "frequency": frequency,
+            "latency_penalty": latency_penalty,
+            "noise_penalty": noise_penalty,
+            "updated_at": now,
+        }
+    )
+    store["history"] = store["history"][-200:]
+    write_json(COMMAND_CAPILLARY_LOG_PATH, store)
+    write_json(COMMAND_CAPILLARY_LEDGER_PATH, store)
+    return updated
+
+
+def route_command_packet(packet: dict[str, Any]) -> dict[str, Any]:
+    protocol = command_protocol_defaults()
+    topk = int(protocol.get("routing_policy", {}).get("topk", 5))
+    released_claims = release_expired_command_claims()
+    route_history = command_load_capillary_store().get("edges", {})
+    active_claims = [claim for claim in load_board_claims() if claim.get("status") in OPEN_STATUSES]
+    active_claims_by_owner = Counter(
+        str(claim.get("owner") or claim.get("agent") or claim.get("ant_id") or "")
+        for claim in active_claims
+    )
+    joy_state = command_load_agent_joy_state().get("agents", {})
+    scored = []
+    structural = COMMAND_TEMPLE_QUEST_ID in packet["quest_refs"]
+    priority = float(packet.get("priority", 0.0))
+    queue_pressure = float(packet.get("coord12", {}).get("queue_pressure", 0.0))
+    coord_proximity = max(0.0, min(1.0, 1.0 - queue_pressure))
+    policy_id = protocol.get("routing_policy", {}).get("policy_id", COMMAND_PACKET_POLICY)
+    policy_expression = protocol.get("routing_policy", {}).get("policy_expression", policy_id)
+    selector_terms = protocol.get("routing_policy", {}).get(
+        "selector_terms",
+        ["goal_fit", "priority", "gold_signal", "bridge_signal", "coord_proximity", "freshness", "joy_q"],
+    )
+    for candidate in COMMAND_AGENT_REGISTRY:
+        if candidate["role"] == "scout":
+            continue
+        route_key = (
+            "SCOUT-01>ROUTER-01"
+                if candidate["role"] == "router"
+                else ("ROUTER-01>ARCHIVIST-01" if candidate["role"] == "archivist" else f"ROUTER-01>{candidate['ant_id']}")
+        )
+        route_record = command_normalize_capillary_edge(route_key, route_history.get(route_key, {}))
+        role_bonus = 1.0 if structural and candidate["role"] in {"router", "archivist"} else 0.45
+        role_bonus = 1.0 if (not structural and candidate["role"] == "worker") else role_bonus
+        current_load = active_claims_by_owner.get(candidate["ant_id"], 0)
+        gold_signal = float(route_record.get("gold_strength", route_record.get("strength", route_record.get("edge_strength", 0.0))))
+        bridge_signal = float(route_record.get("bridge_strength", 0.0))
+        last_reinforced = parse_utc(str(route_record.get("last_reinforced_at_utc", route_record.get("last_updated", ""))))
+        if last_reinforced is None:
+            freshness = 0.5
+        else:
+            freshness = max(0.0, min(1.0, 1.0 - ((datetime.now(timezone.utc) - last_reinforced).total_seconds() / 86400.0)))
+        q_raw = float(joy_state.get(candidate["ant_id"], {}).get("q_score", 0.0))
+        joy_q = 1.0 - math.exp(-max(0.0, q_raw))
+        score = (
+            (candidate["base_score"] * 0.08)
+            + (role_bonus * 0.22)
+            + (priority * 0.20)
+            + (gold_signal * 0.18)
+            + (bridge_signal * 0.10)
+            + (coord_proximity * 0.10)
+            + (freshness * 0.06)
+            + (joy_q * 0.06)
+        )
+        scored.append(
+            {
+                "ant_id": candidate["ant_id"],
+                "role": candidate["role"],
+                "class": candidate["class"],
+                "score": round(score, 6),
+                "route_path": route_key,
+                "base_score": round(float(candidate["base_score"]), 6),
+                "role_bonus": round(role_bonus, 6),
+                "current_load": current_load,
+                "coord_proximity": round(coord_proximity, 6),
+                "priority": round(priority, 6),
+                "gold_signal": round(gold_signal, 6),
+                "bridge_signal": round(bridge_signal, 6),
+                "freshness": round(freshness, 6),
+                "joy_q": round(joy_q, 6),
+                "path_class": route_record.get("state_class", route_record.get("classification", "ephemeral")),
+                "last_route_mode": route_record.get("last_route_mode", "seed"),
+            }
+        )
+    scored.sort(key=lambda item: (-item["score"], item["ant_id"]))
+    selected_rows = [row for row in scored if not (row["role"] == "worker" and row["current_load"] > 0)][:topk]
+    if not any(row["role"] == "worker" for row in selected_rows):
+        fallback_worker = next((row for row in scored if row["role"] == "worker"), None)
+        if fallback_worker is not None:
+            selected_rows = [*selected_rows[: max(0, topk - 1)], fallback_worker]
+    targets = [row["ant_id"] for row in selected_rows]
+    worker = next((row for row in selected_rows if row["role"] == "worker"), next((row for row in scored if row["role"] == "worker"), scored[0]))
+    route_record = CommandRouteDecisionV1(
+        event_id=packet["event_id"],
+        policy_id=policy_id,
+        candidate_targets=scored,
+        selected_targets=targets,
+        topk=topk,
+        claim_mode=protocol.get("routing_policy", {}).get("claim_mode", "first-lease"),
+        quorum=int(protocol.get("routing_policy", {}).get("quorum", 1)),
+        score_breakdown={
+            "priority": priority,
+            "base_score": worker.get("base_score", 0.0),
+            "role_bonus": worker.get("role_bonus", 0.0),
+            "gold_signal": worker.get("gold_signal", 0.0),
+            "bridge_signal": worker.get("bridge_signal", 0.0),
+            "coord_proximity": worker.get("coord_proximity", 0.0),
+            "freshness": worker.get("freshness", 0.0),
+            "joy_q": worker.get("joy_q", 0.0),
+            "structural": structural,
+            "released_claims": released_claims,
+        },
+        duplicate_risk=0.0,
+        created_at=utc_now(),
+        expires_at=utc_now(),
+        ranked_routes=selected_rows,
+        route_inputs={
+            "goal": packet["goal"],
+            "quest_refs": packet["quest_refs"],
+            "priority": priority,
+            "coord12": packet["coord12"],
+            "watch_fallback": detection_mode == "polling" if (detection_mode := packet.get("detection_mode")) else False,
+            "released_claims": released_claims,
+            "structural": structural,
+            "queue_pressure": queue_pressure,
+            "selection_policy": policy_expression,
+            "routing_terms": selector_terms,
+            "active_protocol_version": command_active_protocol_version(),
+        },
+        route_path=f"SCOUT-01>ROUTER-01>{worker['ant_id']}>ARCHIVIST-01",
+        worker_choice=worker["ant_id"],
+        generated_at=utc_now(),
+        quest_refs=packet["quest_refs"],
+    )
+    payload = asdict(route_record)
+    payload["policy"] = payload["policy_id"]
+    return payload
+
+
+def build_command_packet(
+    diff: dict[str, Any],
+    detection_mode: str,
+    detected_at: datetime,
+    *,
+    watch_fallback: bool = False,
+) -> dict[str, Any]:
+    changes = diff.get("changes", [])[:20]
+    priority, novelty = command_detection_priority(diff, detection_mode)
+    goal, tag, quest_refs = command_goal_and_tag(changes)
+    coord12_vector, coord12_named = build_command_coord12(now_utc=detected_at, priority=priority, novelty=novelty)
+    earth_ts = detected_at.isoformat()
+    earth_ts_local = detected_at.astimezone().isoformat()
+    artifact_refs = [change["relative_path"] for change in changes[:5]] or [COMMAND_FOLDER_ROOT.relative_to(WORKSPACE_ROOT).as_posix()]
+    primary_path = artifact_refs[0]
+    primary_change = changes[0]["kind"] if changes else "modified"
+    ant_id = COMMAND_AGENT_REGISTRY[0]["ant_id"]
+    event_id = make_command_event_id()
+    previous_packet = command_previous_packet_record()
+    previous_event_id = (previous_packet or {}).get("event_id", "ROOT")
+    liminal_delta = command_liminal_delta(coord12_vector, command_coord_vector(previous_packet))
+    earth_delta_ms = 0.0
+    previous_earth_ts = (previous_packet or {}).get("earth_ts_utc")
+    if previous_earth_ts:
+        previous_dt = parse_utc(previous_earth_ts)
+        if previous_dt is not None:
+            earth_delta_ms = round(max(0.0, (detected_at - previous_dt).total_seconds() * 1000.0), 3)
+    liminal_velocity = command_liminal_velocity(liminal_delta, earth_ts, previous_earth_ts)
+    source_root = COMMAND_FOLDER_ROOT.relative_to(WORKSPACE_ROOT).as_posix()
+    change_summary = (
+        f"{diff['added']} added / {diff['modified']} modified / {diff['removed']} removed in GLOBAL COMMAND"
+    )
+    replay_ptr = command_replay_ptr(event_id)
+    packet = {
+        "event_id": event_id,
+        "source_ant_id": ant_id,
+        "ant_id": ant_id,
+        "source_root": source_root,
+        "source_path": primary_path,
+        "relative_path": primary_path,
+        "active_surface": source_root,
+        "change_type": primary_change,
+        "change_kind": primary_change,
+        "change_summary": change_summary,
+        "change": change_summary,
+        "change_detail": {
+            "summary": change_summary,
+            "diff_summary": {"added": diff["added"], "modified": diff["modified"], "removed": diff["removed"]},
+            "changes": changes,
+        },
+        "goal": goal,
+        "tag": tag,
+        "event_tag": tag,
+        "priority": priority,
+        "confidence": 0.98 if detection_mode == "event-driven" else 0.9,
+        "earth_ts": earth_ts,
+        "earth_ts_local": earth_ts_local,
+        "detected_ts": earth_ts,
+        "emitted_ts": utc_now(),
+        "liminal_ts": make_liminal_ts(),
+        "seat_addr_6d": f"CMD.{command_base4_addr(primary_path)}",
+        "canonical_addr_6d": f"CMD.{command_base4_addr(primary_path)}",
+        "coordinate_stamp": {},
+        "liminal_stamp_12d": {"coord12": coord12_named},
+        "surface_class": "COMMAND_GOVERNANCE" if COMMAND_TEMPLE_QUEST_ID in quest_refs else "COMMAND_IMPLEMENTATION",
+        "hierarchy_level": "command-event",
+        "return_anchor": "COMMAND_MEMBRANE",
+        "event_kind": "filesystem_change",
+        "earth_ts_utc": earth_ts,
+        "earth_anchor": {
+            "utc": earth_ts,
+            "local_phase": coord12_named["earth_rotation_phase"],
+            "orbital_phase": coord12_named["earth_orbital_phase"],
+            "geospatial_anchor": coord12_named["earth_geospatial_anchor"],
+        },
+        "earth_local_phase": float(coord12_named["earth_rotation_phase"]),
+        "parent_event_id": previous_event_id,
+        "ttl": 6,
+        "pheromone": round(0.45 + (priority * 0.5), 6),
+        "state_hash": f"H:{hashlib.sha256(json.dumps(changes, sort_keys=True).encode('utf-8')).hexdigest()[:16].upper()}",
+        "route_class": COMMAND_ROUTE_CLASS,
+        "witness_class": "LOCAL_ONLY",
+        "status": "encoded",
+        "membrane_id": "GLOBAL_COMMAND",
+        "role_class": "Scout",
+        "detected_by": ant_id,
+        "base4_addr": command_base4_addr(primary_path),
+        "parent": previous_event_id,
+        "parent_event_id_alias": previous_event_id,
+        "lineage": {
+            "parent": previous_event_id,
+            "source_region": "GLOBAL COMMAND",
+            "affected_nodes": artifact_refs,
+            "quest_refs": quest_refs,
+            "route_path": "",
+        },
+        "deferred_dimensions": {"watcher_mode": detection_mode},
+        "coord12": coord12_named,
+        "coord12_frame": {
+            "earth": {
+                "earth_utc_anchor": coord12_named["earth_utc_anchor"],
+                "earth_rotation_phase": coord12_named["earth_rotation_phase"],
+                "earth_orbital_phase": coord12_named["earth_orbital_phase"],
+                "earth_geospatial_anchor": coord12_named["earth_geospatial_anchor"],
+            },
+            "astro": {
+                "solar_phase": coord12_named["solar_phase"],
+                "lunar_phase": coord12_named["lunar_phase"],
+                "local_sidereal_phase": coord12_named["local_sidereal_phase"],
+                "canonical_sky_anchor": coord12_named["canonical_sky_anchor"],
+            },
+            "runtime": {
+                "runtime_region": coord12_named["runtime_region"],
+                "queue_pressure": coord12_named["queue_pressure"],
+            },
+            "liminal": {
+                "goal_salience_vector": coord12_named["goal_salience_vector"],
+                "change_novelty_vector": coord12_named["change_novelty_vector"],
+            },
+            "coord12_labels": list(coord12_named.keys()),
+            "weight_mode": "uniform",
+        },
+        "coord_delta": {
+            "previous_event_id": previous_event_id if previous_event_id != "ROOT" else "",
+            "delta_tau": liminal_delta,
+            "delta_earth_ms": earth_delta_ms,
+            "liminal_velocity": liminal_velocity,
+        },
+        "scout_id": ant_id,
+        "docs_gate_status": docs_gate_status()["status"],
+        "route_state": {
+            "watch_fallback": watch_fallback,
+            "fallback_marker": command_protocol_defaults().get("watcher_policy", {}).get("fallback_marker", "") if watch_fallback else "",
+        },
+        "claim_state": {"lease_state": "unclaimed"},
+        "commit_state": {},
+        "latency_state": {
+            "liminal_distance": liminal_delta,
+            "liminal_velocity": liminal_velocity,
+            "earth_delta_ms": earth_delta_ms,
+        },
+        "affected_nodes": artifact_refs,
+        "replay_ptr": replay_ptr,
+        "coordinate_vector_12": coord12_vector,
+        "artifact_refs": artifact_refs,
+        "source_region": "GLOBAL COMMAND",
+        "source_folder": Path(primary_path).parts[0] if Path(primary_path).parts else "GLOBAL COMMAND",
+        "front_ref": "GLOBAL COMMAND",
+        "seed_mode": "command-watch",
+        "dual_reference": "COMMAND<A->B>",
+        "liminal_delta": liminal_delta,
+        "earth_delta_ms": earth_delta_ms,
+        "liminal_velocity": liminal_velocity,
+        "prior_comparable_event_id": "" if previous_event_id == "ROOT" else previous_event_id,
+        "watcher_mode": detection_mode,
+        "detection_mode": detection_mode,
+        "duality_effect": "sensor->packet",
+        "quest_refs": quest_refs,
+        "novelty": novelty,
+        "diff_summary": {"added": diff["added"], "modified": diff["modified"], "removed": diff["removed"]},
+        "generated_at": utc_now(),
+        "active_protocol_version": command_active_protocol_version(),
+        "joy_model_version": command_active_protocol_version(),
+    }
+    packet["heaven_score"] = command_heaven_score(math.pi * clamp_unit(priority), 0.0)
+    packet["verified_heaven_score"] = 0.0
+    packet["verification_witness"] = 0.0
+    packet["reward_mult"] = 1.0
+    packet["try_reward"] = 0.0
+    packet["speed_reward"] = 0.0
+    packet["first_bonus"] = 0.0
+    packet["assist_reward"] = 0.0
+    packet["learn_reward"] = 0.0
+    packet["total_reward"] = 0.0
+    packet["gold_deposit"] = 0.0
+    packet["bridge_deposit"] = 0.0
+    packet["route_mode"] = "rotate"
+    packet["crown"] = "none"
+    packet["joy_seed"] = {
+        "heaven_score": packet["heaven_score"],
+        "verified_heaven_score": packet["verified_heaven_score"],
+        "verification_witness": packet["verification_witness"],
+        "reward_mult": packet["reward_mult"],
+        "route_mode": packet["route_mode"],
+        "crown": packet["crown"],
+    }
+    packet["witness_ptr"] = command_witness_ptr(event_id, primary_path, primary_change, earth_ts)
+    packet["node_stamp"] = f"{event_id}@{earth_ts}+LOCAL_ONLY+{','.join(quest_refs)}+{','.join(artifact_refs)}"
+    packet["polarity_state"] = "A"
+    packet["coordinate_stamp"] = command_coordinate_stamp(packet, primary_path, detection_mode)
+    return packet
+
+
+def process_command_change(
+    current_snapshot: dict[str, Any],
+    *,
+    detection_mode: str,
+    previous_snapshot: dict[str, Any] | None = None,
+    watch_fallback: bool = False,
+) -> dict[str, Any] | None:
+    previous_snapshot = previous_snapshot if previous_snapshot is not None else read_json(COMMAND_SNAPSHOT_PATH, None)
+    diff = compute_diff(previous_snapshot, current_snapshot)
+    if diff["added"] == 0 and diff["modified"] == 0 and diff["removed"] == 0:
+        write_json(COMMAND_SNAPSHOT_PATH, current_snapshot)
+        return None
+
+    detection_started = time.perf_counter()
+    detected_at = datetime.now(timezone.utc)
+    packet = build_command_packet(diff, detection_mode, detected_at, watch_fallback=watch_fallback)
+    encode_done = time.perf_counter()
+    route_decision = route_command_packet(packet)
+    route_done = time.perf_counter()
+    packet["status"] = "routed"
+    packet["lineage"]["route_path"] = route_decision["route_path"]
+    packet["route_state"] = {
+        "watch_fallback": watch_fallback,
+        "fallback_marker": command_protocol_defaults().get("watcher_policy", {}).get("fallback_marker", "") if watch_fallback else "",
+        "status": "routed",
+        "selected_targets": route_decision["selected_targets"],
+        "policy": route_decision["policy_id"],
+    }
+    lease_ms = int(command_protocol_defaults().get("default_lease_ms", 1200))
+    claimed_at = datetime.now(timezone.utc)
+    expires_at = (claimed_at + timedelta(milliseconds=lease_ms)).isoformat()
+    claim_lease = asdict(
+        CommandClaimLeaseV1(
+            claim_id=f"CLM-{packet['event_id']}",
+            event_id=packet["event_id"],
+            ant_id=route_decision["worker_choice"],
+            role="worker",
+            lease_ms=lease_ms,
+            claimed_at=claimed_at.isoformat(),
+            expires_at=expires_at,
+            status="leased",
+            claim_status="leased",
+            release_state="active",
+            released_at="",
+            released_by="",
+            release_reason="",
+            role_class="Worker",
+            claim_mode=route_decision["claim_mode"],
+            claimed_at_utc=claimed_at.isoformat(),
+            expires_at_utc=expires_at,
+            front_ref=packet["front_ref"],
+            seed_mode=packet["seed_mode"],
+            dual_reference=packet["dual_reference"],
+        )
+    )
+    claim_lease["claim_rank"] = 1
+    claim_payload = command_claim_payload(packet, route_decision, claim_lease)
+    append_limited_json_list(COMMAND_LEASE_LOG_PATH, claim_lease)
+    claim_done = time.perf_counter()
+    packet["status"] = "in_progress"
+    packet["claim_state"] = {
+        "status": "leased",
+        "claim_id": claim_payload["claim_id"],
+        "ant_id": claim_lease["ant_id"],
+        "expires_at_utc": claim_lease["expires_at_utc"],
+    }
+    liminal_distance = float(packet.get("liminal_delta", 0.0))
+    liminal_velocity = float(packet.get("liminal_velocity", 0.0))
+    latest_change_ns = max((change.get("mtime_ns", time.time_ns()) for change in diff.get("changes", [])), default=time.time_ns())
+    detection_latency_ms = round(max(0.0, (detected_at.timestamp() * 1000.0) - (latest_change_ns / 1_000_000.0)), 3)
+    encode_latency_ms = round((encode_done - detection_started) * 1000.0, 3)
+    swarm_awareness_latency_ms = round((route_done - encode_done) * 1000.0, 3)
+    claim_latency_ms = round((claim_done - route_done) * 1000.0, 3)
+    resolution_started = time.perf_counter()
+    unresolved_followups = []
+    integration_gain = round(packet["priority"], 6)
+    compression_gain = round(max(0.0, 1.0 - packet["priority"]), 6)
+    committed_at = utc_now()
+    resolution_latency_ms = round((time.perf_counter() - resolution_started) * 1000.0, 3)
+    t_sugar_ms = round((time.perf_counter() - detection_started) * 1000.0, 3)
+    latency_target_ms = max(1.0, float(command_latency_defaults().get("target_t_sugar_ms", 5000.0)))
+    latency_score = max(0.0, min(1.0, 1.0 - (t_sugar_ms / latency_target_ms)))
+    provisional_latency_record = {
+        "event_id": packet["event_id"],
+        "detection_latency_ms": detection_latency_ms,
+        "swarm_awareness_latency_ms": swarm_awareness_latency_ms,
+        "claim_latency_ms": claim_latency_ms,
+        "resolution_latency_ms": resolution_latency_ms,
+        "commit_latency_ms": 0.0,
+        "t_sugar_ms": t_sugar_ms,
+    }
+    prior_route_edge = command_normalize_capillary_edge(
+        f"ROUTER-01>{claim_lease['ant_id']}",
+        command_load_capillary_store().get("edges", {}).get(f"ROUTER-01>{claim_lease['ant_id']}", {}),
+    )
+    reward_rows, reward_receipt, packet_enrichment = command_reward_bundle(
+        packet,
+        route_decision,
+        claim_payload,
+        provisional_latency_record,
+        result="success",
+        prior_edge=prior_route_edge,
+    )
+    execution_receipt = asdict(
+        CommandExecutionReceiptV1(
+            event_id=packet["event_id"],
+            worker_id=claim_lease["ant_id"],
+            artifact_targets=packet["artifact_refs"],
+            writeback_set=[],
+            result="success",
+            started_at=claim_lease["claimed_at_utc"],
+            committed_at=committed_at,
+            claim_id=claim_payload["claim_id"],
+            route_path=route_decision["route_path"],
+            replay_ptr=packet["replay_ptr"],
+            verification_witness=reward_receipt["verification_witness"],
+            effort_quality=reward_receipt["try_reward"],
+            contribution_share=1.0,
+            learning_novelty=reward_receipt["learn_reward"],
+            verified_outcome_class=reward_receipt["verification_class"],
+            integration_gain=integration_gain,
+            compression_gain=compression_gain,
+            unresolved_followups=unresolved_followups,
+        )
+    )
+    capillary_edge = update_command_capillary_v2(
+        route_decision["route_path"],
+        latency_score,
+        "success",
+        event_id=packet["event_id"],
+        latency_ms=t_sugar_ms,
+        noise_penalty=0.0,
+        reward_receipt=reward_receipt,
+    )
+    commit_receipt = asdict(
+        CommitReceiptV1(
+            event_id=packet["event_id"],
+            claim_ant_id=claim_lease["ant_id"],
+            result="success",
+            route_path=route_decision["route_path"],
+            detection_latency_ms=detection_latency_ms,
+            swarm_awareness_latency_ms=swarm_awareness_latency_ms,
+            claim_latency_ms=claim_latency_ms,
+            resolution_latency_ms=resolution_latency_ms,
+            capillary_score=capillary_edge["path_score"],
+            liminal_distance=liminal_distance,
+            liminal_velocity=liminal_velocity,
+            integration_gain=integration_gain,
+            compression_gain=compression_gain,
+            unresolved_followups=unresolved_followups,
+            replay_ptr=packet["replay_ptr"],
+            claim_id=claim_payload["claim_id"],
+            commit_latency_ms=0.0,
+            t_sugar_ms=t_sugar_ms,
+            committed_at=committed_at,
+            front_ref=packet["front_ref"],
+            reward_delta=reward_receipt["total_reward"],
+            reward_class=reward_receipt["route_mode"],
+            try_bonus=reward_receipt["reward_terms"]["try"],
+            assist_bonus=reward_receipt["reward_terms"]["assist"],
+            first_jackpot=reward_receipt["reward_terms"]["first"],
+            capillary_bonus=reward_receipt["gold_deposit"],
+            heaven_alignment=reward_receipt["heaven_score_verified"],
+            heaven_total_after=reward_receipt["total_reward"],
+        )
+    )
+    commit_receipt["reward_receipt_id"] = reward_receipt["reward_receipt_id"]
+    commit_receipt["reward_multiplier"] = reward_receipt["reward_multiplier"]
+    commit_receipt["gold_deposit"] = reward_receipt["gold_deposit"]
+    commit_receipt["bridge_deposit"] = reward_receipt["bridge_deposit"]
+    commit_receipt["route_mode"] = reward_receipt["route_mode"]
+    commit_receipt["crown"] = reward_receipt["crown"]
+    commit_receipt["verification_class"] = reward_receipt["verification_class"]
+    reinforcement = asdict(
+        CommandReinforcementReceiptV1(
+            event_id=packet["event_id"],
+            path=route_decision["route_path"],
+            result="success",
+            t_detect_ms=detection_latency_ms,
+            t_encode_ms=encode_latency_ms,
+            t_route_ms=swarm_awareness_latency_ms,
+            t_claim_ms=claim_latency_ms,
+            t_commit_ms=0.0,
+            latency_score=latency_score,
+            capillary_delta=float(capillary_edge.get("capillary_delta", capillary_edge["path_score"])),
+            reinforced_at=utc_now(),
+            capillary_score=capillary_edge["path_score"],
+            liminal_distance=liminal_distance,
+            liminal_velocity=liminal_velocity,
+            claim_id=claim_payload["claim_id"],
+            replay_ptr=packet["replay_ptr"],
+            a_verified=packet_enrichment["affective_state"]["a"],
+            phi_verified=packet_enrichment["affective_state"]["phi"],
+            h_raw=reward_receipt["heaven_score"],
+            h_verified=reward_receipt["verified_heaven_score"],
+            reward_multiplier=reward_receipt["reward_mult"],
+            try_reward=reward_receipt["try_reward"],
+            speed_reward=reward_receipt["speed_reward"],
+            first_bonus=reward_receipt["first_bonus"],
+            assist_reward=reward_receipt["assist_reward"],
+            learn_reward=reward_receipt["learn_reward"],
+            total_reward=reward_receipt["total_reward"],
+            gold_deposit=reward_receipt["gold_deposit"],
+            bridge_deposit=reward_receipt["bridge_deposit"],
+            route_mode=reward_receipt["route_mode"],
+            crown=reward_receipt["crown"],
+        )
+    )
+    reinforcement["gold_strength"] = capillary_edge.get("gold_strength", 0.0)
+    reinforcement["bridge_strength"] = capillary_edge.get("bridge_strength", 0.0)
+    reinforcement["avg_heaven_verified"] = capillary_edge.get("avg_heaven_verified", 0.0)
+    reinforcement["route_mode"] = reward_receipt["route_mode"]
+    reinforcement["crown"] = reward_receipt["crown"]
+    packet["status"] = "reinforced"
+    packet.update(packet_enrichment)
+    packet["pheromone"] = round(capillary_edge.get("strength", packet.get("pheromone", 0.0)), 6)
+    packet["commit_state"] = {
+        "status": "committed",
+        "committed_at": committed_at,
+        "result": "success",
+        "claim_id": claim_payload["claim_id"],
+        "reward_receipt_id": reward_receipt["reward_receipt_id"],
+        "route_mode": reward_receipt["route_mode"],
+        "crown": reward_receipt["crown"],
+    }
+    packet["latency_state"] = {
+        "detection_latency_ms": detection_latency_ms,
+        "swarm_awareness_latency_ms": swarm_awareness_latency_ms,
+        "claim_latency_ms": claim_latency_ms,
+        "resolution_latency_ms": resolution_latency_ms,
+        "commit_latency_ms": 0.0,
+        "capillary_score": capillary_edge["path_score"],
+        "liminal_distance": liminal_distance,
+        "liminal_velocity": liminal_velocity,
+        "t_sugar_ms": t_sugar_ms,
+        "heaven_score": reward_receipt["heaven_score"],
+        "verified_heaven_score": reward_receipt["verified_heaven_score"],
+        "reward_multiplier": reward_receipt["reward_multiplier"],
+        "reward_mult": reward_receipt["reward_mult"],
+        "total_reward": reward_receipt["total_reward"],
+        "gold_deposit": reward_receipt["gold_deposit"],
+        "bridge_deposit": reward_receipt["bridge_deposit"],
+        "route_mode": reward_receipt["route_mode"],
+        "crown": reward_receipt["crown"],
+    }
+    latency_record = asdict(
+        LatencySampleV1(
+            event_id=packet["event_id"],
+            detection_latency_ms=detection_latency_ms,
+            awareness_latency_ms=swarm_awareness_latency_ms,
+            claim_latency_ms=claim_latency_ms,
+            resolution_latency_ms=resolution_latency_ms,
+            commit_latency_ms=0.0,
+            t_sugar_ms=t_sugar_ms,
+            delta_tau=liminal_distance,
+            delta_earth_ms=float(packet.get("earth_delta_ms", 0.0)),
+            liminal_velocity=liminal_velocity,
+            resolution_class="event-driven" if detection_mode == "event-driven" else ("polling-fallback" if watch_fallback else "polling"),
+            recorded_at=utc_now(),
+            swarm_awareness_latency_ms=swarm_awareness_latency_ms,
+            capillary_score=capillary_edge["path_score"],
+            liminal_delta=liminal_distance,
+            commit_latency_alias_ms=0.0,
+            route_policy=route_decision["policy_id"],
+        )
+    )
+    latency_record["earth_ts"] = packet["earth_ts_utc"]
+    latency_record["detection_mode"] = detection_mode
+    latency_record["liminal_distance"] = liminal_distance
+    latency_record["heaven_score"] = reward_receipt["heaven_score"]
+    latency_record["verified_heaven_score"] = reward_receipt["verified_heaven_score"]
+    latency_record["reward_mult"] = reward_receipt["reward_mult"]
+    latency_record["total_reward"] = reward_receipt["total_reward"]
+    latency_record["gold_deposit"] = reward_receipt["gold_deposit"]
+    latency_record["bridge_deposit"] = reward_receipt["bridge_deposit"]
+    latency_record["route_mode"] = reward_receipt["route_mode"]
+    latency_record["crown"] = reward_receipt["crown"]
+    runtime_state = {
+        "generated_at": utc_now(),
+        "docs_gate_status": docs_gate_status()["status"],
+        "command_folder_root": COMMAND_FOLDER_ROOT.relative_to(WORKSPACE_ROOT).as_posix(),
+        "active_protocol_version": command_active_protocol_version(),
+        "watcher_mode": detection_mode,
+        "watch_fallback": watch_fallback,
+        "watch_fallback_marker": command_protocol_defaults().get("watcher_policy", {}).get("fallback_marker", "") if watch_fallback else "",
+        "last_event_id": packet["event_id"],
+        "last_fingerprint": current_snapshot["fingerprint"],
+        "last_claim_id": claim_payload["claim_id"],
+        "last_route_path": route_decision["route_path"],
+        "last_capillary_strength": capillary_edge["path_score"],
+        "last_heaven_score_verified": reward_receipt["heaven_score_verified"],
+        "last_total_reward": reward_receipt["total_reward"],
+        "last_route_mode": reward_receipt["route_mode"],
+        "last_crown": reward_receipt["crown"],
+        "last_t_sugar_ms": latency_record["t_sugar_ms"],
+        "last_event": packet,
+        "last_route_decision": route_decision,
+        "last_claim": claim_payload,
+        "last_commit_receipt": commit_receipt,
+        "last_execution_receipt": execution_receipt,
+        "last_reinforcement": reinforcement,
+        "last_reward_receipt": reward_receipt,
+    }
+
+    append_limited_json_list(COMMAND_PACKET_LOG_PATH, packet)
+    append_limited_json_list(COMMAND_ROUTE_LOG_PATH, route_decision)
+    append_limited_json_list(COMMAND_ARCHIVIST_LOG_PATH, commit_receipt)
+    append_limited_json_list(COMMAND_LATENCY_LOG_PATH, latency_record)
+    for reward_row in reward_rows:
+        append_limited_json_list(COMMAND_REWARD_ROW_PATH, reward_row, limit=1000)
+    append_limited_json_list(COMMAND_REWARD_RECEIPT_PATH, reward_receipt, limit=400)
+    write_json(COMMAND_RUNTIME_STATE_PATH, runtime_state)
+    write_json(COMMAND_SNAPSHOT_PATH, current_snapshot)
+    command_append_runtime_feeds(packet, route_decision, claim_lease, claim_payload, commit_receipt, reinforcement)
+    command_state = write_command_membrane_public_state(
+        watcher_mode=detection_mode,
+        packet=packet,
+        route_decision=route_decision,
+        claim_payload=claim_payload,
+        latency_record=latency_record,
+        capillary_summary=command_capillary_summary(),
+    )
+    refresh_board()
+    return {
+        "packet": packet,
+        "route_decision": route_decision,
+        "claim": claim_payload,
+        "archivist_receipt": commit_receipt,
+        "execution_receipt": execution_receipt,
+        "latency_record": latency_record,
+        "capillary_edge": capillary_edge,
+        "reward_receipt": reward_receipt,
+        "reward_rows": reward_rows,
+        "command_state": command_state,
+        "diff": diff,
+    }
+
+
+def windows_directory_watch(root: Path, timeout_ms: int = 1000):
+    import ctypes
+    from ctypes import wintypes
+
+    FILE_NOTIFY_CHANGE_FILE_NAME = 0x00000001
+    FILE_NOTIFY_CHANGE_DIR_NAME = 0x00000002
+    FILE_NOTIFY_CHANGE_SIZE = 0x00000008
+    FILE_NOTIFY_CHANGE_LAST_WRITE = 0x00000010
+    FILE_NOTIFY_CHANGE_CREATION = 0x00000040
+    WAIT_OBJECT_0 = 0x00000000
+    WAIT_TIMEOUT = 0x00000102
+
+    kernel32 = ctypes.windll.kernel32
+    kernel32.FindFirstChangeNotificationW.argtypes = [wintypes.LPCWSTR, wintypes.BOOL, wintypes.DWORD]
+    kernel32.FindFirstChangeNotificationW.restype = wintypes.HANDLE
+    kernel32.FindNextChangeNotification.argtypes = [wintypes.HANDLE]
+    kernel32.FindNextChangeNotification.restype = wintypes.BOOL
+    kernel32.FindCloseChangeNotification.argtypes = [wintypes.HANDLE]
+    kernel32.FindCloseChangeNotification.restype = wintypes.BOOL
+    kernel32.WaitForSingleObject.argtypes = [wintypes.HANDLE, wintypes.DWORD]
+    kernel32.WaitForSingleObject.restype = wintypes.DWORD
+
+    flags = (
+        FILE_NOTIFY_CHANGE_FILE_NAME
+        | FILE_NOTIFY_CHANGE_DIR_NAME
+        | FILE_NOTIFY_CHANGE_SIZE
+        | FILE_NOTIFY_CHANGE_LAST_WRITE
+        | FILE_NOTIFY_CHANGE_CREATION
+    )
+    handle = kernel32.FindFirstChangeNotificationW(str(root), True, flags)
+    if handle in (0, wintypes.HANDLE(-1).value):
+        raise OSError("FindFirstChangeNotificationW failed")
+    try:
+        while True:
+            status = kernel32.WaitForSingleObject(handle, timeout_ms)
+            if status == WAIT_OBJECT_0:
+                yield True
+                if not kernel32.FindNextChangeNotification(handle):
+                    raise OSError("FindNextChangeNotification failed")
+            elif status == WAIT_TIMEOUT:
+                yield False
+            else:
+                raise OSError(f"WaitForSingleObject failed: {status}")
+    finally:
+        kernel32.FindCloseChangeNotification(handle)
+
+
+def command_watch_command_folder(interval: float, max_cycles: int, mode: str) -> int:
+    COMMAND_STATE_ROOT.mkdir(parents=True, exist_ok=True)
+    current_snapshot = scan_command_folder()
+    previous_snapshot = read_json(COMMAND_SNAPSHOT_PATH, None)
+    if previous_snapshot is None:
+        write_json(COMMAND_SNAPSHOT_PATH, current_snapshot)
+        previous_snapshot = current_snapshot
+        print(f"Seeded command membrane baseline at {current_snapshot['generated_at']}")
+
+    processed = 0
+    watch_fallback = False
+    use_event = mode in {"auto", "event"} and os.name == "nt"
+    if use_event:
+        try:
+            for changed in windows_directory_watch(COMMAND_FOLDER_ROOT, timeout_ms=max(250, int(interval * 1000))):
+                if not changed:
+                    continue
+                current_snapshot = scan_command_folder()
+                result = process_command_change(
+                    current_snapshot,
+                    detection_mode="event-driven",
+                    previous_snapshot=previous_snapshot,
+                    watch_fallback=False,
+                )
+                previous_snapshot = current_snapshot
+                if result is None:
+                    continue
+                processed += 1
+                print(
+                    f"Command event {result['packet']['event_id']} "
+                    f"t_sugar={result['latency_record']['t_sugar_ms']}ms "
+                    f"capillary={result['capillary_edge']['path_score']}"
+                )
+                if max_cycles and processed >= max_cycles:
+                    return 0
+        except OSError as exc:
+            if mode == "event":
+                raise
+            watch_fallback = True
+            print(f"Falling back to polling watcher: {exc}")
+
+    last_fingerprint = previous_snapshot["fingerprint"] if previous_snapshot else None
+    while True:
+        current_snapshot = scan_command_folder()
+        fingerprint = current_snapshot["fingerprint"]
+        if fingerprint != last_fingerprint:
+            result = process_command_change(
+                current_snapshot,
+                detection_mode="polling",
+                previous_snapshot=previous_snapshot,
+                watch_fallback=watch_fallback,
+            )
+            previous_snapshot = current_snapshot
+            last_fingerprint = fingerprint
+            if result is not None:
+                processed += 1
+                print(
+                    f"Command event {result['packet']['event_id']} "
+                    f"t_sugar={result['latency_record']['t_sugar_ms']}ms "
+                    f"capillary={result['capillary_edge']['path_score']}"
+                )
+                watch_fallback = False
+        if max_cycles and processed >= max_cycles:
+            break
+        time.sleep(interval)
+    return 0
+
+
+def command_watch(interval: float, max_cycles: int, scope: str, mode: str) -> int:
+    if scope == "command":
+        from . import command_membrane
+
+        timeout_secs = max(1, int(interval)) if interval > 0 else 0
+        if mode == "event-driven":
+            if max_cycles:
+                for _ in range(max_cycles):
+                    command_membrane.watch(once=True, timeout_secs=timeout_secs)
+                return 0
+            command_membrane.watch(once=False, timeout_secs=timeout_secs)
+            return 0
+        command_membrane.reconcile(bootstrap_existing=False, reroute_expired=True)
+        return 0
     cycles = 0
     last_fingerprint = None
     while True:
@@ -2864,7 +6148,7 @@ def main() -> int:
     if args.command == "build":
         return command_build()
     if args.command == "watch":
-        return command_watch(interval=args.interval, max_cycles=args.max_cycles)
+        return command_watch(interval=args.interval, max_cycles=args.max_cycles, scope=args.scope, mode=args.mode)
     if args.command == "note":
         return command_note(
             agent=args.agent,
@@ -2873,7 +6157,48 @@ def main() -> int:
             message=args.message,
             paths=args.path,
         )
+    if args.command == "emit":
+        from . import command_membrane
+
+        command_membrane.handle_emit(args.event_source, args.change_type, args.as_json)
+        return 0
+    if args.command == "route":
+        from . import command_membrane
+
+        command_membrane.handle_route(args.event_id, args.topk, args.as_json)
+        return 0
     if args.command == "claim":
+        manual_claim_requested = any(
+            value
+            for value in [
+                args.claim_id,
+                args.agent,
+                args.front,
+                args.level,
+                args.output_target,
+                args.receipt,
+                args.message,
+                args.path,
+            ]
+        )
+        if args.event_id and not manual_claim_requested:
+            from . import command_membrane
+
+            command_membrane.handle_claim(args.event_id, args.ant_id, args.lease_ms, args.as_json)
+            return 0
+        required_manual = {
+            "agent": args.agent,
+            "front": args.front,
+            "level": args.level,
+            "output_target": args.output_target,
+            "receipt": args.receipt,
+            "message": args.message,
+        }
+        missing = [name for name, value in required_manual.items() if not value]
+        if missing:
+            raise ValueError(
+                "Manual frontier claims require: " + ", ".join(missing)
+            )
         return command_claim(
             claim_id=args.claim_id,
             agent=args.agent,
@@ -2885,8 +6210,20 @@ def main() -> int:
             message=args.message,
             paths=args.path,
         )
+    if args.command == "reinforce":
+        from . import command_membrane
+
+        command_membrane.handle_reinforce(args.event_id, args.result, args.latency_score, args.noise_penalty, args.as_json)
+        return 0
+    if args.command == "status":
+        from . import command_membrane
+
+        command_membrane.handle_status(args.as_json)
+        return 0
     raise ValueError(f"Unsupported command: {args.command}")
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+

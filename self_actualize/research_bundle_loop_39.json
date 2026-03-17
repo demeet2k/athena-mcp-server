@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L39",
+  "status": "PENDING",
+  "lead_agent": "PRUNER",
+  "objective": "synthesize dead paths and obsolete references",
+  "advancement_tuple": {
+    "focus_family": "retirement",
+    "frontier_type": "stale-path-retirement",
+    "dominant_evidence_class": "retirement-ledger",
+    "compression_target": "historical-drift"
+  },
+  "truth_state": "NEAR"
+}

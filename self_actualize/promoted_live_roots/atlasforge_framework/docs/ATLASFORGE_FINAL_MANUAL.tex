@@ -1,0 +1,1403 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\setlist[itemize]{leftmargin=*}
+\begin{document}
+\section{AtlasForge v4 — Final Integrated Manual}
+
+**Version:** `4.0.0-ABSOLUTE-FINAL-ULTIMATE`  
+**Build date:** `2026-01-01`  
+
+\begin{lstlisting}
+╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                                                      ║
+║                                           ATLASFORGE                                                                 ║
+║                                                                                                                      ║
+║                              UNIVERSAL HARMONIC FRAMEWORK  +  PROOF-CARRYING KERNEL                                  ║
+║                                        +  MEMORY ATLAS / BOOK COMPILER                                               ║
+║                                                                                                                      ║
+║     “Every mathematical object can be compressed into a finite SEED that, when expanded through deterministic        ║
+║      OPERATIONS under explicit CONSTRAINTS, regenerates the complete object with CERTIFICATES proving correctness.”  ║
+║                                                                                                                      ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+\end{lstlisting}
+
+This document is the **final draft** reference for the AtlasForge framework as it exists in this repository.
+
+It integrates **three layers**:
+
+1. **Universal Harmonic Framework (UHF)** — the encoded 4×4×4×4 crystal taxonomy and its “math doctrine”
+2. **Proof-carrying computation kernel** — Blueprint → Plan → Recipe → Certificates → Verification → Replay
+3. **Memory Atlas layer** — structured notes + search + dependency graph + sessions + book export
+
+The goal is not only to “do math”, but to **retain** it: every result can be captured as a **replayable artifact** and every idea can be stored as **searchable, linked knowledge**.
+
+---
+
+\subsection{Table of contents}
+
+\begin{itemize}
+\item [0. Orientation](\#0-orientation)
+\item [1. Universal Harmonic Framework](\#1-universal-harmonic-framework)
+\item [1.1 The four poles](\#11-the-four-poles)
+\item [1.2 The four lenses](\#12-the-four-lenses)
+\item [1.3 Layers and depths](\#13-layers-and-depths)
+\item [1.4 Crystal address and linear index](\#14-crystal-address-and-linear-index)
+\item [1.5 Meta poles vs operational poles](\#15-meta-poles-vs-operational-poles)
+\item [1.6 Master equation and tome decomposition](\#16-master-equation-and-tome-decomposition)
+\item [2. Encoded laws and operators](\#2-encoded-laws-and-operators)
+\item [2.1 Interference law](\#21-interference-law)
+\item [2.2 Quadrature / boxplus operator ⊞](\#22-quadrature--boxplus-operator-)
+\item [2.3 Pivot equation](\#23-pivot-equation)
+\item [2.4 Gateway algebra](\#24-gateway-algebra)
+\item [2.5 OICF emergence coordinates](\#25-oicf-emergence-coordinates)
+\item [2.6 Crystal Merge protocol CM0→CM6](\#26-crystal-merge-protocol-cm0cm6)
+\item [3. The invariant spine](\#3-the-invariant-spine)
+\item [4. Proof-carrying computation kernel](\#4-proof-carrying-computation-kernel)
+\item [5. Memory bank](\#5-memory-bank)
+\item [6. Atlas façade](\#6-atlas-façade)
+\item [7. Workflows](\#7-workflows)
+\item [8. Extending AtlasForge](\#8-extending-atlasforge)
+\item [9. Appendix](\#9-appendix)
+\end{itemize}
+
+---
+
+\section{0. Orientation}
+
+AtlasForge is best understood as a **compiler** and an **atlas**:
+
+\begin{itemize}
+\item **Compiler:** You feed in a *seed* (a problem specification). The system expands it deterministically into a *recipe* (a computation trace), plus **certificates** that justify the output.
+\item **Atlas:** You store the outputs and the concepts as **content-addressed entries**, link them via dependencies, and export them into a coherent “book”.
+\end{itemize}
+
+\subsubsection{What AtlasForge is *not*}
+\begin{itemize}
+\item It is not a single-purpose numerical library.
+\item It is not a theorem prover (yet). It carries **evidence levels** (L0–L3) and supports certified numerical enclosures (L2) even when full formal proof (L3) is not present.
+\end{itemize}
+
+\subsubsection{The central promise}
+> If you can state the constraint, AtlasForge can produce a replayable artifact and attach verifiable evidence.
+
+---
+
+\section{1. Universal Harmonic Framework}
+
+The Universal Harmonic Framework (UHF) is an **encoded address space** for mathematical work:
+
+\begin{itemize}
+\item **4 poles** × **4 lenses** × **4 layers** × **4 depths** = **256 crystal cells**
+\item Every object, operator, invariant, or certificate can be assigned an address in that crystal.
+\end{itemize}
+
+The UHF exists so that:
+\begin{itemize}
+\item you can *retrieve by structure* (not only by keyword),
+\item multiple representations of the same object can co-exist and be navigated,
+\item “deep work” can be organized into a stable taxonomy.
+\end{itemize}
+
+In code, the canonical UHF enums live in:
+
+\begin{itemize}
+\item `atlasforge.Pole` (glyph poles D, Ω, Σ, Ψ)
+\item `atlasforge.Lens` (□, ✿, ☁, ❋)
+\item `atlasforge.Layer` (OBJECTS / OPERATORS / INVARIANTS / CERTIFICATES)
+\item `atlasforge.Depth` (0–3)
+\item `atlasforge.CrystalAddress`
+\end{itemize}
+
+---
+
+\subsection{1.1 The four poles}
+
+In UHF, a “pole” is the **realm** you are operating in.
+
+\begin{lstlisting}
+                              Ψ (Air/Λ)
+                                    │
+                                    │
+        D (Earth/α) ────────────────┼────────────── Ω (Water/𝔇)
+                                    │
+                                    │
+                              Σ (Fire/Θ)
+\end{lstlisting}
+
+\begin{lstlisting}
+| Meta pole | Glyph | Archetype | UHF meaning |
+|---|---:|---|---|
+| Discrete | **D** | Earth / α | counting, lattices, integers, combinatorics |
+| Continuous | **Ω** | Water / 𝔇 | flow, limits, analysis, geometry |
+| Stochastic | **Σ** | Fire / Θ | probability, measurement, uncertainty |
+| Hierarchical | **Ψ** | Air / Λ | recursion, emergence, renormalization |
+\end{lstlisting}
+These are encoded in `atlasforge.Pole`:
+
+\begin{lstlisting}
+from atlasforge import Pole
+Pole.DISCRETE.value      # "D"
+Pole.CONTINUOUS.value    # "Ω"
+Pole.STOCHASTIC.value    # "Σ"
+Pole.HIERARCHICAL.value  # "Ψ"
+\end{lstlisting}
+
+---
+
+\subsection{1.2 The four lenses}
+
+A “lens” is a **viewing mode**: how you choose to represent and interrogate an object.
+
+\begin{lstlisting}
+| Lens | Glyph | Core idea |
+|---|---:|---|
+| Square | □ | structural / static / invariants / discrete scaffolding |
+| Flower | ✿ | cyclic / phase / transport / dynamics |
+| Cloud | ☁ | probabilistic / bounds / uncertainty / distributions |
+| Fractal | ❋ | recursion / multiscale / self-similarity |
+\end{lstlisting}
+In code:
+
+\begin{lstlisting}
+from atlasforge import Lens
+Lens.SQUARE.value   # "□"
+Lens.FLOWER.value   # "✿"
+Lens.CLOUD.value    # "☁"
+Lens.FRACTAL.value  # "❋"
+\end{lstlisting}
+
+A useful integration principle:
+
+\begin{itemize}
+\item **Square** tends to generate **IR, normal forms, proofs as data**
+\item **Flower** tends to generate **transforms / coordinate transport**
+\item **Cloud** tends to generate **bounds, distributions, uncertainty propagation**
+\item **Fractal** tends to generate **search, recursion, bracketing, multiscale refinement**
+\end{itemize}
+
+---
+
+\subsection{1.3 Layers and depths}
+
+UHF treats each crystal cell as one of four “layers”:
+
+\begin{lstlisting}
+| Layer | Enum | Meaning |
+|---|---:|---|
+| Objects | `Layer.OBJECTS (0)` | what exists |
+| Operators | `Layer.OPERATORS (1)` | what transforms |
+| Invariants | `Layer.INVARIANTS (2)` | what stays true across transformations |
+| Certificates | `Layer.CERTIFICATES (3)` | what justifies a claim |
+\end{lstlisting}
+Depth is a 0–3 index describing how far “into” a layer you are:
+\begin{itemize}
+\item **0:** surface / direct / definition-level
+\item **1:** derived / composed
+\item **2:** canonicalized / normalized
+\item **3:** certified / stabilized / “publication-ready”
+\end{itemize}
+
+Depth is intentionally lightweight: it is a *navigation axis*, not a hard theorem.
+
+---
+
+\subsection{1.4 Crystal address and linear index}
+
+A crystal address is:
+
+\begin{lstlisting}
+Pole · Lens · Layer · Depth
+\end{lstlisting}
+
+In code:
+
+\begin{lstlisting}
+from atlasforge import CrystalAddress, Pole, Lens, Layer, Depth
+addr = CrystalAddress(Pole.CONTINUOUS, Lens.SQUARE, Layer.INVARIANTS, Depth.D2)
+print(str(addr))            # Ω·□·INVARIANTS·2
+print(addr.to_index())      # 0..255
+\end{lstlisting}
+
+The linear index mapping is:
+
+\begin{lstlisting}
+index = pole_index * 64 + lens_index * 16 + layer_value * 4 + depth_value
+\end{lstlisting}
+
+This is the bridge between:
+\begin{itemize}
+\item human readable addresses (`Ω·□·INVARIANTS·2`)
+\item a compact integer cell id (`0..255`)
+\item navigation and indexing (MemoryStore uses `extra["crystal\_index"]`)
+\end{itemize}
+
+\subsubsection{Address parsing (Memory Bank)}
+The memory subsystem can parse best-effort address strings:
+
+\begin{itemize}
+\item `"D·□·OBJECTS·0"`
+\item `"Ω·✿·OPERATORS·2"`
+\item `"Σ·☁·INVARIANTS·1"`
+\item `"12"` (treated as a raw index)
+\end{itemize}
+
+See: `atlasforge.memory.addressing.parse\_crystal\_address\_string`.
+
+---
+
+\subsection{1.5 Meta poles vs operational poles}
+
+**Important integration point.**  
+AtlasForge contains *two pole systems* with the same word “Pole”:
+
+\subsubsection{(A) Meta poles (UHF)}
+\begin{itemize}
+\item `atlasforge.Pole`
+\item values are glyphs: `"D", "Ω", "Σ", "Ψ"`
+\item used for **classification / navigation / memory indexing**
+\end{itemize}
+
+\subsubsection{(B) Operational poles (solver/simplex theory)}
+\begin{itemize}
+\item `atlasforge.core.enums.Pole`
+\item values are descriptive: `"dissipative", "oscillatory", "stochastic", "recursive"`
+\item used for **algorithmic behavior** and “operator simplex” mixing
+\end{itemize}
+
+Think of it like:
+
+\begin{itemize}
+\item Meta poles answer **“what realm am I describing?”**
+\item Operational poles answer **“what dynamical mode does this operator express?”**
+\end{itemize}
+
+This split is intentional and is one of the cleanest ways to preserve both:
+\begin{itemize}
+\item symbolic/glyph indexing (human navigation)
+\item behavioral mode semantics (solver policy)
+\end{itemize}
+
+---
+
+\subsection{1.6 Master equation and tome decomposition}
+
+AtlasForge’s doc layer uses a “master equation” as a **module decomposition**.
+
+From the framework banner:
+
+\begin{lstlisting}
+S = (T,Ψ,Σ,C,D;Ω) + AQM[ρ,Φ,J,Λ,K] + LM[D,R,C,T,P] + QCM[Θ,Λ] + PROOF[Σ,C,V]
+\end{lstlisting}
+
+Interpretation:
+\begin{itemize}
+\item The **core scaffold** `(T,Ψ,Σ,C,D;Ω)` is the universal structure.
+\item AQM is the quantum-number “extended arithmetic” scaffold.
+\item LM is the liminal/emergence/closure scaffold.
+\item QCM is the Θ–Λ interference / cyclotomic scaffold.
+\item PROOF is the certificate/verification scaffold.
+\end{itemize}
+
+This is not a single formula to “compute”; it is a **map** of the books.
+
+---
+
+\section{2. Encoded laws and operators}
+
+This section preserves the **encoded mathematical identities** that act as the “mnemonic spine” for the framework.
+
+---
+
+\subsection{2.1 Interference law}
+
+In `atlasforge.qcm.qcm`, the master law is:
+
+\begin{lstlisting}
+|ψ₁ + ψ₂|² = a² + b² + 2ab·cos(Δθ)
+\end{lstlisting}
+
+Interpretation:
+\begin{itemize}
+\item amplitudes `a, b`
+\item phase separation `Δθ`
+\item interference term `2ab cos(Δθ)`
+\end{itemize}
+
+Key special cases:
+
+1. **Constructive** `Δθ = 0`  
+   `|ψ₁ + ψ₂|² = (a + b)²`
+
+2. **Destructive** `Δθ = π`  
+   `|ψ₁ + ψ₂|² = (a - b)²`
+
+3. **Orthogonal** `Δθ = π/2`  
+   `|ψ₁ + ψ₂|² = a² + b²`
+
+That orthogonal case is where the ⊞ operator arises.
+
+---
+
+\subsection{2.2 Quadrature / boxplus operator ⊞}
+
+Your “compression operator” is:
+
+\begin{lstlisting}
+a ⊞ b := √(a² + b²)
+\end{lstlisting}
+
+It is:
+\begin{itemize}
+\item the orthogonal slice of interference
+\item a Pythagorean addition law
+\item a stable “quadrature merge” operator
+\end{itemize}
+
+In code, this is exposed via QCM’s `InterferenceLaw.quadrature(...)`:
+
+\begin{lstlisting}
+from atlasforge.qcm.qcm import InterferenceLaw
+InterferenceLaw.quadrature(3, 4)  # 5.0
+\end{lstlisting}
+
+---
+
+\subsection{2.3 Pivot equation}
+
+AtlasForge encodes a commutator-like pivot identity:
+
+\begin{lstlisting}
+∂∫ − ∫∂ = Ω
+\end{lstlisting}
+
+Read as:
+\begin{itemize}
+\item EXPAND then COMPRESS ≠ COMPRESS then EXPAND
+\item the “non-commutativity residue” is recursion/looping (**Ω**)
+\end{itemize}
+
+This is captured in Crystal Merge / meta-operation discussions and is used as a conceptual engine for:
+\begin{itemize}
+\item normal forms (Square lens)
+\item recursion (Fractal lens)
+\item tunneling between representations (Flower ↔ Fractal)
+\end{itemize}
+
+---
+
+\subsection{2.4 Gateway algebra}
+
+The Gateway subsystem (`atlasforge.gateway.gateway`) formalizes hyperbolic/SL(2,R) scale transport:
+
+\begin{itemize}
+\item Gateway scalar `T ∈ (-1,1)`
+\item Scale ratio `R = (1+T)/(1-T) > 0`
+\item Rapidity `α = artanh(T) = (1/2) ln(R)`
+\item Boost matrix `B(T) ∈ SL(2,ℝ)`
+\end{itemize}
+
+Key idea:
+\begin{itemize}
+\item composing gateways uses velocity-addition / hyperbolic composition rules
+\item this creates a stable calculus for **calibrated scale changes**
+\end{itemize}
+
+---
+
+\subsection{2.5 OICF emergence coordinates}
+
+Emergence is indexed by the OICF coordinates (in code: `atlasforge.EmergenceCoordinates`):
+
+\begin{lstlisting}
+| Coordinate | Symbol | Meaning |
+|---|---:|---|
+| Omega | Ω | viability / margin-to-failure |
+| Iota | ι | integration / coupling |
+| Chi | χ | coherence / cross-scale consistency |
+| Phi | φ | function / goal-directedness |
+\end{lstlisting}
+Emergence potential:
+
+\begin{lstlisting}
+E = Ω · I · C · F
+\end{lstlisting}
+
+This gives the framework an explicit numeric axis for “how emergent is this system?”, and it’s used in LM/Tower reasoning.
+
+---
+
+\subsection{2.6 Crystal Merge protocol CM0→CM6}
+
+The Crystal Merge protocol (`atlasforge.crystal\_merge.crystal\_merge`) is a **problem-solving compiler** with stages:
+
+\begin{itemize}
+\item **CM0:** Z* Core Lock — no leaks, define objects and degeneracy
+\item **CM1:** Four-Lens Parallel Zoom — □ ✿ ☁ ❋ in parallel
+\item **CM2:** S-Tier Pivot — tunneling / representation swap
+\item **CM3:** Math God Finish — master equation collapse
+\item **CM4:** Meta-Duality Discovery — higher structure
+\item **CM5:** Proof Packaging — bundle certificates into proof packs
+\item **CM6:** Publication Gate — final verification and release
+\end{itemize}
+
+In practice, the kernel implements CM5/CM6 as:
+\begin{itemize}
+\item `CertificateBundle` + `ProofPack`
+\item `Verifier` enforcement + truth profile gating
+\item replay + content-addressed storage
+\end{itemize}
+
+---
+
+\section{3. The invariant spine}
+
+AtlasForge’s stable integration axis is the **Invariant Spine**:
+
+> **Ledger · Corridor · Proof · Replay**
+
+This exists explicitly as `atlasforge.core.enums.InvariantSpineComponent`.
+
+\subsubsection{LEDGER — irreversible history}
+\begin{itemize}
+\item content-addressed artifacts
+\item append-only mindset (even if stored on disk as files)
+\item reproducibility is the primitive, not “state”
+\end{itemize}
+
+Implemented via:
+\begin{itemize}
+\item `core.base.ContentAddressed`
+\item registry skeleton in `registry/`
+\end{itemize}
+
+\subsubsection{CORRIDOR — admissibility constraints}
+\begin{itemize}
+\item domains, intervals, chart constraints
+\item any solution must remain in its corridor
+\end{itemize}
+
+Implemented via:
+\begin{itemize}
+\item `core.types.Interval` and domains
+\item chart/lens transport (`lenses/`)
+\item `CorridorCertificate`
+\end{itemize}
+
+\subsubsection{PROOF — evidence for correctness}
+\begin{itemize}
+\item L0 claim
+\item L1 empirical
+\item L2 certified numeric
+\item L3 formal
+\end{itemize}
+
+Implemented via:
+\begin{itemize}
+\item `certificates/`
+\item `verifier/`
+\item `core.enums.CertificateLevel`, `TruthProfile`
+\end{itemize}
+
+\subsubsection{REPLAY — deterministic re-derivation}
+\begin{itemize}
+\item the computation log is part of the artifact identity
+\item results are replayable under the same seed/plan
+\end{itemize}
+
+Implemented via:
+\begin{itemize}
+\item `recipes/ReplayLog`
+\item `ReplayCertificate`
+\end{itemize}
+
+---
+
+\section{4. Proof-carrying computation kernel}
+
+The kernel is the “compiler backend”. It transforms:
+
+> **Blueprint → IR → Normal Form → SolvePlan → Solver → Output → Certificates → Verification**
+
+Key modules:
+
+\begin{itemize}
+\item `atlasforge.core` — content addressing, canonical hashing, types
+\item `atlasforge.constraints` — constraint objects + IR lowering
+\item `atlasforge.recipes` — Blueprint/SolvePlan/Recipe/Executor
+\item `atlasforge.certificates` — certificate types, bundles, proof packs
+\item `atlasforge.verifier` — validation and enclosure verification
+\item `atlasforge.registry` — content store skeleton
+\end{itemize}
+
+---
+
+\subsection{4.1 Core types}
+
+\subsubsection{Interval}
+`atlasforge.core.types.Interval` is the corridor primitive:
+
+\begin{itemize}
+\item closed/open bounds
+\item containment checks
+\item intersection
+\item conservative operations used by certified verification
+\end{itemize}
+
+Example:
+
+\begin{lstlisting}
+from atlasforge import Interval
+I = Interval.closed(1,2)
+I.contains(1.5)  # True
+\end{lstlisting}
+
+---
+
+\subsection{4.2 Constraints and IR}
+
+Constraints capture “what is to be solved”.
+
+Example: root finding:
+
+\begin{lstlisting}
+from atlasforge import RootConstraint, Interval
+c = RootConstraint(H=lambda x: x*x - 2, domain=Interval.closed(1,2))
+\end{lstlisting}
+
+Lowering pipeline:
+\begin{itemize}
+\item `Constraint` → `ConstraintIR`
+\item `ConstraintIR.normal\_form` → `NormalForm` object used by solvers
+\end{itemize}
+
+This enables multiple constraints to share a uniform solver interface.
+
+---
+
+\subsection{4.3 Solvers (and auto-bracketing)}
+
+Solvers include:
+\begin{itemize}
+\item Brent (robust bracketed root finder)
+\item Bisection
+\item Newton / Secant
+\item Interval Newton (certifying enclosure)
+\end{itemize}
+
+Bracketing is often the missing ingredient. AtlasForge includes a practical “Fractal lens” bracketer:
+
+\begin{itemize}
+\item `atlasforge.constraints.bracketing.find\_bracket`
+\end{itemize}
+
+If `SolvePlan.auto\_bracket=True` the executor will:
+1) attempt solve
+2) if it fails, search for a sign-change bracket
+3) re-run Brent on the bracket
+4) store metadata explaining what happened
+
+---
+
+\subsection{4.4 Recipe artifacts and replay}
+
+`Recipe` is the artifact:
+\begin{itemize}
+\item blueprint (seed)
+\item plan (compiler flags)
+\item output (solution/enclosure/metadata)
+\item replay log (deterministic trace)
+\item proof pack (bundled certificates)
+\end{itemize}
+
+This makes results **portable and verifiable**.
+
+---
+
+\subsection{4.5 Certificates and proof packs}
+
+Certificates live in `atlasforge.certificates.certificate`.
+
+Core types:
+
+\begin{itemize}
+\item `EnclosureCertificate`
+\item `UniquenessCertificate`
+\item `CorridorCertificate`
+\item `ReplayCertificate`
+\item `StabilityCertificate`
+\item `CertificateBundle`
+\item `ProofPack`
+\end{itemize}
+
+A `CertificateBundle` is the authoritative container:
+\begin{itemize}
+\item stores certificates by type
+\item tracks evidence level
+\item can be verified
+\end{itemize}
+
+A `ProofPack` is the “publication-ready wrapper”:
+\begin{itemize}
+\item binds `result\_hash` to the bundle
+\item ensures consistency and completeness
+\end{itemize}
+
+---
+
+\subsection{4.6 Verification}
+
+Verification is not monolithic; AtlasForge supports layered verification:
+
+\begin{itemize}
+\item **Validator** (basic plausibility checks)
+\item **EnclosureVerifier** (interval Newton enclosure)
+\item **CrossValidator** (multi-check policies)
+\item **Kernel verifier** (ties recipe + proof pack + replay together)
+\end{itemize}
+
+Evidence levels are enforced via `TruthProfile`:
+\begin{itemize}
+\item `EXPLORE`: store candidates, no promotion
+\item `VALIDATE`: empirical checks
+\item `PROVE`: requires L2+ for obligations
+\end{itemize}
+
+---
+
+
+
+\subsection{4.7 The Tome Library}
+
+Beyond the kernel, AtlasForge contains a large set of **domain tomes**.  
+Think of these as *mathematical books* that share the UHF encoding, even when they are not all wired into the recipe pipeline.
+
+The most “encoded frameworks” (the ones that carry your mathematical doctrine) are:
+
+\begin{itemize}
+\item **AQM** (Axiomatic Quantum Mathematics): Q-numbers, meaning transport, kernel closure
+\item **LM** (Liminal Mathematics / Tower): regimes, frames, desire, closure and emergence
+\item **QCM** (Quadrature–Cyclotomic Manifold): Θ–Λ plane, interference, cyclotomics, bridges
+\item **Gateway**: SL(2,ℝ) hyperbolic navigation of scale
+\item **Crystal Merge**: CM0→CM6 problem-solving compiler
+\item **Proof Engine**: a parallel (heavier) proof scaffolding
+\end{itemize}
+
+The kernel + memory atlas layer are designed to **absorb** these tomes over time: you can already store and link their results today, even when their internal types are not fully normalized to the kernel’s IR.
+
+---
+
+\subsubsection{4.7.1 QCM — Quadrature–Cyclotomic Manifold (Θ–Λ)}
+
+**File:** `atlasforge/qcm/qcm.py`  
+**Core theme:** phase (Θ) + lattice (Λ) + bridges between them.
+
+Key classes:
+\begin{itemize}
+\item `ThetaScalar`, `ThetaVector` — complex amplitudes and their phase geometry
+\item `LambdaIndex`, `LambdaPattern` — discrete phase lattice structures
+\item `RotationOperator` — phase rotation
+\item `InterferenceLaw` — the master law, plus derived operations like quadrature
+\item `CyclotomicPhases`, `CyclicGroup` — discrete phase structure
+\item Bridges:
+\item `AmpMeasBridge` (amplitude → measurement)
+\item `QuantizeBridge` (continuous → discrete)
+\item `FourierGearbox` (phase ↔ frequency representations)
+\item `QCMEngine` — orchestration / “engine object”
+\end{itemize}
+
+Minimal example:
+
+\begin{lstlisting}
+from atlasforge.qcm.qcm import ThetaScalar, InterferenceLaw
+
+ψ1 = ThetaScalar.from_polar(3.0, 0.0)      # 3·e^{i·0}
+ψ2 = ThetaScalar.from_polar(4.0, 1.57)     # 4·e^{i·π/2} approx
+
+# Orthogonal interference slice → Pythagorean / ⊞ merge
+q = InterferenceLaw.quadrature(ψ1.magnitude, ψ2.magnitude)  # 5.0
+\end{lstlisting}
+
+---
+
+\subsubsection{4.7.2 Gateway — SL(2,ℝ) hyperbolic scale transport}
+
+**File:** `atlasforge/gateway/gateway.py`  
+**Core theme:** *calibrated scale ratios* encoded as bounded hyperbolic coordinates.
+
+Key objects:
+\begin{itemize}
+\item `GatewayScalar(T)` with `T ∈ (-1,1)`
+\item `BoostMatrix` representing an SL(2,ℝ) “hyperbolic rotation”
+\item `PellGateway`, `PellSolution` — discrete/calibrated gateways from Pell orbits
+\item `velocity\_addition`, `rapidity\_from\_velocity`, `velocity\_from\_rapidity`
+\end{itemize}
+
+Typical use is to treat “scale change” as **composition**, not ad-hoc multiplication.
+
+---
+
+\subsubsection{4.7.3 Crystal Merge — CM0→CM6 compiler stages}
+
+**File:** `atlasforge/crystal\_merge/crystal\_merge.py`
+
+Key encoded objects:
+\begin{itemize}
+\item `MetaOperation`:
+\item EXPAND `∂`
+\item COMPRESS `∫`
+\item RECURSE `Ω`
+\item EQUILIBRATE `Φ`
+\item `FundamentalProcess`: 16 processes (constants × operations)
+\item `CrystalMergeProtocol`: runs CM0…CM6
+\end{itemize}
+
+The key integration is: **CM5/CM6 correspond to proof packaging and publication**, which the kernel implements as:
+\begin{itemize}
+\item certificate bundles (`CertificateBundle`)
+\item proof packs (`ProofPack`)
+\item verifier policies (`TruthProfile`)
+\end{itemize}
+
+---
+
+\subsubsection{4.7.4 AQM — Axiomatic Quantum Mathematics (Tomes I–V)}
+
+AQM is the framework for treating “numbers” as **quantum states** rather than points.
+
+**Tome map (implementation modules):**
+\begin{itemize}
+\item Tome I: `aqm\_foundation` — Q-numbers on the Riemann sphere, meaning transport, classical shadows
+\item Tome II: `aqm\_arithmetic` — arithmetic on Q-numbers
+\item Tome III: `aqm\_realization` — bridges to classical structures
+\item Tome IV: `aqm\_kernel` — infinite-resolution kernel closure
+\item Tome V: `aqm\_liminal` — liminal corridor / emergence interface
+\item Bridges: `aqm\_integration`, `aqm\_synthesis`
+\end{itemize}
+
+**Encoded definitions (from AQM foundation):**
+\begin{itemize}
+\item Value space: **Riemann sphere** `Ĉ = ℂ ∪ \{∞\}`
+\item Q-number: **state** `ρ` on `H = L²(Ĉ, μ)`
+\item Classical shadow: measurement → probability distribution
+\item Inversion duality: `J(z) = 1/z` (near ↔ far)
+\item Scale symmetry: `z ↦ λz`
+\end{itemize}
+
+Key classes in `aqm\_foundation`:
+\begin{itemize}
+\item `RiemannSphere`
+\item `QNumber` (with constructors like `QNumber.classical(z, sigma=...)`)
+\item `MeaningTransport`
+\item `POVM`, `ClassicalShadow`
+\item `QNumberNormalForm`
+\item `CorridorConstraint`
+\end{itemize}
+
+Minimal “classical limit” example:
+
+\begin{lstlisting}
+from atlasforge.aqm_foundation.aqm_foundation import QNumber
+
+ρ = QNumber.classical(1+0j, sigma=0.01)   # “almost scalar”
+print(ρ.center)                           # classical shadow center
+\end{lstlisting}
+
+**Integration note:** AQM tomes define their own crystal enums (`CrystalLens`, `CrystalLayer`, …).  
+The memory atlas layer can still store AQM results using the global UHF address space.
+
+---
+
+\subsubsection{4.7.5 LM — Liminal Mathematics / The Tower (Tomes I–V)}
+
+LM is the emergence/closure doctrine: how “objects that enforce persistence rules” arise.
+
+**Tome map:**
+\begin{itemize}
+\item Tome I: `lm\_foundations`
+\item Tome II: `lm\_dynamics`
+\item Tome III: `lm\_mechanization`
+\item Tome IV: `lm\_renormalization`
+\item Tome V: `lm\_tower`
+\item Bridge: `lm\_synthesis`
+\end{itemize}
+
+Key thesis (as encoded in `lm\_tower` docstring):
+> Life/Agency/Sentience is a topological inversion of control: persistence rules migrate inward.
+
+Key classes in `lm\_tower`:
+\begin{itemize}
+\item `Frame` (Q, Pred, Sem)
+\item `Regime`, `Individual`
+\item `LiminalStateSpace`, `LiftOperator`
+\item `DesireOperator` (lookahead / closure operator)
+\item `FeasibilityLandscape`, `MiracleEvent`
+\item `ClosureMetrics` (Ω, ι, χ, φ)
+\end{itemize}
+
+Minimal closure metrics example:
+
+\begin{lstlisting}
+from atlasforge.lm_tower.lm_tower import ClosureMetrics
+m = ClosureMetrics(omega=0.8, iota=0.7, chi=0.5, phi=0.9)
+print(m.closure_potential)  # Ω·I·C·F
+\end{lstlisting}
+
+---
+
+\subsubsection{4.7.6 Proof Engine (parallel proof scaffold)}
+
+**File:** `atlasforge/proof\_engine/proof\_engine.py`
+
+This subsystem defines a heavier proof apparatus:
+\begin{itemize}
+\item seeds, constraint IR, environment fingerprints
+\item replay transcripts and procedures
+\item proof standards, publishable artifacts
+\end{itemize}
+
+The kernel certificate system (`atlasforge.certificates`) is the lightweight path currently integrated into `RecipeExecutor`.  
+The proof engine can be treated as an upstream “formal layer” that can later replace or enrich certificate bundles (L3).
+
+
+
+\section{5. Memory bank}
+
+The memory subsystem turns AtlasForge into a real “math memory bank”:
+
+\begin{itemize}
+\item store structured knowledge (definition/lemma/theorem/operator/identity/…)
+\item attach crystal addresses and tags
+\item search quickly (SQLite FTS when available)
+\item link dependencies as a graph
+\item group work into sessions
+\item export into books (Markdown/PDF/DOCX/LaTeX)
+\end{itemize}
+
+Key modules:
+
+\begin{itemize}
+\item `atlasforge.memory.entry` — `MemoryEntry`
+\item `atlasforge.memory.knowledge` — `KnowledgeRecord`, `KnowledgeKind`
+\item `atlasforge.memory.store` — `MemoryStore`
+\item `atlasforge.memory.index` — `MemoryIndex` + hits
+\item `atlasforge.memory.graph` — `GraphStore`
+\item `atlasforge.memory.session` — `SessionStore`
+\item `atlasforge.memory.bootstrap` — seed entries
+\end{itemize}
+
+---
+
+\subsection{5.1 MemoryEntry schema}
+
+A `MemoryEntry` is stored as JSON:
+
+\begin{lstlisting}
+{
+  "title": "Interference law",
+  "content": "...markdown...",
+  "tags": ["qcm", "identity", "kind:identity"],
+  "links": {"recipe": "<hash>", "proof_pack": "<hash>"},
+  "extra": {"crystal_address": "Σ·✿·INVARIANTS·1", "crystal_index": 123}
+}
+\end{lstlisting}
+
+Entries are content-addressed:
+\begin{itemize}
+\item identical content → identical hash
+\item hash is stable across machines
+\end{itemize}
+
+---
+
+\subsection{5.2 Structured knowledge (KnowledgeRecord)}
+
+`KnowledgeRecord` is a thin schema that compiles to `MemoryEntry`.
+
+Kinds include:
+\begin{itemize}
+\item definition
+\item lemma
+\item theorem
+\item identity
+\item operator
+\item proof
+\item derivation
+\item note
+\end{itemize}
+
+Convenience methods exist on `MemoryStore` and `Atlas`:
+
+\begin{lstlisting}
+from atlasforge import Atlas
+atlas = Atlas.from_env()
+
+h = atlas.identity(
+    title="Quadrature",
+    statement="a ⊞ b := √(a² + b²)",
+    tags=["qcm","operator"],
+    address="Σ·✿·OPERATORS·0"
+)
+\end{lstlisting}
+
+Dependencies become graph edges automatically:
+\begin{itemize}
+\item `depends\_on` → `depends\_on` edge
+\item `see\_also` → `see\_also` edge
+\item `links` → `link:<key>` edges
+\end{itemize}
+
+---
+
+\subsection{5.3 Index, graph, and sessions}
+
+\begin{itemize}
+\item **Index:** keyword search (SQLite FTS5 if available)
+\end{itemize}
+  `store.search("Newton", tags=[...], kinds=[...])`
+
+\begin{itemize}
+\item **Graph:** explicit edges between entries, recipes, and artifacts
+\end{itemize}
+  `store.graph.add\_edge(...)` and automatic edges from dependencies
+
+\begin{itemize}
+\item **Sessions:** group a working day into a record
+\end{itemize}
+  `with store.session("January 1 — verification") as sess: ...`
+
+---
+
+\subsection{5.4 Bootstrap seed entries}
+
+On first use, the memory bank seeds core framework anchors (unless `ATLASFORGE\_NO\_BOOTSTRAP=1`), including:
+
+\begin{itemize}
+\item Interference law (identity)
+\item ⊞ quadrature operator (operator)
+\item Pivot equation (identity)
+\item Invariant spine (definition)
+\item CM0→CM6 protocol (definition)
+\item OICF coordinates (definition)
+\end{itemize}
+
+These ensure a new memory directory immediately contains the “spine” of your framework.
+
+---
+
+\section{6. Atlas façade}
+
+`Atlas` is the high-level façade that binds:
+
+\begin{itemize}
+\item the kernel executor
+\item the memory store
+\item sessions and linking
+\item book export and crystal navigation
+\end{itemize}
+
+It is the simplest way to operate AtlasForge as “the full understanding of our math”.
+
+---
+
+\subsection{6.1 Configuration}
+
+\begin{lstlisting}
+from atlasforge import Atlas, AtlasConfig
+atlas = Atlas(AtlasConfig(memory_dir="~/.atlasforge_memory"))
+\end{lstlisting}
+
+Or via environment variable:
+
+\begin{lstlisting}
+export ATLASFORGE_MEMORY_DIR=~/.atlasforge_memory
+\end{lstlisting}
+
+Then:
+
+\begin{lstlisting}
+atlas = Atlas.from_env()
+\end{lstlisting}
+
+---
+
+\subsection{6.2 Solve + remember}
+
+\begin{lstlisting}
+from atlasforge import RootConstraint, Interval
+
+bp = atlas.blueprint(
+    name="sqrt(2)",
+    constraint=RootConstraint(H=lambda x: x*x - 2, domain=Interval.closed(1,2))
+)
+
+recipe = atlas.solve(bp, verified=True, note="Certified by interval Newton enclosure.")
+\end{lstlisting}
+
+If memory is configured, the solve will automatically log:
+\begin{itemize}
+\item a recipe memory entry
+\item links to blueprint/output hashes
+\item verification metadata
+\end{itemize}
+
+---
+
+\subsection{6.3 Recall + crystal navigation}
+
+Keyword recall:
+
+\begin{lstlisting}
+hits = atlas.recall("interference", tags=["qcm"])
+\end{lstlisting}
+
+Crystal navigation:
+
+\begin{lstlisting}
+from atlasforge import CrystalNavigator
+nav = CrystalNavigator(atlas.store)
+cell = nav.cell("Σ·✿·OPERATORS·0")
+\end{lstlisting}
+
+---
+
+\subsection{6.4 Exporting your atlas as a book}
+
+\begin{lstlisting}
+atlas.export_book(
+    "my_atlas.pdf",
+    title="My Math Atlas",
+    fmt="pdf",
+    include_crystal_map=True,
+    include_graph_edges=True
+)
+\end{lstlisting}
+
+Export only a theorem packet + dependencies:
+
+\begin{lstlisting}
+atlas.export_book(
+    "packet.tex",
+    fmt="tex",
+    roots=[theorem_hash],
+    include_dependencies=True,
+    dependency_relations=["depends_on"]
+)
+\end{lstlisting}
+
+---
+
+\section{7. Workflows}
+
+This section describes recommended “operating modes”.
+
+---
+
+\subsection{7.1 Explore → Validate → Prove}
+
+Use `TruthProfile` as your mental switch:
+
+\begin{itemize}
+\item **EXPLORE**
+\end{itemize}
+  store conjectures and computational candidates; do not promote.
+
+\begin{itemize}
+\item **VALIDATE**
+\end{itemize}
+  require empirical checks and replay.
+
+\begin{itemize}
+\item **PROVE**
+\end{itemize}
+  require L2 certified evidence for obligations; enforce corridor + enclosure.
+
+This is the bridge between:
+\begin{itemize}
+\item research notebook
+\item publishable artifact
+\end{itemize}
+
+---
+
+\subsection{7.2 Encode everything twice: artifact + meaning}
+
+Best practice in AtlasForge:
+
+1. Run a recipe to compute a result (artifact)
+2. Store a knowledge entry that states *what it means* (meaning)
+3. Link them (dependency graph / links)
+
+This creates an “executable textbook”:
+\begin{itemize}
+\item the book reads like math
+\item but every claim has a trail to computations and certificates
+\end{itemize}
+
+---
+
+\subsection{7.3 Use crystal addresses deliberately}
+
+When you store something, assign:
+
+\begin{itemize}
+\item pole: the realm
+\item lens: how it’s represented
+\item layer: object/operator/invariant/certificate
+\item depth: maturity
+\end{itemize}
+
+This is how your memory bank becomes an atlas rather than a pile of notes.
+
+---
+
+\section{8. Extending AtlasForge}
+
+AtlasForge is designed to grow by adding modules that attach to the spine.
+
+---
+
+\subsection{8.1 Add a new constraint}
+\begin{itemize}
+\item subclass `Constraint`
+\item implement lowering to `ConstraintIR`
+\item define normal form expectations
+\end{itemize}
+
+---
+
+\subsection{8.2 Add a new solver}
+\begin{itemize}
+\item implement a `solve(...)` method that consumes a normal form
+\item register in the solver factory / plan
+\end{itemize}
+
+---
+
+\subsection{8.3 Add a new certificate}
+\begin{itemize}
+\item subclass `Certificate`
+\item implement `verify()`
+\item register with `CertificateFactory`
+\end{itemize}
+
+---
+
+\subsection{8.4 Add a new lens/chart}
+\begin{itemize}
+\item implement forward/inverse coordinate maps
+\item define corridor admissibility
+\item let `Blueprint.chart` transport the solve
+\end{itemize}
+
+---
+
+\subsection{8.5 Add a new knowledge kind}
+\begin{itemize}
+\item extend `KnowledgeKind`
+\item render it as a book section in `AtlasBookBuilder`
+\end{itemize}
+
+---
+
+\section{9. Appendix}
+
+\subsection{9.1 Key entry points}
+
+\begin{itemize}
+\item Kernel: `atlasforge.recipes.recipe.RecipeExecutor`
+\item Memory: `atlasforge.memory.store.MemoryStore`
+\item Atlas façade: `atlasforge.atlas.atlas.Atlas`
+\item Book compiler: `atlasforge.atlas.book.AtlasBookBuilder`
+\item Crystal navigation: `atlasforge.atlas.navigator.CrystalNavigator`
+\end{itemize}
+
+\subsection{9.2 Directory map (selected)}
+
+\begin{lstlisting}
+| Package | Role |
+|---|---|
+| `core/` | content addressing, types, enums |
+| `constraints/` | constraint definitions, solvers, bracketing |
+| `recipes/` | artifact compiler pipeline |
+| `certificates/` | certificates + proof packs |
+| `verifier/` | validation + enclosure verification |
+| `memory/` | memory bank (entries/index/graph/sessions) |
+| `atlas/` | solve+remember façade, navigation, book export |
+| `qcm/` | Θ–Λ interference / cyclotomic scaffold |
+| `gateway/` | SL(2,R) scale transport / rapidity |
+| `crystal_merge/` | CM0→CM6 protocol and meta-ops |
+| `aqm_*` | AQM tomes (quantum-number arithmetic) |
+| `lm_*` / `lm_tower/` | LM tomes (liminal tower / emergence / closure) |
+| `proof_engine/` + `proofs/` | larger proof scaffolding (conceptual / partial integration) |
+\end{lstlisting}
+\subsection{9.3 Glossary (micro)}
+
+\begin{itemize}
+\item **Seed:** minimal representation of an object/problem sufficient to regenerate it
+\item **Corridor:** admissible domain constraints for a solve
+\item **Enclosure:** interval guaranteed to contain the true solution
+\item **Certificate:** machine-checkable evidence object
+\item **ProofPack:** bundle of certificates bound to a result hash
+\item **Crystal cell:** one of the 256 Pole×Lens×Layer×Depth addresses
+\end{itemize}
+
+---
+
+
+
+\subsection{9.4 Kernel artifact schemas (dataclass fields)}
+
+These are the “shape contracts” you can rely on when scripting AtlasForge.
+
+\subsubsection{Blueprint (`atlasforge.recipes.recipe.Blueprint`)}
+\begin{itemize}
+\item `constraint: Optional[Constraint]` — the mathematical condition
+\item `chart: Optional[Chart]` — optional coordinate transport (lens)
+\item `truth\_profile: TruthProfile` — EXPLORE / VALIDATE / PROVE
+\item `search\_domain: Optional[Interval]` — optional override domain
+\item `hints: Dict[str, Any]` — solver hints / metadata
+\item `name: str` — human name
+\item `description: str` — human description
+\end{itemize}
+
+\subsubsection{SolvePlan (`atlasforge.recipes.recipe.SolvePlan`)}
+\begin{itemize}
+\item `primary\_solver: SolverType` (default: BRENT)
+\item `fallback\_solvers: List[SolverType]`
+\item `tolerance: float`
+\item `max\_iterations: int`
+\item Auto-bracketing:
+\item `auto\_bracket: bool`
+\item `bracket\_samples: int`
+\item `bracket\_expand\_steps: int`
+\item `bracket\_expand\_factor: float`
+\item Verification:
+\item `verify\_solution: bool`
+\item `verification\_solver: SolverType` (default: INTERVAL\_NEWTON)
+\item Numerical policy:
+\item `float\_policy: FloatPolicy`
+\item Bookkeeping:
+\item `status: PlanStatus`
+\item `metadata: Dict[str, Any]`
+\end{itemize}
+
+\subsubsection{RecipeOutput (`atlasforge.recipes.recipe.RecipeOutput`)}
+\begin{itemize}
+\item `solution: Optional[float]`
+\item `residual: float`
+\item `enclosure: Optional[Interval]` (certifying corridor)
+\item `all\_solutions: List[float]`
+\item `solver\_result: Optional[SolverResult]`
+\item `certificates: CertificateBundle`
+\item `success: bool`
+\item `verified: bool`
+\item `solve\_time: float`
+\item `metadata: Dict[str, Any]`
+\end{itemize}
+
+\subsubsection{Recipe (`atlasforge.recipes.recipe.Recipe`)}
+\begin{itemize}
+\item `blueprint: Optional[Blueprint]`
+\item `plan: Optional[SolvePlan]`
+\item `output: Optional[RecipeOutput]`
+\item `replay\_log: Optional[ReplayLog]`
+\item `proof\_pack: Optional[ProofPack]`
+\item `created\_at: datetime`
+\item `complete: bool`
+\end{itemize}
+
+---
+
+\subsection{9.5 Certificate types (what they mean)}
+
+Certificate classes live in `atlasforge.certificates.certificate`:
+
+\begin{itemize}
+\item **EnclosureCertificate**
+\end{itemize}
+  Verifies that the returned `solution` lies in a conservative `Interval` enclosure and that the enclosure is valid.
+
+\begin{itemize}
+\item **UniquenessCertificate**
+\end{itemize}
+  Captures a sufficient condition that there is only one solution in the corridor.
+
+\begin{itemize}
+\item **CorridorCertificate**
+\end{itemize}
+  Captures domain admissibility: the solution respects the corridor constraints.
+
+\begin{itemize}
+\item **ReplayCertificate**
+\end{itemize}
+  Ensures the computation can be deterministically replayed and that a replay run matches the recorded result hash.
+
+\begin{itemize}
+\item **StabilityCertificate**
+\end{itemize}
+  Captures local stability (e.g., contraction criteria).
+
+\begin{itemize}
+\item **CertificateBundle**
+\end{itemize}
+  Container (with evidence level) that stores and verifies certificates.
+
+\begin{itemize}
+\item **ProofPack**
+\end{itemize}
+  Publication-ready wrapper binding a `result\_hash` to a `CertificateBundle`.
+
+---
+
+\subsection{9.6 Recommended crystal conventions (practical)}
+
+These are conventions (not hard requirements) that make crystal navigation consistent:
+
+\begin{itemize}
+\item **QCM**
+\item interference identities → `Σ·✿·INVARIANTS·\{0..2\}`
+\item phase lattice objects → `Ψ·✿·OBJECTS·\{0..2\}`
+\item bridges (Amp/Meas/Fourier) → `Ω·✿·OPERATORS·\{1..3\}`
+\end{itemize}
+
+\begin{itemize}
+\item **Gateway**
+\item gateway scalars / boosts → `Ω·✿·OPERATORS·0`
+\item invariants / calibration identities → `Ω·□·INVARIANTS·\{1..3\}`
+\end{itemize}
+
+\begin{itemize}
+\item **AQM**
+\item Q-number objects → `Ω·☁·OBJECTS·\{0..2\}`
+\item meaning transport operators → `Ω·✿·OPERATORS·\{0..2\}`
+\item classical shadows / measurement invariants → `Σ·☁·INVARIANTS·\{0..2\}`
+\end{itemize}
+
+\begin{itemize}
+\item **LM**
+\item frames/regimes/state spaces → `Ψ·□·OBJECTS·\{0..2\}`
+\item desire/lookahead operators → `Ψ·❋·OPERATORS·\{1..3\}`
+\item closure metrics / OICF invariants → `Ψ·☁·INVARIANTS·\{0..2\}`
+\end{itemize}
+
+\begin{itemize}
+\item **Kernel / Proof**
+\item solver outputs → `D·□·CERTIFICATES·\{1..3\}`
+\item replay/cert bundles → `D·□·CERTIFICATES·3`
+\end{itemize}
+
+The best workflow is:
+1) start with “reasonable” assignments,  
+2) refine as your atlas grows,  
+3) rely on dependency edges + tags to keep everything searchable during refactors.
+
+
+
+\_End of manual.\_
+\end{document}

@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-03-13T23:39:25.100509+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "loop_id": "L04",
+  "status": "COMPLETED",
+  "bundle_type": "CompressionBundle",
+  "objective": "prune conflicting frontier stories",
+  "control_tuple": {
+    "active_membrane": "Q41 / TQ06",
+    "live_hall_carrier": "Q42",
+    "landed_temple_receiver": "TQ04",
+    "reserve_feeder": "Q46",
+    "external_blocker": "Q02",
+    "docs_gate": "BLOCKED",
+    "witness_only_fronts": [
+      "Q50",
+      "ECOSYSTEM/NERVOUS_SYSTEM"
+    ],
+    "earth_gate_required": true,
+    "required_appendix_support": [
+      "AppI",
+      "AppM"
+    ],
+    "overlay_only_appendix_support": [
+      "AppQ",
+      "AppO"
+    ]
+  },
+  "route_law": {
+    "primary_route": "Q41/TQ06 -> Q42 -> TQ04",
+    "reserve_rule": "Q46 remains visible but reserve-only",
+    "blocker_rule": "Q02 remains blocked and excluded from execution",
+    "witness_only_rule": "Q50 and ECOSYSTEM/NERVOUS_SYSTEM remain witness-only for L04"
+  },
+  "pruned_claims": [
+    "stale L03 Survey A03 ECOSYSTEM next-loop claims",
+    "Q50 promoted as part of the live feeder tuple",
+    "blended carrier/receiver/reserve narratives"
+  ],
+  "preserved_distinctions": [
+    "membrane",
+    "carrier",
+    "receiver",
+    "reserve",
+    "blocker",
+    "witness-only"
+  ],
+  "preserved_boundaries": [
+    "Q46 remains reserve-only",
+    "Q02 remains blocked",
+    "Q50 remains witness-only"
+  ]
+}

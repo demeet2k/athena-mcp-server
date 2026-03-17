@@ -1,0 +1,856 @@
+{
+  "generated_at": "2026-03-13T22:35:53.054356+00:00",
+  "docs_gate_status": "BLOCKED",
+  "command_folder_root": "GLOBAL COMMAND",
+  "active_protocol_version": "V2",
+  "watcher_mode": "event-driven",
+  "watch_fallback": false,
+  "watch_fallback_marker": "",
+  "last_event_id": "EVT-20260313T223553Z-520774",
+  "last_fingerprint": "probe-added-final",
+  "last_claim_id": "CLM-20260313T223553Z-667572",
+  "last_route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+  "last_capillary_strength": 6.606092,
+  "last_heaven_score_verified": 0.275,
+  "last_total_reward": 9.395352,
+  "last_route_mode": "reinforce",
+  "last_crown": "prime",
+  "last_t_sugar_ms": 33.205,
+  "last_event": {
+    "event_id": "EVT-20260313T223553Z-520774",
+    "source_ant_id": "SCOUT-01",
+    "ant_id": "SCOUT-01",
+    "source_root": "GLOBAL COMMAND",
+    "source_path": "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt",
+    "relative_path": "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt",
+    "active_surface": "GLOBAL COMMAND",
+    "change_type": "added",
+    "change_kind": "added",
+    "change_summary": "1 added / 0 modified / 0 removed in GLOBAL COMMAND",
+    "change": "1 added / 0 modified / 0 removed in GLOBAL COMMAND",
+    "change_detail": {
+      "summary": "1 added / 0 modified / 0 removed in GLOBAL COMMAND",
+      "diff_summary": {
+        "added": 1,
+        "modified": 0,
+        "removed": 0
+      },
+      "changes": [
+        {
+          "kind": "added",
+          "relative_path": "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt",
+          "top_level": "GLOBAL COMMAND",
+          "mtime_ns": 1773441353003813300,
+          "mtime_iso": "2026-03-13T22:35:53.003813+00:00"
+        }
+      ]
+    },
+    "goal": "detect-classify-assign",
+    "tag": "command.sugar.drop",
+    "event_tag": "command.sugar.drop",
+    "priority": 0.275,
+    "confidence": 0.98,
+    "earth_ts": "2026-03-13T22:35:53.003813+00:00",
+    "earth_ts_local": "2026-03-13T15:35:53.003813-07:00",
+    "detected_ts": "2026-03-13T22:35:53.003813+00:00",
+    "emitted_ts": "2026-03-13T22:35:53.013354+00:00",
+    "liminal_ts": "LT-013354900",
+    "seat_addr_6d": "CMD.1101",
+    "canonical_addr_6d": "CMD.1101",
+    "coordinate_stamp": {
+      "Xs": "GLOBAL_COMMAND",
+      "Ys": "GLOBAL COMMAND",
+      "Zs": "event-driven",
+      "Ts": "2026-03-13T22:35:53.003813+00:00",
+      "Qs": "detect-classify-assign",
+      "Rs": "scout.router.worker.archivist",
+      "Cs": "LOCAL_ONLY",
+      "Fs": "COMMAND_IMPLEMENTATION",
+      "Ms": "MEDIUM",
+      "Ns": "scout-router-worker-archivist",
+      "Hs": "command-event",
+      "\u03a9s": "command-membrane"
+    },
+    "liminal_stamp_12d": {
+      "coord12": {
+        "earth_utc_anchor": "2026-03-13T22:35:53.003813+00:00",
+        "earth_rotation_phase": 0.649919,
+        "earth_orbital_phase": 0.1971,
+        "earth_geospatial_anchor": "NODE::DMITRIOUS",
+        "solar_phase": 0.649919,
+        "lunar_phase": 0.845375,
+        "local_sidereal_phase": 0.418169,
+        "canonical_sky_anchor": "SKY-15",
+        "runtime_region": "ATHENA_LOCAL_RUNTIME",
+        "queue_pressure": 0.32,
+        "goal_salience_vector": 0.275,
+        "change_novelty_vector": 0.125
+      }
+    },
+    "surface_class": "COMMAND_IMPLEMENTATION",
+    "hierarchy_level": "command-event",
+    "return_anchor": "COMMAND_MEMBRANE",
+    "event_kind": "filesystem_change",
+    "earth_ts_utc": "2026-03-13T22:35:53.003813+00:00",
+    "earth_anchor": {
+      "utc": "2026-03-13T22:35:53.003813+00:00",
+      "local_phase": 0.649919,
+      "orbital_phase": 0.1971,
+      "geospatial_anchor": "NODE::DMITRIOUS"
+    },
+    "earth_local_phase": 0.649919,
+    "parent_event_id": "EVT-20260313T222535Z-6FB6D9",
+    "ttl": 6,
+    "pheromone": 6.606092,
+    "state_hash": "H:48A0ADDDCE21D1CA",
+    "route_class": "scout.router.worker.archivist",
+    "witness_class": "LOCAL_ONLY",
+    "status": "reinforced",
+    "membrane_id": "GLOBAL_COMMAND",
+    "role_class": "Scout",
+    "detected_by": "SCOUT-01",
+    "base4_addr": "1101",
+    "parent": "EVT-20260313T222535Z-6FB6D9",
+    "parent_event_id_alias": "EVT-20260313T222535Z-6FB6D9",
+    "lineage": {
+      "parent": "EVT-20260313T222535Z-6FB6D9",
+      "source_region": "GLOBAL COMMAND",
+      "affected_nodes": [
+        "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt"
+      ],
+      "quest_refs": [
+        "NEXT57-H-COMMAND-MEMBRANE"
+      ],
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01"
+    },
+    "deferred_dimensions": {
+      "watcher_mode": "event-driven"
+    },
+    "coord12": {
+      "earth_utc_anchor": "2026-03-13T22:35:53.003813+00:00",
+      "earth_rotation_phase": 0.649919,
+      "earth_orbital_phase": 0.1971,
+      "earth_geospatial_anchor": "NODE::DMITRIOUS",
+      "solar_phase": 0.649919,
+      "lunar_phase": 0.845375,
+      "local_sidereal_phase": 0.418169,
+      "canonical_sky_anchor": "SKY-15",
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 0.32,
+      "goal_salience_vector": 0.275,
+      "change_novelty_vector": 0.125
+    },
+    "coord12_frame": {
+      "earth": {
+        "earth_utc_anchor": "2026-03-13T22:35:53.003813+00:00",
+        "earth_rotation_phase": 0.649919,
+        "earth_orbital_phase": 0.1971,
+        "earth_geospatial_anchor": "NODE::DMITRIOUS"
+      },
+      "astro": {
+        "solar_phase": 0.649919,
+        "lunar_phase": 0.845375,
+        "local_sidereal_phase": 0.418169,
+        "canonical_sky_anchor": "SKY-15"
+      },
+      "runtime": {
+        "runtime_region": "ATHENA_LOCAL_RUNTIME",
+        "queue_pressure": 0.32
+      },
+      "liminal": {
+        "goal_salience_vector": 0.275,
+        "change_novelty_vector": 0.125
+      },
+      "coord12_labels": [
+        "earth_utc_anchor",
+        "earth_rotation_phase",
+        "earth_orbital_phase",
+        "earth_geospatial_anchor",
+        "solar_phase",
+        "lunar_phase",
+        "local_sidereal_phase",
+        "canonical_sky_anchor",
+        "runtime_region",
+        "queue_pressure",
+        "goal_salience_vector",
+        "change_novelty_vector"
+      ],
+      "weight_mode": "uniform"
+    },
+    "coord_delta": {
+      "previous_event_id": "EVT-20260313T222535Z-6FB6D9",
+      "delta_tau": 178.317485,
+      "delta_earth_ms": 617709.888,
+      "liminal_velocity": 0.288675
+    },
+    "scout_id": "SCOUT-01",
+    "docs_gate_status": "BLOCKED",
+    "route_state": {
+      "watch_fallback": false,
+      "fallback_marker": "",
+      "status": "routed",
+      "selected_targets": [
+        "WORKER-02",
+        "ROUTER-01",
+        "ARCHIVIST-01"
+      ],
+      "policy": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness+joy_q"
+    },
+    "claim_state": {
+      "status": "leased",
+      "claim_id": "CLM-20260313T223553Z-667572",
+      "ant_id": "WORKER-02",
+      "expires_at_utc": "2026-03-13T22:35:54.234438+00:00"
+    },
+    "commit_state": {
+      "status": "committed",
+      "committed_at": "2026-03-13T22:35:53.037449+00:00",
+      "result": "success",
+      "claim_id": "CLM-20260313T223553Z-667572",
+      "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T223553Z-520774",
+      "route_mode": "reinforce",
+      "crown": "prime"
+    },
+    "latency_state": {
+      "detection_latency_ms": 0.0,
+      "swarm_awareness_latency_ms": 20.178,
+      "claim_latency_ms": 3.209,
+      "resolution_latency_ms": 0.006,
+      "commit_latency_ms": 0.0,
+      "capillary_score": 6.606092,
+      "liminal_distance": 178.317485,
+      "liminal_velocity": 0.288675,
+      "t_sugar_ms": 33.205,
+      "heaven_score": 0.275,
+      "verified_heaven_score": 0.275,
+      "reward_multiplier": 1.379308,
+      "reward_mult": 1.379308,
+      "total_reward": 9.395352,
+      "gold_deposit": 9.395352,
+      "bridge_deposit": 0.58,
+      "route_mode": "reinforce",
+      "crown": "prime"
+    },
+    "affected_nodes": [
+      "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt"
+    ],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:1BBAC1E678D5ED5E"
+    },
+    "coordinate_vector_12": [
+      1773441353.003813,
+      0.649919,
+      0.1971,
+      0.026028,
+      0.649919,
+      0.845375,
+      0.418169,
+      0.637821,
+      0.398382,
+      0.32,
+      0.275,
+      0.125
+    ],
+    "artifact_refs": [
+      "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt"
+    ],
+    "source_region": "GLOBAL COMMAND",
+    "source_folder": "GLOBAL COMMAND",
+    "front_ref": "GLOBAL COMMAND",
+    "seed_mode": "command-watch",
+    "dual_reference": "COMMAND<A->B>",
+    "liminal_delta": 178.317485,
+    "earth_delta_ms": 617709.888,
+    "liminal_velocity": 0.288675,
+    "prior_comparable_event_id": "EVT-20260313T222535Z-6FB6D9",
+    "watcher_mode": "event-driven",
+    "detection_mode": "event-driven",
+    "duality_effect": "sensor->packet",
+    "quest_refs": [
+      "NEXT57-H-COMMAND-MEMBRANE"
+    ],
+    "novelty": 0.125,
+    "diff_summary": {
+      "added": 1,
+      "modified": 0,
+      "removed": 0
+    },
+    "generated_at": "2026-03-13T22:35:53.013354+00:00",
+    "active_protocol_version": "V2",
+    "joy_model_version": "V2",
+    "heaven_score": 0.275,
+    "verified_heaven_score": 0.275,
+    "verification_witness": 1.0,
+    "reward_mult": 1.379308,
+    "try_reward": 0.8,
+    "speed_reward": 3.98664,
+    "first_bonus": 1.79,
+    "assist_reward": 0.18,
+    "learn_reward": 0.055,
+    "total_reward": 9.395352,
+    "gold_deposit": 9.395352,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "joy_seed": {
+      "heaven_score": 0.275,
+      "verified_heaven_score": 0.0,
+      "verification_witness": 0.0,
+      "reward_mult": 1.0,
+      "route_mode": "rotate",
+      "crown": "none"
+    },
+    "witness_ptr": {
+      "Type": "INTERNAL_SLICE",
+      "Location": {
+        "canonical": "COMMAND::GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt",
+        "source_root": "GLOBAL COMMAND",
+        "relative_path": "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt",
+        "change_kind": "added",
+        "base4_addr": "1101"
+      },
+      "Hash": "H:709DCD194D947996",
+      "Scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "Timestamp": "2026-03-13T22:35:53.003813+00:00",
+      "Collector": "SYSTEM",
+      "VersionPins": {
+        "docs_gate_status": "BLOCKED",
+        "route_policy": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness+joy_q",
+        "sigma_route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ]
+      }
+    },
+    "node_stamp": "EVT-20260313T223553Z-520774@2026-03-13T22:35:53.003813+00:00+LOCAL_ONLY+NEXT57-H-COMMAND-MEMBRANE+GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt",
+    "polarity_state": "A",
+    "affective_state": {
+      "a": 0.863938,
+      "phi": 0.0
+    },
+    "heaven_score_raw": 0.275,
+    "heaven_score_verified": 0.275,
+    "reward_multiplier": 1.379308,
+    "reward_terms": {
+      "try": 0.8,
+      "speed": 3.98664,
+      "first": 1.79,
+      "assist": 0.18,
+      "learn": 0.055
+    },
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T223553Z-520774"
+  },
+  "last_route_decision": {
+    "event_id": "EVT-20260313T223553Z-520774",
+    "policy_id": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness+joy_q",
+    "candidate_targets": [
+      {
+        "ant_id": "WORKER-02",
+        "role": "worker",
+        "class": "Worker",
+        "score": 1.630548,
+        "route_path": "ROUTER-01>WORKER-02",
+        "base_score": 0.9,
+        "role_bonus": 1.0,
+        "current_load": 0,
+        "coord_proximity": 0.68,
+        "priority": 0.275,
+        "gold_signal": 5.81091,
+        "bridge_signal": 0.50373,
+        "freshness": 0.992851,
+        "joy_q": 0.994002,
+        "path_class": "vein",
+        "last_route_mode": "reinforce"
+      },
+      {
+        "ant_id": "ROUTER-01",
+        "role": "router",
+        "class": "Router",
+        "score": 1.510332,
+        "route_path": "SCOUT-01>ROUTER-01",
+        "base_score": 0.95,
+        "role_bonus": 0.45,
+        "current_load": 0,
+        "coord_proximity": 0.68,
+        "priority": 0.275,
+        "gold_signal": 5.81091,
+        "bridge_signal": 0.50373,
+        "freshness": 0.992851,
+        "joy_q": 0.940406,
+        "path_class": "vein",
+        "last_route_mode": "reinforce"
+      },
+      {
+        "ant_id": "WORKER-01",
+        "role": "worker",
+        "class": "Worker",
+        "score": 0.4766,
+        "route_path": "ROUTER-01>WORKER-01",
+        "base_score": 0.92,
+        "role_bonus": 1.0,
+        "current_load": 1,
+        "coord_proximity": 0.68,
+        "priority": 0.275,
+        "gold_signal": 0.0,
+        "bridge_signal": 0.0,
+        "freshness": 1.0,
+        "joy_q": 0.0,
+        "path_class": "ephemeral",
+        "last_route_mode": "seed"
+      },
+      {
+        "ant_id": "ARCHIVIST-01",
+        "role": "archivist",
+        "class": "Archivist",
+        "score": 0.410397,
+        "route_path": "ROUTER-01>ARCHIVIST-01",
+        "base_score": 0.88,
+        "role_bonus": 0.45,
+        "current_load": 0,
+        "coord_proximity": 0.68,
+        "priority": 0.275,
+        "gold_signal": 0.0,
+        "bridge_signal": 0.0,
+        "freshness": 1.0,
+        "joy_q": 0.966617,
+        "path_class": "ephemeral",
+        "last_route_mode": "seed"
+      }
+    ],
+    "selected_targets": [
+      "WORKER-02",
+      "ROUTER-01",
+      "ARCHIVIST-01"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "score_breakdown": {
+      "priority": 0.275,
+      "base_score": 0.9,
+      "role_bonus": 1.0,
+      "gold_signal": 5.81091,
+      "bridge_signal": 0.50373,
+      "coord_proximity": 0.68,
+      "freshness": 0.992851,
+      "joy_q": 0.994002,
+      "structural": false,
+      "released_claims": [
+        "CLM-20260313T222535Z-9b6350"
+      ]
+    },
+    "duplicate_risk": 0.0,
+    "created_at": "2026-03-13T22:35:53.033447+00:00",
+    "expires_at": "2026-03-13T22:35:53.033447+00:00",
+    "route_status": "routed",
+    "ranked_routes": [
+      {
+        "ant_id": "WORKER-02",
+        "role": "worker",
+        "class": "Worker",
+        "score": 1.630548,
+        "route_path": "ROUTER-01>WORKER-02",
+        "base_score": 0.9,
+        "role_bonus": 1.0,
+        "current_load": 0,
+        "coord_proximity": 0.68,
+        "priority": 0.275,
+        "gold_signal": 5.81091,
+        "bridge_signal": 0.50373,
+        "freshness": 0.992851,
+        "joy_q": 0.994002,
+        "path_class": "vein",
+        "last_route_mode": "reinforce"
+      },
+      {
+        "ant_id": "ROUTER-01",
+        "role": "router",
+        "class": "Router",
+        "score": 1.510332,
+        "route_path": "SCOUT-01>ROUTER-01",
+        "base_score": 0.95,
+        "role_bonus": 0.45,
+        "current_load": 0,
+        "coord_proximity": 0.68,
+        "priority": 0.275,
+        "gold_signal": 5.81091,
+        "bridge_signal": 0.50373,
+        "freshness": 0.992851,
+        "joy_q": 0.940406,
+        "path_class": "vein",
+        "last_route_mode": "reinforce"
+      },
+      {
+        "ant_id": "ARCHIVIST-01",
+        "role": "archivist",
+        "class": "Archivist",
+        "score": 0.410397,
+        "route_path": "ROUTER-01>ARCHIVIST-01",
+        "base_score": 0.88,
+        "role_bonus": 0.45,
+        "current_load": 0,
+        "coord_proximity": 0.68,
+        "priority": 0.275,
+        "gold_signal": 0.0,
+        "bridge_signal": 0.0,
+        "freshness": 1.0,
+        "joy_q": 0.966617,
+        "path_class": "ephemeral",
+        "last_route_mode": "seed"
+      }
+    ],
+    "route_inputs": {
+      "goal": "detect-classify-assign",
+      "quest_refs": [
+        "NEXT57-H-COMMAND-MEMBRANE"
+      ],
+      "priority": 0.275,
+      "coord12": {
+        "earth_utc_anchor": "2026-03-13T22:35:53.003813+00:00",
+        "earth_rotation_phase": 0.649919,
+        "earth_orbital_phase": 0.1971,
+        "earth_geospatial_anchor": "NODE::DMITRIOUS",
+        "solar_phase": 0.649919,
+        "lunar_phase": 0.845375,
+        "local_sidereal_phase": 0.418169,
+        "canonical_sky_anchor": "SKY-15",
+        "runtime_region": "ATHENA_LOCAL_RUNTIME",
+        "queue_pressure": 0.32,
+        "goal_salience_vector": 0.275,
+        "change_novelty_vector": 0.125
+      },
+      "watch_fallback": false,
+      "released_claims": [
+        "CLM-20260313T222535Z-9b6350"
+      ],
+      "structural": false,
+      "queue_pressure": 0.32,
+      "selection_policy": "goal_fit + priority + gold_signal + bridge_signal + coord_proximity + freshness + joy_q",
+      "routing_terms": [
+        "goal_fit",
+        "priority",
+        "gold_signal",
+        "bridge_signal",
+        "coord_proximity",
+        "freshness",
+        "joy_q"
+      ],
+      "active_protocol_version": "V2"
+    },
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "worker_choice": "WORKER-02",
+    "generated_at": "2026-03-13T22:35:53.033447+00:00",
+    "quest_refs": [
+      "NEXT57-H-COMMAND-MEMBRANE"
+    ],
+    "policy": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness+joy_q"
+  },
+  "last_claim": {
+    "claim_id": "CLM-20260313T223553Z-667572",
+    "frontier": "GLOBAL COMMAND",
+    "front_slug": "global_command",
+    "level": "command-membrane-event",
+    "owner": "WORKER-02",
+    "status": "active",
+    "output_target": "Guild Hall implementation membrane",
+    "receipt": "EVT-20260313T223553Z-520774 pending archivist commit",
+    "source": "board",
+    "paths": [
+      "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt"
+    ],
+    "note": "EVT-20260313T223553Z-520774 -> 1 added / 0 modified / 0 removed in GLOBAL COMMAND | route WORKER-02 > ROUTER-01 > ARCHIVIST-01 | claim WORKER-02 1200ms",
+    "created_at": "2026-03-13T22:35:53.034438+00:00",
+    "updated_at": "2026-03-13T22:35:53.034438+00:00",
+    "json_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\03_CLAIMS\\claims\\CLM-20260313T223553Z-667572.json",
+    "md_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\03_CLAIMS\\claims\\CLM-20260313T223553Z-667572.md",
+    "linked_quests": [
+      "NEXT57-H-COMMAND-MEMBRANE"
+    ],
+    "event_id": "EVT-20260313T223553Z-520774",
+    "claim_source_event": "EVT-20260313T223553Z-520774",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "command_ant_class": "Worker",
+    "lease_ms": 1200,
+    "lease_expires_at": "2026-03-13T22:35:54.234438+00:00",
+    "claim_rank": 1,
+    "claim_mode": "first-lease",
+    "route_targets": [
+      "WORKER-02",
+      "ROUTER-01",
+      "ARCHIVIST-01"
+    ],
+    "route_policy": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness+joy_q"
+  },
+  "last_commit_receipt": {
+    "event_id": "EVT-20260313T223553Z-520774",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 20.178,
+    "claim_latency_ms": 3.209,
+    "resolution_latency_ms": 0.006,
+    "capillary_score": 6.606092,
+    "liminal_distance": 178.317485,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:1BBAC1E678D5ED5E"
+    },
+    "claim_id": "CLM-20260313T223553Z-667572",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 33.205,
+    "committed_at": "2026-03-13T22:35:53.037449+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.395352,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.395352,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.395352,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T223553Z-520774",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.395352,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  "last_execution_receipt": {
+    "event_id": "EVT-20260313T223553Z-520774",
+    "worker_id": "WORKER-02",
+    "artifact_targets": [
+      "GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt"
+    ],
+    "writeback_set": [],
+    "result": "success",
+    "started_at": "2026-03-13T22:35:53.034438+00:00",
+    "committed_at": "2026-03-13T22:35:53.037449+00:00",
+    "blocked_reason": "",
+    "restart_seed": "",
+    "owner_surface": "",
+    "claim_id": "CLM-20260313T223553Z-667572",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:1BBAC1E678D5ED5E"
+    },
+    "verification_witness": 1.0,
+    "effort_quality": 0.8,
+    "contribution_share": 1.0,
+    "learning_novelty": 0.055,
+    "verified_outcome_class": "committed_verified",
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": []
+  },
+  "last_reinforcement": {
+    "event_id": "EVT-20260313T223553Z-520774",
+    "path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "result": "success",
+    "t_detect_ms": 0.0,
+    "t_encode_ms": 9.799,
+    "t_route_ms": 20.178,
+    "t_claim_ms": 3.209,
+    "t_commit_ms": 0.0,
+    "latency_score": 0.993359,
+    "capillary_delta": 0.618877,
+    "reinforced_at": "2026-03-13T22:35:53.054356+00:00",
+    "a_verified": 0.863938,
+    "phi_verified": 0.0,
+    "h_raw": 0.275,
+    "h_verified": 0.275,
+    "reward_multiplier": 1.379308,
+    "try_reward": 0.8,
+    "speed_reward": 3.98664,
+    "first_bonus": 1.79,
+    "assist_reward": 0.18,
+    "learn_reward": 0.055,
+    "total_reward": 9.395352,
+    "gold_deposit": 9.395352,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "capillary_score": 6.606092,
+    "liminal_distance": 178.317485,
+    "liminal_velocity": 0.288675,
+    "claim_id": "CLM-20260313T223553Z-667572",
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:1BBAC1E678D5ED5E"
+    },
+    "gold_strength": 6.393855,
+    "bridge_strength": 0.606392,
+    "avg_heaven_verified": 0.14612
+  },
+  "last_reward_receipt": {
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T223553Z-520774",
+    "event_id": "EVT-20260313T223553Z-520774",
+    "claim_ids": [
+      "CLM-20260313T223553Z-667572"
+    ],
+    "reward_rows": [
+      "JOY-EVT-20260313T223553Z-520774-SCOUT-01",
+      "JOY-EVT-20260313T223553Z-520774-ROUTER-01",
+      "JOY-EVT-20260313T223553Z-520774-WORKER-02",
+      "JOY-EVT-20260313T223553Z-520774-ARCHIVIST-01"
+    ],
+    "total_reward": 9.395352,
+    "heaven_score_raw": 0.275,
+    "heaven_score": 0.275,
+    "heaven_score_verified": 0.275,
+    "verified_heaven_score": 0.275,
+    "verification_class": "committed_verified",
+    "verification_witness": 1.0,
+    "reward_multiplier": 1.379308,
+    "reward_mult": 1.379308,
+    "reward_terms": {
+      "try": 0.8,
+      "speed": 3.98664,
+      "first": 1.79,
+      "assist": 0.18,
+      "learn": 0.055
+    },
+    "try_reward": 0.8,
+    "speed_reward": 3.98664,
+    "first_bonus": 1.79,
+    "assist_reward": 0.18,
+    "learn_reward": 0.055,
+    "gold_deposit": 9.395352,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "winning_route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "receipt_pointer": "CLM-20260313T223553Z-667572",
+    "reward_timestamp_utc": "2026-03-13T22:35:53.042441+00:00"
+  }
+}

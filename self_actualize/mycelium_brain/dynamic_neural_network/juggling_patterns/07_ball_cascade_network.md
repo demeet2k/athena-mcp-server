@@ -3,17 +3,17 @@ network_id: "juggling_network_07"
 document_role: "juggling_network"
 scale: 7
 membership_mask: "1111111000000"
-coverage_ratio: 0.762045
-entropy: 0.859139
+coverage_ratio: 0.646313
+entropy: 0.879148
 centroid:
-  x: -0.169975
-  y: 0.985448
-  theta_deg: 99.786343
+  x: 0.326337
+  y: 0.945254
+  theta_deg: 70.953423
 macro_barycentric:
-  earth: 0.104891
-  water: 0.314298
+  earth: 0.266023
+  water: 0.214504
   fire: 0.062555
-  air: 0.518254
+  air: 0.456918
 crystal_gate:
   dominant_macro: "Air"
   address: [3, 3, 1, 3]
@@ -37,7 +37,7 @@ generated_from:
   corpus_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/corpus_atlas.json"
   archive_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/archive_atlas.json"
   live_docs_gate_status: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/live_docs_gate_status.md"
-generated_at: "2026-03-09T15:17:43.647796+00:00"
+generated_at: "2026-03-13T15:05:01.537816+00:00"
 ---
 # 7-Ball Cascade Network
 

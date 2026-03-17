@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-03-13T20:57:09.807332+00:00",
+  "truth_status": "NEAR-derived",
+  "params": {
+    "retention": 0.92,
+    "alpha_usefulness": 0.35,
+    "beta_frequency": 0.2,
+    "gamma_latency": 0.15,
+    "delta_noise": 0.1,
+    "weak_threshold": 0.75,
+    "vein_threshold": 1.75
+  },
+  "edges": {
+    "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01": {
+      "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+      "weight": 3.0,
+      "success_count": 7,
+      "frequency": 9,
+      "noise_penalty": 0.154444,
+      "avg_latency_score": 0.796667,
+      "maturity": "vein",
+      "last_event_id": "EVT-20260313-0009",
+      "updated_at": "2026-03-13T20:57:09.803330+00:00"
+    },
+    "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01": {
+      "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+      "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+      "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+      "weight": 2.363803,
+      "success_count": 5,
+      "frequency": 7,
+      "noise_penalty": 0.18,
+      "avg_latency_score": 0.76,
+      "maturity": "vein",
+      "last_event_id": "EVT-20260313-0009",
+      "updated_at": "2026-03-13T20:57:09.803330+00:00"
+    },
+    "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01": {
+      "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+      "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+      "weight": 2.363803,
+      "success_count": 5,
+      "frequency": 7,
+      "noise_penalty": 0.18,
+      "avg_latency_score": 0.76,
+      "maturity": "vein",
+      "last_event_id": "EVT-20260313-0009",
+      "updated_at": "2026-03-13T20:57:09.803330+00:00"
+    },
+    "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0101.WORKER-02": {
+      "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0101.WORKER-02",
+      "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+      "target_ant": "CMD.A3.D1.B0101.WORKER-02",
+      "weight": 1.0215,
+      "success_count": 2,
+      "frequency": 2,
+      "noise_penalty": 0.065,
+      "avg_latency_score": 0.925,
+      "maturity": "capillary",
+      "last_event_id": "EVT-20260313-0007",
+      "updated_at": "2026-03-13T20:41:23.294201+00:00"
+    },
+    "CMD.A3.D1.B0101.WORKER-02>CMD.A4.D1.B1001.ARCHIVIST-02": {
+      "edge_id": "CMD.A3.D1.B0101.WORKER-02>CMD.A4.D1.B1001.ARCHIVIST-02",
+      "source_ant": "CMD.A3.D1.B0101.WORKER-02",
+      "target_ant": "CMD.A4.D1.B1001.ARCHIVIST-02",
+      "weight": 1.0215,
+      "success_count": 2,
+      "frequency": 2,
+      "noise_penalty": 0.065,
+      "avg_latency_score": 0.925,
+      "maturity": "capillary",
+      "last_event_id": "EVT-20260313-0007",
+      "updated_at": "2026-03-13T20:41:23.294201+00:00"
+    }
+  }
+}

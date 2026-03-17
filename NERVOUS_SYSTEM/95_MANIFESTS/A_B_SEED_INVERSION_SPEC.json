@@ -1,0 +1,703 @@
+{
+  "generated_at": "2026-03-13T12:26:53-07:00",
+  "protocol_id": "A_B_KLEIN4_INVERSION_SPEC_V2",
+  "truth": "OK",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "reason": "blocked-by-missing-credentials",
+    "credentials_exists": false,
+    "token_exists": false,
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ]
+  },
+  "required_sections": [
+    "Seed Identity",
+    "Source Witness",
+    "Inversion Operator",
+    "A -> B Mapping",
+    "Equivalent Representations",
+    "Invariants Preserved",
+    "Involution Law",
+    "Acceptance Tests"
+  ],
+  "public_interfaces": {
+    "SeedObject": {
+      "fields": [
+        "seed_id",
+        "witness_source",
+        "symbol_set",
+        "coordinate_grammar",
+        "kernel_representation"
+      ]
+    },
+    "InversionOperator": {
+      "fields": [
+        "operator_id",
+        "name",
+        "group_action",
+        "symbol_rule",
+        "bit_rule",
+        "coordinate_rule",
+        "invariants"
+      ]
+    },
+    "InverseSeed": {
+      "fields": [
+        "source_seed_id",
+        "inverse_seed_id",
+        "operator_id",
+        "transformed_representation",
+        "preserved_invariants"
+      ]
+    }
+  },
+  "seed_identity": {
+    "seed_name": "A",
+    "kind": "seed-kernel object",
+    "lawful_scope": "4x4 holographic seed kernel only",
+    "canonical_instance": [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        4,
+        1,
+        2
+      ],
+      [
+        4,
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        4,
+        3
+      ]
+    ]
+  },
+  "source_witness": {
+    "status": "LOCAL_ONLY",
+    "canonical_basis": "repo 4x4 holographic seed / Klein-4 kernel language",
+    "sources": [
+      "self_actualize/promoted_live_roots/atlasforge_framework/atlasforge/klein4/klein4.py",
+      "self_actualize/promoted_live_roots/atlasforge_framework/atlasforge/holographic_seed/holographic_seed.py",
+      "self_actualize/promoted_live_roots/atlasforge_framework/atlasforge/latin/latin.py",
+      "self_actualize/live_docs_gate_status.md"
+    ]
+  },
+  "seed_object": {
+    "seed_id": "A",
+    "witness_source": {
+      "status": "LOCAL_ONLY",
+      "docs_gate_dependency": "BLOCKED unless both OAuth files exist",
+      "sources": [
+        "self_actualize/promoted_live_roots/atlasforge_framework/atlasforge/klein4/klein4.py",
+        "self_actualize/promoted_live_roots/atlasforge_framework/atlasforge/holographic_seed/holographic_seed.py",
+        "self_actualize/promoted_live_roots/atlasforge_framework/atlasforge/latin/latin.py",
+        "self_actualize/live_docs_gate_status.md"
+      ]
+    },
+    "symbol_set": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "coordinate_grammar": {
+      "matrix_notation": "A[r,c]",
+      "seed_address_notation": "R{row}C{col}",
+      "rows": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "columns": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "address_count": 16
+    },
+    "kernel_representation": {
+      "canonical_4x4_seed_1_indexed": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ]
+      ],
+      "canonical_4x4_seed_0_indexed": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ]
+      ],
+      "kernel_family": "4x4 holographic seed / Klein-4 kernel"
+    },
+    "parameterization": {
+      "mode": "schema-first",
+      "abstract_instance_law": "For any lawful seed instance A, define B cellwise by B[r,c] = 5 - A[r,c].",
+      "concrete_instance_present": true
+    }
+  },
+  "inversion_operator": {
+    "operator_id": "K4-COMPLEMENT",
+    "name": "Canonical Klein-4 complement",
+    "group_action": {
+      "group": "Klein-4",
+      "element": "(1,1)",
+      "bit_action": "(a,b) -> (1-a, 1-b)",
+      "self_inverse": true
+    },
+    "symbol_rule": "C(x) = 5 - x",
+    "bit_rule": "v -> v XOR 11 on Z2 x Z2",
+    "coordinate_rule": "Address is preserved: B[r,c] = C(A[r,c]).",
+    "invariants": [
+      "seed admissibility",
+      "row Latin property",
+      "column Latin property",
+      "bidiagonal Latin property",
+      "local coverage profile",
+      "addressability"
+    ]
+  },
+  "a_to_b_mapping": {
+    "law": "B = C(A)",
+    "matrix_a": [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        4,
+        1,
+        2
+      ],
+      [
+        4,
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        4,
+        3
+      ]
+    ],
+    "matrix_b": [
+      [
+        4,
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        4,
+        3
+      ],
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        4,
+        1,
+        2
+      ]
+    ],
+    "coordinate_bijection": [
+      {
+        "address": "R1C1",
+        "row": 1,
+        "column": 1,
+        "a_symbol": 1,
+        "a_bits": "00",
+        "a_element": "Water",
+        "b_symbol": 4,
+        "b_bits": "11",
+        "b_element": "Fire",
+        "law": "B[1,1] = 5 - A[1,1]",
+        "inverse_law": "A[1,1] = 5 - B[1,1]"
+      },
+      {
+        "address": "R1C2",
+        "row": 1,
+        "column": 2,
+        "a_symbol": 2,
+        "a_bits": "01",
+        "a_element": "Earth",
+        "b_symbol": 3,
+        "b_bits": "10",
+        "b_element": "Air",
+        "law": "B[1,2] = 5 - A[1,2]",
+        "inverse_law": "A[1,2] = 5 - B[1,2]"
+      },
+      {
+        "address": "R1C3",
+        "row": 1,
+        "column": 3,
+        "a_symbol": 3,
+        "a_bits": "10",
+        "a_element": "Air",
+        "b_symbol": 2,
+        "b_bits": "01",
+        "b_element": "Earth",
+        "law": "B[1,3] = 5 - A[1,3]",
+        "inverse_law": "A[1,3] = 5 - B[1,3]"
+      },
+      {
+        "address": "R1C4",
+        "row": 1,
+        "column": 4,
+        "a_symbol": 4,
+        "a_bits": "11",
+        "a_element": "Fire",
+        "b_symbol": 1,
+        "b_bits": "00",
+        "b_element": "Water",
+        "law": "B[1,4] = 5 - A[1,4]",
+        "inverse_law": "A[1,4] = 5 - B[1,4]"
+      },
+      {
+        "address": "R2C1",
+        "row": 2,
+        "column": 1,
+        "a_symbol": 3,
+        "a_bits": "10",
+        "a_element": "Air",
+        "b_symbol": 2,
+        "b_bits": "01",
+        "b_element": "Earth",
+        "law": "B[2,1] = 5 - A[2,1]",
+        "inverse_law": "A[2,1] = 5 - B[2,1]"
+      },
+      {
+        "address": "R2C2",
+        "row": 2,
+        "column": 2,
+        "a_symbol": 4,
+        "a_bits": "11",
+        "a_element": "Fire",
+        "b_symbol": 1,
+        "b_bits": "00",
+        "b_element": "Water",
+        "law": "B[2,2] = 5 - A[2,2]",
+        "inverse_law": "A[2,2] = 5 - B[2,2]"
+      },
+      {
+        "address": "R2C3",
+        "row": 2,
+        "column": 3,
+        "a_symbol": 1,
+        "a_bits": "00",
+        "a_element": "Water",
+        "b_symbol": 4,
+        "b_bits": "11",
+        "b_element": "Fire",
+        "law": "B[2,3] = 5 - A[2,3]",
+        "inverse_law": "A[2,3] = 5 - B[2,3]"
+      },
+      {
+        "address": "R2C4",
+        "row": 2,
+        "column": 4,
+        "a_symbol": 2,
+        "a_bits": "01",
+        "a_element": "Earth",
+        "b_symbol": 3,
+        "b_bits": "10",
+        "b_element": "Air",
+        "law": "B[2,4] = 5 - A[2,4]",
+        "inverse_law": "A[2,4] = 5 - B[2,4]"
+      },
+      {
+        "address": "R3C1",
+        "row": 3,
+        "column": 1,
+        "a_symbol": 4,
+        "a_bits": "11",
+        "a_element": "Fire",
+        "b_symbol": 1,
+        "b_bits": "00",
+        "b_element": "Water",
+        "law": "B[3,1] = 5 - A[3,1]",
+        "inverse_law": "A[3,1] = 5 - B[3,1]"
+      },
+      {
+        "address": "R3C2",
+        "row": 3,
+        "column": 2,
+        "a_symbol": 3,
+        "a_bits": "10",
+        "a_element": "Air",
+        "b_symbol": 2,
+        "b_bits": "01",
+        "b_element": "Earth",
+        "law": "B[3,2] = 5 - A[3,2]",
+        "inverse_law": "A[3,2] = 5 - B[3,2]"
+      },
+      {
+        "address": "R3C3",
+        "row": 3,
+        "column": 3,
+        "a_symbol": 2,
+        "a_bits": "01",
+        "a_element": "Earth",
+        "b_symbol": 3,
+        "b_bits": "10",
+        "b_element": "Air",
+        "law": "B[3,3] = 5 - A[3,3]",
+        "inverse_law": "A[3,3] = 5 - B[3,3]"
+      },
+      {
+        "address": "R3C4",
+        "row": 3,
+        "column": 4,
+        "a_symbol": 1,
+        "a_bits": "00",
+        "a_element": "Water",
+        "b_symbol": 4,
+        "b_bits": "11",
+        "b_element": "Fire",
+        "law": "B[3,4] = 5 - A[3,4]",
+        "inverse_law": "A[3,4] = 5 - B[3,4]"
+      },
+      {
+        "address": "R4C1",
+        "row": 4,
+        "column": 1,
+        "a_symbol": 2,
+        "a_bits": "01",
+        "a_element": "Earth",
+        "b_symbol": 3,
+        "b_bits": "10",
+        "b_element": "Air",
+        "law": "B[4,1] = 5 - A[4,1]",
+        "inverse_law": "A[4,1] = 5 - B[4,1]"
+      },
+      {
+        "address": "R4C2",
+        "row": 4,
+        "column": 2,
+        "a_symbol": 1,
+        "a_bits": "00",
+        "a_element": "Water",
+        "b_symbol": 4,
+        "b_bits": "11",
+        "b_element": "Fire",
+        "law": "B[4,2] = 5 - A[4,2]",
+        "inverse_law": "A[4,2] = 5 - B[4,2]"
+      },
+      {
+        "address": "R4C3",
+        "row": 4,
+        "column": 3,
+        "a_symbol": 4,
+        "a_bits": "11",
+        "a_element": "Fire",
+        "b_symbol": 1,
+        "b_bits": "00",
+        "b_element": "Water",
+        "law": "B[4,3] = 5 - A[4,3]",
+        "inverse_law": "A[4,3] = 5 - B[4,3]"
+      },
+      {
+        "address": "R4C4",
+        "row": 4,
+        "column": 4,
+        "a_symbol": 3,
+        "a_bits": "10",
+        "a_element": "Air",
+        "b_symbol": 2,
+        "b_bits": "01",
+        "b_element": "Earth",
+        "law": "B[4,4] = 5 - A[4,4]",
+        "inverse_law": "A[4,4] = 5 - B[4,4]"
+      }
+    ]
+  },
+  "equivalent_representations": {
+    "symbol_view": {
+      "rule": "1 <-> 4 and 2 <-> 3",
+      "mapping_pairs": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "bit_view": {
+      "rule": "(x - 1) XOR 11, then convert back to 1-indexed symbols",
+      "mapping_pairs": [
+        [
+          "00",
+          "11"
+        ],
+        [
+          "01",
+          "10"
+        ]
+      ]
+    },
+    "group_view": {
+      "rule": "Apply Klein-4 complement element (1,1) to the 2-bit state of each symbol.",
+      "group_element": "(1,1)"
+    },
+    "tetradic_elemental_view": {
+      "canonical_encoding": "Greek quality mapping used in the holographic seed witness",
+      "mapping_pairs": [
+        [
+          "Water",
+          "Fire"
+        ],
+        [
+          "Earth",
+          "Air"
+        ]
+      ]
+    },
+    "coordinate_view": {
+      "rule": "Each seed address is preserved under inversion; only the symbol at that address is complemented.",
+      "sample_a_matrix": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ]
+      ],
+      "sample_b_matrix": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ]
+      ]
+    }
+  },
+  "invariants_preserved": {
+    "seed_admissibility": true,
+    "bidiagonal_property": true,
+    "local_2x2_coverage_count_preserved": true,
+    "addressability_preserved": true,
+    "coordinate_count_preserved": true
+  },
+  "involution_law": {
+    "law": "C(C(A)) = A",
+    "self_inverse_operator": true,
+    "recovered_a_matrix": [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        4,
+        1,
+        2
+      ],
+      [
+        4,
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        4,
+        3
+      ]
+    ],
+    "holds_for_canonical_instance": true
+  },
+  "acceptance_tests": {
+    "operator_consistency": true,
+    "involution": true,
+    "structural_preservation": true,
+    "coordinate_bijection": true,
+    "scope_guard": true
+  },
+  "inverse_seed": {
+    "source_seed_id": "A",
+    "inverse_seed_id": "B",
+    "operator_id": "K4-COMPLEMENT",
+    "transformed_representation": {
+      "canonical_4x4_seed_1_indexed": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ]
+      ],
+      "canonical_4x4_seed_0_indexed": [
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ]
+      ]
+    },
+    "preserved_invariants": [
+      "same 4x4 shape",
+      "same 16 addresses",
+      "same symbol alphabet",
+      "same Latin row/column admissibility",
+      "same bidiagonal admissibility",
+      "same local 2x2 coverage count"
+    ]
+  },
+  "scope_guard": {
+    "allowed_scope": "formal inversion spec only",
+    "explicit_exclusions": [
+      "category inversion",
+      "seed-to-flower duality",
+      "continuous-wave duals",
+      "corpus-wide routing updates"
+    ],
+    "hall_mutation": false,
+    "temple_mutation": false,
+    "routing_update": false
+  }
+}

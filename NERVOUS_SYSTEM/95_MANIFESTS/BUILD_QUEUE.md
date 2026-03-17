@@ -1,18 +1,32 @@
 # BUILD QUEUE
 
-## Priority Order
+- Current state: `L04 complete / L05 ready`
+- Restart seed: `L05 -> Canonical 16-Basis Ownership`
 
-1. **Phase 1**: Toolkit consolidation (13 protocols -> 80_TOOLKIT/)
-2. **Phase 2**: Ledgers + manifests + runbooks
-3. **Phase 4**: MATH domain capsules (~30-40 files)
-4. **Phase 5**: Voynich domain capsules (~20-30 files)
-5. **Phase 6**: Remaining domain capsules (~25-35 files)
-6. **Phase 7**: Edge graph construction (6 files)
-7. **Phase 8**: Crystal tile population (ongoing -- priority: Ch01, Ch11, Ch09, Ch06, Ch03)
-8. **Phase 9**: Deprecation markers in old systems
+## Hall
+- `Q57-L04-H01` Seal active membrane `Q41 / TQ06`
+- `Q57-L04-H02` Carry live Hall feeder `Q42`
+- `Q57-L04-H03` Confirm landed Temple receiver `TQ04`
+- `Q57-L04-H04` Preserve reserve feeder `Q46`
 
-## Parallelizable
+## Temple
+- `TQ57-L04-T01` Ratify active membrane `Q41 / TQ06`
+- `TQ57-L04-T02` Ratify Hall carrier `Q42`
+- `TQ57-L04-T03` Ratify landed receiver `TQ04`
+- `TQ57-L04-T04` Ratify reserve-only feeder `Q46`
 
-- Phases 4, 5, 6 can run in parallel (independent domains)
-- Phase 7 requires Phases 4-6 (needs capsules for edge mapping)
-- Phase 8 requires Phase 7 (needs edges for tile guidance)
+## Control Tuple
+- membrane: `Q41 / TQ06`
+- carrier: `Q42`
+- landed receiver: `TQ04`
+- reserve feeder: `Q46`
+- blocker: `Q02`
+
+<!-- COMMAND_MEMBRANE_BUILD_QUEUE:START -->
+## Command Membrane Queue
+
+- Watch scope: `first-wave local swarm mesh`
+- Routing policy: `goal+salience+pheromone+coord+capability+load`
+- Claim mode: `first-lease`
+- Lease ms: `1200`
+<!-- COMMAND_MEMBRANE_BUILD_QUEUE:END -->

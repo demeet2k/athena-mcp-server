@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-03-13T13:23:49.493785-07:00",
+  "protocol_id": "LP-57Ω",
+  "status": "COMPATIBILITY_MIRROR",
+  "canonical_manifest_triplet": [
+    "NERVOUS_SYSTEM/95_MANIFESTS/FOUR_AGENT_57_LOOP_PROGRAM.json",
+    "NERVOUS_SYSTEM/95_MANIFESTS/FOUR_AGENT_57_LOOP_CYCLE_REGISTRY.json",
+    "NERVOUS_SYSTEM/95_MANIFESTS/FOUR_AGENT_57_LOOP_QUEST_PACKETS.json"
+  ],
+  "live_macro_membrane": "Q51 / TQ07",
+  "current_loop_id": "L01",
+  "current_loop_truth": "IN_PROGRESS_NOT_YET_COMPLETE",
+  "seeded_only_loop_id": "L02",
+  "current_wave_id": "W01",
+  "helix_state": "8/16",
+  "docs_gate_state": "BLOCKED",
+  "warning": "Derived projection only; independent authority prohibited.",
+  "mirror_role": "seat_registry",
+  "shared_seat_law": {
+    "compiled_conceptual_atlas": 4096,
+    "active_total_per_loop": 1024,
+    "dormant_reserve_per_loop": 3072,
+    "active_budget_per_master": 256,
+    "active_budget_formula": "4 elemental lanes x 16 corpus sectors x 4 duty slots",
+    "packet_space_layers": {
+      "observer_packets": 64,
+      "governance_fibers": 256,
+      "active_synaptic_seats": 1024,
+      "conceptual_atlas_seats": 4096
+    },
+    "interpretation_law": "four role-specific views over one shared compiled atlas, not four separate simultaneously-real active lattices"
+  }
+}

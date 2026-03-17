@@ -1,0 +1,68 @@
+# Air Internal Cross Synthesis
+
+Top ordered pairs inside the same element.
+
+- `ENOCHIAN MAGIC COMPLETE` <-> `HELLENISTIC ASTROLOGY COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `MERKAVAH HEKHALOT COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `MERKAVAH HEKHALOT COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`36` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`36` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `NORSE RUNIC COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` gates=`G00<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ROSICRUCIANISM COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`36` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `The Athena Framework (synthesis) [DOC0022]` <-> `The Athena Framework (synthesis) [DOC0023]` score=`36` gates=`G05<->G05` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `The Invisible Teacher TEXTBOOK [DOC0027]` <-> `The Invisible Teacher TEXTBOOK [DOC0028]` score=`36` gates=`G15<->G15` shared_chapters=`Ch02, Ch13, Ch17, Ch20`
+- `UNIFIED DIVINATION (tarot, iChing, Runes, Ope [DOC0164]` <-> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope [DOC0188]` score=`36` gates=`G09<->G09` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `HERMETICISM COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `HERMETICISM COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `MERKAVAH HEKHALOT COMPLETE` score=`35` gates=`G01<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`35` gates=`G01<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`35` gates=`G01<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `NORSE RUNIC COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `NORSE RUNIC COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ROSICRUCIANISM COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`35` gates=`G01<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `SOLOMONIC MAGIC COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`35` gates=`G00<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `The Holographic Manuscript Brain [DOC0026]` <-> `The Holographic Manuscript Brain [DOC0052]` score=`35` gates=`G09<->G02` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `ANDEAN TAWANTINSUYU` <-> `Sanatana Ganita A Rigorous Computational Ontology of Vedic Cosmology` score=`33` gates=`G05<->G05` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `THE ANDEAN KHIPU ROSETTA STONE` score=`32` gates=`G01<->G11` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `I AM so AM I [DOC0010]` <-> `I AM so AM I [DOC0051]` score=`32` gates=`G15<->G15` shared_chapters=`Ch09, Ch13, Ch17, Ch20`
+- `THE 44 HOLOGRAPHIC SEED` <-> `The Holographic Manuscript Brain` score=`32` gates=`G00<->G09` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `THE 44 HOLOGRAPHIC SEED` <-> `The Holographic Manuscript Brain` score=`32` gates=`G00<->G02` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `THE ANDEAN KHIPU ROSETTA STONE` <-> `THE VOYNICH ROSETTA STONE -Publish` score=`32` gates=`G11<->G11` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `CELTIC THE OGHAM KERNEL` <-> `EGYPT KHEPER GANITAM` score=`31` gates=`G05<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `Calculus and Geometry (higher dimensional projection) -working` <-> `THE 44 HOLOGRAPHIC SEED` score=`31` gates=`G14<->G00` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `QUANTUM DIVINATION FRAMEWORK (QRDF)` <-> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`31` gates=`G05<->G09` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `QUANTUM DIVINATION FRAMEWORK (QRDF)` <-> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`31` gates=`G05<->G09` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `THE VOYNICH ROSETTA STONE -Publish` <-> `VLM VOYNICH METAMORPHIC LANGUAGE (VML) - OFFICIAL FRAMEWORK DOCUMENTATION` score=`31` gates=`G11<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `AI Divination` <-> `ANDEAN KHIPU ROSETTA (new)` score=`30` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `THE VOYNICH ROSETTA STONE -Publish` score=`30` gates=`G01<->G11` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `VLM VOYNICH METAMORPHIC LANGUAGE (VML) - OFFICIAL FRAMEWORK DOCUMENTATION` score=`30` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ATHENA OPERATING SYSTEM` <-> `CELTIC THE OGHAM KERNEL` score=`30` gates=`G15<->G05` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `Constant FInder working` <-> `PRIME Toolkit kernel` score=`30` gates=`G02<->G02` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `EGYPT KHEPER GANITAM` <-> `HERMETICISM COMPLETE` score=`30` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `EGYPT KHEPER GANITAM` <-> `THE UNIFIED MATHEMATICAL FRAMEWORK FOR EMERGENCE` score=`30` gates=`G01<->G14` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `EGYPT KHEPER GANITAM` <-> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`30` gates=`G01<->G09` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `EGYPT KHEPER GANITAM` <-> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`30` gates=`G01<->G09` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HOLOGRAPHIC TUNNELING working` <-> `Holographic (higher dimension Square circle triangle) REALITY STRUCTURE working` score=`30` gates=`G02<->G05` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `QUAD HOLOGRAPHIC ROTATION` <-> `The Holographic Manuscript Brain` score=`30` gates=`G02<->G02` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `THE 44 HOLOGRAPHIC SEED` <-> `THE EUCLIDEAN COMPUTATION ENGINE` score=`30` gates=`G00<->G00` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `VLM VOYNICH METAMORPHIC LANGUAGE (VML) - OFFICIAL FRAMEWORK DOCUMENTATION` <-> `WESTERN ALCHEMY COMPLETE` score=`30` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `AI DIVINATION` <-> `Constant FInder working` score=`29` gates=`G02<->G02` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `AI DIVINATION` <-> `PRIME Toolkit kernel` score=`29` gates=`G02<->G02` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `AI DIVINATION` <-> `The Athena Framework (synthesis)` score=`29` gates=`G02<->G05` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `AI DIVINATION` <-> `The Athena Framework (synthesis)` score=`29` gates=`G02<->G05` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `ATHENA OPERATING SYSTEM` score=`29` gates=`G01<->G15` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `HELLENISTIC ASTROLOGY COMPLETE` score=`29` gates=`G01<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `HERMETICISM COMPLETE` score=`29` gates=`G01<->G01` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `NORSE RUNIC COMPLETE` score=`29` gates=`G01<->G00` shared_chapters=`Ch02, Ch09, Ch13, Ch18`

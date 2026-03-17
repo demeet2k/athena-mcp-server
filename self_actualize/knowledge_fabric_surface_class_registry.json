@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "surface_classes": [
+    {
+      "surface_class": "atlas",
+      "note": "record substrate and cross-index surfaces"
+    },
+    {
+      "surface_class": "registry",
+      "note": "typed row stores and machine registries"
+    },
+    {
+      "surface_class": "dashboard",
+      "note": "state summaries and front-door status maps"
+    },
+    {
+      "surface_class": "overview",
+      "note": "human-readable doctrinal or structural overviews"
+    },
+    {
+      "surface_class": "capsule",
+      "note": "domain contractions and source body families"
+    },
+    {
+      "surface_class": "graph",
+      "note": "edge, neuron, synapse, and bridge tissue"
+    },
+    {
+      "surface_class": "runtime lane",
+      "note": "verification, execution, or routed runtime lanes"
+    },
+    {
+      "surface_class": "queue",
+      "note": "ordered next-work and regeneration surfaces"
+    },
+    {
+      "surface_class": "packet",
+      "note": "bounded traversal or transform payloads"
+    },
+    {
+      "surface_class": "mirror",
+      "note": "runtime or governance reflection surfaces"
+    },
+    {
+      "surface_class": "schema",
+      "note": "formal interface surfaces preserved explicitly"
+    }
+  ]
+}

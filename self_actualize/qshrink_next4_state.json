@@ -1,0 +1,54 @@
+{
+  "front_id": "Q42",
+  "mode": "dual_track",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate_truth": "FAIL",
+  "docs_gate_confirmed_by": "self_actualize\\live_docs_gate_status.md",
+  "carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "historical_local_proof": "QS64-24 Connectivity-Refine-Fractal",
+  "operational_current": "QS64-24 Connectivity-Refine-Fractal",
+  "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+  "next_hall_seed": null,
+  "next_hall_seed_display": "none; do not invent QS64-25",
+  "compiled_bundle": {
+    "members": [
+      "QS64-21 Connectivity-Refine-Square",
+      "QS64-22 Connectivity-Refine-Flower",
+      "QS64-23 Connectivity-Refine-Cloud",
+      "QS64-24 Connectivity-Refine-Fractal"
+    ],
+    "terminal": "QS64-24 Connectivity-Refine-Fractal",
+    "closed": true
+  },
+  "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "reserve_frontier": "Q46",
+  "blocked_external_front": "Q02",
+  "hall_local_bundle_closed": true,
+  "carrier_state": "QS64-20 Diagnose = CARRIED_CURRENT",
+  "queue_visible_follow_on": "TQ04 runner handoff / Q46 reserve-only",
+  "pressure_order": {
+    "current": [
+      "QS64-20 carried diagnose witness",
+      "QS64-20 Connectivity-Diagnose-Fractal"
+    ],
+    "queue_visible": [
+      "TQ04 immediate deeper receiver and Q46 reserve-only frontier",
+      "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "Q46"
+    ],
+    "blocked_external": [
+      "P1 Trading Bot docs-gated governance lane",
+      "Q02"
+    ]
+  },
+  "generated_at": "2026-03-13T17:04:10.123597+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_qshrink_next4_state",
+  "truth": "OK",
+  "authority_basis": [
+    "dual-track-canonicalization",
+    "q42-qshrink-next4",
+    "docs-gate-honesty"
+  ]
+}

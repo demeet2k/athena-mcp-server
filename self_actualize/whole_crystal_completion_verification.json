@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-03-13T00:04:55.039320+00:00",
+  "derivation_version": "2026-03-12.whole-crystal-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_whole_crystal_completion",
+  "truth": "OK",
+  "docs_gate_resolution": "lawfully-isolated",
+  "checks": {
+    "remaster_baseline_green": true,
+    "body_authority_surface_complete": true,
+    "live_family_slice_target": true,
+    "slice_anchor_coverage": true,
+    "route_surfaces_resolve": true,
+    "bridge_layer_complete": true,
+    "phase4_direct_pairs_present": true,
+    "knowledge_fabric_direct_pairs_present": true,
+    "docs_gate_lawful": true,
+    "blocked_state_dashboard_present": true,
+    "atlas_refresh_complete": true,
+    "runtime_verifiers_green": true
+  },
+  "bridge_counts": {
+    "direct": 3,
+    "inferred-ready": 3,
+    "quarantined": 3
+  },
+  "runtime_lanes": {
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK",
+    "runtime_waist": "OK"
+  },
+  "atlas_refresh_pending_paths": [],
+  "unresolved": [
+    "Google Docs ingress remains `blocked-by-missing-credentials` and is currently routed through local-first isolation."
+  ],
+  "next_restart_seed": "admit -> classify -> interlock -> compile -> writeback -> restart"
+}

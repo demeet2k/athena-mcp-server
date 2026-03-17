@@ -1,0 +1,30 @@
+{
+  "event_id": "EVT-20260313204908-0001",
+  "worker_id": "WORKER-HALL-01",
+  "artifact_targets": [
+    "self_actualize/command_membrane/events/EVT-20260313204908-0001.json",
+    "self_actualize/command_membrane/routes/EVT-20260313204908-0001.json",
+    "self_actualize/command_membrane/claims/EVT-20260313204908-0001.json",
+    "self_actualize/command_membrane/execution/EVT-20260313204908-0001.json"
+  ],
+  "writeback_set": [
+    "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+    "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+    "NERVOUS_SYSTEM/95_MANIFESTS/CONTROL_STATE_PACKET.md",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+    "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+    "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md"
+  ],
+  "result": "command_event_committed",
+  "started_at": "2026-03-13T20:49:08.308101+00:00",
+  "committed_at": "2026-03-13T20:49:08.316101+00:00",
+  "blocked_reason": "",
+  "restart_seed": "NEXT => COMMAND::EVT-20260313204908-0001 :: hall :: READ ME.txt",
+  "owner_surface": "HALL",
+  "claim_id": "",
+  "route_path": "",
+  "replay_ptr": "",
+  "integration_gain": 0.0,
+  "compression_gain": 0.0,
+  "unresolved_followups": []
+}

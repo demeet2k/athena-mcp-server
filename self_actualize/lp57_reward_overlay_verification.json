@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-03-13T21:33:22.621433+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "reward_protocol_id": "LP-57OMEGA-REWARD-V1",
+  "truth": "NEAR",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "checks": {
+    "profiles_exist": {
+      "pass": true,
+      "detail": 16406
+    },
+    "seat_law_preserved": {
+      "pass": true,
+      "detail": {
+        "total": 4096,
+        "active": 1024,
+        "dormant": 3072
+      }
+    },
+    "feeder_set_preserved": {
+      "pass": true,
+      "detail": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ]
+    },
+    "docs_gate_blocked_honest": {
+      "pass": true,
+      "detail": "blocked-by-missing-credentials"
+    },
+    "motion_refresh_ok": {
+      "pass": true,
+      "detail": 0
+    },
+    "atlas_refresh_complete": {
+      "pass": true,
+      "detail": 7895
+    },
+    "promotion_locked_without_approval": {
+      "pass": true,
+      "detail": 0
+    }
+  }
+}

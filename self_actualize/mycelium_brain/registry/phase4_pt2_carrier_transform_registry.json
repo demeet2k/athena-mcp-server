@@ -1,0 +1,76 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md",
+  "transforms": [
+    {
+      "transform_id": "CT-01",
+      "source_carriers": [
+        "Square"
+      ],
+      "target_carriers": [
+        "Flower"
+      ],
+      "transform_law": "Square stabilizes address before resonance opens.",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Carrier transform law used by Pt 2 projections."
+    },
+    {
+      "transform_id": "CT-02",
+      "source_carriers": [
+        "Flower"
+      ],
+      "target_carriers": [
+        "Cloud"
+      ],
+      "transform_law": "Resonance sweeps phase into field permeability.",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Carrier transform law used by Pt 2 projections."
+    },
+    {
+      "transform_id": "CT-03",
+      "source_carriers": [
+        "Cloud"
+      ],
+      "target_carriers": [
+        "Fractal"
+      ],
+      "transform_law": "Cloud folds into replayable regeneration.",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Carrier transform law used by Pt 2 projections."
+    },
+    {
+      "transform_id": "CT-04",
+      "source_carriers": [
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "target_carriers": [
+        "Flower",
+        "Cloud",
+        "Fractal"
+      ],
+      "transform_law": "Base carriers project into higher-dimensional carrier families.",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Carrier transform law used by Pt 2 projections."
+    },
+    {
+      "transform_id": "CT-05",
+      "source_carriers": [
+        "Zero"
+      ],
+      "target_carriers": [
+        "Aether"
+      ],
+      "transform_law": "Zero becomes Aether only after exact recommitment and certificate closure.",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Carrier transform law used by Pt 2 projections."
+    }
+  ],
+  "summary": {
+    "count": 5
+  }
+}

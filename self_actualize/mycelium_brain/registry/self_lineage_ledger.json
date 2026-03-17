@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-03-12T20:46:18.064573+00:00",
+  "derivation_version": "2026-03-12.phase3-v1",
+  "docs_gate": "BLOCKED",
+  "current_branch": "main.local.phase3.self_hosting",
+  "predecessor_chain": [
+    "L0",
+    "L1",
+    "L2",
+    "L3",
+    "L4"
+  ],
+  "lineage_entries": [
+    {
+      "lineage_id": "L0",
+      "temporal_coordinate": "2026-03-09T14:15:27.203352+00:00",
+      "branch_coordinate": "seed.manuscript.identity",
+      "delta_class": "seed",
+      "delta_summary": "manuscript seed plus Ch19 typed self law establish the lawful self object",
+      "support_shell": "01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md + 019_ch19_recursive_self_reference_and_self_repair.md",
+      "burden_state": "typed self still mostly theoretical",
+      "proof_state": "NEAR",
+      "attached_tunnels": [
+        "ZT-002"
+      ]
+    },
+    {
+      "lineage_id": "L1",
+      "temporal_coordinate": "2026-03-12T11:53:30.045639+00:00",
+      "branch_coordinate": "main.local.runtime.measurement",
+      "delta_class": "extension",
+      "delta_summary": "machine-derived witness hierarchy and body tensor make the organism measurable",
+      "support_shell": "witness hierarchy + body tensor",
+      "burden_state": "count reconciliation made explicit",
+      "proof_state": "OK",
+      "attached_tunnels": [
+        "ZT-004"
+      ]
+    },
+    {
+      "lineage_id": "L2",
+      "temporal_coordinate": "2026-03-12T19:08:23.820495+00:00",
+      "branch_coordinate": "main.local.reconciled.organism",
+      "delta_class": "extension",
+      "delta_summary": "authority order, count protocol, and root basis are reconciled into one organism",
+      "support_shell": "reconciled organism ledger",
+      "burden_state": "capsule and graph contraction still pending",
+      "proof_state": "OK",
+      "attached_tunnels": [
+        "ZT-005"
+      ]
+    },
+    {
+      "lineage_id": "L3",
+      "temporal_coordinate": "2026-03-12T19:09:36.577589+00:00",
+      "branch_coordinate": "main.local.grand_central",
+      "delta_class": "extension",
+      "delta_summary": "Grand Central installs station addresses, commissures, weights, and z-point tunnels",
+      "support_shell": "station registry + weight exchange + tunnel ledger",
+      "burden_state": "transfer hall complete but not yet self-hosting",
+      "proof_state": "OK",
+      "attached_tunnels": [
+        "ZT-002",
+        "ZT-004",
+        "ZT-005",
+        "ZT-006"
+      ]
+    },
+    {
+      "lineage_id": "L4",
+      "temporal_coordinate": "2026-03-12T20:46:18.064573+00:00",
+      "branch_coordinate": "main.local.phase3.self_hosting",
+      "delta_class": "repair",
+      "delta_summary": "self model, self state, self contract, self lineage, and dual engine are installed as live control surfaces",
+      "support_shell": "phase 3 kernel charter + dashboard + queue",
+      "burden_state": "local scope only while Docs ingress remains blocked",
+      "proof_state": "NEAR",
+      "attached_tunnels": [
+        "ZT-002",
+        "ZT-004",
+        "ZT-005",
+        "ZT-006"
+      ]
+    }
+  ],
+  "fork_points": [
+    {
+      "branch": "historical.deep_root.DEEPER_INTEGRATED_NEURAL_NETWORK",
+      "status": "mirror",
+      "note": "kept for lineage and historical replay, not live authority"
+    },
+    {
+      "branch": "historical.deep_root.DEEPER_INTEGRATED_NEURAL_NET_ATHENA",
+      "status": "mirror",
+      "note": "kept for precursor continuity, not live routing authority"
+    }
+  ],
+  "sufficiency_checks": {
+    "backward_replay": true,
+    "rollback": true,
+    "fork_detection": true,
+    "continuity_proof": true
+  },
+  "comparison_tool": [
+    {
+      "delta_class": "repair",
+      "meaning": "defect reduction without silent identity inflation"
+    },
+    {
+      "delta_class": "extension",
+      "meaning": "new lawful structure added while kernel invariants hold"
+    },
+    {
+      "delta_class": "contraction",
+      "meaning": "surface reduced while support and lineage remain intact"
+    },
+    {
+      "delta_class": "corruption",
+      "meaning": "support, replay, or lineage weakens faster than function improves"
+    }
+  ],
+  "drift_band": {
+    "current_drift": 0.083,
+    "drift_threshold": 0.18,
+    "status": "WITHIN_CORRIDOR"
+  }
+}

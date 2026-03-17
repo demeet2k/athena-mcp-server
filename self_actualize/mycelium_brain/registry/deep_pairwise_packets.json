@@ -1,0 +1,841 @@
+{
+  "generated_at": "2026-03-13T01:20:47.477553+00:00",
+  "derivation_version": "2026-03-13.deep-pairwise-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_deep_pairwise_weave",
+  "packets": [
+    {
+      "packet_id": "DPK-WV-0007-REPLAY",
+      "source_agent": "source-pair-replay",
+      "target_agent": "level3-transit",
+      "source_body_id": "P-K01-K01",
+      "target_body_id": "P-K01-K16",
+      "trigger": "Replay `P-K01-K01` into the Level 3 transit spine.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0007.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0007.md"
+      ],
+      "route": [
+        "P-K01-K01",
+        "GCW",
+        "GCZ",
+        "P-K01-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0007.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "source-pair replay",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0007.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0007.md",
+      "weave_id": "WV-0007",
+      "source_pair_id": "P-K01-K01",
+      "target_pair_id": "P-K01-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppQ",
+        "AppA",
+        "AppP"
+      ],
+      "note": "Replay the source pair as the emitting matrix witness."
+    },
+    {
+      "packet_id": "DPK-WV-0007-TRANSIT",
+      "source_agent": "level3-transit",
+      "target_agent": "target-pair-receive",
+      "source_body_id": "P-K01-K01",
+      "target_body_id": "P-K01-K16",
+      "trigger": "Carry `WV-0007` across the fixed `GCW -> GCZ` corridor.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0007.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0007.md"
+      ],
+      "route": [
+        "P-K01-K01",
+        "GCW",
+        "GCZ",
+        "P-K01-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0007.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "GCW-GCZ transit",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0007.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0007.md",
+      "weave_id": "WV-0007",
+      "source_pair_id": "P-K01-K01",
+      "target_pair_id": "P-K01-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppQ",
+        "AppA",
+        "AppP"
+      ],
+      "note": "Carry the pair pressure across the fixed Level 3 transit spine."
+    },
+    {
+      "packet_id": "DPK-WV-0007-WRITEBACK",
+      "source_agent": "target-pair-receive",
+      "target_agent": "overseer-writeback",
+      "source_body_id": "P-K01-K01",
+      "target_body_id": "P-K01-K16",
+      "trigger": "Write `WV-0007` back into `P-K01-K16` as the primary target.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0007.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0007.md"
+      ],
+      "route": [
+        "P-K01-K01",
+        "GCW",
+        "GCZ",
+        "P-K01-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0007.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "target-pair writeback",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0007.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0007.md",
+      "weave_id": "WV-0007",
+      "source_pair_id": "P-K01-K01",
+      "target_pair_id": "P-K01-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppQ",
+        "AppA",
+        "AppP"
+      ],
+      "note": "Land the promoted pair into the target cell as the primary writeback target."
+    },
+    {
+      "packet_id": "DPK-WV-0008-REPLAY",
+      "source_agent": "source-pair-replay",
+      "target_agent": "level3-transit",
+      "source_body_id": "P-K01-K10",
+      "target_body_id": "P-K16-K10",
+      "trigger": "Replay `P-K01-K10` into the Level 3 transit spine.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__10_athena_neural_tome.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__10_athena_neural_tome.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0008.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0008.md"
+      ],
+      "route": [
+        "P-K01-K10",
+        "GCW",
+        "GCZ",
+        "P-K16-K10"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__10_athena_neural_tome.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0008.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "source-pair replay",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0008.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0008.md",
+      "weave_id": "WV-0008",
+      "source_pair_id": "P-K01-K10",
+      "target_pair_id": "P-K16-K10",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppC",
+        "AppP",
+        "AppQ",
+        "AppA"
+      ],
+      "note": "Replay the source pair as the emitting matrix witness."
+    },
+    {
+      "packet_id": "DPK-WV-0008-TRANSIT",
+      "source_agent": "level3-transit",
+      "target_agent": "target-pair-receive",
+      "source_body_id": "P-K01-K10",
+      "target_body_id": "P-K16-K10",
+      "trigger": "Carry `WV-0008` across the fixed `GCW -> GCZ` corridor.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__10_athena_neural_tome.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__10_athena_neural_tome.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0008.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0008.md"
+      ],
+      "route": [
+        "P-K01-K10",
+        "GCW",
+        "GCZ",
+        "P-K16-K10"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__10_athena_neural_tome.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0008.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "GCW-GCZ transit",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0008.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0008.md",
+      "weave_id": "WV-0008",
+      "source_pair_id": "P-K01-K10",
+      "target_pair_id": "P-K16-K10",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppC",
+        "AppP",
+        "AppQ",
+        "AppA"
+      ],
+      "note": "Carry the pair pressure across the fixed Level 3 transit spine."
+    },
+    {
+      "packet_id": "DPK-WV-0008-WRITEBACK",
+      "source_agent": "target-pair-receive",
+      "target_agent": "overseer-writeback",
+      "source_body_id": "P-K01-K10",
+      "target_body_id": "P-K16-K10",
+      "trigger": "Write `WV-0008` back into `P-K16-K10` as the primary target.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__10_athena_neural_tome.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__10_athena_neural_tome.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0008.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0008.md"
+      ],
+      "route": [
+        "P-K01-K10",
+        "GCW",
+        "GCZ",
+        "P-K16-K10"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__10_athena_neural_tome.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0008.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "target-pair writeback",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0008.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0008.md",
+      "weave_id": "WV-0008",
+      "source_pair_id": "P-K01-K10",
+      "target_pair_id": "P-K16-K10",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppC",
+        "AppP",
+        "AppQ",
+        "AppA"
+      ],
+      "note": "Land the promoted pair into the target cell as the primary writeback target."
+    },
+    {
+      "packet_id": "DPK-WV-0009-REPLAY",
+      "source_agent": "source-pair-replay",
+      "target_agent": "level3-transit",
+      "source_body_id": "P-K10-K01",
+      "target_body_id": "P-K10-K16",
+      "trigger": "Replay `P-K10-K01` into the Level 3 transit spine.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0009.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0009.md"
+      ],
+      "route": [
+        "P-K10-K01",
+        "GCW",
+        "GCZ",
+        "P-K10-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0009.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "source-pair replay",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0009.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0009.md",
+      "weave_id": "WV-0009",
+      "source_pair_id": "P-K10-K01",
+      "target_pair_id": "P-K10-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppM",
+        "AppC",
+        "AppP",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppQ",
+        "AppA"
+      ],
+      "note": "Replay the source pair as the emitting matrix witness."
+    },
+    {
+      "packet_id": "DPK-WV-0009-TRANSIT",
+      "source_agent": "level3-transit",
+      "target_agent": "target-pair-receive",
+      "source_body_id": "P-K10-K01",
+      "target_body_id": "P-K10-K16",
+      "trigger": "Carry `WV-0009` across the fixed `GCW -> GCZ` corridor.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0009.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0009.md"
+      ],
+      "route": [
+        "P-K10-K01",
+        "GCW",
+        "GCZ",
+        "P-K10-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0009.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "GCW-GCZ transit",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0009.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0009.md",
+      "weave_id": "WV-0009",
+      "source_pair_id": "P-K10-K01",
+      "target_pair_id": "P-K10-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppM",
+        "AppC",
+        "AppP",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppQ",
+        "AppA"
+      ],
+      "note": "Carry the pair pressure across the fixed Level 3 transit spine."
+    },
+    {
+      "packet_id": "DPK-WV-0009-WRITEBACK",
+      "source_agent": "target-pair-receive",
+      "target_agent": "overseer-writeback",
+      "source_body_id": "P-K10-K01",
+      "target_body_id": "P-K10-K16",
+      "trigger": "Write `WV-0009` back into `P-K10-K16` as the primary target.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0009.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0009.md"
+      ],
+      "route": [
+        "P-K10-K01",
+        "GCW",
+        "GCZ",
+        "P-K10-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0009.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "target-pair writeback",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0009.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0009.md",
+      "weave_id": "WV-0009",
+      "source_pair_id": "P-K10-K01",
+      "target_pair_id": "P-K10-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppM",
+        "AppC",
+        "AppP",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppQ",
+        "AppA"
+      ],
+      "note": "Land the promoted pair into the target cell as the primary writeback target."
+    },
+    {
+      "packet_id": "DPK-WV-0010-REPLAY",
+      "source_agent": "source-pair-replay",
+      "target_agent": "level3-transit",
+      "source_body_id": "P-K01-K08",
+      "target_body_id": "P-K16-K08",
+      "trigger": "Replay `P-K01-K08` into the Level 3 transit spine.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__08_quantum_standard_hardware.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__08_quantum_standard_hardware.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0010.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0010.md"
+      ],
+      "route": [
+        "P-K01-K08",
+        "GCW",
+        "GCZ",
+        "P-K16-K08"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__08_quantum_standard_hardware.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0010.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "source-pair replay",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0010.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0010.md",
+      "weave_id": "WV-0010",
+      "source_pair_id": "P-K01-K08",
+      "target_pair_id": "P-K16-K08",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppC",
+        "AppH",
+        "AppP",
+        "AppA",
+        "AppQ"
+      ],
+      "note": "Replay the source pair as the emitting matrix witness."
+    },
+    {
+      "packet_id": "DPK-WV-0010-TRANSIT",
+      "source_agent": "level3-transit",
+      "target_agent": "target-pair-receive",
+      "source_body_id": "P-K01-K08",
+      "target_body_id": "P-K16-K08",
+      "trigger": "Carry `WV-0010` across the fixed `GCW -> GCZ` corridor.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__08_quantum_standard_hardware.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__08_quantum_standard_hardware.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0010.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0010.md"
+      ],
+      "route": [
+        "P-K01-K08",
+        "GCW",
+        "GCZ",
+        "P-K16-K08"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__08_quantum_standard_hardware.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0010.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "GCW-GCZ transit",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0010.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0010.md",
+      "weave_id": "WV-0010",
+      "source_pair_id": "P-K01-K08",
+      "target_pair_id": "P-K16-K08",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppC",
+        "AppH",
+        "AppP",
+        "AppA",
+        "AppQ"
+      ],
+      "note": "Carry the pair pressure across the fixed Level 3 transit spine."
+    },
+    {
+      "packet_id": "DPK-WV-0010-WRITEBACK",
+      "source_agent": "target-pair-receive",
+      "target_agent": "overseer-writeback",
+      "source_body_id": "P-K01-K08",
+      "target_body_id": "P-K16-K08",
+      "trigger": "Write `WV-0010` back into `P-K16-K08` as the primary target.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__08_quantum_standard_hardware.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__08_quantum_standard_hardware.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0010.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0010.md"
+      ],
+      "route": [
+        "P-K01-K08",
+        "GCW",
+        "GCZ",
+        "P-K16-K08"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__08_quantum_standard_hardware.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0010.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "target-pair writeback",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0010.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0010.md",
+      "weave_id": "WV-0010",
+      "source_pair_id": "P-K01-K08",
+      "target_pair_id": "P-K16-K08",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppC",
+        "AppH",
+        "AppP",
+        "AppA",
+        "AppQ"
+      ],
+      "note": "Land the promoted pair into the target cell as the primary writeback target."
+    },
+    {
+      "packet_id": "DPK-WV-0011-REPLAY",
+      "source_agent": "source-pair-replay",
+      "target_agent": "level3-transit",
+      "source_body_id": "P-K08-K01",
+      "target_body_id": "P-K08-K16",
+      "trigger": "Replay `P-K08-K01` into the Level 3 transit spine.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0011.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0011.md"
+      ],
+      "route": [
+        "P-K08-K01",
+        "GCW",
+        "GCZ",
+        "P-K08-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0011.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "source-pair replay",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0011.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0011.md",
+      "weave_id": "WV-0011",
+      "source_pair_id": "P-K08-K01",
+      "target_pair_id": "P-K08-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppC",
+        "AppH",
+        "AppP",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppA",
+        "AppQ"
+      ],
+      "note": "Replay the source pair as the emitting matrix witness."
+    },
+    {
+      "packet_id": "DPK-WV-0011-TRANSIT",
+      "source_agent": "level3-transit",
+      "target_agent": "target-pair-receive",
+      "source_body_id": "P-K08-K01",
+      "target_body_id": "P-K08-K16",
+      "trigger": "Carry `WV-0011` across the fixed `GCW -> GCZ` corridor.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0011.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0011.md"
+      ],
+      "route": [
+        "P-K08-K01",
+        "GCW",
+        "GCZ",
+        "P-K08-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0011.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "GCW-GCZ transit",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0011.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0011.md",
+      "weave_id": "WV-0011",
+      "source_pair_id": "P-K08-K01",
+      "target_pair_id": "P-K08-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppC",
+        "AppH",
+        "AppP",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppA",
+        "AppQ"
+      ],
+      "note": "Carry the pair pressure across the fixed Level 3 transit spine."
+    },
+    {
+      "packet_id": "DPK-WV-0011-WRITEBACK",
+      "source_agent": "target-pair-receive",
+      "target_agent": "overseer-writeback",
+      "source_body_id": "P-K08-K01",
+      "target_body_id": "P-K08-K16",
+      "trigger": "Write `WV-0011` back into `P-K08-K16` as the primary target.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__01_manuscript_brain.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__16_ch19_self_repair.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0011.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0011.md"
+      ],
+      "route": [
+        "P-K08-K01",
+        "GCW",
+        "GCZ",
+        "P-K08-K16"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__16_ch19_self_repair.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0011.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "target-pair writeback",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0011.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0011.md",
+      "weave_id": "WV-0011",
+      "source_pair_id": "P-K08-K01",
+      "target_pair_id": "P-K08-K16",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppC",
+        "AppH",
+        "AppP",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppA",
+        "AppQ"
+      ],
+      "note": "Land the promoted pair into the target cell as the primary writeback target."
+    },
+    {
+      "packet_id": "DPK-WV-0012-REPLAY",
+      "source_agent": "source-pair-replay",
+      "target_agent": "level3-transit",
+      "source_body_id": "P-K01-K02",
+      "target_body_id": "P-K16-K02",
+      "trigger": "Replay `P-K01-K02` into the Level 3 transit spine.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__02_self_routing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__02_self_routing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0012.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0012.md"
+      ],
+      "route": [
+        "P-K01-K02",
+        "GCW",
+        "GCZ",
+        "P-K16-K02"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__02_self_routing.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0012.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "source-pair replay",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0012.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0012.md",
+      "weave_id": "WV-0012",
+      "source_pair_id": "P-K01-K02",
+      "target_pair_id": "P-K16-K02",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppM",
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppL",
+        "AppQ",
+        "AppA",
+        "AppP"
+      ],
+      "note": "Replay the source pair as the emitting matrix witness."
+    },
+    {
+      "packet_id": "DPK-WV-0012-TRANSIT",
+      "source_agent": "level3-transit",
+      "target_agent": "target-pair-receive",
+      "source_body_id": "P-K01-K02",
+      "target_body_id": "P-K16-K02",
+      "trigger": "Carry `WV-0012` across the fixed `GCW -> GCZ` corridor.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__02_self_routing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__02_self_routing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0012.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0012.md"
+      ],
+      "route": [
+        "P-K01-K02",
+        "GCW",
+        "GCZ",
+        "P-K16-K02"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__02_self_routing.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0012.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "GCW-GCZ transit",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0012.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0012.md",
+      "weave_id": "WV-0012",
+      "source_pair_id": "P-K01-K02",
+      "target_pair_id": "P-K16-K02",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppM",
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppL",
+        "AppQ",
+        "AppA",
+        "AppP"
+      ],
+      "note": "Carry the pair pressure across the fixed Level 3 transit spine."
+    },
+    {
+      "packet_id": "DPK-WV-0012-WRITEBACK",
+      "source_agent": "target-pair-receive",
+      "target_agent": "overseer-writeback",
+      "source_body_id": "P-K01-K02",
+      "target_body_id": "P-K16-K02",
+      "trigger": "Write `WV-0012` back into `P-K16-K02` as the primary target.",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__02_self_routing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__02_self_routing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\ROUTE_dpf_wv_0012.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0012.md"
+      ],
+      "route": [
+        "P-K01-K02",
+        "GCW",
+        "GCZ",
+        "P-K16-K02"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_16_ch19_self_repair\\16_ch19_self_repair__02_self_routing.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0012.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "",
+      "phase": "target-pair writeback",
+      "replay_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\deep_pairwise_families\\REPLAY_dpf_wv_0012.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0012.md",
+      "weave_id": "WV-0012",
+      "source_pair_id": "P-K01-K02",
+      "target_pair_id": "P-K16-K02",
+      "metro_level": "Level 3",
+      "appendix_stack": [
+        "AppE",
+        "AppM",
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppL",
+        "AppQ",
+        "AppA",
+        "AppP"
+      ],
+      "note": "Land the promoted pair into the target cell as the primary writeback target."
+    }
+  ]
+}

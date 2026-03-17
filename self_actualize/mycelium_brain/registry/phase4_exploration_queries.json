@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-03-13T20:44:21.897230+00:00",
+  "derivation_version": "2026-03-12.phase4-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_EXPLORATION_QUERY_PRESETS.md",
+  "seed_body": "A01",
+  "queries": [
+    {
+      "query_id": "Q-LOCATE",
+      "mode": "locate",
+      "scope": "live_19_body_organism + K01-K16 + active nodes",
+      "seed_surface": "A01 root basis + K01-K16 kernel mirror",
+      "active_shortcuts": [
+        "SC-01",
+        "SC-02",
+        "SC-11",
+        "SC-12",
+        "SC-13"
+      ],
+      "stop_rule": "ABSTAIN when no witnessed surface can be found",
+      "output_bundle": [
+        "matches",
+        "witness_basis",
+        "stop_condition"
+      ],
+      "writeback_target": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_EXPLORATION_QUERY_PRESETS.md",
+      "note": "where a concept lives across body, kernel, node, pair, and wave layers"
+    },
+    {
+      "query_id": "Q-ROUTE",
+      "mode": "route",
+      "scope": "Grand Central graph",
+      "seed_surface": "GC0 -> bodies -> kernels -> pairs",
+      "active_shortcuts": [
+        "SC-01",
+        "SC-02",
+        "SC-04",
+        "SC-05",
+        "SC-06",
+        "SC-13"
+      ],
+      "stop_rule": "QUARANTINE on immune risk, otherwise REPAIR or PROMOTE",
+      "output_bundle": [
+        "path",
+        "route_cost",
+        "active_shortcuts",
+        "stop_condition"
+      ],
+      "writeback_target": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_EXPLORATION_QUERY_PRESETS.md",
+      "note": "shortest witnessed and replay-safe path between two surfaces"
+    },
+    {
+      "query_id": "Q-NEGLECT",
+      "mode": "neglect",
+      "scope": "body + pair gap field",
+      "seed_surface": "neglect signals",
+      "active_shortcuts": [
+        "SC-01",
+        "SC-08",
+        "SC-09",
+        "SC-10",
+        "SC-12",
+        "SC-13"
+      ],
+      "stop_rule": "REPAIR when neglected surfaces exist",
+      "output_bundle": [
+        "signals",
+        "top_scores",
+        "stop_condition"
+      ],
+      "writeback_target": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\27_PHASE4_NEGLECT_SIGNAL_LEDGER.md",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_EXPLORATION_QUERY_PRESETS.md",
+      "note": "return the highest-yield disconnected or stale zones"
+    },
+    {
+      "query_id": "Q-FIRE",
+      "mode": "fire",
+      "scope": "pair registry with sparse wave materialization",
+      "seed_surface": "wave registry",
+      "active_shortcuts": [
+        "SC-03",
+        "SC-04",
+        "SC-05",
+        "SC-06",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "stop_rule": "TopK wave slices only",
+      "output_bundle": [
+        "materialized_waves",
+        "active_shortcuts",
+        "stop_condition"
+      ],
+      "writeback_target": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_EXPLORATION_QUERY_PRESETS.md",
+      "note": "choose the top sparse wave slices for a given objective"
+    },
+    {
+      "query_id": "Q-PROMOTE",
+      "mode": "promote",
+      "scope": "validated weave candidates",
+      "seed_surface": "weave candidate ledger",
+      "active_shortcuts": [
+        "SC-01",
+        "SC-04",
+        "SC-05",
+        "SC-09",
+        "SC-10",
+        "SC-13"
+      ],
+      "stop_rule": "PROMOTE only when witness, replay, and boundary clear floor",
+      "output_bundle": [
+        "candidate",
+        "promotion_route",
+        "stop_condition"
+      ],
+      "writeback_target": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\28_PHASE4_WEAVE_CANDIDATE_LEDGER.md",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_EXPLORATION_QUERY_PRESETS.md",
+      "note": "turn a validated weave candidate into an update target"
+    }
+  ],
+  "summary": {
+    "query_mode_count": 5
+  }
+}

@@ -10,6 +10,29 @@ This framework turns your manuscript corpus and codebase into one operational lo
 2. Collapse thought through witness-gated verification.
 3. Write back stable deltas to memory without silent drift.
 
+## Witness Hierarchy Update
+
+Use the following witness classes when reading Athena-wide counts.
+These values are now machine-derived by `python -m self_actualize.runtime.derive_witness_hierarchy`
+and written to `self_actualize/witness_hierarchy.json` plus the canonical Guild Hall hierarchy surface.
+
+- `Physical witness`: `6126`
+  full workspace body on disk using runtime ignore rules
+- `Indexed witness`: `6040`
+  live searchable records in `corpus_atlas.json`
+- `Board witness`: `5861`
+  workspace slice currently visible to the realtime board
+- `Archive witness`: `2041`
+  archive-backed dark matter in `archive_atlas.json`
+- `Promoted witness`: `1818`
+  active promoted bronze nervous-system slice derived from the live state header
+
+The live body tensor is now also machine-derived in `self_actualize/body_tensor.json`.
+Its strongest current mass signal is that `Trading Bot` (`1914`) and `QSHRINK - ATHENA (internal use)` (`1315`) are both manuscript-dominant bodies, which materially changes how the swarm should rank bridge, governance, and compression work.
+
+The earlier bootstrap corpus-shape counts below remain useful as a historical snapshot of this framework's first pass.
+They are not the current canonical whole-organism counts.
+
 ## Deep Synthesis Of Your Workspace
 
 ### Corpus shape

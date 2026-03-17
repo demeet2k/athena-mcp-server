@@ -1,0 +1,693 @@
+{
+  "generated_at": "2026-03-13T16:28:38.987898+00:00",
+  "derivation_version": "2026-03-09.q06.runtime",
+  "derivation_command": "python -m self_actualize.runtime.derive_semantic_mass_ledger",
+  "source_paths": {
+    "corpus_atlas": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+    "archive_atlas": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_atlas.json"
+  },
+  "source_timestamps": {
+    "corpus_atlas": "2026-03-13T16:28:38.566580+00:00",
+    "archive_atlas": "2026-03-08T13:24:18.686859+00:00"
+  },
+  "indexed_witness": 7835,
+  "archive_witness": 2041,
+  "role_order": [
+    "source",
+    "generated",
+    "mirror",
+    "protocol",
+    "ledger",
+    "receipt",
+    "vendor",
+    "archive-backed"
+  ],
+  "classification_rules": {
+    "vendor": [
+      "node_modules",
+      ".venv",
+      "vendor",
+      "third_party",
+      "site-packages"
+    ],
+    "receipt": [
+      "receipts folder",
+      "receipt in filename"
+    ],
+    "protocol": [
+      "protocol",
+      "protocols",
+      "charter",
+      "laws",
+      "constitution"
+    ],
+    "ledger": [
+      "ledger",
+      "ledgers",
+      "queue",
+      "queues",
+      "manifest",
+      "manifests"
+    ],
+    "mirror": [
+      "mirror",
+      "mirrors",
+      "precursor",
+      "duplicate",
+      "duplicates",
+      "copy"
+    ],
+    "generated": [
+      "QSHRINK - ATHENA (internal use)",
+      "dynamic_neural_network",
+      "active_nervous_system",
+      "07_full_project_integration_256",
+      "06_realtime_board",
+      "trading_bot_athena_256x4",
+      "_build/"
+    ],
+    "source": [
+      "default fallback for live records not claimed by a more specific role"
+    ],
+    "archive-backed": [
+      "all records from archive_atlas.json"
+    ]
+  },
+  "roles": [
+    {
+      "role": "source",
+      "count": 3502,
+      "share_of_live_percent": 44.7,
+      "top_bodies": [
+        {
+          "name": "self_actualize",
+          "count": 748,
+          "share_percent": 21.4
+        },
+        {
+          "name": "Voynich",
+          "count": 665,
+          "share_percent": 19.0
+        },
+        {
+          "name": "MATH",
+          "count": 575,
+          "share_percent": 16.4
+        },
+        {
+          "name": "GAMES",
+          "count": 483,
+          "share_percent": 13.8
+        },
+        {
+          "name": "NERVOUS_SYSTEM",
+          "count": 295,
+          "share_percent": 8.4
+        }
+      ],
+      "scope": "live"
+    },
+    {
+      "role": "generated",
+      "count": 3535,
+      "share_of_live_percent": 45.1,
+      "top_bodies": [
+        {
+          "name": "Trading Bot",
+          "count": 1451,
+          "share_percent": 41.0
+        },
+        {
+          "name": "QSHRINK - ATHENA (internal use)",
+          "count": 1296,
+          "share_percent": 36.7
+        },
+        {
+          "name": "self_actualize",
+          "count": 449,
+          "share_percent": 12.7
+        },
+        {
+          "name": "DEEPER CRYSTALIZATION",
+          "count": 339,
+          "share_percent": 9.6
+        }
+      ],
+      "scope": "live"
+    },
+    {
+      "role": "mirror",
+      "count": 31,
+      "share_of_live_percent": 0.4,
+      "top_bodies": [
+        {
+          "name": "GAMES",
+          "count": 14,
+          "share_percent": 45.2
+        },
+        {
+          "name": "self_actualize",
+          "count": 6,
+          "share_percent": 19.4
+        },
+        {
+          "name": "DEEPER CRYSTALIZATION",
+          "count": 4,
+          "share_percent": 12.9
+        },
+        {
+          "name": "NERVOUS_SYSTEM",
+          "count": 4,
+          "share_percent": 12.9
+        },
+        {
+          "name": "MATH",
+          "count": 1,
+          "share_percent": 3.2
+        }
+      ],
+      "scope": "live"
+    },
+    {
+      "role": "protocol",
+      "count": 126,
+      "share_of_live_percent": 1.6,
+      "top_bodies": [
+        {
+          "name": "DEEPER CRYSTALIZATION",
+          "count": 37,
+          "share_percent": 29.4
+        },
+        {
+          "name": "NERVOUS_SYSTEM",
+          "count": 28,
+          "share_percent": 22.2
+        },
+        {
+          "name": "self_actualize",
+          "count": 22,
+          "share_percent": 17.5
+        },
+        {
+          "name": "MATH",
+          "count": 15,
+          "share_percent": 11.9
+        },
+        {
+          "name": "ECOSYSTEM",
+          "count": 10,
+          "share_percent": 7.9
+        }
+      ],
+      "scope": "live"
+    },
+    {
+      "role": "ledger",
+      "count": 552,
+      "share_of_live_percent": 7.0,
+      "top_bodies": [
+        {
+          "name": "Trading Bot",
+          "count": 267,
+          "share_percent": 48.4
+        },
+        {
+          "name": "NERVOUS_SYSTEM",
+          "count": 141,
+          "share_percent": 25.5
+        },
+        {
+          "name": "self_actualize",
+          "count": 58,
+          "share_percent": 10.5
+        },
+        {
+          "name": "DEEPER CRYSTALIZATION",
+          "count": 27,
+          "share_percent": 4.9
+        },
+        {
+          "name": "Voynich",
+          "count": 21,
+          "share_percent": 3.8
+        }
+      ],
+      "scope": "live"
+    },
+    {
+      "role": "receipt",
+      "count": 89,
+      "share_of_live_percent": 1.1,
+      "top_bodies": [
+        {
+          "name": "self_actualize",
+          "count": 82,
+          "share_percent": 92.1
+        },
+        {
+          "name": "DEEPER CRYSTALIZATION",
+          "count": 4,
+          "share_percent": 4.5
+        },
+        {
+          "name": "NERVOUS_SYSTEM",
+          "count": 2,
+          "share_percent": 2.2
+        },
+        {
+          "name": "QSHRINK - ATHENA (internal use)",
+          "count": 1,
+          "share_percent": 1.1
+        }
+      ],
+      "scope": "live"
+    },
+    {
+      "role": "vendor",
+      "count": 0,
+      "share_of_live_percent": 0.0,
+      "top_bodies": [],
+      "scope": "live"
+    },
+    {
+      "role": "archive-backed",
+      "count": 2041,
+      "share_of_indexed_percent": 26.0,
+      "top_bodies": [
+        {
+          "name": "MATH",
+          "count": 2041,
+          "share_percent": 100.0
+        }
+      ],
+      "scope": "archive"
+    }
+  ],
+  "body_profiles": [
+    {
+      "body": "Trading Bot",
+      "records": 1918,
+      "share_of_indexed_percent": 24.5,
+      "dominant_role": "generated",
+      "role_counts": {
+        "source": 196,
+        "generated": 1451,
+        "mirror": 1,
+        "protocol": 3,
+        "ledger": 267,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "self_actualize",
+      "records": 1365,
+      "share_of_indexed_percent": 17.4,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 748,
+        "generated": 449,
+        "mirror": 6,
+        "protocol": 22,
+        "ledger": 58,
+        "receipt": 82,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "QSHRINK - ATHENA (internal use)",
+      "records": 1315,
+      "share_of_indexed_percent": 16.8,
+      "dominant_role": "generated",
+      "role_counts": {
+        "source": 0,
+        "generated": 1296,
+        "mirror": 1,
+        "protocol": 5,
+        "ledger": 12,
+        "receipt": 1,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "Voynich",
+      "records": 689,
+      "share_of_indexed_percent": 8.8,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 665,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 3,
+        "ledger": 21,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "MATH",
+      "records": 601,
+      "share_of_indexed_percent": 7.7,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 575,
+        "generated": 0,
+        "mirror": 1,
+        "protocol": 15,
+        "ledger": 10,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "GAMES",
+      "records": 498,
+      "share_of_indexed_percent": 6.4,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 483,
+        "generated": 0,
+        "mirror": 14,
+        "protocol": 0,
+        "ledger": 1,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "NERVOUS_SYSTEM",
+      "records": 470,
+      "share_of_indexed_percent": 6.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 295,
+        "generated": 0,
+        "mirror": 4,
+        "protocol": 28,
+        "ledger": 141,
+        "receipt": 2,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "DEEPER CRYSTALIZATION",
+      "records": 443,
+      "share_of_indexed_percent": 5.7,
+      "dominant_role": "generated",
+      "role_counts": {
+        "source": 32,
+        "generated": 339,
+        "mirror": 4,
+        "protocol": 37,
+        "ledger": 27,
+        "receipt": 4,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "ORGIN",
+      "records": 153,
+      "share_of_indexed_percent": 2.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 153,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "Stoicheia (Element Sudoku)",
+      "records": 126,
+      "share_of_indexed_percent": 1.6,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 126,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "ECOSYSTEM",
+      "records": 112,
+      "share_of_indexed_percent": 1.4,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 92,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 10,
+        "ledger": 10,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "NERUAL NETWORK",
+      "records": 59,
+      "share_of_indexed_percent": 0.8,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 58,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 1,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "Athenachka Collective Books",
+      "records": 18,
+      "share_of_indexed_percent": 0.2,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 18,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "Athena FLEET",
+      "records": 17,
+      "share_of_indexed_percent": 0.2,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 17,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "I AM ATHENA",
+      "records": 15,
+      "share_of_indexed_percent": 0.2,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 10,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 5,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "Quadrant Binary",
+      "records": 9,
+      "share_of_indexed_percent": 0.1,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 9,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "CLEAN",
+      "records": 7,
+      "share_of_indexed_percent": 0.1,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 7,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "FRESH",
+      "records": 6,
+      "share_of_indexed_percent": 0.1,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 4,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 2,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "mycelial_unified_nervous_system_bundle",
+      "records": 6,
+      "share_of_indexed_percent": 0.1,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 6,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": ".claude",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": ".gitignore",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "GUILDMASTER",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "MYCELIUM_TOME_PART1.md",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "README.md",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    },
+    {
+      "body": "VOID_CH11.md",
+      "records": 1,
+      "share_of_indexed_percent": 0.0,
+      "dominant_role": "source",
+      "role_counts": {
+        "source": 1,
+        "generated": 0,
+        "mirror": 0,
+        "protocol": 0,
+        "ledger": 0,
+        "receipt": 0,
+        "vendor": 0
+      }
+    }
+  ]
+}

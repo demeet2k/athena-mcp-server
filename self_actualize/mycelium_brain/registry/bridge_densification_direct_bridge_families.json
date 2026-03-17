@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-03-13T00:48:21.426314+00:00",
+  "derivation_version": "2026-03-13.bridge-densification-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_bridge_densification",
+  "bridge_families": [
+    {
+      "bridge_family_id": "BF-CS-001",
+      "edge_id": "CS-001",
+      "source_body_id": "A16",
+      "source_root": "Athena FLEET",
+      "target_body_id": "A06",
+      "target_root": "Voynich",
+      "source_family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+      "target_family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_001.md",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+      "runtime_surface": "self_actualize\\bridge_densification_direct_bridge_families.json",
+      "restart_seed": "Write BF-CS-001 into self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md and re-verify the direct corridor.",
+      "authority_rank": "authoritative",
+      "packet_ids": [
+        "BPK-CS-001-EMIT",
+        "BPK-CS-001-TRANSIT",
+        "BPK-CS-001-WRITEBACK"
+      ],
+      "slice_ids": [
+        "BSC-CS-001-01",
+        "BSC-CS-001-02",
+        "BSC-CS-001-03"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\02_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md"
+      ],
+      "primary_writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+      "note": "Athena FLEET routes directly into the Voynich proof engine."
+    },
+    {
+      "bridge_family_id": "BF-CS-002",
+      "edge_id": "CS-002",
+      "source_body_id": "A06",
+      "source_root": "Voynich",
+      "target_body_id": "A09",
+      "target_root": "QSHRINK - ATHENA (internal use)",
+      "source_family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+      "target_family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_002.md",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+      "runtime_surface": "self_actualize\\bridge_densification_direct_bridge_families.json",
+      "restart_seed": "Write BF-CS-002 into self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md and re-verify the direct corridor.",
+      "authority_rank": "authoritative",
+      "packet_ids": [
+        "BPK-CS-002-EMIT",
+        "BPK-CS-002-TRANSIT",
+        "BPK-CS-002-WRITEBACK"
+      ],
+      "slice_ids": [
+        "BSC-CS-002-01",
+        "BSC-CS-002-02",
+        "BSC-CS-002-03"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\02_qshrink_shiva_corpus_ecosystem.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md"
+      ],
+      "primary_writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+      "note": "Voynich proof routes directly into QSHRINK compression law."
+    },
+    {
+      "bridge_family_id": "BF-CS-003",
+      "edge_id": "CS-003",
+      "source_body_id": "A16",
+      "source_root": "Athena FLEET",
+      "target_body_id": "A15",
+      "target_root": "ORGIN",
+      "source_family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+      "target_family_surface": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+      "route_surface": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_003.md",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+      "runtime_surface": "self_actualize\\bridge_densification_direct_bridge_families.json",
+      "restart_seed": "Write BF-CS-003 into self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md and re-verify the direct corridor.",
+      "authority_rank": "authoritative",
+      "packet_ids": [
+        "BPK-CS-003-EMIT",
+        "BPK-CS-003-TRANSIT",
+        "BPK-CS-003-WRITEBACK"
+      ],
+      "slice_ids": [
+        "BSC-CS-003-01",
+        "BSC-CS-003-02",
+        "BSC-CS-003-03"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\02_orgin.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md"
+      ],
+      "primary_writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+      "note": "Fleet coordination inherits directly from the ORGIN seed reservoir."
+    }
+  ]
+}

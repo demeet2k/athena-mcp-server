@@ -1,6 +1,6 @@
 # Ganglion `NERVOUS_SYSTEM`
 
-- Weight: `131`
+- Weight: `670`
 - PrimaryRail: `Sa`
 - PrimaryFace: `Aether`
 - PreferredScale: `S8`
@@ -9,4 +9,5 @@
 - BestFront: system-level memory and routing foldback
 
 ## Local Threads
-- `monitor` `NERVOUS_SYSTEM` -> `ganglion` / `AMBIG`
+- `active` `TQ06` -> `pod` / `NEAR`
+- `hot` `NERVOUS_SYSTEM` -> `ganglion` / `NEAR`

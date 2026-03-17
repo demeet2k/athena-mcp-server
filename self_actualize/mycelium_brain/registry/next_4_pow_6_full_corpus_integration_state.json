@@ -1,0 +1,42 @@
+{
+  "basis_counts": {
+    "canonical_sources": 16,
+    "ordered_pairs": 256,
+    "observer_lattice": 64,
+    "symmetry_stack": "15+0",
+    "metro_levels": 4,
+    "appendix_governor": "AppQ"
+  },
+  "overlay_counts": {
+    "hall_macros": 16,
+    "hall_packets": 64,
+    "governance_fibers": 256,
+    "atlas_active": 1024,
+    "atlas_dormant": 3072,
+    "atlas_total": 4096
+  },
+  "feeder_truth": {
+    "Q42": "OPEN",
+    "Q46": "OPEN",
+    "TQ04": "LANDED",
+    "TQ06": "ACTIVE"
+  },
+  "control_plane_state": {
+    "motion_constitution": {
+      "truth": "NEAR",
+      "top_candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR"
+    },
+    "merge_automaton": {
+      "truth": "OK",
+      "next_seed": "MotionConstitution_L1"
+    },
+    "adventurer_loop": {
+      "next_frontier": "Q42",
+      "wave_id": "ADV64-wave1"
+    }
+  },
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling",
+  "truth": "NEAR",
+  "note": "Local-first whole-corpus integration state over the live deep root and AP6D overlay."
+}

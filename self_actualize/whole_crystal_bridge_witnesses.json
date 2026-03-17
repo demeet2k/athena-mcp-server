@@ -1,0 +1,214 @@
+{
+  "generated_at": "2026-03-13T00:04:54.692200+00:00",
+  "derivation_version": "2026-03-12.whole-crystal-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_whole_crystal_completion",
+  "edges": [
+    {
+      "edge_id": "CS-001",
+      "source_body_id": "A16",
+      "source_root": "Athena FLEET",
+      "target_body_id": "A06",
+      "target_root": "Voynich",
+      "edge_class": "direct",
+      "authority_rank": "authoritative",
+      "runtime_surface": "self_actualize\\knowledge_fabric_edges.json",
+      "replay_surface": "self_actualize\\crystal_direct_synapse_edges.json",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCZ",
+        "A06"
+      ],
+      "note": "Athena FLEET routes directly into the Voynich proof engine."
+    },
+    {
+      "edge_id": "CS-002",
+      "source_body_id": "A06",
+      "source_root": "Voynich",
+      "target_body_id": "A09",
+      "target_root": "QSHRINK - ATHENA (internal use)",
+      "edge_class": "direct",
+      "authority_rank": "authoritative",
+      "runtime_surface": "self_actualize\\knowledge_fabric_edges.json",
+      "replay_surface": "self_actualize\\crystal_direct_synapse_edges.json",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A06",
+        "GCR",
+        "GCW",
+        "A09"
+      ],
+      "note": "Voynich proof routes directly into QSHRINK compression law."
+    },
+    {
+      "edge_id": "CS-003",
+      "source_body_id": "A16",
+      "source_root": "Athena FLEET",
+      "target_body_id": "A15",
+      "target_root": "ORGIN",
+      "edge_class": "direct",
+      "authority_rank": "authoritative",
+      "runtime_surface": "self_actualize\\knowledge_fabric_edges.json",
+      "replay_surface": "self_actualize\\crystal_direct_synapse_edges.json",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCP",
+        "A15"
+      ],
+      "note": "Fleet coordination inherits directly from the ORGIN seed reservoir."
+    },
+    {
+      "edge_id": "INF-WV-0003",
+      "source_body_id": "A11",
+      "source_root": "FRESH",
+      "target_body_id": "A07",
+      "target_root": "Trading Bot",
+      "edge_class": "inferred-ready",
+      "authority_rank": "ranked-near",
+      "runtime_surface": "self_actualize\\phase4_weave_candidates.json",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\WHOLE_CRYSTAL_BRIDGE_LEDGER.md",
+      "witness_basis": [
+        "self_actualize\\phase4_weave_candidates.json"
+      ],
+      "route": [
+        "A11",
+        "GCR",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "note": "Repairs coverage_gap on FRESH by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "edge_id": "INF-WV-0004",
+      "source_body_id": "A08",
+      "source_root": "Quadrant Binary",
+      "target_body_id": "A07",
+      "target_root": "Trading Bot",
+      "edge_class": "inferred-ready",
+      "authority_rank": "ranked-near",
+      "runtime_surface": "self_actualize\\phase4_weave_candidates.json",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\WHOLE_CRYSTAL_BRIDGE_LEDGER.md",
+      "witness_basis": [
+        "self_actualize\\phase4_weave_candidates.json"
+      ],
+      "route": [
+        "A08",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "note": "Repairs coverage_gap on Quadrant Binary by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "edge_id": "INF-WV-0005",
+      "source_body_id": "A13",
+      "source_root": "I AM ATHENA",
+      "target_body_id": "A07",
+      "target_root": "Trading Bot",
+      "edge_class": "inferred-ready",
+      "authority_rank": "ranked-near",
+      "runtime_surface": "self_actualize\\phase4_weave_candidates.json",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\WHOLE_CRYSTAL_BRIDGE_LEDGER.md",
+      "witness_basis": [
+        "self_actualize\\phase4_weave_candidates.json"
+      ],
+      "route": [
+        "A13",
+        "GCR",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "note": "Repairs coverage_gap on I AM ATHENA by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "edge_id": "QRT-WV-0001",
+      "source_body_id": "A17",
+      "source_root": "Stoicheia (Element Sudoku)",
+      "target_body_id": "A07",
+      "target_root": "Trading Bot",
+      "edge_class": "quarantined",
+      "authority_rank": "quarantined",
+      "runtime_surface": "self_actualize\\phase4_weave_candidates.json",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\WHOLE_CRYSTAL_BRIDGE_LEDGER.md",
+      "witness_basis": [
+        "self_actualize\\phase4_weave_candidates.json"
+      ],
+      "route": [
+        "A17",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "note": "Repairs coverage_gap on Stoicheia (Element Sudoku) by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "edge_id": "QRT-WV-0002",
+      "source_body_id": "A18",
+      "source_root": "CLEAN",
+      "target_body_id": "A07",
+      "target_root": "Trading Bot",
+      "edge_class": "quarantined",
+      "authority_rank": "quarantined",
+      "runtime_surface": "self_actualize\\phase4_weave_candidates.json",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\WHOLE_CRYSTAL_BRIDGE_LEDGER.md",
+      "witness_basis": [
+        "self_actualize\\phase4_weave_candidates.json"
+      ],
+      "route": [
+        "A18",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "note": "Repairs coverage_gap on CLEAN by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "edge_id": "QRT-WV-0006",
+      "source_body_id": "A19",
+      "source_root": "mycelial_unified_nervous_system_bundle",
+      "target_body_id": "A09",
+      "target_root": "QSHRINK - ATHENA (internal use)",
+      "edge_class": "quarantined",
+      "authority_rank": "quarantined",
+      "runtime_surface": "self_actualize\\phase4_weave_candidates.json",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\WHOLE_CRYSTAL_BRIDGE_LEDGER.md",
+      "witness_basis": [
+        "self_actualize\\phase4_weave_candidates.json"
+      ],
+      "route": [
+        "A19",
+        "GCL+GCR",
+        "GCW",
+        "GCC",
+        "A09"
+      ],
+      "note": "Repairs coverage_gap on mycelial_unified_nervous_system_bundle by docking it through Grand Central toward QSHRINK - ATHENA (internal use)."
+    }
+  ]
+}

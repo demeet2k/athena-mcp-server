@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-03-13T21:09:17.695159+00:00",
+  "docs_gate_status": "BLOCKED",
+  "status": "CANONICAL_KERNEL_OVERLAY",
+  "mode": "kernel_overlay",
+  "prior_seed_position": "1/65",
+  "header_record_id": "H00",
+  "dense_shell_range": "2/65 -> 65/65",
+  "group_counts": {
+    "H": 1,
+    "P": 4,
+    "S": 15,
+    "R": 15,
+    "Q": 15,
+    "T": 15
+  },
+  "ring_gauge": {
+    "A": "Fire",
+    "C": "Air",
+    "B": "Water",
+    "D": "Earth"
+  },
+  "ring_order": [
+    "A",
+    "C",
+    "B",
+    "D"
+  ],
+  "sigma_path": [
+    "AppA",
+    "AppI",
+    "AppM"
+  ],
+  "authority_refs": {
+    "sigma_ingress": "AppA",
+    "truth_lattice": "AppI",
+    "replay_kernel": "AppM",
+    "rotation_authority": "AppF",
+    "antispin_authority": "AppG"
+  },
+  "hidden_pole_rule": "first missing pole in A -> C -> B -> D, default A",
+  "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+  "shell_registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_dense_65_shell_registry.json",
+  "witness_registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_dense_65_rqt_witness_registry.json",
+  "overflow_registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_dense_65_rqt_overflow_registry.json",
+  "manifest_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_dense_65_manifest.json"
+}

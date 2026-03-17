@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-03-13T23:39:25.060713+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "cycle_order": [
+    "A1",
+    "A2",
+    "A3",
+    "A4"
+  ],
+  "agents": [
+    {
+      "master_agent_id": "A1",
+      "agent_id": "SYNTHESIZER",
+      "display_name": "A1 Synthesizer / Researcher",
+      "role": "Synthesizer / Researcher",
+      "role_tag": "SYNTH-RESEARCH",
+      "logical_namespace_total": 4096,
+      "active_seat_share": 256,
+      "seat_namespace": "CURRENT-DEEP-SYNTHESIS",
+      "seat_mode": "role-namespaced-4096-over-shared-4096",
+      "packet_output": "research_delta",
+      "mission": "scan the full corpus, detect hidden bridges, contradictions, mathematical upgrades, and latent integration structures"
+    },
+    {
+      "master_agent_id": "A2",
+      "agent_id": "PLANNER",
+      "display_name": "A2 Planner / Architect",
+      "role": "Planner / Architect",
+      "role_tag": "PLANNER-ARCHITECT",
+      "logical_namespace_total": 4096,
+      "active_seat_share": 256,
+      "seat_namespace": "LP57-PLANNER",
+      "seat_mode": "role-namespaced-4096-over-shared-4096",
+      "packet_output": "quest_packet",
+      "mission": "turn synthesis into Hall quests, Temple quests, AP6D shadow quests, Adventurer packets, and restart-safe sequencing"
+    },
+    {
+      "master_agent_id": "A3",
+      "agent_id": "WORKER",
+      "display_name": "A3 Worker / Adventurer",
+      "role": "Worker / Adventurer",
+      "role_tag": "WORKER-ADVENTURER",
+      "logical_namespace_total": 4096,
+      "active_seat_share": 256,
+      "seat_namespace": "LP57-WORKER",
+      "seat_mode": "role-namespaced-4096-over-shared-4096",
+      "packet_output": "execution_batch",
+      "mission": "apply bounded replay-safe changes, land artifacts, install bridges, and complete writeback"
+    },
+    {
+      "master_agent_id": "A4",
+      "agent_id": "PRUNER",
+      "display_name": "A4 Pruner / Compressor / Defragmenter",
+      "role": "Pruner / Compressor / Defragmenter",
+      "role_tag": "PRUNE-CRYSTAL",
+      "logical_namespace_total": 4096,
+      "active_seat_share": 256,
+      "seat_namespace": "LP57-PRUNER",
+      "seat_mode": "role-namespaced-4096-over-shared-4096",
+      "packet_output": "compression_bundle",
+      "mission": "tighten structure, preserve witnesses, q-shrink bloat, improve routing clarity, and reseed the next loop from a cleaner corpus state"
+    }
+  ]
+}

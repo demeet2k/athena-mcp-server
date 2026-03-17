@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "polestargemm"
+version = "1.0.0"
+description = "PoleStarGEMM: Quad-Polar Adaptive GEMM + Vision Low-Rank Optimizer"
+readme = "../README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.22",
+  "torch>=2.0",
+]
+
+[project.optional-dependencies]
+sparse = ["scipy>=1.9"]
+
+[tool.setuptools.packages.find]
+where = ["."]

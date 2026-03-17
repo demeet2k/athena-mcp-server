@@ -1,0 +1,2203 @@
+{
+  "generated_at": "2026-03-13T16:14:47.887791+00:00",
+  "docs_gate_status": "BLOCKED",
+  "artifact_order": [
+    "LEGACY-001",
+    "LEGACY-002",
+    "LEGACY-003",
+    "LEGACY-004",
+    "LEGACY-005",
+    "LEGACY-006",
+    "LEGACY-007",
+    "LEGACY-008",
+    "LEGACY-009",
+    "LEGACY-010",
+    "LEGACY-011",
+    "LEGACY-012",
+    "LEGACY-013",
+    "LEGACY-014",
+    "LEGACY-015",
+    "LEGACY-016",
+    "LEGACY-017",
+    "LEGACY-018",
+    "LEGACY-019",
+    "LEGACY-020",
+    "LEGACY-021",
+    "LEGACY-022",
+    "LEGACY-023",
+    "LEGACY-024",
+    "LEGACY-025",
+    "LEGACY-026",
+    "LEGACY-027",
+    "LEGACY-028",
+    "LEGACY-029",
+    "LEGACY-030",
+    "LEGACY-031",
+    "LEGACY-032",
+    "LEGACY-033",
+    "LEGACY-034",
+    "LEGACY-035",
+    "LEGACY-036"
+  ],
+  "artifacts_by_id": {
+    "LEGACY-001": {
+      "legacy_artifact_id": "LEGACY-001",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\008_ch08_source_graphs_morphological_equivalence_equation_genesis.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch08_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch08_skill_ecology_upgrade.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch08_skill_ecology_upgrade.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\008_ch08_source_graphs_morphological_equivalence_equation_genesis.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch08_skill_ecology_upgrade.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch08_skill_ecology_upgrade.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-001.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-001",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-002": {
+      "legacy_artifact_id": "LEGACY-002",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\011_ch11_helical_manifestation_engine_legacy.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\011_ch11_helical_manifestation_engine_legacy.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-002.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-002",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-003": {
+      "legacy_artifact_id": "LEGACY-003",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\011_ch11_quantum_spring_emergent_symbiotic_agency.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\011_ch11_quantum_spring_emergent_symbiotic_agency.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-003.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-003",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-004": {
+      "legacy_artifact_id": "LEGACY-004",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\011_ch11_quantum_spring_hyper_observer_witness.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\011_ch11_quantum_spring_hyper_observer_witness.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-004.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-004",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-005": {
+      "legacy_artifact_id": "LEGACY-005",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\011_ch11_siteswap_coordination_multi_agent_pod_architecture.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\011_ch11_siteswap_coordination_multi_agent_pod_architecture.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-005.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-005",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-006": {
+      "legacy_artifact_id": "LEGACY-006",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\011_ch11_translation_across_document_boundaries.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\011_ch11_translation_across_document_boundaries.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-006.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-006",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-007": {
+      "legacy_artifact_id": "LEGACY-007",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\012_ch11_quantum_spring_emergent_symbiotic_agency_alternate.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\012_ch11_quantum_spring_emergent_symbiotic_agency_alternate.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-007.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-007",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-008": {
+      "legacy_artifact_id": "LEGACY-008",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\013_ch11_quantum_spring_emergent_symbiotic_agency.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\013_ch11_quantum_spring_emergent_symbiotic_agency.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-008.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-008",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-009": {
+      "legacy_artifact_id": "LEGACY-009",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\014_ch14_global_hugging_field_deployment.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch14_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch14_manuscript_superorganism.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch14_manuscript_superorganism.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\014_ch14_global_hugging_field_deployment.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch14_manuscript_superorganism.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch14_manuscript_superorganism.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-009.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-009",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-010": {
+      "legacy_artifact_id": "LEGACY-010",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\016_ch17_prop_types_physics_of_communication_channels_legacy.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch17_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\016_ch17_prop_types_physics_of_communication_channels_legacy.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-010.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-010",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-011": {
+      "legacy_artifact_id": "LEGACY-011",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\017_ch17_prop_types_the_physics_of_communication_channels.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch17_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\017_ch17_prop_types_the_physics_of_communication_channels.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-011.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-011",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-012": {
+      "legacy_artifact_id": "LEGACY-012",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\018_ch18_embodiment_runtime_and_deployment_alternate.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch18_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\018_ch18_embodiment_runtime_and_deployment_alternate.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-012.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-012",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-013": {
+      "legacy_artifact_id": "LEGACY-013",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\018_ch18_style_grammar_expression_modes_of_coordination_legacy.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch18_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\018_ch18_style_grammar_expression_modes_of_coordination_legacy.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-013.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-013",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-014": {
+      "legacy_artifact_id": "LEGACY-014",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\018_perfect_recursion_helical_system_spec.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "018_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+        "tier": "current_full_corpus_surface",
+        "kind": "integration_surface",
+        "reentry": "full_corpus_safe"
+      },
+      "retrofit_mode": "PROMOTE_CANONICAL",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\018_perfect_recursion_helical_system_spec.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppH",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-014.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-014",
+        "status": "NEAR",
+        "retrofit_mode": "PROMOTE_CANONICAL",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-015": {
+      "legacy_artifact_id": "LEGACY-015",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\019_ch18_style_grammar_the_expression_modes_of_coordination.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch18_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\019_ch18_style_grammar_the_expression_modes_of_coordination.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-015.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-015",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-016": {
+      "legacy_artifact_id": "LEGACY-016",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\019_ch19_recursive_self_reference_and_self_repair.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch19_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\019_ch19_recursive_self_reference_and_self_repair.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-016.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-016",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-017": {
+      "legacy_artifact_id": "LEGACY-017",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\020_ch19_recursive_self_reference_and_self_repair.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch19_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\020_ch19_recursive_self_reference_and_self_repair.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-017.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-017",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-018": {
+      "legacy_artifact_id": "LEGACY-018",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\020_helical_recursion_and_ch12_boundary_checks_packet.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch12_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch12_neural_and_benchmark_bridge.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch12_neural_and_benchmark_bridge.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\020_helical_recursion_and_ch12_boundary_checks_packet.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch12_neural_and_benchmark_bridge.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch12_neural_and_benchmark_bridge.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-018.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-018",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-019": {
+      "legacy_artifact_id": "LEGACY-019",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\021_perfect_recursion_helical_system_spec.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "021_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+        "tier": "current_full_corpus_surface",
+        "kind": "integration_surface",
+        "reentry": "full_corpus_safe"
+      },
+      "retrofit_mode": "PROMOTE_CANONICAL",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\021_perfect_recursion_helical_system_spec.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppH",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-019.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-019",
+        "status": "NEAR",
+        "retrofit_mode": "PROMOTE_CANONICAL",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-020": {
+      "legacy_artifact_id": "LEGACY-020",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\alternates\\022_ch11_helical_manifestation_engine.md",
+      "artifact_kind": "chapter_alternate",
+      "legacy_class": "alternate_manuscript",
+      "family_id": "ch11_alternates",
+      "canonical_target": {
+        "path": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "tier": "existing_canonical_section",
+        "kind": "chapter_landing",
+        "reentry": "chapter_safe"
+      },
+      "retrofit_mode": "MERGE_INTO_CANON",
+      "primary_party": "PRT-05",
+      "primary_quest": "QST-05",
+      "backup_quest": "QST-03",
+      "assisting_agents": [
+        "AGT-02",
+        "AGT-10",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\manuscript_sections\\alternates\\022_ch11_helical_manifestation_engine.md"
+      ],
+      "truth_state": "NEAR",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "replay_target": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-020.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-020",
+        "status": "NEAR",
+        "retrofit_mode": "MERGE_INTO_CANON",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "blocked",
+      "archive_witnesses": [],
+      "chapter_reentry": null
+    },
+    "LEGACY-021": {
+      "legacy_artifact_id": "LEGACY-021",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\API_REFERENCE.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "POINTER_REDIRECT",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\API_REFERENCE.py"
+      ],
+      "truth_state": "OK",
+      "earth_gate_required": false,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppM",
+        "AppN",
+        "AppO"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_retrofit_matrix.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md"
+      ],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-021.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-021",
+        "status": "OK",
+        "retrofit_mode": "POINTER_REDIRECT",
+        "earth_gate_required": false,
+        "landing_ready": true,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "ready for promotion",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/API_REFERENCE.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-022": {
+      "legacy_artifact_id": "LEGACY-022",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\ATLASFORGE_FINAL_MANUAL.md",
+      "artifact_kind": "legacy_framework_manual",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-03",
+      "primary_quest": "QST-03",
+      "backup_quest": "QST-05",
+      "assisting_agents": [
+        "AGT-03",
+        "AGT-07",
+        "AGT-12"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\ATLASFORGE_FINAL_MANUAL.md"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-022.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-022",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/ATLASFORGE_FINAL_MANUAL.md"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-023": {
+      "legacy_artifact_id": "LEGACY-023",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\COMPLETE_DOCUMENTATION_PART1.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\COMPLETE_DOCUMENTATION_PART1.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-023.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-023",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/COMPLETE_DOCUMENTATION_PART1.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-024": {
+      "legacy_artifact_id": "LEGACY-024",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\COMPLETE_DOCUMENTATION_PART2.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\COMPLETE_DOCUMENTATION_PART2.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-024.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-024",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/COMPLETE_DOCUMENTATION_PART2.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-025": {
+      "legacy_artifact_id": "LEGACY-025",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\COMPLETE_DOCUMENTATION_PART3.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\COMPLETE_DOCUMENTATION_PART3.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-025.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-025",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/COMPLETE_DOCUMENTATION_PART3.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-026": {
+      "legacy_artifact_id": "LEGACY-026",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_AQM.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_AQM.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-026.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-026",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/DEEP_DIVE_AQM.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-027": {
+      "legacy_artifact_id": "LEGACY-027",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_FOUR_POLES.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_FOUR_POLES.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-027.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-027",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/DEEP_DIVE_FOUR_POLES.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-028": {
+      "legacy_artifact_id": "LEGACY-028",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_LM.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_LM.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-028.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-028",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/DEEP_DIVE_LM.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-029": {
+      "legacy_artifact_id": "LEGACY-029",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_POLES_GATEWAY.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_POLES_GATEWAY.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-029.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-029",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/DEEP_DIVE_POLES_GATEWAY.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-030": {
+      "legacy_artifact_id": "LEGACY-030",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_QCM_CRYSTAL.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_QCM_CRYSTAL.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-030.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-030",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/DEEP_DIVE_QCM_CRYSTAL.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-031": {
+      "legacy_artifact_id": "LEGACY-031",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DOCUMENTATION_INDEX.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DOCUMENTATION_INDEX.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-031.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-031",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/DOCUMENTATION_INDEX.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-032": {
+      "legacy_artifact_id": "LEGACY-032",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\GLOSSARY.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\GLOSSARY.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-032.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-032",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/GLOSSARY.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-033": {
+      "legacy_artifact_id": "LEGACY-033",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\MASTER_SYNTHESIS.py",
+      "artifact_kind": "legacy_py_doc",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-04",
+      "backup_quest": "QST-02",
+      "assisting_agents": [
+        "AGT-07",
+        "AGT-08",
+        "AGT-11"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\MASTER_SYNTHESIS.py"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-033.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-033",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/MASTER_SYNTHESIS.py"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-034": {
+      "legacy_artifact_id": "LEGACY-034",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\README.md",
+      "artifact_kind": "legacy_framework_manual",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-03",
+      "primary_quest": "QST-03",
+      "backup_quest": "QST-05",
+      "assisting_agents": [
+        "AGT-03",
+        "AGT-07",
+        "AGT-12"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\README.md"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-034.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-034",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/README.md"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-035": {
+      "legacy_artifact_id": "LEGACY-035",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\README_COMPLETE.md",
+      "artifact_kind": "legacy_framework_manual",
+      "legacy_class": "promoted_legacy_framework_doc",
+      "family_id": "atlasforge_legacy_docs",
+      "canonical_target": {
+        "path": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "tier": "promoted_live_root",
+        "kind": "runtime_doc",
+        "reentry": "runtime_safe"
+      },
+      "retrofit_mode": "QUARANTINE",
+      "primary_party": "PRT-03",
+      "primary_quest": "QST-03",
+      "backup_quest": "QST-05",
+      "assisting_agents": [
+        "AGT-03",
+        "AGT-07",
+        "AGT-12"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\00_INDEX.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\README_COMPLETE.md"
+      ],
+      "truth_state": "AMBIG",
+      "earth_gate_required": true,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-035.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-035",
+        "status": "AMBIG",
+        "retrofit_mode": "QUARANTINE",
+        "earth_gate_required": true,
+        "landing_ready": false,
+        "next_action": "declare canonical landing and regenerate mirrors"
+      },
+      "status": "quarantined",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip::docs/legacy/README_COMPLETE.md"
+      ],
+      "chapter_reentry": null
+    },
+    "LEGACY-036": {
+      "legacy_artifact_id": "LEGACY-036",
+      "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/athena_kernel/legacy.py",
+      "artifact_kind": "archive_legacy_code",
+      "legacy_class": "archive_legacy_witness",
+      "family_id": "athena_os_legacy_kernel",
+      "canonical_target": {
+        "path": "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/athena_kernel/legacy.py",
+        "tier": "archive_witness_only",
+        "kind": "archive_witness",
+        "reentry": "witness_only"
+      },
+      "retrofit_mode": "WITNESS_ONLY",
+      "primary_party": "PRT-02",
+      "primary_quest": "QST-02",
+      "backup_quest": "QST-04",
+      "assisting_agents": [
+        "AGT-04",
+        "AGT-07",
+        "AGT-14"
+      ],
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.json",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "self_actualize\\archive_atlas.json",
+        "self_actualize\\corpus_atlas.json"
+      ],
+      "truth_state": "OK",
+      "earth_gate_required": false,
+      "appendix_support": [
+        "AppB",
+        "AppI",
+        "AppM",
+        "AppN"
+      ],
+      "replay_target": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip",
+      "pointer_updates": [],
+      "mirror_outputs": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\artifact_cards\\legacy-036.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\10_LEGACY_RETROFIT_MAXIMUM\\legacy_family_board.md"
+      ],
+      "completion_receipt": {
+        "artifact_id": "LEGACY-036",
+        "status": "OK",
+        "retrofit_mode": "WITNESS_ONLY",
+        "earth_gate_required": false,
+        "landing_ready": true,
+        "next_action": "preserve witness and lineage only"
+      },
+      "status": "witness-only",
+      "archive_witnesses": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/athena_kernel/legacy.py"
+      ],
+      "chapter_reentry": null
+    }
+  }
+}

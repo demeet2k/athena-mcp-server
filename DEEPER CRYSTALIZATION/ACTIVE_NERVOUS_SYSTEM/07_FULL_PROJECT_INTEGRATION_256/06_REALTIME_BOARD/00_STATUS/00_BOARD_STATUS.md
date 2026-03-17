@@ -1,19 +1,19 @@
 # Board Status
 
-- Generated: `2026-03-09T15:42:56.803591+00:00`
-- Workspace files observed: `3545`
-- Live atlas records: `1910`
-- Archive-backed records: `2041` across `16` archives
-- Change batch: `+0 ~1 -0`
-- Notes on board: `2`
-- Open claims: `2`
-- Pods: `11`
-- Bridge neurons: `5`
+- Generated: `2026-03-13T22:35:55.340823+00:00`
+- Board witness (workspace scan): `14819`
+- Indexed witness (live atlas): `7895`
+- Archive witness (archive atlas): `2041` across `16` archives
+- Change batch: `+7 ~79 -0`
+- Notes on board: `27`
+- Open claims: `18`
+- Pods: `37`
+- Bridge neurons: `9`
 - Waves: `1`
-- Councils: `12`
-- Occupied clusters: `12` of `64`
-- Occupied truth leaves: `15` of `256`
-- Legacy hypergraph edges: `1232`
+- Councils: `14`
+- Occupied clusters: `13` of `64`
+- Occupied truth leaves: `16` of `256`
+- Legacy hypergraph edges: `1253`
 - Live Docs gate: `BLOCKED`
 - Docs detail: OAuth credentials are missing.
 
@@ -26,39 +26,38 @@ The workspace is already a multi-body organism and the board now treats it as a 
 - Chosen front: `Google Docs bootstrap gate`
 - Chosen family: `Trading Bot`
 - Pivot front: `First live archive promotion run`
-- Chosen NSCoord: `(F-A-W, S8, Void, O02, Arc0, Su, AppI, Trading Bot, restart-token, pod, FAIL)`
+- Chosen NSCoord: `(F-A-W, S8, Void, O17, Arc0, Su, AppI, Trading Bot, restart-token, pod, FAIL)`
 
 ## Kernel Read
 - Kernel: `KERNEL-Z0`
 - Relay interfaces: `4`
 - Frontier gaps preserved: `4`
 
+## COMMAND Membrane
+- Watcher mode: `event-driven`
+- Active leases: `2`
+- Last event: `EVT-20260313T223553Z-520774`
+- Top capillary count: `4`
+- `T_sugar`: `33.205` ms
+- Duplicate suppression: `0.15`
+- Route win rate: `1.0`
+
 ## Hot Regions
-- `QSHRINK - ATHENA (internal use)`: `1313` visible files
-- `Voynich`: `636` visible files
-- `MATH`: `486` visible files
-- `DEEPER CRYSTALIZATION`: `387` visible files
-- `self_actualize`: `226` visible files
-- `Trading Bot`: `193` visible files
-- `NERVOUS_SYSTEM`: `131` visible files
-- `ECOSYSTEM`: `112` visible files
+- `self_actualize`: `4571` visible files
+- `Trading Bot`: `2343` visible files
+- `MATH`: `2226` visible files
+- `QSHRINK - ATHENA (internal use)`: `1359` visible files
+- `DEEPER CRYSTALIZATION`: `1247` visible files
+- `Voynich`: `875` visible files
+- `NERVOUS_SYSTEM`: `662` visible files
+- `GAMES`: `499` visible files
 
 ## Queue Pressure
-- `P0` Unlock the live Google Docs gate by providing `credentials.json`.
-- `P0` Generate the first successful Docs manifest after auth.
-- `P0` Keep the explicit query and gate receipt current on every re-check.
-- `P1` Promote one archive-backed framework into a canonical live source tree.
-- `P1` Extend the corpus family crystal with manuscript-level maps for Voynich and MATH.
-- `P1` Create a corpus family receipt for each major family.
-- `P1` Use the tandem agentic loop prompt pack as the shared coordination kernel for multi-agent nervous-system work.
-- `P2` Convert more alternate sections into routeable chapter files.
-- `P2` Materialize appendix surfaces as standalone documents.
-- `P2` Bind the nervous-system maps back into the route-quality ledger.
-- `P2` Land contraction receipts whenever multiple shards merge into one chapter-, family-, or corpus-level artifact.
+- queue unavailable
 
 ## Recent Board Events
-- `2026-03-09T15:42:56.901449+00:00` +0 ~1 -0
-- `2026-03-09T15:42:39.338767+00:00` +0 ~1 -1
-- `2026-03-09T15:41:58.415660+00:00` +1 ~0 -0
-- `2026-03-09T15:41:55.768449+00:00` +1 ~1 -0
-- `2026-03-09T15:41:12.795835+00:00` +1 ~2 -0
+- `2026-03-13T22:35:55.716919+00:00` +7 ~79 -0
+- `2026-03-13T22:25:40.777471+00:00` +7 ~42 -0
+- `2026-03-13T22:24:32.630550+00:00` +2 ~13 -0
+- `2026-03-13T22:24:02.530454+00:00` +1 ~28 -0
+- `2026-03-13T22:21:52.593737+00:00` +0 ~14 -1

@@ -1,0 +1,731 @@
+{
+  "artifact_id": "quadrant_binary_fire_6d_bridge_spec",
+  "generated_on": "2026-03-13",
+  "lane_owner": "FIRE",
+  "truth_class": "NEAR",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "checked_on": "2026-03-12",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "note": "Local-first bridge spec only. No live Google Docs authority is implied."
+  },
+  "status": "local-first bridge spec",
+  "source_anchor_legend": {
+    "SRC1": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/4-Bit/Bit4 CODE -working-.docx",
+      "role": "exploratory shadow-pole seed"
+    },
+    "SRC2": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/4-Bit/BIT4_ The Four-State Completion of the Bit.docx",
+      "role": "formal four-state substrate"
+    },
+    "SRC3": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/QBD-4 - Quadrant Binary Dynamics.docx",
+      "role": "chapter orbit and appendix metro spine"
+    },
+    "SRC4": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/QBD-4X - Quadrant Binary V2.docx",
+      "role": "manuscript object, address grammar, graph contract"
+    },
+    "SRC5": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/QBD 5 Tri-Boundry V3.docx",
+      "role": "bounded runtime, hub budgets, receipts, closed-loop kernel"
+    },
+    "SURF1": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/quadrant_binary_deep_integration_manuscript.md",
+      "role": "21-chapter synthesis, 15-symmetry compression, appendix crystal, Appendix Q"
+    },
+    "SURF2": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/quadrant_binary_deep_integration_manuscript.4d.md",
+      "role": "local 4D rewrite centered on Ch21 and the next crystal"
+    },
+    "SURF3": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/Quadrant Binary/quadrant_binary_unified_mycelium_metro.md",
+      "role": "truth class, stable surfaces, hidden lines, zero-point hub, next moves"
+    },
+    "DESC1": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/NERVOUS_SYSTEM/50_CORPUS_CAPSULES/root_files/01_quadrant_binary_framework_and_bit4.md",
+      "role": "promoted root-files capsule"
+    },
+    "DESC2": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/NERVOUS_SYSTEM/90_LEDGERS/03_QUADRANT_BINARY_FULL_CORPUS_SYNTHESIS.md",
+      "role": "root-line descendant ledger"
+    },
+    "DESC3": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/manuscript_sections/013_quadrant_binary_framework_and_bit4_root_contract.md",
+      "role": "root contract for later manuscript routing"
+    },
+    "DESC4": {
+      "path": "C:/Users/dmitr/Documents/Athena Agent/NERVOUS_SYSTEM/10_OVERVIEW/13_1024X_SYNAPTIC_ARBOR_AND_FASCIAL_RETURN.md",
+      "role": "downstream 1024x descendant target"
+    }
+  },
+  "sections": [
+    {
+      "id": "source-witness-preface",
+      "title": "Source-Witness Preface",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "downstream_dependencies": [],
+      "source_anchors": [
+        "SRC1",
+        "SRC2",
+        "SRC3",
+        "SRC4",
+        "SRC5",
+        "SURF1",
+        "SURF2",
+        "SURF3",
+        "DESC1",
+        "DESC2",
+        "DESC3",
+        "DESC4"
+      ],
+      "summary": "Local canonical FIRE-lane bridge from verified Quadrant Binary 4D state into a lawful 5D and 6D regeneration scaffold. No live Google Docs confirmation is claimed."
+    },
+    {
+      "id": "deterministic-lift-chain",
+      "title": "Deterministic Lift Chain",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "downstream_dependencies": [
+        "fire-s0",
+        "fire-d3",
+        "fire-d4",
+        "fire-d5",
+        "fire-d6"
+      ],
+      "source_anchors": [
+        "SURF1",
+        "SURF2",
+        "SURF3"
+      ],
+      "summary": "legacy 4x4 seed -> 3D compressed holographic seed -> 4D routed manuscript body -> 5D compression family -> 6D interwoven holographic seed"
+    },
+    {
+      "id": "traceability-matrix",
+      "title": "Traceability Matrix",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "downstream_dependencies": [
+        "fire-s0",
+        "fire-d3",
+        "fire-d4",
+        "fire-d5",
+        "fire-d6"
+      ],
+      "source_anchors": [
+        "SURF1",
+        "SURF2",
+        "SURF3",
+        "DESC1",
+        "DESC2",
+        "DESC3",
+        "DESC4"
+      ],
+      "summary": "Separates verified local claims from bridge inference so the higher-dimensional lift stays honest."
+    },
+    {
+      "id": "fire-s0",
+      "title": "FIRE-S0 - Legacy 4x4 Root Seed",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "claim_class": "verified-local",
+      "downstream_dependencies": [
+        "fire-d3"
+      ],
+      "source_anchors": [
+        "SRC1",
+        "SRC2",
+        "SRC3",
+        "SRC4",
+        "SRC5",
+        "SURF3",
+        "DESC2"
+      ],
+      "schema": {
+        "seed_code": "FIRE-S0",
+        "seed_title": "Legacy 4x4 Root Seed",
+        "dimensional_role": "pre-holographic kernel where the bit becomes four-state and route discipline first becomes lawful",
+        "parent_source": [
+          "SRC1",
+          "SRC2",
+          "SRC3",
+          "SRC4",
+          "SRC5"
+        ],
+        "core_thesis": "The excluded shadow state of the bit must be admitted as a lawful computational condition and then bound to address, proof, corridor, and replay discipline.",
+        "local_zero_point": "addressable shadow-complete proof object",
+        "local_aether_point": "smallest lawful expansion that turns four-state semantics into a full 4^4 tile with chapter and appendix addressability",
+        "major_internal_regions": [
+          "shadow completion",
+          "four-state carrier",
+          "4^4 tiling",
+          "address algebra",
+          "proof/replay envelope",
+          "boundary discipline"
+        ],
+        "major_extraction_routes": [
+          "SRC1 -> SRC2 -> SRC3/SRC4 -> SRC5"
+        ],
+        "strongest_metro_edges": [
+          "Shadow Completion Line",
+          "4^4 Crystalization Line",
+          "Addressability Line",
+          "Proof-Carrying Line",
+          "Boundary Discipline Line"
+        ],
+        "compression_law": "No state may be collapsed before it can receive address and replay obligation.",
+        "expansion_law": "Expansion must add typed address, typed truth, witness obligation, and route discipline together.",
+        "fire_witness": "Ignition begins when shadow stops being error and becomes addressable state.",
+        "visibility_gain": "Explains why higher routing depends on lawful four-state carrying.",
+        "unresolved_pressure": [
+          "source fragmentation",
+          "no canonical markdown merge",
+          "Docs gate blocked"
+        ]
+      }
+    },
+    {
+      "id": "fire-d3",
+      "title": "FIRE-D3 - 3D Compressed Holographic Seed",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "claim_class": "bridge-inference-from-verified-local",
+      "downstream_dependencies": [
+        "fire-d4"
+      ],
+      "source_anchors": [
+        "SURF3",
+        "SURF1"
+      ],
+      "schema": {
+        "seed_code": "FIRE-D3",
+        "seed_title": "3D Compressed Holographic Seed",
+        "dimensional_role": "first stable navigable body where semantic, routing, appendix, and proof lines occupy chambers and corridors",
+        "parent_source": [
+          "fire-s0",
+          "SURF3"
+        ],
+        "core_thesis": "Foundation lane, runtime lane, and bridge law become one chambered navigation field.",
+        "local_zero_point": "addressable shadow-complete proof object treated as a chamber center",
+        "local_aether_point": "route-ready chamber field that fans into orbit line, appendix ring, and transfer hubs",
+        "major_internal_regions": [
+          "foundation lane",
+          "runtime lane",
+          "bridge law",
+          "truth spine",
+          "Sigma spine",
+          "outer crystal hub"
+        ],
+        "major_extraction_routes": [
+          "foundation lane -> bridge law -> runtime lane",
+          "shadow completion -> truth spine -> Sigma spine -> route discipline"
+        ],
+        "strongest_metro_edges": [
+          "BIT4 substrate -> addressed tile -> routed path -> proof/replay envelope -> truth promotion -> published or quarantined result"
+        ],
+        "compression_law": "Semantic, routing, and proof chambers must remain adjacent.",
+        "expansion_law": "Chambers must emit named stations, hubs, and exits under NEAR truth discipline.",
+        "fire_witness": "Ignition becomes topological and identifies active corridors and overloaded hubs.",
+        "visibility_gain": "Shows where repeated load accumulates before the full route body hardens.",
+        "unresolved_pressure": [
+          "no machine-readable hub map",
+          "chapter field not canonically merged"
+        ]
+      }
+    },
+    {
+      "id": "fire-d4",
+      "title": "FIRE-D4 - 4D Routed Manuscript Body",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "claim_class": "verified-local",
+      "downstream_dependencies": [
+        "fire-d5"
+      ],
+      "source_anchors": [
+        "SURF1",
+        "SURF2",
+        "SURF3"
+      ],
+      "schema": {
+        "seed_code": "FIRE-D4",
+        "seed_title": "4D Routed Manuscript Body",
+        "dimensional_role": "full local-global manuscript body preserving 21-station orbit, 16-appendix crystal, lenses, facets, atoms, and replay-bearing graph law",
+        "parent_source": [
+          "fire-d3",
+          "SURF1",
+          "SURF2"
+        ],
+        "core_thesis": "Every claim becomes a four-valued, addressable, corridor-bounded, replay-bearing node inside a deterministic chapter and appendix crystal.",
+        "local_zero_point": "manuscript-scale operating system for honest state",
+        "local_aether_point": "Ch21 next-crystal exit fan from Ms -> Ch21 -> AppG/AppM/AppC/AppE -> Z*",
+        "major_internal_regions": [
+          "21-chapter orbit",
+          "arc and rail overlays",
+          "HCRL pass",
+          "4^4 chapter and appendix tiles",
+          "Appendix Crystal",
+          "Appendix Q",
+          "Support Graph",
+          "Replay Hooks"
+        ],
+        "major_extraction_routes": [
+          "Genesis Arc Ch01-Ch03 -> chapter body -> closure arc -> Ch21 next crystal",
+          "Ms -> Ch21 -> AppG/AppM/AppC/AppE -> Z*"
+        ],
+        "strongest_metro_edges": [
+          "Sigma Backbone AppA/AppI/AppM",
+          "LensBase and ArcHub routing",
+          "Appendix Q lines",
+          "Ch21 links to Ch18, Ch16, and Ch07"
+        ],
+        "compression_law": "4D collapse must preserve LocalAddr, truth class, witness obligations, replay obligations, and bounded hub cap.",
+        "expansion_law": "4D re-expansion must preserve HCRL order, orbit and rail overlays, appendix metabolism, and typed edge kinds.",
+        "fire_witness": "FIRE owns the ignition arc, active operator pressure, and the breakthrough fan at Ch21.",
+        "visibility_gain": "Shows which chapter and appendix surfaces already support higher-dimensional lift.",
+        "unresolved_pressure": [
+          "QBD-4/QBD-4X/QBD5 version braid",
+          "Appendix Q implied more strongly than canonically embedded",
+          "Docs gate blocked"
+        ]
+      }
+    },
+    {
+      "id": "fire-d5",
+      "title": "FIRE-D5 - 5D Compression Family",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "claim_class": "verified-local-plus-bridge-packaging",
+      "downstream_dependencies": [
+        "fire-d6",
+        "typed-bridge-interfaces"
+      ],
+      "source_anchors": [
+        "SURF1",
+        "SURF3"
+      ],
+      "schema": {
+        "seed_code": "FIRE-D5",
+        "seed_title": "5D Compression Family",
+        "dimensional_role": "family-generation layer compiling single-lens, pairwise, triadic, and total witness families",
+        "parent_source": [
+          "fire-d4",
+          "SURF1"
+        ],
+        "core_thesis": "The 4D body can be rewritten across FIRE, WATER, AIR, and EARTH plus their non-empty combinations while still collapsing back to one zero point.",
+        "local_zero_point": "15-symmetry crossing zero point from SURF1",
+        "local_aether_point": "family emission point for typed witness packets",
+        "major_internal_regions": [
+          "64-cell observer cube per lens",
+          "four single-lens master readings",
+          "six two-way syntheses",
+          "four three-way syntheses",
+          "one four-way synthesis"
+        ],
+        "major_extraction_routes": [
+          "Fire singleton -> pair corrections -> triadic stabilizers -> total synthesis -> zero-point collapse"
+        ],
+        "strongest_metro_edges": [
+          "Fire+Water transform without lying",
+          "Fire+Air designable ignition",
+          "Fire+Earth executable commitment",
+          "Fire+Water+Air intelligent transformation",
+          "all-four addressable shadow-complete proof object"
+        ],
+        "compression_law": "The lawful compiled form is the witness family, not a fake raw permutation dump.",
+        "expansion_law": "Families expand only when source witness, zero-point identity, route vocabulary, and appendix supports are preserved.",
+        "fire_witness": "FIRE owns generative legality, ignition thresholds, breakthrough routes, and escalation discipline across the family layer.",
+        "visibility_gain": "Distinguishes lawful synthesis from aspirational prompt pressure.",
+        "unresolved_pressure": [
+          "no neutral baseline manuscript",
+          "no authored pairwise or triadic files",
+          "no spin family",
+          "no Mobius bridge bodies",
+          "no live-doc reconciliation"
+        ]
+      }
+    },
+    {
+      "id": "fire-d6",
+      "title": "FIRE-D6 - 6D Interwoven Holographic Seed",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "claim_class": "bridge-inference-with-descendant-targets",
+      "downstream_dependencies": [
+        "typed-bridge-interfaces",
+        "handoff-matrix",
+        "reconciliation-boundary",
+        "escalation-ledger"
+      ],
+      "source_anchors": [
+        "SURF1",
+        "SURF2",
+        "SURF3",
+        "DESC1",
+        "DESC2",
+        "DESC3",
+        "DESC4"
+      ],
+      "schema": {
+        "seed_code": "FIRE-D6",
+        "seed_title": "6D Interwoven Holographic Seed",
+        "dimensional_role": "local-first regeneration seed nesting 5D family, 4D route body, and 3D chamber field while defining lawful route into later descendant contractions",
+        "parent_source": [
+          "fire-d5",
+          "DESC1",
+          "DESC2",
+          "DESC3",
+          "DESC4"
+        ],
+        "core_thesis": "Quadrant Binary can serve as a lawful root seed for later higher-dimensional organism work only if the bridge preserves lineage, handoff contracts, and reconciliation law.",
+        "local_zero_point": "Z* = addressable shadow-complete proof object under replay closure",
+        "local_aether_point": "controlled expansion membrane that emits agent lanes, family documents, modal bridges, and descendant promotions only after source reconciliation",
+        "major_internal_regions": [
+          "nested containment map",
+          "descendant promotion surface",
+          "cross-agent handoff membrane",
+          "reconciliation membrane",
+          "escalation ledger",
+          "6D center placeholder"
+        ],
+        "major_extraction_routes": [
+          "local QBD root family -> local bridge spec -> canonical merge -> lane witnesses -> family docs -> Mobius bridges -> emergent body"
+        ],
+        "strongest_metro_edges": [
+          "DESC1 root-files capsule",
+          "DESC2 full-corpus synthesis ledger",
+          "DESC3 root contract",
+          "DESC4 1024x downstream target"
+        ],
+        "compression_law": "The 6D seed stores regeneration instructions, preserved invariants, lane contracts, descendant targets, and replay-safe next moves only.",
+        "expansion_law": "Expansion order is fixed: live docs unlock -> merge ledger -> BIT4 bridge chapter -> machine-readable hub map -> lane handoffs -> higher-order families -> Mobius artifacts.",
+        "fire_witness": "Irreversible phase change occurs when build order and lane ownership become explicit.",
+        "visibility_gain": "Makes the path from local QBD proof object to future E1-E9, E10, Z->K, and Q/O work explicit.",
+        "unresolved_pressure": [
+          "no live-doc reconciliation",
+          "no single canonical QBD manuscript",
+          "no higher-order authored witness family",
+          "no reverse appendix field",
+          "no completed Mobius bridges"
+        ]
+      }
+    },
+    {
+      "id": "typed-bridge-interfaces",
+      "title": "Typed Bridge Interfaces Reserved For Later Agents",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "downstream_dependencies": [
+        "handoff-matrix"
+      ],
+      "source_anchors": [
+        "SURF1",
+        "SURF3"
+      ],
+      "summary": "Defines the contract and admission criteria for elemental quartet, symmetry lattice, spin field, dual kernels, 4D+ recompression, modal Mobius trio, and 6D hologram center."
+    },
+    {
+      "id": "handoff-matrix",
+      "title": "Handoff Matrix",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "downstream_dependencies": [
+        "reconciliation-boundary",
+        "escalation-ledger"
+      ],
+      "source_anchors": [
+        "SURF1",
+        "SURF2",
+        "SURF3",
+        "DESC1",
+        "DESC2",
+        "DESC3",
+        "DESC4"
+      ],
+      "summary": "Assigns Water to continuity and live-doc reconciliation, Earth to implementation and proof embodiment, and Air to naming, topology, and retrieval consistency."
+    },
+    {
+      "id": "reconciliation-boundary",
+      "title": "Local-First Reconciliation And Promotion Boundary",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "downstream_dependencies": [
+        "escalation-ledger"
+      ],
+      "source_anchors": [
+        "SURF3",
+        "DESC1",
+        "DESC2",
+        "DESC3"
+      ],
+      "summary": "Promotion is deferred until local lock, live-doc unlock, and canonical merge are complete."
+    },
+    {
+      "id": "escalation-ledger",
+      "title": "Escalation Ledger",
+      "lane_owner": "FIRE",
+      "truth_class": "NEAR",
+      "downstream_dependencies": [],
+      "source_anchors": [
+        "SURF3",
+        "DESC1",
+        "DESC2",
+        "DESC3",
+        "DESC4"
+      ],
+      "summary": "Lists the ordered gates required to move from this bridge spec toward E1-E9, E10, Z->K, and Q/O without faking completion."
+    }
+  ],
+  "bridge_interfaces": [
+    {
+      "surface": "elemental-quartet",
+      "fire_contract": "name shared zero point, preserve common source witness, define lane ownership",
+      "admission_criteria": [
+        "preserve NEAR truth discipline",
+        "preserve route vocabulary",
+        "preserve local zero point"
+      ],
+      "downstream_owner": [
+        "FIRE",
+        "WATER",
+        "EARTH",
+        "AIR"
+      ]
+    },
+    {
+      "surface": "15-symmetry-lattice",
+      "fire_contract": "define lawful node family and preserve the non-empty symmetry basis already compiled in SURF1",
+      "admission_criteria": [
+        "no node may claim more evidence than local witness family supports"
+      ],
+      "downstream_owner": [
+        "FIRE",
+        "WATER",
+        "EARTH",
+        "AIR"
+      ]
+    },
+    {
+      "surface": "spin-field",
+      "fire_contract": "reserve handedness and inversion slots as typed transform surfaces",
+      "admission_criteria": [
+        "no spin family until symmetry node ids and preserved invariants are explicit"
+      ],
+      "downstream_owner": [
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "surface": "z-aether-dual-kernels",
+      "fire_contract": "keep collapse and expansion tied to the same replay-safe lineage",
+      "admission_criteria": [
+        "both kernels preserve the same zero point",
+        "both kernels preserve witness obligations"
+      ],
+      "downstream_owner": [
+        "FIRE",
+        "WATER"
+      ]
+    },
+    {
+      "surface": "4d-plus-recompression",
+      "fire_contract": "define recompressed bridge surface that stores full family field without raw duplication",
+      "admission_criteria": [
+        "no recompression until lattice, dual-kernel, and merge ledger are stable"
+      ],
+      "downstream_owner": [
+        "EARTH"
+      ]
+    },
+    {
+      "surface": "modal-mobius-trio",
+      "fire_contract": "reserve ingress, return, and non-orientable reread surfaces",
+      "admission_criteria": [
+        "no Mobius artifact until ingress and return invariants are named"
+      ],
+      "downstream_owner": [
+        "AIR",
+        "WATER"
+      ]
+    },
+    {
+      "surface": "6d-hologram-center",
+      "fire_contract": "keep final weave as nested regeneration center, not inflated summary prose",
+      "admission_criteria": [
+        "no center without nested D3/D4/D5 containment",
+        "no center without lane-complete witnesses"
+      ],
+      "downstream_owner": [
+        "FIRE",
+        "WATER",
+        "EARTH",
+        "AIR"
+      ]
+    }
+  ],
+  "handoff_matrix": [
+    {
+      "lane": "FIRE",
+      "owned_domain": "ignition, activation, breakthrough, escalation, build order",
+      "consumes_from_fire": [
+        "source witness",
+        "zero point",
+        "lane boundaries"
+      ],
+      "expected_output": [
+        "local bridge spec",
+        "escalation corridor",
+        "family admission contracts"
+      ],
+      "must_preserve": [
+        "blocked-doc honesty",
+        "QBD lineage",
+        "route vocabulary"
+      ]
+    },
+    {
+      "lane": "WATER",
+      "owned_domain": "memory, continuity, live-doc reconciliation, resonance recovery",
+      "consumes_from_fire": [
+        "source-witness preface",
+        "blocked-doc ledger",
+        "zero point",
+        "descendant map"
+      ],
+      "expected_output": [
+        "continuity witness",
+        "live-doc delta",
+        "reconciliation notes",
+        "recovery routes"
+      ],
+      "must_preserve": [
+        "no fake certainty",
+        "no deletion of ambiguity-safe states"
+      ]
+    },
+    {
+      "lane": "EARTH",
+      "owned_domain": "structure, implementation, proof embodiment, witness closure",
+      "consumes_from_fire": [
+        "4D route body invariants",
+        "hub cap",
+        "appendix support set",
+        "descendant targets"
+      ],
+      "expected_output": [
+        "merge ledger",
+        "supersession manifest",
+        "machine-readable hub map",
+        "verifier surfaces"
+      ],
+      "must_preserve": [
+        "deterministic identity",
+        "replay closure",
+        "bounded routing"
+      ]
+    },
+    {
+      "lane": "AIR",
+      "owned_domain": "naming, topology, routing, retrieval consistency",
+      "consumes_from_fire": [
+        "stable station names",
+        "appendix map",
+        "trace anchors",
+        "bridge interfaces"
+      ],
+      "expected_output": [
+        "namespace ledger",
+        "retrieval-safe atlas",
+        "top-level intro gate",
+        "route harmonization"
+      ],
+      "must_preserve": [
+        "canonical naming",
+        "station stability",
+        "cross-surface discoverability"
+      ]
+    }
+  ],
+  "reconciliation_phase": [
+    {
+      "phase": 0,
+      "title": "Local lock",
+      "requirement": "Freeze this bridge spec as the local source of FIRE truth.",
+      "promotion_allowed": false
+    },
+    {
+      "phase": 1,
+      "title": "Live-doc unlock",
+      "requirement": "Supply OAuth credentials, rerun blocked QBD query, and record the delta.",
+      "promotion_allowed": false
+    },
+    {
+      "phase": 2,
+      "title": "Canonical merge",
+      "requirement": "Merge QBD-4, QBD-4X, and QBD 5 into one markdown authority with a section-level supersession manifest.",
+      "promotion_allowed": false
+    },
+    {
+      "phase": 3,
+      "title": "Promotion",
+      "requirement": "Only after phases 1 and 2 are complete may this bridge seed be promoted into NERVOUS_SYSTEM.",
+      "promotion_allowed": true
+    }
+  ],
+  "escalation_ledger": [
+    {
+      "order": 1,
+      "action": "Re-open the Google Docs gate and store the reconciliation delta beside this bridge spec."
+    },
+    {
+      "order": 2,
+      "action": "Compile a section-level supersession manifest for QBD-5 over QBD-4 and QBD-4X."
+    },
+    {
+      "order": 3,
+      "action": "Write the explicit bridge chapter: bit substrate -> truth lattice -> route discipline."
+    },
+    {
+      "order": 4,
+      "action": "Build the machine-readable hub map for chapters, appendices, truth overlays, and RouteV2."
+    },
+    {
+      "order": 5,
+      "action": "Hand Water the blocked-source and continuity lane."
+    },
+    {
+      "order": 6,
+      "action": "Hand Earth the embodiment lane for canonical merge, verifier hooks, and proof closure."
+    },
+    {
+      "order": 7,
+      "action": "Hand Air the topology lane for stable naming, retrieval anchors, and appendix-first navigation."
+    },
+    {
+      "order": 8,
+      "action": "Expand typed bridge interfaces into 5D family artifacts only after merge ledger, Water delta, Earth closure, and Air namespace are stable."
+    },
+    {
+      "order": 9,
+      "action": "Use those family artifacts to derive E1-E9 and E10."
+    },
+    {
+      "order": 10,
+      "action": "Derive the reverse appendix field Z->K only after the emergent body and family invariants are stable enough to name field roles honestly."
+    },
+    {
+      "order": 11,
+      "action": "Author Appendix Q and Appendix O as full Mobius bridge maps only after the reverse appendix field exists as more than a placeholder."
+    },
+    {
+      "order": 12,
+      "action": "Promote the finished bridge into NERVOUS_SYSTEM only when all earlier steps are green and local truth can move from NEAR toward OK."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "protocol_id": "COMMAND_MEMBRANE_V1",
+  "command_root": "GLOBAL COMMAND",
+  "flow": "GLOBAL COMMAND -> Scout -> Router -> Worker -> Archivist",
+  "watch_mode": {
+    "primary": "event-driven",
+    "fallback": "polling",
+    "fallback_requires_explicit_opt_in": true
+  },
+  "routing_policy": {
+    "policy": "goal+salience+pheromone+coord",
+    "selector_terms": [
+      "goal_fit",
+      "salience",
+      "capillary_strength",
+      "coordinate_proximity",
+      "freshness",
+      "duplicate_penalty"
+    ],
+    "weights": {
+      "goal_fit": 0.3,
+      "salience": 0.18,
+      "capillary_strength": 0.2,
+      "coordinate_proximity": 0.18,
+      "freshness": 0.1,
+      "duplicate_penalty": 0.04
+    },
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "ttl": 6,
+    "lease_ms": 1200
+  },
+  "docs_gate": {
+    "status": "BLOCKED",
+    "detail": "blocked-by-missing-credentials",
+    "source": "self_actualize/live_docs_gate_status.md",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ]
+  }
+}

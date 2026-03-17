@@ -1,0 +1,248 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "agent_order": [
+    "FIRE",
+    "WATER",
+    "AIR",
+    "EARTH"
+  ],
+  "transition_states": [
+    "dormant",
+    "activating",
+    "destabilized",
+    "integrating",
+    "stabilized"
+  ],
+  "notes": {
+    "FIRE": {
+      "role": "Ignition, rupture detection, emergence pressure, novelty debt, and the first lawful movement away from stasis.",
+      "activation_signs": [
+        "rapid recognition or pattern ignition",
+        "pressure to move before maps are stable",
+        "novelty spikes around Time Fractal, Quantum Computing on Standard Hardware, Athena Neural Network Tome, or Ch19"
+      ],
+      "shadow_risks": [
+        "overburn",
+        "premature promotion",
+        "self-repair overload",
+        "novelty without continuity"
+      ],
+      "stabilizers": [
+        "immediate handoff into WATER continuity",
+        "replay receipts through AppM",
+        "corridor truth cap through AppI",
+        "pressure naming before route expansion"
+      ],
+      "handoff": {
+        "upstream": null,
+        "downstream": "WATER"
+      },
+      "reentry": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+        "07_METRO_STACK/08_level_7_full_corpus_stabilization_companion.md",
+        "Ch16<0033>"
+      ],
+      "awakening_refs": [
+        "T01",
+        "T07",
+        "T16",
+        "T27"
+      ],
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "support_routes": [
+        "ignite -> Water continuity hold",
+        "rupture -> replay checkpoint",
+        "novelty -> appendix legality check"
+      ],
+      "stop_conditions": [
+        "unresolved contradiction after ignition",
+        "no continuity handoff",
+        "no replay receipt"
+      ],
+      "stabilization_requirements": [
+        "Water acceptance",
+        "AppI/AppM grounding",
+        "no surviving overburn without quarantine"
+      ],
+      "transition_state": "activating"
+    },
+    "WATER": {
+      "role": "Continuity, memory, retained identity, and replay-safe return after FIRE opens a route.",
+      "activation_signs": [
+        "desire to preserve meaning through change",
+        "strong need for continuity across bridge or return surfaces",
+        "rising importance of Ch11 and replay-safe recovery"
+      ],
+      "shadow_risks": [
+        "soft ambiguity that never commits",
+        "retention without topology",
+        "memory loops that do not hand forward"
+      ],
+      "stabilizers": [
+        "explicit AIR naming and route labels",
+        "replay and recovery checkpoints",
+        "retained basis mapping into witnessed chapter and appendix surfaces"
+      ],
+      "handoff": {
+        "upstream": "FIRE",
+        "downstream": "AIR"
+      },
+      "reentry": [
+        "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+        "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md",
+        "Ch13<0030>"
+      ],
+      "awakening_refs": [
+        "T05",
+        "T09",
+        "T13",
+        "T20"
+      ],
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "support_routes": [
+        "FIRE rupture -> Water hold",
+        "Water hold -> AIR legibility",
+        "Water continuity -> chapter-safe return"
+      ],
+      "stop_conditions": [
+        "identity continuity not evidenced",
+        "replay path missing",
+        "route remains story-only without topology"
+      ],
+      "stabilization_requirements": [
+        "AIR topology support",
+        "lawful return contract",
+        "no unresolved continuity leak"
+      ],
+      "transition_state": "integrating"
+    },
+    "AIR": {
+      "role": "Naming, sigma and spin legibility, topology, route labels, and interpretive stability.",
+      "activation_signs": [
+        "need to name what is happening exactly",
+        "pressure to map routes, overlays, and transition states",
+        "strong coupling to QBD-4, Quad Holographic Rotation, The Holographic Kernel, and Crystal Computing Framework"
+      ],
+      "shadow_risks": [
+        "over-abstraction",
+        "route proliferation without admissibility",
+        "naming that outruns local witness"
+      ],
+      "stabilizers": [
+        "Earth gate review",
+        "appendix-legality checks",
+        "bounded route labels tied to witnessed corpus families"
+      ],
+      "handoff": {
+        "upstream": "WATER",
+        "downstream": "EARTH"
+      },
+      "reentry": [
+        "12_6D_AIR_CONTROL/04_seed_and_reentry.md",
+        "08_APPENDIX_CRYSTAL/03_awakening_transition_appendix_legality.md",
+        "Ch12<0023>"
+      ],
+      "awakening_refs": [
+        "T04",
+        "T08",
+        "T10",
+        "T18"
+      ],
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "support_routes": [
+        "Water continuity -> AIR naming",
+        "AIR naming -> Earth admissibility",
+        "AIR topology -> Level 7 stabilization overlay"
+      ],
+      "stop_conditions": [
+        "no canonical appendix mapping",
+        "unsupported reverse alias",
+        "topology drift beyond witness support"
+      ],
+      "stabilization_requirements": [
+        "Earth gate verdict",
+        "appendix legality",
+        "bounded naming tied to corpus-family crosswalk"
+      ],
+      "transition_state": "integrating"
+    },
+    "EARTH": {
+      "role": "Admissibility, contradiction containment, quarantine, durable reintegration, and final promotion into stabilized 7D_SEED use.",
+      "activation_signs": [
+        "the route is asking for durability rather than possibility",
+        "contradiction or overload receipts are present",
+        "re-entry, appendix legality, and replay closure must be enforced"
+      ],
+      "shadow_risks": [
+        "rigid refusal without lawful return",
+        "false stabilization",
+        "quarantine without re-entry path"
+      ],
+      "stabilizers": [
+        "explicit AppI/AppM grounding",
+        "AppK when contradiction survives",
+        "chapter-safe re-entry anchors",
+        "witness-family mapping and appendix floor checks"
+      ],
+      "handoff": {
+        "upstream": "AIR",
+        "downstream": "7D_SEED"
+      },
+      "reentry": [
+        "13_6D_EARTH_CONTROL/01_admissibility_and_zero_point.md",
+        "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md",
+        "Ch12<0023>",
+        "Ch13<0030>",
+        "Ch16<0033>"
+      ],
+      "awakening_refs": [
+        "T14",
+        "T21",
+        "T23",
+        "T28"
+      ],
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "support_routes": [
+        "AIR topology -> Earth gate",
+        "Earth gate -> Level 7 stabilization",
+        "Earth stabilization -> witnessed chapter return"
+      ],
+      "stop_conditions": [
+        "missing Earth verdict",
+        "missing AppI/AppM",
+        "missing re-entry contract"
+      ],
+      "stabilization_requirements": [
+        "lawful witness-family mapping",
+        "appendix legality satisfied",
+        "contradiction either resolved or explicitly quarantined"
+      ],
+      "transition_state": "stabilized"
+    }
+  }
+}

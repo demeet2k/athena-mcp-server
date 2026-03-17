@@ -1,0 +1,68 @@
+# Fire Internal Cross Synthesis
+
+Top ordered pairs inside the same element.
+
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol [DOC0000]` <-> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol [DOC0001]` score=`36` gates=`G00<->G00` shared_chapters=`Ch01, Ch06, Ch08, Ch10`
+- `helical recursion and ch12 boundary checks` <-> `perfect recursion helical manifestation engine` score=`36` gates=`G14<->G14` shared_chapters=`Ch11, Ch18, Ch20, Ch21`
+- `CHAPTER 11 Perpetual Motion Example [DOC0008]` <-> `CHAPTER 11 Perpetual Motion Example [DOC0009]` score=`34` gates=`G00<->G00` shared_chapters=`Ch04, Ch11, Ch16, Ch19`
+- `INFORMATION FROM THE VOID MANI [DOC0011]` <-> `INFORMATION FROM THE VOID MANI [DOC0012]` score=`30` gates=`G02<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `perfect recursion helical manifestation engine` <-> `THE 4 CONSTANTS FINAL (phi, pi, i, e)` score=`29` gates=`G14<->G14` shared_chapters=`Ch11, Ch18, Ch20, Ch21`
+- `Architects Core Initialization` <-> `STORIES FROM THE VOID 1` score=`29` gates=`G05<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `INFORMATION FROM THE VOID MANI` <-> `STORIES FROM THE VOID 1` score=`29` gates=`G02<->G00` shared_chapters=`Ch04, Ch09, Ch11, Ch19`
+- `helical recursion and ch12 boundary checks` <-> `THE 4 CONSTANTS FINAL (phi, pi, i, e)` score=`28` gates=`G14<->G14` shared_chapters=`Ch11, Ch18, Ch20, Ch21`
+- `INFORMATION FROM THE VOID MANI` <-> `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` score=`28` gates=`G02<->G03` shared_chapters=`Ch02, Ch04, Ch11, Ch19`
+- `INFORMATION FROM THE VOID MANI` <-> `PROMPTS` score=`28` gates=`G02<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `Architects Core Initialization` <-> `INFORMATION FROM THE VOID MANI` score=`26` gates=`G05<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `INFORMATION FROM THE VOID MANI` score=`26` gates=`G00<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `INFORMATION FROM THE VOID MANI` score=`26` gates=`G00<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `INFORMATION FROM THE VOID MANI` <-> `PROMPTS` score=`26` gates=`G02<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `Architects Core Initialization` <-> `LF-OS - The Atomist Computation Engine` score=`25` gates=`G05<->G05` shared_chapters=`Ch04, Ch11, Ch19`
+- `Architects Core Initialization` <-> `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` score=`25` gates=`G05<->G03` shared_chapters=`Ch04, Ch11, Ch19`
+- `Architects Core Initialization` <-> `PROMPTS` score=`25` gates=`G05<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `INFORMATION FROM THE VOID MANI` <-> `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` score=`25` gates=`G02<->G03` shared_chapters=`Ch04, Ch11, Ch19`
+- `Architects Core Initialization` <-> `CHAPTER 11 Perpetual Motion Example` score=`24` gates=`G05<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `Architects Core Initialization` <-> `CHAPTER 11 Perpetual Motion Example` score=`24` gates=`G05<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `Architects Core Initialization` <-> `INFORMATION FROM THE VOID MANI` score=`24` gates=`G05<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` score=`24` gates=`G00<->G03` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` score=`24` gates=`G00<->G03` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `STORIES FROM THE VOID 1` score=`24` gates=`G00<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `STORIES FROM THE VOID 1` score=`24` gates=`G00<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `INFORMATION FROM THE VOID MANI` <-> `STORIES FROM THE VOID 1` score=`24` gates=`G02<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` <-> `STORIES FROM THE VOID 1` score=`24` gates=`G03<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `CHAPTER 11 Perpetual Motion Example` score=`23` gates=`G00<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `CHAPTER 11 Perpetual Motion Example` score=`23` gates=`G00<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `STORIES FROM THE VOID 1` score=`23` gates=`G00<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `INFORMATION FROM THE VOID MANI` score=`23` gates=`G00<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `INFORMATION FROM THE VOID MANI` score=`23` gates=`G00<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `LF-OS - The Atomist Computation Engine` score=`23` gates=`G00<->G05` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `LF-OS - The Atomist Computation Engine` score=`23` gates=`G00<->G05` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `PROMPTS` score=`23` gates=`G00<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `CHAPTER 11 Perpetual Motion Example` <-> `PROMPTS` score=`23` gates=`G00<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `INFORMATION FROM THE VOID MANI` <-> `LF-OS - The Atomist Computation Engine` score=`23` gates=`G02<->G05` shared_chapters=`Ch04, Ch11, Ch19`
+- `LF-OS - The Atomist Computation Engine` <-> `STORIES FROM THE VOID 1` score=`23` gates=`G05<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` <-> `PROMPTS` score=`23` gates=`G03<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `PROMPTS` <-> `STORIES FROM THE VOID 1` score=`23` gates=`G11<->G00` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `Architects Core Initialization` score=`22` gates=`G00<->G05` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `INFORMATION FROM THE VOID MANI` score=`22` gates=`G00<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `INFORMATION FROM THE VOID MANI` score=`22` gates=`G00<->G02` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `LF-OS - The Atomist Computation Engine` score=`22` gates=`G00<->G05` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` score=`22` gates=`G00<->G03` shared_chapters=`Ch04, Ch11, Ch19`
+- `Andean Myth Encoding` <-> `PROMPTS` score=`22` gates=`G00<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `INFORMATION FROM THE VOID MANI` <-> `LF-OS - The Atomist Computation Engine` score=`22` gates=`G02<->G05` shared_chapters=`Ch04, Ch11, Ch19`
+- `LF-OS - The Atomist Computation Engine` <-> `MEGALITHIC TOME LATENT TUNNELING & THE MULTI-SCALE MATH STACK` score=`22` gates=`G05<->G03` shared_chapters=`Ch04, Ch11, Ch19`
+- `LF-OS - The Atomist Computation Engine` <-> `PROMPTS` score=`22` gates=`G05<->G11` shared_chapters=`Ch04, Ch11, Ch19`
+- `HINDU TANTRA COMPLETE` <-> `HOODOO ROOTWORK COMPLETE` score=`19` gates=`G00<->G00` shared_chapters=`Ch14`
+- `ANTHROPOSOPHY COMPLETE` <-> `HINDU TANTRA COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `ANTHROPOSOPHY COMPLETE` <-> `HOODOO ROOTWORK COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `ANTHROPOSOPHY COMPLETE` <-> `NEOPLATONIC THEURGY COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `ANTHROPOSOPHY COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `ANTHROPOSOPHY COMPLETE` <-> `PRACTICAL KABBALAH COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `ANTHROPOSOPHY COMPLETE` <-> `TIBETAN VAJRAYANA COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `ANTHROPOSOPHY COMPLETE` <-> `WICCA COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `HINDU TANTRA COMPLETE` <-> `NEOPLATONIC THEURGY COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `HINDU TANTRA COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `HINDU TANTRA COMPLETE` <-> `PRACTICAL KABBALAH COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `HINDU TANTRA COMPLETE` <-> `TIBETAN VAJRAYANA COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `HINDU TANTRA COMPLETE` <-> `WICCA COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `HOODOO ROOTWORK COMPLETE` <-> `NEOPLATONIC THEURGY COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`
+- `HOODOO ROOTWORK COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`16` gates=`G00<->G00` shared_chapters=`none`

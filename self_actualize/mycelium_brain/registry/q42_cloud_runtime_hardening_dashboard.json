@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-03-13T03:11:23.162244+00:00",
+  "derivation_version": "2026-03-13.q42-cloud-runtime-hardening-v1",
+  "truth": "OK",
+  "active_subfront": "QS64-19 Connectivity-Diagnose-Cloud",
+  "cloud_sync_status": "OK",
+  "runtime_carrier_status": "OK",
+  "promoted_pressure": "P2",
+  "queue_visible_follow_on": "P3",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "verifier_truth": {
+    "qshrink_runtime_verification": "OK",
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK",
+    "runtime_waist": "OK"
+  },
+  "next_restart_seed": "QS64-20 Connectivity-Diagnose-Fractal"
+}

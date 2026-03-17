@@ -1,6 +1,6 @@
 # Ganglion `FRESH`
 
-- Weight: `6`
+- Weight: `10`
 - PrimaryRail: `Me`
 - PrimaryFace: `Void`
 - PreferredScale: `G4`

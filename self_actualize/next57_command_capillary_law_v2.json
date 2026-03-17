@@ -1,0 +1,42 @@
+{
+  "mirror_of": "COMMAND_MEMBRANE_PROTOCOL_V2",
+  "protocol_id": "COMMAND_MEMBRANE_PROTOCOL_V2",
+  "law_id": "COMMAND_CAPILLARY_UPDATE_V2",
+  "formula": "strength_next = gold_strength + bridge_weight * bridge_strength",
+  "gold_deposit_law": "DeltaG = mu * total_reward * edge_contribution",
+  "bridge_deposit_law": "DeltaB = nu * try_reward * (1 - heaven_score_verified) * edge_contribution",
+  "evaporation_law": "rho = rho0 + rho1 * (1 - avg_heaven_verified)",
+  "coefficient_defaults": {
+    "rho0": 0.08,
+    "rho1": 0.42,
+    "rho_b": 0.18,
+    "bridge_weight": 0.35
+  },
+  "thresholds": {
+    "ephemeral": {
+      "max_score": 0.699999
+    },
+    "capillary": {
+      "min_score": 0.7,
+      "min_successes": 3
+    },
+    "vein": {
+      "min_score": 0.85,
+      "min_successes": 7
+    }
+  },
+  "channels": {
+    "gold_strength": "verified success reinforcement",
+    "bridge_strength": "exploration and lawful trying reinforcement"
+  },
+  "edge_classes": [
+    "ephemeral",
+    "capillary",
+    "vein"
+  ],
+  "compatibility_projection": {
+    "strength": "scalar capillary strength",
+    "pheromone": "legacy alias of strength"
+  },
+  "poor_route_policy": "poor routes are not punished; they dry out through evaporation"
+}

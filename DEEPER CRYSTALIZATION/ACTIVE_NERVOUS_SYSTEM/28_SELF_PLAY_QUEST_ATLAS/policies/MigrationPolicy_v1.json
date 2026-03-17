@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "migration",
+  "description": "Migration freeze window, replay suite, and rollback plan rules",
+  "freeze_window": {
+    "duration_epochs": 13,
+    "description": "During a migration freeze, no new quests may be submitted or evaluated",
+    "rules": [
+      "Freeze begins when a Migration quest at S19 enters EVALUATING state",
+      "During freeze: all quest submissions are queued but not processed",
+      "During freeze: all active evaluations are paused",
+      "During freeze: read access to all data remains available",
+      "During freeze: sealed receipts remain immutable and accessible",
+      "Freeze ends when migration quest reaches SEALED or FAILED state",
+      "If freeze exceeds duration_epochs, automatic rollback is triggered"
+    ]
+  },
+  "replay_suite": {
+    "description": "Full replay validation required before migration commits",
+    "requirements": [
+      "All SEALED quests must pass deterministic replay verification",
+      "Replay suite must cover at least 89% of all sealed receipts",
+      "Any replay failure triggers migration FAILED state and rollback",
+      "Replay suite runs in isolated sandbox environment",
+      "Replay results are logged in a MigrationReplayBundle"
+    ],
+    "coverage_threshold": 0.89,
+    "max_replay_duration_epochs": 8,
+    "parallel_replay_workers": 13
+  },
+  "rollback_plan": {
+    "description": "Automatic and manual rollback procedures",
+    "automatic_triggers": [
+      "Freeze window exceeded without migration completion",
+      "Replay suite coverage below threshold (89%)",
+      "Any HARD invariant violation detected during migration",
+      "3 or more replay failures in the suite"
+    ],
+    "rollback_procedure": [
+      "1. Halt all migration-related processing",
+      "2. Restore quest state to pre-freeze snapshot",
+      "3. Release all queued quest submissions for processing",
+      "4. Resume paused evaluations from checkpoint",
+      "5. Log rollback event with full diagnostic bundle",
+      "6. Notify all active players of rollback completion",
+      "7. Migration quest moves to FAILED state"
+    ],
+    "manual_rollback": {
+      "authority": "Requires Policy Forum (S18) governance vote",
+      "quorum": "Majority of seated stewards",
+      "cooldown_after_rollback_epochs": 34
+    },
+    "snapshot_retention_epochs": 89
+  }
+}

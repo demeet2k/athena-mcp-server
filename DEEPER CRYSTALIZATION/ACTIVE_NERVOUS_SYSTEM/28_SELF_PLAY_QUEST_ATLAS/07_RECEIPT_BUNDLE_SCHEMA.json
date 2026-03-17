@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "description": "Schema definitions for quest receipt bundles and witness validation",
+  "definitions": {
+    "ClaimPack.v1": {
+      "type": "object",
+      "description": "A claim submitted by a player for quest completion",
+      "required": ["claim_id", "station", "quest_class", "player_id", "timestamp", "evidence_hash", "truth_state"],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "pattern": "^CLM-[0-9]{8}T[0-9]{6}Z-[a-f0-9]{6}$",
+          "description": "Unique claim identifier with timestamp"
+        },
+        "station": {
+          "type": "string",
+          "pattern": "^S[0-9]{2}$",
+          "description": "Station number S01-S19"
+        },
+        "quest_class": {
+          "type": "string",
+          "enum": ["Solo", "Guild", "Community", "Repair", "TempleRite", "Storm", "Crown", "Certification", "Resonance", "Publish", "Seeding", "Governance", "Policy", "Migration"]
+        },
+        "player_id": {
+          "type": "string",
+          "description": "Unique player identifier"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidence_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "SHA-256 hash of the evidence payload"
+        },
+        "truth_state": {
+          "type": "string",
+          "enum": ["OK", "NEAR", "AMBIG", "VOID"],
+          "description": "Current truth classification of the claim"
+        },
+        "pass_number": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "description": "Which pass (1=Discovery, 2=Refinement, 3=Mastery)"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["trivial", "standard", "hard", "legendary"]
+        },
+        "payout_computed": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Computed payout from the payout matrix"
+        }
+      }
+    },
+    "WitnessBundle.v1": {
+      "type": "object",
+      "description": "A bundle of witness attestations for a claim",
+      "required": ["bundle_id", "claim_id", "witnesses", "quorum_met", "timestamp"],
+      "properties": {
+        "bundle_id": {
+          "type": "string",
+          "pattern": "^WIT-[0-9]{8}T[0-9]{6}Z-[a-f0-9]{6}$"
+        },
+        "claim_id": {
+          "type": "string",
+          "description": "Reference to the ClaimPack being witnessed"
+        },
+        "witnesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["witness_id", "attestation", "signature_hash"],
+            "properties": {
+              "witness_id": {"type": "string"},
+              "attestation": {
+                "type": "string",
+                "enum": ["CONFIRM", "DISPUTE", "ABSTAIN"]
+              },
+              "signature_hash": {
+                "type": "string",
+                "pattern": "^sha256:[a-f0-9]{64}$"
+              },
+              "notes": {"type": "string"}
+            }
+          },
+          "minItems": 1
+        },
+        "quorum_met": {
+          "type": "boolean",
+          "description": "Whether the required witness quorum was reached"
+        },
+        "quorum_threshold": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of CONFIRM attestations required"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ReplayBundle.v1": {
+      "type": "object",
+      "description": "A deterministic replay record for quest verification",
+      "required": ["replay_id", "claim_id", "station", "seed", "steps", "outcome_hash"],
+      "properties": {
+        "replay_id": {
+          "type": "string",
+          "pattern": "^RPL-[0-9]{8}T[0-9]{6}Z-[a-f0-9]{6}$"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "station": {
+          "type": "string",
+          "pattern": "^S[0-9]{2}$"
+        },
+        "seed": {
+          "type": "integer",
+          "description": "Deterministic RNG seed for replay"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["step_index", "action", "state_hash"],
+            "properties": {
+              "step_index": {"type": "integer", "minimum": 0},
+              "action": {"type": "string"},
+              "state_hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+              "timestamp_offset_ms": {"type": "integer"}
+            }
+          }
+        },
+        "outcome_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "Hash of the final outcome state"
+        },
+        "determinism_verified": {
+          "type": "boolean",
+          "description": "Whether replay produces identical outcome_hash"
+        }
+      }
+    },
+    "ReceiptRegistry": {
+      "type": "object",
+      "description": "Registry tracking all receipts for a player or station",
+      "required": ["registry_id", "entries", "total_payout", "last_updated"],
+      "properties": {
+        "registry_id": {
+          "type": "string",
+          "pattern": "^REG-[a-f0-9]{8}$"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["claim_id", "station", "truth_state", "payout", "timestamp"],
+            "properties": {
+              "claim_id": {"type": "string"},
+              "station": {"type": "string"},
+              "truth_state": {"type": "string", "enum": ["OK", "NEAR", "AMBIG", "VOID"]},
+              "payout": {"type": "number"},
+              "timestamp": {"type": "string", "format": "date-time"},
+              "sealed": {"type": "boolean", "default": false}
+            }
+          }
+        },
+        "total_payout": {
+          "type": "number",
+          "description": "Sum of all OK and NEAR payouts"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "SealedReceiptBundle.v1": {
+      "type": "object",
+      "description": "An immutable sealed bundle containing a claim, its witnesses, and replay proof",
+      "required": ["seal_id", "claim", "witness_bundle", "replay_bundle", "seal_hash", "sealed_at"],
+      "properties": {
+        "seal_id": {
+          "type": "string",
+          "pattern": "^SEAL-[0-9]{8}T[0-9]{6}Z-[a-f0-9]{6}$"
+        },
+        "claim": {
+          "$ref": "#/definitions/ClaimPack.v1"
+        },
+        "witness_bundle": {
+          "$ref": "#/definitions/WitnessBundle.v1"
+        },
+        "replay_bundle": {
+          "$ref": "#/definitions/ReplayBundle.v1"
+        },
+        "seal_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "Hash of the entire sealed bundle for tamper detection"
+        },
+        "sealed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "immutable": {
+          "type": "boolean",
+          "const": true,
+          "description": "Once sealed, this bundle cannot be modified"
+        }
+      }
+    }
+  }
+}

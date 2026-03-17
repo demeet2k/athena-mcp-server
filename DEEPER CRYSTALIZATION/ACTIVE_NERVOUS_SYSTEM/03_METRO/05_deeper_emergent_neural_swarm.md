@@ -22,15 +22,16 @@ The swarm is not a metaphor-only layer here. It is the recursive organization th
 
 ## Family synth nodes
 
-- `civilization-and-governance`: docs=46, dominant-signal=governance, lanes=A, feeds=Ch17, Ch18, Ch20, Ch21.
+- `civilization-and-governance`: docs=42, dominant-signal=governance, lanes=A, feeds=Ch17, Ch18, Ch20, Ch21.
 - `general-corpus`: docs=30, dominant-signal=runtime, lanes=A, feeds=Ch02, Ch03, Ch10, Ch13, Ch14, Ch19.
+- `helical-recursion-engine`: docs=3, dominant-signal=helical, lanes=A, feeds=Ch11, Ch18, Ch20, Ch21.
 - `higher-dimensional-geometry`: docs=13, dominant-signal=higher_dimensional, lanes=A, feeds=Ch05, Ch06, Ch07, Ch08.
-- `identity-and-instruction`: docs=11, dominant-signal=identity, lanes=E, feeds=Ch09, Ch10, Ch13, Ch16, Ch17, Ch20.
+- `identity-and-instruction`: docs=14, dominant-signal=identity, lanes=E, feeds=Ch02, Ch09, Ch10, Ch13, Ch16, Ch17, Ch19, Ch20.
 - `live-orchestration`: docs=1, dominant-signal=swarm, lanes=A,E, feeds=Ch09, Ch19, Ch20, Ch21.
-- `manuscript-architecture`: docs=16, dominant-signal=routing, lanes=E, feeds=Ch01, Ch06, Ch08, Ch09, Ch10, Ch11, Ch14, Ch16, Ch19.
+- `manuscript-architecture`: docs=16, dominant-signal=routing, lanes=E, feeds=Ch01, Ch06, Ch08, Ch09, Ch10, Ch14, Ch16, Ch19.
 - `mythic-sign-systems`: docs=29, dominant-signal=sign_system, lanes=A,C, feeds=Ch02, Ch09, Ch13, Ch18.
-- `transport-and-runtime`: docs=38, dominant-signal=runtime, lanes=C, feeds=Ch07, Ch15, Ch16, Ch18.
-- `void-and-collapse`: docs=10, dominant-signal=void, lanes=A, feeds=Ch02, Ch04, Ch09, Ch10, Ch11, Ch12, Ch16, Ch19.
+- `transport-and-runtime`: docs=39, dominant-signal=runtime, lanes=C, feeds=Ch07, Ch15, Ch16, Ch18.
+- `void-and-collapse`: docs=10, dominant-signal=void, lanes=A,C, feeds=Ch02, Ch04, Ch09, Ch10, Ch11, Ch12, Ch16, Ch19.
 
 ## Zero-point swarm cells
 

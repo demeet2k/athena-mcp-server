@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-03-13T20:50:13.669907+00:00",
+  "protocol_id": "COMMAND-SENSORY-MEMBRANE-CANON-V1",
+  "canonical_surface": "GLOBAL COMMAND/ATHENA",
+  "canonical_mode": "COMMAND_CANON_ROOT",
+  "legacy_family_pass_role": "MIRROR_ONLY_RENDERER",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "witness_class": "LOCAL_WITNESS_ONLY",
+    "reason": "blocked-by-missing-credentials",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ]
+  },
+  "pipeline": [
+    "COMMAND FOLDER",
+    "Scout",
+    "Router",
+    "Worker",
+    "Archivist"
+  ],
+  "routing_defaults": {
+    "policy_id": "goal+salience+pheromone+coord",
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "ttl": 6,
+    "lease_ms": 1200
+  },
+  "coord12_semantics": {
+    "Xs": "utc_ts",
+    "Ys": "earth_rotation_phase",
+    "Zs": "earth_orbital_phase",
+    "Ts": "node_geo_anchor",
+    "Qs": "solar_phase",
+    "Rs": "lunar_phase",
+    "Cs": "sidereal_phase",
+    "Fs": "sky_anchor_slot",
+    "Ms": "runtime_region",
+    "Ns": "queue_pressure",
+    "Hs": "goal_salience",
+    "OmegaS": "novelty_routing_state"
+  },
+  "capillary_law": {
+    "formula": "C_next = clamp(0,1, rho*C + alpha*U + beta*F - gamma*D - delta*N)",
+    "weights": {
+      "rho": 0.92,
+      "alpha": 0.3,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.2
+    },
+    "thresholds": {
+      "vein": 0.88,
+      "capillary": 0.7,
+      "dormant": 0.35
+    }
+  },
+  "latency_law": {
+    "formula": "T_sugar = T_detect + T_encode + T_route + T_claim + T_commit",
+    "metrics": [
+      "T_detect",
+      "T_encode",
+      "T_route",
+      "T_claim",
+      "T_commit",
+      "T_sugar"
+    ]
+  }
+}

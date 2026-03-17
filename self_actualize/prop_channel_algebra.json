@@ -1,0 +1,339 @@
+{
+  "generated_at": "2026-03-09T20:31:39.127816+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_prop_channel_algebra",
+  "chapter_name": "Chapter 17: Prop Types - The Physics Of Communication Channels",
+  "station": "<0100>",
+  "chapter_address": "Arc 5 / Su Rail / Seed",
+  "prerequisites": [
+    "Ch11",
+    "Ch12",
+    "Ch13",
+    "Ch14",
+    "Ch15",
+    "Ch16"
+  ],
+  "deliverables": [
+    "typed channel-physics algebra for five prop families",
+    "prop x count bandwidth matrix",
+    "state-complexity hierarchy",
+    "single-to-quad scaling",
+    "VTG trace library as monitoring protocol",
+    "club-spin session-handoff algebra"
+  ],
+  "forward_references": [
+    "Ch18",
+    "Ch19",
+    "Ch20"
+  ],
+  "bandwidth_progression": {
+    "ring": 0.618,
+    "poi": 0.618,
+    "ball": 1.0,
+    "club": 1.618,
+    "staff": 2.618
+  },
+  "props": [
+    {
+      "prop": "ball",
+      "channel_type": "stateless_data_packet",
+      "state_model": "stateless",
+      "bandwidth": 1.0,
+      "error_mode": "drop",
+      "error_impact": "local",
+      "recovery_cost": "1-2 beats",
+      "definition_fields": [
+        "payload",
+        "position",
+        "timing",
+        "weight"
+      ],
+      "physical_read": "caught by position and timing alone",
+      "communication_read": "self-contained message requiring no sender-state knowledge",
+      "use_cases": [
+        "factual query",
+        "lookup request",
+        "formatted data transfer",
+        "routine one-shot packet"
+      ],
+      "count_profiles": [
+        {
+          "count": "1",
+          "physical_pattern": "single toss-and-catch",
+          "channel_mode": "one-to-one query",
+          "use_case": "quick factual question"
+        },
+        {
+          "count": "2",
+          "physical_pattern": "paired exchange",
+          "channel_mode": "comparison lane",
+          "use_case": "A/B testing or cross-validation"
+        },
+        {
+          "count": "3",
+          "physical_pattern": "cascade / fountain / shower",
+          "channel_mode": "full three-pod circulation",
+          "use_case": "standard multi-agent round-robin"
+        },
+        {
+          "count": "4+",
+          "physical_pattern": "scaled pattern",
+          "channel_mode": "full pod-scale data routing",
+          "use_case": "high-volume stateless coordination"
+        }
+      ],
+      "formulas": [
+        "B = (payload, position, timing, weight)",
+        "Accuracy(B) = A_height * A_lateral * A_temporal"
+      ]
+    },
+    {
+      "prop": "club",
+      "channel_type": "stateful_packet",
+      "state_model": "stateful_spin_orientation_grip",
+      "bandwidth": 1.618,
+      "error_mode": "knob_catch",
+      "error_impact": "propagating",
+      "recovery_cost": "3-5 beats",
+      "definition_fields": [
+        "payload",
+        "state",
+        "spin",
+        "orientation",
+        "grip"
+      ],
+      "physical_read": "clean catch depends on spin count, handle direction, and grip alignment",
+      "communication_read": "work-in-progress or context-bearing handoff that requires state alignment",
+      "use_cases": [
+        "analysis handoff",
+        "work-in-progress transfer",
+        "partial D/Q/I bundle",
+        "verification pipeline stage transfer"
+      ],
+      "count_profiles": [
+        {
+          "count": "1",
+          "physical_pattern": "single club manipulation",
+          "channel_mode": "one stateful handoff",
+          "use_case": "passing one analysis between two agents"
+        },
+        {
+          "count": "2",
+          "physical_pattern": "double club passing",
+          "channel_mode": "dual stateful streams",
+          "use_case": "bidirectional handoff"
+        },
+        {
+          "count": "3",
+          "physical_pattern": "club cascade / fountain",
+          "channel_mode": "full three-pod stateful loop",
+          "use_case": "round-robin WIP coordination"
+        },
+        {
+          "count": "4+",
+          "physical_pattern": "multi-club patterns",
+          "channel_mode": "full pod-scale state routing",
+          "use_case": "large stateful coordination"
+        }
+      ],
+      "formulas": [
+        "C = (payload, state, spin, orientation, grip)",
+        "spin(A->B) + spin(B->C) <= 3"
+      ]
+    },
+    {
+      "prop": "ring",
+      "channel_type": "framing_constraint",
+      "state_model": "aperture_plane_diameter",
+      "bandwidth": 0.618,
+      "error_mode": "snag",
+      "error_impact": "blocking",
+      "recovery_cost": "2-3 beats",
+      "definition_fields": [
+        "aperture",
+        "plane",
+        "diameter",
+        "rigidity"
+      ],
+      "physical_read": "defines a boundary or aperture rather than carrying mass-state",
+      "communication_read": "schema, template, or verification frame that content must pass through",
+      "use_cases": [
+        "seed format",
+        "verification contract",
+        "schema or template",
+        "multi-constraint framing"
+      ],
+      "count_profiles": [
+        {
+          "count": "1",
+          "physical_pattern": "single hoop",
+          "channel_mode": "one framing constraint",
+          "use_case": "single schema or template"
+        },
+        {
+          "count": "2",
+          "physical_pattern": "double hoop",
+          "channel_mode": "dual constraint stack",
+          "use_case": "must satisfy two independent schemas"
+        },
+        {
+          "count": "3",
+          "physical_pattern": "triple hoop",
+          "channel_mode": "triple constraint stack",
+          "use_case": "high-rigor output gate"
+        },
+        {
+          "count": "4+",
+          "physical_pattern": "over-constrained stack",
+          "channel_mode": "usually counterproductive",
+          "use_case": "decompose instead of stacking"
+        }
+      ],
+      "formulas": [
+        "R = (aperture, plane, diameter, rigidity)"
+      ]
+    },
+    {
+      "prop": "poi",
+      "channel_type": "continuous_monitoring_channel",
+      "state_model": "orbit_plane_trace",
+      "bandwidth": 0.618,
+      "error_mode": "tangle",
+      "error_impact": "narrowing",
+      "recovery_cost": "3-4 beats",
+      "definition_fields": [
+        "orbit_radius",
+        "plane",
+        "frequency",
+        "trace_pattern"
+      ],
+      "physical_read": "continuous tethered orbit tracing geometry through space",
+      "communication_read": "always-on background monitoring with adjustable monitoring geometry",
+      "use_cases": [
+        "long-running task monitoring",
+        "convergence tracking",
+        "invariance testing",
+        "dual-agent correlated monitoring"
+      ],
+      "count_profiles": [
+        {
+          "count": "1",
+          "physical_pattern": "single poi",
+          "channel_mode": "one monitoring channel",
+          "use_case": "minimum background awareness"
+        },
+        {
+          "count": "2",
+          "physical_pattern": "double poi",
+          "channel_mode": "dual monitoring channel",
+          "use_case": "standard dual monitoring"
+        },
+        {
+          "count": "3",
+          "physical_pattern": "triple poi",
+          "channel_mode": "three monitoring channels",
+          "use_case": "pod-scale background monitoring"
+        },
+        {
+          "count": "4",
+          "physical_pattern": "quad poi",
+          "channel_mode": "monitoring-only mode",
+          "use_case": "all limbs dedicated to monitoring"
+        }
+      ],
+      "formulas": [
+        "P = (orbit_radius, plane, frequency, trace_pattern)"
+      ]
+    },
+    {
+      "prop": "staff",
+      "channel_type": "broadcast_override_channel",
+      "state_model": "full_pod_broadcast",
+      "bandwidth": 2.618,
+      "error_mode": "collision",
+      "error_impact": "global",
+      "recovery_cost": "5+ beats",
+      "definition_fields": [
+        "payload",
+        "scope",
+        "priority",
+        "lever_arm"
+      ],
+      "physical_read": "sweeps through the entire workspace and forces all other motion to clear",
+      "communication_read": "broadcast or governance directive reaching all agents at once",
+      "use_cases": [
+        "global seed update",
+        "priority override",
+        "session start or stop",
+        "whole-pod governance directive"
+      ],
+      "count_profiles": [
+        {
+          "count": "1",
+          "physical_pattern": "single staff",
+          "channel_mode": "one broadcast channel",
+          "use_case": "one whole-pod directive"
+        },
+        {
+          "count": "2",
+          "physical_pattern": "double staff",
+          "channel_mode": "dual broadcast channel",
+          "use_case": "seed plus constraint or parallel broadcast"
+        },
+        {
+          "count": "3+",
+          "physical_pattern": "triple or more staves",
+          "channel_mode": "message flooding",
+          "use_case": "avoid except in exceptional governance cases"
+        }
+      ],
+      "formulas": [
+        "S = (payload, scope=ALL, priority=OVERRIDE, lever_arm)"
+      ]
+    }
+  ],
+  "vtg_modes": [
+    {
+      "name": "extension",
+      "trace": "expanding or contracting circles",
+      "protocol": "gradual scope adjustment",
+      "use_when": "widening or narrowing research scope",
+      "parameter": "radius_delta_per_cycle"
+    },
+    {
+      "name": "flower",
+      "trace": "inscribed n-petal pattern",
+      "protocol": "cyclic sub-topic exploration",
+      "use_when": "agent should revisit n aspects repeatedly",
+      "parameter": "petal_count"
+    },
+    {
+      "name": "isolation",
+      "trace": "fixed-point hover",
+      "protocol": "invariance testing",
+      "use_when": "checking whether a claim survives context change",
+      "parameter": "fixed_point_address"
+    },
+    {
+      "name": "cap",
+      "trace": "dual synchronized orbits",
+      "protocol": "correlated dual-agent monitoring",
+      "use_when": "tracking complementary or anti-correlated outputs",
+      "parameter": "correlation_target"
+    },
+    {
+      "name": "antispin",
+      "trace": "inward-pointing petals",
+      "protocol": "convergence tracking",
+      "use_when": "monitoring D/Q/I collapse toward zero point",
+      "parameter": "convergence_threshold"
+    }
+  ],
+  "selection_function": "Channel* = argmax[(BW(C) * Match(C, message)) / (Risk(C) * (1 + DR_C))]",
+  "heuristics": [
+    "default to balls for routine stateless queries",
+    "upgrade to clubs when the handoff carries sender-state or work-in-progress context",
+    "use rings when setting schemas, seeds, or verification frames",
+    "use poi for background monitoring, convergence tracking, or correlated observation",
+    "use staff sparingly for governance broadcasts that every agent must hear simultaneously"
+  ]
+}

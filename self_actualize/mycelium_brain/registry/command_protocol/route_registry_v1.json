@@ -1,0 +1,19 @@
+{
+  "policy_name": "goal+salience+pheromone+coord+capability+load",
+  "topk_default": 5,
+  "claim_mode_default": "first-lease",
+  "quorum_default": 1,
+  "watch_scope": "GLOBAL COMMAND recursive",
+  "path_classes": [
+    "structural",
+    "quest",
+    "executable",
+    "document"
+  ],
+  "routing_truth": {
+    "ZeroClass": ["Z0", "Z1", "Z2", "Z3", "Z4"],
+    "OrganClass": ["Organ-1", "Organ-2", "Organ-3", "Organ-4", "Organ-5", "Organ-6"],
+    "Current": ["Current-1", "Current-2", "Current-3", "Current-4", "Current-5"],
+    "Truth": ["OK", "NEAR", "AMBIG", "FAIL"]
+  }
+}

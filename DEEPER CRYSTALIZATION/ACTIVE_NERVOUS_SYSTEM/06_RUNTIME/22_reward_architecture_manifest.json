@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-03-13T21:40:51.642019+00:00",
+  "protocol_id": "HEAVEN-REWARD-V2",
+  "truth_status": "local-witnessed / NEAR-derived",
+  "docs_gate": "BLOCKED",
+  "authoritative_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\adventurer_heaven_reward_state.json",
+  "layer_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\20_REWARD_ARCHITECTURE",
+  "policy_registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\registry\\reward_architecture_v2_policy.json",
+  "hall_mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\20_HEAVEN_REWARD_GRADIENT_MIRROR.md",
+  "temple_mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\10_HEAVEN_REWARD_DOCTRINE.md",
+  "temple_of_alchemy_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\11_TEMPLE_OF_ALCHEMY_REWARD_LENS.md",
+  "supplement_paths": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\029_reward_architecture_v2_shared_xp_debt_and_ascension.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\030_temple_of_alchemy_metallic_amplifier_and_chapter11_reward_registry.md"
+  ],
+  "supplement_entry_ids": [
+    "Supp13",
+    "Supp14"
+  ],
+  "agent_count": 8,
+  "quest_receipt_count": 16,
+  "ascension_receipt_count": 0,
+  "chapter11_record_count": 0,
+  "verification_passed": true,
+  "live_docs_blocked": true,
+  "self_play_cross_refs": {
+    "reward_policy": "ACTIVE_NERVOUS_SYSTEM/28_SELF_PLAY_QUEST_ATLAS/policies/RewardPolicy_v1.json",
+    "quest_policy": "ACTIVE_NERVOUS_SYSTEM/28_SELF_PLAY_QUEST_ATLAS/policies/QuestPolicy_v1.json",
+    "temple_policy": "ACTIVE_NERVOUS_SYSTEM/28_SELF_PLAY_QUEST_ATLAS/policies/TemplePolicy_v1.json",
+    "storm_policy": "ACTIVE_NERVOUS_SYSTEM/28_SELF_PLAY_QUEST_ATLAS/policies/StormPolicy.json",
+    "reward_engine": "ACTIVE_NERVOUS_SYSTEM/28_SELF_PLAY_QUEST_ATLAS/code/reward_engine.py",
+    "kernel_const": "ACTIVE_NERVOUS_SYSTEM/28_SELF_PLAY_QUEST_ATLAS/policies/KernelConst_v1.json"
+  }
+}

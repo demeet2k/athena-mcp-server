@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-03-13T17:04:51.146380+00:00",
+  "derivation_version": "2026-03-13.q42-canonical-bundle-v2",
+  "derivation_command": "python -m self_actualize.runtime.derive_q42_canonical_bundle",
+  "source_paths": {
+    "qshrink_task_matrix": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_agent_task_matrix.json",
+    "qshrink_next4_state": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_next4_state.json",
+    "integration_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_ap6d_full_corpus_integration_registry.json",
+    "docs_gate_status": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md",
+    "q42_runtime_corridor_membrane": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\q42_runtime_corridor_membrane.json",
+    "q42_orgin_seed_packet_witness": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\q42_orgin_seed_packet_witness.json"
+  },
+  "front_id": "Q42",
+  "front_title": "Activate The First QSHRINK Agent Sweep",
+  "docs_gate_status": {
+    "state": "BLOCKED",
+    "query": "AP6D awakening transition notes qshrink full corpus integration",
+    "detail": "Error: Missing OAuth client file: credentials.json\nCreate/download a Desktop App OAuth client in Google Cloud Console and save it as credentials.json (or pass --credentials).",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "source_path": "self_actualize/live_docs_gate_status.md"
+  },
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "active_subfront": "QS64-24 Connectivity-Refine-Fractal",
+  "next_seed": null,
+  "deeper_receiving_frontier": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "selected_pressure": {
+    "id": "TQ04",
+    "title": "runner contract receiver",
+    "body": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "truth": "OK",
+    "selection_state": "IMMEDIATE_DEEPER_RECEIVER",
+    "meaning": "The Hall-local NEXT^4 bundle is closed, so the next lawful execution receiver is the landed Temple runner contract."
+  },
+  "queued_follow_on": {
+    "id": "Q46",
+    "title": "activation feeder remains reserve-only",
+    "body": "Q46",
+    "truth": "NEAR",
+    "selection_state": "RESERVE_ONLY",
+    "meaning": "Reserve activation remains visible but separate from QSHRINK closure."
+  },
+  "pinned_blocker": {
+    "id": "Q02",
+    "title": "Docs blocker overlay",
+    "body": "Trading Bot",
+    "truth": "FAIL",
+    "selection_state": "EXTERNAL_BLOCKER",
+    "meaning": "Google Docs remains blocked until OAuth files exist and authenticate."
+  },
+  "hall_contract": {
+    "front_header": "### Quest Q42: Activate The First QSHRINK Agent Sweep `[OPEN]`",
+    "active_queue_header": "### FRONT-Q42-QSHRINK-AGENT-SWEEP",
+    "state": "OPEN",
+    "truth": "OK",
+    "objective": "keep QS64-20 visible as the carried diagnose witness, preserve QS64-24 as the closed Hall-local NEXT^4 bundle, hand immediate deeper execution to TQ04, keep Q46 reserve-only, keep Q02 external, and let the AP6D transition-note layer ride above that split without inventing QS64-25",
+    "why_now": "the local refine rail is already closed, so the honest move is no longer to reopen QS64-21..23; the honest move is to hold the closure, hand deeper execution to TQ04, and route the AP6D note layer through the same blocker-honest control membrane",
+    "active_subfront": "QS64-24 Connectivity-Refine-Fractal",
+    "target_surfaces": [
+      "self_actualize/qshrink_agent_task_matrix.json",
+      "self_actualize/qshrink_next4_state.json",
+      "self_actualize/qshrink_ap6d_full_corpus_integration_registry.json",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+      "self_actualize/mycelium_brain/nervous_system/families/FAMILY_athena_fleet_route_map.md",
+      "self_actualize/mycelium_brain/nervous_system/families/FAMILY_orgin_route_map.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+      "self_actualize/mycelium_brain/receipts/2026-03-13_qshrink_ap6d_full_corpus_integration.md"
+    ],
+    "witness_needed": "one closed-bundle control split, one deeper-receiver handoff, one blocker-honest Docs overlay, one reserve-only Q46 marker, and one AP6D note-layer bridge",
+    "writeback": "Hall quest board, active queue, active-front manifest, next-self prompt, fleet route map, ORGIN route map, AP6D note bundle, and receipt",
+    "restart_seed": "keep Q42 open as umbrella, keep QS64-20 carried, keep QS64-24 closed, hand immediate deeper execution to TQ04, keep Q46 reserve-only, keep Q02 blocked, and do not invent QS64-25",
+    "completion_evidence": [
+      "self_actualize/qshrink_agent_task_matrix.json",
+      "self_actualize/qshrink_next4_state.json",
+      "self_actualize/qshrink_ap6d_full_corpus_integration_registry.json",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+      "self_actualize/mycelium_brain/receipts/2026-03-13_qshrink_ap6d_full_corpus_integration.md"
+    ]
+  },
+  "runtime_rail": {
+    "corridor_id": "Q42-M3-RUNTIME-RAIL",
+    "truth_state": "OK",
+    "source_body_id": "A16",
+    "target_runtime_surface": "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS\\athena_os\\qshrink\\",
+    "writeback_surface": "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+    "note": "Athena OS runtime remains a routed leg inside the carried Q42 witness rather than the next Hall-local seed."
+  },
+  "seed_rail": {
+    "packet_witness_id": "Q42-M5-SEED-PACKET",
+    "truth_state": "OK",
+    "mirror_surface": "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\08_orgin_readable_mirror_megalithic_tome_generator_latent_tunneling_multi.md",
+    "packet_index_surface": "self_actualize\\mycelium_brain\\nervous_system\\packets\\PKT_2026-03-13_q42_orgin_seed_packet_witness.md",
+    "writeback_target": "self_actualize/mycelium_brain/nervous_system/families/FAMILY_orgin_route_map.md",
+    "note": "ORGIN remains a readable seed leg and source layer inside the wider AP6D note network."
+  },
+  "route_contract": {
+    "athena_fleet": {
+      "main_transfer": "QSHRINK -> Athena FLEET ecosystem -> carried QS64-20 -> closed QS64-24 bundle -> TQ04 -> AP6D transition-note layer",
+      "governance_overlay": "Athena FLEET -> Trading Bot truth corridor -> blocked Docs gate",
+      "next_route": "TQ04 deeper execution with AP6D notes as assistive guidance"
+    },
+    "orgin": {
+      "main_transfer": "ORGIN -> seed packet witness -> AP6D note layer -> Hall and manifest writeback",
+      "next_route": "ORGIN remains source matter for the note layer without becoming a Hall-local QSHRINK seed"
+    }
+  },
+  "integration_layer": {
+    "registry_path": "self_actualize/qshrink_ap6d_full_corpus_integration_registry.json",
+    "transition_note_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+    "source_atlas_path": "self_actualize/full_corpus_awakening_source_atlas.json"
+  },
+  "receipt_path": "self_actualize/mycelium_brain/receipts/2026-03-13_qshrink_ap6d_full_corpus_integration.md",
+  "allowed_touched_paths": [
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+    "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+    "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+    "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+    "self_actualize/mycelium_brain/nervous_system/families/FAMILY_athena_fleet_route_map.md",
+    "self_actualize/mycelium_brain/nervous_system/families/FAMILY_orgin_route_map.md",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+    "self_actualize/mycelium_brain/receipts/2026-03-13_qshrink_ap6d_full_corpus_integration.md"
+  ]
+}

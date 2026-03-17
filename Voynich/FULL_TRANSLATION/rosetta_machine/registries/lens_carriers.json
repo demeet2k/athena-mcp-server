@@ -1,0 +1,462 @@
+[
+  {
+    "carrier": "rho_n in T_1(H_tot)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "AQM",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:aqm",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "aqm",
+    "transport_symbol": "Id",
+    "update_law": "rho_(n+1) = Phi_n^(tot)(rho_n)"
+  },
+  {
+    "carrier": "X_n = (kappa_n, varphi_n, ell_n, b_n)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "CUT",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:cut",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "cut",
+    "transport_symbol": "T_cut",
+    "update_law": "X_(n+1) = F_n(X_n)"
+  },
+  {
+    "carrier": "(p_n, lambda_n, f_n)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Liminal",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:liminal",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "liminal",
+    "transport_symbol": "T_lim",
+    "update_law": "(p_(n+1), lambda_(n+1), f_(n+1)) = L_n(p_n, lambda_n, f_n)"
+  },
+  {
+    "carrier": "(X_n, g_n)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Aetheric",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:aetheric",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "aetheric",
+    "transport_symbol": "T_aeth",
+    "update_law": "g_n = Coll(X_n), X_(n+1) = Expand(g_n) (+) r_n"
+  },
+  {
+    "carrier": "x_n^(chem) in R^m",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Chemistry",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:chemistry",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "chemistry",
+    "transport_symbol": "T_chem",
+    "update_law": "x_(n+1)^(chem) = K_n x_n^(chem)"
+  },
+  {
+    "carrier": "X_n^(phys) = (kappa_n, varphi_n, ell_n, b_n)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Physics",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:physics",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "physics",
+    "transport_symbol": "T_phys",
+    "update_law": "X_(n+1)^(phys) = P_n(X_n^(phys))"
+  },
+  {
+    "carrier": "rho_n^(qm) in T_1(H_tot)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Quantum Physics",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:quantum_physics",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "quantum_physics",
+    "transport_symbol": "T_qm",
+    "update_law": "rho_(n+1)^(qm) = Phi_n^(tot)(rho_n^(qm))"
+  },
+  {
+    "carrier": "u_n in L^2(Omega)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Wave Mechanics",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:wave_mechanics",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "wave_mechanics",
+    "transport_symbol": "T_wave",
+    "update_law": "u_(n+1) = U_n u_n"
+  },
+  {
+    "carrier": "U_n in End(V)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Wave Math",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:wave_math",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "wave_math",
+    "transport_symbol": "T_wavemath",
+    "update_law": "U_(P_r) = Phi_(b_r) ... Phi_(a_r)"
+  },
+  {
+    "carrier": "m_n in R^12",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Music Theory and Music Math",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:music_theory_math",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "music_theory_math",
+    "transport_symbol": "T_music",
+    "update_law": "m_(n+1) = M_n m_n"
+  },
+  {
+    "carrier": "I_n(lambda) >= 0",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Color and Light",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:color_light",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "color_light",
+    "transport_symbol": "T_light",
+    "update_law": "I_(n+1)(lambda) = Integral K_n(lambda, mu) I_n(mu) dmu"
+  },
+  {
+    "carrier": "gamma_n : [0,1] -> M",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Geometry",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:geometry",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "geometry",
+    "transport_symbol": "T_geo",
+    "update_law": "gamma_(n+1) = G_n(gamma_n)"
+  },
+  {
+    "carrier": "a_n in Z_(>=0)^k",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Number Theory",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:number_theory",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "number_theory",
+    "transport_symbol": "T_num",
+    "update_law": "a_(n+1) = A_n a_n"
+  },
+  {
+    "carrier": "(rho_n, g_n)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Compression",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:compression",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "compression",
+    "transport_symbol": "T_comp",
+    "update_law": "g_n = Coll(rho_n), rho_n = Expand(g_n)"
+  },
+  {
+    "carrier": "pi_n = (e_1, ..., e_r)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Hacking Theory",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:hacking_theory",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "hacking_theory",
+    "transport_symbol": "T_hack",
+    "update_law": "pi_(n+1) = H_n(pi_n)"
+  },
+  {
+    "carrier": "y_n in Delta(A)",
+    "class": "formal_math",
+    "confidence": 0.93,
+    "display_name": "Game Theory",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Equation",
+      "Variable legend",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:game_theory",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "game_theory",
+    "transport_symbol": "T_game",
+    "update_law": "y_(n+1) = argmin_y { R_n(y) + lambda_n C(y, y_n) }"
+  },
+  {
+    "carrier": "Theta_n",
+    "class": "mythic",
+    "confidence": 0.93,
+    "display_name": "Tarot",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Frame",
+      "Movement",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:tarot",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "tarot",
+    "transport_symbol": "T_tarot",
+    "update_law": "Theta_(n+1) = Draw_n(Theta_n)"
+  },
+  {
+    "carrier": "J_n",
+    "class": "mythic",
+    "confidence": 0.93,
+    "display_name": "Juggling",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Frame",
+      "Movement",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:juggling",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "juggling",
+    "transport_symbol": "T_juggle",
+    "update_law": "J_(n+1) = Cascade_n(J_n)"
+  },
+  {
+    "carrier": "S_n",
+    "class": "mythic",
+    "confidence": 0.93,
+    "display_name": "Story Writing",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Frame",
+      "Movement",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:story_writing",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "story_writing",
+    "transport_symbol": "T_story",
+    "update_law": "S_(n+1) = Plot_n(S_n)"
+  },
+  {
+    "carrier": "H_n^(hero)",
+    "class": "mythic",
+    "confidence": 0.93,
+    "display_name": "Hero's Journey",
+    "docs_gate": "BLOCKED",
+    "entry_fields": [
+      "Frame",
+      "Movement",
+      "Reading",
+      "Confidence"
+    ],
+    "evidence_class": "direct",
+    "id": "lens_carrier:heros_journey",
+    "kind": "lens_carrier",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md"
+    ],
+    "source_unit": "heros_journey",
+    "transport_symbol": "T_hero",
+    "update_law": "H_(n+1)^(hero) = Arc_n(H_n^(hero))"
+  }
+]

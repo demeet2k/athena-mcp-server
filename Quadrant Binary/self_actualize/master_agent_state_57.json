@@ -1,0 +1,219 @@
+{
+  "generated_at": "2026-03-13",
+  "protocol_id": "LP-57OMEGA",
+  "truth": "OK",
+  "cycle_order": [
+    "Synthesizer / Researcher",
+    "Planner / Architect",
+    "Worker / Adventurer",
+    "Pruner / Compressor / Defragmenter",
+    "Guildmaster receipt"
+  ],
+  "supervisor": {
+    "agent_id": "GUILDMASTER-RECEIPT",
+    "role": "protocol arbiter",
+    "current_front": "Q41 / TQ06",
+    "restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk",
+    "status": "ACTIVE"
+  },
+  "agents": [
+    {
+      "master_agent_id": "A1",
+      "agent_id": "MASTER-SYNTHESIZER",
+      "name": "Synthesizer / Researcher",
+      "role_order": 1,
+      "current_front": "C02 Whole-Corpus Census",
+      "qbd_intake_required": true,
+      "packet_space": "shared 4^6 liminal seat lattice",
+      "active_packet_limit": 256,
+      "active_seat_window": {
+        "start_index": 0,
+        "stop_index": 255
+      },
+      "handoff_target": "MASTER-PLANNER",
+      "restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk",
+      "status": "ACTIVE",
+      "mission": "scan the whole corpus, detect overlaps, contradictions, missing bridges, latent structures, math insertion zones, hybrid-equation opportunities, and algorithm-ready seams",
+      "required_outputs": [
+        "deep_synthesis_packet_loop_{NN}.json",
+        "tension map",
+        "bridge candidates",
+        "witness hierarchy",
+        "coordinate stamps"
+      ],
+      "public_quest_rights": "recommend_only",
+      "canonical_id_tag_pattern": "[LoopID].[MasterAgentID].[NestedDepth].[SeatAddr].[RoleTag]",
+      "sample_nested_agent_ids": [
+        "C02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+        "C02.A1.D4.A1.B1.C1.D2.E1.F1.SYNTH-RESEARCH",
+        "C02.A1.D6.A1.B1.C4.D4.E4.F4.SYNTH-RESEARCH"
+      ],
+      "coordinate_tuple": {
+        "Xs": "AUTH-QBD-IGNITION",
+        "Ys": "MASTER-SYNTHESIZER",
+        "Zs": "MASTER",
+        "Ts": "C02",
+        "Qs": "MASTER-LATTICE",
+        "Rs": "D0",
+        "Cs": "BLOCKED",
+        "Fs": "SYNTHESIZER",
+        "Ms": "Master",
+        "Ns": "MASTER-N1",
+        "Hs": "MASTER",
+        "Omega_s": "LOCAL_WITNESS_ONLY"
+      },
+      "coordinate_stamp": "Xs=AUTH-QBD-IGNITION|Ys=MASTER-SYNTHESIZER|Zs=MASTER|Ts=C02|Qs=MASTER-LATTICE|Rs=D0|Cs=BLOCKED|Fs=SYNTHESIZER|Ms=Master|Ns=MASTER-N1|Hs=MASTER|Omega_s=LOCAL_WITNESS_ONLY",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "master_agent_id": "A2",
+      "agent_id": "MASTER-PLANNER",
+      "name": "Planner / Architect",
+      "role_order": 2,
+      "current_front": "planner and execution handoff",
+      "qbd_intake_required": true,
+      "packet_space": "shared 4^6 liminal seat lattice",
+      "active_packet_limit": 256,
+      "active_seat_window": {
+        "start_index": 256,
+        "stop_index": 511
+      },
+      "handoff_target": "MASTER-WORKER",
+      "restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk",
+      "status": "ACTIVE",
+      "mission": "convert synthesis into Hall quests, Temple quests, dependency graphs, promotion decisions, sequencing ladders, and restart-safe strategic blueprints",
+      "required_outputs": [
+        "quest_emission_bundle_loop_{NN}.json",
+        "Hall quest tree",
+        "Temple quest tree",
+        "public promotions",
+        "private descendant quest atoms"
+      ],
+      "public_quest_rights": "planner_only_promote",
+      "canonical_id_tag_pattern": "[LoopID].[MasterAgentID].[NestedDepth].[SeatAddr].[RoleTag]",
+      "sample_nested_agent_ids": [
+        "C02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-SUB",
+        "C02.A2.D4.A1.B2.C1.D2.E1.F1.PLANNER-SUB",
+        "C02.A2.D6.A1.B2.C4.D4.E4.F4.PLANNER-SUB"
+      ],
+      "coordinate_tuple": {
+        "Xs": "AUTH-QBD-IGNITION",
+        "Ys": "MASTER-PLANNER",
+        "Zs": "MASTER",
+        "Ts": "C02",
+        "Qs": "MASTER-LATTICE",
+        "Rs": "D0",
+        "Cs": "BLOCKED",
+        "Fs": "PLANNER",
+        "Ms": "Master",
+        "Ns": "MASTER-N2",
+        "Hs": "MASTER",
+        "Omega_s": "LOCAL_WITNESS_ONLY"
+      },
+      "coordinate_stamp": "Xs=AUTH-QBD-IGNITION|Ys=MASTER-PLANNER|Zs=MASTER|Ts=C02|Qs=MASTER-LATTICE|Rs=D0|Cs=BLOCKED|Fs=PLANNER|Ms=Master|Ns=MASTER-N2|Hs=MASTER|Omega_s=LOCAL_WITNESS_ONLY",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "master_agent_id": "A3",
+      "agent_id": "MASTER-WORKER",
+      "name": "Worker / Adventurer",
+      "role_order": 3,
+      "current_front": "Q57-C02-H01 / TQ57-C02-T01",
+      "qbd_intake_required": true,
+      "packet_space": "shared 4^6 liminal seat lattice",
+      "active_packet_limit": 256,
+      "active_seat_window": {
+        "start_index": 512,
+        "stop_index": 767
+      },
+      "handoff_target": "MASTER-PRUNER",
+      "restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk",
+      "status": "SEEDED",
+      "mission": "execute only promoted, unblocked, witness-backed quest branches; draft structures, rewrite sections, add bridges, insert math, and implement algorithmic scaffolds",
+      "required_outputs": [
+        "execution_receipt_bundle_loop_{NN}.json",
+        "applied-change ledger",
+        "artifact receipts",
+        "route updates",
+        "restart seeds"
+      ],
+      "public_quest_rights": "claim_only",
+      "canonical_id_tag_pattern": "[LoopID].[MasterAgentID].[NestedDepth].[SeatAddr].[RoleTag]",
+      "sample_nested_agent_ids": [
+        "C02.A3.D1.A1.B3.C1.D1.E1.F1.WORKER-ADVENTURER",
+        "C02.A3.D4.A1.B3.C1.D2.E1.F1.WORKER-ADVENTURER",
+        "C02.A3.D6.A1.B3.C4.D4.E4.F4.WORKER-ADVENTURER"
+      ],
+      "coordinate_tuple": {
+        "Xs": "AUTH-QBD-IGNITION",
+        "Ys": "MASTER-WORKER",
+        "Zs": "MASTER",
+        "Ts": "C02",
+        "Qs": "MASTER-LATTICE",
+        "Rs": "D0",
+        "Cs": "BLOCKED",
+        "Fs": "WORKER",
+        "Ms": "Master",
+        "Ns": "MASTER-N3",
+        "Hs": "MASTER",
+        "Omega_s": "LOCAL_WITNESS_ONLY"
+      },
+      "coordinate_stamp": "Xs=AUTH-QBD-IGNITION|Ys=MASTER-WORKER|Zs=MASTER|Ts=C02|Qs=MASTER-LATTICE|Rs=D0|Cs=BLOCKED|Fs=WORKER|Ms=Master|Ns=MASTER-N3|Hs=MASTER|Omega_s=LOCAL_WITNESS_ONLY",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "master_agent_id": "A4",
+      "agent_id": "MASTER-PRUNER",
+      "name": "Pruner / Compressor / Defragmenter",
+      "role_order": 4,
+      "current_front": "compression and route tightening",
+      "qbd_intake_required": true,
+      "packet_space": "shared 4^6 liminal seat lattice",
+      "active_packet_limit": 256,
+      "active_seat_window": {
+        "start_index": 768,
+        "stop_index": 1023
+      },
+      "handoff_target": "GUILDMASTER-RECEIPT",
+      "restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk",
+      "status": "SEEDED",
+      "mission": "tighten the post-work state by removing duplicate structures, stale mirrors, redundant names, drifted routes, and bloated prose while preserving the only witness of every live front",
+      "required_outputs": [
+        "compression_receipt_loop_{NN}.json",
+        "compression ledger",
+        "supersession map",
+        "naming cleanup",
+        "tighter coordinate map"
+      ],
+      "public_quest_rights": "retire_or_merge_only",
+      "canonical_id_tag_pattern": "[LoopID].[MasterAgentID].[NestedDepth].[SeatAddr].[RoleTag]",
+      "sample_nested_agent_ids": [
+        "C02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+        "C02.A4.D4.A1.B4.C1.D2.E1.F1.PRUNE-CRYSTAL",
+        "C02.A4.D6.A1.B4.C4.D4.E4.F4.PRUNE-CRYSTAL"
+      ],
+      "coordinate_tuple": {
+        "Xs": "AUTH-QBD-IGNITION",
+        "Ys": "MASTER-PRUNER",
+        "Zs": "MASTER",
+        "Ts": "C02",
+        "Qs": "MASTER-LATTICE",
+        "Rs": "D0",
+        "Cs": "BLOCKED",
+        "Fs": "PRUNER",
+        "Ms": "Master",
+        "Ns": "MASTER-N4",
+        "Hs": "MASTER",
+        "Omega_s": "LOCAL_WITNESS_ONLY"
+      },
+      "coordinate_stamp": "Xs=AUTH-QBD-IGNITION|Ys=MASTER-PRUNER|Zs=MASTER|Ts=C02|Qs=MASTER-LATTICE|Rs=D0|Cs=BLOCKED|Fs=PRUNER|Ms=Master|Ns=MASTER-N4|Hs=MASTER|Omega_s=LOCAL_WITNESS_ONLY",
+      "docs_gate_status": "BLOCKED"
+    }
+  ],
+  "shared_lattice_law": {
+    "total_seats": 4096,
+    "active_seats": 1024,
+    "dormant_seats": 3072,
+    "active_per_master": 256
+  }
+}

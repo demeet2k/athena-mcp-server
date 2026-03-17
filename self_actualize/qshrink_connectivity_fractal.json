@@ -1,0 +1,247 @@
+{
+  "generated_at": "2026-03-13T05:14:02.831634+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_qshrink_connectivity_fractal",
+  "truth": "OK",
+  "focus": "core-corridor-fractal-carrythrough",
+  "front_id": "Q42",
+  "mode": "dual_track",
+  "witness_role": "carried_witness",
+  "carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "operational_current": "QS64-21 Connectivity-Refine-Square",
+  "next_hall_seed": "QS64-22 Connectivity-Refine-Flower",
+  "compiled_bundle": {
+    "members": [
+      "QS64-21 Connectivity-Refine-Square",
+      "QS64-22 Connectivity-Refine-Flower",
+      "QS64-23 Connectivity-Refine-Cloud",
+      "QS64-24 Connectivity-Refine-Fractal"
+    ],
+    "terminal": "QS64-24 Connectivity-Refine-Fractal",
+    "closed": true
+  },
+  "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "reserve_frontier": "Q45",
+  "blocked_external_front": "Q02",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "state": "BLOCKED",
+    "detail": "blocked-by-missing-credentials",
+    "truth": "FAIL",
+    "confirmed_by": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md",
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`\n\n## Stderr"
+  },
+  "route_targets": [
+    {
+      "body": "QSHRINK",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use_route_map.md"
+    },
+    {
+      "body": "Athena FLEET",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet_route_map.md"
+    },
+    {
+      "body": "Trading Bot",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_trading_bot_route_map.md"
+    },
+    {
+      "body": "Athena OS runtime",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\ATHENA_OS_QSHRINK_CORRIDOR_MEMBRANE.md"
+    },
+    {
+      "body": "ORGIN",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin_route_map.md"
+    },
+    {
+      "body": "Queue",
+      "target": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+    },
+    {
+      "body": "Temple",
+      "target": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md"
+    }
+  ],
+  "upstream_cloud": {
+    "source_path": "self_actualize\\qshrink_connectivity_cloud.json",
+    "truth": "OK",
+    "promoted_pressure": {
+      "id": "P2",
+      "body": "Athena OS runtime",
+      "selection_state": "PROMOTED_CURRENT"
+    },
+    "queued_pressure": {
+      "id": "P3",
+      "body": "ORGIN",
+      "selection_state": "QUEUE_VISIBLE"
+    },
+    "pinned_blocker": {
+      "id": "P1",
+      "body": "Trading Bot",
+      "selection_state": "PINNED_BLOCKER"
+    },
+    "inheritance_rule": "Consume Cloud ranking as upstream truth and preserve Fractal as carried witness instead of using it to redefine the operational current step."
+  },
+  "recursive_crossings": [
+    {
+      "id": "X1",
+      "name": "runtime-first recursive crossing",
+      "body": "Athena OS runtime",
+      "supporting_line": "M3 runtime-rail",
+      "truth": "OK",
+      "status": "PROMOTED_CURRENT",
+      "meaning": "Carry the Cloud-selected runtime pressure through Fractal without letting the witness redefine the operational current Hall step.",
+      "evidence": "self_actualize\\q42_runtime_corridor_membrane.json"
+    },
+    {
+      "id": "X2",
+      "name": "seed-mirror recursive crossing",
+      "body": "ORGIN",
+      "supporting_line": "M5 seed-rail",
+      "truth": "OK",
+      "status": "QUEUE_VISIBLE",
+      "meaning": "Preserve the ORGIN route as the secondary recursive follow-on behind the operational Hall lane.",
+      "evidence": "self_actualize\\q42_orgin_seed_packet_witness.json"
+    },
+    {
+      "id": "X3",
+      "name": "governance overlay crossing",
+      "body": "Trading Bot",
+      "supporting_line": "M2 governance-rail",
+      "truth": "FAIL",
+      "status": "PINNED_BLOCKER",
+      "meaning": "Keep the blocked Docs gate explicit as external truth while the operational current remains on `QS64-21`.",
+      "evidence": "self_actualize\\live_docs_gate_status.md"
+    }
+  ],
+  "crossing_hubs": [
+    {
+      "id": "H1",
+      "name": "Athena FLEET ecosystem",
+      "role": "corridor relay hub",
+      "meaning": "Body-level relay where carried witness memory and dual-track writeback stay coupled.",
+      "surfaces": [
+        "Athena FLEET/QSHRINK2_CORPUS_ECOSYSTEM/13_QSHRINK_CORE_CORRIDOR_CLOUD.md",
+        "Athena FLEET/QSHRINK2_CORPUS_ECOSYSTEM/14_QSHRINK_CORE_CORRIDOR_FRACTAL.md"
+      ]
+    },
+    {
+      "id": "H2",
+      "name": "ATHENA_OS_QSHRINK_CORRIDOR_MEMBRANE",
+      "role": "primary recursive crossing hub",
+      "meaning": "Runtime membrane that carries `P2` forward as the primary recursive pressure while `QS64-21` remains operational current.",
+      "surfaces": [
+        "self_actualize\\q42_runtime_corridor_membrane.json"
+      ]
+    },
+    {
+      "id": "H3",
+      "name": "ORGIN seed packet witness",
+      "role": "secondary recursive crossing hub",
+      "meaning": "Packet-backed seed leg that stays visible behind the runtime-first carrythrough.",
+      "surfaces": [
+        "self_actualize\\q42_orgin_seed_packet_witness.json"
+      ]
+    },
+    {
+      "id": "H4",
+      "name": "Hall / queue / restart",
+      "role": "public writeback hub",
+      "meaning": "Public control surfaces that must agree on carried witness, operational current, next Hall seed, compiled bundle closure, deeper receiver, and blocked external front.",
+      "surfaces": [
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md"
+      ]
+    },
+    {
+      "id": "H5",
+      "name": "deeper integrated neural network",
+      "role": "fractal synthesis hub",
+      "meaning": "Deep-root metro stack that supplies the recursive-crossing lens without claiming the current Hall-side pass.",
+      "surfaces": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\00_INDEX.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md"
+      ]
+    }
+  ],
+  "priority_carrythrough": {
+    "pinned_blocker": {
+      "id": "P1",
+      "body": "Trading Bot",
+      "supporting_line": "M2 governance-rail",
+      "truth": "FAIL",
+      "status": "PINNED_BLOCKER"
+    },
+    "primary_recursive_pressure": {
+      "id": "P2",
+      "body": "Athena OS runtime",
+      "supporting_line": "M3 runtime-rail",
+      "truth": "OK",
+      "status": "PROMOTED_CURRENT"
+    },
+    "secondary_recursive_pressure": {
+      "id": "P3",
+      "body": "ORGIN",
+      "supporting_line": "M5 seed-rail",
+      "truth": "OK",
+      "status": "QUEUE_VISIBLE"
+    },
+    "stability_anchors": [
+      {
+        "id": "M1",
+        "body": "QSHRINK",
+        "supporting_line": "M1 contraction-rail",
+        "selection_state": "STABILITY_ANCHOR",
+        "meaning": "Contraction law keeps the recursive carrythrough grounded."
+      },
+      {
+        "id": "M4",
+        "body": "Athena FLEET / Hall",
+        "supporting_line": "M4 hall-rail",
+        "selection_state": "STABILITY_ANCHOR",
+        "meaning": "Hall replay law keeps Fractal ownerable and restart-safe."
+      }
+    ]
+  },
+  "handoff_to_tq04": {
+    "frontier": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "state": "LANDED_DEEPER_RECEIVER",
+    "why": "Fractal remains the carried witness, `QS64-21` stays operational current, `QS64-22` stays the next Hall seed, and `TQ04` remains the separate landed deeper receiver.",
+    "public_writeback_targets": [
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md"
+    ]
+  },
+  "source_paths": {
+    "next4_state": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_next4_state.json",
+    "qshrink_connectivity_cloud": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_connectivity_cloud.json",
+    "qshrink_network_integration": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_network_integration.json",
+    "qshrink_agent_task_matrix": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_agent_task_matrix.json",
+    "runtime_membrane": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\q42_runtime_corridor_membrane.json",
+    "seed_packet_witness": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\q42_orgin_seed_packet_witness.json"
+  },
+  "witness_basis": {
+    "cloud_truth": "OK",
+    "network_truth": "OK",
+    "agent_matrix_truth": "OK",
+    "runtime_membrane_truth": "OK",
+    "seed_packet_truth": "OK"
+  },
+  "active_basis_documents": [
+    "self_actualize\\qshrink_next4_state.json",
+    "self_actualize\\qshrink_connectivity_cloud.json",
+    "self_actualize\\q42_runtime_corridor_membrane.json",
+    "self_actualize\\q42_orgin_seed_packet_witness.json",
+    "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+    "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\00_INDEX.md",
+    "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md"
+  ],
+  "deprecated_fields": {
+    "active_subfront": "QS64-20 Connectivity-Diagnose-Fractal",
+    "next_seed": "QS64-22 Connectivity-Refine-Flower",
+    "reason": "Use carried_witness, operational_current, next_hall_seed, and compiled_bundle instead of letting the Fractal witness redefine the live pass."
+  }
+}

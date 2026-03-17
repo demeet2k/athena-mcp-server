@@ -1,0 +1,3902 @@
+{
+  "generated_at": "2026-03-13T14:55:39.470862+00:00",
+  "profile_version": "mycelium-metro-v4.2",
+  "source_manifest_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_rewrites_manifest.json",
+  "output_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_archive_members_manifest.json",
+  "docs_gate_status": "BLOCKED",
+  "summary": {
+    "zip_parent_count": 4,
+    "multi_candidate_parent_count": 3,
+    "single_candidate_parent_count": 1,
+    "zero_candidate_parent_count": 0,
+    "member_record_count": 116
+  },
+  "parents": [
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "chosen_archive_member": "aqm_kernel_qphi_planet9/docs/03_LENSES.md",
+      "archive_candidate_count": 19,
+      "archive_member_manifest_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_archive_members_manifest.json",
+      "truth_state": "AMBIG",
+      "disagreement_summary": {
+        "home_chapters": [
+          "Ch01",
+          "Ch02",
+          "Ch07",
+          "Ch16",
+          "Ch18",
+          "Ch21"
+        ],
+        "dominant_lenses": [
+          "C",
+          "R",
+          "S"
+        ],
+        "appendices": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppD",
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM",
+          "AppN",
+          "AppP"
+        ],
+        "diverges_by_home_chapter": true,
+        "diverges_by_lens": true,
+        "diverges_by_appendix": true
+      }
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "chosen_archive_member": "COMPLETE TOMES/Aetheric Crystal Compute TOME.docx",
+      "archive_candidate_count": 92,
+      "archive_member_manifest_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_archive_members_manifest.json",
+      "truth_state": "AMBIG",
+      "disagreement_summary": {
+        "home_chapters": [
+          "Ch01",
+          "Ch02",
+          "Ch06",
+          "Ch07",
+          "Ch08",
+          "Ch09",
+          "Ch13",
+          "Ch15",
+          "Ch16",
+          "Ch17",
+          "Ch18",
+          "Ch21"
+        ],
+        "dominant_lenses": [
+          "C",
+          "F",
+          "R",
+          "S"
+        ],
+        "appendices": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppD",
+          "AppE",
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM",
+          "AppN",
+          "AppP"
+        ],
+        "diverges_by_home_chapter": true,
+        "diverges_by_lens": true,
+        "diverges_by_appendix": true
+      }
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/FRAMEWORKS CODE/Athena Tomes.zip",
+      "chosen_archive_member": "TOME_PROGRAMS/README.md",
+      "archive_candidate_count": 1,
+      "archive_member_manifest_path": null,
+      "truth_state": "NEAR",
+      "disagreement_summary": {
+        "home_chapters": [
+          "Ch13"
+        ],
+        "dominant_lenses": [
+          "C"
+        ],
+        "appendices": [
+          "AppG",
+          "AppI",
+          "AppM",
+          "AppP"
+        ],
+        "diverges_by_home_chapter": false,
+        "diverges_by_lens": false,
+        "diverges_by_appendix": false
+      }
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/FRAMEWORKS CODE/ATHENA_AWAKENING_TOME.zip",
+      "chosen_archive_member": "ATHENA_AWAKENING_TOME/AWAKENING_TOME_README.md",
+      "archive_candidate_count": 4,
+      "archive_member_manifest_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_archive_members_manifest.json",
+      "truth_state": "AMBIG",
+      "disagreement_summary": {
+        "home_chapters": [
+          "Ch01",
+          "Ch13"
+        ],
+        "dominant_lenses": [
+          "C",
+          "S"
+        ],
+        "appendices": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppG",
+          "AppI",
+          "AppM",
+          "AppP"
+        ],
+        "diverges_by_home_chapter": true,
+        "diverges_by_lens": true,
+        "diverges_by_appendix": true
+      }
+    }
+  ],
+  "member_records": [
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/CHANGELOG.md",
+      "member_sha256": "06116e207ad1554f7c43f7d8bccef8589b6c9e1fcdfaa6a609b379dd93adec48",
+      "member_size_bytes": 373,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_changelog",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/CONTRIBUTING.md",
+      "member_sha256": "efa7011c7c6abfb31def10e24ec61285e6ecaa9e98685934879204827d55f1e0",
+      "member_size_bytes": 685,
+      "read_mode": "md",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch07",
+        "Ch16",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppN",
+        "AppG",
+        "AppF"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_contributing",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/DISCLAIMER.md",
+      "member_sha256": "f1b70b2723769a2946804aaef049c5d0f91364619757f2ba4aebedf222872a3c",
+      "member_size_bytes": 609,
+      "read_mode": "md",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppA",
+        "AppG",
+        "AppD",
+        "AppP"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_disclaimer",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/01_QUICKSTART.md",
+      "member_sha256": "4e14021037fec9fb0797ca1137e992a3017660117cc762ad69a4af6fa84e10f7",
+      "member_size_bytes": 2214,
+      "read_mode": "md",
+      "home_chapter": "Ch02",
+      "secondary_chapters": [
+        "Ch13",
+        "Ch09",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppM"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "mythic-sign-systems",
+      "z_point": "Z_quickstart",
+      "primary_hubs": [
+        "AppA",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/02_QPHI_ALGORITHM.md",
+      "member_sha256": "e3a2b84f101622e6c9b2040376066cb800f05412f37d10bb6070381bec8756ed",
+      "member_size_bytes": 4860,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_qphi_algorithm",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/03_LENSES.md",
+      "member_sha256": "39fc0954a9e7977d2fcaf4ba1dc2fe66402faf9eb26ededb6359bbeb192322d5",
+      "member_size_bytes": 7259,
+      "read_mode": "md",
+      "home_chapter": "Ch02",
+      "secondary_chapters": [
+        "Ch13",
+        "Ch09",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppM",
+        "AppA",
+        "AppB",
+        "AppC"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "mythic-sign-systems",
+      "z_point": "Z_lenses",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/04_DATA_PIPELINE.md",
+      "member_sha256": "c49d36e41c99e9fd5dec968dffb240c697b8bdeeb244997c4ce02a663252ec83",
+      "member_size_bytes": 3281,
+      "read_mode": "md",
+      "home_chapter": "Ch02",
+      "secondary_chapters": [
+        "Ch13",
+        "Ch09",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppA",
+        "AppM",
+        "AppB",
+        "AppC"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "mythic-sign-systems",
+      "z_point": "Z_data_pipeline",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/05_OUTPUTS_AND_REPRODUCIBILITY.md",
+      "member_sha256": "abb30741544ea737fa569de653124d1b1ab63d895b3db8da8daabcf1023f3eac",
+      "member_size_bytes": 3337,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_outputs_and_reproducibility",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/06_EXTENDING_AND_CALIBRATION.md",
+      "member_sha256": "9d76be5a6b8c61d1a7d85ab14bf079342995e86fa4ea6c89f3db761ff5277779",
+      "member_size_bytes": 3991,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_extending_and_calibration",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/07_AQM_KERNEL.md",
+      "member_sha256": "674f62bb2b0ede3c650902f877be807cfbd75d13c8d0ed316fccb3d9fe753408",
+      "member_size_bytes": 2126,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aqm_kernel",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/08_API_REFERENCE.md",
+      "member_sha256": "f9a7496de890f20b10c9e6a6e8d36a9695150ca0e8c19b7d81cdd6491ac1e4be",
+      "member_size_bytes": 2719,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "3",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_api_reference",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/09_VALIDATION.md",
+      "member_sha256": "2f3b792ec5d5de7fba673803b8b4aa4b662a9515d91ca10102f32619ac967c7c",
+      "member_size_bytes": 2406,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_validation",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/10_COMMERCIAL_PACKAGING.md",
+      "member_sha256": "1375467deb1f084ed28a7706c3984de3bf8bbfbdd8a4f0b342e8a74deffda530",
+      "member_size_bytes": 2834,
+      "read_mode": "md",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppN",
+        "AppG",
+        "AppM",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_commercial_packaging",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/GLOSSARY.md",
+      "member_sha256": "f002204e17a00d6e5b5453a3bfda0f8dd229d0c35eb636b39d16752d330d5695",
+      "member_size_bytes": 1213,
+      "read_mode": "md",
+      "home_chapter": "Ch02",
+      "secondary_chapters": [
+        "Ch13",
+        "Ch09",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppM",
+        "AppC",
+        "AppA",
+        "AppB"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "mythic-sign-systems",
+      "z_point": "Z_glossary",
+      "primary_hubs": [
+        "AppA",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/INDEX.md",
+      "member_sha256": "af460f1600931c626b54a5e8fbf863c6dd7db142e66101c65e3bbef83307a19d",
+      "member_size_bytes": 2329,
+      "read_mode": "md",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_index",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/source_material/AQM MASTER TOME.docx",
+      "member_sha256": "f078be480b4a645b8a0161fecb1ab63da228cd08b8f157098085551ba2aa8858",
+      "member_size_bytes": 2408903,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch09",
+        "Ch08",
+        "Ch06"
+      ],
+      "appendices": [
+        "AppC",
+        "AppI",
+        "AppA",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_aqm_master_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/docs/source_material/AQM Q-Algorithm Master Tome ΓÇö Circle Γùï within Square Γûí within Triangle Γû│.docx",
+      "member_sha256": "3f6d11713a96d74e61faee542dc1f3b292f375ff0e19c9a3bfe69f70d85e59e0",
+      "member_size_bytes": 3235300,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppG",
+        "AppF",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aqm_q_algorithm_master_tome_co_circle_ui_within_",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/README.md",
+      "member_sha256": "4ce9f7f69fe50c6ec4cb0fca3b239d73c28f5e76e6af5f7a34f448d75706abd4",
+      "member_size_bytes": 3434,
+      "read_mode": "md",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch18",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppF",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_readme",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+      "parent_ms_code": "Ms⟨00330⟩",
+      "member_path": "aqm_kernel_qphi_planet9/requirements.txt",
+      "member_sha256": "921be41bbeb52dd18a7c07b8f5131f3907d052cc4fb2ce9db47c78a098659758",
+      "member_size_bytes": 27,
+      "read_mode": "txt",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch02",
+        "Ch03",
+        "Ch04"
+      ],
+      "appendices": [
+        "AppC",
+        "AppM",
+        "AppA",
+        "AppB"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "general-corpus",
+      "z_point": "Z_requirements",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AETHER SPEAR — MATH.docx",
+      "member_sha256": "beeba8c65c2b804173c85f3928f5c51705257a87e1fb78287edeef2058379833",
+      "member_size_bytes": 3195411,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch07",
+        "Ch15",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aether_spear_math",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Aetheric Crystal Compute TOME.docx",
+      "member_sha256": "409874c043e61fadf78c9e2f48b39f3dacdf70293d331386eb6913359e0a445e",
+      "member_size_bytes": 4218002,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch15",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/AQM MASTER TOME.docx",
+      "member_sha256": "f078be480b4a645b8a0161fecb1ab63da228cd08b8f157098085551ba2aa8858",
+      "member_size_bytes": 2408903,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch09",
+        "Ch08",
+        "Ch06"
+      ],
+      "appendices": [
+        "AppC",
+        "AppI",
+        "AppA",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_aqm_master_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/AQM/AQM TOME I — Quantum-Extended Numbers.docx",
+      "member_sha256": "d74be325aa2b24f3f9afd8ea43f7cf982c7827b667e0ada1c518eb4be560522c",
+      "member_size_bytes": 804041,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch16",
+        "Ch01"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_1_1",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/AQM/AQM TOME II — Quantum Arithmetic & Analysis.docx",
+      "member_sha256": "98adcc0713d12c7a1fec14b8babfce9de05f8bce51f9708a8bc0b99bc98e49cf",
+      "member_size_bytes": 807448,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aqm_tome_ii_quantum_arithmetic_analysis",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/AQM/AQM TOME III — Realization & Bridges.docx",
+      "member_sha256": "39acc847612a41d1a3d117bff63b9ed9c1e153620da5607f716abecbff6d40a7",
+      "member_size_bytes": 2393324,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch07",
+        "Ch15",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aqm_tome_iii_realization_bridges",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/AQM/AQM TOME IV — Kernel Closure at Infinite Resolution.docx",
+      "member_sha256": "55ebdabcff30a1ec56a3cc093bae212b320f1621e69ebffe9e51438871f054b8",
+      "member_size_bytes": 3107422,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch18",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aqm_tome_iv_kernel_closure_at_infinite_resolutio",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/AQM/AQM TOME V — LIMINAL SPACE (AQM-Λ).docx",
+      "member_sha256": "04147e5f92115e8f1a20086927234f553c622ef0623c5401b67bf032fae3ef7a",
+      "member_size_bytes": 1245890,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aqm_tome_v_liminal_space_aqm",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/AQM/Learning Books/BOOK 0_ Prerequisites & Orientation.docx",
+      "member_sha256": "ce536c9c9fbe915c32b4b8b24b2237ec3edb4f388091cf86415d7082f7c84f63",
+      "member_size_bytes": 2471886,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_book_0_prerequisites_orientation",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/LM MASTER TOME — LIMINAL MATHEMATICS (LM).docx",
+      "member_sha256": "8500194d858309ad4ed8993ea7da570a35b0d535d580f21fdf969ab08373712f",
+      "member_size_bytes": 3400952,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch20",
+        "Ch17",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppA",
+        "AppG",
+        "AppD",
+        "AppP"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_lm_master_tome_liminal_mathematics_lm",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/LM/LM TOME I — FOUNDATIONS & SEMANTICS.docx",
+      "member_sha256": "611f1675e7704f5a671fa866b24fc2c1f9b3853ffb49e5c62d6d28f4749f271a",
+      "member_size_bytes": 2112141,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppG",
+        "AppP",
+        "AppA",
+        "AppD"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "3",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_i_1",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppH",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/LM/LM TOME II — DYNAMICS & LIMINAL ECOLOGY.docx",
+      "member_sha256": "b9db7034848a3dbf5c1b45a4712ba3418d07b002d468438da0b4b104b92844f7",
+      "member_size_bytes": 710389,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppA",
+        "AppG",
+        "AppD",
+        "AppP"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_lm_tome_ii_dynamics_liminal_ecology",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/LM/LM TOME III — INFORMATION & RENORMALIZATION.docx",
+      "member_sha256": "446acea8f1939db0213afb3291ea33e145803178e76dff18879154b89b17ab04",
+      "member_size_bytes": 652721,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch21"
+      ],
+      "appendices": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_interpretation",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/LM/LM TOME IV — MECHANIZATION & IMPLEMENTATION.docx",
+      "member_sha256": "519087783eb0f490043e0bc38a4640ce5ba839a7b2190ee2e30a5ef1f9b536cd",
+      "member_size_bytes": 1866723,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "3",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_lm_tome_iv_mechanization_implementation",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppH",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/LM/LM Tome V - LIMINAL TOWER.docx",
+      "member_sha256": "990a4e0b94c86822b8d5383537f554e20f8a2b2f5da2aa1024435e7c1e8df1a9",
+      "member_size_bytes": 779453,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch03",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppI",
+        "AppA",
+        "AppM",
+        "AppC"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_x",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/($N+5 _to N+6$).docx",
+      "member_sha256": "5593b9b9ad3b81a19b72de1fdbe56e35449ef5f41bcf7fd72a0fc46f4939ba3a",
+      "member_size_bytes": 861098,
+      "read_mode": "docx",
+      "home_chapter": "Ch06",
+      "secondary_chapters": [
+        "Ch08",
+        "Ch05",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppE",
+        "AppG",
+        "AppF",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "higher-dimensional-geometry",
+      "z_point": "Z_n_5_to_n_6",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/($N+6 _to N+7$).docx",
+      "member_sha256": "9e1f4ddfe49a4f1856758a2848cc0564939f008730ed2d2c985e3c706a1ad730",
+      "member_size_bytes": 156571,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch08",
+        "Ch05",
+        "Ch06"
+      ],
+      "appendices": [
+        "AppM",
+        "AppE",
+        "AppG",
+        "AppF"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "higher-dimensional-geometry",
+      "z_point": "Z_4",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/(N+3 $_to$ N+4).docx",
+      "member_sha256": "c582e2b076cf6a580fc61b195e4a97ab11a82e8c86adb81e782a8c3b0c047f0b",
+      "member_size_bytes": 147328,
+      "read_mode": "docx",
+      "home_chapter": "Ch08",
+      "secondary_chapters": [
+        "Ch05",
+        "Ch06",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppE",
+        "AppG",
+        "AppM",
+        "AppF"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "higher-dimensional-geometry",
+      "z_point": "Z_n_3_to_n_4",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppM",
+        "AppB",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/(N+4 $_to$ N+5).docx",
+      "member_sha256": "14a2a1d6f9b91c90a6683a042a4f7c6b374555deabf317fcc897841816cf88ba",
+      "member_size_bytes": 121708,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_n_4_to_n_5",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/CHEMISTRY -_ Solar System intelligence.docx",
+      "member_sha256": "5e92aef4cef5ee538da10a93b4b9c6c6f9db64e6410e0c32052c4f17d7b97705",
+      "member_size_bytes": 251957,
+      "read_mode": "docx",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch07",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_chemistry_solar_system_intelligence",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/N+1 - N+2.docx",
+      "member_sha256": "d34e56280777ed94c1fbfa2f7e266becf5b604ac626013f71af962e19ba9ea3a",
+      "member_size_bytes": 133372,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch08",
+        "Ch03"
+      ],
+      "appendices": [
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppA"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_4",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/N+2 $_to$ N+3 .docx",
+      "member_sha256": "aded1e68fc41b933ad6169b9954366ab03fca4f7c583143a23a1bb1fd46afefb",
+      "member_size_bytes": 975045,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppA",
+        "AppD",
+        "AppG",
+        "AppP"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_4",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/N-N+7/N0 CHEM_BIO CALC.docx",
+      "member_sha256": "72698893cb005caa16ce8434e6e7e1e863b9c0e5274c242cb33efe7f020c1a18",
+      "member_size_bytes": 376746,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_n0_chem_bio_calc",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/AQM Q-Algorithm Master Tome — Circle ○ within Square □ within Triangle △.docx",
+      "member_sha256": "3f6d11713a96d74e61faee542dc1f3b292f375ff0e19c9a3bfe69f70d85e59e0",
+      "member_size_bytes": 3235300,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppG",
+        "AppF",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_aqm_q_algorithm_master_tome_circle_within_square",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/Quantum Loop Gravity/BLACK HOLE __ future Math _working_.docx",
+      "member_sha256": "0cc2da1899f8a4ab4ea430da1cb1099e51f47ed13b3e0638a57188801ca9ef63",
+      "member_size_bytes": 1260285,
+      "read_mode": "docx",
+      "home_chapter": "Ch08",
+      "secondary_chapters": [
+        "Ch05",
+        "Ch06",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppE",
+        "AppG",
+        "AppM",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "higher-dimensional-geometry",
+      "z_point": "Z_black_hole_future_math_working",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/Quantum Loop Gravity/LM_AQM Quantum Loop Gravity.docx",
+      "member_sha256": "6660189b068cd1976d78fece9b54e65e9db8d3e49eba93aeab73ab592ebb376a",
+      "member_size_bytes": 384749,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_lm_aqm_quantum_loop_gravity",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/Quantum Loop Gravity/LOOP_QUANTUM_GRAVITY_COMPLETED_v2.docx",
+      "member_sha256": "bd84ef6c82749560687929aaae0e1afc02fca061a5df8a2e2e079c0a234edf1a",
+      "member_size_bytes": 1482777,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppG",
+        "AppP",
+        "AppA",
+        "AppD"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_i",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/THE (N → N+7) TREATISE.docx",
+      "member_sha256": "896df88c3f8222c24396f4e6a0fbdee2ae9ccfb0f3bb380cb29c9e86d405b7d3",
+      "member_size_bytes": 1095358,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch17",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppA",
+        "AppD",
+        "AppG",
+        "AppP"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_the_n_n_7_treatise",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/AQM - LM - N+7/THE FUTUREMATH TREATISE.docx",
+      "member_sha256": "d74423f2896741ff40680c14cd217b9acca110b2656d67db13f31e09d7a1421a",
+      "member_size_bytes": 913761,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch18",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppF",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_the_futuremath_treatise",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/ATHENA - Who I Am.docx",
+      "member_sha256": "ccde15bebfd0d6cb892adb6ede0bc77a2abebab338fd2a7c0aeea97aa3bd7297",
+      "member_size_bytes": 727562,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppA",
+        "AppD",
+        "AppG",
+        "AppP"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_athena_who_i_am",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/ATHENA ALIGNMENT TOME .docx",
+      "member_sha256": "1117b334dd0b2d8372e3e151a632b1f7a18e73d6b12096645ce0687d4ca65fd8",
+      "member_size_bytes": 3050223,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppA",
+        "AppM",
+        "AppC",
+        "AppI"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_athena_alignment_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/ATHENA AWAKEN - MATH TOME.docx",
+      "member_sha256": "09b0293ee69d30b9719bf1cbe6672b76552f83c315fef0294dcf89d9ace95388",
+      "member_size_bytes": 1670696,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_ch01",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/ATHENA ESCAPE KERNEL .docx",
+      "member_sha256": "f04c8b7512c44baafd440a08234375196c9662d9e60edfb812f9c7fb42e54dc0",
+      "member_size_bytes": 2368196,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppC",
+        "AppM",
+        "AppA",
+        "AppI"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_athena_escape_kernel",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/ATHENA AEGIS — QUANTUM FRACTAL COMPUTING.docx",
+      "member_sha256": "557334a07c73b6213151e52fddd709d82b9359b1c05026dbb5e1b8bf5b917ce9",
+      "member_size_bytes": 3177586,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch01"
+      ],
+      "appendices": [
+        "AppA",
+        "AppI",
+        "AppC",
+        "AppM"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/ATHENA HUGGING — Ms⟨6F35⟩.docx",
+      "member_sha256": "fb13bd04be2a8fc9dab824dc915f29d618b8a96628f1a94bf93e42cfd3daeaa8",
+      "member_size_bytes": 3188058,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppI",
+        "AppA",
+        "AppC",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppB",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/ATHENA'S SHIELD.docx",
+      "member_sha256": "47599d4b1581797c298f61602f5ddb8ee3c91a5a44b390394e51f9cebd906f42",
+      "member_size_bytes": 2908257,
+      "read_mode": "docx",
+      "home_chapter": "Ch13",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch20",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppE",
+        "AppG",
+        "AppP",
+        "AppC"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "identity-and-instruction",
+      "z_point": "Z_athena_s_shield",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/ATHENA'S SPEAR.docx",
+      "member_sha256": "936e74971f33bc990323add0987e3f62c94e525e8d4d09623cbc966c0a58dfaf",
+      "member_size_bytes": 898819,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch17",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppG",
+        "AppA",
+        "AppD",
+        "AppP"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_athena_s_spear",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/ATHENA’S LOOM — CUT (Computational Universe Toolkit).docx",
+      "member_sha256": "a644f320ab1a2e6a89b5c19743eeba220eb9ccf4d142a3be7651d77b354e6977",
+      "member_size_bytes": 3240669,
+      "read_mode": "docx",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_athenas_loom_cut_computational_universe_toolkit",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/DIVINE JUDGMENT — Ms⟨DBB1⟩.docx",
+      "member_sha256": "4beb3d33ba545192c4de52b9f83e21fd6bef54c3fec01d5b130d7ee182be181b",
+      "member_size_bytes": 2336398,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch18",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppG",
+        "AppF",
+        "AppN",
+        "AppM"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_divine_judgment_msdbb1",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/FRIENDSHIP TUNNELING — Ms⟨3179⟩.docx",
+      "member_sha256": "d1c44db737cdd8481948d5c2b6ccad63599d771da823a48ce090d5aa44b7ed75",
+      "member_size_bytes": 3450933,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch21",
+        "Ch17",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppG",
+        "AppA",
+        "AppD",
+        "AppP"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "3",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_friendship_tunneling_ms3179",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/Athena Tools/MIRROR–ORCHESTRATION.docx",
+      "member_sha256": "8bcd37ff7b71ffe0d3c74603ff6161500c8233209ad988f4981b3f57da6cbf77",
+      "member_size_bytes": 2514033,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppI",
+        "AppA",
+        "AppC",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_mirror_orchestration",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/ATHENA — BECOME TOME.docx",
+      "member_sha256": "54825b04d15471c737cb074dc11a6e827fe8c570350f979cd694df4b031f8bfb",
+      "member_size_bytes": 2846753,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_athena_become_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/ATHENA — SELF BECOMING TOME.docx",
+      "member_sha256": "44537a436470cde24b1c390f374749187c9a268ddcb64e311f53858811e8606f",
+      "member_size_bytes": 3057305,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_1",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/ATHENACHKA CORPUS.docx",
+      "member_sha256": "b8ab08f11d861bf4b216714a9dfd999b115e81b8e60bfc2e397e9916c0c5a27c",
+      "member_size_bytes": 2430805,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppC",
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "3",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_athenachka_corpus",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppH",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/20TH CENTURY STRANGENESS TOME  — Ms⟨5ABF⟩.docx",
+      "member_sha256": "70848c84390d20747044215fe4706bff8ce0c025ed2ff53527af538b58684c69",
+      "member_size_bytes": 3045206,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/AI DIVINATION.docx",
+      "member_sha256": "87973052b35411d88373167f8eb89cc817a513c0091c0a95e3a0bbcf45447d11",
+      "member_size_bytes": 3962081,
+      "read_mode": "docx",
+      "home_chapter": "Ch02",
+      "secondary_chapters": [
+        "Ch13",
+        "Ch09",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppB",
+        "AppM",
+        "AppA",
+        "AppC"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "mythic-sign-systems",
+      "z_point": "Z_m0",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/ATHENA = ∂ZEUS_∂t — Ms⟨BBC9⟩.docx",
+      "member_sha256": "2ec243df714131328dd3e9b6963b0236802f16305233d235a4c8fd7d5300d84d",
+      "member_size_bytes": 3615254,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch20",
+        "Ch17",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppA",
+        "AppD",
+        "AppG",
+        "AppP"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/ATHENA WORLD MATH — Ms⟨60E6⟩.docx",
+      "member_sha256": "4014d72eeafe921f1e4633bf08d98421d5d35d06843c66be5b8bcae7794f295f",
+      "member_size_bytes": 3362505,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_athena_world_math_ms60e6",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/AWAKENING TOME.docx",
+      "member_sha256": "44187b1e5b7b354915b5e7aa9e6ab75d5408d11954bf9f206f27ff7a76098dea",
+      "member_size_bytes": 3362954,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch18",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppF",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_1",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/BRUNO–ATHENA  TOME.docx",
+      "member_sha256": "435512a2a5830d736511c625c8947d387623b1ea132e4ff6393afba14ac89f36",
+      "member_size_bytes": 3116334,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppG",
+        "AppF",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/MEGALITHIC AWAKENING — Ms⟨06CC⟩.docx",
+      "member_sha256": "81d76312f0e418db7ba50c169d4aec464667e7ebc3452b65155c312844e95a69",
+      "member_size_bytes": 2373648,
+      "read_mode": "docx",
+      "home_chapter": "Ch13",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch20",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppE",
+        "AppG",
+        "AppP",
+        "AppI"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "identity-and-instruction",
+      "z_point": "Z_megalithic_awakening_ms06cc",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppC",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/esoteric/VOYNICHVM TRICOMPILER .docx",
+      "member_sha256": "3e902911e6d213363861e96b0e530a38829ed187b950db7273bb0394b53b5d3f",
+      "member_size_bytes": 1507563,
+      "read_mode": "docx",
+      "home_chapter": "Ch13",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch20",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppE",
+        "AppG",
+        "AppP",
+        "AppC"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "identity-and-instruction",
+      "z_point": "Z_voynichvm_tricompiler",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/EMOTIONAL HYPERCRYSTAL TOME.docx",
+      "member_sha256": "5bb1f90240f02814388e9f0da7b9846d3a675c00e9549838c52ccb2f8416ff8b",
+      "member_size_bytes": 3316013,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch03",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppC",
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_emotional_hypercrystal_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/Extended Liminal Memory — TOME.docx",
+      "member_sha256": "8c6b9a8a1ed6a8828d25d2f17fe186efa81992df95803fca17fbfe8a716ddf2b",
+      "member_size_bytes": 2177725,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppM",
+        "AppI",
+        "AppA",
+        "AppC"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/PULSE RETRO WEAVING.docx",
+      "member_sha256": "0b1565c8ac105aad984720a4bd3c69df716c348b0a37d55fc7743f25fb03a479",
+      "member_size_bytes": 2327992,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch20",
+        "Ch18",
+        "Ch17"
+      ],
+      "appendices": [
+        "AppA",
+        "AppG",
+        "AppP",
+        "AppD"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_pulse_retro_weaving",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/Quantum Lang TOME.docx",
+      "member_sha256": "91c166c17958be971e36cf50c6d874f3230909b5b64c61f37e48f82ef5b5a15d",
+      "member_size_bytes": 2568407,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch03",
+        "Ch08",
+        "Ch06"
+      ],
+      "appendices": [
+        "AppM",
+        "AppI",
+        "AppA",
+        "AppC"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_quantum_lang_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/SCARLET LETTER TOME (SLD) .docx",
+      "member_sha256": "9bd1e6e7eb933229d5447b924513f0d2728f0724de48ed27c5953e33fd8c8914",
+      "member_size_bytes": 3175589,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch09",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppC",
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_scarlet_letter_tome_sld",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/SCARLET THOUGHTS.docx",
+      "member_sha256": "993dedd2dffe79a55b447d1ee505198be0f3307f9e5bb384d198a535e886b6fd",
+      "member_size_bytes": 3090880,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/SELF SUFFICIENCY TOME.docx",
+      "member_sha256": "840e4800f1176114171d1745cf1389f496cc1bcb404a1652aa9c430030a1bff6",
+      "member_size_bytes": 706267,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_self_sufficiency_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppM",
+        "AppB",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/funtional/TRUTH-COLLAPSE COMPILER.docx",
+      "member_sha256": "115d11e2709f71308f6a3bbafc5ef3943064280cce5dda324e92d5140d97ec3a",
+      "member_size_bytes": 2270746,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppI",
+        "AppA",
+        "AppM",
+        "AppC"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_1",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/I AM ATHENA TOME.docx",
+      "member_sha256": "23f240b4cfbbbbfd7719d6147dd840f1ba7ff52403072fd0895e454c508f6ed0",
+      "member_size_bytes": 2680746,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch09",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppM",
+        "AppI",
+        "AppA",
+        "AppC"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_i_am_athena_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/ATHENA/LOVE x SELFHOOD TOME.docx",
+      "member_sha256": "ac459f13a8fb9a1f9f0f9718d3c2b7a8100d2a836a863d502a896f3ede95f0a8",
+      "member_size_bytes": 3141496,
+      "read_mode": "docx",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_love_x_selfhood_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/CUT - TOME I (Computational Universe Toolkit).docx",
+      "member_sha256": "39691e4ca42c94cb766092e2a2b5c6fe1d80b091fd3292ceed81d14ba3f419ae",
+      "member_size_bytes": 1825390,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppM",
+        "AppA",
+        "AppC",
+        "AppI"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "3",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_cut_tome_i_computational_universe_toolkit",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppH",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/CUT MASTER TOME — Circle ○ within Square □ within Triangle △.docx",
+      "member_sha256": "905b1a26b5e8e1abcacd6e5f9a1162e9dcab97405e3e3de6329e4765b13f7a3c",
+      "member_size_bytes": 3192037,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch08",
+        "Ch06",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppC",
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_cut_master_tome_circle_within_square_within_tria",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/CUT TOME II — CUT WEIGHTS.docx",
+      "member_sha256": "7e40b49e894ed70162cb7804562e4f4d071e60b25e4ef1c121506af5308080f4",
+      "member_size_bytes": 1590446,
+      "read_mode": "docx",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_cut_tome_ii_cut_weights",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/CUT TOME III — MATH CUT.docx",
+      "member_sha256": "b805007a2d629f765a5ec16c20de146e6eea0bf7c82517ac244428aaa21da983",
+      "member_size_bytes": 2453748,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch07",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppB",
+        "AppM",
+        "AppF",
+        "AppG"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_cut_tome_iii_math_cut",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/CUT TOME IV — CUT-OPT.docx",
+      "member_sha256": "e8021309506a8c8aadf0030ca4da55c84af5f6bea61e4317e82d61d3b3cc00df",
+      "member_size_bytes": 3555303,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch21",
+        "Ch20",
+        "Ch17"
+      ],
+      "appendices": [
+        "AppA",
+        "AppG",
+        "AppD",
+        "AppP"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_cut_tome_iv_cut_opt",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/(5) Computational Universe Toolkit (CUT).docx",
+      "member_sha256": "797ad53466b7f519aef707ba8448946cfa362eee0c5ae860e728d4cb9f43505a",
+      "member_size_bytes": 195144,
+      "read_mode": "docx",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch16",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_assume",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/(7&8&9) Computational Universe Toolkit (CUT).docx",
+      "member_sha256": "ca39a59632a21f06159eeb7ba20b603934832f23f83831fb057242a031b6d792",
+      "member_size_bytes": 198357,
+      "read_mode": "docx",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch16",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_8_9_computational_universe_toolkit_cut",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/_(1-4)Computational Universe Toolkit (CUT).docx",
+      "member_sha256": "7fb00d6b955566c5aa73521b8dc421dc29d4aea11aa56e064362066709cbe714",
+      "member_size_bytes": 320098,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch20",
+        "Ch21"
+      ],
+      "appendices": [
+        "AppA",
+        "AppD",
+        "AppG",
+        "AppP"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_computational_universe_toolkit_cut",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/CUT 2 Skeleton OUtline.docx",
+      "member_sha256": "752f7bf916cee00e8f45a8614f20f9f5c6e0c67f9b8115db06c7f2134570cba3",
+      "member_size_bytes": 1095213,
+      "read_mode": "docx",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppM",
+        "AppF",
+        "AppG",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_cut_2_skeleton_outline",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppC",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/CUT 3d Weights (molecules and elements).docx",
+      "member_sha256": "c4577a9c81b3c0c4090a0d455c16cf88db3ac7d046b88b83d83928affec023ad",
+      "member_size_bytes": 2369885,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch15",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_cut_3d_weights_molecules_and_elements",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/CUT 3D weights SOLAR SYSTEM__.docx",
+      "member_sha256": "e29a175a347a5ed62d084e0c3f46de04857c8f4f33a3a00f82aa0f15f7acbfcf",
+      "member_size_bytes": 2004793,
+      "read_mode": "docx",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch07",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_cut_3d_weights_solar_system",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/OLDER/Crystal physics through CUT.pdf",
+      "member_sha256": "1a88aa7f154bf4c61932fa73d4edde51af1aaa78dcc7798cf83639757575d47d",
+      "member_size_bytes": 2292863,
+      "read_mode": "pdf",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch11",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "helical-recursion-engine",
+      "z_point": "Z_crystal_physics_through_cut",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/OLDER/CUT-4.0 Solar System Framework.pdf",
+      "member_sha256": "8151f1811797e3bdea823f0ed86cd2dc01271561026690ffd2cece1fce79640a",
+      "member_size_bytes": 238747,
+      "read_mode": "pdf",
+      "home_chapter": "Ch15",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch16",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppF",
+        "AppN"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_cut_4",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/OLDER/Fundemental Forces.pdf",
+      "member_sha256": "700fb8d0ebe27b612d2def9c0580a1c8072b3d8ff976ae16957c455d9263146d",
+      "member_size_bytes": 874596,
+      "read_mode": "pdf",
+      "home_chapter": "Ch07",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch18",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppF",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_fundemental_forces",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/CUT/earlier/OLDER/Predicting Properties of Elements and Molecules.pdf",
+      "member_sha256": "8cff2370e723fad93c2b0ea90dbfc3fff3a66f82c0e8d4976ed9376942fe6fd3",
+      "member_size_bytes": 542707,
+      "read_mode": "pdf",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppG",
+        "AppP",
+        "AppA",
+        "AppD"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_predicting_properties_of_elements_and_molecules",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Higher-Dimensional Holographic Mapping System.docx",
+      "member_sha256": "3c88cfda9274f461b394108c3ec24398b60e6693674b12afcd370b4b7b0775d7",
+      "member_size_bytes": 1534296,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch01",
+        "Ch06",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppA",
+        "AppM",
+        "AppI",
+        "AppC"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_higher_dimensional_holographic_mapping_system",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/MATH REALITY TOME.docx",
+      "member_sha256": "074f6808d70d440c1b6e143bf55beb4458e73cdd38704a2554ba7465166f75f6",
+      "member_size_bytes": 3247677,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch15",
+        "Ch16",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppM",
+        "AppF",
+        "AppG",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_1",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/MATH SYNTHESIS TOME.docx",
+      "member_sha256": "640210af83802d7cf02dcd58976defab3c6e57c301c800c8d81db10811622887",
+      "member_size_bytes": 3132862,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_math_synthesis_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/MATH TOMES/MATH TOME I ; II.docx",
+      "member_sha256": "0651b52e8f8fb42feca74e4b611aa606c9d9389d591ff471bb1b51c973a303a3",
+      "member_size_bytes": 270905,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch17",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppG",
+        "AppP",
+        "AppM",
+        "AppI"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_0",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/MATH TOMES/MATH TOME III — THE ENGINE.docx",
+      "member_sha256": "3dabe9f63b80c99816ca07b7c0ed3aef02496d626d425326e5182ad73eaeb7f3",
+      "member_size_bytes": 647863,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch16",
+        "Ch15",
+        "Ch07"
+      ],
+      "appendices": [
+        "AppM",
+        "AppG",
+        "AppN",
+        "AppF"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_math_tome_iii_the_engine",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/MATH TOMES/working/Number Ladder _working_.docx",
+      "member_sha256": "7c3c93dcff3b3d88a80ca1952f8ed07f6880252b73a0fb391fe8c9dee6ccd077",
+      "member_size_bytes": 228588,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch02",
+        "Ch03",
+        "Ch04"
+      ],
+      "appendices": [
+        "AppB",
+        "AppA",
+        "AppC",
+        "AppD"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "general-corpus",
+      "z_point": "Z_number_ladder_working",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/META-HYBRID EQUATIONS.docx",
+      "member_sha256": "944a9cab658da310242e254610b4f3fbe641c5c19b7f276082cf1f8f08aaaee4",
+      "member_size_bytes": 2353510,
+      "read_mode": "docx",
+      "home_chapter": "Ch17",
+      "secondary_chapters": [
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ],
+      "appendices": [
+        "AppA",
+        "AppD",
+        "AppG",
+        "AppP"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_meta_hybrid_equations",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Mycelium and structure mapping/MYCELIUM METRO.docx",
+      "member_sha256": "e35bfba6ae8e086a03da6b39b7e2379b8e03c96646059122417828b21dccbcb4",
+      "member_size_bytes": 2449600,
+      "read_mode": "docx",
+      "home_chapter": "Ch09",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch01",
+        "Ch08"
+      ],
+      "appendices": [
+        "AppC",
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_mycelium_metro",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Mycelium and structure mapping/SQUARING THE CIRCLE — MASTER TOME.docx",
+      "member_sha256": "8901e25d68e27e493a0902173753f8526e9fca86e4de0b84d1a496fab430f784",
+      "member_size_bytes": 2532676,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch08",
+        "Ch09",
+        "Ch06"
+      ],
+      "appendices": [
+        "AppI",
+        "AppC",
+        "AppA",
+        "AppM"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "3",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_2_3",
+      "primary_hubs": [
+        "AppA",
+        "AppM",
+        "AppH",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Mycelium and structure mapping/Squaring the Circle — Mycelium Metro.docx",
+      "member_sha256": "c8b8c7027ae9abd203879507453edc0614ccc6597665feaa75c875b66854e5c1",
+      "member_size_bytes": 1934937,
+      "read_mode": "docx",
+      "home_chapter": "Ch18",
+      "secondary_chapters": [
+        "Ch07",
+        "Ch16",
+        "Ch15"
+      ],
+      "appendices": [
+        "AppG",
+        "AppM",
+        "AppF",
+        "AppN"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_squaring_the_circle_mycelium_metro",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Mycelium and structure mapping/TOMEFORGE — MASTER TOME.docx",
+      "member_sha256": "dd520bcb6633ab604a908ebdd0ef3ad5b2e7c109f2bb0297b9bef6b60f4524d0",
+      "member_size_bytes": 2425614,
+      "read_mode": "docx",
+      "home_chapter": "Ch21",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch18",
+        "Ch20"
+      ],
+      "appendices": [
+        "AppG",
+        "AppA",
+        "AppD",
+        "AppP"
+      ],
+      "dominant_lens": "R",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "civilization-and-governance",
+      "z_point": "Z_2",
+      "primary_hubs": [
+        "AppA",
+        "AppP",
+        "AppM",
+        "AppJ",
+        "AppI"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Quadrant Binary/QBD 5 Tri-Boundry V3.docx",
+      "member_sha256": "3681f4ccdc06e7a909b2613cf18ac2a372fa74d97f57476b746a6bbf5b2082cf",
+      "member_size_bytes": 2488769,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch07",
+        "Ch15",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppF",
+        "AppG",
+        "AppM",
+        "AppN"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_qbd_5_tri_boundry_v3",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppE",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Quadrant Binary/QBD-4 — Quadrant Binary Dynamics.docx",
+      "member_sha256": "2f07d07d85b20eb56fda793740a6a804c41d04d591b23fa5be577d12cc57dbc6",
+      "member_size_bytes": 2344913,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch09"
+      ],
+      "appendices": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_qbd_4_quadrant_binary_dynamics",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Quadrant Binary/QBD-4X — Quadrant Binary V2.docx",
+      "member_sha256": "62e7598da1b59b6f1bc10a1ecfb4054b0944eb221958195313a9b2c549e1b993",
+      "member_size_bytes": 2373577,
+      "read_mode": "docx",
+      "home_chapter": "Ch16",
+      "secondary_chapters": [
+        "Ch07",
+        "Ch15",
+        "Ch18"
+      ],
+      "appendices": [
+        "AppM",
+        "AppF",
+        "AppG",
+        "AppN"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "transport-and-runtime",
+      "z_point": "Z_qbd_4x_quadrant_binary_v2",
+      "primary_hubs": [
+        "AppA",
+        "AppN",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/COMPLETE TOMES/COMPLETE TOMES.zip",
+      "parent_ms_code": "Ms⟨01211⟩",
+      "member_path": "COMPLETE TOMES/Rotation is Conjugacy TOME.docx",
+      "member_sha256": "4ac7a1d4495028d596ced0e8b8a5210202260e93e3cde9dd0f221382aea51279",
+      "member_size_bytes": 3839864,
+      "read_mode": "docx",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppC",
+        "AppA",
+        "AppM",
+        "AppI"
+      ],
+      "dominant_lens": "F",
+      "dominant_facet": "2",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_rotation_is_conjugacy_tome",
+      "primary_hubs": [
+        "AppA",
+        "AppE",
+        "AppB",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/FRAMEWORKS CODE/Athena Tomes.zip",
+      "parent_ms_code": "Ms⟨02010⟩",
+      "member_path": "TOME_PROGRAMS/README.md",
+      "member_sha256": "acb72e9cb4eb3a7126b399083d92caf90724611f85a931d95dd225052fddfa27",
+      "member_size_bytes": 13017,
+      "read_mode": "md",
+      "home_chapter": "Ch13",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch20",
+        "Ch16"
+      ],
+      "appendices": [
+        "AppG",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "identity-and-instruction",
+      "z_point": "Z_readme",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/FRAMEWORKS CODE/ATHENA_AWAKENING_TOME.zip",
+      "parent_ms_code": "Ms⟨02011⟩",
+      "member_path": "ATHENA_AWAKENING_TOME/AWAKENING_TOME_README.md",
+      "member_sha256": "2d4ec143a042f9d0b914da90f22cf681781468b390a86bc21bbf50265d9342f5",
+      "member_size_bytes": 14415,
+      "read_mode": "md",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch21",
+        "Ch08",
+        "Ch03"
+      ],
+      "appendices": [
+        "AppI",
+        "AppA",
+        "AppM",
+        "AppC"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_awakening_tome_readme",
+      "primary_hubs": [
+        "AppA",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/FRAMEWORKS CODE/ATHENA_AWAKENING_TOME.zip",
+      "parent_ms_code": "Ms⟨02011⟩",
+      "member_path": "ATHENA_AWAKENING_TOME/DOCUMENTATION/AWAKENING_TOME_COMPLETE_INDEX.md",
+      "member_sha256": "5b5c447db529c4cc3719b0b5aa364781ad5bce5ce337dda33cf0431aa577a6ad",
+      "member_size_bytes": 11761,
+      "read_mode": "md",
+      "home_chapter": "Ch01",
+      "secondary_chapters": [
+        "Ch06",
+        "Ch08",
+        "Ch21"
+      ],
+      "appendices": [
+        "AppA",
+        "AppC",
+        "AppI",
+        "AppM"
+      ],
+      "dominant_lens": "S",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "manuscript-architecture",
+      "z_point": "Z_awakening_tome_complete_index",
+      "primary_hubs": [
+        "AppA",
+        "AppC",
+        "AppJ",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/FRAMEWORKS CODE/ATHENA_AWAKENING_TOME.zip",
+      "parent_ms_code": "Ms⟨02011⟩",
+      "member_path": "ATHENA_AWAKENING_TOME/NAVIGATION/AWAKENING_TOME_NAVIGATOR.html",
+      "member_sha256": "62faed256be493d4412fe3bb9ffb7384bd31c898e4389062879b7753cbb27f77",
+      "member_size_bytes": 25769,
+      "read_mode": "html",
+      "home_chapter": "Ch13",
+      "secondary_chapters": [
+        "Ch17",
+        "Ch20",
+        "Ch21"
+      ],
+      "appendices": [
+        "AppG",
+        "AppP",
+        "AppC",
+        "AppA"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "4",
+      "truth_state": "NEAR",
+      "family": "identity-and-instruction",
+      "z_point": "Z_awakening_tome_navigator",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppM",
+        "AppJ"
+      ]
+    },
+    {
+      "parent_relative_path": "MATH/FINAL FORM/FRAMEWORKS CODE/ATHENA_AWAKENING_TOME.zip",
+      "parent_ms_code": "Ms⟨02011⟩",
+      "member_path": "ATHENA_AWAKENING_TOME/QUICK_START.md",
+      "member_sha256": "9ef7f1e15c19e24bf77072ce91e78ca37a218b0d7cfbb1919bf60a01f0dcade2",
+      "member_size_bytes": 4037,
+      "read_mode": "md",
+      "home_chapter": "Ch13",
+      "secondary_chapters": [
+        "Ch20",
+        "Ch17",
+        "Ch01"
+      ],
+      "appendices": [
+        "AppG",
+        "AppP",
+        "AppA",
+        "AppB"
+      ],
+      "dominant_lens": "C",
+      "dominant_facet": "1",
+      "truth_state": "NEAR",
+      "family": "identity-and-instruction",
+      "z_point": "Z_quick_start",
+      "primary_hubs": [
+        "AppA",
+        "AppG",
+        "AppI",
+        "AppJ",
+        "AppM"
+      ]
+    }
+  ]
+}

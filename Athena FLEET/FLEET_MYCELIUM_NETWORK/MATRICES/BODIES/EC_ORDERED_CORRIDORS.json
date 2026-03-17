@@ -1,0 +1,72 @@
+[
+  {
+    "edge_id": "EC01->EC01",
+    "source_id": "EC01",
+    "target_id": "EC01",
+    "relation": "recurse",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0001",
+      "P0001"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Transit",
+      "Governance"
+    ],
+    "lane_type": "identity"
+  },
+  {
+    "edge_id": "EC01->EC02",
+    "source_id": "EC01",
+    "target_id": "EC02",
+    "relation": "repair",
+    "weight": 0.73,
+    "priority": "secondary",
+    "evidence_anchors": [
+      "P0010",
+      "P0009"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Governance"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "EC02->EC01",
+    "source_id": "EC02",
+    "target_id": "EC01",
+    "relation": "route",
+    "weight": 0.73,
+    "priority": "secondary",
+    "evidence_anchors": [
+      "P0005",
+      "P0001"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Governance"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "EC02->EC02",
+    "source_id": "EC02",
+    "target_id": "EC02",
+    "relation": "govern",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0001",
+      "P0001"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Crystal",
+      "Governance"
+    ],
+    "lane_type": "stabilization"
+  }
+]

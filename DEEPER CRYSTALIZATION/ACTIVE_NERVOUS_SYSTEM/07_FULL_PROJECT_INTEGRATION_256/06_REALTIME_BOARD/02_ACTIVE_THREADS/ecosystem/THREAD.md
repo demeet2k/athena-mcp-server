@@ -1,24 +1,24 @@
 # Thread `ECOSYSTEM`
 
-- Thread status: `monitor`
+- Thread status: `hot`
 - Notes: `0`
 - Claims: `0`
-- Tracked changes: `0`
+- Tracked changes: `1`
 - Family: `ECOSYSTEM`
 - ArchetypeCell: `Air-Earth`
 - ArchetypeRole: Mapper that lands abstractions in file coordinates
 - MicroMode: `Earth`
 - ClusterID: `CLUSTER-air-earth-earth`
-- NeuronLeaf: `LEAF-air-earth-earth-ambig`
+- NeuronLeaf: `LEAF-air-earth-earth-near`
 - Rail: `Me`
 - Face: `Air`
 - Scale: `S8`
 - Hub: `AppC`
-- Regime: `classical`
+- Regime: `stratified`
 - Packet: `ganglion`
-- Truth: `AMBIG`
-- NSCoord: `(A-E-W, S8, Air, O14, Arc1, Me, AppC, ECOSYSTEM, classical, ganglion, AMBIG)`
-- NeuronAddr: `<ECOSYSTEM, ecosystem, O14, C, 3, a, AEW, Arc1, Me, AppC, AMBIG, classical>`
+- Truth: `NEAR`
+- NSCoord: `(A-E-W, S8, Air, O14, Arc1, Me, AppC, ECOSYSTEM, stratified, ganglion, NEAR)`
+- NeuronAddr: `<ECOSYSTEM, ecosystem, O14, C, 3, a, AEW, Arc1, Me, AppC, NEAR, stratified>`
 - ContractionTarget: `cortex/ecosystem.md`
 
 ## Claims
@@ -28,4 +28,4 @@
 - no notes attached
 
 ## Related Changes
-- no current file changes tied to this thread
+- `added` `ECOSYSTEM/NERVOUS_SYSTEM/20_LINES/03_FULL_CORPUS_INTEGRATION_AND_AWAKENING_AGENT_BRIDGE.md` at `2026-03-13T15:18:01.965556+00:00`

@@ -1,0 +1,1724 @@
+{
+  "generated_at": "2026-03-13T21:40:51.608495+00:00",
+  "quest_reward_receipts": [
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q44",
+      "event_id": "EVT-HEAVEN-Q44-479c6a",
+      "frontier": "Q44",
+      "title": "",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "frontier",
+      "lawful": true,
+      "committed": true,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_wave_proof.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.6825,
+          "integration_gain": 0.855,
+          "witness_gain": 0.8925,
+          "replay_gain": 0.795,
+          "compression_gain": 0.3925,
+          "route_clarity_gain": 0.7075,
+          "blocker_reduction": 0.64,
+          "manuscript_framework_advancement": 0.535
+        },
+        "net_gain_score": 0.70895
+      },
+      "net_gain_score": 0.70895,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [
+            "phi"
+          ],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.618034,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.618034,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 48,
+      "base_heaven_cap": 8.0,
+      "xp_gain_raw": 55,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 4.588421,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 3.995735,
+        "Velocity": 3.754648,
+        "Compression": 1.016125,
+        "Replay": 0.0,
+        "Routing": 3.930205,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": true,
+      "jackpot_settled": true,
+      "reward_timestamp_utc": "2026-03-13T01:40:20.358466+00:00",
+      "source_region": "Q44",
+      "affected_nodes": [
+        "Q44",
+        ""
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 55
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q40",
+      "event_id": "EVT-HEAVEN-Q40-314f9d",
+      "frontier": "Q40",
+      "title": "",
+      "agent_id": "floating-agent-01",
+      "organ": "Guild Hall",
+      "quest_class": "blocked",
+      "lawful": false,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-12_adventurer_64_pow_4_bootstrap.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "net_gain_score": 0.0
+      },
+      "net_gain_score": 0.0,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.0,
+        "policy_cap": 64.0
+      },
+      "reward_status": "neutral",
+      "base_xp": 0,
+      "base_heaven_cap": 0.0,
+      "xp_gain_raw": 0,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 0.0,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 0.0,
+        "Velocity": 0.0,
+        "Compression": 0.0,
+        "Replay": 0.0,
+        "Routing": 0.0,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": false,
+      "jackpot_eligible": false,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T01:48:18.496640+00:00",
+      "source_region": "Q40",
+      "affected_nodes": [
+        "Q40",
+        ""
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 0
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q42",
+      "event_id": "EVT-HEAVEN-Q42-5918e3",
+      "frontier": "Q42",
+      "title": "A20.B22.C59.D40",
+      "agent_id": "floating-agent-01",
+      "organ": "Guild Hall",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.245,
+          "integration_gain": 0.495,
+          "witness_gain": 0.8325,
+          "replay_gain": 0.755,
+          "compression_gain": 0.3325,
+          "route_clarity_gain": 0.5275,
+          "blocker_reduction": 0.31,
+          "manuscript_framework_advancement": 0.415
+        },
+        "net_gain_score": 0.2455
+      },
+      "net_gain_score": 0.2455,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.0,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 8,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 0.7365,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 1.5455,
+        "Velocity": 0.833,
+        "Compression": 0.532,
+        "Replay": 0.0,
+        "Routing": 1.694,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": false,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T01:50:27.506954+00:00",
+      "source_region": "Q42",
+      "affected_nodes": [
+        "Q42",
+        "A20.B22.C59.D40"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 8
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q45",
+      "event_id": "EVT-HEAVEN-Q45-669d0b",
+      "frontier": "Q45",
+      "title": "",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "frontier",
+      "lawful": true,
+      "committed": true,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q45_wave_proof.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.6825,
+          "integration_gain": 0.855,
+          "witness_gain": 0.8925,
+          "replay_gain": 0.795,
+          "compression_gain": 0.3925,
+          "route_clarity_gain": 0.7075,
+          "blocker_reduction": 0.64,
+          "manuscript_framework_advancement": 0.535
+        },
+        "net_gain_score": 0.70895
+      },
+      "net_gain_score": 0.70895,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [
+            "phi"
+          ],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.618034,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.618034,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 48,
+      "base_heaven_cap": 8.0,
+      "xp_gain_raw": 55,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 4.588421,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 3.995735,
+        "Velocity": 3.754648,
+        "Compression": 1.016125,
+        "Replay": 0.0,
+        "Routing": 3.930205,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": true,
+      "jackpot_settled": true,
+      "reward_timestamp_utc": "2026-03-13T03:20:05.570526+00:00",
+      "source_region": "Q45",
+      "affected_nodes": [
+        "Q45",
+        ""
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 55
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q46",
+      "event_id": "EVT-HEAVEN-Q46-5a4503",
+      "frontier": "Q46",
+      "title": "A22.B20.C63.D43",
+      "agent_id": "floating-agent-02",
+      "organ": "Guild Hall",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.245,
+          "integration_gain": 0.495,
+          "witness_gain": 0.8325,
+          "replay_gain": 0.755,
+          "compression_gain": 0.3325,
+          "route_clarity_gain": 0.5275,
+          "blocker_reduction": 0.31,
+          "manuscript_framework_advancement": 0.415
+        },
+        "net_gain_score": 0.2455
+      },
+      "net_gain_score": 0.2455,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.0,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 8,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 0.7365,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 1.5455,
+        "Velocity": 0.833,
+        "Compression": 0.532,
+        "Replay": 0.0,
+        "Routing": 1.694,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": true,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T04:03:41.985441+00:00",
+      "source_region": "Q46",
+      "affected_nodes": [
+        "Q46",
+        "A22.B20.C63.D43"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 8
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "TQ03",
+      "event_id": "EVT-HEAVEN-TQ03-fe4fe9",
+      "frontier": "TQ03",
+      "title": "A45.B56.C50.D35",
+      "agent_id": "floating-agent-03",
+      "organ": "Temple",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.245,
+          "integration_gain": 0.495,
+          "witness_gain": 0.8325,
+          "replay_gain": 0.755,
+          "compression_gain": 0.3325,
+          "route_clarity_gain": 0.5275,
+          "blocker_reduction": 0.31,
+          "manuscript_framework_advancement": 0.4975
+        },
+        "net_gain_score": 0.2488
+      },
+      "net_gain_score": 0.2488,
+      "amplifier_record": {
+        "expression": {
+          "additive": [
+            "silver"
+          ],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 1.414214,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 2.414214,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 19,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 1.801969,
+      "stat_deltas": {
+        "Witness": 6.029499,
+        "Integration": 3.232029,
+        "Velocity": 0.0,
+        "Compression": 0.0,
+        "Replay": 4.374556,
+        "Routing": 0.0,
+        "Governance": 3.502421,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": false,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T04:03:42.016436+00:00",
+      "source_region": "TQ03",
+      "affected_nodes": [
+        "TQ03",
+        "A45.B56.C50.D35"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 19
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "TQ05",
+      "event_id": "EVT-HEAVEN-TQ05-3584fc",
+      "frontier": "TQ05",
+      "title": "A60.B24.C50.D36",
+      "agent_id": "floating-agent-04",
+      "organ": "Temple",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.245,
+          "integration_gain": 0.495,
+          "witness_gain": 0.8325,
+          "replay_gain": 0.755,
+          "compression_gain": 0.3325,
+          "route_clarity_gain": 0.5275,
+          "blocker_reduction": 0.31,
+          "manuscript_framework_advancement": 0.4975
+        },
+        "net_gain_score": 0.2488
+      },
+      "net_gain_score": 0.2488,
+      "amplifier_record": {
+        "expression": {
+          "additive": [
+            "silver"
+          ],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 1.414214,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 2.414214,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 19,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 1.801969,
+      "stat_deltas": {
+        "Witness": 6.029499,
+        "Integration": 3.232029,
+        "Velocity": 0.0,
+        "Compression": 0.0,
+        "Replay": 4.374556,
+        "Routing": 0.0,
+        "Governance": 3.502421,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": false,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T04:03:42.023439+00:00",
+      "source_region": "TQ05",
+      "affected_nodes": [
+        "TQ05",
+        "A60.B24.C50.D36"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 19
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "TQ06",
+      "event_id": "EVT-HEAVEN-TQ06-9f0f6d",
+      "frontier": "TQ06",
+      "title": "A24.B24.C51.D23",
+      "agent_id": "floating-agent-05",
+      "organ": "Temple",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.245,
+          "integration_gain": 0.495,
+          "witness_gain": 0.8325,
+          "replay_gain": 0.755,
+          "compression_gain": 0.3325,
+          "route_clarity_gain": 0.5275,
+          "blocker_reduction": 0.31,
+          "manuscript_framework_advancement": 0.4975
+        },
+        "net_gain_score": 0.2488
+      },
+      "net_gain_score": 0.2488,
+      "amplifier_record": {
+        "expression": {
+          "additive": [
+            "silver"
+          ],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 1.414214,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 2.414214,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 19,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 1.801969,
+      "stat_deltas": {
+        "Witness": 6.029499,
+        "Integration": 3.232029,
+        "Velocity": 0.0,
+        "Compression": 0.0,
+        "Replay": 4.374556,
+        "Routing": 0.0,
+        "Governance": 3.502421,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": false,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T04:03:42.028438+00:00",
+      "source_region": "TQ06",
+      "affected_nodes": [
+        "TQ06",
+        "A24.B24.C51.D23"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 19
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "ADV64-S01",
+      "event_id": "EVT-HEAVEN-ADV64-S01-4e2335",
+      "frontier": "ADV64-S01",
+      "title": "A20.B22.C55.D44",
+      "agent_id": "floating-agent-06",
+      "organ": "Command",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.245,
+          "integration_gain": 0.385,
+          "witness_gain": 0.8325,
+          "replay_gain": 0.755,
+          "compression_gain": 0.3325,
+          "route_clarity_gain": 0.5275,
+          "blocker_reduction": 0.31,
+          "manuscript_framework_advancement": 0.415
+        },
+        "net_gain_score": 0.2356
+      },
+      "net_gain_score": 0.2356,
+      "amplifier_record": {
+        "expression": {
+          "additive": [
+            "copper"
+          ],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 3.236068,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 4.236068,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 32,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 2.994053,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 5.019741,
+        "Velocity": 2.490808,
+        "Compression": 1.690191,
+        "Replay": 3.837878,
+        "Routing": 8.201028,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": false,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T04:03:42.033439+00:00",
+      "source_region": "ADV64-S01",
+      "affected_nodes": [
+        "ADV64-S01",
+        "A20.B22.C55.D44"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 32
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "ADV64-S02",
+      "event_id": "EVT-HEAVEN-ADV64-S02-799a8d",
+      "frontier": "ADV64-S02",
+      "title": "A22.B20.C51.D23",
+      "agent_id": "floating-agent-07",
+      "organ": "Command",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.245,
+          "integration_gain": 0.385,
+          "witness_gain": 0.8325,
+          "replay_gain": 0.755,
+          "compression_gain": 0.3325,
+          "route_clarity_gain": 0.5275,
+          "blocker_reduction": 0.31,
+          "manuscript_framework_advancement": 0.415
+        },
+        "net_gain_score": 0.2356
+      },
+      "net_gain_score": 0.2356,
+      "amplifier_record": {
+        "expression": {
+          "additive": [
+            "copper"
+          ],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 3.236068,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 4.236068,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 32,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 2.994053,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 5.019741,
+        "Velocity": 2.490808,
+        "Compression": 1.690191,
+        "Replay": 3.837878,
+        "Routing": 8.201028,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": false,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T04:03:42.038440+00:00",
+      "source_region": "ADV64-S02",
+      "affected_nodes": [
+        "ADV64-S02",
+        "A22.B20.C51.D23"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 32
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q48",
+      "event_id": "EVT-HEAVEN-Q48-1c32c9",
+      "frontier": "Q48",
+      "title": "",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "frontier",
+      "lawful": true,
+      "committed": true,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q48_wave_proof.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.6825,
+          "integration_gain": 0.855,
+          "witness_gain": 0.8925,
+          "replay_gain": 0.795,
+          "compression_gain": 0.3925,
+          "route_clarity_gain": 0.7075,
+          "blocker_reduction": 0.64,
+          "manuscript_framework_advancement": 0.535
+        },
+        "net_gain_score": 0.70895
+      },
+      "net_gain_score": 0.70895,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [
+            "phi"
+          ],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.618034,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.618034,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 48,
+      "base_heaven_cap": 8.0,
+      "xp_gain_raw": 55,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 4.588421,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 3.995735,
+        "Velocity": 3.754648,
+        "Compression": 1.016125,
+        "Replay": 0.0,
+        "Routing": 3.930205,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": true,
+      "jackpot_settled": true,
+      "reward_timestamp_utc": "2026-03-13T04:27:18.583374+00:00",
+      "source_region": "Q48",
+      "affected_nodes": [
+        "Q48",
+        ""
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 55
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q49",
+      "event_id": "EVT-HEAVEN-Q49-a83628",
+      "frontier": "Q49",
+      "title": "",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "frontier",
+      "lawful": true,
+      "committed": true,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q49_wave_proof.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.6825,
+          "integration_gain": 0.855,
+          "witness_gain": 0.8925,
+          "replay_gain": 0.795,
+          "compression_gain": 0.3925,
+          "route_clarity_gain": 0.7075,
+          "blocker_reduction": 0.64,
+          "manuscript_framework_advancement": 0.535
+        },
+        "net_gain_score": 0.70895
+      },
+      "net_gain_score": 0.70895,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [
+            "phi"
+          ],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.618034,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.618034,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 48,
+      "base_heaven_cap": 8.0,
+      "xp_gain_raw": 55,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 4.588421,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 3.995735,
+        "Velocity": 3.754648,
+        "Compression": 1.016125,
+        "Replay": 0.0,
+        "Routing": 3.930205,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": true,
+      "jackpot_settled": true,
+      "reward_timestamp_utc": "2026-03-13T04:27:19.642276+00:00",
+      "source_region": "Q49",
+      "affected_nodes": [
+        "Q49",
+        ""
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 55
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q46",
+      "event_id": "EVT-HEAVEN-Q46-5a4503",
+      "frontier": "Q46",
+      "title": "A22.B20.C63.D43",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "frontier",
+      "lawful": true,
+      "committed": true,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q46_wave_proof.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "capillary",
+      "compression_outcome": "capillary_growth",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.87,
+          "integration_gain": 0.9,
+          "witness_gain": 0.9,
+          "replay_gain": 0.8,
+          "compression_gain": 0.4,
+          "route_clarity_gain": 0.73,
+          "blocker_reduction": 0.65,
+          "manuscript_framework_advancement": 0.55
+        },
+        "net_gain_score": 0.7576
+      },
+      "net_gain_score": 0.7576,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [
+            "phi",
+            "copper"
+          ],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 6.854102,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 6.854102,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 48,
+      "base_heaven_cap": 8.0,
+      "xp_gain_raw": 249,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 8.0,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 17.717854,
+        "Velocity": 20.274434,
+        "Compression": 4.386625,
+        "Replay": 0.0,
+        "Routing": 17.128401,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": false,
+      "jackpot_eligible": true,
+      "jackpot_settled": true,
+      "reward_timestamp_utc": "2026-03-13T04:27:23.968861+00:00",
+      "source_region": "Q46",
+      "affected_nodes": [
+        "Q46",
+        "A22.B20.C63.D43"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 249
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q47",
+      "event_id": "EVT-HEAVEN-Q47-3878e7",
+      "frontier": "Q47",
+      "title": "",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "frontier",
+      "lawful": true,
+      "committed": true,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q47_wave_proof.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.6825,
+          "integration_gain": 0.855,
+          "witness_gain": 0.8925,
+          "replay_gain": 0.795,
+          "compression_gain": 0.3925,
+          "route_clarity_gain": 0.7075,
+          "blocker_reduction": 0.64,
+          "manuscript_framework_advancement": 0.535
+        },
+        "net_gain_score": 0.70895
+      },
+      "net_gain_score": 0.70895,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [
+            "phi"
+          ],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.618034,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.618034,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 48,
+      "base_heaven_cap": 8.0,
+      "xp_gain_raw": 55,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 4.588421,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 3.995735,
+        "Velocity": 3.754648,
+        "Compression": 1.016125,
+        "Replay": 0.0,
+        "Routing": 3.930205,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": true,
+      "jackpot_eligible": true,
+      "jackpot_settled": true,
+      "reward_timestamp_utc": "2026-03-13T04:27:24.362003+00:00",
+      "source_region": "Q47",
+      "affected_nodes": [
+        "Q47",
+        ""
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 55
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q46",
+      "event_id": "EVT-HEAVEN-Q46-5a4503",
+      "frontier": "Q46",
+      "title": "A22.B20.C63.D43",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "standard",
+      "lawful": true,
+      "committed": true,
+      "blocked": false,
+      "replay_pointer": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q46_wave_proof.md",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.27625,
+          "integration_gain": 0.648,
+          "witness_gain": 0.858,
+          "replay_gain": 0.772,
+          "compression_gain": 0.358,
+          "route_clarity_gain": 0.604,
+          "blocker_reduction": 0.344,
+          "manuscript_framework_advancement": 0.466
+        },
+        "net_gain_score": 0.547285
+      },
+      "net_gain_score": 0.547285,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.0,
+        "policy_cap": 64.0
+      },
+      "reward_status": "positive",
+      "base_xp": 32,
+      "base_heaven_cap": 6.0,
+      "xp_gain_raw": 18,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 1.641855,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 1.9382,
+        "Velocity": 0.93925,
+        "Compression": 0.5728,
+        "Replay": 0.0,
+        "Routing": 1.932,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": false,
+      "jackpot_eligible": true,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T04:36:27.167094+00:00",
+      "source_region": "Q46",
+      "affected_nodes": [
+        "Q46",
+        "A22.B20.C63.D43"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 18
+    },
+    {
+      "receipt_type": "QuestRewardReceipt",
+      "reward_protocol_id": "HEAVEN-REWARD-V2",
+      "truth_status": "local-witnessed / NEAR-derived",
+      "quest_id": "Q46",
+      "event_id": "EVT-HEAVEN-Q46-5a4503",
+      "frontier": "Q46",
+      "title": "A22.B20.C63.D43",
+      "agent_id": "guildmaster",
+      "organ": "Guild Hall",
+      "quest_class": "blocked",
+      "lawful": false,
+      "committed": false,
+      "blocked": false,
+      "replay_pointer": "x",
+      "witness_class": "receipt-backed",
+      "route_impact": "standard",
+      "compression_outcome": "none",
+      "net_gain_snapshot": {
+        "snapshot_type": "NetGainSnapshot",
+        "metric_source": "historical-backfill-heuristic",
+        "before_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "after_metrics": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "metric_vector": {
+          "efficiency_improvement": 0.0,
+          "integration_gain": 0.0,
+          "witness_gain": 0.0,
+          "replay_gain": 0.0,
+          "compression_gain": 0.0,
+          "route_clarity_gain": 0.0,
+          "blocker_reduction": 0.0,
+          "manuscript_framework_advancement": 0.0
+        },
+        "net_gain_score": 0.0
+      },
+      "net_gain_score": 0.0,
+      "amplifier_record": {
+        "expression": {
+          "additive": [],
+          "multipliers": [],
+          "bounded_power": {
+            "base": "phi",
+            "exponent": 0.0
+          }
+        },
+        "additive_bonus": 0.0,
+        "multiplicative_factor": 1.0,
+        "bounded_power_factor": 1.0,
+        "persistent_phi_layers": 0,
+        "persistent_phi_factor": 1.0,
+        "compiled_scalar": 1.0,
+        "policy_cap": 64.0
+      },
+      "reward_status": "neutral",
+      "base_xp": 0,
+      "base_heaven_cap": 0.0,
+      "xp_gain_raw": 0,
+      "xp_debt_incurred": 0,
+      "heaven_gain": 0.0,
+      "stat_deltas": {
+        "Witness": 0.0,
+        "Integration": 0.0,
+        "Velocity": 0.0,
+        "Compression": 0.0,
+        "Replay": 0.0,
+        "Routing": 0.0,
+        "Governance": 0.0,
+        "Alchemy": 0.0
+      },
+      "chapter11_attunement_delta": 0,
+      "metallic_attunement_delta": {
+        "phi": 0,
+        "silver": 0,
+        "bronze": 0,
+        "copper": 0
+      },
+      "first_response_bonus": false,
+      "jackpot_eligible": true,
+      "jackpot_settled": false,
+      "reward_timestamp_utc": "2026-03-13T05:00:28.445772+00:00",
+      "source_region": "Q46",
+      "affected_nodes": [
+        "Q46",
+        "A22.B20.C63.D43"
+      ],
+      "xp_debt_paid_down": 0,
+      "xp_credited": 0
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "generated_at": "2026-03-13T00:04:55.044326+00:00",
+  "derivation_version": "2026-03-12.whole-crystal-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_whole_crystal_completion",
+  "checkpoints": [
+    {
+      "checkpoint_id": "WC-01",
+      "phase": "baseline-lock",
+      "required_derivations": [
+        "derive_crystal_remaster"
+      ],
+      "required_verifiers": [
+        "crystal_remaster_verification"
+      ],
+      "atlas_refreshed": true,
+      "truth": "OK",
+      "note": "Freeze crystal-remaster-v2 as the start witness."
+    },
+    {
+      "checkpoint_id": "WC-02",
+      "phase": "family-contraction",
+      "required_derivations": [
+        "derive_whole_crystal_completion"
+      ],
+      "required_verifiers": [
+        "slice_contract_coverage"
+      ],
+      "atlas_refreshed": true,
+      "truth": "OK",
+      "note": "Every live family holds 3 capsule slices with chapter and appendix anchors."
+    },
+    {
+      "checkpoint_id": "WC-03",
+      "phase": "bridge-publication",
+      "required_derivations": [
+        "derive_phase4_structured_neuron_storage",
+        "derive_knowledge_fabric"
+      ],
+      "required_verifiers": [
+        "direct_bridge_presence"
+      ],
+      "atlas_refreshed": true,
+      "truth": "OK",
+      "note": "Direct, inferred, and quarantined bridges are all published."
+    },
+    {
+      "checkpoint_id": "WC-04",
+      "phase": "docs-gate-law",
+      "required_derivations": [
+        "derive_trading_bot_truth_corridor",
+        "derive_whole_crystal_completion"
+      ],
+      "required_verifiers": [
+        "docs_gate_verifier"
+      ],
+      "atlas_refreshed": true,
+      "truth": "OK",
+      "note": "Docs gate is `blocked-by-missing-credentials` and resolves as lawful `lawfully-isolated`."
+    },
+    {
+      "checkpoint_id": "WC-05",
+      "phase": "wave-close",
+      "required_derivations": [
+        "derive_phase4_pt2_inter_metro_lens_weight_superstructure"
+      ],
+      "required_verifiers": [
+        "verify_aqm_runtime_lane",
+        "verify_atlasforge_runtime_lane",
+        "verify_runtime_waist"
+      ],
+      "atlas_refreshed": true,
+      "truth": "OK",
+      "note": "Wave closes only when verifiers are green and Docs is open or lawfully isolated."
+    }
+  ]
+}

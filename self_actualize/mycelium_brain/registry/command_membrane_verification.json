@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-03-14T00:22:00.878842+00:00",
+  "truth": "NEAR",
+  "checks": {
+    "protocol_id_exact": false,
+    "active_surface_exact": true,
+    "watch_scope_exact": true,
+    "watcher_mode_exact": true,
+    "fallback_mode_exact": true,
+    "route_policy_exact": false,
+    "docs_gate_honest": true,
+    "latency_metrics_present": false,
+    "watch_registry_count_exact": true,
+    "watched_surface_count_exact": true,
+    "event_packets_available": true,
+    "claim_ledger_available": true,
+    "latency_rows_available": true,
+    "live_manifest_aligned": false
+  },
+  "counts": {
+    "watched_surfaces": 7,
+    "event_packets": 55,
+    "claim_ledger": 18,
+    "latency_rows": 55
+  },
+  "artifacts": {
+    "public_state": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_STATE.json",
+    "watch_registry": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/watched_surface_registry.json",
+    "event_packets": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_live_event_ledger.json",
+    "claim_ledger": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_ledger.json",
+    "latency_registry": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_latency_benchmark_registry.json",
+    "live_manifest": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_live_manifest.json"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "framework": "Mycelium Metro v4 — 4D Tesseract Crystal",
+  "version": "4.0.0",
+  "created": "2026-03-13",
+  "geometry": {
+    "zero_point": "Z*",
+    "symbols": {
+      "absolute_zero": "\u2299",
+      "orbit_circle": "\u25cb",
+      "control_triangle": "\u25b3",
+      "square": "\u25a1",
+      "flower": "\u273f",
+      "cloud": "\u2601",
+      "fractal": "\u27e1"
+    },
+    "container_faces": {
+      "S": { "name": "Square", "domain": "discrete structure, addresses, index algebra, finite objects" },
+      "F": { "name": "Flower", "domain": "phase, symmetry, rotation, orbit, transformation" },
+      "C": { "name": "Cloud", "domain": "corridor truth, uncertainty, candidate clouds, admissibility" },
+      "R": { "name": "Fractal", "domain": "recursion, self-similarity, compression, replay, regeneration" }
+    },
+    "facets": {
+      "1": "Objects",
+      "2": "Laws",
+      "3": "Constructions",
+      "4": "Certificates"
+    },
+    "atoms": ["a", "b", "c", "d"],
+    "interior_law": "4^4 tile = 4 lenses x 4 facets x 4 atoms = 256 addressable atoms per chapter/appendix"
+  },
+  "address_grammar": {
+    "local": "ChXX<dddd>.<Lens><Facet>.<Atom>",
+    "appendix": "AppX.<Lens><Facet>.<Atom>",
+    "global": "Ms<mmmm>::LocalAddr",
+    "lens_values": ["S", "F", "C", "R"],
+    "facet_values": [1, 2, 3, 4],
+    "atom_values": ["a", "b", "c", "d"]
+  },
+  "station_codes": {
+    "Ch01": "0000", "Ch02": "0001", "Ch03": "0002", "Ch04": "0003",
+    "Ch05": "0010", "Ch06": "0011", "Ch07": "0012", "Ch08": "0013",
+    "Ch09": "0020", "Ch10": "0021", "Ch11": "0022", "Ch12": "0023",
+    "Ch13": "0030", "Ch14": "0031", "Ch15": "0032", "Ch16": "0033",
+    "Ch17": "0100", "Ch18": "0101", "Ch19": "0102", "Ch20": "0103",
+    "Ch21": "0110"
+  },
+  "overlay_tables": {
+    "arcs": [
+      { "alpha": 0, "rho": 0, "chapters": ["Ch01", "Ch02", "Ch03"], "lanes": ["Su", "Me", "Sa"] },
+      { "alpha": 1, "rho": 1, "chapters": ["Ch04", "Ch05", "Ch06"], "lanes": ["Me", "Sa", "Su"] },
+      { "alpha": 2, "rho": 2, "chapters": ["Ch07", "Ch08", "Ch09"], "lanes": ["Sa", "Su", "Me"] },
+      { "alpha": 3, "rho": 0, "chapters": ["Ch10", "Ch11", "Ch12"], "lanes": ["Su", "Me", "Sa"] },
+      { "alpha": 4, "rho": 1, "chapters": ["Ch13", "Ch14", "Ch15"], "lanes": ["Me", "Sa", "Su"] },
+      { "alpha": 5, "rho": 2, "chapters": ["Ch16", "Ch17", "Ch18"], "lanes": ["Sa", "Su", "Me"] },
+      { "alpha": 6, "rho": 0, "chapters": ["Ch19", "Ch20", "Ch21"], "lanes": ["Su", "Me", "Sa"] }
+    ],
+    "rails": {
+      "Su": ["Ch01", "Ch06", "Ch08", "Ch10", "Ch15", "Ch17", "Ch19"],
+      "Me": ["Ch02", "Ch04", "Ch09", "Ch11", "Ch13", "Ch18", "Ch20"],
+      "Sa": ["Ch03", "Ch05", "Ch07", "Ch12", "Ch14", "Ch16", "Ch21"]
+    }
+  },
+  "router_v3": {
+    "lens_base": { "S": "AppC", "F": "AppE", "C": "AppI", "R": "AppM" },
+    "facet_base": { "1": "AppA", "2": "AppB", "3": "AppH", "4": "AppM" },
+    "arc_hub": { "0": "AppA", "1": "AppC", "2": "AppE", "3": "AppF", "4": "AppG", "5": "AppN", "6": "AppP" },
+    "mandatory_signature": ["AppA", "AppI", "AppM"],
+    "hub_cap": 6,
+    "truth_overlay": { "OK": null, "NEAR": "AppJ", "AMBIG": "AppL", "FAIL": "AppK" },
+    "intent_set": ["VERIFY", "BUILD", "MIGRATE", "RESOLVE", "PUBLISH"]
+  },
+  "edge_kinds": ["REF", "EQUIV", "MIGRATE", "DUAL", "GEN", "INST", "IMPL", "PROOF", "CONFLICT"],
+  "truth_lattice": {
+    "values": ["OK", "NEAR", "AMBIG", "FAIL"],
+    "law": "ABSTAIN > GUESS"
+  },
+  "appendix_grid": {
+    "row_0_square": ["AppA", "AppB", "AppC", "AppD"],
+    "row_1_flower": ["AppE", "AppF", "AppG", "AppH"],
+    "row_2_cloud": ["AppI", "AppJ", "AppK", "AppL"],
+    "row_3_fractal": ["AppM", "AppN", "AppO", "AppP"]
+  },
+  "hcrl_order": ["S", "F", "C", "R"],
+  "tesseract_header_template": "[Z_i<->Z* | Arc {alpha} | Rot {rho} | Lane {nu} | View {L}/* | omega={omega}]"
+}

@@ -1,0 +1,675 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+  "interlocks": [
+    {
+      "interlock_id": "IX-01",
+      "source_system": "CoreMetro",
+      "source_station": "ST-T3",
+      "target_system": "EmergentSupermap",
+      "target_station": "ST-T8",
+      "transform_kind": "same_station",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Core metro hands off into the deeper supermap through the existing transfer lattice.",
+      "dispatch_score": 7.35,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-T3",
+        "ST-T8"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-02",
+      "source_system": "EmergentSupermap",
+      "source_station": "ST-T8",
+      "target_system": "L2DeepEmergence",
+      "target_station": "ST-L2",
+      "transform_kind": "rail_lift",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Emergent supermap lifts into Level 2 through the Su rail.",
+      "dispatch_score": 7.48,
+      "return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-T8",
+        "ST-L2"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-03",
+      "source_system": "L2DeepEmergence",
+      "source_station": "ST-L2",
+      "target_system": "L3Neural",
+      "target_station": "ST-L3",
+      "transform_kind": "rail_lift",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Level 2 emergence hands off into Level 3 neural routing.",
+      "dispatch_score": 7.48,
+      "return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-L2",
+        "ST-L3"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-04",
+      "source_system": "L3Neural",
+      "source_station": "ST-L3",
+      "target_system": "L4Transcendent",
+      "target_station": "ST-L4",
+      "transform_kind": "rail_lift",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Level 3 lifts into Level 4 only through the transcendent lift.",
+      "dispatch_score": 7.4,
+      "return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-L3",
+        "ST-L4"
+      ],
+      "proof_state": "NEAR",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-05",
+      "source_system": "CoreMetro",
+      "source_station": "ST-T10",
+      "target_system": "GrandCentral",
+      "target_station": "ST-T10",
+      "transform_kind": "hub_transfer",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Grand Central is the default interlock yard for multi-system routing.",
+      "dispatch_score": 7.75,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-T10"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-06",
+      "source_system": "GrandCentral",
+      "source_station": "ST-GCW",
+      "target_system": "BrainStem64",
+      "target_station": "ST-B64",
+      "transform_kind": "rail_lift",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Weight mezzanine dispatches into the brain stem yard.",
+      "dispatch_score": 7.56,
+      "return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-GCW",
+        "ST-B64"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-07",
+      "source_system": "BrainStem64",
+      "source_station": "ST-B64",
+      "target_system": "Plexus256",
+      "target_station": "ST-P256",
+      "transform_kind": "rail_lift",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Brain stem traffic expands into the 256x plexus.",
+      "dispatch_score": 7.48,
+      "return_path": [
+        "ST-GCW",
+        "ST-T10"
+      ],
+      "route_via": [
+        "ST-B64",
+        "ST-P256"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-08",
+      "source_system": "Plexus256",
+      "source_station": "ST-P256",
+      "target_system": "Arbor1024",
+      "target_station": "ST-A1024",
+      "transform_kind": "rail_lift",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Plexus traffic deepens into the synaptic arbor return ring.",
+      "dispatch_score": 7.48,
+      "return_path": [
+        "ST-GCW",
+        "ST-T10"
+      ],
+      "route_via": [
+        "ST-P256",
+        "ST-A1024"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-09",
+      "source_system": "GrandCentral",
+      "source_station": "ST-GCZ",
+      "target_system": "DeepRootMetroStack",
+      "target_station": "ST-DeepRoot",
+      "transform_kind": "tunnel_crossing",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "GCZ and Ch11 form the lawful tunnel crossing into the live deep root.",
+      "dispatch_score": 7.94,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-GCZ",
+        "ST-Ch11",
+        "ST-DeepRoot"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-10",
+      "source_system": "DeepRootMetroStack",
+      "source_station": "ST-AppQ",
+      "target_system": "AppendixOnlyMetro",
+      "target_station": "ST-AppM",
+      "transform_kind": "appendix_dock",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Appendix-only certification docks into the deep-root appendix map.",
+      "dispatch_score": 7.18,
+      "return_path": [
+        "ST-GCZ",
+        "ST-T10"
+      ],
+      "route_via": [
+        "ST-AppQ",
+        "ST-AppM"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-11",
+      "source_system": "AppendixOnlyMetro",
+      "source_station": "ST-AppM",
+      "target_system": "HDSCTMetro",
+      "target_station": "ST-HDSCT",
+      "transform_kind": "same_station",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "HD-SCT uses Appendix M as a deterministic certificate dock.",
+      "dispatch_score": 7.4,
+      "return_path": [
+        "ST-AppQ",
+        "ST-GCZ"
+      ],
+      "route_via": [
+        "ST-AppM",
+        "ST-HDSCT"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-12",
+      "source_system": "CoreMetro",
+      "source_station": "ST-T9",
+      "target_system": "Mycelial4D",
+      "target_station": "ST-Mycelium",
+      "transform_kind": "body_projection",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "T9 projects cortical traffic into the 4D mycelial organism.",
+      "dispatch_score": 7.36,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-T9",
+        "ST-Mycelium"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-13",
+      "source_system": "Mycelial4D",
+      "source_station": "ST-Mycelium",
+      "target_system": "CrossCorpusMycelial",
+      "target_station": "ST-FLEET",
+      "transform_kind": "field_projection",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Mycelial field projection opens the cross-corpus departure lane.",
+      "dispatch_score": 6.91,
+      "return_path": [
+        "ST-GCP",
+        "ST-T10"
+      ],
+      "route_via": [
+        "ST-Mycelium",
+        "ST-FLEET"
+      ],
+      "proof_state": "NEAR",
+      "status": "LIVE",
+      "note": "Historical reservoirs remain visible and non-authoritative on this crossing."
+    },
+    {
+      "interlock_id": "IX-14",
+      "source_system": "GrandCentral",
+      "source_station": "ST-T10",
+      "target_system": "AthenaFleetMetro",
+      "target_station": "ST-FLEET",
+      "transform_kind": "body_projection",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Grand Central projects into the Athena FLEET cluster through the fleet hub.",
+      "dispatch_score": 7.36,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-T10",
+        "ST-FLEET"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-15",
+      "source_system": "AthenaFleetMetro",
+      "source_station": "ST-FLEET",
+      "target_system": "CrossCorpusMycelial",
+      "target_station": "ST-FLEET",
+      "transform_kind": "promotion_departure",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Fleet promotion moves into the cross-corpus lane without dissolving the local cluster.",
+      "dispatch_score": 6.96,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-FLEET",
+        "ST-T10"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-16",
+      "source_system": "CrossCorpusMycelial",
+      "source_station": "ST-FLEET",
+      "target_system": "GrandCentral",
+      "target_station": "ST-T10",
+      "transform_kind": "hub_transfer",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Cross-corpus traffic returns through Grand Central with blocked Trading Bot evidence kept visible.",
+      "dispatch_score": 7.45,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-FLEET",
+        "ST-T10"
+      ],
+      "proof_state": "NEAR",
+      "status": "LIVE",
+      "note": "Trading Bot evidence reservoir is cited but cannot become authority while the Docs gate is blocked."
+    },
+    {
+      "interlock_id": "IX-17",
+      "source_system": "HDSCTMetro",
+      "source_station": "ST-HDSCT",
+      "target_system": "GrandCentral",
+      "target_station": "ST-T10",
+      "transform_kind": "field_projection",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "HD-SCT carrier projections re-enter the main hall through Grand Central.",
+      "dispatch_score": 7.34,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-HDSCT",
+        "ST-GCW",
+        "ST-T10"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-18",
+      "source_system": "L3Neural",
+      "source_station": "ST-L3",
+      "target_system": "DeepRootMetroStack",
+      "target_station": "ST-DeepRoot",
+      "transform_kind": "pair_projection",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Level 3 neural routes resolve into the live deep-root pair store.",
+      "dispatch_score": 7.28,
+      "return_path": [
+        "ST-GCZ"
+      ],
+      "route_via": [
+        "ST-L3",
+        "ST-DeepRoot"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-19",
+      "source_system": "AppendixOnlyMetro",
+      "source_station": "ST-AppM",
+      "target_system": "CoreMetro",
+      "target_station": "ST-T3",
+      "transform_kind": "appendix_dock",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Appendix signatures can route back into the core metro when certification is complete.",
+      "dispatch_score": 7.18,
+      "return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-AppM",
+        "ST-T3"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-20",
+      "source_system": "L4Transcendent",
+      "source_station": "ST-L4",
+      "target_system": "HDSCTMetro",
+      "target_station": "ST-HDSCT",
+      "transform_kind": "field_projection",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Transcendent lift hands off into HD-SCT carrier space.",
+      "dispatch_score": 7.18,
+      "return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-L4",
+        "ST-HDSCT"
+      ],
+      "proof_state": "NEAR",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-21",
+      "source_system": "DeepRootMetroStack",
+      "source_station": "ST-Ch11",
+      "target_system": "GrandCentral",
+      "target_station": "ST-GCZ",
+      "transform_kind": "tunnel_crossing",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Ch11 restarts close back through GCZ and Grand Central.",
+      "dispatch_score": 7.94,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-Ch11",
+        "ST-GCZ",
+        "ST-T10"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-22",
+      "source_system": "GrandCentral",
+      "source_station": "ST-GCW",
+      "target_system": "Plexus256",
+      "target_station": "ST-P256",
+      "transform_kind": "hub_transfer",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Grand Central may jump straight to the plexus when the weight mezzanine is hot.",
+      "dispatch_score": 7.83,
+      "return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-GCW",
+        "ST-P256"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-23",
+      "source_system": "GrandCentral",
+      "source_station": "ST-GCP",
+      "target_system": "Mycelial4D",
+      "target_station": "ST-Mycelium",
+      "transform_kind": "field_projection",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "Replay concourse bridges into the mycelial chamber without bypassing return law.",
+      "dispatch_score": 7.21,
+      "return_path": [
+        "ST-T10"
+      ],
+      "route_via": [
+        "ST-GCP",
+        "ST-Mycelium"
+      ],
+      "proof_state": "OK",
+      "status": "LIVE",
+      "note": ""
+    },
+    {
+      "interlock_id": "IX-24",
+      "source_system": "EmergentSupermap",
+      "source_station": "ST-T8",
+      "target_system": "CrossCorpusMycelial",
+      "target_station": "ST-FLEET",
+      "transform_kind": "promotion_departure",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "dispatch_rule": "The deeper supermap can promote directly into the cross-corpus lane if Grand Central witness remains intact.",
+      "dispatch_score": 6.88,
+      "return_path": [
+        "ST-GCP"
+      ],
+      "route_via": [
+        "ST-T8",
+        "ST-T10",
+        "ST-FLEET"
+      ],
+      "proof_state": "NEAR",
+      "status": "LIVE",
+      "note": "Shorter witnessed corridor declared through T8 -> T10 -> FLEET."
+    }
+  ],
+  "summary": {
+    "count": 24
+  }
+}

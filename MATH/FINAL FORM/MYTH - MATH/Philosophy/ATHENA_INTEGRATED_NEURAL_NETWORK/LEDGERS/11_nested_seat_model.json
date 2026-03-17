@@ -1,0 +1,179 @@
+{
+  "docs_gate_status": "BLOCKED",
+  "active_front_freeze": {
+    "docs_gate": "BLOCKED",
+    "hall_feeders": [
+      "Q42",
+      "Q50",
+      "AP6D shadow fronts"
+    ],
+    "temple_membrane": "TQ06",
+    "temple_active": [
+      "TQ03",
+      "TQ05",
+      "TQ06"
+    ],
+    "temple_promoted": [
+      "TQ04"
+    ],
+    "blocked_front": "Q02",
+    "ap6d_state": "1024 ACTIVE / 3072 DORMANT",
+    "completed_loop": "L01 Prime Lock",
+    "active_loop": "L02 Whole-Corpus Census",
+    "governing_temple_quest": "TQ07",
+    "planner_public_hall_cap": 8,
+    "planner_public_temple_cap": 8,
+    "live_feeder_stack": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ]
+  },
+  "current_live_state": {
+    "completed_loop": "L01 Prime Lock",
+    "active_loop": "L02 Whole-Corpus Census",
+    "governing_temple_quest": "TQ07"
+  },
+  "seat_axes": [
+    "surface_class",
+    "element",
+    "operation",
+    "artifact_family",
+    "witness_band",
+    "return_state"
+  ],
+  "resolution_bands": [
+    "manuscript scale",
+    "chapter scale",
+    "section scale",
+    "concept scale",
+    "equation / algorithm scale",
+    "metadata / routing / indexing scale"
+  ],
+  "liminal_coordinate_dimensions": [
+    {
+      "code": "Xs",
+      "meaning": "root stratum"
+    },
+    {
+      "code": "Ys",
+      "meaning": "document or family cluster"
+    },
+    {
+      "code": "Zs",
+      "meaning": "recursion depth"
+    },
+    {
+      "code": "Ts",
+      "meaning": "loop or time position"
+    },
+    {
+      "code": "Qs",
+      "meaning": "mathematical density tier"
+    },
+    {
+      "code": "Rs",
+      "meaning": "route surface"
+    },
+    {
+      "code": "Cs",
+      "meaning": "compression state"
+    },
+    {
+      "code": "Fs",
+      "meaning": "framework lens or element"
+    },
+    {
+      "code": "Ms",
+      "meaning": "manuscript branch or artifact family"
+    },
+    {
+      "code": "Ns",
+      "meaning": "network connectivity class"
+    },
+    {
+      "code": "Hs",
+      "meaning": "hierarchy level"
+    },
+    {
+      "code": "\u03a9s",
+      "meaning": "zero-point or aether relation"
+    }
+  ],
+  "agent_ledger_fields": [
+    "agent_id",
+    "loop_number",
+    "parent_agent",
+    "coordinate_stamp",
+    "source_region",
+    "action_type",
+    "affected_nodes",
+    "summary_of_change",
+    "reason_for_change",
+    "integration_gain",
+    "compression_gain",
+    "unresolved_followups",
+    "linked_quests",
+    "linked_agents",
+    "revision_confidence",
+    "timestamp_internal"
+  ],
+  "action_types": [
+    "observe",
+    "plan",
+    "implement",
+    "bridge",
+    "formalize",
+    "compress",
+    "prune",
+    "map",
+    "retire",
+    "restart"
+  ],
+  "public_promotion_caps": {
+    "hall": 8,
+    "temple": 8
+  },
+  "surface_class": [
+    "package_canonical",
+    "live_additive_authority",
+    "fleet_witness",
+    "local_mirror"
+  ],
+  "element": [
+    "Fire",
+    "Water",
+    "Air",
+    "Earth"
+  ],
+  "operation": [
+    "diagnose",
+    "refine",
+    "synthesize",
+    "scale"
+  ],
+  "artifact_family": [
+    "rows",
+    "symmetry",
+    "metro_appendix",
+    "governance_ledgers"
+  ],
+  "witness_band": [
+    "hall",
+    "temple",
+    "manifest",
+    "receipt"
+  ],
+  "return_state": [
+    "verify",
+    "writeback",
+    "restart",
+    "quarantine"
+  ],
+  "compiled_seat_count": 4096,
+  "top_k_per_master_agent": 8,
+  "max_hall_macro_quests_per_loop": 8,
+  "max_temple_macro_quests_per_loop": 8,
+  "max_ledger_only_packets_per_loop": 8
+}

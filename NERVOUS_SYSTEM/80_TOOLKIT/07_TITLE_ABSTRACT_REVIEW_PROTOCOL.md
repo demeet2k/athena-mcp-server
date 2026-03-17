@@ -1,20 +1,11 @@
-# TITLE ABSTRACT FULL REVIEW PROTOCOL
+﻿# Compatibility Stub: Title Abstract Review Protocol
 
-## Mission
+This file remains readable for backward compatibility only.
 
-Generate the title, abstract, full review, and metro map as a retrieval-optimized opening artifact.
+Canonical replacement:
+- `00_TESSERACT_V4_3_INDEX.md`
+- `05_TITLE_ABSTRACT_RETRIEVAL_PROTOCOL_V4_3.md`
 
-## Required Components
-
-1. title
-2. abstract
-3. full review
-4. metro map
-
-## Density Rule
-
-The abstract is not ornamental. It must encode the theorem, routing logic, and high-level crystal shape densely enough to act as a regeneration seed.
-
-## Retrieval Rule
-
-The metro map should appear at both the beginning and the end of the larger manuscript stack whenever possible.
+Authority rule:
+- if there is any conflict between this file and the v4.3 canon stack, the v4.3 canon stack wins
+- do not treat this file as a second full prompt body

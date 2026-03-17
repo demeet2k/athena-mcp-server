@@ -17,8 +17,8 @@
 - Regime: `stratified`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(E-W-A, S8, Aether, O05, Arc2, Sa, AppE, DEEPER CRYSTALIZATION, stratified, pod, AMBIG)`
-- NeuronAddr: `<DEEPER CRYSTALIZATION, 37_gate_looping_skill_and_256_256_corpus_plus_chapter_11_hyperplans, O05, C, 3, a, EWA, Arc2, Sa, AppE, AMBIG, stratified>`
+- NSCoord: `(E-W-A, S8, Aether, O29, Arc2, Sa, AppE, DEEPER CRYSTALIZATION, stratified, pod, AMBIG)`
+- NeuronAddr: `<DEEPER CRYSTALIZATION, 37_gate_looping_skill_and_256_256_corpus_plus_chapter_11_hyperplans, O29, C, 3, a, EWA, Arc2, Sa, AppE, AMBIG, stratified>`
 - ContractionTarget: `cortex/37_gate_looping_skill_and_256_256_corpus_plus_chapter_11_hyperplans.md`
 
 ## Claims

@@ -33,7 +33,11 @@ Current swarm focus:
 - bind folder-level synthesis to neuron coordinates
 - add swarm convergence laws
 - route promoted families through hubs, rails, and truth states rather than folder names alone
-- ground higher-dimensional claims in the live 1818-record atlas
+- ground higher-dimensional claims in the active witness hierarchy rather than a single inherited atlas slice
 - ground body ownership in live modality mix rather than body name alone
 - maintain a lawful restart path so each completed pass re-enters the corpus
 - route dissatisfaction through the 37-gate lattice instead of treating it as generic failure
+- reconcile raw filesystem (`9489`), indexed atlas (`5493`), and promoted bronze witness (`1818`) before treating any one count as the whole corpus
+- use `self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/06_GUILD_PROMOTION_PROTOCOL.md` as the lawful membrane for promoting hall synthesis into center and runtime surfaces
+- use `self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/07_CANONICAL_WITNESS_HIERARCHY.md` as the authoritative precedence rule for physical, indexed, board, archive, and promoted witness layers
+- use `self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/08_WHOLE_ORGANISM_PROGRESS_LEDGER.md` as the compact replay surface for organism-level shifts

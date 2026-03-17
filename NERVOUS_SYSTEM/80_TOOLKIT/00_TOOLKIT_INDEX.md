@@ -36,6 +36,10 @@ This toolkit exposes the operational prompt families required to run the nervous
    - promoted artifact coordinate law
 15. `13_SELF_PROMPT_CONTINUATION_PROTOCOL.md`
    - keep the system moving between explicit user drops
+16. `14_NEURON_GENERATOR_16_LOOP_PROTOCOL.md`
+   - official full-corpus restart-aware loop protocol with Fool reset at visible 14/16
+17. `15_COMMAND_MEMBRANE_PROTOCOL.md`
+   - event-driven scout-router-worker-archivist membrane for `GLOBAL COMMAND`
 
 ## Source Mirrors
 
@@ -43,6 +47,13 @@ The strongest source surfaces remain:
 
 - `self_actualize/mycelium_brain/toolkit/08_tandem_agentic_loop_prompt_pack.md`
 - `self_actualize/mycelium_brain/nervous_system/08_multi_agent_cooperation_protocol.md`
+- `self_actualize/mycelium_brain/nervous_system/12_recursive_restart_engine.md`
+- `self_actualize/mycelium_brain/nervous_system/14_37_gate_recursive_escalation.md`
 - `ECOSYSTEM/NERVOUS_SYSTEM/40_TOOLKIT/`
 
 The root toolkit is the canonical contraction surface. The mirrored toolkit surfaces remain valid evidence and runtime references.
+
+## Runtime Tools
+
+- `scripts/audit_corpus_cohesion.py`
+  - scan the canonical cortex, runtime hub, and local skills for stale path drift and historical-root bleed

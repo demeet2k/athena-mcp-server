@@ -1,0 +1,36 @@
+{
+  "schema_version": "qshrink-compaction-contract/1.0",
+  "invariants": [
+    "legacy_public_is_read_only",
+    "authority_surfaces_are_not_physically_pruned_without_explicit_ledger",
+    "generated_zones_are_regenerated_not_side_copied",
+    "docs_gate_blockers_are_preserved_honestly"
+  ],
+  "action_classes": {
+    "retain": "keep live and compact only by view or reference",
+    "regenerate": "rebuild from index on demand",
+    "dedupe_by_reference": "replace identical siblings with manifest-backed references",
+    "archive": "keep packed until promotion threshold is met",
+    "promote_live": "extract into a routed live root with lineage witness"
+  },
+  "duplicate_priority_rubric": [
+    "raw_savings_bytes",
+    "authority_risk",
+    "regenerability",
+    "replay_cost",
+    "cross_body_connectivity"
+  ],
+  "compression_profiles": {
+    "legacy_public": "retain + publish-safe wrappers only",
+    "internal_doctrine": "retain doctrine + regenerate derived lattices",
+    "runtime_code": "retain code + verify behavior instead of lossy compression",
+    "witness_document": "preserve source witness + edit through mirrors or capsules",
+    "mirror_surface": "regenerate on demand from index",
+    "archive_bundle": "archive until promotion threshold is met"
+  },
+  "docs_gate_policy": {
+    "state_when_missing_oauth": "BLOCKED",
+    "allowed_behavior": "local-only synthesis and blocker-preserving writeback",
+    "disallowed_behavior": "claiming live docs sync without authenticated proof"
+  }
+}

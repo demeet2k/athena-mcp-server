@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-03-13T00:37:32.233947+00:00",
+  "derivation_version": "2026-03-12.skill-cohesion.verify.v1",
+  "derivation_command": "python -m self_actualize.runtime.verify_skill_cohesion",
+  "truth": "OK",
+  "checks": [
+    {
+      "label": "live_router_exists",
+      "status": "OK",
+      "details": {
+        "live_router_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/09_SKILLS/00_SKILL_ROUTER.md"
+      }
+    },
+    {
+      "label": "authority_exclusivity",
+      "status": "OK",
+      "details": {
+        "live_authority_count": 6,
+        "root_families": [
+          "live_deep_root"
+        ]
+      }
+    },
+    {
+      "label": "historical_redirects",
+      "status": "OK",
+      "details": {
+        "historical_count": 7
+      }
+    },
+    {
+      "label": "family_local_boundaries",
+      "status": "OK",
+      "details": {
+        "family_local_count": 2
+      }
+    },
+    {
+      "label": "pruning_skill_exists",
+      "status": "OK",
+      "details": {
+        "path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/09_SKILLS/cohesion-pruning-governor/SKILL.md"
+      }
+    },
+    {
+      "label": "docs_gate_honesty",
+      "status": "OK",
+      "details": {
+        "docs_gate_status": "BLOCKED"
+      }
+    },
+    {
+      "label": "no_rogue_live_authorities",
+      "status": "OK",
+      "details": {
+        "prunable_bloat_count": 1
+      }
+    }
+  ],
+  "failed_checks": [],
+  "next_seed": "FRONT-INT-ATHENA-FLEET-BRIDGE"
+}

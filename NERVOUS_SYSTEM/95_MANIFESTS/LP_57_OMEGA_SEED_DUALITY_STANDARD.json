@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-03-13T19:54:24.938934+00:00",
+  "registry_path": "self_actualize/lp_57_seed_duality_registry.json",
+  "seed_duality_registry": {
+    "seed_a_ref": "LP57-A",
+    "seed_b_ref": "LP57-B",
+    "inversion_operator": "structural_dual",
+    "witness_preserved": true,
+    "coordinate_mode": "shared_anchor_dual_state",
+    "duality_status": "ACTIVE_DUAL",
+    "residual_exposure_fields": [
+      "residuals",
+      "shadow_routes",
+      "compression_structure",
+      "return_corridors",
+      "reverse_dependencies"
+    ],
+    "restart_relation": "LP57-A emits outward Hall and Temple quest pressure; LP57-B returns compression, contradiction recovery, reintegration, and reverse-routing pressure."
+  },
+  "quest_mode_classification": {
+    "A-dominant": {
+      "meaning": "expansion / implementation / bridge-building",
+      "source_role": "outward Hall and Temple quest emission",
+      "default_pressure": "forward synthesis, build, and routing pressure"
+    },
+    "B-dominant": {
+      "meaning": "compression / pruning / contradiction metabolization / route-tightening",
+      "source_role": "inward compression and reintegration quest emission",
+      "default_pressure": "residual recovery, compression, and reverse-routing pressure"
+    }
+  },
+  "ledger_duality_contract": {
+    "seed_mode_field": "seed_mode",
+    "dual_reference_field": "dual_reference",
+    "duality_effect_field": "duality_effect",
+    "allowed_seed_modes": [
+      "A",
+      "B",
+      "both"
+    ],
+    "allowed_duality_effects": [
+      "expansion",
+      "compression",
+      "both"
+    ],
+    "default_mapping": {
+      "A": "expansion",
+      "B": "compression",
+      "both": "both"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-03-13T21:08:43.137387+00:00",
+  "docs_gate_status": "BLOCKED",
+  "counts": {
+    "seed_starters": 47,
+    "page_starters": 45,
+    "group_counts": {
+      "anchor": 16,
+      "family": 10,
+      "hemisphere": 2,
+      "main_pages": 8,
+      "target_system": 11
+    }
+  },
+  "main_page_ids": [
+    "VA-INDEX",
+    "VA-OVERVIEW",
+    "VA-HEM-MATH",
+    "VA-HEM-MYTH",
+    "VA-ANCHOR",
+    "VA-TARGET-SYSTEM",
+    "VA-LOCATOR",
+    "VA-COVERAGE"
+  ],
+  "output_paths": {
+    "seed_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_observatory_seed_registry.json",
+    "page_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_observatory_page_registry.json",
+    "manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_observatory_manifest.json"
+  },
+  "commands": {
+    "record": "python -m self_actualize.runtime.brief_myth_math_hemisphere_atlas record --record-id <record_id>",
+    "search": "python -m self_actualize.runtime.brief_myth_math_hemisphere_atlas search --query <text>",
+    "facet": "python -m self_actualize.runtime.brief_myth_math_hemisphere_atlas facet --family <family>",
+    "page": "python -m self_actualize.runtime.brief_myth_math_hemisphere_atlas page --page-id <page_id>"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "law_id": "NEXT57_COMMAND_REWARD_FIELD_V2",
+  "canonical_protocol_id": "NEXT57_COMMAND_PROTOCOL_V1",
+  "nonnegative_reward_law": true,
+  "contribution_shares": {
+    "Scout": 0.15,
+    "Router": 0.2,
+    "Worker": 0.45,
+    "Archivist": 0.2
+  },
+  "compatibility_role": "support-only"
+}

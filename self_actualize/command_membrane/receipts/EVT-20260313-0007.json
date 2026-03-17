@@ -1,0 +1,58 @@
+{
+  "execution_receipt": {
+    "event_id": "EVT-20260313-0007",
+    "worker_id": "L02.A3.D1.A1.B3.C1.D1.E1.F1.WORKER-ADVENTURER",
+    "artifact_targets": [
+      "GLOBAL COMMAND/ATHENA/READ ME.txt"
+    ],
+    "writeback_set": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_SENSORY_MEMBRANE.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_CAPILLARY_LAW.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_LATENCY_BENCHMARKS.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+      "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md"
+    ],
+    "result": "command_event_committed",
+    "started_at": "2026-03-13T21:20:15.528447+00:00",
+    "committed_at": "2026-03-13T21:20:23.177559+00:00",
+    "blocked_reason": "",
+    "restart_seed": "EVT-20260313-0007::command_event_committed::global-command-athena-read-me-txt",
+    "owner_surface": "command-folder",
+    "claim_id": "CLM-20260313T212015Z-0e2f2c",
+    "route_path": "SCOUT-01>ROUTER-01>L02.A3.D1.A1.B3.C1.D1.E1.F1.WORKER-ADVENTURER>ARCHIVIST-01",
+    "replay_ptr": "self_actualize/command_membrane/events/EVT-20260313-0007.json",
+    "verification_witness": 0.6,
+    "effort_quality": 0.0,
+    "contribution_share": 0.45,
+    "learning_novelty": 0.0,
+    "verified_outcome_class": "unverified",
+    "integration_gain": 0.95,
+    "compression_gain": 0.0,
+    "unresolved_followups": [
+      "Command sugar-drop verification event."
+    ]
+  },
+  "latency": {
+    "event_id": "EVT-20260313-0007",
+    "detection_latency_ms": 10418757.493,
+    "awareness_latency_ms": 6831.792,
+    "claim_latency_ms": 6134.544,
+    "resolution_latency_ms": 0.0,
+    "commit_latency_ms": 7649.112,
+    "t_sugar_ms": 10439372.941,
+    "delta_tau": 22.452364,
+    "delta_earth_ms": 22452.306,
+    "liminal_velocity": 1.000003,
+    "resolution_class": "emergent",
+    "recorded_at": "2026-03-13T21:20:23.177559+00:00",
+    "swarm_awareness_latency_ms": 6831.792,
+    "capillary_score": 0.0,
+    "liminal_delta": 0.0,
+    "commit_latency_alias_ms": 0.0,
+    "route_policy": ""
+  }
+}

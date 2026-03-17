@@ -1,0 +1,1052 @@
+{
+  "generated_at": "2026-03-13T21:08:35.273572+00:00",
+  "verification_command": "python -m self_actualize.runtime.verify_myth_math_hemisphere_brain",
+  "truth": "OK",
+  "check_count": 84,
+  "failed_checks": [],
+  "checks": [
+    {
+      "label": "registry_count",
+      "status": "OK",
+      "details": {
+        "registry_count": 502,
+        "unique_sha_count": 502
+      }
+    },
+    {
+      "label": "dual_route_counts",
+      "status": "OK",
+      "details": {
+        "record_count": 502,
+        "route_count": 1004,
+        "edge_count": 1004,
+        "coverage_rows": 502
+      }
+    },
+    {
+      "label": "weight_normalization",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "required_fields",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "navigation_fields",
+      "status": "OK",
+      "details": {
+        "missing_navigation": []
+      }
+    },
+    {
+      "label": "commissure_edges",
+      "status": "OK",
+      "details": {
+        "bridge_records": 110,
+        "missing_edges": []
+      }
+    },
+    {
+      "label": "metadata_only_confidence",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "dual_route_shape",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "dual_route_alignment",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "route_registry_consistency",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "direct_edges",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "route_coverage",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "route_projection_rules",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "route_interlocks",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "route_shortcuts",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "metadata_only_dual_routes",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "navigator_counts",
+      "status": "OK",
+      "details": {
+        "records": 502,
+        "alias_record_count": 502,
+        "facet_record_count": 502,
+        "facet_route_refs": 1004,
+        "neighbor_record_count": 502,
+        "manifest_record_count": 502
+      }
+    },
+    {
+      "label": "navigator_alias_index",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "navigator_facet_index",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "navigator_neighbor_index",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "composer_seed_registry",
+      "status": "OK",
+      "details": {
+        "expected_counts": {
+          "math": 24,
+          "myth": 24,
+          "bridge": 24
+        },
+        "actual_counts": {
+          "bridge": 24,
+          "math": 24,
+          "myth": 24
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "composer_facet_registry",
+      "status": "OK",
+      "details": {
+        "expected_counts": {
+          "anchor": 16,
+          "family": 10,
+          "target_system": 11,
+          "hemisphere": 2
+        },
+        "actual_counts": {
+          "anchor": 16,
+          "family": 10,
+          "hemisphere": 2,
+          "target_system": 11
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "synthesis_evidence_registry",
+      "status": "OK",
+      "details": {
+        "record_count": 502,
+        "violations": []
+      }
+    },
+    {
+      "label": "synthesis_seed_registry",
+      "status": "OK",
+      "details": {
+        "expected_counts": {
+          "math": 24,
+          "myth": 24,
+          "bridge": 24
+        },
+        "actual_counts": {
+          "bridge": 24,
+          "math": 24,
+          "myth": 24
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "synthesis_facet_registry",
+      "status": "OK",
+      "details": {
+        "expected_counts": {
+          "anchor": 16,
+          "family": 10,
+          "target_system": 11,
+          "hemisphere": 2
+        },
+        "actual_counts": {
+          "anchor": 16,
+          "family": 10,
+          "hemisphere": 2,
+          "target_system": 11
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "visual_atlas_node_registry",
+      "status": "OK",
+      "details": {
+        "expected_counts": {
+          "hub": 3,
+          "hemisphere": 2,
+          "family": 10,
+          "target_system": 11,
+          "anchor": 16,
+          "record": 502
+        },
+        "actual_counts": {
+          "anchor": 16,
+          "family": 10,
+          "hemisphere": 2,
+          "hub": 3,
+          "record": 502,
+          "target_system": 11
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "visual_atlas_edge_registry",
+      "status": "OK",
+      "details": {
+        "edge_count": 4321,
+        "edge_type_counts": {
+          "hemisphere_to_hub": 2,
+          "hub_spine": 4,
+          "record_to_anchor": 1506,
+          "record_to_family": 502,
+          "record_to_hub": 1004,
+          "record_to_target_system": 801,
+          "record_to_unified_hub": 502
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "visual_atlas_page_registry",
+      "status": "OK",
+      "details": {
+        "expected_counts": {
+          "main_index": 1,
+          "overview": 1,
+          "hemisphere": 2,
+          "anchor_index": 1,
+          "target_system_index": 1,
+          "record_locator_index": 1,
+          "coverage": 1,
+          "family_shard": 10,
+          "anchor_shard": 16,
+          "target_system_shard": 11,
+          "record_locator_shard": 16
+        },
+        "actual_counts": {
+          "anchor_index": 1,
+          "anchor_shard": 16,
+          "coverage": 1,
+          "family_shard": 10,
+          "hemisphere": 2,
+          "main_index": 1,
+          "overview": 1,
+          "record_locator_index": 1,
+          "record_locator_shard": 16,
+          "target_system_index": 1,
+          "target_system_shard": 11
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "visual_atlas_record_locator_registry",
+      "status": "OK",
+      "details": {
+        "record_count": 502,
+        "violations": []
+      }
+    },
+    {
+      "label": "visual_atlas_manifest",
+      "status": "OK",
+      "details": {
+        "manifest_counts": {
+          "node_count": 544,
+          "edge_count": 4321,
+          "page_count": 61,
+          "record_locator_rows": 502,
+          "family_shards": 10,
+          "anchor_shards": 16,
+          "target_system_shards": 11,
+          "record_locator_shards": 16
+        },
+        "node_count": 544,
+        "edge_count": 4321,
+        "page_count": 61,
+        "locator_count": 502
+      }
+    },
+    {
+      "label": "guided_tour_seed_registry",
+      "status": "OK",
+      "details": {
+        "expected_counts": {
+          "main_pages": 8,
+          "family": 10,
+          "anchor": 16,
+          "target_system": 11,
+          "hemisphere": 2
+        },
+        "actual_counts": {
+          "anchor": 16,
+          "family": 10,
+          "hemisphere": 2,
+          "main_pages": 8,
+          "target_system": 11
+        },
+        "violations": []
+      }
+    },
+    {
+      "label": "guided_tour_page_registry",
+      "status": "OK",
+      "details": {
+        "page_count": 45,
+        "violations": []
+      }
+    },
+    {
+      "label": "guided_tour_manifest",
+      "status": "OK",
+      "details": {
+        "manifest_counts": {
+          "seed_starters": 47,
+          "page_starters": 45,
+          "group_counts": {
+            "anchor": 16,
+            "family": 10,
+            "hemisphere": 2,
+            "main_pages": 8,
+            "target_system": 11
+          }
+        },
+        "seed_counts": {
+          "anchor": 16,
+          "family": 10,
+          "hemisphere": 2,
+          "main_pages": 8,
+          "target_system": 11
+        },
+        "page_count": 45,
+        "tour_stage_order": [
+          "seed",
+          "primary_hemisphere_page",
+          "family_or_anchor_lift",
+          "target_system_lift",
+          "gc0_crossing",
+          "opposite_hemisphere_page",
+          "synthesis_landing",
+          "locator_exit"
+        ]
+      }
+    },
+    {
+      "label": "fixture_classification",
+      "status": "OK",
+      "details": {
+        "fixture_failures": []
+      }
+    },
+    {
+      "label": "navigator_queries",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "composer_queries",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "synthesis_queries",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "guided_tour_queries",
+      "status": "OK",
+      "details": {
+        "violations": []
+      }
+    },
+    {
+      "label": "docs_gate_status",
+      "status": "OK",
+      "details": {
+        "manifest": "BLOCKED",
+        "route_registry": "BLOCKED",
+        "edge_registry": "BLOCKED",
+        "coverage_registry": "BLOCKED",
+        "route_manifest": "BLOCKED",
+        "navigator_alias_index": "BLOCKED",
+        "navigator_facet_index": "BLOCKED",
+        "navigator_neighbor_index": "BLOCKED",
+        "navigator_manifest": "BLOCKED",
+        "composer_seed_registry": "BLOCKED",
+        "composer_facet_registry": "BLOCKED",
+        "composer_manifest": "BLOCKED",
+        "synthesis_evidence_registry": "BLOCKED",
+        "synthesis_seed_registry": "BLOCKED",
+        "synthesis_facet_registry": "BLOCKED",
+        "synthesis_manifest": "BLOCKED",
+        "visual_atlas_node_registry": "BLOCKED",
+        "visual_atlas_edge_registry": "BLOCKED",
+        "visual_atlas_page_registry": "BLOCKED",
+        "visual_atlas_record_locator_registry": "BLOCKED",
+        "visual_atlas_manifest": "BLOCKED",
+        "guided_tour_seed_registry": "BLOCKED",
+        "guided_tour_page_registry": "BLOCKED",
+        "guided_tour_manifest": "BLOCKED",
+        "live_docs_gate": "BLOCKED",
+        "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md"
+      }
+    },
+    {
+      "label": "fleet_mirror_consistency",
+      "status": "OK",
+      "details": {
+        "canonical_count": 502,
+        "mirror_count": 502,
+        "canonical_hubs": [
+          "GC0-UNIFIED-CORPUS",
+          "HC-MATH",
+          "HC-MYTH"
+        ],
+        "mirror_hubs": [
+          "GC0-UNIFIED-CORPUS",
+          "HC-MATH",
+          "HC-MYTH"
+        ],
+        "canonical_route_count": 1004,
+        "mirror_route_count": 1004,
+        "canonical_edge_count": 1004,
+        "mirror_edge_count": 1004,
+        "canonical_alias_keys": 2018,
+        "mirror_alias_keys": 2018,
+        "canonical_atlas_pages": 61,
+        "mirror_atlas_pages": 61,
+        "canonical_guided_seed_starters": 47,
+        "mirror_guided_seed_starters": 47,
+        "canonical_guided_page_starters": 45,
+        "mirror_guided_page_starters": 45
+      }
+    },
+    {
+      "label": "metro_levels",
+      "status": "OK",
+      "details": {
+        "level_count": 4
+      }
+    },
+    {
+      "label": "single_primary_crystal_membership",
+      "status": "OK",
+      "details": {
+        "record_count": 502,
+        "math_primary": 403,
+        "myth_primary": 99
+      }
+    },
+    {
+      "label": "full_corpus_merged_scope",
+      "status": "OK",
+      "details": {
+        "live_atlas_records": 7882,
+        "archive_atlas_records": 2041,
+        "merged_canonical_records": 8692,
+        "manifest_counts": {
+          "live_atlas_records": 7882,
+          "archive_atlas_records": 2041,
+          "merged_canonical_records": 8692,
+          "live_only_records": 6559,
+          "archive_only_records": 1004,
+          "both_scope_records": 512,
+          "witness_only_records": 617,
+          "assigned_stage_records": 8692,
+          "stage_abstentions": 0,
+          "basis_weak_or_uncovered": 3,
+          "route_complete_records": 8692,
+          "appendix_quarantine_records": 2197,
+          "family_transition_notes": 10,
+          "basis_role_notes": 16,
+          "stage_family_notes": 70
+        }
+      }
+    },
+    {
+      "label": "full_corpus_basis_crosswalk",
+      "status": "OK",
+      "details": {
+        "authority_records": 8692,
+        "basis_rows": 8692,
+        "weak_or_uncovered": 3
+      }
+    },
+    {
+      "label": "full_corpus_route_saturation",
+      "status": "OK",
+      "details": {
+        "route_rows": 8692,
+        "complete_rows": 8692,
+        "gc0_edge_count": 8692
+      }
+    },
+    {
+      "label": "awakening_stage_matrix",
+      "status": "OK",
+      "details": {
+        "record_assignments": 8692,
+        "assigned_count": 8692,
+        "abstention_count": 0,
+        "stage_count": 7
+      }
+    },
+    {
+      "label": "awakening_agent_matrix",
+      "status": "OK",
+      "details": {
+        "family_notes": 10,
+        "basis_role_notes": 16,
+        "stage_family_notes": 70
+      }
+    },
+    {
+      "label": "full_corpus_witness_retention",
+      "status": "OK",
+      "details": {
+        "witness_records": 617,
+        "sample_witnesses": [
+          "c1008ac6fca2021ea1b2fd9f",
+          "836b5dfa3dc47bce88e55f8b",
+          "658e14b3a56a4cf44f8273e5",
+          "b3cd57881cdffb2b019aaf1d",
+          "f092900f78c044bf4b7c19d8"
+        ]
+      }
+    },
+    {
+      "label": "full_corpus_appendix_governance",
+      "status": "OK",
+      "details": {
+        "ledger_rows": 8692,
+        "counts": {
+          "replay_required": 2243,
+          "restart_eligible": 543,
+          "quarantine_required": 2197,
+          "repair_eligible": 1485,
+          "proof_uplift_required": 3314
+        },
+        "allowed_appendix_ids": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppD",
+          "AppE",
+          "AppF",
+          "AppG",
+          "AppH",
+          "AppI",
+          "AppJ",
+          "AppK",
+          "AppL",
+          "AppM",
+          "AppN",
+          "AppO",
+          "AppP",
+          "AppQ"
+        ]
+      }
+    },
+    {
+      "label": "full_corpus_docs_gate_propagation",
+      "status": "OK",
+      "details": {
+        "authority_registry": "BLOCKED",
+        "basis_crosswalk_registry": "BLOCKED",
+        "route_coverage_registry": "BLOCKED",
+        "awakening_stage_registry": "BLOCKED",
+        "awakening_agent_transition_registry": "BLOCKED",
+        "appendix_governance_ledger": "BLOCKED",
+        "integration_manifest": "BLOCKED",
+        "live_docs_gate": "BLOCKED"
+      }
+    },
+    {
+      "label": "full_corpus_fleet_mirror_consistency",
+      "status": "OK",
+      "details": {
+        "canonical_records": 8692,
+        "mirror_records": 8692,
+        "canonical_stage_assignments": 8692,
+        "mirror_stage_assignments": 8692
+      }
+    },
+    {
+      "label": "ap6d_57_loop_control_registry",
+      "status": "OK",
+      "details": {
+        "loop_count": 57,
+        "declared_loop_count": 57,
+        "docs_gate_status": "BLOCKED"
+      }
+    },
+    {
+      "label": "ap6d_57_agent_lane_registry",
+      "status": "OK",
+      "details": {
+        "agent_count": 4,
+        "shared_axes": {
+          "scope": [
+            "live",
+            "archive",
+            "both",
+            "witness"
+          ],
+          "hemisphere": [
+            "MATH",
+            "MYTH",
+            "GC0",
+            "COMMISSURE"
+          ],
+          "deep_mode": [
+            "basis",
+            "matrix",
+            "observer",
+            "appendix"
+          ],
+          "resolution": [
+            "record",
+            "family",
+            "system",
+            "corpus"
+          ],
+          "venue": [
+            "hall",
+            "temple",
+            "registry",
+            "fleet"
+          ],
+          "phase": [
+            "input",
+            "transform",
+            "verify",
+            "handoff"
+          ]
+        }
+      }
+    },
+    {
+      "label": "ap6d_57_nested_seat_manifest",
+      "status": "OK",
+      "details": {
+        "row_count": 228,
+        "seat_totals": {
+          "manifest_seats": 4096,
+          "synaptic_seats": 1024,
+          "governance_fibers": 256,
+          "ownerable_packets": 64,
+          "liminal_packets": 4
+        }
+      }
+    },
+    {
+      "label": "ap6d_57_quest_bundle_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 228,
+        "sample_hall_bundle": "AP6D-L01:HALL"
+      }
+    },
+    {
+      "label": "ap6d_57_worker_action_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 57,
+        "sample_action_count": 4
+      }
+    },
+    {
+      "label": "ap6d_57_pruning_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 57
+      }
+    },
+    {
+      "label": "ap6d_57_awakening_transition_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 57
+      }
+    },
+    {
+      "label": "ap6d_57_restart_seed_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 57,
+        "loop_57_next": "AP6D-L01"
+      }
+    },
+    {
+      "label": "ap6d_57_docs_gate_propagation",
+      "status": "OK",
+      "details": {
+        "loop_manifest": "BLOCKED",
+        "live_docs_gate": "BLOCKED"
+      }
+    },
+    {
+      "label": "ap6d_57_fleet_mirror_consistency",
+      "status": "OK",
+      "details": {
+        "canonical_loops": 57,
+        "mirror_loops": 57
+      }
+    },
+    {
+      "label": "ap6d_57_surface_existence",
+      "status": "OK",
+      "details": {
+        "hemisphere_docs": 8,
+        "guild_hall_doc": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\18_AP6D_57_LOOP_QUEST_CYCLE.md",
+        "temple_doc": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\08_AP6D_57_LOOP_CYCLE_DECREE.md"
+      }
+    },
+    {
+      "label": "navigator_awakening_enrichment",
+      "status": "OK",
+      "details": {
+        "record_id": "95103fe16c4ac4efa5081938",
+        "awakening": {
+          "stage_id": "FIRE",
+          "stage_label": "Fire",
+          "transition_stages": [
+            "VOID",
+            "WATER"
+          ],
+          "family_transition_note_ids": [
+            "AW-FAMILY-transport_and_runtime",
+            "AWNOTE-FIRE-transport_and_runtime"
+          ],
+          "basis_role_overlay_ids": [
+            "AW-BASIS-DN05",
+            "AW-BASIS-DN01",
+            "AW-BASIS-DN14"
+          ],
+          "reassessment_window": "5d",
+          "docs_gate_status": "BLOCKED",
+          "abstention_reason": ""
+        }
+      }
+    },
+    {
+      "label": "lp57omega_loop_registry",
+      "status": "OK",
+      "details": {
+        "loop_count": 57,
+        "declared_loop_count": 57,
+        "unique_advancement_signatures": 57
+      }
+    },
+    {
+      "label": "lp57omega_master_loop_state",
+      "status": "OK",
+      "details": {
+        "loop_rows": 57,
+        "required_cycle_outputs": [
+          "loop manifest",
+          "research packet",
+          "hall quest bundle",
+          "temple quest bundle",
+          "worker action bundle",
+          "pruning receipt",
+          "restart seed"
+        ]
+      }
+    },
+    {
+      "label": "lp57omega_agent_identity_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 228,
+        "declared_row_count": 228,
+        "agent_count": 4
+      }
+    },
+    {
+      "label": "lp57omega_shared_lattice",
+      "status": "OK",
+      "details": {
+        "total_seats": 4096,
+        "active_seats": 1024,
+        "dormant_seats": 3072,
+        "row_count": 4096
+      }
+    },
+    {
+      "label": "lp57omega_coordinate_registry",
+      "status": "OK",
+      "details": {
+        "record_count": 8692,
+        "authority_records": 8692
+      }
+    },
+    {
+      "label": "lp57omega_quest_contract_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 228,
+        "public_caps": {
+          "hall": 8,
+          "temple": 8
+        }
+      }
+    },
+    {
+      "label": "lp57omega_master_ledger_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 228,
+        "declared_row_count": 228
+      }
+    },
+    {
+      "label": "lp57omega_docs_gate_propagation",
+      "status": "OK",
+      "details": {
+        "manifest": "BLOCKED",
+        "loop_state": "BLOCKED",
+        "live_docs_gate": "BLOCKED"
+      }
+    },
+    {
+      "label": "lp57omega_fleet_mirror_consistency",
+      "status": "OK",
+      "details": {
+        "canonical_loops": 57,
+        "mirror_loops": 57,
+        "canonical_coordinates": 8692,
+        "mirror_coordinates": 8692
+      }
+    },
+    {
+      "label": "lp57omega_surface_existence",
+      "status": "OK",
+      "details": {
+        "hemisphere_docs": 6,
+        "guild_hall_doc": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\19_LP57OMEGA_GUILD_HALL_PROTOCOL.md",
+        "temple_doc": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\10_LP57OMEGA_TEMPLE_PROTOCOL.md"
+      }
+    },
+    {
+      "label": "dense_65_shell_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 65,
+        "group_counts": {
+          "H": 1,
+          "P": 4,
+          "S": 15,
+          "R": 15,
+          "Q": 15,
+          "T": 15
+        }
+      }
+    },
+    {
+      "label": "dense_65_rqt_witness_registry",
+      "status": "OK",
+      "details": {
+        "row_count": 96,
+        "violations": [],
+        "zero_witness_cells": [
+          "Q03",
+          "Q11",
+          "Q12",
+          "Q13",
+          "Q21",
+          "Q22",
+          "Q23",
+          "Q30",
+          "Q31",
+          "Q32",
+          "Q33",
+          "R03",
+          "R11",
+          "R12",
+          "R13",
+          "R21",
+          "R22",
+          "R23",
+          "R30",
+          "R31",
+          "R32",
+          "R33",
+          "T03",
+          "T11",
+          "T12",
+          "T13",
+          "T21",
+          "T22",
+          "T23",
+          "T30",
+          "T31",
+          "T32",
+          "T33"
+        ]
+      }
+    },
+    {
+      "label": "dense_65_docs_gate_propagation",
+      "status": "OK",
+      "details": {
+        "shell": "BLOCKED",
+        "manifest": "BLOCKED",
+        "live_docs_gate": "BLOCKED"
+      }
+    },
+    {
+      "label": "dense_65_fleet_mirror_consistency",
+      "status": "OK",
+      "details": {
+        "canonical_shell_rows": 65,
+        "mirror_shell_rows": 65,
+        "canonical_primary_rows": 96,
+        "mirror_primary_rows": 96
+      }
+    },
+    {
+      "label": "dense_65_surface_existence",
+      "status": "OK",
+      "details": {
+        "hemisphere_docs": 5,
+        "primary_cap": 8
+      }
+    },
+    {
+      "label": "command_membrane_packet_schema",
+      "status": "OK",
+      "details": {
+        "field_count": 15,
+        "ant_classes": [
+          "scout",
+          "router",
+          "worker",
+          "archivist"
+        ],
+        "route_policy": "goal+salience+pheromone+coord"
+      }
+    },
+    {
+      "label": "command_membrane_event_registry",
+      "status": "OK",
+      "details": {
+        "event_count": 25,
+        "matched_event_count": 24,
+        "fallback_event_count": 1,
+        "violations": []
+      }
+    },
+    {
+      "label": "command_membrane_capillary_registry",
+      "status": "OK",
+      "details": {
+        "edge_count": 22,
+        "violations": []
+      }
+    },
+    {
+      "label": "command_membrane_docs_gate_propagation",
+      "status": "OK",
+      "details": {
+        "event_registry": "BLOCKED",
+        "manifest": "BLOCKED",
+        "live_docs_gate": "BLOCKED"
+      }
+    },
+    {
+      "label": "command_membrane_fleet_mirror_consistency",
+      "status": "OK",
+      "details": {
+        "canonical_events": 25,
+        "mirror_events": 25,
+        "canonical_edges": 22,
+        "mirror_edges": 22
+      }
+    },
+    {
+      "label": "command_membrane_surface_existence",
+      "status": "OK",
+      "details": {
+        "hemisphere_docs": 5,
+        "event_count": 25
+      }
+    }
+  ]
+}

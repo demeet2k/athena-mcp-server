@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-03-13T21:44:55.057444+00:00",
+  "protocol_id": "HEAVEN-DUAL-TRACK-V2",
+  "events": [
+    {
+      "promotion_event_id": "PROMO-guildmaster-01",
+      "parent_agent_id": "guildmaster",
+      "child_hive_ids": [
+        "guildmaster::mini-hive::01"
+      ],
+      "ascension_timestamp_utc": "2026-03-13T04:27:23.968861+00:00",
+      "prior_tier": 0,
+      "new_tier": 1,
+      "inherited_permissions": [
+        "claim-routing-lineage",
+        "reward-operator-unlocks",
+        "replay-obligation"
+      ],
+      "seed_law": "ascend_and_spawn",
+      "frontier": "Q46",
+      "reward_receipt_ref": "self_actualize/adventurer_dual_track_progression_state.json::EVT-HEAVEN-Q46-5a4503"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "version": "command-protocol.v1",
+  "coefficients": {
+    "rho": 0.85,
+    "alpha": 0.35,
+    "beta": 0.25,
+    "gamma": 0.25,
+    "delta": 0.15
+  },
+  "thresholds": {
+    "capillary": 0.65,
+    "vein": 0.82
+  },
+  "initial_strength": 0.25,
+  "edges": {
+    "SCOUT-01>ROUTER-02": {
+      "Src": "SCOUT-01",
+      "Dst": "ROUTER-02",
+      "Strength": 1.0,
+      "Usefulness": 1.0,
+      "Frequency": 2.0,
+      "LatencyPenalty": 0.05,
+      "NoisePenalty": 0.0,
+      "LastReinforcedAt": "2026-03-13T21:01:47.313723+00:00",
+      "StateClass": "vein"
+    },
+    "ROUTER-02>M3-WORK": {
+      "Src": "ROUTER-02",
+      "Dst": "M3-WORK",
+      "Strength": 0.7975,
+      "Usefulness": 1.0,
+      "Frequency": 1.0,
+      "LatencyPenalty": 0.06,
+      "NoisePenalty": 0.0,
+      "LastReinforcedAt": "2026-03-13T20:59:23.845383+00:00",
+      "StateClass": "capillary"
+    },
+    "M3-WORK>ARCHIVE-01": {
+      "Src": "M3-WORK",
+      "Dst": "ARCHIVE-01",
+      "Strength": 0.7975,
+      "Usefulness": 1.0,
+      "Frequency": 1.0,
+      "LatencyPenalty": 0.06,
+      "NoisePenalty": 0.0,
+      "LastReinforcedAt": "2026-03-13T20:59:23.847387+00:00",
+      "StateClass": "capillary"
+    },
+    "ROUTER-02>M2-PLAN": {
+      "Src": "ROUTER-02",
+      "Dst": "M2-PLAN",
+      "Strength": 0.8,
+      "Usefulness": 1.0,
+      "Frequency": 1.0,
+      "LatencyPenalty": 0.05,
+      "NoisePenalty": 0.0,
+      "LastReinforcedAt": "2026-03-13T21:01:47.315725+00:00",
+      "StateClass": "capillary"
+    },
+    "M2-PLAN>ARCHIVE-01": {
+      "Src": "M2-PLAN",
+      "Dst": "ARCHIVE-01",
+      "Strength": 0.8,
+      "Usefulness": 1.0,
+      "Frequency": 1.0,
+      "LatencyPenalty": 0.05,
+      "NoisePenalty": 0.0,
+      "LastReinforcedAt": "2026-03-13T21:01:47.316724+00:00",
+      "StateClass": "capillary"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-03-13T23:37:05.731282+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "protocol_display_name": "LP-57Omega",
+  "status": "canonical-installed",
+  "truth_regime": "local-witnessed",
+  "live_docs_blocked": true,
+  "live_docs_error": "Error: Missing OAuth client file: credentials.json",
+  "current_loop_state": "L01 complete / L02 seeded",
+  "current_completed_loop": 1,
+  "next_ready_loop": 2,
+  "hall_macro_front": "NEXT57",
+  "temple_macro_front": "TQ07",
+  "active_membrane": "Q41 / TQ06",
+  "control_stack": [
+    "Q42",
+    "TQ04",
+    "Q50",
+    "Q46",
+    "Q02"
+  ],
+  "seat_law": {
+    "virtual_seats_per_master": 4096,
+    "active_seats_per_master": 256,
+    "active_seats_total": 1024,
+    "dormant_seats_total": 3072
+  },
+  "loop_authority_source": "HΣ First",
+  "pointer_layer_classification": {
+    "dense_shell_role": "L01-closed substrate enhancement",
+    "packet_truth_sync_role": "L02 Packet Truth Sync input witness"
+  },
+  "visible_promotion_law": {
+    "hall": 1,
+    "temple": 1,
+    "runtime": 1,
+    "compression": 1
+  },
+  "sigma_path": [
+    "AppA",
+    "AppI",
+    "AppM"
+  ],
+  "rotation_carriers": [
+    "AppF",
+    "AppG"
+  ],
+  "shell_truth": "NEAR-derived",
+  "shell_record_count": 65,
+  "active_dense_record_count": 64,
+  "enriched_transfer_record_count": 45,
+  "phase_binding_count": 60,
+  "concrete_pointer_count": 60,
+  "base3_antispin_lock": "deterministic packaging choice layered on top of corpus law",
+  "record_count": 197,
+  "motion_truth": "NEAR-derived",
+  "super_cycle_status": "orchestration-ready"
+}

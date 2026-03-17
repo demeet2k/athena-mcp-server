@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-09T15:24:59.636270+00:00",
-  "deep_pass": 6,
+  "generated_at": "2026-03-13T01:33:57.103423+00:00",
+  "deep_pass": 17,
   "edges": [
     {
       "kind": "family_council",
@@ -11,6 +11,11 @@
       "kind": "family_council",
       "src": "FAMILY-general-corpus",
       "dst": "COUNCIL-general_corpus"
+    },
+    {
+      "kind": "family_council",
+      "src": "FAMILY-helical-recursion-engine",
+      "dst": "COUNCIL-helical_recursion_engine"
     },
     {
       "kind": "family_council",
@@ -1814,6 +1819,11 @@
     },
     {
       "kind": "council_kernel",
+      "src": "COUNCIL-helical_recursion_engine",
+      "dst": "CIVILIZATION-KERNEL"
+    },
+    {
+      "kind": "council_kernel",
       "src": "COUNCIL-transport_and_runtime",
       "dst": "CIVILIZATION-KERNEL"
     },
@@ -1824,12 +1834,12 @@
     },
     {
       "kind": "council_kernel",
-      "src": "COUNCIL-civilization_and_governance",
+      "src": "COUNCIL-identity_and_instruction",
       "dst": "CIVILIZATION-KERNEL"
     },
     {
       "kind": "council_kernel",
-      "src": "COUNCIL-identity_and_instruction",
+      "src": "COUNCIL-civilization_and_governance",
       "dst": "CIVILIZATION-KERNEL"
     },
     {

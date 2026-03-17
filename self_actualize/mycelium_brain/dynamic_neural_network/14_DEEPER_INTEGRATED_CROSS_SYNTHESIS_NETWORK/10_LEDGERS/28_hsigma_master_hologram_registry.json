@@ -1,0 +1,132 @@
+{
+  "HSigmaRegistry": {
+    "generated_at": "2026-03-13T23:00:00-07:00",
+    "docs_gate": {
+      "status": "BLOCKED",
+      "missing_files": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "law": "All HSigma artifacts remain local-only until both OAuth files exist and authenticate successfully."
+    },
+    "basis_refs": [
+      "03 QBD-4",
+      "04 Quad Holographic Rotation",
+      "05 The Holographic Kernel",
+      "07 Crystal Computing Framework",
+      "09 Zero-Point Computing",
+      "14 Ch11 The Helical Manifestation Engine",
+      "15 Ch12 Boundary Checks and Isolation Axioms",
+      "16 Ch19 Recursive Self-Reference and Self-Repair",
+      "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+    ],
+    "visibility_mode": "class-exhaustive / instance-frontier",
+    "layers": [
+      "Metro",
+      "Mycelium",
+      "Neural",
+      "Zero",
+      "Liminal",
+      "Aether",
+      "Tunnel",
+      "BridgeReturn",
+      "Dimensional",
+      "ReplayWitnessProof",
+      "SeedRegeneration"
+    ],
+    "dimensional_strata": [
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "D4"
+    ],
+    "route_families": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9",
+      "R10",
+      "R11",
+      "R12",
+      "R13"
+    ],
+    "tunnel_classes": [
+      "T/ZC",
+      "T/AL",
+      "T/LS",
+      "T/DJ",
+      "T/RR",
+      "T/BC"
+    ],
+    "bridge_classes": [
+      "B/TR",
+      "B/DH",
+      "B/MR",
+      "B/WB",
+      "B/BC"
+    ],
+    "nexus_rows": {
+      "seated": [
+        "Z0",
+        "ZL",
+        "A0",
+        "L0",
+        "MT",
+        "MS",
+        "MY",
+        "NN",
+        "TE",
+        "TX",
+        "DB",
+        "DL",
+        "MC",
+        "RA",
+        "WA",
+        "SC"
+      ],
+      "frontier": [
+        "MR",
+        "PA"
+      ],
+      "inferred": [
+        "LP"
+      ]
+    },
+    "back_pointer_law": "rho_holo(x) = (type(x), host_layers(x), incident_routes(x), dimensional_span(x), timing_exposure_rule(x), nearest_hubs(x), regeneration_links(x))",
+    "frontier_policy": [
+      "No instance counts or coordinates may be promoted without local support.",
+      "MR and PA remain explicit frontier only.",
+      "LP remains inferred only.",
+      "Future instance graphs refine G_schema and never replace the class ontology.",
+      "Chapter and appendix grammar remain unchanged."
+    ],
+    "save_state_id": "HSigmaStar",
+    "public_contracts": {
+      "HSigma": "(N, E, Z, A, L, T, B, D, W, Psi, M, R)",
+      "HSigmaVisibility": "seated | frontier | inferred",
+      "HSigmaNodeId": "Z0 | ZL | A0 | L0 | MT | MS | MY | NN | TE | TX | DB | DL | MC | RA | WA | SC | MR | PA | LP",
+      "HSigmaRouteId": "R1..R13",
+      "HSigmaTunnelId": "T/ZC | T/AL | T/LS | T/DJ | T/RR | T/BC",
+      "HSigmaCellClass": "seated | promising | hidden-pressure | unstable | contradictory | frontier | degenerate | master-key",
+      "HSigmaCell": "{weight, visibility, hidden_pressure, contradiction, frontier_fraction, route_density, exposed_nexus_count, exposed_tunnel_count, class}",
+      "HSigmaLookupAddress": "CanonicalRef + SeatAddress + LiminalCoordinate"
+    },
+    "count_integrity": {
+      "layer_families": 11,
+      "route_families": 13,
+      "tunnel_classes": 6,
+      "dimensional_strata": 5,
+      "seated_rows": 16,
+      "frontier_rows": 2,
+      "inferred_rows": 1,
+      "timing_states": 256,
+      "mindsweeper_cells": 4864
+    }
+  }
+}

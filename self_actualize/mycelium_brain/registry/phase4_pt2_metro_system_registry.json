@@ -1,0 +1,448 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+  "systems": [
+    {
+      "system_id": "CoreMetro",
+      "label": "Core Metro",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "stations-and-transfer-hubs",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "address",
+      "entry_station_ids": [
+        "ST-T3",
+        "ST-T9",
+        "ST-T10"
+      ],
+      "exit_station_ids": [
+        "ST-T3",
+        "ST-T10",
+        "ST-T9"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\00_CORE_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "EmergentSupermap",
+      "label": "Deeper Emergent Supermap",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "transfer-hub expansions",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "relation",
+      "entry_station_ids": [
+        "ST-T8",
+        "ST-L2"
+      ],
+      "exit_station_ids": [
+        "ST-T8",
+        "ST-L2"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\05_DEEPER_EMERGENT_METRO_SUPERMAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "L2DeepEmergence",
+      "label": "Level 2 Deep Emergence",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "level-2 relays",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "relation",
+      "entry_station_ids": [
+        "ST-T8",
+        "ST-L2"
+      ],
+      "exit_station_ids": [
+        "ST-L2",
+        "ST-T8"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\06_LVL2_DEEP_EMERGENCE_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "L3Neural",
+      "label": "Level 3 Neural",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "level-3 neural yards",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "relation",
+      "entry_station_ids": [
+        "ST-T10",
+        "ST-DeepRoot",
+        "ST-L3"
+      ],
+      "exit_station_ids": [
+        "ST-L3",
+        "ST-T10",
+        "ST-DeepRoot"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\07_LVL3_DEEPER_NEURAL_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "L4Transcendent",
+      "label": "Level 4 Transcendent",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "level-4 lift hubs",
+      "replay_class": "replay-partial",
+      "drift_status": "live-root",
+      "primary_zone": "chamber",
+      "entry_station_ids": [
+        "ST-DeepRoot",
+        "ST-L4"
+      ],
+      "exit_station_ids": [
+        "ST-L4",
+        "ST-DeepRoot"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\08_LVL4_TRANSCENDENT_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "Mycelial4D",
+      "label": "4D Mycelial Organism",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "organism membranes",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "chamber",
+      "entry_station_ids": [
+        "ST-T9",
+        "ST-GCP",
+        "ST-Mycelium"
+      ],
+      "exit_station_ids": [
+        "ST-Mycelium",
+        "ST-T9",
+        "ST-GCP"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\13_4D_MYCELIAL_ORGANISM_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "CrossCorpusMycelial",
+      "label": "4D Cross-Corpus Mycelial",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "field",
+      "station_family": "cross-corpus departure lanes",
+      "replay_class": "replay-partial",
+      "drift_status": "reservoir-aware",
+      "primary_zone": "relation",
+      "entry_station_ids": [
+        "ST-FLEET",
+        "ST-Mycelium"
+      ],
+      "exit_station_ids": [
+        "ST-FLEET",
+        "ST-Mycelium"
+      ],
+      "default_return_path": [
+        "ST-FLEET",
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\14_4D_MYCELIAL_CROSS_CORPUS_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "BrainStem64",
+      "label": "64x Brain Stem",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "brain-stem yards",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "address",
+      "entry_station_ids": [
+        "ST-GCW",
+        "ST-B64"
+      ],
+      "exit_station_ids": [
+        "ST-B64",
+        "ST-GCW"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\15_64X_BRAIN_STEM_FASCIA_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "Plexus256",
+      "label": "256x Plexus",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "microfascia loops",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "relation",
+      "entry_station_ids": [
+        "ST-GCW",
+        "ST-P256"
+      ],
+      "exit_station_ids": [
+        "ST-P256",
+        "ST-GCW"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\16_256X_PLEXUS_MICROFASCIA_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "Arbor1024",
+      "label": "1024x Synaptic Arbor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "cortex",
+      "station_family": "return-ring arbors",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "replay",
+      "entry_station_ids": [
+        "ST-A1024"
+      ],
+      "exit_station_ids": [
+        "ST-A1024"
+      ],
+      "default_return_path": [
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\17_1024X_SYNAPTIC_ARBOR_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "GrandCentral",
+      "label": "Grand Central",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "runtime",
+      "station_family": "station-and-mezzanine complex",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "replay",
+      "entry_station_ids": [
+        "ST-T10",
+        "ST-GCW",
+        "ST-GCZ",
+        "ST-GCP"
+      ],
+      "exit_station_ids": [
+        "ST-GCW",
+        "ST-GCZ",
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "default_return_path": [
+        "ST-GCP",
+        "ST-T10"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\19_GRAND_CENTRAL_STATION_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "DeepRootMetroStack",
+      "label": "Deep Root Metro Stack",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "deep-root",
+      "station_family": "resolution stack",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "relation",
+      "entry_station_ids": [
+        "ST-GCZ",
+        "ST-AppQ",
+        "ST-Ch11",
+        "ST-DeepRoot"
+      ],
+      "exit_station_ids": [
+        "ST-AppQ",
+        "ST-Ch11",
+        "ST-GCZ",
+        "ST-DeepRoot"
+      ],
+      "default_return_path": [
+        "ST-Ch11",
+        "ST-GCZ",
+        "ST-T10"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\02_level_3_deeper_neural_map.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "AthenaFleetMetro",
+      "label": "Athena FLEET Metro",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "fleet",
+      "station_family": "cluster interconnect yard",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "relation",
+      "entry_station_ids": [
+        "ST-FLEET"
+      ],
+      "exit_station_ids": [
+        "ST-FLEET"
+      ],
+      "default_return_path": [
+        "ST-FLEET",
+        "ST-T10",
+        "ST-GCP"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\18_ATHENA_FLEET_256_POW_4_METRO_MAP.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "AppendixOnlyMetro",
+      "label": "Appendix-Only Metro",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "field",
+      "station_family": "appendix signature hubs",
+      "replay_class": "replay-safe",
+      "drift_status": "live-root",
+      "primary_zone": "address",
+      "entry_station_ids": [
+        "ST-AppM",
+        "ST-AppQ",
+        "ST-HDSCT"
+      ],
+      "exit_station_ids": [
+        "ST-AppM",
+        "ST-AppQ",
+        "ST-HDSCT"
+      ],
+      "default_return_path": [
+        "ST-AppM",
+        "ST-AppQ",
+        "ST-GCZ",
+        "ST-T10"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    },
+    {
+      "system_id": "HDSCTMetro",
+      "label": "HD-SCT Metro",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "category": "field",
+      "station_family": "carrier projection docks",
+      "replay_class": "replay-partial",
+      "drift_status": "live-witness",
+      "primary_zone": "chamber",
+      "entry_station_ids": [
+        "ST-AppM",
+        "ST-HDSCT",
+        "ST-L4"
+      ],
+      "exit_station_ids": [
+        "ST-HDSCT",
+        "ST-AppM",
+        "ST-L4"
+      ],
+      "default_return_path": [
+        "ST-AppM",
+        "ST-AppQ",
+        "ST-GCZ",
+        "ST-T10"
+      ],
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md"
+      ],
+      "note": "Phase 4 Pt 2 metro system."
+    }
+  ],
+  "summary": {
+    "count": 15
+  },
+  "canonical_scope": "live 19-body organism + 16-kernel inner compiler",
+  "active_basis": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\06_DEEPER_EMERGENT_NEURAL_SWARM.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\16_AFFECTIVE_EPISTEMIC_NEURON_FIELD.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_STRUCTURED_NEURON_STORAGE.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_KNOWLEDGE_FABRIC.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\08_VIRTUAL_SWARM_SPEC_16X16.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+  ],
+  "appendix_support": [
+    "AppA",
+    "AppC",
+    "AppE",
+    "AppF",
+    "AppG",
+    "AppI",
+    "AppM",
+    "AppP",
+    "AppQ"
+  ]
+}

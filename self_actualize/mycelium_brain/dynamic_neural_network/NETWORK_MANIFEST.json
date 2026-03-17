@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-03-09T15:17:43.643784+00:00",
+  "generated_at": "2026-03-13T15:05:01.530820+00:00",
   "root": "C:/Users/dmitr/Documents/Athena Agent",
   "output_root": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network",
   "live_docs_gate": "BLOCKED",
-  "live_record_count": 1910,
+  "live_record_count": 7813,
   "archive_record_count": 2041,
   "corpus_basis": [
     {
       "name": "self_actualize",
       "top_level": "self_actualize",
-      "count": 117,
-      "global_weight": 0.061289,
+      "count": 1356,
+      "global_weight": 0.238901,
       "macro": "Earth",
       "theta_deg": 0.0,
       "metro_line": "Atlas-to-Replay Line",
@@ -23,8 +23,8 @@
     {
       "name": "NERVOUS_SYSTEM",
       "top_level": "NERVOUS_SYSTEM",
-      "count": 115,
-      "global_weight": 0.060241,
+      "count": 457,
+      "global_weight": 0.080514,
       "macro": "Earth",
       "theta_deg": 27.692308,
       "metro_line": "Canonical-Bridge Line",
@@ -37,8 +37,8 @@
     {
       "name": "ECOSYSTEM",
       "top_level": "ECOSYSTEM",
-      "count": 99,
-      "global_weight": 0.05186,
+      "count": 112,
+      "global_weight": 0.019732,
       "macro": "Earth",
       "theta_deg": 55.384615,
       "metro_line": "Kernel Line",
@@ -51,8 +51,8 @@
     {
       "name": "MATH",
       "top_level": "MATH",
-      "count": 486,
-      "global_weight": 0.254584,
+      "count": 601,
+      "global_weight": 0.105884,
       "macro": "Air",
       "theta_deg": 83.076923,
       "metro_line": "Kernel Line",
@@ -65,8 +65,8 @@
     {
       "name": "NERUAL NETWORK",
       "top_level": "NERUAL NETWORK",
-      "count": 22,
-      "global_weight": 0.011524,
+      "count": 59,
+      "global_weight": 0.010395,
       "macro": "Air",
       "theta_deg": 110.769231,
       "metro_line": "Runtime Line",
@@ -79,8 +79,8 @@
     {
       "name": "DEEPER CRYSTALIZATION",
       "top_level": "DEEPER CRYSTALIZATION",
-      "count": 217,
-      "global_weight": 0.113672,
+      "count": 443,
+      "global_weight": 0.078048,
       "macro": "Water",
       "theta_deg": 138.461538,
       "metro_line": "Manuscript Line",
@@ -93,8 +93,8 @@
     {
       "name": "Voynich",
       "top_level": "Voynich",
-      "count": 636,
-      "global_weight": 0.333159,
+      "count": 689,
+      "global_weight": 0.121388,
       "macro": "Water",
       "theta_deg": 166.153846,
       "metro_line": "Manuscript Line",
@@ -107,8 +107,8 @@
     {
       "name": "Trading Bot",
       "top_level": "Trading Bot",
-      "count": 193,
-      "global_weight": 0.1011,
+      "count": 1918,
+      "global_weight": 0.337914,
       "macro": "Fire",
       "theta_deg": 193.846154,
       "metro_line": "External Memory Gate Line",
@@ -122,7 +122,7 @@
       "name": "FRESH",
       "top_level": "FRESH",
       "count": 6,
-      "global_weight": 0.003143,
+      "global_weight": 0.001057,
       "macro": "Fire",
       "theta_deg": 221.538462,
       "metro_line": "Prompt Line",
@@ -136,7 +136,7 @@
       "name": "VOID_CH11.md",
       "top_level": "VOID_CH11.md",
       "count": 1,
-      "global_weight": 0.000524,
+      "global_weight": 0.000176,
       "macro": "Fire",
       "theta_deg": 249.230769,
       "metro_line": "Void Line",
@@ -150,7 +150,7 @@
       "name": "MYCELIUM_TOME_PART1.md",
       "top_level": "MYCELIUM_TOME_PART1.md",
       "count": 1,
-      "global_weight": 0.000524,
+      "global_weight": 0.000176,
       "macro": "Air",
       "theta_deg": 276.923077,
       "metro_line": "Kernel Line",
@@ -163,8 +163,8 @@
     {
       "name": "Athenachka Collective Books",
       "top_level": "Athenachka Collective Books",
-      "count": 13,
-      "global_weight": 0.00681,
+      "count": 18,
+      "global_weight": 0.003171,
       "macro": "Water",
       "theta_deg": 304.615385,
       "metro_line": "Mythic Compression Line",
@@ -177,8 +177,8 @@
     {
       "name": "I AM ATHENA",
       "top_level": "I AM ATHENA",
-      "count": 3,
-      "global_weight": 0.001572,
+      "count": 15,
+      "global_weight": 0.002643,
       "macro": "Earth",
       "theta_deg": 332.307692,
       "metro_line": "Canonical-Bridge Line",
@@ -394,10 +394,10 @@
       "corpus_geometry": {
         "scale": 2,
         "membership_mask": "1100000000000",
-        "coverage_ratio": 0.12153,
-        "centroid_x": 0.943222,
-        "centroid_y": 0.230358,
-        "theta_deg": 13.724411,
+        "coverage_ratio": 0.319415,
+        "centroid_x": 0.971127,
+        "centroid_y": 0.117142,
+        "theta_deg": 6.878062,
         "macro_barycentric": {
           "earth": 1.0,
           "water": 0.0,
@@ -405,7 +405,7 @@
           "air": 0.0
         },
         "dominant_macro": "Earth",
-        "entropy": 0.999946,
+        "entropy": 0.81454,
         "crystal_gate": {
           "dominant_macro": "Earth",
           "address": [
@@ -416,8 +416,8 @@
           ]
         },
         "local_weights": {
-          "self_actualize": 0.50431,
-          "NERVOUS_SYSTEM": 0.49569
+          "self_actualize": 0.747932,
+          "NERVOUS_SYSTEM": 0.252068
         }
       },
       "document_geometry": {
@@ -457,10 +457,10 @@
       "corpus_geometry": {
         "scale": 3,
         "membership_mask": "1110000000000",
-        "coverage_ratio": 0.173389,
-        "centroid_x": 0.831015,
-        "centroid_y": 0.407609,
-        "theta_deg": 26.127744,
+        "coverage_ratio": 0.339147,
+        "centroid_x": 0.947676,
+        "centroid_y": 0.158209,
+        "theta_deg": 9.477802,
         "macro_barycentric": {
           "earth": 1.0,
           "water": 0.0,
@@ -468,20 +468,20 @@
           "air": 0.0
         },
         "dominant_macro": "Earth",
-        "entropy": 0.997531,
+        "entropy": 0.686031,
         "crystal_gate": {
           "dominant_macro": "Earth",
           "address": [
             0,
             0,
             0,
-            3
+            2
           ]
         },
         "local_weights": {
-          "self_actualize": 0.353474,
-          "NERVOUS_SYSTEM": 0.347432,
-          "ECOSYSTEM": 0.299094
+          "self_actualize": 0.704416,
+          "NERVOUS_SYSTEM": 0.237403,
+          "ECOSYSTEM": 0.058182
         }
       },
       "document_geometry": {
@@ -522,32 +522,32 @@
       "corpus_geometry": {
         "scale": 4,
         "membership_mask": "1111000000000",
-        "coverage_ratio": 0.427973,
-        "centroid_x": 0.40838,
-        "centroid_y": 0.755661,
-        "theta_deg": 61.611978,
+        "coverage_ratio": 0.445032,
+        "centroid_x": 0.750879,
+        "centroid_y": 0.356758,
+        "theta_deg": 25.413364,
         "macro_barycentric": {
-          "earth": 0.405141,
+          "earth": 0.762074,
           "water": 0.0,
           "fire": 0.0,
-          "air": 0.594859
+          "air": 0.237926
         },
-        "dominant_macro": "Air",
-        "entropy": 0.807213,
+        "dominant_macro": "Earth",
+        "entropy": 0.810101,
         "crystal_gate": {
-          "dominant_macro": "Air",
+          "dominant_macro": "Earth",
           "address": [
-            3,
+            0,
             1,
             0,
             3
           ]
         },
         "local_weights": {
-          "self_actualize": 0.143207,
-          "NERVOUS_SYSTEM": 0.140759,
-          "ECOSYSTEM": 0.121175,
-          "MATH": 0.594859
+          "self_actualize": 0.536817,
+          "NERVOUS_SYSTEM": 0.180918,
+          "ECOSYSTEM": 0.044339,
+          "MATH": 0.237926
         }
       },
       "document_geometry": {
@@ -589,33 +589,33 @@
       "corpus_geometry": {
         "scale": 5,
         "membership_mask": "1111100000000",
-        "coverage_ratio": 0.439497,
-        "centroid_x": 0.388374,
-        "centroid_y": 0.760364,
-        "theta_deg": 62.943277,
+        "coverage_ratio": 0.455426,
+        "centroid_x": 0.725647,
+        "centroid_y": 0.369956,
+        "theta_deg": 27.013823,
         "macro_barycentric": {
-          "earth": 0.394517,
+          "earth": 0.744681,
           "water": 0.0,
           "fire": 0.0,
-          "air": 0.605483
+          "air": 0.255319
         },
-        "dominant_macro": "Air",
-        "entropy": 0.752464,
+        "dominant_macro": "Earth",
+        "entropy": 0.74948,
         "crystal_gate": {
-          "dominant_macro": "Air",
+          "dominant_macro": "Earth",
           "address": [
-            3,
+            0,
             1,
             1,
-            3
+            2
           ]
         },
         "local_weights": {
-          "self_actualize": 0.139452,
-          "NERVOUS_SYSTEM": 0.137068,
-          "ECOSYSTEM": 0.117998,
-          "MATH": 0.579261,
-          "NERUAL NETWORK": 0.026222
+          "self_actualize": 0.524565,
+          "NERVOUS_SYSTEM": 0.176789,
+          "ECOSYSTEM": 0.043327,
+          "MATH": 0.232495,
+          "NERUAL NETWORK": 0.022824
         }
       },
       "document_geometry": {
@@ -658,34 +658,34 @@
       "corpus_geometry": {
         "scale": 6,
         "membership_mask": "1111110000000",
-        "coverage_ratio": 0.553169,
-        "centroid_x": 0.154752,
-        "centroid_y": 0.740382,
-        "theta_deg": 78.194171,
+        "coverage_ratio": 0.533474,
+        "centroid_x": 0.509976,
+        "centroid_y": 0.412847,
+        "theta_deg": 38.99161,
         "macro_barycentric": {
-          "earth": 0.313447,
-          "water": 0.205492,
+          "earth": 0.635733,
+          "water": 0.146301,
           "fire": 0.0,
-          "air": 0.481061
+          "air": 0.217966
         },
-        "dominant_macro": "Air",
-        "entropy": 0.820482,
+        "dominant_macro": "Earth",
+        "entropy": 0.807031,
         "crystal_gate": {
-          "dominant_macro": "Air",
+          "dominant_macro": "Earth",
           "address": [
-            3,
+            0,
             2,
             1,
             3
           ]
         },
         "local_weights": {
-          "self_actualize": 0.110795,
-          "NERVOUS_SYSTEM": 0.108902,
-          "ECOSYSTEM": 0.09375,
-          "MATH": 0.460227,
-          "NERUAL NETWORK": 0.020833,
-          "DEEPER CRYSTALIZATION": 0.205492
+          "self_actualize": 0.44782,
+          "NERVOUS_SYSTEM": 0.150925,
+          "ECOSYSTEM": 0.036988,
+          "MATH": 0.198481,
+          "NERUAL NETWORK": 0.019485,
+          "DEEPER CRYSTALIZATION": 0.146301
         }
       },
       "document_geometry": {
@@ -729,35 +729,35 @@
       "corpus_geometry": {
         "scale": 7,
         "membership_mask": "1111111000000",
-        "coverage_ratio": 0.886328,
-        "centroid_x": -0.268381,
-        "centroid_y": 0.552038,
-        "theta_deg": 115.927354,
+        "coverage_ratio": 0.654863,
+        "centroid_x": 0.235466,
+        "centroid_y": 0.38068,
+        "theta_deg": 58.261512,
         "macro_barycentric": {
-          "earth": 0.195626,
-          "water": 0.504137,
+          "earth": 0.517891,
+          "water": 0.304547,
           "fire": 0.0,
-          "air": 0.300236
+          "air": 0.177563
         },
-        "dominant_macro": "Water",
-        "entropy": 0.811717,
+        "dominant_macro": "Earth",
+        "entropy": 0.851735,
         "crystal_gate": {
-          "dominant_macro": "Water",
+          "dominant_macro": "Earth",
           "address": [
-            1,
+            0,
             2,
             1,
             3
           ]
         },
         "local_weights": {
-          "self_actualize": 0.069149,
-          "NERVOUS_SYSTEM": 0.067967,
-          "ECOSYSTEM": 0.058511,
-          "MATH": 0.287234,
-          "NERUAL NETWORK": 0.013002,
-          "DEEPER CRYSTALIZATION": 0.128251,
-          "Voynich": 0.375887
+          "self_actualize": 0.36481,
+          "NERVOUS_SYSTEM": 0.122949,
+          "ECOSYSTEM": 0.030132,
+          "MATH": 0.16169,
+          "NERUAL NETWORK": 0.015873,
+          "DEEPER CRYSTALIZATION": 0.119182,
+          "Voynich": 0.185365
         }
       },
       "document_geometry": {
@@ -802,36 +802,36 @@
       "corpus_geometry": {
         "scale": 8,
         "membership_mask": "1111111100000",
-        "coverage_ratio": 0.987428,
-        "centroid_x": -0.340314,
-        "centroid_y": 0.471013,
-        "theta_deg": 125.848682,
+        "coverage_ratio": 0.992777,
+        "centroid_x": -0.175162,
+        "centroid_y": 0.169651,
+        "theta_deg": 135.915732,
         "macro_barycentric": {
-          "earth": 0.175597,
-          "water": 0.45252,
-          "fire": 0.102387,
-          "air": 0.269496
+          "earth": 0.341615,
+          "water": 0.200887,
+          "fire": 0.340373,
+          "air": 0.117125
         },
-        "dominant_macro": "Water",
-        "entropy": 0.840659,
+        "dominant_macro": "Earth",
+        "entropy": 0.834141,
         "crystal_gate": {
-          "dominant_macro": "Water",
+          "dominant_macro": "Earth",
           "address": [
-            1,
+            0,
             3,
             2,
             3
           ]
         },
         "local_weights": {
-          "self_actualize": 0.062069,
-          "NERVOUS_SYSTEM": 0.061008,
-          "ECOSYSTEM": 0.05252,
-          "MATH": 0.257825,
-          "NERUAL NETWORK": 0.011671,
-          "DEEPER CRYSTALIZATION": 0.115119,
-          "Voynich": 0.337401,
-          "Trading Bot": 0.102387
+          "self_actualize": 0.240639,
+          "NERVOUS_SYSTEM": 0.0811,
+          "ECOSYSTEM": 0.019876,
+          "MATH": 0.106655,
+          "NERUAL NETWORK": 0.01047,
+          "DEEPER CRYSTALIZATION": 0.078616,
+          "Voynich": 0.122272,
+          "Trading Bot": 0.340373
         }
       },
       "document_geometry": {
@@ -877,37 +877,37 @@
       "corpus_geometry": {
         "scale": 9,
         "membership_mask": "1111111110000",
-        "coverage_ratio": 0.990571,
-        "centroid_x": -0.341609,
-        "centroid_y": 0.467415,
-        "theta_deg": 126.161149,
+        "coverage_ratio": 0.993834,
+        "centroid_x": -0.175772,
+        "centroid_y": 0.168765,
+        "theta_deg": 136.165099,
         "macro_barycentric": {
-          "earth": 0.17504,
-          "water": 0.451084,
-          "fire": 0.105235,
-          "air": 0.268641
+          "earth": 0.341252,
+          "water": 0.200674,
+          "fire": 0.341074,
+          "air": 0.117001
         },
-        "dominant_macro": "Water",
-        "entropy": 0.80282,
+        "dominant_macro": "Earth",
+        "entropy": 0.792385,
         "crystal_gate": {
-          "dominant_macro": "Water",
+          "dominant_macro": "Earth",
           "address": [
-            1,
+            0,
             3,
             2,
             3
           ]
         },
         "local_weights": {
-          "self_actualize": 0.061872,
-          "NERVOUS_SYSTEM": 0.060814,
-          "ECOSYSTEM": 0.052353,
-          "MATH": 0.257007,
-          "NERUAL NETWORK": 0.011634,
-          "DEEPER CRYSTALIZATION": 0.114754,
-          "Voynich": 0.33633,
-          "Trading Bot": 0.102062,
-          "FRESH": 0.003173
+          "self_actualize": 0.240383,
+          "NERVOUS_SYSTEM": 0.081014,
+          "ECOSYSTEM": 0.019855,
+          "MATH": 0.106541,
+          "NERUAL NETWORK": 0.010459,
+          "DEEPER CRYSTALIZATION": 0.078532,
+          "Voynich": 0.122141,
+          "Trading Bot": 0.340011,
+          "FRESH": 0.001064
         }
       },
       "document_geometry": {
@@ -954,38 +954,38 @@
       "corpus_geometry": {
         "scale": 10,
         "membership_mask": "1111111111000",
-        "coverage_ratio": 0.991095,
-        "centroid_x": -0.341616,
-        "centroid_y": 0.466673,
-        "theta_deg": 126.205029,
+        "coverage_ratio": 0.99401,
+        "centroid_x": -0.175804,
+        "centroid_y": 0.168569,
+        "theta_deg": 136.203461,
         "macro_barycentric": {
-          "earth": 0.174947,
-          "water": 0.450846,
-          "fire": 0.105708,
-          "air": 0.268499
+          "earth": 0.341191,
+          "water": 0.200638,
+          "fire": 0.341191,
+          "air": 0.11698
         },
-        "dominant_macro": "Water",
-        "entropy": 0.767642,
+        "dominant_macro": "Earth",
+        "entropy": 0.756735,
         "crystal_gate": {
-          "dominant_macro": "Water",
+          "dominant_macro": "Earth",
           "address": [
-            1,
+            0,
             3,
             2,
             3
           ]
         },
         "local_weights": {
-          "self_actualize": 0.061839,
-          "NERVOUS_SYSTEM": 0.060782,
-          "ECOSYSTEM": 0.052326,
-          "MATH": 0.256871,
-          "NERUAL NETWORK": 0.011628,
-          "DEEPER CRYSTALIZATION": 0.114693,
-          "Voynich": 0.336152,
-          "Trading Bot": 0.102008,
-          "FRESH": 0.003171,
-          "VOID_CH11.md": 0.000529
+          "self_actualize": 0.24034,
+          "NERVOUS_SYSTEM": 0.081,
+          "ECOSYSTEM": 0.019851,
+          "MATH": 0.106523,
+          "NERUAL NETWORK": 0.010457,
+          "DEEPER CRYSTALIZATION": 0.078518,
+          "Voynich": 0.12212,
+          "Trading Bot": 0.33995,
+          "FRESH": 0.001063,
+          "VOID_CH11.md": 0.000177
         }
       },
       "document_geometry": {
@@ -1033,39 +1033,39 @@
       "corpus_geometry": {
         "scale": 11,
         "membership_mask": "1111111111100",
-        "coverage_ratio": 0.991619,
-        "centroid_x": -0.341372,
-        "centroid_y": 0.465903,
-        "theta_deg": 126.230659,
+        "coverage_ratio": 0.994186,
+        "centroid_x": -0.175751,
+        "centroid_y": 0.168363,
+        "theta_deg": 136.229873,
         "macro_barycentric": {
-          "earth": 0.174855,
-          "water": 0.450608,
-          "fire": 0.105652,
-          "air": 0.268885
+          "earth": 0.341131,
+          "water": 0.200603,
+          "fire": 0.341131,
+          "air": 0.117136
         },
-        "dominant_macro": "Water",
-        "entropy": 0.738623,
+        "dominant_macro": "Earth",
+        "entropy": 0.727241,
         "crystal_gate": {
-          "dominant_macro": "Water",
+          "dominant_macro": "Earth",
           "address": [
-            1,
+            0,
             3,
             3,
             2
           ]
         },
         "local_weights": {
-          "self_actualize": 0.061807,
-          "NERVOUS_SYSTEM": 0.06075,
-          "ECOSYSTEM": 0.052298,
-          "MATH": 0.256735,
-          "NERUAL NETWORK": 0.011622,
-          "DEEPER CRYSTALIZATION": 0.114633,
-          "Voynich": 0.335975,
-          "Trading Bot": 0.101955,
-          "FRESH": 0.00317,
-          "VOID_CH11.md": 0.000528,
-          "MYCELIUM_TOME_PART1.md": 0.000528
+          "self_actualize": 0.240298,
+          "NERVOUS_SYSTEM": 0.080985,
+          "ECOSYSTEM": 0.019848,
+          "MATH": 0.106504,
+          "NERUAL NETWORK": 0.010455,
+          "DEEPER CRYSTALIZATION": 0.078504,
+          "Voynich": 0.122098,
+          "Trading Bot": 0.33989,
+          "FRESH": 0.001063,
+          "VOID_CH11.md": 0.000177,
+          "MYCELIUM_TOME_PART1.md": 0.000177
         }
       },
       "document_geometry": {
@@ -1114,40 +1114,40 @@
       "corpus_geometry": {
         "scale": 12,
         "membership_mask": "1111111111110",
-        "coverage_ratio": 0.998428,
-        "centroid_x": -0.335169,
-        "centroid_y": 0.457112,
-        "theta_deg": 126.250093,
+        "coverage_ratio": 0.997357,
+        "centroid_x": -0.173386,
+        "centroid_y": 0.165211,
+        "theta_deg": 136.383019,
         "macro_barycentric": {
-          "earth": 0.173662,
-          "water": 0.454355,
-          "fire": 0.104932,
-          "air": 0.267051
+          "earth": 0.340046,
+          "water": 0.203144,
+          "fire": 0.340046,
+          "air": 0.116764
         },
-        "dominant_macro": "Water",
-        "entropy": 0.724324,
+        "dominant_macro": "Fire",
+        "entropy": 0.708181,
         "crystal_gate": {
-          "dominant_macro": "Water",
+          "dominant_macro": "Fire",
           "address": [
-            1,
+            2,
             3,
             3,
             2
           ]
         },
         "local_weights": {
-          "self_actualize": 0.061385,
-          "NERVOUS_SYSTEM": 0.060336,
-          "ECOSYSTEM": 0.051941,
-          "MATH": 0.254984,
-          "NERUAL NETWORK": 0.011542,
-          "DEEPER CRYSTALIZATION": 0.113851,
-          "Voynich": 0.333683,
-          "Trading Bot": 0.101259,
-          "FRESH": 0.003148,
-          "VOID_CH11.md": 0.000525,
-          "MYCELIUM_TOME_PART1.md": 0.000525,
-          "Athenachka Collective Books": 0.006821
+          "self_actualize": 0.239534,
+          "NERVOUS_SYSTEM": 0.080728,
+          "ECOSYSTEM": 0.019784,
+          "MATH": 0.106165,
+          "NERUAL NETWORK": 0.010422,
+          "DEEPER CRYSTALIZATION": 0.078255,
+          "Voynich": 0.12171,
+          "Trading Bot": 0.338809,
+          "FRESH": 0.00106,
+          "VOID_CH11.md": 0.000177,
+          "MYCELIUM_TOME_PART1.md": 0.000177,
+          "Athenachka Collective Books": 0.00318
         }
       },
       "document_geometry": {
@@ -1198,40 +1198,40 @@
         "scale": 13,
         "membership_mask": "1111111111111",
         "coverage_ratio": 1.0,
-        "centroid_x": -0.333251,
-        "centroid_y": 0.455663,
-        "theta_deg": 126.18003,
+        "centroid_x": -0.170588,
+        "centroid_y": 0.163547,
+        "theta_deg": 136.207222,
         "macro_barycentric": {
-          "earth": 0.174961,
-          "water": 0.453641,
-          "fire": 0.104767,
-          "air": 0.266632
+          "earth": 0.34179,
+          "water": 0.202607,
+          "fire": 0.339147,
+          "air": 0.116455
         },
-        "dominant_macro": "Water",
-        "entropy": 0.705185,
+        "dominant_macro": "Earth",
+        "entropy": 0.691413,
         "crystal_gate": {
-          "dominant_macro": "Water",
+          "dominant_macro": "Earth",
           "address": [
-            1,
+            0,
             3,
             3,
             2
           ]
         },
         "local_weights": {
-          "self_actualize": 0.061289,
-          "NERVOUS_SYSTEM": 0.060241,
-          "ECOSYSTEM": 0.05186,
-          "MATH": 0.254584,
-          "NERUAL NETWORK": 0.011524,
-          "DEEPER CRYSTALIZATION": 0.113672,
-          "Voynich": 0.333159,
-          "Trading Bot": 0.1011,
-          "FRESH": 0.003143,
-          "VOID_CH11.md": 0.000524,
-          "MYCELIUM_TOME_PART1.md": 0.000524,
-          "Athenachka Collective Books": 0.00681,
-          "I AM ATHENA": 0.001572
+          "self_actualize": 0.238901,
+          "NERVOUS_SYSTEM": 0.080514,
+          "ECOSYSTEM": 0.019732,
+          "MATH": 0.105884,
+          "NERUAL NETWORK": 0.010395,
+          "DEEPER CRYSTALIZATION": 0.078048,
+          "Voynich": 0.121388,
+          "Trading Bot": 0.337914,
+          "FRESH": 0.001057,
+          "VOID_CH11.md": 0.000176,
+          "MYCELIUM_TOME_PART1.md": 0.000176,
+          "Athenachka Collective Books": 0.003171,
+          "I AM ATHENA": 0.002643
         }
       },
       "document_geometry": {
@@ -1287,8 +1287,8 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/02_ball_dual_exchange_network.md",
       "geometry": {
-        "coverage_ratio": 0.104967,
-        "theta_deg": 8.236814,
+        "coverage_ratio": 0.203909,
+        "theta_deg": 4.813639,
         "macro_barycentric": {
           "earth": 0.55106,
           "water": 0.448939,
@@ -1296,7 +1296,7 @@
           "air": 0.0
         },
         "dominant_macro": "Earth",
-        "entropy": 0.737815,
+        "entropy": 0.645112,
         "crystal_gate": {
           "dominant_macro": "Earth",
           "address": [
@@ -1308,8 +1308,8 @@
         },
         "scale": 2,
         "membership_mask": "1100000000000",
-        "centroid_x": 0.989684,
-        "centroid_y": 0.143265
+        "centroid_x": 0.996473,
+        "centroid_y": 0.083915
       }
     },
     {
@@ -1322,8 +1322,8 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/03_ball_cascade_network.md",
       "geometry": {
-        "coverage_ratio": 0.207983,
-        "theta_deg": 31.484601,
+        "coverage_ratio": 0.290861,
+        "theta_deg": 23.15963,
         "macro_barycentric": {
           "earth": 0.518609,
           "water": 0.163611,
@@ -1331,20 +1331,20 @@
           "air": 0.317781
         },
         "dominant_macro": "Earth",
-        "entropy": 0.85198,
+        "entropy": 0.69623,
         "crystal_gate": {
           "dominant_macro": "Earth",
           "address": [
             0,
             1,
             0,
-            3
+            2
           ]
         },
         "scale": 3,
         "membership_mask": "1110000000000",
-        "centroid_x": 0.852781,
-        "centroid_y": 0.522269
+        "centroid_x": 0.919413,
+        "centroid_y": 0.393294
       }
     },
     {
@@ -1357,16 +1357,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/04_ball_fountain_network.md",
       "geometry": {
-        "coverage_ratio": 0.417328,
-        "theta_deg": 59.046181,
+        "coverage_ratio": 0.425858,
+        "theta_deg": 40.946874,
         "macro_barycentric": {
-          "earth": 0.21367,
+          "earth": 0.392136,
           "water": 0.097589,
           "fire": 0.0,
-          "air": 0.68874
+          "air": 0.510274
         },
         "dominant_macro": "Air",
-        "entropy": 0.813813,
+        "entropy": 0.815257,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1378,8 +1378,8 @@
         },
         "scale": 4,
         "membership_mask": "1111000000000",
-        "centroid_x": 0.514347,
-        "centroid_y": 0.857582
+        "centroid_x": 0.755318,
+        "centroid_y": 0.655359
       }
     },
     {
@@ -1392,16 +1392,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/05_ball_cascade_network.md",
       "geometry": {
-        "coverage_ratio": 0.473707,
-        "theta_deg": 65.35704,
+        "coverage_ratio": 0.481671,
+        "theta_deg": 47.392314,
         "macro_barycentric": {
-          "earth": 0.206146,
+          "earth": 0.381227,
           "water": 0.078139,
           "fire": 0.0,
-          "air": 0.715715
+          "air": 0.540633
         },
         "dominant_macro": "Air",
-        "entropy": 0.814303,
+        "entropy": 0.812811,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1413,8 +1413,8 @@
         },
         "scale": 5,
         "membership_mask": "1111100000000",
-        "centroid_x": 0.416962,
-        "centroid_y": 0.908924
+        "centroid_x": 0.676975,
+        "centroid_y": 0.736006
       }
     },
     {
@@ -1427,16 +1427,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/06_ball_fountain_network.md",
       "geometry": {
-        "coverage_ratio": 0.570439,
-        "theta_deg": 77.771775,
+        "coverage_ratio": 0.560591,
+        "theta_deg": 58.170495,
         "macro_barycentric": {
-          "earth": 0.164404,
-          "water": 0.170276,
+          "earth": 0.325547,
+          "water": 0.140681,
           "fire": 0.067883,
-          "air": 0.597437
+          "air": 0.465889
         },
         "dominant_macro": "Air",
-        "entropy": 0.861154,
+        "entropy": 0.854429,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1448,8 +1448,8 @@
         },
         "scale": 6,
         "membership_mask": "1111110000000",
-        "centroid_x": 0.211806,
-        "centroid_y": 0.977312
+        "centroid_x": 0.527393,
+        "centroid_y": 0.849621
       }
     },
     {
@@ -1462,16 +1462,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/07_ball_cascade_network.md",
       "geometry": {
-        "coverage_ratio": 0.762045,
-        "theta_deg": 99.786343,
+        "coverage_ratio": 0.646313,
+        "theta_deg": 70.953423,
         "macro_barycentric": {
-          "earth": 0.104891,
-          "water": 0.314298,
+          "earth": 0.266023,
+          "water": 0.214504,
           "fire": 0.062555,
-          "air": 0.518254
+          "air": 0.456918
         },
         "dominant_macro": "Air",
-        "entropy": 0.859139,
+        "entropy": 0.879148,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1483,8 +1483,8 @@
         },
         "scale": 7,
         "membership_mask": "1111111000000",
-        "centroid_x": -0.169975,
-        "centroid_y": 0.985448
+        "centroid_x": 0.326337,
+        "centroid_y": 0.945254
       }
     },
     {
@@ -1497,16 +1497,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/08_ball_fountain_network.md",
       "geometry": {
-        "coverage_ratio": 0.853876,
-        "theta_deg": 109.879782,
+        "coverage_ratio": 0.856551,
+        "theta_deg": 114.913307,
         "macro_barycentric": {
-          "earth": 0.094065,
-          "water": 0.281357,
-          "fire": 0.163888,
-          "air": 0.460689
+          "earth": 0.177074,
+          "water": 0.155541,
+          "fire": 0.282881,
+          "air": 0.384504
         },
         "dominant_macro": "Air",
-        "entropy": 0.8815,
+        "entropy": 0.878241,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1518,8 +1518,8 @@
         },
         "scale": 8,
         "membership_mask": "1111111100000",
-        "centroid_x": -0.340048,
-        "centroid_y": 0.940408
+        "centroid_x": -0.421246,
+        "centroid_y": 0.906946
       }
     },
     {
@@ -1532,16 +1532,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/09_ball_cascade_network.md",
       "geometry": {
-        "coverage_ratio": 0.896006,
-        "theta_deg": 114.769557,
+        "coverage_ratio": 0.897637,
+        "theta_deg": 119.771533,
         "macro_barycentric": {
-          "earth": 0.143759,
-          "water": 0.275063,
-          "fire": 0.153906,
-          "air": 0.427272
+          "earth": 0.226864,
+          "water": 0.149858,
+          "fire": 0.271825,
+          "air": 0.351453
         },
         "dominant_macro": "Air",
-        "entropy": 0.868265,
+        "entropy": 0.863048,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1553,8 +1553,8 @@
         },
         "scale": 9,
         "membership_mask": "1111111110000",
-        "centroid_x": -0.41897,
-        "centroid_y": 0.908
+        "centroid_x": -0.496543,
+        "centroid_y": 0.868012
       }
     },
     {
@@ -1567,16 +1567,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/10_ball_fountain_network.md",
       "geometry": {
-        "coverage_ratio": 0.92559,
-        "theta_deg": 117.540121,
+        "coverage_ratio": 0.927048,
+        "theta_deg": 122.539337,
         "macro_barycentric": {
-          "earth": 0.139877,
-          "water": 0.271568,
-          "fire": 0.181329,
-          "air": 0.407227
+          "earth": 0.223,
+          "water": 0.146463,
+          "fire": 0.29907,
+          "air": 0.331467
         },
         "dominant_macro": "Air",
-        "entropy": 0.85299,
+        "entropy": 0.847537,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1588,8 +1588,8 @@
         },
         "scale": 10,
         "membership_mask": "1111111111000",
-        "centroid_x": -0.46237,
-        "centroid_y": 0.886687
+        "centroid_x": -0.537879,
+        "centroid_y": 0.843022
       }
     },
     {
@@ -1602,16 +1602,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/11_ball_cascade_network.md",
       "geometry": {
-        "coverage_ratio": 0.975412,
-        "theta_deg": 119.931532,
+        "coverage_ratio": 0.976695,
+        "theta_deg": 124.931139,
         "macro_barycentric": {
-          "earth": 0.134416,
-          "water": 0.318347,
-          "fire": 0.168025,
-          "air": 0.379211
+          "earth": 0.217555,
+          "water": 0.193345,
+          "fire": 0.285764,
+          "air": 0.303337
         },
         "dominant_macro": "Air",
-        "entropy": 0.842579,
+        "entropy": 0.836888,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1623,8 +1623,8 @@
         },
         "scale": 11,
         "membership_mask": "1111111111100",
-        "centroid_x": -0.498965,
-        "centroid_y": 0.866622
+        "centroid_x": -0.572592,
+        "centroid_y": 0.819841
       }
     },
     {
@@ -1637,16 +1637,16 @@
       },
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/12_ball_fountain_network.md",
       "geometry": {
-        "coverage_ratio": 0.986616,
-        "theta_deg": 119.574589,
+        "coverage_ratio": 0.986081,
+        "theta_deg": 124.641052,
         "macro_barycentric": {
-          "earth": 0.133068,
-          "water": 0.326733,
-          "fire": 0.165822,
-          "air": 0.374378
+          "earth": 0.21626,
+          "water": 0.201128,
+          "fire": 0.283378,
+          "air": 0.299234
         },
         "dominant_macro": "Air",
-        "entropy": 0.828058,
+        "entropy": 0.819986,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1658,8 +1658,8 @@
         },
         "scale": 12,
         "membership_mask": "1111111111110",
-        "centroid_x": -0.493556,
-        "centroid_y": 0.869714
+        "centroid_x": -0.568433,
+        "centroid_y": 0.822729
       }
     },
     {
@@ -1673,15 +1673,15 @@
       "file": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/juggling_patterns/13_ball_cascade_network.md",
       "geometry": {
         "coverage_ratio": 1.0,
-        "theta_deg": 117.389733,
+        "theta_deg": 122.403329,
         "macro_barycentric": {
-          "earth": 0.14515,
-          "water": 0.323868,
-          "fire": 0.162883,
-          "air": 0.3681
+          "earth": 0.228565,
+          "water": 0.198351,
+          "fire": 0.280073,
+          "air": 0.293011
         },
         "dominant_macro": "Air",
-        "entropy": 0.815505,
+        "entropy": 0.80862,
         "crystal_gate": {
           "dominant_macro": "Air",
           "address": [
@@ -1693,8 +1693,8 @@
         },
         "scale": 13,
         "membership_mask": "1111111111111",
-        "centroid_x": -0.460041,
-        "centroid_y": 0.887898
+        "centroid_x": -0.535876,
+        "centroid_y": 0.844297
       }
     }
   ]

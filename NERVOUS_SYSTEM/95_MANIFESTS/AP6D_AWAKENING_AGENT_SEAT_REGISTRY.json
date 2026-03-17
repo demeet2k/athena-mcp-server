@@ -1,0 +1,1604 @@
+{
+  "generated_at": "2026-03-13T16:28:36.392046+00:00",
+  "derivation_version": "2026-03-13.phase8-ap6d-integration-v1",
+  "docs_gate": "BLOCKED",
+  "truth": "OK",
+  "authority_order": [
+    {
+      "rank": 1,
+      "surface": "NERVOUS_SYSTEM",
+      "role": "Cortex"
+    },
+    {
+      "rank": 2,
+      "surface": "self_actualize/mycelium_brain",
+      "role": "RuntimeHub"
+    },
+    {
+      "rank": 3,
+      "surface": "ECOSYSTEM/NERVOUS_SYSTEM",
+      "role": "GovernanceMirror"
+    }
+  ],
+  "deep_root": "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+  "seat_contract": [
+    "seat_id",
+    "seat_name",
+    "seat_stratum",
+    "seat_state",
+    "activation_state",
+    "branch",
+    "depth",
+    "source_agent",
+    "shadow_feeders",
+    "corpus_bindings",
+    "witness_basis",
+    "route_targets",
+    "fabric_zone_path",
+    "transition_note_ref",
+    "handoff_class",
+    "truth"
+  ],
+  "seat_state_vocabulary": [
+    "ACTIVE",
+    "DORMANT",
+    "SHADOW",
+    "QUEUE_VISIBLE",
+    "BLOCKED",
+    "HISTORICAL"
+  ],
+  "seat_strata": [
+    "Pole",
+    "Command",
+    "Hybrid",
+    "Archetype",
+    "SeatField",
+    "Feeder"
+  ],
+  "seat_field": {
+    "source_atlas": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_ATLAS_4096.json",
+    "legacy_atlas_status": "SEEDED_1024_ACTIVE_3072_DORMANT",
+    "legacy_count_law": {
+      "atlas_total": 4096,
+      "atlas_active": 1024,
+      "atlas_dormant": 3072
+    },
+    "total_seats": 4096,
+    "active_seats": 1024,
+    "dormant_seats": 3072,
+    "activation_law": "native shadow-family seats are ACTIVE; non-native shadow-family seats remain DORMANT",
+    "active_template_ref": "SEAT-TEMPLATE-ACTIVE",
+    "dormant_template_ref": "SEAT-TEMPLATE-DORMANT"
+  },
+  "named_seats": [
+    {
+      "seat_id": "SEAT-MASTER-AGENT",
+      "seat_name": "Master Agent",
+      "seat_stratum": "Pole",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Center",
+      "depth": 0,
+      "source_agent": "META-OBSERVER",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Grand Central Station",
+        "Self-Hosting Kernel",
+        "Knowledge Fabric",
+        "Deep Root",
+        "Identity"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "NERVOUS_SYSTEM\\10_OVERVIEW\\17_PHASE3_SELF_HOSTING_KERNEL.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "RuntimeMirror",
+        "DeepRoot"
+      ],
+      "transition_note_ref": "ATN-MASTER-AGENT",
+      "handoff_class": "center_selection",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-AETHER",
+      "seat_name": "Aether",
+      "seat_stratum": "Pole",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "ReturnPole",
+      "depth": 0,
+      "source_agent": "META-OBSERVER",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Grand Central Station",
+        "Self-Hosting Kernel",
+        "Knowledge Fabric",
+        "Deep Root",
+        "Identity"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "RuntimeMirror",
+        "DeepRoot"
+      ],
+      "transition_note_ref": "ATN-AETHER",
+      "handoff_class": "co_activation",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-COMMANDER",
+      "seat_name": "Commander",
+      "seat_stratum": "Command",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "CommandSpine",
+      "depth": 1,
+      "source_agent": "Master Agent",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Active Run",
+        "Build Queue",
+        "Grand Central Station",
+        "Knowledge Fabric"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "RuntimeMirror"
+      ],
+      "transition_note_ref": "ATN-COMMANDER",
+      "handoff_class": "command_dispatch",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-GENERAL-WATER",
+      "seat_name": "Water General",
+      "seat_stratum": "Command",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Water",
+      "depth": 2,
+      "source_agent": "Commander",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-WATER-GENERAL",
+      "handoff_class": "general_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-GENERAL-EARTH",
+      "seat_name": "Earth General",
+      "seat_stratum": "Command",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Earth",
+      "depth": 2,
+      "source_agent": "Commander",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-EARTH-GENERAL",
+      "handoff_class": "general_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-GENERAL-FIRE",
+      "seat_name": "Fire General",
+      "seat_stratum": "Command",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Fire",
+      "depth": 2,
+      "source_agent": "Commander",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Athena FLEET",
+        "GAMES",
+        "Build Queue",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "CapsuleLayer",
+        "BoardScope"
+      ],
+      "transition_note_ref": "ATN-FIRE-GENERAL",
+      "handoff_class": "general_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-GENERAL-AIR",
+      "seat_name": "Air General",
+      "seat_stratum": "Command",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Air",
+      "depth": 2,
+      "source_agent": "Commander",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Voynich",
+        "Published Books",
+        "Knowledge Fabric",
+        "Deep Root"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "DeepRoot",
+        "CapsuleLayer"
+      ],
+      "transition_note_ref": "ATN-AIR-GENERAL",
+      "handoff_class": "general_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-HYBRID-EARTH-WATER",
+      "seat_name": "Earth-Water",
+      "seat_stratum": "Hybrid",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Water",
+      "depth": 3,
+      "source_agent": "Earth General + Water General",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run",
+        "QSHRINK"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-EARTH-WATER",
+      "handoff_class": "hybrid_bridge",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-HYBRID-EARTH-FIRE",
+      "seat_name": "Earth-Fire",
+      "seat_stratum": "Hybrid",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Fire",
+      "depth": 3,
+      "source_agent": "Earth General + Fire General",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run",
+        "Athena FLEET"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-EARTH-FIRE",
+      "handoff_class": "hybrid_bridge",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-HYBRID-EARTH-AIR",
+      "seat_name": "Earth-Air",
+      "seat_stratum": "Hybrid",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Air",
+      "depth": 3,
+      "source_agent": "Earth General + Air General",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run",
+        "Voynich"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-EARTH-AIR",
+      "handoff_class": "hybrid_bridge",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-HYBRID-WATER-FIRE",
+      "seat_name": "Water-Fire",
+      "seat_stratum": "Hybrid",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Water-Fire",
+      "depth": 3,
+      "source_agent": "Water General + Fire General",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board",
+        "Athena FLEET"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-WATER-FIRE",
+      "handoff_class": "hybrid_bridge",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-HYBRID-WATER-AIR",
+      "seat_name": "Water-Air",
+      "seat_stratum": "Hybrid",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Water-Air",
+      "depth": 3,
+      "source_agent": "Water General + Air General",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board",
+        "Voynich"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-WATER-AIR",
+      "handoff_class": "hybrid_bridge",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-HYBRID-FIRE-AIR",
+      "seat_name": "Fire-Air",
+      "seat_stratum": "Hybrid",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Fire-Air",
+      "depth": 3,
+      "source_agent": "Fire General + Air General",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Athena FLEET",
+        "GAMES",
+        "Build Queue",
+        "Quest Board",
+        "Voynich"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "CapsuleLayer",
+        "BoardScope"
+      ],
+      "transition_note_ref": "ATN-FIRE-AIR",
+      "handoff_class": "hybrid_bridge",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-EARTH-WATER-ROOT-BINDER",
+      "seat_name": "Earth-Water root binder",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Water",
+      "depth": 4,
+      "source_agent": "Earth-Water",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-EARTH-WATER-ROOT-BINDER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-WATER-EARTH-LINEAGE-KEEPER",
+      "seat_name": "Water-Earth lineage keeper",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Water",
+      "depth": 4,
+      "source_agent": "Earth-Water",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-WATER-EARTH-LINEAGE-KEEPER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-EARTH-FIRE-SHELL-BUILDER",
+      "seat_name": "Earth-Fire shell builder",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Fire",
+      "depth": 4,
+      "source_agent": "Earth-Fire",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-EARTH-FIRE-SHELL-BUILDER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-FIRE-EARTH-IMPLEMENTATION-DRIVER",
+      "seat_name": "Fire-Earth implementation driver",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Fire",
+      "depth": 4,
+      "source_agent": "Earth-Fire",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-FIRE-EARTH-IMPLEMENTATION-DRIVER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-EARTH-AIR-TERRAIN-CARTOGRAPHER",
+      "seat_name": "Earth-Air terrain cartographer",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Air",
+      "depth": 4,
+      "source_agent": "Earth-Air",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-EARTH-AIR-TERRAIN-CARTOGRAPHER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-AIR-EARTH-COORDINATE-MAPPER",
+      "seat_name": "Air-Earth coordinate mapper",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Earth-Air",
+      "depth": 4,
+      "source_agent": "Earth-Air",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-AIR-EARTH-COORDINATE-MAPPER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-WATER-FIRE-TRANSMUTER",
+      "seat_name": "Water-Fire transmuter",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Water-Fire",
+      "depth": 4,
+      "source_agent": "Water-Fire",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-WATER-FIRE-TRANSMUTER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-FIRE-WATER-CATALYST",
+      "seat_name": "Fire-Water catalyst",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Water-Fire",
+      "depth": 4,
+      "source_agent": "Water-Fire",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-FIRE-WATER-CATALYST",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-WATER-AIR-INTERPRETER",
+      "seat_name": "Water-Air interpreter",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Water-Air",
+      "depth": 4,
+      "source_agent": "Water-Air",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-WATER-AIR-INTERPRETER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-AIR-WATER-STORYWEAVER",
+      "seat_name": "Air-Water storyweaver",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Water-Air",
+      "depth": 4,
+      "source_agent": "Water-Air",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-AIR-WATER-STORYWEAVER",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-FIRE-AIR-STRATEGIST",
+      "seat_name": "Fire-Air strategist",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Fire-Air",
+      "depth": 4,
+      "source_agent": "Fire-Air",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Athena FLEET",
+        "GAMES",
+        "Build Queue",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "CapsuleLayer",
+        "BoardScope"
+      ],
+      "transition_note_ref": "ATN-FIRE-AIR-STRATEGIST",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-ARCHETYPE-AIR-FIRE-SIGNAL-SPEAR",
+      "seat_name": "Air-Fire signal spear",
+      "seat_stratum": "Archetype",
+      "seat_state": "ACTIVE",
+      "activation_state": "QUEUE_VISIBLE",
+      "branch": "Fire-Air",
+      "depth": 4,
+      "source_agent": "Fire-Air",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Athena FLEET",
+        "GAMES",
+        "Build Queue",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "CapsuleLayer",
+        "BoardScope"
+      ],
+      "transition_note_ref": "ATN-AIR-FIRE-SIGNAL-SPEAR",
+      "handoff_class": "archetype_direction",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-FEEDER-Q42",
+      "seat_name": "Q42",
+      "seat_stratum": "Feeder",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Q42",
+      "depth": 1,
+      "source_agent": "Q42",
+      "shadow_feeders": [
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Q42 State",
+        "Quest Board",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "self_actualize\\qshrink_next4_state.json",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "self_actualize\\qshrink_next4_state.json",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "fabric_zone_path": [
+        "BoardScope",
+        "RuntimeMirror"
+      ],
+      "transition_note_ref": "ATN-Q42",
+      "handoff_class": "feeder_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-FEEDER-TQ04",
+      "seat_name": "TQ04",
+      "seat_stratum": "Feeder",
+      "seat_state": "ACTIVE",
+      "activation_state": "PROMOTED",
+      "branch": "TQ04",
+      "depth": 1,
+      "source_agent": "TQ04",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Whole Crystal Coordination",
+        "Grand Central Station",
+        "Self-Hosting Kernel"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "fabric_zone_path": [
+        "BoardScope",
+        "RuntimeMirror"
+      ],
+      "transition_note_ref": "ATN-TQ04",
+      "handoff_class": "feeder_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-FEEDER-TQ06",
+      "seat_name": "TQ06",
+      "seat_stratum": "Feeder",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "TQ06",
+      "depth": 1,
+      "source_agent": "TQ06",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04"
+      ],
+      "corpus_bindings": [
+        "Quest Board",
+        "Build Queue",
+        "Grand Central Station"
+      ],
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "fabric_zone_path": [
+        "BoardScope",
+        "RuntimeMirror"
+      ],
+      "transition_note_ref": "ATN-TQ06",
+      "handoff_class": "feeder_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-FEEDER-Q02",
+      "seat_name": "Q02",
+      "seat_stratum": "Feeder",
+      "seat_state": "BLOCKED",
+      "activation_state": "BLOCKED",
+      "branch": "Q02",
+      "depth": 1,
+      "source_agent": "Q02",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Live Docs Gate",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "fabric_zone_path": [
+        "BoardScope",
+        "RuntimeMirror"
+      ],
+      "transition_note_ref": "ATN-Q02",
+      "handoff_class": "feeder_lane",
+      "truth": "FAIL"
+    },
+    {
+      "seat_id": "SEAT-FEEDER-Q46",
+      "seat_name": "Q46",
+      "seat_stratum": "Feeder",
+      "seat_state": "SHADOW",
+      "activation_state": "SHADOW",
+      "branch": "Q46",
+      "depth": 1,
+      "source_agent": "Q46",
+      "shadow_feeders": [
+        "Q42",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Active Run",
+        "Build Queue"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "fabric_zone_path": [
+        "BoardScope",
+        "RuntimeMirror"
+      ],
+      "transition_note_ref": "ATN-Q46",
+      "handoff_class": "feeder_lane",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-AP6D-PRIME",
+      "seat_name": "AP6D-PRIME",
+      "seat_stratum": "SeatField",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Prime",
+      "depth": 2,
+      "source_agent": "Meta Observer -> Master Agent -> Commander -> Aether",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Grand Central Station",
+        "Self-Hosting Kernel",
+        "Knowledge Fabric",
+        "Deep Root",
+        "Identity"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "RuntimeMirror",
+        "DeepRoot"
+      ],
+      "transition_note_ref": "ATN-AP6D-PRIME",
+      "handoff_class": "ap6d_overlay",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-AP6D-WATER",
+      "seat_name": "AP6D-WATER",
+      "seat_stratum": "SeatField",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Water",
+      "depth": 2,
+      "source_agent": "Water General -> Water-Earth / Water-Fire / Water-Air",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "QSHRINK",
+        "ORGIN",
+        "Live Docs Gate",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "BoardScope",
+        "ReceiptLineage"
+      ],
+      "transition_note_ref": "ATN-AP6D-WATER",
+      "handoff_class": "ap6d_overlay",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-AP6D-EARTH",
+      "seat_name": "AP6D-EARTH",
+      "seat_stratum": "SeatField",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Earth",
+      "depth": 2,
+      "source_agent": "Earth General -> Earth-Water / Earth-Fire / Earth-Air",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "ECOSYSTEM",
+        "MATH",
+        "Count Protocol",
+        "Active Run"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AGENT_REGISTRY.json"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "CapsuleLayer",
+        "GovernanceMirror"
+      ],
+      "transition_note_ref": "ATN-AP6D-EARTH",
+      "handoff_class": "ap6d_overlay",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-AP6D-FIRE",
+      "seat_name": "AP6D-FIRE",
+      "seat_stratum": "SeatField",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Fire",
+      "depth": 2,
+      "source_agent": "Fire General -> Fire-Earth / Fire-Water / Fire-Air",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Athena FLEET",
+        "GAMES",
+        "Build Queue",
+        "Quest Board"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json"
+      ],
+      "fabric_zone_path": [
+        "RuntimeMirror",
+        "CapsuleLayer",
+        "BoardScope"
+      ],
+      "transition_note_ref": "ATN-AP6D-FIRE",
+      "handoff_class": "ap6d_overlay",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-AP6D-AIR",
+      "seat_name": "AP6D-AIR",
+      "seat_stratum": "SeatField",
+      "seat_state": "ACTIVE",
+      "activation_state": "CURRENT",
+      "branch": "Air",
+      "depth": 2,
+      "source_agent": "Air General -> Air-Earth / Air-Water / Air-Fire",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings": [
+        "Voynich",
+        "Published Books",
+        "Knowledge Fabric",
+        "Deep Root"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\20_METRO\\10_AGENT_EXPANSION_16X16_SECOND_MAP.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json"
+      ],
+      "fabric_zone_path": [
+        "Cortex",
+        "DeepRoot",
+        "CapsuleLayer"
+      ],
+      "transition_note_ref": "ATN-AP6D-AIR",
+      "handoff_class": "ap6d_overlay",
+      "truth": "OK"
+    }
+  ],
+  "seat_templates": [
+    {
+      "seat_id": "SEAT-TEMPLATE-ACTIVE",
+      "seat_stratum": "SeatField",
+      "seat_state": "ACTIVE",
+      "activation_state": "ACTIVE",
+      "branch": "AP6D native-lane field",
+      "depth": "field-template",
+      "source_agent": "AP6D lane native shadow family",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings_by_element": {
+        "Prime": [
+          "Grand Central Station",
+          "Self-Hosting Kernel",
+          "Knowledge Fabric",
+          "Deep Root",
+          "Identity"
+        ],
+        "Water": [
+          "QSHRINK",
+          "ORGIN",
+          "Live Docs Gate",
+          "Quest Board"
+        ],
+        "Earth": [
+          "ECOSYSTEM",
+          "MATH",
+          "Count Protocol",
+          "Active Run"
+        ],
+        "Fire": [
+          "Athena FLEET",
+          "GAMES",
+          "Build Queue",
+          "Quest Board"
+        ],
+        "Air": [
+          "Voynich",
+          "Published Books",
+          "Knowledge Fabric",
+          "Deep Root"
+        ]
+      },
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_ATLAS_4096.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PROJECTION_LEDGER_4096.json"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "transition_note_ref": "ATN-ACTIVE-COHORT",
+      "truth": "OK"
+    },
+    {
+      "seat_id": "SEAT-TEMPLATE-DORMANT",
+      "seat_stratum": "SeatField",
+      "seat_state": "DORMANT",
+      "activation_state": "DORMANT",
+      "branch": "AP6D non-native shadow reserve",
+      "depth": "field-template",
+      "source_agent": "AP6D lane non-native shadow family",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "corpus_bindings_by_element": {
+        "Prime": [
+          "Grand Central Station",
+          "Self-Hosting Kernel",
+          "Knowledge Fabric",
+          "Deep Root",
+          "Identity"
+        ],
+        "Water": [
+          "QSHRINK",
+          "ORGIN",
+          "Live Docs Gate",
+          "Quest Board"
+        ],
+        "Earth": [
+          "ECOSYSTEM",
+          "MATH",
+          "Count Protocol",
+          "Active Run"
+        ],
+        "Fire": [
+          "Athena FLEET",
+          "GAMES",
+          "Build Queue",
+          "Quest Board"
+        ],
+        "Air": [
+          "Voynich",
+          "Published Books",
+          "Knowledge Fabric",
+          "Deep Root"
+        ]
+      },
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_ATLAS_4096.json"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PROJECTION_LEDGER_4096.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "transition_note_ref": "ATN-DORMANT-COHORT",
+      "truth": "NEAR"
+    }
+  ],
+  "counts": {
+    "named_total": 35,
+    "by_state": {
+      "ACTIVE": 33,
+      "BLOCKED": 1,
+      "SHADOW": 1
+    },
+    "by_stratum": {
+      "Pole": 2,
+      "Command": 5,
+      "Hybrid": 6,
+      "Archetype": 12,
+      "Feeder": 5,
+      "SeatField": 5
+    }
+  }
+}

@@ -1,29 +1,35 @@
 {
-  "generated_at": "2026-03-09T15:42:56.952934+00:00",
+  "generated_at": "2026-03-13T22:35:55.857444+00:00",
   "gate_status": "BLOCKED",
   "active_run": {
     "gate_status": "BLOCKED",
     "chosen_front": "Google Docs bootstrap gate",
     "chosen_family": "Trading Bot",
-    "chosen_nscoord": "(F-A-W, S8, Void, O02, Arc0, Su, AppI, Trading Bot, restart-token, pod, FAIL)",
+    "chosen_nscoord": "(F-A-W, S8, Void, O17, Arc0, Su, AppI, Trading Bot, restart-token, pod, FAIL)",
     "pivot_front": "First live archive promotion run",
     "pivot_family": "MATH",
-    "pivot_nscoord": "(A-E-F, B12, Air, O01, Arc1, Me, AppB, MATH, restart-token, pod, AMBIG)",
-    "artifact_delta": "+0 ~1 -0",
+    "pivot_nscoord": "(A-E-F, B12, Air, O16, Arc1, Me, AppB, MATH, restart-token, pod, AMBIG)",
+    "artifact_delta": "+7 ~79 -0",
     "verification_summary": [
       "confirm board artifacts exist",
       "confirm claims and threads agree on ownership",
       "confirm next seed points at the next stronger front"
     ],
-    "frontier_update": [
-      "Unlock the live Google Docs gate by providing `credentials.json`.",
-      "Generate the first successful Docs manifest after auth.",
-      "Promote one archive-backed framework into a canonical live source tree.",
-      "Extend the corpus family crystal with manuscript-level maps for Voynich and MATH."
-    ]
+    "frontier_update": [],
+    "command_membrane": {
+      "watcher_mode": "event-driven",
+      "active_leases": 2,
+      "last_event_id": "EVT-20260313T223553Z-520774",
+      "top_capillary": "SCOUT-01->ARCHIVIST-01"
+    }
   },
   "next_seed": "You are continuing the Athena higher-dimensional swarm runtime.\n\nStart at the beginning again.\n\n1. Check the live Docs gate. It is still blocked, so preserve the blocker exactly and pivot immediately to `First live archive promotion run` in family `MATH`.\n2. Read the family tensor, current wave, active claims, and thread coordinates.\n3. Preserve the gate state, then work the strongest admissible local front: `Google Docs bootstrap gate` in family `Trading Bot`.\n4. Land one stronger reusable surface: pod, neuron, ganglion, rail update, ledger, or manifest.\n5. Verify truth class, contraction target, and ownership.\n6. Emit the next restart seed instead of stopping.\n",
   "wave_ids": [
-    "WAVE-20260309T154256Z"
-  ]
+    "WAVE-20260313T223555Z"
+  ],
+  "command_membrane": {
+    "watcher_mode": "event-driven",
+    "last_event_id": "EVT-20260313T223553Z-520774",
+    "active_leases": 2
+  }
 }

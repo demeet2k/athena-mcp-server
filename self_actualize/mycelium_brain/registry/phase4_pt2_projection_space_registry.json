@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md",
+  "spaces": [
+    {
+      "space_id": "Transit3D",
+      "label": "Transit 3D",
+      "axes": [
+        "station",
+        "hub",
+        "yard"
+      ],
+      "carrier_focus": [
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md",
+      "crosswalk_rules": [
+        "Transit routes crosswalk into Carrier3D through preferred carriers."
+      ],
+      "note": "3D projection surface for Pt 2."
+    },
+    {
+      "space_id": "Carrier3D",
+      "label": "Carrier 3D",
+      "axes": [
+        "carrier",
+        "phase",
+        "certificate"
+      ],
+      "carrier_focus": [
+        "Square",
+        "Flower",
+        "Cloud",
+        "Fractal"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md",
+      "crosswalk_rules": [
+        "Carrier transforms bridge Carrier3D into Lens3D and Field3D."
+      ],
+      "note": "3D projection surface for Pt 2."
+    },
+    {
+      "space_id": "Lens3D",
+      "label": "Lens 3D",
+      "axes": [
+        "lens",
+        "hybrid",
+        "bias"
+      ],
+      "carrier_focus": [
+        "Square",
+        "Flower",
+        "Cloud",
+        "Fractal"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md",
+      "crosswalk_rules": [
+        "Lens3D becomes Organism3D only when a body or node holds the carrier."
+      ],
+      "note": "3D projection surface for Pt 2."
+    },
+    {
+      "space_id": "Organism3D",
+      "label": "Organism 3D",
+      "axes": [
+        "body",
+        "tract",
+        "hemisphere"
+      ],
+      "carrier_focus": [
+        "Nervous",
+        "Mycelium",
+        "Neural"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md",
+      "crosswalk_rules": [
+        "Organism3D routes back into Transit3D through Grand Central and replay."
+      ],
+      "note": "3D projection surface for Pt 2."
+    },
+    {
+      "space_id": "Field3D",
+      "label": "Field 3D",
+      "axes": [
+        "aether",
+        "zero",
+        "tunnel"
+      ],
+      "carrier_focus": [
+        "Cloud",
+        "Aether",
+        "Zero"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md",
+      "crosswalk_rules": [
+        "Field3D crosses into Lens3D and Carrier3D only with replay closure."
+      ],
+      "note": "3D projection surface for Pt 2."
+    }
+  ],
+  "summary": {
+    "count": 5
+  }
+}

@@ -1,0 +1,3875 @@
+[
+  {
+    "record_id": "R01",
+    "record_class": "R",
+    "shell_slot": "21/65",
+    "gate_addr": "Gate<2101>",
+    "mu": "01",
+    "source_set": [
+      "A"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Fire)",
+      "tunnel": "Z(Fire) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S01",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=01, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S01"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R01::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=01::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q01",
+    "record_class": "Q",
+    "shell_slot": "36/65",
+    "gate_addr": "Gate<2201>",
+    "mu": "01",
+    "source_set": [
+      "A"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Fire)",
+      "tunnel": "Z(Fire) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R01",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=01, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R01"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q01::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=01::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A'], ['C'], ['B'], ['D']]"
+  },
+  {
+    "record_id": "T01",
+    "record_class": "T",
+    "shell_slot": "51/65",
+    "gate_addr": "Gate<2301>",
+    "mu": "01",
+    "source_set": [
+      "A"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "C",
+    "triad": [
+      "A",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": "Z(Fire)",
+      "tunnel": "Z(Fire) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S01",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=01, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S01"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T01::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=01::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A'], ['B'], ['D']] anti_minus=[['A'], ['D'], ['B']]"
+  },
+  {
+    "record_id": "R02",
+    "record_class": "R",
+    "shell_slot": "22/65",
+    "gate_addr": "Gate<2102>",
+    "mu": "02",
+    "source_set": [
+      "B"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Water)",
+      "tunnel": "Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S02",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=02, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S02"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R02::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=02::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q02",
+    "record_class": "Q",
+    "shell_slot": "37/65",
+    "gate_addr": "Gate<2202>",
+    "mu": "02",
+    "source_set": [
+      "B"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Water)",
+      "tunnel": "Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R02",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=02, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R02"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q02::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=02::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['B'], ['D'], ['A'], ['C']]"
+  },
+  {
+    "record_id": "T02",
+    "record_class": "T",
+    "shell_slot": "52/65",
+    "gate_addr": "Gate<2302>",
+    "mu": "02",
+    "source_set": [
+      "B"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": "Z(Water)",
+      "tunnel": "Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S02",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=02, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S02"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T02::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=02::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['B'], ['D'], ['C']] anti_minus=[['B'], ['C'], ['D']]"
+  },
+  {
+    "record_id": "R03",
+    "record_class": "R",
+    "shell_slot": "23/65",
+    "gate_addr": "Gate<2103>",
+    "mu": "03",
+    "source_set": [
+      "A",
+      "B"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Fire) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S03",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=03, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S03"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R03::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=03::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q03",
+    "record_class": "Q",
+    "shell_slot": "38/65",
+    "gate_addr": "Gate<2203>",
+    "mu": "03",
+    "source_set": [
+      "A",
+      "B"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Fire) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R03",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=03, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R03"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q03::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=03::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A', 'B'], ['C', 'D'], ['A', 'B'], ['C', 'D']]"
+  },
+  {
+    "record_id": "T03",
+    "record_class": "T",
+    "shell_slot": "53/65",
+    "gate_addr": "Gate<2303>",
+    "mu": "03",
+    "source_set": [
+      "A",
+      "B"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "C",
+    "triad": [
+      "A",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Fire) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S03",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=03, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S03"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T03::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=03::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A', 'B'], ['B', 'D'], ['A', 'D']] anti_minus=[['A', 'B'], ['A', 'D'], ['B', 'D']]"
+  },
+  {
+    "record_id": "R10",
+    "record_class": "R",
+    "shell_slot": "24/65",
+    "gate_addr": "Gate<2110>",
+    "mu": "10",
+    "source_set": [
+      "C"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Air)",
+      "tunnel": "Z(Air) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S10",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=10, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S10"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R10::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=10::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q10",
+    "record_class": "Q",
+    "shell_slot": "39/65",
+    "gate_addr": "Gate<2210>",
+    "mu": "10",
+    "source_set": [
+      "C"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Air)",
+      "tunnel": "Z(Air) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R10",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=10, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R10"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q10::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=10::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['C'], ['B'], ['D'], ['A']]"
+  },
+  {
+    "record_id": "T10",
+    "record_class": "T",
+    "shell_slot": "54/65",
+    "gate_addr": "Gate<2310>",
+    "mu": "10",
+    "source_set": [
+      "C"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": "Z(Air)",
+      "tunnel": "Z(Air) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S10",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=10, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S10"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T10::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=10::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['C'], ['B'], ['D']] anti_minus=[['C'], ['D'], ['B']]"
+  },
+  {
+    "record_id": "R11",
+    "record_class": "R",
+    "shell_slot": "25/65",
+    "gate_addr": "Gate<2111>",
+    "mu": "11",
+    "source_set": [
+      "A",
+      "C"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S11",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=11, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S11"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R11::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=11::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q11",
+    "record_class": "Q",
+    "shell_slot": "40/65",
+    "gate_addr": "Gate<2211>",
+    "mu": "11",
+    "source_set": [
+      "A",
+      "C"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R11",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=11, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R11"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q11::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=11::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A', 'C'], ['B', 'C'], ['B', 'D'], ['A', 'D']]"
+  },
+  {
+    "record_id": "T11",
+    "record_class": "T",
+    "shell_slot": "55/65",
+    "gate_addr": "Gate<2311>",
+    "mu": "11",
+    "source_set": [
+      "A",
+      "C"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "B",
+    "triad": [
+      "A",
+      "C",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S11",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=11, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S11"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T11::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=11::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A', 'C'], ['C', 'D'], ['A', 'D']] anti_minus=[['A', 'C'], ['A', 'D'], ['C', 'D']]"
+  },
+  {
+    "record_id": "R12",
+    "record_class": "R",
+    "shell_slot": "26/65",
+    "gate_addr": "Gate<2112>",
+    "mu": "12",
+    "source_set": [
+      "B",
+      "C"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Air) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S12",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=12, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S12"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R12::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=12::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q12",
+    "record_class": "Q",
+    "shell_slot": "41/65",
+    "gate_addr": "Gate<2212>",
+    "mu": "12",
+    "source_set": [
+      "B",
+      "C"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Air) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R12",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=12, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R12"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q12::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=12::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['B', 'C'], ['B', 'D'], ['A', 'D'], ['A', 'C']]"
+  },
+  {
+    "record_id": "T12",
+    "record_class": "T",
+    "shell_slot": "56/65",
+    "gate_addr": "Gate<2312>",
+    "mu": "12",
+    "source_set": [
+      "B",
+      "C"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Air) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S12",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=12, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S12"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T12::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=12::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['B', 'C'], ['B', 'D'], ['C', 'D']] anti_minus=[['B', 'C'], ['C', 'D'], ['B', 'D']]"
+  },
+  {
+    "record_id": "R13",
+    "record_class": "R",
+    "shell_slot": "27/65",
+    "gate_addr": "Gate<2113>",
+    "mu": "13",
+    "source_set": [
+      "A",
+      "B",
+      "C"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S13",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=13, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S13"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R13::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=13::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q13",
+    "record_class": "Q",
+    "shell_slot": "42/65",
+    "gate_addr": "Gate<2213>",
+    "mu": "13",
+    "source_set": [
+      "A",
+      "B",
+      "C"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R13",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=13, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R13"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q13::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=13::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A', 'B', 'C'], ['B', 'C', 'D'], ['A', 'B', 'D'], ['A', 'C', 'D']]"
+  },
+  {
+    "record_id": "T13",
+    "record_class": "T",
+    "shell_slot": "57/65",
+    "gate_addr": "Gate<2313>",
+    "mu": "13",
+    "source_set": [
+      "A",
+      "B",
+      "C"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "D",
+    "triad": [
+      "A",
+      "C",
+      "B"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Water)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Water) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S13",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=13, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S13"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T13::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=13::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A', 'B', 'C'], ['A', 'B', 'C'], ['A', 'B', 'C']] anti_minus=[['A', 'B', 'C'], ['A', 'B', 'C'], ['A', 'B', 'C']]"
+  },
+  {
+    "record_id": "R20",
+    "record_class": "R",
+    "shell_slot": "28/65",
+    "gate_addr": "Gate<2120>",
+    "mu": "20",
+    "source_set": [
+      "D"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Earth)",
+      "tunnel": "Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S20",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=20, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S20"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R20::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=20::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q20",
+    "record_class": "Q",
+    "shell_slot": "43/65",
+    "gate_addr": "Gate<2220>",
+    "mu": "20",
+    "source_set": [
+      "D"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": "Z(Earth)",
+      "tunnel": "Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R20",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=20, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R20"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q20::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=20::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['D'], ['A'], ['C'], ['B']]"
+  },
+  {
+    "record_id": "T20",
+    "record_class": "T",
+    "shell_slot": "58/65",
+    "gate_addr": "Gate<2320>",
+    "mu": "20",
+    "source_set": [
+      "D"
+    ],
+    "cardinality": 1,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": "Z(Earth)",
+      "tunnel": "Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S20",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=20, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S20"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T20::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=20::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['D'], ['C'], ['B']] anti_minus=[['D'], ['B'], ['C']]"
+  },
+  {
+    "record_id": "R21",
+    "record_class": "R",
+    "shell_slot": "29/65",
+    "gate_addr": "Gate<2121>",
+    "mu": "21",
+    "source_set": [
+      "A",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S21",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=21, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S21"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R21::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=21::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q21",
+    "record_class": "Q",
+    "shell_slot": "44/65",
+    "gate_addr": "Gate<2221>",
+    "mu": "21",
+    "source_set": [
+      "A",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R21",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=21, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R21"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q21::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=21::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A', 'D'], ['A', 'C'], ['B', 'C'], ['B', 'D']]"
+  },
+  {
+    "record_id": "T21",
+    "record_class": "T",
+    "shell_slot": "59/65",
+    "gate_addr": "Gate<2321>",
+    "mu": "21",
+    "source_set": [
+      "A",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "C",
+    "triad": [
+      "A",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S21",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=21, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S21"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T21::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=21::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A', 'D'], ['A', 'B'], ['B', 'D']] anti_minus=[['A', 'D'], ['B', 'D'], ['A', 'B']]"
+  },
+  {
+    "record_id": "R22",
+    "record_class": "R",
+    "shell_slot": "30/65",
+    "gate_addr": "Gate<2122>",
+    "mu": "22",
+    "source_set": [
+      "B",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S22",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=22, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S22"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R22::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=22::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q22",
+    "record_class": "Q",
+    "shell_slot": "45/65",
+    "gate_addr": "Gate<2222>",
+    "mu": "22",
+    "source_set": [
+      "B",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R22",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=22, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R22"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q22::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=22::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['B', 'D'], ['A', 'D'], ['A', 'C'], ['B', 'C']]"
+  },
+  {
+    "record_id": "T22",
+    "record_class": "T",
+    "shell_slot": "60/65",
+    "gate_addr": "Gate<2322>",
+    "mu": "22",
+    "source_set": [
+      "B",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S22",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=22, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S22"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T22::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=22::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['B', 'D'], ['C', 'D'], ['B', 'C']] anti_minus=[['B', 'D'], ['B', 'C'], ['C', 'D']]"
+  },
+  {
+    "record_id": "R23",
+    "record_class": "R",
+    "shell_slot": "31/65",
+    "gate_addr": "Gate<2123>",
+    "mu": "23",
+    "source_set": [
+      "A",
+      "B",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S23",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=23, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S23"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R23::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=23::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q23",
+    "record_class": "Q",
+    "shell_slot": "46/65",
+    "gate_addr": "Gate<2223>",
+    "mu": "23",
+    "source_set": [
+      "A",
+      "B",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R23",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=23, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R23"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q23::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=23::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A', 'B', 'D'], ['A', 'C', 'D'], ['A', 'B', 'C'], ['B', 'C', 'D']]"
+  },
+  {
+    "record_id": "T23",
+    "record_class": "T",
+    "shell_slot": "61/65",
+    "gate_addr": "Gate<2323>",
+    "mu": "23",
+    "source_set": [
+      "A",
+      "B",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "C",
+    "triad": [
+      "A",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S23",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=23, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S23"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T23::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=23::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A', 'B', 'D'], ['A', 'B', 'D'], ['A', 'B', 'D']] anti_minus=[['A', 'B', 'D'], ['A', 'B', 'D'], ['A', 'B', 'D']]"
+  },
+  {
+    "record_id": "R30",
+    "record_class": "R",
+    "shell_slot": "32/65",
+    "gate_addr": "Gate<2130>",
+    "mu": "30",
+    "source_set": [
+      "C",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Air) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S30",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=30, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S30"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R30::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=30::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q30",
+    "record_class": "Q",
+    "shell_slot": "47/65",
+    "gate_addr": "Gate<2230>",
+    "mu": "30",
+    "source_set": [
+      "C",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Air) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R30",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=30, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R30"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q30::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=30::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['C', 'D'], ['A', 'B'], ['C', 'D'], ['A', 'B']]"
+  },
+  {
+    "record_id": "T30",
+    "record_class": "T",
+    "shell_slot": "62/65",
+    "gate_addr": "Gate<2330>",
+    "mu": "30",
+    "source_set": [
+      "C",
+      "D"
+    ],
+    "cardinality": 2,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Air) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S30",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=30, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S30"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T30::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=30::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['C', 'D'], ['B', 'C'], ['B', 'D']] anti_minus=[['C', 'D'], ['B', 'D'], ['B', 'C']]"
+  },
+  {
+    "record_id": "R31",
+    "record_class": "R",
+    "shell_slot": "33/65",
+    "gate_addr": "Gate<2131>",
+    "mu": "31",
+    "source_set": [
+      "A",
+      "C",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S31",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=31, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S31"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R31::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=31::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q31",
+    "record_class": "Q",
+    "shell_slot": "48/65",
+    "gate_addr": "Gate<2231>",
+    "mu": "31",
+    "source_set": [
+      "A",
+      "C",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R31",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=31, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R31"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q31::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=31::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A', 'C', 'D'], ['A', 'B', 'C'], ['B', 'C', 'D'], ['A', 'B', 'D']]"
+  },
+  {
+    "record_id": "T31",
+    "record_class": "T",
+    "shell_slot": "63/65",
+    "gate_addr": "Gate<2331>",
+    "mu": "31",
+    "source_set": [
+      "A",
+      "C",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "B",
+    "triad": [
+      "A",
+      "C",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S31",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=31, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S31"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T31::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=31::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A', 'C', 'D'], ['A', 'C', 'D'], ['A', 'C', 'D']] anti_minus=[['A', 'C', 'D'], ['A', 'C', 'D'], ['A', 'C', 'D']]"
+  },
+  {
+    "record_id": "R32",
+    "record_class": "R",
+    "shell_slot": "34/65",
+    "gate_addr": "Gate<2132>",
+    "mu": "32",
+    "source_set": [
+      "B",
+      "C",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Air) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S32",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=32, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S32"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R32::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=32::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q32",
+    "record_class": "Q",
+    "shell_slot": "49/65",
+    "gate_addr": "Gate<2232>",
+    "mu": "32",
+    "source_set": [
+      "B",
+      "C",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Air) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R32",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=32, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R32"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q32::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=32::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['B', 'C', 'D'], ['A', 'B', 'D'], ['A', 'C', 'D'], ['A', 'B', 'C']]"
+  },
+  {
+    "record_id": "T32",
+    "record_class": "T",
+    "shell_slot": "64/65",
+    "gate_addr": "Gate<2332>",
+    "mu": "32",
+    "source_set": [
+      "B",
+      "C",
+      "D"
+    ],
+    "cardinality": 3,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Air)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Air) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S32",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=32, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S32"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T32::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=32::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['B', 'C', 'D'], ['B', 'C', 'D'], ['B', 'C', 'D']] anti_minus=[['B', 'C', 'D'], ['B', 'C', 'D'], ['B', 'C', 'D']]"
+  },
+  {
+    "record_id": "R33",
+    "record_class": "R",
+    "shell_slot": "35/65",
+    "gate_addr": "Gate<2133>",
+    "mu": "33",
+    "source_set": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "cardinality": 4,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "rotation_bridge",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S33",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=33, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "S33"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::R33::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=33::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over rotation/counter-rotation pair; no source-set rewrite."
+  },
+  {
+    "record_id": "Q33",
+    "record_class": "Q",
+    "shell_slot": "50/65",
+    "gate_addr": "Gate<2233>",
+    "mu": "33",
+    "source_set": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "cardinality": 4,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppF",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": null,
+    "triad": null,
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "spin_orbit",
+      "primary_hub": "AppF",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppF -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "R33",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppF -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=33, same route AppA/AppF/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppF"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppF",
+      "R33"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::Q33::AppA -> AppF -> AppC -> AppI -> AppM",
+      "replay::mu=33::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-4 orbit closure; orbit body preserved exactly. orbit=[['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D']]"
+  },
+  {
+    "record_id": "T33",
+    "record_class": "T",
+    "shell_slot": "65/65",
+    "gate_addr": "Gate<2333>",
+    "mu": "33",
+    "source_set": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "cardinality": 4,
+    "pole_gauge": {
+      "A": "Fire",
+      "C": "Air",
+      "B": "Water",
+      "D": "Earth"
+    },
+    "ring_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "primary_hub": "AppG",
+    "sigma_shell": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "route_bridge_hub": "AppC",
+    "hide": "A",
+    "triad": [
+      "C",
+      "B",
+      "D"
+    ],
+    "z_transfer_signature": {
+      "source_z": [
+        "Z(Fire)",
+        "Z(Air)",
+        "Z(Water)",
+        "Z(Earth)"
+      ],
+      "tunnel": "Z(Fire) + Z(Air) + Z(Water) + Z(Earth) -> Z*",
+      "aether_endpoint": "Aether",
+      "transfer_mode": "antispin_lock",
+      "primary_hub": "AppG",
+      "bridge_hub": "AppC",
+      "sigma_shell": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "opposite_pole_policy": "forbidden_direct_opposite_except_via_zstar",
+      "landing_signature": "AppA -> AppG -> AppC -> AppI -> AppM"
+    },
+    "prior_metro_route_witness": {
+      "prior_record": "S33",
+      "route_kind": "prior_compact_metro",
+      "route": "AppA -> AppG -> AppC -> AppI -> AppM",
+      "witness_basis": [
+        "MYCELIUM_TOME_PART1.md::D.010 Sigma",
+        "MYCELIUM_TOME_PART1.md::A.008 deterministic router",
+        "MEGALITHIC TOME GENERATOR - Latent Tunneling - Skeleton.4d.md::Z_i<->Z* header",
+        "user-shell::dense 2/65 -> 65/65 coordinate shell"
+      ],
+      "replay_basis": "Same gauge, same ring order A->C->B->D, same mu=33, same route AppA/AppG/AppC/AppI/AppM reproduces the same signature.",
+      "supporting_appendices": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppC",
+        "AppG"
+      ]
+    },
+    "witness_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::D.010",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::A.008",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md::Master Agent <-> Aether",
+      "in-thread::dense shell 2/65 -> 65/65",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::AppG",
+      "S33"
+    ],
+    "replay_ptr": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MYCELIUM_TOME_PART1.md::worked example",
+      "replay::T33::AppA -> AppG -> AppC -> AppI -> AppM",
+      "replay::mu=33::ring=A->C->B->D"
+    ],
+    "truth_class": "NEAR",
+    "notes": "Metadata attachment over base-3 antispin lock; hidden-pole law preserved exactly. anti_plus=[['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D']] anti_minus=[['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D'], ['A', 'B', 'C', 'D']]"
+  }
+]

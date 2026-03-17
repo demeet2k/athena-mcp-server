@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-03-13T15:02:10.104018+00:00",
+  "truth": "OK",
+  "surface_classes": [
+    "generated",
+    "governed",
+    "historical",
+    "shadow",
+    "blocked"
+  ],
+  "resolved_conflicts": [
+    {
+      "conflict_id": "Q42-FLOWER-VS-RUNTIME-FIRST",
+      "historical_surface": "self_actualize/q42_flower_pass_verification.json",
+      "current_surface": "self_actualize/qshrink_network_integration.json",
+      "resolution": "Flower verification is preserved as historical proof; runtime-first six-field contract is current authority."
+    },
+    {
+      "conflict_id": "Q42-PROGRESSION-VS-CLOSED-BUNDLE",
+      "historical_surface": "self_actualize/qshrink_agent_task_matrix.json",
+      "current_surface": "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+      "resolution": "Task matrix is rewritten to the closed-bundle current state and retains prior progression only as historical context."
+    }
+  ],
+  "unresolved_contradictions": [
+    "Archive dark-matter duplicate ZIP lineages still require one canonical archive-root ledger.",
+    "Lower-weight chapter, appendix, and capsule surfaces are not yet fully propagated to the 1024 contraction anchor law.",
+    "Live Google Docs evidence remains blocked until OAuth material exists."
+  ],
+  "packet_staleness_truth": "Hourly packet plurality remains mixed-freshness and must stay explicit on Hall/Temple restart surfaces."
+}

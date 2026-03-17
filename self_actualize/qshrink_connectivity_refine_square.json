@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-03-13T16:10:19.248887+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_qshrink_connectivity_refine_square",
+  "truth": "OK",
+  "focus": "connectivity-refine-square",
+  "front_id": "Q42",
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "active_subfront": "QS64-21 Connectivity-Refine-Square",
+  "active_local_subfront": "QS64-21 Connectivity-Refine-Square",
+  "next_seed": "QS64-22 Connectivity-Refine-Flower",
+  "next_hall_seed": "QS64-22 Connectivity-Refine-Flower",
+  "deeper_receiving_frontier": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "queued_follow_on": "P3 ORGIN",
+  "reserve_frontier": "Q46",
+  "blocked_external_front": "Q02",
+  "authoritative_current_receipt": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-13_qs64_21_connectivity_refine_square.md",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-13`\n\n- Query:\n  `AP6D awakening transition notes qshrink full corpus integration`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py \"AP6D awakening transition notes qshrink full corpus integration\"`\n\n## Stderr"
+  },
+  "upstream_witnesses": [
+    {
+      "id": "Cloud",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_connectivity_cloud.json",
+      "truth": "OK",
+      "active_subfront": "QS64-19 Connectivity-Diagnose-Cloud"
+    },
+    {
+      "id": "Fractal",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_connectivity_fractal.json",
+      "truth": "OK",
+      "active_subfront": "QS64-20 Connectivity-Diagnose-Fractal"
+    }
+  ],
+  "precedence_membrane": {
+    "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "active_owner_facing_pass": "QS64-21 Connectivity-Refine-Square",
+    "next_hall_seed_on_entry": "QS64-21 Connectivity-Refine-Square",
+    "next_hall_seed_after_writeback": "QS64-22 Connectivity-Refine-Flower",
+    "deeper_receiving_frontier": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "queued_follow_on": "P3 ORGIN",
+    "reserve_frontier": "Q46",
+    "blocked_external_front": "Q02"
+  },
+  "structural_distinctions": [
+    {
+      "field": "current_carried_witness",
+      "value": "QS64-20 Connectivity-Diagnose-Fractal",
+      "meaning": "the landed diagnose witness carried into the NEXT^4 refine bundle"
+    },
+    {
+      "field": "active_local_subfront",
+      "value": "QS64-21 Connectivity-Refine-Square",
+      "meaning": "the current owner-facing Hall-local refinement pass"
+    },
+    {
+      "field": "next_hall_seed",
+      "value": "QS64-22 Connectivity-Refine-Flower",
+      "meaning": "the next Hall-local seed after square writeback lands"
+    },
+    {
+      "field": "next_temple_handoff",
+      "value": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "meaning": "the separate deeper Temple receiver that does not replace the Hall-local seed"
+    },
+    {
+      "field": "queued_follow_on",
+      "value": "P3 ORGIN",
+      "meaning": "the queue-visible ORGIN follow-on that stays behind the next Hall seed"
+    },
+    {
+      "field": "reserve_frontier",
+      "value": "Q46",
+      "meaning": "the reserve frontier kept behind the Hall-local refine bundle"
+    },
+    {
+      "field": "blocked_external_front",
+      "value": "Q02",
+      "meaning": "the external Docs front that remains blocked and separate"
+    }
+  ],
+  "writeback_targets": [
+    {
+      "body": "QSHRINK",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use_route_map.md"
+    },
+    {
+      "body": "Athena FLEET",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet_route_map.md"
+    },
+    {
+      "body": "ORGIN",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin_route_map.md"
+    },
+    {
+      "body": "Quest board",
+      "target": "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+    },
+    {
+      "body": "Active queue",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+    },
+    {
+      "body": "QSHRINK active front",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\QSHRINK_ACTIVE_FRONT.md"
+    },
+    {
+      "body": "Next self prompt",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+    },
+    {
+      "body": "Temple state",
+      "target": "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+    }
+  ],
+  "integration_refresh_target": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_network_integration.json"
+}

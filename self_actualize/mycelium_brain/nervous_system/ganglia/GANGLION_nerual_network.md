@@ -11,11 +11,11 @@ Primary burden: turn branch-level discoveries about stability, recovery, corrido
 
 ## Current Weight
 
-`22`
+`59`
 
 ## Best Front
 
-executable bridge study
+integrated neural crystal package
 
 ## Preferred Artifact
 
@@ -24,6 +24,8 @@ integration note or routeable bridge file
 ## Local Dominants
 
 - `ATHENA Neural Network/athena_neural_network.py`
+- `ATHENA Neural Network/INTEGRATED_NEURAL_CRYSTAL/00_ROOT/00_DEEP_SYNTHESIS_16X16_DOCUMENT_MATRIX.md`
+- `ATHENA Neural Network/INTEGRATED_NEURAL_CRYSTAL/05_METRO/02_LVL3_DEEPER_NEURAL_MAP.md`
 - `OLDER Versions/branch 2/athena_branch2_final.py`
 - `OLDER Versions/branch 2/BRANCH2_INTEGRATION_GUIDE.md`
 - `OLDER Versions/Strong versions/v74/ATHENA_v74_FINAL_SYNTHESIS.md`
@@ -37,6 +39,7 @@ integration note or routeable bridge file
 3. route branch-fusion learnings into shared cortex artifacts
 4. bind neural health and recovery signals to packet truth and benchmark ledgers
 5. expose neuron bridges from MATH and self_actualize into ATHENA runtime work
+6. keep the four-lane neural crystal tied to executable benchmark evidence
 
 ## Primary Neurons
 

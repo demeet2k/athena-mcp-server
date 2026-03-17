@@ -90,6 +90,22 @@ class AtlasRecord:
     def locator(self) -> str:
         return self.evidence.get("locator", self.raw.get("path", ""))
 
+    @property
+    def dimensional_bindings(self) -> dict[str, Any]:
+        return self.raw.get("dimensional_bindings", {})
+
+    @property
+    def metro_bindings(self) -> dict[str, Any]:
+        return self.raw.get("metro_bindings", {})
+
+    @property
+    def control_bindings(self) -> dict[str, Any]:
+        return self.raw.get("control_bindings", {})
+
+    @property
+    def basis_refs(self) -> list[str]:
+        return self.control_bindings.get("basis_refs", [])
+
 
 @dataclass
 class RegimeProfile:

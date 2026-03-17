@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-03-14T00:28:42.829979+00:00",
+  "protocol_id": "NEXT57_COMMAND_PROTOCOL_V1",
+  "canonical_authority": "LP57OMEGA / NEXT57",
+  "authority_mode": "single-node-local-swarm-substrate",
+  "docs_gate_status": "BLOCKED",
+  "active_surface": "LOCAL SWARM MESH",
+  "command_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "watch_scope": "first-wave local swarm mesh",
+  "watcher_mode": "event-driven",
+  "active_membrane": "Q41 / TQ06",
+  "feeder_stack": [
+    "Q42",
+    "Q46",
+    "TQ04",
+    "Q02"
+  ],
+  "event_id": "CMD-000005",
+  "outputs": {
+    "watched_surfaces": 7,
+    "events": 55,
+    "claims": 19,
+    "capillary_edges": 23,
+    "latency_rows": 55
+  },
+  "paths": {
+    "watched_surface_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\command_membrane\\watched_surface_registry.json",
+    "live_event_ledger": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\command_membrane\\command_live_event_ledger.json",
+    "claim_ledger": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\command_membrane\\command_claim_ledger.json",
+    "capillary_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\command_membrane\\command_capillary_edges.json",
+    "latency_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\command_membrane\\command_latency_benchmark_registry.json",
+    "surface_health": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\command_membrane\\command_surface_health.json"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+  "lenses": [
+    {
+      "lens_id": "S",
+      "label": "Square",
+      "class_type": "singleton",
+      "members": [
+        "S"
+      ],
+      "role": "address/structure",
+      "default_gate": "S",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "S acts as a singleton Pt 2 lens family."
+    },
+    {
+      "lens_id": "F",
+      "label": "Flower",
+      "class_type": "singleton",
+      "members": [
+        "F"
+      ],
+      "role": "resonance/orbit",
+      "default_gate": "F",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "F acts as a singleton Pt 2 lens family."
+    },
+    {
+      "lens_id": "C",
+      "label": "Cloud",
+      "class_type": "singleton",
+      "members": [
+        "C"
+      ],
+      "role": "field/Aether/ambiguity",
+      "default_gate": "C",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "C acts as a singleton Pt 2 lens family."
+    },
+    {
+      "lens_id": "R",
+      "label": "Fractal",
+      "class_type": "singleton",
+      "members": [
+        "R"
+      ],
+      "role": "memory/replay/regeneration",
+      "default_gate": "R",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "R acts as a singleton Pt 2 lens family."
+    }
+  ],
+  "summary": {
+    "count": 4
+  }
+}

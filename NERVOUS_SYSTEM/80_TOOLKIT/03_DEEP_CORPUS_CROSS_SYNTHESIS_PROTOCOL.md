@@ -1,31 +1,11 @@
-# THIRD WAVE DEEP SYNTHESIS PROTOCOL
+﻿# Compatibility Stub: Deep Corpus Cross Synthesis Protocol
 
-## Mission
+This file remains readable for backward compatibility only.
 
-Push beyond shallow chapter summaries into whole-corpus emergent metro synthesis.
+Canonical replacement:
+- `00_TESSERACT_V4_3_INDEX.md`
+- `03_TOTAL_SYNTHESIS_PROTOCOL_V4_3.md`
 
-## Recursion Ladder
-
-1. section -> chapter
-2. chapter -> manuscript
-3. manuscript -> manuscript family
-4. family -> corpus domain
-5. domains -> whole-project crystal
-
-## Required Moves
-
-For each level:
-1. expand into subagents
-2. synthesize local nodes
-3. derive emergent lines
-4. identify transfer hubs
-5. compress into a denser seed
-
-## Output
-
-The output of the third wave is not a normal summary. It is a routed crystal artifact with explicit:
-- nodes
-- lines
-- hubs
-- unresolved shadows
-- next frontier
+Authority rule:
+- if there is any conflict between this file and the v4.3 canon stack, the v4.3 canon stack wins
+- do not treat this file as a second full prompt body

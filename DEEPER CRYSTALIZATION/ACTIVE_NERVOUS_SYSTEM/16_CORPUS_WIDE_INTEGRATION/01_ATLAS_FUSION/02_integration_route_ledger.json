@@ -1,0 +1,434 @@
+{
+  "type": "IntegrationRouteLedger",
+  "generated_at": "2026-03-13T15:00:36.419960+00:00",
+  "routes_by_family": {
+    "mythic-sign-systems": [],
+    "manuscript-architecture": [],
+    "helical-recursion-engine": [
+      {
+        "src_id": "DOC0002",
+        "dst_id": "DOC0003",
+        "canonical_pair_key": "DOC0002::DOC0003",
+        "score": 36,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch11",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "shared_appendices": [
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM"
+        ],
+        "shared_tokens": [
+          "arithmetic",
+          "bridge",
+          "complement",
+          "equality",
+          "equivalence",
+          "helical",
+          "identification",
+          "ordinary"
+        ],
+        "src_element": "Fire",
+        "dst_element": "Fire",
+        "src_family": "helical-recursion-engine",
+        "dst_family": "helical-recursion-engine",
+        "src_gate": "G14",
+        "dst_gate": "G14",
+        "src_display_name": "helical recursion and ch12 boundary checks",
+        "dst_display_name": "perfect recursion helical manifestation engine",
+        "convergence_score": 56,
+        "zero_point_chapter_hits": [
+          "Ch11",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "zero_point_appendix_hits": [
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "src_id": "DOC0003",
+        "dst_id": "DOC0041",
+        "canonical_pair_key": "DOC0003::DOC0041",
+        "score": 29,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch11",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "shared_appendices": [
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM"
+        ],
+        "shared_tokens": [
+          "lattice"
+        ],
+        "src_element": "Fire",
+        "dst_element": "Fire",
+        "src_family": "helical-recursion-engine",
+        "dst_family": "helical-recursion-engine",
+        "src_gate": "G14",
+        "dst_gate": "G14",
+        "src_display_name": "perfect recursion helical manifestation engine",
+        "dst_display_name": "THE 4 CONSTANTS FINAL (phi, pi, i, e)",
+        "convergence_score": 49,
+        "zero_point_chapter_hits": [
+          "Ch11",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "zero_point_appendix_hits": [
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "src_id": "DOC0002",
+        "dst_id": "DOC0041",
+        "canonical_pair_key": "DOC0002::DOC0041",
+        "score": 28,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch11",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "shared_appendices": [
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM"
+        ],
+        "shared_tokens": [],
+        "src_element": "Fire",
+        "dst_element": "Fire",
+        "src_family": "helical-recursion-engine",
+        "dst_family": "helical-recursion-engine",
+        "src_gate": "G14",
+        "dst_gate": "G14",
+        "src_display_name": "helical recursion and ch12 boundary checks",
+        "dst_display_name": "THE 4 CONSTANTS FINAL (phi, pi, i, e)",
+        "convergence_score": 48,
+        "zero_point_chapter_hits": [
+          "Ch11",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "zero_point_appendix_hits": [
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppM"
+        ]
+      }
+    ],
+    "live-orchestration": [],
+    "higher-dimensional-geometry": [],
+    "identity-and-instruction": [],
+    "general-corpus": [],
+    "void-and-collapse": [],
+    "civilization-and-governance": [
+      {
+        "src_id": "DOC0079",
+        "dst_id": "DOC0082",
+        "canonical_pair_key": "DOC0079::DOC0082",
+        "score": 36,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch17",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "shared_appendices": [
+          "AppA",
+          "AppD",
+          "AppG",
+          "AppP"
+        ],
+        "shared_tokens": [
+          "basic",
+          "complete",
+          "completemd",
+          "depth",
+          "extraction",
+          "foundations",
+          "level",
+          "manual"
+        ],
+        "src_element": "Earth",
+        "dst_element": "Earth",
+        "src_family": "civilization-and-governance",
+        "dst_family": "civilization-and-governance",
+        "src_gate": "G12",
+        "dst_gate": "G12",
+        "src_display_name": "CURANDERISMO COMPLETE",
+        "dst_display_name": "GNOSTICISM COMPLETE",
+        "convergence_score": 47,
+        "zero_point_chapter_hits": [
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "zero_point_appendix_hits": [
+          "AppG"
+        ]
+      },
+      {
+        "src_id": "DOC0079",
+        "dst_id": "DOC0083",
+        "canonical_pair_key": "DOC0079::DOC0083",
+        "score": 36,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch17",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "shared_appendices": [
+          "AppA",
+          "AppD",
+          "AppG",
+          "AppP"
+        ],
+        "shared_tokens": [
+          "basic",
+          "complete",
+          "completemd",
+          "depth",
+          "extraction",
+          "foundations",
+          "level",
+          "manual"
+        ],
+        "src_element": "Earth",
+        "dst_element": "Earth",
+        "src_family": "civilization-and-governance",
+        "dst_family": "civilization-and-governance",
+        "src_gate": "G12",
+        "dst_gate": "G12",
+        "src_display_name": "CURANDERISMO COMPLETE",
+        "dst_display_name": "GOETIC GRIMOIRE COMPLETE",
+        "convergence_score": 47,
+        "zero_point_chapter_hits": [
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "zero_point_appendix_hits": [
+          "AppG"
+        ]
+      },
+      {
+        "src_id": "DOC0079",
+        "dst_id": "DOC0084",
+        "canonical_pair_key": "DOC0079::DOC0084",
+        "score": 36,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch17",
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "shared_appendices": [
+          "AppA",
+          "AppD",
+          "AppG",
+          "AppP"
+        ],
+        "shared_tokens": [
+          "complete",
+          "depth",
+          "extraction",
+          "foundations",
+          "level",
+          "manual",
+          "operational",
+          "volume"
+        ],
+        "src_element": "Earth",
+        "dst_element": "Earth",
+        "src_family": "civilization-and-governance",
+        "dst_family": "civilization-and-governance",
+        "src_gate": "G12",
+        "dst_gate": "G12",
+        "src_display_name": "CURANDERISMO COMPLETE",
+        "dst_display_name": "GOLDEN DAWN COMPLETE",
+        "convergence_score": 47,
+        "zero_point_chapter_hits": [
+          "Ch18",
+          "Ch20",
+          "Ch21"
+        ],
+        "zero_point_appendix_hits": [
+          "AppG"
+        ]
+      }
+    ],
+    "transport-and-runtime": [
+      {
+        "src_id": "DOC0174",
+        "dst_id": "DOC0183",
+        "canonical_pair_key": "DOC0174::DOC0183",
+        "score": 36,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch07",
+          "Ch15",
+          "Ch16",
+          "Ch18"
+        ],
+        "shared_appendices": [
+          "AppF",
+          "AppG",
+          "AppM",
+          "AppN"
+        ],
+        "shared_tokens": [
+          "abstract",
+          "category",
+          "computational",
+          "decompilation",
+          "inversion",
+          "mathematical",
+          "operating",
+          "rigorous"
+        ],
+        "src_element": "Earth",
+        "dst_element": "Earth",
+        "src_family": "transport-and-runtime",
+        "dst_family": "transport-and-runtime",
+        "src_gate": "G11",
+        "dst_gate": "G11",
+        "src_display_name": "KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)",
+        "dst_display_name": "THE OMEGA PROTOCOL",
+        "convergence_score": 45,
+        "zero_point_chapter_hits": [
+          "Ch18"
+        ],
+        "zero_point_appendix_hits": [
+          "AppF",
+          "AppG",
+          "AppM"
+        ]
+      },
+      {
+        "src_id": "DOC0013",
+        "dst_id": "DOC0037",
+        "canonical_pair_key": "DOC0013::DOC0037",
+        "score": 36,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch07",
+          "Ch15",
+          "Ch16",
+          "Ch18"
+        ],
+        "shared_appendices": [
+          "AppF",
+          "AppG",
+          "AppM",
+          "AppN"
+        ],
+        "shared_tokens": [
+          "calculus",
+          "certified",
+          "composition",
+          "execution",
+          "extraction",
+          "index",
+          "legal",
+          "metro"
+        ],
+        "src_element": "Earth",
+        "dst_element": "Earth",
+        "src_family": "transport-and-runtime",
+        "dst_family": "transport-and-runtime",
+        "src_gate": "G11",
+        "dst_gate": "G11",
+        "src_display_name": "LEGAL TRANSPORT CALCULUS",
+        "dst_display_name": "LEGAL TRANSPORT CALCULUS",
+        "convergence_score": 45,
+        "zero_point_chapter_hits": [
+          "Ch18"
+        ],
+        "zero_point_appendix_hits": [
+          "AppF",
+          "AppG",
+          "AppM"
+        ]
+      },
+      {
+        "src_id": "DOC0130",
+        "dst_id": "DOC0179",
+        "canonical_pair_key": "DOC0130::DOC0179",
+        "score": 36,
+        "kind": "intra_family",
+        "shared_chapters": [
+          "Ch07",
+          "Ch15",
+          "Ch16",
+          "Ch18"
+        ],
+        "shared_appendices": [
+          "AppF",
+          "AppG",
+          "AppM",
+          "AppN"
+        ],
+        "shared_tokens": [
+          "apocalypse",
+          "apokalypsis",
+          "applying",
+          "catastrophically",
+          "category",
+          "complete",
+          "decompilation",
+          "greek"
+        ],
+        "src_element": "Earth",
+        "dst_element": "Earth",
+        "src_family": "transport-and-runtime",
+        "dst_family": "transport-and-runtime",
+        "src_gate": "G11",
+        "dst_gate": "G11",
+        "src_display_name": "THE APOCALYPSE PROTOCOL",
+        "dst_display_name": "THE APOCALYPSE PROTOCOL",
+        "convergence_score": 45,
+        "zero_point_chapter_hits": [
+          "Ch18"
+        ],
+        "zero_point_appendix_hits": [
+          "AppF",
+          "AppG",
+          "AppM"
+        ]
+      }
+    ]
+  },
+  "duplicate_surface_collapse": [
+    "12_SYNTHESIS -> chapter/appendix metro explanation",
+    "13_DEEPER_NEURAL_NET -> pairwise and facet explanation",
+    "14_PARALLEL_PLANS -> frontier execution explanation"
+  ]
+}

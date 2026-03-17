@@ -2,7 +2,7 @@
 
 Date: 2026-03-09
 
-- Query: `myth math governance hierarchy signs civilization chapter 11`
+- Query: `chapters 1 21 metro map appendix crystal manuscript`
 - Command status: `BLOCKED`
 - Return code: `1`
 

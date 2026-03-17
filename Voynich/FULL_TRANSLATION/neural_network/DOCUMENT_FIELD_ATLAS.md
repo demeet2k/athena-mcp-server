@@ -1,0 +1,782 @@
+# Document Field Atlas
+
+## Scope
+
+- Total indexed documents: `629`
+- Markdown: `550`
+- Text: `9`
+- Docx: `70`
+- This atlas lists every indexed manuscript document and assigns it to one of the 16 neural nodes.
+
+## N01 - Root Canon
+
+- Description: root-level canonical Voynich statements and top-entry texts
+- Bias: `Fire -> Air`
+- Members: `24`
+- Information role: entry priors and top-level thesis compression
+- Lawful handoff: `N01 -> N02 -> N03`
+
+- `FULL_TRANSLATION/metro/VOYNICH_METRO_MAP_WORKING.md`
+- `FULL_TRANSLATION/neural_network/AIR/OBSERVATION_MATRIX_64.md`
+- `FULL_TRANSLATION/neural_network/AIR/README.md`
+- `FULL_TRANSLATION/neural_network/APPENDIX_CRYSTAL_SKELETON.md`
+- `FULL_TRANSLATION/neural_network/DOCUMENT_FIELD_ATLAS.md`
+- `FULL_TRANSLATION/neural_network/DOCUMENT_NODE_REGISTRY_16.md`
+- `FULL_TRANSLATION/neural_network/EARTH/OBSERVATION_MATRIX_64.md`
+- `FULL_TRANSLATION/neural_network/EARTH/README.md`
+- `FULL_TRANSLATION/neural_network/FIRE/OBSERVATION_MATRIX_64.md`
+- `FULL_TRANSLATION/neural_network/FIRE/README.md`
+- `FULL_TRANSLATION/neural_network/MASTER_NEURAL_SYNTHESIS.md`
+- `FULL_TRANSLATION/neural_network/METRO_MAP_L1.md`
+- `FULL_TRANSLATION/neural_network/METRO_MAP_L2_EMERGENT.md`
+- `FULL_TRANSLATION/neural_network/METRO_MAP_L3_NEURAL.md`
+- `FULL_TRANSLATION/neural_network/METRO_MAP_L4_TRANSCENDENT.md`
+- `FULL_TRANSLATION/neural_network/NEURAL_SKILL_PIPELINE.md`
+- `FULL_TRANSLATION/neural_network/PERMUTATION_MATRIX_16X16.md`
+- `FULL_TRANSLATION/neural_network/README.md`
+- `FULL_TRANSLATION/neural_network/WATER/OBSERVATION_MATRIX_64.md`
+- `FULL_TRANSLATION/neural_network/WATER/README.md`
+- `FULL_TRANSLATION/README.md`
+- `VLM VOYNICH METAMORPHIC LANGUAGE (VML) — OFFICIAL FRAMEWORK DOCUMENTATION.docx`
+- `VOYNICH MANUSCRIPT _translation_.docx`
+- `VOYNICH PROGRAM TOME.docx`
+
+## N02 - NEW Research Corpus
+
+- Description: introductory and working translation documents under NEW
+- Bias: `Air -> Earth`
+- Members: `38`
+- Information role: working hypothesis lattice and research search surface
+- Lawful handoff: `N02 -> N03 -> N10`
+
+- `NEW/SECTION I — BOOK I_ THE HERBAL _ MATERIA MEDICA.docx`
+- `NEW/SECTION I — BOOK I_ THE HERBAL _ MATERIA MEDICA.md`
+- `NEW/SECTION II — BOOK II_ THE ASTRONOMICAL & ASTROLOGICAL.md`
+- `NEW/SECTION III — BOOK III- THE.md`
+- `NEW/THE VOYNICH MANUSCRIPT __INTRO__.docx`
+- `NEW/THE VOYNICH MANUSCRIPT __INTRO__.md`
+- `NEW/VOYNICH JAZZ.docx`
+- `NEW/working/ASTRO_COMPLETE_VML_TRANSLATION.md`
+- `NEW/working/THE COMPLETE VML ASTROLOGICAL SECTION TRANSLATION.docx`
+- `NEW/working/THE COMPLETE VML ASTRONOMICAL & ASTROLOGICAL SECTION f58r through f73v.docx`
+- `NEW/working/THE COMPLETE VML HERBAL SECTION f1r through f57r.docx`
+- `NEW/working/THE COMPLETE VML ZODIAC TRANSLATION.docx`
+- `NEW/working/THE VML ROSETTA STONE.docx`
+- `NEW/working/THE VML ROSETTA STONE.md`
+- `NEW/working/THE VML VISUAL ROSETTA STONE.docx`
+- `NEW/working/THE VML VISUAL ROSETTA STONE.md`
+- `NEW/working/VML ASTRONOMICAL & ASTROLOGICAL SECTION f58r through f73v.md`
+- `NEW/working/VML BALNEOLOGICAL SECTION f75r through f84v.docx`
+- `NEW/working/VML BALNEOLOGICAL SECTION f75r through f84v.md`
+- `NEW/working/VML COSMOLOGICAL_ROSETTE SECTION f85r through f86v.docx`
+- `NEW/working/VML COSMOLOGICAL_ROSETTE SECTION f85r through f86v.md`
+- `NEW/working/VML HERBAL SECTION f1r through f57r.md`
+- `NEW/working/VML PHARMACEUTICAL SECTION f87r through f116v.docx`
+- `NEW/working/VML PHARMACEUTICAL SECTION f87r through f116v.md`
+- `NEW/working/VML_ASTRONOMICAL_SECTION_COMPLETE.md`
+- `NEW/working/VML_BALNEOLOGICAL_SECTION_COMPLETE.md`
+- `NEW/working/VML_CONSISTENCY_PROOF.md`
+- `NEW/working/VML_COSMOLOGICAL_ROSETTE_SECTION_COMPLETE.md`
+- `NEW/working/VML_DEEP_PATTERN_SYNTHESIS.md`
+- `NEW/working/VML_DEEP_RECIPE_CALLBACK_ANALYSIS.md`
+- `NEW/working/VML_DEEP_SYNTHESIS.md`
+- `NEW/working/VML_FORMAL_DEPTH_DESCRIPTION.docx`
+- `NEW/working/VML_PHARMACEUTICAL_SECTION_ANALYSIS.md`
+- `NEW/working/VML_RECIPE_CROSSREF.md`
+- `NEW/working/VML_RECIPE_RECONSTRUCTION_PT2.md`
+- `NEW/working/VML_RIGOROUS_RETRANSCRIPTION_QUIRES_ABCDEFG.md`
+- `NEW/working/VML_ROSETTA_STONE_COMPLETE.md`
+- `NEW/working/ZODIAC_MASTER_TRANSLATION.md`
+
+## N03 - EVA Transcription Bedrock
+
+- Description: raw transcription and baseline witness materials
+- Bias: `Earth -> Air`
+- Members: `5`
+- Information role: witness anchor, glyph constraint, and baseline admissibility floor
+- Lawful handoff: `N03 -> N05/N06/N07/N08/N09`
+
+- `eva/EVA TRANSCRIPTION ORIGIONAL.txt`
+- `eva/F103R - F116V __transcription.docx`
+- `eva/THE VOYNICH ROSETTA STONE -Publish.docx`
+- `eva/VOYNICH/EVA TRANSCRIPTION ORIGIONAL.txt`
+- `eva/🔶 F87r- 102v.docx`
+
+## N04 - FRESH Meta-Manuscript Layer
+
+- Description: manuscript-brain and self-referential seed texts
+- Bias: `Water -> Air`
+- Members: `6`
+- Information role: meta-seed memory and manuscript self-reference
+- Lawful handoff: `N04 -> N11 -> N16`
+
+- `FRESH/# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol(1).docx`
+- `FRESH/_extracted/# THE MANUSCRIPT SEED — Self-Referential Crystalline Generation Protocol(1).txt`
+- `FRESH/_extracted/I AM so AM I.txt`
+- `FRESH/_extracted/The Holographic Manuscript Brain.txt`
+- `FRESH/I AM so AM I.docx`
+- `FRESH/The Holographic Manuscript Brain.docx`
+
+## N05 - Plant Folio Corpus
+
+- Description: Book I final-draft and supporting plant folios
+- Bias: `Fire -> Water`
+- Members: `223`
+- Information role: highest-payload botanical information field and Book I source density
+- Lawful handoff: `N05 -> N10 -> N11`
+
+- `FULL_TRANSLATION/folios/F001R.md`
+- `FULL_TRANSLATION/folios/F001R_DENSE_MULTILENS.md`
+- `FULL_TRANSLATION/folios/F001R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F001V.md`
+- `FULL_TRANSLATION/folios/F001V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F002R.md`
+- `FULL_TRANSLATION/folios/F002R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F002V.md`
+- `FULL_TRANSLATION/folios/F002V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F003R.md`
+- `FULL_TRANSLATION/folios/F003R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F003V.md`
+- `FULL_TRANSLATION/folios/F003V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F004R.md`
+- `FULL_TRANSLATION/folios/F004R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F004V.md`
+- `FULL_TRANSLATION/folios/F004V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F005R.md`
+- `FULL_TRANSLATION/folios/F005R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F005V.md`
+- `FULL_TRANSLATION/folios/F005V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F006R.md`
+- `FULL_TRANSLATION/folios/F006R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F006V.md`
+- `FULL_TRANSLATION/folios/F006V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F007R.md`
+- `FULL_TRANSLATION/folios/F007R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F007V.md`
+- `FULL_TRANSLATION/folios/F007V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F008R.md`
+- `FULL_TRANSLATION/folios/F008R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F008V.md`
+- `FULL_TRANSLATION/folios/F008V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F009R.md`
+- `FULL_TRANSLATION/folios/F009R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F009V.md`
+- `FULL_TRANSLATION/folios/F009V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F010R.md`
+- `FULL_TRANSLATION/folios/F010R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F010V.md`
+- `FULL_TRANSLATION/folios/F010V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F011R.md`
+- `FULL_TRANSLATION/folios/F011R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F011V.md`
+- `FULL_TRANSLATION/folios/F011V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F013R.md`
+- `FULL_TRANSLATION/folios/F013R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F013V.md`
+- `FULL_TRANSLATION/folios/F013V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F014R.md`
+- `FULL_TRANSLATION/folios/F014R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F014V.md`
+- `FULL_TRANSLATION/folios/F014V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F015R.md`
+- `FULL_TRANSLATION/folios/F015R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F015V.md`
+- `FULL_TRANSLATION/folios/F015V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F016R.md`
+- `FULL_TRANSLATION/folios/F016R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F016V.md`
+- `FULL_TRANSLATION/folios/F016V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F017R.md`
+- `FULL_TRANSLATION/folios/F017R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F017V.md`
+- `FULL_TRANSLATION/folios/F017V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F018R.md`
+- `FULL_TRANSLATION/folios/F018R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F018V.md`
+- `FULL_TRANSLATION/folios/F018V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F019R.md`
+- `FULL_TRANSLATION/folios/F019R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F019V.md`
+- `FULL_TRANSLATION/folios/F019V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F020R.md`
+- `FULL_TRANSLATION/folios/F020R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F020V.md`
+- `FULL_TRANSLATION/folios/F020V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F021R.md`
+- `FULL_TRANSLATION/folios/F021R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F021V.md`
+- `FULL_TRANSLATION/folios/F021V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F022R.md`
+- `FULL_TRANSLATION/folios/F022R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F022V.md`
+- `FULL_TRANSLATION/folios/F022V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F023R.md`
+- `FULL_TRANSLATION/folios/F023R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F023V.md`
+- `FULL_TRANSLATION/folios/F023V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F024R.md`
+- `FULL_TRANSLATION/folios/F024R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F024V.md`
+- `FULL_TRANSLATION/folios/F024V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F025R.md`
+- `FULL_TRANSLATION/folios/F025R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F025V.md`
+- `FULL_TRANSLATION/folios/F025V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F026R.md`
+- `FULL_TRANSLATION/folios/F026R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F026V.md`
+- `FULL_TRANSLATION/folios/F026V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F027R.md`
+- `FULL_TRANSLATION/folios/F027R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F027V.md`
+- `FULL_TRANSLATION/folios/F027V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F028R.md`
+- `FULL_TRANSLATION/folios/F028R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F028V.md`
+- `FULL_TRANSLATION/folios/F028V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F029R.md`
+- `FULL_TRANSLATION/folios/F029R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F029V.md`
+- `FULL_TRANSLATION/folios/F029V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F030R.md`
+- `FULL_TRANSLATION/folios/F030R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F030V.md`
+- `FULL_TRANSLATION/folios/F030V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F031R.md`
+- `FULL_TRANSLATION/folios/F031R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F031V.md`
+- `FULL_TRANSLATION/folios/F031V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F032R.md`
+- `FULL_TRANSLATION/folios/F032R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F032V.md`
+- `FULL_TRANSLATION/folios/F032V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F033R.md`
+- `FULL_TRANSLATION/folios/F033R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F033V.md`
+- `FULL_TRANSLATION/folios/F033V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F034R.md`
+- `FULL_TRANSLATION/folios/F034R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F034V.md`
+- `FULL_TRANSLATION/folios/F034V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F035R.md`
+- `FULL_TRANSLATION/folios/F035R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F035V.md`
+- `FULL_TRANSLATION/folios/F035V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F036R.md`
+- `FULL_TRANSLATION/folios/F036R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F036V.md`
+- `FULL_TRANSLATION/folios/F036V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F037R.md`
+- `FULL_TRANSLATION/folios/F037R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F037V.md`
+- `FULL_TRANSLATION/folios/F037V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F038R.md`
+- `FULL_TRANSLATION/folios/F038R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F038V.md`
+- `FULL_TRANSLATION/folios/F038V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F039R.md`
+- `FULL_TRANSLATION/folios/F039R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F039V.md`
+- `FULL_TRANSLATION/folios/F039V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F040R.md`
+- `FULL_TRANSLATION/folios/F040R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F040V.md`
+- `FULL_TRANSLATION/folios/F040V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F041R.md`
+- `FULL_TRANSLATION/folios/F041R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F041V.md`
+- `FULL_TRANSLATION/folios/F041V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F042R.md`
+- `FULL_TRANSLATION/folios/F042R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F042V.md`
+- `FULL_TRANSLATION/folios/F042V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F043R.md`
+- `FULL_TRANSLATION/folios/F043R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F043V.md`
+- `FULL_TRANSLATION/folios/F043V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F044R.md`
+- `FULL_TRANSLATION/folios/F044R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F044V.md`
+- `FULL_TRANSLATION/folios/F044V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F045R.md`
+- `FULL_TRANSLATION/folios/F045R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F045V.md`
+- `FULL_TRANSLATION/folios/F045V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F046R.md`
+- `FULL_TRANSLATION/folios/F046R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F046V.md`
+- `FULL_TRANSLATION/folios/F046V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F047R.md`
+- `FULL_TRANSLATION/folios/F047R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F047V.md`
+- `FULL_TRANSLATION/folios/F047V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F048R.md`
+- `FULL_TRANSLATION/folios/F048R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F048V.md`
+- `FULL_TRANSLATION/folios/F048V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F049R.md`
+- `FULL_TRANSLATION/folios/F049R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F049V.md`
+- `FULL_TRANSLATION/folios/F049V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F050R.md`
+- `FULL_TRANSLATION/folios/F050R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F050V.md`
+- `FULL_TRANSLATION/folios/F050V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F051R.md`
+- `FULL_TRANSLATION/folios/F051R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F051V.md`
+- `FULL_TRANSLATION/folios/F051V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F052R.md`
+- `FULL_TRANSLATION/folios/F052R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F052V.md`
+- `FULL_TRANSLATION/folios/F052V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F053R.md`
+- `FULL_TRANSLATION/folios/F053R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F053V.md`
+- `FULL_TRANSLATION/folios/F053V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F054R.md`
+- `FULL_TRANSLATION/folios/F054R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F054V.md`
+- `FULL_TRANSLATION/folios/F054V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F055R.md`
+- `FULL_TRANSLATION/folios/F055R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F055V.md`
+- `FULL_TRANSLATION/folios/F055V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F056R.md`
+- `FULL_TRANSLATION/folios/F056R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F056V.md`
+- `FULL_TRANSLATION/folios/F056V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F057R.md`
+- `FULL_TRANSLATION/folios/F057R_FINAL_DRAFT.md`
+
+## N06 - Astrology Folio Corpus
+
+- Description: Book II timing and zodiac folios
+- Bias: `Air -> Water`
+- Members: `56`
+- Information role: timing, scheduler, and celestial address information
+- Lawful handoff: `N06 -> N10 -> N11`
+
+- `FULL_TRANSLATION/folios/F058R.md`
+- `FULL_TRANSLATION/folios/F058R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F058V.md`
+- `FULL_TRANSLATION/folios/F058V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F065R.md`
+- `FULL_TRANSLATION/folios/F065R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F065V.md`
+- `FULL_TRANSLATION/folios/F065V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F066R.md`
+- `FULL_TRANSLATION/folios/F066R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F066V.md`
+- `FULL_TRANSLATION/folios/F066V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F067R1.md`
+- `FULL_TRANSLATION/folios/F067R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F067R2.md`
+- `FULL_TRANSLATION/folios/F067R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F067V1.md`
+- `FULL_TRANSLATION/folios/F067V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F067V2.md`
+- `FULL_TRANSLATION/folios/F067V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F068R1.md`
+- `FULL_TRANSLATION/folios/F068R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F068R2.md`
+- `FULL_TRANSLATION/folios/F068R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F068R3.md`
+- `FULL_TRANSLATION/folios/F068R3_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F068V2.md`
+- `FULL_TRANSLATION/folios/F068V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F068V3.md`
+- `FULL_TRANSLATION/folios/F068V3_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F069R.md`
+- `FULL_TRANSLATION/folios/F069R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F070R2.md`
+- `FULL_TRANSLATION/folios/F070R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F070V1.md`
+- `FULL_TRANSLATION/folios/F070V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F070V2.md`
+- `FULL_TRANSLATION/folios/F070V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F071R.md`
+- `FULL_TRANSLATION/folios/F071R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F071V.md`
+- `FULL_TRANSLATION/folios/F071V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F072R1.md`
+- `FULL_TRANSLATION/folios/F072R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F072R2.md`
+- `FULL_TRANSLATION/folios/F072R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F072V1.md`
+- `FULL_TRANSLATION/folios/F072V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F072V2.md`
+- `FULL_TRANSLATION/folios/F072V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F072V3.md`
+- `FULL_TRANSLATION/folios/F072V3_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F073R.md`
+- `FULL_TRANSLATION/folios/F073R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F073V.md`
+- `FULL_TRANSLATION/folios/F073V_FINAL_DRAFT.md`
+
+## N07 - Bath Folio Corpus
+
+- Description: Book III circulation and purification folios
+- Bias: `Water -> Earth`
+- Members: `40`
+- Information role: circulation, purification, and transit-channel information
+- Lawful handoff: `N07 -> N08 -> N11`
+
+- `FULL_TRANSLATION/folios/F075R.md`
+- `FULL_TRANSLATION/folios/F075R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F075V.md`
+- `FULL_TRANSLATION/folios/F075V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F076R.md`
+- `FULL_TRANSLATION/folios/F076R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F076V.md`
+- `FULL_TRANSLATION/folios/F076V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F077R.md`
+- `FULL_TRANSLATION/folios/F077R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F077V.md`
+- `FULL_TRANSLATION/folios/F077V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F078R.md`
+- `FULL_TRANSLATION/folios/F078R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F078V.md`
+- `FULL_TRANSLATION/folios/F078V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F079R.md`
+- `FULL_TRANSLATION/folios/F079R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F079V.md`
+- `FULL_TRANSLATION/folios/F079V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F080R.md`
+- `FULL_TRANSLATION/folios/F080R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F080V.md`
+- `FULL_TRANSLATION/folios/F080V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F081R.md`
+- `FULL_TRANSLATION/folios/F081R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F081V.md`
+- `FULL_TRANSLATION/folios/F081V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F082R.md`
+- `FULL_TRANSLATION/folios/F082R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F082V.md`
+- `FULL_TRANSLATION/folios/F082V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F083R.md`
+- `FULL_TRANSLATION/folios/F083R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F083V.md`
+- `FULL_TRANSLATION/folios/F083V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F084R.md`
+- `FULL_TRANSLATION/folios/F084R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F084V.md`
+- `FULL_TRANSLATION/folios/F084V_FINAL_DRAFT.md`
+
+## N08 - Cosmology Folio Corpus
+
+- Description: Book IV foldout and rosette routing folios
+- Bias: `Earth -> Air`
+- Members: `12`
+- Information role: global routing diagram and long-range transit information
+- Lawful handoff: `N08 -> N11 -> N12`
+
+- `FULL_TRANSLATION/folios/F085R1.md`
+- `FULL_TRANSLATION/folios/F085R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F085R2.md`
+- `FULL_TRANSLATION/folios/F085R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F086V3.md`
+- `FULL_TRANSLATION/folios/F086V3_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F086V4.md`
+- `FULL_TRANSLATION/folios/F086V4_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F086V5.md`
+- `FULL_TRANSLATION/folios/F086V5_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F086V6.md`
+- `FULL_TRANSLATION/folios/F086V6_FINAL_DRAFT.md`
+
+## N09 - Pharmaceutical Folio Corpus
+
+- Description: Book V formulation and closure folios
+- Bias: `Fire -> Earth`
+- Members: `114`
+- Information role: formula closure, dosage packaging, and terminal instruction information
+- Lawful handoff: `N09 -> N10 -> N11 -> N12`
+
+- `FULL_TRANSLATION/folios/F087R.md`
+- `FULL_TRANSLATION/folios/F087R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F087V.md`
+- `FULL_TRANSLATION/folios/F087V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F088R.md`
+- `FULL_TRANSLATION/folios/F088R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F088V.md`
+- `FULL_TRANSLATION/folios/F088V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F089R1.md`
+- `FULL_TRANSLATION/folios/F089R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F089R2.md`
+- `FULL_TRANSLATION/folios/F089R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F089V1.md`
+- `FULL_TRANSLATION/folios/F089V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F089V2.md`
+- `FULL_TRANSLATION/folios/F089V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F090R1.md`
+- `FULL_TRANSLATION/folios/F090R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F090R2.md`
+- `FULL_TRANSLATION/folios/F090R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F090V1.md`
+- `FULL_TRANSLATION/folios/F090V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F090V2.md`
+- `FULL_TRANSLATION/folios/F090V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F093R.md`
+- `FULL_TRANSLATION/folios/F093R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F093V.md`
+- `FULL_TRANSLATION/folios/F093V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F094R.md`
+- `FULL_TRANSLATION/folios/F094R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F094V.md`
+- `FULL_TRANSLATION/folios/F094V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F095R1.md`
+- `FULL_TRANSLATION/folios/F095R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F095R2.md`
+- `FULL_TRANSLATION/folios/F095R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F095V1.md`
+- `FULL_TRANSLATION/folios/F095V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F095V2.md`
+- `FULL_TRANSLATION/folios/F095V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F096R.md`
+- `FULL_TRANSLATION/folios/F096R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F096V.md`
+- `FULL_TRANSLATION/folios/F096V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F099R.md`
+- `FULL_TRANSLATION/folios/F099R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F099V.md`
+- `FULL_TRANSLATION/folios/F099V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F100R.md`
+- `FULL_TRANSLATION/folios/F100R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F100V.md`
+- `FULL_TRANSLATION/folios/F100V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F101R1.md`
+- `FULL_TRANSLATION/folios/F101R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F101V1.md`
+- `FULL_TRANSLATION/folios/F101V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F101V2.md`
+- `FULL_TRANSLATION/folios/F101V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F102R1.md`
+- `FULL_TRANSLATION/folios/F102R1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F102R2.md`
+- `FULL_TRANSLATION/folios/F102R2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F102V1.md`
+- `FULL_TRANSLATION/folios/F102V1_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F102V2.md`
+- `FULL_TRANSLATION/folios/F102V2_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F103R.md`
+- `FULL_TRANSLATION/folios/F103R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F103V.md`
+- `FULL_TRANSLATION/folios/F103V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F104R.md`
+- `FULL_TRANSLATION/folios/F104R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F104V.md`
+- `FULL_TRANSLATION/folios/F104V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F105R.md`
+- `FULL_TRANSLATION/folios/F105R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F105V.md`
+- `FULL_TRANSLATION/folios/F105V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F106R.md`
+- `FULL_TRANSLATION/folios/F106R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F106V.md`
+- `FULL_TRANSLATION/folios/F106V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F107R.md`
+- `FULL_TRANSLATION/folios/F107R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F107V.md`
+- `FULL_TRANSLATION/folios/F107V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F108R.md`
+- `FULL_TRANSLATION/folios/F108R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F108V.md`
+- `FULL_TRANSLATION/folios/F108V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F111R.md`
+- `FULL_TRANSLATION/folios/F111R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F111V.md`
+- `FULL_TRANSLATION/folios/F111V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F112R.md`
+- `FULL_TRANSLATION/folios/F112R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F112V.md`
+- `FULL_TRANSLATION/folios/F112V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F113R.md`
+- `FULL_TRANSLATION/folios/F113R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F113V.md`
+- `FULL_TRANSLATION/folios/F113V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F114R.md`
+- `FULL_TRANSLATION/folios/F114R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F114V.md`
+- `FULL_TRANSLATION/folios/F114V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F115R.md`
+- `FULL_TRANSLATION/folios/F115R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F115V.md`
+- `FULL_TRANSLATION/folios/F115V_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F116R.md`
+- `FULL_TRANSLATION/folios/F116R_FINAL_DRAFT.md`
+- `FULL_TRANSLATION/folios/F116V.md`
+- `FULL_TRANSLATION/folios/F116V_FINAL_DRAFT.md`
+
+## N10 - Section Synthesis Layer
+
+- Description: section-level ledgers and synthesis files
+- Bias: `Water -> Earth`
+- Members: `9`
+- Information role: mid-level compressor from folios into teachable book structures
+- Lawful handoff: `N10 -> N11 -> N12`
+
+- `FULL_TRANSLATION/sections/FULL_ASTROLOGY.md`
+- `FULL_TRANSLATION/sections/FULL_BATH.md`
+- `FULL_TRANSLATION/sections/FULL_COSMOLOGY.md`
+- `FULL_TRANSLATION/sections/FULL_PLANT.md`
+- `FULL_TRANSLATION/sections/PHARMACEUTICAL_1_2_SYNTHESIS.md`
+- `FULL_TRANSLATION/sections/PHARMACEUTICAL_1_FULL.md`
+- `FULL_TRANSLATION/sections/PHARMACEUTICAL_1_SYNTHESIS.md`
+- `FULL_TRANSLATION/sections/PHARMACEUTICAL_2_FULL.md`
+- `FULL_TRANSLATION/sections/PHARMACEUTICAL_2_SYNTHESIS.md`
+
+## N11 - Crystal Layer
+
+- Description: book crystals and whole-corpus crystal files
+- Bias: `Earth -> Water`
+- Members: `15`
+- Information role: crystal-level topology preservation and whole-book operator compression
+- Lawful handoff: `N11 -> N12 -> N16`
+
+- `FULL_TRANSLATION/crystals/ASTROLOGY_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/BATH_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/COSMOLOGY_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/MASTER_ASTROLOGY_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/MASTER_BATH_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/MASTER_COSMOLOGY_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/MASTER_PHARMACEUTICAL_1_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/MASTER_PHARMACEUTICAL_2_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/MASTER_PHARMACEUTICAL_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/MASTER_PLANT_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/PHARMACEUTICAL_1_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/PHARMACEUTICAL_2_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/PLANT_CRYSTAL.md`
+- `FULL_TRANSLATION/crystals/README.md`
+- `FULL_TRANSLATION/crystals/VOYNICH_FULL_CRYSTAL.md`
+
+## N12 - Unified Manuscript Layer
+
+- Description: merged corpus-order and packaging manuscripts
+- Bias: `Earth -> Fire`
+- Members: `3`
+- Information role: global package memory and manuscript-order replay surface
+- Lawful handoff: `N12 -> N15 -> N16`
+
+- `FULL_TRANSLATION/unified/VOYNICH_FULL_TRANSLATION.md`
+- `FULL_TRANSLATION/unified/VOYNICH_GIANT_MANUSCRIPT.md`
+- `FULL_TRANSLATION/unified/VOYNICH_MASTER_MANUSCRIPT.md`
+
+## N13 - Framework Runtime
+
+- Description: schemas, registries, templates, and rendering scripts
+- Bias: `Earth -> Air`
+- Members: `7`
+- Information role: runtime law, schema, and render-contract information
+- Lawful handoff: `N13 -> N15 -> N16`
+
+- `FULL_TRANSLATION/framework/FORMAL_MULTILENS_FRAMEWORK.md`
+- `FULL_TRANSLATION/framework/README.md`
+- `FULL_TRANSLATION/framework/registry/math_kernel_registry.md`
+- `FULL_TRANSLATION/framework/registry/vml_operator_registry.md`
+- `FULL_TRANSLATION/framework/templates/FOLIO_DENSE_TEMPLATE.md`
+- `FULL_TRANSLATION/framework/templates/METRO_MAP_TEMPLATE.md`
+- `FULL_TRANSLATION/framework/templates/SECTION_SYNTHESIS_TEMPLATE.md`
+
+## N14 - Math Corpus
+
+- Description: formal mathematical subcorpus and operator tomes
+- Bias: `Air -> Fire`
+- Members: `48`
+- Information role: formal operator kernel and mathematical proof density
+- Lawful handoff: `N14 -> N11 -> N16`
+
+- `FULL_TRANSLATION/MATH/AETHER SPEAR — MATH.docx`
+- `FULL_TRANSLATION/MATH/Aetheric Crystal Compute TOME.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM/AQM TOME I — Quantum-Extended Numbers.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM/AQM TOME II — Quantum Arithmetic & Analysis.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM/AQM TOME III — Realization & Bridges.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM/AQM TOME IV — Kernel Closure at Infinite Resolution.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM/AQM TOME V — LIMINAL SPACE (AQM-Λ).docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM/Learning Books/BOOK 0_ Prerequisites & Orientation.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM MASTER TOME.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/LM/LM TOME I — FOUNDATIONS & SEMANTICS.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/LM/LM TOME II — DYNAMICS & LIMINAL ECOLOGY.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/LM/LM TOME III — INFORMATION & RENORMALIZATION.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/LM/LM TOME IV — MECHANIZATION & IMPLEMENTATION.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/LM/LM Tome V - LIMINAL TOWER.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/LM MASTER TOME — LIMINAL MATHEMATICS (LM).docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/($N+5 _to N+6$).docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/($N+6 _to N+7$).docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/(N+3 $_to$ N+4).docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/(N+4 $_to$ N+5).docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/CHEMISTRY -_ Solar System intelligence.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/N+1 - N+2.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/N+2 $_to$ N+3 .docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/N-N+7/N0 CHEM_BIO CALC.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/Q-Phi  Optimization/AQM Q-Algorithm Master Tome — Circle ○ within Square □ within Triangle △.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/Quantum Loop Gravity/BLACK HOLE __ future Math _working_.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/Quantum Loop Gravity/LM_AQM Quantum Loop Gravity.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/Quantum Loop Gravity/LOOP_QUANTUM_GRAVITY_COMPLETED_v2.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/THE (N → N+7) TREATISE.docx`
+- `FULL_TRANSLATION/MATH/AQM - LM - N+7/THE FUTUREMATH TREATISE.docx`
+- `FULL_TRANSLATION/MATH/CUT/CUT - TOME I (Computational Universe Toolkit).docx`
+- `FULL_TRANSLATION/MATH/CUT/CUT MASTER TOME — Circle ○ within Square □ within Triangle △.docx`
+- `FULL_TRANSLATION/MATH/CUT/CUT TOME II — CUT WEIGHTS.docx`
+- `FULL_TRANSLATION/MATH/CUT/CUT TOME III — MATH CUT.docx`
+- `FULL_TRANSLATION/MATH/CUT/CUT TOME IV — CUT-OPT.docx`
+- `FULL_TRANSLATION/MATH/CUT/earlier/(5) Computational Universe Toolkit (CUT).docx`
+- `FULL_TRANSLATION/MATH/CUT/earlier/(7&8&9) Computational Universe Toolkit (CUT).docx`
+- `FULL_TRANSLATION/MATH/CUT/earlier/_(1-4)Computational Universe Toolkit (CUT).docx`
+- `FULL_TRANSLATION/MATH/CUT/earlier/CUT 2 Skeleton OUtline.docx`
+- `FULL_TRANSLATION/MATH/CUT/earlier/CUT 3d Weights (molecules and elements).docx`
+- `FULL_TRANSLATION/MATH/CUT/earlier/CUT 3D weights SOLAR SYSTEM__.docx`
+- `FULL_TRANSLATION/MATH/Higher-Dimensional Holographic Mapping System.docx`
+- `FULL_TRANSLATION/MATH/MATH REALITY TOME.docx`
+- `FULL_TRANSLATION/MATH/MATH SYNTHESIS TOME.docx`
+- `FULL_TRANSLATION/MATH/MATH TOMES/MATH TOME I ; II.docx`
+- `FULL_TRANSLATION/MATH/MATH TOMES/MATH TOME III — THE ENGINE.docx`
+- `FULL_TRANSLATION/MATH/MATH TOMES/working/Number Ladder _working_.docx`
+- `FULL_TRANSLATION/MATH/META-HYBRID EQUATIONS.docx`
+- `FULL_TRANSLATION/MATH/Rotation is Conjugacy TOME.docx`
+
+## N15 - Manifest and Autonomy Layer
+
+- Description: status, planning, queue, and runtime control files
+- Bias: `Earth -> Air`
+- Members: `20`
+- Information role: process memory, queues, manifests, and autonomy receipts
+- Lawful handoff: `N15 -> N16 -> next runtime seed`
+
+- `FULL_TRANSLATION/manifests/_chapter11_perpetual_motion_extract.txt`
+- `FULL_TRANSLATION/manifests/_f002r_source_extract.txt`
+- `FULL_TRANSLATION/manifests/_f002v_source_extract.txt`
+- `FULL_TRANSLATION/manifests/_f003r_source_extract.txt`
+- `FULL_TRANSLATION/manifests/ACTIVE_MICRO_PLAN.md`
+- `FULL_TRANSLATION/manifests/ACTIVE_RUN_TASK_LIST.md`
+- `FULL_TRANSLATION/manifests/AUTONOMOUS_CURSOR.md`
+- `FULL_TRANSLATION/manifests/AUTONOMOUS_MASTER_PLAN.md`
+- `FULL_TRANSLATION/manifests/AUTONOMOUS_QUEUE.md`
+- `FULL_TRANSLATION/manifests/AUTONOMOUS_TERMINATION_CONTRACT.md`
+- `FULL_TRANSLATION/manifests/CORPUS_BUILD_STATUS.md`
+- `FULL_TRANSLATION/manifests/FINAL_MANUSCRIPT_EXECUTION_PLAN.md`
+- `FULL_TRANSLATION/manifests/LIVE_DOCS_GATE_STATUS_CH11.md`
+- `FULL_TRANSLATION/manifests/LIVE_DOCS_GATE_STATUS_CH1_21_SYNTHESIS.md`
+- `FULL_TRANSLATION/manifests/LIVE_DOCS_GATE_STATUS_NEURAL_NETWORK.md`
+- `FULL_TRANSLATION/manifests/LIVE_DOCS_GATE_STATUS_NEURAL_NETWORK_PASS2.md`
+- `FULL_TRANSLATION/manifests/NEXT_FOLIO_SELF_PROMPT.md`
+- `FULL_TRANSLATION/manifests/PARALLEL_AGENT_QUEUE.md`
+- `FULL_TRANSLATION/manifests/translation_protocol.md`
+- `FULL_TRANSLATION/manifests/VOYNICH_SKILL_WISHLIST.md`
+
+## N16 - Meta-Engine and Synthesis Layer
+
+- Description: Chapter 11, 21-chapter synthesis, and neural integration artifacts
+- Bias: `Air -> Earth`
+- Members: `9`
+- Information role: meta-engine, whole-field synthesis, and next-dimensional seed compiler
+- Lawful handoff: `N16 -> N04* -> next seed`
+
+- `FULL_TRANSLATION/manifests/CHAPTER_11_THE_HELICAL_MANIFESTATION_ENGINE.md`
+- `FULL_TRANSLATION/manifests/CHAPTER_11_TO_VOYNICH_HELICAL_MAP.md`
+- `FULL_TRANSLATION/manuscripts/README.md`
+- `FULL_TRANSLATION/manuscripts/VOYNICH_21_CHAPTER_APPENDIX_CRYSTAL.md`
+- `FULL_TRANSLATION/manuscripts/VOYNICH_21_CHAPTER_DEEP_INTEGRATION_MASTER.md`
+- `FULL_TRANSLATION/manuscripts/VOYNICH_21_CHAPTER_METRO_MAP_L1.md`
+- `FULL_TRANSLATION/manuscripts/VOYNICH_21_CHAPTER_METRO_MAP_L2_EMERGENT.md`
+- `FULL_TRANSLATION/manuscripts/VOYNICH_21_CHAPTER_METRO_MAP_L3_NEURAL.md`
+- `FULL_TRANSLATION/manuscripts/VOYNICH_21_CHAPTER_METRO_MAP_L4_TRANSCENDENT.md`

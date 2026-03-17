@@ -1,0 +1,25 @@
+{
+  "policy_id": "VestingPolicy_v1",
+  "version": "1.0",
+  "rules": {
+    "near_vesting": {
+      "lock_ratio": 0.381966011250105,
+      "description": "phi^-2 fraction of NEAR rewards locked until truth promotion to OK",
+      "unlock_trigger": "truth_promotion_NEAR_to_OK",
+      "forfeit_trigger": "truth_demotion_to_FAIL"
+    },
+    "vesting_vault": {
+      "states": ["LOCKED", "VESTING", "RELEASED", "FORFEITED"],
+      "transitions": {
+        "LOCKED_to_VESTING": "truth_promotion_initiated",
+        "VESTING_to_RELEASED": "truth_promotion_confirmed_OK",
+        "LOCKED_to_FORFEITED": "truth_demotion_to_FAIL",
+        "VESTING_to_FORFEITED": "truth_demotion_to_FAIL"
+      }
+    },
+    "clamps": {
+      "per_capsule_max": "16x BASE_XP (1024)",
+      "per_epoch_max": "64x BASE_XP (4096)"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md",
+  "rails": [
+    {
+      "rail_id": "Su",
+      "label": "Su",
+      "chapter_ids": [
+        "Ch01",
+        "Ch06",
+        "Ch08",
+        "Ch10",
+        "Ch15",
+        "Ch17",
+        "Ch19"
+      ],
+      "control_purpose": "synthesis, lift, and outbound transfer",
+      "allowed_transfer_kinds": [
+        "same_station",
+        "rail_lift",
+        "promotion_departure"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Control rail overlay; not a standalone ontology."
+    },
+    {
+      "rail_id": "Me",
+      "label": "Me",
+      "chapter_ids": [
+        "Ch02",
+        "Ch04",
+        "Ch09",
+        "Ch11",
+        "Ch13",
+        "Ch18",
+        "Ch20"
+      ],
+      "control_purpose": "memory, restart, and replay closure",
+      "allowed_transfer_kinds": [
+        "tunnel_crossing",
+        "field_projection",
+        "body_projection"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Control rail overlay; not a standalone ontology."
+    },
+    {
+      "rail_id": "Sa",
+      "label": "Sa",
+      "chapter_ids": [
+        "Ch03",
+        "Ch05",
+        "Ch07",
+        "Ch12",
+        "Ch14",
+        "Ch16",
+        "Ch21"
+      ],
+      "control_purpose": "structure, legality, and certificate lock",
+      "allowed_transfer_kinds": [
+        "hub_transfer",
+        "appendix_dock",
+        "pair_projection"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Control rail overlay; not a standalone ontology."
+    }
+  ],
+  "summary": {
+    "count": 3
+  }
+}

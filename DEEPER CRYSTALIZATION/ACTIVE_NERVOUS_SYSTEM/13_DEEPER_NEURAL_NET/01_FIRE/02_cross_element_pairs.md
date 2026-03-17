@@ -1,0 +1,68 @@
+# Fire Cross-Element Synthesis
+
+Top outward bridges from this element into the rest of the net.
+
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` score=`34` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` score=`34` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`25` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`25` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`25` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`25` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `The External Crystal and the Manuscript Superorganism` score=`24` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `The External Crystal and the Manuscript Superorganism` score=`24` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `VOYNICH MANUSCRIPT translation` score=`24` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `VOYNICH MANUSCRIPT translation` score=`24` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `dimensional hologram(1)` score=`23` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `dimensional hologram(1)` score=`23` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `AQM TEXT BOOK` score=`23` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `AQM TEXT BOOK` score=`23` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `SECTION III - BOOK III- THE` score=`23` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `SECTION III - BOOK III- THE` score=`23` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `COMPLETE FRAMEWORK CATALOG` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `COMPLETE FRAMEWORK CATALOG` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `DIVINE JUDGMENT - MsDBB1` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `DIVINE JUDGMENT - MsDBB1` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `EVA TRANSCRIPTION ORIGIONAL` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `EVA TRANSCRIPTION ORIGIONAL` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Key of Solomon (Clavicula Salomonis)` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Key of Solomon (Clavicula Salomonis)` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Quranic Holographic Lattice Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Quranic Integer Cipher` score=`22` path=`Fire->Air` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `Quranic Holographic Lattice Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Quranic Integer Cipher` score=`22` path=`Fire->Air` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `VOYNICH PROGRAM TOME` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` -> `VOYNICH PROGRAM TOME` score=`22` path=`Fire->Water` shared_appendices=`AppA, AppC, AppI, AppM`
+- `POWWOW BRAUCHEREI COMPLETE` -> `ENOCHIAN MAGIC COMPLETE` score=`19` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `HELLENISTIC ASTROLOGY COMPLETE` score=`19` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `MERKAVAH HEKHALOT COMPLETE` score=`19` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `NORSE RUNIC COMPLETE` score=`19` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `SOLOMONIC MAGIC COMPLETE` score=`19` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `HERMETICISM COMPLETE` score=`18` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `HERMETIC QABALAH COMPLETE` score=`18` path=`Fire->Water` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `IFA DIVINATION COMPLETE` score=`18` path=`Fire->Earth` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `PGM COMPLETE` score=`18` path=`Fire->Water` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `ROSICRUCIANISM COMPLETE` score=`18` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `WESTERN ALCHEMY COMPLETE` score=`18` path=`Fire->Air` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `THE MAGUS` score=`17` path=`Fire->Earth` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `THE PYRRHONIAN NULL-STATE DRIVER` score=`16` path=`Fire->Earth` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `Astrological Tunneling (octave system)` score=`15` path=`Fire->Water` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `SQUARING THE CIRCLE` score=`15` path=`Fire->Earth` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` -> `THE RHETORICAL-POETIC OUTPUT DRIVERS` score=`15` path=`Fire->Water` shared_appendices=`AppA, AppB`
+- `perfect recursion helical manifestation engine` -> `ns builder` score=`14` path=`Fire->Earth` shared_appendices=`AppG`
+- `helical recursion and ch12 boundary checks` -> `THE NEOPLATONIC HYPERVISOR` score=`13` path=`Fire->Earth` shared_appendices=`AppG`
+- `helical recursion and ch12 boundary checks` -> `TORAT HA-MISPAR ( )` score=`13` path=`Fire->Earth` shared_appendices=`AppG`
+- `helical recursion and ch12 boundary checks` -> `ns builder` score=`13` path=`Fire->Earth` shared_appendices=`AppG`
+- `perfect recursion helical manifestation engine` -> `TIME FRACTAL working` score=`13` path=`Fire->Earth` shared_appendices=`AppG`
+- `perfect recursion helical manifestation engine` -> `Metro Calculus` score=`13` path=`Fire->Earth` shared_appendices=`AppG`
+- `ANTHROPOSOPHY COMPLETE` -> `CHAOS MAGIC COMPLETE` score=`13` path=`Fire->Air` shared_appendices=`none`
+- `ANTHROPOSOPHY COMPLETE` -> `CORE SHAMANISM COMPLETE` score=`13` path=`Fire->Earth` shared_appendices=`none`
+- `HINDU TANTRA COMPLETE` -> `CHAOS MAGIC COMPLETE` score=`13` path=`Fire->Air` shared_appendices=`none`
+- `HINDU TANTRA COMPLETE` -> `CORE SHAMANISM COMPLETE` score=`13` path=`Fire->Earth` shared_appendices=`none`
+- `HOODOO ROOTWORK COMPLETE` -> `CHAOS MAGIC COMPLETE` score=`13` path=`Fire->Air` shared_appendices=`none`
+- `HOODOO ROOTWORK COMPLETE` -> `CORE SHAMANISM COMPLETE` score=`13` path=`Fire->Earth` shared_appendices=`none`
+- `NEOPLATONIC THEURGY COMPLETE` -> `CHAOS MAGIC COMPLETE` score=`13` path=`Fire->Air` shared_appendices=`none`
+- `NEOPLATONIC THEURGY COMPLETE` -> `CORE SHAMANISM COMPLETE` score=`13` path=`Fire->Earth` shared_appendices=`none`
+- `POWWOW BRAUCHEREI COMPLETE` -> `CHAOS MAGIC COMPLETE` score=`13` path=`Fire->Air` shared_appendices=`none`
+- `POWWOW BRAUCHEREI COMPLETE` -> `CORE SHAMANISM COMPLETE` score=`13` path=`Fire->Earth` shared_appendices=`none`
+- `PRACTICAL KABBALAH COMPLETE` -> `CHAOS MAGIC COMPLETE` score=`13` path=`Fire->Air` shared_appendices=`none`
+- `PRACTICAL KABBALAH COMPLETE` -> `CORE SHAMANISM COMPLETE` score=`13` path=`Fire->Earth` shared_appendices=`none`
+- `THE 4 CONSTANTS FINAL (phi, pi, i, e)` -> `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` score=`13` path=`Fire->Earth` shared_appendices=`AppG`
+- `TIBETAN VAJRAYANA COMPLETE` -> `CHAOS MAGIC COMPLETE` score=`13` path=`Fire->Air` shared_appendices=`none`

@@ -2,17 +2,17 @@
 
 The cortex is the contraction surface for the current swarm pass.
 
-- Thread count: `22`
-- Pod count: `11`
+- Thread count: `40`
+- Pod count: `37`
 
 ## Strongest reusable fronts
-- `First live archive promotion run` -> `MATH` / `Me` / `AMBIG` / `cortex/first_live_archive_promotion_run.md`
-- `Google Docs bootstrap gate` -> `Trading Bot` / `Su` / `FAIL` / `cortex/google_docs_bootstrap_gate.md`
-- `.claude` -> `self_actualize` / `Su` / `NEAR` / `cortex/claude.md`
-- `higher-dimensional swarm runtime projection` -> `self_actualize` / `Su` / `AMBIG` / `cortex/higher_dimensional_swarm_runtime_projection.md`
-- `37-gate looping skill and `256^256` corpus plus Chapter 11 hyperplans` -> `DEEPER CRYSTALIZATION` / `Sa` / `AMBIG` / `cortex/37_gate_looping_skill_and_256_256_corpus_plus_chapter_11_hyperplans.md`
-- `Cross-agent contraction receipt law` -> `self_actualize` / `Su` / `AMBIG` / `cortex/cross_agent_contraction_receipt_law.md`
-- `First archive-promotion toolkit surface` -> `MATH` / `Me` / `AMBIG` / `cortex/first_archive_promotion_toolkit_surface.md`
-- `First runtime route-quality receipt writeback` -> `self_actualize` / `Su` / `AMBIG` / `cortex/first_runtime_route_quality_receipt_writeback.md`
-- `Higher-dimensional family tensor, rails, manifests, and recursive restart law` -> `self_actualize` / `Su` / `AMBIG` / `cortex/higher_dimensional_family_tensor_rails_manifests_and_recursive_restart_law.md`
-- `Nervous-system execution loop and family frontier matrix` -> `self_actualize` / `Su` / `AMBIG` / `cortex/nervous_system_execution_loop_and_family_frontier_matrix.md`
+- `GLOBAL COMMAND` -> `self_actualize` / `Su` / `NEAR` / `cortex/global_command.md`
+- `Q46` -> `self_actualize` / `Su` / `NEAR` / `cortex/q46.md`
+- `Q42` -> `self_actualize` / `Su` / `NEAR` / `cortex/q42.md`
+- `ADV64-S01` -> `self_actualize` / `Su` / `NEAR` / `cortex/adv64_s01.md`
+- `ADV64-S02` -> `self_actualize` / `Su` / `NEAR` / `cortex/adv64_s02.md`
+- `TQ06` -> `NERVOUS_SYSTEM` / `Sa` / `NEAR` / `cortex/tq06.md`
+- `TQ03` -> `self_actualize` / `Su` / `NEAR` / `cortex/tq03.md`
+- `TQ05` -> `self_actualize` / `Su` / `NEAR` / `cortex/tq05.md`
+- `CMD::EVT-20260313-0002` -> `self_actualize` / `Su` / `FAIL` / `cortex/cmd_evt_20260313_0002.md`
+- `CMD::EVT-20260313-0007` -> `self_actualize` / `Su` / `FAIL` / `cortex/cmd_evt_20260313_0007.md`

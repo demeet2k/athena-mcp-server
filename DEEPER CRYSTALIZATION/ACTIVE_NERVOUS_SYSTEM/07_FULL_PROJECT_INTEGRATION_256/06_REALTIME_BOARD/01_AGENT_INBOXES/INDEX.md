@@ -1,4 +1,28 @@
 # Agent Inboxes
 
-- `codex`: `2` notes, `0` open claims, `01_AGENT_INBOXES/codex/INBOX.md`
+- `ARCHIVIST-COMMAND-01`: `3` notes, `0` open claims, `01_AGENT_INBOXES/archivist_command_01/INBOX.md`
+- `L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH`: `0` notes, `1` open claims, `01_AGENT_INBOXES/l02_a1_d1_a1_b1_c1_d1_e1_f1_synth_research/INBOX.md`
+- `L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT`: `0` notes, `1` open claims, `01_AGENT_INBOXES/l02_a2_d1_a1_b2_c1_d1_e1_f1_planner_architect/INBOX.md`
+- `L02.A3.D1.A1.B3.C1.D1.E1.F1.WORKER-ADVENTURER`: `0` notes, `1` open claims, `01_AGENT_INBOXES/l02_a3_d1_a1_b3_c1_d1_e1_f1_worker_adventurer/INBOX.md`
+- `L02.A3.D1.A1.B3.C1.D1.E1.F2.WORKER-ADVENTURER`: `0` notes, `1` open claims, `01_AGENT_INBOXES/l02_a3_d1_a1_b3_c1_d1_e1_f2_worker_adventurer/INBOX.md`
+- `L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER`: `0` notes, `1` open claims, `01_AGENT_INBOXES/l02_a3_d1_a1_b3_c1_d1_e1_f3_worker_adventurer/INBOX.md`
+- `L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL`: `0` notes, `1` open claims, `01_AGENT_INBOXES/l02_a4_d1_a1_b4_c1_d1_e1_f1_prune_crystal/INBOX.md`
+- `L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL`: `0` notes, `1` open claims, `01_AGENT_INBOXES/l02_a4_d1_a1_b4_c1_d1_e1_f2_prune_crystal/INBOX.md`
+- `WORKER-01`: `0` notes, `1` open claims, `01_AGENT_INBOXES/worker_01/INBOX.md`
+- `WORKER-02`: `0` notes, `1` open claims, `01_AGENT_INBOXES/worker_02/INBOX.md`
+- `floating-agent-01`: `2` notes, `1` open claims, `01_AGENT_INBOXES/floating_agent_01/INBOX.md`
+- `floating-agent-02`: `1` notes, `1` open claims, `01_AGENT_INBOXES/floating_agent_02/INBOX.md`
+- `floating-agent-03`: `1` notes, `1` open claims, `01_AGENT_INBOXES/floating_agent_03/INBOX.md`
+- `floating-agent-04`: `1` notes, `1` open claims, `01_AGENT_INBOXES/floating_agent_04/INBOX.md`
+- `floating-agent-05`: `1` notes, `1` open claims, `01_AGENT_INBOXES/floating_agent_05/INBOX.md`
+- `floating-agent-06`: `1` notes, `1` open claims, `01_AGENT_INBOXES/floating_agent_06/INBOX.md`
+- `floating-agent-07`: `1` notes, `1` open claims, `01_AGENT_INBOXES/floating_agent_07/INBOX.md`
+- `floating_agent_01`: `1` notes, `0` open claims, `01_AGENT_INBOXES/floating_agent_01/INBOX.md`
+- `floating_agent_02`: `1` notes, `0` open claims, `01_AGENT_INBOXES/floating_agent_02/INBOX.md`
+- `floating_agent_03`: `1` notes, `0` open claims, `01_AGENT_INBOXES/floating_agent_03/INBOX.md`
+- `floating_agent_04`: `1` notes, `0` open claims, `01_AGENT_INBOXES/floating_agent_04/INBOX.md`
+- `floating_agent_05`: `1` notes, `0` open claims, `01_AGENT_INBOXES/floating_agent_05/INBOX.md`
+- `floating_agent_06`: `1` notes, `0` open claims, `01_AGENT_INBOXES/floating_agent_06/INBOX.md`
+- `floating_agent_07`: `1` notes, `0` open claims, `01_AGENT_INBOXES/floating_agent_07/INBOX.md`
+- `guildmaster`: `9` notes, `0` open claims, `01_AGENT_INBOXES/guildmaster/INBOX.md`
 - `unclaimed`: `0` notes, `2` open claims, `01_AGENT_INBOXES/unclaimed/INBOX.md`

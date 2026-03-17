@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L35",
+  "status": "PENDING",
+  "lead_agent": "WORKER",
+  "objective": "synthesize corridor law across QSHRINK, Athena FLEET, and the runtime carrier",
+  "advancement_tuple": {
+    "focus_family": "corridor",
+    "frontier_type": "qshrink-fleet-carrier-corridor",
+    "dominant_evidence_class": "corridor-ledger",
+    "compression_target": "route-bloat"
+  },
+  "truth_state": "NEAR"
+}

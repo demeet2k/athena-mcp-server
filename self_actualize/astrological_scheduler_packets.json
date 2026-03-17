@@ -1,0 +1,1021 @@
+{
+  "generated_at": "2026-03-13T12:51:52.846192-07:00",
+  "generated_at_utc": "2026-03-13T19:51:54Z",
+  "timezone": "America/Los_Angeles",
+  "docs_gate": "BLOCKED",
+  "registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ASTROLOGICAL_SCHEDULER_REGISTRY.md",
+  "receipt_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-13_first_scheduler_packet_freshness_sweep_1251.md",
+  "variant_contract": {
+    "direct": "+0",
+    "inverse": "+6",
+    "rot90": "+3",
+    "rot90_inverse": "+9"
+  },
+  "spawn_envelope_contract": [
+    "agent_id",
+    "lane_id",
+    "role_id",
+    "loop_id",
+    "spawn_ts_local",
+    "spawn_ts_utc",
+    "shared12_seat",
+    "native_gate",
+    "variant",
+    "liminal_tag",
+    "reasoning_summary",
+    "writeback_targets"
+  ],
+  "avatar_trigger_contract": {
+    "minimum_lanes": 3,
+    "requires_fast_lane": true,
+    "requires_slow_lane": true,
+    "lifespan_rule": "next transition of the fastest contributing lane"
+  },
+  "active_lane_ids": [
+    "western_solar12",
+    "planetary_office",
+    "chinese_cycle",
+    "vedic_lunar",
+    "mayan_calendar",
+    "decan_office"
+  ],
+  "active_anchor_lane_ids": [
+    "chinese_cycle",
+    "planetary_office",
+    "vedic_lunar",
+    "western_solar12"
+  ],
+  "active_rotation_lane_ids": [
+    "decan_office",
+    "mayan_calendar"
+  ],
+  "compiled_lane_ids": [
+    "egyptian_kheper",
+    "norse_rune_yggdrasil"
+  ],
+  "active_master_count": 24,
+  "rotation_policy": {
+    "g2": "Egyptian compiled shadow lane participates in nexus scoring immediately.",
+    "g3": "Norse compiled shadow lane participates in nexus scoring immediately.",
+    "g4": "Keep Western, Planetary, Chinese, and Vedic as anchors; rotate the last two slots among Mayan, Decan, Egyptian, and Norse by nexus_score, then next_transition, then unserved_lane_age."
+  },
+  "long_wave_context": {
+    "calendar_year": 2026,
+    "precession_sector": "S10",
+    "great_year_turn": 2026,
+    "truth": "structural surrogate only"
+  },
+  "hsigma_overlay": {
+    "current_byte": 50,
+    "current_coords": {
+      "q0": 2,
+      "q1": 0,
+      "q2": 3,
+      "q3": 0
+    },
+    "witness_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_HSIGMA_RUNTIME_WITNESS.md"
+  },
+  "pantheon_lane_registry": [
+    {
+      "system_id": "western_solar12",
+      "owner": "astro-western-wheel",
+      "clock_mode": "hourly structural zodiac wheel",
+      "native_cycle": "Solar12 / 4x3 archetype wheel",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "speed_class": "fast",
+      "active_master_role_count": 4,
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "next_transition": "2026-03-13 13:00:00 PDT",
+      "nexus_score": 23,
+      "unserved_lane_age": 0,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md"
+    },
+    {
+      "system_id": "planetary_office",
+      "owner": "astro-planetary-office",
+      "clock_mode": "hourly planetary office",
+      "native_cycle": "PlanetaryHour / Septenary / weekday ruler",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "speed_class": "fast",
+      "active_master_role_count": 4,
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "next_transition": "2026-03-13 13:00:00 PDT",
+      "nexus_score": 23,
+      "unserved_lane_age": 0,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md"
+    },
+    {
+      "system_id": "chinese_cycle",
+      "owner": "astro-chinese-cycle",
+      "clock_mode": "two-hour Chinese double-hour lane",
+      "native_cycle": "Wu Xing + DoubleHour + Chinese60",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "speed_class": "fast",
+      "active_master_role_count": 4,
+      "shared12_seat": "S07 / Libra / Air / Cardinal",
+      "next_transition": "2026-03-13 14:00:00 PDT",
+      "nexus_score": 21,
+      "unserved_lane_age": 0,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\chinese_cycle_packet.md"
+    },
+    {
+      "system_id": "vedic_lunar",
+      "owner": "astro-vedic-lunar",
+      "clock_mode": "daily lunar office",
+      "native_cycle": "Lunar27/28/18",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "speed_class": "slow",
+      "active_master_role_count": 4,
+      "shared12_seat": "S11 / Aquarius / Air / Fixed",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "nexus_score": 15,
+      "unserved_lane_age": 0,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md"
+    },
+    {
+      "system_id": "mayan_calendar",
+      "owner": "astro-mayan-calendar",
+      "clock_mode": "daily Mayan calendar office",
+      "native_cycle": "Tzolkin260 + Haab365",
+      "lane_state": "ACTIVE_ROTATION",
+      "rotation_group": "cultural",
+      "speed_class": "slow",
+      "active_master_role_count": 4,
+      "shared12_seat": "S02 / Taurus / Earth / Fixed",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "nexus_score": 14,
+      "unserved_lane_age": 0,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\mayan_calendar_packet.md"
+    },
+    {
+      "system_id": "decan_office",
+      "owner": "astro-decan-office",
+      "clock_mode": "12-hour decan office",
+      "native_cycle": "Decan36 / night-watch / MUL.APIN",
+      "lane_state": "ACTIVE_ROTATION",
+      "rotation_group": "cultural",
+      "speed_class": "fast",
+      "active_master_role_count": 4,
+      "shared12_seat": "S10 / Capricorn / Earth / Cardinal",
+      "next_transition": "2026-03-13 18:00:00 PDT",
+      "nexus_score": 22,
+      "unserved_lane_age": 1,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\decan_office_packet.md"
+    },
+    {
+      "system_id": "egyptian_kheper",
+      "owner": "astro-egyptian-kheper",
+      "clock_mode": "hourly Duat12 lane with Decan36 support",
+      "native_cycle": "Duat12 / Kheper / Ma'at / Decan36",
+      "lane_state": "COMPILED_SHADOW",
+      "rotation_group": "cultural",
+      "speed_class": "fast",
+      "active_master_role_count": 0,
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "next_transition": "2026-03-13 13:00:00 PDT",
+      "nexus_score": 23,
+      "unserved_lane_age": 2,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\egyptian_kheper_packet.md"
+    },
+    {
+      "system_id": "norse_rune_yggdrasil",
+      "owner": "astro-norse-rune-yggdrasil",
+      "clock_mode": "daily Rune24 lane with House12 projection",
+      "native_cycle": "Rune24 / House12 / Yggdrasil9",
+      "lane_state": "COMPILED_SHADOW",
+      "rotation_group": "cultural",
+      "speed_class": "slow",
+      "active_master_role_count": 0,
+      "shared12_seat": "S05 / Leo / Fire / Fixed",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "nexus_score": 15,
+      "unserved_lane_age": 3,
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\norse_rune_yggdrasil_packet.md"
+    }
+  ],
+  "g4_rotation_candidates": [
+    {
+      "system_id": "egyptian_kheper",
+      "lane_state": "COMPILED_SHADOW",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "next_transition": "2026-03-13 13:00:00 PDT",
+      "nexus_score": 23,
+      "unserved_lane_age": 2
+    },
+    {
+      "system_id": "decan_office",
+      "lane_state": "ACTIVE_ROTATION",
+      "shared12_seat": "S10 / Capricorn / Earth / Cardinal",
+      "next_transition": "2026-03-13 18:00:00 PDT",
+      "nexus_score": 22,
+      "unserved_lane_age": 1
+    },
+    {
+      "system_id": "norse_rune_yggdrasil",
+      "lane_state": "COMPILED_SHADOW",
+      "shared12_seat": "S05 / Leo / Fire / Fixed",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "nexus_score": 15,
+      "unserved_lane_age": 3
+    },
+    {
+      "system_id": "mayan_calendar",
+      "lane_state": "ACTIVE_ROTATION",
+      "shared12_seat": "S02 / Taurus / Earth / Fixed",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "nexus_score": 14,
+      "unserved_lane_age": 0
+    }
+  ],
+  "avatar_triggers": [],
+  "packets": [
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md",
+      "system_id": "western_solar12",
+      "clock_mode": "hourly structural zodiac wheel",
+      "native_cycle": "Solar12 / 4x3 archetype wheel",
+      "current_gate": "Aries / Fire / Cardinal",
+      "next_transition": "2026-03-13 13:00:00 PDT",
+      "action_bias": "initiate alignment and front selection",
+      "cautions": "Structural scheduler only; not live ephemeris. Docs gate remains blocked.",
+      "suggested_frontier": "Q41 / TQ06 packet-fed hourly sync",
+      "handoff_target": "guildmaster-loop",
+      "blocker_truth": "BLOCKED",
+      "seat": "Aries",
+      "element": "Fire",
+      "modality": "Cardinal",
+      "witness": "Derived from local hour 12 in America/Los_Angeles using the fixed Solar12 seat order.",
+      "native_gate": "Aries / Fire / Cardinal",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "projection_witness": "Native Solar12 seat Aries projects directly onto S01 / Aries / Fire / Cardinal.",
+      "variant_set": {
+        "direct": "S01 / Aries / Fire / Cardinal",
+        "inverse": "S07 / Libra / Air / Cardinal",
+        "rot90": "S04 / Cancer / Water / Cardinal",
+        "rot90_inverse": "S10 / Capricorn / Earth / Cardinal"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 20,
+        "Planner": 35,
+        "Worker": 30,
+        "Pruner": 15
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "hour",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Hourly 12-seat executive archetype wheel with modality-weighted spawn emphasis.",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "activation_gate": "pre-G4 anchor lane",
+      "active_master_role_count": 4,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "fast",
+      "liminal_tag": "LIMINAL::WESTERN_SOLAR12::ACTIVE_ANCHOR::S01::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "western_solar12.{role}.{loop_id}.S01",
+        "lane_id": "western_solar12",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 4,
+        "activation_state": "ACTIVE_ANCHOR",
+        "shared12_seat": "S01 / Aries / Fire / Cardinal",
+        "native_gate": "Aries / Fire / Cardinal",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 23,
+      "unserved_lane_age": 0,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "MT",
+        "L0",
+        "Z0",
+        "WA"
+      ],
+      "hsigma_weight": 54.371,
+      "hsigma_hidden_pressure": 0.225,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    },
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md",
+      "system_id": "planetary_office",
+      "clock_mode": "hourly planetary office",
+      "native_cycle": "PlanetaryHour / Septenary / weekday ruler",
+      "current_gate": "Venus weekday / Mars hour",
+      "next_transition": "2026-03-13 13:00:00 PDT",
+      "action_bias": "cut through drift and execute the sharpest frontier",
+      "cautions": "Civil-hour structural surrogate only; not sunrise-based ephemeris. Docs gate remains blocked.",
+      "suggested_frontier": "Q42 QSHRINK corridor followthrough",
+      "handoff_target": "qshrink-shiva",
+      "blocker_truth": "BLOCKED",
+      "weekday_ruler": "Venus",
+      "hour_ruler": "Mars",
+      "septenary_order": "Saturn -> Jupiter -> Mars -> Sun -> Venus -> Mercury -> Moon",
+      "witness": "Derived from local weekday Friday and civil hour 12 with the Chaldean order as a structural surrogate.",
+      "native_gate": "Venus weekday / Mars hour",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "projection_witness": "Hour ruler Mars maps through the traditional rulership adapter onto S01 / Aries / Fire / Cardinal.",
+      "variant_set": {
+        "direct": "S01 / Aries / Fire / Cardinal",
+        "inverse": "S07 / Libra / Air / Cardinal",
+        "rot90": "S04 / Cancer / Water / Cardinal",
+        "rot90_inverse": "S10 / Capricorn / Earth / Cardinal"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 10,
+        "Planner": 20,
+        "Worker": 50,
+        "Pruner": 20
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "hour",
+          "weekday",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Hourly septenary governance lane with a traditional shared-12 rulership adapter.",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "activation_gate": "pre-G4 anchor lane",
+      "active_master_role_count": 4,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "fast",
+      "liminal_tag": "LIMINAL::PLANETARY_OFFICE::ACTIVE_ANCHOR::S01::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "planetary_office.{role}.{loop_id}.S01",
+        "lane_id": "planetary_office",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 4,
+        "activation_state": "ACTIVE_ANCHOR",
+        "shared12_seat": "S01 / Aries / Fire / Cardinal",
+        "native_gate": "Venus weekday / Mars hour",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 23,
+      "unserved_lane_age": 0,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "MT",
+        "MS",
+        "RA",
+        "PA"
+      ],
+      "hsigma_weight": 66.01,
+      "hsigma_hidden_pressure": 0.3,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    },
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\chinese_cycle_packet.md",
+      "system_id": "chinese_cycle",
+      "clock_mode": "two-hour Chinese double-hour lane",
+      "native_cycle": "Wu Xing + DoubleHour + Chinese60",
+      "current_gate": "Wu / Horse / Fire",
+      "next_transition": "2026-03-13 14:00:00 PDT",
+      "action_bias": "ignite decisive motion and expose weak joints",
+      "cautions": "Structural double-hour and sexagenary surrogates only; not a live almanac feed. Docs gate remains blocked.",
+      "suggested_frontier": "Q42 QSHRINK corridor followthrough",
+      "handoff_target": "qshrink-shiva",
+      "blocker_truth": "BLOCKED",
+      "double_hour_gate": "Wu / Horse",
+      "wu_xing_bias": "Fire",
+      "sexagenary_overlay": "Chinese60 structural index 09",
+      "witness": "Derived from local time 12:51 using the fixed 12-gate double-hour cycle and day ordinal modulo 60.",
+      "native_gate": "Wu / Horse / Fire",
+      "shared12_seat": "S07 / Libra / Air / Cardinal",
+      "projection_witness": "Chinese double-hour gate Horse projects directly onto S07 / Libra / Air / Cardinal.",
+      "variant_set": {
+        "direct": "S07 / Libra / Air / Cardinal",
+        "inverse": "S01 / Aries / Fire / Cardinal",
+        "rot90": "S10 / Capricorn / Earth / Cardinal",
+        "rot90_inverse": "S04 / Cancer / Water / Cardinal"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 15,
+        "Planner": 20,
+        "Worker": 45,
+        "Pruner": 20
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "double-hour",
+          "day",
+          "month",
+          "year",
+          "60-cycle",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Two-hour center/stability/transition lane using branch, element, and sexagenary support.",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "activation_gate": "pre-G4 anchor lane",
+      "active_master_role_count": 4,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "fast",
+      "liminal_tag": "LIMINAL::CHINESE_CYCLE::ACTIVE_ANCHOR::S07::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "chinese_cycle.{role}.{loop_id}.S07",
+        "lane_id": "chinese_cycle",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 4,
+        "activation_state": "ACTIVE_ANCHOR",
+        "shared12_seat": "S07 / Libra / Air / Cardinal",
+        "native_gate": "Wu / Horse / Fire",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 21,
+      "unserved_lane_age": 0,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "MY",
+        "L0",
+        "ZL",
+        "SC"
+      ],
+      "hsigma_weight": 26.184,
+      "hsigma_hidden_pressure": 0.075,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    },
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md",
+      "system_id": "vedic_lunar",
+      "clock_mode": "daily lunar office",
+      "native_cycle": "Lunar27/28/18",
+      "current_gate": "Lunar27 gate 24",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "action_bias": "refine the law body before further expansion",
+      "cautions": "Structural lunar cadence only; not live sidereal ephemeris. Docs gate remains blocked.",
+      "suggested_frontier": "TQ04 runner-contract binding",
+      "handoff_target": "high-priest-totality",
+      "blocker_truth": "BLOCKED",
+      "lunar27_gate": "24",
+      "lunar28_gate": "13",
+      "lunar18_band": "15",
+      "witness": "Derived from local calendar day using the corpus structural Lunar27, Lunar28, and Lunar18 ladders.",
+      "native_gate": "Lunar27 gate 24",
+      "shared12_seat": "S11 / Aquarius / Air / Fixed",
+      "projection_witness": "Lunar27 gate 24 projects evenly into S11 / Aquarius / Air / Fixed.",
+      "variant_set": {
+        "direct": "S11 / Aquarius / Air / Fixed",
+        "inverse": "S05 / Leo / Fire / Fixed",
+        "rot90": "S02 / Taurus / Earth / Fixed",
+        "rot90_inverse": "S08 / Scorpio / Water / Fixed"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 20,
+        "Planner": 35,
+        "Worker": 15,
+        "Pruner": 30
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "day",
+          "lunar month",
+          "season",
+          "year",
+          "precession",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Daily law-body and long-wave refinement lane projected from Lunar27/28/18 into the shared 12-seat ring.",
+      "lane_state": "ACTIVE_ANCHOR",
+      "rotation_group": "anchor",
+      "activation_gate": "pre-G4 anchor lane",
+      "active_master_role_count": 4,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "slow",
+      "liminal_tag": "LIMINAL::VEDIC_LUNAR::ACTIVE_ANCHOR::S11::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "vedic_lunar.{role}.{loop_id}.S11",
+        "lane_id": "vedic_lunar",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 4,
+        "activation_state": "ACTIVE_ANCHOR",
+        "shared12_seat": "S11 / Aquarius / Air / Fixed",
+        "native_gate": "Lunar27 gate 24",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 15,
+      "unserved_lane_age": 0,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "NN",
+        "RA",
+        "WA",
+        "PA"
+      ],
+      "hsigma_weight": 64.228,
+      "hsigma_hidden_pressure": 0.3,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    },
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\mayan_calendar_packet.md",
+      "system_id": "mayan_calendar",
+      "clock_mode": "daily Mayan calendar office",
+      "native_cycle": "Tzolkin260 + Haab365",
+      "current_gate": "Tzolkin 249 / Haab 073",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "action_bias": "surface one coherent growth line from the wider field",
+      "cautions": "Structural count only; not a live historical-correlation engine. Docs gate remains blocked.",
+      "suggested_frontier": "Q44 organism wave proof",
+      "handoff_target": "athena-weave-scan",
+      "blocker_truth": "BLOCKED",
+      "tzolkin_gate": "249",
+      "haab_gate": "073",
+      "cycle_bias": "mode-1",
+      "witness": "Derived from local calendar counts using structural Tzolkin260 and Haab365 counters.",
+      "native_gate": "Tzolkin 249 / Haab 073",
+      "shared12_seat": "S02 / Taurus / Earth / Fixed",
+      "projection_witness": "Tzolkin 249 and Haab 073 combine into S02 / Taurus / Earth / Fixed.",
+      "variant_set": {
+        "direct": "S02 / Taurus / Earth / Fixed",
+        "inverse": "S08 / Scorpio / Water / Fixed",
+        "rot90": "S05 / Leo / Fire / Fixed",
+        "rot90_inverse": "S11 / Aquarius / Air / Fixed"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 30,
+        "Planner": 20,
+        "Worker": 35,
+        "Pruner": 15
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "day",
+          "month",
+          "year",
+          "260-count",
+          "365-count",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Daily growth-sequence and pattern-completion lane combining Tzolkin and Haab into one shared archetype seat.",
+      "lane_state": "ACTIVE_ROTATION",
+      "rotation_group": "cultural",
+      "activation_gate": "pre-G4 active cultural lane",
+      "active_master_role_count": 4,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "slow",
+      "liminal_tag": "LIMINAL::MAYAN_CALENDAR::ACTIVE_ROTATION::S02::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "mayan_calendar.{role}.{loop_id}.S02",
+        "lane_id": "mayan_calendar",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 4,
+        "activation_state": "ACTIVE_ROTATION",
+        "shared12_seat": "S02 / Taurus / Earth / Fixed",
+        "native_gate": "Tzolkin 249 / Haab 073",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 14,
+      "unserved_lane_age": 0,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "MY",
+        "SC",
+        "A0",
+        "RA"
+      ],
+      "hsigma_weight": 39.547,
+      "hsigma_hidden_pressure": 0.15,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    },
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\decan_office_packet.md",
+      "system_id": "decan_office",
+      "clock_mode": "12-hour decan office",
+      "native_cycle": "Decan36 / night-watch / MUL.APIN",
+      "current_gate": "Decan36 gate 29 / day watch",
+      "next_transition": "2026-03-13 18:00:00 PDT",
+      "action_bias": "bind the watch law into one durable corridor",
+      "cautions": "Structural decan and watch cadence only; not live stellar ephemeris. Docs gate remains blocked.",
+      "suggested_frontier": "TQ04 runner-contract binding",
+      "handoff_target": "high-priest-totality",
+      "blocker_truth": "BLOCKED",
+      "watch_phase": "day watch",
+      "decan_gate": "29",
+      "mesopotamian_bias": "MUL.APIN structural watch lane",
+      "witness": "Derived from the local half-day watch at 12:51 using a structural Decan36 counter.",
+      "native_gate": "Decan36 gate 29 / day watch",
+      "shared12_seat": "S10 / Capricorn / Earth / Cardinal",
+      "projection_witness": "Decan36 gate 29 projects in 3-decan groups onto S10 / Capricorn / Earth / Cardinal.",
+      "variant_set": {
+        "direct": "S10 / Capricorn / Earth / Cardinal",
+        "inverse": "S04 / Cancer / Water / Cardinal",
+        "rot90": "S01 / Aries / Fire / Cardinal",
+        "rot90_inverse": "S07 / Libra / Air / Cardinal"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 20,
+        "Planner": 30,
+        "Worker": 20,
+        "Pruner": 30
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Twelve-hour threshold/watch/guard lane using Decan36 projected into 12 shared houses.",
+      "lane_state": "ACTIVE_ROTATION",
+      "rotation_group": "cultural",
+      "activation_gate": "pre-G4 active cultural lane",
+      "active_master_role_count": 4,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "fast",
+      "liminal_tag": "LIMINAL::DECAN_OFFICE::ACTIVE_ROTATION::S10::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "decan_office.{role}.{loop_id}.S10",
+        "lane_id": "decan_office",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 4,
+        "activation_state": "ACTIVE_ROTATION",
+        "shared12_seat": "S10 / Capricorn / Earth / Cardinal",
+        "native_gate": "Decan36 gate 29 / day watch",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 22,
+      "unserved_lane_age": 1,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "TE",
+        "DB",
+        "TX",
+        "MR"
+      ],
+      "hsigma_weight": 39.162,
+      "hsigma_hidden_pressure": 0.15,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    },
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\egyptian_kheper_packet.md",
+      "system_id": "egyptian_kheper",
+      "clock_mode": "hourly Duat12 lane with Decan36 support",
+      "native_cycle": "Duat12 / Kheper / Ma'at / Decan36",
+      "current_gate": "Duat12 gate 01 / Decan36 gate 29 / becoming",
+      "next_transition": "2026-03-13 13:00:00 PDT",
+      "action_bias": "surface lawful emergence without outrunning proof",
+      "cautions": "Structural Duat and decan surrogate only; not a live ritual calendar or stellar ephemeris. Docs gate remains blocked.",
+      "suggested_frontier": "Q41 / TQ06 packet-fed hourly sync",
+      "handoff_target": "guildmaster-loop",
+      "blocker_truth": "BLOCKED",
+      "duat_gate": "01",
+      "decan_support_gate": "29",
+      "ma_at_phase": "becoming",
+      "witness": "Derived from local hour modulo 12 with a structural Decan36 support counter; compiled as the Egyptian shadow lane until promotion.",
+      "native_gate": "Duat12 gate 01 / Decan36 gate 29 / becoming",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "projection_witness": "Duat12 gate 01 projects directly onto S01 / Aries / Fire / Cardinal while Decan36 stays as support detail.",
+      "variant_set": {
+        "direct": "S01 / Aries / Fire / Cardinal",
+        "inverse": "S07 / Libra / Air / Cardinal",
+        "rot90": "S04 / Cancer / Water / Cardinal",
+        "rot90_inverse": "S10 / Capricorn / Earth / Cardinal"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 30,
+        "Planner": 25,
+        "Worker": 30,
+        "Pruner": 15
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Compiled Duat/becoming/judgment lane with Ma'at filtering and Decan36 support.",
+      "lane_state": "COMPILED_SHADOW",
+      "rotation_group": "cultural",
+      "activation_gate": "compiled shadow until promotion gate",
+      "active_master_role_count": 0,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "fast",
+      "liminal_tag": "LIMINAL::EGYPTIAN_KHEPER::COMPILED_SHADOW::S01::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "egyptian_kheper.{role}.{loop_id}.S01",
+        "lane_id": "egyptian_kheper",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 0,
+        "activation_state": "COMPILED_SHADOW",
+        "shared12_seat": "S01 / Aries / Fire / Cardinal",
+        "native_gate": "Duat12 gate 01 / Decan36 gate 29 / becoming",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 23,
+      "unserved_lane_age": 2,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "Z0",
+        "RA",
+        "MR",
+        "PA"
+      ],
+      "hsigma_weight": 63.932,
+      "hsigma_hidden_pressure": 0.3,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    },
+    {
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\norse_rune_yggdrasil_packet.md",
+      "system_id": "norse_rune_yggdrasil",
+      "clock_mode": "daily Rune24 lane with House12 projection",
+      "native_cycle": "Rune24 / House12 / Yggdrasil9",
+      "current_gate": "Rune24 gate 09 / House12 gate 05 / Svartalfheim",
+      "next_transition": "2026-03-14 00:00:00 PDT",
+      "action_bias": "keep the trunk legible across living traffic",
+      "cautions": "Structural rune and world-tree surrogate only; not a historical festival or astronomical reconstruction. Docs gate remains blocked.",
+      "suggested_frontier": "Q41 / TQ06 packet-fed hourly sync",
+      "handoff_target": "guildmaster-loop",
+      "blocker_truth": "BLOCKED",
+      "rune_gate": "09 / Hagalaz",
+      "house12_gate": "05",
+      "yggdrasil_world": "Svartalfheim",
+      "witness": "Derived from local ordinal day modulo 24 for the rune lane and modulo 9 for the Yggdrasil world overlay; compiled as the Norse shadow lane until promotion.",
+      "native_gate": "Rune24 gate 09 / House12 gate 05 / Svartalfheim",
+      "shared12_seat": "S05 / Leo / Fire / Fixed",
+      "projection_witness": "Rune24 gate 09 pairs into House12 gate 05, yielding S05 / Leo / Fire / Fixed.",
+      "variant_set": {
+        "direct": "S05 / Leo / Fire / Fixed",
+        "inverse": "S11 / Aquarius / Air / Fixed",
+        "rot90": "S08 / Scorpio / Water / Fixed",
+        "rot90_inverse": "S02 / Taurus / Earth / Fixed"
+      },
+      "role_weight_vector": {
+        "Synthesizer": 20,
+        "Planner": 35,
+        "Worker": 25,
+        "Pruner": 20
+      },
+      "resolution_band": {
+        "native_ladder": [
+          "day",
+          "season",
+          "year",
+          "Rune24",
+          "Yggdrasil9",
+          "GreatYear"
+        ],
+        "cross_resolution_ladder": [
+          "hour",
+          "watch",
+          "day",
+          "month",
+          "year",
+          "precession",
+          "GreatYear"
+        ]
+      },
+      "lane_flavor": "Compiled fate-route lane pairing Rune24 with House12 and a 9-world Yggdrasil routing overlay.",
+      "lane_state": "COMPILED_SHADOW",
+      "rotation_group": "cultural",
+      "activation_gate": "compiled shadow until promotion gate",
+      "active_master_role_count": 0,
+      "master_roles": [
+        "Synthesizer",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "speed_class": "slow",
+      "liminal_tag": "LIMINAL::NORSE_RUNE_YGGDRASIL::COMPILED_SHADOW::S05::20260313T125152-0700",
+      "spawn_envelope_seed": {
+        "agent_id_pattern": "norse_rune_yggdrasil.{role}.{loop_id}.S05",
+        "lane_id": "norse_rune_yggdrasil",
+        "role_ids": [
+          "Synthesizer",
+          "Planner",
+          "Worker",
+          "Pruner"
+        ],
+        "active_master_role_count": 0,
+        "activation_state": "COMPILED_SHADOW",
+        "shared12_seat": "S05 / Leo / Fire / Fixed",
+        "native_gate": "Rune24 gate 09 / House12 gate 05 / Svartalfheim",
+        "writeback_targets": [
+          "Hall",
+          "Temple",
+          "Queue",
+          "Manifest",
+          "Restart"
+        ]
+      },
+      "nexus_score": 15,
+      "unserved_lane_age": 3,
+      "hsigma_current_byte": 50,
+      "hsigma_row_ids": [
+        "DB",
+        "DL",
+        "MC",
+        "LP"
+      ],
+      "hsigma_weight": 54.44,
+      "hsigma_hidden_pressure": 0.225,
+      "hsigma_cell_class": "unstable",
+      "hsigma_restart_seed": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-03-13T22:57:38.987132+00:00",
+  "canonical_mode": "COMMAND_MEMBRANE_V1",
+  "command_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "active_surface": "GLOBAL COMMAND",
+  "watcher_mode": "powershell-filesystemwatcher",
+  "watch_scope": "GLOBAL COMMAND only",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "witness_class": "LOCAL_WITNESS_ONLY",
+    "detail": "blocked-by-missing-credentials",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "credentials_exists": false,
+    "token_exists": false
+  },
+  "docs_gate_status": "BLOCKED",
+  "current_runtime_truth": {
+    "canonical_authority": "LP57OMEGA / NEXT57",
+    "active_loop": "L02",
+    "active_family": "A02 self_actualize",
+    "restart_seed": "L03 Survey A03 ECOSYSTEM",
+    "visible_caps": {
+      "hall": 8,
+      "temple": 8
+    },
+    "active_membrane": "Q41 / TQ06",
+    "feeders": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ]
+  },
+  "active_membrane": "Q41 / TQ06",
+  "feeder_stack": [
+    "Q42",
+    "Q46",
+    "TQ04",
+    "Q02"
+  ],
+  "policy": {
+    "route_policy": "goal+salience+pheromone+coord",
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "ttl": 6,
+    "lease_ms": 1200
+  },
+  "active_leases": [],
+  "queue_depth": 0,
+  "recent_events": [],
+  "last_event": {},
+  "latest_committed": {},
+  "top_capillaries": [],
+  "metrics": {
+    "event_count": 0,
+    "committed_count": 0,
+    "claim_row_count": 0,
+    "edge_count": 0,
+    "watched_surface_count": 1,
+    "capillary_tiers": {
+      "route": 0,
+      "capillary": 0,
+      "vein": 0
+    }
+  },
+  "updated_at": "2026-03-13T22:57:38.987132+00:00",
+  "snapshot": {},
+  "known_files": {},
+  "source_health": [
+    {
+      "source_id": "command_root",
+      "source_class": "command-folder",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "native_watch_available": true,
+      "degraded_mode": false,
+      "docs_gate_status": "BLOCKED"
+    }
+  ],
+  "watched_surface_count": 1
+}

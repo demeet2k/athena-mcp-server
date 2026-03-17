@@ -1,0 +1,5674 @@
+{
+  "generated_at": "2026-03-13T20:38:48.505934+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "shell_id": "B-PRIME-WITNESSED-INVERSION-SHELL",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate_mode": "LOCAL_ONLY",
+  "authority_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\91_lp57omega_b_prime_witnessed_inversion_shell.md",
+  "dense_shell": {
+    "header_shell": "1/65",
+    "active_span": "2/65 -> 65/65",
+    "sealed": true,
+    "inversion_law": "Complement",
+    "parent_law": "Chain Parent",
+    "witness_scope": "Immediate lawful parent only",
+    "sigma_shell": "AppA -> AppI -> AppM",
+    "orbit_mechanics": "AppF/AppG",
+    "ring_gauge": "A=Fire, C=Air, B=Water, D=Earth",
+    "lawful_cycle": "Fire -> Air -> Water -> Earth -> Fire"
+  },
+  "aether_abi": {
+    "render": "AE=(L,Phi,B;sigma)",
+    "lattice": "Lens x Phase x Bundle",
+    "lens": "F",
+    "phase_bins": {
+      "\u03a60": "R+",
+      "\u03a61": "R-",
+      "\u03a62": "Q4",
+      "\u03a63": "T3"
+    },
+    "slot_domain": [
+      "Core",
+      "Ticket",
+      "Residual",
+      "Test"
+    ],
+    "slot_policy": {
+      "Core": "cert-closed omega-safe only",
+      "Residual": "deferred antispin layer",
+      "Ticket": "reserved",
+      "Test": "reserved"
+    },
+    "bundle_ids": [
+      "B01",
+      "B02",
+      "B03",
+      "B10",
+      "B11",
+      "B12",
+      "B13",
+      "B20",
+      "B21",
+      "B22",
+      "B23",
+      "B30",
+      "B31",
+      "B32",
+      "B33"
+    ]
+  },
+  "seed_lock": {
+    "witness_formula": "WS[id]:=(Type=INTERNAL_SLICE, Location=AE, Hash=H(id|AE|z|ck|rt), Scope=(OPS,DEFINE,SYSTEM), Timestamp=Tick_2B, Collector=SYSTEM, VersionPins=V_2B)",
+    "replay_formula": "RS[id]:=(Inputs=(AE,z,ck,rt), Steps=[ResolveZ,ExpandAE,RouteV2,SlotCheck], ExpectedOutputs, Checks=[Sigma,Hub<=6,ZMatch], EnvPin=E_2B, Hash=H(id|AE|E_2B))",
+    "route_aliases": {
+      "rtL": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "rtZ": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+    },
+    "route_pins": {
+      "rtL": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "rtZ": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      }
+    },
+    "z_aliases": {
+      "ZA": "Z(Fire)",
+      "ZB": "Z(Water)",
+      "ZC": "Z(Air)",
+      "ZD": "Z(Earth)"
+    },
+    "shared_pins": {
+      "timestamp": "Tick_2B",
+      "version_pins": "V_2B",
+      "env_pin": "E_2B"
+    }
+  },
+  "pointer_contract": {
+    "witness_seed_fields": [
+      "id",
+      "type",
+      "location",
+      "hash",
+      "scope",
+      "timestamp",
+      "collector",
+      "version_pins"
+    ],
+    "replay_seed_fields": [
+      "id",
+      "inputs",
+      "steps",
+      "expected_outputs",
+      "checks",
+      "env_pin",
+      "hash"
+    ],
+    "expected_output_fields": [
+      "location_match",
+      "slot_match",
+      "z_match",
+      "checkpoint_match",
+      "route_match",
+      "sigma_satisfied",
+      "hub_budget_satisfied"
+    ],
+    "scope": [
+      "OPS",
+      "DEFINE",
+      "SYSTEM"
+    ],
+    "steps": [
+      "ResolveZ",
+      "ExpandAE",
+      "RouteV2",
+      "SlotCheck"
+    ],
+    "checks": [
+      "Sigma",
+      "Hub<=6",
+      "ZMatch"
+    ],
+    "witness_hook": "WitnessPtr",
+    "replay_hook": "ReplayPtr",
+    "seed_materialization": "symbolic"
+  },
+  "counts": {
+    "pole_rows": 4,
+    "symmetry_rows": 15,
+    "rotation_rows": 15,
+    "spin_rows": 15,
+    "antispin_rows": 15,
+    "witnessed_rows": 45,
+    "dense_shell_rows": 64
+  },
+  "payload_counts": {
+    "pointer_expanded_rows": 45,
+    "witness_seed_payloads": 60,
+    "replay_seed_payloads": 60
+  },
+  "pole_rows": [
+    {
+      "address": "2/65",
+      "record_id": "P0",
+      "pole": "A",
+      "element": "Fire",
+      "theta": "0\u00b0",
+      "rot_plus": "C",
+      "inv": "B",
+      "rot_minus": "D",
+      "z": "Z(Fire)",
+      "ae": "AE[F]"
+    },
+    {
+      "address": "3/65",
+      "record_id": "P2",
+      "pole": "B",
+      "element": "Water",
+      "theta": "180\u00b0",
+      "rot_plus": "D",
+      "inv": "A",
+      "rot_minus": "C",
+      "z": "Z(Water)",
+      "ae": "AE[W]"
+    },
+    {
+      "address": "4/65",
+      "record_id": "P1",
+      "pole": "C",
+      "element": "Air",
+      "theta": "90\u00b0",
+      "rot_plus": "B",
+      "inv": "D",
+      "rot_minus": "A",
+      "z": "Z(Air)",
+      "ae": "AE[A]"
+    },
+    {
+      "address": "5/65",
+      "record_id": "P3",
+      "pole": "D",
+      "element": "Earth",
+      "theta": "270\u00b0",
+      "rot_plus": "A",
+      "inv": "C",
+      "rot_minus": "B",
+      "z": "Z(Earth)",
+      "ae": "AE[E]"
+    }
+  ],
+  "symmetry_rows": [
+    {
+      "address": "6/65",
+      "record_id": "S01",
+      "mu": "01",
+      "set": [
+        "A"
+      ],
+      "card": 1
+    },
+    {
+      "address": "7/65",
+      "record_id": "S02",
+      "mu": "02",
+      "set": [
+        "B"
+      ],
+      "card": 1
+    },
+    {
+      "address": "8/65",
+      "record_id": "S03",
+      "mu": "03",
+      "set": [
+        "A",
+        "B"
+      ],
+      "card": 2
+    },
+    {
+      "address": "9/65",
+      "record_id": "S10",
+      "mu": "10",
+      "set": [
+        "C"
+      ],
+      "card": 1
+    },
+    {
+      "address": "10/65",
+      "record_id": "S11",
+      "mu": "11",
+      "set": [
+        "A",
+        "C"
+      ],
+      "card": 2
+    },
+    {
+      "address": "11/65",
+      "record_id": "S12",
+      "mu": "12",
+      "set": [
+        "B",
+        "C"
+      ],
+      "card": 2
+    },
+    {
+      "address": "12/65",
+      "record_id": "S13",
+      "mu": "13",
+      "set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "card": 3
+    },
+    {
+      "address": "13/65",
+      "record_id": "S20",
+      "mu": "20",
+      "set": [
+        "D"
+      ],
+      "card": 1
+    },
+    {
+      "address": "14/65",
+      "record_id": "S21",
+      "mu": "21",
+      "set": [
+        "A",
+        "D"
+      ],
+      "card": 2
+    },
+    {
+      "address": "15/65",
+      "record_id": "S22",
+      "mu": "22",
+      "set": [
+        "B",
+        "D"
+      ],
+      "card": 2
+    },
+    {
+      "address": "16/65",
+      "record_id": "S23",
+      "mu": "23",
+      "set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "card": 3
+    },
+    {
+      "address": "17/65",
+      "record_id": "S30",
+      "mu": "30",
+      "set": [
+        "C",
+        "D"
+      ],
+      "card": 2
+    },
+    {
+      "address": "18/65",
+      "record_id": "S31",
+      "mu": "31",
+      "set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "card": 3
+    },
+    {
+      "address": "19/65",
+      "record_id": "S32",
+      "mu": "32",
+      "set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 3
+    },
+    {
+      "address": "20/65",
+      "record_id": "S33",
+      "mu": "33",
+      "set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 4
+    }
+  ],
+  "rotation_rows": [
+    {
+      "address": "21/65",
+      "record_id": "R01",
+      "rot_plus": [
+        "C"
+      ],
+      "rot_minus": [
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A"
+      ],
+      "bundle_id": "B01",
+      "parent_route": "S01",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B01;Core) | AE-=AE=(F,\u03a61,B01;Core)",
+      "entry_condition": "S01::set={A}",
+      "exit_condition": "rot+={C}; rot-={D}",
+      "z": "ZA",
+      "ck": "loc(A)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B01",
+        "bundle_token": "B01",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B01;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B01",
+        "bundle_token": "B01",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B01;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R01,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B01;Core)",
+        "hash": "H(WS[R01,+]|AE=(F,\u03a60,B01;Core)|ZA|loc(A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R01,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B01;Core)",
+          "z": "ZA",
+          "ck": "loc(A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B01;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA",
+          "checkpoint_match": "loc(A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R01,+]|AE=(F,\u03a60,B01;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R01,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B01;Core)",
+        "hash": "H(WS[R01,-]|AE=(F,\u03a61,B01;Core)|ZA|loc(A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R01,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B01;Core)",
+          "z": "ZA",
+          "ck": "loc(A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B01;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA",
+          "checkpoint_match": "loc(A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R01,-]|AE=(F,\u03a61,B01;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "22/65",
+      "record_id": "R02",
+      "rot_plus": [
+        "D"
+      ],
+      "rot_minus": [
+        "C"
+      ],
+      "family": "R",
+      "set": [
+        "B"
+      ],
+      "bundle_id": "B02",
+      "parent_route": "S02",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B02;Core) | AE-=AE=(F,\u03a61,B02;Core)",
+      "entry_condition": "S02::set={B}",
+      "exit_condition": "rot+={D}; rot-={C}",
+      "z": "ZB",
+      "ck": "loc(B)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B02",
+        "bundle_token": "B02",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B02;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B02",
+        "bundle_token": "B02",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B02;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R02,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B02;Core)",
+        "hash": "H(WS[R02,+]|AE=(F,\u03a60,B02;Core)|ZB|loc(B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R02,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B02;Core)",
+          "z": "ZB",
+          "ck": "loc(B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B02;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB",
+          "checkpoint_match": "loc(B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R02,+]|AE=(F,\u03a60,B02;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R02,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B02;Core)",
+        "hash": "H(WS[R02,-]|AE=(F,\u03a61,B02;Core)|ZB|loc(B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R02,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B02;Core)",
+          "z": "ZB",
+          "ck": "loc(B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B02;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB",
+          "checkpoint_match": "loc(B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R02,-]|AE=(F,\u03a61,B02;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "23/65",
+      "record_id": "R03",
+      "rot_plus": [
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "C",
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A",
+        "B"
+      ],
+      "bundle_id": "B03",
+      "parent_route": "S03",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B03;Core) | AE-=AE=(F,\u03a61,B03;Core)",
+      "entry_condition": "S03::set={A,B}",
+      "exit_condition": "rot+={C,D}; rot-={C,D}",
+      "z": "ZA+ZB",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B03",
+        "bundle_token": "B03",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B03;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B03",
+        "bundle_token": "B03",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B03;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R03,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B03;Core)",
+        "hash": "H(WS[R03,+]|AE=(F,\u03a60,B03;Core)|ZA+ZB|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R03,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B03;Core)",
+          "z": "ZA+ZB",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B03;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R03,+]|AE=(F,\u03a60,B03;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R03,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B03;Core)",
+        "hash": "H(WS[R03,-]|AE=(F,\u03a61,B03;Core)|ZA+ZB|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R03,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B03;Core)",
+          "z": "ZA+ZB",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B03;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R03,-]|AE=(F,\u03a61,B03;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "24/65",
+      "record_id": "R10",
+      "rot_plus": [
+        "B"
+      ],
+      "rot_minus": [
+        "A"
+      ],
+      "family": "R",
+      "set": [
+        "C"
+      ],
+      "bundle_id": "B10",
+      "parent_route": "S10",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B10;Core) | AE-=AE=(F,\u03a61,B10;Core)",
+      "entry_condition": "S10::set={C}",
+      "exit_condition": "rot+={B}; rot-={A}",
+      "z": "ZC",
+      "ck": "loc(C)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B10",
+        "bundle_token": "B10",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B10;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B10",
+        "bundle_token": "B10",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B10;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R10,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B10;Core)",
+        "hash": "H(WS[R10,+]|AE=(F,\u03a60,B10;Core)|ZC|loc(C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R10,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B10;Core)",
+          "z": "ZC",
+          "ck": "loc(C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B10;Core)",
+          "slot_match": "Core",
+          "z_match": "ZC",
+          "checkpoint_match": "loc(C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R10,+]|AE=(F,\u03a60,B10;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R10,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B10;Core)",
+        "hash": "H(WS[R10,-]|AE=(F,\u03a61,B10;Core)|ZC|loc(C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R10,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B10;Core)",
+          "z": "ZC",
+          "ck": "loc(C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B10;Core)",
+          "slot_match": "Core",
+          "z_match": "ZC",
+          "checkpoint_match": "loc(C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R10,-]|AE=(F,\u03a61,B10;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "25/65",
+      "record_id": "R11",
+      "rot_plus": [
+        "B",
+        "C"
+      ],
+      "rot_minus": [
+        "A",
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A",
+        "C"
+      ],
+      "bundle_id": "B11",
+      "parent_route": "S11",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B11;Core) | AE-=AE=(F,\u03a61,B11;Core)",
+      "entry_condition": "S11::set={A,C}",
+      "exit_condition": "rot+={B,C}; rot-={A,D}",
+      "z": "ZA+ZC",
+      "ck": "loc(A>C)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B11",
+        "bundle_token": "B11",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B11;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B11",
+        "bundle_token": "B11",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B11;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R11,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B11;Core)",
+        "hash": "H(WS[R11,+]|AE=(F,\u03a60,B11;Core)|ZA+ZC|loc(A>C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R11,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B11;Core)",
+          "z": "ZA+ZC",
+          "ck": "loc(A>C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B11;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZC",
+          "checkpoint_match": "loc(A>C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R11,+]|AE=(F,\u03a60,B11;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R11,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B11;Core)",
+        "hash": "H(WS[R11,-]|AE=(F,\u03a61,B11;Core)|ZA+ZC|loc(A>C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R11,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B11;Core)",
+          "z": "ZA+ZC",
+          "ck": "loc(A>C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B11;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZC",
+          "checkpoint_match": "loc(A>C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R11,-]|AE=(F,\u03a61,B11;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "26/65",
+      "record_id": "R12",
+      "rot_plus": [
+        "B",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "C"
+      ],
+      "family": "R",
+      "set": [
+        "B",
+        "C"
+      ],
+      "bundle_id": "B12",
+      "parent_route": "S12",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B12;Core) | AE-=AE=(F,\u03a61,B12;Core)",
+      "entry_condition": "S12::set={B,C}",
+      "exit_condition": "rot+={B,D}; rot-={A,C}",
+      "z": "ZB+ZC",
+      "ck": "loc(C>B)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B12",
+        "bundle_token": "B12",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B12;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B12",
+        "bundle_token": "B12",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B12;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R12,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B12;Core)",
+        "hash": "H(WS[R12,+]|AE=(F,\u03a60,B12;Core)|ZB+ZC|loc(C>B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R12,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B12;Core)",
+          "z": "ZB+ZC",
+          "ck": "loc(C>B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B12;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZC",
+          "checkpoint_match": "loc(C>B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R12,+]|AE=(F,\u03a60,B12;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R12,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B12;Core)",
+        "hash": "H(WS[R12,-]|AE=(F,\u03a61,B12;Core)|ZB+ZC|loc(C>B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R12,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B12;Core)",
+          "z": "ZB+ZC",
+          "ck": "loc(C>B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B12;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZC",
+          "checkpoint_match": "loc(C>B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R12,-]|AE=(F,\u03a61,B12;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "27/65",
+      "record_id": "R13",
+      "rot_plus": [
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "C",
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "bundle_id": "B13",
+      "parent_route": "S13",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B13;Core) | AE-=AE=(F,\u03a61,B13;Core)",
+      "entry_condition": "S13::set={A,B,C}",
+      "exit_condition": "rot+={B,C,D}; rot-={A,C,D}",
+      "z": "ZA+ZB+ZC",
+      "ck": "loc(A>C>B)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B13",
+        "bundle_token": "B13",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B13;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B13",
+        "bundle_token": "B13",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B13;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R13,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B13;Core)",
+        "hash": "H(WS[R13,+]|AE=(F,\u03a60,B13;Core)|ZA+ZB+ZC|loc(A>C>B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R13,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B13;Core)",
+          "z": "ZA+ZB+ZC",
+          "ck": "loc(A>C>B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B13;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZC",
+          "checkpoint_match": "loc(A>C>B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R13,+]|AE=(F,\u03a60,B13;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R13,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B13;Core)",
+        "hash": "H(WS[R13,-]|AE=(F,\u03a61,B13;Core)|ZA+ZB+ZC|loc(A>C>B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R13,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B13;Core)",
+          "z": "ZA+ZB+ZC",
+          "ck": "loc(A>C>B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B13;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZC",
+          "checkpoint_match": "loc(A>C>B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R13,-]|AE=(F,\u03a61,B13;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "28/65",
+      "record_id": "R20",
+      "rot_plus": [
+        "A"
+      ],
+      "rot_minus": [
+        "B"
+      ],
+      "family": "R",
+      "set": [
+        "D"
+      ],
+      "bundle_id": "B20",
+      "parent_route": "S20",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B20;Core) | AE-=AE=(F,\u03a61,B20;Core)",
+      "entry_condition": "S20::set={D}",
+      "exit_condition": "rot+={A}; rot-={B}",
+      "z": "ZD",
+      "ck": "loc(D)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B20",
+        "bundle_token": "B20",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B20;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B20",
+        "bundle_token": "B20",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B20;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R20,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B20;Core)",
+        "hash": "H(WS[R20,+]|AE=(F,\u03a60,B20;Core)|ZD|loc(D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R20,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B20;Core)",
+          "z": "ZD",
+          "ck": "loc(D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B20;Core)",
+          "slot_match": "Core",
+          "z_match": "ZD",
+          "checkpoint_match": "loc(D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R20,+]|AE=(F,\u03a60,B20;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R20,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B20;Core)",
+        "hash": "H(WS[R20,-]|AE=(F,\u03a61,B20;Core)|ZD|loc(D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R20,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B20;Core)",
+          "z": "ZD",
+          "ck": "loc(D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B20;Core)",
+          "slot_match": "Core",
+          "z_match": "ZD",
+          "checkpoint_match": "loc(D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R20,-]|AE=(F,\u03a61,B20;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "29/65",
+      "record_id": "R21",
+      "rot_plus": [
+        "A",
+        "C"
+      ],
+      "rot_minus": [
+        "B",
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A",
+        "D"
+      ],
+      "bundle_id": "B21",
+      "parent_route": "S21",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B21;Core) | AE-=AE=(F,\u03a61,B21;Core)",
+      "entry_condition": "S21::set={A,D}",
+      "exit_condition": "rot+={A,C}; rot-={B,D}",
+      "z": "ZA+ZD",
+      "ck": "loc(D>A)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B21",
+        "bundle_token": "B21",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B21;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B21",
+        "bundle_token": "B21",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B21;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R21,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B21;Core)",
+        "hash": "H(WS[R21,+]|AE=(F,\u03a60,B21;Core)|ZA+ZD|loc(D>A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R21,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B21;Core)",
+          "z": "ZA+ZD",
+          "ck": "loc(D>A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B21;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZD",
+          "checkpoint_match": "loc(D>A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R21,+]|AE=(F,\u03a60,B21;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R21,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B21;Core)",
+        "hash": "H(WS[R21,-]|AE=(F,\u03a61,B21;Core)|ZA+ZD|loc(D>A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R21,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B21;Core)",
+          "z": "ZA+ZD",
+          "ck": "loc(D>A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B21;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZD",
+          "checkpoint_match": "loc(D>A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R21,-]|AE=(F,\u03a61,B21;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "30/65",
+      "record_id": "R22",
+      "rot_plus": [
+        "A",
+        "D"
+      ],
+      "rot_minus": [
+        "B",
+        "C"
+      ],
+      "family": "R",
+      "set": [
+        "B",
+        "D"
+      ],
+      "bundle_id": "B22",
+      "parent_route": "S22",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B22;Core) | AE-=AE=(F,\u03a61,B22;Core)",
+      "entry_condition": "S22::set={B,D}",
+      "exit_condition": "rot+={A,D}; rot-={B,C}",
+      "z": "ZB+ZD",
+      "ck": "loc(B>D)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B22",
+        "bundle_token": "B22",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B22;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B22",
+        "bundle_token": "B22",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B22;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R22,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B22;Core)",
+        "hash": "H(WS[R22,+]|AE=(F,\u03a60,B22;Core)|ZB+ZD|loc(B>D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R22,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B22;Core)",
+          "z": "ZB+ZD",
+          "ck": "loc(B>D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B22;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZD",
+          "checkpoint_match": "loc(B>D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R22,+]|AE=(F,\u03a60,B22;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R22,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B22;Core)",
+        "hash": "H(WS[R22,-]|AE=(F,\u03a61,B22;Core)|ZB+ZD|loc(B>D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R22,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B22;Core)",
+          "z": "ZB+ZD",
+          "ck": "loc(B>D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B22;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZD",
+          "checkpoint_match": "loc(B>D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R22,-]|AE=(F,\u03a61,B22;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "31/65",
+      "record_id": "R23",
+      "rot_plus": [
+        "A",
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "B",
+        "C",
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "bundle_id": "B23",
+      "parent_route": "S23",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B23;Core) | AE-=AE=(F,\u03a61,B23;Core)",
+      "entry_condition": "S23::set={A,B,D}",
+      "exit_condition": "rot+={A,C,D}; rot-={B,C,D}",
+      "z": "ZA+ZB+ZD",
+      "ck": "loc(B>D>A)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B23",
+        "bundle_token": "B23",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B23;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B23",
+        "bundle_token": "B23",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B23;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R23,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B23;Core)",
+        "hash": "H(WS[R23,+]|AE=(F,\u03a60,B23;Core)|ZA+ZB+ZD|loc(B>D>A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R23,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B23;Core)",
+          "z": "ZA+ZB+ZD",
+          "ck": "loc(B>D>A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B23;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZD",
+          "checkpoint_match": "loc(B>D>A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R23,+]|AE=(F,\u03a60,B23;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R23,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B23;Core)",
+        "hash": "H(WS[R23,-]|AE=(F,\u03a61,B23;Core)|ZA+ZB+ZD|loc(B>D>A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R23,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B23;Core)",
+          "z": "ZA+ZB+ZD",
+          "ck": "loc(B>D>A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B23;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZD",
+          "checkpoint_match": "loc(B>D>A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R23,-]|AE=(F,\u03a61,B23;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "32/65",
+      "record_id": "R30",
+      "rot_plus": [
+        "A",
+        "B"
+      ],
+      "rot_minus": [
+        "A",
+        "B"
+      ],
+      "family": "R",
+      "set": [
+        "C",
+        "D"
+      ],
+      "bundle_id": "B30",
+      "parent_route": "S30",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B30;Core) | AE-=AE=(F,\u03a61,B30;Core)",
+      "entry_condition": "S30::set={C,D}",
+      "exit_condition": "rot+={A,B}; rot-={A,B}",
+      "z": "ZC+ZD",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B30",
+        "bundle_token": "B30",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B30;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B30",
+        "bundle_token": "B30",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B30;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R30,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B30;Core)",
+        "hash": "H(WS[R30,+]|AE=(F,\u03a60,B30;Core)|ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R30,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B30;Core)",
+          "z": "ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B30;Core)",
+          "slot_match": "Core",
+          "z_match": "ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R30,+]|AE=(F,\u03a60,B30;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R30,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B30;Core)",
+        "hash": "H(WS[R30,-]|AE=(F,\u03a61,B30;Core)|ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R30,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B30;Core)",
+          "z": "ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B30;Core)",
+          "slot_match": "Core",
+          "z_match": "ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R30,-]|AE=(F,\u03a61,B30;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "33/65",
+      "record_id": "R31",
+      "rot_plus": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rot_minus": [
+        "A",
+        "B",
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B31",
+      "parent_route": "S31",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B31;Core) | AE-=AE=(F,\u03a61,B31;Core)",
+      "entry_condition": "S31::set={A,C,D}",
+      "exit_condition": "rot+={A,B,C}; rot-={A,B,D}",
+      "z": "ZA+ZC+ZD",
+      "ck": "loc(D>A>C)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B31",
+        "bundle_token": "B31",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B31;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B31",
+        "bundle_token": "B31",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B31;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R31,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B31;Core)",
+        "hash": "H(WS[R31,+]|AE=(F,\u03a60,B31;Core)|ZA+ZC+ZD|loc(D>A>C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R31,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B31;Core)",
+          "z": "ZA+ZC+ZD",
+          "ck": "loc(D>A>C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B31;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZC+ZD",
+          "checkpoint_match": "loc(D>A>C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R31,+]|AE=(F,\u03a60,B31;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R31,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B31;Core)",
+        "hash": "H(WS[R31,-]|AE=(F,\u03a61,B31;Core)|ZA+ZC+ZD|loc(D>A>C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R31,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B31;Core)",
+          "z": "ZA+ZC+ZD",
+          "ck": "loc(D>A>C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B31;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZC+ZD",
+          "checkpoint_match": "loc(D>A>C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R31,-]|AE=(F,\u03a61,B31;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "34/65",
+      "record_id": "R32",
+      "rot_plus": [
+        "A",
+        "B",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "B",
+        "C"
+      ],
+      "family": "R",
+      "set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B32",
+      "parent_route": "S32",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B32;Core) | AE-=AE=(F,\u03a61,B32;Core)",
+      "entry_condition": "S32::set={B,C,D}",
+      "exit_condition": "rot+={A,B,D}; rot-={A,B,C}",
+      "z": "ZB+ZC+ZD",
+      "ck": "loc(C>B>D)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B32",
+        "bundle_token": "B32",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B32;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B32",
+        "bundle_token": "B32",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B32;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R32,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B32;Core)",
+        "hash": "H(WS[R32,+]|AE=(F,\u03a60,B32;Core)|ZB+ZC+ZD|loc(C>B>D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R32,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B32;Core)",
+          "z": "ZB+ZC+ZD",
+          "ck": "loc(C>B>D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B32;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZC+ZD",
+          "checkpoint_match": "loc(C>B>D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R32,+]|AE=(F,\u03a60,B32;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R32,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B32;Core)",
+        "hash": "H(WS[R32,-]|AE=(F,\u03a61,B32;Core)|ZB+ZC+ZD|loc(C>B>D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R32,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B32;Core)",
+          "z": "ZB+ZC+ZD",
+          "ck": "loc(C>B>D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B32;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZC+ZD",
+          "checkpoint_match": "loc(C>B>D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R32,-]|AE=(F,\u03a61,B32;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "35/65",
+      "record_id": "R33",
+      "rot_plus": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "family": "R",
+      "set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B33",
+      "parent_route": "S33",
+      "transfer_mode": "rotation-pair",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE+=AE=(F,\u03a60,B33;Core) | AE-=AE=(F,\u03a61,B33;Core)",
+      "entry_condition": "S33::set={A,B,C,D}",
+      "exit_condition": "rot+={A,B,C,D}; rot-={A,B,C,D}",
+      "z": "ZA+ZB+ZC+ZD",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate_plus": {
+        "lens": "F",
+        "phase_bin": "\u03a60",
+        "phase_alias": "R+",
+        "bundle_id": "B33",
+        "bundle_token": "B33",
+        "slot": "Core",
+        "render": "AE=(F,\u03a60,B33;Core)"
+      },
+      "aether_coordinate_minus": {
+        "lens": "F",
+        "phase_bin": "\u03a61",
+        "phase_alias": "R-",
+        "bundle_id": "B33",
+        "bundle_token": "B33",
+        "slot": "Core",
+        "render": "AE=(F,\u03a61,B33;Core)"
+      },
+      "witness_seed_plus": {
+        "id": "WS[R33,+]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a60,B33;Core)",
+        "hash": "H(WS[R33,+]|AE=(F,\u03a60,B33;Core)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_plus": {
+        "id": "RS[R33,+]",
+        "inputs": {
+          "AE": "AE=(F,\u03a60,B33;Core)",
+          "z": "ZA+ZB+ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a60,B33;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R33,+]|AE=(F,\u03a60,B33;Core)|E_2B)"
+      },
+      "witness_seed_minus": {
+        "id": "WS[R33,-]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a61,B33;Core)",
+        "hash": "H(WS[R33,-]|AE=(F,\u03a61,B33;Core)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed_minus": {
+        "id": "RS[R33,-]",
+        "inputs": {
+          "AE": "AE=(F,\u03a61,B33;Core)",
+          "z": "ZA+ZB+ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a61,B33;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[R33,-]|AE=(F,\u03a61,B33;Core)|E_2B)"
+      }
+    }
+  ],
+  "spin_rows": [
+    {
+      "address": "36/65",
+      "record_id": "Q01",
+      "orbit": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A"
+      ],
+      "bundle_id": "B01",
+      "parent_route": "R01",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B01;Core)",
+      "entry_condition": "R01::rot+={C}; rot-={D}",
+      "exit_condition": "orbit={A} -> {C} -> {B} -> {D}",
+      "z": "ZA",
+      "ck": "loc(A)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B01",
+        "bundle_token": "B01",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B01;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q01]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B01;Core)",
+        "hash": "H(WS[Q01]|AE=(F,\u03a62,B01;Core)|ZA|loc(A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q01]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B01;Core)",
+          "z": "ZA",
+          "ck": "loc(A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B01;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA",
+          "checkpoint_match": "loc(A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q01]|AE=(F,\u03a62,B01;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "37/65",
+      "record_id": "Q02",
+      "orbit": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "B"
+      ],
+      "bundle_id": "B02",
+      "parent_route": "R02",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B02;Core)",
+      "entry_condition": "R02::rot+={D}; rot-={C}",
+      "exit_condition": "orbit={B} -> {D} -> {A} -> {C}",
+      "z": "ZB",
+      "ck": "loc(B)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B02",
+        "bundle_token": "B02",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B02;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q02]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B02;Core)",
+        "hash": "H(WS[Q02]|AE=(F,\u03a62,B02;Core)|ZB|loc(B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q02]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B02;Core)",
+          "z": "ZB",
+          "ck": "loc(B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B02;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB",
+          "checkpoint_match": "loc(B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q02]|AE=(F,\u03a62,B02;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "38/65",
+      "record_id": "Q03",
+      "orbit": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A",
+        "B"
+      ],
+      "bundle_id": "B03",
+      "parent_route": "R03",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B03;Core)",
+      "entry_condition": "R03::rot+={C,D}; rot-={C,D}",
+      "exit_condition": "orbit={A,B} -> {C,D} -> {A,B} -> {C,D}",
+      "z": "ZA+ZB",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B03",
+        "bundle_token": "B03",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B03;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q03]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B03;Core)",
+        "hash": "H(WS[Q03]|AE=(F,\u03a62,B03;Core)|ZA+ZB|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q03]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B03;Core)",
+          "z": "ZA+ZB",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B03;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q03]|AE=(F,\u03a62,B03;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "39/65",
+      "record_id": "Q10",
+      "orbit": [
+        [
+          "C"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "C"
+      ],
+      "bundle_id": "B10",
+      "parent_route": "R10",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B10;Core)",
+      "entry_condition": "R10::rot+={B}; rot-={A}",
+      "exit_condition": "orbit={C} -> {B} -> {D} -> {A}",
+      "z": "ZC",
+      "ck": "loc(C)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B10",
+        "bundle_token": "B10",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B10;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q10]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B10;Core)",
+        "hash": "H(WS[Q10]|AE=(F,\u03a62,B10;Core)|ZC|loc(C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q10]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B10;Core)",
+          "z": "ZC",
+          "ck": "loc(C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B10;Core)",
+          "slot_match": "Core",
+          "z_match": "ZC",
+          "checkpoint_match": "loc(C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q10]|AE=(F,\u03a62,B10;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "40/65",
+      "record_id": "Q11",
+      "orbit": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A",
+        "C"
+      ],
+      "bundle_id": "B11",
+      "parent_route": "R11",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B11;Core)",
+      "entry_condition": "R11::rot+={B,C}; rot-={A,D}",
+      "exit_condition": "orbit={A,C} -> {B,C} -> {B,D} -> {A,D}",
+      "z": "ZA+ZC",
+      "ck": "loc(A>C)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B11",
+        "bundle_token": "B11",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B11;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q11]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B11;Core)",
+        "hash": "H(WS[Q11]|AE=(F,\u03a62,B11;Core)|ZA+ZC|loc(A>C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q11]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B11;Core)",
+          "z": "ZA+ZC",
+          "ck": "loc(A>C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B11;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZC",
+          "checkpoint_match": "loc(A>C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q11]|AE=(F,\u03a62,B11;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "41/65",
+      "record_id": "Q12",
+      "orbit": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "B",
+        "C"
+      ],
+      "bundle_id": "B12",
+      "parent_route": "R12",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B12;Core)",
+      "entry_condition": "R12::rot+={B,D}; rot-={A,C}",
+      "exit_condition": "orbit={B,C} -> {B,D} -> {A,D} -> {A,C}",
+      "z": "ZB+ZC",
+      "ck": "loc(C>B)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B12",
+        "bundle_token": "B12",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B12;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q12]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B12;Core)",
+        "hash": "H(WS[Q12]|AE=(F,\u03a62,B12;Core)|ZB+ZC|loc(C>B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q12]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B12;Core)",
+          "z": "ZB+ZC",
+          "ck": "loc(C>B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B12;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZC",
+          "checkpoint_match": "loc(C>B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q12]|AE=(F,\u03a62,B12;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "42/65",
+      "record_id": "Q13",
+      "orbit": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "bundle_id": "B13",
+      "parent_route": "R13",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B13;Core)",
+      "entry_condition": "R13::rot+={B,C,D}; rot-={A,C,D}",
+      "exit_condition": "orbit={A,B,C} -> {B,C,D} -> {A,B,D} -> {A,C,D}",
+      "z": "ZA+ZB+ZC",
+      "ck": "loc(A>C>B)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B13",
+        "bundle_token": "B13",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B13;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q13]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B13;Core)",
+        "hash": "H(WS[Q13]|AE=(F,\u03a62,B13;Core)|ZA+ZB+ZC|loc(A>C>B)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q13]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B13;Core)",
+          "z": "ZA+ZB+ZC",
+          "ck": "loc(A>C>B)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B13;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZC",
+          "checkpoint_match": "loc(A>C>B)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q13]|AE=(F,\u03a62,B13;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "43/65",
+      "record_id": "Q20",
+      "orbit": [
+        [
+          "D"
+        ],
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "D"
+      ],
+      "bundle_id": "B20",
+      "parent_route": "R20",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B20;Core)",
+      "entry_condition": "R20::rot+={A}; rot-={B}",
+      "exit_condition": "orbit={D} -> {A} -> {C} -> {B}",
+      "z": "ZD",
+      "ck": "loc(D)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B20",
+        "bundle_token": "B20",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B20;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q20]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B20;Core)",
+        "hash": "H(WS[Q20]|AE=(F,\u03a62,B20;Core)|ZD|loc(D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q20]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B20;Core)",
+          "z": "ZD",
+          "ck": "loc(D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B20;Core)",
+          "slot_match": "Core",
+          "z_match": "ZD",
+          "checkpoint_match": "loc(D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q20]|AE=(F,\u03a62,B20;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "44/65",
+      "record_id": "Q21",
+      "orbit": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A",
+        "D"
+      ],
+      "bundle_id": "B21",
+      "parent_route": "R21",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B21;Core)",
+      "entry_condition": "R21::rot+={A,C}; rot-={B,D}",
+      "exit_condition": "orbit={A,D} -> {A,C} -> {B,C} -> {B,D}",
+      "z": "ZA+ZD",
+      "ck": "loc(D>A)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B21",
+        "bundle_token": "B21",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B21;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q21]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B21;Core)",
+        "hash": "H(WS[Q21]|AE=(F,\u03a62,B21;Core)|ZA+ZD|loc(D>A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q21]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B21;Core)",
+          "z": "ZA+ZD",
+          "ck": "loc(D>A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B21;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZD",
+          "checkpoint_match": "loc(D>A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q21]|AE=(F,\u03a62,B21;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "45/65",
+      "record_id": "Q22",
+      "orbit": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "B",
+        "D"
+      ],
+      "bundle_id": "B22",
+      "parent_route": "R22",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B22;Core)",
+      "entry_condition": "R22::rot+={A,D}; rot-={B,C}",
+      "exit_condition": "orbit={B,D} -> {A,D} -> {A,C} -> {B,C}",
+      "z": "ZB+ZD",
+      "ck": "loc(B>D)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B22",
+        "bundle_token": "B22",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B22;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q22]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B22;Core)",
+        "hash": "H(WS[Q22]|AE=(F,\u03a62,B22;Core)|ZB+ZD|loc(B>D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q22]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B22;Core)",
+          "z": "ZB+ZD",
+          "ck": "loc(B>D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B22;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZD",
+          "checkpoint_match": "loc(B>D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q22]|AE=(F,\u03a62,B22;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "46/65",
+      "record_id": "Q23",
+      "orbit": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "bundle_id": "B23",
+      "parent_route": "R23",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B23;Core)",
+      "entry_condition": "R23::rot+={A,C,D}; rot-={B,C,D}",
+      "exit_condition": "orbit={A,B,D} -> {A,C,D} -> {A,B,C} -> {B,C,D}",
+      "z": "ZA+ZB+ZD",
+      "ck": "loc(B>D>A)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B23",
+        "bundle_token": "B23",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B23;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q23]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B23;Core)",
+        "hash": "H(WS[Q23]|AE=(F,\u03a62,B23;Core)|ZA+ZB+ZD|loc(B>D>A)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q23]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B23;Core)",
+          "z": "ZA+ZB+ZD",
+          "ck": "loc(B>D>A)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B23;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZD",
+          "checkpoint_match": "loc(B>D>A)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q23]|AE=(F,\u03a62,B23;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "47/65",
+      "record_id": "Q30",
+      "orbit": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "C",
+        "D"
+      ],
+      "bundle_id": "B30",
+      "parent_route": "R30",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B30;Core)",
+      "entry_condition": "R30::rot+={A,B}; rot-={A,B}",
+      "exit_condition": "orbit={C,D} -> {A,B} -> {C,D} -> {A,B}",
+      "z": "ZC+ZD",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B30",
+        "bundle_token": "B30",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B30;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q30]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B30;Core)",
+        "hash": "H(WS[Q30]|AE=(F,\u03a62,B30;Core)|ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q30]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B30;Core)",
+          "z": "ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B30;Core)",
+          "slot_match": "Core",
+          "z_match": "ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q30]|AE=(F,\u03a62,B30;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "48/65",
+      "record_id": "Q31",
+      "orbit": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B31",
+      "parent_route": "R31",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B31;Core)",
+      "entry_condition": "R31::rot+={A,B,C}; rot-={A,B,D}",
+      "exit_condition": "orbit={A,C,D} -> {A,B,C} -> {B,C,D} -> {A,B,D}",
+      "z": "ZA+ZC+ZD",
+      "ck": "loc(D>A>C)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B31",
+        "bundle_token": "B31",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B31;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q31]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B31;Core)",
+        "hash": "H(WS[Q31]|AE=(F,\u03a62,B31;Core)|ZA+ZC+ZD|loc(D>A>C)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q31]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B31;Core)",
+          "z": "ZA+ZC+ZD",
+          "ck": "loc(D>A>C)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B31;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZC+ZD",
+          "checkpoint_match": "loc(D>A>C)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q31]|AE=(F,\u03a62,B31;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "49/65",
+      "record_id": "Q32",
+      "orbit": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B32",
+      "parent_route": "R32",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B32;Core)",
+      "entry_condition": "R32::rot+={A,B,D}; rot-={A,B,C}",
+      "exit_condition": "orbit={B,C,D} -> {A,B,D} -> {A,C,D} -> {A,B,C}",
+      "z": "ZB+ZC+ZD",
+      "ck": "loc(C>B>D)",
+      "rt_alias": "rtL",
+      "rt": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtL",
+        "id": "Sigma-F-N-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B32",
+        "bundle_token": "B32",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B32;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q32]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B32;Core)",
+        "hash": "H(WS[Q32]|AE=(F,\u03a62,B32;Core)|ZB+ZC+ZD|loc(C>B>D)|rtL)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q32]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B32;Core)",
+          "z": "ZB+ZC+ZD",
+          "ck": "loc(C>B>D)",
+          "rt": "rtL"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B32;Core)",
+          "slot_match": "Core",
+          "z_match": "ZB+ZC+ZD",
+          "checkpoint_match": "loc(C>B>D)",
+          "route_match": "rtL",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q32]|AE=(F,\u03a62,B32;Core)|E_2B)"
+      }
+    },
+    {
+      "address": "50/65",
+      "record_id": "Q33",
+      "orbit": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "family": "Q",
+      "set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B33",
+      "parent_route": "R33",
+      "transfer_mode": "base4-spin",
+      "tunnel_class": "adjacent-bridge",
+      "aether_state": "AE=(F,\u03a62,B33;Core)",
+      "entry_condition": "R33::rot+={A,B,C,D}; rot-={A,B,C,D}",
+      "exit_condition": "orbit={A,B,C,D} -> {A,B,C,D} -> {A,B,C,D} -> {A,B,C,D}",
+      "z": "ZA+ZB+ZC+ZD",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle_id": "B33",
+        "bundle_token": "B33",
+        "slot": "Core",
+        "render": "AE=(F,\u03a62,B33;Core)"
+      },
+      "witness_seed": {
+        "id": "WS[Q33]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a62,B33;Core)",
+        "hash": "H(WS[Q33]|AE=(F,\u03a62,B33;Core)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[Q33]",
+        "inputs": {
+          "AE": "AE=(F,\u03a62,B33;Core)",
+          "z": "ZA+ZB+ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a62,B33;Core)",
+          "slot_match": "Core",
+          "z_match": "ZA+ZB+ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[Q33]|AE=(F,\u03a62,B33;Core)|E_2B)"
+      }
+    }
+  ],
+  "antispin_rows": [
+    {
+      "address": "51/65",
+      "record_id": "T01",
+      "hide": "C",
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A"
+      ],
+      "bundle_id": "B01",
+      "parent_route": "Q01",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B01:h=C;Residual)",
+      "entry_condition": "Q01::orbit={A} -> {C} -> {B} -> {D}; hide=C; triad={A,B,D}",
+      "exit_condition": "anti+={A} -> {B} -> {D}; anti-={A} -> {D} -> {B}; hide=C",
+      "z": "ZA",
+      "ck": "loc(A)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B01",
+        "bundle_token": "B01:h=C",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B01:h=C;Residual)",
+        "hidden_pole": "C"
+      },
+      "witness_seed": {
+        "id": "WS[T01]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B01:h=C;Residual)",
+        "hash": "H(WS[T01]|AE=(F,\u03a63,B01:h=C;Residual)|ZA|loc(A)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T01]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B01:h=C;Residual)",
+          "z": "ZA",
+          "ck": "loc(A)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B01:h=C;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA",
+          "checkpoint_match": "loc(A)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T01]|AE=(F,\u03a63,B01:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "52/65",
+      "record_id": "T02",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "B"
+      ],
+      "bundle_id": "B02",
+      "parent_route": "Q02",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B02:h=A;Residual)",
+      "entry_condition": "Q02::orbit={B} -> {D} -> {A} -> {C}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={B} -> {D} -> {C}; anti-={B} -> {C} -> {D}; hide=A",
+      "z": "ZB",
+      "ck": "loc(B)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B02",
+        "bundle_token": "B02:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B02:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T02]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B02:h=A;Residual)",
+        "hash": "H(WS[T02]|AE=(F,\u03a63,B02:h=A;Residual)|ZB|loc(B)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T02]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B02:h=A;Residual)",
+          "z": "ZB",
+          "ck": "loc(B)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B02:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZB",
+          "checkpoint_match": "loc(B)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T02]|AE=(F,\u03a63,B02:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "53/65",
+      "record_id": "T03",
+      "hide": "C",
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A",
+        "B"
+      ],
+      "bundle_id": "B03",
+      "parent_route": "Q03",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B03:h=C;Residual)",
+      "entry_condition": "Q03::orbit={A,B} -> {C,D} -> {A,B} -> {C,D}; hide=C; triad={A,B,D}",
+      "exit_condition": "anti+={A,B} -> {B,D} -> {A,D}; anti-={A,B} -> {A,D} -> {B,D}; hide=C",
+      "z": "ZA+ZB",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B03",
+        "bundle_token": "B03:h=C",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B03:h=C;Residual)",
+        "hidden_pole": "C"
+      },
+      "witness_seed": {
+        "id": "WS[T03]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B03:h=C;Residual)",
+        "hash": "H(WS[T03]|AE=(F,\u03a63,B03:h=C;Residual)|ZA+ZB|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T03]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B03:h=C;Residual)",
+          "z": "ZA+ZB",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B03:h=C;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA+ZB",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T03]|AE=(F,\u03a63,B03:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "54/65",
+      "record_id": "T10",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "C"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "C"
+      ],
+      "bundle_id": "B10",
+      "parent_route": "Q10",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B10:h=A;Residual)",
+      "entry_condition": "Q10::orbit={C} -> {B} -> {D} -> {A}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={C} -> {B} -> {D}; anti-={C} -> {D} -> {B}; hide=A",
+      "z": "ZC",
+      "ck": "loc(C)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B10",
+        "bundle_token": "B10:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B10:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T10]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B10:h=A;Residual)",
+        "hash": "H(WS[T10]|AE=(F,\u03a63,B10:h=A;Residual)|ZC|loc(C)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T10]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B10:h=A;Residual)",
+          "z": "ZC",
+          "ck": "loc(C)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B10:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZC",
+          "checkpoint_match": "loc(C)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T10]|AE=(F,\u03a63,B10:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "55/65",
+      "record_id": "T11",
+      "hide": "B",
+      "triad": [
+        "A",
+        "C",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A",
+        "C"
+      ],
+      "bundle_id": "B11",
+      "parent_route": "Q11",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B11:h=B;Residual)",
+      "entry_condition": "Q11::orbit={A,C} -> {B,C} -> {B,D} -> {A,D}; hide=B; triad={A,C,D}",
+      "exit_condition": "anti+={A,C} -> {C,D} -> {A,D}; anti-={A,C} -> {A,D} -> {C,D}; hide=B",
+      "z": "ZA+ZC",
+      "ck": "loc(A>C)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B11",
+        "bundle_token": "B11:h=B",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B11:h=B;Residual)",
+        "hidden_pole": "B"
+      },
+      "witness_seed": {
+        "id": "WS[T11]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B11:h=B;Residual)",
+        "hash": "H(WS[T11]|AE=(F,\u03a63,B11:h=B;Residual)|ZA+ZC|loc(A>C)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T11]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B11:h=B;Residual)",
+          "z": "ZA+ZC",
+          "ck": "loc(A>C)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B11:h=B;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA+ZC",
+          "checkpoint_match": "loc(A>C)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T11]|AE=(F,\u03a63,B11:h=B;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "56/65",
+      "record_id": "T12",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "B",
+        "C"
+      ],
+      "bundle_id": "B12",
+      "parent_route": "Q12",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B12:h=A;Residual)",
+      "entry_condition": "Q12::orbit={B,C} -> {B,D} -> {A,D} -> {A,C}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={B,C} -> {B,D} -> {C,D}; anti-={B,C} -> {C,D} -> {B,D}; hide=A",
+      "z": "ZB+ZC",
+      "ck": "loc(C>B)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B12",
+        "bundle_token": "B12:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B12:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T12]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B12:h=A;Residual)",
+        "hash": "H(WS[T12]|AE=(F,\u03a63,B12:h=A;Residual)|ZB+ZC|loc(C>B)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T12]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B12:h=A;Residual)",
+          "z": "ZB+ZC",
+          "ck": "loc(C>B)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B12:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZB+ZC",
+          "checkpoint_match": "loc(C>B)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T12]|AE=(F,\u03a63,B12:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "57/65",
+      "record_id": "T13",
+      "hide": "D",
+      "triad": [
+        "A",
+        "C",
+        "B"
+      ],
+      "anti_plus": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "bundle_id": "B13",
+      "parent_route": "Q13",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B13:h=D;Residual)",
+      "entry_condition": "Q13::orbit={A,B,C} -> {B,C,D} -> {A,B,D} -> {A,C,D}; hide=D; triad={A,C,B}",
+      "exit_condition": "anti+={A,B,C} -> {A,B,C} -> {A,B,C}; anti-={A,B,C} -> {A,B,C} -> {A,B,C}; hide=D",
+      "z": "ZA+ZB+ZC",
+      "ck": "loc(A>C>B)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B13",
+        "bundle_token": "B13:h=D",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B13:h=D;Residual)",
+        "hidden_pole": "D"
+      },
+      "witness_seed": {
+        "id": "WS[T13]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B13:h=D;Residual)",
+        "hash": "H(WS[T13]|AE=(F,\u03a63,B13:h=D;Residual)|ZA+ZB+ZC|loc(A>C>B)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T13]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B13:h=D;Residual)",
+          "z": "ZA+ZB+ZC",
+          "ck": "loc(A>C>B)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B13:h=D;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA+ZB+ZC",
+          "checkpoint_match": "loc(A>C>B)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T13]|AE=(F,\u03a63,B13:h=D;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "58/65",
+      "record_id": "T20",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "D"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "D"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "D"
+      ],
+      "bundle_id": "B20",
+      "parent_route": "Q20",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B20:h=A;Residual)",
+      "entry_condition": "Q20::orbit={D} -> {A} -> {C} -> {B}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={D} -> {C} -> {B}; anti-={D} -> {B} -> {C}; hide=A",
+      "z": "ZD",
+      "ck": "loc(D)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B20",
+        "bundle_token": "B20:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B20:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T20]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B20:h=A;Residual)",
+        "hash": "H(WS[T20]|AE=(F,\u03a63,B20:h=A;Residual)|ZD|loc(D)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T20]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B20:h=A;Residual)",
+          "z": "ZD",
+          "ck": "loc(D)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B20:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZD",
+          "checkpoint_match": "loc(D)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T20]|AE=(F,\u03a63,B20:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "59/65",
+      "record_id": "T21",
+      "hide": "C",
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A",
+        "D"
+      ],
+      "bundle_id": "B21",
+      "parent_route": "Q21",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B21:h=C;Residual)",
+      "entry_condition": "Q21::orbit={A,D} -> {A,C} -> {B,C} -> {B,D}; hide=C; triad={A,B,D}",
+      "exit_condition": "anti+={A,D} -> {A,B} -> {B,D}; anti-={A,D} -> {B,D} -> {A,B}; hide=C",
+      "z": "ZA+ZD",
+      "ck": "loc(D>A)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B21",
+        "bundle_token": "B21:h=C",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B21:h=C;Residual)",
+        "hidden_pole": "C"
+      },
+      "witness_seed": {
+        "id": "WS[T21]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B21:h=C;Residual)",
+        "hash": "H(WS[T21]|AE=(F,\u03a63,B21:h=C;Residual)|ZA+ZD|loc(D>A)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T21]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B21:h=C;Residual)",
+          "z": "ZA+ZD",
+          "ck": "loc(D>A)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B21:h=C;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA+ZD",
+          "checkpoint_match": "loc(D>A)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T21]|AE=(F,\u03a63,B21:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "60/65",
+      "record_id": "T22",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "B",
+        "D"
+      ],
+      "bundle_id": "B22",
+      "parent_route": "Q22",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B22:h=A;Residual)",
+      "entry_condition": "Q22::orbit={B,D} -> {A,D} -> {A,C} -> {B,C}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={B,D} -> {C,D} -> {B,C}; anti-={B,D} -> {B,C} -> {C,D}; hide=A",
+      "z": "ZB+ZD",
+      "ck": "loc(B>D)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B22",
+        "bundle_token": "B22:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B22:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T22]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B22:h=A;Residual)",
+        "hash": "H(WS[T22]|AE=(F,\u03a63,B22:h=A;Residual)|ZB+ZD|loc(B>D)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T22]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B22:h=A;Residual)",
+          "z": "ZB+ZD",
+          "ck": "loc(B>D)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B22:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZB+ZD",
+          "checkpoint_match": "loc(B>D)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T22]|AE=(F,\u03a63,B22:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "61/65",
+      "record_id": "T23",
+      "hide": "C",
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "bundle_id": "B23",
+      "parent_route": "Q23",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B23:h=C;Residual)",
+      "entry_condition": "Q23::orbit={A,B,D} -> {A,C,D} -> {A,B,C} -> {B,C,D}; hide=C; triad={A,B,D}",
+      "exit_condition": "anti+={A,B,D} -> {A,B,D} -> {A,B,D}; anti-={A,B,D} -> {A,B,D} -> {A,B,D}; hide=C",
+      "z": "ZA+ZB+ZD",
+      "ck": "loc(B>D>A)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B23",
+        "bundle_token": "B23:h=C",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B23:h=C;Residual)",
+        "hidden_pole": "C"
+      },
+      "witness_seed": {
+        "id": "WS[T23]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B23:h=C;Residual)",
+        "hash": "H(WS[T23]|AE=(F,\u03a63,B23:h=C;Residual)|ZA+ZB+ZD|loc(B>D>A)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T23]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B23:h=C;Residual)",
+          "z": "ZA+ZB+ZD",
+          "ck": "loc(B>D>A)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B23:h=C;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA+ZB+ZD",
+          "checkpoint_match": "loc(B>D>A)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T23]|AE=(F,\u03a63,B23:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "62/65",
+      "record_id": "T30",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "C",
+        "D"
+      ],
+      "bundle_id": "B30",
+      "parent_route": "Q30",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B30:h=A;Residual)",
+      "entry_condition": "Q30::orbit={C,D} -> {A,B} -> {C,D} -> {A,B}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={C,D} -> {B,C} -> {B,D}; anti-={C,D} -> {B,D} -> {B,C}; hide=A",
+      "z": "ZC+ZD",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B30",
+        "bundle_token": "B30:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B30:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T30]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B30:h=A;Residual)",
+        "hash": "H(WS[T30]|AE=(F,\u03a63,B30:h=A;Residual)|ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T30]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B30:h=A;Residual)",
+          "z": "ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B30:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T30]|AE=(F,\u03a63,B30:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "63/65",
+      "record_id": "T31",
+      "hide": "B",
+      "triad": [
+        "A",
+        "C",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B31",
+      "parent_route": "Q31",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B31:h=B;Residual)",
+      "entry_condition": "Q31::orbit={A,C,D} -> {A,B,C} -> {B,C,D} -> {A,B,D}; hide=B; triad={A,C,D}",
+      "exit_condition": "anti+={A,C,D} -> {A,C,D} -> {A,C,D}; anti-={A,C,D} -> {A,C,D} -> {A,C,D}; hide=B",
+      "z": "ZA+ZC+ZD",
+      "ck": "loc(D>A>C)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B31",
+        "bundle_token": "B31:h=B",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B31:h=B;Residual)",
+        "hidden_pole": "B"
+      },
+      "witness_seed": {
+        "id": "WS[T31]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B31:h=B;Residual)",
+        "hash": "H(WS[T31]|AE=(F,\u03a63,B31:h=B;Residual)|ZA+ZC+ZD|loc(D>A>C)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T31]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B31:h=B;Residual)",
+          "z": "ZA+ZC+ZD",
+          "ck": "loc(D>A>C)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B31:h=B;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA+ZC+ZD",
+          "checkpoint_match": "loc(D>A>C)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T31]|AE=(F,\u03a63,B31:h=B;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "64/65",
+      "record_id": "T32",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B32",
+      "parent_route": "Q32",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B32:h=A;Residual)",
+      "entry_condition": "Q32::orbit={B,C,D} -> {A,B,D} -> {A,C,D} -> {A,B,C}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={B,C,D} -> {B,C,D} -> {B,C,D}; anti-={B,C,D} -> {B,C,D} -> {B,C,D}; hide=A",
+      "z": "ZB+ZC+ZD",
+      "ck": "loc(C>B>D)",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B32",
+        "bundle_token": "B32:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B32:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T32]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B32:h=A;Residual)",
+        "hash": "H(WS[T32]|AE=(F,\u03a63,B32:h=A;Residual)|ZB+ZC+ZD|loc(C>B>D)|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T32]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B32:h=A;Residual)",
+          "z": "ZB+ZC+ZD",
+          "ck": "loc(C>B>D)",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B32:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZB+ZC+ZD",
+          "checkpoint_match": "loc(C>B>D)",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T32]|AE=(F,\u03a63,B32:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "address": "65/65",
+      "record_id": "T33",
+      "hide": "A",
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "family": "T",
+      "set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "bundle_id": "B33",
+      "parent_route": "Q33",
+      "transfer_mode": "base3-antispin",
+      "tunnel_class": "z-star",
+      "aether_state": "AE=(F,\u03a63,B33:h=A;Residual)",
+      "entry_condition": "Q33::orbit={A,B,C,D} -> {A,B,C,D} -> {A,B,C,D} -> {A,B,C,D}; hide=A; triad={C,B,D}",
+      "exit_condition": "anti+={A,B,C,D} -> {A,B,C,D} -> {A,B,C,D}; anti-={A,B,C,D} -> {A,B,C,D} -> {A,B,C,D}; hide=A",
+      "z": "ZA+ZB+ZC+ZD",
+      "ck": "Z*",
+      "rt_alias": "rtZ",
+      "rt": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9",
+      "route_pin": {
+        "alias": "rtZ",
+        "id": "Sigma-F-G-21",
+        "resolved": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+      },
+      "aether_coordinate": {
+        "lens": "F",
+        "phase_bin": "\u03a63",
+        "phase_alias": "T3",
+        "bundle_id": "B33",
+        "bundle_token": "B33:h=A",
+        "slot": "Residual",
+        "render": "AE=(F,\u03a63,B33:h=A;Residual)",
+        "hidden_pole": "A"
+      },
+      "witness_seed": {
+        "id": "WS[T33]",
+        "type": "INTERNAL_SLICE",
+        "location": "AE=(F,\u03a63,B33:h=A;Residual)",
+        "hash": "H(WS[T33]|AE=(F,\u03a63,B33:h=A;Residual)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+        "scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "timestamp": "Tick_2B",
+        "collector": "SYSTEM",
+        "version_pins": "V_2B"
+      },
+      "replay_seed": {
+        "id": "RS[T33]",
+        "inputs": {
+          "AE": "AE=(F,\u03a63,B33:h=A;Residual)",
+          "z": "ZA+ZB+ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "expected_outputs": {
+          "location_match": "AE=(F,\u03a63,B33:h=A;Residual)",
+          "slot_match": "Residual",
+          "z_match": "ZA+ZB+ZC+ZD",
+          "checkpoint_match": "Z*",
+          "route_match": "rtZ",
+          "sigma_satisfied": "AppA -> AppI -> AppM",
+          "hub_budget_satisfied": "Hub<=6"
+        },
+        "checks": [
+          "Sigma",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "env_pin": "E_2B",
+        "hash": "H(RS[T33]|AE=(F,\u03a63,B33:h=A;Residual)|E_2B)"
+      }
+    }
+  ]
+}

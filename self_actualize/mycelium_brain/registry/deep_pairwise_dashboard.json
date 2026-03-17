@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-03-13T01:20:48.509166+00:00",
+  "derivation_version": "2026-03-13.deep-pairwise-v1",
+  "truth": "OK",
+  "docs_gate": {
+    "status": "blocked-by-missing-credentials",
+    "resolution": "lawfully-isolated",
+    "fallback_mode": "local-first-truth-corridor"
+  },
+  "counts": {
+    "deep_pairwise_families": 6,
+    "deep_pairwise_slices": 18,
+    "deep_pairwise_packets": 18,
+    "promoted_weaves": 6
+  },
+  "metro_level": "Level 3",
+  "transit_spine": "GCW -> GCZ",
+  "appendix_q_mandatory": true,
+  "verifier_truth": {
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK",
+    "runtime_waist": "OK"
+  },
+  "next_restart_seed": "source-pair replay -> GCW-GCZ transit -> target-pair writeback -> verify -> seed-next-pair"
+}

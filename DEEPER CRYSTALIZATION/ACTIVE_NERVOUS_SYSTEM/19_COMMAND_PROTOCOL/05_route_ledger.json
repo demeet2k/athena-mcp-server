@@ -1,0 +1,1071 @@
+{
+  "generated_at": "2026-03-13T20:57:09.807332+00:00",
+  "truth_status": "NEAR-derived",
+  "entries": [
+    {
+      "entry_id": "RTE-EVT-20260313-0001-0001",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0001",
+      "routed_at": "2026-03-13T20:37:41.006380+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign",
+        "priority": 0.75,
+        "pheromone": 0.6875,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 0.8,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0101.WORKER-02": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1000.ARCHIVIST-01": 0.3
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 211.058,
+        "swarm_awareness_latency_ms": 211.058,
+        "claim_latency_ms": 366.136,
+        "resolution_latency_ms": 491.667
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0001",
+        "chosen_action": "ACTIVATE_NOW",
+        "reason": "This packet is the highest lawful motion under the current score and override regime.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.175626,
+        "blocker_classes": [],
+        "obligations": [
+          "emit typed runtime receipt",
+          "write replay/store obligation",
+          "mutate queue state",
+          "emit successor seed"
+        ]
+      },
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived",
+      "capillary_score": 0.536
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0001-0002",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0001",
+      "reinforced_at": "2026-03-13T20:37:41.286989+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "result": "success",
+      "latency_score": 0.94,
+      "noise_penalty": 0.05,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 0.536,
+          "success_count": 1,
+          "frequency": 1,
+          "noise_penalty": 0.05,
+          "avg_latency_score": 0.94,
+          "maturity": "weak-edge",
+          "last_event_id": "EVT-20260313-0001",
+          "updated_at": "2026-03-13T20:37:41.286989+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "weight": 0.536,
+          "success_count": 1,
+          "frequency": 1,
+          "noise_penalty": 0.05,
+          "avg_latency_score": 0.94,
+          "maturity": "weak-edge",
+          "last_event_id": "EVT-20260313-0001",
+          "updated_at": "2026-03-13T20:37:41.286989+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+          "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+          "weight": 0.536,
+          "success_count": 1,
+          "frequency": 1,
+          "noise_penalty": 0.05,
+          "avg_latency_score": 0.94,
+          "maturity": "weak-edge",
+          "last_event_id": "EVT-20260313-0001",
+          "updated_at": "2026-03-13T20:37:41.286989+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0002-0003",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0002",
+      "routed_at": "2026-03-13T20:37:41.540041+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign-runtime",
+        "priority": 0.75,
+        "pheromone": 0.6875,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 0.8,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0101.WORKER-02": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1000.ARCHIVIST-01": 0.3
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 120.547,
+        "swarm_awareness_latency_ms": 120.547,
+        "claim_latency_ms": 230.662,
+        "resolution_latency_ms": 342.32
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0002",
+        "chosen_action": "ACTIVATE_NOW",
+        "reason": "This packet is the highest lawful motion under the current score and override regime.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.175626,
+        "blocker_classes": [],
+        "obligations": [
+          "emit typed runtime receipt",
+          "write replay/store obligation",
+          "mutate queue state",
+          "emit successor seed"
+        ]
+      },
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived",
+      "capillary_score": 1.02162
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0002-0004",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0002",
+      "reinforced_at": "2026-03-13T20:37:41.761814+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "result": "success",
+      "latency_score": 0.91,
+      "noise_penalty": 0.08,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 1.02162,
+          "success_count": 2,
+          "frequency": 2,
+          "noise_penalty": 0.065,
+          "avg_latency_score": 0.925,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0002",
+          "updated_at": "2026-03-13T20:37:41.761814+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "weight": 1.02162,
+          "success_count": 2,
+          "frequency": 2,
+          "noise_penalty": 0.065,
+          "avg_latency_score": 0.925,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0002",
+          "updated_at": "2026-03-13T20:37:41.761814+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+          "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+          "weight": 1.02162,
+          "success_count": 2,
+          "frequency": 2,
+          "noise_penalty": 0.065,
+          "avg_latency_score": 0.925,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0002",
+          "updated_at": "2026-03-13T20:37:41.761814+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0003-0005",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0003",
+      "routed_at": "2026-03-13T20:37:42.006118+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign",
+        "priority": 0.82,
+        "pheromone": 0.7175,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 0.8,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0101.WORKER-02": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1000.ARCHIVIST-01": 0.3
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 114.556,
+        "swarm_awareness_latency_ms": 114.556,
+        "claim_latency_ms": 219.765,
+        "resolution_latency_ms": 325.835
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0003",
+        "chosen_action": "ACTIVATE_NOW",
+        "reason": "This packet is the highest lawful motion under the current score and override regime.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.23412,
+        "blocker_classes": [],
+        "obligations": [
+          "emit typed runtime receipt",
+          "write replay/store obligation",
+          "mutate queue state",
+          "emit successor seed"
+        ]
+      },
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived",
+      "capillary_score": 1.48239
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0003-0006",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0003",
+      "reinforced_at": "2026-03-13T20:37:42.217397+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "result": "success",
+      "latency_score": 0.97,
+      "noise_penalty": 0.03,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 1.48239,
+          "success_count": 3,
+          "frequency": 3,
+          "noise_penalty": 0.053333,
+          "avg_latency_score": 0.94,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0003",
+          "updated_at": "2026-03-13T20:37:42.217397+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "weight": 1.48239,
+          "success_count": 3,
+          "frequency": 3,
+          "noise_penalty": 0.053333,
+          "avg_latency_score": 0.94,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0003",
+          "updated_at": "2026-03-13T20:37:42.217397+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+          "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+          "weight": 1.48239,
+          "success_count": 3,
+          "frequency": 3,
+          "noise_penalty": 0.053333,
+          "avg_latency_score": 0.94,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0003",
+          "updated_at": "2026-03-13T20:37:42.217397+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0004-0007",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0004",
+      "routed_at": "2026-03-13T20:37:42.468644+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign",
+        "priority": 0.55,
+        "pheromone": 0.5925,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 0.8,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0101.WORKER-02": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1000.ARCHIVIST-01": 0.3
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 124.116,
+        "swarm_awareness_latency_ms": 124.116,
+        "claim_latency_ms": 230.818,
+        "resolution_latency_ms": 344.236
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0004",
+        "chosen_action": "HOLD",
+        "reason": "No override fires, but the score does not yet justify activation.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.065684,
+        "blocker_classes": [],
+        "obligations": [
+          "preserve queue entry",
+          "re-evaluate after dependency or pressure change"
+        ]
+      },
+      "planner_visible_promotion_source": null,
+      "truth_status": "NEAR-derived",
+      "capillary_score": 1.529299
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0004-0008",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0004",
+      "reinforced_at": "2026-03-13T20:37:42.688764+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "result": "penalty",
+      "latency_score": 0.42,
+      "noise_penalty": 0.7,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 1.529299,
+          "success_count": 3,
+          "frequency": 4,
+          "noise_penalty": 0.215,
+          "avg_latency_score": 0.81,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0004",
+          "updated_at": "2026-03-13T20:37:42.688764+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "weight": 1.529299,
+          "success_count": 3,
+          "frequency": 4,
+          "noise_penalty": 0.215,
+          "avg_latency_score": 0.81,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0004",
+          "updated_at": "2026-03-13T20:37:42.688764+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+          "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+          "weight": 1.529299,
+          "success_count": 3,
+          "frequency": 4,
+          "noise_penalty": 0.215,
+          "avg_latency_score": 0.81,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0004",
+          "updated_at": "2026-03-13T20:37:42.688764+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0005-0009",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0005",
+      "routed_at": "2026-03-13T20:37:42.933054+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign-runtime",
+        "priority": 0.95,
+        "pheromone": 0.965,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 0.8,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0101.WORKER-02": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1000.ARCHIVIST-01": 0.3
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 119.987,
+        "swarm_awareness_latency_ms": 119.987,
+        "claim_latency_ms": 231.55,
+        "resolution_latency_ms": 347.859
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0005",
+        "chosen_action": "REFUSE_INADMISSIBLE",
+        "reason": "Omega or corridor policy denies this motion at the current scope.",
+        "lawful_actions": [
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.343494,
+        "blocker_classes": [
+          "external-blocker:q02"
+        ],
+        "obligations": [
+          "emit refusal receipt",
+          "preserve reason and corridor denial scope"
+        ]
+      },
+      "planner_visible_promotion_source": null,
+      "truth_status": "NEAR-derived",
+      "capillary_score": 1.596955
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0005-0010",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0005",
+      "reinforced_at": "2026-03-13T20:37:43.160926+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "result": "penalty",
+      "latency_score": 0.25,
+      "noise_penalty": 0.2,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 1.596955,
+          "success_count": 3,
+          "frequency": 5,
+          "noise_penalty": 0.212,
+          "avg_latency_score": 0.698,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0005",
+          "updated_at": "2026-03-13T20:37:43.160926+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "weight": 1.596955,
+          "success_count": 3,
+          "frequency": 5,
+          "noise_penalty": 0.212,
+          "avg_latency_score": 0.698,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0005",
+          "updated_at": "2026-03-13T20:37:43.160926+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+          "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+          "weight": 1.596955,
+          "success_count": 3,
+          "frequency": 5,
+          "noise_penalty": 0.212,
+          "avg_latency_score": 0.698,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0005",
+          "updated_at": "2026-03-13T20:37:43.160926+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0006-0011",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0006",
+      "routed_at": "2026-03-13T20:41:23.246144+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1001.ARCHIVIST-02"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1001.ARCHIVIST-02",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign",
+        "priority": 0.85,
+        "pheromone": 0.9375,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 1.0,
+          "CMD.A3.D1.B0101.WORKER-02": 0.75,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1001.ARCHIVIST-02": 0.7
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 17.001,
+        "swarm_awareness_latency_ms": 17.001,
+        "claim_latency_ms": 25.007,
+        "resolution_latency_ms": 32.007
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0006",
+        "chosen_action": "ACTIVATE_NOW",
+        "reason": "This packet is the highest lawful motion under the current score and override regime.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.478195,
+        "blocker_classes": [],
+        "obligations": [
+          "emit typed runtime receipt",
+          "write replay/store obligation",
+          "mutate queue state",
+          "emit successor seed"
+        ]
+      },
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived",
+      "capillary_score": 1.027233
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0006-0012",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0006",
+      "reinforced_at": "2026-03-13T20:41:23.261150+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A4.D1.B1001.ARCHIVIST-02"
+      ],
+      "result": "success",
+      "latency_score": 0.95,
+      "noise_penalty": 0.05,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 2.006699,
+          "success_count": 4,
+          "frequency": 6,
+          "noise_penalty": 0.185,
+          "avg_latency_score": 0.74,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0006",
+          "updated_at": "2026-03-13T20:41:23.261150+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0101.WORKER-02",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0101.WORKER-02",
+          "weight": 0.5375,
+          "success_count": 1,
+          "frequency": 1,
+          "noise_penalty": 0.05,
+          "avg_latency_score": 0.95,
+          "maturity": "weak-edge",
+          "last_event_id": "EVT-20260313-0006",
+          "updated_at": "2026-03-13T20:41:23.261150+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0101.WORKER-02>CMD.A4.D1.B1001.ARCHIVIST-02",
+          "source_ant": "CMD.A3.D1.B0101.WORKER-02",
+          "target_ant": "CMD.A4.D1.B1001.ARCHIVIST-02",
+          "weight": 0.5375,
+          "success_count": 1,
+          "frequency": 1,
+          "noise_penalty": 0.05,
+          "avg_latency_score": 0.95,
+          "maturity": "weak-edge",
+          "last_event_id": "EVT-20260313-0006",
+          "updated_at": "2026-03-13T20:41:23.261150+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0007-0013",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0007",
+      "routed_at": "2026-03-13T20:41:23.278201+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1001.ARCHIVIST-02"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1001.ARCHIVIST-02",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign",
+        "priority": 0.85,
+        "pheromone": 0.9375,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 1.0,
+          "CMD.A3.D1.B0101.WORKER-02": 0.75,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1001.ARCHIVIST-02": 0.7
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 9.001,
+        "swarm_awareness_latency_ms": 9.001,
+        "claim_latency_ms": 17.015,
+        "resolution_latency_ms": 25.001
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0007",
+        "chosen_action": "ACTIVATE_NOW",
+        "reason": "This packet is the highest lawful motion under the current score and override regime.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.478195,
+        "blocker_classes": [],
+        "obligations": [
+          "emit typed runtime receipt",
+          "write replay/store obligation",
+          "mutate queue state",
+          "emit successor seed"
+        ]
+      },
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived",
+      "capillary_score": 1.472054
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0007-0014",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0007",
+      "reinforced_at": "2026-03-13T20:41:23.294201+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A4.D1.B1001.ARCHIVIST-02"
+      ],
+      "result": "success",
+      "latency_score": 0.9,
+      "noise_penalty": 0.08,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 2.373163,
+          "success_count": 5,
+          "frequency": 7,
+          "noise_penalty": 0.17,
+          "avg_latency_score": 0.762857,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0007",
+          "updated_at": "2026-03-13T20:41:23.294201+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0101.WORKER-02",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0101.WORKER-02",
+          "weight": 1.0215,
+          "success_count": 2,
+          "frequency": 2,
+          "noise_penalty": 0.065,
+          "avg_latency_score": 0.925,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0007",
+          "updated_at": "2026-03-13T20:41:23.294201+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0101.WORKER-02>CMD.A4.D1.B1001.ARCHIVIST-02",
+          "source_ant": "CMD.A3.D1.B0101.WORKER-02",
+          "target_ant": "CMD.A4.D1.B1001.ARCHIVIST-02",
+          "weight": 1.0215,
+          "success_count": 2,
+          "frequency": 2,
+          "noise_penalty": 0.065,
+          "avg_latency_score": 0.925,
+          "maturity": "capillary",
+          "last_event_id": "EVT-20260313-0007",
+          "updated_at": "2026-03-13T20:41:23.294201+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0008-0015",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0008",
+      "routed_at": "2026-03-13T20:56:30.395230+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign",
+        "priority": 0.75,
+        "pheromone": 0.9125,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 0.8,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0101.WORKER-02": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1000.ARCHIVIST-01": 0.3
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 47.527,
+        "encode_latency_ms": 23.008,
+        "swarm_awareness_latency_ms": 24.519,
+        "claim_latency_ms": 83.531,
+        "commit_latency_ms": 27.992,
+        "resolution_latency_ms": 111.523
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0008",
+        "chosen_action": "ACTIVATE_NOW",
+        "reason": "This packet is the highest lawful motion under the current score and override regime.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.319319,
+        "blocker_classes": [],
+        "obligations": [
+          "emit typed runtime receipt",
+          "write replay/store obligation",
+          "mutate queue state",
+          "emit successor seed"
+        ]
+      },
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived",
+      "capillary_score": 2.236736
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0008-0016",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0008",
+      "reinforced_at": "2026-03-13T20:56:30.459226+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "result": "success",
+      "latency_score": 0.93,
+      "noise_penalty": 0.1,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 2.71281,
+          "success_count": 6,
+          "frequency": 8,
+          "noise_penalty": 0.16125,
+          "avg_latency_score": 0.78375,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0008",
+          "updated_at": "2026-03-13T20:56:30.458229+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "weight": 1.998699,
+          "success_count": 4,
+          "frequency": 6,
+          "noise_penalty": 0.193333,
+          "avg_latency_score": 0.736667,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0008",
+          "updated_at": "2026-03-13T20:56:30.459226+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+          "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+          "weight": 1.998699,
+          "success_count": 4,
+          "frequency": 6,
+          "noise_penalty": 0.193333,
+          "avg_latency_score": 0.736667,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0008",
+          "updated_at": "2026-03-13T20:56:30.459226+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "entry_id": "RTE-EVT-20260313-0009-0017",
+      "entry_kind": "route",
+      "event_id": "EVT-20260313-0009",
+      "routed_at": "2026-03-13T20:57:09.697783+00:00",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ants": [
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A3.D1.B0101.WORKER-02",
+        "CMD.A3.D1.B0110.WORKER-03",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "route_signature": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01>CMD.A3.D1.B0101.WORKER-02>CMD.A3.D1.B0110.WORKER-03>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "route_class": "scout.router.worker.archivist",
+      "route_decision_reason": {
+        "goal": "detect-classify-assign",
+        "priority": 0.75,
+        "pheromone": 0.9125,
+        "topk": 5,
+        "target_relevance": {
+          "CMD.A2.D1.B0010.ROUTER-01": 0.8,
+          "CMD.A3.D1.B0100.WORKER-01": 0.35,
+          "CMD.A3.D1.B0101.WORKER-02": 0.35,
+          "CMD.A3.D1.B0110.WORKER-03": 0.35,
+          "CMD.A4.D1.B1000.ARCHIVIST-01": 0.3
+        }
+      },
+      "latency_measurements": {
+        "detection_latency_ms": 15741.201,
+        "encode_latency_ms": 17.0,
+        "swarm_awareness_latency_ms": 15724.201,
+        "claim_latency_ms": 15805.736,
+        "commit_latency_ms": 41.012,
+        "resolution_latency_ms": 15846.748
+      },
+      "motion_summary": {
+        "candidate_id": "EVT-20260313-0009",
+        "chosen_action": "ACTIVATE_NOW",
+        "reason": "This packet is the highest lawful motion under the current score and override regime.",
+        "lawful_actions": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "REQUEST_HELP",
+          "REPLAY_FIRST",
+          "QUARANTINE",
+          "COMPRESS_TO_SEED",
+          "ESCALATE_TO_COMMITTEE",
+          "REFUSE_INADMISSIBLE"
+        ],
+        "urgency_modulated_score": 0.319319,
+        "blocker_classes": [],
+        "obligations": [
+          "emit typed runtime receipt",
+          "write replay/store obligation",
+          "mutate queue state",
+          "emit successor seed"
+        ]
+      },
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived",
+      "capillary_score": 2.575869
+    },
+    {
+      "entry_id": "RIN-EVT-20260313-0009-0018",
+      "entry_kind": "reinforcement",
+      "event_id": "EVT-20260313-0009",
+      "reinforced_at": "2026-03-13T20:57:09.803330+00:00",
+      "path": [
+        "CMD.A1.D1.B0001.SCOUT-01",
+        "CMD.A2.D1.B0010.ROUTER-01",
+        "CMD.A3.D1.B0100.WORKER-01",
+        "CMD.A4.D1.B1000.ARCHIVIST-01"
+      ],
+      "result": "success",
+      "latency_score": 0.9,
+      "noise_penalty": 0.1,
+      "updated_edges": [
+        {
+          "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+          "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+          "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "weight": 3.0,
+          "success_count": 7,
+          "frequency": 9,
+          "noise_penalty": 0.154444,
+          "avg_latency_score": 0.796667,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0009",
+          "updated_at": "2026-03-13T20:57:09.803330+00:00"
+        },
+        {
+          "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+          "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+          "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "weight": 2.363803,
+          "success_count": 5,
+          "frequency": 7,
+          "noise_penalty": 0.18,
+          "avg_latency_score": 0.76,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0009",
+          "updated_at": "2026-03-13T20:57:09.803330+00:00"
+        },
+        {
+          "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+          "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+          "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+          "weight": 2.363803,
+          "success_count": 5,
+          "frequency": 7,
+          "noise_penalty": 0.18,
+          "avg_latency_score": 0.76,
+          "maturity": "vein",
+          "last_event_id": "EVT-20260313-0009",
+          "updated_at": "2026-03-13T20:57:09.803330+00:00"
+        }
+      ],
+      "truth_status": "NEAR-derived"
+    }
+  ]
+}

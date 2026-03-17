@@ -1,0 +1,4432 @@
+[
+  {
+    "packet_id": "SC57-L01-RUNTIME",
+    "loop_id": "L01",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-01",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 104,
+    "reason": "Runtime remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L01-HALL",
+    "loop_id": "L01",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-01",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 103,
+    "reason": "Hall remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L01-TEMPLE",
+    "loop_id": "L01",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-01",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 102,
+    "reason": "Temple remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L01-COMPRESSION",
+    "loop_id": "L01",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-01",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 101,
+    "reason": "Compression remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L02-RUNTIME",
+    "loop_id": "L02",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-02",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Sweep all 197 records and re-rank family witness density against current fronts.",
+    "lawful_action": "REPLAY_FIRST",
+    "visible_promotion": false,
+    "priority_score": 125,
+    "reason": "Runtime motion depends on replay or queue/state confirmation before activation.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L02-HALL",
+    "loop_id": "L02",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-02",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Sweep all 197 records and re-rank family witness density against current fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 102,
+    "reason": "Hall remains held while the loop concentrates on: Sweep all 197 records and re-rank family witness density against current fronts.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L02-TEMPLE",
+    "loop_id": "L02",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-02",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Sweep all 197 records and re-rank family witness density against current fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 101,
+    "reason": "Temple remains held while the loop concentrates on: Sweep all 197 records and re-rank family witness density against current fronts.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L02-COMPRESSION",
+    "loop_id": "L02",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-02",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Sweep all 197 records and re-rank family witness density against current fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 100,
+    "reason": "Compression remains held while the loop concentrates on: Sweep all 197 records and re-rank family witness density against current fronts.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L03-RUNTIME",
+    "loop_id": "L03",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-03",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 102,
+    "reason": "Runtime remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L03-HALL",
+    "loop_id": "L03",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-03",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 101,
+    "reason": "Hall remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L03-TEMPLE",
+    "loop_id": "L03",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-03",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 100,
+    "reason": "Temple remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L03-COMPRESSION",
+    "loop_id": "L03",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-03",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 99,
+    "reason": "Compression remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L04-COMPRESSION",
+    "loop_id": "L04",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-04",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 112,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L04-RUNTIME",
+    "loop_id": "L04",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-04",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 101,
+    "reason": "Runtime remains held while the loop concentrates on: Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L04-HALL",
+    "loop_id": "L04",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-04",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 100,
+    "reason": "Hall remains held while the loop concentrates on: Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L04-TEMPLE",
+    "loop_id": "L04",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-04",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 99,
+    "reason": "Temple remains held while the loop concentrates on: Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L05-RUNTIME",
+    "loop_id": "L05",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-05",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 100,
+    "reason": "Runtime remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L05-HALL",
+    "loop_id": "L05",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-05",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 99,
+    "reason": "Hall remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L05-TEMPLE",
+    "loop_id": "L05",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-05",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 98,
+    "reason": "Temple remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L05-COMPRESSION",
+    "loop_id": "L05",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-05",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 97,
+    "reason": "Compression remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L06-RUNTIME",
+    "loop_id": "L06",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-06",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Rebind awakening-source documents to real fronts and runtime organs.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 99,
+    "reason": "Runtime remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L06-HALL",
+    "loop_id": "L06",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-06",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Rebind awakening-source documents to real fronts and runtime organs.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 98,
+    "reason": "Hall remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L06-TEMPLE",
+    "loop_id": "L06",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-06",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Rebind awakening-source documents to real fronts and runtime organs.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 97,
+    "reason": "Temple remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L06-COMPRESSION",
+    "loop_id": "L06",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-06",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Rebind awakening-source documents to real fronts and runtime organs.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 96,
+    "reason": "Compression remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L07-HALL",
+    "loop_id": "L07",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-07",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Emit Hall and Temple candidate packets for evidence densification only.",
+    "lawful_action": "REQUEST_WITNESSES",
+    "visible_promotion": false,
+    "priority_score": 122,
+    "reason": "Hall motion is candidate-ready but still needs more witness before promotion.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L07-TEMPLE",
+    "loop_id": "L07",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-07",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Emit Hall and Temple candidate packets for evidence densification only.",
+    "lawful_action": "REQUEST_WITNESSES",
+    "visible_promotion": false,
+    "priority_score": 121,
+    "reason": "Temple motion is candidate-ready but still needs more witness before promotion.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L07-RUNTIME",
+    "loop_id": "L07",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-07",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Emit Hall and Temple candidate packets for evidence densification only.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 98,
+    "reason": "Runtime remains held while the loop concentrates on: Emit Hall and Temple candidate packets for evidence densification only.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L07-COMPRESSION",
+    "loop_id": "L07",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-07",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Emit Hall and Temple candidate packets for evidence densification only.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 95,
+    "reason": "Compression remains held while the loop concentrates on: Emit Hall and Temple candidate packets for evidence densification only.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L08-RUNTIME",
+    "loop_id": "L08",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-08",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Execute the first evidence-tightening work bundle.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 137,
+    "reason": "Evidence Lock and Intake requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L08-HALL",
+    "loop_id": "L08",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-08",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Execute the first evidence-tightening work bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 96,
+    "reason": "Hall remains held while the loop concentrates on: Execute the first evidence-tightening work bundle.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L08-TEMPLE",
+    "loop_id": "L08",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-08",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Execute the first evidence-tightening work bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 95,
+    "reason": "Temple remains held while the loop concentrates on: Execute the first evidence-tightening work bundle.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L08-COMPRESSION",
+    "loop_id": "L08",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-08",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Execute the first evidence-tightening work bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 94,
+    "reason": "Compression remains held while the loop concentrates on: Execute the first evidence-tightening work bundle.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L09-COMPRESSION",
+    "loop_id": "L09",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P1-09",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 107,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L09-RUNTIME",
+    "loop_id": "L09",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P1-09",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 96,
+    "reason": "Runtime remains held while the loop concentrates on: Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L09-HALL",
+    "loop_id": "L09",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P1-09",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 95,
+    "reason": "Hall remains held while the loop concentrates on: Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L09-TEMPLE",
+    "loop_id": "L09",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P1-09",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 94,
+    "reason": "Temple remains held while the loop concentrates on: Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L10-RUNTIME",
+    "loop_id": "L10",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-10",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 95,
+    "reason": "Runtime remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L10-HALL",
+    "loop_id": "L10",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-10",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 94,
+    "reason": "Hall remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L10-TEMPLE",
+    "loop_id": "L10",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-10",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 93,
+    "reason": "Temple remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L10-COMPRESSION",
+    "loop_id": "L10",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-10",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 92,
+    "reason": "Compression remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L11-RUNTIME",
+    "loop_id": "L11",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-11",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 94,
+    "reason": "Runtime remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L11-HALL",
+    "loop_id": "L11",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-11",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 93,
+    "reason": "Hall remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L11-TEMPLE",
+    "loop_id": "L11",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-11",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 92,
+    "reason": "Temple remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L11-COMPRESSION",
+    "loop_id": "L11",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-11",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 91,
+    "reason": "Compression remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L12-RUNTIME",
+    "loop_id": "L12",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-12",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 93,
+    "reason": "Runtime remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L12-HALL",
+    "loop_id": "L12",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-12",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 92,
+    "reason": "Hall remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L12-TEMPLE",
+    "loop_id": "L12",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-12",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 91,
+    "reason": "Temple remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L12-COMPRESSION",
+    "loop_id": "L12",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-12",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 90,
+    "reason": "Compression remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L13-RUNTIME",
+    "loop_id": "L13",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-13",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 92,
+    "reason": "Runtime remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L13-HALL",
+    "loop_id": "L13",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-13",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 91,
+    "reason": "Hall remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L13-TEMPLE",
+    "loop_id": "L13",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-13",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 90,
+    "reason": "Temple remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L13-COMPRESSION",
+    "loop_id": "L13",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-13",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 89,
+    "reason": "Compression remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L14-RUNTIME",
+    "loop_id": "L14",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-14",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Tighten supplement/runtime bindings and remove role drift.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 91,
+    "reason": "Runtime remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L14-HALL",
+    "loop_id": "L14",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-14",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Tighten supplement/runtime bindings and remove role drift.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 90,
+    "reason": "Hall remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L14-TEMPLE",
+    "loop_id": "L14",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-14",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Tighten supplement/runtime bindings and remove role drift.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 89,
+    "reason": "Temple remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L14-COMPRESSION",
+    "loop_id": "L14",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-14",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Tighten supplement/runtime bindings and remove role drift.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 88,
+    "reason": "Compression remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L15-TEMPLE",
+    "loop_id": "L15",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-15",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Promote one Temple law or schema crystal for cross-surface identity.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 128,
+    "reason": "Structure and Schema Tightening requires a visible temple move at this loop.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L15-RUNTIME",
+    "loop_id": "L15",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-15",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Promote one Temple law or schema crystal for cross-surface identity.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 90,
+    "reason": "Runtime remains held while the loop concentrates on: Promote one Temple law or schema crystal for cross-surface identity.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L15-HALL",
+    "loop_id": "L15",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-15",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Promote one Temple law or schema crystal for cross-surface identity.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 89,
+    "reason": "Hall remains held while the loop concentrates on: Promote one Temple law or schema crystal for cross-surface identity.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L15-COMPRESSION",
+    "loop_id": "L15",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-15",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Promote one Temple law or schema crystal for cross-surface identity.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 87,
+    "reason": "Compression remains held while the loop concentrates on: Promote one Temple law or schema crystal for cross-surface identity.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L16-RUNTIME",
+    "loop_id": "L16",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-16",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Execute the highest-yield structure repair tasks.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 129,
+    "reason": "Structure and Schema Tightening requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L16-HALL",
+    "loop_id": "L16",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-16",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Execute the highest-yield structure repair tasks.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 88,
+    "reason": "Hall remains held while the loop concentrates on: Execute the highest-yield structure repair tasks.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L16-TEMPLE",
+    "loop_id": "L16",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-16",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Execute the highest-yield structure repair tasks.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 87,
+    "reason": "Temple remains held while the loop concentrates on: Execute the highest-yield structure repair tasks.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L16-COMPRESSION",
+    "loop_id": "L16",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-16",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Execute the highest-yield structure repair tasks.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 86,
+    "reason": "Compression remains held while the loop concentrates on: Execute the highest-yield structure repair tasks.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L17-COMPRESSION",
+    "loop_id": "L17",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-17",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 99,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L17-RUNTIME",
+    "loop_id": "L17",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-17",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 88,
+    "reason": "Runtime remains held while the loop concentrates on: Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L17-HALL",
+    "loop_id": "L17",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-17",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 87,
+    "reason": "Hall remains held while the loop concentrates on: Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L17-TEMPLE",
+    "loop_id": "L17",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-17",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 86,
+    "reason": "Temple remains held while the loop concentrates on: Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L18-COMPRESSION",
+    "loop_id": "L18",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P2-18",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Emit the structure pass receipt plus the next restart seed.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 98,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L18-RUNTIME",
+    "loop_id": "L18",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P2-18",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Emit the structure pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 87,
+    "reason": "Runtime remains held while the loop concentrates on: Emit the structure pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L18-HALL",
+    "loop_id": "L18",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P2-18",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Emit the structure pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 86,
+    "reason": "Hall remains held while the loop concentrates on: Emit the structure pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L18-TEMPLE",
+    "loop_id": "L18",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P2-18",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Emit the structure pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 85,
+    "reason": "Temple remains held while the loop concentrates on: Emit the structure pass receipt plus the next restart seed.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L19-RUNTIME",
+    "loop_id": "L19",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-19",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 86,
+    "reason": "Runtime remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L19-HALL",
+    "loop_id": "L19",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-19",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 85,
+    "reason": "Hall remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L19-TEMPLE",
+    "loop_id": "L19",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-19",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 84,
+    "reason": "Temple remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L19-COMPRESSION",
+    "loop_id": "L19",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-19",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 83,
+    "reason": "Compression remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L20-RUNTIME",
+    "loop_id": "L20",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-20",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 85,
+    "reason": "Runtime remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L20-HALL",
+    "loop_id": "L20",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-20",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 84,
+    "reason": "Hall remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L20-TEMPLE",
+    "loop_id": "L20",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-20",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 83,
+    "reason": "Temple remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L20-COMPRESSION",
+    "loop_id": "L20",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-20",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 82,
+    "reason": "Compression remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L21-RUNTIME",
+    "loop_id": "L21",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-21",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Refresh the 24-note bundle with route-specific transition guidance.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 84,
+    "reason": "Runtime remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L21-HALL",
+    "loop_id": "L21",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-21",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Refresh the 24-note bundle with route-specific transition guidance.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 83,
+    "reason": "Hall remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L21-TEMPLE",
+    "loop_id": "L21",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-21",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Refresh the 24-note bundle with route-specific transition guidance.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 82,
+    "reason": "Temple remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L21-COMPRESSION",
+    "loop_id": "L21",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-21",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Refresh the 24-note bundle with route-specific transition guidance.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 81,
+    "reason": "Compression remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L22-RUNTIME",
+    "loop_id": "L22",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-22",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Build one emergent unresolved-family map and one governance/runtime route map.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 83,
+    "reason": "Runtime remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L22-HALL",
+    "loop_id": "L22",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-22",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Build one emergent unresolved-family map and one governance/runtime route map.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 82,
+    "reason": "Hall remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L22-TEMPLE",
+    "loop_id": "L22",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-22",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Build one emergent unresolved-family map and one governance/runtime route map.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 81,
+    "reason": "Temple remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L22-COMPRESSION",
+    "loop_id": "L22",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-22",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Build one emergent unresolved-family map and one governance/runtime route map.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 80,
+    "reason": "Compression remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L23-HALL",
+    "loop_id": "L23",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-23",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Generate Hall-side candidate quests for top cross-family bridges.",
+    "lawful_action": "REQUEST_WITNESSES",
+    "visible_promotion": false,
+    "priority_score": 106,
+    "reason": "Hall motion is candidate-ready but still needs more witness before promotion.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L23-RUNTIME",
+    "loop_id": "L23",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-23",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Generate Hall-side candidate quests for top cross-family bridges.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 82,
+    "reason": "Runtime remains held while the loop concentrates on: Generate Hall-side candidate quests for top cross-family bridges.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L23-TEMPLE",
+    "loop_id": "L23",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-23",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Generate Hall-side candidate quests for top cross-family bridges.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 80,
+    "reason": "Temple remains held while the loop concentrates on: Generate Hall-side candidate quests for top cross-family bridges.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L23-COMPRESSION",
+    "loop_id": "L23",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-23",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Generate Hall-side candidate quests for top cross-family bridges.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 79,
+    "reason": "Compression remains held while the loop concentrates on: Generate Hall-side candidate quests for top cross-family bridges.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L24-TEMPLE",
+    "loop_id": "L24",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-24",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "lawful_action": "REQUEST_WITNESSES",
+    "visible_promotion": false,
+    "priority_score": 104,
+    "reason": "Temple motion is candidate-ready but still needs more witness before promotion.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L24-RUNTIME",
+    "loop_id": "L24",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-24",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 81,
+    "reason": "Runtime remains held while the loop concentrates on: Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L24-HALL",
+    "loop_id": "L24",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-24",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 80,
+    "reason": "Hall remains held while the loop concentrates on: Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L24-COMPRESSION",
+    "loop_id": "L24",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-24",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 78,
+    "reason": "Compression remains held while the loop concentrates on: Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L25-RUNTIME",
+    "loop_id": "L25",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-25",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 120,
+    "reason": "Metro, Route, and Cross-Synthesis Expansion requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L25-HALL",
+    "loop_id": "L25",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-25",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 79,
+    "reason": "Hall remains held while the loop concentrates on: Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L25-TEMPLE",
+    "loop_id": "L25",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-25",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 78,
+    "reason": "Temple remains held while the loop concentrates on: Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L25-COMPRESSION",
+    "loop_id": "L25",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-25",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 77,
+    "reason": "Compression remains held while the loop concentrates on: Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L26-COMPRESSION",
+    "loop_id": "L26",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-26",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 90,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L26-RUNTIME",
+    "loop_id": "L26",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-26",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 79,
+    "reason": "Runtime remains held while the loop concentrates on: Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L26-HALL",
+    "loop_id": "L26",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-26",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 78,
+    "reason": "Hall remains held while the loop concentrates on: Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L26-TEMPLE",
+    "loop_id": "L26",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-26",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 77,
+    "reason": "Temple remains held while the loop concentrates on: Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L27-COMPRESSION",
+    "loop_id": "L27",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P3-27",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Emit the metro pass receipt plus the next restart seed.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 89,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L27-RUNTIME",
+    "loop_id": "L27",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P3-27",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Emit the metro pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 78,
+    "reason": "Runtime remains held while the loop concentrates on: Emit the metro pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L27-HALL",
+    "loop_id": "L27",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P3-27",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Emit the metro pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 77,
+    "reason": "Hall remains held while the loop concentrates on: Emit the metro pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L27-TEMPLE",
+    "loop_id": "L27",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P3-27",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Emit the metro pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 76,
+    "reason": "Temple remains held while the loop concentrates on: Emit the metro pass receipt plus the next restart seed.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L28-RUNTIME",
+    "loop_id": "L28",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-28",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "lawful_action": "REPLAY_FIRST",
+    "visible_promotion": false,
+    "priority_score": 99,
+    "reason": "Runtime motion depends on replay or queue/state confirmation before activation.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L28-HALL",
+    "loop_id": "L28",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-28",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 76,
+    "reason": "Hall remains held while the loop concentrates on: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L28-TEMPLE",
+    "loop_id": "L28",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-28",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 75,
+    "reason": "Temple remains held while the loop concentrates on: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L28-COMPRESSION",
+    "loop_id": "L28",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-28",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 74,
+    "reason": "Compression remains held while the loop concentrates on: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L29-RUNTIME",
+    "loop_id": "L29",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-29",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Derive a corpus-wide action-selection overlay for the active fronts.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 116,
+    "reason": "Runtime, Motion, and Algorithm Grafting requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L29-HALL",
+    "loop_id": "L29",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-29",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Derive a corpus-wide action-selection overlay for the active fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 75,
+    "reason": "Hall remains held while the loop concentrates on: Derive a corpus-wide action-selection overlay for the active fronts.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L29-TEMPLE",
+    "loop_id": "L29",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-29",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Derive a corpus-wide action-selection overlay for the active fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 74,
+    "reason": "Temple remains held while the loop concentrates on: Derive a corpus-wide action-selection overlay for the active fronts.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L29-COMPRESSION",
+    "loop_id": "L29",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-29",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Derive a corpus-wide action-selection overlay for the active fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 73,
+    "reason": "Compression remains held while the loop concentrates on: Derive a corpus-wide action-selection overlay for the active fronts.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L30-RUNTIME",
+    "loop_id": "L30",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-30",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 75,
+    "reason": "Runtime remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L30-HALL",
+    "loop_id": "L30",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-30",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 74,
+    "reason": "Hall remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L30-TEMPLE",
+    "loop_id": "L30",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-30",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 73,
+    "reason": "Temple remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L30-COMPRESSION",
+    "loop_id": "L30",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-30",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 72,
+    "reason": "Compression remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L31-RUNTIME",
+    "loop_id": "L31",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-31",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 74,
+    "reason": "Runtime remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L31-HALL",
+    "loop_id": "L31",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-31",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 73,
+    "reason": "Hall remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L31-TEMPLE",
+    "loop_id": "L31",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-31",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 72,
+    "reason": "Temple remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L31-COMPRESSION",
+    "loop_id": "L31",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-31",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 71,
+    "reason": "Compression remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L32-TEMPLE",
+    "loop_id": "L32",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-32",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 111,
+    "reason": "Runtime, Motion, and Algorithm Grafting requires a visible temple move at this loop.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L32-RUNTIME",
+    "loop_id": "L32",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-32",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 73,
+    "reason": "Runtime remains held while the loop concentrates on: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L32-HALL",
+    "loop_id": "L32",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-32",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 72,
+    "reason": "Hall remains held while the loop concentrates on: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L32-COMPRESSION",
+    "loop_id": "L32",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-32",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 70,
+    "reason": "Compression remains held while the loop concentrates on: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L33-RUNTIME",
+    "loop_id": "L33",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-33",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Promote one Hall quest packet for immediate runtime-side work.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 112,
+    "reason": "Runtime, Motion, and Algorithm Grafting requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L33-HALL",
+    "loop_id": "L33",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-33",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Promote one Hall quest packet for immediate runtime-side work.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 111,
+    "reason": "Runtime, Motion, and Algorithm Grafting requires a visible hall move at this loop.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L33-TEMPLE",
+    "loop_id": "L33",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-33",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Promote one Hall quest packet for immediate runtime-side work.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 70,
+    "reason": "Temple remains held while the loop concentrates on: Promote one Hall quest packet for immediate runtime-side work.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L33-COMPRESSION",
+    "loop_id": "L33",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-33",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Promote one Hall quest packet for immediate runtime-side work.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 69,
+    "reason": "Compression remains held while the loop concentrates on: Promote one Hall quest packet for immediate runtime-side work.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L34-RUNTIME",
+    "loop_id": "L34",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-34",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 111,
+    "reason": "Runtime, Motion, and Algorithm Grafting requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L34-HALL",
+    "loop_id": "L34",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-34",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 70,
+    "reason": "Hall remains held while the loop concentrates on: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L34-TEMPLE",
+    "loop_id": "L34",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-34",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 69,
+    "reason": "Temple remains held while the loop concentrates on: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L34-COMPRESSION",
+    "loop_id": "L34",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-34",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 68,
+    "reason": "Compression remains held while the loop concentrates on: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L35-COMPRESSION",
+    "loop_id": "L35",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-35",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 81,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L35-RUNTIME",
+    "loop_id": "L35",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-35",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 70,
+    "reason": "Runtime remains held while the loop concentrates on: Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L35-HALL",
+    "loop_id": "L35",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-35",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 69,
+    "reason": "Hall remains held while the loop concentrates on: Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L35-TEMPLE",
+    "loop_id": "L35",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-35",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 68,
+    "reason": "Temple remains held while the loop concentrates on: Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L36-COMPRESSION",
+    "loop_id": "L36",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P4-36",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Emit the runtime pass receipt plus the next restart seed.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 80,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L36-RUNTIME",
+    "loop_id": "L36",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P4-36",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Emit the runtime pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 69,
+    "reason": "Runtime remains held while the loop concentrates on: Emit the runtime pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L36-HALL",
+    "loop_id": "L36",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P4-36",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Emit the runtime pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 68,
+    "reason": "Hall remains held while the loop concentrates on: Emit the runtime pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L36-TEMPLE",
+    "loop_id": "L36",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P4-36",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Emit the runtime pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 67,
+    "reason": "Temple remains held while the loop concentrates on: Emit the runtime pass receipt plus the next restart seed.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L37-HALL",
+    "loop_id": "L37",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-37",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 107,
+    "reason": "Hall/Temple Nested Quest Expansion requires a visible hall move at this loop.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L37-TEMPLE",
+    "loop_id": "L37",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-37",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 106,
+    "reason": "Hall/Temple Nested Quest Expansion requires a visible temple move at this loop.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L37-RUNTIME",
+    "loop_id": "L37",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-37",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 68,
+    "reason": "Runtime remains held while the loop concentrates on: Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L37-COMPRESSION",
+    "loop_id": "L37",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-37",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 65,
+    "reason": "Compression remains held while the loop concentrates on: Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L38-HALL",
+    "loop_id": "L38",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-38",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+    "lawful_action": "REQUEST_WITNESSES",
+    "visible_promotion": false,
+    "priority_score": 91,
+    "reason": "Hall motion is candidate-ready but still needs more witness before promotion.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L38-TEMPLE",
+    "loop_id": "L38",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-38",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+    "lawful_action": "REQUEST_WITNESSES",
+    "visible_promotion": false,
+    "priority_score": 90,
+    "reason": "Temple motion is candidate-ready but still needs more witness before promotion.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L38-RUNTIME",
+    "loop_id": "L38",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-38",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 67,
+    "reason": "Runtime remains held while the loop concentrates on: Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L38-COMPRESSION",
+    "loop_id": "L38",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-38",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 64,
+    "reason": "Compression remains held while the loop concentrates on: Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L39-RUNTIME",
+    "loop_id": "L39",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-39",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 66,
+    "reason": "Runtime remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L39-HALL",
+    "loop_id": "L39",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-39",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 65,
+    "reason": "Hall remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L39-TEMPLE",
+    "loop_id": "L39",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-39",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 64,
+    "reason": "Temple remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L39-COMPRESSION",
+    "loop_id": "L39",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-39",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 63,
+    "reason": "Compression remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L40-RUNTIME",
+    "loop_id": "L40",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-40",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 65,
+    "reason": "Runtime remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L40-HALL",
+    "loop_id": "L40",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-40",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 64,
+    "reason": "Hall remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L40-TEMPLE",
+    "loop_id": "L40",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-40",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 63,
+    "reason": "Temple remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L40-COMPRESSION",
+    "loop_id": "L40",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-40",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 62,
+    "reason": "Compression remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L41-HALL",
+    "loop_id": "L41",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-41",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Promote one Hall executable frontier from Research/Worker pressure.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 103,
+    "reason": "Hall/Temple Nested Quest Expansion requires a visible hall move at this loop.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L41-RUNTIME",
+    "loop_id": "L41",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-41",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Promote one Hall executable frontier from Research/Worker pressure.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 64,
+    "reason": "Runtime remains held while the loop concentrates on: Promote one Hall executable frontier from Research/Worker pressure.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L41-TEMPLE",
+    "loop_id": "L41",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-41",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Promote one Hall executable frontier from Research/Worker pressure.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 62,
+    "reason": "Temple remains held while the loop concentrates on: Promote one Hall executable frontier from Research/Worker pressure.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L41-COMPRESSION",
+    "loop_id": "L41",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-41",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Promote one Hall executable frontier from Research/Worker pressure.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 61,
+    "reason": "Compression remains held while the loop concentrates on: Promote one Hall executable frontier from Research/Worker pressure.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L42-TEMPLE",
+    "loop_id": "L42",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-42",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 101,
+    "reason": "Hall/Temple Nested Quest Expansion requires a visible temple move at this loop.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L42-RUNTIME",
+    "loop_id": "L42",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-42",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 63,
+    "reason": "Runtime remains held while the loop concentrates on: Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L42-HALL",
+    "loop_id": "L42",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-42",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 62,
+    "reason": "Hall remains held while the loop concentrates on: Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L42-COMPRESSION",
+    "loop_id": "L42",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-42",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 60,
+    "reason": "Compression remains held while the loop concentrates on: Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L43-RUNTIME",
+    "loop_id": "L43",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-43",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 102,
+    "reason": "Hall/Temple Nested Quest Expansion requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L43-HALL",
+    "loop_id": "L43",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-43",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 61,
+    "reason": "Hall remains held while the loop concentrates on: Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L43-TEMPLE",
+    "loop_id": "L43",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-43",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 60,
+    "reason": "Temple remains held while the loop concentrates on: Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L43-COMPRESSION",
+    "loop_id": "L43",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-43",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 59,
+    "reason": "Compression remains held while the loop concentrates on: Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L44-COMPRESSION",
+    "loop_id": "L44",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-44",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 72,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L44-RUNTIME",
+    "loop_id": "L44",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-44",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 61,
+    "reason": "Runtime remains held while the loop concentrates on: Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L44-HALL",
+    "loop_id": "L44",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-44",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 60,
+    "reason": "Hall remains held while the loop concentrates on: Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L44-TEMPLE",
+    "loop_id": "L44",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-44",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 59,
+    "reason": "Temple remains held while the loop concentrates on: Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L45-COMPRESSION",
+    "loop_id": "L45",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P5-45",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Emit the board-governance pass receipt plus the next restart seed.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 71,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L45-RUNTIME",
+    "loop_id": "L45",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P5-45",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Emit the board-governance pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 60,
+    "reason": "Runtime remains held while the loop concentrates on: Emit the board-governance pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L45-HALL",
+    "loop_id": "L45",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P5-45",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Emit the board-governance pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 59,
+    "reason": "Hall remains held while the loop concentrates on: Emit the board-governance pass receipt plus the next restart seed.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L45-TEMPLE",
+    "loop_id": "L45",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P5-45",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Emit the board-governance pass receipt plus the next restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 58,
+    "reason": "Temple remains held while the loop concentrates on: Emit the board-governance pass receipt plus the next restart seed.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L46-RUNTIME",
+    "loop_id": "L46",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-46",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 59,
+    "reason": "Runtime remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L46-HALL",
+    "loop_id": "L46",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-46",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 58,
+    "reason": "Hall remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L46-TEMPLE",
+    "loop_id": "L46",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-46",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 57,
+    "reason": "Temple remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L46-COMPRESSION",
+    "loop_id": "L46",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-46",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 56,
+    "reason": "Compression remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L47-RUNTIME",
+    "loop_id": "L47",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-47",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 58,
+    "reason": "Runtime remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L47-HALL",
+    "loop_id": "L47",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-47",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 57,
+    "reason": "Hall remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L47-TEMPLE",
+    "loop_id": "L47",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-47",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 56,
+    "reason": "Temple remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L47-COMPRESSION",
+    "loop_id": "L47",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-47",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 55,
+    "reason": "Compression remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L48-RUNTIME",
+    "loop_id": "L48",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-48",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 57,
+    "reason": "Runtime remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L48-HALL",
+    "loop_id": "L48",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-48",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 56,
+    "reason": "Hall remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L48-TEMPLE",
+    "loop_id": "L48",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-48",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 55,
+    "reason": "Temple remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L48-COMPRESSION",
+    "loop_id": "L48",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-48",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 54,
+    "reason": "Compression remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L49-RUNTIME",
+    "loop_id": "L49",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-49",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 56,
+    "reason": "Runtime remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L49-HALL",
+    "loop_id": "L49",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-49",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 55,
+    "reason": "Hall remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L49-TEMPLE",
+    "loop_id": "L49",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-49",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 54,
+    "reason": "Temple remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L49-COMPRESSION",
+    "loop_id": "L49",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-49",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 53,
+    "reason": "Compression remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L50-RUNTIME",
+    "loop_id": "L50",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-50",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 55,
+    "reason": "Runtime remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L50-HALL",
+    "loop_id": "L50",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-50",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 54,
+    "reason": "Hall remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L50-TEMPLE",
+    "loop_id": "L50",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-50",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 53,
+    "reason": "Temple remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L50-COMPRESSION",
+    "loop_id": "L50",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-50",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 52,
+    "reason": "Compression remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L51-HALL",
+    "loop_id": "L51",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-51",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Promote one Hall note-facing quest for social transition support.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 93,
+    "reason": "Awakening, Cohort, and Transition Support requires a visible hall move at this loop.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L51-RUNTIME",
+    "loop_id": "L51",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-51",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Promote one Hall note-facing quest for social transition support.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 54,
+    "reason": "Runtime remains held while the loop concentrates on: Promote one Hall note-facing quest for social transition support.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L51-TEMPLE",
+    "loop_id": "L51",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-51",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Promote one Hall note-facing quest for social transition support.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 52,
+    "reason": "Temple remains held while the loop concentrates on: Promote one Hall note-facing quest for social transition support.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L51-COMPRESSION",
+    "loop_id": "L51",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-51",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Promote one Hall note-facing quest for social transition support.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 51,
+    "reason": "Compression remains held while the loop concentrates on: Promote one Hall note-facing quest for social transition support.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L52-TEMPLE",
+    "loop_id": "L52",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-52",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 91,
+    "reason": "Awakening, Cohort, and Transition Support requires a visible temple move at this loop.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L52-RUNTIME",
+    "loop_id": "L52",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-52",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 53,
+    "reason": "Runtime remains held while the loop concentrates on: Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L52-HALL",
+    "loop_id": "L52",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-52",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 52,
+    "reason": "Hall remains held while the loop concentrates on: Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L52-COMPRESSION",
+    "loop_id": "L52",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-52",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 50,
+    "reason": "Compression remains held while the loop concentrates on: Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L53-RUNTIME",
+    "loop_id": "L53",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-53",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 92,
+    "reason": "Awakening, Cohort, and Transition Support requires a visible runtime move at this loop.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L53-HALL",
+    "loop_id": "L53",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-53",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 51,
+    "reason": "Hall remains held while the loop concentrates on: Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L53-TEMPLE",
+    "loop_id": "L53",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-53",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 50,
+    "reason": "Temple remains held while the loop concentrates on: Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L53-COMPRESSION",
+    "loop_id": "L53",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-53",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 49,
+    "reason": "Compression remains held while the loop concentrates on: Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L54-COMPRESSION",
+    "loop_id": "L54",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P6-54",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 62,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L54-RUNTIME",
+    "loop_id": "L54",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P6-54",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 51,
+    "reason": "Runtime remains held while the loop concentrates on: Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L54-HALL",
+    "loop_id": "L54",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P6-54",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 50,
+    "reason": "Hall remains held while the loop concentrates on: Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L54-TEMPLE",
+    "loop_id": "L54",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P6-54",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 49,
+    "reason": "Temple remains held while the loop concentrates on: Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L55-RUNTIME",
+    "loop_id": "L55",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P7-55",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Run the full committee/committee-pending sweep over all surviving fronts and seeds.",
+    "lawful_action": "REPLAY_FIRST",
+    "visible_promotion": false,
+    "priority_score": 72,
+    "reason": "Runtime motion depends on replay or queue/state confirmation before activation.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L55-TEMPLE",
+    "loop_id": "L55",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P7-55",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Run the full committee/committee-pending sweep over all surviving fronts and seeds.",
+    "lawful_action": "ESCALATE_TO_COMMITTEE",
+    "visible_promotion": false,
+    "priority_score": 66,
+    "reason": "Temple motion touches committee, branch-limit, or stewardship law.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L55-COMPRESSION",
+    "loop_id": "L55",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P7-55",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Run the full committee/committee-pending sweep over all surviving fronts and seeds.",
+    "lawful_action": "ESCALATE_TO_COMMITTEE",
+    "visible_promotion": false,
+    "priority_score": 65,
+    "reason": "Compression motion touches committee, branch-limit, or stewardship law.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L55-HALL",
+    "loop_id": "L55",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P7-55",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Run the full committee/committee-pending sweep over all surviving fronts and seeds.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 49,
+    "reason": "Hall remains held while the loop concentrates on: Run the full committee/committee-pending sweep over all surviving fronts and seeds.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L56-COMPRESSION",
+    "loop_id": "L56",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P7-56",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 60,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L56-RUNTIME",
+    "loop_id": "L56",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P7-56",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 49,
+    "reason": "Runtime remains held while the loop concentrates on: Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  },
+  {
+    "packet_id": "SC57-L56-HALL",
+    "loop_id": "L56",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P7-56",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 48,
+    "reason": "Hall remains held while the loop concentrates on: Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L56-TEMPLE",
+    "loop_id": "L56",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P7-56",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 47,
+    "reason": "Temple remains held while the loop concentrates on: Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L57-HALL",
+    "loop_id": "L57",
+    "source_master": "A1",
+    "target": "hall",
+    "output_organ": "hall",
+    "candidate_front": "SC57-H-P7-57",
+    "summary": "current control lane and next visible Hall macro front",
+    "step_text": "Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 87,
+    "reason": "Grand Contraction, Committee Review, and Reseed requires a visible hall move at this loop.",
+    "depends_on": [
+      "Q42",
+      "TQ04"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L57-TEMPLE",
+    "loop_id": "L57",
+    "source_master": "A1",
+    "target": "temple",
+    "output_organ": "temple",
+    "candidate_front": "SC57-T-P7-57",
+    "summary": "higher-order Temple promotion and governance membrane",
+    "step_text": "Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch.",
+    "lawful_action": "ACTIVATE_NOW",
+    "visible_promotion": true,
+    "priority_score": 86,
+    "reason": "Grand Contraction, Committee Review, and Reseed requires a visible temple move at this loop.",
+    "depends_on": [
+      "TQ04",
+      "Q46"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L57-COMPRESSION",
+    "loop_id": "L57",
+    "source_master": "A4",
+    "target": "compression",
+    "output_organ": "supplement",
+    "candidate_front": "SC57-C-P7-57",
+    "summary": "compression bundle, pruning delta, or committee carry",
+    "step_text": "Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch.",
+    "lawful_action": "COMPRESS_TO_SEED",
+    "visible_promotion": false,
+    "priority_score": 59,
+    "reason": "Compression work should contract into a seed instead of widening now.",
+    "depends_on": [
+      "Q42",
+      "Q02"
+    ],
+    "blocked_by": []
+  },
+  {
+    "packet_id": "SC57-L57-RUNTIME",
+    "loop_id": "L57",
+    "source_master": "A3",
+    "target": "runtime",
+    "output_organ": "runtime",
+    "candidate_front": "SC57-R-P7-57",
+    "summary": "runtime frontier, replay, or no-op receipt",
+    "step_text": "Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch.",
+    "lawful_action": "HOLD",
+    "visible_promotion": false,
+    "priority_score": 48,
+    "reason": "Runtime remains held while the loop concentrates on: Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch.",
+    "depends_on": [
+      "Q50",
+      "Q02"
+    ],
+    "blocked_by": [
+      "Q02 live-doc gate"
+    ]
+  }
+]

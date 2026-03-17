@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-03-10T03:09:11.581505+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_bruno_address_c_leaf_promotion",
+  "truth": "OK",
+  "promotion_id": "BRUNO.ADDRESS_C.LEAF.OK.2026-03-10",
+  "leaf": {
+    "name": "Address C",
+    "node": "<Bruno_Archetype_Compression, BrunoAthenaMasterTome, Ch06, R, 4, a, EAFW, Arc1, Me, AppM, OK, classical>",
+    "old_truth": "AMBIG",
+    "new_truth": "OK"
+  },
+  "conditions": {
+    "b12_table_exists": true,
+    "b12_truth_is_ok": true,
+    "primary_source_truth_is_ok": true,
+    "address_c_truth_is_ok": true,
+    "active_front_requests_leaf_promotion": true
+  },
+  "supporting_artifacts": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\bruno_b12_operator_table.json",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_bruno_route_map.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_bruno_primary_sources.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\BRUNO_ACTIVE_FRONT.md"
+  ],
+  "why": [
+    "The Bruno B12 table now source-pins the replay-side Bronze wheel.",
+    "The family primary-source surface now classifies Bruno locally as OK.",
+    "Address C no longer floats as a replay shell without source-pinned bronze support."
+  ],
+  "next_seed": "Q35"
+}

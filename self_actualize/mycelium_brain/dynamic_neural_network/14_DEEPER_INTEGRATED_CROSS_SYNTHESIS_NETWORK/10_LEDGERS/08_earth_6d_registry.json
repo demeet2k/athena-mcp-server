@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "authority_mode": "live deep root plus local AIR, FIRE, and Water package controls; cortex export is deferred",
+  "registry_shape": "EarthGate6D = (NSCoord, AIRRef, BoundaryClass, AdmissibilityMode, ConflictEnvelope, RequiredAppendices, ReturnCheckpoint, TruthCap, DocsGate)",
+  "native_basis_ids": [
+    "02",
+    "09",
+    "13",
+    "15"
+  ],
+  "translated_basis_ids": [
+    "01",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "10",
+    "11",
+    "12",
+    "14",
+    "16"
+  ],
+  "boundary_classes": [
+    "SEALED",
+    "FILTERED",
+    "QUARANTINED"
+  ],
+  "admissibility_modes": [
+    "ALLOW",
+    "HOLD_NEAR",
+    "REQUIRE_EVIDENCE",
+    "REJECT"
+  ],
+  "conflict_envelopes": [
+    "NONE",
+    "Q_INGRESS",
+    "O_RETURN",
+    "QO_LOOP",
+    "REVERSE_OVERLAY"
+  ],
+  "mandatory_appendices": [
+    "AppA",
+    "AppB",
+    "AppI",
+    "AppK",
+    "AppM"
+  ],
+  "conditional_appendices": {
+    "persisted_carrier": [
+      "AppN"
+    ],
+    "ambig_promotion": [
+      "AppL"
+    ],
+    "deployable_return_claim": [
+      "AppP"
+    ]
+  },
+  "metro_surfaces": [
+    "07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+    "07_METRO_STACK/05_level_5_mobius_bridge_map.md",
+    "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+  ],
+  "appendix_surfaces": [
+    "08_APPENDIX_CRYSTAL/AppA_addressing_and_grammars.md",
+    "08_APPENDIX_CRYSTAL/AppB_canon_laws_and_forms.md",
+    "08_APPENDIX_CRYSTAL/AppI_corridors_and_truth_lattice.md",
+    "08_APPENDIX_CRYSTAL/AppK_conflict_and_quarantine.md",
+    "08_APPENDIX_CRYSTAL/AppM_replay_kernel.md",
+    "08_APPENDIX_CRYSTAL/AppN_container_formats.md",
+    "08_APPENDIX_CRYSTAL/AppL_evidence_plan_harness.md",
+    "08_APPENDIX_CRYSTAL/AppP_deployment_profiles.md",
+    "08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md"
+  ],
+  "package_surfaces": [
+    "13_6D_EARTH_CONTROL/00_INDEX.md",
+    "13_6D_EARTH_CONTROL/01_admissibility_and_zero_point.md",
+    "13_6D_EARTH_CONTROL/02_2564_to_10246_guardrail_lift.md",
+    "13_6D_EARTH_CONTROL/03_boundary_quarantine_and_mobius_legality.md",
+    "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+  ],
+  "anchor_chapters": [
+    "Ch12<0023>",
+    "Ch13<0030>",
+    "Ch16<0033>"
+  ],
+  "anchor_appendices": [
+    "AppH",
+    "AppI",
+    "AppM"
+  ],
+  "cross_element_dependencies": {
+    "air": [
+      "03_AIR/07_registryschemas.md",
+      "03_AIR/16_dimensionlift.md"
+    ],
+    "water": [
+      "11_6D_WATER_CONTROL/02_2564_to_10246_lift.md",
+      "11_6D_WATER_CONTROL/04_replay_and_recovery.md"
+    ],
+    "fire": [
+      "00_CONTROL/06_FIRE_5D_6D_EXTENSION.md",
+      "10_LEDGERS/07_fire_6d_registry.json"
+    ]
+  },
+  "gate_laws": [
+    "No route may rename chapters or appendices.",
+    "Q and reverse-field O remain overlay-only.",
+    "No route may self-promote above local witnessed truth while Docs are BLOCKED.",
+    "H6 to Seed-6D returns must reference Ch12, Ch13, Ch16 plus AppI and AppM.",
+    "AppK is required when conflict survives.",
+    "AppN is required when the carrier persists."
+  ],
+  "cortex_promotion_status": "DEFERRED"
+}

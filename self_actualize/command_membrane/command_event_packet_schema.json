@@ -1,0 +1,22 @@
+{
+  "schema_id": "CommandEventPacketV1",
+  "required_fields": [
+    "event_id",
+    "source_path",
+    "event_kind",
+    "change_summary",
+    "goal",
+    "priority",
+    "confidence",
+    "earth_ts_utc",
+    "liminal_ts",
+    "coord12",
+    "coord_delta",
+    "parent_event_id",
+    "ttl",
+    "pheromone",
+    "state_hash",
+    "route_class",
+    "status"
+  ]
+}

@@ -1,0 +1,295 @@
+{
+  "generated_at": "2026-03-13T00:48:21.426314+00:00",
+  "derivation_version": "2026-03-13.bridge-densification-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_bridge_densification",
+  "packets": [
+    {
+      "packet_id": "BPK-CS-001-EMIT",
+      "source_agent": "corridor-builder",
+      "target_agent": "grand-central-transit",
+      "source_body_id": "A16",
+      "target_body_id": "A06",
+      "trigger": "admit BF-CS-001 into Grand Central",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCZ",
+        "A06"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_001.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-001",
+      "phase": "emit",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_001.md",
+      "note": "Fleet proof corridor."
+    },
+    {
+      "packet_id": "BPK-CS-001-TRANSIT",
+      "source_agent": "grand-central-transit",
+      "target_agent": "proof-compiler",
+      "source_body_id": "A16",
+      "target_body_id": "A06",
+      "trigger": "carry BF-CS-001 across A16 -> GCL+GCR -> GCZ -> A06",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCZ",
+        "A06"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_001.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-001",
+      "phase": "transit",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_001.md",
+      "note": "Fleet proof corridor."
+    },
+    {
+      "packet_id": "BPK-CS-001-WRITEBACK",
+      "source_agent": "proof-compiler",
+      "target_agent": "overseer",
+      "source_body_id": "A16",
+      "target_body_id": "A06",
+      "trigger": "write BF-CS-001 into Voynich\\FULL_TRANSLATION\\rosetta_machine\\README.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCZ",
+        "A06"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_001.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-001",
+      "phase": "writeback",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_001.md",
+      "note": "Fleet proof corridor."
+    },
+    {
+      "packet_id": "BPK-CS-002-EMIT",
+      "source_agent": "proof-compiler",
+      "target_agent": "grand-central-transit",
+      "source_body_id": "A06",
+      "target_body_id": "A09",
+      "trigger": "admit BF-CS-002 into Grand Central",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A06",
+        "GCR",
+        "GCW",
+        "A09"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_002.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-002",
+      "phase": "emit",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_002.md",
+      "note": "Proof compression corridor."
+    },
+    {
+      "packet_id": "BPK-CS-002-TRANSIT",
+      "source_agent": "grand-central-transit",
+      "target_agent": "qshrink-shell",
+      "source_body_id": "A06",
+      "target_body_id": "A09",
+      "trigger": "carry BF-CS-002 across A06 -> GCR -> GCW -> A09",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A06",
+        "GCR",
+        "GCW",
+        "A09"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_002.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-002",
+      "phase": "transit",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_002.md",
+      "note": "Proof compression corridor."
+    },
+    {
+      "packet_id": "BPK-CS-002-WRITEBACK",
+      "source_agent": "qshrink-shell",
+      "target_agent": "overseer",
+      "source_body_id": "A06",
+      "target_body_id": "A09",
+      "trigger": "write BF-CS-002 into QSHRINK - ATHENA (internal use)\\04_METRO\\00_METRO_INDEX.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A06",
+        "GCR",
+        "GCW",
+        "A09"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_002.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-002",
+      "phase": "writeback",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_002.md",
+      "note": "Proof compression corridor."
+    },
+    {
+      "packet_id": "BPK-CS-003-EMIT",
+      "source_agent": "corridor-builder",
+      "target_agent": "grand-central-transit",
+      "source_body_id": "A16",
+      "target_body_id": "A15",
+      "trigger": "admit BF-CS-003 into Grand Central",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCP",
+        "A15"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_003.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-003",
+      "phase": "emit",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_003.md",
+      "note": "Fleet origin inheritance corridor."
+    },
+    {
+      "packet_id": "BPK-CS-003-TRANSIT",
+      "source_agent": "grand-central-transit",
+      "target_agent": "seed-reservoir",
+      "source_body_id": "A16",
+      "target_body_id": "A15",
+      "trigger": "carry BF-CS-003 across A16 -> GCL+GCR -> GCP -> A15",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCP",
+        "A15"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_003.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-003",
+      "phase": "transit",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_003.md",
+      "note": "Fleet origin inheritance corridor."
+    },
+    {
+      "packet_id": "BPK-CS-003-WRITEBACK",
+      "source_agent": "seed-reservoir",
+      "target_agent": "overseer",
+      "source_body_id": "A16",
+      "target_body_id": "A15",
+      "trigger": "write BF-CS-003 into self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin_route_map.md",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCP",
+        "A15"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\bridge_families\\ROUTE_bf_cs_003.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md"
+      ],
+      "proof_state": "OK",
+      "bridge_family_id": "BF-CS-003",
+      "phase": "writeback",
+      "replay_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+      "verification_surface": "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_003.md",
+      "note": "Fleet origin inheritance corridor."
+    }
+  ]
+}

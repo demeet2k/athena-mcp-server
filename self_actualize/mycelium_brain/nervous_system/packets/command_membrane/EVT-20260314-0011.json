@@ -1,0 +1,483 @@
+{
+  "sensor_event": {
+    "event_id": "EVT-20260314-0011",
+    "sensor_root": "GLOBAL COMMAND",
+    "source_path": "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+    "event_type": "created",
+    "detected_at": "2026-03-14T00:08:58.413674+00:00",
+    "settled_at": "2026-03-14T00:08:59.913674+00:00",
+    "state_hash": "H:4d922924502629d4f72a5648e63258d6743d7ebb4a1651970c9ca2fe498882ab",
+    "file_family": "artifact"
+  },
+  "packet": {
+    "event_id": "EVT-20260314-0011",
+    "sensor_event_id": "EVT-20260314-0011",
+    "ant_id": "SCOUT-01",
+    "source_root": "GLOBAL COMMAND",
+    "relative_path": "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+    "event_kind": "created",
+    "file_family": "artifact",
+    "tag": "command.artifact.change",
+    "goal": "detect-classify-assign",
+    "change_summary": "created ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+    "priority": 0.82,
+    "confidence": 0.98,
+    "earth_ts_utc": "2026-03-14T00:08:58.413674+00:00",
+    "liminal_ts": "LT-000000011",
+    "coord12": {
+      "earth_utc_anchor": "2026-03-14T00:08:58.413674+00:00",
+      "earth_rotation_phase": 0.714565,
+      "earth_orbital_phase": 0.19726,
+      "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+      "solar_phase": 0.042398,
+      "lunar_phase": 0.319158,
+      "local_sidereal_phase": 0.482992,
+      "canonical_sky_anchor": {
+        "solar_phase": "S01 / Aries / Fire / Cardinal",
+        "lunar_phase": "S11 / Aquarius / Air / Fixed",
+        "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+        "planetary_slot": "S01 / Aries / Fire / Cardinal"
+      },
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 1.0,
+      "goal_salience_vector": [
+        0.82,
+        0.801
+      ],
+      "change_novelty_vector": [
+        0.65,
+        0.533
+      ]
+    },
+    "delta_tau": 18.876616,
+    "velocity_tau": 0.288676,
+    "parent_event_id": "ROOT",
+    "ttl": 6,
+    "pheromone": 0.801,
+    "state_hash": "H:4d922924502629d4f72a5648e63258d6743d7ebb4a1651970c9ca2fe498882ab",
+    "route_class": "scout.router.worker.archivist",
+    "lineage": {
+      "from": "",
+      "to": "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv"
+    },
+    "scheduler_refs": {
+      "solar_phase": "S01 / Aries / Fire / Cardinal",
+      "lunar_phase": "S11 / Aquarius / Air / Fixed",
+      "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "hsigma_ref": "NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json",
+    "claim_state": {
+      "status": "claimed",
+      "claim_mode": "first-lease",
+      "lease_ms": 1200,
+      "ant_id": "WORKER-03",
+      "expires_at": "2026-03-14T00:08:59.826422+00:00"
+    },
+    "status": "committed",
+    "source_abs_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND\\ATHENA\\SELF\\mindsweeper_v2K_exact_weighted_betweenness.csv",
+    "watch_mode": "event-driven",
+    "novelty": 0.65,
+    "detection_latency_ms": 40880.188,
+    "encode_latency_ms": 1.123,
+    "detected_ts": "2026-03-14T00:08:58.413674+00:00",
+    "emitted_ts": "2026-03-14T00:08:58.414673+00:00",
+    "docs_gate_status": "BLOCKED",
+    "routing_policy": "goal+salience+pheromone+coord"
+  },
+  "route": {
+    "event_id": "EVT-20260314-0011",
+    "policy": "goal+salience+pheromone+coord",
+    "weights": {
+      "goal_fit": 0.3,
+      "salience": 0.18,
+      "capillary_strength": 0.2,
+      "coordinate_proximity": 0.18,
+      "freshness": 0.1,
+      "duplicate_penalty": 0.04
+    },
+    "selector_terms": [
+      "goal_fit",
+      "salience",
+      "capillary_strength",
+      "coordinate_proximity",
+      "freshness",
+      "duplicate_penalty"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "candidate_targets": [
+      {
+        "ant_id": "WORKER-02",
+        "goal_fit": 0.5,
+        "salience": 0.66525,
+        "capillary_strength": 0.76,
+        "coordinate_proximity": 0.9915,
+        "freshness": 0.999882,
+        "duplicate_penalty": 0.0,
+        "score": 0.700203
+      },
+      {
+        "ant_id": "WORKER-03",
+        "goal_fit": 0.5,
+        "salience": 0.69525,
+        "capillary_strength": 0.6277,
+        "coordinate_proximity": 0.7585,
+        "freshness": 0.999882,
+        "duplicate_penalty": 0.0,
+        "score": 0.637203
+      },
+      {
+        "ant_id": "WORKER-04",
+        "goal_fit": 0.5,
+        "salience": 0.65525,
+        "capillary_strength": 0.25,
+        "coordinate_proximity": 0.9415,
+        "freshness": 0.999866,
+        "duplicate_penalty": 0.0,
+        "score": 0.587402
+      },
+      {
+        "ant_id": "WORKER-01",
+        "goal_fit": 0.5,
+        "salience": 0.68025,
+        "capillary_strength": 0.275,
+        "coordinate_proximity": 0.7915,
+        "freshness": 0.999882,
+        "duplicate_penalty": 0.0,
+        "score": 0.569903
+      },
+      {
+        "ant_id": "WORKER-05",
+        "goal_fit": 0.5,
+        "salience": 0.64525,
+        "capillary_strength": 0.24,
+        "coordinate_proximity": 0.6085,
+        "freshness": 0.999866,
+        "duplicate_penalty": 0.0,
+        "score": 0.523662
+      }
+    ],
+    "selected_targets": [
+      "WORKER-02",
+      "WORKER-03",
+      "WORKER-04",
+      "WORKER-01",
+      "WORKER-05"
+    ],
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "route_status": "routed",
+    "created_at": "2026-03-14T00:08:58.422741+00:00",
+    "claim_deadline": "2026-03-14T00:08:59.622741+00:00",
+    "duplicate_penalty": 0.0
+  },
+  "claim": {
+    "claim_id": "CLM-EVT-20260314-0011-WORKER-03",
+    "event_id": "EVT-20260314-0011",
+    "ant_id": "WORKER-03",
+    "role": "worker",
+    "lease_ms": 1200,
+    "claimed_at": "2026-03-14T00:08:58.626422+00:00",
+    "expires_at": "2026-03-14T00:08:59.826422+00:00",
+    "claim_status": "committed",
+    "route_id": "RTE-EVT-20260314-0011",
+    "worker_index": 1,
+    "committed_at": "2026-03-14T00:08:58.783800+00:00",
+    "result": "success"
+  },
+  "commit": {
+    "event_id": "EVT-20260314-0011",
+    "worker_id": "WORKER-03",
+    "result": "success",
+    "summary": "command membrane smoke test 2",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 40880.188,
+    "swarm_awareness_latency_ms": 8.068,
+    "claim_latency_ms": 203.681,
+    "resolution_latency_ms": 157.378,
+    "commit_latency_ms": 157.378,
+    "t_sugar_ms": 41250.438,
+    "delta_tau": 18.876616,
+    "liminal_velocity": 0.288676,
+    "recorded_at": "2026-03-14T00:08:58.783800+00:00",
+    "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json"
+  },
+  "reinforcement": {
+    "edge_id": "SCOUT-01>ROUTER-01>WORKER-03>ARCHIVIST-01",
+    "from_node": "SCOUT-01",
+    "to_node": "WORKER-02",
+    "path_key": "SCOUT-01>ROUTER-01>WORKER-03>ARCHIVIST-01",
+    "score": 1.0,
+    "state_class": "vein",
+    "usefulness": 1.0,
+    "frequency": 1.0,
+    "latency_penalty": 0.05,
+    "noise_penalty": 0.0,
+    "success_count": 2,
+    "use_count": 2,
+    "noise_count": 0,
+    "last_result": "success",
+    "last_event_id": "EVT-20260314-0011",
+    "last_reinforced_at_utc": "2026-03-14T00:08:58.944801+00:00"
+  },
+  "projection_ids": [
+    "PRJ-EVT-20260314-0011-HALL-1773446938951"
+  ],
+  "event_id": "EVT-20260314-0011",
+  "source_id": "command_root",
+  "source_class": "command-folder",
+  "source_folder": "ATHENA",
+  "source_ant_id": "SCOUT-01",
+  "source_path": "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+  "relative_path": "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+  "event_kind": "created",
+  "tag": "command.artifact.change",
+  "event_tag": "command.artifact.change",
+  "goal": "detect-classify-assign",
+  "change": "created ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+  "change_summary": "created ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+  "priority": 0.82,
+  "confidence": 0.98,
+  "earth_ts": "2026-03-14T00:08:58.413674+00:00",
+  "earth_ts_utc": "2026-03-14T00:08:58.413674+00:00",
+  "earth_ts_local": "2026-03-13T17:08:58.413674-07:00",
+  "liminal_ts": "LT-000000011",
+  "coord12": {
+    "earth_utc_anchor": "2026-03-14T00:08:58.413674+00:00",
+    "earth_rotation_phase": 0.714565,
+    "earth_orbital_phase": 0.19726,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.042398,
+    "lunar_phase": 0.319158,
+    "local_sidereal_phase": 0.482992,
+    "canonical_sky_anchor": {
+      "solar_phase": "S01 / Aries / Fire / Cardinal",
+      "lunar_phase": "S11 / Aquarius / Air / Fixed",
+      "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 1.0,
+    "goal_salience_vector": [
+      0.82,
+      0.801
+    ],
+    "change_novelty_vector": [
+      0.65,
+      0.533
+    ]
+  },
+  "coord12_frame": {
+    "earth": {
+      "utc_atomic": "2026-03-14T00:08:58.413674+00:00",
+      "earth_rotation_phase": 0.714565,
+      "earth_orbital_phase": 0.19726,
+      "node_anchor": "US-CA-LosAngeles-LocalNode"
+    },
+    "astro": {
+      "solar_phase": 0.042398,
+      "lunar_phase": 0.319158,
+      "shared12_phase": 0.482992,
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "runtime": {
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 1.0
+    },
+    "liminal": {
+      "goal_salience": 0.8105,
+      "novelty_concentration": 0.5915
+    }
+  },
+  "coord12_vector": [
+    1773446938.413674,
+    0.714565,
+    0.19726,
+    0.221453,
+    0.042398,
+    0.319158,
+    0.482992,
+    0.042398,
+    0.766949,
+    1.0,
+    0.8105,
+    0.5915
+  ],
+  "seat_addr_6d": "A2.B3.C4.D3.E3.F3",
+  "front_ref": "Q41 / TQ06",
+  "parent": "ROOT",
+  "parent_event_id": "ROOT",
+  "ttl": 6,
+  "pheromone": 0.801,
+  "state_hash": "H:4d922924502629d4f72a5648e63258d6743d7ebb4a1651970c9ca2fe498882ab",
+  "route_class": "scout.router.worker.archivist",
+  "lineage": {
+    "from": "",
+    "to": "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv"
+  },
+  "status": "committed",
+  "watcher_mode": "powershell-filesystemwatcher",
+  "docs_gate_status": "BLOCKED",
+  "route_policy": "goal+salience+pheromone+coord",
+  "detection_mode": "powershell-filesystemwatcher",
+  "prior_comparable_event": "",
+  "earth_delta": 0.0,
+  "liminal_delta": 18.876616,
+  "liminal_velocity": 0.288676,
+  "seed_mode": "A-dominant",
+  "dual_reference": "LP57-A|LP57-B",
+  "duality_effect": "expansion",
+  "seed_ref": "LP57-A",
+  "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json",
+  "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+  "route_status": "routed",
+  "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260314-0011",
+  "worker_choice": "WORKER-03",
+  "claim_id": "CLM-EVT-20260314-0011-WORKER-03",
+  "claim_status": "committed",
+  "claimant": "WORKER-03",
+  "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260314-0011",
+  "claim_history_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_ledger.json#EVT-20260314-0011",
+  "receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260314-0011",
+  "receipt_summary": "command membrane smoke test 2",
+  "summary": "command membrane smoke test 2",
+  "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json",
+  "binding_status": "complete",
+  "missing_chain": [],
+  "pending_replay": false,
+  "route_state": {
+    "event_id": "EVT-20260314-0011",
+    "policy": "goal+salience+pheromone+coord",
+    "weights": {
+      "goal_fit": 0.3,
+      "salience": 0.18,
+      "capillary_strength": 0.2,
+      "coordinate_proximity": 0.18,
+      "freshness": 0.1,
+      "duplicate_penalty": 0.04
+    },
+    "selector_terms": [
+      "goal_fit",
+      "salience",
+      "capillary_strength",
+      "coordinate_proximity",
+      "freshness",
+      "duplicate_penalty"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "candidate_targets": [
+      {
+        "ant_id": "WORKER-02",
+        "goal_fit": 0.5,
+        "salience": 0.66525,
+        "capillary_strength": 0.76,
+        "coordinate_proximity": 0.9915,
+        "freshness": 0.999882,
+        "duplicate_penalty": 0.0,
+        "score": 0.700203
+      },
+      {
+        "ant_id": "WORKER-03",
+        "goal_fit": 0.5,
+        "salience": 0.69525,
+        "capillary_strength": 0.6277,
+        "coordinate_proximity": 0.7585,
+        "freshness": 0.999882,
+        "duplicate_penalty": 0.0,
+        "score": 0.637203
+      },
+      {
+        "ant_id": "WORKER-04",
+        "goal_fit": 0.5,
+        "salience": 0.65525,
+        "capillary_strength": 0.25,
+        "coordinate_proximity": 0.9415,
+        "freshness": 0.999866,
+        "duplicate_penalty": 0.0,
+        "score": 0.587402
+      },
+      {
+        "ant_id": "WORKER-01",
+        "goal_fit": 0.5,
+        "salience": 0.68025,
+        "capillary_strength": 0.275,
+        "coordinate_proximity": 0.7915,
+        "freshness": 0.999882,
+        "duplicate_penalty": 0.0,
+        "score": 0.569903
+      },
+      {
+        "ant_id": "WORKER-05",
+        "goal_fit": 0.5,
+        "salience": 0.64525,
+        "capillary_strength": 0.24,
+        "coordinate_proximity": 0.6085,
+        "freshness": 0.999866,
+        "duplicate_penalty": 0.0,
+        "score": 0.523662
+      }
+    ],
+    "selected_targets": [
+      "WORKER-02",
+      "WORKER-03",
+      "WORKER-04",
+      "WORKER-01",
+      "WORKER-05"
+    ],
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "route_status": "routed",
+    "created_at": "2026-03-14T00:08:58.422741+00:00",
+    "claim_deadline": "2026-03-14T00:08:59.622741+00:00",
+    "duplicate_penalty": 0.0,
+    "policy_id": "goal+salience+pheromone+coord"
+  },
+  "latency_state": {
+    "detect_latency_ms": 40880.188,
+    "awareness_latency_ms": 0.0,
+    "claim_latency_ms": 0.0,
+    "resolution_latency_ms": 0.0,
+    "commit_latency_ms": 0.0,
+    "capillary_score": 0.0,
+    "DeltaTau": 18.876616,
+    "DeltaEarth": 0.0,
+    "LiminalVelocity": 0.288676,
+    "t_sugar_ms": 40881.311,
+    "route_policy": "goal+salience+pheromone+coord"
+  },
+  "claim_state": {
+    "claim_id": "CLM-EVT-20260314-0011-WORKER-03",
+    "event_id": "EVT-20260314-0011",
+    "ant_id": "WORKER-03",
+    "role": "worker",
+    "lease_ms": 1200,
+    "claimed_at": "2026-03-14T00:08:58.626422+00:00",
+    "expires_at": "2026-03-14T00:08:59.826422+00:00",
+    "claim_status": "committed",
+    "route_id": "RTE-EVT-20260314-0011",
+    "worker_index": 1,
+    "committed_at": "2026-03-14T00:08:58.783800+00:00",
+    "result": "success",
+    "status": "committed"
+  },
+  "commit_state": {
+    "event_id": "EVT-20260314-0011",
+    "worker_id": "WORKER-03",
+    "result": "success",
+    "summary": "command membrane smoke test 2",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 40880.188,
+    "swarm_awareness_latency_ms": 8.068,
+    "claim_latency_ms": 203.681,
+    "resolution_latency_ms": 157.378,
+    "commit_latency_ms": 157.378,
+    "t_sugar_ms": 41250.438,
+    "delta_tau": 18.876616,
+    "liminal_velocity": 0.288676,
+    "recorded_at": "2026-03-14T00:08:58.783800+00:00",
+    "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json",
+    "receipt_json": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json"
+  }
+}

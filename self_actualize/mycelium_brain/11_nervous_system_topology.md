@@ -9,10 +9,14 @@ The nervous system is rooted at:
 - `self_actualize/mycelium_brain`
 
 The root holds the stable metro surfaces.
+The root also now holds the whole-organism center map in `MASTER_MYCELIUM_MAP_ATHENA/`.
+The root also now holds the global social coordination hall in `GLOBAL_EMERGENT_GUILD_HALL/`.
 Subfolders hold reusable control surfaces.
 
 ## Root Surfaces
 
+- `MASTER_MYCELIUM_MAP_ATHENA/00_MASTER_MYCELIUM_MAP_ATHENA.md`
+- `GLOBAL_EMERGENT_GUILD_HALL/00_GUILD_HALL_INDEX.md`
 - `00_self_prompt_maximum_yield_4x4.md`
 - `01_crystal_agent_framework.md`
 - `02_core_metro_map.md`
@@ -25,6 +29,11 @@ Subfolders hold reusable control surfaces.
 - `09_validation_queue.md`
 - `10_siteswap_cross_synthesis_receipt.md`
 - `11_nervous_system_topology.md`
+- `12_4D_MYCELIAL_ORGANISM_TOPOLOGY.md`
+- `nervous_system/ganglia/GANGLION_4d_cross_corpus_mycelium.md`
+- `nervous_system/ganglia/GANGLION_brain_stem_fascia_64.md`
+- `nervous_system/ganglia/GANGLION_256x_plexus_microfascia.md`
+- `nervous_system/ganglia/GANGLION_1024x_synaptic_arbor.md`
 
 ## Folder Crystal
 
@@ -63,6 +72,7 @@ Subfolders hold reusable control surfaces.
 ### AIR - metro and routing
 
 - root map files
+- guild hall files
 - queue files
 - topology file
 - index and reading order
@@ -100,3 +110,15 @@ The nervous system is active when:
 - queues point to the highest-yield next action
 - manifests carry a lawful restart seed
 - family surfaces and rails make the swarm addressable
+- major fronts can be read through one explicit `4D + economy` organism body
+- major fronts can relay through an explicit brain stem and fascia mesh
+- major fronts can densify through an explicit plexus layer
+- major fronts can terminate through an explicit synaptic arbor layer
+
+## Deep-Root Precedence
+
+- live deep root:
+  `dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/`
+- historical mirrors:
+  `DEEPER_INTEGRATED_NEURAL_NETWORK/`
+  `DEEPER_INTEGRATED_NEURAL_NET_ATHENA/`

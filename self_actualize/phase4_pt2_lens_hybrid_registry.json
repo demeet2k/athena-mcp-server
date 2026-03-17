@@ -1,0 +1,209 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+  "lenses": [
+    {
+      "lens_id": "S",
+      "label": "Square",
+      "class_type": "singleton",
+      "members": [
+        "S"
+      ],
+      "role": "address/structure",
+      "default_gate": "S",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "F",
+      "label": "Flower",
+      "class_type": "singleton",
+      "members": [
+        "F"
+      ],
+      "role": "resonance/orbit",
+      "default_gate": "F",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "SF",
+      "label": "Square + Flower",
+      "class_type": "hybrid",
+      "members": [
+        "S",
+        "F"
+      ],
+      "role": "spectral projection",
+      "default_gate": "SF",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "C",
+      "label": "Cloud",
+      "class_type": "singleton",
+      "members": [
+        "C"
+      ],
+      "role": "field/Aether/ambiguity",
+      "default_gate": "C",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "SC",
+      "label": "Square + Cloud",
+      "class_type": "hybrid",
+      "members": [
+        "S",
+        "C"
+      ],
+      "role": "address-to-field permeability",
+      "default_gate": "SC",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "FC",
+      "label": "Flower + Cloud",
+      "class_type": "hybrid",
+      "members": [
+        "F",
+        "C"
+      ],
+      "role": "resonance-induced field motion",
+      "default_gate": "FC",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "SFC",
+      "label": "Square + Flower + Cloud",
+      "class_type": "hybrid",
+      "members": [
+        "S",
+        "F",
+        "C"
+      ],
+      "role": "backbone spectral coherence",
+      "default_gate": "SFC",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "R",
+      "label": "Fractal",
+      "class_type": "singleton",
+      "members": [
+        "R"
+      ],
+      "role": "memory/replay/regeneration",
+      "default_gate": "R",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "SR",
+      "label": "Square + Fractal",
+      "class_type": "hybrid",
+      "members": [
+        "S",
+        "R"
+      ],
+      "role": "address-to-replay stabilization",
+      "default_gate": "SR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "FR",
+      "label": "Flower + Fractal",
+      "class_type": "hybrid",
+      "members": [
+        "F",
+        "R"
+      ],
+      "role": "harmonic regeneration",
+      "default_gate": "FR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "SFR",
+      "label": "Square + Flower + Fractal",
+      "class_type": "hybrid",
+      "members": [
+        "S",
+        "F",
+        "R"
+      ],
+      "role": "lift and defect-control gate",
+      "default_gate": "SFR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "CR",
+      "label": "Cloud + Fractal",
+      "class_type": "hybrid",
+      "members": [
+        "C",
+        "R"
+      ],
+      "role": "field-memory renormalization",
+      "default_gate": "CR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "SCR",
+      "label": "Square + Cloud + Fractal",
+      "class_type": "hybrid",
+      "members": [
+        "S",
+        "C",
+        "R"
+      ],
+      "role": "diffusion and coarse-grain corridor gate",
+      "default_gate": "SCR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "FCR",
+      "label": "Flower + Cloud + Fractal",
+      "class_type": "hybrid",
+      "members": [
+        "F",
+        "C",
+        "R"
+      ],
+      "role": "heat-trace and global statistics gate",
+      "default_gate": "FCR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    },
+    {
+      "lens_id": "SFCR",
+      "label": "Square + Flower + Cloud + Fractal",
+      "class_type": "hybrid",
+      "members": [
+        "S",
+        "F",
+        "C",
+        "R"
+      ],
+      "role": "mature-object certificate and unified Aether witness",
+      "default_gate": "SFCR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Full non-empty S/F/C/R closure lattice."
+    }
+  ],
+  "summary": {
+    "count": 15
+  }
+}

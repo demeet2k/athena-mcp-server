@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-03-13T20:43:28.212851+00:00",
+  "protocol_id": "HEAVEN-REWARD-V1",
+  "truth": "OK",
+  "checks": {
+    "protocol_id": true,
+    "state_exists": true,
+    "leaderboard_exists": true,
+    "manifest_exists": true,
+    "hall_mirror_exists": true,
+    "temple_mirror_exists": true,
+    "scope_is_command_adventurer": true,
+    "positive_only_rule": true,
+    "reward_rows_present": true,
+    "agent_progress_present": true,
+    "quest_summaries_present": true,
+    "reward_row_fields": true,
+    "agent_progress_fields": true,
+    "leaderboard_sections": true,
+    "manifest_mentions_non_punitive": true,
+    "hall_mentions_mirror_only": true,
+    "temple_mentions_positive_attraction": true
+  }
+}

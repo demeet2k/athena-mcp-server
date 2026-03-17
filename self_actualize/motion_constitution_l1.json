@@ -1,0 +1,877 @@
+{
+  "generated_at": "2026-03-13T21:35:28.256476+00:00",
+  "derivation_version": "2026-03-13.motion-constitution-l1.v0",
+  "derivation_command": "python -m self_actualize.runtime.derive_motion_constitution_l1",
+  "truth": "NEAR",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "status": "derived-local-first",
+  "constitutional_membrane": [
+    "AppA",
+    "AppI",
+    "AppM"
+  ],
+  "brainstem_state": {
+    "G": "route graph and addressable memory",
+    "Pi": "pressure field",
+    "Omega": "legality projector",
+    "I": "immune state",
+    "R": "replay and witness memory"
+  },
+  "accepted_source_kinds": [
+    "quest_board",
+    "agent_registry",
+    "committee_output",
+    "immune_scheduler_output",
+    "continuation_seed"
+  ],
+  "action_alphabet": [
+    "ACTIVATE_NOW",
+    "HOLD",
+    "REQUEST_WITNESSES",
+    "REQUEST_HELP",
+    "REPLAY_FIRST",
+    "QUARANTINE",
+    "COMPRESS_TO_SEED",
+    "ESCALATE_TO_COMMITTEE",
+    "REFUSE_INADMISSIBLE"
+  ],
+  "automaton": [
+    "OBSERVE",
+    "SCORE",
+    "GATE",
+    "ACT/RECEIPT",
+    "REPLAY_STORE",
+    "SEED"
+  ],
+  "scoring_formula": "((closure_gain + heart_need + replay_readiness + integration_yield + organ_adjacency + seed_value) * (1 + 0.5 * pressure_gradient)) / (1 + cost + replay_cost + risk + failure_debt + branch_burden + contradiction_heat)",
+  "gating_note": "truth_readiness remains a gate variable and does not enter the ranking scalar",
+  "hysteresis_rule": {
+    "refusal_requires_new_witness_or_replay": true,
+    "quarantine_requires_new_immune_or_replay": true,
+    "duplicate_nearby_candidates_raise_branch_burden": true,
+    "committee_pending_conflicts_suppress_activation": true
+  },
+  "local_candidate_count": 6,
+  "evaluated_candidates": [
+    {
+      "candidate": {
+        "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+        "source_kind": "committee_output",
+        "source_ref": "CP-commit_path",
+        "source_organ": "Collective",
+        "target_organ": "ControlPlane",
+        "current_family": "jointatlas-merge",
+        "truth_burden": "OK",
+        "expected_packet_type": "CommitteePack",
+        "continuation_seed": "MotionConstitution_L1",
+        "agent_id": "A2",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "self_actualize\\jointatlas_merge_automaton.json",
+          "self_actualize\\jointatlas_merge_ledger.json"
+        ],
+        "replay_refs": [
+          "self_actualize\\jointatlas_merge_ledger.json"
+        ],
+        "committee_refs": [
+          "CP-commit_path"
+        ],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.4,
+          "heart_need": 1.0,
+          "replay_readiness": 1.0,
+          "integration_yield": 1.2,
+          "organ_adjacency": 1.1,
+          "seed_value": 1.2,
+          "cost": 0.3,
+          "replay_cost": 0.2,
+          "risk": 0.2,
+          "failure_debt": 0.1,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.0,
+          "pressure_gradient": 0.8,
+          "truth_readiness": 1.0
+        },
+        "note": "Derived from the landed merge boundary successor seed."
+      },
+      "effective_score_vector": {
+        "closure_gain": 1.4,
+        "heart_need": 1.0,
+        "replay_readiness": 1.0,
+        "integration_yield": 1.2,
+        "organ_adjacency": 1.1,
+        "seed_value": 1.2,
+        "cost": 0.3,
+        "replay_cost": 0.2,
+        "risk": 0.2,
+        "failure_debt": 0.1,
+        "branch_burden": 1.2,
+        "contradiction_heat": 0.0,
+        "pressure_gradient": 0.8,
+        "truth_readiness": 1.0
+      },
+      "reward_steering": {
+        "agent_id": "A2",
+        "profile": {
+          "agent_id": "A2",
+          "adventure_class": "F",
+          "recent_outcomes": [
+            "POSITIVE",
+            "POSITIVE",
+            "POSITIVE",
+            "POSITIVE"
+          ],
+          "recent_positive_runs": 4,
+          "recent_net_losses": 0,
+          "replay_breach_open": false,
+          "docs_dishonesty_recent": false
+        },
+        "applied": false,
+        "rules": []
+      },
+      "decision": {
+        "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+        "action": "ACTIVATE_NOW",
+        "constitutional_score": 3.2199999999999993,
+        "legal": true,
+        "residuals": [],
+        "replay_obligations": [
+          "store replay signature"
+        ],
+        "successor_seed": "MotionConstitution_L1",
+        "note": "Candidate cleared legality and threshold gates."
+      },
+      "receipt": {
+        "receipt_id": "MCR-MC-COMMITTEE-MERGE-SUCCESSOR",
+        "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+        "action": "ACTIVATE_NOW",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 3.2199999999999993,
+        "replay_store_update": {
+          "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+          "action": "ACTIVATE_NOW",
+          "constitutional_score": 3.22,
+          "witness_signature": "6e1c94abe869f7ec110bd52f4289cf8a4e9d6cfe31db67cf6ba48abdfcf07804",
+          "replay_signature": "2ad1994ada0d882ec256add66c5fddbf442a3a753bc850548d032af3923e0daf",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "MotionConstitution_L1"
+        },
+        "successor_seed": "MotionConstitution_L1",
+        "residuals": [],
+        "note": "Candidate cleared legality and threshold gates."
+      }
+    },
+    {
+      "candidate": {
+        "candidate_id": "MC-SEED-MERGE-FRONT",
+        "source_kind": "continuation_seed",
+        "source_ref": "FRONT-JOINTATLAS-MERGE-BOUNDARY-AUTOMATON",
+        "source_organ": "ActiveQueue",
+        "target_organ": "ControlPlane",
+        "current_family": "jointatlas-merge",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "ContinuationSeed",
+        "continuation_seed": "MotionConstitution_L1",
+        "agent_id": "A2",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+        ],
+        "replay_refs": [
+          "self_actualize\\jointatlas_merge_automaton.json"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.2,
+          "heart_need": 1.0,
+          "replay_readiness": 0.9,
+          "integration_yield": 1.1,
+          "organ_adjacency": 1.0,
+          "seed_value": 1.1,
+          "cost": 0.3,
+          "replay_cost": 0.2,
+          "risk": 0.2,
+          "failure_debt": 0.1,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.0,
+          "pressure_gradient": 0.7,
+          "truth_readiness": 0.8
+        },
+        "note": "Derived from the promoted merge front in the active queue."
+      },
+      "effective_score_vector": {
+        "closure_gain": 1.2,
+        "heart_need": 1.0,
+        "replay_readiness": 0.9,
+        "integration_yield": 1.1,
+        "organ_adjacency": 1.0,
+        "seed_value": 1.1,
+        "cost": 0.3,
+        "replay_cost": 0.2,
+        "risk": 0.2,
+        "failure_debt": 0.1,
+        "branch_burden": 1.2,
+        "contradiction_heat": 0.0,
+        "pressure_gradient": 0.7,
+        "truth_readiness": 0.8
+      },
+      "reward_steering": {
+        "agent_id": "A2",
+        "profile": {
+          "agent_id": "A2",
+          "adventure_class": "F",
+          "recent_outcomes": [
+            "POSITIVE",
+            "POSITIVE",
+            "POSITIVE",
+            "POSITIVE"
+          ],
+          "recent_positive_runs": 4,
+          "recent_net_losses": 0,
+          "replay_breach_open": false,
+          "docs_dishonesty_recent": false
+        },
+        "applied": false,
+        "rules": []
+      },
+      "decision": {
+        "candidate_id": "MC-SEED-MERGE-FRONT",
+        "action": "ACTIVATE_NOW",
+        "constitutional_score": 2.8350000000000004,
+        "legal": true,
+        "residuals": [],
+        "replay_obligations": [
+          "store replay signature"
+        ],
+        "successor_seed": "MotionConstitution_L1",
+        "note": "Candidate cleared legality and threshold gates."
+      },
+      "receipt": {
+        "receipt_id": "MCR-MC-SEED-MERGE-FRONT",
+        "candidate_id": "MC-SEED-MERGE-FRONT",
+        "action": "ACTIVATE_NOW",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 2.8350000000000004,
+        "replay_store_update": {
+          "candidate_id": "MC-SEED-MERGE-FRONT",
+          "action": "ACTIVATE_NOW",
+          "constitutional_score": 2.835,
+          "witness_signature": "ff6661e0c501cb6c770ff021e87b4f199c45df14234bda8c7e6d90914b201a58",
+          "replay_signature": "0d2dacb008c11326b990f56d9cfb3956da8dfd8a63be5fee7d382285490c7c82",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "MotionConstitution_L1"
+        },
+        "successor_seed": "MotionConstitution_L1",
+        "residuals": [],
+        "note": "Candidate cleared legality and threshold gates."
+      }
+    },
+    {
+      "candidate": {
+        "candidate_id": "MC-QUEST-Q42",
+        "source_kind": "quest_board",
+        "source_ref": "Q42",
+        "source_organ": "GuildHall",
+        "target_organ": "Runtime",
+        "current_family": "QSHRINK",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "keep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, and keep `Q02` blocked externally while Docs remains `BLOCKED",
+        "agent_id": "floating-agent-01",
+        "dependencies": [
+          "q42.live.bundle"
+        ],
+        "blockers": [],
+        "witness_refs": [
+          "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+          "self_actualize/qshrink_connectivity_fractal.json"
+        ],
+        "replay_refs": [
+          "self_actualize/helical_runner_contract.json"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 0.7,
+          "heart_need": 0.8,
+          "replay_readiness": 0.9,
+          "integration_yield": 0.7,
+          "organ_adjacency": 1.0,
+          "seed_value": 0.4,
+          "cost": 0.6,
+          "replay_cost": 0.2,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.7,
+          "contradiction_heat": 0.2,
+          "pressure_gradient": 0.3,
+          "truth_readiness": 0.8
+        },
+        "note": "Derived from the live Hall quest without displacing the active corridor lane."
+      },
+      "effective_score_vector": {
+        "closure_gain": 0.7,
+        "heart_need": 0.8,
+        "replay_readiness": 0.9,
+        "integration_yield": 0.7,
+        "organ_adjacency": 1.0,
+        "seed_value": 0.4,
+        "cost": 0.6,
+        "replay_cost": 0.2,
+        "risk": 0.3,
+        "failure_debt": 0.2,
+        "branch_burden": 1.7,
+        "contradiction_heat": 0.2,
+        "pressure_gradient": 0.3,
+        "truth_readiness": 0.8
+      },
+      "reward_steering": {
+        "agent_id": "floating-agent-01",
+        "profile": {
+          "agent_id": "floating-agent-01",
+          "adventure_class": "F",
+          "recent_outcomes": [],
+          "recent_positive_runs": 0,
+          "recent_net_losses": 0,
+          "replay_breach_open": false,
+          "docs_dishonesty_recent": false
+        },
+        "applied": false,
+        "rules": []
+      },
+      "decision": {
+        "candidate_id": "MC-QUEST-Q42",
+        "action": "REQUEST_HELP",
+        "constitutional_score": 1.232142857142857,
+        "legal": true,
+        "residuals": [
+          "external dependency or owner help gap remains"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "keep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, and keep `Q02` blocked externally while Docs remains `BLOCKED",
+        "note": "Dependency pressure requires help before motion."
+      },
+      "receipt": {
+        "receipt_id": "MCR-MC-QUEST-Q42",
+        "candidate_id": "MC-QUEST-Q42",
+        "action": "REQUEST_HELP",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.232142857142857,
+        "replay_store_update": {
+          "candidate_id": "MC-QUEST-Q42",
+          "action": "REQUEST_HELP",
+          "constitutional_score": 1.232143,
+          "witness_signature": "00c4eabebaeb824d9686943032de4d7a333027a4676c75e9b7c27ae3b11b53ea",
+          "replay_signature": "1c35d8039fe8ff92e76f266494bc68ac18b32c9fef76d2a07ae070383c710c06",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "keep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, and keep `Q02` blocked externally while Docs remains `BLOCKED"
+        },
+        "successor_seed": "keep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, and keep `Q02` blocked externally while Docs remains `BLOCKED",
+        "residuals": [
+          "external dependency or owner help gap remains"
+        ],
+        "note": "Dependency pressure requires help before motion."
+      }
+    },
+    {
+      "candidate": {
+        "candidate_id": "MC-QUEST-Q02",
+        "source_kind": "quest_board",
+        "source_ref": "Q02",
+        "source_organ": "GuildHall",
+        "target_organ": "TradingBot",
+        "current_family": "TradingBot",
+        "truth_burden": "OK",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "Q02::OAuth-Reopen",
+        "agent_id": "DOCS-GATE-01",
+        "dependencies": [
+          "docs.oauth"
+        ],
+        "blockers": [
+          "external_dependency"
+        ],
+        "witness_refs": [
+          "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+          "self_actualize\\live_docs_gate_status.md"
+        ],
+        "replay_refs": [
+          "self_actualize/live_docs_gate_status.md"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 0.4,
+          "heart_need": 0.8,
+          "replay_readiness": 0.7,
+          "integration_yield": 0.4,
+          "organ_adjacency": 0.5,
+          "seed_value": 0.6,
+          "cost": 1.1,
+          "replay_cost": 0.6,
+          "risk": 0.8,
+          "failure_debt": 0.9,
+          "branch_burden": 0.4,
+          "contradiction_heat": 0.2,
+          "pressure_gradient": 0.9,
+          "truth_readiness": 0.9
+        },
+        "note": "Derived from the blocked Docs-gate quest; kept external in v0."
+      },
+      "effective_score_vector": {
+        "closure_gain": 0.4,
+        "heart_need": 0.8,
+        "replay_readiness": 0.7,
+        "integration_yield": 0.4,
+        "organ_adjacency": 0.5,
+        "seed_value": 0.6,
+        "cost": 1.1,
+        "replay_cost": 0.6,
+        "risk": 0.8,
+        "failure_debt": 0.9,
+        "branch_burden": 0.4,
+        "contradiction_heat": 0.2,
+        "pressure_gradient": 0.9,
+        "truth_readiness": 0.9
+      },
+      "reward_steering": {
+        "agent_id": "DOCS-GATE-01",
+        "profile": {
+          "agent_id": "DOCS-GATE-01",
+          "adventure_class": "F",
+          "recent_outcomes": [],
+          "recent_positive_runs": 0,
+          "recent_net_losses": 0,
+          "replay_breach_open": false,
+          "docs_dishonesty_recent": false
+        },
+        "applied": false,
+        "rules": []
+      },
+      "decision": {
+        "candidate_id": "MC-QUEST-Q02",
+        "action": "REQUEST_HELP",
+        "constitutional_score": 0.986,
+        "legal": true,
+        "residuals": [
+          "external dependency or owner help gap remains"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "Q02::OAuth-Reopen",
+        "note": "Dependency pressure requires help before motion."
+      },
+      "receipt": {
+        "receipt_id": "MCR-MC-QUEST-Q02",
+        "candidate_id": "MC-QUEST-Q02",
+        "action": "REQUEST_HELP",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 0.986,
+        "replay_store_update": {
+          "candidate_id": "MC-QUEST-Q02",
+          "action": "REQUEST_HELP",
+          "constitutional_score": 0.986,
+          "witness_signature": "f49188f8ec90e341a491db2b23a70644d7ce60c524a1abb9df8bb4b8c22cfb18",
+          "replay_signature": "cb8aa409bce526872c392eebe2f3f888476195b9c2238beea15aa22ae90b6b2b",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "Q02::OAuth-Reopen"
+        },
+        "successor_seed": "Q02::OAuth-Reopen",
+        "residuals": [
+          "external dependency or owner help gap remains"
+        ],
+        "note": "Dependency pressure requires help before motion."
+      }
+    },
+    {
+      "candidate": {
+        "candidate_id": "MC-SEED-NEXT-SELF-PROMPT",
+        "source_kind": "continuation_seed",
+        "source_ref": "NEXT_SELF_PROMPT",
+        "source_organ": "RestartSurface",
+        "target_organ": "Hall",
+        "current_family": "QSHRINK",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "ContinuationSeed",
+        "continuation_seed": "Q42::QS64-20-Carried",
+        "agent_id": "floating-agent-05",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+        ],
+        "replay_refs": [
+          "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 0.4,
+          "heart_need": 0.6,
+          "replay_readiness": 0.8,
+          "integration_yield": 0.4,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.6,
+          "cost": 0.7,
+          "replay_cost": 0.2,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 1.1,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Derived from the live restart prompt and kept separate from the current Hall lane."
+      },
+      "effective_score_vector": {
+        "closure_gain": 0.4,
+        "heart_need": 0.6,
+        "replay_readiness": 0.8,
+        "integration_yield": 0.4,
+        "organ_adjacency": 0.8,
+        "seed_value": 0.6,
+        "cost": 0.7,
+        "replay_cost": 0.2,
+        "risk": 0.3,
+        "failure_debt": 0.2,
+        "branch_burden": 2.1,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.4,
+        "truth_readiness": 0.8
+      },
+      "reward_steering": {
+        "agent_id": "floating-agent-05",
+        "profile": {
+          "agent_id": "floating-agent-05",
+          "adventure_class": "F",
+          "recent_outcomes": [
+            "POSITIVE",
+            "POSITIVE"
+          ],
+          "recent_positive_runs": 2,
+          "recent_net_losses": 0,
+          "replay_breach_open": false,
+          "docs_dishonesty_recent": false
+        },
+        "applied": false,
+        "rules": []
+      },
+      "decision": {
+        "candidate_id": "MC-SEED-NEXT-SELF-PROMPT",
+        "action": "ESCALATE_TO_COMMITTEE",
+        "constitutional_score": 0.9391304347826088,
+        "legal": true,
+        "residuals": [
+          "stewardship, branch-limit, or committee-pending conflict suppresses activation"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "Q42::QS64-20-Carried",
+        "note": "Committee escalation outranks seed compression when stewardship law fires."
+      },
+      "receipt": {
+        "receipt_id": "MCR-MC-SEED-NEXT-SELF-PROMPT",
+        "candidate_id": "MC-SEED-NEXT-SELF-PROMPT",
+        "action": "ESCALATE_TO_COMMITTEE",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 0.9391304347826088,
+        "replay_store_update": {
+          "candidate_id": "MC-SEED-NEXT-SELF-PROMPT",
+          "action": "ESCALATE_TO_COMMITTEE",
+          "constitutional_score": 0.93913,
+          "witness_signature": "21cd2e9e1dd3013a69e0fdec88f6e400cb51d8287ba24e0fae65263f0e6d8991",
+          "replay_signature": "ff6661e0c501cb6c770ff021e87b4f199c45df14234bda8c7e6d90914b201a58",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "Q42::QS64-20-Carried"
+        },
+        "successor_seed": "Q42::QS64-20-Carried",
+        "residuals": [
+          "stewardship, branch-limit, or committee-pending conflict suppresses activation"
+        ],
+        "note": "Committee escalation outranks seed compression when stewardship law fires."
+      }
+    },
+    {
+      "candidate": {
+        "candidate_id": "MC-AGENT-Q46",
+        "source_kind": "agent_registry",
+        "source_ref": "guildmaster::Q46",
+        "source_organ": "AdventurerRegistry",
+        "target_organ": "Helix",
+        "current_family": "ATHENACHKA",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "keep `Q46` separate from the live QSHRINK control lane until `TQ04` is materially advanced",
+        "agent_id": "floating-agent-02",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "self_actualize\\adventurer_quest_registry.json"
+        ],
+        "replay_refs": [
+          "self_actualize/athenachka_organism_v0_wave_proof.json"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 0.5,
+          "heart_need": 0.4,
+          "replay_readiness": 0.7,
+          "integration_yield": 0.6,
+          "organ_adjacency": 0.6,
+          "seed_value": 0.7,
+          "cost": 0.8,
+          "replay_cost": 0.4,
+          "risk": 0.5,
+          "failure_debt": 0.4,
+          "branch_burden": 0.8,
+          "contradiction_heat": 0.2,
+          "pressure_gradient": 0.2,
+          "truth_readiness": 0.8
+        },
+        "note": "Derived from the live agent registry as a separate reserve frontier."
+      },
+      "effective_score_vector": {
+        "closure_gain": 0.5,
+        "heart_need": 0.4,
+        "replay_readiness": 0.7,
+        "integration_yield": 0.6,
+        "organ_adjacency": 0.6,
+        "seed_value": 0.7,
+        "cost": 0.8,
+        "replay_cost": 0.4,
+        "risk": 0.5,
+        "failure_debt": 0.4,
+        "branch_burden": 0.8,
+        "contradiction_heat": 0.2,
+        "pressure_gradient": 0.2,
+        "truth_readiness": 0.8
+      },
+      "reward_steering": {
+        "agent_id": "floating-agent-02",
+        "profile": {
+          "agent_id": "floating-agent-02",
+          "adventure_class": "F",
+          "recent_outcomes": [],
+          "recent_positive_runs": 0,
+          "recent_net_losses": 0,
+          "replay_breach_open": false,
+          "docs_dishonesty_recent": false
+        },
+        "applied": false,
+        "rules": []
+      },
+      "decision": {
+        "candidate_id": "MC-AGENT-Q46",
+        "action": "HOLD",
+        "constitutional_score": 0.9390243902439025,
+        "legal": true,
+        "residuals": [
+          "candidate is lawful but below the activation threshold"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "keep `Q46` separate from the live QSHRINK control lane until `TQ04` is materially advanced",
+        "note": "Low constitutional score keeps the candidate on hold."
+      },
+      "receipt": {
+        "receipt_id": "MCR-MC-AGENT-Q46",
+        "candidate_id": "MC-AGENT-Q46",
+        "action": "HOLD",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 0.9390243902439025,
+        "replay_store_update": {
+          "candidate_id": "MC-AGENT-Q46",
+          "action": "HOLD",
+          "constitutional_score": 0.939024,
+          "witness_signature": "013566a8ffffe30cb46736802ccaa0d60f67ac91b0f81734127929945f718f6d",
+          "replay_signature": "7bcac6c0dbc65f32b75c4b77fb48acd599fb9b715bfe03c2a4615d710c76f154",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "keep `Q46` separate from the live QSHRINK control lane until `TQ04` is materially advanced"
+        },
+        "successor_seed": "keep `Q46` separate from the live QSHRINK control lane until `TQ04` is materially advanced",
+        "residuals": [
+          "candidate is lawful but below the activation threshold"
+        ],
+        "note": "Low constitutional score keeps the candidate on hold."
+      }
+    }
+  ],
+  "top_candidate": {
+    "candidate": {
+      "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+      "source_kind": "committee_output",
+      "source_ref": "CP-commit_path",
+      "source_organ": "Collective",
+      "target_organ": "ControlPlane",
+      "current_family": "jointatlas-merge",
+      "truth_burden": "OK",
+      "expected_packet_type": "CommitteePack",
+      "continuation_seed": "MotionConstitution_L1",
+      "agent_id": "A2",
+      "dependencies": [],
+      "blockers": [],
+      "witness_refs": [
+        "self_actualize\\jointatlas_merge_automaton.json",
+        "self_actualize\\jointatlas_merge_ledger.json"
+      ],
+      "replay_refs": [
+        "self_actualize\\jointatlas_merge_ledger.json"
+      ],
+      "committee_refs": [
+        "CP-commit_path"
+      ],
+      "assist_agent_ids": [],
+      "parent_chain_ids": [],
+      "score_vector": {
+        "closure_gain": 1.4,
+        "heart_need": 1.0,
+        "replay_readiness": 1.0,
+        "integration_yield": 1.2,
+        "organ_adjacency": 1.1,
+        "seed_value": 1.2,
+        "cost": 0.3,
+        "replay_cost": 0.2,
+        "risk": 0.2,
+        "failure_debt": 0.1,
+        "branch_burden": 0.2,
+        "contradiction_heat": 0.0,
+        "pressure_gradient": 0.8,
+        "truth_readiness": 1.0
+      },
+      "note": "Derived from the landed merge boundary successor seed."
+    },
+    "effective_score_vector": {
+      "closure_gain": 1.4,
+      "heart_need": 1.0,
+      "replay_readiness": 1.0,
+      "integration_yield": 1.2,
+      "organ_adjacency": 1.1,
+      "seed_value": 1.2,
+      "cost": 0.3,
+      "replay_cost": 0.2,
+      "risk": 0.2,
+      "failure_debt": 0.1,
+      "branch_burden": 1.2,
+      "contradiction_heat": 0.0,
+      "pressure_gradient": 0.8,
+      "truth_readiness": 1.0
+    },
+    "reward_steering": {
+      "agent_id": "A2",
+      "profile": {
+        "agent_id": "A2",
+        "adventure_class": "F",
+        "recent_outcomes": [
+          "POSITIVE",
+          "POSITIVE",
+          "POSITIVE",
+          "POSITIVE"
+        ],
+        "recent_positive_runs": 4,
+        "recent_net_losses": 0,
+        "replay_breach_open": false,
+        "docs_dishonesty_recent": false
+      },
+      "applied": false,
+      "rules": []
+    },
+    "decision": {
+      "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+      "action": "ACTIVATE_NOW",
+      "constitutional_score": 3.2199999999999993,
+      "legal": true,
+      "residuals": [],
+      "replay_obligations": [
+        "store replay signature"
+      ],
+      "successor_seed": "MotionConstitution_L1",
+      "note": "Candidate cleared legality and threshold gates."
+    },
+    "receipt": {
+      "receipt_id": "MCR-MC-COMMITTEE-MERGE-SUCCESSOR",
+      "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+      "action": "ACTIVATE_NOW",
+      "automaton_trace": [
+        "OBSERVE",
+        "SCORE",
+        "GATE",
+        "ACT/RECEIPT",
+        "REPLAY_STORE",
+        "SEED"
+      ],
+      "constitutional_score": 3.2199999999999993,
+      "replay_store_update": {
+        "candidate_id": "MC-COMMITTEE-MERGE-SUCCESSOR",
+        "action": "ACTIVATE_NOW",
+        "constitutional_score": 3.22,
+        "witness_signature": "6e1c94abe869f7ec110bd52f4289cf8a4e9d6cfe31db67cf6ba48abdfcf07804",
+        "replay_signature": "2ad1994ada0d882ec256add66c5fddbf442a3a753bc850548d032af3923e0daf",
+        "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+        "successor_seed": "MotionConstitution_L1"
+      },
+      "successor_seed": "MotionConstitution_L1",
+      "residuals": [],
+      "note": "Candidate cleared legality and threshold gates."
+    }
+  },
+  "witness_basis": [
+    "self_actualize\\manuscript_sections\\023_motion_constitution_l1_action_selection_engine.md",
+    "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\MIRRORS\\LOCAL\\F09_git_brain.md",
+    "self_actualize\\jointatlas_merge_automaton.json",
+    "self_actualize\\jointatlas_merge_ledger.json",
+    "self_actualize\\mycelium_brain\\nervous_system\\22_control_plane_grammar.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+    "self_actualize\\adventurer_quest_registry.json"
+  ],
+  "next_seed": "MotionConstitution_L1::Parameterization"
+}

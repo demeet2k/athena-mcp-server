@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-03-10T00:28:37.132425+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_void_ch11_precursor_reconciliation",
+  "truth": "OK",
+  "reconciliation_id": "VOID_CH11.PRECURSOR.RECONCILED.2026-03-10",
+  "conditions": {
+    "canonical_root_exists": true,
+    "q26_theorem_exists": true,
+    "mirror_family_exists": true,
+    "live_chapter_is_content_authority": true,
+    "mirror_chapter_is_topology_shell": true,
+    "mirror_preserves_lineage_mass": true,
+    "mirror_preserves_duplicate_branch_signal": true,
+    "live_truth_is_ok": true
+  },
+  "live_truth": "OK",
+  "q26_theorem_truth": "OK",
+  "imported_family_name": "void-and-collapse",
+  "imported_document_count": "9",
+  "imported_signal_totals": {
+    "higher_dimensional": 4,
+    "identity": 4,
+    "routing": 14,
+    "runtime": 12,
+    "swarm": 4,
+    "verification": 11,
+    "void": 18
+  },
+  "imported_hub_spine": "AppA -> AppF -> AppM -> AppL -> AppI",
+  "live_atoms": {
+    "atom_count": 64,
+    "filled_count": 64,
+    "completion_percent": 100.0
+  },
+  "mirror_atoms": {
+    "atom_count": 64,
+    "filled_count": 0,
+    "completion_percent": 0.0
+  },
+  "mirror_flags": {
+    "uses_void_manuscript_master": true,
+    "next_promotion_is_docx": true,
+    "node_has_duplicate_pressure": true,
+    "node_truth_mentions_ambig": true
+  },
+  "preserved_lineage": [
+    {
+      "facet": "older family lineage",
+      "mirror_witness": "void-and-collapse",
+      "canonical_decision": "preserve as precursor lineage",
+      "reason": "the older family widens Chapter 11 reach beyond the local node and preserves prior routing/runtime context"
+    },
+    {
+      "facet": "signal totals",
+      "mirror_witness": {
+        "higher_dimensional": 4,
+        "identity": 4,
+        "routing": 14,
+        "runtime": 12,
+        "swarm": 4,
+        "verification": 11,
+        "void": 18
+      },
+      "canonical_decision": "preserve as historical pressure field",
+      "reason": "the precursor counts still witness earlier routing, runtime, verification, identity, and void mass"
+    },
+    {
+      "facet": "duplicate branch pressure",
+      "mirror_witness": "INFORMATION FROM THE VOID MANI primary/(1) duplicate divergence",
+      "canonical_decision": "preserve as unresolved source-branch witness",
+      "reason": "the mirror node still names a real duplicate split that remains meaningful lineage evidence"
+    },
+    {
+      "facet": "hub spine",
+      "mirror_witness": "AppA -> AppF -> AppM -> AppL -> AppI",
+      "canonical_decision": "retain as precursor spine",
+      "reason": "the precursor hub ordering still explains why the live family crosses address, transport, replay, evidence promotion, and corridor truth"
+    }
+  ],
+  "deprecated_or_demoted": [
+    {
+      "claim": "mirror family as truth-bearing primary surface",
+      "old_state": "mirror family implied current live family state",
+      "new_state": "mirror family is lineage witness only"
+    },
+    {
+      "claim": "next promotion should be the first bronze docx node",
+      "old_state": "promote INFORMATION FROM THE VOID MANI docx",
+      "new_state": "docx node remains historical branch evidence; live canonical root and theorem now outrank it"
+    },
+    {
+      "claim": "mirror chapter as active content witness",
+      "old_state": "0/64 active mirror atoms treated implicitly as chapter witness",
+      "new_state": "mirror chapter is a topology shell and not a competing content authority"
+    },
+    {
+      "claim": "NEAR family truth",
+      "old_state": "family truth remained NEAR before theorem closure",
+      "new_state": "family truth is locally OK after Q26 and this precursor reconciliation"
+    }
+  ],
+  "canonical_assignment": [
+    {
+      "surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\VOID_CH11_CANONICAL_ROOT.md",
+      "role": "family-owned canonical root"
+    },
+    {
+      "surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\VOID_CH11_OK_THEOREM.md",
+      "role": "local OK theorem for sibling reconciliation"
+    },
+    {
+      "surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+      "role": "content authority for Chapter 11 atoms"
+    },
+    {
+      "surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\_build\\nervous_system\\families\\VOID_CH11_FAMILY.md",
+      "role": "precursor lineage witness"
+    },
+    {
+      "surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\04_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+      "role": "topology-only mirror shell"
+    },
+    {
+      "surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\_build\\nervous_system\\families\\VOID_INFORMATION_FROM_THE_VOID_NODE.md",
+      "role": "duplicate-branch historical witness"
+    }
+  ],
+  "writeback_targets": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_void_ch11.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_void_ch11_primary_source.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\WITNESS_void_ch11_family.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_void_ch11_route_map.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\VOID_CH11_ACTIVE_FRONT.md"
+  ],
+  "next_seed": "Q08"
+}

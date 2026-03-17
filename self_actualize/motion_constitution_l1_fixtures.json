@@ -1,0 +1,776 @@
+{
+  "generated_at": "2026-03-13T21:35:28.182907+00:00",
+  "truth": "NEAR",
+  "fixture_count": 9,
+  "fixtures_are_non_authoritative": true,
+  "cases": [
+    {
+      "fixture_id": "fixture-activate",
+      "expected_action": "ACTIVATE_NOW",
+      "candidate": {
+        "candidate_id": "fixture-activate",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-activate",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-activate",
+        "action": "ACTIVATE_NOW",
+        "constitutional_score": 2.3999999999999995,
+        "legal": true,
+        "residuals": [],
+        "replay_obligations": [
+          "store replay signature"
+        ],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Candidate cleared legality and threshold gates."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-activate",
+        "candidate_id": "fixture-activate",
+        "action": "ACTIVATE_NOW",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 2.3999999999999995,
+        "replay_store_update": {
+          "candidate_id": "fixture-activate",
+          "action": "ACTIVATE_NOW",
+          "constitutional_score": 2.4,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [],
+        "note": "Candidate cleared legality and threshold gates."
+      }
+    },
+    {
+      "fixture_id": "fixture-hold",
+      "expected_action": "HOLD",
+      "candidate": {
+        "candidate_id": "fixture-hold",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-hold",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 0.1,
+          "heart_need": 0.1,
+          "replay_readiness": 0.7,
+          "integration_yield": 0.1,
+          "organ_adjacency": 0.1,
+          "seed_value": 0.1,
+          "cost": 1.7,
+          "replay_cost": 1.0,
+          "risk": 1.0,
+          "failure_debt": 0.8,
+          "branch_burden": 0.8,
+          "contradiction_heat": 0.2,
+          "pressure_gradient": 0.0,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-hold",
+        "action": "HOLD",
+        "constitutional_score": 0.16,
+        "legal": true,
+        "residuals": [
+          "candidate is lawful but below the activation threshold"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Low constitutional score keeps the candidate on hold."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-hold",
+        "candidate_id": "fixture-hold",
+        "action": "HOLD",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 0.16,
+        "replay_store_update": {
+          "candidate_id": "fixture-hold",
+          "action": "HOLD",
+          "constitutional_score": 0.16,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "candidate is lawful but below the activation threshold"
+        ],
+        "note": "Low constitutional score keeps the candidate on hold."
+      }
+    },
+    {
+      "fixture_id": "fixture-witness",
+      "expected_action": "REQUEST_WITNESSES",
+      "candidate": {
+        "candidate_id": "fixture-witness",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-witness",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-witness",
+        "action": "REQUEST_WITNESSES",
+        "constitutional_score": 1.7333333333333334,
+        "legal": true,
+        "residuals": [
+          "truth burden has not been met"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Witness burden is the primary blocker."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-witness",
+        "candidate_id": "fixture-witness",
+        "action": "REQUEST_WITNESSES",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.7333333333333334,
+        "replay_store_update": {
+          "candidate_id": "fixture-witness",
+          "action": "REQUEST_WITNESSES",
+          "constitutional_score": 1.733333,
+          "witness_signature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "truth burden has not been met"
+        ],
+        "note": "Witness burden is the primary blocker."
+      }
+    },
+    {
+      "fixture_id": "fixture-help",
+      "expected_action": "REQUEST_HELP",
+      "candidate": {
+        "candidate_id": "fixture-help",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-help",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [
+          "dep:missing"
+        ],
+        "blockers": [
+          "external_dependency"
+        ],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-help",
+        "action": "REQUEST_HELP",
+        "constitutional_score": 1.7333333333333334,
+        "legal": true,
+        "residuals": [
+          "external dependency or owner help gap remains"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Dependency pressure requires help before motion."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-help",
+        "candidate_id": "fixture-help",
+        "action": "REQUEST_HELP",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.7333333333333334,
+        "replay_store_update": {
+          "candidate_id": "fixture-help",
+          "action": "REQUEST_HELP",
+          "constitutional_score": 1.733333,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "external dependency or owner help gap remains"
+        ],
+        "note": "Dependency pressure requires help before motion."
+      }
+    },
+    {
+      "fixture_id": "fixture-replay",
+      "expected_action": "REPLAY_FIRST",
+      "candidate": {
+        "candidate_id": "fixture-replay",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-replay",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-replay",
+        "action": "REPLAY_FIRST",
+        "constitutional_score": 1.7333333333333334,
+        "legal": true,
+        "residuals": [
+          "replay proof is the primary gap"
+        ],
+        "replay_obligations": [
+          "attach replay refs",
+          "prove replay closure"
+        ],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Replay dependency outranks witness and help requests."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-replay",
+        "candidate_id": "fixture-replay",
+        "action": "REPLAY_FIRST",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.7333333333333334,
+        "replay_store_update": {
+          "candidate_id": "fixture-replay",
+          "action": "REPLAY_FIRST",
+          "constitutional_score": 1.733333,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "immune_signature": "de389be8da67b374bd33a916f4b9d883f2eb9b3c98412716a8839fd9b226cd4d",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "replay proof is the primary gap"
+        ],
+        "note": "Replay dependency outranks witness and help requests."
+      }
+    },
+    {
+      "fixture_id": "fixture-quarantine",
+      "expected_action": "QUARANTINE",
+      "candidate": {
+        "candidate_id": "fixture-quarantine",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-quarantine",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [
+          "policy_breach"
+        ],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-quarantine",
+        "action": "QUARANTINE",
+        "constitutional_score": 1.7333333333333334,
+        "legal": false,
+        "residuals": [
+          "hazardous contradiction or policy breach blocks circulation"
+        ],
+        "replay_obligations": [
+          "store quarantine replay witness"
+        ],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Forbidden contradiction or hazardous failure forced quarantine."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-quarantine",
+        "candidate_id": "fixture-quarantine",
+        "action": "QUARANTINE",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.7333333333333334,
+        "replay_store_update": {
+          "candidate_id": "fixture-quarantine",
+          "action": "QUARANTINE",
+          "constitutional_score": 1.733333,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "1ccb8ab3c031b00bd84c0c56032941fb9dea8e8f490f143dec60a7ac42db311b",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "hazardous contradiction or policy breach blocks circulation"
+        ],
+        "note": "Forbidden contradiction or hazardous failure forced quarantine."
+      }
+    },
+    {
+      "fixture_id": "fixture-compress",
+      "expected_action": "COMPRESS_TO_SEED",
+      "candidate": {
+        "candidate_id": "fixture-compress",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-compress",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [
+          "forward_circulation_blocked"
+        ],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-compress",
+        "action": "COMPRESS_TO_SEED",
+        "constitutional_score": 1.7333333333333334,
+        "legal": true,
+        "residuals": [
+          "forward circulation is blocked but continuation value remains alive"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Seed compression wins when motion is blocked but continuation value remains."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-compress",
+        "candidate_id": "fixture-compress",
+        "action": "COMPRESS_TO_SEED",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.7333333333333334,
+        "replay_store_update": {
+          "candidate_id": "fixture-compress",
+          "action": "COMPRESS_TO_SEED",
+          "constitutional_score": 1.733333,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "1ccb8ab3c031b00bd84c0c56032941fb9dea8e8f490f143dec60a7ac42db311b",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "forward circulation is blocked but continuation value remains alive"
+        ],
+        "note": "Seed compression wins when motion is blocked but continuation value remains."
+      }
+    },
+    {
+      "fixture_id": "fixture-committee",
+      "expected_action": "ESCALATE_TO_COMMITTEE",
+      "candidate": {
+        "candidate_id": "fixture-committee",
+        "source_kind": "quest_board",
+        "source_ref": "fixture::fixture-committee",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [
+          "committee_pending_conflict"
+        ],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [
+          "pending:committee"
+        ],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-committee",
+        "action": "ESCALATE_TO_COMMITTEE",
+        "constitutional_score": 1.7333333333333334,
+        "legal": true,
+        "residuals": [
+          "stewardship, branch-limit, or committee-pending conflict suppresses activation"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Committee escalation outranks seed compression when stewardship law fires."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-committee",
+        "candidate_id": "fixture-committee",
+        "action": "ESCALATE_TO_COMMITTEE",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.7333333333333334,
+        "replay_store_update": {
+          "candidate_id": "fixture-committee",
+          "action": "ESCALATE_TO_COMMITTEE",
+          "constitutional_score": 1.733333,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "1ccb8ab3c031b00bd84c0c56032941fb9dea8e8f490f143dec60a7ac42db311b",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "stewardship, branch-limit, or committee-pending conflict suppresses activation"
+        ],
+        "note": "Committee escalation outranks seed compression when stewardship law fires."
+      }
+    },
+    {
+      "fixture_id": "fixture-refuse",
+      "expected_action": "REFUSE_INADMISSIBLE",
+      "candidate": {
+        "candidate_id": "fixture-refuse",
+        "source_kind": "inadmissible_source",
+        "source_ref": "fixture::fixture-refuse",
+        "source_organ": "Fixture",
+        "target_organ": "Runtime",
+        "current_family": "jointatlas",
+        "truth_burden": "NEAR",
+        "expected_packet_type": "QuestPacket",
+        "continuation_seed": "MotionConstitution_L1::Parameterization",
+        "agent_id": "",
+        "dependencies": [],
+        "blockers": [],
+        "witness_refs": [
+          "WIT-001"
+        ],
+        "replay_refs": [
+          "RPL-001"
+        ],
+        "committee_refs": [],
+        "assist_agent_ids": [],
+        "parent_chain_ids": [],
+        "score_vector": {
+          "closure_gain": 1.0,
+          "heart_need": 0.9,
+          "replay_readiness": 0.8,
+          "integration_yield": 1.0,
+          "organ_adjacency": 0.8,
+          "seed_value": 0.7,
+          "cost": 0.5,
+          "replay_cost": 0.3,
+          "risk": 0.3,
+          "failure_debt": 0.2,
+          "branch_burden": 0.2,
+          "contradiction_heat": 0.1,
+          "pressure_gradient": 0.4,
+          "truth_readiness": 0.8
+        },
+        "note": "Non-authoritative fixture case."
+      },
+      "decision": {
+        "candidate_id": "fixture-refuse",
+        "action": "REFUSE_INADMISSIBLE",
+        "constitutional_score": 1.7333333333333334,
+        "legal": false,
+        "residuals": [
+          "candidate is outside the legality projector"
+        ],
+        "replay_obligations": [],
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "note": "Omega denial or scope inadmissibility forced refusal."
+      },
+      "receipt": {
+        "receipt_id": "MCR-fixture-refuse",
+        "candidate_id": "fixture-refuse",
+        "action": "REFUSE_INADMISSIBLE",
+        "automaton_trace": [
+          "OBSERVE",
+          "SCORE",
+          "GATE",
+          "ACT/RECEIPT",
+          "REPLAY_STORE",
+          "SEED"
+        ],
+        "constitutional_score": 1.7333333333333334,
+        "replay_store_update": {
+          "candidate_id": "fixture-refuse",
+          "action": "REFUSE_INADMISSIBLE",
+          "constitutional_score": 1.733333,
+          "witness_signature": "0c42869fed49ef753710a08a7b820c955f57860c4cb27c270f510f38612828d6",
+          "replay_signature": "1b157b15b6b1c9d4fc698d9c438e5035ff446199438d89ef95f7534fed643ece",
+          "immune_signature": "1ccb8ab3c031b00bd84c0c56032941fb9dea8e8f490f143dec60a7ac42db311b",
+          "successor_seed": "MotionConstitution_L1::Parameterization"
+        },
+        "successor_seed": "MotionConstitution_L1::Parameterization",
+        "residuals": [
+          "candidate is outside the legality projector"
+        ],
+        "note": "Omega denial or scope inadmissibility forced refusal."
+      }
+    }
+  ],
+  "next_seed": "MotionConstitution_L1::Parameterization"
+}

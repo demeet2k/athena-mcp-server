@@ -1,0 +1,41 @@
+"""Biology and Physics Module - Morphogen gradients, Turing patterns, neural signaling."""
+
+from atlasforge.biology.biology import (
+    TetradicState,
+    TetradicController,
+    FIRE, AIR, EARTH, WATER,
+    ReactionDiffusionSystem,
+    GiererMeinhardtSystem,
+    GrayScottSystem,
+    TuringPatternType,
+    MorphogenGradient,
+    NeuralPulse,
+    IntegrateAndFireNeuron,
+    DefectHyperplane,
+    DefectNetwork,
+    MultiScaleHomeostasis,
+    analyze_pattern,
+    create_turing_system,
+    morphogen_gradient_1d,
+    simulate_neuron,
+)
+
+__all__ = [
+    'TetradicState',
+    'TetradicController',
+    'FIRE', 'AIR', 'EARTH', 'WATER',
+    'ReactionDiffusionSystem',
+    'GiererMeinhardtSystem',
+    'GrayScottSystem',
+    'TuringPatternType',
+    'MorphogenGradient',
+    'NeuralPulse',
+    'IntegrateAndFireNeuron',
+    'DefectHyperplane',
+    'DefectNetwork',
+    'MultiScaleHomeostasis',
+    'analyze_pattern',
+    'create_turing_system',
+    'morphogen_gradient_1d',
+    'simulate_neuron',
+]

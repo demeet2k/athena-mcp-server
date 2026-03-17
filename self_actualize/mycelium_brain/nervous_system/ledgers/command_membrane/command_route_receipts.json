@@ -1,0 +1,754 @@
+{
+  "generated_at": "2026-03-14T00:14:14.701124+00:00",
+  "docs_gate_status": "BLOCKED",
+  "row_count": 9,
+  "rows": [
+    {
+      "event_id": "EVT-20260313-0005",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.76,
+          "capillary_strength": 0.26,
+          "coordinate_proximity": 0.95,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.7845
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.76,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 1.0,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.71
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.76,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.85,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.5725
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.76,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.7,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.553
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.76,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.55,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.5205
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-04",
+        "WORKER-01",
+        "WORKER-03",
+        "WORKER-05"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-02",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-13T22:28:55.741101+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0005.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0005",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0005",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0005",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0005.json"
+    },
+    {
+      "event_id": "EVT-20260313-0006",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.88,
+          "capillary_strength": 0.694644,
+          "coordinate_proximity": 0.85,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.886429
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.88,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 0.9,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.725
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.95,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.6175
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.6,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.568
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.45,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.5355
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-04",
+        "WORKER-01",
+        "WORKER-03",
+        "WORKER-05"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-02",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-13T22:29:21.677539+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0006.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0006",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0006",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0006",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0006.json"
+    },
+    {
+      "event_id": "EVT-20260313-0004",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.88,
+          "capillary_strength": 0.76,
+          "coordinate_proximity": 0.85,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.8995
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.88,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 0.9,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.725
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.95,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.6175
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.6,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.568
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.45,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.5355
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-04",
+        "WORKER-01",
+        "WORKER-03",
+        "WORKER-05"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-02",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-13T22:29:53.647698+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0004.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0004",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0004",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0004",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0004.json"
+    },
+    {
+      "event_id": "EVT-20260313-0003",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.76,
+          "capillary_strength": 0.76,
+          "coordinate_proximity": 0.95,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.8916
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.76,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 1.0,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.72
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.76,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.7,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.4864
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.76,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.55,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.4724
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.76,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.85,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.454
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-04",
+        "WORKER-03",
+        "WORKER-05",
+        "WORKER-01"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-02",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-13T22:40:26.079567+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0003.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0003",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0003",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0003",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0003.json"
+    },
+    {
+      "event_id": "EVT-20260313-0007",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.88,
+          "capillary_strength": 0.76,
+          "coordinate_proximity": 0.85,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.8896
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.88,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 0.9,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.73
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.95,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.532
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.6,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.4244
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.88,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.45,
+          "freshness": 1.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.3744
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-04",
+        "WORKER-01",
+        "WORKER-03",
+        "WORKER-05"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-02",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-13T22:41:02.249596+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0007.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0007",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0007",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0007",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0007.json"
+    },
+    {
+      "event_id": "EVT-20260313-0008",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.6885,
+          "capillary_strength": 0.76,
+          "coordinate_proximity": 0.895,
+          "freshness": 0.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.73703
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.6785,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 0.945,
+          "freshness": 0.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.58223
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.7035,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.905,
+          "freshness": 0.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.49453
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.7185,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.645,
+          "freshness": 0.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.45343
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.6685,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.495,
+          "freshness": 0.0,
+          "duplicate_penalty": 0.0,
+          "score": 0.40743
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-04",
+        "WORKER-01",
+        "WORKER-03",
+        "WORKER-05"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-02",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-13T23:26:21.834000+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0008.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0008",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0008",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0008",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0008.json"
+    },
+    {
+      "event_id": "EVT-20260313-0009",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.735,
+          "capillary_strength": 0.76,
+          "coordinate_proximity": 0.85,
+          "freshness": 0.9999,
+          "duplicate_penalty": 0.0,
+          "score": 0.83729
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 1.0,
+          "salience": 0.75,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.95,
+          "freshness": 0.9999,
+          "duplicate_penalty": 0.0,
+          "score": 0.76099
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.725,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 0.9,
+          "freshness": 0.9999,
+          "duplicate_penalty": 0.0,
+          "score": 0.68249
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 1.0,
+          "salience": 0.715,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.45,
+          "freshness": 0.9999,
+          "duplicate_penalty": 0.0,
+          "score": 0.65769
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.765,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.6,
+          "freshness": 0.9999,
+          "duplicate_penalty": 0.0,
+          "score": 0.55369
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-01",
+        "WORKER-04",
+        "WORKER-05",
+        "WORKER-03"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-02",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-13T23:53:02.501012+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0009.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0009",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0009",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0009",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0009.json"
+    },
+    {
+      "event_id": "EVT-20260314-0010",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 1.0,
+          "salience": 0.6885,
+          "capillary_strength": 0.76,
+          "coordinate_proximity": 0.895,
+          "freshness": 0.999874,
+          "duplicate_penalty": 0.0,
+          "score": 0.837017
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.8,
+          "salience": 0.6785,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 0.945,
+          "freshness": 0.999874,
+          "duplicate_penalty": 0.0,
+          "score": 0.682217
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.7035,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.905,
+          "freshness": 0.999874,
+          "duplicate_penalty": 0.0,
+          "score": 0.594517
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.7185,
+          "capillary_strength": 0.29,
+          "coordinate_proximity": 0.645,
+          "freshness": 0.999874,
+          "duplicate_penalty": 0.0,
+          "score": 0.553417
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.6685,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.495,
+          "freshness": 0.999874,
+          "duplicate_penalty": 0.0,
+          "score": 0.507417
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-04",
+        "WORKER-01",
+        "WORKER-03",
+        "WORKER-05"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-03",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-14T00:07:53.031811+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0010.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260314-0010",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260314-0010",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260314-0010",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0010.json"
+    },
+    {
+      "event_id": "EVT-20260314-0011",
+      "policy_id": "goal+salience+pheromone+coord",
+      "selector_terms": [
+        "goal_fit",
+        "salience",
+        "capillary_strength",
+        "coordinate_proximity",
+        "freshness",
+        "duplicate_penalty"
+      ],
+      "candidate_targets": [
+        {
+          "ant_id": "WORKER-02",
+          "goal_fit": 0.5,
+          "salience": 0.66525,
+          "capillary_strength": 0.76,
+          "coordinate_proximity": 0.9915,
+          "freshness": 0.999882,
+          "duplicate_penalty": 0.0,
+          "score": 0.700203
+        },
+        {
+          "ant_id": "WORKER-03",
+          "goal_fit": 0.5,
+          "salience": 0.69525,
+          "capillary_strength": 0.6277,
+          "coordinate_proximity": 0.7585,
+          "freshness": 0.999882,
+          "duplicate_penalty": 0.0,
+          "score": 0.637203
+        },
+        {
+          "ant_id": "WORKER-04",
+          "goal_fit": 0.5,
+          "salience": 0.65525,
+          "capillary_strength": 0.25,
+          "coordinate_proximity": 0.9415,
+          "freshness": 0.999866,
+          "duplicate_penalty": 0.0,
+          "score": 0.587402
+        },
+        {
+          "ant_id": "WORKER-01",
+          "goal_fit": 0.5,
+          "salience": 0.68025,
+          "capillary_strength": 0.275,
+          "coordinate_proximity": 0.7915,
+          "freshness": 0.999882,
+          "duplicate_penalty": 0.0,
+          "score": 0.569903
+        },
+        {
+          "ant_id": "WORKER-05",
+          "goal_fit": 0.5,
+          "salience": 0.64525,
+          "capillary_strength": 0.24,
+          "coordinate_proximity": 0.6085,
+          "freshness": 0.999866,
+          "duplicate_penalty": 0.0,
+          "score": 0.523662
+        }
+      ],
+      "selected_targets": [
+        "WORKER-02",
+        "WORKER-03",
+        "WORKER-04",
+        "WORKER-01",
+        "WORKER-05"
+      ],
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "worker_choice": "WORKER-03",
+      "duplicate_penalty": 0.0,
+      "routed_at": "2026-03-14T00:08:58.422741+00:00",
+      "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json",
+      "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260314-0011",
+      "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260314-0011",
+      "archivist_receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260314-0011",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json"
+    }
+  ]
+}

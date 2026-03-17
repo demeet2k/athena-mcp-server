@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-03-13T01:51:47.943403+00:00",
+  "derivation_version": "2026-03-13.bruno-stale-reference-sweep.verify.v1",
+  "derivation_command": "python -m self_actualize.runtime.verify_bruno_stale_reference_sweep",
+  "truth": "OK",
+  "checks": [
+    {
+      "label": "registry_coverage",
+      "status": "OK",
+      "details": {
+        "record_count": 7,
+        "scan_occurrence_count": 7
+      }
+    },
+    {
+      "label": "live_meta_surfaces_clean",
+      "status": "OK",
+      "details": {
+        "clean_surfaces": [
+          "self_actualize/mycelium_brain/nervous_system/04_deeper_emergent_metro_supermap.md",
+          "self_actualize/mycelium_brain/nervous_system/20_deeper_enhancement_real_time_agent.md"
+        ]
+      }
+    },
+    {
+      "label": "reconciliation_surfaces_preserved",
+      "status": "OK",
+      "details": {
+        "b12_table": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+        "q08_receipt": "self_actualize/mycelium_brain/receipts/2026-03-10_q08_bruno_b12_operator_table.md"
+      }
+    },
+    {
+      "label": "historical_receipt_correction",
+      "status": "OK",
+      "details": {
+        "receipt_path": "self_actualize/mycelium_brain/nervous_system/receipts/2026-03-09_bruno_family_activation.md"
+      }
+    },
+    {
+      "label": "control_plane_sync",
+      "status": "OK",
+      "details": {
+        "next_frontier": "Q42",
+        "primary_active_claim": "Q42"
+      }
+    },
+    {
+      "label": "docs_gate_honesty",
+      "status": "OK",
+      "details": {
+        "docs_gate_status": "BLOCKED"
+      }
+    },
+    {
+      "label": "ledger_exists",
+      "status": "OK",
+      "details": {
+        "ledger_path": "self_actualize/mycelium_brain/nervous_system/ledgers/LEDGER_2026-03-13_q40_bruno_stale_reference_sweep.md",
+        "exists": true
+      }
+    }
+  ],
+  "failed_checks": []
+}

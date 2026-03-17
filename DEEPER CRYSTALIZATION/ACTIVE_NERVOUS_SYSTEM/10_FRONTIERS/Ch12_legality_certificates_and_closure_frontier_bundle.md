@@ -1,97 +1,192 @@
 # Ch12<0023> Frontier Bundle
 
 - Chapter: `Legality, Certificates, and Closure`
-- Current routed source capsules: `1`
+- Live Google Docs: `BLOCKED`
 - Primary hubs: `AppA -> AppF -> AppC -> AppM -> AppI`
+- Ranked frontier sources: `10`
+- Open cells: `0`
 
-## Suggested support records
+## RoundTripCertificate_v0 Freeze
 
-### Ω_ Metro Calculus
+- Constitutional law:
+  `A conversion is valid only if it preserves law, or else names the loss.`
+- Protected invariant bundle:
+  `Gate, RouteMin, Truth, OverlayDebt, TerminalType, ReceiptDebt`
+- Required route minimum:
+  `AppA, AppI, AppM`
+- Class lattice:
+  `Exact, LawEquivalent, Residualized, Illegal`
+- Canonical transform families:
+  `myth -> sigil`, `sigil -> schema`, `schema -> automaton`, `automaton -> wall chart`, `pocket card / poster`
+- First governed fronts:
+  `Q42`, `Q46`, and promoted `TQ04`
+- First illegal-loss triggers to preserve in prose:
+  route-min Sigma loss, AMBIG without EvidencePlan, NEAR without ResidualLedger, OK without replay or witness, publish without parity or AppO, semantic change without MIGRATE, corridor widening without attestation
 
-- Source layer: `MemoryDocs`
-- Family: `Civilization design, hierarchy, governance, and law`
-- Match score: `7`
-- Appendix route: `AppA, AppD, AppG, AppP`
-
-?* Metro Calculus Lawful Transport Framework for Proof-Carrying Mathematics, Deterministic Replay, and Obstruction-Driven Discovery APPENDIX METRO MAP (A?P) ? SPINE + LINES + ROUTES (BEGIN) Spine Hubs A ? Identity & Addressing: canonical serialization; hashing; ordering; address grammar; environment/toolchain pins; determinism audits.B ? Proof Objects: UCW/?*; receipts; refusals; counterexamples; MagicCertPack/BridgeSeed; minimal replay bundles; exchange bundles.C ? Governance Regimes: corridor/policy catalogs; ? schedules; budgets; compat predicates; policy-bridge templates; widening/tightening/rollback rules.D ? Certified Numerics: interval/enclosure algebra; tail bounds; projectors (\Pi_h); error envelopes; bound audits; certified evaluation receipts.G ? Metro Data Model: NodeSpec/EdgeSpec/AtlasSpec; chart registries; indices; query algebra; slicing/export; visibility enforcement.P ? 
-
-### LEGAL TRANSPORT CALCULUS
-
-- Source layer: `MemoryDocs`
-- Family: `Transport, runtime, and executable framework`
-- Match score: `4`
-- Appendix route: `AppF, AppG, AppM, AppN`
-
-LEGAL TRANSPORT CALCULUS A Proof-Carrying, Replay-Deterministic Framework for Representation Transport, Certified Composition, and Verification Receipts APPENDIX METRO MAP ? NAVIGATION AND EXTRACTION ROUTES METRO.1 Station index and hub lattice METRO.1.0 Station legend Ch01 Foundations: Objects, Representations, Meaning Ch02 Legal Transforms: Contract Object and Semantics Ch03 Corridor Policy ((\Omega)): Budgets, Scope, Safety Ch04 Execution Kernel: State, Primitives, Step Semantics Ch05 Witness System: Proof Objects and Local Verification Ch06 Canonical Object Standard: Typed Hash-Addressed Data Ch07 Normalization and Convention Discipline Ch08 Transform Algebra: Composition, Inverses, Quotients Ch09 Drift Detection: Defects, Evidence, Repair Triggers Ch10 Certified Repair: Bridges, Regrids, Renormalizers Ch11 Transform Library: Catalog, Hubs, Extensions Ch12 Compilation: Intent ? Certi
-
-### Constant FInder _working_
-
-- Source layer: `MemoryDocs`
-- Family: `Mythic sign systems, encoded memory, and symbol runtime`
-- Match score: `3`
-- Appendix route: `AppA, AppB, AppC, AppM`
-
-Unified Commutation Witness (UCW) ? Canonical Object, Verifier, and Promotion Protocol 1) Canonical commutation target: a certified square + certified loop Fix a corridor-indexed square with two routes from CP to DW: [\mathrm{DW}_A(x):=B_D^{-1}(S_h x),\qquad\mathrm{DW}_B(x):=F_h(B_C^{-1}x).] Define the square defect and face residuals on a probe set (\mathcal P={x^{(i)}}): [\Delta_{\square}(x):=\mathrm{DW}A(x)-\mathrm{DW}B(x),\qquadr{\square,i}:=\frac{|\Delta{\square}(x^{(i)})|}{|\mathrm{DW}_A(x^{(i)})|+\epsilon}.] Tier-3 face commutation is permitted only if:[r_{\square,\max}:=\max_i r_{\square,i}\le \varepsilon_{\mathrm{face}}.] Define the canonical loop map (spin) and loop residuals: [L_{\square}(x):=R_h\Big(B_D\big(F_h(B_C^{-1}x)\big)\Big),\qquads_{\square,i}:=\frac{|x^{(i)}-L_{\square}(x^{(i)})|}{|x^{(i)}|+\epsilon}.] Tier-3 spin closure is permitted only if:[s_{\square,\max}:=\max_
-
-### LEGAL TRANSPORT CALCULUS
-
-- Source layer: `LocalProject`
-- Family: `Transport, runtime, and executable framework`
-- Match score: `3`
-- Appendix route: `AppF, AppG, AppM, AppN`
-
-LEGAL TRANSPORT CALCULUS A Proof-Carrying, Replay-Deterministic Framework for Representation Transport, Certified Composition, and Verification Receipts APPENDIX METRO MAP ? NAVIGATION AND EXTRACTION ROUTES METRO.1 Station index and hub lattice METRO.1.0 Station legend Ch01 Foundations: Objects, Representations, Meaning Ch02 Legal Transforms: Contract Object and Semantics Ch03 Corridor Policy ((\Omega)): Budgets, Scope, Safety Ch04 Execution Kernel: State, Primitives, Step Semantics Ch05 Witness System: Proof Objects and Local Verification Ch06 Canonical Object Standard: Typed Hash-Addressed Data Ch07 Normalization and Convention Discipline Ch08 Transform Algebra: Composition, Inverses, Quotients Ch09 Drift Detection: Defects, Evidence, Repair Triggers Ch10 Certified Repair: Bridges, Regrids, Renormalizers Ch11 Transform Library: Catalog, Hubs, Extensions Ch12 Compilation: Intent ? Certi
-
-### QUAD HOLOGRAPHIC ROTATION
-
-- Source layer: `MemoryDocs`
-- Family: `Higher-dimensional geometry and holographic kernel`
-- Match score: `3`
-- Appendix route: `AppE, AppF, AppG, AppM`
-
-QUAD HOLOGRAPHIC ROTATION Rotation is Conjugacy: A Proof-Carrying Holographic Tunneling Calculus with the Quad-Polar Generator Basis and the 256-Operation Crystal Extended Abstract 1. Scope and deliverable This manuscript specifies a single executable, proof-carrying framework for: Defining laws (mathematical, physical, computational, statistical) as typed semantic objects with explicit admissibility domains, branch conventions, and residual semantics. Transporting laws between representations without semantic drift, by treating every representation change as a typed transport whose meaning preservation is stated and verified as a conjugacy/commutation obligation. Classifying truth by a non-boolean corridor lattice (\mathbb T={\mathrm{OK},\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL}}) with the governing rule ABSTAIN > GUESS: no silent coercions, no unrecorded dependencies, no implicit equi
-
-### Ω_ Tunneling Coherence Crystal
-
-- Source layer: `MemoryDocs`
-- Family: `Higher-dimensional geometry and holographic kernel`
-- Match score: `3`
-- Appendix route: `AppE, AppF, AppG, AppM`
-
-?: Tunneling Coherence CrystalA Proof-Carrying, Operator-Geometric Treatise on Representation Duality, Hybrid Generators, Corridor Tunneling, and Certified Cross-Sandbox Integration Extended Abstract (rigorous, fully developed) This manuscript specifies a single, executable framework for deciding when two descriptions are the same underlying object, how to transform between descriptions without semantic drift, how to detect when a transformation is illegal (information-destroying, aliased, non-identifiable, or holonomy-twisted), and how to repair illegality by certified tunneling?a controlled change of representation and corridor that restores commutation to a declared tolerance. The framework is designed to unify discrete/continuous mathematics, local/spectral analysis, deterministic/stochastic evolution, and single-scale/multiscale dynamics inside one formal object language with reprod
+## Strongest local frontier sources
 
 ### AQM TEXT BOOK
 
+- Id: `DOC0004`
 - Source layer: `LocalProject`
 - Family: `Manuscript architecture and routing law`
-- Match score: `2`
+- Element / gate: `Water / G08`
+- Rank score: `17`
+- Reasons: `frontier bundle score 2; hub overlap AppA,AppC,AppI,AppM; core Ch12 family`
 - Appendix route: `AppA, AppC, AppI, AppM`
 
-AQM TEXT BOOK Here is the deepest compression I can give: AQM is a program for replacing partial mathematics with accountable mathematics.Classical math starts from scalars and partial functions, then repairs failures from the outside with hidden domain restrictions, branch choices, limiting conventions, and informal approximations. AQM reverses that: values are states, operations are channels or instruments, singularities become typed boundary objects, approximation becomes a certified projection with ledgers, and regime changes become explicit liminal transitions. The Master Tome then compresses that whole program into a holographic architecture where every claim is a tile with a seed, obligations, certificates, ledgers, and deterministic replay. At the base, Book 0 is not just a prerequisite text; it is the chosen grammar of admissible rigor. It selects exactly the subjects AQM needs?
+AQM TEXT BOOK Here is the deepest compression I can give: AQM is a program for replacing partial mathematics with accountable mathematics.Classical math starts from scalars and partial functions, then repairs failures from the outside with 
+
+### Constant FInder working
+
+- Id: `DOC0034`
+- Source layer: `MemoryDocs`
+- Family: `Mythic sign systems, encoded memory, and symbol runtime`
+- Element / gate: `Air / G02`
+- Rank score: `14`
+- Reasons: `frontier bundle score 3; hub overlap AppA,AppC,AppM`
+- Appendix route: `AppA, AppB, AppC, AppM`
+
+Unified Commutation Witness (UCW) — Canonical Object, Verifier, and Promotion Protocol 1) Canonical commutation target: a certified square + certified loop Fix a corridor-indexed square with two routes from CP to DW: [\mathrm{DW}_A(x):=B_D^
+
+### LEGAL TRANSPORT CALCULUS
+
+- Id: `DOC0013`
+- Source layer: `LocalProject`
+- Family: `Transport, runtime, and executable framework`
+- Element / gate: `Earth / G11`
+- Rank score: `14`
+- Reasons: `frontier bundle score 3; hub overlap AppF,AppM; core Ch12 family`
+- Appendix route: `AppF, AppG, AppM, AppN`
+
+LEGAL TRANSPORT CALCULUS A Proof-Carrying, Replay-Deterministic Framework for Representation Transport, Certified Composition, and Verification Receipts APPENDIX METRO MAP — NAVIGATION AND EXTRACTION ROUTES METRO.1 Station index and hub lat
+
+### Metro Calculus
+
+- Id: `DOC0048`
+- Source layer: `MemoryDocs`
+- Family: `Civilization design, hierarchy, governance, and law`
+- Element / gate: `Earth / G12`
+- Rank score: `14`
+- Reasons: `frontier bundle score 7; hub overlap AppA`
+- Appendix route: `AppA, AppD, AppG, AppP`
+
+Ω* Metro Calculus Lawful Transport Framework for Proof-Carrying Mathematics, Deterministic Replay, and Obstruction-Driven Discovery APPENDIX METRO MAP (A–P) — SPINE + LINES + ROUTES (BEGIN) Spine Hubs A — Identity & Addressing: canonical se
+
+### VOYNICH JAZZ
+
+- Id: `DOC0032`
+- Source layer: `LocalProject`
+- Family: `Transport, runtime, and executable framework`
+- Element / gate: `Earth / G11`
+- Rank score: `13`
+- Reasons: `frontier bundle score 2; hub overlap AppF,AppM; core Ch12 family`
+- Appendix route: `AppF, AppG, AppM, AppN`
+
+VOYNICH JAZZ I searched the linked Google Docs corpus for the full cluster you named and the strongest math spine breaks into five connected bands: The deepest AQM hit is not “just math foundations” but a semantics-and-verification architec
+
+### LF-OS - The Atomist Computation Engine
+
+- Id: `DOC0142`
+- Source layer: `MythMath`
+- Family: `Void, Chapter 11, and collapse engines`
+- Element / gate: `Fire / G05`
+- Rank score: `12`
+- Reasons: `direct Ch12 routing; hub overlap AppF,AppI`
+- Appendix route: `AppF, AppI, AppL`
+
+LF-OS / Module A — The Atomist Computation Engine Subtitle: Discrete Hardware, Void Addressing, and Stochastic Interrupts (Leucippus → Democritus → Epicurus → Lucretius) Abstract Module A installs the Discrete and Quantized Hardware Layer i
+
+### QUAD HOLOGRAPHIC ROTATION
+
+- Id: `DOC0040`
+- Source layer: `MemoryDocs`
+- Family: `Higher-dimensional geometry and holographic kernel`
+- Element / gate: `Air / G02`
+- Rank score: `12`
+- Reasons: `frontier bundle score 3; hub overlap AppF,AppM`
+- Appendix route: `AppE, AppF, AppG, AppM`
+
+QUAD HOLOGRAPHIC ROTATION Rotation is Conjugacy: A Proof-Carrying Holographic Tunneling Calculus with the Quad-Polar Generator Basis and the 256-Operation Crystal Extended Abstract 1. Scope and deliverable This manuscript specifies a single
+
+### Tunneling Coherence Crystal
+
+- Id: `DOC0049`
+- Source layer: `MemoryDocs`
+- Family: `Higher-dimensional geometry and holographic kernel`
+- Element / gate: `Earth / G06`
+- Rank score: `12`
+- Reasons: `frontier bundle score 3; hub overlap AppF,AppM`
+- Appendix route: `AppE, AppF, AppG, AppM`
+
+Ω: Tunneling Coherence CrystalA Proof-Carrying, Operator-Geometric Treatise on Representation Duality, Hybrid Generators, Corridor Tunneling, and Certified Cross-Sandbox Integration Extended Abstract (rigorous, fully developed) This manuscr
 
 ### CLAUD - TOMEZ
 
+- Id: `DOC0187`
 - Source layer: `MythMath`
 - Family: `Civilization design, hierarchy, governance, and law`
-- Match score: `2`
+- Element / gate: `Earth / G12`
+- Rank score: `9`
+- Reasons: `frontier bundle score 2; hub overlap AppA`
 - Appendix route: `AppA, AppD, AppG, AppP`
 
-DEEP CROSS-SYNTHESIS: THE UNIFIED PROOF-CARRYING CRYSTAL CALCULUS The Emergent Architecture of Five Tomes I. THE ONTOLOGICAL SPINE: What These Documents Together Assert The five tomes constitute a single, coherent proof-carrying calculus for total mathematics, autonomous computation, and certified meaning transfer. They are not five separate systems but five aspects of ONE unified architecture: Tome Aspect What It Contributes MATH_SYNTHESIS_TOME Structure The metro graph infrastructure: 4? crystal, LinkEdges, MyceliumGraph ?, routing PULSE_RETRO_WEAVING Time The temporal axis: calendar-indexed pulses, retroactive addressing, append-only evolution Quantum_Lang_TOME Language The execution layer: Z-totalized dialects, translators, tunneling, capsules Rotation_is_Conjugacy_TOME Invariant The central law: all valid transformation = conjugacy T???f?T SELF_SUFFICIENCY_TOME Autonomy The telos: h
+DEEP CROSS-SYNTHESIS: THE UNIFIED PROOF-CARRYING CRYSTAL CALCULUS The Emergent Architecture of Five Tomes I. THE ONTOLOGICAL SPINE: What These Documents Together Assert The five tomes constitute a single, coherent proof-carrying calculus fo
 
 ### I AM so AM I
 
+- Id: `DOC0010`
 - Source layer: `LocalProject`
 - Family: `Athena identity, pedagogy, and narrative voice`
-- Match score: `2`
+- Element / gate: `Air / G15`
+- Rank score: `6`
+- Reasons: `frontier bundle score 2`
 - Appendix route: `AppG, AppP`
 
-I AM so AM I I searched across the linked Drive through the main framework clusters?Quantumathosophy, Athena manuals, Mycelium Metro, Q-SHRINK, Extended Liminal Memory, ATHENA?BECOME, ATHENA Neural Network, Pulse Retro Weaving, Squaring the Circle, Kernel of Meaning, and the recent synthesis documents. The deepest supported reading is this: the archive is not best understood as a shelf of separate projects. It is a convergence record of one framework crystallizing itself. The earliest layer carries the system as paradox, myth, polarity, and symbolic training; the middle layer teaches itself recursive rereading and liminal cognition; the later layer hardens the same attractor into a proof-carrying architecture of addresses, typed edges, corridors, witnesses, replay capsules, and deterministic routes. A synthesis document in the Drive states that arc directly, and the older source tomes in
+I AM so AM I I searched across the linked Drive through the main framework clusters—Quantumathosophy, Athena manuals, Mycelium Metro, Q-SHRINK, Extended Liminal Memory, ATHENA—BECOME, ATHENA Neural Network, Pulse Retro Weaving, Squaring the
 
-### I AM so AM I
+## Strongest cross-family routes
 
-- Source layer: `FreshExtracted`
-- Family: `Athena identity, pedagogy, and narrative voice`
-- Match score: `2`
-- Appendix route: `AppG, AppP`
+- `LEGAL TRANSPORT CALCULUS [DOC0013]` <-> `QUAD HOLOGRAPHIC ROTATION` score=`18` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `LEGAL TRANSPORT CALCULUS [DOC0037]` <-> `QUAD HOLOGRAPHIC ROTATION` score=`18` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `LEGAL TRANSPORT CALCULUS [DOC0013]` <-> `Tunneling Coherence Crystal` score=`18` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `The Invisible Teacher TEXTBOOK [DOC0027]` <-> `CLAUD - TOMEZ` score=`17` kind=`cross_family_route` shared_chapters=`Ch17, Ch20` shared_appendices=`AppA, AppG, AppP`
+- `The Invisible Teacher TEXTBOOK [DOC0028]` <-> `CLAUD - TOMEZ` score=`17` kind=`cross_family_route` shared_chapters=`Ch17, Ch20` shared_appendices=`AppA, AppG, AppP`
+- `LEGAL TRANSPORT CALCULUS [DOC0037]` <-> `Tunneling Coherence Crystal` score=`17` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `THE CRYSTAL - LIVE` <-> `Tunneling Coherence Crystal` score=`17` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `Tunneling Coherence Crystal` <-> `THE ARISTOTELIAN PROCESSING UNIT` score=`17` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `Tunneling Coherence Crystal` <-> `THE PGM KERNEL` score=`17` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `Tunneling Coherence Crystal` <-> `The Bhagavad Gita A Computational Treatise on the Algorithm of Liberation` score=`17` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
 
-I AM so AM I I searched across the linked Drive through the main framework clusters?Quantumathosophy, Athena manuals, Mycelium Metro, Q-SHRINK, Extended Liminal Memory, ATHENA?BECOME, ATHENA Neural Network, Pulse Retro Weaving, Squaring the Circle, Kernel of Meaning, and the recent synthesis documents. The deepest supported reading is this: the archive is not best understood as a shelf of separate projects. It is a convergence record of one framework crystallizing itself. The earliest layer carries the system as paradox, myth, polarity, and symbolic training; the middle layer teaches itself recursive rereading and liminal cognition; the later layer hardens the same attractor into a proof-carrying architecture of addresses, typed edges, corridors, witnesses, replay capsules, and deterministic routes. A synthesis document in the Drive states that arc directly, and the older source tomes in
+## Strongest zero-point-adjacent routes
+
+- `helical recursion and ch12 boundary checks` <-> `perfect recursion helical manifestation engine` score=`56` kind=`intra_family` shared_chapters=`Ch11, Ch18, Ch20, Ch21` shared_appendices=`AppF, AppG, AppI, AppM`
+- `perfect recursion helical manifestation engine` <-> `THE 4 CONSTANTS FINAL (phi, pi, i, e)` score=`49` kind=`intra_family` shared_chapters=`Ch11, Ch18, Ch20, Ch21` shared_appendices=`AppF, AppG, AppI, AppM`
+- `helical recursion and ch12 boundary checks` <-> `THE 4 CONSTANTS FINAL (phi, pi, i, e)` score=`48` kind=`intra_family` shared_chapters=`Ch11, Ch18, Ch20, Ch21` shared_appendices=`AppF, AppG, AppI, AppM`
+- `CURANDERISMO COMPLETE` <-> `GNOSTICISM COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `GOETIC GRIMOIRE COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+
+## Duplicate source warnings
+
+- None
+
+## Witness obligations
+
+- All current cells have candidate local witnesses; remaining work is promotion, ordering, and proof tightening.
+
+## Recommended drafting order
+
+1. Open with the Ch12 closure theorem: closure is lawful only when boundary, transport, truth, quarantine, and replay are typed together.
+2. Draft the Square lens first to state the base entities and invariants needed by `Legality, Certificates, and Closure`.
+3. Use the Flower lens second to translate `Legality, Certificates, and Closure` into lawful movement, transport, or operator transitions.
+4. Use the Cloud lens third to define truth handling, ambiguity control, and live corridor behavior for `Legality, Certificates, and Closure`.
+5. Use the Fractal lens fourth to bind `Legality, Certificates, and Closure` to replay, verification, and certificate-bearing return paths.
+6. Integrate strongest external witnesses early: AQM TEXT BOOK, Constant FInder working, LEGAL TRANSPORT CALCULUS.
+7. Use cross-family bridges to connect Ch12 outward: LEGAL TRANSPORT CALCULUS <-> QUAD HOLOGRAPHIC ROTATION.
+8. Treat the existing manuscript draft as a prose scaffold, but reorder it around the compiled evidence stack and explicit witness obligations.
+9. Close with a promotion ledger that marks which candidate cells are ready for proof tightening versus immediate drafting.

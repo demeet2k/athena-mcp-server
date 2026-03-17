@@ -1,0 +1,65 @@
+{
+  "schema_id": "COMMAND_FRONT_MEMORY_V1",
+  "active_fronts": {
+    "temple:detect-classify-assign:document-modify:structural:Z2:Organ-1:Current-1": {
+      "front_id": "CF-FCEEFA48BA",
+      "plane": "temple",
+      "front_key": "temple:detect-classify-assign:document-modify:structural:Z2:Organ-1:Current-1",
+      "occurrence_count": 2,
+      "latest_source_event": "EVT-20260313-212721-465538",
+      "linked_quests": [
+        "TQ-CMD-FCEEFA48BA"
+      ],
+      "decay_eligible": true,
+      "truth": "NEAR",
+      "route_quality": 1.0,
+      "best_lane": "M1-SYNTH",
+      "last_updated_at": "2026-03-13T21:27:21.550635+00:00"
+    },
+    "hall:detect-classify-assign:runtime-modify:executable:Z1:Organ-2:Current-2": {
+      "front_id": "CF-F101A0FD4F",
+      "plane": "hall",
+      "front_key": "hall:detect-classify-assign:runtime-modify:executable:Z1:Organ-2:Current-2",
+      "occurrence_count": 4,
+      "latest_source_event": "EVT-20260313-212721-604843",
+      "linked_quests": [
+        "Q-CMD-F101A0FD4F"
+      ],
+      "decay_eligible": true,
+      "truth": "NEAR",
+      "route_quality": 1.0,
+      "best_lane": "M3-WORK",
+      "last_updated_at": "2026-03-13T21:27:21.612387+00:00"
+    },
+    "temple:detect-route-claim:document-create:document:Z2:Organ-1:Current-1": {
+      "front_id": "CF-CB8F98C49F",
+      "plane": "temple",
+      "front_key": "temple:detect-route-claim:document-create:document:Z2:Organ-1:Current-1",
+      "occurrence_count": 4,
+      "latest_source_event": "EVT-20260313-212721-595316",
+      "linked_quests": [
+        "TQ-CMD-CB8F98C49F"
+      ],
+      "decay_eligible": true,
+      "truth": "NEAR",
+      "route_quality": 0.7062,
+      "best_lane": "M1-SYNTH",
+      "last_updated_at": "2026-03-13T21:27:21.602845+00:00"
+    },
+    "hall:detect-route-claim:document-create:document:Z2:Organ-1:Current-1": {
+      "front_id": "CF-4B75AF912A",
+      "plane": "hall",
+      "front_key": "hall:detect-route-claim:document-create:document:Z2:Organ-1:Current-1",
+      "occurrence_count": 4,
+      "latest_source_event": "EVT-20260313-212721-595316",
+      "linked_quests": [
+        "Q-CMD-4B75AF912A"
+      ],
+      "decay_eligible": true,
+      "truth": "NEAR",
+      "route_quality": 0.7062,
+      "best_lane": "Athena-G",
+      "last_updated_at": "2026-03-13T21:27:21.602845+00:00"
+    }
+  }
+}

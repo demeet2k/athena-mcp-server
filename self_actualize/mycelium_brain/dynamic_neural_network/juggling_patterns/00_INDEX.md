@@ -4,16 +4,16 @@ document_role: "juggling_index"
 scale: 13
 membership_mask: "1111111111111"
 coverage_ratio: 1.0
-entropy: 0.815505
+entropy: 0.80862
 centroid:
-  x: -0.3261
-  y: 0.701717
-  theta_deg: 117.389733
+  x: -0.244769
+  y: 0.555659
+  theta_deg: 122.403329
 macro_barycentric:
-  earth: 0.14515
-  water: 0.323868
-  fire: 0.162883
-  air: 0.3681
+  earth: 0.228565
+  water: 0.198351
+  fire: 0.280073
+  air: 0.293011
 crystal_gate:
   dominant_macro: "Air"
   address: [3, 3, 3, 3]
@@ -34,7 +34,7 @@ generated_from:
   corpus_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/corpus_atlas.json"
   archive_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/archive_atlas.json"
   live_docs_gate_status: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/live_docs_gate_status.md"
-generated_at: "2026-03-09T15:17:43.643784+00:00"
+generated_at: "2026-03-13T15:05:01.530820+00:00"
 ---
         # Juggling Pattern Networks
 

@@ -14,6 +14,7 @@
 | TK-08 | `tool_kit/08_archive_promotion_protocol.md` | ZIP-to-live framework promotion | archive-backed framework extraction, manifesting, and lineage-safe writeback |
 | TK-09 | `tool_kit/09_cross_agent_contraction_receipt_protocol.md` | shard merge and contraction receipt law | when several agents must collapse outputs into one shared artifact |
 | TK-10 | `tool_kit/10_37_gate_recursive_panic_loop_skill.md` | deterministic critique-to-gate escalation and recursive restart law | sharp satisfaction drop, infinite recursion prompt, deeper swarm demand |
+| TK-11 | `tool_kit/11_command_protocol_v1.md` | event-driven command membrane, 12D packet stamping, selective routing, capillary reinforcement, and command-to-quest upsert law | `GLOBAL COMMAND` watcher installs, command sensory membranes, latency benchmarking, board sync, and command-to-quest promotion |
 
 ## Registry Law
 

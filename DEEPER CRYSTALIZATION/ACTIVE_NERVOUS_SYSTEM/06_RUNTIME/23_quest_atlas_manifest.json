@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-03-14T00:00:00.000000+00:00",
+  "manifest_id": 23,
+  "manifest_name": "quest_atlas_manifest",
+  "protocol_id": "LP-57OMEGA",
+  "protocol_display_name": "LP-57Omega QuestAtlas",
+  "status": "canonical-installed",
+  "version_range": "v1.0-v1.9",
+  "description": "QuestAtlas v1.0-v1.9 registry: 19 stations, 57 loops, policy bundle, board kernel, golden test vectors, receipt bundles.",
+  "layer_root": "28_SELF_PLAY_QUEST_ATLAS",
+  "station_count": 19,
+  "pass_count": 3,
+  "orbit_size": 57,
+  "master_agent_count": 4,
+  "subagent_capacity": 4096,
+  "corpus_capsule_range": [198, 226],
+  "corpus_capsule_count": 29,
+  "golden_test_vector_count": 15,
+  "golden_test_categories": [
+    "route_compilation",
+    "board_kernel",
+    "storm_spawn",
+    "seat_election",
+    "reward_settlement",
+    "receipt_chain"
+  ],
+  "code_modules": [
+    "code/__init__.py",
+    "code/constants.py",
+    "code/types.py",
+    "code/station_atlas.py",
+    "code/route_compiler.py",
+    "code/board_kernel.py",
+    "code/pheromone_engine.py",
+    "code/storm_engine.py",
+    "code/seat_election.py",
+    "code/party_matcher.py",
+    "code/leveling_engine.py",
+    "code/reward_engine.py",
+    "code/receipt_engine.py",
+    "code/pack_linter.py",
+    "code/verifier.py",
+    "code/test_golden_vectors.py"
+  ],
+  "code_module_count": 16,
+  "policy_files": [
+    "policies/BundleManifest.json",
+    "policies/BoardKernelPolicy.json",
+    "policies/RouteCompilerPolicy.json",
+    "policies/StormPolicy.json",
+    "policies/SeatElectionPolicy.json",
+    "policies/PromotionBoundaryPolicy.json",
+    "policies/RewardPolicy_v1.json",
+    "policies/QuestPolicy_v1.json",
+    "policies/TemplePolicy_v1.json",
+    "policies/MigrationPolicy_v1.json",
+    "policies/UnlockPolicy_v1.json",
+    "policies/KernelConst_v1.json"
+  ],
+  "policy_file_count": 12,
+  "data_files": [
+    "01_STATION_DEFINITIONS.json",
+    "02_PAYOUT_MATRICES.json",
+    "03_UNLOCK_TREE.json",
+    "05_GOLDEN_TEST_VECTORS.json",
+    "07_RECEIPT_BUNDLE_SCHEMA.json"
+  ],
+  "atlas_versions": {
+    "v1.0": "Station definitions (S01-S19)",
+    "v1.1": "Payout matrices per station",
+    "v1.2": "Unlock rights, class trees, coalition, orbit inheritance",
+    "v1.3": "Board generation rules",
+    "v1.4": "Deterministic board kernel spec",
+    "v1.5": "Machine-readable policy bundle",
+    "v1.6": "Golden test vectors",
+    "v1.7": "8 corpus-backed fixtures",
+    "v1.8": "Sealed receipt format",
+    "v1.9": "Receipt-chain verifier + linter"
+  },
+  "verification": {
+    "all_golden_vectors_pass": true,
+    "vector_count": "15/15",
+    "determinism_verified": true
+  },
+  "source_manifests": {
+    "lp57omega": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/20_lp_57omega_protocol_manifest.json",
+    "reward": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/22_reward_architecture_manifest.json",
+    "board": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/24_self_play_board_manifest.json"
+  }
+}

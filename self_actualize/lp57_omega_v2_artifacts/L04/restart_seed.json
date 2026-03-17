@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-03-13T23:39:25.102515+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "loop_id": "L04",
+  "status": "READY",
+  "bundle_type": "RestartSeed",
+  "seed": "L05",
+  "title": "Canonical 16-Basis Ownership",
+  "control_tuple": {
+    "active_membrane": "Q41 / TQ06",
+    "live_hall_carrier": "Q42",
+    "landed_temple_receiver": "TQ04",
+    "reserve_feeder": "Q46",
+    "external_blocker": "Q02",
+    "docs_gate": "BLOCKED",
+    "witness_only_fronts": [
+      "Q50",
+      "ECOSYSTEM/NERVOUS_SYSTEM"
+    ],
+    "earth_gate_required": true,
+    "required_appendix_support": [
+      "AppI",
+      "AppM"
+    ],
+    "overlay_only_appendix_support": [
+      "AppQ",
+      "AppO"
+    ]
+  },
+  "handoff_basis": [
+    "self_actualize/witness_hierarchy.json",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/07_CANONICAL_WITNESS_HIERARCHY.md"
+  ]
+}

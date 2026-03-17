@@ -1,0 +1,23 @@
+{
+  "truth_class": "NEAR",
+  "docs_gate": "BLOCKED",
+  "record_count": 45,
+  "counts_by_class": {
+    "R": 15,
+    "Q": 15,
+    "T": 15
+  },
+  "unique_gate_count": 45,
+  "unique_gate_prefixes_ok": {
+    "R": true,
+    "Q": true,
+    "T": true
+  },
+  "sigma_ok": true,
+  "hub_ok": true,
+  "transfer_ok": true,
+  "prior_links_ok": true,
+  "witness_nonempty": true,
+  "t33_hide_default_ok": true,
+  "all_checks_pass": true
+}

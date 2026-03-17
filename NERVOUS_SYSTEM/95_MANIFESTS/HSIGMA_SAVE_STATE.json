@@ -1,0 +1,89 @@
+{
+  "save_state_id": "HSIGMA_STAR",
+  "visibility_mode": "class-exhaustive / instance-frontier",
+  "layers": [
+    "Metro",
+    "Mycelium",
+    "Neural",
+    "Zero",
+    "Liminal",
+    "Aether",
+    "Tunnel",
+    "BridgeReturn",
+    "Dimensional",
+    "ReplayWitnessProof",
+    "SeedRegeneration"
+  ],
+  "explicit_nexus_rows": [
+    "Z0",
+    "ZL",
+    "A0",
+    "L0",
+    "MT",
+    "MS",
+    "MY",
+    "NN",
+    "TE",
+    "TX",
+    "DB",
+    "DL",
+    "MC",
+    "RA",
+    "WA",
+    "SC"
+  ],
+  "frontier_nexus_rows": [
+    "MR",
+    "PA"
+  ],
+  "inferred_nexus_rows": [
+    "LP"
+  ],
+  "route_families": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13"
+  ],
+  "tunnel_classes": [
+    "T/ZC",
+    "T/AL",
+    "T/LS",
+    "T/DJ",
+    "T/RR",
+    "T/BC"
+  ],
+  "dimensional_strata": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4"
+  ],
+  "timing_engine": {
+    "space": "Z4^4",
+    "byte_encode": "B=q0+4q1+16q2+64q3",
+    "state_count": 256,
+    "neighborhood": "toroidal axis-neighbors"
+  },
+  "hidden_candidates": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6"
+  ],
+  "fixed_point_rule": "stop when no candidate promotion and no material row-class change",
+  "frontier_policy": "never promote unsupported latent structure into explicit fact",
+  "mnemonic_seed_string": "ATH-HSIGMA::11L/16S+2F+1I/13R/6T/5D/256PSI/4864M/MUFIX"
+}

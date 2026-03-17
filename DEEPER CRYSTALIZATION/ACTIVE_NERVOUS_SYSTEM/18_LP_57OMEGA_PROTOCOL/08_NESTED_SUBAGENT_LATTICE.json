@@ -1,0 +1,81 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "virtual_seats_per_master": 4096,
+  "active_seats_per_master": 256,
+  "active_seats_total": 1024,
+  "dormant_seats_total": 3072,
+  "active_partition_per_master": {
+    "corpus": 64,
+    "family": 64,
+    "chapter_appendix_supplement": 64,
+    "runtime_board": 64
+  },
+  "axes": {
+    "resolution": [
+      "corpus",
+      "family",
+      "chapter_appendix",
+      "runtime_board"
+    ],
+    "lens": [
+      "square",
+      "flower",
+      "cloud",
+      "fractal"
+    ],
+    "truth_mode": [
+      "witness",
+      "replay",
+      "pressure",
+      "blocker"
+    ],
+    "output_organ": [
+      "hall",
+      "temple",
+      "runtime",
+      "supplement"
+    ],
+    "action_mode": [
+      "observe",
+      "derive",
+      "route",
+      "prune"
+    ],
+    "priority_band": [
+      "immediate",
+      "near",
+      "reserve",
+      "dormant"
+    ]
+  },
+  "master_agents": {
+    "A1": {
+      "label": "Synthesizer / Researcher",
+      "role_tag": "SYNTH-RESEARCH",
+      "action_type": "synthesize",
+      "lens_index": 1,
+      "hierarchy": "master/synthesis"
+    },
+    "A2": {
+      "label": "Planner / Architect",
+      "role_tag": "PLANNER-ARCHITECT",
+      "action_type": "plan",
+      "lens_index": 2,
+      "hierarchy": "master/planner"
+    },
+    "A3": {
+      "label": "Worker / Adventurer",
+      "role_tag": "WORKER-ADVENTURER",
+      "action_type": "implement",
+      "lens_index": 3,
+      "hierarchy": "master/worker"
+    },
+    "A4": {
+      "label": "Pruner / Compressor / Defragmenter",
+      "role_tag": "PRUNE-COMPRESS",
+      "action_type": "compress",
+      "lens_index": 4,
+      "hierarchy": "master/pruner"
+    }
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "generated_at": "2026-03-13T16:14:47.885791+00:00",
+  "family_order": [
+    "018_alternates",
+    "021_alternates",
+    "athena_os_legacy_kernel",
+    "atlasforge_legacy_docs",
+    "ch08_alternates",
+    "ch11_alternates",
+    "ch12_alternates",
+    "ch14_alternates",
+    "ch17_alternates",
+    "ch18_alternates",
+    "ch19_alternates"
+  ],
+  "families_by_id": {
+    "018_alternates": {
+      "family_id": "018_alternates",
+      "artifact_ids": [
+        "LEGACY-014"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "PROMOTE_CANONICAL": 1
+      },
+      "status_counts": {
+        "blocked": 1
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md"
+      ],
+      "blockers": [
+        "LEGACY-014"
+      ]
+    },
+    "021_alternates": {
+      "family_id": "021_alternates",
+      "artifact_ids": [
+        "LEGACY-019"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "PROMOTE_CANONICAL": 1
+      },
+      "status_counts": {
+        "blocked": 1
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\full_corpus_7d_integration_bundle.md"
+      ],
+      "blockers": [
+        "LEGACY-019"
+      ]
+    },
+    "athena_os_legacy_kernel": {
+      "family_id": "athena_os_legacy_kernel",
+      "artifact_ids": [
+        "LEGACY-036"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "WITNESS_ONLY": 1
+      },
+      "status_counts": {
+        "witness-only": 1
+      },
+      "canonical_targets": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/athena_kernel/legacy.py"
+      ],
+      "blockers": []
+    },
+    "atlasforge_legacy_docs": {
+      "family_id": "atlasforge_legacy_docs",
+      "artifact_ids": [
+        "LEGACY-021",
+        "LEGACY-022",
+        "LEGACY-023",
+        "LEGACY-024",
+        "LEGACY-025",
+        "LEGACY-026",
+        "LEGACY-027",
+        "LEGACY-028",
+        "LEGACY-029",
+        "LEGACY-030",
+        "LEGACY-031",
+        "LEGACY-032",
+        "LEGACY-033",
+        "LEGACY-034",
+        "LEGACY-035"
+      ],
+      "promotion_queue": [
+        "LEGACY-021"
+      ],
+      "retrofit_modes": {
+        "POINTER_REDIRECT": 1,
+        "QUARANTINE": 14
+      },
+      "status_counts": {
+        "ready for promotion": 1,
+        "quarantined": 14
+      },
+      "canonical_targets": [
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\README.md"
+      ],
+      "blockers": [
+        "LEGACY-022",
+        "LEGACY-023",
+        "LEGACY-024",
+        "LEGACY-025",
+        "LEGACY-026",
+        "LEGACY-027",
+        "LEGACY-028",
+        "LEGACY-029",
+        "LEGACY-030",
+        "LEGACY-031",
+        "LEGACY-032",
+        "LEGACY-033",
+        "LEGACY-034",
+        "LEGACY-035"
+      ]
+    },
+    "ch08_alternates": {
+      "family_id": "ch08_alternates",
+      "artifact_ids": [
+        "LEGACY-001"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "MERGE_INTO_CANON": 1
+      },
+      "status_counts": {
+        "blocked": 1
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch08_skill_ecology_upgrade.md"
+      ],
+      "blockers": [
+        "LEGACY-001"
+      ]
+    },
+    "ch11_alternates": {
+      "family_id": "ch11_alternates",
+      "artifact_ids": [
+        "LEGACY-002",
+        "LEGACY-003",
+        "LEGACY-004",
+        "LEGACY-005",
+        "LEGACY-006",
+        "LEGACY-007",
+        "LEGACY-008",
+        "LEGACY-020"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "MERGE_INTO_CANON": 8
+      },
+      "status_counts": {
+        "blocked": 8
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch11_runtime_convergence.md"
+      ],
+      "blockers": [
+        "LEGACY-002",
+        "LEGACY-003",
+        "LEGACY-004",
+        "LEGACY-005",
+        "LEGACY-006",
+        "LEGACY-007",
+        "LEGACY-008",
+        "LEGACY-020"
+      ]
+    },
+    "ch12_alternates": {
+      "family_id": "ch12_alternates",
+      "artifact_ids": [
+        "LEGACY-018"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "MERGE_INTO_CANON": 1
+      },
+      "status_counts": {
+        "blocked": 1
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch12_neural_and_benchmark_bridge.md"
+      ],
+      "blockers": [
+        "LEGACY-018"
+      ]
+    },
+    "ch14_alternates": {
+      "family_id": "ch14_alternates",
+      "artifact_ids": [
+        "LEGACY-009"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "MERGE_INTO_CANON": 1
+      },
+      "status_counts": {
+        "blocked": 1
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch14_manuscript_superorganism.md"
+      ],
+      "blockers": [
+        "LEGACY-009"
+      ]
+    },
+    "ch17_alternates": {
+      "family_id": "ch17_alternates",
+      "artifact_ids": [
+        "LEGACY-010",
+        "LEGACY-011"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "MERGE_INTO_CANON": 2
+      },
+      "status_counts": {
+        "blocked": 2
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch17_queues_receipts_and_operational_memory.md"
+      ],
+      "blockers": [
+        "LEGACY-010",
+        "LEGACY-011"
+      ]
+    },
+    "ch18_alternates": {
+      "family_id": "ch18_alternates",
+      "artifact_ids": [
+        "LEGACY-012",
+        "LEGACY-013",
+        "LEGACY-015"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "MERGE_INTO_CANON": 3
+      },
+      "status_counts": {
+        "blocked": 3
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch18_publication_and_packaging.md"
+      ],
+      "blockers": [
+        "LEGACY-012",
+        "LEGACY-013",
+        "LEGACY-015"
+      ]
+    },
+    "ch19_alternates": {
+      "family_id": "ch19_alternates",
+      "artifact_ids": [
+        "LEGACY-016",
+        "LEGACY-017"
+      ],
+      "promotion_queue": [],
+      "retrofit_modes": {
+        "MERGE_INTO_CANON": 2
+      },
+      "status_counts": {
+        "blocked": 2
+      },
+      "canonical_targets": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\03_MANUSCRIPTS\\chapters\\ch19_single_source_of_truth.md"
+      ],
+      "blockers": [
+        "LEGACY-016",
+        "LEGACY-017"
+      ]
+    }
+  }
+}

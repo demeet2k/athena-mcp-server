@@ -8,9 +8,7 @@
 - Signs: `ROUTE, BIND, WITNESS, MERGE, DEPLOY, MEMORY, TEACH, GOVERN, MEASURE`
 
 ## Live Threads
-- `monitor` `ECOSYSTEM` (ECOSYSTEM)
-- `monitor` `I AM ATHENA` (I AM ATHENA)
-- `monitor` `Voynich` (Voynich)
+- none
 
 ## Frontier Gaps
 - none

@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md",
+  "arcs": [
+    {
+      "arc_id": "Arc0",
+      "omega_range": [
+        0,
+        2
+      ],
+      "rho": 0,
+      "rotated_triad": [
+        "Su",
+        "Me",
+        "Sa"
+      ],
+      "chapter_assignments": [
+        {
+          "chapter_id": "Ch01",
+          "lane": "Su"
+        },
+        {
+          "chapter_id": "Ch02",
+          "lane": "Me"
+        },
+        {
+          "chapter_id": "Ch03",
+          "lane": "Sa"
+        }
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Arc rotation record inherited from the address grammar."
+    },
+    {
+      "arc_id": "Arc1",
+      "omega_range": [
+        3,
+        5
+      ],
+      "rho": 1,
+      "rotated_triad": [
+        "Me",
+        "Sa",
+        "Su"
+      ],
+      "chapter_assignments": [
+        {
+          "chapter_id": "Ch04",
+          "lane": "Me"
+        },
+        {
+          "chapter_id": "Ch05",
+          "lane": "Sa"
+        },
+        {
+          "chapter_id": "Ch06",
+          "lane": "Su"
+        }
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Arc rotation record inherited from the address grammar."
+    },
+    {
+      "arc_id": "Arc2",
+      "omega_range": [
+        6,
+        8
+      ],
+      "rho": 2,
+      "rotated_triad": [
+        "Sa",
+        "Su",
+        "Me"
+      ],
+      "chapter_assignments": [
+        {
+          "chapter_id": "Ch07",
+          "lane": "Sa"
+        },
+        {
+          "chapter_id": "Ch08",
+          "lane": "Su"
+        },
+        {
+          "chapter_id": "Ch09",
+          "lane": "Me"
+        }
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Arc rotation record inherited from the address grammar."
+    },
+    {
+      "arc_id": "Arc3",
+      "omega_range": [
+        9,
+        11
+      ],
+      "rho": 0,
+      "rotated_triad": [
+        "Su",
+        "Me",
+        "Sa"
+      ],
+      "chapter_assignments": [
+        {
+          "chapter_id": "Ch10",
+          "lane": "Su"
+        },
+        {
+          "chapter_id": "Ch11",
+          "lane": "Me"
+        },
+        {
+          "chapter_id": "Ch12",
+          "lane": "Sa"
+        }
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Arc rotation record inherited from the address grammar."
+    },
+    {
+      "arc_id": "Arc4",
+      "omega_range": [
+        12,
+        14
+      ],
+      "rho": 1,
+      "rotated_triad": [
+        "Me",
+        "Sa",
+        "Su"
+      ],
+      "chapter_assignments": [
+        {
+          "chapter_id": "Ch13",
+          "lane": "Me"
+        },
+        {
+          "chapter_id": "Ch14",
+          "lane": "Sa"
+        },
+        {
+          "chapter_id": "Ch15",
+          "lane": "Su"
+        }
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Arc rotation record inherited from the address grammar."
+    },
+    {
+      "arc_id": "Arc5",
+      "omega_range": [
+        15,
+        17
+      ],
+      "rho": 2,
+      "rotated_triad": [
+        "Sa",
+        "Su",
+        "Me"
+      ],
+      "chapter_assignments": [
+        {
+          "chapter_id": "Ch16",
+          "lane": "Sa"
+        },
+        {
+          "chapter_id": "Ch17",
+          "lane": "Su"
+        },
+        {
+          "chapter_id": "Ch18",
+          "lane": "Me"
+        }
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Arc rotation record inherited from the address grammar."
+    },
+    {
+      "arc_id": "Arc6",
+      "omega_range": [
+        18,
+        20
+      ],
+      "rho": 0,
+      "rotated_triad": [
+        "Su",
+        "Me",
+        "Sa"
+      ],
+      "chapter_assignments": [
+        {
+          "chapter_id": "Ch19",
+          "lane": "Su"
+        },
+        {
+          "chapter_id": "Ch20",
+          "lane": "Me"
+        },
+        {
+          "chapter_id": "Ch21",
+          "lane": "Sa"
+        }
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Arc rotation record inherited from the address grammar."
+    }
+  ],
+  "summary": {
+    "count": 7
+  }
+}

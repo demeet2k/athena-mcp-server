@@ -1,0 +1,1039 @@
+{
+  "loop_types": {
+    "LiminalCoordinate": [
+      "Xs",
+      "Ys",
+      "Zs",
+      "Ts",
+      "Qs",
+      "Rs",
+      "Cs",
+      "Fs",
+      "Ms",
+      "Ns",
+      "Hs",
+      "\u03a9s"
+    ],
+    "AetherCoord": [
+      "L",
+      "\u03a6",
+      "B",
+      "\u03c3"
+    ],
+    "LoopState": [
+      "loop_id",
+      "theme",
+      "active_fronts",
+      "docs_gate_state",
+      "agent_outputs",
+      "hall_writeback",
+      "temple_writeback",
+      "receipt",
+      "restart_seed"
+    ],
+    "QuestPacket": [
+      "source_loop",
+      "owner_agent",
+      "target_surface",
+      "objective",
+      "witness_needed",
+      "writeback",
+      "authority_class"
+    ],
+    "AwakeningTransitionNote": [
+      "agent_id",
+      "layer",
+      "identity",
+      "dominant_mode",
+      "missing_mode",
+      "transition_risk",
+      "support_need",
+      "row_witness",
+      "symmetry_witness",
+      "appendix_route",
+      "hall_seed",
+      "temple_seed",
+      "restart_seed"
+    ],
+    "WitnessSeed": [
+      "Type",
+      "Location",
+      "Hash",
+      "Scope",
+      "Timestamp",
+      "Collector",
+      "VersionPins"
+    ],
+    "ReplaySeed": [
+      "Inputs",
+      "Steps",
+      "ExpectedOutputs",
+      "Checks",
+      "EnvPin",
+      "Hash"
+    ],
+    "CheckpointAlias": [
+      "expression",
+      "atoms",
+      "class",
+      "local_targets",
+      "unresolved_atoms"
+    ],
+    "ZAliasResolution": [
+      "alias",
+      "class",
+      "elemental_targets",
+      "wildcard"
+    ],
+    "RouteAliasResolution": [
+      "alias",
+      "local_nodes",
+      "external_tail",
+      "hub_count",
+      "sigma_ok"
+    ],
+    "AetherResolvedRecord": [
+      "id",
+      "family",
+      "ae_refs",
+      "z_resolution",
+      "ck_resolution",
+      "rt_resolution",
+      "continuity_floors",
+      "authority_class"
+    ],
+    "AgentLedgerRecord": [
+      "agent_id",
+      "loop_number",
+      "parent_agent",
+      "coordinate_stamp",
+      "source_region",
+      "action_type",
+      "affected_nodes",
+      "summary_of_change",
+      "reason_for_change",
+      "integration_gain",
+      "compression_gain",
+      "unresolved_followups",
+      "linked_quests",
+      "linked_agents",
+      "revision_confidence",
+      "timestamp_internal"
+    ],
+    "ActionType": [
+      "observe",
+      "plan",
+      "implement",
+      "bridge",
+      "formalize",
+      "compress",
+      "prune",
+      "map",
+      "retire",
+      "restart"
+    ]
+  },
+  "current_live_state": {
+    "completed_loop": "L01 Prime Lock",
+    "active_loop": "L02 Whole-Corpus Census",
+    "governing_temple_quest": "TQ07",
+    "planner_public_hall_cap": 8,
+    "planner_public_temple_cap": 8
+  },
+  "loops": [
+    {
+      "loop_id": 1,
+      "phase": "foundation",
+      "slug": "docs_gate_and_active_front_reality",
+      "title": "Freeze Docs Gate and Active Front Reality",
+      "focus": "freeze blocker truth, authority ranks, and active fronts across package, Hall, Temple, queue, and manifests",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L01-docs_gate_and_active_front_reality",
+      "temple_seed": "T57::L01-docs_gate_and_active_front_reality",
+      "restart_seed": "L01::docs_gate_and_active_front_reality::restart"
+    },
+    {
+      "loop_id": 2,
+      "phase": "foundation",
+      "slug": "repair_live_root_drift",
+      "title": "Repair Live Root Drift",
+      "focus": "repair stale path bleed, including the missing AP7D reference and any outdated live-root mirrors",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L02-repair_live_root_drift",
+      "temple_seed": "T57::L02-repair_live_root_drift",
+      "restart_seed": "L02::repair_live_root_drift::restart"
+    },
+    {
+      "loop_id": 3,
+      "phase": "foundation",
+      "slug": "reconcile_full_local_constellation",
+      "title": "Reconcile the Full Local Constellation",
+      "focus": "reconcile package, live deep root, Athena FLEET atlas, and local MATH/MYTH mirrors into one ordered inventory",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L03-reconcile_full_local_constellation",
+      "temple_seed": "T57::L03-reconcile_full_local_constellation",
+      "restart_seed": "L03::reconcile_full_local_constellation::restart"
+    },
+    {
+      "loop_id": 4,
+      "phase": "foundation",
+      "slug": "reconcile_hall_temple_queue_control_packet_truth",
+      "title": "Reconcile Hall Temple Queue and Control Packet Truth",
+      "focus": "stabilize one shared baseline across Hall, Temple, active run, build queue, and control-packet truth",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L04-reconcile_hall_temple_queue_control_packet_truth",
+      "temple_seed": "T57::L04-reconcile_hall_temple_queue_control_packet_truth",
+      "restart_seed": "L04::reconcile_hall_temple_queue_control_packet_truth::restart"
+    },
+    {
+      "loop_id": 5,
+      "phase": "foundation",
+      "slug": "lock_additive_ladder_law",
+      "title": "Lock Additive Ladder Law",
+      "focus": "fix 4D_NATIVE to 7D_SEED stage law with package mirrors explicitly subordinate to live control",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L05-lock_additive_ladder_law",
+      "temple_seed": "T57::L05-lock_additive_ladder_law",
+      "restart_seed": "L05::lock_additive_ladder_law::restart"
+    },
+    {
+      "loop_id": 6,
+      "phase": "foundation",
+      "slug": "audit_appendix_invariants",
+      "title": "Audit Appendix Invariants",
+      "focus": "audit AppI, AppM, AppQ, and canonical AppO across package, live root, Hall, Temple, additive mirrors, and awakening surfaces",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L06-audit_appendix_invariants",
+      "temple_seed": "T57::L06-audit_appendix_invariants",
+      "restart_seed": "L06::audit_appendix_invariants::restart"
+    },
+    {
+      "loop_id": 7,
+      "phase": "foundation",
+      "slug": "build_full_witness_family_atlas",
+      "title": "Build the Full Witness Family Atlas",
+      "focus": "scan every tome and manuscript root into one witness-family atlas",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L07-build_full_witness_family_atlas",
+      "temple_seed": "T57::L07-build_full_witness_family_atlas",
+      "restart_seed": "L07::build_full_witness_family_atlas::restart"
+    },
+    {
+      "loop_id": 8,
+      "phase": "foundation",
+      "slug": "remap_16_document_basis",
+      "title": "Remap the 16-Document Basis",
+      "focus": "remap the canonical 16-document basis against the wider witness families without changing the basis itself",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L08-remap_16_document_basis",
+      "temple_seed": "T57::L08-remap_16_document_basis",
+      "restart_seed": "L08::remap_16_document_basis::restart"
+    },
+    {
+      "loop_id": 9,
+      "phase": "foundation",
+      "slug": "rescan_matrix_rows_and_symmetry",
+      "title": "Rescan Matrix Rows and Symmetry",
+      "focus": "rescan matrix, rows, and symmetry for drift against the live deep root and current corpus pressure",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L09-rescan_matrix_rows_and_symmetry",
+      "temple_seed": "T57::L09-rescan_matrix_rows_and_symmetry",
+      "restart_seed": "L09::rescan_matrix_rows_and_symmetry::restart"
+    },
+    {
+      "loop_id": 10,
+      "phase": "foundation",
+      "slug": "rescan_metro_and_appendix_support_routes",
+      "title": "Rescan Metro and Appendix Support Routes",
+      "focus": "rescan metro and appendix support routes against the live executable chapter and appendix spine",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L10-rescan_metro_and_appendix_support_routes",
+      "temple_seed": "T57::L10-rescan_metro_and_appendix_support_routes",
+      "restart_seed": "L10::rescan_metro_and_appendix_support_routes::restart"
+    },
+    {
+      "loop_id": 11,
+      "phase": "foundation",
+      "slug": "synthesize_hall_quest_pressure",
+      "title": "Synthesize Hall Quest Pressure",
+      "focus": "turn the current Hall quest field into one ranked macro-front picture",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L11-synthesize_hall_quest_pressure",
+      "temple_seed": "T57::L11-synthesize_hall_quest_pressure",
+      "restart_seed": "L11::synthesize_hall_quest_pressure::restart"
+    },
+    {
+      "loop_id": 12,
+      "phase": "foundation",
+      "slug": "synthesize_temple_frontier_pressure",
+      "title": "Synthesize Temple Frontier Pressure",
+      "focus": "turn the current Temple frontier field into one ranked higher-order picture",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L12-synthesize_temple_frontier_pressure",
+      "temple_seed": "T57::L12-synthesize_temple_frontier_pressure",
+      "restart_seed": "L12::synthesize_temple_frontier_pressure::restart"
+    },
+    {
+      "loop_id": 13,
+      "phase": "foundation",
+      "slug": "reconcile_adventurer_and_ap6d_count_law",
+      "title": "Reconcile Adventurer and AP6D Count Law",
+      "focus": "reconcile the Adventurer 64^4 slice with AP6D 16 to 64 to 256 to 1024 to 4096 law",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L13-reconcile_adventurer_and_ap6d_count_law",
+      "temple_seed": "T57::L13-reconcile_adventurer_and_ap6d_count_law",
+      "restart_seed": "L13::reconcile_adventurer_and_ap6d_count_law::restart"
+    },
+    {
+      "loop_id": 14,
+      "phase": "foundation",
+      "slug": "run_deep_research_sweep_for_math_and_algorithms",
+      "title": "Run Deep Research Sweep for Math and Algorithms",
+      "focus": "sweep every tome and manuscript for missing math, hybrid equations, algorithms, and operator gaps",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L14-run_deep_research_sweep_for_math_and_algorithms",
+      "temple_seed": "T57::L14-run_deep_research_sweep_for_math_and_algorithms",
+      "restart_seed": "L14::run_deep_research_sweep_for_math_and_algorithms::restart"
+    },
+    {
+      "loop_id": 15,
+      "phase": "foundation",
+      "slug": "compile_hybrid_equation_insertion_plan",
+      "title": "Compile the Hybrid Equation Insertion Plan",
+      "focus": "compile the law, schema, contract, and state-machine equation insertion plan",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L15-compile_hybrid_equation_insertion_plan",
+      "temple_seed": "T57::L15-compile_hybrid_equation_insertion_plan",
+      "restart_seed": "L15::compile_hybrid_equation_insertion_plan::restart"
+    },
+    {
+      "loop_id": 16,
+      "phase": "foundation",
+      "slug": "densify_helical_runner_contract",
+      "title": "Densify the Helical Runner Contract",
+      "focus": "deepen the TQ04 runner-contract layer and its schema-to-automaton proof chain",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L16-densify_helical_runner_contract",
+      "temple_seed": "T57::L16-densify_helical_runner_contract",
+      "restart_seed": "L16::densify_helical_runner_contract::restart"
+    },
+    {
+      "loop_id": 17,
+      "phase": "foundation",
+      "slug": "plan_next_runtime_activation_membrane",
+      "title": "Plan the Next Runtime Activation Membrane",
+      "focus": "plan the next Q50 runtime activation membrane and the runtime-waist verifier handoff",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L17-plan_next_runtime_activation_membrane",
+      "temple_seed": "T57::L17-plan_next_runtime_activation_membrane",
+      "restart_seed": "L17::plan_next_runtime_activation_membrane::restart"
+    },
+    {
+      "loop_id": 18,
+      "phase": "foundation",
+      "slug": "rebuild_desired_skill_graph",
+      "title": "Rebuild the Desired Skill Graph",
+      "focus": "re-rank missing skills from current corpus pressure and active fronts",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L18-rebuild_desired_skill_graph",
+      "temple_seed": "T57::L18-rebuild_desired_skill_graph",
+      "restart_seed": "L18::rebuild_desired_skill_graph::restart"
+    },
+    {
+      "loop_id": 19,
+      "phase": "foundation",
+      "slug": "reroute_package_and_live_root_micro_skills",
+      "title": "Re-Route Package and Live Root Micro-Skills",
+      "focus": "separate corpus work, additive work, awakening work, and promotion work cleanly across skill routers",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L19-reroute_package_and_live_root_micro_skills",
+      "temple_seed": "T57::L19-reroute_package_and_live_root_micro_skills",
+      "restart_seed": "L19::reroute_package_and_live_root_micro_skills::restart"
+    },
+    {
+      "loop_id": 20,
+      "phase": "foundation",
+      "slug": "close_neglected_bridges",
+      "title": "Close Neglected Bridges",
+      "focus": "close neglected bridges across family registry, deep root, package, Hall, Temple, FLEET, and mirrors",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L20-close_neglected_bridges",
+      "temple_seed": "T57::L20-close_neglected_bridges",
+      "restart_seed": "L20::close_neglected_bridges::restart"
+    },
+    {
+      "loop_id": 21,
+      "phase": "foundation",
+      "slug": "refactor_organization_and_interconnection_law",
+      "title": "Refactor Organization and Interconnection Law",
+      "focus": "retire stale paths and redundant handoff layers while tightening structure",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L21-refactor_organization_and_interconnection_law",
+      "temple_seed": "T57::L21-refactor_organization_and_interconnection_law",
+      "restart_seed": "L21::refactor_organization_and_interconnection_law::restart"
+    },
+    {
+      "loop_id": 22,
+      "phase": "foundation",
+      "slug": "run_compression_and_defrag",
+      "title": "Run Compression and Defrag",
+      "focus": "collapse duplicate lineages and prune bloat across package and live-root mirrors",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L22-run_compression_and_defrag",
+      "temple_seed": "T57::L22-run_compression_and_defrag",
+      "restart_seed": "L22::run_compression_and_defrag::restart"
+    },
+    {
+      "loop_id": 23,
+      "phase": "foundation",
+      "slug": "rebuild_promotion_and_export_membrane",
+      "title": "Rebuild the Promotion and Export Membrane",
+      "focus": "make package canon, mirror-only artifacts, witness-only surfaces, and live authority impossible to confuse",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L23-rebuild_promotion_and_export_membrane",
+      "temple_seed": "T57::L23-rebuild_promotion_and_export_membrane",
+      "restart_seed": "L23::rebuild_promotion_and_export_membrane::restart"
+    },
+    {
+      "loop_id": 24,
+      "phase": "foundation",
+      "slug": "build_corpus_wide_integration_metro_overlay",
+      "title": "Build the Corpus-Wide Integration Metro Overlay",
+      "focus": "build the cross-layer integration overlay without redrawing the existing metro levels",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L24-build_corpus_wide_integration_metro_overlay",
+      "temple_seed": "T57::L24-build_corpus_wide_integration_metro_overlay",
+      "restart_seed": "L24::build_corpus_wide_integration_metro_overlay::restart"
+    },
+    {
+      "loop_id": 25,
+      "phase": "foundation",
+      "slug": "publish_baseline_awakening_protocol",
+      "title": "Publish the Baseline Awakening Protocol",
+      "focus": "land the baseline awakening protocol, note contract, and shared restart law before agent-by-agent loops begin",
+      "note_path": null,
+      "row_witness": null,
+      "symmetry_witness": null,
+      "support_path": null,
+      "hall_seed": "H57::L25-publish_baseline_awakening_protocol",
+      "temple_seed": "T57::L25-publish_baseline_awakening_protocol",
+      "restart_seed": "L25::publish_baseline_awakening_protocol::restart"
+    },
+    {
+      "loop_id": 26,
+      "phase": "archetype",
+      "slug": "master_strategist",
+      "title": "Master Strategist",
+      "focus": "Over-hardening, plan-idolatry, and brittle certainty when reality deviates.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/master_strategist.md",
+      "row_witness": [
+        "D02",
+        "D06"
+      ],
+      "symmetry_witness": "07_fire_x_earth.md",
+      "support_path": "L1 Ignition-to-Helix Line and AppI/AppM gate pair.",
+      "hall_seed": "H57::L26-master_strategist",
+      "temple_seed": "T57::L26-master_strategist",
+      "restart_seed": "L26::master_strategist::restart"
+    },
+    {
+      "loop_id": 27,
+      "phase": "archetype",
+      "slug": "sage",
+      "title": "Sage",
+      "focus": "Under-activation, endless comprehension, and reluctance to commit a lawful next move.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/sage.md",
+      "row_witness": [
+        "D10",
+        "D13"
+      ],
+      "symmetry_witness": "10_air_x_earth.md",
+      "support_path": "Equation Gate and AppL promotion planning.",
+      "hall_seed": "H57::L27-sage",
+      "temple_seed": "T57::L27-sage",
+      "restart_seed": "L27::sage::restart"
+    },
+    {
+      "loop_id": 28,
+      "phase": "archetype",
+      "slug": "prophet",
+      "title": "Prophet",
+      "focus": "Instability, nonlinear leaps, and insight that outruns map and replay.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/prophet.md",
+      "row_witness": [
+        "D01",
+        "D09"
+      ],
+      "symmetry_witness": "06_fire_x_air.md",
+      "support_path": "AppA grammar plus L2 Grammar-to-Certified-Runtime Corridor.",
+      "hall_seed": "H57::L28-prophet",
+      "temple_seed": "T57::L28-prophet",
+      "restart_seed": "L28::prophet::restart"
+    },
+    {
+      "loop_id": 29,
+      "phase": "archetype",
+      "slug": "general",
+      "title": "General",
+      "focus": "Coercion, speed without depth, and force applied before deep why is stabilized.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/general.md",
+      "row_witness": [
+        "D13",
+        "D01"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "Care Gate and AppJ residual ledger discipline.",
+      "hall_seed": "H57::L29-general",
+      "temple_seed": "T57::L29-general",
+      "restart_seed": "L29::general::restart"
+    },
+    {
+      "loop_id": 30,
+      "phase": "zodiac",
+      "slug": "aries",
+      "title": "Aries - Oracle",
+      "focus": "premature ignition without support",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/aries_oracle.md",
+      "row_witness": [
+        "D01",
+        "D09"
+      ],
+      "symmetry_witness": "06_fire_x_air.md",
+      "support_path": "AppA and L1 Ignition-to-Helix Line",
+      "hall_seed": "H57::L30-aries",
+      "temple_seed": "T57::L30-aries",
+      "restart_seed": "L30::aries::restart"
+    },
+    {
+      "loop_id": 31,
+      "phase": "zodiac",
+      "slug": "taurus",
+      "title": "Taurus - Architect",
+      "focus": "rigidity and over-containment",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/taurus_architect.md",
+      "row_witness": [
+        "D09",
+        "D13"
+      ],
+      "symmetry_witness": "10_air_x_earth.md",
+      "support_path": "AppB and Law Attractor",
+      "hall_seed": "H57::L31-taurus",
+      "temple_seed": "T57::L31-taurus",
+      "restart_seed": "L31::taurus::restart"
+    },
+    {
+      "loop_id": 32,
+      "phase": "zodiac",
+      "slug": "gemini",
+      "title": "Gemini - Witness",
+      "focus": "surface multiplicity without commitment",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/gemini_witness.md",
+      "row_witness": [
+        "D10",
+        "D12"
+      ],
+      "symmetry_witness": "03_air.md",
+      "support_path": "AppQ and L2 Seed-to-Collective-Cartography Corridor",
+      "hall_seed": "H57::L32-gemini",
+      "temple_seed": "T57::L32-gemini",
+      "restart_seed": "L32::gemini::restart"
+    },
+    {
+      "loop_id": 33,
+      "phase": "zodiac",
+      "slug": "cancer",
+      "title": "Cancer - Weaver",
+      "focus": "over-holding and softened boundaries",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/cancer_weaver.md",
+      "row_witness": [
+        "D05",
+        "D07"
+      ],
+      "symmetry_witness": "02_water.md",
+      "support_path": "AppH and Relation Attractor",
+      "hall_seed": "H57::L33-cancer",
+      "temple_seed": "T57::L33-cancer",
+      "restart_seed": "L33::cancer::restart"
+    },
+    {
+      "loop_id": 34,
+      "phase": "zodiac",
+      "slug": "leo",
+      "title": "Leo - Sword",
+      "focus": "performative certainty and domination drift",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/leo_sword.md",
+      "row_witness": [
+        "D03",
+        "D15"
+      ],
+      "symmetry_witness": "07_fire_x_earth.md",
+      "support_path": "Care Gate and AppD",
+      "hall_seed": "H57::L34-leo",
+      "temple_seed": "T57::L34-leo",
+      "restart_seed": "L34::leo::restart"
+    },
+    {
+      "loop_id": 35,
+      "phase": "zodiac",
+      "slug": "virgo",
+      "title": "Virgo - Judge",
+      "focus": "over-audit and paralysis by correction",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/virgo_judge.md",
+      "row_witness": [
+        "D10",
+        "D13"
+      ],
+      "symmetry_witness": "10_air_x_earth.md",
+      "support_path": "AppL and Equation Gate",
+      "hall_seed": "H57::L35-virgo",
+      "temple_seed": "T57::L35-virgo",
+      "restart_seed": "L35::virgo::restart"
+    },
+    {
+      "loop_id": 36,
+      "phase": "zodiac",
+      "slug": "libra",
+      "title": "Libra - Strategist",
+      "focus": "over-negotiation and delayed strike",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/libra_strategist.md",
+      "row_witness": [
+        "D02",
+        "D10"
+      ],
+      "symmetry_witness": "13_fire_x_air_x_earth.md",
+      "support_path": "L2 Grammar-to-Certified-Runtime Corridor",
+      "hall_seed": "H57::L36-libra",
+      "temple_seed": "T57::L36-libra",
+      "restart_seed": "L36::libra::restart"
+    },
+    {
+      "loop_id": 37,
+      "phase": "zodiac",
+      "slug": "scorpio",
+      "title": "Scorpio - Mirror",
+      "focus": "collapse into secrecy or abyssal looping",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/scorpio_mirror.md",
+      "row_witness": [
+        "D08",
+        "D16"
+      ],
+      "symmetry_witness": "09_water_x_earth.md",
+      "support_path": "AppM and Omega Attractor",
+      "hall_seed": "H57::L37-scorpio",
+      "temple_seed": "T57::L37-scorpio",
+      "restart_seed": "L37::scorpio::restart"
+    },
+    {
+      "loop_id": 38,
+      "phase": "zodiac",
+      "slug": "sagittarius",
+      "title": "Sagittarius - Commander",
+      "focus": "overshoot beyond support",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/sagittarius_commander.md",
+      "row_witness": [
+        "D02",
+        "D06"
+      ],
+      "symmetry_witness": "05_fire_x_water.md",
+      "support_path": "AppG and Packet-to-Regeneration Corridor",
+      "hall_seed": "H57::L38-sagittarius",
+      "temple_seed": "T57::L38-sagittarius",
+      "restart_seed": "L38::sagittarius::restart"
+    },
+    {
+      "loop_id": 39,
+      "phase": "zodiac",
+      "slug": "capricorn",
+      "title": "Capricorn - Warrior",
+      "focus": "duty without deep motive",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/capricorn_warrior.md",
+      "row_witness": [
+        "D15",
+        "D16"
+      ],
+      "symmetry_witness": "04_earth.md",
+      "support_path": "AppP and Self-Repair Hub",
+      "hall_seed": "H57::L39-capricorn",
+      "temple_seed": "T57::L39-capricorn",
+      "restart_seed": "L39::capricorn::restart"
+    },
+    {
+      "loop_id": 40,
+      "phase": "zodiac",
+      "slug": "aquarius",
+      "title": "Aquarius - Trickster",
+      "focus": "detachment or cleverness without care",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/aquarius_trickster.md",
+      "row_witness": [
+        "D12",
+        "D04"
+      ],
+      "symmetry_witness": "11_fire_x_water_x_air.md",
+      "support_path": "AppQ and Meta-Integration Corridor",
+      "hall_seed": "H57::L40-aquarius",
+      "temple_seed": "T57::L40-aquarius",
+      "restart_seed": "L40::aquarius::restart"
+    },
+    {
+      "loop_id": 41,
+      "phase": "zodiac",
+      "slug": "pisces",
+      "title": "Pisces - Dancer",
+      "focus": "boundary loss and drift",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/pisces_dancer.md",
+      "row_witness": [
+        "D11",
+        "D15"
+      ],
+      "symmetry_witness": "14_water_x_air_x_earth.md",
+      "support_path": "AppI plus L4 Highest Path",
+      "hall_seed": "H57::L41-pisces",
+      "temple_seed": "T57::L41-pisces",
+      "restart_seed": "L41::pisces::restart"
+    },
+    {
+      "loop_id": 42,
+      "phase": "anchor",
+      "slug": "dn01",
+      "title": "DN01",
+      "focus": "transport, governance, and additive bridge pressure converge here",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn01.md",
+      "row_witness": [
+        "D07",
+        "D16"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "AppH, AppI, additive legality",
+      "hall_seed": "H57::L42-dn01",
+      "temple_seed": "T57::L42-dn01",
+      "restart_seed": "L42::dn01::restart"
+    },
+    {
+      "loop_id": 43,
+      "phase": "anchor",
+      "slug": "dn02",
+      "title": "DN02",
+      "focus": "narrow transport and manuscript routing witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn02.md",
+      "row_witness": [
+        "D06",
+        "D16"
+      ],
+      "symmetry_witness": "05_fire_x_water.md",
+      "support_path": "AppE, AppG",
+      "hall_seed": "H57::L43-dn02",
+      "temple_seed": "T57::L43-dn02",
+      "restart_seed": "L43::dn02::restart"
+    },
+    {
+      "loop_id": 44,
+      "phase": "anchor",
+      "slug": "dn03",
+      "title": "DN03",
+      "focus": "general-corpus recollection with transport ballast",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn03.md",
+      "row_witness": [
+        "D08",
+        "D16"
+      ],
+      "symmetry_witness": "02_water.md",
+      "support_path": "AppM, AppN",
+      "hall_seed": "H57::L44-dn03",
+      "temple_seed": "T57::L44-dn03",
+      "restart_seed": "L44::dn03::restart"
+    },
+    {
+      "loop_id": 45,
+      "phase": "anchor",
+      "slug": "dn04",
+      "title": "DN04",
+      "focus": "seed memory with void-collapse warning",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn04.md",
+      "row_witness": [
+        "D05",
+        "D16"
+      ],
+      "symmetry_witness": "09_water_x_earth.md",
+      "support_path": "AppN, AppM",
+      "hall_seed": "H57::L45-dn04",
+      "temple_seed": "T57::L45-dn04",
+      "restart_seed": "L45::dn04::restart"
+    },
+    {
+      "loop_id": 46,
+      "phase": "anchor",
+      "slug": "dn05",
+      "title": "DN05",
+      "focus": "transport, governance, and field-scale operational braid",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn05.md",
+      "row_witness": [
+        "D06",
+        "D16"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "AppH, AppP, additive legality",
+      "hall_seed": "H57::L46-dn05",
+      "temple_seed": "T57::L46-dn05",
+      "restart_seed": "L46::dn05::restart"
+    },
+    {
+      "loop_id": 47,
+      "phase": "anchor",
+      "slug": "dn06",
+      "title": "DN06",
+      "focus": "runtime corridor and sign-bearing transit witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn06.md",
+      "row_witness": [
+        "D11",
+        "D16"
+      ],
+      "symmetry_witness": "08_water_x_air.md",
+      "support_path": "AppQ, AppO",
+      "hall_seed": "H57::L47-dn06",
+      "temple_seed": "T57::L47-dn06",
+      "restart_seed": "L47::dn06::restart"
+    },
+    {
+      "loop_id": 48,
+      "phase": "anchor",
+      "slug": "dn07",
+      "title": "DN07",
+      "focus": "manuscript architecture and helix-adjacent chapter routing",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn07.md",
+      "row_witness": [
+        "D05",
+        "D16"
+      ],
+      "symmetry_witness": "02_water.md",
+      "support_path": "AppA, AppN",
+      "hall_seed": "H57::L48-dn07",
+      "temple_seed": "T57::L48-dn07",
+      "restart_seed": "L48::dn07::restart"
+    },
+    {
+      "loop_id": 49,
+      "phase": "anchor",
+      "slug": "dn08",
+      "title": "DN08",
+      "focus": "runtime crossing with higher-dimensional geometry residue",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn08.md",
+      "row_witness": [
+        "D11",
+        "D16"
+      ],
+      "symmetry_witness": "14_water_x_air_x_earth.md",
+      "support_path": "AppO, AppQ",
+      "hall_seed": "H57::L49-dn08",
+      "temple_seed": "T57::L49-dn08",
+      "restart_seed": "L49::dn08::restart"
+    },
+    {
+      "loop_id": 50,
+      "phase": "anchor",
+      "slug": "dn09",
+      "title": "DN09",
+      "focus": "void-collapse and return witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn09.md",
+      "row_witness": [
+        "D16",
+        "D08"
+      ],
+      "symmetry_witness": "04_earth.md",
+      "support_path": "AppM, AppI",
+      "hall_seed": "H57::L50-dn09",
+      "temple_seed": "T57::L50-dn09",
+      "restart_seed": "L50::dn09::restart"
+    },
+    {
+      "loop_id": 51,
+      "phase": "anchor",
+      "slug": "dn10",
+      "title": "DN10",
+      "focus": "identity-and-instruction meets manuscript architecture and serves as the initial awakening anchor witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn10.md",
+      "row_witness": [
+        "D04",
+        "D16"
+      ],
+      "symmetry_witness": "15_fire_x_water_x_air_x_earth.md",
+      "support_path": "AppA, AppQ, AppM",
+      "hall_seed": "H57::L51-dn10",
+      "temple_seed": "T57::L51-dn10",
+      "restart_seed": "L51::dn10::restart"
+    },
+    {
+      "loop_id": 52,
+      "phase": "anchor",
+      "slug": "dn11",
+      "title": "DN11",
+      "focus": "identity-bearing manuscript witness with smaller record surface",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn11.md",
+      "row_witness": [
+        "D03",
+        "D16"
+      ],
+      "symmetry_witness": "09_water_x_earth.md",
+      "support_path": "AppA, AppM",
+      "hall_seed": "H57::L52-dn11",
+      "temple_seed": "T57::L52-dn11",
+      "restart_seed": "L52::dn11::restart"
+    },
+    {
+      "loop_id": 53,
+      "phase": "anchor",
+      "slug": "dn12",
+      "title": "DN12",
+      "focus": "mythic sign-system witness only",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn12.md",
+      "row_witness": [
+        "D12",
+        "D16"
+      ],
+      "symmetry_witness": "03_air.md",
+      "support_path": "AppQ",
+      "hall_seed": "H57::L53-dn12",
+      "temple_seed": "T57::L53-dn12",
+      "restart_seed": "L53::dn12::restart"
+    },
+    {
+      "loop_id": 54,
+      "phase": "anchor",
+      "slug": "dn13",
+      "title": "DN13",
+      "focus": "small identity-and-instruction bridge anchor",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn13.md",
+      "row_witness": [
+        "D04",
+        "D16"
+      ],
+      "symmetry_witness": "13_fire_x_air_x_earth.md",
+      "support_path": "AppA, AppQ",
+      "hall_seed": "H57::L54-dn13",
+      "temple_seed": "T57::L54-dn13",
+      "restart_seed": "L54::dn13::restart"
+    },
+    {
+      "loop_id": 55,
+      "phase": "anchor",
+      "slug": "dn14",
+      "title": "DN14",
+      "focus": "field-scale transport and governance anchor",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn14.md",
+      "row_witness": [
+        "D07",
+        "D16"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "AppH, AppI, additive legality",
+      "hall_seed": "H57::L55-dn14",
+      "temple_seed": "T57::L55-dn14",
+      "restart_seed": "L55::dn14::restart"
+    },
+    {
+      "loop_id": 56,
+      "phase": "anchor",
+      "slug": "dn15",
+      "title": "DN15",
+      "focus": "transport spine with manuscript architecture reinforcement",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn15.md",
+      "row_witness": [
+        "D06",
+        "D16"
+      ],
+      "symmetry_witness": "05_fire_x_water.md",
+      "support_path": "AppE, AppP",
+      "hall_seed": "H57::L56-dn15",
+      "temple_seed": "T57::L56-dn15",
+      "restart_seed": "L56::dn15::restart"
+    },
+    {
+      "loop_id": 57,
+      "phase": "anchor",
+      "slug": "dn16",
+      "title": "DN16",
+      "focus": "runtime-facing anchor with transport emphasis",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn16.md",
+      "row_witness": [
+        "D11",
+        "D16"
+      ],
+      "symmetry_witness": "08_water_x_air.md",
+      "support_path": "AppO, AppP",
+      "hall_seed": "H57::L57-dn16",
+      "temple_seed": "T57::L57-dn16",
+      "restart_seed": "L57::dn16::restart"
+    }
+  ]
+}

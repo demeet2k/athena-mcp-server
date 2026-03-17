@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-03-13T00:48:09.818405+00:00",
+  "derivation_version": "2026-03-12.crystal-remaster-v2",
+  "docs_gate": "BLOCKED",
+  "edges": [
+    {
+      "edge_id": "CS-001",
+      "source_body_id": "A16",
+      "source_root": "Athena FLEET",
+      "target_body_id": "A06",
+      "target_root": "Voynich",
+      "relation": "proof corridor",
+      "weight": 0.96,
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCZ",
+        "A06"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Athena FLEET routes directly into the Voynich proof engine."
+    },
+    {
+      "edge_id": "CS-002",
+      "source_body_id": "A06",
+      "source_root": "Voynich",
+      "target_body_id": "A09",
+      "target_root": "QSHRINK - ATHENA (internal use)",
+      "relation": "compression corridor",
+      "weight": 0.93,
+      "route": [
+        "A06",
+        "GCR",
+        "GCW",
+        "A09"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Voynich proof routes directly into QSHRINK compression law."
+    },
+    {
+      "edge_id": "CS-003",
+      "source_body_id": "A16",
+      "source_root": "Athena FLEET",
+      "target_body_id": "A15",
+      "target_root": "ORGIN",
+      "relation": "seed inheritance corridor",
+      "weight": 0.91,
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCP",
+        "A15"
+      ],
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "note": "Fleet coordination inherits directly from the ORGIN seed reservoir."
+    }
+  ]
+}

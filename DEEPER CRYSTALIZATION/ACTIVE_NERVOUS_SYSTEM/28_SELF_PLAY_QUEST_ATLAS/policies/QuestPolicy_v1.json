@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "quest",
+  "description": "Quest lifecycle states, dependency rules, and truth promotion rules",
+  "lifecycle_states": {
+    "DRAFT": {
+      "description": "Quest created but not yet submitted",
+      "transitions": ["SUBMITTED"],
+      "rules": ["Player may edit freely", "No payout computation occurs"]
+    },
+    "SUBMITTED": {
+      "description": "Quest submitted for evaluation",
+      "transitions": ["EVALUATING", "REJECTED"],
+      "rules": ["Immutable once submitted", "Enters evaluation queue"]
+    },
+    "EVALUATING": {
+      "description": "Quest is being evaluated by the board kernel",
+      "transitions": ["WITNESSED", "FAILED"],
+      "rules": ["Deterministic evaluation in progress", "Cannot be modified or withdrawn"]
+    },
+    "WITNESSED": {
+      "description": "Quest evaluation complete, awaiting witness attestation",
+      "transitions": ["CERTIFIED", "DISPUTED"],
+      "rules": ["Requires minimum quorum of witnesses", "Witness bundle must be assembled"]
+    },
+    "CERTIFIED": {
+      "description": "Quest certified with OK or NEAR truth state",
+      "transitions": ["SEALED", "PROMOTED"],
+      "rules": ["Payout computed and recorded", "Receipt generated"]
+    },
+    "PROMOTED": {
+      "description": "Quest truth state promoted (e.g., NEAR to OK)",
+      "transitions": ["SEALED"],
+      "rules": ["Requires upgrade plan and fresh witness", "Payout difference credited"]
+    },
+    "SEALED": {
+      "description": "Quest receipt sealed and immutable",
+      "transitions": [],
+      "rules": ["No further modifications permitted", "SealedReceiptBundle created"]
+    },
+    "REJECTED": {
+      "description": "Quest rejected at submission validation",
+      "transitions": ["DRAFT"],
+      "rules": ["May be returned to DRAFT for revision"]
+    },
+    "FAILED": {
+      "description": "Quest failed evaluation",
+      "transitions": ["DRAFT"],
+      "rules": ["No payout", "May be revised and resubmitted"]
+    },
+    "DISPUTED": {
+      "description": "Quest witnesses raised dispute",
+      "transitions": ["EVALUATING", "FAILED"],
+      "rules": ["Triggers re-evaluation", "Dispute evidence logged"]
+    }
+  },
+  "dependency_rules": [
+    "A quest at station S(n) requires at least one CERTIFIED quest at each prerequisite station",
+    "Prerequisite stations are all stations with unlock_level strictly less than S(n).unlock_level",
+    "Crown quests (S13, S17, S19) additionally require at least one CERTIFIED quest per element",
+    "Repair quests require a reference to the target claim_id being repaired",
+    "Guild quests require at least 2 participants, Community quests require at least 5",
+    "Storm quests require an active PhiStorm at the host station",
+    "Migration quests require all non-Migration stations to have at least one SEALED quest"
+  ],
+  "truth_promotion_rules": {
+    "AMBIG_to_NEAR": {
+      "requirements": ["New evidence submitted", "At least 1 fresh witness CONFIRM"],
+      "cooldown_epochs": 3
+    },
+    "NEAR_to_OK": {
+      "requirements": ["Upgrade plan submitted and approved", "At least 2 fresh witness CONFIRMs", "No active disputes"],
+      "cooldown_epochs": 5
+    },
+    "OK_demotion": {
+      "trigger": "3 or more DISPUTE attestations from distinct witnesses",
+      "result": "Demoted to NEAR, re-evaluation triggered"
+    }
+  }
+}

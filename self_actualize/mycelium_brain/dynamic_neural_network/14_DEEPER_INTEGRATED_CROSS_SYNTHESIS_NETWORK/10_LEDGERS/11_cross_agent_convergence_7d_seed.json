@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "dimension_stage": "7D_SEED",
+  "agent_overlay_stack": [
+    "FIRE",
+    "WATER",
+    "AIR",
+    "EARTH"
+  ],
+  "readiness": {
+    "fire": {
+      "status": "ready",
+      "responsibility": "ignition pressure, rupture diagnosis, bridge activation"
+    },
+    "water": {
+      "status": "ready",
+      "responsibility": "continuity, retained identity, replay-safe return"
+    },
+    "air": {
+      "status": "ready",
+      "responsibility": "sigma/spin, dual-kernel labels, route legibility"
+    },
+    "earth": {
+      "status": "gated",
+      "responsibility": "admissibility, quarantine, replay closure, promotion law"
+    }
+  },
+  "compiled_seed_owner": "live control stack",
+  "promotion_cap": "NEAR",
+  "authority_surfaces": [
+    "00_CONTROL/07_7D_CROSS_AGENT_SEED.md",
+    "07_METRO_STACK/07_level_7_next_synthesis_seed_map.md",
+    "08_APPENDIX_CRYSTAL/02_7d_seed_appendix_legality.md",
+    "10_LEDGERS/10_earth_gate_status_7d_seed.json",
+    "10_LEDGERS/12_7d_seed_routes.json",
+    "10_LEDGERS/13_7d_appendix_legality.json"
+  ]
+}

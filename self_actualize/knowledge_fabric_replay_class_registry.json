@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "replay_classes": [
+    {
+      "replay_class": "replay-safe",
+      "note": "may be revisited and regenerated directly"
+    },
+    {
+      "replay_class": "replay-partial",
+      "note": "requires extra witness or writeback context"
+    },
+    {
+      "replay_class": "generated-refreshable",
+      "note": "safe to rebuild from source surfaces"
+    },
+    {
+      "replay_class": "witness-only",
+      "note": "presence can be cited but not fully replayed as text"
+    }
+  ]
+}

@@ -6,11 +6,11 @@
 
 ## Current Weight
 
-`13`
+`18`
 
 ## Best Front
 
-manuscript family intake
+manuscript family intake and publication halo
 
 ## Preferred Artifact
 

@@ -1,0 +1,226 @@
+{
+  "event_id": "EVT-20260313-0006",
+  "source_ant_id": "SCOUT-01",
+  "source_path": "GLOBAL COMMAND/ATHENA",
+  "active_surface": "GLOBAL COMMAND",
+  "change_type": "updated",
+  "change_summary": "updated object at GLOBAL COMMAND/ATHENA",
+  "goal": "detect-classify-assign",
+  "priority": 0.91,
+  "confidence": 0.98,
+  "earth_ts": "2026-03-13T21:19:40.109805+00:00",
+  "earth_ts_local": "2026-03-13T14:19:40.109805-07:00",
+  "detected_ts": "2026-03-13T21:19:40.109805+00:00",
+  "emitted_ts": "2026-03-13T21:19:52.427525+00:00",
+  "liminal_ts": "LT-000006.000",
+  "seat_addr_6d": "A1.B1.C1.D1.E1.F1",
+  "coordinate_stamp": {
+    "Xs": "GLOBAL_COMMAND",
+    "Ys": "ATHENA",
+    "Zs": "GLOBAL COMMAND/ATHENA",
+    "Ts": "L02",
+    "Qs": "EVT-20260313-0006",
+    "Rs": "D2",
+    "Cs": "DETECTED",
+    "Fs": "UPDATED",
+    "Ms": "M091",
+    "Ns": "GLOBAL COMMAND",
+    "Hs": "command-event",
+    "Ωs": "OMEGA-LOCAL-WITNESS"
+  },
+  "canonical_addr_6d": "A1.B1.C1.D1.E1.F1",
+  "liminal_stamp_12d": {
+    "earth_atomic_utc": 1773436780.109805,
+    "earth_rotation_phase": 0.888659,
+    "earth_orbital_phase": 0.196955,
+    "earth_geospatial_anchor": "America/Los_Angeles::charlie-local-node",
+    "solar_phase": 0.196955,
+    "lunar_phase": 0.829344,
+    "sidereal_phase": 0.088047,
+    "planetary_anchor_slot": "mercury",
+    "server_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.140625,
+    "goal_salience_vector": [
+      0.91,
+      0.938
+    ],
+    "novelty_routing_concentration": 0.91
+  },
+  "surface_class": "command-folder",
+  "hierarchy_level": "D6",
+  "return_anchor": "Archivist",
+  "event_kind": "",
+  "earth_ts_utc": "2026-03-13T21:19:40.109805+00:00",
+  "earth_local_phase": 0.0,
+  "parent_event_id": "ROOT",
+  "ttl": 6,
+  "pheromone": 0.938,
+  "joy_seed": {
+    "a_seed": 2.946814,
+    "phi_seed": 0.0,
+    "h_seed": 0.938,
+    "joy_potential": 0.938,
+    "route_mode_seed": "reinforce",
+    "source_evidence": {
+      "priority": 0.91,
+      "confidence": 0.98,
+      "change_type": "updated",
+      "docs_gate_status": "BLOCKED"
+    }
+  },
+  "state_hash": "H:c32208fb55c3bbb66eb682b51125987ff18f1de96b49a2261de309639deae24c",
+  "route_class": "scout.router.worker.archivist",
+  "source_id": "",
+  "source_class": "",
+  "watch_root": "",
+  "urgency_baseline": 0.0,
+  "event_fingerprint": "",
+  "witness_class": "LOCAL_WITNESS_ONLY",
+  "status": "detected",
+  "membrane_id": "GLOBAL_COMMAND_ATHENA",
+  "role_class": "Scout",
+  "base4_addr": "A1.B1.C1.D1",
+  "parent": "ROOT",
+  "lineage": {
+    "parent_event_id": "ROOT",
+    "source_mtime_ns": 1773436614103277900,
+    "docs_gate_detail": "blocked-by-missing-credentials",
+    "loop_id": "L02",
+    "surface": "GLOBAL COMMAND"
+  },
+  "deferred_dimensions": {},
+  "coord12": {
+    "earth_atomic_utc": 1773436780.109805,
+    "earth_rotation_phase": 0.888659,
+    "earth_orbital_phase": 0.196955,
+    "earth_geospatial_anchor": "America/Los_Angeles::charlie-local-node",
+    "solar_phase": 0.196955,
+    "lunar_phase": 0.829344,
+    "sidereal_phase": 0.088047,
+    "planetary_anchor_slot": "mercury",
+    "server_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.140625,
+    "goal_salience_vector": [
+      0.91,
+      0.938
+    ],
+    "novelty_routing_concentration": 0.91
+  },
+  "coord12_frame": {
+    "earth": {
+      "earth_atomic_utc": 1773436780.109805,
+      "earth_rotation_phase": 0.888659,
+      "earth_orbital_phase": 0.196955,
+      "earth_geospatial_anchor": "America/Los_Angeles::charlie-local-node"
+    },
+    "astro": {
+      "solar_phase": 0.196955,
+      "lunar_phase": 0.829344,
+      "sidereal_phase": 0.088047,
+      "planetary_anchor_slot": "mercury"
+    },
+    "runtime": {
+      "server_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 0.140625
+    },
+    "liminal": {
+      "goal_salience_vector": [
+        0.91,
+        0.938
+      ],
+      "novelty_routing_concentration": 0.91
+    },
+    "coord12_labels": [
+      "earth_atomic_utc",
+      "earth_rotation_phase",
+      "earth_orbital_phase",
+      "earth_geospatial_anchor",
+      "solar_phase",
+      "lunar_phase",
+      "sidereal_phase",
+      "planetary_anchor_slot",
+      "server_region",
+      "queue_pressure",
+      "goal_salience_vector",
+      "novelty_routing_concentration"
+    ]
+  },
+  "coord_delta": {
+    "DeltaTau": 319.430351,
+    "DeltaEarth": 319430.346,
+    "LiminalVelocity": 1.0,
+    "ResolutionClass": "emergent"
+  },
+  "scout_id": "SCOUT-01",
+  "tag": "sugar.drop.updated",
+  "event_tag": "command-folder-change",
+  "change": {
+    "type": "updated",
+    "summary": "updated object at GLOBAL COMMAND/ATHENA",
+    "state_hash": "H:c32208fb55c3bbb66eb682b51125987ff18f1de96b49a2261de309639deae24c",
+    "relative_path": "GLOBAL COMMAND/ATHENA",
+    "source_path": "GLOBAL COMMAND/ATHENA"
+  },
+  "docs_gate_status": "BLOCKED",
+  "route_state": {},
+  "claim_state": {},
+  "commit_state": {},
+  "latency_state": {
+    "DeltaTau": 319.430351,
+    "DeltaEarth": 319430.346,
+    "LiminalVelocity": 1.0,
+    "ResolutionClass": "emergent",
+    "capillary_score": 0.390039,
+    "heaven_score": 0.0,
+    "verified_heaven_score": 0.0,
+    "reward_multiplier": 0.990099,
+    "total_reward": 0.990099,
+    "gold_deposit": 0.990099,
+    "bridge_deposit": 0.0,
+    "crown": "none"
+  },
+  "affected_nodes": [
+    "GLOBAL COMMAND/ATHENA"
+  ],
+  "replay_ptr": "self_actualize/command_membrane/events/EVT-20260313-0006.json",
+  "coordinate_vector_12": [
+    1773436780.109805,
+    0.888659,
+    0.196955,
+    0.9744349329266697,
+    0.196955,
+    0.829344,
+    0.088047,
+    0.951820727204904,
+    0.3983821398578584,
+    0.140625,
+    0.9239999999999999,
+    0.91
+  ],
+  "artifact_refs": [
+    "GLOBAL COMMAND/ATHENA"
+  ],
+  "source_region": "ATHENA",
+  "sensor_event_id": "EVT-20260313-0006",
+  "file_family": "object",
+  "scheduler_refs": {},
+  "hsigma_ref": "HSIGMA::COMMAND-FOLDER",
+  "route_targets": [],
+  "linked_quests": [],
+  "source_folder": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "front_ref": "CMD::EVT-20260313-0006",
+  "seed_mode": "LOCAL_WITNESS_ONLY",
+  "dual_reference": "command-folder->archivist",
+  "liminal_delta": 319.430351,
+  "earth_delta_ms": 319430.346,
+  "liminal_velocity": 1.0,
+  "prior_comparable_event_id": "EVT-20260313-0005",
+  "watcher_mode": "powershell-filesystemwatcher",
+  "duality_effect": "latency-becomes-anatomy",
+  "reward_state": {},
+  "verification_state": {},
+  "pheromone_state": {},
+  "reward_policy_id": "",
+  "crown_tier": "none",
+  "closure_class": ""
+}

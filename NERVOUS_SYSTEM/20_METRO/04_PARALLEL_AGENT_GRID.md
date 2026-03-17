@@ -75,3 +75,26 @@
 - `AppN` stabilizes `Container Formats and Virtual Mount`. Containers, salvage routes, mounted corpora, and runtime packaging.
 - `AppO` stabilizes `Publication Import/Export Bundles`. Publication bundles, import/export law, signed releases, and dissemination packets.
 - `AppP` stabilizes `Deployment Profiles and Monitoring`. Deployment regimes, monitoring surfaces, observability, and execution profiles.
+
+## AIR boundary contract
+
+AIR owns topology, abstraction, routing, metro resolution, appendix interface contracts,
+and 6D recompression/re-entry law only.
+
+Every non-AIR agent must publish exactly five inputs into AIR:
+
+1. local zero point
+2. strongest edges
+3. appendix pressure
+4. unresolved tension
+5. replay hook
+
+AIR consumes those fields into the overlay registry, metro stack, and appendix contract.
+AIR does not draft the other agents' lens prose.
+
+## AIR appendix mapping
+
+- `AppA/AppB/AppC`: address and symmetry legality
+- `AppE/AppF/AppH`: orbit, transport, and topology legality
+- `AppI/AppM/AppN/AppQ`: truth, replay, seed, and appendix-only ingress legality
+- reverse-field `O`: overlay alias only, documented in transport and metro surfaces

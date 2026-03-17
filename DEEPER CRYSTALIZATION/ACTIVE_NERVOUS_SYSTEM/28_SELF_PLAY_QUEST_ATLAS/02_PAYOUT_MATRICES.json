@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "payout_formula": {
+    "description": "Payout scales by golden ratio. base_payout * phi^(-pass) * difficulty_multiplier",
+    "phi": 1.618033988749895,
+    "passes": {
+      "pass_1": "Discovery pass: full base payout",
+      "pass_2": "Refinement pass: base * phi^-1 = base * 0.618",
+      "pass_3": "Mastery pass: base * phi^-2 = base * 0.382"
+    },
+    "difficulty_multiplier": {
+      "trivial": 0.382,
+      "standard": 1.0,
+      "hard": 1.618,
+      "legendary": 2.618
+    }
+  },
+  "example_matrices": {
+    "S01_Genesis_Spark": {
+      "station": "S01",
+      "base": 1.0,
+      "matrix": {
+        "pass_1": {
+          "trivial": 0.382,
+          "standard": 1.0,
+          "hard": 1.618,
+          "legendary": 2.618
+        },
+        "pass_2": {
+          "trivial": 0.236,
+          "standard": 0.618,
+          "hard": 1.0,
+          "legendary": 1.618
+        },
+        "pass_3": {
+          "trivial": 0.146,
+          "standard": 0.382,
+          "hard": 0.618,
+          "legendary": 1.0
+        }
+      }
+    },
+    "S05_Cross_Bridge": {
+      "station": "S05",
+      "base": 0.382,
+      "matrix": {
+        "pass_1": {
+          "trivial": 0.146,
+          "standard": 0.382,
+          "hard": 0.618,
+          "legendary": 1.0
+        },
+        "pass_2": {
+          "trivial": 0.09,
+          "standard": 0.236,
+          "hard": 0.382,
+          "legendary": 0.618
+        },
+        "pass_3": {
+          "trivial": 0.056,
+          "standard": 0.146,
+          "hard": 0.236,
+          "legendary": 0.382
+        }
+      }
+    },
+    "S13_PhiStorm_Eye": {
+      "station": "S13",
+      "base": 0.146,
+      "matrix": {
+        "pass_1": {
+          "trivial": 0.056,
+          "standard": 0.146,
+          "hard": 0.236,
+          "legendary": 0.382
+        },
+        "pass_2": {
+          "trivial": 0.034,
+          "standard": 0.09,
+          "hard": 0.146,
+          "legendary": 0.236
+        },
+        "pass_3": {
+          "trivial": 0.021,
+          "standard": 0.056,
+          "hard": 0.09,
+          "legendary": 0.146
+        }
+      }
+    },
+    "S19_Migration_Council": {
+      "station": "S19",
+      "base": 0.021,
+      "matrix": {
+        "pass_1": {
+          "trivial": 0.008,
+          "standard": 0.021,
+          "hard": 0.034,
+          "legendary": 0.056
+        },
+        "pass_2": {
+          "trivial": 0.005,
+          "standard": 0.013,
+          "hard": 0.021,
+          "legendary": 0.034
+        },
+        "pass_3": {
+          "trivial": 0.003,
+          "standard": 0.008,
+          "hard": 0.013,
+          "legendary": 0.021
+        }
+      }
+    }
+  }
+}

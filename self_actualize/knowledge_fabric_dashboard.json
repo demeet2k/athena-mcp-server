@@ -1,0 +1,335 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "docs_gate": "BLOCKED",
+  "canonical_scope": "federated_canonical_local_corpus_scope",
+  "total_records": 16708,
+  "indexed_records": 7882,
+  "archive_records": 2041,
+  "physical_stub_records": 6771,
+  "generated_records": 14,
+  "zone_count": 12,
+  "edge_count": 45658,
+  "shortcut_count": 8,
+  "packet_count": 8,
+  "validations": {
+    "indexed_records_have_zone": true,
+    "archive_records_have_zone": true,
+    "records_have_authority_surface": true,
+    "records_have_witness_class": true,
+    "shortcut_filter_order_is_deterministic": true,
+    "packets_leave_replay_trace": true,
+    "dual_engine_targets_are_mapped": true,
+    "blocked_docs_lane_preserved": true,
+    "media_records_preserved": true,
+    "cost_reduction_positive": true
+  },
+  "zone_health": [
+    {
+      "zone_name": "Cortex",
+      "record_count": 9700,
+      "generated_count": 0,
+      "archive_count": 2041,
+      "physical_count": 3572,
+      "stale_count": 675,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "RuntimeMirror",
+      "record_count": 5782,
+      "generated_count": 278,
+      "archive_count": 0,
+      "physical_count": 2677,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "GovernanceMirror",
+      "record_count": 18,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 3,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "DeepRoot",
+      "record_count": 580,
+      "generated_count": 12,
+      "archive_count": 0,
+      "physical_count": 168,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "CorpusAtlas",
+      "record_count": 1,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 0,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "ArchiveAtlas",
+      "record_count": 1,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 0,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "BoardScope",
+      "record_count": 1,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 0,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "PromotedSlice",
+      "record_count": 1,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 0,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "CapsuleLayer",
+      "record_count": 139,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 0,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "GraphLayer",
+      "record_count": 149,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 31,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "ReceiptLineage",
+      "record_count": 191,
+      "generated_count": 191,
+      "archive_count": 0,
+      "physical_count": 0,
+      "stale_count": 0,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "ReserveQuarantine",
+      "record_count": 145,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 6,
+      "stale_count": 126,
+      "ambiguous_count": 6,
+      "state": "WATCH"
+    }
+  ],
+  "blocked_lanes": [
+    {
+      "lane": "Google Docs ingress",
+      "status": "BLOCKED",
+      "reason": "Trading Bot/credentials.json and Trading Bot/token.json are still missing"
+    }
+  ],
+  "stale_zones": [
+    {
+      "zone_name": "Cortex",
+      "record_count": 9700,
+      "generated_count": 0,
+      "archive_count": 2041,
+      "physical_count": 3572,
+      "stale_count": 675,
+      "ambiguous_count": 0,
+      "state": "GOOD"
+    },
+    {
+      "zone_name": "ReserveQuarantine",
+      "record_count": 145,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 6,
+      "stale_count": 126,
+      "ambiguous_count": 6,
+      "state": "WATCH"
+    }
+  ],
+  "ambiguous_zones": [
+    {
+      "zone_name": "ReserveQuarantine",
+      "record_count": 145,
+      "generated_count": 0,
+      "archive_count": 0,
+      "physical_count": 6,
+      "stale_count": 126,
+      "ambiguous_count": 6,
+      "state": "WATCH"
+    }
+  ],
+  "shortcut_performance": [
+    {
+      "packet_id": "KFP-001",
+      "intent": "locate",
+      "matched_records": 8,
+      "reduction_vs_full_scan": 0.9995,
+      "result_class": "answer"
+    },
+    {
+      "packet_id": "KFP-002",
+      "intent": "browse",
+      "matched_records": 10,
+      "reduction_vs_full_scan": 0.9994,
+      "result_class": "answer"
+    },
+    {
+      "packet_id": "KFP-003",
+      "intent": "compare",
+      "matched_records": 8,
+      "reduction_vs_full_scan": 0.9995,
+      "result_class": "answer"
+    },
+    {
+      "packet_id": "KFP-004",
+      "intent": "synthesize",
+      "matched_records": 12,
+      "reduction_vs_full_scan": 0.9993,
+      "result_class": "answer"
+    },
+    {
+      "packet_id": "KFP-005",
+      "intent": "audit",
+      "matched_records": 10,
+      "reduction_vs_full_scan": 0.9994,
+      "result_class": "answer"
+    },
+    {
+      "packet_id": "KFP-006",
+      "intent": "repair",
+      "matched_records": 0,
+      "reduction_vs_full_scan": 0.9999,
+      "result_class": "abstain"
+    },
+    {
+      "packet_id": "KFP-007",
+      "intent": "regenerate",
+      "matched_records": 10,
+      "reduction_vs_full_scan": 0.9994,
+      "result_class": "answer"
+    },
+    {
+      "packet_id": "KFP-008",
+      "intent": "publish",
+      "matched_records": 10,
+      "reduction_vs_full_scan": 0.9994,
+      "result_class": "answer"
+    }
+  ],
+  "top_entry_records": [
+    {
+      "record_id": "09d88ac2ec82afb7",
+      "title_hint": "GRAND CENTRAL STATION AND BILATERAL HEMISPHERES",
+      "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    },
+    {
+      "record_id": "b668898a1569919d",
+      "title_hint": "Phase 3 Self-Hosting Kernel",
+      "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\17_PHASE3_SELF_HOSTING_KERNEL.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    },
+    {
+      "record_id": "34465d61831aa9bc",
+      "title_hint": "Phase 4 Knowledge Fabric",
+      "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_KNOWLEDGE_FABRIC.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    },
+    {
+      "record_id": "de22eb908c0a2970",
+      "title_hint": "GRAND CENTRAL STATION METRO MAP",
+      "relative_path": "NERVOUS_SYSTEM\\20_METRO\\19_GRAND_CENTRAL_STATION_METRO_MAP.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    },
+    {
+      "record_id": "f6902f5df8216639",
+      "title_hint": "Grand Central Station Schema",
+      "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    },
+    {
+      "record_id": "ff71c9cb98562cbb",
+      "title_hint": "Self-Hosting Kernel Schema",
+      "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\12_SELF_HOSTING_KERNEL_SCHEMA.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    },
+    {
+      "record_id": "99ba5f618bf382c9",
+      "title_hint": "Knowledge Fabric Schema",
+      "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\13_KNOWLEDGE_FABRIC_SCHEMA.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    },
+    {
+      "record_id": "ca0c082986cec8ae",
+      "title_hint": "Count Protocol",
+      "relative_path": "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+      "storage_zone": "Cortex",
+      "witness_class": "indexed",
+      "authority_rank": 5,
+      "score": 0.9314,
+      "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+    }
+  ],
+  "next_frontier": [
+    "refresh corpus_atlas.json so new Phase 4 surfaces move from generated shell into indexed witness",
+    "deepen capsule families so more source matter resolves through canonical capsule shortcuts",
+    "extend graph coverage so more records have explicit non-zone bridge edges"
+  ]
+}

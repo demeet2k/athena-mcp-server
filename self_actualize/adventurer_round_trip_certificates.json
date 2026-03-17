@@ -1,0 +1,881 @@
+{
+  "generated_at": "2026-03-13T05:06:27.519516+00:00",
+  "derivation_version": "2026-03-13.adventurer.64pow4.hybrid_conductor.round_trip.v2",
+  "docs_gate_status": "BLOCKED",
+  "registry_path": "self_actualize/adventurer_round_trip_certificates.json",
+  "governed_fronts": [
+    "Q42",
+    "Q46",
+    "TQ04"
+  ],
+  "protected_invariant_bundle": [
+    "gate",
+    "route_min",
+    "truth",
+    "overlay_debt",
+    "terminal_type",
+    "receipt_debt"
+  ],
+  "required_route_min": [
+    "AppA",
+    "AppI",
+    "AppM"
+  ],
+  "transform_laws": [
+    {
+      "transform_family": "myth_to_sigil",
+      "allowed_classes": [
+        "law_equivalent"
+      ],
+      "required_invariants": [
+        "gate",
+        "terminal_type",
+        "overlay_debt"
+      ],
+      "residual_requirements": [
+        "preserve gate, terminal type, and overlay debt"
+      ],
+      "obligations": [
+        "no silent remap",
+        "no erased ambiguity debt"
+      ]
+    },
+    {
+      "transform_family": "sigil_to_schema",
+      "allowed_classes": [
+        "exact",
+        "law_equivalent"
+      ],
+      "required_invariants": [
+        "gate",
+        "route_min",
+        "truth",
+        "overlay_debt",
+        "terminal_type",
+        "receipt_debt"
+      ],
+      "residual_requirements": [
+        "expand defaults deterministically if needed"
+      ],
+      "obligations": [
+        "preserve route minimum",
+        "preserve proof bundle obligations"
+      ]
+    },
+    {
+      "transform_family": "schema_to_automaton",
+      "allowed_classes": [
+        "exact"
+      ],
+      "required_invariants": [
+        "gate",
+        "route_min",
+        "truth",
+        "overlay_debt",
+        "terminal_type",
+        "receipt_debt"
+      ],
+      "residual_requirements": [
+        "no residual loss allowed"
+      ],
+      "obligations": [
+        "no selected-to-published jump",
+        "no gated-to-executing jump without normalization"
+      ]
+    },
+    {
+      "transform_family": "automaton_to_wall_chart",
+      "allowed_classes": [
+        "law_equivalent"
+      ],
+      "required_invariants": [
+        "gate",
+        "route_min",
+        "truth",
+        "overlay_debt",
+        "terminal_type",
+        "receipt_debt"
+      ],
+      "residual_requirements": [
+        "wall chart may change shape but not law"
+      ],
+      "obligations": [
+        "preserve truth layer",
+        "preserve terminal class"
+      ]
+    },
+    {
+      "transform_family": "pocket_card_or_poster",
+      "allowed_classes": [
+        "residualized"
+      ],
+      "required_invariants": [
+        "gate",
+        "route_min",
+        "truth",
+        "overlay_debt",
+        "terminal_type",
+        "receipt_debt"
+      ],
+      "residual_requirements": [
+        "name dropped detail in ResidualLedger or EvidencePlan"
+      ],
+      "obligations": [
+        "do not fake exactness",
+        "declare compression loss explicitly"
+      ]
+    }
+  ],
+  "illegal_loss_tests": [
+    {
+      "test_id": "route_min_sigma_loss",
+      "description": "Fail if AppA, AppI, or AppM drop out of the route minimum during conversion."
+    },
+    {
+      "test_id": "ambig_without_evidence_plan",
+      "description": "Fail if AMBIG survives conversion without an EvidencePlan debt."
+    },
+    {
+      "test_id": "near_without_residual_ledger",
+      "description": "Fail if NEAR survives conversion without a ResidualLedger debt."
+    },
+    {
+      "test_id": "ok_without_replay_or_witness",
+      "description": "Fail if OK is claimed without replay and witness receipts."
+    },
+    {
+      "test_id": "publish_without_parity_or_appo",
+      "description": "Fail if publish-class output lacks parity or AppO attestation."
+    },
+    {
+      "test_id": "semantic_change_without_migrate",
+      "description": "Fail if semantic drift is declared without MIGRATE receipts."
+    },
+    {
+      "test_id": "corridor_widening_without_attestation",
+      "description": "Fail if corridor widening occurs without attestation."
+    }
+  ],
+  "governed_certificates": [
+    {
+      "certificate_id": "RTC-v0-Q42",
+      "quest_id": "Q42",
+      "transform_family": "automaton_to_wall_chart",
+      "source_repr": {
+        "corridor_state": "runtime",
+        "invariant_bundle": {
+          "gate": "Q42",
+          "overlay_debt": {
+            "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q42"
+          },
+          "receipt_debt": [
+            "ReplayPtr::self_actualize/qshrink_connectivity_refine_fractal.json",
+            "WitnessPtr::self_actualize/qshrink_connectivity_refine_fractal.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "layout_mode": "owner_control",
+        "quest_address": "A20.B22.C59.D40",
+        "quest_id": "Q42",
+        "representation": "automaton",
+        "source_board": "hall",
+        "surface_hint": "self_actualize/qshrink_connectivity_refine_square.json"
+      },
+      "forward_transform": "automaton->wall_chart",
+      "transformed_repr": {
+        "corridor_state": "wall_chart",
+        "invariant_bundle": {
+          "gate": "Q42",
+          "overlay_debt": {
+            "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q42"
+          },
+          "receipt_debt": [
+            "ReplayPtr::self_actualize/qshrink_connectivity_refine_fractal.json",
+            "WitnessPtr::self_actualize/qshrink_connectivity_refine_fractal.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "layout_mode": "hall_projection",
+        "quest_address": "A20.B22.C59.D40",
+        "quest_id": "Q42",
+        "representation": "wall_chart",
+        "source_board": "hall",
+        "surface_hint": "self_actualize/qshrink_connectivity_refine_square.json"
+      },
+      "inverse_transform": "wall_chart->automaton_normalized",
+      "recovered_repr": {
+        "corridor_state": "runtime",
+        "invariant_bundle": {
+          "gate": "Q42",
+          "overlay_debt": {
+            "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q42"
+          },
+          "receipt_debt": [
+            "ReplayPtr::self_actualize/qshrink_connectivity_refine_fractal.json",
+            "WitnessPtr::self_actualize/qshrink_connectivity_refine_fractal.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "layout_mode": "canonical_projection",
+        "quest_address": "A20.B22.C59.D40",
+        "quest_id": "Q42",
+        "representation": "automaton_normalized",
+        "source_board": "hall",
+        "surface_hint": "self_actualize/qshrink_connectivity_refine_square.json"
+      },
+      "allowed_loss": [],
+      "proof_bundle": {
+        "law_id": "automaton_to_wall_chart",
+        "allowed_classes": [
+          "law_equivalent"
+        ],
+        "evidence_surfaces": [
+          "self_actualize/qshrink_connectivity_refine_square.json",
+          "self_actualize/qshrink_connectivity_refine_flower.json",
+          "self_actualize/qshrink_connectivity_refine_cloud.json",
+          "self_actualize/qshrink_connectivity_refine_fractal.json",
+          "self_actualize/qshrink_network_integration.json",
+          "self_actualize/qshrink_agent_task_matrix.json",
+          "self_actualize/q42_canonical_bundle.json",
+          "self_actualize/q42_refine_bundle_dashboard.json",
+          "self_actualize/q42_refine_bundle_verification.json",
+          "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+          "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+          "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+          "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+          "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+          "self_actualize/mycelium_brain/receipts/2026-03-13_q42_refine_bundle_closure.md",
+          "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md"
+        ],
+        "proof_note": "Q42 carries runtime corridor state into Hall-facing chart and manifest surfaces without weakening Sigma.",
+        "receipt_obligations": [
+          "ReplayPtr",
+          "WitnessPtr"
+        ],
+        "semantic_change": false,
+        "corridor_widening": false
+      },
+      "invariant_before": {
+        "gate": "Q42",
+        "overlay_debt": {
+          "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q42"
+        },
+        "receipt_debt": [
+          "ReplayPtr::self_actualize/qshrink_connectivity_refine_fractal.json",
+          "WitnessPtr::self_actualize/qshrink_connectivity_refine_fractal.json"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "transit",
+        "truth": "NEAR"
+      },
+      "invariant_after": {
+        "gate": "Q42",
+        "overlay_debt": {
+          "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q42"
+        },
+        "receipt_debt": [
+          "ReplayPtr::self_actualize/qshrink_connectivity_refine_fractal.json",
+          "WitnessPtr::self_actualize/qshrink_connectivity_refine_fractal.json"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "transit",
+        "truth": "NEAR"
+      },
+      "round_trip_class": "law_equivalent",
+      "loss_findings": [],
+      "docs_gate_status": "BLOCKED",
+      "lawful": true
+    },
+    {
+      "certificate_id": "RTC-v0-Q46",
+      "quest_id": "Q46",
+      "transform_family": "sigil_to_schema",
+      "source_repr": {
+        "carrier": "athenachka_wave",
+        "invariant_bundle": {
+          "gate": "Q46",
+          "overlay_debt": {
+            "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q46"
+          },
+          "receipt_debt": [
+            "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+            "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "notation_density": "sigil_packed",
+        "quest_address": "A22.B20.C63.D43",
+        "quest_id": "Q46",
+        "representation": "sigil_packet",
+        "source_board": "hall",
+        "surface_hint": "self_actualize/adventurer_round_trip_certificates.json"
+      },
+      "forward_transform": "sigil_packet->schema_contract",
+      "transformed_repr": {
+        "carrier": "helix_contracts",
+        "invariant_bundle": {
+          "gate": "Q46",
+          "overlay_debt": {
+            "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q46"
+          },
+          "receipt_debt": [
+            "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+            "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "notation_density": "schema_expanded",
+        "quest_address": "A22.B20.C63.D43",
+        "quest_id": "Q46",
+        "representation": "schema_contract",
+        "source_board": "hall",
+        "surface_hint": "self_actualize/adventurer_round_trip_certificates.json"
+      },
+      "inverse_transform": "schema_contract->sigil_packet_normalized",
+      "recovered_repr": {
+        "carrier": "athenachka_wave",
+        "invariant_bundle": {
+          "gate": "Q46",
+          "overlay_debt": {
+            "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q46"
+          },
+          "receipt_debt": [
+            "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+            "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "notation_density": "schema_recovered",
+        "quest_address": "A22.B20.C63.D43",
+        "quest_id": "Q46",
+        "representation": "sigil_packet_normalized",
+        "source_board": "hall",
+        "surface_hint": "self_actualize/adventurer_round_trip_certificates.json"
+      },
+      "allowed_loss": [],
+      "proof_bundle": {
+        "law_id": "sigil_to_schema",
+        "allowed_classes": [
+          "exact",
+          "law_equivalent"
+        ],
+        "evidence_surfaces": [
+          "self_actualize/adventurer_round_trip_certificates.json",
+          "ATHENA Neural Network/athenachka/helix/",
+          "ATHENA Neural Network/athenachka/runtime/",
+          "ATHENA Neural Network/athenachka/appendix/",
+          "self_actualize/athenachka_organism_v0_wave_state.json",
+          "self_actualize/athenachka_organism_v0_quest_packets.json",
+          "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+          "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+          "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md"
+        ],
+        "proof_note": "Q46 expands the proved crystal packet into the first Helix::Contracts slice while preserving the same law bundle.",
+        "receipt_obligations": [
+          "ReplayPtr",
+          "WitnessPtr"
+        ],
+        "semantic_change": false,
+        "corridor_widening": false
+      },
+      "invariant_before": {
+        "gate": "Q46",
+        "overlay_debt": {
+          "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q46"
+        },
+        "receipt_debt": [
+          "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+          "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "transit",
+        "truth": "NEAR"
+      },
+      "invariant_after": {
+        "gate": "Q46",
+        "overlay_debt": {
+          "J": "ResidualLedger::self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md::Q46"
+        },
+        "receipt_debt": [
+          "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+          "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "transit",
+        "truth": "NEAR"
+      },
+      "round_trip_class": "law_equivalent",
+      "loss_findings": [],
+      "docs_gate_status": "BLOCKED",
+      "lawful": true
+    },
+    {
+      "certificate_id": "RTC-v0-TQ04",
+      "quest_id": "TQ04",
+      "transform_family": "schema_to_automaton",
+      "source_repr": {
+        "invariant_bundle": {
+          "gate": "TQ04",
+          "overlay_debt": {},
+          "receipt_debt": [
+            "ParityPtr::self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+            "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+            "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "checkpoint",
+          "truth": "OK"
+        },
+        "pack_scope": "loop_phase_swarm_lift",
+        "quest_address": "A56.B23.C55.D44",
+        "quest_id": "TQ04",
+        "representation": "schema_pack",
+        "runner_mode": "helical_contract",
+        "source_board": "temple",
+        "surface_hint": "NERVOUS_SYSTEM/70_SCHEMAS/06_HELICAL_LOOPSPEC_16_RING.md"
+      },
+      "forward_transform": "schema_pack->runner_contract",
+      "transformed_repr": {
+        "invariant_bundle": {
+          "gate": "TQ04",
+          "overlay_debt": {},
+          "receipt_debt": [
+            "ParityPtr::self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+            "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+            "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "checkpoint",
+          "truth": "OK"
+        },
+        "pack_scope": "loop_phase_swarm_lift",
+        "quest_address": "A56.B23.C55.D44",
+        "quest_id": "TQ04",
+        "representation": "runner_contract",
+        "runner_mode": "helical_contract",
+        "source_board": "temple",
+        "surface_hint": "NERVOUS_SYSTEM/70_SCHEMAS/06_HELICAL_LOOPSPEC_16_RING.md"
+      },
+      "inverse_transform": "runner_contract->schema_pack",
+      "recovered_repr": {
+        "invariant_bundle": {
+          "gate": "TQ04",
+          "overlay_debt": {},
+          "receipt_debt": [
+            "ParityPtr::self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+            "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+            "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "checkpoint",
+          "truth": "OK"
+        },
+        "pack_scope": "loop_phase_swarm_lift",
+        "quest_address": "A56.B23.C55.D44",
+        "quest_id": "TQ04",
+        "representation": "schema_pack",
+        "runner_mode": "helical_contract",
+        "source_board": "temple",
+        "surface_hint": "NERVOUS_SYSTEM/70_SCHEMAS/06_HELICAL_LOOPSPEC_16_RING.md"
+      },
+      "allowed_loss": [],
+      "proof_bundle": {
+        "law_id": "schema_to_automaton",
+        "allowed_classes": [
+          "exact"
+        ],
+        "evidence_surfaces": [
+          "NERVOUS_SYSTEM/70_SCHEMAS/06_HELICAL_LOOPSPEC_16_RING.md",
+          "NERVOUS_SYSTEM/70_SCHEMAS/07_PHASE_SPEC_2_TO_14_MACHINE.md",
+          "NERVOUS_SYSTEM/70_SCHEMAS/08_VIRTUAL_SWARM_SPEC_16X16.md",
+          "NERVOUS_SYSTEM/70_SCHEMAS/09_IMPROVEMENT_LEDGER_SPEC.md",
+          "NERVOUS_SYSTEM/70_SCHEMAS/10_LIFT_SPEC_ONE_EIGHTH_HELIX.md",
+          "self_actualize/adventurer_round_trip_certificates.json",
+          "self_actualize/helical_runner_contract.json",
+          "self_actualize/helical_runner_contract_verification.json",
+          "NERVOUS_SYSTEM/95_MANIFESTS/TQ04_HELICAL_RUNNER_CONTRACT.md",
+          "nervous_system/22_control_plane_grammar.md",
+          "nervous_system/manifests/NEXT_SELF_PROMPT.md",
+          "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+          "self_actualize/mycelium_brain/receipts/2026-03-13_tq04_helical_runner_contract.md",
+          "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/16_LOOP_PROGRESS.md",
+          "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+          "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+        ],
+        "proof_note": "TQ04 is the exact schema-to-runner bridge that anchors the membrane before wider Hall execution.",
+        "receipt_obligations": [
+          "ReplayPtr",
+          "WitnessPtr"
+        ],
+        "semantic_change": false,
+        "corridor_widening": false
+      },
+      "invariant_before": {
+        "gate": "TQ04",
+        "overlay_debt": {},
+        "receipt_debt": [
+          "ParityPtr::self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+          "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+          "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "checkpoint",
+        "truth": "OK"
+      },
+      "invariant_after": {
+        "gate": "TQ04",
+        "overlay_debt": {},
+        "receipt_debt": [
+          "ParityPtr::self_actualize/mycelium_brain/receipts/2026-03-13_adventurer_64_pow_4_hybrid_conductor.md",
+          "ReplayPtr::self_actualize/adventurer_round_trip_certificates.json",
+          "WitnessPtr::self_actualize/adventurer_round_trip_certificates.json"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "checkpoint",
+        "truth": "OK"
+      },
+      "round_trip_class": "exact",
+      "loss_findings": [],
+      "docs_gate_status": "BLOCKED",
+      "lawful": true
+    }
+  ],
+  "reference_examples": [
+    {
+      "certificate_id": "RTC-v0-reference-residualized",
+      "quest_id": "RTC-REF-RESIDUAL",
+      "transform_family": "pocket_card_or_poster",
+      "source_repr": {
+        "annotations": "full",
+        "display_density": "dense",
+        "invariant_bundle": {
+          "gate": "RTC-REF",
+          "overlay_debt": {
+            "J": "ResidualLedger::reference"
+          },
+          "receipt_debt": [
+            "ReplayPtr::reference",
+            "WitnessPtr::reference"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "quest_address": "A00.B00.C00.D00",
+        "quest_id": "RTC-REF",
+        "representation": "dense_schema",
+        "source_board": "",
+        "surface_hint": ""
+      },
+      "forward_transform": "dense_schema->poster_card",
+      "transformed_repr": {
+        "display_density": "thin",
+        "invariant_bundle": {
+          "gate": "RTC-REF",
+          "overlay_debt": {
+            "J": "ResidualLedger::reference"
+          },
+          "receipt_debt": [
+            "ReplayPtr::reference",
+            "WitnessPtr::reference"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "quest_address": "A00.B00.C00.D00",
+        "quest_id": "RTC-REF",
+        "representation": "poster_card",
+        "source_board": "",
+        "surface_hint": ""
+      },
+      "inverse_transform": "poster_card->poster_card",
+      "recovered_repr": {
+        "display_density": "thin",
+        "invariant_bundle": {
+          "gate": "RTC-REF",
+          "overlay_debt": {
+            "J": "ResidualLedger::reference"
+          },
+          "receipt_debt": [
+            "ReplayPtr::reference",
+            "WitnessPtr::reference"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "transit",
+          "truth": "NEAR"
+        },
+        "quest_address": "A00.B00.C00.D00",
+        "quest_id": "RTC-REF",
+        "representation": "poster_card",
+        "source_board": "",
+        "surface_hint": ""
+      },
+      "allowed_loss": [
+        "annotations",
+        "display_density"
+      ],
+      "proof_bundle": {
+        "law_id": "pocket_card_or_poster",
+        "allowed_classes": [
+          "residualized"
+        ],
+        "evidence_surfaces": [
+          "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md"
+        ],
+        "proof_note": "Reference residualized transform for card/poster compression.",
+        "receipt_obligations": [
+          "ReplayPtr",
+          "WitnessPtr"
+        ],
+        "semantic_change": false,
+        "corridor_widening": false
+      },
+      "invariant_before": {
+        "gate": "RTC-REF",
+        "overlay_debt": {
+          "J": "ResidualLedger::reference"
+        },
+        "receipt_debt": [
+          "ReplayPtr::reference",
+          "WitnessPtr::reference"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "transit",
+        "truth": "NEAR"
+      },
+      "invariant_after": {
+        "gate": "RTC-REF",
+        "overlay_debt": {
+          "J": "ResidualLedger::reference"
+        },
+        "receipt_debt": [
+          "ReplayPtr::reference",
+          "WitnessPtr::reference"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "transit",
+        "truth": "NEAR"
+      },
+      "round_trip_class": "residualized",
+      "loss_findings": [
+        "declared::annotations",
+        "declared::display_density"
+      ],
+      "docs_gate_status": "BLOCKED",
+      "lawful": true
+    },
+    {
+      "certificate_id": "RTC-v0-reference-illegal",
+      "quest_id": "RTC-REF-ILLEGAL",
+      "transform_family": "schema_to_automaton",
+      "source_repr": {
+        "invariant_bundle": {
+          "gate": "RTC-REF-ILLEGAL",
+          "overlay_debt": {},
+          "receipt_debt": [
+            "WitnessPtr::reference"
+          ],
+          "route_min": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "terminal_type": "publish",
+          "truth": "OK"
+        },
+        "quest_address": "A00.B00.C00.D01",
+        "quest_id": "RTC-REF-ILLEGAL",
+        "representation": "schema_pack",
+        "source_board": "conductor",
+        "surface_hint": "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md"
+      },
+      "forward_transform": "schema_pack->published_bundle",
+      "transformed_repr": {
+        "invariant_bundle": {
+          "gate": "RTC-REF-ILLEGAL",
+          "overlay_debt": {},
+          "receipt_debt": [
+            "WitnessPtr::reference"
+          ],
+          "route_min": [
+            "AppA",
+            "AppM"
+          ],
+          "terminal_type": "publish",
+          "truth": "OK"
+        },
+        "quest_address": "A00.B00.C00.D01",
+        "quest_id": "RTC-REF-ILLEGAL",
+        "representation": "published_bundle",
+        "source_board": "conductor",
+        "surface_hint": "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md"
+      },
+      "inverse_transform": "published_bundle->published_bundle",
+      "recovered_repr": {
+        "invariant_bundle": {
+          "gate": "RTC-REF-ILLEGAL",
+          "overlay_debt": {},
+          "receipt_debt": [
+            "WitnessPtr::reference"
+          ],
+          "route_min": [
+            "AppA",
+            "AppM"
+          ],
+          "terminal_type": "publish",
+          "truth": "OK"
+        },
+        "quest_address": "A00.B00.C00.D01",
+        "quest_id": "RTC-REF-ILLEGAL",
+        "representation": "published_bundle",
+        "source_board": "conductor",
+        "surface_hint": "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md"
+      },
+      "allowed_loss": [],
+      "proof_bundle": {
+        "law_id": "schema_to_automaton",
+        "allowed_classes": [
+          "exact"
+        ],
+        "evidence_surfaces": [
+          "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md"
+        ],
+        "proof_note": "Reference illegal transform proving the loss linter fires.",
+        "receipt_obligations": [],
+        "semantic_change": true,
+        "corridor_widening": true
+      },
+      "invariant_before": {
+        "gate": "RTC-REF-ILLEGAL",
+        "overlay_debt": {},
+        "receipt_debt": [
+          "WitnessPtr::reference"
+        ],
+        "route_min": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "terminal_type": "publish",
+        "truth": "OK"
+      },
+      "invariant_after": {
+        "gate": "RTC-REF-ILLEGAL",
+        "overlay_debt": {},
+        "receipt_debt": [
+          "WitnessPtr::reference"
+        ],
+        "route_min": [
+          "AppA",
+          "AppM"
+        ],
+        "terminal_type": "publish",
+        "truth": "OK"
+      },
+      "round_trip_class": "illegal",
+      "loss_findings": [
+        "route_min_sigma_loss",
+        "ok_without_replay_or_witness",
+        "publish_without_parity_or_appo",
+        "semantic_change_without_migrate",
+        "corridor_widening_without_attestation",
+        "illegal_unclassified_loss"
+      ],
+      "docs_gate_status": "BLOCKED",
+      "lawful": false
+    }
+  ]
+}

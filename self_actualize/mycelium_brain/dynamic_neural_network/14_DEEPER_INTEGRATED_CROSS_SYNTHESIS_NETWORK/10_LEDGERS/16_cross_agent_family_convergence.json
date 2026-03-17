@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "agent_order": ["FIRE", "WATER", "AIR", "EARTH"],
+  "family_matrix": [
+    {
+      "family_id": "canonical_basis",
+      "FIRE": "support",
+      "WATER": "support",
+      "AIR": "support",
+      "EARTH": "support",
+      "convergence_state": "compiled_spine"
+    },
+    {
+      "family_id": "complete_tomes",
+      "FIRE": "dominant",
+      "WATER": "support",
+      "AIR": "support",
+      "EARTH": "support",
+      "convergence_state": "stabilizable"
+    },
+    {
+      "family_id": "frameworks_code",
+      "FIRE": "support",
+      "WATER": "support",
+      "AIR": "dominant",
+      "EARTH": "support",
+      "convergence_state": "stabilizable"
+    },
+    {
+      "family_id": "runtime_manuscript_sections",
+      "FIRE": "support",
+      "WATER": "support",
+      "AIR": "support",
+      "EARTH": "dominant",
+      "convergence_state": "stabilizable"
+    },
+    {
+      "family_id": "awakening_tome",
+      "FIRE": "support",
+      "WATER": "support",
+      "AIR": "support",
+      "EARTH": "support",
+      "convergence_state": "transition_support_only"
+    },
+    {
+      "family_id": "historical_mirrors",
+      "FIRE": "support",
+      "WATER": "support",
+      "AIR": "support",
+      "EARTH": "support",
+      "convergence_state": "historical_reference_only"
+    }
+  ],
+  "candidate_set": [
+    "canonical_basis",
+    "complete_tomes",
+    "frameworks_code",
+    "runtime_manuscript_sections",
+    "awakening_tome"
+  ]
+}

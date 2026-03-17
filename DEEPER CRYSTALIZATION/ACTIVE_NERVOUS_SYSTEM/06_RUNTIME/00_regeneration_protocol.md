@@ -20,4 +20,4 @@
 - Frontier bundles: `DEEPER CRYSTALIZATION\ACTIVE_NERVOUS_SYSTEM\10_FRONTIERS`
 - Shadow report: `DEEPER CRYSTALIZATION\ACTIVE_NERVOUS_SYSTEM\11_SHADOWS\00_shadow_report.md`
 - Existing manuscript packet: `self_actualize\manuscript_sections\000_current_packet.md`
-- Existing Chapter 11 pass: `self_actualize\manuscript_sections\011_ch11_void_book_and_restart_token_tunneling.md`
+- Existing Chapter 11 pass: `self_actualize\manuscript_sections\011_ch11_helical_manifestation_engine.md`

@@ -1,0 +1,19 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "witness_paths": [
+    "ACTIVE_NERVOUS_SYSTEM/00_RECEIPTS/00_live_docs_gate_status.md",
+    "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/02_LOOP_LEDGER.json",
+    "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/18_super_cycle_57_manifest.json",
+    "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/19_super_cycle_57_runner_manifest.json",
+    "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/17_corpus_wide_integration_manifest.json",
+    "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/16_motion_constitution_manifest.json",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+    "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+    "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+    "self_actualize/lp_57_prime_loop_cycle_records.json",
+    "self_actualize/lp_57_master_agent_ledger.json",
+    "self_actualize/lp_57_liminal_coordinate_stamps.json"
+  ],
+  "legacy_mirror_policy": "reuse as compatibility witnesses, not independent authority",
+  "canonical_authority": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/20_lp_57omega_protocol_manifest.json"
+}

@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-03-13T20:57:09.807332+00:00",
+  "truth_status": "NEAR-derived",
+  "claims": [
+    {
+      "claim_id": "CLM-EVT-20260313-0001-0001",
+      "event_id": "EVT-20260313-0001",
+      "ant_id": "CMD.A3.D1.B0100.WORKER-01",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:37:41.161458+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0002-0002",
+      "event_id": "EVT-20260313-0002",
+      "ant_id": "CMD.A3.D1.B0100.WORKER-01",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:37:41.650156+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0003-0003",
+      "event_id": "EVT-20260313-0003",
+      "ant_id": "CMD.A3.D1.B0100.WORKER-01",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:37:42.111327+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0004-0004",
+      "event_id": "EVT-20260313-0004",
+      "ant_id": "CMD.A3.D1.B0100.WORKER-01",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:37:42.575346+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": null,
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0005-0005",
+      "event_id": "EVT-20260313-0005",
+      "ant_id": "CMD.A3.D1.B0100.WORKER-01",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:37:43.044617+00:00",
+      "claim_state": "not-claimable",
+      "reason": "motion action REFUSE_INADMISSIBLE forbids worker claim",
+      "planner_visible_promotion_source": null,
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0006-0006",
+      "event_id": "EVT-20260313-0006",
+      "ant_id": "CMD.A3.D1.B0101.WORKER-02",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:41:23.254150+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0007-0007",
+      "event_id": "EVT-20260313-0007",
+      "ant_id": "CMD.A3.D1.B0101.WORKER-02",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:41:23.286215+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0008-0008",
+      "event_id": "EVT-20260313-0008",
+      "ant_id": "CMD.A3.D1.B0100.WORKER-01",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:56:30.431234+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived"
+    },
+    {
+      "claim_id": "CLM-EVT-20260313-0009-0009",
+      "event_id": "EVT-20260313-0009",
+      "ant_id": "CMD.A3.D1.B0100.WORKER-01",
+      "lease_ms": 1200,
+      "claimed_at": "2026-03-13T20:57:09.762318+00:00",
+      "claim_state": "leased",
+      "reason": "first-lease",
+      "planner_visible_promotion_source": "Planner/Governor",
+      "truth_status": "NEAR-derived"
+    }
+  ]
+}

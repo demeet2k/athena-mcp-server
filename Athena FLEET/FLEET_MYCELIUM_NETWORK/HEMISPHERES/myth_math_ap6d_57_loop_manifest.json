@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-03-13T21:09:15.183098+00:00",
+  "docs_gate_status": "BLOCKED",
+  "counts": {
+    "loop_count": 57,
+    "master_agent_count": 4,
+    "nested_seat_manifests": 228,
+    "quest_bundle_rows": 228,
+    "worker_action_rows": 57,
+    "pruning_rows": 57,
+    "awakening_rows": 57,
+    "restart_seed_rows": 57,
+    "phase_1_control_slice_records": 502,
+    "full_corpus_records": 8692,
+    "weak_basis_rows": 3,
+    "complete_route_rows": 8692,
+    "family_notes": 10,
+    "basis_role_notes": 16,
+    "stage_family_notes": 70,
+    "legacy_master_agents": 0,
+    "legacy_transition_agents": 0,
+    "qshrink_core_agents": 0,
+    "transition_note_agents": 0
+  },
+  "seat_totals": {
+    "manifest_seats": 4096,
+    "synaptic_seats": 1024,
+    "governance_fibers": 256,
+    "ownerable_packets": 64,
+    "liminal_packets": 4
+  },
+  "compilation_ladder": "4096 manifest seats -> 1024 synaptic seats -> 256 governance fibers -> 64 ownerable packets -> 4 liminal packets",
+  "source_dependencies": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next_4_pow_6_full_corpus_integration_state.json",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_ap6d_full_corpus_integration_registry.json",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\ap6d_awakening_transition_notes.json",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_FULL_CORPUS_INTEGRATION_WAVE_57.json",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md"
+  ],
+  "outputs": {
+    "control_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_control_registry.json",
+    "agent_lane_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_agent_lane_registry.json",
+    "nested_seat_manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_nested_seat_manifest.json",
+    "quest_bundle_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_quest_bundle_registry.json",
+    "worker_action_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_worker_action_registry.json",
+    "pruning_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_pruning_registry.json",
+    "awakening_transition_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_awakening_transition_registry.json",
+    "restart_seed_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_restart_seed_registry.json",
+    "manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_ap6d_57_loop_manifest.json"
+  }
+}

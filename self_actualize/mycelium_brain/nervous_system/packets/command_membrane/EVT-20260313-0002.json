@@ -1,0 +1,226 @@
+{
+  "sensor_event": {
+    "event_id": "EVT-20260313-0002",
+    "sensor_root": "GLOBAL COMMAND",
+    "source_path": "ATHENA/coord_test.md",
+    "event_type": "created",
+    "detected_at": "2026-03-13T22:55:11.058467+00:00",
+    "settled_at": "2026-03-13T22:55:12.558467+00:00",
+    "state_hash": "H:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "file_family": "document"
+  },
+  "packet": {
+    "event_id": "EVT-20260313-0002",
+    "sensor_event_id": "EVT-20260313-0002",
+    "ant_id": "SCOUT-01",
+    "source_root": "GLOBAL COMMAND",
+    "relative_path": "ATHENA/coord_test.md",
+    "event_kind": "created",
+    "file_family": "document",
+    "tag": "command.document.change",
+    "goal": "detect-classify-assign",
+    "change_summary": "created ATHENA/coord_test.md",
+    "priority": 0.88,
+    "confidence": 0.98,
+    "earth_ts_utc": "2026-03-13T22:55:11.058467+00:00",
+    "liminal_ts": "LT-000000002",
+    "coord12": {
+      "earth_utc_anchor": "2026-03-13T22:55:11.058467+00:00",
+      "earth_rotation_phase": 0.663322,
+      "earth_orbital_phase": 0.194521,
+      "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+      "solar_phase": 0.042398,
+      "lunar_phase": 0.319158,
+      "local_sidereal_phase": 0.431609,
+      "canonical_sky_anchor": {
+        "solar_phase": "S01 / Aries / Fire / Cardinal",
+        "lunar_phase": "S11 / Aquarius / Air / Fixed",
+        "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+        "planetary_slot": "S01 / Aries / Fire / Cardinal"
+      },
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 0.0,
+      "goal_salience_vector": [
+        0.88,
+        0.834
+      ],
+      "change_novelty_vector": [
+        0.75,
+        0.66
+      ]
+    },
+    "delta_tau": 4.965066,
+    "velocity_tau": 0.28868,
+    "parent_event_id": "ROOT",
+    "ttl": 6,
+    "pheromone": 0.834,
+    "state_hash": "H:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "route_class": "scout.router.worker.archivist",
+    "lineage": {
+      "from": "",
+      "to": "ATHENA/coord_test.md"
+    },
+    "scheduler_refs": {
+      "solar_phase": "S01 / Aries / Fire / Cardinal",
+      "lunar_phase": "S11 / Aquarius / Air / Fixed",
+      "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "hsigma_ref": "NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json",
+    "claim_state": {
+      "status": "unclaimed",
+      "claim_mode": "first-lease",
+      "lease_ms": 1200
+    },
+    "status": "emitted",
+    "source_abs_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND\\ATHENA\\coord_test.md",
+    "watch_mode": "event-driven",
+    "novelty": 0.75,
+    "detection_latency_ms": 0.0,
+    "encode_latency_ms": 1.027,
+    "detected_ts": "2026-03-13T22:55:11.058467+00:00",
+    "emitted_ts": "2026-03-13T22:55:11.059466+00:00",
+    "docs_gate_status": "BLOCKED",
+    "routing_policy": "goal+salience+pheromone+coord+capability+load"
+  },
+  "route": null,
+  "claim": null,
+  "commit": null,
+  "reinforcement": null,
+  "projection_ids": [],
+  "event_id": "EVT-20260313-0002",
+  "source_id": "command_root",
+  "source_class": "command-folder",
+  "source_folder": "ATHENA",
+  "source_ant_id": "SCOUT-01",
+  "source_path": "ATHENA/coord_test.md",
+  "relative_path": "ATHENA/coord_test.md",
+  "event_kind": "created",
+  "tag": "command.document.change",
+  "event_tag": "command.document.change",
+  "goal": "detect-classify-assign",
+  "change": "created ATHENA/coord_test.md",
+  "change_summary": "created ATHENA/coord_test.md",
+  "priority": 0.88,
+  "confidence": 0.98,
+  "earth_ts": "2026-03-13T22:55:11.058467+00:00",
+  "earth_ts_utc": "2026-03-13T22:55:11.058467+00:00",
+  "earth_ts_local": "2026-03-13T15:55:11.058467-07:00",
+  "liminal_ts": "LT-000000002",
+  "coord12": {
+    "earth_utc_anchor": "2026-03-13T22:55:11.058467+00:00",
+    "earth_rotation_phase": 0.663322,
+    "earth_orbital_phase": 0.194521,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.042398,
+    "lunar_phase": 0.319158,
+    "local_sidereal_phase": 0.431609,
+    "canonical_sky_anchor": {
+      "solar_phase": "S01 / Aries / Fire / Cardinal",
+      "lunar_phase": "S11 / Aquarius / Air / Fixed",
+      "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.0,
+    "goal_salience_vector": [
+      0.88,
+      0.834
+    ],
+    "change_novelty_vector": [
+      0.75,
+      0.66
+    ]
+  },
+  "coord12_frame": {
+    "earth": {
+      "utc_atomic": "2026-03-13T22:55:11.058467+00:00",
+      "earth_rotation_phase": 0.663322,
+      "earth_orbital_phase": 0.194521,
+      "node_anchor": "US-CA-LosAngeles-LocalNode"
+    },
+    "astro": {
+      "solar_phase": 0.042398,
+      "lunar_phase": 0.319158,
+      "shared12_phase": 0.431609,
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "runtime": {
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 0.0
+    },
+    "liminal": {
+      "goal_salience": 0.857,
+      "novelty_concentration": 0.7050000000000001
+    }
+  },
+  "coord12_vector": [
+    1773442511.058467,
+    0.663322,
+    0.194521,
+    0.221453,
+    0.042398,
+    0.319158,
+    0.431609,
+    0.042398,
+    0.766949,
+    0.0,
+    0.857,
+    0.7050000000000001
+  ],
+  "seat_addr_6d": "A2.B1.C3.D4.E1.F4",
+  "front_ref": "Q41 / TQ06",
+  "parent": "ROOT",
+  "parent_event_id": "ROOT",
+  "ttl": 6,
+  "pheromone": 0.834,
+  "state_hash": "H:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "route_class": "scout.router.worker.archivist",
+  "lineage": {
+    "from": "",
+    "to": "ATHENA/coord_test.md"
+  },
+  "status": "detected",
+  "watcher_mode": "powershell-filesystemwatcher",
+  "docs_gate_status": "BLOCKED",
+  "route_policy": "goal+salience+pheromone+coord",
+  "detection_mode": "powershell-filesystemwatcher",
+  "prior_comparable_event": "",
+  "earth_delta": 0.0,
+  "liminal_delta": 4.965066,
+  "liminal_velocity": 0.28868,
+  "seed_mode": "A-dominant",
+  "dual_reference": "LP57-A|LP57-B",
+  "duality_effect": "expansion",
+  "seed_ref": "LP57-A",
+  "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0002.json",
+  "route_path": "",
+  "route_status": "",
+  "route_decision_ref": "",
+  "worker_choice": "",
+  "claim_id": "",
+  "claim_status": "",
+  "claimant": "",
+  "claim_lease_ref": "",
+  "claim_history_ref": "",
+  "receipt_ref": "",
+  "receipt_summary": "created ATHENA/coord_test.md",
+  "summary": "created ATHENA/coord_test.md",
+  "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0002.json",
+  "binding_status": "pending",
+  "missing_chain": [],
+  "pending_replay": true,
+  "latency_state": {
+    "detect_latency_ms": 0.0,
+    "awareness_latency_ms": 0.0,
+    "claim_latency_ms": 0.0,
+    "resolution_latency_ms": 0.0,
+    "commit_latency_ms": 0.0,
+    "capillary_score": 0.0,
+    "DeltaTau": 4.965066,
+    "DeltaEarth": 0.0,
+    "LiminalVelocity": 0.28868,
+    "t_sugar_ms": 1.027,
+    "route_policy": "goal+salience+pheromone+coord"
+  }
+}

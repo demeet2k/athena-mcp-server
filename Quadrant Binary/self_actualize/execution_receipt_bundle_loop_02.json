@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-03-13",
+  "protocol_id": "LP-57OMEGA",
+  "truth": "OK",
+  "loop_id": "C02",
+  "status": "ACTIVE",
+  "worker_law": "artifact + board update + writeback + restart seed",
+  "active_hall_fronts": [
+    "Q57-C02-H01",
+    "Q57-C02-H02",
+    "Q57-C02-H03",
+    "Q57-C02-H04",
+    "Q57-C02-H05",
+    "Q57-C02-H06",
+    "Q57-C02-H07",
+    "Q57-C02-H08"
+  ],
+  "active_temple_fronts": [
+    "TQ57-C02-T01",
+    "TQ57-C02-T02",
+    "TQ57-C02-T03",
+    "TQ57-C02-T04",
+    "TQ57-C02-T05",
+    "TQ57-C02-T06",
+    "TQ57-C02-T07",
+    "TQ57-C02-T08"
+  ],
+  "landed_receipts": [],
+  "pending_completion_gate": [
+    "artifact",
+    "board update",
+    "writeback",
+    "restart seed"
+  ],
+  "restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk"
+}

@@ -75,6 +75,9 @@ discovery_cache/
 # Node
 node_modules/
 
+# Recursive repo-root copies (Athena FLEET has recursive nesting)
+Athena FLEET/_repo_root/
+
 # Temporary
 *.tmp
 *.bak

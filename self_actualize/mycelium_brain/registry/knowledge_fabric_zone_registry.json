@@ -1,0 +1,269 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_knowledge_fabric",
+  "zones": [
+    {
+      "zone_id": "Z01",
+      "zone_name": "Cortex",
+      "purpose": "canonical law, publishable overview matter, and live source corpus bodies",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+      "witness_floor": "indexed",
+      "canonical_paths": [
+        "NERVOUS_SYSTEM",
+        "MATH",
+        "Voynich",
+        "DEEPER CRYSTALIZATION"
+      ],
+      "artifact_classes": [
+        "manuscript",
+        "manifest",
+        "schema",
+        "ledger"
+      ],
+      "query_methods": [
+        "locate",
+        "browse",
+        "synthesize",
+        "publish"
+      ],
+      "note": "This zone answers where canonical and source-bearing matter actually lives."
+    },
+    {
+      "zone_id": "Z02",
+      "zone_name": "RuntimeMirror",
+      "purpose": "live runtime mirrors, generated json artifacts, and executable routing surfaces",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\00_active_nervous_system_index.md",
+      "witness_floor": "generated",
+      "canonical_paths": [
+        "self_actualize/runtime",
+        "self_actualize/mycelium_brain/nervous_system"
+      ],
+      "artifact_classes": [
+        "generated",
+        "code",
+        "manifest",
+        "queue"
+      ],
+      "query_methods": [
+        "locate",
+        "audit",
+        "repair",
+        "regenerate"
+      ],
+      "note": "This is the live mycelial waist rather than the publication cortex."
+    },
+    {
+      "zone_id": "Z03",
+      "zone_name": "GovernanceMirror",
+      "purpose": "reusable governance doctrine mirrored outside the canonical cortex",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\NERVOUS_SYSTEM\\README.md",
+      "witness_floor": "indexed",
+      "canonical_paths": [
+        "ECOSYSTEM/NERVOUS_SYSTEM"
+      ],
+      "artifact_classes": [
+        "manuscript",
+        "manifest",
+        "schema"
+      ],
+      "query_methods": [
+        "browse",
+        "compare",
+        "synthesize"
+      ],
+      "note": "Governance may advise but does not outrank the cortex."
+    },
+    {
+      "zone_id": "Z04",
+      "zone_name": "DeepRoot",
+      "purpose": "live deeper cross-synthesis basis, matrix, symmetry, metro, and appendix control",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+      "witness_floor": "indexed",
+      "canonical_paths": [
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK"
+      ],
+      "artifact_classes": [
+        "manuscript",
+        "ledger",
+        "queue",
+        "code"
+      ],
+      "query_methods": [
+        "browse",
+        "synthesize",
+        "audit",
+        "repair"
+      ],
+      "note": "This is the only live deep-routing authority."
+    },
+    {
+      "zone_id": "Z05",
+      "zone_name": "CorpusAtlas",
+      "purpose": "the primary indexed record substrate for the live workspace",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+      "witness_floor": "indexed",
+      "canonical_paths": [
+        "self_actualize/corpus_atlas.json"
+      ],
+      "artifact_classes": [
+        "data",
+        "generated"
+      ],
+      "query_methods": [
+        "locate",
+        "browse",
+        "audit"
+      ],
+      "note": "This zone stores the searchable record substrate, not the truth of every record."
+    },
+    {
+      "zone_id": "Z06",
+      "zone_name": "ArchiveAtlas",
+      "purpose": "archive-backed indexed reserve implementation substrate",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_atlas.json",
+      "witness_floor": "archive",
+      "canonical_paths": [
+        "self_actualize/archive_atlas.json"
+      ],
+      "artifact_classes": [
+        "data",
+        "generated"
+      ],
+      "query_methods": [
+        "browse",
+        "compare",
+        "audit"
+      ],
+      "note": "Archive-backed records remain visible without pretending they are live-root files."
+    },
+    {
+      "zone_id": "Z07",
+      "zone_name": "BoardScope",
+      "purpose": "realtime coordination slice and board-visible witness surfaces",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\00_STATUS\\00_BOARD_STATUS.md",
+      "witness_floor": "board",
+      "canonical_paths": [
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/.../06_REALTIME_BOARD"
+      ],
+      "artifact_classes": [
+        "manifest",
+        "queue",
+        "ledger"
+      ],
+      "query_methods": [
+        "audit",
+        "repair",
+        "publish"
+      ],
+      "note": "Board scope is a visibility overlay, not whole-corpus truth."
+    },
+    {
+      "zone_id": "Z08",
+      "zone_name": "PromotedSlice",
+      "purpose": "the bronze promoted nervous-system slice and its declared witness surfaces",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\_build\\nervous_system\\manifests\\STATE_HEADER.md",
+      "witness_floor": "promoted",
+      "canonical_paths": [
+        "DEEPER CRYSTALIZATION/_build/nervous_system"
+      ],
+      "artifact_classes": [
+        "manifest",
+        "ledger",
+        "schema"
+      ],
+      "query_methods": [
+        "compare",
+        "audit",
+        "publish"
+      ],
+      "note": "Promoted slices remain named as historical witness, not live totality."
+    },
+    {
+      "zone_id": "Z09",
+      "zone_name": "CapsuleLayer",
+      "purpose": "canonical domain contractions that explain large roots through stable summaries",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\INDEX.md",
+      "witness_floor": "indexed",
+      "canonical_paths": [
+        "NERVOUS_SYSTEM/50_CORPUS_CAPSULES"
+      ],
+      "artifact_classes": [
+        "manuscript",
+        "manifest"
+      ],
+      "query_methods": [
+        "locate",
+        "synthesize",
+        "regenerate"
+      ],
+      "note": "Capsules are the contraction layer between root bodies and canonical law."
+    },
+    {
+      "zone_id": "Z10",
+      "zone_name": "GraphLayer",
+      "purpose": "neurons, synapses, bridges, and explicit edge-bearing topology",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "witness_floor": "indexed",
+      "canonical_paths": [
+        "NERVOUS_SYSTEM/85_EDGES",
+        "NERVOUS_SYSTEM/90_LEDGERS/NEURON_LIBRARY.md"
+      ],
+      "artifact_classes": [
+        "ledger",
+        "manifest"
+      ],
+      "query_methods": [
+        "compare",
+        "audit",
+        "repair"
+      ],
+      "note": "This zone carries relation tissue rather than full source bodies."
+    },
+    {
+      "zone_id": "Z11",
+      "zone_name": "ReceiptLineage",
+      "purpose": "receipts, writebacks, promotion traces, and continuity proof",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\22_SELF_LINEAGE_LEDGER.md",
+      "witness_floor": "generated",
+      "canonical_paths": [
+        "NERVOUS_SYSTEM/90_LEDGERS",
+        "self_actualize/mycelium_brain/receipts"
+      ],
+      "artifact_classes": [
+        "receipt",
+        "ledger",
+        "generated"
+      ],
+      "query_methods": [
+        "audit",
+        "repair",
+        "regenerate"
+      ],
+      "note": "This zone keeps replay and lineage visible instead of collapsing them into prose."
+    },
+    {
+      "zone_id": "Z12",
+      "zone_name": "ReserveQuarantine",
+      "purpose": "honest storage for sparse, blocked, contradictory, or reserve surfaces",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+      "witness_floor": "physical",
+      "canonical_paths": [
+        "CLEAN",
+        "Stoicheia (Element Sudoku)",
+        "reserve corridor paths"
+      ],
+      "artifact_classes": [
+        "media",
+        "manuscript",
+        "ledger"
+      ],
+      "query_methods": [
+        "audit",
+        "repair",
+        "abstain"
+      ],
+      "note": "This zone prevents false certainty when a surface is real but not yet integrated."
+    }
+  ]
+}

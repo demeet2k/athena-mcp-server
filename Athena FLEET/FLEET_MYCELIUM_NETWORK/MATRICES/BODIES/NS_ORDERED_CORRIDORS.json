@@ -1,0 +1,76 @@
+[
+  {
+    "edge_id": "NS01->NS01",
+    "source_id": "NS01",
+    "target_id": "NS01",
+    "relation": "recurse",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0010",
+      "P0010"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Origin",
+      "Transit",
+      "Governance"
+    ],
+    "lane_type": "identity"
+  },
+  {
+    "edge_id": "NS01->NS02",
+    "source_id": "NS01",
+    "target_id": "NS02",
+    "relation": "seed",
+    "weight": 0.82,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0011",
+      "P0014"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Transit",
+      "Governance"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "NS02->NS01",
+    "source_id": "NS02",
+    "target_id": "NS01",
+    "relation": "publish",
+    "weight": 0.82,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0020",
+      "P0013"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Transit",
+      "Governance"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "NS02->NS02",
+    "source_id": "NS02",
+    "target_id": "NS02",
+    "relation": "recurse",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0020",
+      "P0020"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Crystal",
+      "Transit",
+      "Governance"
+    ],
+    "lane_type": "identity"
+  }
+]

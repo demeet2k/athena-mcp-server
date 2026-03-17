@@ -13,14 +13,15 @@
 
 ## Family councils
 
-- `COUNCIL-civilization_and_governance` governs `Civilization design, hierarchy, governance, and law` with docs=`46` and chapter targets=`Ch17, Ch18, Ch20, Ch21`
+- `COUNCIL-civilization_and_governance` governs `Civilization design, hierarchy, governance, and law` with docs=`42` and chapter targets=`Ch17, Ch18, Ch20, Ch21`
 - `COUNCIL-general_corpus` governs `General corpus support` with docs=`30` and chapter targets=`Ch02, Ch03, Ch10, Ch13, Ch14, Ch19`
+- `COUNCIL-helical_recursion_engine` governs `Helical recursion, lift law, and manifestation engine` with docs=`3` and chapter targets=`Ch11, Ch18, Ch20, Ch21`
 - `COUNCIL-higher_dimensional_geometry` governs `Higher-dimensional geometry and holographic kernel` with docs=`13` and chapter targets=`Ch05, Ch06, Ch07, Ch08`
-- `COUNCIL-identity_and_instruction` governs `Athena identity, pedagogy, and narrative voice` with docs=`11` and chapter targets=`Ch09, Ch10, Ch13, Ch16, Ch17, Ch20`
+- `COUNCIL-identity_and_instruction` governs `Athena identity, pedagogy, and narrative voice` with docs=`14` and chapter targets=`Ch02, Ch09, Ch10, Ch13, Ch16, Ch17, Ch19, Ch20`
 - `COUNCIL-live_orchestration` governs `Live orchestration and prompt control` with docs=`1` and chapter targets=`Ch09, Ch19, Ch20, Ch21`
-- `COUNCIL-manuscript_architecture` governs `Manuscript architecture and routing law` with docs=`16` and chapter targets=`Ch01, Ch06, Ch08, Ch09, Ch10, Ch11, Ch14, Ch16, Ch19`
+- `COUNCIL-manuscript_architecture` governs `Manuscript architecture and routing law` with docs=`16` and chapter targets=`Ch01, Ch06, Ch08, Ch09, Ch10, Ch14, Ch16, Ch19`
 - `COUNCIL-mythic_sign_systems` governs `Mythic sign systems, encoded memory, and symbol runtime` with docs=`29` and chapter targets=`Ch02, Ch09, Ch13, Ch18`
-- `COUNCIL-transport_and_runtime` governs `Transport, runtime, and executable framework` with docs=`38` and chapter targets=`Ch07, Ch15, Ch16, Ch18`
+- `COUNCIL-transport_and_runtime` governs `Transport, runtime, and executable framework` with docs=`39` and chapter targets=`Ch07, Ch15, Ch16, Ch18`
 - `COUNCIL-void_and_collapse` governs `Void, Chapter 11, and collapse engines` with docs=`10` and chapter targets=`Ch02, Ch04, Ch09, Ch10, Ch11, Ch12, Ch16, Ch19`
 
 ## Rail councils

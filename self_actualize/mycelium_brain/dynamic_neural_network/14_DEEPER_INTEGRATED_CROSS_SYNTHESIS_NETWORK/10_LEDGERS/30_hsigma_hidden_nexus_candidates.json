@@ -1,0 +1,85 @@
+{
+  "HSigmaHiddenCandidates": {
+    "generated_at": "2026-03-13T23:00:00-07:00",
+    "docs_gate_status": "BLOCKED",
+    "truth_class": "NEAR",
+    "fixed_point_rule": "stop when no candidate promotion and no material row-class change",
+    "promotion_thresholds": {
+      "frontier_promotable": {
+        "timing_states_min": 4,
+        "route_families_min": 2,
+        "contradiction_max": 0.25,
+        "hidden_pressure_min": 0.55,
+        "must_survive_resweep": true
+      },
+      "seated_promotable": {
+        "timing_states_min": 8,
+        "route_families_min": 3,
+        "must_stabilize_across_adjacent_neighborhoods": true
+      }
+    },
+    "candidates": {
+      "C1": {
+        "label": "ZeroAetherMediatingLiftHub",
+        "evidence_states": [212, 166, 222, 247, 255],
+        "adjacent_explicit_nodes": ["Z0", "L0", "A0", "TE", "TX"],
+        "disposition": "frontier",
+        "confidence": "medium-high",
+        "structural_need": "Repeated entrance/exit asymmetry plus simultaneous zero-collapse and aether-expansion pressure."
+      },
+      "C2": {
+        "label": "MetroMyceliumNeuralCompositeTransferNode",
+        "evidence_states": [217, 166, 212],
+        "adjacent_explicit_nodes": ["MT", "MS", "MY", "NN", "L0"],
+        "disposition": "frontier",
+        "confidence": "high-structural",
+        "structural_need": "Pairwise transfers do not fully absorb three-family convergence pressure."
+      },
+      "C3": {
+        "label": "DimensionalMidspanBridge",
+        "evidence_states": [222, 247, 255],
+        "adjacent_explicit_nodes": ["DB", "DL", "MC", "TE", "TX"],
+        "disposition": "frontier",
+        "confidence": "high-structural",
+        "structural_need": "Jumps and crossings imply a lawful intermediate stabilizer."
+      },
+      "C4": {
+        "label": "ReplayProofClosureJunction",
+        "evidence_states": [51, 247, 255],
+        "adjacent_explicit_nodes": ["RA", "WA", "MR", "PA"],
+        "disposition": "frontier",
+        "confidence": "medium",
+        "structural_need": "Witness-bearing replay without a closure node remains structurally incomplete."
+      },
+      "C5": {
+        "label": "SeedReplayRegenerationCoupler",
+        "evidence_states": [81, 235, 247],
+        "adjacent_explicit_nodes": ["SC", "A0", "RA", "MY"],
+        "disposition": "frontier",
+        "confidence": "medium",
+        "structural_need": "Seed crystal and replay anchor need a stable bridge for save-state regeneration."
+      },
+      "C6": {
+        "label": "FrontierLiminalDistributor",
+        "evidence_states": [
+          "q1 in {2,3}",
+          "q3 = 3",
+          "high-pressure neighborhood"
+        ],
+        "adjacent_explicit_nodes": ["L0", "ZL", "A0", "MS"],
+        "disposition": "inferred_only",
+        "confidence": "low-medium",
+        "structural_need": "Branching frontier pressure exceeds the capacity of a single liminal hinge abstraction."
+      }
+    },
+    "conditional_explicit_priority": [
+      "Promote MR before inventing a new return-hinge class.",
+      "Promote PA before inventing a new proof-closure class."
+    ],
+    "frontier_policy": [
+      "No hidden candidate may overwrite an explicit node.",
+      "No hidden candidate may be promoted into seated fact without local support.",
+      "This pass preserves visible-scale class structure and leaves instance seating to future evidence."
+    ]
+  }
+}

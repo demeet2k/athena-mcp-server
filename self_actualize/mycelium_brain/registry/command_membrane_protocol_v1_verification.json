@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-03-14T00:21:20.780207+00:00",
+  "truth": "NEAR",
+  "checks": {
+    "protocol_id_exact": false,
+    "registry_protocol_id_exact": false,
+    "canonical_authority_exact": true,
+    "active_surface_exact": false,
+    "watch_scope_exact": false,
+    "watch_policy_exact": true,
+    "route_policy_exact": false,
+    "selector_terms_exact": false,
+    "schema_id_exact": false,
+    "coord12_labels_exact": true,
+    "coord12_frame_groups_exact": true,
+    "packet_types_exact": true,
+    "lookup_envelope_exact": true,
+    "capillary_id_exact": false,
+    "capillary_formula_exact": true,
+    "latency_equation_exact": true,
+    "latency_metrics_exact": false,
+    "docs_gate_honest": true,
+    "runtime_witness_exists": true,
+    "schema_doc_aligned": false,
+    "toolkit_doc_aligned": false
+  },
+  "artifacts": {
+    "protocol": "self_actualize/next57_command_protocol.json",
+    "schema": "self_actualize/next57_command_event_packet_schema.json",
+    "reward": "self_actualize/next57_command_reward_field.json",
+    "capillary": "self_actualize/next57_command_capillary_law.json",
+    "latency": "self_actualize/next57_command_latency_benchmarks.json",
+    "registry": "self_actualize/mycelium_brain/registry/command_membrane_protocol_v1.json",
+    "public_state": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_STATE.json",
+    "runtime_witness": "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_SENSORY_MEMBRANE.md"
+  }
+}

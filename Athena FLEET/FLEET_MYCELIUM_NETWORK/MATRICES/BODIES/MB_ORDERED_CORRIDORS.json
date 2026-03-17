@@ -1,0 +1,75 @@
+[
+  {
+    "edge_id": "MB01->MB01",
+    "source_id": "MB01",
+    "target_id": "MB01",
+    "relation": "compress",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0006",
+      "P0006"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Origin",
+      "Transit"
+    ],
+    "lane_type": "replay"
+  },
+  {
+    "edge_id": "MB01->MB02",
+    "source_id": "MB01",
+    "target_id": "MB02",
+    "relation": "route",
+    "weight": 0.8,
+    "priority": "secondary",
+    "evidence_anchors": [
+      "P0006",
+      "P0011"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Origin",
+      "Transit"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "MB02->MB01",
+    "source_id": "MB02",
+    "target_id": "MB01",
+    "relation": "compress",
+    "weight": 0.8,
+    "priority": "secondary",
+    "evidence_anchors": [
+      "P0001",
+      "P0006"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Origin",
+      "Transit"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "MB02->MB02",
+    "source_id": "MB02",
+    "target_id": "MB02",
+    "relation": "recurse",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0015",
+      "P0015"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Origin",
+      "Transit",
+      "Governance"
+    ],
+    "lane_type": "identity"
+  }
+]

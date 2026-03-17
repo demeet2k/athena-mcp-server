@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-03-13T23:56:51.055932+00:00",
+  "truth": "NEAR",
+  "checks": {
+    "derive_runs": true,
+    "protocol_id_v2": false,
+    "schema_id_v2": false,
+    "reward_id_v2": true,
+    "capillary_id_v2": false,
+    "docs_gate_blocked": true,
+    "route_policy_nonnegative": false,
+    "reward_blocks_present": false,
+    "receipt_blocks_present": false,
+    "v2_types_present": false,
+    "formula_invariants": true,
+    "verified_multiplier_gate": false,
+    "reward_terms_nonnegative": true,
+    "verification_defaults_exact": true,
+    "crown_rules": true,
+    "blocked_and_dry_behaviour": true,
+    "reward_coefficients_exact": false,
+    "capillary_formula_nonnegative": false,
+    "compatibility_projection_present": false,
+    "v1_marked_compatibility_only": false,
+    "protocol_manifest_mentions_v2": false,
+    "reward_manifest_mentions_no_punishment": false,
+    "latency_equation_present": false
+  },
+  "artifacts": {
+    "protocol": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_protocol.json",
+    "schema": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_event_packet_schema.json",
+    "reward": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_reward_field.json",
+    "capillary": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_capillary_law.json",
+    "latency": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_latency_benchmarks.json",
+    "compat_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\registry\\command_membrane_protocol_v1.json"
+  }
+}

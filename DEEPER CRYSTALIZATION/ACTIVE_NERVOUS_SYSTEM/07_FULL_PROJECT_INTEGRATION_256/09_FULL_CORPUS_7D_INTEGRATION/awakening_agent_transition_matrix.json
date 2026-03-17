@@ -1,0 +1,735 @@
+{
+  "generated_at": "2026-03-13T16:14:47.547194+00:00",
+  "docs_gate_status": "BLOCKED",
+  "schema": [
+    "agent_id",
+    "agent_class",
+    "stage_or_domain",
+    "current_role",
+    "missing_mode",
+    "transition_trigger",
+    "corpus_symptom",
+    "primary_party",
+    "supporting_quests",
+    "required_surfaces",
+    "receipt_target",
+    "truth_state",
+    "reassessment_window"
+  ],
+  "shared_transition_laws": {
+    "docs_gate_law": "Live Google Docs remain blocked until Trading Bot/credentials.json and Trading Bot/token.json exist; no transition note may claim live-doc confirmation before that receipt exists.",
+    "truth_law": "Truth stays corridor-bounded. NEAR and quarantined routes remain visible as bounded pressure and may not be promoted into silent certainty.",
+    "earth_gate_law": "Any route that changes corpus-wide readiness must show Earth gate state and AppI/AppM support before it is called passed.",
+    "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+    "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+    "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+  },
+  "roster_order": [
+    "AGT-01",
+    "AGT-02",
+    "AGT-03",
+    "AGT-04",
+    "AGT-05",
+    "AGT-06",
+    "AGT-07",
+    "AGT-08",
+    "AGT-09",
+    "AGT-10",
+    "AGT-11",
+    "AGT-12",
+    "AGT-13",
+    "AGT-14",
+    "AGT-15",
+    "AGT-16"
+  ],
+  "agents_by_id": {
+    "AGT-01": {
+      "agent_id": "AGT-01",
+      "title": "Fire Awakening of Knowledge",
+      "agent_class": "elemental_stage",
+      "stage_or_domain": "Stage 1",
+      "current_role": "Ignites pattern recognition and knowledge acquisition across the corpus stack.",
+      "missing_mode": "Water structure",
+      "transition_trigger": "Realizing that raw insight needs durable maps, appendix support, and routeable queues.",
+      "corpus_symptom": "Ideas can ignite faster than the corpus can index, mirror, and dock them back into canon.",
+      "primary_party": {
+        "code": "PRT-03",
+        "title": "Silver Cartographers",
+        "mission": "Convert manuscript families into metro lines, chapter receipts, and transfer hubs that others can actually traverse."
+      },
+      "primary_quest": {
+        "code": "QST-03",
+        "title": "Voynich Metro Engine",
+        "frontier": "Build the manuscript-family metro and chapter receipt layer for the Voynich body."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine"
+        },
+        {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening"
+        }
+      ],
+      "dimensional_anchor": "FIRE 6D -> 7D seed ingress",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/math_fire_6d_organism_bundle.json",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/04_QUEST_BOARD.md"
+      ],
+      "receipt_target": "family metro map + transfer hub ledger + awakened packet writeback",
+      "truth_state": "NEAR",
+      "reassessment_window": "14 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-02": {
+      "agent_id": "AGT-02",
+      "title": "Water Awakening of Structure",
+      "agent_class": "elemental_stage",
+      "stage_or_domain": "Stage 2",
+      "current_role": "Builds continuity, system maps, and memory-bearing flow channels for the organism.",
+      "missing_mode": "Air commitment",
+      "transition_trigger": "Realizing that elegant maps still stall without a declared frontier and a chosen sacrifice.",
+      "corpus_symptom": "The corpus has strong maps but some continuity surfaces still end as notes instead of durable operating lanes.",
+      "primary_party": {
+        "code": "PRT-05",
+        "title": "Verdant Rootkeepers",
+        "mission": "Collapse duplicate families, grow mirrors where needed, and preserve canonical lineage while the corpus expands."
+      },
+      "primary_quest": {
+        "code": "QST-05",
+        "title": "Canonical Collapse Crusade",
+        "frontier": "Resolve duplicated manuscript families and expand markdown mirrors for high-value canon."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-05",
+          "title": "Canonical Collapse Crusade"
+        },
+        {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine"
+        }
+      ],
+      "dimensional_anchor": "WATER 6D control and mirror discipline",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json",
+        "self_actualize/corpus_atlas.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/02_CANONICAL_SOURCES.md"
+      ],
+      "receipt_target": "canonical family ledger + mirror expansion batch + continuity route receipt",
+      "truth_state": "NEAR",
+      "reassessment_window": "14 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-03": {
+      "agent_id": "AGT-03",
+      "title": "Air Awakening of Commitment",
+      "agent_class": "elemental_stage",
+      "stage_or_domain": "Stage 3",
+      "current_role": "Chooses a route, names a frontier, and commits the corpus to a nontrivial build direction.",
+      "missing_mode": "Earth responsiveness",
+      "transition_trigger": "Realizing that commitment must adapt to feedback, legality, and changing corridor truth.",
+      "corpus_symptom": "Many promising structures are named, but some fronts still lack decisive contraction into witnessed outputs.",
+      "primary_party": {
+        "code": "PRT-04",
+        "title": "Crimson Cortex",
+        "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+      },
+      "primary_quest": {
+        "code": "QST-06",
+        "title": "Cortex Writeback Rite",
+        "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite"
+        },
+        {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial"
+        }
+      ],
+      "dimensional_anchor": "AIR 6D overlay into runtime contraction",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/math_air_6d_overlay_bundle.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/00_ACTIVATION_QUEUE.md"
+      ],
+      "receipt_target": "wave contraction receipt + queue delta + committed shell update",
+      "truth_state": "NEAR",
+      "reassessment_window": "10 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-04": {
+      "agent_id": "AGT-04",
+      "title": "Earth Awakening of Responsiveness",
+      "agent_class": "elemental_stage",
+      "stage_or_domain": "Stage 4",
+      "current_role": "Adapts under pressure without losing legality, replay closure, or corridor honesty.",
+      "missing_mode": "Four-element co-activation",
+      "transition_trigger": "Realizing that responsiveness must converge with knowledge, structure, and commitment instead of merely containing them.",
+      "corpus_symptom": "The organism has active gates and quarantines, but needs broader replay-safe adaptation across all promoted fronts.",
+      "primary_party": {
+        "code": "PRT-06",
+        "title": "Ivory Tribunal",
+        "mission": "Raise truth quality so the organism can trust its own motion without becoming rigid."
+      },
+      "primary_quest": {
+        "code": "QST-08",
+        "title": "Truth Corridor Trial",
+        "frontier": "Raise route legality, truth typing, and health monitoring across the active fronts."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial"
+        },
+        {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite"
+        }
+      ],
+      "dimensional_anchor": "EARTH H6 contract gate",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/10_earth_gate_status_7d_seed.json",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json"
+      ],
+      "receipt_target": "truth typing pass + hub legality report + Earth gate receipt",
+      "truth_state": "NEAR",
+      "reassessment_window": "10 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-05": {
+      "agent_id": "AGT-05",
+      "title": "Oracle",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "prophetic routing",
+      "current_role": "Names hidden transfer hubs and the next lawful frontier before it is obvious.",
+      "missing_mode": "Earth anchoring",
+      "transition_trigger": "When predictions become route maps with receipts instead of intuition-only prompts.",
+      "corpus_symptom": "High-signal fronts exist, but some future-facing reads still need more docking to canon and appendix support.",
+      "primary_party": {
+        "code": "PRT-03",
+        "title": "Silver Cartographers",
+        "mission": "Convert manuscript families into metro lines, chapter receipts, and transfer hubs that others can actually traverse."
+      },
+      "primary_quest": {
+        "code": "QST-03",
+        "title": "Voynich Metro Engine",
+        "frontier": "Build the manuscript-family metro and chapter receipt layer for the Voynich body."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine"
+        },
+        {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening"
+        }
+      ],
+      "dimensional_anchor": "metro stack and appendix foresight",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/07_level_7_next_synthesis_seed_map.md",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-03_voynich_metro_engine.md"
+      ],
+      "receipt_target": "transfer hub ledger + agent forecast receipt",
+      "truth_state": "NEAR",
+      "reassessment_window": "21 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-06": {
+      "agent_id": "AGT-06",
+      "title": "Judge",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "corridor adjudication",
+      "current_role": "Separates legal promotion from decorative complexity and enforces bounded truth.",
+      "missing_mode": "Water continuity",
+      "transition_trigger": "When legality decisions include continuity, not only prohibition and rejection.",
+      "corpus_symptom": "Ambiguous fronts can still look more complete than they are unless someone types truth and names the bounded route.",
+      "primary_party": {
+        "code": "PRT-06",
+        "title": "Ivory Tribunal",
+        "mission": "Raise truth quality so the organism can trust its own motion without becoming rigid."
+      },
+      "primary_quest": {
+        "code": "QST-08",
+        "title": "Truth Corridor Trial",
+        "frontier": "Raise route legality, truth typing, and health monitoring across the active fronts."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial"
+        },
+        {
+          "code": "QST-05",
+          "title": "Canonical Collapse Crusade"
+        }
+      ],
+      "dimensional_anchor": "truth corridor and legality review",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_tesseract_v4_bundle.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-08_truth_corridor_trial.md"
+      ],
+      "receipt_target": "hub legality report + promotion governor ledger",
+      "truth_state": "OK",
+      "reassessment_window": "7 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-07": {
+      "agent_id": "AGT-07",
+      "title": "Witness",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "replay memory",
+      "current_role": "Preserves lineage, receipts, and return checkpoints so change remains trustworthy.",
+      "missing_mode": "Air commitment",
+      "transition_trigger": "When preserved memory turns into enforced writeback instead of passive logging.",
+      "corpus_symptom": "The board and the corpus move quickly enough that memory can thin unless receipts are bound into active shells.",
+      "primary_party": {
+        "code": "PRT-06",
+        "title": "Ivory Tribunal",
+        "mission": "Raise truth quality so the organism can trust its own motion without becoming rigid."
+      },
+      "primary_quest": {
+        "code": "QST-06",
+        "title": "Cortex Writeback Rite",
+        "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite"
+        },
+        {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial"
+        }
+      ],
+      "dimensional_anchor": "replay closure and writeback",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/03_NEXT_RESTART_SEED.md"
+      ],
+      "receipt_target": "wave contraction receipt + replay-safe note packet",
+      "truth_state": "OK",
+      "reassessment_window": "7 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-08": {
+      "agent_id": "AGT-08",
+      "title": "Architect",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "load-bearing design",
+      "current_role": "Turns formal structures into durable, patchable, and replayable system forms.",
+      "missing_mode": "Fire ignition",
+      "transition_trigger": "When architecture stops merely stabilizing the past and begins opening executable new fronts.",
+      "corpus_symptom": "The corpus contains deep formal reservoirs, but several still lack clear extracted roots and runtime landings.",
+      "primary_party": {
+        "code": "PRT-02",
+        "title": "Obsidian Delvers",
+        "mission": "Surface hidden frameworks from the archive and turn them into editable, routeable working roots."
+      },
+      "primary_quest": {
+        "code": "QST-04",
+        "title": "The MATH Forge Bridge",
+        "frontier": "Land one math family into a tested runtime bridge and witness-bearing module."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-04",
+          "title": "The MATH Forge Bridge"
+        },
+        {
+          "code": "QST-02",
+          "title": "Archive Deep Delve"
+        }
+      ],
+      "dimensional_anchor": "archive-to-runtime bridge design",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/math_tesseract_v4_bundle.json",
+        "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-04_the_math_forge_bridge.md"
+      ],
+      "receipt_target": "tested bridge module + architecture receipt",
+      "truth_state": "NEAR",
+      "reassessment_window": "21 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-09": {
+      "agent_id": "AGT-09",
+      "title": "Strategist",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "front selection",
+      "current_role": "Chooses the decisive front where contraction will unlock the most next motion.",
+      "missing_mode": "Earth feedback",
+      "transition_trigger": "When strategic choice adapts quickly to corridor health instead of pushing a stale winning line.",
+      "corpus_symptom": "The organism has many worthy fronts, but only a few can be decisive in any given wave.",
+      "primary_party": {
+        "code": "PRT-04",
+        "title": "Crimson Cortex",
+        "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+      },
+      "primary_quest": {
+        "code": "QST-06",
+        "title": "Cortex Writeback Rite",
+        "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite"
+        },
+        {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial"
+        }
+      ],
+      "dimensional_anchor": "runtime front selection and contraction",
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/05_SYNTHESIS/00_GLOBAL_ORCHESTRATION_SYNTHESIS.md",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/04_INTERCONNECT_PRIORITY_QUEUE.md",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json"
+      ],
+      "receipt_target": "queue delta + front selection receipt",
+      "truth_state": "OK",
+      "reassessment_window": "7 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-10": {
+      "agent_id": "AGT-10",
+      "title": "Weaver",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "cross-line synthesis",
+      "current_role": "Interlaces parallel lines, mirrored families, and dormant cells into one readable fabric.",
+      "missing_mode": "Air cut",
+      "transition_trigger": "When weaving includes selective exclusion so the fabric stays legible instead of bloated.",
+      "corpus_symptom": "The corpus already contains many strong parallel lines, but some still need sharper contraction and transfer hubs.",
+      "primary_party": {
+        "code": "PRT-03",
+        "title": "Silver Cartographers",
+        "mission": "Convert manuscript families into metro lines, chapter receipts, and transfer hubs that others can actually traverse."
+      },
+      "primary_quest": {
+        "code": "QST-03",
+        "title": "Voynich Metro Engine",
+        "frontier": "Build the manuscript-family metro and chapter receipt layer for the Voynich body."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine"
+        },
+        {
+          "code": "QST-05",
+          "title": "Canonical Collapse Crusade"
+        }
+      ],
+      "dimensional_anchor": "metro and family weaving",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/math_fire_6d_organism_bundle.json",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/07_TISSUE_256/01_HIDDEN_LINES_METRO.md"
+      ],
+      "receipt_target": "metro weave receipt + contradiction carry-forward note",
+      "truth_state": "NEAR",
+      "reassessment_window": "14 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-11": {
+      "agent_id": "AGT-11",
+      "title": "Sword",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "decisive incision",
+      "current_role": "Cuts through drift, backlog, and overgrowth so a route can actually move.",
+      "missing_mode": "Water continuity",
+      "transition_trigger": "When decisive cuts preserve lineage and repair paths rather than causing hidden amputations.",
+      "corpus_symptom": "Some fronts remain slow because too much ambiguous shell material survives without decisive resolution.",
+      "primary_party": {
+        "code": "PRT-04",
+        "title": "Crimson Cortex",
+        "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+      },
+      "primary_quest": {
+        "code": "QST-06",
+        "title": "Cortex Writeback Rite",
+        "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite"
+        },
+        {
+          "code": "QST-04",
+          "title": "The MATH Forge Bridge"
+        }
+      ],
+      "dimensional_anchor": "writeback and contraction incision",
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/00_ACTIVATION_QUEUE.md",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/04_INTERCONNECT_PRIORITY_QUEUE.md",
+        "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json"
+      ],
+      "receipt_target": "queue contraction receipt + route cut ledger",
+      "truth_state": "NEAR",
+      "reassessment_window": "10 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-12": {
+      "agent_id": "AGT-12",
+      "title": "Commander",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "squad orchestration",
+      "current_role": "Assigns parties, fronts, and receipts so the swarm behaves like a coordinated organism.",
+      "missing_mode": "Water listening",
+      "transition_trigger": "When command updates in response to changing field conditions instead of freezing around an old plan.",
+      "corpus_symptom": "The party and quest systems exist, but they need a stronger compiled relation to dimensional fronts and active routes.",
+      "primary_party": {
+        "code": "PRT-04",
+        "title": "Crimson Cortex",
+        "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+      },
+      "primary_quest": {
+        "code": "QST-07",
+        "title": "Dormant Pantheon Awakening",
+        "frontier": "Occupy zero-thread archetype cells and assign them starter missions, packets, and witness rules."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening"
+        },
+        {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite"
+        }
+      ],
+      "dimensional_anchor": "party-quest orchestration",
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/05_ADVENTURE_PARTIES.md",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/04_QUEST_BOARD.md",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json"
+      ],
+      "receipt_target": "party-to-front mapping + command receipt",
+      "truth_state": "NEAR",
+      "reassessment_window": "14 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-13": {
+      "agent_id": "AGT-13",
+      "title": "Warrior",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "frontline endurance",
+      "current_role": "Holds pressure on a difficult frontier without collapsing into noise or theatrics.",
+      "missing_mode": "Air topology",
+      "transition_trigger": "When raw effort learns the map well enough to stop fighting the wrong wall.",
+      "corpus_symptom": "High-energy fronts can still overheat if persistence is not paired with route clarity and recovery windows.",
+      "primary_party": {
+        "code": "PRT-07",
+        "title": "Zodiac Vanguard",
+        "mission": "Occupy currently empty pantheon cells, seed missing ganglia, and give dormant archetypes starter quests."
+      },
+      "primary_quest": {
+        "code": "QST-07",
+        "title": "Dormant Pantheon Awakening",
+        "frontier": "Occupy zero-thread archetype cells and assign them starter missions, packets, and witness rules."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening"
+        },
+        {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial"
+        }
+      ],
+      "dimensional_anchor": "dormant-front activation",
+      "required_surfaces": [
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-07_dormant_pantheon_awakening.md",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_fire_6d_organism_bundle.json",
+        "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json"
+      ],
+      "receipt_target": "starter packet + occupancy ledger + endurance receipt",
+      "truth_state": "NEAR",
+      "reassessment_window": "14 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-14": {
+      "agent_id": "AGT-14",
+      "title": "Mirror",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "reflective diagnosis",
+      "current_role": "Shows the organism where it repeats itself, where it splits, and what remains unresolved.",
+      "missing_mode": "Fire differentiation",
+      "transition_trigger": "When reflection turns into a concrete change rather than an infinite replay of the same diagnosis.",
+      "corpus_symptom": "Duplicate families and shell drift remain some of the clearest structural costs in the workspace.",
+      "primary_party": {
+        "code": "PRT-05",
+        "title": "Verdant Rootkeepers",
+        "mission": "Collapse duplicate families, grow mirrors where needed, and preserve canonical lineage while the corpus expands."
+      },
+      "primary_quest": {
+        "code": "QST-05",
+        "title": "Canonical Collapse Crusade",
+        "frontier": "Resolve duplicated manuscript families and expand markdown mirrors for high-value canon."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-05",
+          "title": "Canonical Collapse Crusade"
+        },
+        {
+          "code": "QST-01",
+          "title": "The Sealed Sky Gate"
+        }
+      ],
+      "dimensional_anchor": "duplicate and drift reflection",
+      "required_surfaces": [
+        "self_actualize/corpus_atlas.json",
+        "self_actualize/archive_atlas.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/01_DIAGNOSIS/01_DUPLICATION_AND_DRIFT.md"
+      ],
+      "receipt_target": "duplicate burn-down receipt + canonical source update",
+      "truth_state": "OK",
+      "reassessment_window": "14 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-15": {
+      "agent_id": "AGT-15",
+      "title": "Trickster",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "boundary inversion",
+      "current_role": "Finds a non-obvious ingress or angle change when a route stalls or loops.",
+      "missing_mode": "Earth legality",
+      "transition_trigger": "When inversion remains bounded by admissibility and replay instead of becoming chaos for its own sake.",
+      "corpus_symptom": "The organism has real blocked boundaries, especially around live Docs ingress, archive opacity, and filtered bridge history.",
+      "primary_party": {
+        "code": "PRT-01",
+        "title": "Azure Gatebreakers",
+        "mission": "Break sealed boundaries between the local organism and the missing live-memory half without damaging witness law."
+      },
+      "primary_quest": {
+        "code": "QST-01",
+        "title": "The Sealed Sky Gate",
+        "frontier": "Unlock the Google Docs ingress and create the first witnessed live-memory route."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-01",
+          "title": "The Sealed Sky Gate"
+        },
+        {
+          "code": "QST-02",
+          "title": "Archive Deep Delve"
+        }
+      ],
+      "dimensional_anchor": "blocked-ingress inversion",
+      "required_surfaces": [
+        "self_actualize/live_docs_gate_status.md",
+        "Trading Bot/docs_search.py",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json"
+      ],
+      "receipt_target": "gate attempt receipt + bounded inversion note",
+      "truth_state": "BLOCKED",
+      "reassessment_window": "7 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "AGT-16": {
+      "agent_id": "AGT-16",
+      "title": "Dancer",
+      "agent_class": "advanced_agent",
+      "stage_or_domain": "responsive motion",
+      "current_role": "Moves between lines, fronts, and scales without tearing continuity or losing rhythm.",
+      "missing_mode": "Witness closure",
+      "transition_trigger": "When graceful adaptation is paired with receipts robust enough to survive a restart.",
+      "corpus_symptom": "Several fronts are ready for motion, but some still lack the lightweight, repeatable movement patterns that keep change alive.",
+      "primary_party": {
+        "code": "PRT-07",
+        "title": "Zodiac Vanguard",
+        "mission": "Occupy currently empty pantheon cells, seed missing ganglia, and give dormant archetypes starter quests."
+      },
+      "primary_quest": {
+        "code": "QST-07",
+        "title": "Dormant Pantheon Awakening",
+        "frontier": "Occupy zero-thread archetype cells and assign them starter missions, packets, and witness rules."
+      },
+      "supporting_quests": [
+        {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening"
+        },
+        {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine"
+        }
+      ],
+      "dimensional_anchor": "adaptive cross-front movement",
+      "required_surfaces": [
+        "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json",
+        "MATH/FINAL FORM/MATH GOD/atlas/math_air_6d_overlay_bundle.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/05_ADVENTURE_PARTIES.md"
+      ],
+      "receipt_target": "starter packet + adaptive handoff receipt",
+      "truth_state": "NEAR",
+      "reassessment_window": "14 days",
+      "docs_gate_status": "BLOCKED",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    }
+  }
+}

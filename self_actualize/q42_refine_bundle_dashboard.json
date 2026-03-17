@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-03-13T05:17:45.077662+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_q42_refine_bundle_closure",
+  "truth": "OK",
+  "front_id": "Q42",
+  "front_title": "Activate The First QSHRINK Agent Sweep",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`\n\n## Stderr"
+  },
+  "control_plane_precedence": {
+    "canonical_state": "generated refine witnesses plus verification sidecars",
+    "historical_state": "change feed entries plus receipts",
+    "temple_contract_canon": "TQ04 manifest/json/verifier/receipt bundle"
+  },
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+  "next_hall_seed": null,
+  "next_hall_seed_display": "none; do not invent QS64-25",
+  "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "reserve_frontier": "Q46",
+  "blocked_external_front": "Q02",
+  "hall_local_bundle_closed": true,
+  "source_paths": {
+    "task_matrix": "self_actualize/qshrink_agent_task_matrix.json",
+    "network_integration": "self_actualize/qshrink_network_integration.json",
+    "canonical_bundle": "self_actualize/q42_canonical_bundle.json",
+    "quest_board": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+    "active_queue": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+    "active_front": "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+    "looped_plan": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/13_QSHRINK_LOOPED_AGENTIC_PLAN.md",
+    "temple_state": "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+    "next_self_prompt": "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+    "drift_baseline": "self_actualize/q42_refine_bundle_drift_baseline.json",
+    "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_q42_refine_bundle_closure.md"
+  },
+  "baseline_summary": {
+    "mixed_state_detected": true,
+    "mixed_state_sources": [
+      "quest_board",
+      "active_queue",
+      "qshrink_active_front",
+      "looped_plan"
+    ],
+    "closed_bundle_sources": [
+      "active_queue",
+      "qshrink_active_front",
+      "temple_state",
+      "next_self_prompt"
+    ]
+  },
+  "task_matrix_truth": "OK",
+  "network_truth": "OK",
+  "canonical_bundle_truth": "OK"
+}

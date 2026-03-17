@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "truth_roles": [
+    {
+      "truth_role": "source",
+      "note": "primary local source matter"
+    },
+    {
+      "truth_role": "generated",
+      "note": "derived from runtime or control-plane generation"
+    },
+    {
+      "truth_role": "protocol",
+      "note": "normative law, contract, or procedure"
+    },
+    {
+      "truth_role": "ledger",
+      "note": "proof trail or progress witness"
+    },
+    {
+      "truth_role": "receipt",
+      "note": "writeback and closure proof"
+    },
+    {
+      "truth_role": "mirror",
+      "note": "runtime or governance reflection"
+    },
+    {
+      "truth_role": "archive-backed",
+      "note": "indexed through archive witness rather than live file path"
+    },
+    {
+      "truth_role": "reserve",
+      "note": "kept visible without forcing false integration claims"
+    }
+  ]
+}

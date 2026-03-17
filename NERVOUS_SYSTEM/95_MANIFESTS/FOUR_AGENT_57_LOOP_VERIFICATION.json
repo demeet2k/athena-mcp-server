@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-03-13T21:39:11.832377+00:00",
+  "protocol_id": "LP-57Ω",
+  "machine_core_symbol": "HΣ",
+  "truth": "OK",
+  "checks": {
+    "authority_chain_hierarchical": true,
+    "hall_front_next57": true,
+    "temple_front_tq07": true,
+    "current_loop_l02": true,
+    "current_loop_title_packet_truth_sync": true,
+    "current_loop_active": true,
+    "next_loop_l03": true,
+    "next_loop_seeded_only": true,
+    "docs_gate_blocked": true,
+    "visible_helix_8_16": true,
+    "shared_seat_law": true,
+    "packet_ids_normalized": true,
+    "q51_historical_only": true,
+    "loops_57": true,
+    "canon": {
+      "pass": true,
+      "protocol_id": "LP-57Ω",
+      "machine_core_symbol": "HΣ",
+      "public_fronts": {
+        "hall": "NEXT57",
+        "temple": "TQ07"
+      },
+      "role_order": [
+        "Researcher",
+        "Planner",
+        "Worker",
+        "Pruner"
+      ],
+      "visible_law": "16 -> 64 -> 256 -> 1024 -> 4096"
+    },
+    "hologram_integrity": {
+      "pass": true,
+      "layers": 11,
+      "routes": 13,
+      "nexus_rows": 19,
+      "tunnels": 6,
+      "strata": 5,
+      "timing_states": 256,
+      "cells": 4864,
+      "cell_formula": "19 x 256"
+    },
+    "sweep_honesty": {
+      "pass": true,
+      "instance_level_claims_added": false,
+      "MR_status": "frontier",
+      "PA_status": "frontier",
+      "LP_status": "inferred",
+      "fixed_point_rule": "stop when no candidate promotion and no material row-class change remain"
+    },
+    "docs_honesty": {
+      "pass": true,
+      "docs_gate_status": "BLOCKED",
+      "missing_files": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ]
+    },
+    "startup_control_story": {
+      "pass": true,
+      "active_cadence_membrane": "TQ06",
+      "landed_receiver": "TQ04",
+      "hall_feeder": "Q42",
+      "qs64_20": "Connectivity-Diagnose-Fractal",
+      "qs64_24": "historical only",
+      "qs64_25": "forbidden",
+      "runtime_frontier": "Q50",
+      "blocked_external_frontier": "Q02",
+      "next_ownerable_hall_uptake": "AP6D-H-WATER-Diagnose"
+    },
+    "demotion": {
+      "pass": true,
+      "live_canon": "LP-57Ω + HΣ",
+      "demoted_variants": [
+        "Q51",
+        "FA57-*",
+        "planner-first",
+        "19 families x 3 passes"
+      ]
+    },
+    "loop_record_integrity": {
+      "pass": true,
+      "loop_count": 57,
+      "checkpoint_records": [
+        "L01",
+        "L16",
+        "L32",
+        "L48",
+        "L57"
+      ],
+      "required_fields": [
+        "SeatAddr6D",
+        "CoordStamp12",
+        "SynthesisPacket",
+        "QuestPacket",
+        "ChangeReceipt",
+        "CompressionReceipt",
+        "restart_seed"
+      ]
+    },
+    "h6_integration": {
+      "pass": true,
+      "surface": "dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/06_level_6_hologram_weave_map.md",
+      "law": "Level 6 routes through HΣ and does not mint a parallel hologram ontology"
+    }
+  }
+}

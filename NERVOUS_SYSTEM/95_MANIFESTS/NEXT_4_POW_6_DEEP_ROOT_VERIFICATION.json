@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-03-13T15:02:10.178536+00:00",
+  "truth": "OK",
+  "checks": {
+    "basis_size_16": true,
+    "ordered_pairs_256": true,
+    "observer_basis_64": true,
+    "symmetry_stack_declared": true,
+    "level_1_exists": true,
+    "level_2_exists": true,
+    "level_3_exists": true,
+    "level_4_exists": true,
+    "appendix_q_exists": true
+  },
+  "counts": {
+    "basis_size": 16,
+    "ordered_pairs": 256,
+    "observer_basis": 64,
+    "symmetry_stack": "15 + zero point",
+    "matrix_files": 334,
+    "symmetry_files": 17,
+    "metro_files": 16,
+    "appendix_files": 25
+  }
+}

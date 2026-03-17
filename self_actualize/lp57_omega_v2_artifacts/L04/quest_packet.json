@@ -1,0 +1,97 @@
+{
+  "packet_type": "quest-packet",
+  "loop_id": "L04",
+  "status": "PUBLISHED",
+  "objective": "plan one precedence-safe control tuple",
+  "control_tuple": {
+    "active_membrane": "Q41 / TQ06",
+    "live_hall_carrier": "Q42",
+    "landed_temple_receiver": "TQ04",
+    "reserve_feeder": "Q46",
+    "external_blocker": "Q02",
+    "docs_gate": "BLOCKED",
+    "witness_only_fronts": [
+      "Q50",
+      "ECOSYSTEM/NERVOUS_SYSTEM"
+    ],
+    "earth_gate_required": true,
+    "required_appendix_support": [
+      "AppI",
+      "AppM"
+    ],
+    "overlay_only_appendix_support": [
+      "AppQ",
+      "AppO"
+    ]
+  },
+  "route_law": {
+    "primary_route": "Q41/TQ06 -> Q42 -> TQ04",
+    "reserve_rule": "Q46 remains visible but reserve-only",
+    "blocker_rule": "Q02 remains blocked and excluded from execution",
+    "witness_only_rule": "Q50 and ECOSYSTEM/NERVOUS_SYSTEM remain witness-only for L04"
+  },
+  "visible_quests": {
+    "hall": [
+      "Q57-L04-H01",
+      "Q57-L04-H02",
+      "Q57-L04-H03",
+      "Q57-L04-H04",
+      "Q57-L04-H05",
+      "Q57-L04-H06",
+      "Q57-L04-H07",
+      "Q57-L04-H08"
+    ],
+    "temple": [
+      "TQ57-L04-T01",
+      "TQ57-L04-T02",
+      "TQ57-L04-T03",
+      "TQ57-L04-T04",
+      "TQ57-L04-T05",
+      "TQ57-L04-T06",
+      "TQ57-L04-T07",
+      "TQ57-L04-T08"
+    ],
+    "ap6d_shadow": [
+      "AP6D-L04-SHADOW-01",
+      "AP6D-L04-SHADOW-02",
+      "AP6D-L04-SHADOW-03",
+      "AP6D-L04-SHADOW-04",
+      "AP6D-L04-SHADOW-05",
+      "AP6D-L04-SHADOW-06",
+      "AP6D-L04-SHADOW-07",
+      "AP6D-L04-SHADOW-08",
+      "AP6D-L04-SHADOW-09",
+      "AP6D-L04-SHADOW-10",
+      "AP6D-L04-SHADOW-11",
+      "AP6D-L04-SHADOW-12",
+      "AP6D-L04-SHADOW-13",
+      "AP6D-L04-SHADOW-14",
+      "AP6D-L04-SHADOW-15",
+      "AP6D-L04-SHADOW-16"
+    ],
+    "adventurer": [
+      "ADV-L04-01",
+      "ADV-L04-02",
+      "ADV-L04-03",
+      "ADV-L04-04",
+      "ADV-L04-05",
+      "ADV-L04-06",
+      "ADV-L04-07",
+      "ADV-L04-08",
+      "ADV-L04-09",
+      "ADV-L04-10",
+      "ADV-L04-11",
+      "ADV-L04-12",
+      "ADV-L04-13",
+      "ADV-L04-14",
+      "ADV-L04-15",
+      "ADV-L04-16"
+    ]
+  },
+  "witness_refs": [
+    "self_actualize/witness_hierarchy.json",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/07_CANONICAL_WITNESS_HIERARCHY.md"
+  ],
+  "next_ready_loop": "L05",
+  "docs_gate": "BLOCKED"
+}

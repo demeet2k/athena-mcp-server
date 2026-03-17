@@ -1,6 +1,6 @@
 # Ganglion `DEEPER CRYSTALIZATION`
 
-- Weight: `387`
+- Weight: `1248`
 - PrimaryRail: `Sa`
 - PrimaryFace: `Aether`
 - PreferredScale: `S8`
@@ -10,4 +10,3 @@
 
 ## Local Threads
 - `monitor` `37-gate looping skill and `256^256` corpus plus Chapter 11 hyperplans` -> `pod` / `AMBIG`
-- `monitor` `DEEPER CRYSTALIZATION` -> `ganglion` / `AMBIG`

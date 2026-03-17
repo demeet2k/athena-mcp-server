@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-03-13T21:52:42.782757+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "docs_gate_status": "BLOCKED",
+  "row_count": 2,
+  "rows": [
+    {
+      "loop_id": "L01",
+      "loop_status": "COMPLETED",
+      "organism_efficiency_baseline": 0.0,
+      "organism_efficiency_end_state": 0.3935,
+      "aggregate_positivity_score": 183,
+      "aggregate_xp_gain": 0,
+      "aggregate_xp_loss": 0,
+      "rank_distribution": {
+        "F": 16384,
+        "E": 0,
+        "D": 0,
+        "C": 0,
+        "B": 0,
+        "A": 0,
+        "S": 0
+      },
+      "promotion_events": [],
+      "quarantined_reward_runs": 0
+    },
+    {
+      "loop_id": "L02",
+      "loop_status": "ACTIVE",
+      "organism_efficiency_baseline": 0.0,
+      "organism_efficiency_end_state": 0.391,
+      "aggregate_positivity_score": 183,
+      "aggregate_xp_gain": 183,
+      "aggregate_xp_loss": 0,
+      "rank_distribution": {
+        "F": 16384,
+        "E": 0,
+        "D": 0,
+        "C": 0,
+        "B": 0,
+        "A": 0,
+        "S": 0
+      },
+      "promotion_events": [],
+      "quarantined_reward_runs": 0
+    }
+  ],
+  "aggregate": {
+    "current_loop_id": "L02",
+    "aggregate_positivity_score": 366,
+    "aggregate_xp_gain": 183,
+    "aggregate_xp_loss": 0,
+    "rank_distribution": {
+      "F": 16384,
+      "E": 0,
+      "D": 0,
+      "C": 0,
+      "B": 0,
+      "A": 0,
+      "S": 0
+    },
+    "promotion_events": [],
+    "quarantined_reward_runs": 0
+  }
+}

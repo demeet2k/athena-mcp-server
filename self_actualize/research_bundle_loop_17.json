@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L17",
+  "status": "PENDING",
+  "lead_agent": "SYNTHESIZER",
+  "objective": "synthesize candidate constants and invariants across tomes and code",
+  "advancement_tuple": {
+    "focus_family": "constants",
+    "frontier_type": "constant-extraction",
+    "dominant_evidence_class": "constant-ledger",
+    "compression_target": "duplicate-constant-language"
+  },
+  "truth_state": "NEAR"
+}

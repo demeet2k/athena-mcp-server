@@ -1,0 +1,192 @@
+{
+  "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "deep_root_authority": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "feeder_set": [
+    "Q42",
+    "Q46",
+    "TQ04",
+    "Q02"
+  ],
+  "master_agents": [
+    {
+      "master_agent_id": "M1",
+      "agent_id": "MASTER-SYNTHESIZER",
+      "display_name": "M1 Synthesizer / Researcher",
+      "role": "Synthesizer / Researcher",
+      "role_tag": "SYNTH-RESEARCH",
+      "focus": "deeply scan the full corpus, detect hidden bridges, contradictions, mathematical upgrades, and latent integration structures",
+      "action_type": "synthesize",
+      "per_loop_cap": 64,
+      "handoff": "MASTER-PLANNER",
+      "packet_output": "SynthesisPacket"
+    },
+    {
+      "master_agent_id": "M2",
+      "agent_id": "MASTER-PLANNER",
+      "display_name": "M2 Planner / Architect",
+      "role": "Planner / Architect",
+      "role_tag": "PLANNER-ARCHITECT",
+      "focus": "turn synthesis into Hall and Temple quest trees, dependency ladders, sequencing graphs, and restart-safe loop architecture",
+      "action_type": "plan",
+      "per_loop_cap": 64,
+      "handoff": "MASTER-WORKER",
+      "packet_output": "GuildQuestPacketSet + TempleQuestPacketSet"
+    },
+    {
+      "master_agent_id": "M3",
+      "agent_id": "MASTER-WORKER",
+      "display_name": "M3 Worker / Adventurer",
+      "role": "Worker / Adventurer",
+      "role_tag": "WORKER-ADVENTURER",
+      "focus": "apply replay-safe Hall and Temple work, land actual artifacts, bridges, equations, and implementation receipts",
+      "action_type": "execute",
+      "per_loop_cap": 64,
+      "handoff": "MASTER-PRUNER",
+      "packet_output": "ExecutionBatchPacket"
+    },
+    {
+      "master_agent_id": "M4",
+      "agent_id": "MASTER-PRUNER",
+      "display_name": "M4 Pruner / Compressor / Defragmenter",
+      "role": "Pruner / Compressor / Defragmenter",
+      "role_tag": "PRUNE-CRYSTAL",
+      "focus": "tighten the corpus, reduce redundancy, preserve witnesses, and reseed the next loop from a cleaner crystalline baseline",
+      "action_type": "prune",
+      "per_loop_cap": 64,
+      "handoff": "MASTER-SYNTHESIZER",
+      "packet_output": "CompressionReceipt"
+    }
+  ],
+  "loop_counts": {
+    "total": 57,
+    "M1": 23,
+    "M2": 15,
+    "M3": 6,
+    "M4": 13
+  },
+  "macro_caps": {
+    "observer_nomination_cap": 64,
+    "planner_bundle_cap": 16,
+    "hall_macro_update_cap": 4,
+    "temple_macro_update_cap": 4,
+    "worker_execution_cap": 8,
+    "pruner_packet_cap": 8
+  },
+  "lattice_totals": {
+    "total_seats": 4096,
+    "active_seats": 1024,
+    "dormant_seats": 3072,
+    "role_projections": 4
+  },
+  "control_plane_state": {
+    "status": "COMPATIBILITY_MIRROR",
+    "canonical_authority": "self_actualize/master_loop_state_57.json",
+    "active_coordination_membrane": "Q41 / TQ06",
+    "completed_loop": "L01 Truth Lock",
+    "active_loop": "L02 Whole-Corpus Census",
+    "motion_constitution_truth": "NEAR",
+    "merge_truth": "OK",
+    "adventurer_wave_id": "ADV64-wave1",
+    "merge_governs": "committee escalations only",
+    "motion_governs": "activation ranking before execution",
+    "docs_gate_law": "local-only until OAuth exists",
+    "independent_restart_seeds": "DISALLOWED"
+  },
+  "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling",
+  "protocol_id": "LP-57OMEGA",
+  "loop_grouping": [
+    14,
+    14,
+    14,
+    15
+  ],
+  "subagent_projection": {
+    "model": "virtual-4^6-shared-lattice",
+    "per_master_virtual_subagents": 4096,
+    "shared_lattice_total": 4096,
+    "master_loop_order": [
+      "M1 Synthesizer / Researcher",
+      "M2 Planner / Architect",
+      "M3 Worker / Adventurer",
+      "M4 Pruner / Compressor / Defragmenter"
+    ],
+    "depth_bands": [
+      {
+        "depth": "D1",
+        "label": "councils",
+        "resolution": "macro-governance"
+      },
+      {
+        "depth": "D2",
+        "label": "macro fronts",
+        "resolution": "frontier-program"
+      },
+      {
+        "depth": "D3",
+        "label": "quest packets",
+        "resolution": "packet-bundle"
+      },
+      {
+        "depth": "D4",
+        "label": "governance fibers",
+        "resolution": "fiber-routing"
+      },
+      {
+        "depth": "D5",
+        "label": "active seats",
+        "resolution": "execution-seat"
+      },
+      {
+        "depth": "D6",
+        "label": "atlas seats",
+        "resolution": "atlas-address"
+      }
+    ],
+    "activation_law": {
+      "default_topk": 64,
+      "burst_128_loops": [
+        14,
+        28,
+        42,
+        56
+      ],
+      "burst_256_loop": 57
+    }
+  },
+  "liminal_coordinate_schema": {
+    "axes": [
+      "Xs",
+      "Ys",
+      "Zs",
+      "Ts",
+      "Qs",
+      "Rs",
+      "Cs",
+      "Fs",
+      "Ms",
+      "Ns",
+      "Hs",
+      "Omega_s"
+    ],
+    "axis_definitions": {
+      "Xs": "root family",
+      "Ys": "document or family",
+      "Zs": "chapter or section cluster",
+      "Ts": "loop and revision layer",
+      "Qs": "math density",
+      "Rs": "symbolic density",
+      "Cs": "compression state",
+      "Fs": "framework lens",
+      "Ms": "manuscript or metro branch",
+      "Ns": "mycelial or neural node",
+      "Hs": "hierarchy tier",
+      "Omega_s": "zero-point or aether relation"
+    },
+    "lookup_key_schema": "NodeStamp = AgentTag @ CoordinateStamp + WitnessClass + QuestRefs + ArtifactRefs",
+    "coordinate_payload_path": "self_actualize\\lp_57_liminal_coordinate_stamps.json"
+  },
+  "lookup_key_schema": "NodeStamp = AgentTag @ CoordinateStamp + WitnessClass + QuestRefs + ArtifactRefs",
+  "truth": "OK",
+  "note": "Parallel local-first swarm frontier upgraded into the exact LP-57OMEGA prime-loop liminal hive protocol with canonical packet law, 5 plus 22 awakening support notes, and machine-readable node stamps."
+}

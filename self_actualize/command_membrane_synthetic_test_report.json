@@ -1,0 +1,149 @@
+{
+  "generated_at": "2026-03-14T00:22:00.044008+00:00",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "witness_class": "LOCAL_WITNESS_ONLY",
+    "detail": "blocked-by-missing-credentials",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "credentials_exists": false,
+    "token_exists": false
+  },
+  "native_watch_test": {
+    "watch_payload": {
+      "generated_at": "2026-03-14T00:21:33.436280+00:00",
+      "watch_scope": "first-wave local swarm mesh",
+      "watcher_mode": "event-driven",
+      "fallback_mode": "polling",
+      "polling_fallback_used": false,
+      "degraded_mode": false,
+      "source_ids": [
+        "command_root",
+        "guild_hall_board",
+        "temple_board",
+        "active_run",
+        "build_queue",
+        "active_thread_root",
+        "global_command_thread"
+      ],
+      "event_count": 4,
+      "event_ids": [
+        "CMD-000035",
+        "CMD-000036",
+        "CMD-000037",
+        "CMD-000038"
+      ],
+      "native_event_count": 0,
+      "bootstrap_existing": false,
+      "emit_only": false
+    },
+    "finalization": {
+      "event_id": "CMD-000038",
+      "route_state_present": true,
+      "selected_targets": [
+        "BUILD-QUEUE-A4-ARCHIVIST",
+        "BUILD-QUEUE-A2-ROUTER",
+        "BUILD-QUEUE-A3-WORKER",
+        "BUILD-QUEUE-A1-SCOUT"
+      ],
+      "claim_id": "CLM-20260314T002133Z-6af293",
+      "claim_status": "active",
+      "commit_result": "",
+      "reinforced_edges": 3,
+      "coordinate_stamp_present": true,
+      "coord12_present": true,
+      "route_path": "BUILD-QUEUE-A1-SCOUT>BUILD-QUEUE-A2-ROUTER>BUILD-QUEUE-A3-WORKER>BUILD-QUEUE-A4-ARCHIVIST"
+    }
+  },
+  "polling_fallback_test": {
+    "watch_payload": {
+      "generated_at": "2026-03-14T00:21:56.177051+00:00",
+      "watch_scope": "first-wave local swarm mesh",
+      "watcher_mode": "polling",
+      "fallback_mode": "polling",
+      "polling_fallback_used": true,
+      "degraded_mode": true,
+      "source_ids": [
+        "command_root",
+        "guild_hall_board",
+        "temple_board",
+        "active_run",
+        "build_queue",
+        "active_thread_root",
+        "global_command_thread"
+      ],
+      "event_count": 6,
+      "event_ids": [
+        "CMD-000039",
+        "CMD-000040",
+        "CMD-000041",
+        "CMD-000042",
+        "CMD-000043",
+        "CMD-000044"
+      ],
+      "native_event_count": 0,
+      "bootstrap_existing": false,
+      "emit_only": false
+    },
+    "finalization": {
+      "event_id": "CMD-000044",
+      "route_state_present": true,
+      "selected_targets": [
+        "BUILD-QUEUE-A4-ARCHIVIST",
+        "BUILD-QUEUE-A2-ROUTER",
+        "BUILD-QUEUE-A3-WORKER",
+        "BUILD-QUEUE-A1-SCOUT"
+      ],
+      "claim_id": "CLM-20260314T002156Z-155ce9",
+      "claim_status": "active",
+      "commit_result": "",
+      "reinforced_edges": 3,
+      "coordinate_stamp_present": true,
+      "coord12_present": true,
+      "route_path": "BUILD-QUEUE-A1-SCOUT>BUILD-QUEUE-A2-ROUTER>BUILD-QUEUE-A3-WORKER>BUILD-QUEUE-A4-ARCHIVIST"
+    }
+  },
+  "metrics_snapshot": {
+    "protocol_id": "NEXT57_COMMAND_PROTOCOL_V2",
+    "watcher_mode": "event-driven",
+    "watch_scope": "first-wave local swarm mesh",
+    "routing_policy": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness",
+    "active_membrane": "Q41 / TQ06",
+    "feeder_stack": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "top_capillaries": [
+      {
+        "edge_id": "COMMAND-ROOT-A1-SCOUT>COMMAND-ROOT-A2-ROUTER",
+        "edge_strength": 115.037144,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "COMMAND-ROOT-A2-ROUTER>COMMAND-ROOT-A3-WORKER",
+        "edge_strength": 115.037144,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "COMMAND-ROOT-A3-WORKER>COMMAND-ROOT-A4-ARCHIVIST",
+        "edge_strength": 115.037144,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "BUILD-QUEUE-A1-SCOUT>BUILD-QUEUE-A2-ROUTER",
+        "edge_strength": 113.943856,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "BUILD-QUEUE-A2-ROUTER>BUILD-QUEUE-A3-WORKER",
+        "edge_strength": 113.943856,
+        "classification": "vein"
+      }
+    ],
+    "latency_row_count": 55
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-09T15:25:00.250505+00:00",
-  "deep_pass": 6,
+  "generated_at": "2026-03-13T01:33:57.654516+00:00",
+  "deep_pass": 17,
   "live_docs_blocked": true,
   "signs": [
     {
@@ -210,7 +210,7 @@
     {
       "id": "COUNCIL-civilization_and_governance",
       "family": "civilization-and-governance",
-      "doc_count": 46,
+      "doc_count": 42,
       "chapter_targets": [
         "Ch17",
         "Ch18",
@@ -232,6 +232,17 @@
       ]
     },
     {
+      "id": "COUNCIL-helical_recursion_engine",
+      "family": "helical-recursion-engine",
+      "doc_count": 3,
+      "chapter_targets": [
+        "Ch11",
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ]
+    },
+    {
       "id": "COUNCIL-higher_dimensional_geometry",
       "family": "higher-dimensional-geometry",
       "doc_count": 13,
@@ -245,13 +256,15 @@
     {
       "id": "COUNCIL-identity_and_instruction",
       "family": "identity-and-instruction",
-      "doc_count": 11,
+      "doc_count": 14,
       "chapter_targets": [
+        "Ch02",
         "Ch09",
         "Ch10",
         "Ch13",
         "Ch16",
         "Ch17",
+        "Ch19",
         "Ch20"
       ]
     },
@@ -276,7 +289,6 @@
         "Ch08",
         "Ch09",
         "Ch10",
-        "Ch11",
         "Ch14",
         "Ch16",
         "Ch19"
@@ -296,7 +308,7 @@
     {
       "id": "COUNCIL-transport_and_runtime",
       "family": "transport-and-runtime",
-      "doc_count": 38,
+      "doc_count": 39,
       "chapter_targets": [
         "Ch07",
         "Ch15",

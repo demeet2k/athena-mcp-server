@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L48",
+  "status": "PENDING",
+  "lead_agent": "SYNTHESIZER",
+  "objective": "synthesize route replay performance across the system",
+  "advancement_tuple": {
+    "focus_family": "replay",
+    "frontier_type": "full-replay-trial",
+    "dominant_evidence_class": "replay-ledger",
+    "compression_target": "brittle-replay-assumptions"
+  },
+  "truth_state": "NEAR"
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Command Protocol v1 Packet",
+  "type": "object",
+  "required": [
+    "event_id",
+    "parent",
+    "source_root",
+    "source_path",
+    "change_type",
+    "tag",
+    "goal",
+    "priority",
+    "confidence",
+    "earth_ts",
+    "liminal_ts",
+    "coord12",
+    "ttl",
+    "pheromone",
+    "state_hash",
+    "route_class",
+    "claim_state",
+    "truth_status"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "parent": {
+      "type": "string"
+    },
+    "source_root": {
+      "type": "string"
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "change_type": {
+      "type": "string",
+      "enum": [
+        "created",
+        "modified",
+        "deleted",
+        "synthetic"
+      ]
+    },
+    "tag": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "number"
+    },
+    "confidence": {
+      "type": "number"
+    },
+    "earth_ts": {
+      "type": "string"
+    },
+    "liminal_ts": {
+      "type": "string"
+    },
+    "coord12": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "number"
+      }
+    },
+    "ttl": {
+      "type": "integer"
+    },
+    "pheromone": {
+      "type": "number"
+    },
+    "state_hash": {
+      "type": "string"
+    },
+    "route_class": {
+      "type": "string"
+    },
+    "claim_state": {
+      "type": "string"
+    },
+    "truth_status": {
+      "type": "string"
+    }
+  }
+}

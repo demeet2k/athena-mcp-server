@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L06",
+  "status": "PENDING",
+  "lead_agent": "SYNTHESIZER",
+  "objective": "synthesize highest-leverage basis pairings",
+  "advancement_tuple": {
+    "focus_family": "pair-matrix",
+    "frontier_type": "pair-priority-scan",
+    "dominant_evidence_class": "pair-synthesis",
+    "compression_target": "low-signal-pairs"
+  },
+  "truth_state": "NEAR"
+}

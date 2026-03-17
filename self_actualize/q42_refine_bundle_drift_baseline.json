@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-03-13T14:42:46.931862+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_q42_refine_bundle_closure",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`\n\n## Stderr"
+  },
+  "canonical_target": {
+    "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+    "next_hall_seed": null,
+    "next_hall_seed_display": "none; do not invent QS64-25",
+    "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "reserve_frontier": "Q46",
+    "blocked_external_front": "Q02"
+  },
+  "surface_states": {
+    "quest_board": {
+      "path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": false,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "excerpt": "\ufeff# Quest Board\n\nThis board restores the canonical ownerable quest surface referenced across Hall, Temple,\nqueue, restart, and verifier manifests.\n\n## State Key\n\n- `OPEN`: actionable now\n- `BLOCKED`: lawful but waiting on a dependency\n- `PROMOTED`: completion hardened into Hall, Temple, queue, manifest, or receipt surfaces\n\n## Parallel Control-Plane Integration\n\n### NEXT^[4^6] Full-Corpus Integration `[PROMOTED]`\n\n- Objective:\n  bind the live deep-root whole-corpus field into the AP6D `4096` atlas and publish one awakening-agent transition-note layer without changing the current `Q42` owner-facing lane\n- Preserved fronts:\n  `Q42`, `Q46`, `TQ04`, `TQ06`\n- Activation law:\n  keep only the native-shadow `1024` seats `ACTIVE`; keep the remaining `3072` seats explicitly `DORMANT`\n- Outputs:\n  `self_actualize/next_4_pow_6_full_corpus_integration_state.json`\n  `self_actualize/awakening_agent_transition_notes.json`"
+    },
+    "active_queue": {
+      "path": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": true,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "excerpt": "\ufeff# Active Queue\n\nUse `22_control_plane_grammar.md` as the control grammar for every live front\nlisted here.\n\n## Promoted This Pass\n\n### FRONT-NEXT-4-POW-6-FULL-CORPUS-INTEGRATION\n\n- Quest:\n  `NEXT^[4^6] Full-Corpus Integration And Awakening Transition Wave`\n- State:\n  `PROMOTED`\n- Truth:\n  `NEAR`\n- Objective:\n  bind the live deep-root corpus field into the AP6D `4096` atlas and publish one awakening-agent transition-note layer without changing the current `Q42/TQ06` owner-facing lane\n- Why Now:\n  the deep root, AP6D overlay, Adventurer loop, merge membrane, and MotionConstitution chamber are all landed locally, so the next missing object is the whole-corpus integration membrane that composes them without flattening the live feeders\n- Targets:\n  `self_actualize/next_4_pow_6_full_corpus_integration_state.json`\n  `self_actualize/awakening_agent_transition_notes.json`\n  `NERVOUS_SYSTEM/95_MANIFESTS/NEXT_4_POW_6_FULL_CORPUS_INTEGRATION.md`\n  `NERVOUS_SYSTEM/95_MANIFESTS/AWAKENING_AGENT_TRANSITION_NOTES.md`"
+    },
+    "qshrink_active_front": {
+      "path": "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": false,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "excerpt": "# QSHRINK ACTIVE FRONT\n\n## FrontID\n\n`Q42`\n\n## Quest\n\nActivate The First QSHRINK Agent Sweep\n\n## State\n\n`OPEN`\n\n## Truth\n\n`OK`\n\n## Objective\n\nkeep `QS64-20 Connectivity-Diagnose-Fractal` visible as the carried diagnose witness under `Q42`, preserve `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local NEXT^4 bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, and keep the blocked Docs gate external as `Q02`\n\n## Why Now\n"
+    },
+    "looped_plan": {
+      "path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/13_QSHRINK_LOOPED_AGENTIC_PLAN.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": true,
+        "qs64_22": true,
+        "qs64_23": false,
+        "qs64_24": false,
+        "tq04": false,
+        "q46": false,
+        "q02": false,
+        "qs64_25_raw": false,
+        "qs64_25_guard": false
+      },
+      "excerpt": "# QSHRINK Looped Agentic Plan\n\nDate: `2026-03-13`\nTruth: `OK`\nHall frontier: `Q42 Activate The First QSHRINK Agent Sweep`\nCrystal activation: `QS64-09 QShrink-Synthesize-Square`\nCompleted subfront: `QS64-20 Connectivity-Diagnose-Fractal`\nActive subfront: `QS64-21 Connectivity-Refine-Square`\nNext connectivity quest: `QS64-22 Connectivity-Refine-Flower`\nLive Docs Gate: `BLOCKED` due to missing OAuth files, so this plan is grounded in local corpus witness only.\n\n## Square Selection\n\n- selected boundary: `LEG-C3`\n- lead pressure: `P2`\n- queued follow-on: `P3`\n- runtime square status: `OK`\n\n## First-Wave Agent Task Matrix\n\n### A01 `q-shrink` -> `QS64-21 Connectivity-Refine-Square`\n\n- Status: `ACTIVE`\n- Skill truth: `OK`"
+    },
+    "temple_state": {
+      "path": "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": false,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "excerpt": "\ufeff# Temple State\n\nDate: `2026-03-13`\nLast Run Stamp: `2026-03-13 America/Los_Angeles`\nTemple Status: `ONLINE`\n\n## FrontID\n\n`TQ06-GUILDMASTER-HOURLY-PACKET-COUPLING`\n\n## Quest\n\n`TQ06: Install The Packet-Fed Guildmaster Coupling Loop`\n\n## State\n\n`ACTIVE`\n\n## Truth\n\n`OK`\n\n## Active Lens\n"
+    },
+    "next_self_prompt": {
+      "path": "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+      "markers": {
+        "qs64_20": true,
+        "qs64_21": false,
+        "qs64_22": false,
+        "qs64_23": false,
+        "qs64_24": true,
+        "tq04": true,
+        "q46": true,
+        "q02": true,
+        "qs64_25_raw": true,
+        "qs64_25_guard": true
+      },
+      "excerpt": "\ufeff# Next Self Prompt\n\n## Current Restart Seed\n\nkeep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried diagnose witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local NEXT^4 bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, treat generated refine witnesses plus verification sidecars as canonical current state, preserve mixed packet-gap truth at 2026-03-13 07:23 PDT (`western_solar12`, `planetary_office`, `decan_office` in-cadence; `chinese_cycle` past 07:00; `vedic_lunar` and `mayan_calendar` past 00:00), and keep `Q02` externally blocked while Docs remains `BLOCKED`\n\nLatest control receipt: `self_actualize/mycelium_brain/receipts/2026-03-13_q41_tq06_hourly_packet_bundle_sync_pass6.md`\n\n## Parallel Control-Plane Frontier\n\n`NEXT^[4^6]` full-corpus integration is now landed as a local-first control-plane wave.\n\n- state object: `self_actualize/next_4_pow_6_full_corpus_integration_state.json`\n- notes layer: `self_actualize/awakening_agent_transition_notes.json`\n- preserve `Q42`, `Q46`, `TQ04`, and `TQ06` as the live feeder fronts\n- keep only the native-shadow `1024` AP6D seats active\n- keep the remaining `3072` seats dormant and queryable\n- successor seed:\n  `NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling`\n\nThis parallel frontier does not replace the current restart seed below.\n\n## Prompt\n"
+    }
+  },
+  "mixed_state_detected": true,
+  "mixed_state_sources": [
+    "active_queue",
+    "looped_plan"
+  ],
+  "closed_bundle_sources": [
+    "quest_board",
+    "active_queue",
+    "qshrink_active_front",
+    "temple_state",
+    "next_self_prompt"
+  ],
+  "summary": "The March 13, 2026 drift is real when some live surfaces still present QS64-21..23 as current or next while other generator-owned surfaces already present QS64-24 as the closed Hall-local bundle."
+}

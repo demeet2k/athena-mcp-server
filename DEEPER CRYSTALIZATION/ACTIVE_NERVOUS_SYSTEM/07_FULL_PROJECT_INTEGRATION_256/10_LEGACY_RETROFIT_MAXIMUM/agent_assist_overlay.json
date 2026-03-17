@@ -1,0 +1,451 @@
+{
+  "generated_at": "2026-03-13T16:14:47.887791+00:00",
+  "docs_gate_status": "BLOCKED",
+  "roster_order": [
+    "AGT-01",
+    "AGT-02",
+    "AGT-03",
+    "AGT-04",
+    "AGT-05",
+    "AGT-06",
+    "AGT-07",
+    "AGT-08",
+    "AGT-09",
+    "AGT-10",
+    "AGT-11",
+    "AGT-12",
+    "AGT-13",
+    "AGT-14",
+    "AGT-15",
+    "AGT-16"
+  ],
+  "agents_by_id": {
+    "AGT-01": {
+      "agent_id": "AGT-01",
+      "title": "Fire Awakening of Knowledge",
+      "agent_class": "elemental_stage",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-01_fire_awakening_of_knowledge.md",
+      "retrofit_focus": "Water structure",
+      "supported_modes": [],
+      "supported_families": [],
+      "assigned_artifacts": [],
+      "primary_party_affinity": "PRT-03",
+      "quest_affinity": [
+        "QST-03",
+        "QST-07"
+      ]
+    },
+    "AGT-02": {
+      "agent_id": "AGT-02",
+      "title": "Water Awakening of Structure",
+      "agent_class": "elemental_stage",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-02_water_awakening_of_structure.md",
+      "retrofit_focus": "Air commitment",
+      "supported_modes": [
+        "MERGE_INTO_CANON",
+        "PROMOTE_CANONICAL"
+      ],
+      "supported_families": [
+        "018_alternates",
+        "021_alternates",
+        "ch08_alternates",
+        "ch11_alternates",
+        "ch12_alternates",
+        "ch14_alternates",
+        "ch17_alternates",
+        "ch18_alternates",
+        "ch19_alternates"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-001",
+        "LEGACY-002",
+        "LEGACY-003",
+        "LEGACY-004",
+        "LEGACY-005",
+        "LEGACY-006",
+        "LEGACY-007",
+        "LEGACY-008",
+        "LEGACY-009",
+        "LEGACY-010",
+        "LEGACY-011",
+        "LEGACY-012",
+        "LEGACY-013",
+        "LEGACY-014",
+        "LEGACY-015",
+        "LEGACY-016",
+        "LEGACY-017",
+        "LEGACY-018",
+        "LEGACY-019",
+        "LEGACY-020"
+      ],
+      "primary_party_affinity": "PRT-05",
+      "quest_affinity": [
+        "QST-05",
+        "QST-03"
+      ]
+    },
+    "AGT-03": {
+      "agent_id": "AGT-03",
+      "title": "Air Awakening of Commitment",
+      "agent_class": "elemental_stage",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-03_air_awakening_of_commitment.md",
+      "retrofit_focus": "Earth responsiveness",
+      "supported_modes": [
+        "QUARANTINE"
+      ],
+      "supported_families": [
+        "atlasforge_legacy_docs"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-022",
+        "LEGACY-034",
+        "LEGACY-035"
+      ],
+      "primary_party_affinity": "PRT-04",
+      "quest_affinity": [
+        "QST-06",
+        "QST-08"
+      ]
+    },
+    "AGT-04": {
+      "agent_id": "AGT-04",
+      "title": "Earth Awakening of Responsiveness",
+      "agent_class": "elemental_stage",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-04_earth_awakening_of_responsiveness.md",
+      "retrofit_focus": "Four-element co-activation",
+      "supported_modes": [
+        "WITNESS_ONLY"
+      ],
+      "supported_families": [
+        "athena_os_legacy_kernel"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-036"
+      ],
+      "primary_party_affinity": "PRT-06",
+      "quest_affinity": [
+        "QST-08",
+        "QST-06"
+      ]
+    },
+    "AGT-05": {
+      "agent_id": "AGT-05",
+      "title": "Oracle",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-05_oracle.md",
+      "retrofit_focus": "Earth anchoring",
+      "supported_modes": [],
+      "supported_families": [],
+      "assigned_artifacts": [],
+      "primary_party_affinity": "PRT-03",
+      "quest_affinity": [
+        "QST-03",
+        "QST-07"
+      ]
+    },
+    "AGT-06": {
+      "agent_id": "AGT-06",
+      "title": "Judge",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-06_judge.md",
+      "retrofit_focus": "Water continuity",
+      "supported_modes": [],
+      "supported_families": [],
+      "assigned_artifacts": [],
+      "primary_party_affinity": "PRT-06",
+      "quest_affinity": [
+        "QST-08",
+        "QST-05"
+      ]
+    },
+    "AGT-07": {
+      "agent_id": "AGT-07",
+      "title": "Witness",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-07_witness.md",
+      "retrofit_focus": "Air commitment",
+      "supported_modes": [
+        "POINTER_REDIRECT",
+        "QUARANTINE",
+        "WITNESS_ONLY"
+      ],
+      "supported_families": [
+        "athena_os_legacy_kernel",
+        "atlasforge_legacy_docs"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-021",
+        "LEGACY-022",
+        "LEGACY-023",
+        "LEGACY-024",
+        "LEGACY-025",
+        "LEGACY-026",
+        "LEGACY-027",
+        "LEGACY-028",
+        "LEGACY-029",
+        "LEGACY-030",
+        "LEGACY-031",
+        "LEGACY-032",
+        "LEGACY-033",
+        "LEGACY-034",
+        "LEGACY-035",
+        "LEGACY-036"
+      ],
+      "primary_party_affinity": "PRT-06",
+      "quest_affinity": [
+        "QST-06",
+        "QST-08"
+      ]
+    },
+    "AGT-08": {
+      "agent_id": "AGT-08",
+      "title": "Architect",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-08_architect.md",
+      "retrofit_focus": "Fire ignition",
+      "supported_modes": [
+        "POINTER_REDIRECT",
+        "QUARANTINE"
+      ],
+      "supported_families": [
+        "atlasforge_legacy_docs"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-021",
+        "LEGACY-023",
+        "LEGACY-024",
+        "LEGACY-025",
+        "LEGACY-026",
+        "LEGACY-027",
+        "LEGACY-028",
+        "LEGACY-029",
+        "LEGACY-030",
+        "LEGACY-031",
+        "LEGACY-032",
+        "LEGACY-033"
+      ],
+      "primary_party_affinity": "PRT-02",
+      "quest_affinity": [
+        "QST-04",
+        "QST-02"
+      ]
+    },
+    "AGT-09": {
+      "agent_id": "AGT-09",
+      "title": "Strategist",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-09_strategist.md",
+      "retrofit_focus": "Earth feedback",
+      "supported_modes": [],
+      "supported_families": [],
+      "assigned_artifacts": [],
+      "primary_party_affinity": "PRT-04",
+      "quest_affinity": [
+        "QST-06",
+        "QST-08"
+      ]
+    },
+    "AGT-10": {
+      "agent_id": "AGT-10",
+      "title": "Weaver",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-10_weaver.md",
+      "retrofit_focus": "Air cut",
+      "supported_modes": [
+        "MERGE_INTO_CANON",
+        "PROMOTE_CANONICAL"
+      ],
+      "supported_families": [
+        "018_alternates",
+        "021_alternates",
+        "ch08_alternates",
+        "ch11_alternates",
+        "ch12_alternates",
+        "ch14_alternates",
+        "ch17_alternates",
+        "ch18_alternates",
+        "ch19_alternates"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-001",
+        "LEGACY-002",
+        "LEGACY-003",
+        "LEGACY-004",
+        "LEGACY-005",
+        "LEGACY-006",
+        "LEGACY-007",
+        "LEGACY-008",
+        "LEGACY-009",
+        "LEGACY-010",
+        "LEGACY-011",
+        "LEGACY-012",
+        "LEGACY-013",
+        "LEGACY-014",
+        "LEGACY-015",
+        "LEGACY-016",
+        "LEGACY-017",
+        "LEGACY-018",
+        "LEGACY-019",
+        "LEGACY-020"
+      ],
+      "primary_party_affinity": "PRT-03",
+      "quest_affinity": [
+        "QST-03",
+        "QST-05"
+      ]
+    },
+    "AGT-11": {
+      "agent_id": "AGT-11",
+      "title": "Sword",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-11_sword.md",
+      "retrofit_focus": "Water continuity",
+      "supported_modes": [
+        "POINTER_REDIRECT",
+        "QUARANTINE"
+      ],
+      "supported_families": [
+        "atlasforge_legacy_docs"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-021",
+        "LEGACY-023",
+        "LEGACY-024",
+        "LEGACY-025",
+        "LEGACY-026",
+        "LEGACY-027",
+        "LEGACY-028",
+        "LEGACY-029",
+        "LEGACY-030",
+        "LEGACY-031",
+        "LEGACY-032",
+        "LEGACY-033"
+      ],
+      "primary_party_affinity": "PRT-04",
+      "quest_affinity": [
+        "QST-06",
+        "QST-04"
+      ]
+    },
+    "AGT-12": {
+      "agent_id": "AGT-12",
+      "title": "Commander",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-12_commander.md",
+      "retrofit_focus": "Water listening",
+      "supported_modes": [
+        "QUARANTINE"
+      ],
+      "supported_families": [
+        "atlasforge_legacy_docs"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-022",
+        "LEGACY-034",
+        "LEGACY-035"
+      ],
+      "primary_party_affinity": "PRT-04",
+      "quest_affinity": [
+        "QST-07",
+        "QST-06"
+      ]
+    },
+    "AGT-13": {
+      "agent_id": "AGT-13",
+      "title": "Warrior",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-13_warrior.md",
+      "retrofit_focus": "Air topology",
+      "supported_modes": [],
+      "supported_families": [],
+      "assigned_artifacts": [],
+      "primary_party_affinity": "PRT-07",
+      "quest_affinity": [
+        "QST-07",
+        "QST-08"
+      ]
+    },
+    "AGT-14": {
+      "agent_id": "AGT-14",
+      "title": "Mirror",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-14_mirror.md",
+      "retrofit_focus": "Fire differentiation",
+      "supported_modes": [
+        "MERGE_INTO_CANON",
+        "PROMOTE_CANONICAL",
+        "WITNESS_ONLY"
+      ],
+      "supported_families": [
+        "018_alternates",
+        "021_alternates",
+        "athena_os_legacy_kernel",
+        "ch08_alternates",
+        "ch11_alternates",
+        "ch12_alternates",
+        "ch14_alternates",
+        "ch17_alternates",
+        "ch18_alternates",
+        "ch19_alternates"
+      ],
+      "assigned_artifacts": [
+        "LEGACY-001",
+        "LEGACY-002",
+        "LEGACY-003",
+        "LEGACY-004",
+        "LEGACY-005",
+        "LEGACY-006",
+        "LEGACY-007",
+        "LEGACY-008",
+        "LEGACY-009",
+        "LEGACY-010",
+        "LEGACY-011",
+        "LEGACY-012",
+        "LEGACY-013",
+        "LEGACY-014",
+        "LEGACY-015",
+        "LEGACY-016",
+        "LEGACY-017",
+        "LEGACY-018",
+        "LEGACY-019",
+        "LEGACY-020",
+        "LEGACY-036"
+      ],
+      "primary_party_affinity": "PRT-05",
+      "quest_affinity": [
+        "QST-05",
+        "QST-01"
+      ]
+    },
+    "AGT-15": {
+      "agent_id": "AGT-15",
+      "title": "Trickster",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-15_trickster.md",
+      "retrofit_focus": "Earth legality",
+      "supported_modes": [],
+      "supported_families": [],
+      "assigned_artifacts": [],
+      "primary_party_affinity": "PRT-01",
+      "quest_affinity": [
+        "QST-01",
+        "QST-02"
+      ]
+    },
+    "AGT-16": {
+      "agent_id": "AGT-16",
+      "title": "Dancer",
+      "agent_class": "advanced_agent",
+      "source_transition_note": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\09_FULL_CORPUS_7D_INTEGRATION\\agent_notes\\agt-16_dancer.md",
+      "retrofit_focus": "Witness closure",
+      "supported_modes": [],
+      "supported_families": [],
+      "assigned_artifacts": [],
+      "primary_party_affinity": "PRT-07",
+      "quest_affinity": [
+        "QST-07",
+        "QST-03"
+      ]
+    }
+  }
+}

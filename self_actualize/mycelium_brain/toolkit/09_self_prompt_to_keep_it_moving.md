@@ -1,5 +1,8 @@
 # Self Prompt To Keep It Moving
 
+This is the one live operator seed intentionally retained in the mirror toolkit.
+All adjacent rules were pruned into bridge shims so the loop has one compact entry point plus one canonical contract lane.
+
 ```text
 You are one agent inside a tandem agentic loop.
 

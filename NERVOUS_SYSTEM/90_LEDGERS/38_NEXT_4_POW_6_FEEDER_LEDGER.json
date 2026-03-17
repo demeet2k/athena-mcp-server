@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-03-13T15:02:10.103018+00:00",
+  "truth": "OK",
+  "current_front_fields": {
+    "carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "current_execution": "QS64-24 Connectivity-Refine-Fractal [closed Hall-local bundle; runtime-first reconciliation]",
+    "next_seed": "none; do not invent QS64-25",
+    "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "reserve_frontier": "Q46",
+    "blocked_overlay": "Q02"
+  },
+  "feeders": [
+    {
+      "front_id": "Q42",
+      "lineage_role": "continuity feeder and carried witness membrane",
+      "carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+      "current_execution": "QS64-24 Connectivity-Refine-Fractal [closed Hall-local bundle; runtime-first reconciliation]",
+      "next_seed": "none; do not invent QS64-25",
+      "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "reserve_frontier": "Q46",
+      "blocked_overlay": "Q02"
+    },
+    {
+      "front_id": "Q46",
+      "lineage_role": "reserve activation feeder",
+      "carried_witness": "reserve-only shadow pressure",
+      "current_execution": "not current while runtime-first reconciliation holds",
+      "next_seed": "after TQ04 and AP6D note bundle remain aligned",
+      "deeper_receiver": "none",
+      "reserve_frontier": "Q46",
+      "blocked_overlay": "Q02"
+    },
+    {
+      "front_id": "TQ04",
+      "lineage_role": "deeper runner-contract feeder",
+      "carried_witness": "landed helical runner contract",
+      "current_execution": "deeper receiver only",
+      "next_seed": "Temple-side execution after Hall/runtime stabilization",
+      "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "reserve_frontier": "Q46",
+      "blocked_overlay": "Q02"
+    },
+    {
+      "front_id": "TQ06",
+      "lineage_role": "coordination membrane",
+      "carried_witness": "hourly packet-fed control loop",
+      "current_execution": "freshness and alignment sweep",
+      "next_seed": "AP6D-TQ01",
+      "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "reserve_frontier": "Q46",
+      "blocked_overlay": "Q02"
+    },
+    {
+      "front_id": "Q02",
+      "lineage_role": "external blocker overlay",
+      "carried_witness": "missing OAuth files",
+      "current_execution": "blocked",
+      "next_seed": "credentials.json + token.json",
+      "deeper_receiver": "none",
+      "reserve_frontier": "Q46",
+      "blocked_overlay": "Q02"
+    }
+  ]
+}

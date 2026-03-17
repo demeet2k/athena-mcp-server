@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-03-13T00:48:10.062209+00:00",
+  "derivation_version": "2026-03-12.crystal-remaster-v2",
+  "derivation_command": "python -m self_actualize.runtime.derive_crystal_remaster",
+  "docs_gate": "BLOCKED",
+  "equation": "CrystalRemaster = Triad + FractalLayers + LineagePreservation + DirectSynapses + FamilyContracts + RhythmLedger + Verification",
+  "validations": {
+    "triad_roles_unique": true,
+    "body_state_vocabulary_closed": true,
+    "family_contract_count_matches_body_count": true,
+    "all_family_surfaces_resolve": true,
+    "all_return_surfaces_resolve": true,
+    "direct_synapse_pairs_present": true,
+    "docs_gate_preserved_blocked": true,
+    "runtime_verification_green": true,
+    "atlas_refresh_complete": true
+  },
+  "runtime_lanes": {
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK"
+  },
+  "atlas_refresh_pending_paths": [],
+  "unresolved": [
+    "Google Docs ingress remains blocked; remaster is grounded in local corpus evidence."
+  ],
+  "next_restart_seed": "admit -> classify -> interlock -> compile -> writeback -> restart"
+}

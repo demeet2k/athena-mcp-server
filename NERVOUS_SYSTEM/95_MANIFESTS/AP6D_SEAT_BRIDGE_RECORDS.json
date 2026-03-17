@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-03-13T16:28:36.393045+00:00",
+  "derivation_version": "2026-03-13.phase8-ap6d-integration-v1",
+  "docs_gate": "BLOCKED",
+  "truth": "OK",
+  "contract": [
+    "bridge_id",
+    "source_seat",
+    "target_seat",
+    "bridge_kind",
+    "carrier",
+    "proof_state",
+    "queue_role",
+    "replay_class",
+    "witness_basis"
+  ],
+  "bridge_count": 25,
+  "by_kind": {
+    "feeder_to_lane": 3,
+    "blocked_external_feeder": 1,
+    "shadow_feeder": 1,
+    "overlay_to_pole": 2,
+    "pole_to_command": 1,
+    "command_to_station": 1,
+    "pole_to_kernel": 1,
+    "pole_to_fabric": 1,
+    "lane_to_family": 8,
+    "overlay_to_deep_root": 1,
+    "command_to_general": 4,
+    "pole_to_family": 1
+  },
+  "bridges": [
+    {
+      "bridge_id": "BR-001",
+      "source_seat": "SEAT-FEEDER-Q42",
+      "target_seat": "SEAT-AP6D-WATER",
+      "bridge_kind": "feeder_to_lane",
+      "carrier": "Athena OS runtime carrier",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json"
+      ]
+    },
+    {
+      "bridge_id": "BR-002",
+      "source_seat": "SEAT-FEEDER-TQ04",
+      "target_seat": "SEAT-AP6D-EARTH",
+      "bridge_kind": "feeder_to_lane",
+      "carrier": "helical runner contract",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json"
+      ]
+    },
+    {
+      "bridge_id": "BR-003",
+      "source_seat": "SEAT-FEEDER-TQ06",
+      "target_seat": "SEAT-AP6D-AIR",
+      "bridge_kind": "feeder_to_lane",
+      "carrier": "packet-fed coordination membrane",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json"
+      ]
+    },
+    {
+      "bridge_id": "BR-004",
+      "source_seat": "SEAT-FEEDER-Q02",
+      "target_seat": "SEAT-GENERAL-WATER",
+      "bridge_kind": "blocked_external_feeder",
+      "carrier": "Trading Bot docs gate",
+      "proof_state": "FAIL",
+      "queue_role": "blocked",
+      "replay_class": "witness-only",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "self_actualize\\live_docs_gate_status.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-005",
+      "source_seat": "SEAT-FEEDER-Q46",
+      "target_seat": "SEAT-GENERAL-FIRE",
+      "bridge_kind": "shadow_feeder",
+      "carrier": "runtime wave proof spine",
+      "proof_state": "NEAR",
+      "queue_role": "shadow-only",
+      "replay_class": "replay-partial",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json"
+      ]
+    },
+    {
+      "bridge_id": "BR-006",
+      "source_seat": "SEAT-AP6D-PRIME",
+      "target_seat": "SEAT-MASTER-AGENT",
+      "bridge_kind": "overlay_to_pole",
+      "carrier": "Grand Central Station",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-007",
+      "source_seat": "SEAT-AP6D-PRIME",
+      "target_seat": "SEAT-AETHER",
+      "bridge_kind": "overlay_to_pole",
+      "carrier": "Grand Central Station",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-008",
+      "source_seat": "SEAT-MASTER-AGENT",
+      "target_seat": "SEAT-COMMANDER",
+      "bridge_kind": "pole_to_command",
+      "carrier": "Active Run",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-009",
+      "source_seat": "SEAT-COMMANDER",
+      "target_seat": "Grand Central Station",
+      "bridge_kind": "command_to_station",
+      "carrier": "Grand Central Station",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-010",
+      "source_seat": "SEAT-AETHER",
+      "target_seat": "Self-Hosting Kernel",
+      "bridge_kind": "pole_to_kernel",
+      "carrier": "self-model and self-state",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-011",
+      "source_seat": "SEAT-AETHER",
+      "target_seat": "Knowledge Fabric",
+      "bridge_kind": "pole_to_fabric",
+      "carrier": "knowledge shortcuts",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-012",
+      "source_seat": "SEAT-AP6D-WATER",
+      "target_seat": "QSHRINK",
+      "bridge_kind": "lane_to_family",
+      "carrier": "Q42 continuity feeder",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-013",
+      "source_seat": "SEAT-AP6D-WATER",
+      "target_seat": "ORGIN",
+      "bridge_kind": "lane_to_family",
+      "carrier": "seed mirror carrythrough",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-014",
+      "source_seat": "SEAT-AP6D-EARTH",
+      "target_seat": "MATH",
+      "bridge_kind": "lane_to_family",
+      "carrier": "registry and proof discipline",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-015",
+      "source_seat": "SEAT-AP6D-EARTH",
+      "target_seat": "ECOSYSTEM",
+      "bridge_kind": "lane_to_family",
+      "carrier": "governance mirror bridge",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-016",
+      "source_seat": "SEAT-AP6D-FIRE",
+      "target_seat": "Athena FLEET",
+      "bridge_kind": "lane_to_family",
+      "carrier": "activation corridor",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-017",
+      "source_seat": "SEAT-AP6D-FIRE",
+      "target_seat": "GAMES",
+      "bridge_kind": "lane_to_family",
+      "carrier": "playable rule ignition",
+      "proof_state": "OK",
+      "queue_role": "later",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-018",
+      "source_seat": "SEAT-AP6D-AIR",
+      "target_seat": "Voynich",
+      "bridge_kind": "lane_to_family",
+      "carrier": "route and symbol grammar",
+      "proof_state": "OK",
+      "queue_role": "later",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-019",
+      "source_seat": "SEAT-AP6D-AIR",
+      "target_seat": "Published Books",
+      "bridge_kind": "lane_to_family",
+      "carrier": "publication return routing",
+      "proof_state": "OK",
+      "queue_role": "later",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-020",
+      "source_seat": "SEAT-AP6D-PRIME",
+      "target_seat": "Deep Root",
+      "bridge_kind": "overlay_to_deep_root",
+      "carrier": "16/256/64/16/7 compiled shell",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-021",
+      "source_seat": "SEAT-COMMANDER",
+      "target_seat": "SEAT-GENERAL-WATER",
+      "bridge_kind": "command_to_general",
+      "carrier": "Build Queue",
+      "proof_state": "OK",
+      "queue_role": "now",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-022",
+      "source_seat": "SEAT-COMMANDER",
+      "target_seat": "SEAT-GENERAL-EARTH",
+      "bridge_kind": "command_to_general",
+      "carrier": "Build Queue",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-023",
+      "source_seat": "SEAT-COMMANDER",
+      "target_seat": "SEAT-GENERAL-FIRE",
+      "bridge_kind": "command_to_general",
+      "carrier": "Build Queue",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-024",
+      "source_seat": "SEAT-COMMANDER",
+      "target_seat": "SEAT-GENERAL-AIR",
+      "bridge_kind": "command_to_general",
+      "carrier": "Build Queue",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ]
+    },
+    {
+      "bridge_id": "BR-025",
+      "source_seat": "SEAT-AETHER",
+      "target_seat": "Identity",
+      "bridge_kind": "pole_to_family",
+      "carrier": "self-bearing return loop",
+      "proof_state": "OK",
+      "queue_role": "next",
+      "replay_class": "replay-safe",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_TRANSITIONS.json",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md"
+      ]
+    }
+  ]
+}

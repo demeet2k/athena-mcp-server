@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-03-13T03:35:12.203583+00:00",
+  "derivation_version": "2026-03-13.q42-square-refinement-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_q42_square_refinement",
+  "truth": "OK",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "active_subfront": "QS64-21 Connectivity-Refine-Square",
+  "next_local_follow_on": "P3 seed mirror deepening",
+  "separate_deeper_receiving_frontier": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "checks": {
+    "docs_gate_preserved_blocked": true,
+    "refinement_active_subfront_square": true,
+    "refinement_upstream_cloud_witness_only": true,
+    "refinement_upstream_fractal_witness_only": true,
+    "refinement_next_local_follow_on_p3": true,
+    "refinement_tq04_separate": true,
+    "agent_matrix_active_subfront_square": true,
+    "agent_matrix_next_local_follow_on_p3": true,
+    "agent_matrix_tq04_separate": true,
+    "active_front_aligned": true,
+    "quest_board_aligned": true,
+    "active_queue_aligned": true,
+    "next_prompt_aligned": true,
+    "requests_board_written": true,
+    "change_feed_written": true
+  },
+  "unresolved": []
+}

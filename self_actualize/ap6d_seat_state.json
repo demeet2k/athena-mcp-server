@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-03-13T18:43:12.537499+00:00",
+  "truth": "OK",
+  "count_law": {
+    "hall_macro_quests": 16,
+    "hall_packets": 64,
+    "governance_fibers": 256,
+    "wave0_seats": 1024,
+    "atlas_total": 4096,
+    "atlas_active": 1024,
+    "atlas_dormant": 3072
+  },
+  "seat_states": [
+    {
+      "agent_id": "AP6D-PRIME",
+      "surface_class": "Temple",
+      "shadow_feeders": [],
+      "activation_state": "ACTIVE",
+      "bridge_parent": "AP6D NEXT^[4^6] corpus integration under TQ06 with AP6D-TQ01 as first Temple uptake and AP6D-H-WATER-Diagnose as first Hall uptake",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_next_4_pow_6_full_corpus_integration.md"
+    },
+    {
+      "agent_id": "AP6D-WATER",
+      "surface_class": "Hall",
+      "shadow_feeders": [],
+      "activation_state": "ACTIVE",
+      "bridge_parent": "AP6D-H-WATER-Diagnose with continuity carrythrough into corpus routes and awakening-note inheritance",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_next_4_pow_6_full_corpus_integration.md"
+    },
+    {
+      "agent_id": "AP6D-EARTH",
+      "surface_class": "Cortex",
+      "shadow_feeders": [],
+      "activation_state": "ACTIVE",
+      "bridge_parent": "AP6D-H-EARTH-Diagnose with contract formalization for basis, matrix, and witness routes",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_next_4_pow_6_full_corpus_integration.md"
+    },
+    {
+      "agent_id": "AP6D-FIRE",
+      "surface_class": "RuntimeHub",
+      "shadow_feeders": [],
+      "activation_state": "ACTIVE",
+      "bridge_parent": "AP6D-H-FIRE-Diagnose with activation discipline across active corpus routes only",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_next_4_pow_6_full_corpus_integration.md"
+    },
+    {
+      "agent_id": "AP6D-AIR",
+      "surface_class": "Hall",
+      "shadow_feeders": [],
+      "activation_state": "ACTIVE",
+      "bridge_parent": "AP6D-H-AIR-Diagnose with topology-safe route and note propagation across every mirror",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_next_4_pow_6_full_corpus_integration.md"
+    }
+  ]
+}

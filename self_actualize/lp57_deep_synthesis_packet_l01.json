@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-03-13",
+  "protocol_id": "LP-57OMEGA",
+  "loop_id": "L01",
+  "status": "ACTIVE_FROM_BRIDGE",
+  "agent_id": "FA57-FIRE",
+  "title": "Survey A01 NERVOUS_SYSTEM synthesis packet",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "credentials_exists": false,
+    "token_exists": false,
+    "law": "All LP-57Omega writebacks remain local-only until both OAuth files exist."
+  },
+  "deep_root_authority": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "active_family": {
+    "code": "A01",
+    "name": "NERVOUS_SYSTEM",
+    "role": "canonical cortex plus six completed phase surfaces"
+  },
+  "legacy_bridge": {
+    "prelude": "L01 Prime Lock",
+    "inherited_input": "L02 Whole-Corpus Census"
+  },
+  "next_restart_seed": "Survey A01 NERVOUS_SYSTEM -> Survey A02 self_actualize -> Survey A03 ECOSYSTEM"
+}

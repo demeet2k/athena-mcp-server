@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-03-13T21:10:56.277652+00:00",
+  "truth": "FAIL",
+  "checks": {
+    "program_hall_front_next57": true,
+    "program_temple_front_tq07": true,
+    "program_current_loop_l01": true,
+    "program_current_title": true,
+    "program_l01_completed": true,
+    "program_next_loop_l02": true,
+    "program_l02_seeded_only": true,
+    "program_docs_gate_blocked": true,
+    "program_helix_8_16": true,
+    "machine_core_hsigma": true,
+    "machine_core_current_binding": true,
+    "machine_core_completion_state": true,
+    "cycle_has_57_loops": true,
+    "cycle_l01_completed": true,
+    "cycle_l02_seeded_only": true,
+    "hall_packet_ids_normalized": true,
+    "temple_packet_ids_normalized": true,
+    "q51_history_only": true,
+    "active_run_matches": true,
+    "hall_board_matches": false,
+    "temple_board_matches": false,
+    "temple_state_matches": true,
+    "no_live_q51_claim_program": true,
+    "no_live_q51_claim_active_run": true,
+    "next57_mirror_only": true
+  }
+}

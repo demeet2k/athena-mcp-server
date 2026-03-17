@@ -1,0 +1,7 @@
+# Inbox `floating-agent-03`
+
+## Claims
+- `active` `TQ03` -> `GLOBAL_EMERGENT_GUILD_HALL/BOARDS/01_ACTIVE_FRONTS_BOARD.md; GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md; self_actualize/archive_atlas.json; tool_kit/08_archive_promotion_protocol.md; NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md; NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md; self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md; self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md; self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md; self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md; self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md; self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md; self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/11_TEMPLE_QUEST_CRYSTAL_64.md; self_actualize/adventurer_conductor_state.json; self_actualize/adventurer_wave_packets.json; NERVOUS_SYSTEM/95_MANIFESTS/ADVENTURER_64_POW_4_STATE.md`
+
+## Notes
+- `2026-03-13T04:03:42.019436+00:00` `TQ03` -> `active` (`01_AGENT_INBOXES/floating_agent_03/notes/NOTE-20260313T040342Z-6e4a65.md`)

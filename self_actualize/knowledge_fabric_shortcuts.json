@@ -1,0 +1,348 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "shortcut_count": 8,
+  "shortcuts": [
+    {
+      "shortcut_id": "KF-S01",
+      "intent_class": "locate",
+      "title": "Authoritative Locate",
+      "entry_filters": {
+        "authority_min": 4,
+        "witnesses": [
+          "generated",
+          "indexed",
+          "archive"
+        ],
+        "query_text_required": true
+      },
+      "preferred_zones": [
+        "Cortex",
+        "RuntimeMirror",
+        "DeepRoot",
+        "CorpusAtlas"
+      ],
+      "preferred_surface_classes": [
+        "dashboard",
+        "registry",
+        "atlas",
+        "overview",
+        "schema"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "proof",
+        "text_match",
+        "freshness",
+        "replay",
+        "zone_priority"
+      ],
+      "stop_condition": "first top witness-bearing authoritative match",
+      "fallback_zones": [
+        "CapsuleLayer",
+        "ArchiveAtlas",
+        "GraphLayer"
+      ],
+      "note": "For exact lookup and fastest lawful entry."
+    },
+    {
+      "shortcut_id": "KF-S02",
+      "intent_class": "browse",
+      "title": "Zone Browse",
+      "entry_filters": {
+        "authority_min": 3,
+        "witnesses": [
+          "generated",
+          "indexed",
+          "archive"
+        ],
+        "text_required": true
+      },
+      "preferred_zones": [
+        "Cortex",
+        "DeepRoot",
+        "RuntimeMirror",
+        "CapsuleLayer"
+      ],
+      "preferred_surface_classes": [
+        "overview",
+        "capsule",
+        "mirror",
+        "registry"
+      ],
+      "ranking_stack": [
+        "zone_priority",
+        "authority",
+        "witness",
+        "freshness",
+        "tag_overlap",
+        "replay"
+      ],
+      "stop_condition": "bounded neighborhood reached",
+      "fallback_zones": [
+        "GovernanceMirror",
+        "ArchiveAtlas"
+      ],
+      "note": "For exploratory reads that stay inside lawful high-yield zones."
+    },
+    {
+      "shortcut_id": "KF-S03",
+      "intent_class": "compare",
+      "title": "Paired Compare",
+      "entry_filters": {
+        "authority_min": 3,
+        "witnesses": [
+          "generated",
+          "indexed",
+          "archive"
+        ],
+        "text_required": true
+      },
+      "preferred_zones": [
+        "Cortex",
+        "DeepRoot",
+        "GraphLayer",
+        "RuntimeMirror"
+      ],
+      "preferred_surface_classes": [
+        "overview",
+        "dashboard",
+        "graph",
+        "mirror"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "proof",
+        "tag_overlap",
+        "freshness",
+        "replay"
+      ],
+      "stop_condition": "paired closure or contradiction preserved",
+      "fallback_zones": [
+        "ArchiveAtlas",
+        "ReceiptLineage"
+      ],
+      "note": "For seeing two nearby surfaces without flattening their difference."
+    },
+    {
+      "shortcut_id": "KF-S04",
+      "intent_class": "synthesize",
+      "title": "Cross-Surface Synthesize",
+      "entry_filters": {
+        "authority_min": 4,
+        "witnesses": [
+          "generated",
+          "indexed",
+          "archive"
+        ],
+        "text_required": true
+      },
+      "preferred_zones": [
+        "Cortex",
+        "DeepRoot",
+        "RuntimeMirror",
+        "CapsuleLayer"
+      ],
+      "preferred_surface_classes": [
+        "overview",
+        "dashboard",
+        "capsule",
+        "mirror",
+        "schema"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "proof",
+        "freshness",
+        "replay",
+        "tag_overlap",
+        "zone_priority"
+      ],
+      "stop_condition": "sufficient witnessed synthesis reached",
+      "fallback_zones": [
+        "GraphLayer",
+        "ArchiveAtlas"
+      ],
+      "note": "For multi-zone synthesis without whole-atlas scanning."
+    },
+    {
+      "shortcut_id": "KF-S05",
+      "intent_class": "audit",
+      "title": "Drift Audit",
+      "entry_filters": {
+        "authority_min": 2,
+        "witnesses": [
+          "generated",
+          "indexed",
+          "archive",
+          "promoted",
+          "board",
+          "physical"
+        ]
+      },
+      "preferred_zones": [
+        "ReceiptLineage",
+        "GraphLayer",
+        "RuntimeMirror",
+        "ReserveQuarantine"
+      ],
+      "preferred_surface_classes": [
+        "dashboard",
+        "graph",
+        "mirror",
+        "queue",
+        "overview"
+      ],
+      "ranking_stack": [
+        "proof",
+        "freshness",
+        "cost",
+        "zone_priority",
+        "tag_overlap"
+      ],
+      "stop_condition": "highest-risk surfaces surfaced",
+      "fallback_zones": [
+        "BoardScope",
+        "PromotedSlice"
+      ],
+      "note": "For blocked, stale, ambiguous, or low-proof drift scans."
+    },
+    {
+      "shortcut_id": "KF-S06",
+      "intent_class": "repair",
+      "title": "Repair Corridor",
+      "entry_filters": {
+        "authority_min": 2,
+        "witnesses": [
+          "generated",
+          "indexed",
+          "archive",
+          "physical"
+        ]
+      },
+      "preferred_zones": [
+        "RuntimeMirror",
+        "ReceiptLineage",
+        "ReserveQuarantine",
+        "GraphLayer"
+      ],
+      "preferred_surface_classes": [
+        "queue",
+        "dashboard",
+        "graph",
+        "mirror",
+        "overview"
+      ],
+      "ranking_stack": [
+        "cost",
+        "proof",
+        "freshness",
+        "tag_overlap",
+        "replay"
+      ],
+      "stop_condition": "next-front route selected",
+      "fallback_zones": [
+        "BoardScope",
+        "PromotedSlice"
+      ],
+      "note": "For turning drift into a bounded next-front packet."
+    },
+    {
+      "shortcut_id": "KF-S07",
+      "intent_class": "regenerate",
+      "title": "Regeneration Path",
+      "entry_filters": {
+        "authority_min": 4,
+        "witnesses": [
+          "generated",
+          "indexed"
+        ],
+        "surface_classes": [
+          "queue",
+          "dashboard",
+          "registry",
+          "overview",
+          "schema"
+        ],
+        "text_required": true
+      },
+      "preferred_zones": [
+        "Cortex",
+        "RuntimeMirror",
+        "ReceiptLineage"
+      ],
+      "preferred_surface_classes": [
+        "queue",
+        "dashboard",
+        "registry",
+        "overview",
+        "schema"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "replay",
+        "freshness",
+        "zone_priority",
+        "tag_overlap"
+      ],
+      "stop_condition": "mapped regeneration route found",
+      "fallback_zones": [
+        "CapsuleLayer",
+        "DeepRoot"
+      ],
+      "note": "For seed-to-writeback traversal through the dual engine."
+    },
+    {
+      "shortcut_id": "KF-S08",
+      "intent_class": "publish",
+      "title": "Publication Return",
+      "entry_filters": {
+        "authority_min": 4,
+        "witnesses": [
+          "generated",
+          "indexed",
+          "promoted"
+        ]
+      },
+      "preferred_zones": [
+        "Cortex",
+        "RuntimeMirror",
+        "GovernanceMirror",
+        "ReceiptLineage"
+      ],
+      "preferred_surface_classes": [
+        "overview",
+        "dashboard",
+        "registry",
+        "mirror",
+        "schema"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "proof",
+        "replay",
+        "freshness",
+        "zone_priority"
+      ],
+      "stop_condition": "cortex-runtime-receipt closure reached",
+      "fallback_zones": [
+        "PromotedSlice"
+      ],
+      "note": "For publication-return closure after regeneration or repair."
+    }
+  ],
+  "filter_order": [
+    "authority",
+    "witness",
+    "zone",
+    "surface class",
+    "root",
+    "family",
+    "tags"
+  ]
+}

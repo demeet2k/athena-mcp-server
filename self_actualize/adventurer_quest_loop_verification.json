@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-03-13T20:44:39.420479+00:00",
+  "derivation_version": "2026-03-13.adventurer.64pow4.hybrid_conductor.round_trip.verify.v2",
+  "derivation_command": "python -m self_actualize.runtime.verify_adventurer_quest_loop",
+  "truth": "OK",
+  "checks": [
+    {
+      "label": "registry",
+      "status": "OK",
+      "details": {
+        "quest_count": 11,
+        "active_unique_address_count": 7,
+        "seeded_ids": [
+          "ADV64-S01",
+          "ADV64-S02"
+        ]
+      }
+    },
+    {
+      "label": "agent_state",
+      "status": "OK",
+      "details": {
+        "agent_ids": [
+          "floating-agent-01",
+          "floating-agent-02",
+          "floating-agent-03",
+          "floating-agent-04",
+          "floating-agent-05",
+          "floating-agent-06",
+          "floating-agent-07",
+          "floating-agent-08"
+        ],
+        "active_claims": [
+          "Q42",
+          "Q46",
+          "TQ03",
+          "TQ05",
+          "TQ06",
+          "ADV64-S01",
+          "ADV64-S02"
+        ]
+      }
+    },
+    {
+      "label": "loop_state",
+      "status": "OK",
+      "details": {
+        "answer_space": 16777216,
+        "open_count": 2,
+        "active_front_count": 3,
+        "seeded_count": 2
+      }
+    },
+    {
+      "label": "conductor_state",
+      "status": "OK",
+      "details": {
+        "packet_ids": [
+          "ADV64-01",
+          "ADV64-02",
+          "ADV64-03",
+          "ADV64-04",
+          "ADV64-05",
+          "ADV64-06",
+          "ADV64-07"
+        ],
+        "seeded_registration_ids": [
+          "ADV64-S01",
+          "ADV64-S02"
+        ]
+      }
+    },
+    {
+      "label": "round_trip_registry",
+      "status": "OK",
+      "details": {
+        "registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\adventurer_round_trip_certificates.json",
+        "governed_fronts": [
+          "Q42",
+          "Q46",
+          "TQ04"
+        ]
+      }
+    },
+    {
+      "label": "claim_tracker",
+      "status": "OK",
+      "details": {
+        "active_claim_ids": [
+          "CLM-20260313T040342Z-799a8d",
+          "CLM-20260313T040342Z-4e2335",
+          "CLM-20260313T040342Z-9f0f6d",
+          "CLM-20260313T040342Z-3584fc",
+          "CLM-20260313T040342Z-fe4fe9",
+          "CLM-20260313T040341Z-5a4503",
+          "CLM-20260313T015027Z-5918e3"
+        ],
+        "active_frontiers": [
+          "ADV64-S02",
+          "ADV64-S01",
+          "TQ06",
+          "TQ05",
+          "TQ03",
+          "Q46",
+          "Q42"
+        ]
+      }
+    },
+    {
+      "label": "manifest",
+      "status": "OK",
+      "details": {
+        "manifest_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ADVENTURER_64_POW_4_STATE.md",
+        "contains_wave": true
+      }
+    }
+  ],
+  "failed_checks": []
+}

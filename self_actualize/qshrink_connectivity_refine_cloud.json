@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-03-13T05:05:27.392179+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_qshrink_connectivity_refine_cloud",
+  "truth": "OK",
+  "focus": "connectivity-refine-cloud",
+  "front_id": "Q42",
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "active_local_subfront": "QS64-23 Connectivity-Refine-Cloud",
+  "next_hall_seed": "QS64-24 Connectivity-Refine-Fractal",
+  "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "reserve_frontier": "Q46",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`\n\n## Stderr"
+  },
+  "upstream_refine_flower": {
+    "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_connectivity_refine_flower.json",
+    "truth": "OK",
+    "active_local_subfront": "QS64-22 Connectivity-Refine-Flower"
+  },
+  "ranked_pressures": [
+    {
+      "id": "P1",
+      "title": "Docs blocker overlay",
+      "body": "Trading Bot",
+      "truth": "FAIL",
+      "selection_state": "PINNED_BLOCKER",
+      "meaning": "The Docs gate stays visible and outranks every local NEAR item until credentials exist and authenticate."
+    },
+    {
+      "id": "P2",
+      "title": "Temple runner handoff gap",
+      "body": "TQ04 binding gap",
+      "truth": "NEAR",
+      "selection_state": "PROMOTE_NEXT",
+      "meaning": "Once local refinement law is stable, the runner-contract handoff is the highest unresolved non-blocker."
+    },
+    {
+      "id": "P3",
+      "title": "control-surface drift",
+      "body": "generator-owned QSHRINK / Hall / Temple disagreement",
+      "truth": "NEAR",
+      "selection_state": "QUEUE_VISIBLE",
+      "meaning": "Surface agreement remains a visible pressure even after the structural and cadence passes land."
+    },
+    {
+      "id": "P4",
+      "title": "ORGIN mirror deepening",
+      "body": "ORGIN",
+      "truth": "NEAR",
+      "selection_state": "QUEUE_VISIBLE",
+      "meaning": "ORGIN remains a real but lower-ranked local follow-on after TQ04 and control-surface agreement."
+    },
+    {
+      "id": "P5",
+      "title": "stability anchors",
+      "body": "QSHRINK plus Athena FLEET / Hall",
+      "truth": "OK",
+      "selection_state": "STABILITY_ANCHOR",
+      "meaning": "The contraction root and Hall writeback stay present as anchors and never outrank active blockers or refine gaps."
+    }
+  ],
+  "selection_discipline": [
+    "Pinned Docs blocker always stays visible.",
+    "TQ04 outranks ORGIN once local refinement law is stable.",
+    "Stability anchors never outrank live blockers or active refinement gaps.",
+    "No pass may claim authenticated Docs success while the gate is blocked."
+  ],
+  "writeback_targets": [
+    {
+      "body": "QSHRINK",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use_route_map.md"
+    },
+    {
+      "body": "Athena FLEET",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet_route_map.md"
+    },
+    {
+      "body": "ORGIN",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin_route_map.md"
+    },
+    {
+      "body": "Quest board",
+      "target": "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+    },
+    {
+      "body": "Active queue",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+    },
+    {
+      "body": "QSHRINK active front",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\QSHRINK_ACTIVE_FRONT.md"
+    },
+    {
+      "body": "Next self prompt",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+    },
+    {
+      "body": "Temple state",
+      "target": "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+    }
+  ]
+}

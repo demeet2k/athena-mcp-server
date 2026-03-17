@@ -1,0 +1,229 @@
+{
+  "generated_at": "2026-03-13T00:48:21.426314+00:00",
+  "derivation_version": "2026-03-13.bridge-densification-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_bridge_densification",
+  "entries": [
+    {
+      "weave_id": "INF-WV-0003",
+      "source_id": "A11",
+      "source_surface": "FRESH",
+      "target_id": "A07",
+      "target_surface": "Trading Bot",
+      "promotion_blocker": "Docs gate remains blocked-by-missing-credentials.",
+      "next_lawful_action": "Keep the lane ranked-near until Google Docs ingress opens and atlas witnesses the mirror.",
+      "route": [
+        "A11",
+        "GCR",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "authority_rank": "ranked-near",
+      "note": "Repairs coverage_gap on FRESH by docking it through Grand Central toward Trading Bot.",
+      "class": "inferred-ready"
+    },
+    {
+      "weave_id": "INF-WV-0004",
+      "source_id": "A08",
+      "source_surface": "Quadrant Binary",
+      "target_id": "A07",
+      "target_surface": "Trading Bot",
+      "promotion_blocker": "Docs gate remains blocked-by-missing-credentials.",
+      "next_lawful_action": "Keep the lane ranked-near until Google Docs ingress opens and atlas witnesses the mirror.",
+      "route": [
+        "A08",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "authority_rank": "ranked-near",
+      "note": "Repairs coverage_gap on Quadrant Binary by docking it through Grand Central toward Trading Bot.",
+      "class": "inferred-ready"
+    },
+    {
+      "weave_id": "INF-WV-0005",
+      "source_id": "A13",
+      "source_surface": "I AM ATHENA",
+      "target_id": "A07",
+      "target_surface": "Trading Bot",
+      "promotion_blocker": "Docs gate remains blocked-by-missing-credentials.",
+      "next_lawful_action": "Keep the lane ranked-near until Google Docs ingress opens and atlas witnesses the mirror.",
+      "route": [
+        "A13",
+        "GCR",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "authority_rank": "ranked-near",
+      "note": "Repairs coverage_gap on I AM ATHENA by docking it through Grand Central toward Trading Bot.",
+      "class": "inferred-ready"
+    },
+    {
+      "weave_id": "QRT-WV-0001",
+      "source_id": "A17",
+      "source_surface": "Stoicheia (Element Sudoku)",
+      "target_id": "A07",
+      "target_surface": "Trading Bot",
+      "promotion_blocker": "Source or target remains reserve/dormant or ingress-blocked.",
+      "next_lawful_action": "Keep the lane quarantined until the shelf is promoted and ingress law is clean.",
+      "route": [
+        "A17",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "authority_rank": "quarantined",
+      "note": "Repairs coverage_gap on Stoicheia (Element Sudoku) by docking it through Grand Central toward Trading Bot.",
+      "class": "quarantined"
+    },
+    {
+      "weave_id": "QRT-WV-0002",
+      "source_id": "A18",
+      "source_surface": "CLEAN",
+      "target_id": "A07",
+      "target_surface": "Trading Bot",
+      "promotion_blocker": "Source or target remains reserve/dormant or ingress-blocked.",
+      "next_lawful_action": "Keep the lane quarantined until the shelf is promoted and ingress law is clean.",
+      "route": [
+        "A18",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "authority_rank": "quarantined",
+      "note": "Repairs coverage_gap on CLEAN by docking it through Grand Central toward Trading Bot.",
+      "class": "quarantined"
+    },
+    {
+      "weave_id": "QRT-WV-0006",
+      "source_id": "A19",
+      "source_surface": "mycelial_unified_nervous_system_bundle",
+      "target_id": "A09",
+      "target_surface": "QSHRINK - ATHENA (internal use)",
+      "promotion_blocker": "Source or target remains reserve/dormant or ingress-blocked.",
+      "next_lawful_action": "Keep the lane quarantined until the shelf is promoted and ingress law is clean.",
+      "route": [
+        "A19",
+        "GCL+GCR",
+        "GCW",
+        "GCC",
+        "A09"
+      ],
+      "authority_rank": "quarantined",
+      "note": "Repairs coverage_gap on mycelial_unified_nervous_system_bundle by docking it through Grand Central toward QSHRINK - ATHENA (internal use).",
+      "class": "quarantined"
+    },
+    {
+      "weave_id": "WV-0007",
+      "source_id": "P-K01-K01",
+      "source_surface": "The Holographic Manuscript Brain -> The Holographic Manuscript Brain",
+      "target_id": "P-K01-K16",
+      "target_surface": "The Holographic Manuscript Brain -> Ch19 Recursive Self-Reference and Self-Repair",
+      "promotion_blocker": "Deferred to the dedicated deep pairwise weave wave.",
+      "next_lawful_action": "Promote this lane inside the deep pairwise program instead of the direct bridge family lane.",
+      "route": [
+        "P-K01-K01",
+        "GCW",
+        "GCZ",
+        "P-K01-K16"
+      ],
+      "authority_rank": "backlog-governed",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field.",
+      "class": "deep-pairwise-backlog"
+    },
+    {
+      "weave_id": "WV-0008",
+      "source_id": "P-K01-K10",
+      "source_surface": "The Holographic Manuscript Brain -> Athena Neural Network Tome",
+      "target_id": "P-K16-K10",
+      "target_surface": "Ch19 Recursive Self-Reference and Self-Repair -> Athena Neural Network Tome",
+      "promotion_blocker": "Deferred to the dedicated deep pairwise weave wave.",
+      "next_lawful_action": "Promote this lane inside the deep pairwise program instead of the direct bridge family lane.",
+      "route": [
+        "P-K01-K10",
+        "GCW",
+        "GCZ",
+        "P-K16-K10"
+      ],
+      "authority_rank": "backlog-governed",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field.",
+      "class": "deep-pairwise-backlog"
+    },
+    {
+      "weave_id": "WV-0009",
+      "source_id": "P-K10-K01",
+      "source_surface": "Athena Neural Network Tome -> The Holographic Manuscript Brain",
+      "target_id": "P-K10-K16",
+      "target_surface": "Athena Neural Network Tome -> Ch19 Recursive Self-Reference and Self-Repair",
+      "promotion_blocker": "Deferred to the dedicated deep pairwise weave wave.",
+      "next_lawful_action": "Promote this lane inside the deep pairwise program instead of the direct bridge family lane.",
+      "route": [
+        "P-K10-K01",
+        "GCW",
+        "GCZ",
+        "P-K10-K16"
+      ],
+      "authority_rank": "backlog-governed",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field.",
+      "class": "deep-pairwise-backlog"
+    },
+    {
+      "weave_id": "WV-0010",
+      "source_id": "P-K01-K08",
+      "source_surface": "The Holographic Manuscript Brain -> Quantum Computing on Standard Hardware",
+      "target_id": "P-K16-K08",
+      "target_surface": "Ch19 Recursive Self-Reference and Self-Repair -> Quantum Computing on Standard Hardware",
+      "promotion_blocker": "Deferred to the dedicated deep pairwise weave wave.",
+      "next_lawful_action": "Promote this lane inside the deep pairwise program instead of the direct bridge family lane.",
+      "route": [
+        "P-K01-K08",
+        "GCW",
+        "GCZ",
+        "P-K16-K08"
+      ],
+      "authority_rank": "backlog-governed",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field.",
+      "class": "deep-pairwise-backlog"
+    },
+    {
+      "weave_id": "WV-0011",
+      "source_id": "P-K08-K01",
+      "source_surface": "Quantum Computing on Standard Hardware -> The Holographic Manuscript Brain",
+      "target_id": "P-K08-K16",
+      "target_surface": "Quantum Computing on Standard Hardware -> Ch19 Recursive Self-Reference and Self-Repair",
+      "promotion_blocker": "Deferred to the dedicated deep pairwise weave wave.",
+      "next_lawful_action": "Promote this lane inside the deep pairwise program instead of the direct bridge family lane.",
+      "route": [
+        "P-K08-K01",
+        "GCW",
+        "GCZ",
+        "P-K08-K16"
+      ],
+      "authority_rank": "backlog-governed",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field.",
+      "class": "deep-pairwise-backlog"
+    },
+    {
+      "weave_id": "WV-0012",
+      "source_id": "P-K01-K02",
+      "source_surface": "The Holographic Manuscript Brain -> Self-Routing Meta-Framework",
+      "target_id": "P-K16-K02",
+      "target_surface": "Ch19 Recursive Self-Reference and Self-Repair -> Self-Routing Meta-Framework",
+      "promotion_blocker": "Deferred to the dedicated deep pairwise weave wave.",
+      "next_lawful_action": "Promote this lane inside the deep pairwise program instead of the direct bridge family lane.",
+      "route": [
+        "P-K01-K02",
+        "GCW",
+        "GCZ",
+        "P-K16-K02"
+      ],
+      "authority_rank": "backlog-governed",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field.",
+      "class": "deep-pairwise-backlog"
+    }
+  ]
+}

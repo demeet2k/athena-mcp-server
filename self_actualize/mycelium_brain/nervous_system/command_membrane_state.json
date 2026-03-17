@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-03-13T21:21:59.013781+00:00",
+  "command_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "active_surface": "GLOBAL COMMAND",
+  "docs_gate_status": "BLOCKED",
+  "watcher_mode": "os-level-filesystem-watcher",
+  "known_files": {
+    "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx": {
+      "state_hash": "H:a5c3785116afabf305895fc05f29970c50722ae3e2a553c02d541985d9d177de",
+      "size": 3050223,
+      "mtime_ns": 1768105588000000000,
+      "exists": true
+    }
+  },
+  "dedupe": {
+    "a6d6f4a32ac7e1b0": {
+      "detected_ts": "2026-03-13T21:22:31.444157+00:00",
+      "state_hash": "H:a5c3785116afabf305895fc05f29970c50722ae3e2a553c02d541985d9d177de"
+    }
+  },
+  "last_event_seq": 2,
+  "last_liminal_seq": 2,
+  "last_committed_event_id": "EVT-20260313-0002",
+  "updated_at": "2026-03-13T21:22:56.900781+00:00",
+  "last_coord12_vector": [
+    1773436951.444157,
+    0.890642,
+    0.196961,
+    0.9744349329266697,
+    0.0,
+    0.909091,
+    0.363637,
+    0.0,
+    0.4630980819929391,
+    0.140625,
+    0.91,
+    0.91
+  ],
+  "last_earth_ts": "2026-03-13T21:22:31.444157+00:00",
+  "last_event_id": "EVT-20260313-0002"
+}

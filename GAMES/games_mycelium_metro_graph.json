@@ -1,0 +1,266 @@
+{
+  "title": "Unified Mycelium Metro System for GAMES",
+  "truth_class": {
+    "local_corpus": "NEAR",
+    "live_google_docs": "BLOCKED_AMBIG"
+  },
+  "scope": {
+    "root": "C:/Users/dmitr/Documents/Athena Agent/GAMES",
+    "live_record_count": 492,
+    "archive_record_count": 15,
+    "top_level_roots": [
+      "FITChain",
+      "FITQUEST",
+      "FINAL GAME PRINTS"
+    ]
+  },
+  "live_docs_gate": {
+    "status": "BLOCKED",
+    "command": "C:/Users/dmitr/Documents/Athena Agent/Trading Bot/.venv/Scripts/python.exe C:/Users/dmitr/Documents/Athena Agent/Trading Bot/docs_search.py FITQUEST FITCHAIN --any",
+    "error": "Missing OAuth client file: credentials.json",
+    "missing_files": [
+      "C:/Users/dmitr/Documents/Athena Agent/Trading Bot/credentials.json",
+      "C:/Users/dmitr/Documents/Athena Agent/Trading Bot/token.json"
+    ]
+  },
+  "surface_map": {
+    "FITChain": {
+      "roles": [
+        "regular deck",
+        "elite deck",
+        "instructions",
+        "QR landing pages",
+        "printing templates",
+        "print-shop PDFs",
+        "UPC packaging"
+      ]
+    },
+    "FITQUEST": {
+      "roles": [
+        "narrative fitness system",
+        "critter deck",
+        "guardian deck",
+        "hero deck",
+        "event cards",
+        "super cards",
+        "QR instructions",
+        "final QR export tree"
+      ],
+      "counts": {
+        "critters": 24,
+        "guardians": 5,
+        "heroes": 5,
+        "named_events": 8,
+        "super_cards": 5,
+        "instruction_panels": 8
+      }
+    },
+    "FINAL_GAME_PRINTS": {
+      "roles": [
+        "archive-only final print convergence"
+      ],
+      "archives": [
+        "FitChain (NEW) Print Files.zip",
+        "FitChain Elite (NEW) print files.zip",
+        "Stoicheia (NEW) print files.zip"
+      ]
+    }
+  },
+  "axes": [
+    {
+      "name": "Motion",
+      "meaning": "exercise substrate and movement grammar"
+    },
+    {
+      "name": "Mechanics",
+      "meaning": "rule engine and difficulty logic"
+    },
+    {
+      "name": "Myth",
+      "meaning": "story, motivation, identity, and recovery framing"
+    },
+    {
+      "name": "Membrane",
+      "meaning": "print, QR, video, archive, packaging, and SKU delivery"
+    }
+  ],
+  "lines": [
+    {
+      "name": "Pulse Line",
+      "topology": "open-circular",
+      "meaning": "shared movement kernel across all products",
+      "stations": [
+        "FITChain/FITChain/Instructions (edit)/Instructions (edit)/3.1 FitChain Excercises.png",
+        "FITChain/FITChain/FITCHAIN Card List.docx",
+        "FITChain/FITChain Elite/Instructions Elite/New Cards/Excersises Elite-3.1.png",
+        "FITQUEST/QR Critter Cards/#1 - CRITTER - Burpestie.png",
+        "FITQUEST/Guardian Cards/Atlas (Push up card).png",
+        "FITQUEST/Guardian Cards/Endure (Elite card).png",
+        "FITQUEST/QR Hero Cards/QR #40 Hero - Plaia.png"
+      ]
+    },
+    {
+      "name": "Escalation Line",
+      "topology": "linear",
+      "meaning": "difficulty progression from numbered cards to elite compounds to V-levels",
+      "stations": [
+        "FITChain/FITCHAIN CARD LIST .pdf",
+        "FITChain/FITChain/FITCHAIN Card List.docx",
+        "FITChain/FITChain Elite/FITCHAIN ELITE Card List.docx",
+        "FITChain/FITChain Elite/Instructions Elite/New Cards/Excersises Elite-3.1.png",
+        "FITQUEST/QR Instructions/3.1 Vitality Levels (How to Play) 2.png"
+      ],
+      "tensions": [
+        "FITCHAIN CARD LIST .pdf claims 48 fitness cards and 16/16/16 number balance",
+        "docx card-list witnesses do not reconcile cleanly with that summary"
+      ]
+    },
+    {
+      "name": "Signal Line",
+      "topology": "circular",
+      "meaning": "print to QR to digital instruction to replay loop",
+      "stations": [
+        "FITChain/FITChain/QR CODES/FITCHAIN - How To Play.png",
+        "FITChain/FITChain/QR CODES/FITCHAIN - Exercises.png",
+        "FITChain/QR LANDING PAGE/howtoplay.png",
+        "FITChain/QR LANDING PAGE/excerciseinstructions.png",
+        "FITQUEST/QR Instructions/1.1 STORY + HowtoPlay QR code.png",
+        "FITQUEST/QR Instructions/1.2 Play Style.png",
+        "FITQUEST/FINAL QR CODES/Other/FITQUEST Coin Flip Generator.png",
+        "FITQUEST/FINAL QR CODES/Other/#115 How To Play.png"
+      ]
+    },
+    {
+      "name": "Lore Line",
+      "topology": "circular",
+      "meaning": "motivation and identity reframing around the same movement work",
+      "stations": [
+        "FITChain/Fit Chain CardBOX.pdf",
+        "FITChain/Fit Chain ELITE CardBOX.pdf",
+        "FITQUEST/FITQUEST BOX.pdf",
+        "FITQUEST/QR Instructions/1.1 STORY + HowtoPlay QR code.png",
+        "FITQUEST/Event Cards/Energy Replenished.png",
+        "FITQUEST/Event Cards/Workout crew.png",
+        "FITQUEST/Super Cards/Balanced Goals.png",
+        "FITQUEST/QR Instructions/4.1 Warm Up.png",
+        "FITQUEST/QR Instructions/4.2 Cool Down.png"
+      ]
+    },
+    {
+      "name": "Press Line",
+      "topology": "circular",
+      "meaning": "source art to print to archive to replay production loop",
+      "stations": [
+        "FITChain/FITChain/Instructions (edit)/Adobe Files/",
+        "FITChain/FITChain Elite/Instructions Elite/Adobe Files/",
+        "FITChain/Printing Template/FIT CHAIN/",
+        "FITChain/Printing Template/NEw Template - FITCHAIN ELITE/",
+        "FITChain/FITChain/Print Shop Files/",
+        "FITChain/FITChain Elite/PRINT FILES PDF/",
+        "FINAL GAME PRINTS/FitChain (NEW) Print Files.zip",
+        "FINAL GAME PRINTS/FitChain Elite (NEW) print files.zip",
+        "FINAL GAME PRINTS/Stoicheia (NEW) print files.zip"
+      ]
+    },
+    {
+      "name": "Commerce Line",
+      "topology": "open",
+      "meaning": "family of products moving toward SKU and boxed distribution",
+      "stations": [
+        "FITChain/FITChain UPC codes/OLD BARCODES (NOT SURE)/Order[572364]_d096a45f21a30a14ba53cb06b969e736956e3bee.csv",
+        "FITChain/FITChain UPC codes/OLD BARCODES (NOT SURE)/1. Fit Chain UPC 695845570933/",
+        "FITChain/FITChain UPC codes/OLD BARCODES (NOT SURE)/2. Fit Chain Elite UPC 695845516139/",
+        "FITChain/FITChain UPC codes/OLD BARCODES (NOT SURE)/3. Stoicheia (Element Sudoku) UPC 695845708121/",
+        "FITChain/FITChain UPC codes/OLD BARCODES (NOT SURE)/4. FITQUEST 695845867811/",
+        "FITChain/Fit Chain CardBOX.pdf",
+        "FITQUEST/FITQUEST BOX.pdf"
+      ]
+    }
+  ],
+  "transfer_hubs": [
+    {
+      "name": "Cardized Workout Unit",
+      "intersects": [
+        "Pulse Line",
+        "Escalation Line",
+        "Signal Line",
+        "Lore Line"
+      ],
+      "meaning": "printable card that carries exercise, difficulty, and often QR-linked support"
+    },
+    {
+      "name": "Instruction Surfaces",
+      "intersects": [
+        "Pulse Line",
+        "Signal Line",
+        "Lore Line",
+        "Press Line"
+      ],
+      "meaning": "rule explanation, exercise literacy, and digital routing converge here"
+    },
+    {
+      "name": "April 2024 Final-Print Convergence",
+      "intersects": [
+        "Press Line",
+        "Commerce Line"
+      ],
+      "meaning": "strongest visible product-family convergence point"
+    },
+    {
+      "name": "Endure Elite Bridge",
+      "intersects": [
+        "Pulse Line",
+        "Escalation Line",
+        "Lore Line"
+      ],
+      "meaning": "guardian card that absorbs elite movement grammar into the FITQUEST mythic layer"
+    }
+  ],
+  "zero_point_hub": {
+    "name": "Workout card as spell-bearing movement unit",
+    "meaning": "the smallest shared cell that movement, rules, myth, print, and digital support all organize around"
+  },
+  "global_topology": {
+    "shape": "torus-like with archive shadow",
+    "rationale": [
+      "Signal Line is circular",
+      "Press Line is circular",
+      "player flow closes through warm-up, play, tracking, cool-down, and replay",
+      "Stoicheia remains a shadow lobe because it is archive-visible but not live-integrated"
+    ]
+  },
+  "stable_surfaces": [
+    "GAMES contains a product family, not a single title",
+    "FITChain, FITChain Elite, and FITQUEST share a common movement kernel",
+    "QR-linked instruction is a first-class design layer",
+    "the strongest convergence happens in late April 2024",
+    "FITQUEST is the narrative transmutation of the same fitness kernel used by FITChain"
+  ],
+  "active_fronts": [
+    "canonical deck math reconciliation",
+    "Stoicheia archive-to-live integration",
+    "image-only instruction witness extraction",
+    "QR destination manifest"
+  ],
+  "blockers": [
+    "live Google Docs gate blocked by missing OAuth material",
+    "no local GAMES nervous-system spine",
+    "Stoicheia front/back archive entries have weak text witness"
+  ],
+  "gate_snapshot": {
+    "G05_live_docs_gate_check": "complete_blocked",
+    "G06_atlas_refresh": "complete",
+    "G07_transfer_hubs": "complete",
+    "G12_supermap": "complete",
+    "G24_atlas_replay_bridge": "partial",
+    "G35_blocker_honesty": "complete",
+    "G37_continuation_surface": "complete"
+  },
+  "next_moves": [
+    "build one canonical family ledger for deck math and SKU math",
+    "mirror image-only instruction surfaces into markdown witnesses",
+    "decode or register every QR destination URL",
+    "reopen Stoicheia into a live mirror or dedicated archive capsule",
+    "write one family-level manual describing the shared kernel and each game's specialization"
+  ]
+}

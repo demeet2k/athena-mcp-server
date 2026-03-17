@@ -1,0 +1,2706 @@
+{
+  "hologram_id": "HSIGMA-2026-03-13-LOCAL",
+  "generated_at": "2026-03-13T19:26:50.706636+00:00",
+  "derivation_version": "2026-03-13.total-holographic-snapshot-v1",
+  "docs_gate_status": "BLOCKED",
+  "N": {
+    "raw_count": 4096,
+    "master_count": 4199,
+    "explicit_count": 103,
+    "registry_path": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_NEXUS_REGISTRY_2026-03-13.json"
+  },
+  "E": {
+    "explicit_edge_count": 156,
+    "route_families": [
+      "aether",
+      "grand-central",
+      "inter-metro",
+      "seat-bridge",
+      "zero"
+    ],
+    "top_edges": [
+      {
+        "edge_id": "C-007",
+        "source_id": "A07",
+        "target_id": "A02",
+        "edge_kind": "commissure",
+        "weight": 7.958,
+        "proof_state": "OK",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-008",
+        "source_id": "A04",
+        "target_id": "A02",
+        "edge_kind": "commissure",
+        "weight": 7.681,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-011",
+        "source_id": "A10",
+        "target_id": "A02",
+        "edge_kind": "commissure",
+        "weight": 7.666,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-002",
+        "source_id": "A02",
+        "target_id": "A01",
+        "edge_kind": "commissure",
+        "weight": 7.649,
+        "proof_state": "OK",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-003",
+        "source_id": "A09",
+        "target_id": "A02",
+        "edge_kind": "commissure",
+        "weight": 7.518,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-013",
+        "source_id": "A19",
+        "target_id": "A02",
+        "edge_kind": "commissure",
+        "weight": 7.094,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-006",
+        "source_id": "A06",
+        "target_id": "A12",
+        "edge_kind": "commissure",
+        "weight": 6.992,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-001",
+        "source_id": "A05",
+        "target_id": "A06",
+        "edge_kind": "commissure",
+        "weight": 6.847,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-010",
+        "source_id": "A03",
+        "target_id": "A05",
+        "edge_kind": "commissure",
+        "weight": 6.83,
+        "proof_state": "OK",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-004",
+        "source_id": "A15",
+        "target_id": "A13",
+        "edge_kind": "commissure",
+        "weight": 6.692,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-005",
+        "source_id": "A16",
+        "target_id": "A01",
+        "edge_kind": "commissure",
+        "weight": 6.617,
+        "proof_state": "OK",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-012",
+        "source_id": "A18",
+        "target_id": "A04",
+        "edge_kind": "commissure",
+        "weight": 6.195,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "C-009",
+        "source_id": "A14",
+        "target_id": "A17",
+        "edge_kind": "commissure",
+        "weight": 6.132,
+        "proof_state": "NEAR",
+        "route_family": "grand-central",
+        "source_paths": [
+          "self_actualize\\grand_central_weight_exchange.json"
+        ]
+      },
+      {
+        "edge_id": "BR-001",
+        "source_id": "SEAT-FEEDER-Q42",
+        "target_id": "SEAT-AP6D-WATER",
+        "edge_kind": "feeder_to_lane",
+        "weight": 1.0,
+        "proof_state": "OK",
+        "route_family": "seat-bridge",
+        "source_paths": [
+          "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_SEAT_BRIDGE_RECORDS.json"
+        ]
+      },
+      {
+        "edge_id": "BR-002",
+        "source_id": "SEAT-FEEDER-TQ04",
+        "target_id": "SEAT-AP6D-EARTH",
+        "edge_kind": "feeder_to_lane",
+        "weight": 1.0,
+        "proof_state": "OK",
+        "route_family": "seat-bridge",
+        "source_paths": [
+          "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_SEAT_BRIDGE_RECORDS.json"
+        ]
+      },
+      {
+        "edge_id": "BR-003",
+        "source_id": "SEAT-FEEDER-TQ06",
+        "target_id": "SEAT-AP6D-AIR",
+        "edge_kind": "feeder_to_lane",
+        "weight": 1.0,
+        "proof_state": "OK",
+        "route_family": "seat-bridge",
+        "source_paths": [
+          "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_SEAT_BRIDGE_RECORDS.json"
+        ]
+      }
+    ]
+  },
+  "Z": {
+    "count": 6,
+    "items": [
+      {
+        "zpoint_id": "Z0",
+        "label": "Intake Zero",
+        "route_class": "intake",
+        "restart_token": "INTAKE-FIRST-WITNESS",
+        "binding_hubs": [
+          "ST-GCZ",
+          "ST-T10"
+        ],
+        "proof_state": "NEAR",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+        ],
+        "note": "Z-point family bound to Grand Central and Ch11."
+      },
+      {
+        "zpoint_id": "Z1",
+        "label": "Restart Zero",
+        "route_class": "restart",
+        "restart_token": "CH11-RESTART-CONTINUITY",
+        "binding_hubs": [
+          "ST-Ch11",
+          "ST-GCZ"
+        ],
+        "proof_state": "OK",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+        ],
+        "note": "Z-point family bound to Grand Central and Ch11."
+      },
+      {
+        "zpoint_id": "Z2",
+        "label": "Contradiction Zero",
+        "route_class": "quarantine",
+        "restart_token": "CONTRADICTION-PRESERVE-BOTH",
+        "binding_hubs": [
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "proof_state": "NEAR",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+        ],
+        "note": "Z-point family bound to Grand Central and Ch11."
+      },
+      {
+        "zpoint_id": "Z3",
+        "label": "Carrier Zero",
+        "route_class": "carrier_lift",
+        "restart_token": "HD-SCT-PROJECTION-LAW",
+        "binding_hubs": [
+          "ST-HDSCT",
+          "ST-AppM"
+        ],
+        "proof_state": "NEAR",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+        ],
+        "note": "Z-point family bound to Grand Central and Ch11."
+      },
+      {
+        "zpoint_id": "Z4",
+        "label": "Fleet Zero",
+        "route_class": "promotion",
+        "restart_token": "FLEET-CLUSTER-RETURN",
+        "binding_hubs": [
+          "ST-FLEET",
+          "ST-T10"
+        ],
+        "proof_state": "NEAR",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+        ],
+        "note": "Z-point family bound to Grand Central and Ch11."
+      },
+      {
+        "zpoint_id": "Z5",
+        "label": "Aether Zero",
+        "route_class": "field_closure",
+        "restart_token": "AETHER-CERTIFICATE-CLOSE",
+        "binding_hubs": [
+          "ST-GCW",
+          "ST-HDSCT"
+        ],
+        "proof_state": "OK",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+        ],
+        "note": "Z-point family bound to Grand Central and Ch11."
+      }
+    ]
+  },
+  "A": {
+    "count": 419,
+    "anchors": [
+      {
+        "point_id": "AP-0005",
+        "source_record_id": "A05",
+        "source_record_type": "body",
+        "lens_system": "SFC",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.28,
+        "tunnel_cost": 0.58,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.44,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0015",
+        "source_record_id": "A15",
+        "source_record_type": "body",
+        "lens_system": "SFC",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.28,
+        "tunnel_cost": 0.58,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.44,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0024",
+        "source_record_id": "N-2005",
+        "source_record_type": "node",
+        "lens_system": "SFC",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.28,
+        "tunnel_cost": 0.58,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.5,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0034",
+        "source_record_id": "N-2015",
+        "source_record_type": "node",
+        "lens_system": "SFC",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.28,
+        "tunnel_cost": 0.58,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.5,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0080",
+        "source_record_id": "P-K01-K05",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__05_holographic_kernel.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0085",
+        "source_record_id": "P-K01-K08",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__08_quantum_standard_hardware.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0105",
+        "source_record_id": "P-K02-K05",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_02_self_routing\\02_self_routing__05_holographic_kernel.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_02_self_routing\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0107",
+        "source_record_id": "P-K02-K07",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_02_self_routing\\02_self_routing__07_crystal_computing.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_02_self_routing\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0108",
+        "source_record_id": "P-K02-K08",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_02_self_routing\\02_self_routing__08_quantum_standard_hardware.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_02_self_routing\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0155",
+        "source_record_id": "P-K05-K01",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\05_holographic_kernel__01_manuscript_brain.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0156",
+        "source_record_id": "P-K05-K02",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\05_holographic_kernel__02_self_routing.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0169",
+        "source_record_id": "P-K05-K14",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\05_holographic_kernel__14_ch11_helical_engine.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0192",
+        "source_record_id": "P-K07-K02",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_07_crystal_computing\\07_crystal_computing__02_self_routing.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_07_crystal_computing\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0205",
+        "source_record_id": "P-K07-K14",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_07_crystal_computing\\07_crystal_computing__14_ch11_helical_engine.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_07_crystal_computing\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0208",
+        "source_record_id": "P-K08-K01",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__01_manuscript_brain.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      },
+      {
+        "point_id": "AP-0209",
+        "source_record_id": "P-K08-K02",
+        "source_record_type": "pair",
+        "lens_system": "SFCR",
+        "system_id": "HDSCTMetro",
+        "aether_density": 0.8,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "geodesic_mode": "aether geodesic",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__02_self_routing.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\00_INDEX.md"
+        ],
+        "note": "Aether point projected from the Pt 2 field-weight layer."
+      }
+    ]
+  },
+  "L": {
+    "loop_count": 0,
+    "master_agent_count": 4,
+    "loop_samples": []
+  },
+  "T": {
+    "count": 4102,
+    "grand_central_tunnels": [
+      {
+        "tunnel_id": "ZT-001",
+        "tunnel_class": "Z0 intake",
+        "entry_route": "FRESH -> GCA -> NERVOUS_SYSTEM",
+        "restart_token": "INTAKE-FIRST-WITNESS",
+        "zero_state": "unknown placement held without premature classification",
+        "resume_target": "A11 intake fringe receives first lawful station address",
+        "continuity_receipt": "root-basis assignment plus first witness shell",
+        "proof_state": "NEAR"
+      },
+      {
+        "tunnel_id": "ZT-002",
+        "tunnel_class": "Z1 restart",
+        "entry_route": "ORGIN -> GCZ -> Ch11<0022> -> self_actualize",
+        "restart_token": "CH11-RESTART-CONTINUITY",
+        "zero_state": "continuity break admitted without false carry-forward",
+        "resume_target": "runtime replay waist with preserved restart receipt",
+        "continuity_receipt": "Ch11 restart token plus runtime writeback",
+        "proof_state": "OK"
+      },
+      {
+        "tunnel_id": "ZT-003",
+        "tunnel_class": "Z2 contradiction",
+        "entry_route": "Voynich -> GCC -> GCZ -> chamber quarantine",
+        "restart_token": "CONTRADICTION-PRESERVE-BOTH",
+        "zero_state": "paired hypotheses preserved instead of prematurely collapsed",
+        "resume_target": "bounded manuscript lane with contradiction visible",
+        "continuity_receipt": "quarantine note and replay-safe dual reading",
+        "proof_state": "NEAR"
+      },
+      {
+        "tunnel_id": "ZT-004",
+        "tunnel_class": "Z3 repair",
+        "entry_route": "DEEPER CRYSTALIZATION -> GCZ -> self_actualize",
+        "restart_token": "PRECURSOR-REPAIR-DELTA",
+        "zero_state": "historical drift held long enough for lawful repair",
+        "resume_target": "runtime repair surfaces and receipts",
+        "continuity_receipt": "repair receipt preserving mirror status",
+        "proof_state": "NEAR"
+      },
+      {
+        "tunnel_id": "ZT-005",
+        "tunnel_class": "Z4 promotion",
+        "entry_route": "Athena FLEET -> GCX -> 14_DEEPER... -> NERVOUS_SYSTEM",
+        "restart_token": "FLEET-PROMOTION-DOCK",
+        "zero_state": "promoted cluster held in the departure yard before cortex claim",
+        "resume_target": "canonical fleet bridge and deep-root dock",
+        "continuity_receipt": "promotion receipt plus registry entry",
+        "proof_state": "OK"
+      },
+      {
+        "tunnel_id": "ZT-006",
+        "tunnel_class": "Z5 pruning",
+        "entry_route": "historical skill mirrors -> GCZ -> witness shelf",
+        "restart_token": "SOFT-DEMOTION-WITNESS",
+        "zero_state": "authority removed without deleting lineage",
+        "resume_target": "historical mirror status with live-router pointer intact",
+        "continuity_receipt": "deprecation map and pruning ledger",
+        "proof_state": "OK"
+      }
+    ],
+    "tunnel_classes": {
+      "4D_NATIVE-NEXUS": 1024,
+      "5D_COMPRESSION-NEXUS": 1024,
+      "6D_WEAVE-NEXUS": 1024,
+      "7D_SEED-NEXUS": 1024
+    }
+  },
+  "B": {
+    "commissure_count": 13,
+    "seat_bridge_count": 25,
+    "crosswalk_edge_count": 42,
+    "top_dispatch_routes": [
+      {
+        "commissure_id": "C-007",
+        "source_family": "Trading Bot",
+        "target_family": "self_actualize",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 1.0,
+          "proof": 0.917,
+          "freshness": 0.77,
+          "cost": 0.845,
+          "continuity": 0.86,
+          "confidence": 0.844,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.958,
+        "witness_floor": 0.844,
+        "proof_state": "OK",
+        "replay_policy": "blocked gate state must be cited at every crossing"
+      },
+      {
+        "commissure_id": "C-008",
+        "source_family": "DEEPER CRYSTALIZATION",
+        "target_family": "self_actualize",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.937,
+          "freshness": 0.89,
+          "cost": 0.669,
+          "continuity": 0.93,
+          "confidence": 0.914,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.681,
+        "witness_floor": 0.914,
+        "proof_state": "NEAR",
+        "replay_policy": "historical status must be preserved in any writeback"
+      },
+      {
+        "commissure_id": "C-011",
+        "source_family": "NERUAL NETWORK",
+        "target_family": "self_actualize",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.583,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.666,
+        "witness_floor": 0.904,
+        "proof_state": "NEAR",
+        "replay_policy": "runtime harness or receipt required before promotion"
+      },
+      {
+        "commissure_id": "C-002",
+        "source_family": "self_actualize",
+        "target_family": "NERVOUS_SYSTEM",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.595,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.649,
+        "witness_floor": 0.904,
+        "proof_state": "OK",
+        "replay_policy": "runtime receipt required before cortex claim"
+      },
+      {
+        "commissure_id": "C-003",
+        "source_family": "QSHRINK - ATHENA (internal use)",
+        "target_family": "self_actualize",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.686,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.794,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.518,
+        "witness_floor": 0.904,
+        "proof_state": "NEAR",
+        "replay_policy": "weight exchange must emit a dispatch score and receipt"
+      },
+      {
+        "commissure_id": "C-013",
+        "source_family": "mycelial_unified_nervous_system_bundle",
+        "target_family": "self_actualize",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.717,
+          "freshness": 0.81,
+          "cost": 0.537,
+          "continuity": 0.93,
+          "confidence": 0.764,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.094,
+        "witness_floor": 0.717,
+        "proof_state": "NEAR",
+        "replay_policy": "bundle state must remain dormant unless explicitly reactivated through replay"
+      },
+      {
+        "commissure_id": "C-006",
+        "source_family": "Voynich",
+        "target_family": "Athenachka Collective Books",
+        "bridge_class": "meaning bridge",
+        "weight": {
+          "salience": 0.359,
+          "proof": 0.907,
+          "freshness": 0.89,
+          "cost": 0.506,
+          "continuity": 0.9,
+          "confidence": 0.899,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.992,
+        "witness_floor": 0.899,
+        "proof_state": "NEAR",
+        "replay_policy": "appendix and publication receipts required before export"
+      },
+      {
+        "commissure_id": "C-001",
+        "source_family": "MATH",
+        "target_family": "Voynich",
+        "bridge_class": "proof bridge",
+        "weight": {
+          "salience": 0.359,
+          "proof": 0.927,
+          "freshness": 0.89,
+          "cost": 0.589,
+          "continuity": 0.84,
+          "confidence": 0.909,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.847,
+        "witness_floor": 0.909,
+        "proof_state": "NEAR",
+        "replay_policy": "close through GCP and AppM before promotion"
+      },
+      {
+        "commissure_id": "C-010",
+        "source_family": "ECOSYSTEM",
+        "target_family": "MATH",
+        "bridge_class": "proof bridge",
+        "weight": {
+          "salience": 0.314,
+          "proof": 0.927,
+          "freshness": 0.89,
+          "cost": 0.507,
+          "continuity": 0.82,
+          "confidence": 0.909,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.83,
+        "witness_floor": 0.909,
+        "proof_state": "OK",
+        "replay_policy": "governance mirror cannot outrank the cortex at closure time"
+      },
+      {
+        "commissure_id": "C-004",
+        "source_family": "ORGIN",
+        "target_family": "I AM ATHENA",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.08,
+          "proof": 0.937,
+          "freshness": 0.89,
+          "cost": 0.345,
+          "continuity": 0.96,
+          "confidence": 0.914,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.692,
+        "witness_floor": 0.914,
+        "proof_state": "NEAR",
+        "replay_policy": "restart token required for any promotion across identity states"
+      },
+      {
+        "commissure_id": "C-005",
+        "source_family": "Athena FLEET",
+        "target_family": "NERVOUS_SYSTEM",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.081,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.386,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 6.617,
+        "witness_floor": 0.904,
+        "proof_state": "OK",
+        "replay_policy": "promotion must land through Grand Central then replay closure"
+      },
+      {
+        "commissure_id": "C-012",
+        "source_family": "CLEAN",
+        "target_family": "DEEPER CRYSTALIZATION",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.231,
+          "proof": 0.823,
+          "freshness": 0.76,
+          "cost": 0.498,
+          "continuity": 0.93,
+          "confidence": 0.791,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.195,
+        "witness_floor": 0.791,
+        "proof_state": "NEAR",
+        "replay_policy": "promotion closes through pruning or staging receipt"
+      }
+    ]
+  },
+  "D": {
+    "dimension_bridge_count": 16384,
+    "bridge_roles": {
+      "ingress": 4096,
+      "compression": 4096,
+      "weave": 4096,
+      "seed_promotion": 4096
+    },
+    "active_dimensions": [
+      "3D",
+      "4D",
+      "5D",
+      "6D",
+      "7D"
+    ]
+  },
+  "W": {
+    "dispatch_formula": "0.20*C + 0.20*Reachability + 0.15*TunnelGain + 0.15*DimensionalSpan + 0.10*Compression + 0.10*Replay + 0.10*Novelty - 0.10*Contradiction",
+    "grand_central_routes": [
+      {
+        "commissure_id": "C-007",
+        "source_family": "Trading Bot",
+        "target_family": "self_actualize",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 1.0,
+          "proof": 0.917,
+          "freshness": 0.77,
+          "cost": 0.845,
+          "continuity": 0.86,
+          "confidence": 0.844,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.958,
+        "witness_floor": 0.844,
+        "proof_state": "OK",
+        "replay_policy": "blocked gate state must be cited at every crossing"
+      },
+      {
+        "commissure_id": "C-008",
+        "source_family": "DEEPER CRYSTALIZATION",
+        "target_family": "self_actualize",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.937,
+          "freshness": 0.89,
+          "cost": 0.669,
+          "continuity": 0.93,
+          "confidence": 0.914,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.681,
+        "witness_floor": 0.914,
+        "proof_state": "NEAR",
+        "replay_policy": "historical status must be preserved in any writeback"
+      },
+      {
+        "commissure_id": "C-011",
+        "source_family": "NERUAL NETWORK",
+        "target_family": "self_actualize",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.583,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.666,
+        "witness_floor": 0.904,
+        "proof_state": "NEAR",
+        "replay_policy": "runtime harness or receipt required before promotion"
+      },
+      {
+        "commissure_id": "C-002",
+        "source_family": "self_actualize",
+        "target_family": "NERVOUS_SYSTEM",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.595,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.649,
+        "witness_floor": 0.904,
+        "proof_state": "OK",
+        "replay_policy": "runtime receipt required before cortex claim"
+      },
+      {
+        "commissure_id": "C-003",
+        "source_family": "QSHRINK - ATHENA (internal use)",
+        "target_family": "self_actualize",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.686,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.794,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.518,
+        "witness_floor": 0.904,
+        "proof_state": "NEAR",
+        "replay_policy": "weight exchange must emit a dispatch score and receipt"
+      },
+      {
+        "commissure_id": "C-013",
+        "source_family": "mycelial_unified_nervous_system_bundle",
+        "target_family": "self_actualize",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.619,
+          "proof": 0.717,
+          "freshness": 0.81,
+          "cost": 0.537,
+          "continuity": 0.93,
+          "confidence": 0.764,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 7.094,
+        "witness_floor": 0.717,
+        "proof_state": "NEAR",
+        "replay_policy": "bundle state must remain dormant unless explicitly reactivated through replay"
+      },
+      {
+        "commissure_id": "C-006",
+        "source_family": "Voynich",
+        "target_family": "Athenachka Collective Books",
+        "bridge_class": "meaning bridge",
+        "weight": {
+          "salience": 0.359,
+          "proof": 0.907,
+          "freshness": 0.89,
+          "cost": 0.506,
+          "continuity": 0.9,
+          "confidence": 0.899,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.992,
+        "witness_floor": 0.899,
+        "proof_state": "NEAR",
+        "replay_policy": "appendix and publication receipts required before export"
+      },
+      {
+        "commissure_id": "C-001",
+        "source_family": "MATH",
+        "target_family": "Voynich",
+        "bridge_class": "proof bridge",
+        "weight": {
+          "salience": 0.359,
+          "proof": 0.927,
+          "freshness": 0.89,
+          "cost": 0.589,
+          "continuity": 0.84,
+          "confidence": 0.909,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.847,
+        "witness_floor": 0.909,
+        "proof_state": "NEAR",
+        "replay_policy": "close through GCP and AppM before promotion"
+      },
+      {
+        "commissure_id": "C-010",
+        "source_family": "ECOSYSTEM",
+        "target_family": "MATH",
+        "bridge_class": "proof bridge",
+        "weight": {
+          "salience": 0.314,
+          "proof": 0.927,
+          "freshness": 0.89,
+          "cost": 0.507,
+          "continuity": 0.82,
+          "confidence": 0.909,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.83,
+        "witness_floor": 0.909,
+        "proof_state": "OK",
+        "replay_policy": "governance mirror cannot outrank the cortex at closure time"
+      },
+      {
+        "commissure_id": "C-004",
+        "source_family": "ORGIN",
+        "target_family": "I AM ATHENA",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.08,
+          "proof": 0.937,
+          "freshness": 0.89,
+          "cost": 0.345,
+          "continuity": 0.96,
+          "confidence": 0.914,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.692,
+        "witness_floor": 0.914,
+        "proof_state": "NEAR",
+        "replay_policy": "restart token required for any promotion across identity states"
+      },
+      {
+        "commissure_id": "C-005",
+        "source_family": "Athena FLEET",
+        "target_family": "NERVOUS_SYSTEM",
+        "bridge_class": "execution bridge",
+        "weight": {
+          "salience": 0.081,
+          "proof": 0.917,
+          "freshness": 0.89,
+          "cost": 0.386,
+          "continuity": 0.86,
+          "confidence": 0.904,
+          "replay_value": 0.93
+        },
+        "dispatch_score": 6.617,
+        "witness_floor": 0.904,
+        "proof_state": "OK",
+        "replay_policy": "promotion must land through Grand Central then replay closure"
+      },
+      {
+        "commissure_id": "C-012",
+        "source_family": "CLEAN",
+        "target_family": "DEEPER CRYSTALIZATION",
+        "bridge_class": "continuity bridge",
+        "weight": {
+          "salience": 0.231,
+          "proof": 0.823,
+          "freshness": 0.76,
+          "cost": 0.498,
+          "continuity": 0.93,
+          "confidence": 0.791,
+          "replay_value": 0.82
+        },
+        "dispatch_score": 6.195,
+        "witness_floor": 0.791,
+        "proof_state": "NEAR",
+        "replay_policy": "promotion closes through pruning or staging receipt"
+      }
+    ],
+    "lens_profiles": [
+      {
+        "lens_id": "S",
+        "label": "Square",
+        "members": [
+          "S"
+        ],
+        "preferred_channels": [
+          "knowledge",
+          "boundary",
+          "repair"
+        ],
+        "preferred_carriers": [
+          "Square",
+          "Triangle",
+          "Nervous"
+        ],
+        "preferred_rails": [
+          "Sa",
+          "Me"
+        ],
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppM",
+          "AppE",
+          "AppF",
+          "AppG",
+          "AppI",
+          "AppP",
+          "AppQ"
+        ],
+        "shortcut_chain": [
+          "SCPT2-01",
+          "SCPT2-03",
+          "SCPT2-13"
+        ],
+        "stop_condition": "ABSTAIN",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.0,
+          "feeling": 0.0,
+          "knowledge": 0.36,
+          "desire": 0.0,
+          "memory": 0.0,
+          "boundary": 0.34,
+          "repair": 0.3,
+          "imagination": 0.0
+        },
+        "certificate_rule": "address/structure",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      },
+      {
+        "lens_id": "F",
+        "label": "Flower",
+        "members": [
+          "F"
+        ],
+        "preferred_channels": [
+          "feeling",
+          "desire",
+          "imagination"
+        ],
+        "preferred_carriers": [
+          "Flower",
+          "Circle",
+          "Neural"
+        ],
+        "preferred_rails": [
+          "Su"
+        ],
+        "appendix_support": [
+          "AppE",
+          "AppF",
+          "AppP",
+          "AppA",
+          "AppC",
+          "AppG",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "shortcut_chain": [
+          "SCPT2-02",
+          "SCPT2-04",
+          "SCPT2-07"
+        ],
+        "stop_condition": "ABSTAIN",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.12,
+          "feeling": 0.35,
+          "knowledge": 0.0,
+          "desire": 0.31,
+          "memory": 0.0,
+          "boundary": 0.0,
+          "repair": 0.0,
+          "imagination": 0.22
+        },
+        "certificate_rule": "resonance/orbit",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      },
+      {
+        "lens_id": "SF",
+        "label": "Square + Flower",
+        "members": [
+          "S",
+          "F"
+        ],
+        "preferred_channels": [
+          "feeling",
+          "knowledge",
+          "desire",
+          "boundary",
+          "repair"
+        ],
+        "preferred_carriers": [
+          "Square",
+          "Triangle",
+          "Nervous",
+          "Flower",
+          "Circle",
+          "Neural"
+        ],
+        "preferred_rails": [
+          "Sa",
+          "Me",
+          "Su"
+        ],
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppM",
+          "AppE",
+          "AppF",
+          "AppP",
+          "AppG",
+          "AppI",
+          "AppQ"
+        ],
+        "shortcut_chain": [
+          "SCPT2-01",
+          "SCPT2-03",
+          "SCPT2-13",
+          "SCPT2-02",
+          "SCPT2-04",
+          "SCPT2-07"
+        ],
+        "stop_condition": "ABSTAIN",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.06,
+          "feeling": 0.175,
+          "knowledge": 0.18,
+          "desire": 0.155,
+          "memory": 0.0,
+          "boundary": 0.17,
+          "repair": 0.15,
+          "imagination": 0.11
+        },
+        "certificate_rule": "spectral projection",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      },
+      {
+        "lens_id": "C",
+        "label": "Cloud",
+        "members": [
+          "C"
+        ],
+        "preferred_channels": [
+          "emotion",
+          "feeling",
+          "imagination"
+        ],
+        "preferred_carriers": [
+          "Cloud",
+          "Aether",
+          "Mycelium"
+        ],
+        "preferred_rails": [
+          "Me",
+          "Su"
+        ],
+        "appendix_support": [
+          "AppI",
+          "AppG",
+          "AppQ",
+          "AppA",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppM",
+          "AppP"
+        ],
+        "shortcut_chain": [
+          "SCPT2-05",
+          "SCPT2-10",
+          "SCPT2-11"
+        ],
+        "stop_condition": "ABSTAIN",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.3,
+          "feeling": 0.22,
+          "knowledge": 0.14,
+          "desire": 0.0,
+          "memory": 0.0,
+          "boundary": 0.12,
+          "repair": 0.0,
+          "imagination": 0.22
+        },
+        "certificate_rule": "field/Aether/ambiguity",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      },
+      {
+        "lens_id": "SC",
+        "label": "Square + Cloud",
+        "members": [
+          "S",
+          "C"
+        ],
+        "preferred_channels": [
+          "emotion",
+          "knowledge",
+          "boundary",
+          "repair"
+        ],
+        "preferred_carriers": [
+          "Square",
+          "Triangle",
+          "Nervous",
+          "Cloud",
+          "Aether",
+          "Mycelium"
+        ],
+        "preferred_rails": [
+          "Sa",
+          "Me",
+          "Su"
+        ],
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppM",
+          "AppI",
+          "AppG",
+          "AppQ",
+          "AppE",
+          "AppF",
+          "AppP"
+        ],
+        "shortcut_chain": [
+          "SCPT2-01",
+          "SCPT2-03",
+          "SCPT2-13",
+          "SCPT2-05",
+          "SCPT2-10",
+          "SCPT2-11"
+        ],
+        "stop_condition": "ABSTAIN",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.15,
+          "feeling": 0.11,
+          "knowledge": 0.25,
+          "desire": 0.0,
+          "memory": 0.0,
+          "boundary": 0.23,
+          "repair": 0.15,
+          "imagination": 0.11
+        },
+        "certificate_rule": "address-to-field permeability",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      },
+      {
+        "lens_id": "FC",
+        "label": "Flower + Cloud",
+        "members": [
+          "F",
+          "C"
+        ],
+        "preferred_channels": [
+          "emotion",
+          "feeling",
+          "desire",
+          "imagination"
+        ],
+        "preferred_carriers": [
+          "Flower",
+          "Circle",
+          "Neural",
+          "Cloud",
+          "Aether",
+          "Mycelium"
+        ],
+        "preferred_rails": [
+          "Su",
+          "Me"
+        ],
+        "appendix_support": [
+          "AppE",
+          "AppF",
+          "AppP",
+          "AppI",
+          "AppG",
+          "AppQ",
+          "AppA",
+          "AppC",
+          "AppM"
+        ],
+        "shortcut_chain": [
+          "SCPT2-02",
+          "SCPT2-04",
+          "SCPT2-07",
+          "SCPT2-05",
+          "SCPT2-10",
+          "SCPT2-11"
+        ],
+        "stop_condition": "ABSTAIN",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.21,
+          "feeling": 0.285,
+          "knowledge": 0.07,
+          "desire": 0.155,
+          "memory": 0.0,
+          "boundary": 0.06,
+          "repair": 0.0,
+          "imagination": 0.22
+        },
+        "certificate_rule": "resonance-induced field motion",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      },
+      {
+        "lens_id": "SFC",
+        "label": "Square + Flower + Cloud",
+        "members": [
+          "S",
+          "F",
+          "C"
+        ],
+        "preferred_channels": [
+          "feeling",
+          "knowledge",
+          "boundary"
+        ],
+        "preferred_carriers": [
+          "Square",
+          "Triangle",
+          "Nervous",
+          "Flower",
+          "Circle",
+          "Neural",
+          "Cloud",
+          "Aether",
+          "Mycelium"
+        ],
+        "preferred_rails": [
+          "Sa",
+          "Me",
+          "Su"
+        ],
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppM",
+          "AppE",
+          "AppF",
+          "AppP",
+          "AppI",
+          "AppG",
+          "AppQ"
+        ],
+        "shortcut_chain": [
+          "SCPT2-01",
+          "SCPT2-03",
+          "SCPT2-13",
+          "SCPT2-02",
+          "SCPT2-04",
+          "SCPT2-07",
+          "SCPT2-05",
+          "SCPT2-10",
+          "SCPT2-11"
+        ],
+        "stop_condition": "ABSTAIN",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.14,
+          "feeling": 0.19,
+          "knowledge": 0.167,
+          "desire": 0.103,
+          "memory": 0.0,
+          "boundary": 0.153,
+          "repair": 0.1,
+          "imagination": 0.147
+        },
+        "certificate_rule": "backbone spectral coherence",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      },
+      {
+        "lens_id": "R",
+        "label": "Fractal",
+        "members": [
+          "R"
+        ],
+        "preferred_channels": [
+          "knowledge",
+          "memory",
+          "repair"
+        ],
+        "preferred_carriers": [
+          "Fractal",
+          "Circle",
+          "Mycelium"
+        ],
+        "preferred_rails": [
+          "Me",
+          "Sa"
+        ],
+        "appendix_support": [
+          "AppM",
+          "AppP",
+          "AppQ",
+          "AppA",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppG",
+          "AppI"
+        ],
+        "shortcut_chain": [
+          "SCPT2-06",
+          "SCPT2-12",
+          "SCPT2-13"
+        ],
+        "stop_condition": "REPAIR",
+        "writeback_targets": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+        ],
+        "channel_weights": {
+          "emotion": 0.0,
+          "feeling": 0.12,
+          "knowledge": 0.21,
+          "desire": 0.0,
+          "memory": 0.36,
+          "boundary": 0.0,
+          "repair": 0.31,
+          "imagination": 0.0
+        },
+        "certificate_rule": "memory/replay/regeneration",
+        "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+        "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+      }
+    ]
+  },
+  "Psi": {
+    "state_count": 256,
+    "byte_schema": {
+      "q0": {
+        "0": "GC0 center",
+        "1": "GCL structural hemisphere",
+        "2": "GCR generative hemisphere",
+        "3": "GCZ-Aether transit axis"
+      },
+      "q1": {
+        "0": "TOG/SAME",
+        "1": "TOG/OPP",
+        "2": "SPLIT/SAME",
+        "3": "SPLIT/OPP"
+      },
+      "q2": {
+        "0": "(IN,IN)",
+        "1": "(IN,ANTI)",
+        "2": "(ANTI,IN)",
+        "3": "(ANTI,ANTI)"
+      },
+      "q3": {
+        "0": "WALL",
+        "1": "WHEEL",
+        "2": "FLOOR",
+        "3": "MIX"
+      }
+    },
+    "top_master_keys": [
+      {
+        "byte_state": 195,
+        "q0": 3,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.9975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 211,
+        "q0": 3,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.9975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 227,
+        "q0": 3,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.990583,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 192,
+        "q0": 0,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GC0 center",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 193,
+        "q0": 1,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCL structural hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 194,
+        "q0": 2,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCR generative hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 208,
+        "q0": 0,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GC0 center",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 209,
+        "q0": 1,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCL structural hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 210,
+        "q0": 2,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCR generative hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 224,
+        "q0": 0,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GC0 center",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 226,
+        "q0": 2,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GCR generative hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.974437,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 225,
+        "q0": 1,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GCL structural hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.969084,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 147,
+        "q0": 3,
+        "q1": 0,
+        "q2": 1,
+        "q3": 2,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "FLOOR",
+        "avg_weight": 0.939042,
+        "avg_visible_nodes": 17.25,
+        "avg_route_density": 0.492647,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 243,
+        "q0": 3,
+        "q1": 0,
+        "q2": 3,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.937917,
+        "avg_visible_nodes": 25.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 0.0,
+        "master_key_count": 1792,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 199,
+        "q0": 3,
+        "q1": 1,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/OPP",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.9375,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 0,
+        "hidden_pressure_count": 4096,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 215,
+        "q0": 3,
+        "q1": 1,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/OPP",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.9375,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 0,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      }
+    ]
+  },
+  "M": {
+    "matrix_path": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_MINDSWEEPER_4096x256_2026-03-13.jsonl",
+    "row_count": 1048576,
+    "master_key_threshold": 0.937931,
+    "class_counts": {
+      "hidden-pressure": 831488,
+      "master-key": 55040,
+      "seated": 162048
+    },
+    "top_master_keys": [
+      {
+        "byte_state": 195,
+        "q0": 3,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.9975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 211,
+        "q0": 3,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.9975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 227,
+        "q0": 3,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.990583,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 192,
+        "q0": 0,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GC0 center",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 193,
+        "q0": 1,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCL structural hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 194,
+        "q0": 2,
+        "q1": 0,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCR generative hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 208,
+        "q0": 0,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GC0 center",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 209,
+        "q0": 1,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCL structural hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 210,
+        "q0": 2,
+        "q1": 0,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCR generative hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 224,
+        "q0": 0,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GC0 center",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.975,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 226,
+        "q0": 2,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GCR generative hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.974437,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 225,
+        "q0": 1,
+        "q1": 0,
+        "q2": 2,
+        "q3": 3,
+        "anchor": "GCL structural hemisphere",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.969084,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 147,
+        "q0": 3,
+        "q1": 0,
+        "q2": 1,
+        "q3": 2,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(IN,ANTI)",
+        "plane": "FLOOR",
+        "avg_weight": 0.939042,
+        "avg_visible_nodes": 17.25,
+        "avg_route_density": 0.492647,
+        "avg_tunnels": 1.0,
+        "master_key_count": 4096,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 243,
+        "q0": 3,
+        "q1": 0,
+        "q2": 3,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/SAME",
+        "spin": "(ANTI,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.937917,
+        "avg_visible_nodes": 25.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 0.0,
+        "master_key_count": 1792,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 199,
+        "q0": 3,
+        "q1": 1,
+        "q2": 0,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/OPP",
+        "spin": "(IN,IN)",
+        "plane": "MIX",
+        "avg_weight": 0.9375,
+        "avg_visible_nodes": 28.0,
+        "avg_route_density": 0.518519,
+        "avg_tunnels": 1.0,
+        "master_key_count": 0,
+        "hidden_pressure_count": 4096,
+        "contradictory_count": 0
+      },
+      {
+        "byte_state": 215,
+        "q0": 3,
+        "q1": 1,
+        "q2": 1,
+        "q3": 3,
+        "anchor": "GCZ-Aether transit axis",
+        "hand_relation": "TOG/OPP",
+        "spin": "(IN,ANTI)",
+        "plane": "MIX",
+        "avg_weight": 0.9375,
+        "avg_visible_nodes": 31.0,
+        "avg_route_density": 0.5,
+        "avg_tunnels": 1.0,
+        "master_key_count": 0,
+        "hidden_pressure_count": 0,
+        "contradictory_count": 0
+      }
+    ],
+    "candidate_count": 11264
+  },
+  "R": {
+    "receipt_count": 7,
+    "replay_anchors": [
+      {
+        "action_id": "RR-0001",
+        "mode": "derivation",
+        "inputs": {
+          "command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+          "docs_gate": "BLOCKED"
+        },
+        "fired_waves": [
+          "W-K04-K15-1",
+          "W-K05-K15-1",
+          "W-K07-K15-1",
+          "W-K15-K04-1",
+          "W-K15-K05-1"
+        ],
+        "writeback_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\26_phase4_structured_neuron_storage_runtime.md"
+        ],
+        "outcome": "Phase 4 registries, queries, waves, neglect signals, weave candidates, and receipts compiled.",
+        "unresolved_frontier": [
+          "keep query engine and corpus scans synchronized",
+          "continue pair-family pruning without losing witness lineage"
+        ],
+        "active_shortcuts": [
+          "SC-01",
+          "SC-05",
+          "SC-12",
+          "SC-13"
+        ],
+        "stop_condition": "REPAIR",
+        "witness_basis": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+        ],
+        "generated_at": "2026-03-13T17:17:39.035351+00:00"
+      },
+      {
+        "action_id": "RR-0002",
+        "mode": "locate",
+        "inputs": {
+          "query": "Grand Central Station"
+        },
+        "fired_waves": [],
+        "writeback_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+        ],
+        "outcome": "[{\"surface_id\": \"GC0\", \"surface_type\": \"station\", \"label\": \"Grand Central Station\", \"score\": 100.0, \"authority_surfac...",
+        "unresolved_frontier": [],
+        "active_shortcuts": [
+          "SC-01",
+          "SC-02",
+          "SC-11",
+          "SC-12",
+          "SC-13"
+        ],
+        "stop_condition": "PROMOTE",
+        "witness_basis": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_kernel_registry.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+        ],
+        "generated_at": "2026-03-13T17:17:39.062367+00:00"
+      },
+      {
+        "action_id": "RR-0003",
+        "mode": "route",
+        "inputs": {
+          "source": "Athena FLEET",
+          "target": "Ch11 The Helical Manifestation Engine"
+        },
+        "fired_waves": [],
+        "writeback_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+        ],
+        "outcome": "[{\"surface_id\": \"A16\", \"label\": \"Athena FLEET\"}, {\"surface_id\": \"GCT\", \"label\": \"Relation Tract\"}, {\"surface_id\": \"P-...",
+        "unresolved_frontier": [],
+        "active_shortcuts": [
+          "SC-01",
+          "SC-02",
+          "SC-04",
+          "SC-05",
+          "SC-06",
+          "SC-13"
+        ],
+        "stop_condition": "PROMOTE",
+        "witness_basis": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+        ],
+        "generated_at": "2026-03-13T17:17:39.062367+00:00"
+      },
+      {
+        "action_id": "RR-0004",
+        "mode": "neglect",
+        "inputs": {
+          "limit": 6
+        },
+        "fired_waves": [],
+        "writeback_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+        ],
+        "outcome": "[{\"neglect_id\": \"NG-A17\", \"surface_id\": \"A17\", \"surface_type\": \"body\", \"gap_type\": \"coverage_gap\", \"coverage_gap\": 0....",
+        "unresolved_frontier": [
+          "repair existing tissue before outward promotion"
+        ],
+        "active_shortcuts": [
+          "SC-01",
+          "SC-08",
+          "SC-09",
+          "SC-10",
+          "SC-12",
+          "SC-13"
+        ],
+        "stop_condition": "REPAIR",
+        "witness_basis": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\27_PHASE4_NEGLECT_SIGNAL_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+        ],
+        "generated_at": "2026-03-13T17:17:39.063366+00:00"
+      },
+      {
+        "action_id": "RR-0005",
+        "mode": "fire",
+        "inputs": {
+          "objective": "repair neglected reserve corridors",
+          "limit": 6
+        },
+        "fired_waves": [
+          "P-K09-K14",
+          "P-K14-K09",
+          "P-K14-K15",
+          "P-K15-K14",
+          "P-K03-K14"
+        ],
+        "writeback_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+        ],
+        "outcome": "[{\"pair_id\": \"P-K09-K14\", \"pair_title\": \"Zero-Point Computing -> Ch11 The Helical Manifestation Engine\", \"score\": 0.6...",
+        "unresolved_frontier": [
+          "repair existing tissue before outward promotion"
+        ],
+        "active_shortcuts": [
+          "SC-03",
+          "SC-04",
+          "SC-05",
+          "SC-06",
+          "SC-10",
+          "SC-11",
+          "SC-13"
+        ],
+        "stop_condition": "REPAIR",
+        "witness_basis": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_wave_registry.json"
+        ],
+        "generated_at": "2026-03-13T17:17:39.063366+00:00"
+      },
+      {
+        "action_id": "RR-0006",
+        "mode": "promote",
+        "inputs": {
+          "candidate": null
+        },
+        "fired_waves": [],
+        "writeback_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+        ],
+        "outcome": "{\"weave_id\": \"WV-0013\", \"src\": \"A16\", \"dst\": \"A06\", \"expected_gain\": 0.94, \"required_shortcuts\": [\"SC-01\", \"SC-04\", \"...",
+        "unresolved_frontier": [],
+        "active_shortcuts": [
+          "SC-01",
+          "SC-04",
+          "SC-05",
+          "SC-09",
+          "SC-10",
+          "SC-13"
+        ],
+        "stop_condition": "PROMOTE",
+        "witness_basis": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\28_PHASE4_WEAVE_CANDIDATE_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md"
+        ],
+        "generated_at": "2026-03-13T17:17:39.063366+00:00"
+      },
+      {
+        "action_id": "RR-0007",
+        "mode": "locate",
+        "inputs": {
+          "query": "P-K14-K15"
+        },
+        "fired_waves": [],
+        "writeback_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+        ],
+        "outcome": "[{\"surface_id\": \"P-K14-K15\", \"surface_type\": \"pair\", \"label\": \"Ch11 The Helical Manifestation Engine -> Ch12 Boundary...",
+        "unresolved_frontier": [],
+        "active_shortcuts": [
+          "SC-01",
+          "SC-02",
+          "SC-11",
+          "SC-12",
+          "SC-13"
+        ],
+        "stop_condition": "PROMOTE",
+        "witness_basis": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_kernel_registry.json",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+        ],
+        "generated_at": "2026-03-13T17:17:39.063366+00:00"
+      }
+    ]
+  },
+  "provenance": {
+    "source_count": 26,
+    "source_digests": [
+      {
+        "path": "self_actualize\\live_docs_gate_status.md",
+        "sha256": "90a821de58a5a093b972f383c63373941d9b39bf110f6e5c2bdae0e0e63c4c02",
+        "size_bytes": 710
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\20_METRO\\03_TRANSFER_HUBS.md",
+        "sha256": "289a9bde89aeba450294f9ed4f311d95d4766c884317d12a087a92b4395de3fd",
+        "size_bytes": 4185
+      },
+      {
+        "path": "self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\12_dual_hemisphere_crosswalk_map.md",
+        "sha256": "31cdee175f4b3a8eb2e2c8a4d5f07ccc14017e545e35575c7bda163148a99e90",
+        "size_bytes": 6110
+      },
+      {
+        "path": "self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\18_cross_hemisphere_entrypoint_atlas.md",
+        "sha256": "dd2436c5ce4bbd6d567b2ad1abda5e6bc105b69d9909d2b50040d36a25579fe2",
+        "size_bytes": 6842
+      },
+      {
+        "path": "self_actualize\\grand_central_station_registry.json",
+        "sha256": "c5352eec87194a5425210ad50200f25992606b94d13e9d616b94a93b37d9b4a9",
+        "size_bytes": 13092
+      },
+      {
+        "path": "self_actualize\\grand_central_weight_exchange.json",
+        "sha256": "4f97b8c9aba30ef7f664960e55e63b554b289f1d453fef6a943545a767c55b08",
+        "size_bytes": 8118
+      },
+      {
+        "path": "self_actualize\\grand_central_zpoint_tunnels.json",
+        "sha256": "5ca3257a16f5aaa0fac553361246408af7d7dc4e7fd91c1d3655dcc4c78a7ad9",
+        "size_bytes": 3572
+      },
+      {
+        "path": "self_actualize\\ap6d_integration_dashboard.json",
+        "sha256": "2a4c12df809f16356836ef0d30bc730262709ea6d3e95a4ce15f73d2061d2a85",
+        "size_bytes": 11715
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+        "sha256": "065f160c22418611da4e4af1673eca16035f615e065461abedbad6d0bdba0808",
+        "size_bytes": 51717
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_SEAT_BRIDGE_RECORDS.json",
+        "sha256": "426d2a0e42c29ce8b86dc5d13a0a69af755fb2f65c15595c793a3a3a8586ca61",
+        "size_bytes": 14872
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_TRANSITION_PACKETS.json",
+        "sha256": "c0179351737716dc66fba372847993a0704354b03f948f00aee74e3210210366",
+        "size_bytes": 10030
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_NEXUS_TUNNELS.json",
+        "sha256": "675c4fed0f8ad232e5c96af815428f437a4d3fb146cf57ae4408db9c772918be",
+        "size_bytes": 2888896
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_DIMENSION_BRIDGES.json",
+        "sha256": "a1ccde20be33b6ce5e8bdc9eabbfa8d98b1c783acab06efa1a73d8517ed11730",
+        "size_bytes": 10469593
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_SEAT_ROUTE_BRIDGE_MAP_4096.json",
+        "sha256": "03bf358ea99efe1786796895aefe0ac914fe8f8fd8f9a424fc664fef7346b862",
+        "size_bytes": 3567804
+      },
+      {
+        "path": "self_actualize\\phase4_pt2_aether_point_registry.json",
+        "sha256": "686bd4ae2f9c5ef2d49bc3dcd7448f1bc108670258740c53e1d790b284642022",
+        "size_bytes": 522428
+      },
+      {
+        "path": "self_actualize\\phase4_pt2_z_point_registry.json",
+        "sha256": "d3c41f707ef05b00282ad91872b9354b341db59d4f5a4c69af641e2fcc55f5d7",
+        "size_bytes": 5050
+      },
+      {
+        "path": "self_actualize\\next57_liminal_coordinate_registry.json",
+        "sha256": "5d9f51a72e6aa3f31ef3e8e48fc5da454f5c17c93d5dc107f9ed713b4d07f690",
+        "size_bytes": 7361
+      },
+      {
+        "path": "self_actualize\\phase4_replay_receipts.json",
+        "sha256": "64339a0211bdd083445ee12bd49536352ae2ac2364c06910b691e0fce192c4ce",
+        "size_bytes": 10463
+      },
+      {
+        "path": "self_actualize\\phase4_pt2_metro_system_registry.json",
+        "sha256": "a670647f47e15d08a652154fc5f20ef093fdb0ebdac444b4ff4afc80aa0ab9d5",
+        "size_bytes": 15425
+      },
+      {
+        "path": "self_actualize\\phase4_pt2_system_crosswalk_edges.json",
+        "sha256": "cc948ab830b6bff1cc749089492d2ed54deda0c2fb228818fcc3f7792a74a409",
+        "size_bytes": 34866
+      },
+      {
+        "path": "self_actualize\\phase4_pt2_lens_weight_profile_registry.json",
+        "sha256": "8d20c6a42e271dd48455e300204d4086160c0193504f9c1158302afab6827607",
+        "size_bytes": 27818
+      },
+      {
+        "path": "self_actualize\\deep_integration_neural_net.json",
+        "sha256": "5d75224237592e6cff2a77f220e6c7f200eb5149ff2cb185450156c0fa2c1d79",
+        "size_bytes": 380543
+      },
+      {
+        "path": "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+        "sha256": "27448a9578ccea35de038ec962533c7a9ca5644c767c75013305fac8d342e172",
+        "size_bytes": 7395
+      },
+      {
+        "path": "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\04_ALGORITHMIC_PIPELINE.md",
+        "sha256": "c8de79b0f61fc1b85eaa4d77382c654f347b2114adfb1ece812c4bf68513f990",
+        "size_bytes": 2403
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "sha256": "69af0e45ca263ac8dd00d9897e5a45bf47455bbd6b63440f71ea474daebe7103",
+        "size_bytes": 602
+      },
+      {
+        "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "sha256": "697e8ce3bf9370b0f7a13df189be14029d04c8e45d548235096367e590d45556",
+        "size_bytes": 612
+      }
+    ]
+  },
+  "save_state": {
+    "ledger_path": "NERVOUS_SYSTEM\\90_LEDGERS\\42_TOTAL_HOLOGRAPHIC_SNAPSHOT_MASTER_NEXUS_MINDSWEEPER_2026-03-13.md",
+    "hidden_candidates_path": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_HIDDEN_NEXUS_CANDIDATES_2026-03-13.json",
+    "regeneration_seed_path": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_REGENERATION_SEED_2026-03-13.json",
+    "future_docs_delta": true
+  }
+}

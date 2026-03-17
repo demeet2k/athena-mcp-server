@@ -1,0 +1,15 @@
+{
+  "schema": "FixtureLibrary",
+  "version": "1.7",
+  "description": "8 corpus-backed fixture specimens for verification and testing",
+  "fixtures": [
+    {"id": "FIX-01", "name": "solo_bridge_ok", "quest_class": "bridge", "truth_state": "OK", "station": 5, "pass_index": 1, "element": [0.5, 0.3, 0.1, 0.1], "publish_intent": false, "party_size": 1},
+    {"id": "FIX-02", "name": "community_near", "quest_class": "community", "truth_state": "NEAR", "station": 8, "pass_index": 2, "element": [0.2, 0.5, 0.2, 0.1], "publish_intent": false, "party_size": 3},
+    {"id": "FIX-03", "name": "temple_certify_ok", "quest_class": "certify", "truth_state": "OK", "station": 13, "pass_index": 3, "element": [0.1, 0.1, 0.5, 0.3], "publish_intent": true, "party_size": 1},
+    {"id": "FIX-04", "name": "storm_fire_ok", "quest_class": "storm", "truth_state": "OK", "station": 10, "pass_index": 1, "element": [0.7, 0.1, 0.1, 0.1], "publish_intent": false, "party_size": 4},
+    {"id": "FIX-05", "name": "repair_fail", "quest_class": "repair", "truth_state": "FAIL", "station": 3, "pass_index": 1, "element": [0.25, 0.25, 0.25, 0.25], "publish_intent": false, "party_size": 1},
+    {"id": "FIX-06", "name": "deep_focus_ambig", "quest_class": "deep_focus", "truth_state": "AMBIG", "station": 15, "pass_index": 2, "element": [0.1, 0.2, 0.3, 0.4], "publish_intent": false, "party_size": 1},
+    {"id": "FIX-07", "name": "publish_ok", "quest_class": "bridge", "truth_state": "OK", "station": 19, "pass_index": 3, "element": [0.3, 0.3, 0.2, 0.2], "publish_intent": true, "party_size": 1},
+    {"id": "FIX-08", "name": "void_approach_near", "quest_class": "void_approach", "truth_state": "NEAR", "station": 11, "pass_index": 2, "element": [0.0, 0.0, 0.5, 0.5], "publish_intent": false, "party_size": 2}
+  ]
+}

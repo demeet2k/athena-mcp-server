@@ -1,0 +1,83 @@
+{
+  "derivation_command": "python -m self_actualize.runtime.derive_semantic_embassy_surface",
+  "derivation_version": "2026-03-12.semantic-embassy.v1",
+  "docs_gate_status": "BLOCKED",
+  "failure_cases": [
+    {
+      "blocked_reasons": [
+        "rhetorical claim class is preview-only in v1",
+        "register rhetorical is not admissible for audience public_reader",
+        "rhetorical/public renders are blocked in v1"
+      ],
+      "case_id": "SEV1-001",
+      "hash": "77c9328210f1671382984725bd73a8659bafb865fa28f6d4892c27407fcdb1e2",
+      "label": "rhetorical/public render requested in v1",
+      "status": "FAIL"
+    },
+    {
+      "blocked_reasons": [
+        "wording exceeds allowed ceiling via phrase: fully proven",
+        "wording exceeds allowed ceiling via phrase: live-docs verified",
+        "wording exceeds allowed ceiling via phrase: live-docs verified",
+        "wording exceeds allowed ceiling via phrase: fully proven across all shells",
+        "wording exceeds allowed ceiling via phrase: live-docs verified"
+      ],
+      "case_id": "SEV1-002",
+      "hash": "317ac0c9a2d587f77eadd93f2b44b94152bf07218214ea58dcc7cb884022326d",
+      "label": "public wording exceeds benchmark or release support",
+      "status": "FAIL"
+    },
+    {
+      "blocked_reasons": [
+        "missing replay refs"
+      ],
+      "case_id": "SEV1-003",
+      "hash": "4fed0fed2489201461dd220dd77750376c9f3ffbcc458ef3c7f291e29553eb11",
+      "label": "missing replay refs",
+      "status": "FAIL"
+    },
+    {
+      "blocked_reasons": [
+        "missing downgrade replacements"
+      ],
+      "case_id": "SEV1-004",
+      "hash": "915f3f56c23319972174641f1f8645cf79e624fc53364a9c309db0e3debf06bf",
+      "label": "missing downgrade replacements",
+      "status": "FAIL"
+    },
+    {
+      "blocked_reasons": [
+        "benchmark-facing surface uses non-benchmark-safe names"
+      ],
+      "case_id": "SEV1-005",
+      "hash": "e80d952c30205d489aed7572a71f9a94745b3357af85eb06e8b914b84d992333",
+      "label": "benchmark-facing surface with non-benchmark-safe names",
+      "status": "FAIL"
+    },
+    {
+      "blocked_reasons": [
+        "federation-facing surface is missing federation-safe terms"
+      ],
+      "case_id": "SEV1-006",
+      "hash": "3037d39cadf53cd9cd965b2cc3ce80c56cb10ca7dcc812e1f08e1994c80c5364",
+      "label": "federation-facing surface with missing federation-safe terms",
+      "status": "FAIL"
+    }
+  ],
+  "failure_hash": "1c4dc2e137182885fb520ae79bf75534d4257cdc58573e32859669e336c27f2b",
+  "success_case": {
+    "claim_ceiling_proof": "claim=public_claim; ceiling=public_claim; mode=diplomatic; audience=public_reader; register=diplomatic; replay_refs=2; support_refs=5",
+    "normalized_hash": "41e5558554dac1e6f8dbe8b05ad92479876ef1645a1cf497fa14de11eb7ed2fe",
+    "status": "PASS"
+  },
+  "validator_rules": [
+    "reject wording that exceeds the claim ceiling",
+    "reject rhetorical/public outputs in v1",
+    "reject missing replay refs",
+    "reject missing support refs",
+    "reject missing downgrade replacements",
+    "reject undeclared register/audience pairings",
+    "require benchmark-safe naming for benchmark-facing surfaces",
+    "require federation-safe terminology for federation-facing surfaces"
+  ]
+}

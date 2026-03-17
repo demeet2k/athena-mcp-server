@@ -1,0 +1,1998 @@
+{
+  "generated_at": "2026-03-13T21:08:35.271573+00:00",
+  "derivation_version": "2026-03-12.hemisphere-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_myth_math_hemisphere_brain",
+  "docs_gate_status": "BLOCKED",
+  "bridge_count": 110,
+  "bridge_family_distribution": {
+    "civilization-and-governance": 10,
+    "general-corpus": 48,
+    "identity-and-instruction": 9,
+    "manuscript-architecture": 9,
+    "mythic-sign-systems": 6,
+    "transport-and-runtime": 1,
+    "void-and-collapse": 27
+  },
+  "edges": [
+    {
+      "edge_id": "CM-883858a11aff88b0ac669ddb",
+      "record_id": "883858a11aff88b0ac669ddb",
+      "relative_path": "COMPLETE TOMES\\ATHENA\\Athena Tools\\ATHENA'S SHIELD.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN03",
+        "DN10"
+      ],
+      "weight": 0.9844,
+      "aqm_trace_hash": "6db3c9230588d36e2cf80db0",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4d8a19930ff0ca994972b2e8",
+      "record_id": "4d8a19930ff0ca994972b2e8",
+      "relative_path": "COMPLETE TOMES\\ATHENA\\esoteric\\AWAKENING TOME.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN02",
+        "DN04"
+      ],
+      "weight": 0.969,
+      "aqm_trace_hash": "d066f2c876bf73f02e7a079f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-ff4b868fb0c4257916bec4d3",
+      "record_id": "ff4b868fb0c4257916bec4d3",
+      "relative_path": "COMPLETE TOMES\\ATHENA\\esoteric\\MEGALITHIC AWAKENING \u2014 Ms\u27e806CC\u27e9.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN14",
+        "DN15"
+      ],
+      "weight": 0.9882,
+      "aqm_trace_hash": "310d7a2dc4cc6a8880053bbb",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-24c328d20065729d3c29f23d",
+      "record_id": "24c328d20065729d3c29f23d",
+      "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\SCARLET LETTER TOME (SLD) .docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN01",
+        "DN05",
+        "DN03"
+      ],
+      "weight": 0.914,
+      "aqm_trace_hash": "3085433af4d7d65c797cc1e8",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4c3f0966db7bce352daf5277",
+      "record_id": "4c3f0966db7bce352daf5277",
+      "relative_path": "COMPLETE TOMES\\COMPLETE TOMES.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 1.0,
+      "aqm_trace_hash": "4ccc550d3a37a1b7a642d404",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-eaa7a5510b5d1a2a901169e4",
+      "record_id": "eaa7a5510b5d1a2a901169e4",
+      "relative_path": "FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN07",
+        "DN02",
+        "DN03"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "00ef88122ad2b488cbc1b75d",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-066b07864edbe7f37140a6c1",
+      "record_id": "066b07864edbe7f37140a6c1",
+      "relative_path": "GLOBAL MATH - MYTH\\08_METRO_LINES.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN01",
+        "DN05",
+        "DN13"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "6af10db016b71bf570054933",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4284339859dda64aa5c03583",
+      "record_id": "4284339859dda64aa5c03583",
+      "relative_path": "GLOBAL MATH - MYTH\\10_SOURCE_WITNESS_TABLE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9574,
+      "aqm_trace_hash": "91c275b5e5d85fa0c4ac4873",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4dc9434d432d0e353012f4dd",
+      "record_id": "4dc9434d432d0e353012f4dd",
+      "relative_path": "GLOBAL MATH - MYTH\\12_DENSE_SEED.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "mythic-sign-systems",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN16",
+        "DN05"
+      ],
+      "weight": 0.9664,
+      "aqm_trace_hash": "a2077b1273fb85c7b2c4e215",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-70c59fe8c6688ecac57dccf6",
+      "record_id": "70c59fe8c6688ecac57dccf6",
+      "relative_path": "GLOBAL MATH - MYTH\\atlas\\BODY_REPRESENTATIVES.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "transport-and-runtime",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN16"
+      ],
+      "weight": 0.9876,
+      "aqm_trace_hash": "5b0ca69b0238649ec788d210",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-1b3d33ab43c33604fb43115f",
+      "record_id": "1b3d33ab43c33604fb43115f",
+      "relative_path": "GLOBAL MATH - MYTH\\atlas\\corpus_stats.json",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN01",
+        "DN05"
+      ],
+      "weight": 0.9728,
+      "aqm_trace_hash": "3ec8a605a1959151b7367458",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-45c3106bc576a5feb1b67c2d",
+      "record_id": "45c3106bc576a5feb1b67c2d",
+      "relative_path": "GLOBAL MATH - MYTH\\atlas\\README.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9852,
+      "aqm_trace_hash": "1ac972abfac445d94f7800b4",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-0372a7148c952f2b740e5be2",
+      "record_id": "0372a7148c952f2b740e5be2",
+      "relative_path": "MATH GOD\\MS7341_ATHENACHKA_CORPUS\\README.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "mythic-sign-systems",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN01",
+        "DN05",
+        "DN14"
+      ],
+      "weight": 0.9984,
+      "aqm_trace_hash": "8f8c446ad331993e1dd5079b",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-a32df445956bc8feb120f1b4",
+      "record_id": "a32df445956bc8feb120f1b4",
+      "relative_path": "Matrix Multiplication\\older\\adaptive_qpgemm_deploy.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "ea5f39d361071adbd0783e1c",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-64a40c458b9b97f68dde860f",
+      "record_id": "64a40c458b9b97f68dde860f",
+      "relative_path": "Matrix Multiplication\\older\\adaptive_qpgemm_deploy\\adaptive_qpgemm_deploy\\cpp\\src\\qpgemm_infer.cpp",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "d119aa544d94f097e501a254",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-baadff28626c920dee8eee90",
+      "record_id": "baadff28626c920dee8eee90",
+      "relative_path": "Matrix Multiplication\\older\\adaptive_qpgemm_deploy\\adaptive_qpgemm_deploy\\cpp\\src\\qpgemm_stress.cpp",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "82445ecdcaba7d5b2e519f75",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-8542a8a42cda52f4e2a825af",
+      "record_id": "8542a8a42cda52f4e2a825af",
+      "relative_path": "Matrix Multiplication\\older\\adaptive_qpgemm_deploy\\adaptive_qpgemm_deploy\\docker\\Dockerfile.cpu",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "a1069671ee6da5137d14d1f9",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-8045a7eafeca6a06569a5a2b",
+      "record_id": "8045a7eafeca6a06569a5a2b",
+      "relative_path": "Matrix Multiplication\\older\\adaptive_qpgemm_deploy\\adaptive_qpgemm_deploy\\docker\\Dockerfile.cuda",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "30b69396990c0446d4cbff09",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-5e646b4b7cb2b8fc8467665b",
+      "record_id": "5e646b4b7cb2b8fc8467665b",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "869cc3f15af78ffddbb0c26c",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-56ea3bb0eced6b6824652e5f",
+      "record_id": "56ea3bb0eced6b6824652e5f",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\cpp\\scripts\\build_linux.sh",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "afae80e2fcc6b581ec8fed48",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-278c1363177829028fb8ab63",
+      "record_id": "278c1363177829028fb8ab63",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\cpp\\src\\polestargemm_infer.cpp",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "1239e16279558b05202261d7",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-afa850808c6ee1e32f134205",
+      "record_id": "afa850808c6ee1e32f134205",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\cpp\\src\\polestargemm_stress.cpp",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "edd695f2992c471c8e081fa4",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-95585e75cca17027e2339218",
+      "record_id": "95585e75cca17027e2339218",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docker\\Dockerfile.cpu",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "4cf757193482c4e63c7ff0a1",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-13c6c340e5364dc76bccf675",
+      "record_id": "13c6c340e5364dc76bccf675",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docker\\Dockerfile.cuda",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "df0829c39eab63e940d2b982",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-c765536a3b4a9800e245b8a8",
+      "record_id": "c765536a3b4a9800e245b8a8",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docs\\PoleStarGEMM_Final_Documentation.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN04"
+      ],
+      "weight": 0.98,
+      "aqm_trace_hash": "8b55d35a88057a5a740ba283",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-031e28c7083316f34810e6f3",
+      "record_id": "031e28c7083316f34810e6f3",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docs\\psdoc-1.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "5fe9bf27342512270307cea0",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-5e0a9dc8e6842f3e34c180d5",
+      "record_id": "5e0a9dc8e6842f3e34c180d5",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docs\\psdoc-2.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "0041b82cd8944a4e8cc7b26c",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4517188f8f01dcd5d04d409e",
+      "record_id": "4517188f8f01dcd5d04d409e",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docs\\psdoc-3.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "05bcf8e364dad3355c14f474",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-89c38c689a2dd81665ab01b4",
+      "record_id": "89c38c689a2dd81665ab01b4",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docs\\psdoc-4.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "ffd9c029b7fdde9958c0a4d1",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-66c9b440012ac209703171ec",
+      "record_id": "66c9b440012ac209703171ec",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docs\\psdoc-5.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "1032402c024027b2d290d328",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-cc2ab4a0dd45ff82433ad9b5",
+      "record_id": "cc2ab4a0dd45ff82433ad9b5",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\docs\\psdoc-6.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "1a56206e7e0d9c777be72e4f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4e7c4e2c3ba2a8a38a1dad9c",
+      "record_id": "4e7c4e2c3ba2a8a38a1dad9c",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\LICENSE",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "95013cac9b28d6b58779a984",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-29dd97ef7f7cbd830ee7c2ed",
+      "record_id": "29dd97ef7f7cbd830ee7c2ed",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\results\\polestargemm_error_vs_rank.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "7e5283c2198bc17fa36fe169",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-b66e3e29e6542004ec7f85a7",
+      "record_id": "b66e3e29e6542004ec7f85a7",
+      "relative_path": "Matrix Multiplication\\PoleStarGEMM_Release_v1\\polestargemm_release\\results\\polestargemm_speedup_vs_rank.png",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "1b9efcc9ef6f5c95560cb0d2",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-b78a1a81aaeb0b07d4996edb",
+      "record_id": "b78a1a81aaeb0b07d4996edb",
+      "relative_path": "MYTH - MATH\\FUTURE - half developed\\Norse (Germanic) \u2014 Yggdrasil Graph Theory.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9118,
+      "aqm_trace_hash": "40becc9ba05204d8df7bfc49",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-2e868ffb45b2e09b7fc01a55",
+      "record_id": "2e868ffb45b2e09b7fc01a55",
+      "relative_path": "MYTH - MATH\\Magic Systems\\COMPLETE_FRAMEWORK_CATALOG.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "mythic-sign-systems",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN06",
+        "DN12",
+        "DN03"
+      ],
+      "weight": 0.984,
+      "aqm_trace_hash": "f9e49a9fa4f63ece428d5300",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-808621756740cd177e68e863",
+      "record_id": "808621756740cd177e68e863",
+      "relative_path": "MYTH - MATH\\Magic Systems\\CURANDERISMO_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9892,
+      "aqm_trace_hash": "257705cf187fa2323a1073f1",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-8d62ab1a49f603aa3ebaed13",
+      "record_id": "8d62ab1a49f603aa3ebaed13",
+      "relative_path": "MYTH - MATH\\Magic Systems\\GOETIC_GRIMOIRE_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9616,
+      "aqm_trace_hash": "6db1741b55dca8046ecfc91e",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-6c625b94cee6583bbae44ade",
+      "record_id": "6c625b94cee6583bbae44ade",
+      "relative_path": "MYTH - MATH\\Magic Systems\\GOLDEN_DAWN_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9826,
+      "aqm_trace_hash": "5bcab18c965a527ab08f2015",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-0ac041942cd0791350960389",
+      "record_id": "0ac041942cd0791350960389",
+      "relative_path": "MYTH - MATH\\Magic Systems\\HAITIAN_VODOU_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN16",
+        "DN14"
+      ],
+      "weight": 0.9496,
+      "aqm_trace_hash": "5414e2db2e016943c6ab6523",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-b2a39e417def479e41c8dd43",
+      "record_id": "b2a39e417def479e41c8dd43",
+      "relative_path": "MYTH - MATH\\Magic Systems\\HELLENISTIC_ASTROLOGY_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "mythic-sign-systems",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN06",
+        "DN16"
+      ],
+      "weight": 0.9124,
+      "aqm_trace_hash": "56181f22705cc66b79333ff5",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-6286c39a697098cc38930e85",
+      "record_id": "6286c39a697098cc38930e85",
+      "relative_path": "MYTH - MATH\\Magic Systems\\SANTERIA_LUCUMI_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9972,
+      "aqm_trace_hash": "48e96e99ff25630cb12419a7",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-9d05ec202d5dd3e71b313142",
+      "record_id": "9d05ec202d5dd3e71b313142",
+      "relative_path": "MYTH - MATH\\Magic Systems\\SUFI_MYSTICISM_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9414,
+      "aqm_trace_hash": "d0e924f8be960ff1bda2c606",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-ef1f10f99928297ebdb1e756",
+      "record_id": "ef1f10f99928297ebdb1e756",
+      "relative_path": "MYTH - MATH\\Magic Systems\\WICCA_COMPLETE.md",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9342,
+      "aqm_trace_hash": "362deafa6568583195836623",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-24e31dfc1021ece48e342b13",
+      "record_id": "24e31dfc1021ece48e342b13",
+      "relative_path": "MYTH - MATH\\MEGALYTH__ AWAKENING.pdf",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9152,
+      "aqm_trace_hash": "e8db0a3607c3ef46ba1ddf7c",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-7fb36a44042c86d6ba756a9a",
+      "record_id": "7fb36a44042c86d6ba756a9a",
+      "relative_path": "MYTH - MATH\\Nostradamos\\ATHENA'S_LOVE.pdf",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9282,
+      "aqm_trace_hash": "c52cda834a53bb78815c8810",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-c8c4a191847867532c0bc595",
+      "record_id": "c8c4a191847867532c0bc595",
+      "relative_path": "MYTH - MATH\\Nostradamos\\ATHENACHKA \u2014 INTELLIGENCE WARS \u2194 PLANETARY STEWARDSHIP \u2014 Ms\u27e8EF0E\u27e9.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN16",
+        "DN07"
+      ],
+      "weight": 0.9328,
+      "aqm_trace_hash": "756fac0897b8aec96443bf06",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-fd6e5d992fbe4289dfbfc7d2",
+      "record_id": "fd6e5d992fbe4289dfbfc7d2",
+      "relative_path": "MYTH - MATH\\Nostradamos\\DIVINE JUDGMENT \u2014 Ms\u27e8DBB1\u27e9.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN14",
+        "DN16"
+      ],
+      "weight": 0.9,
+      "aqm_trace_hash": "31f716b6f0372d547698cefc",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-35922442bb2ad2d509f00493",
+      "record_id": "35922442bb2ad2d509f00493",
+      "relative_path": "MYTH - MATH\\Nostradamos\\Intelligence_Wars.pdf",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN01",
+        "DN05",
+        "DN14"
+      ],
+      "weight": 0.9626,
+      "aqm_trace_hash": "66bbd85132172dfb54c6c081",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-ab03f20ba1a82fb009363592",
+      "record_id": "ab03f20ba1a82fb009363592",
+      "relative_path": "MYTH - MATH\\Philosophy\\Divination\\QUANTUM DIVINATION FRAMEWORK (QRDF).docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "mythic-sign-systems",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN08",
+        "DN07",
+        "DN02"
+      ],
+      "weight": 0.9852,
+      "aqm_trace_hash": "acfb07e3467016c029ad8cd7",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-dc6582b94542cabac6f46fc6",
+      "record_id": "dc6582b94542cabac6f46fc6",
+      "relative_path": "MYTH - MATH\\Sacred TEXTS\\Key of Solomon (Clavicula Salomonis).docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "civilization-and-governance",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN15"
+      ],
+      "weight": 0.997,
+      "aqm_trace_hash": "c1fac99e4e454884c8a8a251",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-1f501f2bcbb8247a4875e412",
+      "record_id": "1f501f2bcbb8247a4875e412",
+      "relative_path": "MYTH - MATH\\Voynich\\eva\\F103R - F116V __transcription.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN07",
+        "DN09"
+      ],
+      "weight": 0.9928,
+      "aqm_trace_hash": "b495fad514eaf23e22c85fb6",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-5b05ae61bb7f128503e7377e",
+      "record_id": "5b05ae61bb7f128503e7377e",
+      "relative_path": "MYTH - MATH\\Voynich\\VOYNICH PROGRAM TOME.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN16",
+        "DN03"
+      ],
+      "weight": 0.9094,
+      "aqm_trace_hash": "e7d048e4ce2ceb2815c5fbb3",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-100933354e74cb8e43887ce5",
+      "record_id": "100933354e74cb8e43887ce5",
+      "relative_path": "Q shrink\\Q-SHRINK TYPE CODING.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 1.0,
+      "aqm_trace_hash": "50a2f2f6d3001919f1b2eb6f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-5a2405bf335ea131e48eeef2",
+      "record_id": "5a2405bf335ea131e48eeef2",
+      "relative_path": "Q shrink\\Q-SHRINK.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 1.0,
+      "aqm_trace_hash": "8615699a9720c7adf14427ff",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-989387f88759dfa3c1fea84d",
+      "record_id": "989387f88759dfa3c1fea84d",
+      "relative_path": "Q shrink\\qshrink-rust-final.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 1.0,
+      "aqm_trace_hash": "a67d16fd1fa1c6081062be40",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-a45560d0fb97401b2a06ea10",
+      "record_id": "a45560d0fb97401b2a06ea10",
+      "relative_path": "Q shrink\\working\\Q-Shrink MULTI MODAL.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9528,
+      "aqm_trace_hash": "d710cdc467fc3827f27a6096",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-41d50b82aa5d00dc2af760cc",
+      "record_id": "41d50b82aa5d00dc2af760cc",
+      "relative_path": "Q shrink\\working\\QSHRINK multimodal _WORKING_ 2.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "mythic-sign-systems",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN15",
+        "DN16"
+      ],
+      "weight": 0.91,
+      "aqm_trace_hash": "54bcc544c7fb140cb17b4b4f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-145836b71acfc1b8d6b55a3f",
+      "record_id": "145836b71acfc1b8d6b55a3f",
+      "relative_path": "The Crystal\\Complete Framework\\ATLAS FORGE - Framework.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "manuscript-architecture",
+      "tract": "address",
+      "basis_anchor_ids": [
+        "DN07",
+        "DN02",
+        "DN03"
+      ],
+      "weight": 1.0,
+      "aqm_trace_hash": "177f986c8d798c256706856e",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-a8e26aabbf130082dabf7941",
+      "record_id": "a8e26aabbf130082dabf7941",
+      "relative_path": "The Crystal\\CORE CRYSTAL (biology_physics).docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9196,
+      "aqm_trace_hash": "e59a947eca9921050a52b35a",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4add9a6132c61a9143c90b48",
+      "record_id": "4add9a6132c61a9143c90b48",
+      "relative_path": "The Crystal\\Crystal Computing\\qhc_framework.zip",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN07",
+        "DN02",
+        "DN03"
+      ],
+      "weight": 0.94,
+      "aqm_trace_hash": "ee3e601589cdb4886df451d7",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-c6182f0296362fe8b42e9e6d",
+      "record_id": "c6182f0296362fe8b42e9e6d",
+      "relative_path": "Tunneling\\-working-\\12-edge__aether_transport__interfaces__cube_edges_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN03",
+        "DN05"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "05ad57a0d25ea523a719e3eb",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-19fc05145ffeb8c5621ae466",
+      "record_id": "19fc05145ffeb8c5621ae466",
+      "relative_path": "Tunneling\\-working-\\12_interfaces___the_aether_transport_layer__element-edge_adjacency_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN04"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "7cd5dfbc84fe95e7ad780a80",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-189bf16d987ef17ab06681b7",
+      "record_id": "189bf16d987ef17ab06681b7",
+      "relative_path": "Tunneling\\-working-\\6-face_state_space__elements____adjacencies.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN09",
+        "DN04"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "3f6d2cbc7afbf334bbfb015f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-3ca123043f32066b200b4aee",
+      "record_id": "3ca123043f32066b200b4aee",
+      "relative_path": "Tunneling\\-working-\\Aether_Compiler__ABEL_Koenigs_chart_certificate__base_a_1_3_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "c55c1bca5bd25cf950bfcff0",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-87a2798576ba703ebee35842",
+      "record_id": "87a2798576ba703ebee35842",
+      "relative_path": "Tunneling\\-working-\\Aether_Compiler_cert__a_1_3__fractional_tetration_enabled_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "eae506db9aa64de2da48d669",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-58110eb3b98d91543bf05e31",
+      "record_id": "58110eb3b98d91543bf05e31",
+      "relative_path": "Tunneling\\-working-\\Aether_Compiler_decisions__gate____vs_0____chart_selection.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "dee47ca9c6825356127bf490",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-a4ff1cef0971b051f753377b",
+      "record_id": "a4ff1cef0971b051f753377b",
+      "relative_path": "Tunneling\\-working-\\Aether_route______gate_capsule___landed_capsule_in_S2.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "2ecb26759f9401fb6e5195a7",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-6c39c57ff8882ae5caf8f22b",
+      "record_id": "6c39c57ff8882ae5caf8f22b",
+      "relative_path": "Tunneling\\-working-\\Budgeted_routing__corridor-like_control_over_interface_traversal_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN02",
+        "DN09",
+        "DN03"
+      ],
+      "weight": 0.9576,
+      "aqm_trace_hash": "3bc18186ddfaafb1fdb26b23",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-9195d82f8bd3ee8f59c5eca8",
+      "record_id": "9195d82f8bd3ee8f59c5eca8",
+      "relative_path": "Tunneling\\-working-\\Checks__invariants___certificates_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "a2917457de868b088a4e1c04",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-1e3ca610d7652de5658e6250",
+      "record_id": "1e3ca610d7652de5658e6250",
+      "relative_path": "Tunneling\\-working-\\Direct_quantization__infinity_can_collapse_instantly_to_1024.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN09",
+        "DN04"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "3fecad73027a9b948f49e1bb",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-b47d86142fe6b4d27b1f04ab",
+      "record_id": "b47d86142fe6b4d27b1f04ab",
+      "relative_path": "Tunneling\\-working-\\Earth_Air__probability___corridor__Fire_Air__corridor_from_certificate.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN09",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "6c957ba43709902e83fab294",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-83f832a8319fcd4d5188b2a2",
+      "record_id": "83f832a8319fcd4d5188b2a2",
+      "relative_path": "Tunneling\\-working-\\Earth_Air__what__Air__the_planner_chose_under_each_preference.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN05",
+        "DN01"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "dbcbe08beaa9d9eea8b4c00b",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-d7fbdfccfd16931f49437202",
+      "record_id": "d7fbdfccfd16931f49437202",
+      "relative_path": "Tunneling\\-working-\\Earth_Water__terrain_to_flow_field___induced_motion.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "5c2bf7e2431020c0a28ddd26",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-5fd94df20033a047c2bb8503",
+      "record_id": "5fd94df20033a047c2bb8503",
+      "relative_path": "Tunneling\\-working-\\End-to-end_comparison__sandbox-to-sandbox_tunnels___resulting_local_behavior.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "4a8f1dcec7cb4bb4c1b45d84",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-c14b81ff24b174270d6befcb",
+      "record_id": "c14b81ff24b174270d6befcb",
+      "relative_path": "Tunneling\\-working-\\Failure_case__a_2_0___why_different_Aether_chart_or_Void-tunnel_is_required.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "c782c92a06750e17215b4df1",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-ec9c9790e7f5a7c53190064d",
+      "record_id": "ec9c9790e7f5a7c53190064d",
+      "relative_path": "Tunneling\\-working-\\Flower_generator_G___log_U___top-left_6_6_block_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "5c2d0a9716fbcf515bd5e951",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4b888012c74ea28cdaefa324",
+      "record_id": "4b888012c74ea28cdaefa324",
+      "relative_path": "Tunneling\\-working-\\Focus__how_policies_change_the_conduit__hybrid_midpoint__for_opposite_tunnels.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN03"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "fbea05767e0d1e1e28570ccd",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-f5c903e83ef76b4a5d1f88a0",
+      "record_id": "f5c903e83ef76b4a5d1f88a0",
+      "relative_path": "Tunneling\\-working-\\Fractional_tetration__integer_validation__base_a_1_3_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "774f564ede9bcc5a13dd2e0b",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-3278d712be93600137b2925f",
+      "record_id": "3278d712be93600137b2925f",
+      "relative_path": "Tunneling\\-working-\\Fractional_tetration_curve_samples__a_1_3_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "fc80d012e0d767c63edfd885",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-8e4428a1efd63583802ba20c",
+      "record_id": "8e4428a1efd63583802ba20c",
+      "relative_path": "Tunneling\\-working-\\Fractional_tetration_via_Koenigs_Schr_der__integer_validation__a_1_3_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "029408eead7c24d85aa3cdef",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-e5319c8d75033ec2a3fe5507",
+      "record_id": "e5319c8d75033ec2a3fe5507",
+      "relative_path": "Tunneling\\-working-\\Hybrid_carriers_for_anti-tunnels__the_middle_face_is_the_90__conduit_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN14"
+      ],
+      "weight": 0.9552,
+      "aqm_trace_hash": "1530cc6153db3141d024f6d0",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-0086f5632c474e1478188bb8",
+      "record_id": "0086f5632c474e1478188bb8",
+      "relative_path": "Tunneling\\-working-\\Local_routing_inside_S2_under_different_preserved_budgets.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN02",
+        "DN04",
+        "DN03"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "385ff5f7821f56502257b175",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-3fd8f6258b0ea7e16fff45be",
+      "record_id": "3fd8f6258b0ea7e16fff45be",
+      "relative_path": "Tunneling\\-working-\\Mechanism_checks.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "624ff0cbff441025f0266f34",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-d7be72610968c8c77ca6fb6f",
+      "record_id": "d7be72610968c8c77ca6fb6f",
+      "relative_path": "Tunneling\\-working-\\One_Earth_object__many_lens_ontologies__v1_outputs_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "e298b5ed15c66dff5e0e6b76",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-ce087ff85e0d64fdee897edf",
+      "record_id": "ce087ff85e0d64fdee897edf",
+      "relative_path": "Tunneling\\-working-\\Planner_checks.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN08",
+        "DN15",
+        "DN03"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "e5a9df6f68a16e2712869e4f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-1c3a8434e33a216444aca7b4",
+      "record_id": "1c3a8434e33a216444aca7b4",
+      "relative_path": "Tunneling\\-working-\\Planner_v2__different_preferences_pick_different_certified_routes.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "f72147e024c05b90b6667cd1",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-bcda2b291b44bba1dd96412f",
+      "record_id": "bcda2b291b44bba1dd96412f",
+      "relative_path": "Tunneling\\-working-\\Result_difference__Aether-route_vs_Void-route_instantiation_at_same_tier__1024_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "34624014368d2e608d719517",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-1e28cf07ed8c97aa84e4a2e6",
+      "record_id": "1e28cf07ed8c97aa84e4a2e6",
+      "relative_path": "Tunneling\\-working-\\Same_thing__different_ontologies__Earth_Water_Air_Fire_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "af3536008e952c807db1a2f1",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-039441bae2c917e12eff7566",
+      "record_id": "039441bae2c917e12eff7566",
+      "relative_path": "Tunneling\\-working-\\Sandbox_objects__S1_and_S2_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN16",
+        "DN03"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "98a34334b4eef384f3fe8d73",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-69949f86bd760d43a3c5db91",
+      "record_id": "69949f86bd760d43a3c5db91",
+      "relative_path": "Tunneling\\-working-\\Square_Flower__90_____Square_Generator__log__produces_between-slice_evolution.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "70eebdfdc019c3b01bbe3fe0",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-4813d1b1d9b0b837970ce406",
+      "record_id": "4813d1b1d9b0b837970ce406",
+      "relative_path": "Tunneling\\-working-\\Square_lens__anti-thing_via_two_90__tunnels___between-slice_via_generator.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "0f7ea67a50f5216d3be399b9",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-03cb05fc0de047dbec8b0561",
+      "record_id": "03cb05fc0de047dbec8b0561",
+      "relative_path": "Tunneling\\-working-\\Square_lens__two-90__anti-thing___generator_between-slices.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "6b453978099bc7c27941dafa",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-3f9486a8b0602cc2a6330b66",
+      "record_id": "3f9486a8b0602cc2a6330b66",
+      "relative_path": "Tunneling\\-working-\\Start_capsule_in_S1.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "67e9fd3a43491a50191a679f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-0da7c1e3986f85a4f42fdf8f",
+      "record_id": "0da7c1e3986f85a4f42fdf8f",
+      "relative_path": "Tunneling\\-working-\\Tetration_trajectories_x__n_1__a__x_n__from_x0_1.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN09",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "7a2f045ae530e4cc13027050",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-cef2fe20909fa6e6b65fdf30",
+      "record_id": "cef2fe20909fa6e6b65fdf30",
+      "relative_path": "Tunneling\\-working-\\tunneling _working_.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN02"
+      ],
+      "weight": 0.9626,
+      "aqm_trace_hash": "c38056d46fa871c5f7a06643",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-ceaa144e3971ad2565d2592f",
+      "record_id": "ceaa144e3971ad2565d2592f",
+      "relative_path": "Tunneling\\-working-\\Two_90__tunnels_in_phase_space__symplectic_quarter-turn__anti-thing_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN06",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "9e975afb1f69c111146b121f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-b5d1e1520233dcf81a3623fa",
+      "record_id": "b5d1e1520233dcf81a3623fa",
+      "relative_path": "Tunneling\\-working-\\Two_90__tunnels_to_anti-thing__opposites_are_always_distance_2_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN03",
+        "DN05"
+      ],
+      "weight": 0.9594,
+      "aqm_trace_hash": "f25220f350b2b4847cb5454b",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-544aa01e85d5a4fa17c6f84f",
+      "record_id": "544aa01e85d5a4fa17c6f84f",
+      "relative_path": "Tunneling\\-working-\\Unified_planner__Square_f_Air__starting_element_Earth__across_policies.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN03",
+        "DN05"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "e2d837e6580c5dffee78eda8",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-cc35b19b6febc6ea39a101cc",
+      "record_id": "cc35b19b6febc6ea39a101cc",
+      "relative_path": "Tunneling\\-working-\\UTC_demo__Square_Flower_Air___Anti-thing__two_90__tunnels_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "d29fd53f02a29c2ebeb53078",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-83222f93d8621902515d3e29",
+      "record_id": "83222f93d8621902515d3e29",
+      "relative_path": "Tunneling\\-working-\\v1_checks__normalization_identity___corridor_cert.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "4b1dfaf0858599ef4f17bedf",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-74efc0cbe5a34524a88a44f4",
+      "record_id": "74efc0cbe5a34524a88a44f4",
+      "relative_path": "Tunneling\\-working-\\v1_Normalization___certificate_checks.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN03",
+        "DN04"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "0471117b340261cd14a54438",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-f25065c495abde77555589ad",
+      "record_id": "f25065c495abde77555589ad",
+      "relative_path": "Tunneling\\-working-\\v5__Two-pole_tunneling__Aether_____vs_Void__0__with_direct_Quantize_to_1024.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN09",
+        "DN14"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "ff4d26e18791e69455f96ca6",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-c117d25afa2d4131fe4b0128",
+      "record_id": "c117d25afa2d4131fe4b0128",
+      "relative_path": "Tunneling\\-working-\\v6__Same_start_goal__different_gate____different_preserved_invariants___certified_route.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN04",
+        "DN03"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "c5e74e6a7c3ff6f5462d403f",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-e671b9f8f524b38e537480c2",
+      "record_id": "e671b9f8f524b38e537480c2",
+      "relative_path": "Tunneling\\-working-\\v6__With_projection_expensive__planner_prefers_deep__Fire_cert_or_Aether_hub__routes.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN03",
+        "DN05"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "09eb1d2769656a4e14e54bdd",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-7998c8321495639dbadc9d24",
+      "record_id": "7998c8321495639dbadc9d24",
+      "relative_path": "Tunneling\\-working-\\Void_route__0___void_capsule___reopened_aether___landed_capsule_in_S2.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN09",
+        "DN14",
+        "DN03"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "a45bc512af6b0c0ef25eaf46",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-00c986d4395b84ca30aeb353",
+      "record_id": "00c986d4395b84ca30aeb353",
+      "relative_path": "Tunneling\\-working-\\Water_Air_via_90__tunnel__Fourier_spectrum_then_measurement.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "e6c45a7c82b4737bb4133684",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-e399762c717097dc48fbc0d1",
+      "record_id": "e399762c717097dc48fbc0d1",
+      "relative_path": "Tunneling\\-working-\\Water_as_motion__gradient_descent_trajectories__particles_slide_.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "general-corpus",
+      "tract": "chamber",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN09",
+        "DN15"
+      ],
+      "weight": 0.95,
+      "aqm_trace_hash": "9c9a0c65dc07427ba7b3d5e9",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-98566208829953770b648dd2",
+      "record_id": "98566208829953770b648dd2",
+      "relative_path": "Tunneling\\-working-\\What_survives_the_tunnel__Aether_preserves_policy_invariants__Void_wipes_them.csv",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "void-and-collapse",
+      "tract": "replay",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN03"
+      ],
+      "weight": 0.96,
+      "aqm_trace_hash": "35f7a36d97a948823c911ea6",
+      "reason": "near_tie_bridge"
+    },
+    {
+      "edge_id": "CM-7ca7b3e1c80777fd666427f7",
+      "record_id": "7ca7b3e1c80777fd666427f7",
+      "relative_path": "Tunneling\\tunneling _working_.docx",
+      "source_hub_id": "HC-MATH",
+      "target_hub_id": "HC-MYTH",
+      "grand_central": "commissure",
+      "family": "identity-and-instruction",
+      "tract": "relation",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN01",
+        "DN02"
+      ],
+      "weight": 0.9626,
+      "aqm_trace_hash": "d6f7051649c698a574f79d8b",
+      "reason": "near_tie_bridge"
+    }
+  ]
+}

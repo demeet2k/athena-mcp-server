@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-03-13T20:44:21.896231+00:00",
+  "derivation_version": "2026-03-12.phase4-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+  "shortcuts": [
+    {
+      "shortcut_id": "SC-01",
+      "name": "WitnessFirst",
+      "trigger": "direct support exists",
+      "preconditions": [
+        "root basis",
+        "canonical sources",
+        "pair witness"
+      ],
+      "scoring_rule": "score explicit witnesses before synthesis claims",
+      "stop_condition": "ABSTAIN",
+      "output_type": "ranked witnesses",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "starts from direct support before synthesis"
+    },
+    {
+      "shortcut_id": "SC-02",
+      "name": "LoadBearingNearest",
+      "trigger": "load-bearing neighbor exists",
+      "preconditions": [
+        "body registry",
+        "weight exchange"
+      ],
+      "scoring_rule": "jump to the nearest high-witness, high-replay neighbor",
+      "stop_condition": "REPAIR",
+      "output_type": "nearest bridge",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "prefers the strongest nearby body over ambient scan sprawl"
+    },
+    {
+      "shortcut_id": "SC-03",
+      "name": "ChargeThenVerify",
+      "trigger": "objective has affective or epistemic bias",
+      "preconditions": [
+        "pair charge seed",
+        "witness floor"
+      ],
+      "scoring_rule": "let emotion and feeling bias search but require knowledge and boundary before firing",
+      "stop_condition": "ABSTAIN",
+      "output_type": "top-k wave slice",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "keeps wave selection alive without losing proof"
+    },
+    {
+      "shortcut_id": "SC-04",
+      "name": "BoundaryBeforeLift",
+      "trigger": "immune-risk or contradiction signal detected",
+      "preconditions": [
+        "boundary charge",
+        "ch12 surfaces"
+      ],
+      "scoring_rule": "route immune-heavy crossings through containment before promotion",
+      "stop_condition": "QUARANTINE",
+      "output_type": "contained route",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "prevents false lift across contradiction leakage"
+    },
+    {
+      "shortcut_id": "SC-05",
+      "name": "GrandCentralBridge",
+      "trigger": "cross-body transfer needed",
+      "preconditions": [
+        "GCW",
+        "GCZ",
+        "GCP"
+      ],
+      "scoring_rule": "force cross-body transfers through Grand Central weighting and replay",
+      "stop_condition": "REPAIR",
+      "output_type": "station route",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "keeps promotion traffic from bypassing the common hall"
+    },
+    {
+      "shortcut_id": "SC-06",
+      "name": "HemisphereRebalance",
+      "trigger": "left or right bias overload detected",
+      "preconditions": [
+        "hemisphere metadata",
+        "dock rules"
+      ],
+      "scoring_rule": "route through the opposite hemisphere when one side dominates",
+      "stop_condition": "REPAIR",
+      "output_type": "rebalanced route",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "prevents Air/Earth or Fire/Water lock-in"
+    },
+    {
+      "shortcut_id": "SC-07",
+      "name": "SymmetryJump",
+      "trigger": "pair family overfit detected",
+      "preconditions": [
+        "kernel ids",
+        "pair families"
+      ],
+      "scoring_rule": "jump to the nearest useful symmetry family without flattening the matrix",
+      "stop_condition": "REPAIR",
+      "output_type": "neighbor pair",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "preserves the compiled 16x16 field while enabling lateral jumps"
+    },
+    {
+      "shortcut_id": "SC-08",
+      "name": "NeglectScout",
+      "trigger": "gap scan requested",
+      "preconditions": [
+        "neglect signals",
+        "body metrics"
+      ],
+      "scoring_rule": "rank neglected surfaces by gap instead of loudness",
+      "stop_condition": "REPAIR",
+      "output_type": "neglect ranking",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "keeps pruning and repair honest"
+    },
+    {
+      "shortcut_id": "SC-09",
+      "name": "RepairLoop",
+      "trigger": "surface can heal locally",
+      "preconditions": [
+        "replay gap",
+        "repair charge"
+      ],
+      "scoring_rule": "prefer self-healing routes before new outward expansion",
+      "stop_condition": "REPAIR",
+      "output_type": "repair receipt",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "closes loops before chasing fresh complexity"
+    },
+    {
+      "shortcut_id": "SC-10",
+      "name": "OneEighthLift",
+      "trigger": "candidate weave exceeds minimal useful lift",
+      "preconditions": [
+        "expected gain",
+        "scope check"
+      ],
+      "scoring_rule": "refuse bloated expansion and require smaller functional next-layer seeds",
+      "stop_condition": "ABSTAIN",
+      "output_type": "thin lift candidate",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "keeps Phase 4 compressive and executable"
+    },
+    {
+      "shortcut_id": "SC-11",
+      "name": "AppendixSupportJump",
+      "trigger": "appendix support needed",
+      "preconditions": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppP",
+        "AppQ"
+      ],
+      "scoring_rule": "fetch appendix support without a full rescan",
+      "stop_condition": "REPAIR",
+      "output_type": "appendix support bundle",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "preserves the appendix support set named in the phase plan"
+    },
+    {
+      "shortcut_id": "SC-12",
+      "name": "AtlasBackfill",
+      "trigger": "context is missing or stale",
+      "preconditions": [
+        "root basis",
+        "atlas mirrors",
+        "canonical sources"
+      ],
+      "scoring_rule": "repair missing context from atlas and root-basis surfaces before new synthesis",
+      "stop_condition": "ABSTAIN",
+      "output_type": "backfilled context",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "prevents new authority surfaces from appearing out of nowhere"
+    },
+    {
+      "shortcut_id": "SC-13",
+      "name": "ReplayClose",
+      "trigger": "query or wave finished",
+      "preconditions": [
+        "receipt ledger",
+        "writeback target"
+      ],
+      "scoring_rule": "terminate every exploration with a receipt or explicit abstention",
+      "stop_condition": "REPAIR",
+      "output_type": "replay receipt",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+      "note": "keeps the runtime closure law explicit"
+    }
+  ],
+  "summary": {
+    "shortcut_count": 13
+  }
+}

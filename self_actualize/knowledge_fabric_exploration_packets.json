@@ -1,0 +1,329 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "packet_count": 8,
+  "packets": [
+    {
+      "packet_id": "KFP-001",
+      "query_intent": "locate",
+      "title": "Locate Grand Central Station",
+      "query_text": "Grand Central Station",
+      "seed_records": [
+        "ba2f43e86edc2415",
+        "a013ccbed778dd52"
+      ],
+      "traversal_mode": "direct lookup",
+      "budget": {
+        "max_matches": 8,
+        "witness_budget": 3,
+        "zone_budget": 4
+      },
+      "shortcut_chain": [
+        "KF-S01"
+      ],
+      "visited_zones": [
+        "CapsuleLayer",
+        "Cortex",
+        "GraphLayer"
+      ],
+      "result_class": "answer",
+      "matched_record_ids": [
+        "09d88ac2ec82afb7",
+        "de22eb908c0a2970",
+        "f6902f5df8216639",
+        "ba2f43e86edc2415",
+        "a3bc517937b04c61",
+        "0fde1ada8f1581fa",
+        "fa70cef8f56c5c80",
+        "6c249b7a34ba558e"
+      ],
+      "route_summary": "ANSWER through Cortex using GRAND CENTRAL STATION AND BILATERAL HEMISPHERES -> GRAND CENTRAL STATION METRO MAP -> Grand Central Station Schema",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\INDEX.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md"
+      ],
+      "note": "resolve the lawful station entry without scanning the whole corpus"
+    },
+    {
+      "packet_id": "KFP-002",
+      "query_intent": "browse",
+      "title": "Browse the live deep root",
+      "query_text": "deep root basis matrix metro appendix",
+      "seed_records": [
+        "b4f9bcd3c1469129"
+      ],
+      "traversal_mode": "bounded neighborhood",
+      "budget": {
+        "max_matches": 10,
+        "witness_budget": 4,
+        "zone_budget": 3
+      },
+      "shortcut_chain": [
+        "KF-S02"
+      ],
+      "visited_zones": [
+        "DeepRoot"
+      ],
+      "result_class": "answer",
+      "matched_record_ids": [
+        "8b807c985cb8fa6b",
+        "9eadadde47d6095b",
+        "84304cbb22c7bc14",
+        "d09ddfe4a08219c9",
+        "42915c2e15673508",
+        "8655d14329f0f16d",
+        "98fd68496836e7ec",
+        "986650a1d59f55ca",
+        "b870fd0057821e3a",
+        "9a0406f71bd17e5d"
+      ],
+      "route_summary": "ANSWER through DeepRoot using The Holographic Manuscript Brain -> The Holographic Manuscript Brain -> The Holographic Manuscript Brain -> Self-Routing Meta-Framework -> The Holographic Manuscript Brain -> Quantum Computing on Standard Hardware",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md"
+      ],
+      "note": "enter the deeper network through its live root rather than historical mirrors"
+    },
+    {
+      "packet_id": "KFP-003",
+      "query_intent": "compare",
+      "title": "Compare Grand Central and Self Hosting",
+      "query_text": "grand central self hosting kernel",
+      "seed_records": [
+        "ba2f43e86edc2415",
+        "415f49b5d9bad3b9"
+      ],
+      "traversal_mode": "bridge walk",
+      "budget": {
+        "max_matches": 8,
+        "witness_budget": 4,
+        "zone_budget": 4
+      },
+      "shortcut_chain": [
+        "KF-S03"
+      ],
+      "visited_zones": [
+        "Cortex"
+      ],
+      "result_class": "answer",
+      "matched_record_ids": [
+        "09d88ac2ec82afb7",
+        "b668898a1569919d",
+        "de22eb908c0a2970",
+        "f6902f5df8216639",
+        "ff71c9cb98562cbb",
+        "ba2f43e86edc2415",
+        "a3bc517937b04c61",
+        "415f49b5d9bad3b9"
+      ],
+      "route_summary": "ANSWER through Cortex using GRAND CENTRAL STATION AND BILATERAL HEMISPHERES -> Phase 3 Self-Hosting Kernel -> GRAND CENTRAL STATION METRO MAP",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md"
+      ],
+      "note": "resolve the station substrate against the self-hosting shell"
+    },
+    {
+      "packet_id": "KFP-004",
+      "query_intent": "synthesize",
+      "title": "Synthesize the knowledge fabric control plane",
+      "query_text": "knowledge fabric storage ontology shortcuts exploration packet",
+      "seed_records": [
+        "09d88ac2ec82afb7",
+        "b668898a1569919d",
+        "34465d61831aa9bc",
+        "de22eb908c0a2970"
+      ],
+      "traversal_mode": "metro walk",
+      "budget": {
+        "max_matches": 12,
+        "witness_budget": 5,
+        "zone_budget": 5
+      },
+      "shortcut_chain": [
+        "KF-S04"
+      ],
+      "visited_zones": [
+        "Cortex",
+        "GraphLayer",
+        "RuntimeMirror"
+      ],
+      "result_class": "answer",
+      "matched_record_ids": [
+        "34465d61831aa9bc",
+        "99ba5f618bf382c9",
+        "7cc9112b885f1376",
+        "cd16d110b37bff91",
+        "93e945642e93e221",
+        "fc37be93d3b2d1a2",
+        "7349e9921a1b56df",
+        "2c05e9fbf784e267",
+        "af1698824f2bc5ca",
+        "5a0706ac46998ad9",
+        "fa11b05fcb9e7305",
+        "6198903716679551"
+      ],
+      "route_summary": "ANSWER through Cortex, GraphLayer using Phase 4 Knowledge Fabric -> Knowledge Fabric Schema -> Knowledge Fabric Dashboard",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\00_active_nervous_system_index.md"
+      ],
+      "note": "collect the smallest lawful set of surfaces that explain where information lives and how traversal works"
+    },
+    {
+      "packet_id": "KFP-005",
+      "query_intent": "audit",
+      "title": "Audit blocked and ambiguous zones",
+      "query_text": "blocked ambiguous reserve quarantine docs gate",
+      "seed_records": [
+        "09d88ac2ec82afb7",
+        "b668898a1569919d",
+        "34465d61831aa9bc",
+        "de22eb908c0a2970"
+      ],
+      "traversal_mode": "audit sweep",
+      "budget": {
+        "max_matches": 10,
+        "witness_budget": 5,
+        "zone_budget": 6
+      },
+      "shortcut_chain": [
+        "KF-S05"
+      ],
+      "visited_zones": [
+        "Cortex"
+      ],
+      "result_class": "answer",
+      "matched_record_ids": [
+        "b6652fe82fb30dab",
+        "428af5364b28e8f6",
+        "8669bb31738ee62e",
+        "ff02a85c1be1c3f0",
+        "b13abb35a20bb7f2",
+        "26b4e31417cde59c",
+        "4a809c3cf380d876",
+        "14136389cadf2656",
+        "b8b1ea3fc3cbdfdb",
+        "84f3f7155932a0df"
+      ],
+      "route_summary": "ANSWER through Cortex using DOCS GATE VERIFIER -> GATE STATUS -> # Live Docs Gate Status",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md"
+      ],
+      "note": "surface the highest-risk zones and keep the gate honest"
+    },
+    {
+      "packet_id": "KFP-006",
+      "query_intent": "repair",
+      "title": "Repair stale and reserve routes",
+      "query_text": "repair stale reserve route quality replay",
+      "seed_records": [
+        "09d88ac2ec82afb7",
+        "b668898a1569919d",
+        "34465d61831aa9bc",
+        "de22eb908c0a2970"
+      ],
+      "traversal_mode": "bridge walk",
+      "budget": {
+        "max_matches": 10,
+        "witness_budget": 5,
+        "zone_budget": 5
+      },
+      "shortcut_chain": [
+        "KF-S06"
+      ],
+      "visited_zones": [],
+      "result_class": "abstain",
+      "matched_record_ids": [],
+      "route_summary": "No lawful witness-bearing route resolved; abstain and widen through fallback zones or stronger witnesses.",
+      "witness_basis": [],
+      "note": "turn drift into a bounded next-front packet"
+    },
+    {
+      "packet_id": "KFP-007",
+      "query_intent": "regenerate",
+      "title": "Regenerate self-bearing writeback surfaces",
+      "query_text": "dual engine regeneration self model self state knowledge fabric",
+      "seed_records": [
+        "09d88ac2ec82afb7",
+        "b668898a1569919d",
+        "34465d61831aa9bc",
+        "de22eb908c0a2970"
+      ],
+      "traversal_mode": "regeneration path",
+      "budget": {
+        "max_matches": 10,
+        "witness_budget": 4,
+        "zone_budget": 4
+      },
+      "shortcut_chain": [
+        "KF-S07"
+      ],
+      "visited_zones": [
+        "Cortex",
+        "RuntimeMirror"
+      ],
+      "result_class": "answer",
+      "matched_record_ids": [
+        "b668898a1569919d",
+        "34465d61831aa9bc",
+        "ff71c9cb98562cbb",
+        "99ba5f618bf382c9",
+        "05aa4cef351f2027",
+        "7cc9112b885f1376",
+        "cd16d110b37bff91",
+        "415f49b5d9bad3b9",
+        "3a2ed49e85e88a6f",
+        "7349e9921a1b56df"
+      ],
+      "route_summary": "ANSWER through Cortex using Phase 3 Self-Hosting Kernel -> Phase 4 Knowledge Fabric -> Self-Hosting Kernel Schema",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\00_active_nervous_system_index.md"
+      ],
+      "note": "route from seed surfaces toward cortex-runtime-receipt writeback"
+    },
+    {
+      "packet_id": "KFP-008",
+      "query_intent": "publish",
+      "title": "Publish phase 4 returns",
+      "query_text": "phase 4 knowledge fabric dashboard runtime receipt",
+      "seed_records": [
+        "09d88ac2ec82afb7",
+        "b668898a1569919d",
+        "34465d61831aa9bc",
+        "de22eb908c0a2970"
+      ],
+      "traversal_mode": "regeneration path",
+      "budget": {
+        "max_matches": 10,
+        "witness_budget": 4,
+        "zone_budget": 4
+      },
+      "shortcut_chain": [
+        "KF-S08"
+      ],
+      "visited_zones": [
+        "Cortex"
+      ],
+      "result_class": "answer",
+      "matched_record_ids": [
+        "34465d61831aa9bc",
+        "99ba5f618bf382c9",
+        "7cc9112b885f1376",
+        "cd16d110b37bff91",
+        "8669bb31738ee62e",
+        "0097de60ac0d0d11",
+        "ff02a85c1be1c3f0",
+        "94da4ed98a99f7b1",
+        "26b4e31417cde59c",
+        "60c5d7cbc57652b3"
+      ],
+      "route_summary": "ANSWER through Cortex using Phase 4 Knowledge Fabric -> Knowledge Fabric Schema -> Knowledge Fabric Dashboard",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md"
+      ],
+      "note": "ensure the new layer closes through cortex, runtime mirror, and receipt surfaces together"
+    }
+  ]
+}

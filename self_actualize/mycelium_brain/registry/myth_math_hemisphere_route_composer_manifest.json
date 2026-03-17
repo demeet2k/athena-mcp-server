@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-03-13T21:08:35.394596+00:00",
+  "docs_gate_status": "BLOCKED",
+  "stage_order": [
+    "seed",
+    "anchor_lift",
+    "corridor_lift",
+    "system_lift",
+    "hemisphere_hub",
+    "exit"
+  ],
+  "starter_cap": 24,
+  "counts": {
+    "seed_groups": 3,
+    "math_starters": 24,
+    "myth_starters": 24,
+    "bridge_starters": 24,
+    "facet_starters": 39
+  },
+  "facet_coverage": {
+    "anchor": 16,
+    "family": 10,
+    "hemisphere": 2,
+    "target_system": 11
+  },
+  "commands": [
+    "python -m self_actualize.runtime.compose_myth_math_hemisphere_routes record --record-id <record_id>",
+    "python -m self_actualize.runtime.compose_myth_math_hemisphere_routes search --query <text> --system <system>",
+    "python -m self_actualize.runtime.compose_myth_math_hemisphere_routes facet --family <family>"
+  ]
+}

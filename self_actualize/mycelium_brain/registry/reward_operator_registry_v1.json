@@ -1,0 +1,96 @@
+{
+  "generated_at": "2026-03-13T21:44:55.057444+00:00",
+  "protocol_id": "HEAVEN-DUAL-TRACK-V2",
+  "phi": 1.618034,
+  "governance_caps": {
+    "heaven_positive_gain_cap": 12.0,
+    "xp_positive_gain_cap": 25.0,
+    "xp_loss_cap": 25.0
+  },
+  "class_bands": [
+    {
+      "class_tier": "F",
+      "min_level": 0,
+      "max_level": 14
+    },
+    {
+      "class_tier": "E",
+      "min_level": 15,
+      "max_level": 29
+    },
+    {
+      "class_tier": "D",
+      "min_level": 30,
+      "max_level": 44
+    },
+    {
+      "class_tier": "C",
+      "min_level": 45,
+      "max_level": 59
+    },
+    {
+      "class_tier": "B",
+      "min_level": 60,
+      "max_level": 74
+    },
+    {
+      "class_tier": "A",
+      "min_level": 75,
+      "max_level": 89
+    },
+    {
+      "class_tier": "S",
+      "min_level": 90,
+      "max_level": 99
+    },
+    {
+      "class_tier": "ASCENSION_GATE",
+      "min_level": 100,
+      "max_level": 100
+    }
+  ],
+  "operators": [
+    {
+      "class_tier": "A",
+      "operator_id": "best_unlocked_capped",
+      "expression": "best unlocked positive operator under governance cap",
+      "positive_only": true
+    },
+    {
+      "class_tier": "B",
+      "operator_id": "positive_square_capped",
+      "expression": "positive square with cap",
+      "positive_only": true
+    },
+    {
+      "class_tier": "C",
+      "operator_id": "phi_square",
+      "expression": "xphi^2",
+      "positive_only": true
+    },
+    {
+      "class_tier": "D",
+      "operator_id": "two_phi",
+      "expression": "x2phi",
+      "positive_only": true
+    },
+    {
+      "class_tier": "E",
+      "operator_id": "phi",
+      "expression": "xphi",
+      "positive_only": true
+    },
+    {
+      "class_tier": "F",
+      "operator_id": "identity",
+      "expression": "x1.0",
+      "positive_only": true
+    },
+    {
+      "class_tier": "S",
+      "operator_id": "compound_capped",
+      "expression": "compound positive operator under governance cap",
+      "positive_only": true
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "generated_at": "2026-03-13T05:05:02.839445+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_helical_runner_contract",
+  "derivation_version": "2026-03-13.tq04.helical-runner-contract.v1",
+  "contract_id": "TQ04-HELICAL-RUNNER-CONTRACT-2026-03-13",
+  "front_id": "TQ04",
+  "front_title": "Bind The Helical Schema Pack To A Runner Contract",
+  "schema_refs": [
+    {
+      "label": "LoopSpec",
+      "path": "NERVOUS_SYSTEM\\70_SCHEMAS\\06_HELICAL_LOOPSPEC_16_RING.md",
+      "exists": true
+    },
+    {
+      "label": "PhaseSpec",
+      "path": "NERVOUS_SYSTEM\\70_SCHEMAS\\07_PHASE_SPEC_2_TO_14_MACHINE.md",
+      "exists": true
+    },
+    {
+      "label": "VirtualSwarmSpec",
+      "path": "NERVOUS_SYSTEM\\70_SCHEMAS\\08_VIRTUAL_SWARM_SPEC_16X16.md",
+      "exists": true
+    },
+    {
+      "label": "ImprovementLedgerSpec",
+      "path": "NERVOUS_SYSTEM\\70_SCHEMAS\\09_IMPROVEMENT_LEDGER_SPEC.md",
+      "exists": true
+    },
+    {
+      "label": "LiftSpec",
+      "path": "NERVOUS_SYSTEM\\70_SCHEMAS\\10_LIFT_SPEC_ONE_EIGHTH_HELIX.md",
+      "exists": true
+    }
+  ],
+  "hall_feeder_front": "Q42",
+  "hall_active_subfront": "QS64-20 Connectivity-Diagnose-Fractal",
+  "hall_next_seed": "QS64-21 Connectivity-Refine-Square",
+  "temple_front": "TQ04",
+  "cadence_membrane": {
+    "hall_front": "Q41",
+    "temple_front": "TQ06",
+    "law_basis": "T16 - Active Guildmaster Cadence Is Hourly And Packet-Fed"
+  },
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`"
+  },
+  "receiving_pressure": {
+    "id": "Q39 contradiction packet 05",
+    "path": "self_actualize\\mycelium_brain\\nervous_system\\packets\\PKT_2026-03-13_q39_runtime_trust_vs_stale_restart.md",
+    "summary": "runtime-trust gains versus stale restart and state surfaces"
+  },
+  "witness_surfaces": [
+    "self_actualize\\mycelium_brain\\nervous_system\\packets\\PKT_2026-03-13_q39_runtime_trust_vs_stale_restart.md",
+    "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q41_first_packet_freshness_sweep.md",
+    "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q42_fractal_state_reconciliation.md",
+    "self_actualize\\q42_runtime_carrier_contract.json",
+    "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\TQ06_INSTALL_THE_PACKET_FED_GUILDMASTER_COUPLING_LOOP.md"
+  ],
+  "control_surface_targets": [
+    "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+    "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+  ],
+  "sparse_activation_example": {
+    "dominant_loop": "L07 Registry, schema, and contract synthesis",
+    "current_phase": "PH08 8/16 Representation and Registry Synthesis",
+    "role_tensor_slice": {
+      "R1": "hall-temple-runtime control plane",
+      "R2": "contract-depth binding",
+      "R3": "present-tense March 13, 2026 chronology",
+      "R4": "runtime-trust contradiction routing",
+      "R5": "Q42-to-TQ04 bridge discipline",
+      "R6": "operator extraction from the schema pack",
+      "R7": "registry-and-manifest synthesis",
+      "R8": "contract-schema enforcement",
+      "R9": "verification-first audit lane",
+      "R10": "replay-safe receipt preservation",
+      "R11": "seed-preserving compression",
+      "R12": "stale-restart pruning",
+      "R13": "runner-contract novelty selection",
+      "R14": "Hall-to-Temple transfer law",
+      "R15": "meta-observation of cadence drift",
+      "R16": "blocked-Docs honesty audit"
+    },
+    "score_basis": {
+      "formula": "Benefit + Integration + WitnessGain + RouteGain + FrontierGain - Drift - Heat - Bloat",
+      "Benefit": 0.96,
+      "Integration": 0.94,
+      "WitnessGain": 0.99,
+      "RouteGain": 0.9,
+      "FrontierGain": 0.91,
+      "Drift": 0.08,
+      "Heat": 0.05,
+      "Bloat": 0.03,
+      "composite_score": 4.54
+    },
+    "witness_basis": [
+      "self_actualize\\mycelium_brain\\nervous_system\\packets\\PKT_2026-03-13_q39_runtime_trust_vs_stale_restart.md",
+      "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q41_first_packet_freshness_sweep.md",
+      "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q42_fractal_state_reconciliation.md",
+      "self_actualize\\q42_runtime_carrier_contract.json",
+      "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\TQ06_INSTALL_THE_PACKET_FED_GUILDMASTER_COUPLING_LOOP.md"
+    ],
+    "expected_output_artifact": "self_actualize\\helical_runner_contract.json",
+    "contraction_target": "release Q42 -> QS64-21 Connectivity-Refine-Square as the next Hall seed while keeping Q42 open on QS64-20 and TQ04 promoted as a landed Temple witness",
+    "seed_load": "2/16 seed load starts from the blocked Docs gate, the Q39 runtime-trust packet, the Q41/TQ06 cadence membrane, and the Q42 Fractal feeder state.",
+    "phase_machine_walk": [
+      {
+        "phase": "2/16",
+        "phase_id": "PH02",
+        "operator": "SeedLoad",
+        "input_state": "blocked Docs gate + Q39 runtime-trust packet + Q41/TQ06 cadence membrane + Q42 Fractal feeder",
+        "output_state": "runner-contract seed load admitted without hiding the gate blocker",
+        "witness": "self_actualize\\mycelium_brain\\nervous_system\\packets\\PKT_2026-03-13_q39_runtime_trust_vs_stale_restart.md",
+        "metric_delta": "unresolved_frontier_clarity +0.24",
+        "residual": "Docs gate remains blocked",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "3/16",
+        "phase_id": "PH03",
+        "operator": "Decompose",
+        "input_state": "schema pack plus control surfaces",
+        "output_state": "five source schemas, cadence membrane, Hall feeder, and residual blocker separated cleanly",
+        "witness": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q41_first_packet_freshness_sweep.md",
+        "metric_delta": "coverage +0.10",
+        "residual": "Q42 still needs downstream Hall carrythrough",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "4/16",
+        "phase_id": "PH04",
+        "operator": "Synthesize",
+        "input_state": "typed helical law and Fractal carrythrough witness",
+        "output_state": "one merged runner-contract story across Hall, Temple, queue, and active run",
+        "witness": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q42_fractal_state_reconciliation.md",
+        "metric_delta": "coherence +0.11",
+        "residual": "contract still needs explicit machine form",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "5/16",
+        "phase_id": "PH05",
+        "operator": "ResidualAudit",
+        "input_state": "Q39 contradiction packet 05",
+        "output_state": "runtime-trust lag routed into TQ04 as executable pressure",
+        "witness": "self_actualize\\mycelium_brain\\nervous_system\\packets\\PKT_2026-03-13_q39_runtime_trust_vs_stale_restart.md",
+        "metric_delta": "contradiction_pressure -0.26",
+        "residual": "restart surfaces still need the landed contract",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "6/16",
+        "phase_id": "PH06",
+        "operator": "BirthMine",
+        "input_state": "Q41/TQ06 packet-fed cadence and Q42 Fractal present tense",
+        "output_state": "born coordinate: contract must gate Square instead of competing with it",
+        "witness": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q41_first_packet_freshness_sweep.md",
+        "metric_delta": "born_coordinate_discovery_rate +0.12",
+        "residual": "Square remains next seed, not current",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "7/16",
+        "phase_id": "PH07",
+        "operator": "ExtractOperators",
+        "input_state": "schema mandates, sparse activation law, and lift cap",
+        "output_state": "contract_id, schema_refs, sparse_activation_example, metric audit, and lift gate selected",
+        "witness": "NERVOUS_SYSTEM\\70_SCHEMAS\\08_VIRTUAL_SWARM_SPEC_16X16.md",
+        "metric_delta": "operator_closure +0.25",
+        "residual": "verification still pending",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "8/16",
+        "phase_id": "PH08",
+        "operator": "ReframeAndRegister",
+        "input_state": "operator set and control-plane targets",
+        "output_state": "helical_runner_contract.json plus manifest surface",
+        "witness": "self_actualize\\helical_runner_contract.json",
+        "metric_delta": "schema_completeness +0.27",
+        "residual": "control-surface promotion still pending",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "9/16",
+        "phase_id": "PH09",
+        "operator": "ObserveProcess",
+        "input_state": "current contract-writing pass",
+        "output_state": "explicit note that Docs remain blocked and Hall/Temple drift caused the delay",
+        "witness": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_q41_first_packet_freshness_sweep.md",
+        "metric_delta": "meta_process_quality +0.17",
+        "residual": "manual surface freshness still required",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "10/16",
+        "phase_id": "PH10",
+        "operator": "AttackAndVerify",
+        "input_state": "contract JSON plus live surfaces",
+        "output_state": "verification artifact checks schema refs, sparse activation, metrics, lift cap, and alignment",
+        "witness": "self_actualize\\helical_runner_contract_verification.json",
+        "metric_delta": "proof_density +0.24",
+        "residual": "Hall-side Square execution still open",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "11/16",
+        "phase_id": "PH11",
+        "operator": "Improve",
+        "input_state": "verified contract and refreshed manifests",
+        "output_state": "next action space narrows to Q42 current carrythrough and QS64-21 next seed",
+        "witness": "NERVOUS_SYSTEM\\95_MANIFESTS\\TQ04_HELICAL_RUNNER_CONTRACT.md",
+        "metric_delta": "unresolved_frontier_clarity +0.11",
+        "residual": "Docs gate and Q42 execution remain open",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "12/16",
+        "phase_id": "PH12",
+        "operator": "Prune",
+        "input_state": "stale restart language and competing Square claims",
+        "output_state": "Q02 removed as the immediate TQ04 next seed; Square held as Hall-only followthrough",
+        "witness": "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "metric_delta": "pruning_efficiency +0.18",
+        "residual": "future Q42 execution still needed",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "13/16",
+        "phase_id": "PH13",
+        "operator": "Distill",
+        "input_state": "contract, verification, and aligned control surfaces",
+        "output_state": "restart-safe seed preserves Q42 current, QS64-21 next, TQ06 active, and TQ04 promoted",
+        "witness": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md",
+        "metric_delta": "compression_ratio -0.073",
+        "residual": "Docs gate remains external",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      },
+      {
+        "phase": "14/16",
+        "phase_id": "PH14",
+        "operator": "Lift",
+        "input_state": "runner contract plus verification",
+        "output_state": "Hall seed released to QS64-21 while Temple does not invent a new deeper frontier",
+        "witness": "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "metric_delta": "replayability +0.22",
+        "residual": "Q42 still open on QS64-20",
+        "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square"
+      }
+    ],
+    "lift_result": {
+      "bridge_equivalence": "14/16|n ~= 2/16|n+1",
+      "hall_seed_after_contract": "QS64-21 Connectivity-Refine-Square",
+      "hall_current_state_preserved": "Q42 -> QS64-20 Connectivity-Diagnose-Fractal",
+      "temple_state_after_contract": "TQ04 promoted witness under active TQ06 cadence control",
+      "verdict": "OK"
+    }
+  },
+  "metric_tensor_audit": [
+    {
+      "metric": "coverage",
+      "before": 0.68,
+      "after": 0.78,
+      "delta": 0.1,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "coherence",
+      "before": 0.71,
+      "after": 0.82,
+      "delta": 0.11,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "contradiction_pressure",
+      "before": 0.84,
+      "after": 0.58,
+      "delta": -0.26,
+      "direction": "LOWER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "born_coordinate_discovery_rate",
+      "before": 0.62,
+      "after": 0.74,
+      "delta": 0.12,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "operator_closure",
+      "before": 0.54,
+      "after": 0.79,
+      "delta": 0.25,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "proof_density",
+      "before": 0.57,
+      "after": 0.81,
+      "delta": 0.24,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "replayability",
+      "before": 0.63,
+      "after": 0.85,
+      "delta": 0.22,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "retrieval_quality",
+      "before": 0.6,
+      "after": 0.72,
+      "delta": 0.12,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "schema_completeness",
+      "before": 0.66,
+      "after": 0.93,
+      "delta": 0.27,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "novelty_gain",
+      "before": 0.49,
+      "after": 0.65,
+      "delta": 0.16,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "pruning_efficiency",
+      "before": 0.51,
+      "after": 0.69,
+      "delta": 0.18,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "compression_ratio",
+      "before": 0.19,
+      "after": 0.117,
+      "delta": -0.073,
+      "direction": "LOWER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "cross_domain_transfer",
+      "before": 0.55,
+      "after": 0.67,
+      "delta": 0.12,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "meta_process_quality",
+      "before": 0.58,
+      "after": 0.75,
+      "delta": 0.17,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "self_growth_gain",
+      "before": 0.52,
+      "after": 0.61,
+      "delta": 0.09,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    },
+    {
+      "metric": "unresolved_frontier_clarity",
+      "before": 0.64,
+      "after": 0.88,
+      "delta": 0.24,
+      "direction": "HIGHER_IS_BETTER",
+      "status": "IMPROVED"
+    }
+  ],
+  "lift_quality_gate": {
+    "comparison_basis": "load_bearing_state_size",
+    "max_ratio": 0.125,
+    "actual_ratio": 0.117,
+    "function_rule": "strictly_increase",
+    "coverage_rule": "preserve_or_increase",
+    "bloat_rule": "strictly_decrease",
+    "proof_replay_obligations": "preserved",
+    "verdict": "OK",
+    "note": "The lifted seed keeps Hall restart continuity while shrinking below the one-eighth cap."
+  },
+  "restart_seed": "Q42 -> QS64-21 Connectivity-Refine-Square",
+  "residual": [
+    "Google Docs access remains blocked until both OAuth files exist.",
+    "Q42 remains open on QS64-20 until the Hall-side Square followthrough lands.",
+    "TQ06 remains the active cadence membrane and is not replaced by TQ04."
+  ]
+}

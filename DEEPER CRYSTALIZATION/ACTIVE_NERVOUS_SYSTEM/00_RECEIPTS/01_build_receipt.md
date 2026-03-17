@@ -1,14 +1,14 @@
 # Build Receipt
 
-- Generated at: `2026-03-09T15:24:59.260608+00:00`
-- Indexed local records: `194`
+- Generated at: `2026-03-13T01:33:56.783365+00:00`
+- Indexed local records: `197`
 - Live Docs gate blocked: `True`
 - Duplicate source families: `13`
 
 ## Source layers
 
 - `FreshExtracted`: `3`
-- `LocalProject`: `30`
+- `LocalProject`: `33`
 - `MemoryDocs`: `17`
 - `MythMath`: `144`
 

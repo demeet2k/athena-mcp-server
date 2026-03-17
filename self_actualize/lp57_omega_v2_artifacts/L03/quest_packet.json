@@ -1,0 +1,33 @@
+{
+  "packet_type": "quest-packet",
+  "loop_id": "L03",
+  "status": "PUBLISHED",
+  "visible_quests": {
+    "hall": [
+      "Q57-L03-01",
+      "Q57-L03-02",
+      "Q57-L03-03",
+      "Q57-L03-04",
+      "Q57-L03-05",
+      "Q57-L03-06",
+      "Q57-L03-07",
+      "Q57-L03-08"
+    ],
+    "temple": [
+      "TQ57-L03-01",
+      "TQ57-L03-02",
+      "TQ57-L03-03",
+      "TQ57-L03-04",
+      "TQ57-L03-05",
+      "TQ57-L03-06",
+      "TQ57-L03-07",
+      "TQ57-L03-08"
+    ]
+  },
+  "witness_refs": [
+    "self_actualize/witness_hierarchy.json",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/07_CANONICAL_WITNESS_HIERARCHY.md"
+  ],
+  "next_ready_loop": "L04",
+  "docs_gate": "BLOCKED"
+}

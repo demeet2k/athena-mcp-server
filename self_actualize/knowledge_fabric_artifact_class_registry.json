@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "artifact_classes": [
+    {
+      "artifact_class": "manuscript",
+      "note": "text-heavy source, chapter, appendix, or book matter"
+    },
+    {
+      "artifact_class": "code",
+      "note": "executable scripts, modules, or configurations"
+    },
+    {
+      "artifact_class": "data",
+      "note": "json, csv, yaml, or structured payloads"
+    },
+    {
+      "artifact_class": "media",
+      "note": "images, pdfs, binaries, or non-text witness bodies"
+    },
+    {
+      "artifact_class": "generated",
+      "note": "machine-derived runtime or dashboard artifacts"
+    },
+    {
+      "artifact_class": "ledger",
+      "note": "receipts, progress ledgers, and proof-carrying traces"
+    },
+    {
+      "artifact_class": "manifest",
+      "note": "active fronts, registries, queue summaries, and maps"
+    },
+    {
+      "artifact_class": "schema",
+      "note": "formal interface or law declarations"
+    },
+    {
+      "artifact_class": "receipt",
+      "note": "completion traces and derivation writebacks"
+    },
+    {
+      "artifact_class": "queue",
+      "note": "ordered next-work surfaces"
+    },
+    {
+      "artifact_class": "skill",
+      "note": "local skill definitions and routing doctrine"
+    }
+  ]
+}

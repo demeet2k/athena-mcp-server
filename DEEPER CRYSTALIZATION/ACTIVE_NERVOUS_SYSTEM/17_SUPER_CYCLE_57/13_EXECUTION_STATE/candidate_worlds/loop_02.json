@@ -1,0 +1,176 @@
+{
+  "brainstem_state": {
+    "G": "Q42 / TQ04 / Q50 / Q46 / Q02 route graph",
+    "Pi": "loop-ranked pressure field under installed 57-cycle ledger",
+    "Omega": {
+      "status": "OK",
+      "denied_packet_ids": [
+        "Q02"
+      ]
+    },
+    "I": {
+      "quarantine_classes": [
+        "quarantine",
+        "forbidden-class"
+      ],
+      "unresolved_failure_classes": [
+        "unresolved-failure"
+      ],
+      "committee_pending_routes": []
+    },
+    "R": {
+      "replay_capacity": 1.0,
+      "replay_memory_quality": 0.85
+    }
+  },
+  "parameters": {
+    "beta": 0.5
+  },
+  "hysteresis_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\17_SUPER_CYCLE_57\\13_EXECUTION_STATE\\00_runner_hysteresis_state.json",
+  "candidates": [
+    {
+      "id": "SC57-L02-COMPRESSION",
+      "title": "compression bundle, pruning delta, or committee carry",
+      "source_queue": "Continuation seeds",
+      "role_family": "super-cycle-57",
+      "source_organ": "BrainstemChamber",
+      "target_organ": "ContinuationSeedVault",
+      "current_family": "compression",
+      "truth_burden": "moderate",
+      "packet_type_expected": "quest_packet",
+      "continuation_seed": "sc57-c-p1-02",
+      "dependencies": [
+        "timing_window"
+      ],
+      "blockers": [],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.9,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.35,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.65,
+        "closure_gain": 0.55,
+        "heart_need": 0.45,
+        "replay_readiness": 0.85,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "timing_not_lawful": true
+      }
+    },
+    {
+      "id": "SC57-L02-HALL",
+      "title": "current control lane and next visible Hall macro front",
+      "source_queue": "QuestBoard",
+      "role_family": "super-cycle-57",
+      "source_organ": "BrainstemChamber",
+      "target_organ": "QuestBoard",
+      "current_family": "hall",
+      "truth_burden": "moderate",
+      "packet_type_expected": "quest_packet",
+      "continuation_seed": "sc57-h-p1-02",
+      "dependencies": [
+        "timing_window"
+      ],
+      "blockers": [],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.9,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.35,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.65,
+        "closure_gain": 0.55,
+        "heart_need": 0.45,
+        "replay_readiness": 0.85,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "timing_not_lawful": true
+      }
+    },
+    {
+      "id": "SC57-L02-RUNTIME",
+      "title": "runtime frontier, replay, or no-op receipt",
+      "source_queue": "Immune scheduler outputs",
+      "role_family": "super-cycle-57",
+      "source_organ": "BrainstemChamber",
+      "target_organ": "ReplayKernel",
+      "current_family": "runtime",
+      "truth_burden": "moderate",
+      "packet_type_expected": "replay_job",
+      "continuation_seed": "sc57-r-p1-02",
+      "dependencies": [],
+      "blockers": [
+        "Q02 live-doc gate"
+      ],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.9,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.65,
+        "organ_adjacency": 0.85,
+        "branch_burden": 0.2,
+        "seed_value": 0.65,
+        "closure_gain": 0.8,
+        "heart_need": 0.7,
+        "replay_readiness": 0.25,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "replay_dependency_unresolved": true
+      }
+    },
+    {
+      "id": "SC57-L02-TEMPLE",
+      "title": "higher-order Temple promotion and governance membrane",
+      "source_queue": "QuestBoard",
+      "role_family": "super-cycle-57",
+      "source_organ": "BrainstemChamber",
+      "target_organ": "CommitteeChamber",
+      "current_family": "temple",
+      "truth_burden": "moderate",
+      "packet_type_expected": "quest_packet",
+      "continuation_seed": "sc57-t-p1-02",
+      "dependencies": [
+        "timing_window"
+      ],
+      "blockers": [],
+      "blocker_classes": [],
+      "axes": {
+        "truth_readiness": 0.9,
+        "integration_yield": 0.8,
+        "replay_cost": 0.2,
+        "contradiction_heat": 0.1,
+        "pressure_gradient": 0.35,
+        "organ_adjacency": 0.8,
+        "branch_burden": 0.2,
+        "seed_value": 0.65,
+        "closure_gain": 0.55,
+        "heart_need": 0.45,
+        "replay_readiness": 0.85,
+        "failure_debt": 0.1,
+        "risk": 0.2,
+        "cost": 0.2
+      },
+      "flags": {
+        "timing_not_lawful": true
+      }
+    }
+  ]
+}

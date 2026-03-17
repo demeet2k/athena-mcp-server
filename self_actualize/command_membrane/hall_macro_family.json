@@ -1,0 +1,28 @@
+{
+  "macro_family_id": "NEXT57-H-COMMAND-MEMBRANE",
+  "latest_event_id": "EVT-20260313204945-0003",
+  "owner_surface": "HALL",
+  "restart_seed": "NEXT => COMMAND::EVT-20260313204945-0003 :: hall :: READ ME.txt",
+  "child_packets": [
+    {
+      "quest_id": "CM-H01",
+      "title": "Classify command sugar",
+      "status": "complete"
+    },
+    {
+      "quest_id": "CM-H02",
+      "title": "Claim READ ME.txt",
+      "status": "complete"
+    },
+    {
+      "quest_id": "CM-H03",
+      "title": "Write HALL handoff",
+      "status": "ready"
+    },
+    {
+      "quest_id": "CM-H04",
+      "title": "Reinforce route",
+      "status": "ready"
+    }
+  ]
+}

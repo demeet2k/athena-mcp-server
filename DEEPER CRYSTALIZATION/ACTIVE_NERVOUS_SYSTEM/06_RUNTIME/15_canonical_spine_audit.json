@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-03-13T21:40:51.639021+00:00",
+  "registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\canonical_manuscript_manifest.json",
+  "strict_spine_mode": true,
+  "live_docs_blocked": true,
+  "live_docs_error": "Error: Missing OAuth client file: credentials.json",
+  "spine_output_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\VOID_MANUSCRIPT_MASTER.md",
+  "supplements_output_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\VOID_MANUSCRIPT_SUPPLEMENTS.md",
+  "spine_entry_count": 11,
+  "supplement_entry_count": 14,
+  "spine_chapter_ids": [
+    "Ch03",
+    "Ch07",
+    "Ch08",
+    "Ch10",
+    "Ch11",
+    "Ch12",
+    "Ch14",
+    "Ch17",
+    "Ch18",
+    "Ch19"
+  ],
+  "appendix_ids": [
+    "AppQ"
+  ],
+  "supplements_moved_from_spine": [
+    "Supp01",
+    "Supp02",
+    "Supp03",
+    "Supp04",
+    "Supp05",
+    "Supp06",
+    "Supp07",
+    "Supp08",
+    "Supp09",
+    "Supp10",
+    "Supp11",
+    "Supp12",
+    "Supp13",
+    "Supp14"
+  ],
+  "source_only_entries": [
+    "SrcPacket",
+    "SrcCh03Handoff",
+    "SrcCh10Draft",
+    "SrcCh10Handoff",
+    "SrcCh12Draft",
+    "SrcCh12Handoff",
+    "SrcCh14Draft",
+    "SrcCh14Handoff"
+  ],
+  "audit": {
+    "handoff_excluded": true,
+    "alternates_excluded": true,
+    "legacy_filenames_absent_from_spine": true,
+    "chapter_heading_uniqueness": true,
+    "appendix_slots_valid": true,
+    "passed": true
+  },
+  "build_receipt": {
+    "manifest_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\canonical_manuscript_manifest.json",
+    "sections_dir": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections",
+    "strict_spine_mode": true,
+    "volumes": {
+      "spine": {
+        "volume": "spine",
+        "output_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\VOID_MANUSCRIPT_MASTER.md",
+        "entry_count": 11,
+        "entry_ids": [
+          "Ch03",
+          "Ch07",
+          "Ch08",
+          "Ch10",
+          "Ch11",
+          "Ch12",
+          "Ch14",
+          "Ch17",
+          "Ch18",
+          "Ch19",
+          "AppQ"
+        ],
+        "entry_files": [
+          "003_ch03_truth_corridors_and_witness_discipline.md",
+          "007_ch07_cut_and_the_law_of_conserved_transformation.md",
+          "008_ch08_source_graphs_morphological_equivalence_equation_genesis.md",
+          "010_ch10_multi_lens_solution_construction.md",
+          "011_ch11_helical_manifestation_engine.md",
+          "012_ch12_legality_certificates_and_closure.md",
+          "014_ch14_migration_versioning_and_pulse_retro_weaving.md",
+          "016_ch17_prop_types_physics_of_communication_channels.md",
+          "018_ch18_embodiment_runtime_and_deployment.md",
+          "019_ch19_recursive_self_reference_and_self_repair.md",
+          "021_appendix_q_integrated_appendix_only_metro_map.md"
+        ]
+      },
+      "supplements": {
+        "volume": "supplements",
+        "output_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\VOID_MANUSCRIPT_SUPPLEMENTS.md",
+        "entry_count": 14,
+        "entry_ids": [
+          "Supp01",
+          "Supp02",
+          "Supp03",
+          "Supp04",
+          "Supp05",
+          "Supp06",
+          "Supp07",
+          "Supp08",
+          "Supp09",
+          "Supp10",
+          "Supp11",
+          "Supp12",
+          "Supp13",
+          "Supp14"
+        ],
+        "entry_files": [
+          "012_ms7341_athenachka_corpus_treatise_seed.md",
+          "013_quadrant_binary_framework_and_bit4_root_contract.md",
+          "014_ch12_scarlet_protocol_love_directive.md",
+          "015_athenachka_synthesis_cyber_philosophical_framework.md",
+          "020_deep_synthesis_chapters_1_21_and_multi_resolution_metro_maps.md",
+          "022_athena_integrated_neural_network_cross_synthesis.md",
+          "023_motion_constitution_l1_action_selection_engine.md",
+          "024_organ_current_route_table_v0.md",
+          "025_lp_57omega_dense_65_shell.md",
+          "026_lp_57omega_rqt_transfer_signature_and_metro_witness_registry.md",
+          "027_command_protocol_v1.md",
+          "028_command_packet_and_capillary_law_registry.md",
+          "029_reward_architecture_v2_shared_xp_debt_and_ascension.md",
+          "030_temple_of_alchemy_metallic_amplifier_and_chapter11_reward_registry.md"
+        ]
+      }
+    },
+    "source_only_entries": [
+      {
+        "canonical_id": "SrcPacket",
+        "status": "legacy-source",
+        "source_file": "000_current_packet.md"
+      },
+      {
+        "canonical_id": "SrcCh03Handoff",
+        "status": "legacy-source",
+        "source_file": "003_ch03_truth_corridors_and_witness_discipline_handoff.md"
+      },
+      {
+        "canonical_id": "SrcCh10Draft",
+        "status": "legacy-source",
+        "source_file": "010_ch10_decisive_coupling_where_inner_outer_and_helical_first_connect.md"
+      },
+      {
+        "canonical_id": "SrcCh10Handoff",
+        "status": "legacy-source",
+        "source_file": "010_ch10_multi_lens_solution_construction_handoff.md"
+      },
+      {
+        "canonical_id": "SrcCh12Draft",
+        "status": "legacy-source",
+        "source_file": "012_ch12_boundary_checks_and_isolation_axioms.md"
+      },
+      {
+        "canonical_id": "SrcCh12Handoff",
+        "status": "legacy-source",
+        "source_file": "012_ch12_legality_certificates_and_closure_handoff.md"
+      },
+      {
+        "canonical_id": "SrcCh14Draft",
+        "status": "legacy-source",
+        "source_file": "014_ch14_global_hugging_field_deployment.md"
+      },
+      {
+        "canonical_id": "SrcCh14Handoff",
+        "status": "legacy-source",
+        "source_file": "014_ch14_migration_versioning_and_pulse_retro_weaving_handoff.md"
+      }
+    ]
+  }
+}

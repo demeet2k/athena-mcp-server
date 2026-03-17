@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L40",
+  "status": "PENDING",
+  "lead_agent": "PRUNER",
+  "objective": "synthesize duplicate ledgers and manifests",
+  "advancement_tuple": {
+    "focus_family": "governance",
+    "frontier_type": "ledger-and-manifest-defrag",
+    "dominant_evidence_class": "defrag-ledger",
+    "compression_target": "redundant-state-carriers"
+  },
+  "truth_state": "NEAR"
+}

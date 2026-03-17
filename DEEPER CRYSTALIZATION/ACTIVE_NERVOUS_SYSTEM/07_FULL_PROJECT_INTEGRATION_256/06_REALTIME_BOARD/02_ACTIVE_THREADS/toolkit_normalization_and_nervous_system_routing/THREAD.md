@@ -17,8 +17,8 @@
 - Regime: `classical`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
-- NeuronAddr: `<self_actualize, toolkit_normalization_and_nervous_system_routing, O11, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
+- NSCoord: `(F-A-E, S8, Aether, O37, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
+- NeuronAddr: `<self_actualize, toolkit_normalization_and_nervous_system_routing, O37, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
 - ContractionTarget: `cortex/toolkit_normalization_and_nervous_system_routing.md`
 
 ## Claims

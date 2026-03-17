@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-03-13T01:20:48.509166+00:00",
+  "derivation_version": "2026-03-13.deep-pairwise-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_deep_pairwise_weave",
+  "truth": "OK",
+  "docs_gate": {
+    "status": "blocked-by-missing-credentials",
+    "resolution": "lawfully-isolated",
+    "fallback_mode": "local-first-truth-corridor"
+  },
+  "checks": {
+    "strict_scope_six_families": true,
+    "slice_count": true,
+    "packet_count": true,
+    "route_surfaces_resolve": true,
+    "replay_surfaces_resolve": true,
+    "runtime_receipts_resolve": true,
+    "verification_witnesses_resolve": true,
+    "family_checks_green": true,
+    "level3_metro_rule": true,
+    "appendix_q_rule": true,
+    "transit_spine_rule": true,
+    "target_writeback_rule": true,
+    "whole_crystal_ledger_promoted": true,
+    "inferred_ready_preserved": true,
+    "quarantined_preserved": true,
+    "atlas_refresh_complete": true,
+    "phase4_direct_edges_preserved": true,
+    "knowledge_fabric_direct_edges_preserved": true,
+    "phase4_pt2_direct_edges_preserved": true,
+    "runtime_verifiers_green": true,
+    "docs_gate_preserved_blocked": true
+  },
+  "runtime_lanes": {
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK",
+    "runtime_waist": "OK"
+  },
+  "atlas_refresh_pending_paths": [],
+  "unresolved": [
+    "Google Docs ingress remains `blocked-by-missing-credentials` so Trading Bot-facing lanes stay non-authoritative."
+  ],
+  "next_restart_seed": "source-pair replay -> GCW-GCZ transit -> target-pair writeback -> verify -> seed-next-pair"
+}

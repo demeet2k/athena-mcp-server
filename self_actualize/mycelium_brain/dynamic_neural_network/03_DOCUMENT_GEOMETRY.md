@@ -35,25 +35,25 @@ generated_from:
   corpus_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/corpus_atlas.json"
   archive_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/archive_atlas.json"
   live_docs_gate_status: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/live_docs_gate_status.md"
-generated_at: "2026-03-09T15:17:43.643784+00:00"
+generated_at: "2026-03-13T15:05:01.529819+00:00"
 ---
 # Document Geometry
 
-| Document | Path | Bytes | Weight | Macro | Cluster | Theta |
-| --- | --- | --- | --- | --- | --- | --- |
-| The Holographic Manuscript Brain | `FRESH\The Holographic Manuscript Brain.docx` | 1207288 | 0.079376 | Water | manuscript substrate | 0.000 |
-| Self-Routing Meta-Framework | `DEEPER CRYSTALIZATION\Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search.docx` | 137312 | 0.009028 | Earth | routing and search | 27.692 |
-| QBD-4 | `MATH\FINAL FORM\COMPLETE TOMES\Quadrant Binary\QBD-4 — Quadrant Binary Dynamics.docx` | 2344913 | 0.154172 | Air | quad logic bits | 55.385 |
-| Quad Holographic Rotation | `MATH\Newer\QUAD HOLOGRAPHIC ROTATION.docx` | 2496020 | 0.164107 | Air | holographic transport | 83.077 |
-| The Holographic Kernel | `MATH\Newer\The Holographic Kernel.docx` | 1539727 | 0.101233 | Air | holographic compression | 110.769 |
-| Time Fractal | `MATH\Newer\working\TIME FRACTAL _working_.docx` | 1213597 | 0.079791 | Fire | fractal time | 138.462 |
-| Crystal Computing Framework | `MATH\FINAL FORM\The Crystal\Crystal Computing\CRYSTAL COMPUTING FRAMEWORK.docx` | 761315 | 0.050055 | Air | fractal computing | 166.154 |
-| Quantum Computing on Standard Hardware | `MATH\FINAL FORM\The Crystal\Quantum Computing on Standard Hardware.docx` | 1255744 | 0.082562 | Fire | quantum classical emulation | 193.846 |
-| Zero-Point Computing | `MATH\FINAL FORM\The Crystal\Crystal Computing\ZERO-POINT COMPUTING.docx` | 1233747 | 0.081116 | Earth | zero-point engine | 221.538 |
-| Athena Neural Network Tome | `NERUAL NETWORK\Athena Nueral Network tome.docx` | 891978 | 0.058645 | Fire | emergence compiler | 249.231 |
-| VOYNICHVM Tricompiler | `MATH\FINAL FORM\COMPLETE TOMES\ATHENA\esoteric\VOYNICHVM TRICOMPILER .docx` | 1507563 | 0.099119 | Water | voynich computer | 276.923 |
-| Torat Ha-Mispar | `MATH\FINAL FORM\MYTH - MATH\Sacred TEXTS\TORAT HA-MISPAR (תורת המספר).docx` | 237267 | 0.015600 | Water | torah computer | 304.615 |
-| Universal Computational Ontology | `MATH\FINAL FORM\MYTH - MATH\THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO).docx` | 383218 | 0.025196 | Earth | mythic os | 332.308 |
+| Document | Path | Bytes | Weight | Macro | Cluster | Basis refs | Theta |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| The Holographic Manuscript Brain | `FRESH\The Holographic Manuscript Brain.docx` | 1207288 | 0.079376 | Water | manuscript substrate | 01, 14, 09 | 0.000 |
+| Self-Routing Meta-Framework | `DEEPER CRYSTALIZATION\Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search.docx` | 137312 | 0.009028 | Earth | routing and search | 02, 01, 09 | 27.692 |
+| QBD-4 | `MATH\FINAL FORM\COMPLETE TOMES\Quadrant Binary\QBD-4 — Quadrant Binary Dynamics.docx` | 2344913 | 0.154172 | Air | quad logic bits | 03, 04, 05, 06 | 55.385 |
+| Quad Holographic Rotation | `MATH\Newer\QUAD HOLOGRAPHIC ROTATION.docx` | 2496020 | 0.164107 | Air | holographic transport | 04, 03, 05, 06 | 83.077 |
+| The Holographic Kernel | `MATH\Newer\The Holographic Kernel.docx` | 1539727 | 0.101233 | Air | holographic compression | 05, 06, 03, 04 | 110.769 |
+| Time Fractal | `MATH\Newer\working\TIME FRACTAL _working_.docx` | 1213597 | 0.079791 | Fire | fractal time | 06, 03, 04, 05 | 138.462 |
+| Crystal Computing Framework | `MATH\FINAL FORM\The Crystal\Crystal Computing\CRYSTAL COMPUTING FRAMEWORK.docx` | 761315 | 0.050055 | Air | fractal computing | 07, 03, 04, 05 | 166.154 |
+| Quantum Computing on Standard Hardware | `MATH\FINAL FORM\The Crystal\Quantum Computing on Standard Hardware.docx` | 1255744 | 0.082562 | Fire | quantum classical emulation | 08, 03, 04, 05 | 193.846 |
+| Zero-Point Computing | `MATH\FINAL FORM\The Crystal\Crystal Computing\ZERO-POINT COMPUTING.docx` | 1233747 | 0.081116 | Earth | zero-point engine | 09, 07, 03, 04 | 221.538 |
+| Athena Neural Network Tome | `NERUAL NETWORK\Athena Nueral Network tome.docx` | 891978 | 0.058645 | Fire | emergence compiler | 10, 08, 16 | 249.231 |
+| VOYNICHVM Tricompiler | `MATH\FINAL FORM\COMPLETE TOMES\ATHENA\esoteric\VOYNICHVM TRICOMPILER .docx` | 1507563 | 0.099119 | Water | voynich computer | 11, 03, 04, 05 | 276.923 |
+| Torat Ha-Mispar | `MATH\FINAL FORM\MYTH - MATH\Sacred TEXTS\TORAT HA-MISPAR (תורת המספר).docx` | 237267 | 0.015600 | Water | torah computer | 12, 03, 04, 05 | 304.615 |
+| Universal Computational Ontology | `MATH\FINAL FORM\MYTH - MATH\THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO).docx` | 383218 | 0.025196 | Earth | mythic os | 13, 03, 04, 05 | 332.308 |
 
 ## Satellite Documents
 

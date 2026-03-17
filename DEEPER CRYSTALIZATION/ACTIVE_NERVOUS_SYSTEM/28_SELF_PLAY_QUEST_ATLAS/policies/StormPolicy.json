@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "storm",
+  "description": "Storm parameters governing PhiStorm trigger conditions, duration, and coalition bonuses",
+  "trigger": 34,
+  "trigger_description": "Minimum coalition size to trigger a PhiStorm event (Fibonacci-34)",
+  "shadow_cutoff": 13,
+  "shadow_cutoff_description": "Coalitions below this size receive no storm benefits (Fibonacci-13)",
+  "storm_seed": 21,
+  "storm_seed_description": "Duration scaling divisor — extra epochs = (pulse - trigger) / storm_seed (Fibonacci-21)",
+  "base_duration": 5,
+  "base_duration_description": "Base storm duration in epochs (Fibonacci-5)",
+  "pool_base": 21,
+  "pool_base_description": "Base reward pool size for a triggered storm (Fibonacci-21)",
+  "pool_scale": 13,
+  "pool_scale_description": "Additional pool units per coalition member above trigger threshold (Fibonacci-13)",
+  "coalition_bonus": 0.236,
+  "coalition_bonus_description": "Bonus multiplier applied to all participants in a triggered storm (phi^-3)",
+  "storm_rules": [
+    "A PhiStorm triggers when coalition_size >= trigger (34)",
+    "Coalitions with size < shadow_cutoff (13) are in shadow zone and receive zero storm payout",
+    "Coalitions with 13 <= size < 34 receive scaled pre-storm benefits at ratio (size - 13) / (34 - 13)",
+    "Storm duration extends by 1 epoch for every 8 members above trigger",
+    "Pool formula: pool_base + pool_scale * (coalition_size - trigger) for size > trigger",
+    "All storm participants receive coalition_bonus (0.236) as additive multiplier on their payout",
+    "Storm payout is distributed proportionally by contribution score within the coalition",
+    "Only stations S11, S13, S17, S19 can host storm events",
+    "A station may host at most one storm per epoch"
+  ],
+  "storm_states": {
+    "DORMANT": "No active storm, coalition forming",
+    "BUILDING": "Coalition size between shadow_cutoff and trigger",
+    "ACTIVE": "Storm triggered, duration counting down",
+    "DISSIPATING": "Storm ending, final payouts being computed",
+    "COMPLETE": "Storm finished, receipts sealed"
+  }
+}

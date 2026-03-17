@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-03-13T16:54:28.138260+00:00",
+  "truth": "OK",
+  "checks": {
+    "docs_gate_blocked": true,
+    "hall_macro_rows_4": true,
+    "temple_mirror_rows_5": true,
+    "packet_atlas_depth_counts_ok": true,
+    "packet_atlas_total_entries_ok": true,
+    "current_sequence_is_five_phase": true,
+    "loop_state_has_required_fields": true,
+    "live_spine_preserved": true,
+    "no_qs64_25_in_current_surfaces": true,
+    "no_completed_loops_missing_bundle": true,
+    "docs_gate_honesty_visible": true,
+    "q50_visible": true,
+    "q42_visible": true,
+    "registry_rows_5": true
+  },
+  "hall_visible_rows": [
+    "FA57-Q-FIRE-RESEARCH",
+    "FA57-Q-WATER-PLANNER",
+    "FA57-Q-AIR-WORKER",
+    "FA57-Q-EARTH-PRUNER"
+  ],
+  "temple_visible_rows": [
+    "T57-PRIME-ARBITRATION",
+    "T57-FIRE-SYNTHESIS-GATE",
+    "T57-WATER-QUEST-BINDING",
+    "T57-AIR-EXECUTION-LIFT",
+    "T57-EARTH-PRUNE-RETURN"
+  ],
+  "current_cycle": "FA57-L01",
+  "current_phase": "FIRE_RESEARCH_SYNTHESIS",
+  "current_cycle_owner": "FA57-FIRE",
+  "completion_contract_violations": []
+}

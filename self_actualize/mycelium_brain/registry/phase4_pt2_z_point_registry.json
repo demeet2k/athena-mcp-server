@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+  "zpoints": [
+    {
+      "zpoint_id": "Z0",
+      "label": "Intake Zero",
+      "route_class": "intake",
+      "restart_token": "INTAKE-FIRST-WITNESS",
+      "binding_hubs": [
+        "ST-GCZ",
+        "ST-T10"
+      ],
+      "proof_state": "NEAR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "note": "Z-point family bound to Grand Central and Ch11."
+    },
+    {
+      "zpoint_id": "Z1",
+      "label": "Restart Zero",
+      "route_class": "restart",
+      "restart_token": "CH11-RESTART-CONTINUITY",
+      "binding_hubs": [
+        "ST-Ch11",
+        "ST-GCZ"
+      ],
+      "proof_state": "OK",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "note": "Z-point family bound to Grand Central and Ch11."
+    },
+    {
+      "zpoint_id": "Z2",
+      "label": "Contradiction Zero",
+      "route_class": "quarantine",
+      "restart_token": "CONTRADICTION-PRESERVE-BOTH",
+      "binding_hubs": [
+        "ST-GCZ",
+        "ST-GCP"
+      ],
+      "proof_state": "NEAR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "note": "Z-point family bound to Grand Central and Ch11."
+    },
+    {
+      "zpoint_id": "Z3",
+      "label": "Carrier Zero",
+      "route_class": "carrier_lift",
+      "restart_token": "HD-SCT-PROJECTION-LAW",
+      "binding_hubs": [
+        "ST-HDSCT",
+        "ST-AppM"
+      ],
+      "proof_state": "NEAR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "note": "Z-point family bound to Grand Central and Ch11."
+    },
+    {
+      "zpoint_id": "Z4",
+      "label": "Fleet Zero",
+      "route_class": "promotion",
+      "restart_token": "FLEET-CLUSTER-RETURN",
+      "binding_hubs": [
+        "ST-FLEET",
+        "ST-T10"
+      ],
+      "proof_state": "NEAR",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "note": "Z-point family bound to Grand Central and Ch11."
+    },
+    {
+      "zpoint_id": "Z5",
+      "label": "Aether Zero",
+      "route_class": "field_closure",
+      "restart_token": "AETHER-CERTIFICATE-CLOSE",
+      "binding_hubs": [
+        "ST-GCW",
+        "ST-HDSCT"
+      ],
+      "proof_state": "OK",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "note": "Z-point family bound to Grand Central and Ch11."
+    }
+  ],
+  "summary": {
+    "count": 6
+  }
+}

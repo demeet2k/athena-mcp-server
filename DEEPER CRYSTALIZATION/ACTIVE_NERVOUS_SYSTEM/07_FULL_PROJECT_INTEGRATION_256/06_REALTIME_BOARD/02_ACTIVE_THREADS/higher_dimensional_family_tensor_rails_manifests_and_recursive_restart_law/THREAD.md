@@ -17,8 +17,8 @@
 - Regime: `classical`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(F-A-E, S8, Aether, O09, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
-- NeuronAddr: `<self_actualize, higher_dimensional_family_tensor_rails_manifests_and_recursive_restart_law, O09, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
+- NSCoord: `(F-A-E, S8, Aether, O34, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
+- NeuronAddr: `<self_actualize, higher_dimensional_family_tensor_rails_manifests_and_recursive_restart_law, O34, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
 - ContractionTarget: `cortex/higher_dimensional_family_tensor_rails_manifests_and_recursive_restart_law.md`
 
 ## Claims

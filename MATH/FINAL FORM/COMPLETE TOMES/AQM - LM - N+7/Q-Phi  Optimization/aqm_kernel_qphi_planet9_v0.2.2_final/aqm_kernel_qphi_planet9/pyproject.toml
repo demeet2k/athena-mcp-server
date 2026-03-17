@@ -1,0 +1,20 @@
+[project]
+name = "aqm-kernel"
+version = "0.2.2"
+description = "AQM holographic tile / Merkle replay kernel + Planet Nine (Q-PHI) application pack"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.22","requests>=2.28"]
+
+[project.scripts]
+aqm = "aqm.cli:main"
+qphi-p9 = "aqm.apps.planet9.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+# Explicit package discovery so the top-level ./data folder is not treated as a namespace package.
+where = ["."]
+include = ["aqm*"]
+exclude = ["data*"]

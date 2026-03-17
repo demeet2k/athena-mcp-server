@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-03-13T20:44:37.135414+00:00",
+  "derivation_version": "2026-03-12.phase4-fabric-v1",
+  "authority_registry": [
+    {
+      "authority_id": "AUTH-Z01",
+      "zone_name": "Cortex",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+      "authority_rank": 5,
+      "witness_floor": "indexed",
+      "query_methods": [
+        "locate",
+        "browse",
+        "synthesize",
+        "publish"
+      ],
+      "note": "This zone answers where canonical and source-bearing matter actually lives."
+    },
+    {
+      "authority_id": "AUTH-Z02",
+      "zone_name": "RuntimeMirror",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\00_active_nervous_system_index.md",
+      "authority_rank": 4,
+      "witness_floor": "generated",
+      "query_methods": [
+        "locate",
+        "audit",
+        "repair",
+        "regenerate"
+      ],
+      "note": "This is the live mycelial waist rather than the publication cortex."
+    },
+    {
+      "authority_id": "AUTH-Z03",
+      "zone_name": "GovernanceMirror",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\NERVOUS_SYSTEM\\README.md",
+      "authority_rank": 3,
+      "witness_floor": "indexed",
+      "query_methods": [
+        "browse",
+        "compare",
+        "synthesize"
+      ],
+      "note": "Governance may advise but does not outrank the cortex."
+    },
+    {
+      "authority_id": "AUTH-Z04",
+      "zone_name": "DeepRoot",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+      "authority_rank": 4,
+      "witness_floor": "indexed",
+      "query_methods": [
+        "browse",
+        "synthesize",
+        "audit",
+        "repair"
+      ],
+      "note": "This is the only live deep-routing authority."
+    },
+    {
+      "authority_id": "AUTH-Z05",
+      "zone_name": "CorpusAtlas",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+      "authority_rank": 3,
+      "witness_floor": "indexed",
+      "query_methods": [
+        "locate",
+        "browse",
+        "audit"
+      ],
+      "note": "This zone stores the searchable record substrate, not the truth of every record."
+    },
+    {
+      "authority_id": "AUTH-Z06",
+      "zone_name": "ArchiveAtlas",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_atlas.json",
+      "authority_rank": 3,
+      "witness_floor": "archive",
+      "query_methods": [
+        "browse",
+        "compare",
+        "audit"
+      ],
+      "note": "Archive-backed records remain visible without pretending they are live-root files."
+    },
+    {
+      "authority_id": "AUTH-Z07",
+      "zone_name": "BoardScope",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\00_STATUS\\00_BOARD_STATUS.md",
+      "authority_rank": 2,
+      "witness_floor": "board",
+      "query_methods": [
+        "audit",
+        "repair",
+        "publish"
+      ],
+      "note": "Board scope is a visibility overlay, not whole-corpus truth."
+    },
+    {
+      "authority_id": "AUTH-Z08",
+      "zone_name": "PromotedSlice",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\_build\\nervous_system\\manifests\\STATE_HEADER.md",
+      "authority_rank": 2,
+      "witness_floor": "promoted",
+      "query_methods": [
+        "compare",
+        "audit",
+        "publish"
+      ],
+      "note": "Promoted slices remain named as historical witness, not live totality."
+    },
+    {
+      "authority_id": "AUTH-Z09",
+      "zone_name": "CapsuleLayer",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\INDEX.md",
+      "authority_rank": 4,
+      "witness_floor": "indexed",
+      "query_methods": [
+        "locate",
+        "synthesize",
+        "regenerate"
+      ],
+      "note": "Capsules are the contraction layer between root bodies and canonical law."
+    },
+    {
+      "authority_id": "AUTH-Z10",
+      "zone_name": "GraphLayer",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "authority_rank": 4,
+      "witness_floor": "indexed",
+      "query_methods": [
+        "compare",
+        "audit",
+        "repair"
+      ],
+      "note": "This zone carries relation tissue rather than full source bodies."
+    },
+    {
+      "authority_id": "AUTH-Z11",
+      "zone_name": "ReceiptLineage",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\22_SELF_LINEAGE_LEDGER.md",
+      "authority_rank": 3,
+      "witness_floor": "generated",
+      "query_methods": [
+        "audit",
+        "repair",
+        "regenerate"
+      ],
+      "note": "This zone keeps replay and lineage visible instead of collapsing them into prose."
+    },
+    {
+      "authority_id": "AUTH-Z12",
+      "zone_name": "ReserveQuarantine",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+      "authority_rank": 1,
+      "witness_floor": "physical",
+      "query_methods": [
+        "audit",
+        "repair",
+        "abstain"
+      ],
+      "note": "This zone prevents false certainty when a surface is real but not yet integrated."
+    }
+  ]
+}

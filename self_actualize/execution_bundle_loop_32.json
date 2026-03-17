@@ -1,0 +1,8 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ExecutionBundle",
+  "loop_id": "L32",
+  "objective": "implement runtime-linked writebacks",
+  "worker_law": "artifact + board update + writeback + restart seed",
+  "truth_state": "NEAR"
+}

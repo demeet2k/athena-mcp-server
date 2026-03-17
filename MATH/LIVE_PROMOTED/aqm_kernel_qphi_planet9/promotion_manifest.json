@@ -1,0 +1,31 @@
+{
+  "promoted_at": "2026-03-09T20:33:26+00:00",
+  "source_archive": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\COMPLETE TOMES\\AQM - LM - N+7\\Q-Phi  Optimization\\aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+  "source_archive_sha256": "481a0f92915f9b558abe114845daf4ae77b181b22feb0870bbd5760315546718",
+  "live_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\LIVE_PROMOTED\\aqm_kernel_qphi_planet9",
+  "package_root": "aqm",
+  "preserved_root_files": [
+    "README.md",
+    "pyproject.toml",
+    "LICENSE"
+  ],
+  "preserved_adjacent_dirs": [
+    "aqm",
+    "docs",
+    "data",
+    "examples"
+  ],
+  "extracted_file_count": 55,
+  "skipped_count": 21,
+  "skip_rules": [
+    "__pycache__",
+    "*.pyc"
+  ],
+  "validation": {
+    "commands": [
+      "python -m aqm.cli demo",
+      "python -m aqm.apps.planet9.cli --help"
+    ],
+    "truth": "OK"
+  }
+}

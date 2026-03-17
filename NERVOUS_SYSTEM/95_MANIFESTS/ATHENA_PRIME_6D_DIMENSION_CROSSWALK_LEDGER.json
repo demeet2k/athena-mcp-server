@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-03-13",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "dimensional_stack": [
+    "3D Projection Base",
+    "4D_NATIVE",
+    "5D_COMPRESSION",
+    "6D_WEAVE",
+    "7D_SEED"
+  ],
+  "crosswalk": [
+    {
+      "from_dim": "3D",
+      "to_dim": "4D",
+      "bridge_role": "ingress",
+      "appendix_support": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "metro_line": "3->4"
+    },
+    {
+      "from_dim": "4D",
+      "to_dim": "5D",
+      "bridge_role": "compression",
+      "appendix_support": [
+        "AppA",
+        "AppE",
+        "AppM"
+      ],
+      "metro_line": "4->5"
+    },
+    {
+      "from_dim": "5D",
+      "to_dim": "6D",
+      "bridge_role": "weave",
+      "appendix_support": [
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "metro_line": "5->6"
+    },
+    {
+      "from_dim": "6D",
+      "to_dim": "7D",
+      "bridge_role": "seed_promotion",
+      "appendix_support": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppH",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppO",
+        "AppP",
+        "AppQ"
+      ],
+      "metro_line": "6->7"
+    }
+  ]
+}

@@ -70,23 +70,33 @@ Transfer hubs are the stations where metro lines intersect and packets can switc
 - lines served: Atlas-to-Replay Line, Swarm Runtime Line
 - region: cross-region evidence surface
 
+### T10 - Grand-Central Hub
+
+- surface: `NERVOUS_SYSTEM/20_METRO/19_GRAND_CENTRAL_STATION_METRO_MAP.md`
+- function: bilateral exchange yard joining cortex, brain stem, route weights, replay closure, and Z-point tunneling
+- lines served: Cortex Line, Brain-Stem Line, Left Hemisphere Line, Right Hemisphere Line, Z-Point Tunnel Line, Replay Ring, Cross-Corpus Departure Line
+- region: cross-region central transfer organ
+
 ## Hub Topology
 
 ```
 T3 (Nervous System) --- canonical cortex
   |
-  +-- T1 (Routing) --- universal transfer
+  +-- T10 (Grand Central) --- bilateral exchange yard
   |     |
-  |     +-- T2 (CPU) --- math/runtime bridge
+  |     +-- T1 (Routing) --- universal transfer
   |     |     |
-  |     |     +-- T6 (Math Compendium) --- theorem base
-  |     |     +-- T7 (Neural Network) --- adaptive runtime
+  |     |     +-- T2 (CPU) --- math/runtime bridge
+  |     |     |     |
+  |     |     |     +-- T6 (Math Compendium) --- theorem base
+  |     |     |     +-- T7 (Neural Network) --- adaptive runtime
+  |     |     |
+  |     |     +-- T5 (Voynich) --- manuscript crystal
   |     |
-  |     +-- T5 (Voynich) --- manuscript crystal
+  |     +-- T8 (Zero-Point Runtime) --- live swarm substrate
+  |     +-- T9 (Atlas) --- corpus index and replay surface
   |
   +-- T4 (Live Gate) --- external memory [BLOCKED]
-  +-- T8 (Zero-Point Runtime) --- live swarm substrate
-  +-- T9 (Atlas) --- corpus index and replay surface
 ```
 
 ## Transfer Rules
@@ -98,3 +108,6 @@ T3 (Nervous System) --- canonical cortex
 5. T8 is required for runs that emit runtime swarm artifacts.
 6. T9 is required for runs that claim full-corpus coverage or replay.
 7. Hub transfers should be logged in `85_EDGES/` as `REF` edges.
+8. Any multi-body ride crossing cortex, runtime, atlas, or appendix replay surfaces should route through T10 unless a shorter witnessed corridor is declared.
+9. T10 rides must declare hemisphere origin, hemisphere destination, and weight profile.
+10. Z-point tunnel rides should dock at T10 before promotion or replay closure.

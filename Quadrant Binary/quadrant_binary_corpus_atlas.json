@@ -1,0 +1,231 @@
+{
+  "generated_at": "2026-03-09T22:56:02.308240+00:00",
+  "root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary",
+  "record_count": 5,
+  "summary": {
+    "by_extension": {
+      ".docx": 5
+    },
+    "by_top_level": {
+      "4-Bit": 2,
+      "QBD 5 Tri-Boundry V3.docx": 1,
+      "QBD-4 \u2014 Quadrant Binary Dynamics.docx": 1,
+      "QBD-4X \u2014 Quadrant Binary V2.docx": 1
+    },
+    "by_kind": {
+      "document": 5
+    }
+  },
+  "records": [
+    {
+      "record_id": "722748e9571d73ddaefdf11c",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\4-Bit\\Bit4 CODE -working-.docx",
+      "relative_path": "4-Bit\\Bit4 CODE -working-.docx",
+      "top_level": "4-Bit",
+      "extension": ".docx",
+      "size_bytes": 614011,
+      "modified_at": "2025-12-27T00:20:54+00:00",
+      "sha256": "820615dedd72414b6ee6307ddbb530e383d1f0e8c0b16b0912c1af07df4f1cff",
+      "kind": "document",
+      "role_tags": [
+        "readable"
+      ],
+      "text_extractable": true,
+      "heading_candidates": [
+        "A classical bit is defined as:",
+        "This is already a polarized system:",
+        "The shadow pole is:",
+        "So we ask:",
+        "\u2705 The shadow pole of a bit is:",
+        "Formally:",
+        "or equivalently:",
+        "A bit cannot represent:",
+        "So the true suppressed state is:",
+        "This is why:",
+        "NOT(0)=1",
+        "A qubit is what happens when the shadow pole is allowed to exist:",
+        "So:",
+        "If you want, next we can:",
+        "We keep the set semantics:",
+        "and the core ops:"
+      ],
+      "excerpt": "QUBITS (math) Good. Let\u2019s be precise and not mystical-hand-wavy. We start with a single bit. 1. The first pole of a bit A classical bit is defined as: [b \\in {0,1}] This is already a polarized system: 0 = absence / off / false 1 = presence / on / true But polarization always implies a shadow \u2014 something excluded by the representation itself. 2. What \u201cshadow pole\u201d means (strict definition) The shadow pole of a system is not the opposite value(it is not just 0 \u2194 1). The shadow pole is: What must be excluded, suppressed, or unrepresentable for the system to appear stable. So we ask: What must a bit refuse to represent in order to remain a bit? 3. The shadow pole of a bit \u2705 The shadow pole of a bit is: Indeterminacy / Superposition / Undefined Formally: [\\boxed{\\text{Shadow(bit)} = \\varnothing\\ \\text{(undefined state)}}] or equivalently: [\\boxed{\\text{Shadow(bit)} = \\text{both } 0 \\text{ and } 1 \\text{ simultaneously}}] 4. Why this is correct (logic-tight) A bit cannot represent: both 0 and 1 at the same time neither 0 nor 1 uncertainty probability contradiction Yet all of those exist at the boundary of the bit. So the true suppressed state is: \u201cnot yet decided\u201d \u201cin transition\u201d \u201cambiguous\u201d \u201ccollapsed-from\u201d \u201cabout-to-be\u201d This is why: Classical bits must be measured Noise is treated as error Undefined behavior is \u201cillegal\u201d Floating logic is banned in digital circuits The system hides this state. That hidden state is the shadow pole. 5. Minimal formal map Aspect Value Explicit poles 0 / 1 Apparent opposite NOT(0)=1 True shadow pole \u2298 (indeterminate) Suppressed state superposition ",
+      "errors": [],
+      "evidence": {
+        "source_type": "document",
+        "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\4-Bit\\Bit4 CODE -working-.docx",
+        "heading_count": 16,
+        "excerpt_chars": 1600,
+        "text_hash": "0bd2c166be495832e87c59b7778130e220ba12ea9261aa2f212e67585740c394"
+      }
+    },
+    {
+      "record_id": "3978b17954c61f350634d4a7",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\4-Bit\\BIT4_ The Four-State Completion of the Bit.docx",
+      "relative_path": "4-Bit\\BIT4_ The Four-State Completion of the Bit.docx",
+      "top_level": "4-Bit",
+      "extension": ".docx",
+      "size_bytes": 656278,
+      "modified_at": "2025-12-27T05:50:30+00:00",
+      "sha256": "8f7591914026c27bb863a74f4768003e9ce93fa8f7f307b6a2ea1329580fa20b",
+      "kind": "document",
+      "role_tags": [
+        "readable"
+      ],
+      "text_extractable": true,
+      "heading_candidates": [
+        "BIT4 is characterized as the minimal completion of binary computation satisfying three requirements:",
+        "Four lenses (coordinate systems):",
+        "Four roles (operational tasks) within each lens:",
+        "Chapters 2\u20135 are lens anchors, indexed by (\\ell\\in\\mathcal{L}) in increasing order:",
+        "In any realistic setting, computational state often contains forms of partiality or multiplicity that do not fit (\\mathbf{B}_2):",
+        "Define a bit claim to be the assertion that a given computational site takes a value (b\\in\\mathbf{B}_2). Any semantics that allows partiality or multiplicity must distinguish at least the following four cases:",
+        "Let (\\mathcal{D}) be any domain intended to represent the state of a \u201cbit-like\u201d computational site, and suppose (\\mathcal{D}) must satisfy:",
+        "Definition 1.3.7 (Shadow-safe operator). A primitive operator designated for internal computation is shadow-safe if:",
+        "The manuscript provides four orthogonal lenses, each defining a complete coordinate system for BIT4:",
+        "For each lens, the manuscript systematically covers four operational roles:",
+        "Each section is structured to be mechanically extractable in the following order:",
+        "Theorem 2.1.4 (Knowledge lattice).((\\mathbf{B}_4,\\le_k)) is a finite bounded distributive lattice with:",
+        "Proposition 2.1.15 (Boundary characterization).The identities and annihilators are:",
+        "Definition 2.2.15 (Interpretation schema).The pair ((g(x),c(x))\\in\\mathbf{B}_2^2) yields the coarse interpretability classification:",
+        "Proposition 2.3.2 (Algebraic properties of (\\neg)).For all (x,y\\in\\mathbf{B}_4):",
+        "Proposition 2.3.5 (Lattice laws).For all (x,y,z\\in\\mathbf{B}_4):"
+      ],
+      "excerpt": "BIT4: The Four-State Completion of the Bit Extended Abstract (Final Draft) This manuscript develops BIT4, a mathematically rigorous completion of the classical bit that makes the \u201cshadow pole\u201d of binary computation explicit, first-class, and computable. Classical Boolean semantics presumes that every signal assumes exactly one of two values (0) or (1). The moment one admits partial information, contradiction, nondeterminism, measurement, fault, delayed resolution, or multi-source aggregation, the two-valued model ceases to be closed under the natural operations induced by composition and inference: practical systems implicitly rely on excluded semantic cases (e.g. unknown, both, neither, inconsistent, not-yet-collapsed). BIT4 is the minimal completion that (i) adds precisely the missing semantic degrees of freedom required to represent these cases and (ii) preserves a precise algebraic and order-theoretic structure suitable for computation, reasoning, compilation, verification, and controlled boundary collapse back to ordinary bits. 1. Canonical carrier set (support semantics) Define the BIT4 state space as the powerset of classical outcomes:[\\mathbf{B}_4 ;\\stackrel{\\mathrm{def}}{=}; \\mathcal{P}({0,1});=;{\\emptyset,{0},{1},{0,1}}.]Write the distinguished glyphs:[\\bot := \\emptyset,\\qquad0 := {0},\\qquad1 := {1},\\qquad\\top := {0,1}.]BIT4 is not an encoding of a 2-bit integer; it is a four-valued semantic domain whose elements are support sets of admissible classical outcomes. This choice is canonical: it is intrinsic (no ad hoc extra labels), closed under natural evidence-comb",
+      "errors": [],
+      "evidence": {
+        "source_type": "document",
+        "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\4-Bit\\BIT4_ The Four-State Completion of the Bit.docx",
+        "heading_count": 16,
+        "excerpt_chars": 1600,
+        "text_hash": "54068a3a9cb985486815ebcd7c2845358688232f6bdc7b71995bb783b792907d"
+      }
+    },
+    {
+      "record_id": "02814c68f2ffc50496c8f672",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD 5 Tri-Boundry V3.docx",
+      "relative_path": "QBD 5 Tri-Boundry V3.docx",
+      "top_level": "QBD 5 Tri-Boundry V3.docx",
+      "extension": ".docx",
+      "size_bytes": 2488769,
+      "modified_at": "2026-01-12T05:54:28+00:00",
+      "sha256": "3681f4ccdc06e7a909b2613cf18ac2a372fa74d97f57476b746a6bbf5b2082cf",
+      "kind": "document",
+      "role_tags": [
+        "readable"
+      ],
+      "text_extractable": true,
+      "heading_candidates": [
+        "Canonical structure (Square lens) request[[\\mathrm{AppA},\\mathrm{AppI},\\mathrm{AppM},\\mathrm{AppC},(\\mathrm{AppB}\\ \\text{or}\\ \\mathrm{AppH})]]Selection rule:",
+        "[\\mathbb T:={\\mathrm{OK},\\mathrm{NEAR},\\mathrm{AMBIG},\\mathrm{FAIL}}.]Obligations:",
+        "Each station is a full (4^4) tile:",
+        "QBD-5 specifies a binary-native, proof-carrying runtime for multiscale computation on discrete lattices, enforced by:",
+        "This tome defines a closed-loop runtime pipeline that composes all chapters and appendices:",
+        "Inputs:",
+        "RouteV2(LocalAddr u, Truth T, PublishFlag pub):",
+        "Rails:",
+        "OK",
+        "OFor each atomic vertex (u\\in\\mathcal GAddr), define a normal-form record:[\\textsf{AtomNF}(u):=(\\textsf{Obj},\\textsf{Inv},\\textsf{Alg},\\textsf{Ver},\\textsf{Cert},\\textsf{Truth},\\textsf{Route},\\textsf{Edges},\\textsf{Obl})]where:",
+        "ODefine canonical EBNF:",
+        "DIGIT := \u201c0\u201d\u2026\u201d9\u201d",
+        "QDIGIT := \u201c0\u201d\u2026\u201d3\u201d",
+        "HEX := \u201c0\u201d\u2026\u201d9\u201d | \u201cA\u201d\u2026\u201dF\u201d",
+        "LENS := \u201cS\u201d | \u201cF\u201d | \u201cC\u201d | \u201cR\u201d",
+        "FACET := \u201c1\u201d | \u201c2\u201d | \u201c3\u201d | \u201c4\u201d"
+      ],
+      "excerpt": "QBD-5 \u2014 Spectral Tri-Boundary Kernel Runtime (V3) METRO MAP \u2014 BEGIN (Outer Crystal + Router Rule + Orbit + Rails) \u03a3 Spine (Always Present; Hard Constraint) [\\Sigma:={\\mathrm{AppA},\\mathrm{AppI},\\mathrm{AppM}},\\qquad |\\textsf{RouteHubs}|\\le 6,\\qquad \\Sigma\\subseteq \\textsf{RouteHubs}.] Hub Bases (V3-Locked) LensBase[\\textsf{LensBase}(S)=\\mathrm{AppC},\\quad\\textsf{LensBase}(F)=\\mathrm{AppE},\\quad\\textsf{LensBase}(C)=\\mathrm{AppI},\\quad\\textsf{LensBase}(R)=\\mathrm{AppM}.] FacetAtomBase[\\textsf{FacetAtomBase}(1)=\\mathrm{AppA},\\quad\\textsf{FacetAtomBase}(2)=\\mathrm{AppB},\\quad\\textsf{FacetAtomBase}(3)=\\mathrm{AppH},\\quad\\textsf{FacetAtomBase}(4)=\\mathrm{AppM}.] ArcHub[\\textsf{ArcHub}(0)=\\mathrm{AppA},\\\\textsf{ArcHub}(1)=\\mathrm{AppC},\\\\textsf{ArcHub}(2)=\\mathrm{AppE},\\\\textsf{ArcHub}(3)=\\mathrm{AppF},\\\\textsf{ArcHub}(4)=\\mathrm{AppG},\\\\textsf{ArcHub}(5)=\\mathrm{AppN},\\\\textsf{ArcHub}(6)=\\mathrm{AppP}.] Truth Overlays[\\textsf{Overlay}(\\mathrm{NEAR})={\\mathrm{AppJ}},\\quad\\textsf{Overlay}(\\mathrm{AMBIG})={\\mathrm{AppL}},\\quad\\textsf{Overlay}(\\mathrm{FAIL})={\\mathrm{AppK}}.]Publishing overlay (gated):[\\textsf{PublishAdd}=\\begin{cases}{\\mathrm{AppO}} & (\\mathbb T=\\mathrm{OK})\\wedge(\\textsf{PublishFlag}=1)\\\\varnothing & \\text{otherwise.}\\end{cases}] Appendix Hub Index (Outer Crystal A\u2192P; Roles) AppA: Type/object universe; constructors; WF predicates; TypeID tables; native object schema seeds AppB: Law library; guard laws; admissibility templates; proof obligations registry; demotion/counterexample discipline AppC: Canonical forms; LocalAddr/GlobalAddr; base-4 station codes; Morton/pre",
+      "errors": [],
+      "evidence": {
+        "source_type": "document",
+        "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD 5 Tri-Boundry V3.docx",
+        "heading_count": 16,
+        "excerpt_chars": 1600,
+        "text_hash": "1bad32c1533b7f56e9a73952d97d5337e2914da2e929184c58225fd2d1e39b62"
+      }
+    },
+    {
+      "record_id": "36c08737816684dbcc27a34c",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4 \u2014 Quadrant Binary Dynamics.docx",
+      "relative_path": "QBD-4 \u2014 Quadrant Binary Dynamics.docx",
+      "top_level": "QBD-4 \u2014 Quadrant Binary Dynamics.docx",
+      "extension": ".docx",
+      "size_bytes": 2344913,
+      "modified_at": "2026-01-09T08:33:54+00:00",
+      "sha256": "2f07d07d85b20eb56fda793740a6a804c41d04d591b23fa5be577d12cc57dbc6",
+      "kind": "document",
+      "role_tags": [
+        "readable"
+      ],
+      "text_extractable": true,
+      "heading_candidates": [
+        "Rails (fully enumerated):",
+        "[\\alpha\\in{0,\\dots,6},\\quad \\rho=\\alpha\\bmod 3]Arc lane orders:",
+        "Each chapter reserves:[\\mathrm{ChXX}\\langle dddd\\rangle.\\mathrm{S1.a} := \\mathrm{StationIndex}]StationIndex exports (required):",
+        "Canonical transfer edges:",
+        "Facet transfer edges:",
+        "ArcHub transfer rules:",
+        "Given lens (\\ell\\in{S,F,C,R}), facet (f\\in{1,2,3,4}), truth overlay (t\\in\\mathbb{T}), optional arc (\\alpha), goal (g\\in{\\text{query},\\text{verify},\\text{publish},\\text{import},\\text{export}}):",
+        "Route construction is bounded, corridor-admitted, and replay-carrying:",
+        "Chapter base-4 station code rule:[\\langle dddd\\rangle_4=\\mathrm{base4}(XX-1)\\ \\text{padded to 4 digits},\\quad XX\\in{01,\\dots,21}]LocalAddr formats:",
+        "Lenses (fixed):",
+        "Facets (fixed):",
+        "Atoms per facet (fixed):",
+        "A LinkEdge is corridor-scoped:[e=(\\mathrm{EdgeID},\\mathrm{Kind},\\mathrm{Src},\\mathrm{Dst},\\mathrm{Scope},\\mathrm{Corridor},\\mathrm{WitnessPtr},\\mathrm{ReplayPtr},\\mathrm{Payload},\\mathrm{EdgeVer})]EdgeID:[\\mathrm{EdgeID}:=\\mathrm{Trunc128}(\\mathrm{BLAKE3}(\\mathrm{CBOR}(\\mathrm{Kind},\\mathrm{Src},\\mathrm{Dst},\\mathrm{Scope},\\mathrm{Corridor},\\mathrm{Payload},\\mathrm{EdgeVer})))]Types:",
+        "Corridor schema (master object lives in AppI):[\\mathrm{Corridor}:=(\\mathrm{Dom},\\mathrm{AllowedKinds},\\mathrm{Budgets},\\mathrm{RiskCaps},\\mathrm{Guards},\\mathrm{TruthPolicy},\\mathrm{Version})]Budget primitives:",
+        "Guard primitives (minimum):",
+        "Truth lattice:[\\mathrm{FAIL}\\preceq\\mathrm{AMBIG}\\preceq\\mathrm{NEAR}\\preceq\\mathrm{OK}]Obligations:"
+      ],
+      "excerpt": "QBD-4 \u2014 Quadrant Binary Dynamics & Fractal Precision Computing (Circle \u25cb within Square \u25a1 within Triangle \u25b3) Metro Map (BEGIN) \u2014 Reader-Runnable Routing Spine + Full Corpus Index \u25cb 21-Station Chapter Metro (v2): Orbit + Rails + Arc Triads C0. Station Codes (base-4, padded to 4 digits) [\\begin{aligned}&\\mathrm{Ch01}\\langle0000\\rangle,\\ \\mathrm{Ch02}\\langle0001\\rangle,\\ \\mathrm{Ch03}\\langle0002\\rangle,\\ \\mathrm{Ch04}\\langle0003\\rangle,\\&\\mathrm{Ch05}\\langle0010\\rangle,\\ \\mathrm{Ch06}\\langle0011\\rangle,\\ \\mathrm{Ch07}\\langle0012\\rangle,\\ \\mathrm{Ch08}\\langle0013\\rangle,\\&\\mathrm{Ch09}\\langle0020\\rangle,\\ \\mathrm{Ch10}\\langle0021\\rangle,\\ \\mathrm{Ch11}\\langle0022\\rangle,\\ \\mathrm{Ch12}\\langle0023\\rangle,\\&\\mathrm{Ch13}\\langle0030\\rangle,\\ \\mathrm{Ch14}\\langle0031\\rangle,\\ \\mathrm{Ch15}\\langle0032\\rangle,\\ \\mathrm{Ch16}\\langle0033\\rangle,\\&\\mathrm{Ch17}\\langle0100\\rangle,\\ \\mathrm{Ch18}\\langle0101\\rangle,\\ \\mathrm{Ch19}\\langle0102\\rangle,\\ \\mathrm{Ch20}\\langle0103\\rangle,\\ \\mathrm{Ch21}\\langle0110\\rangle.\\end{aligned}] C1. \u25cb Orbit Line (v2) [\\mathrm{Ch01}\\langle0000\\rangle\\to\\mathrm{Ch02}\\langle0001\\rangle\\to\\mathrm{Ch03}\\langle0002\\rangle\\to\\mathrm{Ch04}\\langle0003\\rangle\\to\\mathrm{Ch05}\\langle0010\\rangle\\to\\mathrm{Ch06}\\langle0011\\rangle\\to\\mathrm{Ch07}\\langle0012\\rangle\\to\\mathrm{Ch08}\\langle0013\\rangle\\to\\mathrm{Ch09}\\langle0020\\rangle\\to\\mathrm{Ch10}\\langle0021\\rangle\\to\\mathrm{Ch11}\\langle0022\\rangle\\to\\mathrm{Ch12}\\langle0023\\rangle\\to\\mathrm{Ch13}\\langle0030\\rangle\\to\\mathrm{Ch14}\\langle0031\\rangle\\to\\mathrm{Ch15}\\langle0032\\rangle\\to\\mathrm{Ch16}\\langle0033\\rangle\\to\\mat",
+      "errors": [],
+      "evidence": {
+        "source_type": "document",
+        "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4 \u2014 Quadrant Binary Dynamics.docx",
+        "heading_count": 16,
+        "excerpt_chars": 1600,
+        "text_hash": "2ebb73d32f0756dab45a7aab6a0404a78cb31e645c06ccc27761808d82d5b368"
+      }
+    },
+    {
+      "record_id": "4b10c64a30ab3a1f6fa094ae",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4X \u2014 Quadrant Binary V2.docx",
+      "relative_path": "QBD-4X \u2014 Quadrant Binary V2.docx",
+      "top_level": "QBD-4X \u2014 Quadrant Binary V2.docx",
+      "extension": ".docx",
+      "size_bytes": 2373577,
+      "modified_at": "2026-01-11T04:34:14+00:00",
+      "sha256": "62e7598da1b59b6f1bc10a1ecfb4054b0944eb221958195313a9b2c549e1b993",
+      "kind": "document",
+      "role_tags": [
+        "readable"
+      ],
+      "text_extractable": true,
+      "heading_candidates": [
+        "Let the tome be a finite, proof-carrying knowledge graph with deterministic routing:",
+        "Define the CanonicalHeaderString (H) (UTF-8, LF newlines, no trailing spaces):",
+        "Compute:",
+        "Let (mmmm) be the first 4 hex characters (uppercase) of (\\mathrm{msid}). For this tome:",
+        "Chapter base-4 station code:",
+        "Local address formats:",
+        "Global address:",
+        "Mycelium graph:",
+        "Truth lattice:",
+        "Closed edge-kind alphabet:",
+        "A LinkEdge record is:",
+        "with:",
+        "Canonical EdgeID (deterministic):",
+        "The system is built as a three-layer ladder:",
+        "Quadrant alphabet:",
+        "Quadrant states are represented by a base bit (b) and an expansion degree of freedom (e):"
+      ],
+      "excerpt": "QBD-4X \u2014 Quadrant Binary V2 Abstract Contract / Legend (Metro-Native; Proof-Carrying; Router-Deterministic) 0.0 Manuscript Object (\ud835\udcdc) Let the tome be a finite, proof-carrying knowledge graph with deterministic routing: [\\mathcal{M} := (\\mathcal{L},\\mathcal{F},\\mathcal{A},\\mathcal{G},\\mathbb{T},\\mathcal{K},\\mathrm{RouterV2},\\Sigma)] Canonical Manuscript ID: (\\mathrm{Ms}\\langle mmmm\\rangle) Lenses: (\\mathcal{L}:={S,F,C,R}) (S) = Square (static structure / canonical forms / address algebra) (F) = Flower (dynamics / operators / execution semantics) (C) = Cloud (corridors / budgets / admissibility / overlays) (R) = Fractal (compression / replay / proofs / certification) Facets: (\\mathcal{F}:={1,2,3,4}) (1) Objects (2) Laws (3) Constructions (algorithms / pseudocode / interfaces) (4) Certificates (witnesses / replay / checks) Atoms: (\\mathcal{A}:={a,b,c,d}) (ordered closure gates; deterministic) Chapters: 21 (Ch01..Ch21), each a full (4^4) tile Appendices: 16 (AppA..AppP), each a full (4^4) tile and routing hub 0.1 Canonical Manuscript ID Derivation (Ms\u27e8mmmm\u27e9) Define the CanonicalHeaderString (H) (UTF-8, LF newlines, no trailing spaces): [H := \\texttt{\"QBD-4X \u2014 Quadrant Binary V2|Circle\u25cbwithinSquare\u25a1withinTriangle\u25b3|Version=2.0|Router=v2|Encoding=UTF-8|NL=LF\"}.] Compute: [\\mathrm{msid}:=\\mathrm{SHA256}(H)\\in{0,1}^{256}.] Let (mmmm) be the first 4 hex characters (uppercase) of (\\mathrm{msid}). For this tome: [\\mathrm{Ms}\\langle mmmm\\rangle=\\mathrm{Ms}\\langle 7FD4\\rangle.] 0.2 Addressing (LocalAddr / GlobalAddr) Chapter base-4 station code: [\\langle dddd\\rangle_4 := \\mathrm{base4}(X",
+      "errors": [],
+      "evidence": {
+        "source_type": "document",
+        "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4X \u2014 Quadrant Binary V2.docx",
+        "heading_count": 16,
+        "excerpt_chars": 1600,
+        "text_hash": "86df96e3f4c1e0cf2789d1d8d60f48cd81d301da435597a91baccad9183ea6e6"
+      }
+    }
+  ]
+}

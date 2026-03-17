@@ -1,0 +1,68 @@
+# Earth Internal Cross Synthesis
+
+Top ordered pairs inside the same element.
+
+- `CURANDERISMO COMPLETE` <-> `GNOSTICISM COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `GOETIC GRIMOIRE COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `CURANDERISMO COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `DAO SU () A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS` <-> `TORAT HA-MISPAR ( )` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `DAO SU () A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS` <-> `OPE-256 THE IFA COMPUTATIONAL ONTOLOGY` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `GOETIC GRIMOIRE COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GNOSTICISM COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOETIC GRIMOIRE COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOETIC GRIMOIRE COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOETIC GRIMOIRE COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOETIC GRIMOIRE COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOETIC GRIMOIRE COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOETIC GRIMOIRE COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOETIC GRIMOIRE COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOLDEN DAWN COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOLDEN DAWN COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOLDEN DAWN COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOLDEN DAWN COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOLDEN DAWN COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `GOLDEN DAWN COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `HAITIAN VODOU COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `HAITIAN VODOU COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `HAITIAN VODOU COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `HAITIAN VODOU COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `HAITIAN VODOU COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `HELLENIC LOGOS` <-> `OPE-256 THE IFA COMPUTATIONAL ONTOLOGY` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO OS)` <-> `THE ORPHIC & HYMNIC DRIVER` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)` <-> `THE OMEGA PROTOCOL` score=`36` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `LEGAL TRANSPORT CALCULUS [DOC0013]` <-> `LEGAL TRANSPORT CALCULUS [DOC0037]` score=`36` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `SANTERIA LUCUMI COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `SANTERIA LUCUMI COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `SANTERIA LUCUMI COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `SANTERIA LUCUMI COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `SUFI MYSTICISM COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `SUFI MYSTICISM COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `SUFI MYSTICISM COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `TAOIST MAGIC COMPLETE` <-> `THELEMA COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `TAOIST MAGIC COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `THE APOCALYPSE PROTOCOL [DOC0130]` <-> `THE APOCALYPSE PROTOCOL [DOC0179]` score=`36` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `THE ARISTOTELIAN PROCESSING UNIT` <-> `THE STOIC KERNEL` score=`36` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `THE PGM KERNEL` <-> `THE STOIC KERNEL` score=`36` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `THELEMA COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `THE HELLENIC COMPUTATION FRAMEWORK [DOC0068]` <-> `THE HELLENIC COMPUTATION FRAMEWORK [DOC0163]` score=`36` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `ATHENA-KERNEL SELF-OPTIMIZATION` <-> `ATHENA KERNEL MATHEMATICAL FRAMEWORK` score=`35` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `ATHENA KERNEL MATHEMATICAL FRAMEWORK` <-> `THE METAPHYSICS ROOT DIRECTORY` score=`35` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `HELLENIC LOGOS` <-> `TORAT HA-MISPAR ( )` score=`35` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO OS)` <-> `THE NEOPLATONIC HYPERVISOR` score=`35` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `THE ARISTOTELIAN PROCESSING UNIT` <-> `THE PGM KERNEL` score=`35` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `THE NEOPLATONIC HYPERVISOR` <-> `THE ORPHIC & HYMNIC DRIVER` score=`35` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `TORAT HA-MISPAR ( )` <-> `OPE-256 THE IFA COMPUTATIONAL ONTOLOGY` score=`35` gates=`G12<->G12` shared_chapters=`Ch17, Ch18, Ch20, Ch21`
+- `ATHENA KERNEL MATHEMATICAL FRAMEWORK` <-> `THE OMEGA PROTOCOL` score=`34` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`
+- `BUDDHIST (ZEN) THE MUSHIN KERNEL` <-> `THE STOIC KERNEL` score=`34` gates=`G11<->G11` shared_chapters=`Ch07, Ch15, Ch16, Ch18`

@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-03-13T00:48:21.847510+00:00",
+  "derivation_version": "2026-03-13.bridge-densification-v1",
+  "truth": "OK",
+  "docs_gate": {
+    "status": "blocked-by-missing-credentials",
+    "resolution": "lawfully-isolated",
+    "fallback_mode": "local-first-truth-corridor"
+  },
+  "bridge_family_count": 3,
+  "bridge_slice_count": 9,
+  "packet_count": 9,
+  "bridge_totals": {
+    "direct_bridge_families": 3,
+    "bridge_slices": 9,
+    "synaptic_packets": 9
+  },
+  "backlog_totals": {
+    "inferred-ready": 3,
+    "quarantined": 3,
+    "deep-pairwise-backlog": 6
+  },
+  "verifier_truth": {
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK",
+    "runtime_waist": "OK"
+  },
+  "next_restart_seed": "emit -> transit -> receive -> replay -> writeback -> verify"
+}

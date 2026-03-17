@@ -17,8 +17,8 @@
 - Regime: `stratified`
 - Packet: `ganglion`
 - Truth: `AMBIG`
-- NSCoord: `(E-W-A, S8, Aether, O13, Arc2, Sa, AppE, DEEPER CRYSTALIZATION, stratified, ganglion, AMBIG)`
-- NeuronAddr: `<DEEPER CRYSTALIZATION, deeper_crystalization, O13, C, 3, a, EWA, Arc2, Sa, AppE, AMBIG, stratified>`
+- NSCoord: `(E-W-A, S8, Aether, O40, Arc2, Sa, AppE, DEEPER CRYSTALIZATION, stratified, ganglion, AMBIG)`
+- NeuronAddr: `<DEEPER CRYSTALIZATION, deeper_crystalization, O40, C, 3, a, EWA, Arc2, Sa, AppE, AMBIG, stratified>`
 - ContractionTarget: `cortex/deeper_crystalization.md`
 
 ## Claims

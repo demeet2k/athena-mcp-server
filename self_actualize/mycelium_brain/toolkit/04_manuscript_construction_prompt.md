@@ -1,31 +1,8 @@
 # Manuscript Construction Prompt
 
-Use this when building or revising the skeleton of a full manuscript.
+Bridge shim only.
 
-Core requirements:
+Canonical contract: `../tool_kit/04_tome_construction_contract.md`
 
-- 21 chapters
-- 16 appendices
-- every chapter is a 4x4 tile
-- every appendix is a routing hub and compressed 4x4 tile
-- abstract must function as a metro map
-- all outputs must be addressable and routeable
-
-Chapter skeleton rule:
-
-- each chapter has 4 major lenses: S / F / C / R
-- each lens has 4 facets
-- each facet has 4 atoms
-
-Overlay rule:
-
-- compute chapter station code in base 4
-- compute `omega`, `alpha`, `rho`, and `nu`
-- stamp every chapter with:
-  `[oArc alpha | oRot rho | tLane nu | omega=...]`
-
-Router rule:
-
-- use the bounded router with mandatory signature `Sigma = {AppA, AppI, AppM}`
-- keep hub count bounded
-- prefer explicit metro rides over vague references
+Pruning reason: the manuscript/tome skeleton law had started to fork into near-identical prompt surfaces.
+This file now serves as a stable pointer rather than a second manuscript charter.

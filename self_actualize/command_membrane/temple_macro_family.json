@@ -1,0 +1,28 @@
+{
+  "macro_family_id": "NEXT57-T-COMMAND-LAW",
+  "latest_event_id": "EVT-20260313204945-0003",
+  "docs_gate": "BLOCKED",
+  "restart_seed": "NEXT => COMMAND::EVT-20260313204945-0003 :: hall :: READ ME.txt",
+  "child_packets": [
+    {
+      "quest_id": "CM-T01",
+      "title": "Preserve Docs gate honesty",
+      "status": "active"
+    },
+    {
+      "quest_id": "CM-T02",
+      "title": "Guard COMMAND canon root",
+      "status": "active"
+    },
+    {
+      "quest_id": "CM-T03",
+      "title": "Keep family-pass mirror-only",
+      "status": "active"
+    },
+    {
+      "quest_id": "CM-T04",
+      "title": "Ratify EVT-20260313204945-0003 replay lineage",
+      "status": "ready"
+    }
+  ]
+}

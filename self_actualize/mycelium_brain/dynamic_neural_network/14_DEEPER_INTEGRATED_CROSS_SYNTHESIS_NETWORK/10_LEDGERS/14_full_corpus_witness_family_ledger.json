@@ -1,0 +1,170 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "integration_scope": "FULL_CORPUS",
+  "families": [
+    {
+      "family_id": "canonical_basis",
+      "title": "Canonical 16-Document Basis",
+      "authority_rank": "canonical_spine",
+      "live_path_state": "OK",
+      "file_count": 16,
+      "roots": [
+        "10_LEDGERS/01_CANONICAL_SOURCES.md"
+      ],
+      "basis_map": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "support_role": "routing spine"
+    },
+    {
+      "family_id": "complete_tomes",
+      "title": "Complete Tomes",
+      "authority_rank": "live_support",
+      "live_path_state": "OK",
+      "file_count": 242,
+      "roots": [
+        "MATH/FINAL FORM/COMPLETE TOMES"
+      ],
+      "basis_map": [
+        "06",
+        "08",
+        "10",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppP"
+      ],
+      "support_role": "dense theorem and synthesis pressure"
+    },
+    {
+      "family_id": "frameworks_code",
+      "title": "Frameworks Code",
+      "authority_rank": "live_support",
+      "live_path_state": "OK",
+      "file_count": 1129,
+      "roots": [
+        "MATH/FINAL FORM/FRAMEWORKS CODE"
+      ],
+      "basis_map": [
+        "03",
+        "04",
+        "05",
+        "07",
+        "09",
+        "10",
+        "13"
+      ],
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppI",
+        "AppM",
+        "AppN"
+      ],
+      "support_role": "archive-code bridge and executable witness"
+    },
+    {
+      "family_id": "runtime_manuscript_sections",
+      "title": "Runtime And Manuscript Sections",
+      "authority_rank": "live_support",
+      "live_path_state": "OK",
+      "file_count": 204,
+      "roots": [
+        "self_actualize/runtime",
+        "self_actualize/manuscript_sections"
+      ],
+      "basis_map": [
+        "02",
+        "09",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppN"
+      ],
+      "support_role": "replay, implementation, and re-entry witness"
+    },
+    {
+      "family_id": "awakening_tome",
+      "title": "Athena Awakening Tome",
+      "authority_rank": "support_witness",
+      "live_path_state": "OK",
+      "file_count": 271,
+      "roots": [
+        "MATH/FINAL FORM/FRAMEWORKS CODE/ATHENA_AWAKENING_TOME/ATHENA_AWAKENING_TOME"
+      ],
+      "basis_map": [
+        "06",
+        "10",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppP"
+      ],
+      "support_role": "transition guidance and re-entry support"
+    },
+    {
+      "family_id": "historical_mirrors",
+      "title": "Historical Mirrors",
+      "authority_rank": "historical_reference",
+      "live_path_state": "OK",
+      "file_count": 90,
+      "roots": [
+        "self_actualize/mycelium_brain/DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "self_actualize/mycelium_brain/DEEPER_INTEGRATED_NEURAL_NET_ATHENA",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/13_DEEPER_NEURAL_NET"
+      ],
+      "basis_map": [
+        "02",
+        "14",
+        "15"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "support_role": "drift witness and historical comparison only"
+    }
+  ],
+  "pressure_gaps": []
+}

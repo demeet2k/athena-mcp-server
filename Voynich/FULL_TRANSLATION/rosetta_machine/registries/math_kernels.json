@@ -1,0 +1,113 @@
+[
+  {
+    "carrier": "rho in T_1(H)",
+    "confidence": 0.9,
+    "docs_gate": "BLOCKED",
+    "equations": [
+      "H := L^2(C_hat, mu)",
+      "rho in T_1(H), rho >= 0, Tr(rho) = 1",
+      "Phi_f(tau) = Tr_latent(U_f tau U_f*)",
+      "Phi_f^(tot) = Phi_f^(bulk) (+) Phi_f^(bdry)"
+    ],
+    "evidence_class": "direct",
+    "id": "kernel:aqm_source_space",
+    "kind": "math_kernel",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md"
+    ],
+    "source_unit": "AQM Source Space",
+    "uses": [
+      "source formal lens",
+      "line and folio dynamics"
+    ]
+  },
+  {
+    "carrier": "H_tot = sum(H_r) (+) sum(H_lambda_e) (+) H_fail",
+    "confidence": 0.9,
+    "docs_gate": "BLOCKED",
+    "equations": [
+      "p(r) = Tr(Pi_r rho)",
+      "ell(e) = Tr(Pi_lambda_e rho)",
+      "f = Tr(Pi_fail rho)",
+      "C_reg(rho) = 0.5 || rho - Delta_B(rho) ||_1"
+    ],
+    "evidence_class": "direct",
+    "id": "kernel:liminal_regime_space",
+    "kind": "math_kernel",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md"
+    ],
+    "source_unit": "LM and AQM-Lambda Regime Space",
+    "uses": [
+      "liminal transitions",
+      "boundary handling",
+      "safety checks"
+    ]
+  },
+  {
+    "carrier": "X_t = (kappa_t, varphi_t, ell_t, b_t)",
+    "confidence": 0.9,
+    "docs_gate": "BLOCKED",
+    "equations": [
+      "Dkappa/Dt = -dH/dkappa + div(D_kappa grad kappa)",
+      "Phi_kappa(t) = integral(boundary(A_t), J_kappa dot n d_sigma_t)",
+      "Pi_A,f(X) = integral(A, f(K(x), varphi(x), ell(x), b(x)) dnu(x))"
+    ],
+    "evidence_class": "direct",
+    "id": "kernel:cut_dynamics",
+    "kind": "math_kernel",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md"
+    ],
+    "source_unit": "CUT Dynamics",
+    "uses": [
+      "routing",
+      "boundary flow",
+      "containment",
+      "flux control"
+    ]
+  },
+  {
+    "carrier": "Expand/Coll over seed space Z*",
+    "confidence": 0.9,
+    "docs_gate": "BLOCKED",
+    "equations": [
+      "X = Expand(g) (+) r",
+      "g = Coll(X) in Z*",
+      "Coll(Expand(g)) = g",
+      "<dddd>_4 := base4(XX - 1)"
+    ],
+    "evidence_class": "direct",
+    "id": "kernel:aetheric_compression",
+    "kind": "math_kernel",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md"
+    ],
+    "source_unit": "Aetheric Compression and Addressing",
+    "uses": [
+      "seed compression",
+      "address routing",
+      "corpus compression"
+    ]
+  },
+  {
+    "carrier": "f^(T) = T^(-1) o f o T",
+    "confidence": 0.9,
+    "docs_gate": "BLOCKED",
+    "equations": [
+      "f^(T) = T^(-1) o f o T",
+      "Phi_j^(lambda) = T_lambda^(-1) o Phi_j^(AQM) o T_lambda"
+    ],
+    "evidence_class": "direct",
+    "id": "kernel:conjugacy_transport",
+    "kind": "math_kernel",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md"
+    ],
+    "source_unit": "Conjugacy Transport",
+    "uses": [
+      "cross-domain transport",
+      "typed render conversion"
+    ]
+  }
+]

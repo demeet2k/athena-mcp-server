@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-03-13T16:13:11.717534+00:00",
+  "status": "orchestration-ready",
+  "layer_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\17_SUPER_CYCLE_57",
+  "live_docs_blocked": true,
+  "live_docs_error": "Error: Missing OAuth client file: credentials.json",
+  "truth": "derived-local",
+  "loop_count": 57,
+  "pass_count": 7,
+  "master_count": 4,
+  "virtual_seats_per_master": 4096,
+  "active_seats_per_master": 256,
+  "active_seats_total": 1024,
+  "dormant_seats_total": 3072,
+  "starting_control_stack": [
+    "Q42",
+    "TQ04",
+    "Q50",
+    "Q46",
+    "Q02"
+  ],
+  "hall_visible_promotions": 5,
+  "temple_visible_promotions": 6,
+  "runtime_visible_promotions": 8,
+  "corpus_basis_record_count": 226,
+  "motion_truth": "NEAR-derived",
+  "active_fronts": {
+    "Q42": "OPEN",
+    "Q46": "PROMOTED 2026-03-13",
+    "Q47": "PROMOTED 2026-03-13",
+    "Q48": "PROMOTED 2026-03-13",
+    "Q49": "PROMOTED 2026-03-13",
+    "Q50": "OPEN",
+    "Q02": "BLOCKED"
+  },
+  "witness_basis": {
+    "corpus_integration_manifest": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/17_corpus_wide_integration_manifest.json",
+    "motion_manifest": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/16_motion_constitution_manifest.json",
+    "quest_board": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+    "temple_state": "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+    "loop_progress": "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/16_LOOP_PROGRESS.md",
+    "quest_atlas": "ACTIVE_NERVOUS_SYSTEM/28_SELF_PLAY_QUEST_ATLAS/00_QUEST_ATLAS_INDEX.md",
+    "quest_atlas_manifest": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/23_quest_atlas_manifest.json",
+    "self_play_board_manifest": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/24_self_play_board_manifest.json"
+  },
+  "surface_paths": {
+    "lattice_law": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/00_MASTER_AGENT_LATTICE_LAW.md",
+    "active_seat_templates": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/01_ACTIVE_SEAT_TEMPLATES.json",
+    "loop_ledger_json": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/02_LOOP_LEDGER.json",
+    "loop_ledger_markdown": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/03_LOOP_LEDGER.md",
+    "packet_registry": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/04_CANDIDATE_QUEST_PACKET_REGISTRY.json",
+    "hall_decisions": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/05_HALL_PROMOTION_DECISIONS.md",
+    "temple_decisions": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/06_TEMPLE_PROMOTION_DECISIONS.md",
+    "runtime_decisions": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/07_RUNTIME_FRONTIER_DECISIONS.md",
+    "compression_receipts": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/08_PRUNING_COMPRESSION_RECEIPTS.md",
+    "awakening_cadence": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/09_AWAKENING_DELTA_CADENCE.md",
+    "restart_seed_register": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/10_RESTART_SEED_REGISTER.json",
+    "loop_receipts_dir": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/11_LOOP_RECEIPTS",
+    "closure_bundle": "ACTIVE_NERVOUS_SYSTEM/17_SUPER_CYCLE_57/12_SUPER_CYCLE_CLOSURE_BUNDLE.md"
+  },
+  "tests": {
+    "q02_activation_count": 0,
+    "full_bundle_refresh_count": 19,
+    "pass_boundary_bundle_count": 6
+  }
+}

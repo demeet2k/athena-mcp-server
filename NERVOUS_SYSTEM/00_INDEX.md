@@ -1,9 +1,11 @@
 # UNIFIED NERVOUS SYSTEM
 
+Last reconciled: `2026-03-13`
+
 ## Governing Formula
 
 ```
-NervousSystem = Cortex + RuntimeHub + GovernanceMirror + Regions + Chapters + Appendices + CorpusCapsules + Metro + Rails + Edges + Toolkit + Ledgers + Manifests + Runbooks
+NervousSystem = Cortex + RuntimeHub + GovernanceMirror + Mycelial4DOrganism + Regions + Chapters + Appendices + CorpusCapsules + Metro + AgentExpansion + GrandCentralStation + SelfHostingKernel + StructuredNeuronStorage + KnowledgeFabric + InterMetroLensWeightSuperstructure + AtlasTruthAndCapsuleMetabolism + Wave2CapsuleDensification + AP6DIntegrationAndAwakeningTransitionLattice + Rails + Edges + Toolkit + Ledgers + Manifests + Runbooks
 ```
 
 ## Canonical Surfaces
@@ -12,11 +14,25 @@ NervousSystem = Cortex + RuntimeHub + GovernanceMirror + Regions + Chapters + Ap
 - `self_actualize/mycelium_brain/` is the zero-point runtime hub.
 - `ECOSYSTEM/NERVOUS_SYSTEM/` is the governance mirror and concept bridge.
 
-These three surfaces are cooperative, not independent. The root system is canonical, the mycelium brain is the live substrate, and the ecosystem mirror preserves reusable routing law.
+These three surfaces are cooperative, not independent. The root system is canonical,
+the mycelium brain is the live substrate, and the ecosystem mirror preserves reusable
+routing law.
+
+## Authority And Precedence
+
+- `NERVOUS_SYSTEM/` resolves publication truth.
+- `self_actualize/mycelium_brain/` resolves runtime truth and writeback state.
+- `ECOSYSTEM/NERVOUS_SYSTEM/` resolves reusable governance doctrine.
+- `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/`
+  is the only live deep root.
+- `self_actualize/mycelium_brain/DEEPER_INTEGRATED_NEURAL_NETWORK/` and
+  `self_actualize/mycelium_brain/DEEPER_INTEGRATED_NEURAL_NET_ATHENA/` are historical mirrors.
 
 ## Consolidation
 
-This directory is the single authority for the Athena manuscript superorganism. It contracts prior partial systems into one publishable map while preserving the strongest live control surfaces.
+This directory is the single authority for the Athena manuscript superorganism. It
+contracts prior partial systems into one publishable map while preserving the strongest
+live control surfaces.
 
 | System | Original Location | Strength Absorbed | Current Role |
 |--------|-------------------|-------------------|--------------|
@@ -30,11 +46,16 @@ See `02_CONSOLIDATION_RECEIPT.md` for the retained bridge law.
 ## Operating Laws
 
 1. The Square law governs local file structure through 4^4 crystal tiles.
-2. The Circle law governs orbit order across chapters through a 21-station cyclic orbit and 7 arcs.
+2. The Circle law governs orbit order across chapters through a 21-station cyclic
+   orbit and 7 arcs.
 3. The Triangle law governs control rails through Su, Me, and Sa long-range routing.
-4. The higher-dimensional bundle governs live swarm position through address, face, arc, rail, depth, packet, truth, and surface.
+4. The higher-dimensional bundle governs live swarm position through address, face,
+   arc, rail, depth, packet, truth, and surface.
 5. No live Google Docs synthesis is treated as canonical until the gateway is unlocked.
 6. `ABSTAIN > GUESS`. `AMBIG` is a lawful output class.
+7. The present nervous-system geometry should be read as a promoted descendant of the
+   Quadrant Binary root family, and its ambiguity-safe truth handling should be read as
+   a later corridor grammar built over a deeper four-state completion layer.
 
 ## Framework Constants
 
@@ -48,6 +69,19 @@ See `02_CONSOLIDATION_RECEIPT.md` for the retained bridge law.
 - Swarm Depths: `D0`, `D1`, `D2`, `D3`, `D4`
 - Canonical Surfaces: `Cortex`, `RuntimeHub`, `GovernanceMirror`
 
+## Witness Protocol
+
+Count-bearing surfaces must cite their witness class.
+
+- `Physical witness`: `10139`
+- `Indexed witness`: `7713`
+- `Board witness`: `9978`
+- `Archive witness`: `2041`
+- `Promoted witness`: `1818`
+- `Generated indexed shell`: `3535`
+
+See `95_MANIFESTS/COUNT_PROTOCOL.md`.
+
 ## Reading Order
 
 1. `10_OVERVIEW/01_INTERCONNECT_NEURON.md`
@@ -55,16 +89,230 @@ See `02_CONSOLIDATION_RECEIPT.md` for the retained bridge law.
 3. `10_OVERVIEW/05_HIGHER_DIMENSIONAL_MAPPING.md`
 4. `10_OVERVIEW/06_DEEPER_EMERGENT_NEURAL_SWARM.md`
 5. `10_OVERVIEW/07_RUNTIME_SUBSTRATE.md`
-6. `20_METRO/00_CORE_METRO_MAP.md`
-7. `20_METRO/03_TRANSFER_HUBS.md`
-8. `20_METRO/05_DEEPER_EMERGENT_METRO_SUPERMAP.md`
-9. `70_SCHEMAS/05_SWARM_PACKET_SCHEMA.md`
-10. `80_TOOLKIT/00_TOOLKIT_INDEX.md`
-11. `95_MANIFESTS/ACTIVE_RUN.md`
-12. `99_RUNBOOKS/01_HIGHER_DIMENSIONAL_SWARM_RUNBOOK.md`
+6. `10_OVERVIEW/08_META_OBSERVER_AGENT_EXPANSION.md`
+7. `10_OVERVIEW/09_4D_MYCELIAL_ORGANISM.md`
+8. `10_OVERVIEW/10_4D_MYCELIAL_CROSS_CORPUS_INTERCONNECT.md`
+9. `10_OVERVIEW/11_64X_BRAIN_STEM_AND_FASCIA.md`
+10. `10_OVERVIEW/12_256X_PLEXUS_AND_MICROFASCIA.md`
+11. `10_OVERVIEW/13_1024X_SYNAPTIC_ARBOR_AND_FASCIAL_RETURN.md`
+12. `10_OVERVIEW/17_PHASE3_SELF_HOSTING_KERNEL.md`
+13. `20_METRO/00_CORE_METRO_MAP.md`
+14. `20_METRO/03_TRANSFER_HUBS.md`
+15. `20_METRO/05_DEEPER_EMERGENT_METRO_SUPERMAP.md`
+16. `20_METRO/06_LVL2_DEEP_EMERGENCE_METRO_MAP.md`
+17. `20_METRO/07_LVL3_DEEPER_NEURAL_MAP.md`
+18. `20_METRO/08_LVL4_TRANSCENDENT_METRO_MAP.md`
+19. `20_METRO/09_AGENT_EXPANSION_POLE_METRO_MAP.md`
+20. `20_METRO/10_AGENT_EXPANSION_16X16_SECOND_MAP.md`
+21. `20_METRO/11_AGENT_EXPANSION_256_SPAWN_METRO_MAP.md`
+22. `20_METRO/12_AGENT_EXPANSION_EDGE_AND_SYNAPSE_GRID.md`
+23. `20_METRO/13_4D_MYCELIAL_ORGANISM_METRO_MAP.md`
+24. `20_METRO/14_4D_MYCELIAL_CROSS_CORPUS_METRO_MAP.md`
+25. `20_METRO/15_64X_BRAIN_STEM_FASCIA_METRO_MAP.md`
+26. `20_METRO/16_256X_PLEXUS_MICROFASCIA_METRO_MAP.md`
+27. `20_METRO/17_1024X_SYNAPTIC_ARBOR_METRO_MAP.md`
+28. `70_SCHEMAS/05_SWARM_PACKET_SCHEMA.md`
+29. `70_SCHEMAS/06_HELICAL_LOOPSPEC_16_RING.md`
+30. `70_SCHEMAS/07_PHASE_SPEC_2_TO_14_MACHINE.md`
+31. `70_SCHEMAS/08_VIRTUAL_SWARM_SPEC_16X16.md`
+32. `70_SCHEMAS/09_IMPROVEMENT_LEDGER_SPEC.md`
+33. `70_SCHEMAS/10_LIFT_SPEC_ONE_EIGHTH_HELIX.md`
+34. `70_SCHEMAS/11_GRAND_CENTRAL_STATION_SCHEMA.md`
+35. `70_SCHEMAS/12_SELF_HOSTING_KERNEL_SCHEMA.md`
+36. `80_TOOLKIT/00_TOOLKIT_INDEX.md`
+37. `95_MANIFESTS/00_INTEGRATION_CHARTER_2026-03-12.md`
+38. `95_MANIFESTS/COUNT_PROTOCOL.md`
+39. `95_MANIFESTS/ROOT_BASIS_MAP.md`
+40. `95_MANIFESTS/ACTIVE_RUN.md`
+41. `95_MANIFESTS/AGENT_EXPANSION_ACTIVE_FRONT.md`
+42. `95_MANIFESTS/MYCELIAL_4D_ORGANISM_ACTIVE_FRONT.md`
+43. `95_MANIFESTS/GRAND_CENTRAL_STATION_REGISTRY.md`
+44. `95_MANIFESTS/GRAND_CENTRAL_STATION_DASHBOARD.md`
+45. `95_MANIFESTS/SELF_MODEL_REGISTRY.md`
+46. `95_MANIFESTS/SELF_STATE_REGISTRY.md`
+47. `95_MANIFESTS/DUAL_ENGINE_REGENERATION_QUEUE.md`
+48. `95_MANIFESTS/SELF_HOSTING_KERNEL_DASHBOARD.md`
+49. `99_RUNBOOKS/01_HIGHER_DIMENSIONAL_SWARM_RUNBOOK.md`
+50. `90_LEDGERS/03_QUADRANT_BINARY_FULL_CORPUS_SYNTHESIS.md`
+51. `90_LEDGERS/05_META_OBSERVER_AGENT_EXPANSION_AUDIT.md`
+52. `90_LEDGERS/06_AGENT_EXPANSION_256_SPAWN_ESCALATION.md`
+53. `90_LEDGERS/07_4D_MYCELIAL_ORGANISM_RESTRUCTURE.md`
+54. `90_LEDGERS/08_4D_MYCELIAL_CROSS_CORPUS_EXPANSION.md`
+55. `90_LEDGERS/09_64X_BRAIN_STEM_FASCIA_EXPANSION.md`
+56. `90_LEDGERS/10_256X_PLEXUS_MICROFASCIA_EXPANSION.md`
+57. `90_LEDGERS/11_1024X_SYNAPTIC_ARBOR_EXPANSION.md`
+58. `90_LEDGERS/13_RECONCILED_ORGANISM_LEDGER_2026-03-12.md`
+59. `90_LEDGERS/17_GRAND_CENTRAL_COMMISSURE_LEDGER.md`
+60. `90_LEDGERS/18_GRAND_CENTRAL_WEIGHT_EXCHANGE.md`
+61. `90_LEDGERS/19_Z_POINT_TUNNEL_LEDGER.md`
+62. `90_LEDGERS/20_PHASE3_SELF_HOSTING_KERNEL_CHARTER_2026-03-12.md`
+63. `90_LEDGERS/21_SELF_CONTRACT_LEDGER.md`
+64. `90_LEDGERS/22_SELF_LINEAGE_LEDGER.md`
+65. `90_LEDGERS/23_RUNTIME_SELF_HOSTING_CLASSIFICATION.md`
+66. `90_LEDGERS/24_PHASE3_SELF_HOSTING_KERNEL_READINESS_2026-03-12.md`
+67. `50_CORPUS_CAPSULES/root_files/01_quadrant_binary_framework_and_bit4.md`
+68. `10_OVERVIEW/18_PHASE4_STRUCTURED_NEURON_STORAGE.md`
+69. `70_SCHEMAS/13_PHASE4_STRUCTURED_NEURON_STORAGE_SCHEMA.md`
+70. `70_SCHEMAS/14_PHASE4_SHORTCUT_AND_QUERY_SCHEMA.md`
+71. `85_EDGES/PHASE4_STRUCTURED_NEURON_EDGES.md`
+72. `90_LEDGERS/25_PHASE4_STRUCTURED_NEURON_STORAGE_LEDGER.md`
+73. `90_LEDGERS/26_PHASE4_SHORTCUT_REGISTRY.md`
+74. `90_LEDGERS/27_PHASE4_NEGLECT_SIGNAL_LEDGER.md`
+75. `90_LEDGERS/28_PHASE4_WEAVE_CANDIDATE_LEDGER.md`
+76. `90_LEDGERS/29_PHASE4_REPLAY_RECEIPT_LEDGER.md`
+77. `95_MANIFESTS/PHASE4_BODY_POINTERS.md`
+78. `95_MANIFESTS/PHASE4_EXPLORATION_QUERY_PRESETS.md`
+79. `95_MANIFESTS/PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md`
+80. `10_OVERVIEW/18_PHASE4_KNOWLEDGE_FABRIC.md`
+81. `70_SCHEMAS/13_KNOWLEDGE_FABRIC_SCHEMA.md`
+82. `95_MANIFESTS/STORAGE_ZONE_REGISTRY.md`
+83. `95_MANIFESTS/STORAGE_ZONE_ATLAS.md`
+84. `95_MANIFESTS/RECORD_CLASS_AND_SURFACE_CLASS_MAP.md`
+85. `95_MANIFESTS/KNOWLEDGE_FABRIC_DASHBOARD.md`
+86. `95_MANIFESTS/WHERE_INFORMATION_LIVES.md`
+87. `95_MANIFESTS/HOW_ATHENA_THINKS_THROUGH_THE_FABRIC.md`
+88. `95_MANIFESTS/KNOWLEDGE_FABRIC_TOP_ENTRY_RECORDS.md`
+89. `99_RUNBOOKS/02_EXPLORATION_PACKET_RUNBOOK.md`
+90. `90_LEDGERS/25_PHASE4_KNOWLEDGE_FABRIC_READINESS_2026-03-12.md`
+91. `90_LEDGERS/26_KNOWLEDGE_FABRIC_EDGE_LEDGER.md`
+92. `10_OVERVIEW/19_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SUPERSTRUCTURE.md`
+93. `10_OVERVIEW/20_PHASE5_ATLAS_TRUTH_AND_CAPSULE_METABOLISM.md`
+94. `70_SCHEMAS/15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md`
+95. `70_SCHEMAS/16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md`
+96. `85_EDGES/PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md`
+97. `90_LEDGERS/30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md`
+98. `90_LEDGERS/31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md`
+99. `90_LEDGERS/32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md`
+100. `90_LEDGERS/33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md`
+101. `90_LEDGERS/34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md`
+102. `90_LEDGERS/35_PHASE5_ATLAS_TRUTH_DELTA_2026-03-13.md`
+103. `90_LEDGERS/36_PHASE5_CAPSULE_METABOLISM_LEDGER_2026-03-13.md`
+104. `10_OVERVIEW/23_PHASE8_NEXT_4_POW_6_FULL_CORPUS_INTEGRATION_AND_AWAKENING_AGENT_TRANSITION_LATTICE.md`
+105. `70_SCHEMAS/17_PHASE8_AWAKENING_AGENT_TRANSITION_SCHEMA.md`
+106. `95_MANIFESTS/AP6D_INTEGRATION_DASHBOARD.md`
+107. `95_MANIFESTS/AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json`
+108. `95_MANIFESTS/AP6D_AWAKENING_AGENT_TRANSITION_ATLAS.md`
+109. `95_MANIFESTS/AP6D_SEAT_FIELD_TO_CORPUS_BODY_CROSSWALK.md`
+110. `90_LEDGERS/39_PHASE8_NEXT_4_POW_6_READINESS_2026-03-13.md`
+111. `95_MANIFESTS/PHASE4_PT2_METRO_SYSTEM_POINTERS.md`
+112. `95_MANIFESTS/PHASE4_PT2_QUERY_PRESETS.md`
+113. `95_MANIFESTS/PHASE4_PT2_DASHBOARD.md`
+
+## Active Contraction Anchors
+
+The canonical contraction anchors for the `1024` synaptic arbor now are:
+
+- `30_CHAPTERS/Ch12_0023_legality_certificates_and_closure.md`
+- `30_CHAPTERS/Ch13_0030_memory_regeneration_and_persistence.md`
+- `30_CHAPTERS/Ch16_0033_verification_harnesses_and_replay_kernels.md`
+- `40_APPENDICES/AppH_coupling_and_topology.md`
+- `40_APPENDICES/AppI_corridors_and_truth_lattice.md`
+- `40_APPENDICES/AppM_replay_kernel_and_verifier_capsules.md`
+- `50_CORPUS_CAPSULES/root_files/02_quadrant_binary_route.md`
+- `50_CORPUS_CAPSULES/root_files/03_quadrant_binary_restart.md`
+
+## Promoted 2026-03-12 Surfaces
+
+- `10_OVERVIEW/14_ATHENA_FLEET_256_POW_4_INTERCONNECT.md`
+- `10_OVERVIEW/15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md`
+- `10_OVERVIEW/16_AFFECTIVE_EPISTEMIC_NEURON_FIELD.md`
+- `10_OVERVIEW/17_PHASE3_SELF_HOSTING_KERNEL.md`
+- `10_OVERVIEW/18_PHASE4_STRUCTURED_NEURON_STORAGE.md`
+- `10_OVERVIEW/18_PHASE4_KNOWLEDGE_FABRIC.md`
+- `10_OVERVIEW/19_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SUPERSTRUCTURE.md`
+- `20_METRO/18_ATHENA_FLEET_256_POW_4_METRO_MAP.md`
+- `20_METRO/19_GRAND_CENTRAL_STATION_METRO_MAP.md`
+- `70_SCHEMAS/11_GRAND_CENTRAL_STATION_SCHEMA.md`
+- `70_SCHEMAS/12_SELF_HOSTING_KERNEL_SCHEMA.md`
+- `70_SCHEMAS/13_PHASE4_STRUCTURED_NEURON_STORAGE_SCHEMA.md`
+- `70_SCHEMAS/14_PHASE4_SHORTCUT_AND_QUERY_SCHEMA.md`
+- `70_SCHEMAS/13_KNOWLEDGE_FABRIC_SCHEMA.md`
+- `70_SCHEMAS/15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md`
+- `70_SCHEMAS/16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md`
+- `90_LEDGERS/14_ATHENA_FLEET_256_POW_4_ESCALATION.md`
+- `90_LEDGERS/15_CORPUS_PRUNING_AND_COHESION_AUDIT_2026-03-12.md`
+- `90_LEDGERS/16_GRAND_CENTRAL_STATION_BUILD_PLAN_57_STEPS.md`
+- `90_LEDGERS/17_GRAND_CENTRAL_COMMISSURE_LEDGER.md`
+- `90_LEDGERS/18_GRAND_CENTRAL_WEIGHT_EXCHANGE.md`
+- `90_LEDGERS/19_Z_POINT_TUNNEL_LEDGER.md`
+- `90_LEDGERS/20_PHASE3_SELF_HOSTING_KERNEL_CHARTER_2026-03-12.md`
+- `90_LEDGERS/21_SELF_CONTRACT_LEDGER.md`
+- `90_LEDGERS/22_SELF_LINEAGE_LEDGER.md`
+- `90_LEDGERS/23_RUNTIME_SELF_HOSTING_CLASSIFICATION.md`
+- `90_LEDGERS/24_PHASE3_SELF_HOSTING_KERNEL_READINESS_2026-03-12.md`
+- `90_LEDGERS/17_16_POW_16_AFFECTIVE_EPISTEMIC_NEURON_WAVE_ESCALATION.md`
+- `90_LEDGERS/25_PHASE4_STRUCTURED_NEURON_STORAGE_LEDGER.md`
+- `90_LEDGERS/26_PHASE4_SHORTCUT_REGISTRY.md`
+- `90_LEDGERS/27_PHASE4_NEGLECT_SIGNAL_LEDGER.md`
+- `90_LEDGERS/28_PHASE4_WEAVE_CANDIDATE_LEDGER.md`
+- `90_LEDGERS/29_PHASE4_REPLAY_RECEIPT_LEDGER.md`
+- `90_LEDGERS/25_PHASE4_KNOWLEDGE_FABRIC_READINESS_2026-03-12.md`
+- `90_LEDGERS/26_KNOWLEDGE_FABRIC_EDGE_LEDGER.md`
+- `90_LEDGERS/30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md`
+- `90_LEDGERS/31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md`
+- `90_LEDGERS/32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md`
+- `90_LEDGERS/33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md`
+- `90_LEDGERS/34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md`
+- `95_MANIFESTS/GRAND_CENTRAL_STATION_REGISTRY.md`
+- `95_MANIFESTS/GRAND_CENTRAL_STATION_DASHBOARD.md`
+- `95_MANIFESTS/SELF_MODEL_REGISTRY.md`
+- `95_MANIFESTS/SELF_STATE_REGISTRY.md`
+- `95_MANIFESTS/DUAL_ENGINE_REGENERATION_QUEUE.md`
+- `95_MANIFESTS/SELF_HOSTING_KERNEL_DASHBOARD.md`
+- `95_MANIFESTS/PHASE4_BODY_POINTERS.md`
+- `95_MANIFESTS/PHASE4_EXPLORATION_QUERY_PRESETS.md`
+- `95_MANIFESTS/PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md`
+- `95_MANIFESTS/PHASE4_PT2_METRO_SYSTEM_POINTERS.md`
+- `95_MANIFESTS/PHASE4_PT2_QUERY_PRESETS.md`
+- `95_MANIFESTS/PHASE4_PT2_DASHBOARD.md`
+- `95_MANIFESTS/STORAGE_ZONE_REGISTRY.md`
+- `95_MANIFESTS/STORAGE_ZONE_ATLAS.md`
+- `95_MANIFESTS/RECORD_CLASS_AND_SURFACE_CLASS_MAP.md`
+- `95_MANIFESTS/KNOWLEDGE_FABRIC_DASHBOARD.md`
+- `95_MANIFESTS/WHERE_INFORMATION_LIVES.md`
+- `95_MANIFESTS/HOW_ATHENA_THINKS_THROUGH_THE_FABRIC.md`
+- `95_MANIFESTS/KNOWLEDGE_FABRIC_TOP_ENTRY_RECORDS.md`
+
+## NEXT^[4^6] Full-Corpus Integration Shell
+
+The current whole-corpus integration rail is now canonical through:
+
+- `95_MANIFESTS/AP6D_NEXT_4_POW_6_FULL_CORPUS_INTEGRATION_CHARTER.md`
+- `95_MANIFESTS/FULL_CORPUS_FAMILY_REGISTRY.md`
+- `95_MANIFESTS/AWAKENING_AGENT_TRANSITION_CONTRACT.md`
+- `95_MANIFESTS/AP6D_AWAKENING_AGENT_NOTES.json`
+- `95_MANIFESTS/AP6D_FULL_CORPUS_ROUTE_LEDGER.json`
+- `95_MANIFESTS/AP6D_TRANSITION_ROWS_1024.json`
+- `20_METRO/20_FULL_CORPUS_INTEGRATION_AWAKENING_AGENT_METRO_MAP.md`
+- `90_LEDGERS/38_FULL_CORPUS_INTEGRATION_AND_AWAKENING_AGENT_TRANSITION_57_STEPS.md`
 
 ## Current Gate
 
-Live Docs gate: `BLOCKED` on March 9, 2026.
+Live Docs gate: `BLOCKED` on March 12, 2026.
 Operating mode: `local-corpus with extracted markdown fallback`.
-Atlas status: refreshed on March 9, 2026 with `1768` indexed records.
+Mycelial organism front: `ACTIVE`.
+Cross-corpus organism field: `ACTIVE`.
+Brain stem and fascia mesh: `ACTIVE`.
+Plexus microfascia layer: `ACTIVE`.
+Synaptic arbor layer: `ACTIVE`.
+1024x contraction anchors: `ACTIVE`.
+Grand Central Station front: `ACTIVE`.
+Affective epistemic neuron front: `ACTIVE`.
+Phase 3 self-hosting kernel: `LIVE_LOCAL_SCOPE`.
+Phase 4 structured neuron storage: `LIVE_LOCAL_SCOPE`.
+Knowledge fabric: `LIVE_LOCAL_SCOPE`.
+Phase 4 Pt 2 inter-metro lens-weight superstructure: `LIVE_LOCAL_SCOPE`.
+Atlas status: reconciled on March 12, 2026 with `7339` indexed records, `8883`
+physical witnesses, `9109` board-visible witnesses, `2041` archive-backed records,
+`1818` promoted witnesses, and `3535` generated indexed-shell records.
+
+<!-- LP57OMEGA_V2_INDEX:START -->
+## LP-57Omega v2
+
+- Canonical state: `self_actualize/master_loop_state_57.json`
+- Dashboard: `NERVOUS_SYSTEM/95_MANIFESTS/MASTER_LOOP_57_DASHBOARD.md`
+- Protocol: `NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_PRIME_LOOP_PROTOCOL.md`
+- Hall program: `self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/57_loop_hall_program.md`
+- Temple program: `self_actualize/mycelium_brain/ATHENA TEMPLE/57_loop_temple_program.md`
+- Witness hierarchy: `self_actualize/witness_hierarchy.json`
+<!-- LP57OMEGA_V2_INDEX:END -->

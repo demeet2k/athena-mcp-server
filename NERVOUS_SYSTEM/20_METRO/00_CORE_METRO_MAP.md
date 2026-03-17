@@ -1,5 +1,14 @@
 # Core Metro Map
 
+## AIR 6D overlay
+
+- Native AIR line: `03 QBD-4 -> 04 Quad Holographic Rotation -> 05 The Holographic Kernel -> 07 Crystal Computing Framework`
+- Translation feeders: `02`, `09`, `14`, and `16` carry routing, zero-point, restart, and self-repair into the AIR ride.
+- Deterministic overlay ride: `Addr4 -> Σ01-Σ15 (Sigma01-Sigma15) -> SP+/SP- -> R-Σ/CR-Σ/AR-Σ/ACR-Σ (R/CR/AR/ACR-Sigma) -> Z0/Æ0 (AE0) -> 4D+ -> M-FIX/M-CAR/M-MUT -> H6 -> Seed-6D`
+- Appendix overlay stack: `AppA/AppB/AppC`, `AppE/AppF/AppH`, `AppI/AppM/AppN/AppQ`
+- Anchor spine: `Ch12<0023> -> Ch13<0030> -> Ch16<0033>` with `AppH`, `AppI`, and `AppM`
+- Docs gate: `BLOCKED`
+
 ## Orbit
 
 `Ch01<0000> -> Ch02<0001> -> Ch03<0002> -> Ch04<0003> -> Ch05<0010> -> Ch06<0011> -> Ch07<0012> -> Ch08<0013> -> Ch09<0020> -> Ch10<0021> -> Ch11<0022> -> Ch12<0023> -> Ch13<0030> -> Ch14<0031> -> Ch15<0032> -> Ch16<0033> -> Ch17<0100> -> Ch18<0101> -> Ch19<0102> -> Ch20<0103> -> Ch21<0110> -> Ch01<0000>`

@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-03-14T00:12:00.925939+00:00",
+  "truth": "OK",
+  "protocol_id": "NEXT57_COMMAND_PROTOCOL_V1",
+  "packet_schema_id": "COMMAND_MEMBRANE_PACKET_SCHEMA_V1",
+  "reward_field_id": "NEXT57_COMMAND_REWARD_FIELD_V2",
+  "capillary_law_id": "COMMAND_MEMBRANE_CAPILLARY_LAW_V1",
+  "latency_benchmark_id": "COMMAND_MEMBRANE_LATENCY_V1",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate_detail": "blocked-by-missing-credentials",
+  "routing_policy": "goal+salience+pheromone+coord+capability+load",
+  "compatibility_note": "Legacy swarm mirrors remain readable, but the NEXT57 command membrane stays subordinate to the LP-57 Omega control plane.",
+  "public_state": {
+    "active_surface": "GLOBAL COMMAND",
+    "watch_scope": "GLOBAL COMMAND only",
+    "queue_depth": 4,
+    "active_membrane": "Q41 / TQ06",
+    "last_event": {
+      "event_id": "EVT-20260314-0011",
+      "event_type": "created",
+      "source_path": "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv",
+      "change_type": "",
+      "watcher_mode": "event-driven",
+      "status": "committed",
+      "earth_ts_utc": "2026-03-14T00:08:58.413674+00:00",
+      "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "claim_state": "committed",
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260314-0011.json",
+      "coord12": {
+        "earth_utc_anchor": "2026-03-14T00:08:58.413674+00:00",
+        "earth_rotation_phase": 0.714565,
+        "earth_orbital_phase": 0.19726,
+        "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+        "solar_phase": 0.042398,
+        "lunar_phase": 0.319158,
+        "local_sidereal_phase": 0.482992,
+        "canonical_sky_anchor": {
+          "solar_phase": "S01 / Aries / Fire / Cardinal",
+          "lunar_phase": "S11 / Aquarius / Air / Fixed",
+          "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+          "planetary_slot": "S01 / Aries / Fire / Cardinal"
+        },
+        "runtime_region": "ATHENA_LOCAL_RUNTIME",
+        "queue_pressure": 1.0,
+        "goal_salience_vector": [
+          0.82,
+          0.801
+        ],
+        "change_novelty_vector": [
+          0.65,
+          0.533
+        ]
+      },
+      "coordinate_stamp": {},
+      "delta_tau": 18.876616,
+      "velocity_tau": 0.288676
+    }
+  },
+  "artifacts": {
+    "protocol": "self_actualize/next57_command_protocol.json",
+    "schema": "self_actualize/next57_command_event_packet_schema.json",
+    "reward": "self_actualize/next57_command_reward_field.json",
+    "capillary": "self_actualize/next57_command_capillary_law.json",
+    "latency": "self_actualize/next57_command_latency_benchmarks.json"
+  }
+}

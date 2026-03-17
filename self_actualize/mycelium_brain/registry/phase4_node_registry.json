@@ -1,0 +1,1302 @@
+{
+  "generated_at": "2026-03-13T20:44:21.896231+00:00",
+  "derivation_version": "2026-03-12.phase4-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\25_PHASE4_STRUCTURED_NEURON_STORAGE_LEDGER.md",
+  "nodes": [
+    {
+      "node_id": "N-2001",
+      "surface_class": "body_station",
+      "role": "NERVOUS_SYSTEM",
+      "hemisphere_bias": "left",
+      "tract": "address",
+      "dock": "GCL",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A01",
+        "canonical",
+        "control and routing cortex"
+      ],
+      "replay_hint": "Check A01 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2002",
+      "surface_class": "body_station",
+      "role": "self_actualize",
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCL+GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A02",
+        "runtime",
+        "runtime waist"
+      ],
+      "replay_hint": "Check A02 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2003",
+      "surface_class": "body_station",
+      "role": "ECOSYSTEM",
+      "hemisphere_bias": "left",
+      "tract": "relation",
+      "dock": "GCL",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A03",
+        "governance",
+        "registry and protocol shell"
+      ],
+      "replay_hint": "Check A03 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2004",
+      "surface_class": "body_station",
+      "role": "DEEPER CRYSTALIZATION",
+      "hemisphere_bias": "bilateral",
+      "tract": "chamber",
+      "dock": "GCL+GCR",
+      "witness": "indexed",
+      "dominant_role": "generated",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "HISTORICAL-ABSORBED",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A04",
+        "historical-absorbed",
+        "integration compiler"
+      ],
+      "replay_hint": "Check A04 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2005",
+      "surface_class": "body_station",
+      "role": "MATH",
+      "hemisphere_bias": "left",
+      "tract": "chamber",
+      "dock": "GCL",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A05",
+        "canonical-domain",
+        "theorem kernel"
+      ],
+      "replay_hint": "Check A05 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2006",
+      "surface_class": "body_station",
+      "role": "Voynich",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A06",
+        "canonical-domain",
+        "translation reservoir"
+      ],
+      "replay_hint": "Check A06 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2007",
+      "surface_class": "body_station",
+      "role": "Trading Bot",
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCL+GCR",
+      "witness": "indexed",
+      "dominant_role": "generated",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A07",
+        "external-bridge",
+        "external bridge and transport body"
+      ],
+      "replay_hint": "Check A07 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2008",
+      "surface_class": "body_station",
+      "role": "Quadrant Binary",
+      "hemisphere_bias": "left",
+      "tract": "address",
+      "dock": "GCL",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A08",
+        "ancestor-kernel",
+        "ancestor address kernel"
+      ],
+      "replay_hint": "Check A08 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2009",
+      "surface_class": "body_station",
+      "role": "QSHRINK - ATHENA (internal use)",
+      "hemisphere_bias": "left",
+      "tract": "chamber",
+      "dock": "GCL",
+      "witness": "indexed",
+      "dominant_role": "generated",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A09",
+        "compression-shell",
+        "compression and governance shell"
+      ],
+      "replay_hint": "Check A09 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2010",
+      "surface_class": "body_station",
+      "role": "NERUAL NETWORK",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCL+GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A10",
+        "runtime-lab",
+        "adaptive runtime lab"
+      ],
+      "replay_hint": "Check A10 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2011",
+      "surface_class": "body_station",
+      "role": "FRESH",
+      "hemisphere_bias": "right",
+      "tract": "address",
+      "dock": "GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A11",
+        "intake-fringe",
+        "intake fringe"
+      ],
+      "replay_hint": "Check A11 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2012",
+      "surface_class": "body_station",
+      "role": "Athenachka Collective Books",
+      "hemisphere_bias": "right",
+      "tract": "replay",
+      "dock": "GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A12",
+        "publication-halo",
+        "publication shelf"
+      ],
+      "replay_hint": "Check A12 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2013",
+      "surface_class": "body_station",
+      "role": "I AM ATHENA",
+      "hemisphere_bias": "right",
+      "tract": "chamber",
+      "dock": "GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A13",
+        "identity-shell",
+        "identity manuscript shell"
+      ],
+      "replay_hint": "Check A13 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2014",
+      "surface_class": "body_station",
+      "role": "GAMES",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A14",
+        "simulation-lab",
+        "simulation and mechanics lab"
+      ],
+      "replay_hint": "Check A14 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2015",
+      "surface_class": "body_station",
+      "role": "ORGIN",
+      "hemisphere_bias": "right",
+      "tract": "chamber",
+      "dock": "GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A15",
+        "seed-reservoir",
+        "unclassified body"
+      ],
+      "replay_hint": "Check A15 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2016",
+      "surface_class": "body_station",
+      "role": "Athena FLEET",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCL+GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A16",
+        "pilot-cluster",
+        "fleet-tesseract expansion shell"
+      ],
+      "replay_hint": "Check A16 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2017",
+      "surface_class": "body_station",
+      "role": "Stoicheia (Element Sudoku)",
+      "hemisphere_bias": "left",
+      "tract": "relation",
+      "dock": "GCL",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "RESERVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A17",
+        "reserve-visual",
+        "visual reserve and puzzle asset shelf"
+      ],
+      "replay_hint": "Check A17 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2018",
+      "surface_class": "body_station",
+      "role": "CLEAN",
+      "hemisphere_bias": "left",
+      "tract": "chamber",
+      "dock": "GCL",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "RESERVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A18",
+        "reserve-staging",
+        "manuscript staging shelf"
+      ],
+      "replay_hint": "Check A18 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2019",
+      "surface_class": "body_station",
+      "role": "mycelial_unified_nervous_system_bundle",
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCL+GCR",
+      "witness": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "DORMANT",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "A19",
+        "dormant-bundle",
+        "compiled bundle shelf"
+      ],
+      "replay_hint": "Check A19 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "node_id": "N-2101",
+      "surface_class": "root_anchor",
+      "role": "VOID_CH11.md",
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCZ",
+      "witness": "indexed",
+      "dominant_role": "anchor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "tags": [
+        "R01",
+        "restart anchor"
+      ],
+      "replay_hint": "Open VOID_CH11.md via ROOT_BASIS_MAP and validate its bridge targets."
+    },
+    {
+      "node_id": "N-2102",
+      "surface_class": "root_anchor",
+      "role": "MYCELIUM_TOME_PART1.md",
+      "hemisphere_bias": "bilateral",
+      "tract": "address",
+      "dock": "GCP",
+      "witness": "indexed",
+      "dominant_role": "anchor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "tags": [
+        "R02",
+        "root manuscript anchor"
+      ],
+      "replay_hint": "Open MYCELIUM_TOME_PART1.md via ROOT_BASIS_MAP and validate its bridge targets."
+    },
+    {
+      "node_id": "N-2103",
+      "surface_class": "root_anchor",
+      "role": "FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md",
+      "hemisphere_bias": "bilateral",
+      "tract": "address",
+      "dock": "GCP",
+      "witness": "indexed",
+      "dominant_role": "anchor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "tags": [
+        "R03",
+        "fleet integration anchor"
+      ],
+      "replay_hint": "Open FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md via ROOT_BASIS_MAP and validate its bridge targets."
+    },
+    {
+      "node_id": "N-2201",
+      "surface_class": "grand_central_surface",
+      "role": "Grand Central Station",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GC0",
+      "witness": "indexed",
+      "dominant_role": "hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_STRUCTURED_NEURON_STORAGE.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md"
+      ],
+      "tags": [
+        "GC0",
+        "station"
+      ],
+      "replay_hint": "Open the Grand Central overview and schema to validate Grand Central Station."
+    },
+    {
+      "node_id": "N-2202",
+      "surface_class": "grand_central_surface",
+      "role": "Weight Mezzanine",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "indexed",
+      "dominant_role": "hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_STRUCTURED_NEURON_STORAGE.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md"
+      ],
+      "tags": [
+        "GCW",
+        "weight"
+      ],
+      "replay_hint": "Open the Grand Central overview and schema to validate Weight Mezzanine."
+    },
+    {
+      "node_id": "N-2203",
+      "surface_class": "grand_central_surface",
+      "role": "Z-Point Tunnel Junction",
+      "hemisphere_bias": "bilateral",
+      "tract": "chamber",
+      "dock": "GCZ",
+      "witness": "indexed",
+      "dominant_role": "hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_STRUCTURED_NEURON_STORAGE.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md"
+      ],
+      "tags": [
+        "GCZ",
+        "restart"
+      ],
+      "replay_hint": "Open the Grand Central overview and schema to validate Z-Point Tunnel Junction."
+    },
+    {
+      "node_id": "N-2204",
+      "surface_class": "grand_central_surface",
+      "role": "Replay Concourse",
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCP",
+      "witness": "indexed",
+      "dominant_role": "hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_STRUCTURED_NEURON_STORAGE.md",
+      "status": "LIVE",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md"
+      ],
+      "tags": [
+        "GCP",
+        "replay"
+      ],
+      "replay_hint": "Open the Grand Central overview and schema to validate Replay Concourse."
+    },
+    {
+      "node_id": "N-0001",
+      "surface_class": "library_neuron",
+      "role": "cortex entry neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md"
+      ],
+      "tags": [
+        "R6",
+        "route",
+        "contract",
+        "publish",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Open the index and verify the three-surface contract plus reading order."
+    },
+    {
+      "node_id": "N-0002",
+      "surface_class": "library_neuron",
+      "role": "runtime zero-point neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\07_RUNTIME_SUBSTRATE.md"
+      ],
+      "tags": [
+        "R5",
+        "restart",
+        "stage",
+        "preserve",
+        "Swarm Runtime Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Verify the runtime folder set and the writeback law."
+    },
+    {
+      "node_id": "N-0003",
+      "surface_class": "library_neuron",
+      "role": "governance routing neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\NERVOUS_SYSTEM\\README.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\02_CORPUS_REGIONS.md"
+      ],
+      "tags": [
+        "R6",
+        "govern",
+        "normalize",
+        "bridge",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Compare the governance mirror description with the runtime and cortex roles."
+    },
+    {
+      "node_id": "N-0004",
+      "surface_class": "library_neuron",
+      "role": "atlas replay neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\SOURCE_SURFACE_ATLAS.md"
+      ],
+      "tags": [
+        "R5",
+        "index",
+        "replay",
+        "route",
+        "Atlas-to-Replay Line"
+      ],
+      "replay_hint": "Compare atlas counts and indexed-family status against active run claims."
+    },
+    {
+      "node_id": "N-0005",
+      "surface_class": "library_neuron",
+      "role": "live gate neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\docs_search.py",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md"
+      ],
+      "tags": [
+        "R7",
+        "gate",
+        "abstain",
+        "witness",
+        "External Memory Gate Line"
+      ],
+      "replay_hint": "Re-run docs_search.py and confirm the missing OAuth client error."
+    },
+    {
+      "node_id": "N-0006",
+      "surface_class": "library_neuron",
+      "role": "chapter 11 restart neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\VOID_CH11.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\00_CORE_METRO_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\12_recursive_restart_engine.md"
+      ],
+      "tags": [
+        "R2",
+        "restart",
+        "tunnel",
+        "reenter",
+        "Restart Loop Line"
+      ],
+      "replay_hint": "Verify Ch11 role text and compare it with the runtime restart engine."
+    },
+    {
+      "node_id": "N-0007",
+      "surface_class": "library_neuron",
+      "role": "metro supermap neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\05_DEEPER_EMERGENT_METRO_SUPERMAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\03_TRANSFER_HUBS.md"
+      ],
+      "tags": [
+        "R6",
+        "map",
+        "transfer",
+        "compare",
+        "Canonical-Bridge Line",
+        "Swarm Runtime Line",
+        "Atlas-to-Replay Line"
+      ],
+      "replay_hint": "Verify the listed lines and hubs still match the current manifest surfaces."
+    },
+    {
+      "node_id": "N-0008",
+      "surface_class": "library_neuron",
+      "role": "gate escalation neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\01_CURRENT_STATUS_37_GATE_SYNTHESIS.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\14_37_gate_recursive_escalation.md"
+      ],
+      "tags": [
+        "R5",
+        "escalate",
+        "diagnose",
+        "deepen",
+        "Restart Loop Line",
+        "Prompt-to-Nervous-System Line"
+      ],
+      "replay_hint": "Compare weak gate bands against runtime escalation targets."
+    },
+    {
+      "node_id": "N-0009",
+      "surface_class": "library_neuron",
+      "role": "athena fleet branch neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\00_README.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md"
+      ],
+      "tags": [
+        "R5",
+        "route",
+        "expand",
+        "steer",
+        "Swarm Runtime Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Verify that Athena FLEET appears in the atlas, root-basis map, and capsule layer together."
+    },
+    {
+      "node_id": "N-0010",
+      "surface_class": "library_neuron",
+      "role": "qshrink compression neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\QSHRINK - ATHENA (internal use)\\README.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md"
+      ],
+      "tags": [
+        "R1",
+        "compress",
+        "prune",
+        "govern",
+        "Kernel Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Compare QSHRINK's control docs with the new capsule bridge and root-basis classification."
+    },
+    {
+      "node_id": "N-0011",
+      "surface_class": "library_neuron",
+      "role": "games simulation neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\GAMES\\games_deep_integration_manuscript.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\01_games_simulation_lab.md"
+      ],
+      "tags": [
+        "R4",
+        "simulate",
+        "embody",
+        "replay",
+        "Swarm Runtime Line",
+        "Mythic Compression Line"
+      ],
+      "replay_hint": "Verify that GAMES now names Stoicheia as a reserve sibling instead of leaving it orphaned."
+    },
+    {
+      "node_id": "N-0012",
+      "surface_class": "library_neuron",
+      "role": "orgin seed neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md"
+      ],
+      "tags": [
+        "R2",
+        "seed",
+        "remember",
+        "route",
+        "Restart Loop Line"
+      ],
+      "replay_hint": "Verify that ORGIN remains present in atlas, family, and capsule surfaces together."
+    },
+    {
+      "node_id": "N-0013",
+      "surface_class": "library_neuron",
+      "role": "count protocol neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\07_CANONICAL_WITNESS_HIERARCHY.md"
+      ],
+      "tags": [
+        "R6",
+        "classify",
+        "reconcile",
+        "cite",
+        "Atlas-to-Replay Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Compare witness hierarchy values with the count protocol and the root index."
+    },
+    {
+      "node_id": "N-0014",
+      "surface_class": "library_neuron",
+      "role": "reserve shelf neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\stoicheia\\01_stoicheia_reserve_bridge.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\clean\\01_clean_staging_shelf.md"
+      ],
+      "tags": [
+        "R6",
+        "classify",
+        "reserve",
+        "awaken",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Verify that Stoicheia and CLEAN are named as reserve bodies in both cortex and runtime surfaces."
+    },
+    {
+      "node_id": "N-0015",
+      "surface_class": "library_neuron",
+      "role": "affective charge neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\16_AFFECTIVE_EPISTEMIC_NEURON_FIELD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_09_zero_point_computing\\09_zero_point_computing__14_ch11_helical_engine.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_10_athena_neural_tome\\10_athena_neural_tome__14_ch11_helical_engine.md"
+      ],
+      "tags": [
+        "R2",
+        "charge",
+        "bias",
+        "fire",
+        "Right Hemisphere Line",
+        "Z-Point Tunnel Line"
+      ],
+      "replay_hint": "Compare the Ch11 desire route with the `09 -> 14` and `10 -> 14` matrix cells."
+    },
+    {
+      "node_id": "N-0016",
+      "surface_class": "library_neuron",
+      "role": "feeling knowledge fusion neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\16_AFFECTIVE_EPISTEMIC_NEURON_FIELD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch14_0031_migration_versioning_and_pulse_retro_weaving.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_03_qbd4\\03_qbd4__15_ch12_boundary_axioms.md"
+      ],
+      "tags": [
+        "R6",
+        "fuse",
+        "compare",
+        "phase_lock",
+        "Left Hemisphere Line",
+        "Right Hemisphere Line",
+        "Brain-Stem Line"
+      ],
+      "replay_hint": "Verify the Ch14 field-singularity claim against the new wave schema and `03 -> 15`."
+    },
+    {
+      "node_id": "N-0017",
+      "surface_class": "library_neuron",
+      "role": "grand central charge gate neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\19_GRAND_CENTRAL_STATION_METRO_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\16_AFFECTIVE_EPISTEMIC_NEURON_FIELD.md"
+      ],
+      "tags": [
+        "R6",
+        "gate",
+        "weigh",
+        "modulate",
+        "Brain-Stem Line",
+        "Replay Ring",
+        "Cross-Corpus Departure Line"
+      ],
+      "replay_hint": "Verify that GCW and GCZ mediate charged routes in both the overview and metro surfaces."
+    },
+    {
+      "node_id": "N-0018",
+      "surface_class": "library_neuron",
+      "role": "sixteen pow sixteen wave router neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "NEAR",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\16_AFFECTIVE_EPISTEMIC_NEURON_FIELD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\11_AFFECTIVE_EPISTEMIC_NEURON_WAVE_SCHEMA.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\08_VIRTUAL_SWARM_SPEC_16X16.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\14_affective_epistemic_neuron_wave_field.md"
+      ],
+      "tags": [
+        "R5",
+        "fire",
+        "prioritize",
+        "contract",
+        "Brain-Stem Line",
+        "Cross-Corpus Departure Line",
+        "Swarm Runtime Line"
+      ],
+      "replay_hint": "Compare the sparse activation law with the pilot charged axons and confirm that the field remains non-flat."
+    },
+    {
+      "node_id": "N-0019",
+      "surface_class": "library_neuron",
+      "role": "grand central registry neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_REGISTRY.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json"
+      ],
+      "tags": [
+        "R6",
+        "register",
+        "dock",
+        "constrain",
+        "Brain-Stem Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Compare the markdown registry with the runtime json mirror and confirm the same 19 stationed roots appear in both."
+    },
+    {
+      "node_id": "N-0020",
+      "surface_class": "library_neuron",
+      "role": "grand central commissure neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\17_GRAND_CENTRAL_COMMISSURE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json"
+      ],
+      "tags": [
+        "R6",
+        "bridge",
+        "translate",
+        "relay",
+        "Left Hemisphere Line",
+        "Right Hemisphere Line",
+        "Cross-Corpus Departure Line"
+      ],
+      "replay_hint": "Verify that the commissure ledger covers all bilateral roots and that the dashboard now reports bilateral coverage as true."
+    },
+    {
+      "node_id": "N-0021",
+      "surface_class": "library_neuron",
+      "role": "grand central weight exchange neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\18_GRAND_CENTRAL_WEIGHT_EXCHANGE.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "tags": [
+        "R5",
+        "weigh",
+        "rank",
+        "promote",
+        "Brain-Stem Line",
+        "Replay Ring",
+        "Cross-Corpus Departure Line"
+      ],
+      "replay_hint": "Compare the weight ledger and json mirror and confirm the same thresholds and top dispatch routes appear in both."
+    },
+    {
+      "node_id": "N-0022",
+      "surface_class": "library_neuron",
+      "role": "z-point tunnel ledger neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\19_Z_POINT_TUNNEL_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_zpoint_tunnels.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md"
+      ],
+      "tags": [
+        "R2",
+        "tunnel",
+        "restart",
+        "preserve",
+        "Z-Point Tunnel Line",
+        "Replay Ring"
+      ],
+      "replay_hint": "Verify that every tunnel record names an entry route, restart token, resume target, and continuity receipt."
+    },
+    {
+      "node_id": "N-0023",
+      "surface_class": "library_neuron",
+      "role": "math atlas capsule neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\05_math_entry_record_set.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\GLOBAL MATH - MYTH\\00_GLOBAL_MAP.md"
+      ],
+      "tags": [
+        "R1",
+        "formalize",
+        "prove",
+        "contract",
+        "Atlas-to-Replay Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Verify that the family law, entry record set, and Phase 5 ledger all agree on the same atlas-backed MATH witnesses."
+    },
+    {
+      "node_id": "N-0024",
+      "surface_class": "library_neuron",
+      "role": "voynich witness capsule neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\05_voynich_entry_record_set.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Voynich\\FULL_TRANSLATION\\manuscripts\\VOYNICH_21_CHAPTER_APPENDIX_CRYSTAL.md"
+      ],
+      "tags": [
+        "R3",
+        "decode",
+        "witness",
+        "contract",
+        "Mythic Compression Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Verify that the family law, entry set, and Phase 5 ledger preserve both atlas-backed evidence and ambiguity-safe contraction."
+    },
+    {
+      "node_id": "N-0025",
+      "surface_class": "library_neuron",
+      "role": "ecosystem governance capsule neuron",
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\05_ecosystem_entry_record_set.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\README.md"
+      ],
+      "tags": [
+        "R6",
+        "govern",
+        "bridge",
+        "normalize",
+        "Brain-Stem Line",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Verify that the ecosystem family law and entry shell point back to the same atlas-backed governance witnesses."
+    },
+    {
+      "node_id": "N-0026",
+      "surface_class": "library_neuron",
+      "role": "published books return neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\05_published_books_entry_record_set.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athenachka Collective Books\\DEEP_INTEGRATION_21_CHAPTER_MANUSCRIPT.md"
+      ],
+      "tags": [
+        "R8",
+        "publish",
+        "return",
+        "bundle",
+        "Publication Return",
+        "Canonical-Bridge Line"
+      ],
+      "replay_hint": "Verify that the family law, entry set, and Phase 5 ledger all resolve real Athenachka Collective Books witnesses instead of abstaining."
+    },
+    {
+      "node_id": "N-0027",
+      "surface_class": "library_neuron",
+      "role": "identity continuity neuron",
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCW",
+      "witness": "direct_support",
+      "dominant_role": "reusable_neuron",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+      "status": "OK",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\05_identity_entry_record_set.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "tags": [
+        "R2",
+        "reflect",
+        "continue",
+        "constrain",
+        "Right Hemisphere Line",
+        "Publication Return"
+      ],
+      "replay_hint": "Verify that the identity family law, entry set, and self-hosting dashboard agree on continuity-bearing state and writeback."
+    }
+  ],
+  "summary": {
+    "node_count": 53,
+    "body_station_nodes": 19,
+    "library_nodes": 27
+  }
+}

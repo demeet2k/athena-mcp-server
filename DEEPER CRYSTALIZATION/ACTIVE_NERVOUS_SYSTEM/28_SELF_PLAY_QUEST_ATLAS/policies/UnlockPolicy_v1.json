@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "unlock",
+  "description": "Unlock ladder and vesting rules governing station access progression",
+  "unlock_ladder": {
+    "1": "Solo",
+    "3": "Guild",
+    "5": "Community",
+    "8": "Temple",
+    "13": "Storm",
+    "21": "Publish",
+    "34": "Seeding",
+    "55": "Policy",
+    "89": "Migration"
+  },
+  "vesting_rules": {
+    "near_vest_ratio": 0.382,
+    "near_vest_description": "NEAR-state claims vest at phi^-2 (0.382) of full payout until promoted to OK",
+    "rules": [
+      "OK claims vest immediately at 100% of computed payout",
+      "NEAR claims vest at near_vest_ratio (0.382) of computed payout",
+      "NEAR claims may be promoted to OK to receive the remaining 0.618 of payout",
+      "AMBIG and VOID claims do not vest and receive zero payout",
+      "Vesting is computed at the time of CERTIFIED state transition",
+      "Promotion from NEAR to OK releases the unvested portion",
+      "Unvested NEAR payouts expire after 89 epochs if not promoted"
+    ]
+  },
+  "level_computation": {
+    "description": "Player level is the highest Fibonacci unlock level for which all prerequisites are met",
+    "formula": "max(fibonacci_unlock_levels where all prerequisites satisfied)",
+    "prerequisites": {
+      "level_1": "No prerequisites (starting level)",
+      "level_3": "At least 1 SEALED Solo quest",
+      "level_5": "At least 1 SEALED Guild quest + 3 total SEALED quests",
+      "level_8": "At least 1 SEALED Community quest + 5 total SEALED quests",
+      "level_13": "At least 1 SEALED TempleRite quest + 8 total SEALED quests",
+      "level_21": "At least 1 SEALED Storm quest + 13 total SEALED quests",
+      "level_34": "At least 1 SEALED Publish quest + 21 total SEALED quests",
+      "level_55": "At least 1 SEALED Seeding quest + 34 total SEALED quests",
+      "level_89": "At least 1 SEALED Policy quest + 55 total SEALED quests"
+    }
+  },
+  "regression_protection": {
+    "description": "Players cannot lose unlock levels once achieved",
+    "rules": [
+      "Achieved unlock levels are permanent",
+      "Ethics watchlist does not reduce unlock level but restricts quest class access",
+      "Rollback events do not affect player unlock levels"
+    ]
+  }
+}

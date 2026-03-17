@@ -1,0 +1,233 @@
+{
+  "generated_at": "2026-03-13T20:44:22.008760+00:00",
+  "derivation_version": "2026-03-12.phase4-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+  "receipts": [
+    {
+      "action_id": "RR-0001",
+      "mode": "derivation",
+      "inputs": {
+        "command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+        "docs_gate": "BLOCKED"
+      },
+      "fired_waves": [
+        "W-K04-K15-1",
+        "W-K05-K15-1",
+        "W-K07-K15-1",
+        "W-K15-K04-1",
+        "W-K15-K05-1"
+      ],
+      "writeback_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\26_phase4_structured_neuron_storage_runtime.md"
+      ],
+      "outcome": "Phase 4 registries, queries, waves, neglect signals, weave candidates, and receipts compiled.",
+      "unresolved_frontier": [
+        "keep query engine and corpus scans synchronized",
+        "continue pair-family pruning without losing witness lineage"
+      ],
+      "active_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-12",
+        "SC-13"
+      ],
+      "stop_condition": "REPAIR",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\01_CANONICAL_SOURCES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+      ],
+      "generated_at": "2026-03-13T20:44:21.941234+00:00"
+    },
+    {
+      "action_id": "RR-0002",
+      "mode": "locate",
+      "inputs": {
+        "query": "Grand Central Station"
+      },
+      "fired_waves": [],
+      "writeback_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+      ],
+      "outcome": "[{\"surface_id\": \"GC0\", \"surface_type\": \"station\", \"label\": \"Grand Central Station\", \"score\": 100.0, \"authority_surfac...",
+      "unresolved_frontier": [],
+      "active_shortcuts": [
+        "SC-01",
+        "SC-02",
+        "SC-11",
+        "SC-12",
+        "SC-13"
+      ],
+      "stop_condition": "PROMOTE",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_kernel_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+      ],
+      "generated_at": "2026-03-13T20:44:22.007761+00:00"
+    },
+    {
+      "action_id": "RR-0003",
+      "mode": "route",
+      "inputs": {
+        "source": "Athena FLEET",
+        "target": "Ch11 The Helical Manifestation Engine"
+      },
+      "fired_waves": [],
+      "writeback_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+      ],
+      "outcome": "[{\"surface_id\": \"A16\", \"label\": \"Athena FLEET\"}, {\"surface_id\": \"GCT\", \"label\": \"Relation Tract\"}, {\"surface_id\": \"P-...",
+      "unresolved_frontier": [],
+      "active_shortcuts": [
+        "SC-01",
+        "SC-02",
+        "SC-04",
+        "SC-05",
+        "SC-06",
+        "SC-13"
+      ],
+      "stop_condition": "PROMOTE",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+      ],
+      "generated_at": "2026-03-13T20:44:22.007761+00:00"
+    },
+    {
+      "action_id": "RR-0004",
+      "mode": "neglect",
+      "inputs": {
+        "limit": 6
+      },
+      "fired_waves": [],
+      "writeback_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+      ],
+      "outcome": "[{\"neglect_id\": \"NG-A17\", \"surface_id\": \"A17\", \"surface_type\": \"body\", \"gap_type\": \"coverage_gap\", \"coverage_gap\": 0....",
+      "unresolved_frontier": [
+        "repair existing tissue before outward promotion"
+      ],
+      "active_shortcuts": [
+        "SC-01",
+        "SC-08",
+        "SC-09",
+        "SC-10",
+        "SC-12",
+        "SC-13"
+      ],
+      "stop_condition": "REPAIR",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\27_PHASE4_NEGLECT_SIGNAL_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+      ],
+      "generated_at": "2026-03-13T20:44:22.008760+00:00"
+    },
+    {
+      "action_id": "RR-0005",
+      "mode": "fire",
+      "inputs": {
+        "objective": "repair neglected reserve corridors",
+        "limit": 6
+      },
+      "fired_waves": [
+        "P-K09-K14",
+        "P-K14-K09",
+        "P-K14-K15",
+        "P-K15-K14",
+        "P-K03-K14"
+      ],
+      "writeback_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+      ],
+      "outcome": "[{\"pair_id\": \"P-K09-K14\", \"pair_title\": \"Zero-Point Computing -> Ch11 The Helical Manifestation Engine\", \"score\": 0.6...",
+      "unresolved_frontier": [
+        "repair existing tissue before outward promotion"
+      ],
+      "active_shortcuts": [
+        "SC-03",
+        "SC-04",
+        "SC-05",
+        "SC-06",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "stop_condition": "REPAIR",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_wave_registry.json"
+      ],
+      "generated_at": "2026-03-13T20:44:22.008760+00:00"
+    },
+    {
+      "action_id": "RR-0006",
+      "mode": "promote",
+      "inputs": {
+        "candidate": null
+      },
+      "fired_waves": [],
+      "writeback_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+      ],
+      "outcome": "{\"weave_id\": \"WV-0013\", \"src\": \"A16\", \"dst\": \"A06\", \"expected_gain\": 0.94, \"required_shortcuts\": [\"SC-01\", \"SC-04\", \"...",
+      "unresolved_frontier": [],
+      "active_shortcuts": [
+        "SC-01",
+        "SC-04",
+        "SC-05",
+        "SC-09",
+        "SC-10",
+        "SC-13"
+      ],
+      "stop_condition": "PROMOTE",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\28_PHASE4_WEAVE_CANDIDATE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md"
+      ],
+      "generated_at": "2026-03-13T20:44:22.008760+00:00"
+    },
+    {
+      "action_id": "RR-0007",
+      "mode": "locate",
+      "inputs": {
+        "query": "P-K14-K15"
+      },
+      "fired_waves": [],
+      "writeback_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md"
+      ],
+      "outcome": "[{\"surface_id\": \"P-K14-K15\", \"surface_type\": \"pair\", \"label\": \"Ch11 The Helical Manifestation Engine -> Ch12 Boundary...",
+      "unresolved_frontier": [],
+      "active_shortcuts": [
+        "SC-01",
+        "SC-02",
+        "SC-11",
+        "SC-12",
+        "SC-13"
+      ],
+      "stop_condition": "PROMOTE",
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_kernel_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json"
+      ],
+      "generated_at": "2026-03-13T20:44:22.008760+00:00"
+    }
+  ],
+  "summary": {
+    "receipt_count": 7
+  }
+}

@@ -2,13 +2,14 @@
 
 ## GateStatus
 
-`BLOCKED`
+`NEAR`
 
-Live Docs remains unavailable because OAuth credentials are still missing.
+Live Docs remains unavailable because OAuth credentials are still missing, but the
+family-owned canonical root has now been promoted locally.
 
 ## ChosenFront
 
-Promote `Void_CH11` into the first concrete higher-dimensional manuscript family routed through:
+Promote `Void_CH11` through its first family-owned canonical root and route the result through:
 
 - tensor field
 - rails
@@ -16,10 +17,11 @@ Promote `Void_CH11` into the first concrete higher-dimensional manuscript family
 - wave
 - neuron
 - witness ledger
+- canonical root
 
 ## PrimaryRoute
 
-`AppA -> AppL -> AppI -> AppM -> FAMILY_void_ch11_route_map`
+`AppA -> AppF -> AppL -> AppI -> AppM -> VOID_CH11_CANONICAL_ROOT`
 
 ## CurrentTruth
 
@@ -31,4 +33,5 @@ Promote `Void_CH11` into the first concrete higher-dimensional manuscript family
 
 ## NextPromotion
 
-Use `families/FAMILY_void_ch11_primary_source.md` as the current base witness and promote it into a canonical family-owned markdown surface.
+Use `families/VOID_CH11_CANONICAL_ROOT.md` as the comparison anchor for sibling-witness
+reconciliation and the later `NEAR -> OK` promotion pass.

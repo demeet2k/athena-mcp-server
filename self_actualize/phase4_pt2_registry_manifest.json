@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "docs_gate": "BLOCKED",
+  "registries": {
+    "metro_system_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_metro_system_registry.json",
+    "metro_station_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_metro_station_registry.json",
+    "metro_interlock_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_metro_interlock_registry.json",
+    "holo_coordinate_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_holo_coordinate_registry.json",
+    "carrier_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_carrier_registry.json",
+    "rail_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_rail_registry.json",
+    "arc_rotation_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_arc_rotation_registry.json",
+    "carrier_transform_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_carrier_transform_registry.json",
+    "lens_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_lens_registry.json",
+    "lens_hybrid_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_lens_hybrid_registry.json",
+    "lens_weight_profile_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_lens_weight_profile_registry.json",
+    "lens_state_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_lens_state_registry.json",
+    "field_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_field_registry.json",
+    "z_point_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_z_point_registry.json",
+    "aether_point_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_aether_point_registry.json",
+    "projection_space_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_projection_space_registry.json",
+    "projection_assignment_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_projection_assignment_registry.json",
+    "shortcut_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_shortcut_registry.json",
+    "query_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_query_presets.json",
+    "system_crosswalk_edges": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_system_crosswalk_edges.json",
+    "dashboard": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_dashboard.json",
+    "registry_manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pt2_registry_manifest.json"
+  },
+  "counts": {
+    "metro_systems": 15,
+    "stations": 20,
+    "interlocks": 24,
+    "coordinates": 419,
+    "lens_states": 419,
+    "aether_points": 419,
+    "projection_assignments": 419,
+    "edges": 42
+  }
+}

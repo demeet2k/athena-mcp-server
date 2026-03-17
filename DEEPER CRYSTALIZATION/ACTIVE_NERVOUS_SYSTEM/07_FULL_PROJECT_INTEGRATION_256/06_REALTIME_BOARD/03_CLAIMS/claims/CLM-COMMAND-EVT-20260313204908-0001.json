@@ -1,0 +1,18 @@
+{
+  "claim_id": "CLM-COMMAND-EVT-20260313204908-0001",
+  "frontier": "COMMAND::EVT-20260313204908-0001",
+  "front_slug": "command_evt_20260313204908_0001",
+  "level": "file",
+  "owner": "WORKER-HALL-01",
+  "status": "done",
+  "output_target": "GLOBAL COMMAND/ATHENA/READ ME.txt",
+  "receipt": "self_actualize/command_membrane/execution/EVT-20260313204908-0001.json",
+  "source": "board",
+  "paths": [
+    "GLOBAL COMMAND/ATHENA/READ ME.txt",
+    "self_actualize/command_membrane/execution/EVT-20260313204908-0001.json"
+  ],
+  "note": "Claim closed with result command_event_committed.",
+  "created_at": "2026-03-13T20:49:08.309104+00:00",
+  "updated_at": "2026-03-13T20:49:08.326100+00:00"
+}

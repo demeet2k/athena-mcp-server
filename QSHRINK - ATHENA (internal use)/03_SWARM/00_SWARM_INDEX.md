@@ -20,4 +20,10 @@
 - `roles/INDEX.md`
 - `task_cells/INDEX.md`
 - `output_atoms/INDEX.md`
+- `output_atoms/PRUNING_NOTE.md`
 - `packets/INDEX.md`
+
+## Compression Rule
+
+`output_atoms/` is a derived lattice, not a place for manual manuscript sprawl.
+Route through the index, regenerate when necessary, and avoid creating parallel atom families outside the indexed address law.

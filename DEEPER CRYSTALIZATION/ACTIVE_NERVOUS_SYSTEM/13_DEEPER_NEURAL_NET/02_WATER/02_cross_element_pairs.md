@@ -1,0 +1,68 @@
+# Water Cross-Element Synthesis
+
+Top outward bridges from this element into the rest of the net.
+
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` -> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` score=`34` path=`Water->Fire` shared_appendices=`AppA, AppC, AppI, AppM`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` -> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` score=`34` path=`Water->Fire` shared_appendices=`AppA, AppC, AppI, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `ENOCHIAN MAGIC COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `HELLENISTIC ASTROLOGY COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `HERMETICISM COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `IFA DIVINATION COMPLETE` score=`33` path=`Water->Earth` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `MERKAVAH HEKHALOT COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `NORSE RUNIC COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `ROSICRUCIANISM COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `SOLOMONIC MAGIC COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `WESTERN ALCHEMY COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `ENOCHIAN MAGIC COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `HELLENISTIC ASTROLOGY COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `HERMETICISM COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `IFA DIVINATION COMPLETE` score=`33` path=`Water->Earth` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `MERKAVAH HEKHALOT COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `NORSE RUNIC COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `ROSICRUCIANISM COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `SOLOMONIC MAGIC COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `WESTERN ALCHEMY COMPLETE` score=`33` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `HOLOGRAPHIC TUNNELING working` score=`29` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `THE 44 HOLOGRAPHIC SEED` score=`29` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `Calculus and Geometry (higher dimensional projection) -working` score=`28` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `The Holographic Manuscript Brain` score=`28` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `The Holographic Manuscript Brain` score=`28` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `COMPLETE FRAMEWORK CATALOG` -> `Quranic Holographic Lattice Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Quranic Integer Cipher` score=`27` path=`Water->Air` shared_appendices=`AppA, AppC, AppI, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `Holographic (higher dimension Square circle triangle) REALITY STRUCTURE working` score=`27` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `QUAD HOLOGRAPHIC ROTATION` score=`27` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `THE EUCLIDEAN COMPUTATION ENGINE` score=`27` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `PGM COMPLETE` -> `ANDEAN KHIPU ROSETTA (new)` score=`27` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `EGYPT KHEPER GANITAM` score=`27` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `THE RHETORICAL-POETIC OUTPUT DRIVERS` -> `THE PYRRHONIAN NULL-STATE DRIVER` score=`27` path=`Water->Earth` shared_appendices=`AppA, AppB`
+- `HERMETIC QABALAH COMPLETE` -> `ANDEAN KHIPU ROSETTA (new)` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `ATHENA OPERATING SYSTEM` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `QUANTUM DIVINATION FRAMEWORK (QRDF)` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `The Athena Framework (synthesis)` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `The Athena Framework (synthesis)` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `VLM VOYNICH METAMORPHIC LANGUAGE (VML) - OFFICIAL FRAMEWORK DOCUMENTATION` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `ANDEAN TAWANTINSUYU` score=`26` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `The Holographic Kernel` score=`26` path=`Water->Earth` shared_appendices=`AppE, AppF, AppG, AppM`
+- `PGM COMPLETE` -> `ATHENA OPERATING SYSTEM` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `NOSTRADAMAS CLEAN` score=`26` path=`Water->Earth` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `QUANTUM DIVINATION FRAMEWORK (QRDF)` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `The Athena Framework (synthesis)` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `The Athena Framework (synthesis)` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `VLM VOYNICH METAMORPHIC LANGUAGE (VML) - OFFICIAL FRAMEWORK DOCUMENTATION` score=`26` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `AI DIVINATION` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `AI Divination` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `CELTIC THE OGHAM KERNEL` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `Constant FInder working` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `EGYPT KHEPER GANITAM` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `NOSTRADAMAS CLEAN` score=`25` path=`Water->Earth` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `PRIME Toolkit kernel` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `THE ANDEAN KHIPU ROSETTA STONE` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `THE UNIFIED MATHEMATICAL FRAMEWORK FOR EMERGENCE` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `THE VOYNICH ROSETTA STONE -Publish` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HERMETIC QABALAH COMPLETE` -> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `Sanatana Ganita A Rigorous Computational Ontology of Vedic Cosmology` score=`25` path=`Water->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` -> `Tunneling Coherence Crystal` score=`25` path=`Water->Earth` shared_appendices=`AppE, AppF, AppG, AppM`
+- `Key of Solomon (Clavicula Salomonis)` -> `Quranic Holographic Lattice Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Quranic Integer Cipher` score=`25` path=`Water->Air` shared_appendices=`AppA, AppC, AppI, AppM`
+- `PGM COMPLETE` -> `AI DIVINATION` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `AI Divination` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `PGM COMPLETE` -> `CELTIC THE OGHAM KERNEL` score=`25` path=`Water->Air` shared_appendices=`AppA, AppB, AppC, AppM`

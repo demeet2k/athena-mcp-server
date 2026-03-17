@@ -1,0 +1,19 @@
+{
+  "mirror_of": "COMMAND_MEMBRANE_PROTOCOL_V2",
+  "protocol_id": "COMMAND_MEMBRANE_PROTOCOL_V2",
+  "benchmark_id": "COMMAND_LATENCY_BENCHMARKS_V2",
+  "formula": "T_sugar = T_detect + T_encode + T_route + T_claim + T_commit",
+  "target_t_sugar_ms": 5000.0,
+  "metrics": [
+    "detection_latency_ms",
+    "swarm_awareness_latency_ms",
+    "claim_latency_ms",
+    "resolution_latency_ms",
+    "capillary_score",
+    "t_sugar_ms"
+  ],
+  "derived": [
+    "liminal_distance",
+    "liminal_velocity"
+  ]
+}

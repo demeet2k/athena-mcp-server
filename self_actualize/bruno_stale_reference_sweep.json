@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-03-13T01:51:47.882396+00:00",
+  "derivation_version": "2026-03-13.bruno-stale-reference-sweep.v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_bruno_stale_reference_sweep",
+  "records": [
+    {
+      "source_path": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "old_ref": "132_bruno_working.md",
+      "live_ref": "135_bruno_working.md",
+      "reference_class": "reconciliation_evidence",
+      "action": "preserve_mapping",
+      "authority_basis": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "notes": "Preserve `132_bruno_working.md` because this surface documents the authoritative old-to-live reconciliation into `135_bruno_working.md`.",
+      "line_number": 56,
+      "excerpt": "| `132_bruno_working.md` | `135_bruno_working.md` |"
+    },
+    {
+      "source_path": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "old_ref": "51_athena_the_archetype.md",
+      "live_ref": "54_athena_the_archetype.md",
+      "reference_class": "reconciliation_evidence",
+      "action": "preserve_mapping",
+      "authority_basis": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "notes": "Preserve `51_athena_the_archetype.md` because this surface documents the authoritative old-to-live reconciliation into `54_athena_the_archetype.md`.",
+      "line_number": 57,
+      "excerpt": "| `51_athena_the_archetype.md` | `54_athena_the_archetype.md` |"
+    },
+    {
+      "source_path": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "old_ref": "179_the_magus.md",
+      "live_ref": "182_the_magus.md",
+      "reference_class": "reconciliation_evidence",
+      "action": "preserve_mapping",
+      "authority_basis": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "notes": "Preserve `179_the_magus.md` because this surface documents the authoritative old-to-live reconciliation into `182_the_magus.md`.",
+      "line_number": 58,
+      "excerpt": "| `179_the_magus.md` | `182_the_magus.md` |"
+    },
+    {
+      "source_path": "self_actualize/mycelium_brain/nervous_system/receipts/2026-03-09_bruno_family_activation.md",
+      "old_ref": "132_bruno_working.md",
+      "live_ref": "135_bruno_working.md",
+      "reference_class": "historical_receipt",
+      "action": "add_correction_note",
+      "authority_basis": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "notes": "Historical receipt keeps chronology but must carry the `## Q40 Correction Note (2026-03-13)` erratum mapping `132_bruno_working.md` to `135_bruno_working.md`.",
+      "line_number": 10,
+      "excerpt": "- `132_bruno_working.md`"
+    },
+    {
+      "source_path": "self_actualize/mycelium_brain/nervous_system/receipts/2026-03-09_bruno_family_activation.md",
+      "old_ref": "51_athena_the_archetype.md",
+      "live_ref": "54_athena_the_archetype.md",
+      "reference_class": "historical_receipt",
+      "action": "add_correction_note",
+      "authority_basis": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "notes": "Historical receipt keeps chronology but must carry the `## Q40 Correction Note (2026-03-13)` erratum mapping `51_athena_the_archetype.md` to `54_athena_the_archetype.md`.",
+      "line_number": 11,
+      "excerpt": "- `51_athena_the_archetype.md`"
+    },
+    {
+      "source_path": "self_actualize/mycelium_brain/nervous_system/receipts/2026-03-09_bruno_family_activation.md",
+      "old_ref": "179_the_magus.md",
+      "live_ref": "182_the_magus.md",
+      "reference_class": "historical_receipt",
+      "action": "add_correction_note",
+      "authority_basis": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "notes": "Historical receipt keeps chronology but must carry the `## Q40 Correction Note (2026-03-13)` erratum mapping `179_the_magus.md` to `182_the_magus.md`.",
+      "line_number": 12,
+      "excerpt": "- `179_the_magus.md`"
+    },
+    {
+      "source_path": "self_actualize/mycelium_brain/receipts/2026-03-10_q08_bruno_b12_operator_table.md",
+      "old_ref": "132/51/179",
+      "live_ref": "135/54/182",
+      "reference_class": "reconciliation_evidence",
+      "action": "preserve_mapping",
+      "authority_basis": "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "notes": "Preserve `132/51/179` because this surface documents the authoritative old-to-live reconciliation into `135/54/182`.",
+      "line_number": 29,
+      "excerpt": "2. stale capsule references were reconciled from `132/51/179` to `135/54/182`"
+    }
+  ],
+  "clean_live_surfaces": [
+    "self_actualize/mycelium_brain/nervous_system/04_deeper_emergent_metro_supermap.md",
+    "self_actualize/mycelium_brain/nervous_system/20_deeper_enhancement_real_time_agent.md"
+  ],
+  "summary": {
+    "docs_gate_status": "BLOCKED",
+    "scanned_path_count": 13,
+    "record_count": 7,
+    "counts_by_class": {
+      "reconciliation_evidence": 4,
+      "historical_receipt": 3
+    },
+    "truth_candidate": "OK",
+    "scan_paths": [
+      "self_actualize/mycelium_brain/nervous_system/04_deeper_emergent_metro_supermap.md",
+      "self_actualize/mycelium_brain/nervous_system/20_deeper_enhancement_real_time_agent.md",
+      "self_actualize/mycelium_brain/nervous_system/families/FAMILY_bruno_archetype_compression.md",
+      "self_actualize/mycelium_brain/nervous_system/families/FAMILY_bruno_primary_sources.md",
+      "self_actualize/mycelium_brain/nervous_system/families/FAMILY_bruno_route_map.md",
+      "self_actualize/mycelium_brain/nervous_system/families/BRUNO_B12_OPERATOR_TABLE.md",
+      "self_actualize/mycelium_brain/nervous_system/families/BRUNO_ADDRESS_C_LEAF_PROMOTION.md",
+      "self_actualize/mycelium_brain/nervous_system/ganglia/GANGLION_bruno.md",
+      "self_actualize/mycelium_brain/nervous_system/ledgers/WITNESS_bruno_family.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/BRUNO_ACTIVE_FRONT.md",
+      "self_actualize/mycelium_brain/nervous_system/receipts/2026-03-09_bruno_family_activation.md",
+      "self_actualize/mycelium_brain/receipts/2026-03-10_q08_bruno_b12_operator_table.md",
+      "self_actualize/mycelium_brain/receipts/2026-03-10_q36_bruno_address_c_leaf_promotion.md"
+    ]
+  }
+}

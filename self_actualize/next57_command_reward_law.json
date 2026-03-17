@@ -1,0 +1,82 @@
+{
+  "law_id": "NEXT57_COMMAND_REWARD_LAW_V2",
+  "poetic_aliases": {
+    "alignment_score": "Heaven proximity",
+    "verified_alignment_score": "verified Heaven proximity",
+    "reward_multiplier": "nectar multiplier",
+    "crown_tier": "crown"
+  },
+  "runtime_aliases": {
+    "heaven_score": "H",
+    "verified_heaven_score": "H_prime",
+    "reward_mult": "M",
+    "try_reward": "r_try",
+    "speed_reward": "r_speed",
+    "first_bonus": "r_first",
+    "learn_reward": "r_learn",
+    "alignment_score": "H",
+    "verified_alignment_score": "H_prime",
+    "reward_multiplier": "M",
+    "attempt_reward": "r_try",
+    "latency_reward": "r_speed",
+    "first_reward": "r_first",
+    "assist_reward": "r_assist",
+    "learning_reward": "r_learn"
+  },
+  "formulas": {
+    "heaven_score": "H = (a/pi) * ((1 + cos(phi)) / 2)",
+    "verified_heaven_score": "H_prime = H * verification_witness",
+    "reward_mult": "min(64.0, 1 / (1 - H_prime + 0.01))",
+    "try_reward": "0.25 * q_i",
+    "speed_reward": "exp(-1.0 * tau_seconds)",
+    "first_bonus": "J_star + J_d + J_r + J_a by stage",
+    "learn_reward": "0.5 * novelty_score",
+    "gold_deposit": "mu * total_reward",
+    "bridge_deposit": "nu * try_reward * (1 - H_prime)",
+    "affect_intensity_a": "a = pi * clamp(0,1, 0.45*priority + 0.35*confidence + 0.20*q_i)",
+    "phi_success": "phi = 0",
+    "phi_explore": "phi = +pi/2",
+    "phi_handoff": "phi = -pi/2",
+    "phi_dry": "phi = pi",
+    "alignment_score": "H = (a/pi) * ((1 + cos(phi)) / 2)",
+    "verified_alignment_score": "H_prime = H * verification_witness",
+    "reward_multiplier": "min(64.0, 1 / (1 - H_prime + 0.01))",
+    "attempt_reward": "0.25 * q_i",
+    "latency_reward": "exp(-1.0 * tau_seconds)",
+    "first_reward": "J_star + J_d + J_r + J_a by stage",
+    "assist_reward": "0.5 * contribution_share",
+    "learning_reward": "0.5 * novelty_score",
+    "total_reward": "reward_multiplier * (attempt_reward + latency_reward + first_reward + assist_reward + learning_reward)"
+  },
+  "defaults": {
+    "J_star": 4.0,
+    "J_d": 0.5,
+    "J_r": 0.75,
+    "J_a": 1.0,
+    "reward_clip": 64.0,
+    "epsilon": 0.01,
+    "latency_lambda": 1.0,
+    "role_shares": {
+      "Scout": 0.15,
+      "Router": 0.2,
+      "Worker": 0.45,
+      "Archivist": 0.2
+    }
+  },
+  "verification_defaults": {
+    "detect_persisted": 0.25,
+    "route_persisted": 0.5,
+    "active_lease": 0.75,
+    "success_closure": 1.0,
+    "truthful_blocked_or_quarantined": 0.7,
+    "duplicate_noise_expired_unverified": 0.0
+  },
+  "governance": {
+    "reward_range": "R >= 0",
+    "punishment_mode": "disabled",
+    "bad_route_mode": "dryness-and-evaporation",
+    "verification_gate": "reward multiplier is computed from verified_alignment_score only",
+    "crown_policy": "only the first verified successful closure receives the prime crown",
+    "docs_gate": "BLOCKED"
+  }
+}

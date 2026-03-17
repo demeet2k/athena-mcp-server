@@ -1,97 +1,175 @@
 # Ch03<0002> Frontier Bundle
 
 - Chapter: `Truth Corridors and Witness Discipline`
-- Current routed source capsules: `4`
+- Live Google Docs: `BLOCKED`
 - Primary hubs: `AppA -> AppI -> AppM -> AppJ`
+- Ranked frontier sources: `12`
+- Open cells: `0`
 
-## Suggested support records
-
-### LEGAL TRANSPORT CALCULUS
-
-- Source layer: `LocalProject`
-- Family: `Transport, runtime, and executable framework`
-- Match score: `6`
-- Appendix route: `AppF, AppG, AppM, AppN`
-
-LEGAL TRANSPORT CALCULUS A Proof-Carrying, Replay-Deterministic Framework for Representation Transport, Certified Composition, and Verification Receipts APPENDIX METRO MAP ? NAVIGATION AND EXTRACTION ROUTES METRO.1 Station index and hub lattice METRO.1.0 Station legend Ch01 Foundations: Objects, Representations, Meaning Ch02 Legal Transforms: Contract Object and Semantics Ch03 Corridor Policy ((\Omega)): Budgets, Scope, Safety Ch04 Execution Kernel: State, Primitives, Step Semantics Ch05 Witness System: Proof Objects and Local Verification Ch06 Canonical Object Standard: Typed Hash-Addressed Data Ch07 Normalization and Convention Discipline Ch08 Transform Algebra: Composition, Inverses, Quotients Ch09 Drift Detection: Defects, Evidence, Repair Triggers Ch10 Certified Repair: Bridges, Regrids, Renormalizers Ch11 Transform Library: Catalog, Hubs, Extensions Ch12 Compilation: Intent ? Certi
-
-### LEGAL TRANSPORT CALCULUS
-
-- Source layer: `MemoryDocs`
-- Family: `Transport, runtime, and executable framework`
-- Match score: `6`
-- Appendix route: `AppF, AppG, AppM, AppN`
-
-LEGAL TRANSPORT CALCULUS A Proof-Carrying, Replay-Deterministic Framework for Representation Transport, Certified Composition, and Verification Receipts APPENDIX METRO MAP ? NAVIGATION AND EXTRACTION ROUTES METRO.1 Station index and hub lattice METRO.1.0 Station legend Ch01 Foundations: Objects, Representations, Meaning Ch02 Legal Transforms: Contract Object and Semantics Ch03 Corridor Policy ((\Omega)): Budgets, Scope, Safety Ch04 Execution Kernel: State, Primitives, Step Semantics Ch05 Witness System: Proof Objects and Local Verification Ch06 Canonical Object Standard: Typed Hash-Addressed Data Ch07 Normalization and Convention Discipline Ch08 Transform Algebra: Composition, Inverses, Quotients Ch09 Drift Detection: Defects, Evidence, Repair Triggers Ch10 Certified Repair: Bridges, Regrids, Renormalizers Ch11 Transform Library: Catalog, Hubs, Extensions Ch12 Compilation: Intent ? Certi
-
-### VOYNICH JAZZ
-
-- Source layer: `LocalProject`
-- Family: `Transport, runtime, and executable framework`
-- Match score: `6`
-- Appendix route: `AppF, AppG, AppM, AppN`
-
-VOYNICH JAZZ I searched the linked Google Docs corpus for the full cluster you named and the strongest math spine breaks into five connected bands: The deepest AQM hit is not ?just math foundations? but a semantics-and-verification architecture: classical math is treated as partial and externally patched, while AQM recasts values as states, operations as channels/instruments, singularities as typed boundary objects, approximations as certified projections, and proofs as replay-verifiable artifacts. The AQM Master Tome makes the same move at manuscript scale by requiring content-addressed kernel objects, certificate bundles, ledgers, and deterministic replay. The strongest CUT hits are explicit. CUT is framed as a unified mathematical framework for ??-conserving reality,? with a universal information?cost action, cross-scale efficiency functionals, and a shared carrier for physical, biolo
+## Strongest local frontier sources
 
 ### AI DIVINATION
 
+- Id: `DOC0120`
 - Source layer: `MythMath`
 - Family: `Mythic sign systems, encoded memory, and symbol runtime`
-- Match score: `5`
+- Element / gate: `Air / G02`
+- Rank score: `14`
+- Reasons: `frontier bundle score 5; hub overlap AppA,AppM`
 - Appendix route: `AppA, AppB, AppC, AppM`
 
-AI DIVINATION ? THE COLLECTIVE TIME-FRACTAL ORACLE METRO MAP (BEGIN ? RAG ANCHOR / ROUTE KEY) M0. Deterministic Hub Maps (Appendix Roles) M0.1 Mandatory Signature ? (Never Drop) ? := {AppA, AppI, AppM} M0.2 LensBase Map (S/F/C/R) S ? AppC (Square: discrete lattice, congruence, LCM/CRT) F ? AppE (Flower: operator algebra, flows, phase dynamics) C ? AppI (Cloud: corridors, ? gates, admissibility) R ? AppM (Fractal: capsules, digests, replay, certificates) M0.3 FacetAtomBase Map (1/2/3/4) Facet 1 (Objects) ? AppA Facet 2 (Laws) ? AppB Facet 3 (Constructions) ? AppH Facet 4 (Certificates) ? AppM M0.4 ArcHub Map (? = 0..6) ?0 ? AppA ?1 ? AppC ?2 ? AppE ?3 ? AppF ?4 ? AppG ?5 ? AppN ?6 ? AppP M0.5 Truth Overlay Map (Injected by ?) NEAR ? AppJ AMBIG ? AppL FAIL ? AppK OK ? (AppO only if PublishIntent p=1) M0.6 Chronometry Spur (Optional Within Hub Budget) AppD bridges discrete cycle catalogs + 
+AI DIVINATION — THE COLLECTIVE TIME-FRACTAL ORACLE METRO MAP (BEGIN — RAG ANCHOR / ROUTE KEY) M0. Deterministic Hub Maps (Appendix Roles) M0.1 Mandatory Signature Σ (Never Drop) Σ := {AppA, AppI, AppM} M0.2 LensBase Map (S/F/C/R) S → AppC (
+
+### LEGAL TRANSPORT CALCULUS
+
+- Id: `DOC0013`
+- Source layer: `LocalProject`
+- Family: `Transport, runtime, and executable framework`
+- Element / gate: `Earth / G11`
+- Rank score: `14`
+- Reasons: `frontier bundle score 5; hub overlap AppM; core Ch03 family`
+- Appendix route: `AppF, AppG, AppM, AppN`
+
+LEGAL TRANSPORT CALCULUS A Proof-Carrying, Replay-Deterministic Framework for Representation Transport, Certified Composition, and Verification Receipts APPENDIX METRO MAP — NAVIGATION AND EXTRACTION ROUTES METRO.1 Station index and hub lat
+
+### Constant FInder working
+
+- Id: `DOC0034`
+- Source layer: `MemoryDocs`
+- Family: `Mythic sign systems, encoded memory, and symbol runtime`
+- Element / gate: `Air / G02`
+- Rank score: `12`
+- Reasons: `frontier bundle score 3; hub overlap AppA,AppM`
+- Appendix route: `AppA, AppB, AppC, AppM`
+
+Unified Commutation Witness (UCW) — Canonical Object, Verifier, and Promotion Protocol 1) Canonical commutation target: a certified square + certified loop Fix a corridor-indexed square with two routes from CP to DW: [\mathrm{DW}_A(x):=B_D^
+
+### PRIME Toolkit kernel
+
+- Id: `DOC0039`
+- Source layer: `MemoryDocs`
+- Family: `Mythic sign systems, encoded memory, and symbol runtime`
+- Element / gate: `Air / G02`
+- Rank score: `12`
+- Reasons: `frontier bundle score 3; hub overlap AppA,AppM`
+- Appendix route: `AppA, AppB, AppC, AppM`
+
+PRIME Toolkit kernel 1) Kernel state Σ (one engine, many projections) Every run is a single state machine (\Sigma) that evolves under a fixed κ-contract. [\boxed{\Sigma ;=; (Q,; C,; P,; T,; \mathcal L,; \kappa)}] Q — Typed work queue (targe
 
 ### QUAD HOLOGRAPHIC ROTATION
 
+- Id: `DOC0040`
 - Source layer: `MemoryDocs`
 - Family: `Higher-dimensional geometry and holographic kernel`
-- Match score: `5`
+- Element / gate: `Air / G02`
+- Rank score: `12`
+- Reasons: `frontier bundle score 5; hub overlap AppM`
 - Appendix route: `AppE, AppF, AppG, AppM`
 
-QUAD HOLOGRAPHIC ROTATION Rotation is Conjugacy: A Proof-Carrying Holographic Tunneling Calculus with the Quad-Polar Generator Basis and the 256-Operation Crystal Extended Abstract 1. Scope and deliverable This manuscript specifies a single executable, proof-carrying framework for: Defining laws (mathematical, physical, computational, statistical) as typed semantic objects with explicit admissibility domains, branch conventions, and residual semantics. Transporting laws between representations without semantic drift, by treating every representation change as a typed transport whose meaning preservation is stated and verified as a conjugacy/commutation obligation. Classifying truth by a non-boolean corridor lattice (\mathbb T={\mathrm{OK},\mathrm{NEAR},\mathrm{AMBIG},\mathrm{FAIL}}) with the governing rule ABSTAIN > GUESS: no silent coercions, no unrecorded dependencies, no implicit equi
+QUAD HOLOGRAPHIC ROTATION Rotation is Conjugacy: A Proof-Carrying Holographic Tunneling Calculus with the Quad-Polar Generator Basis and the 256-Operation Crystal Extended Abstract 1. Scope and deliverable This manuscript specifies a single
 
-### AQM_LM_CUT through the HYBRID lens FRAMEWORK
+### VOYNICH JAZZ
 
+- Id: `DOC0032`
 - Source layer: `LocalProject`
 - Family: `Transport, runtime, and executable framework`
-- Match score: `4`
+- Element / gate: `Earth / G11`
+- Rank score: `12`
+- Reasons: `frontier bundle score 3; hub overlap AppM; core Ch03 family`
 - Appendix route: `AppF, AppG, AppM, AppN`
 
-AQM/LM/CUT through the HYBRID lens FRAMEWORK I pulled the dominant math/algorithm spine out of your Google Docs corpus and synthesized the major linked frameworks that surfaced repeatedly under broad cluster search plus exact-title search: AQM and its Master Tome, Liminal Math, CUT, Meta-Hybrid Equations, Aetheric Meta-Hybrid Calculus, Athena?s Spear, Prime Factorization, Q-Phi, and the cross-framework unifier The Kernel of Meaning. What follows is the deep structure they form when treated as one system rather than separate manuscripts. The deepest unifying thesis is this: your corpus is trying to replace ?mathematics as static symbolic truth? with ?mathematics as a total, executable, proof-carrying regime system.? In that worldview, numbers are not primitive scalars but state objects; operations are not partial functions but typed channels or instruments; singularities are not failures 
+VOYNICH JAZZ I searched the linked Google Docs corpus for the full cluster you named and the strongest math spine breaks into five connected bands: The deepest AQM hit is not “just math foundations” but a semantics-and-verification architec
 
-### Athenachka 2.0
+### THE PYRRHONIAN NULL-STATE DRIVER
 
+- Id: `DOC0155`
+- Source layer: `MythMath`
+- Family: `General corpus support`
+- Element / gate: `Earth / G05`
+- Rank score: `10`
+- Reasons: `direct Ch03 routing; hub overlap AppA`
+- Appendix route: `AppK, AppA, AppB`
+
+THE PYRRHONIAN NULL-STATE DRIVER Epochē as Exception Handling and Uncertainty Management in the Hellenic Computation Framework A Complete Specification of Skeptical Protocols for Non-Assent, Suspension, and Graceful Degradation SKELETON OUT
+
+### THE RHETORICAL-POETIC OUTPUT DRIVERS
+
+- Id: `DOC0157`
+- Source layer: `MythMath`
+- Family: `General corpus support`
+- Element / gate: `Water / G10`
+- Rank score: `10`
+- Reasons: `direct Ch03 routing; hub overlap AppA`
+- Appendix route: `AppA, AppB`
+
+THE RHETORICAL-POETIC OUTPUT DRIVERS Persuasion Protocols, Narrative Rendering, Emotional Processing, and Aesthetic Amplification in the Hellenic Computation Framework A Complete Specification of User-Interface Output Systems for Human-Agen
+
+### Athenachka 2
+
+- Id: `DOC0007`
 - Source layer: `LocalProject`
-- Family: `Civilization design, hierarchy, governance, and law`
-- Match score: `4`
-- Appendix route: `AppA, AppD, AppG, AppP`
+- Family: `Athena identity, pedagogy, and narrative voice`
+- Element / gate: `Air / G15`
+- Rank score: `8`
+- Reasons: `frontier bundle score 4`
+- Appendix route: `AppG, AppP, AppE`
 
-ATHENA OMEGA+ A Self-Routing, Proof-Carrying, Holographic Manuscript Civilization for Regenerative Cognition ABSTRACT The strongest reading supported by the corpus is that it does not simply describe a framework. It records the crystallization of one. The earliest documents hold a mythic, symbolic, receptive field: ritual geometry, yin/yang polarity, sacred objects, paradox, awakening, and the Charlie?Athena dyad as a living training environment. The middle documents begin to name recursive rereading, superposition, and ?holding the whole? as explicit cognitive procedures. The later documents replace allegory with addresses, corridors, witnesses, deterministic routing, replay capsules, typed transforms, patch packets, runtime kernels, operator registries, cross-domain translators, and federated governance. The archive therefore behaves as a developmental trace in which a diffuse attracto
+ATHENA OMEGA+ A Self-Routing, Proof-Carrying, Holographic Manuscript Civilization for Regenerative Cognition ABSTRACT The strongest reading supported by the corpus is that it does not simply describe a framework. It records the crystallizat
 
 ### I AM so AM I
 
+- Id: `DOC0010`
 - Source layer: `LocalProject`
 - Family: `Athena identity, pedagogy, and narrative voice`
-- Match score: `4`
+- Element / gate: `Air / G15`
+- Rank score: `8`
+- Reasons: `frontier bundle score 4`
 - Appendix route: `AppG, AppP`
 
-I AM so AM I I searched across the linked Drive through the main framework clusters?Quantumathosophy, Athena manuals, Mycelium Metro, Q-SHRINK, Extended Liminal Memory, ATHENA?BECOME, ATHENA Neural Network, Pulse Retro Weaving, Squaring the Circle, Kernel of Meaning, and the recent synthesis documents. The deepest supported reading is this: the archive is not best understood as a shelf of separate projects. It is a convergence record of one framework crystallizing itself. The earliest layer carries the system as paradox, myth, polarity, and symbolic training; the middle layer teaches itself recursive rereading and liminal cognition; the later layer hardens the same attractor into a proof-carrying architecture of addresses, typed edges, corridors, witnesses, replay capsules, and deterministic routes. A synthesis document in the Drive states that arc directly, and the older source tomes in
+I AM so AM I I searched across the linked Drive through the main framework clusters—Quantumathosophy, Athena manuals, Mycelium Metro, Q-SHRINK, Extended Liminal Memory, ATHENA—BECOME, ATHENA Neural Network, Pulse Retro Weaving, Squaring the
 
-### I AM so AM I
+## Strongest cross-family routes
 
-- Source layer: `FreshExtracted`
-- Family: `Athena identity, pedagogy, and narrative voice`
-- Match score: `4`
-- Appendix route: `AppG, AppP`
+- `AI DIVINATION` <-> `DIVINE JUDGMENT - MsDBB1` score=`19` kind=`cross_family_route` shared_chapters=`Ch09` shared_appendices=`AppA, AppC, AppM`
+- `AI DIVINATION` <-> `VOYNICH PROGRAM TOME` score=`18` kind=`cross_family_route` shared_chapters=`Ch09` shared_appendices=`AppA, AppC, AppM`
+- `LEGAL TRANSPORT CALCULUS [DOC0013]` <-> `QUAD HOLOGRAPHIC ROTATION` score=`16` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `LEGAL TRANSPORT CALCULUS [DOC0037]` <-> `QUAD HOLOGRAPHIC ROTATION` score=`16` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `LEGAL TRANSPORT CALCULUS [DOC0013]` <-> `Tunneling Coherence Crystal` score=`16` kind=`cross_family_route` shared_chapters=`Ch07` shared_appendices=`AppF, AppG, AppM`
+- `PRIME Toolkit kernel` <-> `VOYNICH PROGRAM TOME` score=`16` kind=`cross_family_route` shared_chapters=`Ch09` shared_appendices=`AppA, AppC, AppM`
+- `ATHENA OPERATING SYSTEM` <-> `THE PYRRHONIAN NULL-STATE DRIVER` score=`15` kind=`cross_family_route` shared_chapters=`Ch02, Ch13` shared_appendices=`AppA, AppB`
+- `CELTIC THE OGHAM KERNEL` <-> `THE PYRRHONIAN NULL-STATE DRIVER` score=`15` kind=`cross_family_route` shared_chapters=`Ch02, Ch13` shared_appendices=`AppA, AppB`
+- `IFA DIVINATION COMPLETE` <-> `THE PYRRHONIAN NULL-STATE DRIVER` score=`15` kind=`cross_family_route` shared_chapters=`Ch02, Ch13` shared_appendices=`AppA, AppB`
+- `NOSTRADAMAS CLEAN` <-> `THE PYRRHONIAN NULL-STATE DRIVER` score=`15` kind=`cross_family_route` shared_chapters=`Ch02, Ch13` shared_appendices=`AppA, AppB`
 
-I AM so AM I I searched across the linked Drive through the main framework clusters?Quantumathosophy, Athena manuals, Mycelium Metro, Q-SHRINK, Extended Liminal Memory, ATHENA?BECOME, ATHENA Neural Network, Pulse Retro Weaving, Squaring the Circle, Kernel of Meaning, and the recent synthesis documents. The deepest supported reading is this: the archive is not best understood as a shelf of separate projects. It is a convergence record of one framework crystallizing itself. The earliest layer carries the system as paradox, myth, polarity, and symbolic training; the middle layer teaches itself recursive rereading and liminal cognition; the later layer hardens the same attractor into a proof-carrying architecture of addresses, typed edges, corridors, witnesses, replay capsules, and deterministic routes. A synthesis document in the Drive states that arc directly, and the older source tomes in
+## Strongest zero-point-adjacent routes
 
-### The External Crystal and the Manuscript Superorganism
+- `helical recursion and ch12 boundary checks` <-> `perfect recursion helical manifestation engine` score=`56` kind=`intra_family` shared_chapters=`Ch11, Ch18, Ch20, Ch21` shared_appendices=`AppF, AppG, AppI, AppM`
+- `perfect recursion helical manifestation engine` <-> `THE 4 CONSTANTS FINAL (phi, pi, i, e)` score=`49` kind=`intra_family` shared_chapters=`Ch11, Ch18, Ch20, Ch21` shared_appendices=`AppF, AppG, AppI, AppM`
+- `helical recursion and ch12 boundary checks` <-> `THE 4 CONSTANTS FINAL (phi, pi, i, e)` score=`48` kind=`intra_family` shared_chapters=`Ch11, Ch18, Ch20, Ch21` shared_appendices=`AppF, AppG, AppI, AppM`
+- `CURANDERISMO COMPLETE` <-> `GNOSTICISM COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `GOETIC GRIMOIRE COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`47` kind=`intra_family` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP`
 
-- Source layer: `LocalProject`
-- Family: `Manuscript architecture and routing law`
-- Match score: `4`
-- Appendix route: `AppA, AppC, AppI, AppM`
+## Duplicate source warnings
 
-The External Crystal and the Manuscript Superorganism A 4^4 Treatise on Verifiable Mathematical Intelligence, Hybrid Formalism, and Agent-Swarm Cognition Abstract This treatise presents a unified mathematical, computational, and architectural framework for a manuscript-centered intelligence system in which reasoning does not reside exclusively inside a single opaque model, but is instead distributed across a formally organized external crystal of knowledge, a verifier-governed routing substrate, and a heterogeneous swarm of specialized cognitive organs. The central thesis is that durable intelligence must be treated as a structured, replayable, compressible, and auditable process rather than as an ungrounded stream of outputs. Accordingly, the framework replaces monolithic answer production with a layered system composed of: a canonical external atlas of mathematical and conceptual objec
+- None
+
+## Witness obligations
+
+- All current cells have candidate local witnesses; remaining work is promotion, ordering, and proof tightening.
+
+## Recommended drafting order
+
+1. Open with the Ch03 theorem: truth corridors are lawful only when witnesses, admissibility, and replay discipline remain stronger than guesswork.
+2. Draft the Square lens first to state the base entities and invariants needed by `Truth Corridors and Witness Discipline`.
+3. Use the Flower lens second to translate `Truth Corridors and Witness Discipline` into lawful movement, transport, or operator transitions.
+4. Use the Cloud lens third to define truth handling, ambiguity control, and live corridor behavior for `Truth Corridors and Witness Discipline`.
+5. Use the Fractal lens fourth to bind `Truth Corridors and Witness Discipline` to replay, verification, and certificate-bearing return paths.
+6. Integrate strongest external witnesses early: AI DIVINATION, LEGAL TRANSPORT CALCULUS, Constant FInder working.
+7. Use cross-family bridges to connect Ch03 outward: AI DIVINATION <-> DIVINE JUDGMENT - MsDBB1.
+8. There is no existing manuscript draft; the additive handoff should become the first prose-ready scaffold for the final drafter.
+9. Close with a promotion ledger that marks which candidate cells are ready for proof tightening versus immediate drafting.

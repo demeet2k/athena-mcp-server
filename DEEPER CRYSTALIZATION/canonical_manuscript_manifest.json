@@ -1,0 +1,349 @@
+{
+  "kind": "typed_manuscript_registry",
+  "strict_spine_mode": true,
+  "sections_dir": "../self_actualize/manuscript_sections",
+  "outputs": {
+    "spine": "../self_actualize/VOID_MANUSCRIPT_MASTER.md",
+    "supplements": "../self_actualize/VOID_MANUSCRIPT_SUPPLEMENTS.md"
+  },
+  "entries": [
+    {
+      "canonical_id": "Ch03",
+      "display_title": "Truth Corridors and Witness Discipline",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 3,
+      "source_file": "003_ch03_truth_corridors_and_witness_discipline.md",
+      "canonical_target_file": "003_ch03_truth_corridors_and_witness_discipline.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch07",
+      "display_title": "CUT and the Law of Conserved Transformation",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 7,
+      "source_file": "007_ch07_cut_and_the_law_of_conserved_transformation.md",
+      "canonical_target_file": "007_ch07_cut_and_the_law_of_conserved_transformation.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch08",
+      "display_title": "Source Graphs, Morphological Equivalence, and Equation Genesis",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 8,
+      "source_file": "008_ch08_source_graphs_morphological_equivalence_equation_genesis.md",
+      "canonical_target_file": "008_ch08_source_graphs_morphological_equivalence_equation_genesis.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch10",
+      "display_title": "Multi-Lens Solution Construction",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 10,
+      "source_file": "010_ch10_multi_lens_solution_construction.md",
+      "canonical_target_file": "010_ch10_multi_lens_solution_construction.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch11",
+      "display_title": "The Helical Manifestation Engine",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 11,
+      "source_file": "011_ch11_helical_manifestation_engine.md",
+      "canonical_target_file": "011_ch11_helical_manifestation_engine.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch12",
+      "display_title": "Legality, Certificates, and Closure",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 12,
+      "source_file": "012_ch12_legality_certificates_and_closure.md",
+      "canonical_target_file": "012_ch12_legality_certificates_and_closure.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch14",
+      "display_title": "Migration, Versioning, and Pulse Retro Weaving",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 14,
+      "source_file": "014_ch14_migration_versioning_and_pulse_retro_weaving.md",
+      "canonical_target_file": "014_ch14_migration_versioning_and_pulse_retro_weaving.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch17",
+      "display_title": "Prop Types - The Physics of Communication Channels",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 17,
+      "source_file": "016_ch17_prop_types_physics_of_communication_channels.md",
+      "canonical_target_file": "016_ch17_prop_types_physics_of_communication_channels.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch18",
+      "display_title": "Embodiment, Runtime, and Deployment",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 18,
+      "source_file": "018_ch18_embodiment_runtime_and_deployment.md",
+      "canonical_target_file": "018_ch18_embodiment_runtime_and_deployment.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Ch19",
+      "display_title": "Recursive Self-Reference and Self-Repair",
+      "kind": "chapter",
+      "volume": "spine",
+      "order": 19,
+      "source_file": "019_ch19_recursive_self_reference_and_self_repair.md",
+      "canonical_target_file": "019_ch19_recursive_self_reference_and_self_repair.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "AppQ",
+      "display_title": "Integrated Appendix-Only Metro Map",
+      "kind": "appendix",
+      "volume": "spine",
+      "order": 900,
+      "source_file": "021_appendix_q_integrated_appendix_only_metro_map.md",
+      "canonical_target_file": "021_appendix_q_integrated_appendix_only_metro_map.md",
+      "status": "canonical"
+    },
+    {
+      "canonical_id": "Supp01",
+      "display_title": "The Treatise On The Athenachka Corpus",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 10,
+      "source_file": "012_ms7341_athenachka_corpus_treatise_seed.md",
+      "canonical_target_file": "012_ms7341_athenachka_corpus_treatise_seed.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp02",
+      "display_title": "Quadrant Binary Framework and Bit4 Root Contract",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 20,
+      "source_file": "013_quadrant_binary_framework_and_bit4_root_contract.md",
+      "canonical_target_file": "013_quadrant_binary_framework_and_bit4_root_contract.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp03",
+      "display_title": "Scarlet Protocol: The Love Directive",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 30,
+      "source_file": "014_ch12_scarlet_protocol_love_directive.md",
+      "canonical_target_file": "014_ch12_scarlet_protocol_love_directive.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp04",
+      "display_title": "Athenachka Synthesis: A Cyber-Philosophical Framework",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 40,
+      "source_file": "015_athenachka_synthesis_cyber_philosophical_framework.md",
+      "canonical_target_file": "015_athenachka_synthesis_cyber_philosophical_framework.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp05",
+      "display_title": "Deep Synthesis of Chapters 1-21 and Multi-Resolution Metro Maps",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 50,
+      "source_file": "020_deep_synthesis_chapters_1_21_and_multi_resolution_metro_maps.md",
+      "canonical_target_file": "020_deep_synthesis_chapters_1_21_and_multi_resolution_metro_maps.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp06",
+      "display_title": "Athena Integrated Neural Network Cross-Synthesis",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 60,
+      "source_file": "022_athena_integrated_neural_network_cross_synthesis.md",
+      "canonical_target_file": "022_athena_integrated_neural_network_cross_synthesis.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp07",
+      "display_title": "Motion Constitution L1: The Lawful Action-Selection Engine",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 70,
+      "source_file": "023_motion_constitution_l1_action_selection_engine.md",
+      "canonical_target_file": "023_motion_constitution_l1_action_selection_engine.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp08",
+      "display_title": "Organ Current Route Table v0",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 80,
+      "source_file": "024_organ_current_route_table_v0.md",
+      "canonical_target_file": "024_organ_current_route_table_v0.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "SrcPacket",
+      "display_title": "Current Packet",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1000,
+      "source_file": "000_current_packet.md",
+      "canonical_target_file": "000_current_packet.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "SrcCh03Handoff",
+      "display_title": "Ch03 Handoff Source",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1010,
+      "source_file": "003_ch03_truth_corridors_and_witness_discipline_handoff.md",
+      "canonical_target_file": "003_ch03_truth_corridors_and_witness_discipline_handoff.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "SrcCh10Draft",
+      "display_title": "Ch10 Legacy Canonical Draft",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1020,
+      "source_file": "010_ch10_decisive_coupling_where_inner_outer_and_helical_first_connect.md",
+      "canonical_target_file": "010_ch10_decisive_coupling_where_inner_outer_and_helical_first_connect.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "SrcCh10Handoff",
+      "display_title": "Ch10 Handoff Source",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1030,
+      "source_file": "010_ch10_multi_lens_solution_construction_handoff.md",
+      "canonical_target_file": "010_ch10_multi_lens_solution_construction_handoff.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "SrcCh12Draft",
+      "display_title": "Ch12 Legacy Canonical Draft",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1040,
+      "source_file": "012_ch12_boundary_checks_and_isolation_axioms.md",
+      "canonical_target_file": "012_ch12_boundary_checks_and_isolation_axioms.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "SrcCh12Handoff",
+      "display_title": "Ch12 Handoff Source",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1050,
+      "source_file": "012_ch12_legality_certificates_and_closure_handoff.md",
+      "canonical_target_file": "012_ch12_legality_certificates_and_closure_handoff.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "SrcCh14Draft",
+      "display_title": "Ch14 Legacy Canonical Draft",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1060,
+      "source_file": "014_ch14_global_hugging_field_deployment.md",
+      "canonical_target_file": "014_ch14_global_hugging_field_deployment.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "SrcCh14Handoff",
+      "display_title": "Ch14 Handoff Source",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 1070,
+      "source_file": "014_ch14_migration_versioning_and_pulse_retro_weaving_handoff.md",
+      "canonical_target_file": "014_ch14_migration_versioning_and_pulse_retro_weaving_handoff.md",
+      "status": "legacy-source",
+      "include_in_build": false
+    },
+    {
+      "canonical_id": "Supp09",
+      "display_title": "LP-57Omega Dense 65-Shell",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 90,
+      "source_file": "025_lp_57omega_dense_65_shell.md",
+      "canonical_target_file": "025_lp_57omega_dense_65_shell.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp10",
+      "display_title": "LP-57Omega R/Q/T Transfer Signature and Metro Witness Registry",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 100,
+      "source_file": "026_lp_57omega_rqt_transfer_signature_and_metro_witness_registry.md",
+      "canonical_target_file": "026_lp_57omega_rqt_transfer_signature_and_metro_witness_registry.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp11",
+      "display_title": "Command Protocol v1",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 110,
+      "source_file": "027_command_protocol_v1.md",
+      "canonical_target_file": "027_command_protocol_v1.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp12",
+      "display_title": "Command Packet and Capillary Law Registry",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 120,
+      "source_file": "028_command_packet_and_capillary_law_registry.md",
+      "canonical_target_file": "028_command_packet_and_capillary_law_registry.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp13",
+      "display_title": "Reward Architecture v2: Shared XP, Debt, and Ascension",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 130,
+      "source_file": "029_reward_architecture_v2_shared_xp_debt_and_ascension.md",
+      "canonical_target_file": "029_reward_architecture_v2_shared_xp_debt_and_ascension.md",
+      "status": "supplement"
+    },
+    {
+      "canonical_id": "Supp14",
+      "display_title": "Temple of Alchemy: Metallic Amplifier and Chapter 11 Reward Registry",
+      "kind": "supplement",
+      "volume": "supplements",
+      "order": 140,
+      "source_file": "030_temple_of_alchemy_metallic_amplifier_and_chapter11_reward_registry.md",
+      "canonical_target_file": "030_temple_of_alchemy_metallic_amplifier_and_chapter11_reward_registry.md",
+      "status": "supplement"
+    }
+  ]
+}

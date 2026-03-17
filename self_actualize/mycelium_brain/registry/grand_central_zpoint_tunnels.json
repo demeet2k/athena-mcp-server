@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-03-12T19:09:36.577589+00:00",
+  "derivation_version": "2026-03-12.gc-v1",
+  "docs_gate": "BLOCKED",
+  "kernel": {
+    "source": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+    "source_timestamp": "2026-03-09T19:41:33.459257+00:00",
+    "law": "Ch11<0022> is the lawful restart-token and zero-point tunnel kernel."
+  },
+  "tunnels": [
+    {
+      "tunnel_id": "ZT-001",
+      "tunnel_class": "Z0 intake",
+      "entry_route": "FRESH -> GCA -> NERVOUS_SYSTEM",
+      "restart_token": "INTAKE-FIRST-WITNESS",
+      "zero_state": "unknown placement held without premature classification",
+      "resume_target": "A11 intake fringe receives first lawful station address",
+      "continuity_receipt": "root-basis assignment plus first witness shell",
+      "proof_state": "NEAR"
+    },
+    {
+      "tunnel_id": "ZT-002",
+      "tunnel_class": "Z1 restart",
+      "entry_route": "ORGIN -> GCZ -> Ch11<0022> -> self_actualize",
+      "restart_token": "CH11-RESTART-CONTINUITY",
+      "zero_state": "continuity break admitted without false carry-forward",
+      "resume_target": "runtime replay waist with preserved restart receipt",
+      "continuity_receipt": "Ch11 restart token plus runtime writeback",
+      "proof_state": "OK"
+    },
+    {
+      "tunnel_id": "ZT-003",
+      "tunnel_class": "Z2 contradiction",
+      "entry_route": "Voynich -> GCC -> GCZ -> chamber quarantine",
+      "restart_token": "CONTRADICTION-PRESERVE-BOTH",
+      "zero_state": "paired hypotheses preserved instead of prematurely collapsed",
+      "resume_target": "bounded manuscript lane with contradiction visible",
+      "continuity_receipt": "quarantine note and replay-safe dual reading",
+      "proof_state": "NEAR"
+    },
+    {
+      "tunnel_id": "ZT-004",
+      "tunnel_class": "Z3 repair",
+      "entry_route": "DEEPER CRYSTALIZATION -> GCZ -> self_actualize",
+      "restart_token": "PRECURSOR-REPAIR-DELTA",
+      "zero_state": "historical drift held long enough for lawful repair",
+      "resume_target": "runtime repair surfaces and receipts",
+      "continuity_receipt": "repair receipt preserving mirror status",
+      "proof_state": "NEAR"
+    },
+    {
+      "tunnel_id": "ZT-005",
+      "tunnel_class": "Z4 promotion",
+      "entry_route": "Athena FLEET -> GCX -> 14_DEEPER... -> NERVOUS_SYSTEM",
+      "restart_token": "FLEET-PROMOTION-DOCK",
+      "zero_state": "promoted cluster held in the departure yard before cortex claim",
+      "resume_target": "canonical fleet bridge and deep-root dock",
+      "continuity_receipt": "promotion receipt plus registry entry",
+      "proof_state": "OK"
+    },
+    {
+      "tunnel_id": "ZT-006",
+      "tunnel_class": "Z5 pruning",
+      "entry_route": "historical skill mirrors -> GCZ -> witness shelf",
+      "restart_token": "SOFT-DEMOTION-WITNESS",
+      "zero_state": "authority removed without deleting lineage",
+      "resume_target": "historical mirror status with live-router pointer intact",
+      "continuity_receipt": "deprecation map and pruning ledger",
+      "proof_state": "OK"
+    }
+  ],
+  "summary": {
+    "tunnel_count": 6,
+    "classes": [
+      "Z0 intake",
+      "Z1 restart",
+      "Z2 contradiction",
+      "Z3 repair",
+      "Z4 promotion",
+      "Z5 pruning"
+    ],
+    "mandatory_for": [
+      "critical manuscript flows",
+      "runtime repair flows",
+      "promotion crossings",
+      "pruning crossings"
+    ]
+  }
+}

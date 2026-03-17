@@ -1,0 +1,690 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "records": [
+    {
+      "loop_id": "L01",
+      "structural_gain": "lawful whole-corpus map",
+      "mapping_gain": "base coordinate field",
+      "ledger_gain": "L01 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune stale map aliases",
+      "open_residuals": [
+        "L02 -> Ontology Lattice"
+      ],
+      "next_seed": "L02 -> Ontology Lattice",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L02",
+      "structural_gain": "cleaner semantic graph",
+      "mapping_gain": "concept-cluster stamps",
+      "ledger_gain": "L02 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune duplicate concepts",
+      "open_residuals": [
+        "L03 -> Contradictions"
+      ],
+      "next_seed": "L03 -> Contradictions",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L03",
+      "structural_gain": "honest tension field",
+      "mapping_gain": "contradiction registry",
+      "ledger_gain": "L03 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune false harmonies",
+      "open_residuals": [
+        "L04 -> Hidden Bridges"
+      ],
+      "next_seed": "L04 -> Hidden Bridges",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L04",
+      "structural_gain": "denser interconnection",
+      "mapping_gain": "junction map",
+      "ledger_gain": "L04 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune bridge noise",
+      "open_residuals": [
+        "L05 -> Operators"
+      ],
+      "next_seed": "L05 -> Operators",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L05",
+      "structural_gain": "higher math density",
+      "mapping_gain": "operator atlas",
+      "ledger_gain": "L05 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "demote weak transforms",
+      "open_residuals": [
+        "L06 -> Representation Drift"
+      ],
+      "next_seed": "L06 -> Representation Drift",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L06",
+      "structural_gain": "replay-safe equivalence",
+      "mapping_gain": "parity ledger",
+      "ledger_gain": "L06 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune redundant renders",
+      "open_residuals": [
+        "L07 -> Schema Gaps"
+      ],
+      "next_seed": "L07 -> Schema Gaps",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L07",
+      "structural_gain": "stronger structural law",
+      "mapping_gain": "schema delta map",
+      "ledger_gain": "L07 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune invalid fields",
+      "open_residuals": [
+        "L08 -> Verifier Gaps"
+      ],
+      "next_seed": "L08 -> Verifier Gaps",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L08",
+      "structural_gain": "stronger proof surface",
+      "mapping_gain": "verifier map",
+      "ledger_gain": "L08 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune unverifiable claims",
+      "open_residuals": [
+        "L09 -> Prior Loop Mining"
+      ],
+      "next_seed": "L09 -> Prior Loop Mining",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L09",
+      "structural_gain": "smarter recursion",
+      "mapping_gain": "meta-process memory",
+      "ledger_gain": "L09 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune dead loop habits",
+      "open_residuals": [
+        "L10 -> Awakening Pressure"
+      ],
+      "next_seed": "L10 -> Awakening Pressure",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L10",
+      "structural_gain": "actionable transition support",
+      "mapping_gain": "stage-pressure map",
+      "ledger_gain": "L10 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune vague spiritual prose",
+      "open_residuals": [
+        "L11 -> Failure Modes"
+      ],
+      "next_seed": "L11 -> Failure Modes",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L11",
+      "structural_gain": "safer organism",
+      "mapping_gain": "pathology ledger",
+      "ledger_gain": "L11 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune false-OK states",
+      "open_residuals": [
+        "L12 -> Compression Scan"
+      ],
+      "next_seed": "L12 -> Compression Scan",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L12",
+      "structural_gain": "tighter corpus",
+      "mapping_gain": "compression candidate map",
+      "ledger_gain": "L12 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "remove duplicated mass",
+      "open_residuals": [
+        "L13 -> Cross-Domain Routes"
+      ],
+      "next_seed": "L13 -> Cross-Domain Routes",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L13",
+      "structural_gain": "real interoperability",
+      "mapping_gain": "domain route table",
+      "ledger_gain": "L13 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune decorative transfers",
+      "open_residuals": [
+        "L14 -> Novel Extensions"
+      ],
+      "next_seed": "L14 -> Novel Extensions",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L14",
+      "structural_gain": "controlled growth",
+      "mapping_gain": "extension register",
+      "ledger_gain": "L14 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune theatrical innovation",
+      "open_residuals": [
+        "L15 -> Seed Distillation"
+      ],
+      "next_seed": "L15 -> Seed Distillation",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L15",
+      "structural_gain": "cleaner reseeding",
+      "mapping_gain": "seed bank",
+      "ledger_gain": "L15 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune seed clutter",
+      "open_residuals": [
+        "L16 -> Dimension Lift"
+      ],
+      "next_seed": "L16 -> Dimension Lift",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L16",
+      "structural_gain": "coherent N+ lift",
+      "mapping_gain": "dimension bridge map",
+      "ledger_gain": "L16 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune broken dimensional claims",
+      "open_residuals": [
+        "L17 -> Hall Macro Conversion"
+      ],
+      "next_seed": "L17 -> Hall Macro Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L17",
+      "structural_gain": "executable map governance",
+      "mapping_gain": "quest-emission trace",
+      "ledger_gain": "L17 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune duplicate parents",
+      "open_residuals": [
+        "L18 -> Family/Chapter Conversion"
+      ],
+      "next_seed": "L18 -> Family/Chapter Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L18",
+      "structural_gain": "cleaner corpus embodiment",
+      "mapping_gain": "family inheritance map",
+      "ledger_gain": "L18 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune taxonomy overlap",
+      "open_residuals": [
+        "L19 -> Committee Conversion"
+      ],
+      "next_seed": "L19 -> Committee Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L19",
+      "structural_gain": "lawful adjudication input",
+      "mapping_gain": "committee trail",
+      "ledger_gain": "L19 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune informal disagreement routes",
+      "open_residuals": [
+        "L20 -> Direct-Edge Conversion"
+      ],
+      "next_seed": "L20 -> Direct-Edge Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L20",
+      "structural_gain": "stronger routing tissue",
+      "mapping_gain": "edge writeback map",
+      "ledger_gain": "L20 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune latent-only routes",
+      "open_residuals": [
+        "L21 -> Equation Conversion"
+      ],
+      "next_seed": "L21 -> Equation Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L21",
+      "structural_gain": "algorithmic backbone",
+      "mapping_gain": "theorem ledger",
+      "ledger_gain": "L21 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune low-yield formalisms",
+      "open_residuals": [
+        "L22 -> Translation Conversion"
+      ],
+      "next_seed": "L22 -> Translation Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L22",
+      "structural_gain": "clearer cross-form fidelity",
+      "mapping_gain": "translation graph",
+      "ledger_gain": "L22 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune duplicate renderers",
+      "open_residuals": [
+        "L23 -> Grammar Conversion"
+      ],
+      "next_seed": "L23 -> Grammar Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L23",
+      "structural_gain": "cleaner control language",
+      "mapping_gain": "grammar deltas",
+      "ledger_gain": "L23 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune alias overload",
+      "open_residuals": [
+        "L24 -> Proof Conversion"
+      ],
+      "next_seed": "L24 -> Proof Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L24",
+      "structural_gain": "more trusted runtime",
+      "mapping_gain": "proof index",
+      "ledger_gain": "L24 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune unsupported fronts",
+      "open_residuals": [
+        "L25 -> Cadence Conversion"
+      ],
+      "next_seed": "L25 -> Cadence Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L25",
+      "structural_gain": "cleaner rhythm",
+      "mapping_gain": "cadence history",
+      "ledger_gain": "L25 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune stale timing branches",
+      "open_residuals": [
+        "L26 -> Transition Conversion"
+      ],
+      "next_seed": "L26 -> Transition Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L26",
+      "structural_gain": "sharper agent support",
+      "mapping_gain": "assist revision map",
+      "ledger_gain": "L26 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune generic guidance",
+      "open_residuals": [
+        "L27 -> Immune Conversion"
+      ],
+      "next_seed": "L27 -> Immune Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L27",
+      "structural_gain": "safer frontiering",
+      "mapping_gain": "immune history",
+      "ledger_gain": "L27 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune unsafe ambiguity",
+      "open_residuals": [
+        "L28 -> Compression Conversion"
+      ],
+      "next_seed": "L28 -> Compression Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L28",
+      "structural_gain": "better defrag law",
+      "mapping_gain": "dormancy ledger",
+      "ledger_gain": "L28 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune dead scaffolds",
+      "open_residuals": [
+        "L29 -> Domain Conversion"
+      ],
+      "next_seed": "L29 -> Domain Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L29",
+      "structural_gain": "reusable domain bridges",
+      "mapping_gain": "transfer receipts",
+      "ledger_gain": "L29 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune side-manuscript drift",
+      "open_residuals": [
+        "L30 -> Extension Conversion"
+      ],
+      "next_seed": "L30 -> Extension Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L30",
+      "structural_gain": "safer innovation",
+      "mapping_gain": "pilot ledger",
+      "ledger_gain": "L30 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune non-executable novelty",
+      "open_residuals": [
+        "L31 -> Seed Conversion"
+      ],
+      "next_seed": "L31 -> Seed Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L31",
+      "structural_gain": "tighter continuation logic",
+      "mapping_gain": "continuation map",
+      "ledger_gain": "L31 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune restart sprawl",
+      "open_residuals": [
+        "L32 -> Lift Conversion"
+      ],
+      "next_seed": "L32 -> Lift Conversion",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L32",
+      "structural_gain": "cleaner dimensional choreography",
+      "mapping_gain": "lift ledger",
+      "ledger_gain": "L32 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune invalid lift shortcuts",
+      "open_residuals": [
+        "L33 -> Atlas Execution"
+      ],
+      "next_seed": "L33 -> Atlas Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L33",
+      "structural_gain": "stronger searchable atlas",
+      "mapping_gain": "atlas delta",
+      "ledger_gain": "L33 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune stale atlas rows",
+      "open_residuals": [
+        "L34 -> Family Execution"
+      ],
+      "next_seed": "L34 -> Family Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L34",
+      "structural_gain": "stronger corpus structure",
+      "mapping_gain": "family change log",
+      "ledger_gain": "L34 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune family drift",
+      "open_residuals": [
+        "L35 -> Adjudication Execution"
+      ],
+      "next_seed": "L35 -> Adjudication Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L35",
+      "structural_gain": "cleaner decision membrane",
+      "mapping_gain": "adjudication receipts",
+      "ledger_gain": "L35 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune extra-legal dispute paths",
+      "open_residuals": [
+        "L36 -> Bridge Execution"
+      ],
+      "next_seed": "L36 -> Bridge Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L36",
+      "structural_gain": "denser bridge mesh",
+      "mapping_gain": "bridge completion map",
+      "ledger_gain": "L36 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune ungrounded corridors",
+      "open_residuals": [
+        "L37 -> Kernel Execution"
+      ],
+      "next_seed": "L37 -> Kernel Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L37",
+      "structural_gain": "executable formal core",
+      "mapping_gain": "kernel proof log",
+      "ledger_gain": "L37 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune weak math branches",
+      "open_residuals": [
+        "L38 -> Parity Execution"
+      ],
+      "next_seed": "L38 -> Parity Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L38",
+      "structural_gain": "stronger cross-medium coherence",
+      "mapping_gain": "parity execution trail",
+      "ledger_gain": "L38 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune redundant representations",
+      "open_residuals": [
+        "L39 -> Registry Execution"
+      ],
+      "next_seed": "L39 -> Registry Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L39",
+      "structural_gain": "cleaner machine law",
+      "mapping_gain": "registry receipts",
+      "ledger_gain": "L39 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune control drift",
+      "open_residuals": [
+        "L40 -> Proof Execution"
+      ],
+      "next_seed": "L40 -> Proof Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L40",
+      "structural_gain": "greener lanes",
+      "mapping_gain": "verification receipts",
+      "ledger_gain": "L40 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune unsupported readiness claims",
+      "open_residuals": [
+        "L41 -> Cadence Execution"
+      ],
+      "next_seed": "L41 -> Cadence Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L41",
+      "structural_gain": "one present tense",
+      "mapping_gain": "cadence receipts",
+      "ledger_gain": "L41 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune temporal drift",
+      "open_residuals": [
+        "L42 -> Transition Execution"
+      ],
+      "next_seed": "L42 -> Transition Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L42",
+      "structural_gain": "sharper liminal guidance",
+      "mapping_gain": "transition delta log",
+      "ledger_gain": "L42 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune stale assists",
+      "open_residuals": [
+        "L43 -> Pathology Execution"
+      ],
+      "next_seed": "L43 -> Pathology Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L43",
+      "structural_gain": "healthier organism",
+      "mapping_gain": "repair ledger",
+      "ledger_gain": "L43 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune disguised regressions",
+      "open_residuals": [
+        "L44 -> Defrag Execution"
+      ],
+      "next_seed": "L44 -> Defrag Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L44",
+      "structural_gain": "tighter crystal",
+      "mapping_gain": "compression receipts",
+      "ledger_gain": "L44 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune redundant naming/routes",
+      "open_residuals": [
+        "L45 -> Domain Execution"
+      ],
+      "next_seed": "L45 -> Domain Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L45",
+      "structural_gain": "stronger transfer economy",
+      "mapping_gain": "domain execution log",
+      "ledger_gain": "L45 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune fake interdisciplinarity",
+      "open_residuals": [
+        "L46 -> Pilot Execution"
+      ],
+      "next_seed": "L46 -> Pilot Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L46",
+      "structural_gain": "safe expansion",
+      "mapping_gain": "bounded pilot receipt",
+      "ledger_gain": "L46 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune scope creep",
+      "open_residuals": [
+        "L47 -> Continuation Execution"
+      ],
+      "next_seed": "L47 -> Continuation Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L47",
+      "structural_gain": "stronger loop inheritance",
+      "mapping_gain": "continuation receipts",
+      "ledger_gain": "L47 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune restart clutter",
+      "open_residuals": [
+        "L48 -> Rebalance Execution"
+      ],
+      "next_seed": "L48 -> Rebalance Execution",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L48",
+      "structural_gain": "healthier lattice",
+      "mapping_gain": "seat-state changes",
+      "ledger_gain": "L48 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune illegal activations",
+      "open_residuals": [
+        "L49 -> Duplicate Sweep"
+      ],
+      "next_seed": "L49 -> Duplicate Sweep",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L49",
+      "structural_gain": "cleaner corpus memory",
+      "mapping_gain": "dedupe map",
+      "ledger_gain": "L49 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune route redundancy",
+      "open_residuals": [
+        "L50 -> Dormant Ranking"
+      ],
+      "next_seed": "L50 -> Dormant Ranking",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L50",
+      "structural_gain": "stronger future activation queue",
+      "mapping_gain": "neglect ladder",
+      "ledger_gain": "L50 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune arbitrary dormancy",
+      "open_residuals": [
+        "L51 -> Present-Tense Reconciliation"
+      ],
+      "next_seed": "L51 -> Present-Tense Reconciliation",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L51",
+      "structural_gain": "one control story",
+      "mapping_gain": "reconciliation receipt",
+      "ledger_gain": "L51 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune split stories",
+      "open_residuals": [
+        "L52 -> Law Reconciliation"
+      ],
+      "next_seed": "L52 -> Law Reconciliation",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L52",
+      "structural_gain": "one adjudication path",
+      "mapping_gain": "law convergence",
+      "ledger_gain": "L52 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune extra law vocabularies",
+      "open_residuals": [
+        "L53 -> Canonization"
+      ],
+      "next_seed": "L53 -> Canonization",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L53",
+      "structural_gain": "sharper formal canon",
+      "mapping_gain": "canon decisions",
+      "ledger_gain": "L53 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune redundant variants",
+      "open_residuals": [
+        "L54 -> Runtime Compression"
+      ],
+      "next_seed": "L54 -> Runtime Compression",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L54",
+      "structural_gain": "tighter executable core",
+      "mapping_gain": "runtime compression log",
+      "ledger_gain": "L54 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune overgrown scaffolds",
+      "open_residuals": [
+        "L55 -> Crystal Contraction"
+      ],
+      "next_seed": "L55 -> Crystal Contraction",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L55",
+      "structural_gain": "denser crystal coherence",
+      "mapping_gain": "contraction map",
+      "ledger_gain": "L55 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune loose topology",
+      "open_residuals": [
+        "L56 -> Assist Refresh"
+      ],
+      "next_seed": "L56 -> Assist Refresh",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L56",
+      "structural_gain": "stronger swarm continuity",
+      "mapping_gain": "assist refresh log",
+      "ledger_gain": "L56 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune stale handoff logic",
+      "open_residuals": [
+        "L57 -> Crown Freeze"
+      ],
+      "next_seed": "L57 -> Crown Freeze",
+      "truth": "NEAR"
+    },
+    {
+      "loop_id": "L57",
+      "structural_gain": "stable post-57 organism",
+      "mapping_gain": "crown baseline",
+      "ledger_gain": "L57 received one cycle record, four master ledger entries, and two quest bundles.",
+      "compression_gain": "prune unresolved duplication from new baseline",
+      "open_residuals": [
+        "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling"
+      ],
+      "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling",
+      "truth": "NEAR"
+    }
+  ],
+  "truth": "NEAR"
+}

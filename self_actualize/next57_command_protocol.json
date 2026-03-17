@@ -1,0 +1,307 @@
+{
+  "protocol_id": "NEXT57_COMMAND_PROTOCOL_V1",
+  "command_version": "single-node-local-swarm-substrate-v1",
+  "canonical_authority": "LP57OMEGA / NEXT57",
+  "authority_mode": "single-node-local-swarm-substrate",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "witness_class": "LOCAL_WITNESS_ONLY",
+    "detail": "blocked-by-missing-credentials",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "credentials_exists": false,
+    "token_exists": false
+  },
+  "docs_gate_status": "BLOCKED",
+  "active_surface": "LOCAL SWARM MESH",
+  "command_folder_root": "GLOBAL COMMAND",
+  "watched_surfaces": {
+    "generated_at": "2026-03-14T00:29:58.961043+00:00",
+    "protocol_id": "NEXT57_COMMAND_PROTOCOL_V1",
+    "docs_gate_status": "BLOCKED",
+    "watcher_mode": "event-driven",
+    "watch_scope": "first-wave local swarm mesh",
+    "source_count": 7,
+    "rows": [
+      {
+        "source_id": "command_root",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+        "relative_path": "GLOBAL COMMAND",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+        "watch_root_relative": "GLOBAL COMMAND",
+        "target_kind": "directory",
+        "source_class": "command-folder",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign",
+        "urgency_baseline": 1.0,
+        "coordinate_projection_hints": {
+          "Xs": "GLOBAL_COMMAND",
+          "Hs": "command-event",
+          "Ns": "COMMAND"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "guild_hall_board",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "relative_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS",
+        "watch_root_relative": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS",
+        "target_kind": "file",
+        "source_class": "guild-board",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.88,
+        "coordinate_projection_hints": {
+          "Xs": "GUILD_HALL",
+          "Hs": "quest-board",
+          "Ns": "HALL"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "temple_board",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "relative_path": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS",
+        "watch_root_relative": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS",
+        "target_kind": "file",
+        "source_class": "temple-board",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.9,
+        "coordinate_projection_hints": {
+          "Xs": "TEMPLE",
+          "Hs": "quest-board",
+          "Ns": "TEMPLE"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "active_run",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS",
+        "watch_root_relative": "NERVOUS_SYSTEM/95_MANIFESTS",
+        "target_kind": "file",
+        "source_class": "run-state",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.94,
+        "coordinate_projection_hints": {
+          "Xs": "NERVOUS_SYSTEM",
+          "Hs": "run-state",
+          "Ns": "ACTIVE_RUN"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "build_queue",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS",
+        "watch_root_relative": "NERVOUS_SYSTEM/95_MANIFESTS",
+        "target_kind": "file",
+        "source_class": "build-queue",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.93,
+        "coordinate_projection_hints": {
+          "Xs": "NERVOUS_SYSTEM",
+          "Hs": "build-queue",
+          "Ns": "BUILD_QUEUE"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "active_thread_root",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS",
+        "relative_path": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS",
+        "watch_root_relative": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS",
+        "target_kind": "directory",
+        "source_class": "active-thread-root",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.91,
+        "coordinate_projection_hints": {
+          "Xs": "ACTIVE_THREADS",
+          "Hs": "thread-root",
+          "Ns": "THREADS"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "global_command_thread",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command",
+        "relative_path": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS/global_command",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command",
+        "watch_root_relative": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS/global_command",
+        "target_kind": "directory",
+        "source_class": "active-thread",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign",
+        "urgency_baseline": 0.96,
+        "coordinate_projection_hints": {
+          "Xs": "GLOBAL_COMMAND_THREAD",
+          "Hs": "thread",
+          "Ns": "GLOBAL_COMMAND"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      }
+    ]
+  },
+  "watch_policy": {
+    "primary_mode": "event-driven",
+    "fallback_mode": "polling",
+    "watched_roots": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command"
+    ],
+    "watch_scope": "first-wave local swarm mesh"
+  },
+  "routing_defaults": {
+    "policy_id": "goal+salience+pheromone+coord+capability+load",
+    "selector_terms": [
+      "goal_fit",
+      "priority",
+      "gold_signal",
+      "bridge_signal",
+      "coord_proximity",
+      "freshness",
+      "capillary_strength",
+      "source_class"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "ttl": 6,
+    "lease_ms": 1200
+  },
+  "current_runtime_truth": {
+    "canonical_authority": "LP57OMEGA / NEXT57",
+    "active_loop": "L02",
+    "active_family": "A02 self_actualize",
+    "restart_seed": "L03 Survey A03 ECOSYSTEM",
+    "visible_caps": {
+      "hall": 8,
+      "temple": 8
+    },
+    "active_membrane": "Q41 / TQ06",
+    "feeders": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ]
+  },
+  "active_membrane": "Q41 / TQ06",
+  "feeder_stack": [
+    "Q42",
+    "Q46",
+    "TQ04",
+    "Q02"
+  ],
+  "pipeline": [
+    "WATCHED SURFACE",
+    "Scout",
+    "Router",
+    "Worker",
+    "Archivist"
+  ],
+  "lookup_envelope": "NodeStamp = AgentTag @ CoordinateStamp + WitnessClass + QuestRefs + ArtifactRefs",
+  "truth_boundary": {
+    "prompt_level_liminal_gps": "supported",
+    "keystroke_level_liminal_gps": "requires client/runtime instrumentation"
+  }
+}

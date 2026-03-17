@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-03-13T18:43:12.539500+00:00",
+  "truth": "OK",
+  "checks": {
+    "primary_receipt_exists": true,
+    "alias_receipt_exists": true,
+    "control_packet_exists": true,
+    "packet_freshness_exists": true,
+    "source_atlas_exists": true,
+    "integration_registry_exists": true,
+    "active_run_current_story": false,
+    "build_queue_current_story": false,
+    "next_prompt_current_story": false,
+    "quest_board_current_story": true,
+    "temple_state_current_story": true,
+    "active_queue_current_story": false
+  },
+  "module_results": [
+    {
+      "module": "self_actualize.runtime.derive_astrological_scheduler_packets",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "module": "self_actualize.runtime.verify_helical_runner_contract",
+      "ok": false,
+      "returncode": 1
+    }
+  ]
+}

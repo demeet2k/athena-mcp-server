@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "CompressionBundle",
+  "loop_id": "L42",
+  "objective": "prune duplicate graph tissue",
+  "no_silent_deletion": true,
+  "degrade_targets": [
+    "residual mirror",
+    "receipt",
+    "reserve",
+    "NEAR",
+    "AMBIG"
+  ],
+  "truth_state": "OK"
+}

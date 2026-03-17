@@ -1,0 +1,22 @@
+{
+  "benchmark_id": "COMMAND_MEMBRANE_LATENCY_V1",
+  "canonical_protocol_id": "NEXT57_COMMAND_PROTOCOL_V1",
+  "equation": "T_sugar = T_detect + T_encode + T_route + T_claim + T_commit",
+  "metrics": [
+    "detection_latency_ms",
+    "swarm_awareness_latency_ms",
+    "claim_latency_ms",
+    "resolution_latency_ms",
+    "commit_latency_ms",
+    "t_sugar_ms",
+    "capillary_score",
+    "liminal_distance",
+    "liminal_velocity"
+  ],
+  "watch_scope": "first-wave local swarm mesh",
+  "docs_gate_status": "BLOCKED",
+  "truth_boundary": {
+    "prompt_level_liminal_gps": "supported",
+    "keystroke_level_liminal_gps": "requires client/runtime instrumentation"
+  }
+}

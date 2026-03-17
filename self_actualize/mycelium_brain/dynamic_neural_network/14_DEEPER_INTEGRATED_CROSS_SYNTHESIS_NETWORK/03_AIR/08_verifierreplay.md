@@ -1,0 +1,35 @@
+# Air x VerifierReplay
+
+Air reads the network as relation, topology, dependency, and abstraction.
+
+## Loop mandate
+
+`VerifierReplay` checks proof density and replay closure.
+
+## AIR replay contract
+
+- Docs gate truth stays `BLOCKED`; no AIR replay claim may cite live Google Docs as witness.
+- Determinism check: identical basis set, overlay truth, and docs-gate state must replay to identical `SigmaNode`, spin kernel, rotational family, appendix stack, and re-entry route.
+- Compatibility check: replay may enrich the route, but it may not rename canonical chapter or appendix addresses.
+- Overlay legality check: `Q` is appendix-only ingress through `AppQ`; reverse-field `O` remains a transport alias only.
+- Synaptic replay check: `Ch12<0023>`, `Ch13<0030>`, and `Ch16<0033>` stay coupled to `AppH`, `AppI`, and `AppM` before AIR promotion is allowed.
+- Evidence floor: local deep-root metro, appendix, cortex, and MATH surfaces must remain enough to reconstruct the route without hidden state.
+
+## Full-basis observation
+
+- `03` QBD-4: in air mode, QBD-4 behaves as a native driver for `VerifierReplay`. It checks proof density and replay closure, using quad logic bits as the anchor and formalizes the four-bit address and rotation algebra as the contribution. Appendix stack: AppB, AppC, AppM.
+- `04` Quad Holographic Rotation: in air mode, Quad Holographic Rotation behaves as a native driver for `VerifierReplay`. It checks proof density and replay closure, using holographic transport as the anchor and rotates one truth through all four faces as the contribution. Appendix stack: AppE, AppF, AppM.
+- `05` The Holographic Kernel: in air mode, The Holographic Kernel behaves as a native driver for `VerifierReplay`. It checks proof density and replay closure, using holographic compression as the anchor and compresses bodies without deleting structural DNA as the contribution. Appendix stack: AppB, AppC, AppN.
+- `07` Crystal Computing Framework: in air mode, Crystal Computing Framework behaves as a native driver for `VerifierReplay`. It checks proof density and replay closure, using fractal computing as the anchor and maps crystal structure into computation as the contribution. Appendix stack: AppB, AppC, AppG.
+- `01` The Holographic Manuscript Brain: in air mode, The Holographic Manuscript Brain behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using manuscript substrate as the anchor and turns documents into neural tissue as the contribution. Appendix stack: AppE, AppF, AppG, AppM.
+- `02` Self-Routing Meta-Framework: in air mode, Self-Routing Meta-Framework behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using routing and search as the anchor and decides how the corpus searches itself as the contribution. Appendix stack: AppE, AppI, AppL, AppM.
+- `06` Time Fractal: in air mode, Time Fractal behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using fractal time as the anchor and gives the system phase, recurrence, and oscillation law as the contribution. Appendix stack: AppE, AppM, AppP.
+- `08` Quantum Computing on Standard Hardware: in air mode, Quantum Computing on Standard Hardware behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using quantum classical emulation as the anchor and turns impossible compute into lawful approximation on ordinary machines as the contribution. Appendix stack: AppC, AppH, AppP.
+- `09` Zero-Point Computing: in air mode, Zero-Point Computing behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using zero-point engine as the anchor and defines minimum-state computation and restart from near nothing as the contribution. Appendix stack: AppA, AppN, AppM.
+- `10` Athena Neural Network Tome: in air mode, Athena Neural Network Tome behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using emergence compiler as the anchor and binds manuscript, learning, and runtime emergence as the contribution. Appendix stack: AppC, AppP, AppM.
+- `11` VOYNICHVM Tricompiler: in air mode, VOYNICHVM Tricompiler behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using text computer as the anchor and treats translation as computation and executable transformation as the contribution. Appendix stack: AppF, AppI, AppM.
+- `12` Torat Ha-Mispar: in air mode, Torat Ha-Mispar behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using torah computer as the anchor and maps sacred number into algorithmic interpretation as the contribution. Appendix stack: AppA, AppF, AppO.
+- `13` Universal Computational Ontology: in air mode, Universal Computational Ontology behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using mythic os as the anchor and converts mythic cosmology into system architecture as the contribution. Appendix stack: AppA, AppB, AppP.
+- `14` Ch11 The Helical Manifestation Engine: in air mode, Ch11 The Helical Manifestation Engine behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using restart and lift as the anchor and makes self-improvement executable through D/Q/I, lift, and recurrence as the contribution. Appendix stack: AppE, AppF, AppI, AppM.
+- `15` Ch12 Boundary Checks and Isolation Axioms: in air mode, Ch12 Boundary Checks and Isolation Axioms behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using immune architecture as the anchor and protects the network from contradiction leakage and contamination as the contribution. Appendix stack: AppB, AppI, AppK, AppM.
+- `16` Ch19 Recursive Self-Reference and Self-Repair: in air mode, Ch19 Recursive Self-Reference and Self-Repair behaves as a translated counterpart for `VerifierReplay`. It checks proof density and replay closure, using autonomic repair as the anchor and lets the organism watch, checkpoint, and heal itself as the contribution. Appendix stack: AppA, AppM, AppP.

@@ -1,0 +1,26 @@
+[
+  {
+    "event_id": "EVT-20260313-0001",
+    "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND\\ATHENA\\ATHENA - Who I Am.docx",
+    "relative_path": "ATHENA/ATHENA - Who I Am.docx",
+    "event_kind": "created",
+    "status": "routed",
+    "goal": "detect-classify-assign",
+    "priority": 0.88,
+    "earth_ts": "2026-03-13T23:27:13.512832+00:00",
+    "liminal_ts": "LT-000000001",
+    "canonical_addr_6d": "A1.B1.C1.D1.E1.F1",
+    "docs_gate_status": "BLOCKED",
+    "route_targets": [],
+    "linked_quests": [],
+    "latency_state": {
+      "detection_latency_ms": 5319887512.832,
+      "encode_latency_ms": 3.025,
+      "awareness_latency_ms": 0.0,
+      "claim_latency_ms": 0.0,
+      "resolution_latency_ms": 0.0,
+      "commit_latency_ms": 0.0,
+      "t_sugar_ms": 0.0
+    }
+  }
+]

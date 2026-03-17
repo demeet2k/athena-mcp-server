@@ -1,0 +1,33 @@
+{
+  "date": "2026-03-13",
+  "imports": "OK",
+  "structure_check": {
+    "fast_truth": "AMBIG",
+    "full_truth": "AMBIG",
+    "elemental_keys": [
+      "air",
+      "earth",
+      "fire",
+      "water"
+    ],
+    "fast_pairwise_count": 3,
+    "full_pairwise_count": 6,
+    "fast_loop_count": 4,
+    "full_loop_count": 8,
+    "full_seed_present": true,
+    "fast_born_coordinates": 0,
+    "full_born_coordinates": 3,
+    "quest_macro": "Q43",
+    "quest_packet_count": 256,
+    "active_packet_count": 16,
+    "parked_packet_count": 64,
+    "ambiguity_gate": "AMBIG"
+  },
+  "benchmark": {
+    "geometric": 1.0,
+    "adversarial": 1.0,
+    "cluttered": 0.984,
+    "camouflage": 0.98,
+    "average": 0.991
+  }
+}

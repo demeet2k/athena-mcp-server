@@ -21,35 +21,34 @@
 - `manifests/NEXT_FOLIO_SELF_PROMPT.md` - regenerated next-folio handoff prompt
 - `manifests/VOYNICH_SKILL_WISHLIST.md` - project-specific preflight skill stack and gap analysis
 - `manifests/FINAL_MANUSCRIPT_EXECUTION_PLAN.md` - no-stop execution charter through the full final manuscript
+- `manifests/CHAPTER_11_THE_HELICAL_MANIFESTATION_ENGINE.md` - helical meta-engine chapter for the whole corpus
+- `manifests/CHAPTER_11_TO_VOYNICH_HELICAL_MAP.md` - direct mapping from the helical engine to the Voynich runtime
 - `framework/README.md` - canonical dense folio framework, registries, templates, and bootstrap tooling
+- `rosetta_machine/README.md` - machine-readable Rosetta compiler, schemas, registries, builds, companion rollups, exports, and mirrors
 
 ## Current Completion
 
-- `f1r` translated
-- `f1r` dense multilens atlas translated
-- `f1v` translated
-- `f1r` authoritative final draft complete
-- `f1v` authoritative final draft complete
-- `f2r` authoritative final draft complete
-- `f2v` authoritative final draft complete
-- `f3r` authoritative final draft complete
-- `f3v` authoritative final draft complete
-- `f4r` authoritative final draft complete
-- unified corpus initialized
-- live master manuscript target initialized
-- section scaffolds initialized
-- metro scaffold initialized
-- formal translation framework installed
+- authoritative final-draft folio corpus completed across Books I-V
+- unified corpus, live master manuscript, and giant manuscript targets are all populated
+- section syntheses completed for Plant, Astrology, Bath, Cosmology, Pharmaceutical 1, Pharmaceutical 2, and combined Pharmaceutical
+- master crystals completed for Plant, Astrology, Bath, Cosmology, Pharmaceutical 1, Pharmaceutical 2, and combined Pharmaceutical
+- deep whole-manuscript crystal completed across Books I-V
+- metro layer expanded through the completed five-book corpus
+- formal translation framework, registries, schemas, and generator scripts installed
+- machine-readable Rosetta compiler installed with deterministic build, export, and validation entrypoints
+- machine-readable Rosetta companion layer installed across `unified`, `crystals`, `metro`, `neural_network`, and `manifests`
+- Rosetta canonical promotion wave 1 installed across `VOYNICH_FULL_TRANSLATION.md`, `VOYNICH_MASTER_MANUSCRIPT.md`, `VOYNICH_FULL_CRYSTAL.md`, `VOYNICH_METRO_MAP_WORKING.md`, and `MASTER_NEURAL_SYNTHESIS.md`
+- Rosetta giant manuscript packaging wave 1 installed across `unified/VOYNICH_GIANT_MANUSCRIPT.md` with full inline corpus packaging and an explicit blocked closure-witness section
 - project-specific Voynich skill stack installed
-- crystal file family initialized
-- macro-step autonomy engine installed (`187` explicit macro steps)
+- autonomous macro/micro runtime and parallel-lane queue installed
+- Chapter 11 helical meta-engine and Voynich bridge map installed
 
 ## Next Queue
 
-- `f004v` final draft
-- `f005r` final draft
-- continue through Quire A in canonical EVA order
-- use the autonomous cursor, active run task list, and next-folio prompt after every completion
+- resolve the missing dedicated post-`116r` authorial-line witness from a local or live-docs source
+- align autonomy manifests with the now-complete disk state
+- decide whether to collapse or preserve the archived canonical witness ladder under `rosetta_machine/archive/` for future promotion waves
+- use the helical Chapter 11 layer as the next-dimensional seed for maintenance and regeneration
 
 ## No-Stop Recovery
 

@@ -17,8 +17,8 @@
 - Regime: `classical`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(F-A-E, S8, Aether, O10, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
-- NeuronAddr: `<self_actualize, nervous_system_execution_loop_and_family_frontier_matrix, O10, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
+- NSCoord: `(F-A-E, S8, Aether, O35, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
+- NeuronAddr: `<self_actualize, nervous_system_execution_loop_and_family_frontier_matrix, O35, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
 - ContractionTarget: `cortex/nervous_system_execution_loop_and_family_frontier_matrix.md`
 
 ## Claims

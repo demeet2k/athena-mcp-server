@@ -1,0 +1,40 @@
+{
+  "claim_id": "CLM-20260313T214302Z-34f0ff",
+  "frontier": "GLOBAL COMMAND",
+  "front_slug": "global_command",
+  "level": "command-membrane-event",
+  "owner": "WORKER-02",
+  "status": "closed",
+  "output_target": "Guild Hall implementation membrane",
+  "receipt": "EVT-20260313T214302Z-14BA5E pending archivist commit",
+  "source": "board",
+  "paths": [
+    "GLOBAL COMMAND/ATHENA/codex_command_membrane_test.txt",
+    "GLOBAL COMMAND/ATHENA/SELF/athena_prime_flower_shell_v2B.txt",
+    "GLOBAL COMMAND/ATHENA/_codex_tests/command_membrane_probe.txt",
+    "GLOBAL COMMAND/ATHENA/READ ME.txt",
+    "GLOBAL COMMAND/ATHENA/Athena Tools/ATHENACHKA \u2014 INTELLIGENCE WARS \u2194 PLANETARY STEWARDSHIP \u2014 Ms\u27e8EF0E\u27e9.docx"
+  ],
+  "note": "EVT-20260313T214302Z-14BA5E -> 39 added / 0 modified / 0 removed in GLOBAL COMMAND | route WORKER-02 > ROUTER-01 > ARCHIVIST-01 | claim WORKER-02 1200ms",
+  "created_at": "2026-03-13T21:43:02.204252+00:00",
+  "updated_at": "2026-03-13T21:43:39.374655+00:00",
+  "json_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\03_CLAIMS\\claims\\CLM-20260313T214302Z-34f0ff.json",
+  "md_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\03_CLAIMS\\claims\\CLM-20260313T214302Z-34f0ff.md",
+  "linked_quests": [
+    "NEXT57-H-COMMAND-MEMBRANE"
+  ],
+  "event_id": "EVT-20260313T214302Z-14BA5E",
+  "claim_source_event": "EVT-20260313T214302Z-14BA5E",
+  "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+  "command_ant_class": "Worker",
+  "lease_ms": 1200,
+  "lease_expires_at": "2026-03-13T21:43:03.404252+00:00",
+  "claim_rank": 1,
+  "claim_mode": "first-lease",
+  "route_targets": [
+    "WORKER-02",
+    "ROUTER-01",
+    "ARCHIVIST-01"
+  ],
+  "route_policy": "goal+salience+pheromone+coord+availability"
+}

@@ -1,0 +1,17 @@
+{
+  "law_id": "CommandCapillaryLawV1",
+  "formula": "C_next = clamp01(0.82*C + 0.30*U + 0.18*F - 0.16*D - 0.14*N)",
+  "coefficients": {
+    "rho": 0.82,
+    "alpha": 0.3,
+    "beta": 0.18,
+    "gamma": 0.16,
+    "delta": 0.14
+  },
+  "thresholds": {
+    "seed_max": 0.35,
+    "capillary_max": 0.7,
+    "vein_min": 0.7
+  },
+  "initial_strength": 0.25
+}

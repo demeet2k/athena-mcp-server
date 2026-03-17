@@ -1,0 +1,15 @@
+{
+  "packet_type": "receipt",
+  "receipt_id": "LP57-RC-L19",
+  "loop_id": "L19",
+  "status": "PLANNED",
+  "required_artifacts": [
+    "research_delta_ref",
+    "quest_packet_ref",
+    "execution_batch_ref",
+    "compression_bundle_ref",
+    "receipt_ref",
+    "restart_seed_ref"
+  ],
+  "peer_signal_state": "WEAK"
+}

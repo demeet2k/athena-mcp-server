@@ -1,0 +1,614 @@
+{
+  "generated_at": "2026-03-13T21:09:22.647799+00:00",
+  "protocol_id": "COMMAND-MEMBRANE-LP57",
+  "docs_gate_status": "BLOCKED",
+  "edge_count": 22,
+  "rows": [
+    {
+      "edge_id": "CAP-3F6D07AE5099",
+      "source": "COMMAND-FOLDER-SENSOR",
+      "target": "SCOUT-COMMAND-01",
+      "route_signature": "COMMAND-FOLDER-SENSOR>SCOUT-COMMAND-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.8067,
+      "success_frequency": 1.0,
+      "latency_penalty": 0.18,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.8773,
+      "vessel_class": "vein",
+      "event_ids": [
+        "EVT-20260313182623-0001-AF04A8",
+        "EVT-20260117094148-0002-6F91DA",
+        "EVT-20260117091022-0003-2CA604",
+        "EVT-20260116204902-0004-902B20",
+        "EVT-20260116203740-0005-7CA0AF",
+        "EVT-20260116202322-0006-F6CB92",
+        "EVT-20260116125038-0007-A2BF10",
+        "EVT-20260116080500-0008-3CF9FB",
+        "EVT-20260116034526-0009-76A963",
+        "EVT-20260115020926-0010-01A379",
+        "EVT-20260115020108-0011-247A76",
+        "EVT-20260114035030-0012-3637DF",
+        "EVT-20260113232534-0013-D243BF",
+        "EVT-20260113081550-0014-1C8DF0",
+        "EVT-20260112092856-0015-F20093",
+        "EVT-20260112085000-0016-42585B",
+        "EVT-20260111202130-0017-C10D56",
+        "EVT-20260111201440-0018-092893",
+        "EVT-20260111193436-0019-55CC4E",
+        "EVT-20260111191120-0020-70CF28",
+        "EVT-20260111094226-0021-6F498B",
+        "EVT-20260111042628-0022-130ECF",
+        "EVT-20260110224418-0023-8C434E",
+        "EVT-20260110224132-0024-76C133",
+        "EVT-20260110113532-0025-6347BF"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-E80F313B703D",
+      "source": "ROUTER-GC0-01",
+      "target": "WORKER-COMMAND-FALLBACK-01",
+      "route_signature": "ROUTER-GC0-01>WORKER-COMMAND-FALLBACK-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.55,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.18,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.4866,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260313182623-0001-AF04A8"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-B0E3A27A4E4C",
+      "source": "ROUTER-GCL-01",
+      "target": "WORKER-MATH-CIVILIZATION_AND_GOVERNANCE",
+      "route_signature": "ROUTER-GCL-01>WORKER-MATH-CIVILIZATION_AND_GOVERNANCE",
+      "current_strength": 0.35,
+      "usefulness_score": 0.832,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6174,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260115020926-0010-01A379"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-4550F6B9A29D",
+      "source": "ROUTER-GCL-01",
+      "target": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "route_signature": "ROUTER-GCL-01>WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "current_strength": 0.35,
+      "usefulness_score": 0.7843,
+      "success_frequency": 0.16,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6343,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260117094148-0002-6F91DA",
+        "EVT-20260116204902-0004-902B20",
+        "EVT-20260112092856-0015-F20093",
+        "EVT-20260111201440-0018-092893"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-20DFC506ADB5",
+      "source": "ROUTER-GCL-01",
+      "target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "route_signature": "ROUTER-GCL-01>WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "current_strength": 0.35,
+      "usefulness_score": 0.8243,
+      "success_frequency": 0.48,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.7463,
+      "vessel_class": "capillary",
+      "event_ids": [
+        "EVT-20260117091022-0003-2CA604",
+        "EVT-20260116203740-0005-7CA0AF",
+        "EVT-20260116125038-0007-A2BF10",
+        "EVT-20260116080500-0008-3CF9FB",
+        "EVT-20260116034526-0009-76A963",
+        "EVT-20260115020108-0011-247A76",
+        "EVT-20260114035030-0012-3637DF",
+        "EVT-20260113081550-0014-1C8DF0",
+        "EVT-20260112085000-0016-42585B",
+        "EVT-20260111202130-0017-C10D56",
+        "EVT-20260111042628-0022-130ECF",
+        "EVT-20260110224418-0023-8C434E"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-B7B473CEA8CD",
+      "source": "ROUTER-GCL-01",
+      "target": "WORKER-MATH-MYTHIC_SIGN_SYSTEMS",
+      "route_signature": "ROUTER-GCL-01>WORKER-MATH-MYTHIC_SIGN_SYSTEMS",
+      "current_strength": 0.35,
+      "usefulness_score": 0.794,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6022,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260110113532-0025-6347BF"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-F4B793698447",
+      "source": "ROUTER-GCL-01",
+      "target": "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+      "route_signature": "ROUTER-GCL-01>WORKER-MATH-TRANSPORT_AND_RUNTIME",
+      "current_strength": 0.35,
+      "usefulness_score": 0.873,
+      "success_frequency": 0.08,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6458,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260116202322-0006-F6CB92",
+        "EVT-20260113232534-0013-D243BF"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-A63DD19A68C1",
+      "source": "ROUTER-GCR-01",
+      "target": "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+      "route_signature": "ROUTER-GCR-01>WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+      "current_strength": 0.35,
+      "usefulness_score": 0.8165,
+      "success_frequency": 0.08,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6232,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260111094226-0021-6F498B",
+        "EVT-20260110224132-0024-76C133"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-2A6C03203417",
+      "source": "ROUTER-GCR-01",
+      "target": "WORKER-MYTH-MANUSCRIPT_ARCHITECTURE",
+      "route_signature": "ROUTER-GCR-01>WORKER-MYTH-MANUSCRIPT_ARCHITECTURE",
+      "current_strength": 0.35,
+      "usefulness_score": 0.778,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.5958,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260111191120-0020-70CF28"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-5A7F03AC5638",
+      "source": "ROUTER-GCR-01",
+      "target": "WORKER-MYTH-MYTHIC_SIGN_SYSTEMS",
+      "route_signature": "ROUTER-GCR-01>WORKER-MYTH-MYTHIC_SIGN_SYSTEMS",
+      "current_strength": 0.35,
+      "usefulness_score": 0.806,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.607,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260111193436-0019-55CC4E"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-DB3A2DEAF98F",
+      "source": "SCOUT-COMMAND-01",
+      "target": "ROUTER-GC0-01",
+      "route_signature": "SCOUT-COMMAND-01>ROUTER-GC0-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.55,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.18,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.4866,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260313182623-0001-AF04A8"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-27FD1CBE2E52",
+      "source": "SCOUT-COMMAND-01",
+      "target": "ROUTER-GCL-01",
+      "route_signature": "SCOUT-COMMAND-01>ROUTER-GCL-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.82,
+      "success_frequency": 0.8,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.8406,
+      "vessel_class": "capillary",
+      "event_ids": [
+        "EVT-20260117094148-0002-6F91DA",
+        "EVT-20260117091022-0003-2CA604",
+        "EVT-20260116204902-0004-902B20",
+        "EVT-20260116203740-0005-7CA0AF",
+        "EVT-20260116202322-0006-F6CB92",
+        "EVT-20260116125038-0007-A2BF10",
+        "EVT-20260116080500-0008-3CF9FB",
+        "EVT-20260116034526-0009-76A963",
+        "EVT-20260115020926-0010-01A379",
+        "EVT-20260115020108-0011-247A76",
+        "EVT-20260114035030-0012-3637DF",
+        "EVT-20260113232534-0013-D243BF",
+        "EVT-20260113081550-0014-1C8DF0",
+        "EVT-20260112092856-0015-F20093",
+        "EVT-20260112085000-0016-42585B",
+        "EVT-20260111202130-0017-C10D56",
+        "EVT-20260111201440-0018-092893",
+        "EVT-20260111042628-0022-130ECF",
+        "EVT-20260110224418-0023-8C434E",
+        "EVT-20260110113532-0025-6347BF"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-B9DBE7D51646",
+      "source": "SCOUT-COMMAND-01",
+      "target": "ROUTER-GCR-01",
+      "route_signature": "SCOUT-COMMAND-01>ROUTER-GCR-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.8043,
+      "success_frequency": 0.16,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6423,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260111193436-0019-55CC4E",
+        "EVT-20260111191120-0020-70CF28",
+        "EVT-20260111094226-0021-6F498B",
+        "EVT-20260110224132-0024-76C133"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-4E3C55D61BFB",
+      "source": "WORKER-COMMAND-FALLBACK-01",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-COMMAND-FALLBACK-01>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.55,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.18,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.4866,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260313182623-0001-AF04A8"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-6A3EEEE3D25A",
+      "source": "WORKER-MATH-CIVILIZATION_AND_GOVERNANCE",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MATH-CIVILIZATION_AND_GOVERNANCE>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.832,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6174,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260115020926-0010-01A379"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-ADE6C1D99DD3",
+      "source": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MATH-IDENTITY_AND_INSTRUCTION>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.7843,
+      "success_frequency": 0.16,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6343,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260117094148-0002-6F91DA",
+        "EVT-20260116204902-0004-902B20",
+        "EVT-20260112092856-0015-F20093",
+        "EVT-20260111201440-0018-092893"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-558BB8D9C2C1",
+      "source": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.8243,
+      "success_frequency": 0.48,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.7463,
+      "vessel_class": "capillary",
+      "event_ids": [
+        "EVT-20260117091022-0003-2CA604",
+        "EVT-20260116203740-0005-7CA0AF",
+        "EVT-20260116125038-0007-A2BF10",
+        "EVT-20260116080500-0008-3CF9FB",
+        "EVT-20260116034526-0009-76A963",
+        "EVT-20260115020108-0011-247A76",
+        "EVT-20260114035030-0012-3637DF",
+        "EVT-20260113081550-0014-1C8DF0",
+        "EVT-20260112085000-0016-42585B",
+        "EVT-20260111202130-0017-C10D56",
+        "EVT-20260111042628-0022-130ECF",
+        "EVT-20260110224418-0023-8C434E"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-AC883060FAEE",
+      "source": "WORKER-MATH-MYTHIC_SIGN_SYSTEMS",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MATH-MYTHIC_SIGN_SYSTEMS>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.794,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6022,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260110113532-0025-6347BF"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-A454862FE8BE",
+      "source": "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MATH-TRANSPORT_AND_RUNTIME>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.873,
+      "success_frequency": 0.08,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6458,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260116202322-0006-F6CB92",
+        "EVT-20260113232534-0013-D243BF"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-E35A15E17DCA",
+      "source": "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MYTH-IDENTITY_AND_INSTRUCTION>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.8165,
+      "success_frequency": 0.08,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.6232,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260111094226-0021-6F498B",
+        "EVT-20260110224132-0024-76C133"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-0EA9A8BDB61B",
+      "source": "WORKER-MYTH-MANUSCRIPT_ARCHITECTURE",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MYTH-MANUSCRIPT_ARCHITECTURE>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.778,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.5958,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260111191120-0020-70CF28"
+      ],
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "edge_id": "CAP-13A3FFE6C223",
+      "source": "WORKER-MYTH-MYTHIC_SIGN_SYSTEMS",
+      "target": "ARCHIVIST-LP57-01",
+      "route_signature": "WORKER-MYTH-MYTHIC_SIGN_SYSTEMS>ARCHIVIST-LP57-01",
+      "current_strength": 0.35,
+      "usefulness_score": 0.806,
+      "success_frequency": 0.04,
+      "latency_penalty": 0.08,
+      "noise_penalty": 0.0,
+      "coefficients": {
+        "rho": 0.82,
+        "alpha": 0.4,
+        "beta": 0.3,
+        "gamma": 0.18,
+        "delta": 0.12
+      },
+      "next_strength": 0.607,
+      "vessel_class": "candidate",
+      "event_ids": [
+        "EVT-20260111193436-0019-55CC4E"
+      ],
+      "docs_gate_status": "BLOCKED"
+    }
+  ]
+}

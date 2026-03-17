@@ -1,0 +1,75 @@
+[
+  {
+    "edge_id": "DN01->DN01",
+    "source_id": "DN01",
+    "target_id": "DN01",
+    "relation": "recurse",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0002",
+      "P0002"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Crystal",
+      "Transit",
+      "Governance"
+    ],
+    "lane_type": "identity"
+  },
+  {
+    "edge_id": "DN01->DN02",
+    "source_id": "DN01",
+    "target_id": "DN02",
+    "relation": "formalize",
+    "weight": 0.85,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0002",
+      "P0001"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Crystal",
+      "Transit"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "DN02->DN01",
+    "source_id": "DN02",
+    "target_id": "DN01",
+    "relation": "formalize",
+    "weight": 0.85,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0001",
+      "P0002"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Crystal",
+      "Transit"
+    ],
+    "lane_type": "directional"
+  },
+  {
+    "edge_id": "DN02->DN02",
+    "source_id": "DN02",
+    "target_id": "DN02",
+    "relation": "recurse",
+    "weight": 0.88,
+    "priority": "primary",
+    "evidence_anchors": [
+      "P0003",
+      "P0003"
+    ],
+    "contradiction_state": "none",
+    "line_ids": [
+      "Crystal",
+      "Transit"
+    ],
+    "lane_type": "identity"
+  }
+]

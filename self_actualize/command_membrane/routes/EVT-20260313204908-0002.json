@@ -1,0 +1,105 @@
+{
+  "event_id": "EVT-20260313204908-0002",
+  "policy_id": "goal+salience+pheromone+coord",
+  "candidate_targets": [
+    {
+      "ant_id": "WORKER-HALL-01",
+      "role_class": "worker",
+      "owner_surface": "HALL",
+      "goal_affinity": 0.96,
+      "owner_surface_affinity": 0.95,
+      "capillary_strength": 0.817124,
+      "coordinate_proximity": 0.487476,
+      "load": 1,
+      "duplicate_risk": 0.95,
+      "score": 0.808296
+    },
+    {
+      "ant_id": "ARCHIVIST-COMMAND-01",
+      "role_class": "archivist",
+      "owner_surface": "LEDGER",
+      "goal_affinity": 0.94,
+      "owner_surface_affinity": 0.74,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.837476,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.745121
+    },
+    {
+      "ant_id": "WORKER-TEMPLE-01",
+      "role_class": "worker",
+      "owner_surface": "TEMPLE",
+      "goal_affinity": 0.76,
+      "owner_surface_affinity": 0.8,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.687476,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.683621
+    },
+    {
+      "ant_id": "ROUTER-COMMAND-01",
+      "role_class": "router",
+      "owner_surface": "ROUTER",
+      "goal_affinity": 0.98,
+      "owner_surface_affinity": 0.1,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.337476,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.522121
+    },
+    {
+      "ant_id": "WORKER-COMPRESSION-01",
+      "role_class": "worker",
+      "owner_surface": "COMPRESSION",
+      "goal_affinity": 0.32,
+      "owner_surface_affinity": 0.38,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.862524,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.472879
+    },
+    {
+      "ant_id": "WORKER-RUNTIME-01",
+      "role_class": "worker",
+      "owner_surface": "RUNTIME",
+      "goal_affinity": 0.25,
+      "owner_surface_affinity": 0.4,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.937476,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.468121
+    }
+  ],
+  "selected_targets": [
+    "ROUTER-COMMAND-01",
+    "ARCHIVIST-COMMAND-01"
+  ],
+  "topk": 5,
+  "claim_mode": "first-lease",
+  "quorum": 1,
+  "score_breakdown": {
+    "ordered_tuple": [
+      "goal_affinity",
+      "owner_surface_affinity",
+      "capillary_strength",
+      "coordinate_proximity",
+      "-load",
+      "-duplicate_risk"
+    ]
+  },
+  "duplicate_risk": 0.95,
+  "created_at": "2026-03-13T20:49:08.907311+00:00",
+  "expires_at": "2026-03-13T20:55:08.907311+00:00",
+  "route_status": "blocked",
+  "ranked_routes": [],
+  "route_inputs": {},
+  "route_path": "",
+  "worker_choice": "",
+  "generated_at": "",
+  "quest_refs": []
+}

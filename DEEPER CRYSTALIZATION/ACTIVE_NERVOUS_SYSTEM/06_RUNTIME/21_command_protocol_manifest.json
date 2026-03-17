@@ -1,0 +1,157 @@
+{
+  "generated_at": "2026-03-13T21:00:44.000741+00:00",
+  "status": "command-protocol-v1",
+  "truth_status": "NEAR-derived",
+  "live_docs_blocked": true,
+  "live_docs_error": "Error: Missing OAuth client file: credentials.json",
+  "sensor_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND\\ATHENA",
+  "watch_backend": "windows-native-watch",
+  "native_watch_available": true,
+  "packet_count": 9,
+  "claim_count": 9,
+  "route_entry_count": 18,
+  "capillary_edge_count": 5,
+  "latency_benchmark_count": 9,
+  "top_capillaries": [
+    {
+      "edge_id": "CMD.A1.D1.B0001.SCOUT-01>CMD.A2.D1.B0010.ROUTER-01",
+      "source_ant": "CMD.A1.D1.B0001.SCOUT-01",
+      "target_ant": "CMD.A2.D1.B0010.ROUTER-01",
+      "weight": 3.0,
+      "success_count": 7,
+      "frequency": 9,
+      "noise_penalty": 0.154444,
+      "avg_latency_score": 0.796667,
+      "maturity": "vein",
+      "last_event_id": "EVT-20260313-0009",
+      "updated_at": "2026-03-13T20:57:09.803330+00:00"
+    },
+    {
+      "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0100.WORKER-01",
+      "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+      "target_ant": "CMD.A3.D1.B0100.WORKER-01",
+      "weight": 2.363803,
+      "success_count": 5,
+      "frequency": 7,
+      "noise_penalty": 0.18,
+      "avg_latency_score": 0.76,
+      "maturity": "vein",
+      "last_event_id": "EVT-20260313-0009",
+      "updated_at": "2026-03-13T20:57:09.803330+00:00"
+    },
+    {
+      "edge_id": "CMD.A3.D1.B0100.WORKER-01>CMD.A4.D1.B1000.ARCHIVIST-01",
+      "source_ant": "CMD.A3.D1.B0100.WORKER-01",
+      "target_ant": "CMD.A4.D1.B1000.ARCHIVIST-01",
+      "weight": 2.363803,
+      "success_count": 5,
+      "frequency": 7,
+      "noise_penalty": 0.18,
+      "avg_latency_score": 0.76,
+      "maturity": "vein",
+      "last_event_id": "EVT-20260313-0009",
+      "updated_at": "2026-03-13T20:57:09.803330+00:00"
+    },
+    {
+      "edge_id": "CMD.A2.D1.B0010.ROUTER-01>CMD.A3.D1.B0101.WORKER-02",
+      "source_ant": "CMD.A2.D1.B0010.ROUTER-01",
+      "target_ant": "CMD.A3.D1.B0101.WORKER-02",
+      "weight": 1.0215,
+      "success_count": 2,
+      "frequency": 2,
+      "noise_penalty": 0.065,
+      "avg_latency_score": 0.925,
+      "maturity": "capillary",
+      "last_event_id": "EVT-20260313-0007",
+      "updated_at": "2026-03-13T20:41:23.294201+00:00"
+    },
+    {
+      "edge_id": "CMD.A3.D1.B0101.WORKER-02>CMD.A4.D1.B1001.ARCHIVIST-02",
+      "source_ant": "CMD.A3.D1.B0101.WORKER-02",
+      "target_ant": "CMD.A4.D1.B1001.ARCHIVIST-02",
+      "weight": 1.0215,
+      "success_count": 2,
+      "frequency": 2,
+      "noise_penalty": 0.065,
+      "avg_latency_score": 0.925,
+      "maturity": "capillary",
+      "last_event_id": "EVT-20260313-0007",
+      "updated_at": "2026-03-13T20:41:23.294201+00:00"
+    }
+  ],
+  "q02_blocked": true,
+  "control_stack": [
+    "Q42",
+    "TQ04",
+    "Q50",
+    "Q46",
+    "Q02"
+  ],
+  "layer_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\19_COMMAND_PROTOCOL",
+  "thread_mirror_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command",
+  "change_feed_mirror": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\04_CHANGE_FEED\\02_COMMAND_PROTOCOL_EVENTS.md",
+  "supplement_entry_ids": [
+    "Supp11",
+    "Supp12"
+  ],
+  "supplement_paths": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\027_command_protocol_v1.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\028_command_packet_and_capillary_law_registry.md"
+  ],
+  "runtime_contracts": {
+    "packet_fields": [
+      "event_id",
+      "parent",
+      "source_root",
+      "source_path",
+      "change_type",
+      "tag",
+      "goal",
+      "priority",
+      "confidence",
+      "earth_ts",
+      "liminal_ts",
+      "coord12",
+      "ttl",
+      "pheromone",
+      "state_hash",
+      "route_class",
+      "claim_state",
+      "truth_status"
+    ],
+    "ledger_fields": [
+      "agent_id",
+      "runtime_sequence_id",
+      "coordinate_stamp",
+      "source_region",
+      "action_type",
+      "affected_nodes",
+      "summary_of_change",
+      "reason_for_change",
+      "integration_gain",
+      "compression_gain",
+      "unresolved_followups",
+      "linked_quests",
+      "linked_agents",
+      "confidence",
+      "timestamp_internal"
+    ],
+    "sigma_path": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "visible_governance": "planner-mediated"
+  },
+  "watcher_health": {
+    "generated_at": "2026-03-13T20:57:09.807332+00:00",
+    "truth_status": "NEAR-derived",
+    "watch_backend": "windows-native-watch",
+    "native_watch_available": true,
+    "mode": "native-watch",
+    "last_watch_ts": "2026-03-13T20:57:09.697783+00:00",
+    "last_event_ts": "2026-03-13T20:57:09.803330+00:00",
+    "last_error": null
+  },
+  "membrane_status_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\19_COMMAND_PROTOCOL\\07_membrane_status.json"
+}

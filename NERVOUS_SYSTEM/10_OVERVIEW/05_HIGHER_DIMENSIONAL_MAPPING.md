@@ -23,6 +23,34 @@ where:
 
 This bundle is the minimum lawful location of a live nervous-system event.
 
+## AIR 6D overlay
+
+AIR adds a non-destructive overlay bundle above `NSCoord`:
+
+`AIROverlay6D = (SigmaNode, SpinKernel, RotationFamily, DualKernel, CompressionCarrier, MobiusMode, HoloState, OverlayTruth, DocsGate)`
+
+where:
+
+- `SigmaNode` is one of `Σ01` through `Σ15` (`Sigma01` through `Sigma15`)
+- `SpinKernel` is `SP+` or `SP-`
+- `RotationFamily` is one of `R-Σnn`, `CR-Σnn`, `AR-Σnn`, `ACR-Σnn` (`R-SigmaNN`, `CR-SigmaNN`, `AR-SigmaNN`, `ACR-SigmaNN`)
+- `DualKernel` is `Z0` or `Æ0` (`AE0`)
+- `CompressionCarrier` is `4D+`
+- `MobiusMode` is `M-FIX`, `M-CAR`, or `M-MUT`
+- `HoloState` is `H6` or `Seed-6D`
+- `OverlayTruth` reuses `{OK, NEAR, AMBIG, FAIL}`
+- `DocsGate` is currently `BLOCKED`
+
+The AIR overlay never replaces local chapter or appendix addresses. It rides on top of
+the existing crystal, chapter orbit, and appendix crystal as a deterministic control
+plane.
+
+## AIR overlay bridge law
+
+- `Q` is staged through the existing deep-root `AppQ` appendix-only ingress surface.
+- Reverse-field `O` is an overlay transport alias only. It does not create a new appendix file and does not rewrite canonical `AppO`.
+- AIR re-entry is anchored by `Ch12<0023>`, `Ch13<0030>`, `Ch16<0033>`, `AppH`, `AppI`, and `AppM`.
+
 ## Crystal Layer
 
 The crystal layer remains:

@@ -1,0 +1,204 @@
+{
+  "generated_at": "2026-03-13T21:23:03.075138+00:00",
+  "docs_gate_status": "BLOCKED",
+  "watcher_mode": "event-driven",
+  "source_count": 7,
+  "rows": [
+    {
+      "source_id": "command_root",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "relative_path": "GLOBAL COMMAND",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "watch_root_relative": "GLOBAL COMMAND",
+      "target_kind": "directory",
+      "source_class": "command-folder",
+      "event_filters": [
+        "created",
+        "updated",
+        "deleted"
+      ],
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "routing_goal": "detect-classify-assign",
+      "urgency_baseline": 1.0,
+      "coordinate_projection_hints": {
+        "Xs": "GLOBAL_COMMAND",
+        "Hs": "command-event",
+        "Ns": "COMMAND"
+      },
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "source_id": "guild_hall_board",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+      "relative_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS",
+      "watch_root_relative": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS",
+      "target_kind": "file",
+      "source_class": "guild-board",
+      "event_filters": [
+        "created",
+        "updated",
+        "deleted"
+      ],
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "routing_goal": "detect-classify-assign-runtime",
+      "urgency_baseline": 0.88,
+      "coordinate_projection_hints": {
+        "Xs": "GUILD_HALL",
+        "Hs": "quest-board",
+        "Ns": "HALL"
+      },
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "source_id": "temple_board",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+      "relative_path": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS",
+      "watch_root_relative": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS",
+      "target_kind": "file",
+      "source_class": "temple-board",
+      "event_filters": [
+        "created",
+        "updated",
+        "deleted"
+      ],
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "routing_goal": "detect-classify-assign-runtime",
+      "urgency_baseline": 0.9,
+      "coordinate_projection_hints": {
+        "Xs": "TEMPLE",
+        "Hs": "quest-board",
+        "Ns": "TEMPLE"
+      },
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "source_id": "active_run",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS",
+      "watch_root_relative": "NERVOUS_SYSTEM/95_MANIFESTS",
+      "target_kind": "file",
+      "source_class": "run-state",
+      "event_filters": [
+        "created",
+        "updated",
+        "deleted"
+      ],
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "routing_goal": "detect-classify-assign-runtime",
+      "urgency_baseline": 0.94,
+      "coordinate_projection_hints": {
+        "Xs": "NERVOUS_SYSTEM",
+        "Hs": "run-state",
+        "Ns": "ACTIVE_RUN"
+      },
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "source_id": "build_queue",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS",
+      "watch_root_relative": "NERVOUS_SYSTEM/95_MANIFESTS",
+      "target_kind": "file",
+      "source_class": "build-queue",
+      "event_filters": [
+        "created",
+        "updated",
+        "deleted"
+      ],
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "routing_goal": "detect-classify-assign-runtime",
+      "urgency_baseline": 0.93,
+      "coordinate_projection_hints": {
+        "Xs": "NERVOUS_SYSTEM",
+        "Hs": "build-queue",
+        "Ns": "BUILD_QUEUE"
+      },
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "source_id": "active_thread_root",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS",
+      "relative_path": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS",
+      "watch_root_relative": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS",
+      "target_kind": "directory",
+      "source_class": "active-thread-root",
+      "event_filters": [
+        "created",
+        "updated",
+        "deleted"
+      ],
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "routing_goal": "detect-classify-assign-runtime",
+      "urgency_baseline": 0.91,
+      "coordinate_projection_hints": {
+        "Xs": "ACTIVE_THREADS",
+        "Hs": "thread-root",
+        "Ns": "THREADS"
+      },
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "source_id": "global_command_thread",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command",
+      "relative_path": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS/global_command",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command",
+      "watch_root_relative": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS/global_command",
+      "target_kind": "directory",
+      "source_class": "active-thread",
+      "event_filters": [
+        "created",
+        "updated",
+        "deleted"
+      ],
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "routing_goal": "detect-classify-assign",
+      "urgency_baseline": 0.96,
+      "coordinate_projection_hints": {
+        "Xs": "GLOBAL_COMMAND_THREAD",
+        "Hs": "thread",
+        "Ns": "GLOBAL_COMMAND"
+      },
+      "docs_gate_status": "BLOCKED"
+    }
+  ]
+}

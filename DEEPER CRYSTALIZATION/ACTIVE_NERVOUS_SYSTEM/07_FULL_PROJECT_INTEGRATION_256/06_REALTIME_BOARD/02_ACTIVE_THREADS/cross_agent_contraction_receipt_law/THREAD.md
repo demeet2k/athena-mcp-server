@@ -17,8 +17,8 @@
 - Regime: `classical`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(F-A-E, S8, Aether, O06, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
-- NeuronAddr: `<self_actualize, cross_agent_contraction_receipt_law, O06, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
+- NSCoord: `(F-A-E, S8, Aether, O31, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
+- NeuronAddr: `<self_actualize, cross_agent_contraction_receipt_law, O31, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
 - ContractionTarget: `cortex/cross_agent_contraction_receipt_law.md`
 
 ## Claims

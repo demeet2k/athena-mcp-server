@@ -1,0 +1,484 @@
+{
+  "event_id": "CMD-000006",
+  "source_ant_id": "COMMAND-ROOT-A1-SCOUT",
+  "source_path": "GLOBAL COMMAND/_synthetic_command_membrane/polling_event_drop.txt",
+  "active_surface": "GLOBAL COMMAND",
+  "change_type": "created",
+  "change_summary": "created:polling_event_drop.txt",
+  "goal": "detect-classify-assign",
+  "priority": 1.0,
+  "confidence": 0.98,
+  "earth_ts": "2026-03-14T00:16:25.420341+00:00",
+  "earth_ts_local": "2026-03-13T17:16:25.420341-07:00",
+  "detected_ts": "2026-03-14T00:16:25.420341+00:00",
+  "emitted_ts": "2026-03-14T00:16:26.125221+00:00",
+  "liminal_ts": "LT-000000006",
+  "seat_addr_6d": "A1.B1.C1.D1.E1.F1",
+  "coordinate_stamp": {
+    "Xs": "GLOBAL_COMMAND",
+    "Ys": "command_root",
+    "Zs": "polling_event_drop.txt",
+    "Ts": "L02",
+    "Qs": "COMMAND",
+    "Rs": "D1",
+    "Cs": "CMD-000006",
+    "Fs": "COMMAND",
+    "Ms": "closure",
+    "Ns": "_synthetic_command_membrane",
+    "Hs": "command-event",
+    "Omega_s": "A1"
+  },
+  "canonical_addr_6d": "A1.B1.C1.D1.E1.F1",
+  "liminal_stamp_12d": {
+    "earth_utc_anchor": "2026-03-14T00:16:25.420341+00:00",
+    "earth_rotation_phase": 0.719739,
+    "earth_orbital_phase": 0.19726,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.0,
+    "lunar_phase": 0.842228,
+    "local_sidereal_phase": 0.488179,
+    "canonical_sky_anchor": "western_solar12|planetary_office|vedic_lunar",
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.35,
+    "goal_salience_vector": {
+      "goal": "detect-classify-assign",
+      "priority": 1.0
+    },
+    "change_novelty_vector": {
+      "change_type": "created",
+      "confidence": 0.98
+    }
+  },
+  "surface_class": "command-folder",
+  "hierarchy_level": "D6",
+  "return_anchor": "Archivist",
+  "event_kind": "",
+  "earth_ts_utc": "2026-03-14T00:16:25.420341+00:00",
+  "earth_local_phase": 0.0,
+  "parent_event_id": "ROOT",
+  "ttl": 6,
+  "pheromone": 0.22325,
+  "joy_seed": {
+    "a_seed": 3.11646,
+    "phi_seed": 0.0,
+    "h_seed": 0.992,
+    "joy_potential": 0.992,
+    "route_mode_seed": "closure",
+    "source_evidence": {
+      "change_type": "created",
+      "source_path": "GLOBAL COMMAND/_synthetic_command_membrane/polling_event_drop.txt",
+      "source_class": "command-folder",
+      "docs_gate_status": "BLOCKED",
+      "witness_class": "LOCAL_WITNESS_ONLY"
+    }
+  },
+  "state_hash": "2bdaf44d102a4fd5bec6e1ac3c4abde122691f4f",
+  "route_class": "scout.router.worker.archivist",
+  "source_id": "command_root",
+  "source_class": "command-folder",
+  "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "urgency_baseline": 1.0,
+  "event_fingerprint": "78e487baf0103ce549fa",
+  "witness_class": "LOCAL_WITNESS_ONLY",
+  "status": "routed",
+  "membrane_id": "GLOBAL_COMMAND",
+  "role_class": "Scout",
+  "base4_addr": "A1.B1.C1.D1",
+  "parent": "ROOT",
+  "lineage": {
+    "parent_event_id": "ROOT",
+    "source_mtime_ns": 1.773447382976274e+18,
+    "docs_gate_detail": "blocked-by-missing-credentials",
+    "loop_id": "L02",
+    "surface": "GLOBAL COMMAND",
+    "source_id": "command_root",
+    "source_class": "command-folder"
+  },
+  "deferred_dimensions": {},
+  "coord12": {
+    "earth_utc_anchor": "2026-03-14T00:16:25.420341+00:00",
+    "earth_rotation_phase": 0.719739,
+    "earth_orbital_phase": 0.19726,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.0,
+    "lunar_phase": 0.842228,
+    "local_sidereal_phase": 0.488179,
+    "canonical_sky_anchor": "western_solar12|planetary_office|vedic_lunar",
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.35,
+    "goal_salience_vector": {
+      "goal": "detect-classify-assign",
+      "priority": 1.0
+    },
+    "change_novelty_vector": {
+      "change_type": "created",
+      "confidence": 0.98
+    }
+  },
+  "coord12_frame": {
+    "earth": [
+      "earth_utc_anchor",
+      "earth_rotation_phase",
+      "earth_orbital_phase",
+      "earth_geospatial_anchor"
+    ],
+    "astro": [
+      "solar_phase",
+      "lunar_phase",
+      "local_sidereal_phase",
+      "canonical_sky_anchor"
+    ],
+    "runtime": [
+      "runtime_region",
+      "queue_pressure"
+    ],
+    "liminal": [
+      "goal_salience_vector",
+      "change_novelty_vector"
+    ]
+  },
+  "coord_delta": {
+    "DeltaTau": 0.236159,
+    "DeltaEarth": 1521.809,
+    "LiminalVelocity": 0.155183
+  },
+  "scout_id": "COMMAND-ROOT-A1-SCOUT",
+  "tag": "polling-event-drop",
+  "event_tag": "CMD-000006",
+  "change": {
+    "type": "created",
+    "summary": "created:polling_event_drop.txt",
+    "state_hash": "2bdaf44d102a4fd5bec6e1ac3c4abde122691f4f",
+    "relative_path": "GLOBAL COMMAND/_synthetic_command_membrane/polling_event_drop.txt",
+    "source_path": "GLOBAL COMMAND/_synthetic_command_membrane/polling_event_drop.txt"
+  },
+  "docs_gate_status": "BLOCKED",
+  "route_state": {
+    "event_id": "CMD-000006",
+    "policy_id": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness",
+    "candidate_targets": [
+      {
+        "ant_id": "COMMAND-ROOT-A3-WORKER",
+        "role": "WORKER-ADVENTURER",
+        "role_class": "worker",
+        "source_id": "command_root",
+        "source_class": "command-folder",
+        "score": 5.356102,
+        "goal": 0.6,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.891602,
+        "capability_match": 0.925,
+        "current_load": 0.0,
+        "blocked": false,
+        "leased": false
+      },
+      {
+        "ant_id": "COMMAND-ROOT-A4-ARCHIVIST",
+        "role": "PRUNE-CRYSTAL",
+        "role_class": "archivist",
+        "source_id": "command_root",
+        "source_class": "command-folder",
+        "score": 5.072898,
+        "goal": 0.6,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.608398,
+        "capability_match": 0.925,
+        "current_load": 0.0,
+        "blocked": false,
+        "leased": false
+      },
+      {
+        "ant_id": "COMMAND-ROOT-A2-ROUTER",
+        "role": "PLANNER-ARCHITECT",
+        "role_class": "router",
+        "source_id": "command_root",
+        "source_class": "command-folder",
+        "score": 4.906102,
+        "goal": 0.6,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.391602,
+        "capability_match": 0.975,
+        "current_load": 0.0,
+        "blocked": false,
+        "leased": false
+      },
+      {
+        "ant_id": "COMMAND-ROOT-A1-SCOUT",
+        "role": "SYNTH-RESEARCH",
+        "role_class": "scout",
+        "source_id": "command_root",
+        "source_class": "command-folder",
+        "score": 4.6645,
+        "goal": 0.75,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.0,
+        "capability_match": 0.975,
+        "current_load": 0.0,
+        "blocked": false,
+        "leased": false
+      }
+    ],
+    "selected_targets": [
+      "COMMAND-ROOT-A3-WORKER",
+      "COMMAND-ROOT-A4-ARCHIVIST",
+      "COMMAND-ROOT-A2-ROUTER",
+      "COMMAND-ROOT-A1-SCOUT"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "score_breakdown": {
+      "COMMAND-ROOT-A3-WORKER": {
+        "goal": 0.6,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.891602,
+        "capability_match": 0.925,
+        "current_load": 0.0,
+        "routing_penalty": 0.0525
+      },
+      "COMMAND-ROOT-A4-ARCHIVIST": {
+        "goal": 0.6,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.608398,
+        "capability_match": 0.925,
+        "current_load": 0.0,
+        "routing_penalty": 0.0525
+      },
+      "COMMAND-ROOT-A2-ROUTER": {
+        "goal": 0.6,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.391602,
+        "capability_match": 0.975,
+        "current_load": 0.0,
+        "routing_penalty": 0.0525
+      },
+      "COMMAND-ROOT-A1-SCOUT": {
+        "goal": 0.75,
+        "source_match": 1.0,
+        "salience": 1.0,
+        "joy_potential": 0.992,
+        "pheromone_composite": 0.0,
+        "coord_distance": 0.0,
+        "capability_match": 0.975,
+        "current_load": 0.0,
+        "routing_penalty": 0.0525
+      }
+    },
+    "duplicate_risk": 0.0,
+    "created_at": "2026-03-14T00:16:26.581570+00:00",
+    "expires_at": "",
+    "route_status": "routed",
+    "ranked_routes": [
+      {
+        "ant_id": "COMMAND-ROOT-A3-WORKER",
+        "source_id": "command_root",
+        "master_agent_id": "A3",
+        "role_class": "worker",
+        "score": 5.356102
+      },
+      {
+        "ant_id": "COMMAND-ROOT-A4-ARCHIVIST",
+        "source_id": "command_root",
+        "master_agent_id": "A4",
+        "role_class": "archivist",
+        "score": 5.072898
+      },
+      {
+        "ant_id": "COMMAND-ROOT-A2-ROUTER",
+        "source_id": "command_root",
+        "master_agent_id": "A2",
+        "role_class": "router",
+        "score": 4.906102
+      },
+      {
+        "ant_id": "COMMAND-ROOT-A1-SCOUT",
+        "source_id": "command_root",
+        "master_agent_id": "A1",
+        "role_class": "scout",
+        "score": 4.6645
+      }
+    ],
+    "route_inputs": {
+      "goal": "detect-classify-assign",
+      "salience": 1.0,
+      "joy_potential": 0.992,
+      "pheromone_composite": 0.0,
+      "coord_distance": 0.891602,
+      "capability_match": 0.925,
+      "current_load": 0.0,
+      "source_id": "command_root",
+      "source_class": "command-folder"
+    },
+    "route_path": "COMMAND-ROOT-A1-SCOUT>COMMAND-ROOT-A2-ROUTER>COMMAND-ROOT-A3-WORKER>COMMAND-ROOT-A4-ARCHIVIST",
+    "worker_choice": "COMMAND-ROOT-A3-WORKER",
+    "generated_at": "2026-03-14T00:16:26.581570+00:00",
+    "quest_refs": [
+      "NEXT57-H-COMMAND-MEMBRANE"
+    ],
+    "reward_policy_id": "NEXT57_COMMAND_REWARD_FIELD_V2",
+    "route_mode": "rotate",
+    "crown_eligible": true,
+    "verification_witness_cap": 1.0,
+    "reward_inputs": {
+      "priority": 1.0,
+      "confidence": 0.98,
+      "effort_quality": 0.5
+    }
+  },
+  "claim_state": {},
+  "commit_state": {},
+  "latency_state": {
+    "detect_latency_ms": 0.0,
+    "encode_latency_ms": 0.0,
+    "route_policy": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness",
+    "capillary_score": 0.0,
+    "capillary_delta": 0.0,
+    "awareness_latency_ms": 1161.229
+  },
+  "affected_nodes": [
+    "GLOBAL COMMAND/_synthetic_command_membrane/polling_event_drop.txt"
+  ],
+  "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/CMD-000006.json",
+  "coordinate_vector_12": [
+    0.3860608097165823,
+    0.719739,
+    0.19726,
+    0.37578117894008756,
+    0.0,
+    0.842228,
+    0.488179,
+    0.2761634364724159,
+    0.3983821398578584,
+    0.35,
+    0.23125302838161588,
+    0.7217371978331357
+  ],
+  "artifact_refs": [
+    "GLOBAL COMMAND/_synthetic_command_membrane/polling_event_drop.txt"
+  ],
+  "source_region": "command-folder:directory:GLOBAL COMMAND/_synthetic_command_membrane/polling_event_drop.txt",
+  "sensor_event_id": "CMD-000006",
+  "file_family": "document",
+  "scheduler_refs": {
+    "western_solar12": {
+      "system_id": "western_solar12",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md"
+    },
+    "vedic_lunar": {
+      "system_id": "vedic_lunar",
+      "shared12_seat": "S11 / Aquarius / Air / Fixed",
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md"
+    },
+    "planetary_office": {
+      "system_id": "planetary_office",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md"
+    },
+    "shared12_projection": {
+      "active_anchor_lane_ids": [
+        "chinese_cycle",
+        "planetary_office",
+        "vedic_lunar",
+        "western_solar12"
+      ],
+      "rows": [
+        {
+          "system_id": "chinese_cycle",
+          "shared12_seat": "S07 / Libra / Air / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\chinese_cycle_packet.md"
+        },
+        {
+          "system_id": "planetary_office",
+          "shared12_seat": "S01 / Aries / Fire / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md"
+        },
+        {
+          "system_id": "vedic_lunar",
+          "shared12_seat": "S11 / Aquarius / Air / Fixed",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md"
+        },
+        {
+          "system_id": "western_solar12",
+          "shared12_seat": "S01 / Aries / Fire / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md"
+        }
+      ]
+    }
+  },
+  "hsigma_ref": "NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json",
+  "route_targets": [
+    "COMMAND-ROOT-A3-WORKER",
+    "COMMAND-ROOT-A4-ARCHIVIST",
+    "COMMAND-ROOT-A2-ROUTER",
+    "COMMAND-ROOT-A1-SCOUT"
+  ],
+  "linked_quests": [
+    "NEXT57-H-COMMAND-MEMBRANE"
+  ],
+  "source_folder": "command_root",
+  "front_ref": "Q41 / TQ06",
+  "seed_mode": "A-dominant",
+  "dual_reference": "LP57-A|LP57-B",
+  "liminal_delta": 0.236159,
+  "earth_delta_ms": 1521.809,
+  "liminal_velocity": 0.155183,
+  "prior_comparable_event_id": "CMD-000005",
+  "watcher_mode": "polling",
+  "duality_effect": "joy-gradient-command",
+  "reward_state": {
+    "affect_intensity_a": 2.805442,
+    "affect_direction_phi": 1.570796,
+    "alignment_score": 0.4465,
+    "verified_alignment_score": 0.22325,
+    "reward_multiplier": 1.271052,
+    "attempt_reward": 0.125,
+    "latency_reward": 0.313101,
+    "first_reward": 0.75,
+    "assist_reward": 0.1,
+    "learning_reward": 0.5,
+    "total_reward": 2.272769,
+    "crown_tier": "route",
+    "route_mode": "rotate",
+    "tau_seconds": 1.161229
+  },
+  "verification_state": {
+    "verification_witness": 0.5,
+    "verification_basis": "route persisted",
+    "closure_class": "first_route",
+    "crown_eligible": true,
+    "verification_witness_cap": 1.0
+  },
+  "pheromone_state": {
+    "gold_deposit": 0.454554,
+    "bridge_deposit": 0.006797,
+    "evaporation_rate": 0.20535,
+    "gold_strength_after": 0.0,
+    "bridge_strength_after": 0.0,
+    "compat_edge_strength_after": 0.0
+  },
+  "reward_policy_id": "NEXT57_COMMAND_REWARD_FIELD_V2",
+  "crown_tier": "route",
+  "closure_class": "first_route"
+}

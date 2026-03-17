@@ -1,0 +1,3672 @@
+{
+  "build_date": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "authority_class": "canonical",
+  "source_basis": [
+    "00_CONTROL/14_AETHER_RESOLVER_LAW.md",
+    "ORCHESTRATION_57_LOOP/12_AETHER_SYMBOLIC_RESOLVER.md"
+  ],
+  "record_count": 45,
+  "resolved_records": [
+    {
+      "id": "R01",
+      "family": "R",
+      "set": "{A}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B01",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B01;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B01",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B01;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A)",
+        "atoms": [
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R02",
+      "family": "R",
+      "set": "{B}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B02",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B02;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B02",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B02;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B)",
+        "atoms": [
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R03",
+      "family": "R",
+      "set": "{A,B}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B03",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B03;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B03",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B03;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R10",
+      "family": "R",
+      "set": "{C}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B10",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B10;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B10",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B10;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZC",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C)",
+        "atoms": [
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R11",
+      "family": "R",
+      "set": "{A,C}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B11",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B11;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B11",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B11;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A>C)",
+        "atoms": [
+          "A",
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R12",
+      "family": "R",
+      "set": "{B,C}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B12",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B12;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B12",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B12;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C>B)",
+        "atoms": [
+          "C",
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R13",
+      "family": "R",
+      "set": "{A,B,C}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B13",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B13;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B13",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B13;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A>C>B)",
+        "atoms": [
+          "A",
+          "C",
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R20",
+      "family": "R",
+      "set": "{D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B20",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B20;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B20",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B20;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZD",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D)",
+        "atoms": [
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R21",
+      "family": "R",
+      "set": "{A,D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B21",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B21;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B21",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B21;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D>A)",
+        "atoms": [
+          "D",
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R22",
+      "family": "R",
+      "set": "{B,D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B22",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B22;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B22",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B22;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B>D)",
+        "atoms": [
+          "B",
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R23",
+      "family": "R",
+      "set": "{A,B,D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B23",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B23;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B23",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B23;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B>D>A)",
+        "atoms": [
+          "B",
+          "D",
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R30",
+      "family": "R",
+      "set": "{C,D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B30",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B30;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B30",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B30;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R31",
+      "family": "R",
+      "set": "{A,C,D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B31",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B31;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B31",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B31;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D>A>C)",
+        "atoms": [
+          "D",
+          "A",
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R32",
+      "family": "R",
+      "set": "{B,C,D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B32",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B32;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B32",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B32;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C>B>D)",
+        "atoms": [
+          "C",
+          "B",
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "R33",
+      "family": "R",
+      "set": "{A,B,C,D}",
+      "ae_refs": {
+        "+": {
+          "lens": "F",
+          "phase": "\u03a60",
+          "phase_alias": "R+",
+          "bundle": "B33",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a60,B33;Core)"
+        },
+        "-": {
+          "lens": "F",
+          "phase": "\u03a61",
+          "phase_alias": "R-",
+          "bundle": "B33",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a61,B33;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q01",
+      "family": "Q",
+      "set": "{A}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B01",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B01;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A)",
+        "atoms": [
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q02",
+      "family": "Q",
+      "set": "{B}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B02",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B02;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B)",
+        "atoms": [
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q03",
+      "family": "Q",
+      "set": "{A,B}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B03",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B03;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q10",
+      "family": "Q",
+      "set": "{C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B10",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B10;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZC",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C)",
+        "atoms": [
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q11",
+      "family": "Q",
+      "set": "{A,C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B11",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B11;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A>C)",
+        "atoms": [
+          "A",
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q12",
+      "family": "Q",
+      "set": "{B,C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B12",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B12;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C>B)",
+        "atoms": [
+          "C",
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q13",
+      "family": "Q",
+      "set": "{A,B,C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B13",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B13;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A>C>B)",
+        "atoms": [
+          "A",
+          "C",
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q20",
+      "family": "Q",
+      "set": "{D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B20",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B20;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZD",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D)",
+        "atoms": [
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q21",
+      "family": "Q",
+      "set": "{A,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B21",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B21;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D>A)",
+        "atoms": [
+          "D",
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q22",
+      "family": "Q",
+      "set": "{B,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B22",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B22;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B>D)",
+        "atoms": [
+          "B",
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q23",
+      "family": "Q",
+      "set": "{A,B,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B23",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B23;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B>D>A)",
+        "atoms": [
+          "B",
+          "D",
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q30",
+      "family": "Q",
+      "set": "{C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B30",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B30;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q31",
+      "family": "Q",
+      "set": "{A,C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B31",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B31;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D>A>C)",
+        "atoms": [
+          "D",
+          "A",
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q32",
+      "family": "Q",
+      "set": "{B,C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B32",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B32;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZB+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C>B>D)",
+        "atoms": [
+          "C",
+          "B",
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtL",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppN",
+            "path": "APPENDIX_CRYSTAL/AppN_container_and_compression_formats.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "Q33",
+      "family": "Q",
+      "set": "{A,B,C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a62",
+          "phase_alias": "Q4",
+          "bundle": "B33",
+          "slot": "Core",
+          "hidden_pole": null,
+          "coord": "AE=(F,\u03a62,B33;Core)"
+        }
+      },
+      "hidden_pole": null,
+      "z_resolution": {
+        "alias": "ZA+ZB+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T01",
+      "family": "T",
+      "set": "{A}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B01",
+          "slot": "Residual",
+          "hidden_pole": "C",
+          "coord": "AE=(F,\u03a63,B01:h=C;Residual)"
+        }
+      },
+      "hidden_pole": "C",
+      "z_resolution": {
+        "alias": "ZA",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A)",
+        "atoms": [
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T02",
+      "family": "T",
+      "set": "{B}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B02",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B02:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZB",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B)",
+        "atoms": [
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T03",
+      "family": "T",
+      "set": "{A,B}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B03",
+          "slot": "Residual",
+          "hidden_pole": "C",
+          "coord": "AE=(F,\u03a63,B03:h=C;Residual)"
+        }
+      },
+      "hidden_pole": "C",
+      "z_resolution": {
+        "alias": "ZA+ZB",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T10",
+      "family": "T",
+      "set": "{C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B10",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B10:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZC",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C)",
+        "atoms": [
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T11",
+      "family": "T",
+      "set": "{A,C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B11",
+          "slot": "Residual",
+          "hidden_pole": "B",
+          "coord": "AE=(F,\u03a63,B11:h=B;Residual)"
+        }
+      },
+      "hidden_pole": "B",
+      "z_resolution": {
+        "alias": "ZA+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A>C)",
+        "atoms": [
+          "A",
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T12",
+      "family": "T",
+      "set": "{B,C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B12",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B12:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZB+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C>B)",
+        "atoms": [
+          "C",
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T13",
+      "family": "T",
+      "set": "{A,B,C}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B13",
+          "slot": "Residual",
+          "hidden_pole": "D",
+          "coord": "AE=(F,\u03a63,B13:h=D;Residual)"
+        }
+      },
+      "hidden_pole": "D",
+      "z_resolution": {
+        "alias": "ZA+ZB+ZC",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(A>C>B)",
+        "atoms": [
+          "A",
+          "C",
+          "B"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T20",
+      "family": "T",
+      "set": "{D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B20",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B20:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZD",
+        "class": "elemental_z",
+        "elemental_targets": [
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D)",
+        "atoms": [
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T21",
+      "family": "T",
+      "set": "{A,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B21",
+          "slot": "Residual",
+          "hidden_pole": "C",
+          "coord": "AE=(F,\u03a63,B21:h=C;Residual)"
+        }
+      },
+      "hidden_pole": "C",
+      "z_resolution": {
+        "alias": "ZA+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D>A)",
+        "atoms": [
+          "D",
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T22",
+      "family": "T",
+      "set": "{B,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B22",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B22:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZB+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B>D)",
+        "atoms": [
+          "B",
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T23",
+      "family": "T",
+      "set": "{A,B,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B23",
+          "slot": "Residual",
+          "hidden_pole": "C",
+          "coord": "AE=(F,\u03a63,B23:h=C;Residual)"
+        }
+      },
+      "hidden_pole": "C",
+      "z_resolution": {
+        "alias": "ZA+ZB+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(B>D>A)",
+        "atoms": [
+          "B",
+          "D",
+          "A"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T30",
+      "family": "T",
+      "set": "{C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B30",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B30:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T31",
+      "family": "T",
+      "set": "{A,C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B31",
+          "slot": "Residual",
+          "hidden_pole": "B",
+          "coord": "AE=(F,\u03a63,B31:h=B;Residual)"
+        }
+      },
+      "hidden_pole": "B",
+      "z_resolution": {
+        "alias": "ZA+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(D>A>C)",
+        "atoms": [
+          "D",
+          "A",
+          "C"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "EARTH/01_earth_full_corpus_pass.md",
+          "FIRE/01_fire_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T32",
+      "family": "T",
+      "set": "{B,C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B32",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B32:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZB+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "loc(C>B>D)",
+        "atoms": [
+          "C",
+          "B",
+          "D"
+        ],
+        "class": "ordered_checkpoint_chain",
+        "local_targets": [
+          "AIR/01_air_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "unresolved_atoms": []
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    },
+    {
+      "id": "T33",
+      "family": "T",
+      "set": "{A,B,C,D}",
+      "ae_refs": {
+        "single": {
+          "lens": "F",
+          "phase": "\u03a63",
+          "phase_alias": "T3",
+          "bundle": "B33",
+          "slot": "Residual",
+          "hidden_pole": "A",
+          "coord": "AE=(F,\u03a63,B33:h=A;Residual)"
+        }
+      },
+      "hidden_pole": "A",
+      "z_resolution": {
+        "alias": "ZA+ZB+ZC+ZD",
+        "class": "composite_z",
+        "elemental_targets": [
+          "FIRE/01_fire_full_corpus_pass.md",
+          "WATER/01_water_full_corpus_pass.md",
+          "AIR/01_air_full_corpus_pass.md",
+          "EARTH/01_earth_full_corpus_pass.md"
+        ],
+        "wildcard": false
+      },
+      "ck_resolution": {
+        "expression": "Z*",
+        "atoms": [],
+        "class": "wildcard_checkpoint",
+        "local_targets": [],
+        "unresolved_atoms": [
+          "*"
+        ]
+      },
+      "rt_resolution": {
+        "alias": "rtZ",
+        "local_nodes": [
+          {
+            "node": "AppA",
+            "path": "APPENDIX_CRYSTAL/AppA_addressing_and_grammar.md"
+          },
+          {
+            "node": "AppI",
+            "path": "APPENDIX_CRYSTAL/AppI_corridor_lattice.md"
+          },
+          {
+            "node": "AppM",
+            "path": "APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+          },
+          {
+            "node": "AppF",
+            "path": "APPENDIX_CRYSTAL/AppF_transport_and_dual_law.md"
+          },
+          {
+            "node": "AppG",
+            "path": "APPENDIX_CRYSTAL/AppG_triangle_control_and_recursion.md"
+          }
+        ],
+        "external_tail": {
+          "alias": "Ch21\u27e80110\u27e9",
+          "class": "external-symbolic-witness",
+          "local_path": null,
+          "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+        },
+        "hub_count": 6,
+        "sigma_ok": true
+      },
+      "continuity_floors": [
+        "AppI",
+        "AppM",
+        "AppQ",
+        "AppO"
+      ],
+      "authority_class": "canonical"
+    }
+  ]
+}

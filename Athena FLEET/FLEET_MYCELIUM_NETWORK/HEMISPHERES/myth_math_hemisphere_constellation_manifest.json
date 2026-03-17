@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-03-13T21:08:36.581488+00:00",
+  "docs_gate_status": "BLOCKED",
+  "record_cap": 16,
+  "counts": {
+    "node_count": 852,
+    "edge_count": 2196,
+    "page_count": 45,
+    "group_counts": {
+      "main_pages": 8,
+      "family": 10,
+      "anchor": 16,
+      "target_system": 11,
+      "hemisphere": 2
+    }
+  },
+  "main_page_ids": [
+    "VA-INDEX",
+    "VA-OVERVIEW",
+    "VA-HEM-MATH",
+    "VA-HEM-MYTH",
+    "VA-ANCHOR",
+    "VA-TARGET-SYSTEM",
+    "VA-LOCATOR",
+    "VA-COVERAGE"
+  ],
+  "output_paths": {
+    "node_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_constellation_node_registry.json",
+    "edge_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_constellation_edge_registry.json",
+    "page_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_constellation_page_registry.json",
+    "manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_constellation_manifest.json"
+  },
+  "commands": {
+    "record": "python -m self_actualize.runtime.constellate_myth_math_hemisphere_atlas record --record-id <record_id>",
+    "search": "python -m self_actualize.runtime.constellate_myth_math_hemisphere_atlas search --query <text>",
+    "facet": "python -m self_actualize.runtime.constellate_myth_math_hemisphere_atlas facet --family <family>",
+    "page": "python -m self_actualize.runtime.constellate_myth_math_hemisphere_atlas page --page-id <page_id>"
+  }
+}

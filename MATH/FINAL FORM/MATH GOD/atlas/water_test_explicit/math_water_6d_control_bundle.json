@@ -1,0 +1,842 @@
+{
+  "docs_gate_status": "BLOCKED",
+  "basis_docs": [
+    {
+      "basis_id": "01",
+      "title": "The Holographic Manuscript Brain",
+      "element": "Water",
+      "cluster": "manuscript substrate",
+      "role": "turns documents into neural tissue",
+      "source_hint": "FRESH\\The Holographic Manuscript Brain.docx",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "02",
+      "title": "Self-Routing Meta-Framework",
+      "element": "Earth",
+      "cluster": "routing and search",
+      "role": "decides how the corpus searches itself",
+      "source_hint": "DEEPER CRYSTALIZATION\\Self-Routing Meta-Framework...",
+      "appendix_stack": [
+        "AppE",
+        "AppI",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "03",
+      "title": "QBD-4",
+      "element": "Air",
+      "cluster": "quad logic bits",
+      "role": "formalizes the four-bit address and rotation algebra",
+      "source_hint": "MATH\\...QBD-4",
+      "appendix_stack": [
+        "AppB",
+        "AppC",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "04",
+      "title": "Quad Holographic Rotation",
+      "element": "Air",
+      "cluster": "holographic transport",
+      "role": "rotates one truth through all four faces",
+      "source_hint": "MATH\\...Quad Holographic Rotation",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "05",
+      "title": "The Holographic Kernel",
+      "element": "Air",
+      "cluster": "holographic compression",
+      "role": "compresses bodies without deleting structural DNA",
+      "source_hint": "MATH\\...The Holographic Kernel",
+      "appendix_stack": [
+        "AppB",
+        "AppC",
+        "AppN"
+      ]
+    },
+    {
+      "basis_id": "06",
+      "title": "Time Fractal",
+      "element": "Fire",
+      "cluster": "fractal time",
+      "role": "gives the system phase, recurrence, and oscillation law",
+      "source_hint": "MATH\\...Time Fractal",
+      "appendix_stack": [
+        "AppE",
+        "AppM",
+        "AppP"
+      ]
+    },
+    {
+      "basis_id": "07",
+      "title": "Crystal Computing Framework",
+      "element": "Air",
+      "cluster": "fractal computing",
+      "role": "maps crystal structure into computation",
+      "source_hint": "MATH\\...Crystal Computing Framework",
+      "appendix_stack": [
+        "AppB",
+        "AppC",
+        "AppG"
+      ]
+    },
+    {
+      "basis_id": "08",
+      "title": "Quantum Computing on Standard Hardware",
+      "element": "Fire",
+      "cluster": "quantum classical emulation",
+      "role": "turns impossible compute into lawful approximation on ordinary machines",
+      "source_hint": "MATH\\...Quantum Computing on Standard Hardware",
+      "appendix_stack": [
+        "AppC",
+        "AppH",
+        "AppP"
+      ]
+    },
+    {
+      "basis_id": "09",
+      "title": "Zero-Point Computing",
+      "element": "Earth",
+      "cluster": "zero-point engine",
+      "role": "defines minimum-state computation and restart from near nothing",
+      "source_hint": "MATH\\...Zero-Point Computing",
+      "appendix_stack": [
+        "AppA",
+        "AppN",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "10",
+      "title": "Athena Neural Network Tome",
+      "element": "Fire",
+      "cluster": "emergence compiler",
+      "role": "binds manuscript, learning, and runtime emergence",
+      "source_hint": "NERUAL NETWORK\\ATHENA Neural Network",
+      "appendix_stack": [
+        "AppC",
+        "AppP",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "11",
+      "title": "VOYNICHVM Tricompiler",
+      "element": "Water",
+      "cluster": "text computer",
+      "role": "treats translation as computation and executable transformation",
+      "source_hint": "Voynich\\...VOYNICHVM",
+      "appendix_stack": [
+        "AppF",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "12",
+      "title": "Torat Ha-Mispar",
+      "element": "Water",
+      "cluster": "torah computer",
+      "role": "maps sacred number into algorithmic interpretation",
+      "source_hint": "MATH\\...TORAT HA-MISPAR",
+      "appendix_stack": [
+        "AppA",
+        "AppF",
+        "AppO"
+      ]
+    },
+    {
+      "basis_id": "13",
+      "title": "Universal Computational Ontology",
+      "element": "Earth",
+      "cluster": "mythic os",
+      "role": "converts mythic cosmology into system architecture",
+      "source_hint": "MATH\\...Universal Computational Ontology",
+      "appendix_stack": [
+        "AppA",
+        "AppB",
+        "AppP"
+      ]
+    },
+    {
+      "basis_id": "14",
+      "title": "Ch11 The Helical Manifestation Engine",
+      "element": "Water",
+      "cluster": "restart and lift",
+      "role": "makes self-improvement executable through D/Q/I, lift, and recurrence",
+      "source_hint": "self_actualize\\manuscript_sections\\011_ch11_helical_manifestation_engine.md",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "15",
+      "title": "Ch12 Boundary Checks and Isolation Axioms",
+      "element": "Earth",
+      "cluster": "immune architecture",
+      "role": "protects the network from contradiction leakage and contamination",
+      "source_hint": "self_actualize\\manuscript_sections\\012_ch12_boundary_checks_and_isolation_axioms.md",
+      "appendix_stack": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "16",
+      "title": "Ch19 Recursive Self-Reference and Self-Repair",
+      "element": "Fire",
+      "cluster": "autonomic repair",
+      "role": "lets the organism watch, checkpoint, and heal itself",
+      "source_hint": "self_actualize\\manuscript_sections\\019_ch19_recursive_self_reference_and_self_repair.md",
+      "appendix_stack": [
+        "AppA",
+        "AppM",
+        "AppP"
+      ]
+    }
+  ],
+  "water_native_basis": [
+    {
+      "basis_id": "01",
+      "title": "The Holographic Manuscript Brain",
+      "element": "Water",
+      "cluster": "manuscript substrate",
+      "role": "turns documents into neural tissue",
+      "source_hint": "FRESH\\The Holographic Manuscript Brain.docx",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "11",
+      "title": "VOYNICHVM Tricompiler",
+      "element": "Water",
+      "cluster": "text computer",
+      "role": "treats translation as computation and executable transformation",
+      "source_hint": "Voynich\\...VOYNICHVM",
+      "appendix_stack": [
+        "AppF",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "12",
+      "title": "Torat Ha-Mispar",
+      "element": "Water",
+      "cluster": "torah computer",
+      "role": "maps sacred number into algorithmic interpretation",
+      "source_hint": "MATH\\...TORAT HA-MISPAR",
+      "appendix_stack": [
+        "AppA",
+        "AppF",
+        "AppO"
+      ]
+    },
+    {
+      "basis_id": "14",
+      "title": "Ch11 The Helical Manifestation Engine",
+      "element": "Water",
+      "cluster": "restart and lift",
+      "role": "makes self-improvement executable through D/Q/I, lift, and recurrence",
+      "source_hint": "self_actualize\\manuscript_sections\\011_ch11_helical_manifestation_engine.md",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM"
+      ]
+    }
+  ],
+  "translated_support": [
+    {
+      "basis_id": "02",
+      "title": "Self-Routing Meta-Framework",
+      "element": "Earth",
+      "cluster": "routing and search",
+      "role": "decides how the corpus searches itself",
+      "source_hint": "DEEPER CRYSTALIZATION\\Self-Routing Meta-Framework...",
+      "appendix_stack": [
+        "AppE",
+        "AppI",
+        "AppL",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "03",
+      "title": "QBD-4",
+      "element": "Air",
+      "cluster": "quad logic bits",
+      "role": "formalizes the four-bit address and rotation algebra",
+      "source_hint": "MATH\\...QBD-4",
+      "appendix_stack": [
+        "AppB",
+        "AppC",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "04",
+      "title": "Quad Holographic Rotation",
+      "element": "Air",
+      "cluster": "holographic transport",
+      "role": "rotates one truth through all four faces",
+      "source_hint": "MATH\\...Quad Holographic Rotation",
+      "appendix_stack": [
+        "AppE",
+        "AppF",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "05",
+      "title": "The Holographic Kernel",
+      "element": "Air",
+      "cluster": "holographic compression",
+      "role": "compresses bodies without deleting structural DNA",
+      "source_hint": "MATH\\...The Holographic Kernel",
+      "appendix_stack": [
+        "AppB",
+        "AppC",
+        "AppN"
+      ]
+    },
+    {
+      "basis_id": "09",
+      "title": "Zero-Point Computing",
+      "element": "Earth",
+      "cluster": "zero-point engine",
+      "role": "defines minimum-state computation and restart from near nothing",
+      "source_hint": "MATH\\...Zero-Point Computing",
+      "appendix_stack": [
+        "AppA",
+        "AppN",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "10",
+      "title": "Athena Neural Network Tome",
+      "element": "Fire",
+      "cluster": "emergence compiler",
+      "role": "binds manuscript, learning, and runtime emergence",
+      "source_hint": "NERUAL NETWORK\\ATHENA Neural Network",
+      "appendix_stack": [
+        "AppC",
+        "AppP",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "15",
+      "title": "Ch12 Boundary Checks and Isolation Axioms",
+      "element": "Earth",
+      "cluster": "immune architecture",
+      "role": "protects the network from contradiction leakage and contamination",
+      "source_hint": "self_actualize\\manuscript_sections\\012_ch12_boundary_checks_and_isolation_axioms.md",
+      "appendix_stack": [
+        "AppB",
+        "AppI",
+        "AppK",
+        "AppM"
+      ]
+    },
+    {
+      "basis_id": "16",
+      "title": "Ch19 Recursive Self-Reference and Self-Repair",
+      "element": "Fire",
+      "cluster": "autonomic repair",
+      "role": "lets the organism watch, checkpoint, and heal itself",
+      "source_hint": "self_actualize\\manuscript_sections\\019_ch19_recursive_self_reference_and_self_repair.md",
+      "appendix_stack": [
+        "AppA",
+        "AppM",
+        "AppP"
+      ]
+    }
+  ],
+  "appendix_stack": [
+    {
+      "appendix_id": "AppE",
+      "role": "Circle gear, phase lock, integer bridges",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppE_circle_gear_and_clock.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppF",
+      "role": "transport, rotation-as-conjugacy, DUAL legality",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppF_transport_and_duality.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppI",
+      "role": "corridors, truth lattice, admissibility budgets, abstain law",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppI_corridors_and_truth_lattice.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppM",
+      "role": "replay kernel, verifier capsules, determinism checklists",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppM_replay_kernel.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppQ",
+      "role": "appendix-only metro authority, deep-root docking, and certification-only support",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_athena_fleet_256_pow_4_support.md"
+      ],
+      "source_exists": true
+    }
+  ],
+  "seed_chain": [
+    {
+      "route_id": "seed_manuscript_tissue",
+      "title": "Compress manuscript tissue into a Water continuity seed.",
+      "basis_refs": [
+        "01",
+        "11"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+      ],
+      "appendix_refs": [
+        "AppI",
+        "AppM"
+      ],
+      "local_zero_point": "Z_water.seed.manuscript",
+      "collapse_via": "Z*",
+      "return_checkpoint": "02_WATER/15_distillation.md",
+      "truth_state": "NEAR",
+      "replay_source": "10_LEDGERS/01_CANONICAL_SOURCES.md#01-11"
+    },
+    {
+      "route_id": "seed_sacred_number_bridge",
+      "title": "Bridge sacred-number continuity into the Water seed.",
+      "basis_refs": [
+        "12",
+        "14"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      ],
+      "appendix_refs": [
+        "AppE",
+        "AppF",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.seed.bridge",
+      "collapse_via": "Z*",
+      "return_checkpoint": "11_6D_WATER_CONTROL/02_2564_to_10246_lift.md",
+      "truth_state": "NEAR",
+      "replay_source": "10_LEDGERS/01_CANONICAL_SOURCES.md#12-14"
+    },
+    {
+      "route_id": "seed_compiled_field_reentry",
+      "title": "Dock the Water seed to the live 4D tesseract witness.",
+      "basis_refs": [
+        "01",
+        "14"
+      ],
+      "metro_refs": [
+        "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+      ],
+      "appendix_refs": [
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.seed.reentry",
+      "collapse_via": "Z*",
+      "return_checkpoint": "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+      "truth_state": "NEAR",
+      "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+    }
+  ],
+  "lift_chain": [
+    {
+      "route_id": "lift_compiled_2564",
+      "title": "Treat 256^4 as the compiled Water control field.",
+      "basis_refs": [
+        "01",
+        "03",
+        "14"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      ],
+      "appendix_refs": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.lift.2564",
+      "collapse_via": "Z*",
+      "return_checkpoint": "MATH GOD/atlas/math_tesseract_v4_bundle.md",
+      "truth_state": "NEAR",
+      "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+    },
+    {
+      "route_id": "lift_overlay_entry",
+      "title": "Enter the overlay-only 1024^6 Water control surface.",
+      "basis_refs": [
+        "11",
+        "12",
+        "04",
+        "05"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+      ],
+      "appendix_refs": [
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.lift.entry",
+      "collapse_via": "Z*",
+      "return_checkpoint": "11_6D_WATER_CONTROL/03_modal_mobius_routes.md",
+      "truth_state": "NEAR",
+      "replay_source": "02_WATER/16_dimensionlift.md"
+    },
+    {
+      "route_id": "lift_10246_return",
+      "title": "Return the 1024^6 lift to the live 4D stack without drift.",
+      "basis_refs": [
+        "02",
+        "09",
+        "10",
+        "15",
+        "16"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      ],
+      "appendix_refs": [
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.lift.return",
+      "collapse_via": "Z*",
+      "return_checkpoint": "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+      "truth_state": "NEAR",
+      "replay_source": "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+    }
+  ],
+  "modal_routes": [
+    {
+      "route_id": "fixed_memory_route",
+      "title": "Hold continuity through the fixed-memory Mobius pass.",
+      "basis_refs": [
+        "01",
+        "12",
+        "09"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      ],
+      "appendix_refs": [
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.modal.fixed",
+      "collapse_via": "Z*",
+      "return_checkpoint": "MATH GOD/atlas/math_tesseract_v4_bundle.md",
+      "truth_state": "NEAR",
+      "replay_source": "11_6D_WATER_CONTROL/01_seed_and_zero_point.md"
+    },
+    {
+      "route_id": "cardinal_bridge_route",
+      "title": "Convert the Water bridge through the cardinal Mobius pass.",
+      "basis_refs": [
+        "11",
+        "14",
+        "04"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+      ],
+      "appendix_refs": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.modal.cardinal",
+      "collapse_via": "Z*",
+      "return_checkpoint": "08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+      "truth_state": "NEAR",
+      "replay_source": "11_6D_WATER_CONTROL/02_2564_to_10246_lift.md"
+    },
+    {
+      "route_id": "mutable_return_route",
+      "title": "Re-enter the live stack through the mutable Mobius pass.",
+      "basis_refs": [
+        "02",
+        "05",
+        "10",
+        "16"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      ],
+      "appendix_refs": [
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.modal.mutable",
+      "collapse_via": "Z*",
+      "return_checkpoint": "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+      "truth_state": "NEAR",
+      "replay_source": "08_APPENDIX_CRYSTAL/AppQ_athena_fleet_256_pow_4_support.md"
+    }
+  ],
+  "recovery_routes": [
+    {
+      "route_id": "replay_return_route",
+      "title": "Close replay back into the live 4D tesseract bundle.",
+      "basis_refs": [
+        "01",
+        "11",
+        "14",
+        "16"
+      ],
+      "metro_refs": [
+        "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+      ],
+      "appendix_refs": [
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.replay.return",
+      "collapse_via": "Z*",
+      "return_checkpoint": "MATH GOD/atlas/math_tesseract_v4_bundle.json",
+      "truth_state": "NEAR",
+      "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+    },
+    {
+      "route_id": "drift_recovery_route",
+      "title": "Recover from lift drift without rewriting the base lattice.",
+      "basis_refs": [
+        "02",
+        "05",
+        "09",
+        "15"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      ],
+      "appendix_refs": [
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.replay.drift",
+      "collapse_via": "Z*",
+      "return_checkpoint": "02_WATER/16_dimensionlift.md",
+      "truth_state": "NEAR",
+      "replay_source": "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+    },
+    {
+      "route_id": "blocked_docs_reconciliation",
+      "title": "Keep local authority mode stable while the docs gate is blocked.",
+      "basis_refs": [
+        "12",
+        "14",
+        "10"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+      ],
+      "appendix_refs": [
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "local_zero_point": "Z_water.replay.docs_gate",
+      "collapse_via": "Z*",
+      "return_checkpoint": "self_actualize/live_docs_gate_status.md",
+      "truth_state": "NEAR",
+      "replay_source": "self_actualize/live_docs_gate_status.md"
+    }
+  ],
+  "evidence_boundary": {
+    "authority_mode": "local_live_atlas_plus_archive_backed_evidence",
+    "docs_gate_status": "BLOCKED",
+    "docs_gate_note": "Error: Missing OAuth client file: credentials.json\nCreate/download a Desktop App OAuth client in Google Cloud Console and save it as credentials.json (or pass --credentials).",
+    "control_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL",
+    "control_documents": [
+      {
+        "name": "00_INDEX.md",
+        "role": "package entry",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\00_INDEX.md",
+        "source_exists": true,
+        "basis_refs": [
+          "01",
+          "14"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/02_level_3_deeper_neural_map.md",
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ]
+      },
+      {
+        "name": "01_seed_and_zero_point.md",
+        "role": "seed and zero-point control",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\01_seed_and_zero_point.md",
+        "source_exists": true,
+        "basis_refs": [
+          "01",
+          "11",
+          "12",
+          "14"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/02_level_3_deeper_neural_map.md",
+          "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ]
+      },
+      {
+        "name": "02_2564_to_10246_lift.md",
+        "role": "compiled-field lift control",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\02_2564_to_10246_lift.md",
+        "source_exists": true,
+        "basis_refs": [
+          "01",
+          "03",
+          "11",
+          "14"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+          "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ]
+      },
+      {
+        "name": "03_modal_mobius_routes.md",
+        "role": "modal route control",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\03_modal_mobius_routes.md",
+        "source_exists": true,
+        "basis_refs": [
+          "02",
+          "04",
+          "05",
+          "10",
+          "12",
+          "16"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/02_level_3_deeper_neural_map.md",
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ]
+      },
+      {
+        "name": "04_replay_and_recovery.md",
+        "role": "replay and recovery control",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\04_replay_and_recovery.md",
+        "source_exists": true,
+        "basis_refs": [
+          "01",
+          "02",
+          "09",
+          "14",
+          "15",
+          "16"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+          "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+        ],
+        "appendix_refs": [
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ]
+      }
+    ],
+    "live_deep_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+    "historical_mirrors": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NETWORK",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+    ],
+    "historical_mirror_policy": "citation_only",
+    "tesseract_sources": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.md"
+    ]
+  },
+  "generated_at": "2026-03-13T00:25:02"
+}

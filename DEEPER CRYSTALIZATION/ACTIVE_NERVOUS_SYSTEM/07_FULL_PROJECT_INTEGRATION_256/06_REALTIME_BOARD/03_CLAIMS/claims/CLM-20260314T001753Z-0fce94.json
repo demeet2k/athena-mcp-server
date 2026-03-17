@@ -1,0 +1,19 @@
+{
+  "claim_id": "CLM-20260314T001753Z-0fce94",
+  "frontier": "build_queue::CMD-000015",
+  "front_slug": "build_queue_cmd_000015",
+  "level": "command-event",
+  "owner": "BUILD-QUEUE-A3-WORKER",
+  "status": "done",
+  "output_target": "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+  "receipt": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/receipts/CMD-000015.md",
+  "source": "board",
+  "paths": [
+    "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+    "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/receipts/CMD-000015.json",
+    "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/receipts/CMD-000015.md"
+  ],
+  "note": "multi-surface canonical reseed for build_queue",
+  "created_at": "2026-03-14T00:17:53.364292+00:00",
+  "updated_at": "2026-03-14T00:17:53.769719+00:00"
+}

@@ -18,3 +18,8 @@ It is also a projection of the higher-dimensional swarm runtime, not only a flat
 ## Canonical Rule
 
 New work should claim a frontier here before it expands. The goal is one shared place where agents can see what is active, what changed, how it is located in the swarm tensor, and what should not be duplicated.
+
+## Organism Center
+
+The live board is the coordination plexus, not the whole-organism map.
+The current representational center lives at `self_actualize/mycelium_brain/MASTER_MYCELIUM_MAP_ATHENA/00_MASTER_MYCELIUM_MAP_ATHENA.md`.

@@ -16,3 +16,5 @@
 - [AppN - Container Formats and Virtual Mount](./AppN_container_formats_and_virtual_mount.md)
 - [AppO - Publication Import/Export Bundles](./AppO_publication_importexport_bundles.md)
 - [AppP - Deployment Profiles and Monitoring](./AppP_deployment_profiles_and_monitoring.md)
+- [AppQ - Quest Atlas and Board Kernel](./AppQ_quest_atlas_and_board_kernel.md)
+- [AppR - Rosetta Procedural Generation Engine](./AppR_rosetta_procedural_generation_engine.md)

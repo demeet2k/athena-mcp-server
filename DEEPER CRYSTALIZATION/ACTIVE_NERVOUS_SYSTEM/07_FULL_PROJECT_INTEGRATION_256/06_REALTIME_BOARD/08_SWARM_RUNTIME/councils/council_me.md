@@ -10,8 +10,6 @@
 ## Live Threads
 - `queued` `First live archive promotion run` (MATH)
 - `monitor` `First archive-promotion toolkit surface` (MATH)
-- `monitor` `ECOSYSTEM` (ECOSYSTEM)
-- `monitor` `MATH` (MATH)
 
 ## Frontier Gaps
 - none

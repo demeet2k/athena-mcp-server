@@ -21,6 +21,7 @@ ATOMS = ("a", "b", "c", "d")
 FAMILY_LABELS = {
     "live-orchestration": "Live orchestration and prompt control",
     "void-and-collapse": "Void, Chapter 11, and collapse engines",
+    "helical-recursion-engine": "Helical recursion, lift law, and manifestation engine",
     "manuscript-architecture": "Manuscript architecture and routing law",
     "higher-dimensional-geometry": "Higher-dimensional geometry and holographic kernel",
     "civilization-and-governance": "Civilization design, hierarchy, governance, and law",
@@ -285,6 +286,28 @@ def infer_family(name: str, excerpt: str) -> str:
             "zero-point": 3,
             "paradox": 3,
         },
+        "helical-recursion-engine": {
+            "helical": 7,
+            "perfect recursion": 7,
+            "manifestation engine": 7,
+            "bridge-equivalence": 6,
+            "bridge equivalence": 6,
+            "2/16": 5,
+            "14/16": 5,
+            "16-loop": 6,
+            "16 loop": 6,
+            "16^16": 6,
+            "loopspec": 5,
+            "phasespec": 5,
+            "virtualswarm": 5,
+            "virtual swarm": 5,
+            "improvement ledger": 4,
+            "liftspec": 5,
+            "dimension lift": 5,
+            "born-coordinate": 4,
+            "born coordinate": 4,
+            "phase machine": 4,
+        },
         "manuscript-architecture": {
             "manuscript": 4,
             "metro": 3,
@@ -334,6 +357,7 @@ def infer_chapter_links(name: str, excerpt: str, family: str) -> list[str]:
     base = {
         "live-orchestration": ["Ch09", "Ch20", "Ch21"],
         "void-and-collapse": ["Ch04", "Ch11", "Ch19"],
+        "helical-recursion-engine": ["Ch11", "Ch18", "Ch20", "Ch21"],
         "manuscript-architecture": ["Ch01", "Ch06", "Ch08"],
         "higher-dimensional-geometry": ["Ch05", "Ch06", "Ch07", "Ch08"],
         "civilization-and-governance": ["Ch17", "Ch18", "Ch20", "Ch21"],
@@ -346,6 +370,9 @@ def infer_chapter_links(name: str, excerpt: str, family: str) -> list[str]:
         links.append("Ch19")
     if "chapter 11" in text:
         links.append("Ch11")
+    if "helical" in text or "perfect recursion" in text or "2/16" in text or "14/16" in text:
+        links.append("Ch11")
+        links.append("Ch18")
     if "routing" in text or "metro" in text:
         links.append("Ch09")
     if "sign" in text or "glyph" in text or "khipu" in text or "ogham" in text:
@@ -381,6 +408,7 @@ def infer_appendix_links(name: str, excerpt: str, family: str) -> list[str]:
     base = {
         "live-orchestration": ["AppA", "AppL", "AppP"],
         "void-and-collapse": ["AppF", "AppI", "AppL"],
+        "helical-recursion-engine": ["AppF", "AppG", "AppI", "AppM"],
         "manuscript-architecture": ["AppA", "AppC", "AppI", "AppM"],
         "higher-dimensional-geometry": ["AppE", "AppF", "AppG", "AppM"],
         "civilization-and-governance": ["AppA", "AppD", "AppG", "AppP"],
@@ -420,6 +448,8 @@ def summarize_focus(name: str, excerpt: str, family: str) -> str:
         return "Controls prompting, live search expectations, and multi-agent coordination pressure."
     if family == "void-and-collapse":
         return "Stabilizes zero-point logic, collapse rules, restart semantics, and Chapter 11 generation."
+    if family == "helical-recursion-engine":
+        return "Defines complement and lift law, the 16-loop recursion engine, sparse virtual swarm activation, and the Chapter 11 manifestation machine."
     if family == "manuscript-architecture":
         return "Defines the atlas, metro map, chapter lattice, and manuscript-as-brain frame."
     if family == "transport-and-runtime":
@@ -444,6 +474,7 @@ def collect_signals(record: dict) -> dict[str, int]:
     blob = record_blob(record)
     keyword_sets = {
         "higher_dimensional": ["higher-dimensional", "higher dimensional", "manifold", "tensor", "lattice"],
+        "helical": ["helical", "perfect recursion", "manifestation engine", "2/16", "14/16", "phase machine", "dimension lift"],
         "swarm": ["swarm", "collective", "hive", "three athena", "agent-swarm"],
         "routing": ["routing", "route", "metro", "atlas", "self-routing", "corridor"],
         "verification": ["proof", "witness", "replay", "certificate", "verify", "verification"],
@@ -481,6 +512,7 @@ def family_stats(records: list[dict]) -> dict[str, dict]:
                 "records": [],
                 "signals": {
                     "higher_dimensional": 0,
+                    "helical": 0,
                     "swarm": 0,
                     "routing": 0,
                     "verification": 0,
@@ -531,15 +563,18 @@ This folder turns `DEEPER CRYSTALIZATION` into an addressable manuscript brain i
 - `07_RECURSION`: recursive depth lattice, frontier queue, and loop protocol.
 - `08_MIRROR_CORPUS`: local mirror intake from Memory Docs and extracted manuscript text.
 - `09_CIVILIZATION`: sign governance, hierarchy, message/task protocol, and civilization-scale recursion maps.
-- `10_FRONTIERS`: high-yield evidence bundles for the weakest chapters.
+- `10_FRONTIERS`: high-yield evidence bundles plus drafting-prep packs for the weakest chapters.
 - `11_SHADOWS`: blind-spot and limitation reports used to steer the next recursion pass.
+- `12_SYNTHESIS`: canonical chapter-to-appendix deep synthesis, lens field, symmetry stack, and four metro resolutions. Manifest: `06_RUNTIME/11_deep_synthesis_manifest.json`.
+- `13_DEEPER_NEURAL_NET`: four-element document-pair neural field, 16x16 gate matrix, query indices, CLI query surface, and Appendix Q network. Manifest: `13_DEEPER_NEURAL_NET/09_RUNTIME/00_network_manifest.json`.
+- `14_PARALLEL_PLANS`: materialized `4^4` frontier plan lattice for `Ch03`, `Ch10`, `Ch12`, and `Ch14`, including execution tiers and dependency routes. Manifest: `14_PARALLEL_PLANS/04_plan_manifest.json`.
 
 ## Current state
 
 - Source records indexed from this folder: `{record_count}`
 - Source layers merged: `LocalProject + MemoryDocs + FreshExtracted + MythMath`
 - Live Google Docs preflight: `{"BLOCKED" if live_docs_blocked else "PASS"}`
-- Canonical scaffold: `21 chapters + 16 appendices + source capsules + metro maps + civilization governance stack`
+- Canonical scaffold: `21 chapters + 16 appendices + source capsules + metro maps + civilization governance stack + deep synthesis + deeper neural net + queryable local neural routing + chapter frontier compiler + 4^4 parallel frontier plan lattice`
 
 ## Rebuild
 
@@ -1227,7 +1262,7 @@ def build_runtime_notes(output_root: Path) -> None:
 - Frontier bundles: `DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\10_FRONTIERS`
 - Shadow report: `DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\11_SHADOWS\\00_shadow_report.md`
 - Existing manuscript packet: `self_actualize\\manuscript_sections\\000_current_packet.md`
-- Existing Chapter 11 pass: `self_actualize\\manuscript_sections\\011_ch11_void_book_and_restart_token_tunneling.md`
+- Existing Chapter 11 pass: `self_actualize\\manuscript_sections\\011_ch11_helical_manifestation_engine.md`
     """
     write_text(output_root / "06_RUNTIME" / "00_regeneration_protocol.md", notes)
 
@@ -1735,6 +1770,113 @@ def build_shadow_docs(output_root: Path, records: list[dict], source_map: dict[s
     write_text(output_root / "11_SHADOWS" / "00_shadow_report.md", "\n".join(shadow_lines))
 
 
+def build_helical_docs(output_root: Path, records: list[dict], live_docs_blocked: bool) -> None:
+    selected = []
+    for record in records:
+        name = Path(record["relative_path"]).name
+        excerpt = record.get("excerpt", "")
+        family = infer_family(name, excerpt)
+        blob = f"{name} {excerpt}".lower()
+        if family == "helical-recursion-engine" or any(
+            term in blob
+            for term in (
+                "helical",
+                "perfect recursion",
+                "manifestation engine",
+                "2/16",
+                "14/16",
+                "bridge-equivalence",
+                "phase machine",
+            )
+        ):
+            selected.append(record)
+
+    selected = selected[:24]
+    chapter_targets = compute_family_targets(records).get("helical-recursion-engine", ["Ch11", "Ch18", "Ch20", "Ch21"])
+    appendix_targets = infer_appendix_links(
+        "helical recursion engine",
+        "perfect recursion manifestation engine 2/16 14/16 replay boundary",
+        "helical-recursion-engine",
+    )
+
+    lines = [
+        "# Helical Recursion Engine",
+        "",
+        "This metro surface isolates the complement law, lift law, 16-loop recursion engine, and sparse virtual swarm as their own routed subsystem inside the active nervous system.",
+        "",
+        "## Core laws",
+        "",
+        "- `C(k/16) = (16-k)/16`",
+        "- `C(2/16) = 14/16`",
+        "- `14/16|_n equiv 2/16|_(n+1)`",
+        "- `|X_(n+1)| <= 1/8 |X_n|` with stronger function, preserved coverage, and reduced bloat",
+        "",
+        "## Chapter targets",
+        "",
+    ]
+    lines.extend(f"- `{item}`" for item in chapter_targets)
+    lines.extend(["", "## Appendix targets", ""])
+    lines.extend(f"- `{item}`" for item in appendix_targets)
+    lines.extend(
+        [
+            "",
+            "## Loop stack",
+            "",
+            "- `L1-L4`: map corpus, ontology, residuals, and born coordinates.",
+            "- `L5-L8`: compile operators, representations, registries, and replay checks.",
+            "- `L9-L12`: observe process, track growth, explore pathology, and prune bloat.",
+            "- `L13-L16`: transfer, generate novelty, distill the seed, and execute dimension lift.",
+            "",
+            "## Selected source packets",
+            "",
+        ]
+    )
+    if selected:
+        for record in selected:
+            name = normalize_name(Path(record["relative_path"]).name)
+            family = infer_family(Path(record["relative_path"]).name, record.get("excerpt", ""))
+            chapter_links = infer_chapter_links(Path(record["relative_path"]).name, record.get("excerpt", ""), family)
+            lines.append(f"- `{name}` [{record.get('source_layer', 'LocalProject')}] -> `{', '.join(chapter_links) or 'Ch11'}`")
+    else:
+        lines.append("- No helical packets were selected from the current atlas pass.")
+    lines.extend(["", "## Gate status", "", f"- Live Google Docs: `{'BLOCKED' if live_docs_blocked else 'PASS'}`"])
+    write_text(output_root / "03_METRO" / "08_helical_recursion_engine.md", "\n".join(lines))
+
+    manifest = {
+        "generated_at": utc_now(),
+        "family": "helical-recursion-engine",
+        "record_count": len(selected),
+        "chapter_targets": chapter_targets,
+        "appendix_targets": appendix_targets,
+        "core_laws": {
+            "complement": "C(k/16) = (16-k)/16",
+            "seed_complement": "C(2/16) = 14/16",
+            "bridge_identity": "14/16|_n equiv 2/16|_(n+1)",
+            "lift": "|X_(n+1)| <= (1/8)|X_n| with stronger function and lower bloat",
+        },
+        "live_docs_blocked": live_docs_blocked,
+        "records": [
+            {
+                "name": normalize_name(Path(record["relative_path"]).name),
+                "source_layer": record.get("source_layer", "LocalProject"),
+                "relative_path": record["relative_path"],
+                "chapter_targets": infer_chapter_links(
+                    Path(record["relative_path"]).name,
+                    record.get("excerpt", ""),
+                    infer_family(Path(record["relative_path"]).name, record.get("excerpt", "")),
+                ),
+                "appendix_targets": infer_appendix_links(
+                    Path(record["relative_path"]).name,
+                    record.get("excerpt", ""),
+                    infer_family(Path(record["relative_path"]).name, record.get("excerpt", "")),
+                ),
+            }
+            for record in selected
+        ],
+    }
+    write_text(output_root / "06_RUNTIME" / "10_helical_manifest.json", json.dumps(manifest, indent=2))
+
+
 def build_mirror_corpus_docs(output_root: Path, records: list[dict]) -> None:
     mirror_records = [record for record in records if record.get("source_layer") != "LocalProject"]
     counts = {}
@@ -1759,6 +1901,7 @@ def build_mirror_corpus_docs(output_root: Path, records: list[dict]) -> None:
     write_text(output_root / "08_MIRROR_CORPUS" / "00_mirror_fallback_stack.md", "\n".join(stack_lines))
 
     key_terms = [
+        "helical-recursion-engine",
         "higher-dimensional-geometry",
         "manuscript-architecture",
         "transport-and-runtime",
@@ -1911,11 +2054,75 @@ def load_atlas_records(atlas_path: Path, source_prefix: str) -> list[dict]:
     return loaded
 
 
+def build_full_stack_manifest(
+    output_root: Path,
+    record_count: int,
+    recursive_state: dict,
+    live_docs_blocked: bool,
+    deep_synthesis_manifest: dict,
+    deeper_neural_net_manifest: dict,
+    chapter_frontier_manifest: dict,
+    parallel_plan_manifest: dict,
+) -> None:
+    manifest = {
+        "generated_at": utc_now(),
+        "deep_pass": int(recursive_state.get("deep_pass", 0)),
+        "live_docs_blocked": live_docs_blocked,
+        "record_count": record_count,
+        "layers": {
+            "base_nervous_system": {
+                "root": "ACTIVE_NERVOUS_SYSTEM",
+                "chapters": len(CHAPTERS),
+                "appendices": len(APPENDICES),
+            },
+            "deep_synthesis": {
+                "manifest": "06_RUNTIME/11_deep_synthesis_manifest.json",
+                "chapter_count": deep_synthesis_manifest.get("chapter_count"),
+                "appendix_count": deep_synthesis_manifest.get("appendix_count"),
+                "lens_observation_count": deep_synthesis_manifest.get("lens_observation_count"),
+                "symmetry_synthesis_count": deep_synthesis_manifest.get("symmetry_synthesis_count"),
+            },
+            "deeper_neural_net": {
+                "manifest": "13_DEEPER_NEURAL_NET/09_RUNTIME/00_network_manifest.json",
+                "document_count": deeper_neural_net_manifest.get("document_count"),
+                "ordered_pair_count": deeper_neural_net_manifest.get("ordered_pair_count"),
+                "nonself_pair_count": deeper_neural_net_manifest.get("nonself_pair_count"),
+                "canonical_pair_count": deeper_neural_net_manifest.get("canonical_pair_count"),
+                "element_counts": deeper_neural_net_manifest.get("element_counts"),
+                "query_surface_ready": deeper_neural_net_manifest.get("query_surface_ready"),
+                "query_index_files": deeper_neural_net_manifest.get("query_index_files"),
+                "default_query_output_mode": deeper_neural_net_manifest.get("default_query_output_mode"),
+            },
+            "chapter_frontier_compiler": {
+                "manifest": "06_RUNTIME/13_chapter_frontier_manifest.json",
+                "compiler_ready": chapter_frontier_manifest.get("compiler_ready"),
+                "chapter_packs": [item.get("chapter_code") for item in chapter_frontier_manifest.get("chapter_packs", [])],
+                "chapter_pack_artifacts": chapter_frontier_manifest.get("chapter_packs", []),
+            },
+            "parallel_frontier_plan_lattice": {
+                "manifest": "14_PARALLEL_PLANS/04_plan_manifest.json",
+                "cell_count": parallel_plan_manifest.get("cell_count"),
+                "chapter_basis": parallel_plan_manifest.get("chapter_basis"),
+                "template_reference": parallel_plan_manifest.get("template_reference"),
+                "live_docs_blocked": parallel_plan_manifest.get("live_docs_blocked"),
+            },
+        },
+    }
+    write_text(output_root / "06_RUNTIME" / "12_full_stack_manifest.json", json.dumps(manifest, indent=2))
+
+
 def main() -> int:
+    from chapter_frontier_compiler import CHAPTER_FRONTIER_CODES, compile_and_write_chapter_pack
+    from deep_synthesis_builder import build_deep_synthesis
+    from elemental_neural_net_builder import build_deeper_neural_net
+    from frontier_plan_lattice import build_and_write_frontier_plan_lattice
+    from nervous_system_core import load_records as core_load_records
+
     project_root = Path(__file__).resolve().parent
     output_root = project_root / "ACTIVE_NERVOUS_SYSTEM"
     build_root = project_root / "_build"
-    records = load_records(build_root)
+    self_actualize_root = project_root.parent / "self_actualize"
+    records = core_load_records(build_root)
     recursive_state = load_recursive_state(build_root)
 
     if output_root.exists():
@@ -1934,7 +2141,37 @@ def main() -> int:
     build_civilization_docs(output_root, records, source_map, recursive_state, live_docs_blocked)
     build_frontier_docs(output_root, records, source_map, live_docs_blocked)
     build_shadow_docs(output_root, records, source_map, live_docs_blocked)
+    build_helical_docs(output_root, records, live_docs_blocked)
     build_mirror_corpus_docs(output_root, records)
+    deep_synthesis_manifest = build_deep_synthesis(output_root, build_root, records, recursive_state, live_docs_blocked)
+    deeper_neural_net_manifest = build_deeper_neural_net(output_root, build_root, records, recursive_state, live_docs_blocked)
+    chapter_payloads = {}
+    chapter_frontier_manifest = {}
+    for chapter_code in CHAPTER_FRONTIER_CODES:
+        payload, chapter_frontier_manifest = compile_and_write_chapter_pack(
+            output_root,
+            build_root,
+            self_actualize_root,
+            records,
+            chapter_code,
+            live_docs_blocked,
+        )
+        chapter_payloads[chapter_code] = payload
+    _, parallel_plan_manifest = build_and_write_frontier_plan_lattice(
+        output_root,
+        chapter_payloads,
+        live_docs_blocked,
+    )
+    build_full_stack_manifest(
+        output_root,
+        len(records),
+        recursive_state,
+        live_docs_blocked,
+        deep_synthesis_manifest,
+        deeper_neural_net_manifest,
+        chapter_frontier_manifest,
+        parallel_plan_manifest,
+    )
 
     print(f"Built nervous system at: {output_root}")
     return 0

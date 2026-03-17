@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-03-14T00:08:58.944801+00:00",
+  "formula": "C_next = clamp(rho*C + alpha*U + beta*F - gamma*D - delta*N, 0, 1)",
+  "coefficients": {
+    "rho": 0.92,
+    "alpha": 0.35,
+    "beta": 0.2,
+    "gamma": 0.2,
+    "delta": 0.15
+  },
+  "thresholds": {
+    "capillary": 0.7,
+    "vein": 0.85,
+    "decay": 0.4
+  },
+  "edges": {
+    "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01": {
+      "edge_id": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "from_node": "SCOUT-01",
+      "to_node": "WORKER-02",
+      "path_key": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+      "score": 1.0,
+      "state_class": "vein",
+      "usefulness": 1.0,
+      "frequency": 1.0,
+      "latency_penalty": 0.976332,
+      "noise_penalty": 0.0,
+      "success_count": 16,
+      "use_count": 16,
+      "noise_count": 0,
+      "last_result": "success",
+      "last_event_id": "EVT-20260314-0011",
+      "last_reinforced_at_utc": "2026-03-14T00:08:58.788864+00:00"
+    },
+    "SCOUT-01>ROUTER-01>WORKER-03>ARCHIVIST-01": {
+      "edge_id": "SCOUT-01>ROUTER-01>WORKER-03>ARCHIVIST-01",
+      "from_node": "SCOUT-01",
+      "to_node": "WORKER-02",
+      "path_key": "SCOUT-01>ROUTER-01>WORKER-03>ARCHIVIST-01",
+      "score": 1.0,
+      "state_class": "vein",
+      "usefulness": 1.0,
+      "frequency": 1.0,
+      "latency_penalty": 0.05,
+      "noise_penalty": 0.0,
+      "success_count": 2,
+      "use_count": 2,
+      "noise_count": 0,
+      "last_result": "success",
+      "last_event_id": "EVT-20260314-0011",
+      "last_reinforced_at_utc": "2026-03-14T00:08:58.944801+00:00"
+    }
+  }
+}

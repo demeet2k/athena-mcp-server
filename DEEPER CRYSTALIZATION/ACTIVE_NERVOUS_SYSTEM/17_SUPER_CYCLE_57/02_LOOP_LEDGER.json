@@ -1,0 +1,4847 @@
+[
+  {
+    "loop_index": 1,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-01",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-01",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-01",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-01",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.",
+        "outputs": [
+          "SC57-L01-HALL",
+          "SC57-L01-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L01-HALL`, `SC57-L01-TEMPLE`, `SC57-L01-RUNTIME`, `SC57-L01-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L01-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L01-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L01-> Sweep all 197 records and re-rank family witness density against current fronts."
+  },
+  {
+    "loop_index": 2,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Sweep all 197 records and re-rank family witness density against current fronts.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-02",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Sweep all 197 records and re-rank family witness density against current fronts."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-02",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Sweep all 197 records and re-rank family witness density against current fronts."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-02",
+      "action": "REPLAY_FIRST",
+      "visible_promotion": false,
+      "reason": "Runtime motion depends on replay or queue/state confirmation before activation."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-02",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Sweep all 197 records and re-rank family witness density against current fronts."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Sweep all 197 records and re-rank family witness density against current fronts.",
+        "outputs": [
+          "SC57-L02-HALL",
+          "SC57-L02-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L02-HALL`, `SC57-L02-TEMPLE`, `SC57-L02-RUNTIME`, `SC57-L02-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "REPLAY_FIRST",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L02-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L02-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L02-> Extract one whole-corpus evidence deficit map and refresh the 24 transition notes."
+  },
+  {
+    "loop_index": 3,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-03",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-03",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-03",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-03",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+        "outputs": [
+          "SC57-L03-HALL",
+          "SC57-L03-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L03-HALL`, `SC57-L03-TEMPLE`, `SC57-L03-RUNTIME`, `SC57-L03-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L03-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L03-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L03-> Build one duplicate-source ledger across corpus, mirrors, and supplements."
+  },
+  {
+    "loop_index": 4,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-04",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Build one duplicate-source ledger across corpus, mirrors, and supplements."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-04",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Build one duplicate-source ledger across corpus, mirrors, and supplements."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-04",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Build one duplicate-source ledger across corpus, mirrors, and supplements."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-04",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Build one duplicate-source ledger across corpus, mirrors, and supplements.",
+        "outputs": [
+          "SC57-L04-HALL",
+          "SC57-L04-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L04-HALL`, `SC57-L04-TEMPLE`, `SC57-L04-RUNTIME`, `SC57-L04-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L04-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L04-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L04-> Re-rank the weakest direct-witness families, especially live-orchestration."
+  },
+  {
+    "loop_index": 5,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Re-rank the weakest direct-witness families, especially live-orchestration.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-05",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-05",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-05",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-05",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Re-rank the weakest direct-witness families, especially live-orchestration.",
+        "outputs": [
+          "SC57-L05-HALL",
+          "SC57-L05-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L05-HALL`, `SC57-L05-TEMPLE`, `SC57-L05-RUNTIME`, `SC57-L05-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L05-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L05-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L05-> Rebind awakening-source documents to real fronts and runtime organs."
+  },
+  {
+    "loop_index": 6,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Rebind awakening-source documents to real fronts and runtime organs.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-06",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-06",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-06",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-06",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Rebind awakening-source documents to real fronts and runtime organs.",
+        "outputs": [
+          "SC57-L06-HALL",
+          "SC57-L06-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L06-HALL`, `SC57-L06-TEMPLE`, `SC57-L06-RUNTIME`, `SC57-L06-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L06-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L06-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L06-> Emit Hall and Temple candidate packets for evidence densification only."
+  },
+  {
+    "loop_index": 7,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Emit Hall and Temple candidate packets for evidence densification only.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-07",
+      "action": "REQUEST_WITNESSES",
+      "visible_promotion": false,
+      "reason": "Hall motion is candidate-ready but still needs more witness before promotion."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-07",
+      "action": "REQUEST_WITNESSES",
+      "visible_promotion": false,
+      "reason": "Temple motion is candidate-ready but still needs more witness before promotion."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-07",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Emit Hall and Temple candidate packets for evidence densification only."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-07",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Emit Hall and Temple candidate packets for evidence densification only."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Emit Hall and Temple candidate packets for evidence densification only.",
+        "outputs": [
+          "SC57-L07-HALL",
+          "SC57-L07-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L07-HALL`, `SC57-L07-TEMPLE`, `SC57-L07-RUNTIME`, `SC57-L07-COMPRESSION`.",
+        "outputs": [
+          "REQUEST_WITNESSES",
+          "REQUEST_WITNESSES",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L07-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L07-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L07-> Execute the first evidence-tightening work bundle."
+  },
+  {
+    "loop_index": 8,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Execute the first evidence-tightening work bundle.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-08",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Execute the first evidence-tightening work bundle."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-08",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Execute the first evidence-tightening work bundle."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-08",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Evidence Lock and Intake requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-08",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Execute the first evidence-tightening work bundle."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Execute the first evidence-tightening work bundle.",
+        "outputs": [
+          "SC57-L08-HALL",
+          "SC57-L08-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L08-HALL`, `SC57-L08-TEMPLE`, `SC57-L08-RUNTIME`, `SC57-L08-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L08-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L08-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P1::L08-> Compress the evidence pass into one canonical witness ledger and restart seed."
+  },
+  {
+    "loop_index": 9,
+    "pass_id": "P1",
+    "pass_title": "Evidence Lock and Intake",
+    "theme": "evidence",
+    "step_text": "Compress the evidence pass into one canonical witness ledger and restart seed.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P1-09",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Compress the evidence pass into one canonical witness ledger and restart seed."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P1-09",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Compress the evidence pass into one canonical witness ledger and restart seed."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P1-09",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Compress the evidence pass into one canonical witness ledger and restart seed."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P1-09",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Compress the evidence pass into one canonical witness ledger and restart seed.",
+        "outputs": [
+          "SC57-L09-HALL",
+          "SC57-L09-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L09-HALL`, `SC57-L09-TEMPLE`, `SC57-L09-RUNTIME`, `SC57-L09-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L09-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L09-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": true
+    },
+    "restart_seed": "SC57::P1::L09-> Reconcile source capsules, family crystals, neural indices, and strict-spine entries."
+  },
+  {
+    "loop_index": 10,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-10",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-10",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-10",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-10",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Reconcile source capsules, family crystals, neural indices, and strict-spine entries.",
+        "outputs": [
+          "SC57-L10-HALL",
+          "SC57-L10-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L10-HALL`, `SC57-L10-TEMPLE`, `SC57-L10-RUNTIME`, `SC57-L10-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L10-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L10-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L10-> Generate one canonical route/schema delta for chapters, appendices, and supplements."
+  },
+  {
+    "loop_index": 11,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-11",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-11",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-11",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-11",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Generate one canonical route/schema delta for chapters, appendices, and supplements.",
+        "outputs": [
+          "SC57-L11-HALL",
+          "SC57-L11-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L11-HALL`, `SC57-L11-TEMPLE`, `SC57-L11-RUNTIME`, `SC57-L11-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L11-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L11-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L11-> Refresh the full 24-note bundle around structure and blind-spot compensation."
+  },
+  {
+    "loop_index": 12,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Refresh the full 24-note bundle around structure and blind-spot compensation.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-12",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-12",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-12",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-12",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Refresh the full 24-note bundle around structure and blind-spot compensation.",
+        "outputs": [
+          "SC57-L12-HALL",
+          "SC57-L12-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L12-HALL`, `SC57-L12-TEMPLE`, `SC57-L12-RUNTIME`, `SC57-L12-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L12-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L12-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L12-> Expand chapter-to-capsule and appendix-to-network witness crosswalks."
+  },
+  {
+    "loop_index": 13,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-13",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-13",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-13",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-13",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Expand chapter-to-capsule and appendix-to-network witness crosswalks.",
+        "outputs": [
+          "SC57-L13-HALL",
+          "SC57-L13-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L13-HALL`, `SC57-L13-TEMPLE`, `SC57-L13-RUNTIME`, `SC57-L13-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L13-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L13-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L13-> Tighten supplement/runtime bindings and remove role drift."
+  },
+  {
+    "loop_index": 14,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Tighten supplement/runtime bindings and remove role drift.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-14",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-14",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-14",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-14",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Tighten supplement/runtime bindings and remove role drift.",
+        "outputs": [
+          "SC57-L14-HALL",
+          "SC57-L14-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L14-HALL`, `SC57-L14-TEMPLE`, `SC57-L14-RUNTIME`, `SC57-L14-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L14-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L14-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L14-> Promote one Temple law or schema crystal for cross-surface identity."
+  },
+  {
+    "loop_index": 15,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Promote one Temple law or schema crystal for cross-surface identity.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-15",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Promote one Temple law or schema crystal for cross-surface identity."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-15",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Structure and Schema Tightening requires a visible temple move at this loop."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-15",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Promote one Temple law or schema crystal for cross-surface identity."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-15",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Promote one Temple law or schema crystal for cross-surface identity."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Promote one Temple law or schema crystal for cross-surface identity.",
+        "outputs": [
+          "SC57-L15-HALL",
+          "SC57-L15-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L15-HALL`, `SC57-L15-TEMPLE`, `SC57-L15-RUNTIME`, `SC57-L15-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L15-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L15-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L15-> Execute the highest-yield structure repair tasks."
+  },
+  {
+    "loop_index": 16,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Execute the highest-yield structure repair tasks.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-16",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Execute the highest-yield structure repair tasks."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-16",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Execute the highest-yield structure repair tasks."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-16",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Structure and Schema Tightening requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-16",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Execute the highest-yield structure repair tasks."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Execute the highest-yield structure repair tasks.",
+        "outputs": [
+          "SC57-L16-HALL",
+          "SC57-L16-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L16-HALL`, `SC57-L16-TEMPLE`, `SC57-L16-RUNTIME`, `SC57-L16-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L16-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L16-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L16-> Prune stale or duplicate schema surfaces and compress weak branches into seeds."
+  },
+  {
+    "loop_index": 17,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-17",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Prune stale or duplicate schema surfaces and compress weak branches into seeds."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-17",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Prune stale or duplicate schema surfaces and compress weak branches into seeds."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-17",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Prune stale or duplicate schema surfaces and compress weak branches into seeds."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-17",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Prune stale or duplicate schema surfaces and compress weak branches into seeds.",
+        "outputs": [
+          "SC57-L17-HALL",
+          "SC57-L17-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L17-HALL`, `SC57-L17-TEMPLE`, `SC57-L17-RUNTIME`, `SC57-L17-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L17-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L17-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P2::L17-> Emit the structure pass receipt plus the next restart seed."
+  },
+  {
+    "loop_index": 18,
+    "pass_id": "P2",
+    "pass_title": "Structure and Schema Tightening",
+    "theme": "structure",
+    "step_text": "Emit the structure pass receipt plus the next restart seed.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P2-18",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Emit the structure pass receipt plus the next restart seed."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P2-18",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Emit the structure pass receipt plus the next restart seed."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P2-18",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Emit the structure pass receipt plus the next restart seed."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P2-18",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Emit the structure pass receipt plus the next restart seed.",
+        "outputs": [
+          "SC57-L18-HALL",
+          "SC57-L18-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L18-HALL`, `SC57-L18-TEMPLE`, `SC57-L18-RUNTIME`, `SC57-L18-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L18-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L18-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": true
+    },
+    "restart_seed": "SC57::P2::L18-> Recompute corpus-wide metro lines from the current neural net and frontier stack."
+  },
+  {
+    "loop_index": 19,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-19",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-19",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-19",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-19",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Recompute corpus-wide metro lines from the current neural net and frontier stack.",
+        "outputs": [
+          "SC57-L19-HALL",
+          "SC57-L19-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L19-HALL`, `SC57-L19-TEMPLE`, `SC57-L19-RUNTIME`, `SC57-L19-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L19-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L19-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L19-> Extract strongest cross-family and zero-point routes into internal quest packets."
+  },
+  {
+    "loop_index": 20,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Extract strongest cross-family and zero-point routes into internal quest packets.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-20",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-20",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-20",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-20",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Extract strongest cross-family and zero-point routes into internal quest packets.",
+        "outputs": [
+          "SC57-L20-HALL",
+          "SC57-L20-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L20-HALL`, `SC57-L20-TEMPLE`, `SC57-L20-RUNTIME`, `SC57-L20-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L20-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L20-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L20-> Refresh the 24-note bundle with route-specific transition guidance."
+  },
+  {
+    "loop_index": 21,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Refresh the 24-note bundle with route-specific transition guidance.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-21",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-21",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-21",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-21",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Refresh the 24-note bundle with route-specific transition guidance.",
+        "outputs": [
+          "SC57-L21-HALL",
+          "SC57-L21-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L21-HALL`, `SC57-L21-TEMPLE`, `SC57-L21-RUNTIME`, `SC57-L21-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L21-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L21-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L21-> Build one emergent unresolved-family map and one governance/runtime route map."
+  },
+  {
+    "loop_index": 22,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Build one emergent unresolved-family map and one governance/runtime route map.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-22",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-22",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-22",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-22",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Build one emergent unresolved-family map and one governance/runtime route map.",
+        "outputs": [
+          "SC57-L22-HALL",
+          "SC57-L22-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L22-HALL`, `SC57-L22-TEMPLE`, `SC57-L22-RUNTIME`, `SC57-L22-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L22-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L22-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L22-> Generate Hall-side candidate quests for top cross-family bridges."
+  },
+  {
+    "loop_index": 23,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Generate Hall-side candidate quests for top cross-family bridges.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-23",
+      "action": "REQUEST_WITNESSES",
+      "visible_promotion": false,
+      "reason": "Hall motion is candidate-ready but still needs more witness before promotion."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-23",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Generate Hall-side candidate quests for top cross-family bridges."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-23",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Generate Hall-side candidate quests for top cross-family bridges."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-23",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Generate Hall-side candidate quests for top cross-family bridges."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Generate Hall-side candidate quests for top cross-family bridges.",
+        "outputs": [
+          "SC57-L23-HALL",
+          "SC57-L23-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L23-HALL`, `SC57-L23-TEMPLE`, `SC57-L23-RUNTIME`, `SC57-L23-COMPRESSION`.",
+        "outputs": [
+          "REQUEST_WITNESSES",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L23-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L23-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L23-> Generate Temple-side candidate quests for deeper route-law and metro-law work."
+  },
+  {
+    "loop_index": 24,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-24",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Generate Temple-side candidate quests for deeper route-law and metro-law work."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-24",
+      "action": "REQUEST_WITNESSES",
+      "visible_promotion": false,
+      "reason": "Temple motion is candidate-ready but still needs more witness before promotion."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-24",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Generate Temple-side candidate quests for deeper route-law and metro-law work."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-24",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Generate Temple-side candidate quests for deeper route-law and metro-law work."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Generate Temple-side candidate quests for deeper route-law and metro-law work.",
+        "outputs": [
+          "SC57-L24-HALL",
+          "SC57-L24-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L24-HALL`, `SC57-L24-TEMPLE`, `SC57-L24-RUNTIME`, `SC57-L24-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "REQUEST_WITNESSES",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L24-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L24-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L24-> Execute one route-expansion bundle and one appendix/supplement bridge bundle."
+  },
+  {
+    "loop_index": 25,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-25",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Execute one route-expansion bundle and one appendix/supplement bridge bundle."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-25",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Execute one route-expansion bundle and one appendix/supplement bridge bundle."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-25",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Metro, Route, and Cross-Synthesis Expansion requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-25",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Execute one route-expansion bundle and one appendix/supplement bridge bundle."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Execute one route-expansion bundle and one appendix/supplement bridge bundle.",
+        "outputs": [
+          "SC57-L25-HALL",
+          "SC57-L25-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L25-HALL`, `SC57-L25-TEMPLE`, `SC57-L25-RUNTIME`, `SC57-L25-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L25-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L25-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L25-> Prune redundant explanatory metro surfaces and compress them into a route ledger."
+  },
+  {
+    "loop_index": 26,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-26",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Prune redundant explanatory metro surfaces and compress them into a route ledger."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-26",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Prune redundant explanatory metro surfaces and compress them into a route ledger."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-26",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Prune redundant explanatory metro surfaces and compress them into a route ledger."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-26",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Prune redundant explanatory metro surfaces and compress them into a route ledger.",
+        "outputs": [
+          "SC57-L26-HALL",
+          "SC57-L26-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L26-HALL`, `SC57-L26-TEMPLE`, `SC57-L26-RUNTIME`, `SC57-L26-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L26-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L26-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P3::L26-> Emit the metro pass receipt plus the next restart seed."
+  },
+  {
+    "loop_index": 27,
+    "pass_id": "P3",
+    "pass_title": "Metro, Route, and Cross-Synthesis Expansion",
+    "theme": "metro",
+    "step_text": "Emit the metro pass receipt plus the next restart seed.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P3-27",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Emit the metro pass receipt plus the next restart seed."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P3-27",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Emit the metro pass receipt plus the next restart seed."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P3-27",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Emit the metro pass receipt plus the next restart seed."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P3-27",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Emit the metro pass receipt plus the next restart seed.",
+        "outputs": [
+          "SC57-L27-HALL",
+          "SC57-L27-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L27-HALL`, `SC57-L27-TEMPLE`, `SC57-L27-RUNTIME`, `SC57-L27-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L27-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L27-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": true
+    },
+    "restart_seed": "SC57::P3::L27-> Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure."
+  },
+  {
+    "loop_index": 28,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-28",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-28",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-28",
+      "action": "REPLAY_FIRST",
+      "visible_promotion": false,
+      "reason": "Runtime motion depends on replay or queue/state confirmation before activation."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-28",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.",
+        "outputs": [
+          "SC57-L28-HALL",
+          "SC57-L28-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L28-HALL`, `SC57-L28-TEMPLE`, `SC57-L28-RUNTIME`, `SC57-L28-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "REPLAY_FIRST",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L28-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L28-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L28-> Derive a corpus-wide action-selection overlay for the active fronts."
+  },
+  {
+    "loop_index": 29,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Derive a corpus-wide action-selection overlay for the active fronts.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-29",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Derive a corpus-wide action-selection overlay for the active fronts."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-29",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Derive a corpus-wide action-selection overlay for the active fronts."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-29",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Runtime, Motion, and Algorithm Grafting requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-29",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Derive a corpus-wide action-selection overlay for the active fronts."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Derive a corpus-wide action-selection overlay for the active fronts.",
+        "outputs": [
+          "SC57-L29-HALL",
+          "SC57-L29-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L29-HALL`, `SC57-L29-TEMPLE`, `SC57-L29-RUNTIME`, `SC57-L29-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L29-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L29-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L29-> Refresh the 24-note bundle around activation, replay, and inhibition."
+  },
+  {
+    "loop_index": 30,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Refresh the 24-note bundle around activation, replay, and inhibition.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-30",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-30",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-30",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-30",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Refresh the 24-note bundle around activation, replay, and inhibition.",
+        "outputs": [
+          "SC57-L30-HALL",
+          "SC57-L30-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L30-HALL`, `SC57-L30-TEMPLE`, `SC57-L30-RUNTIME`, `SC57-L30-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L30-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L30-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L30-> Extract math/hybrid/operator opportunities from top runtime families and chapters."
+  },
+  {
+    "loop_index": 31,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-31",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-31",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-31",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-31",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Extract math/hybrid/operator opportunities from top runtime families and chapters.",
+        "outputs": [
+          "SC57-L31-HALL",
+          "SC57-L31-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L31-HALL`, `SC57-L31-TEMPLE`, `SC57-L31-RUNTIME`, `SC57-L31-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L31-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L31-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L31-> Promote one Temple quest packet for algorithmic or hybrid-equation incorporation."
+  },
+  {
+    "loop_index": 32,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-32",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-32",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Runtime, Motion, and Algorithm Grafting requires a visible temple move at this loop."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-32",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-32",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.",
+        "outputs": [
+          "SC57-L32-HALL",
+          "SC57-L32-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L32-HALL`, `SC57-L32-TEMPLE`, `SC57-L32-RUNTIME`, `SC57-L32-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L32-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L32-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L32-> Promote one Hall quest packet for immediate runtime-side work."
+  },
+  {
+    "loop_index": 33,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Promote one Hall quest packet for immediate runtime-side work.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-33",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Runtime, Motion, and Algorithm Grafting requires a visible hall move at this loop."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-33",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Promote one Hall quest packet for immediate runtime-side work."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-33",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Runtime, Motion, and Algorithm Grafting requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-33",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Promote one Hall quest packet for immediate runtime-side work."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Promote one Hall quest packet for immediate runtime-side work.",
+        "outputs": [
+          "SC57-L33-HALL",
+          "SC57-L33-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L33-HALL`, `SC57-L33-TEMPLE`, `SC57-L33-RUNTIME`, `SC57-L33-COMPRESSION`.",
+        "outputs": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L33-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L33-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L33-> Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front."
+  },
+  {
+    "loop_index": 34,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-34",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-34",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-34",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Runtime, Motion, and Algorithm Grafting requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-34",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.",
+        "outputs": [
+          "SC57-L34-HALL",
+          "SC57-L34-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L34-HALL`, `SC57-L34-TEMPLE`, `SC57-L34-RUNTIME`, `SC57-L34-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L34-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L34-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L34-> Prune replay drift, committee conflicts, and unbounded branch growth."
+  },
+  {
+    "loop_index": 35,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Prune replay drift, committee conflicts, and unbounded branch growth.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-35",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Prune replay drift, committee conflicts, and unbounded branch growth."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-35",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Prune replay drift, committee conflicts, and unbounded branch growth."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-35",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Prune replay drift, committee conflicts, and unbounded branch growth."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-35",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Prune replay drift, committee conflicts, and unbounded branch growth.",
+        "outputs": [
+          "SC57-L35-HALL",
+          "SC57-L35-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L35-HALL`, `SC57-L35-TEMPLE`, `SC57-L35-RUNTIME`, `SC57-L35-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L35-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L35-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P4::L35-> Emit the runtime pass receipt plus the next restart seed."
+  },
+  {
+    "loop_index": 36,
+    "pass_id": "P4",
+    "pass_title": "Runtime, Motion, and Algorithm Grafting",
+    "theme": "runtime",
+    "step_text": "Emit the runtime pass receipt plus the next restart seed.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P4-36",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Emit the runtime pass receipt plus the next restart seed."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P4-36",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Emit the runtime pass receipt plus the next restart seed."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P4-36",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Emit the runtime pass receipt plus the next restart seed."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P4-36",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Emit the runtime pass receipt plus the next restart seed.",
+        "outputs": [
+          "SC57-L36-HALL",
+          "SC57-L36-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L36-HALL`, `SC57-L36-TEMPLE`, `SC57-L36-RUNTIME`, `SC57-L36-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L36-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L36-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": true
+    },
+    "restart_seed": "SC57::P4::L36-> Convert internal candidate packets into the next ranked Hall and Temple macro fronts."
+  },
+  {
+    "loop_index": 37,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-37",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Hall/Temple Nested Quest Expansion requires a visible hall move at this loop."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-37",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Hall/Temple Nested Quest Expansion requires a visible temple move at this loop."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-37",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Convert internal candidate packets into the next ranked Hall and Temple macro fronts."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-37",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Convert internal candidate packets into the next ranked Hall and Temple macro fronts."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Convert internal candidate packets into the next ranked Hall and Temple macro fronts.",
+        "outputs": [
+          "SC57-L37-HALL",
+          "SC57-L37-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L37-HALL`, `SC57-L37-TEMPLE`, `SC57-L37-RUNTIME`, `SC57-L37-COMPRESSION`.",
+        "outputs": [
+          "ACTIVATE_NOW",
+          "ACTIVATE_NOW",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L37-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L37-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L37-> Audit numbering, writeback law, and promotion ceilings before anything goes visible."
+  },
+  {
+    "loop_index": 38,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-38",
+      "action": "REQUEST_WITNESSES",
+      "visible_promotion": false,
+      "reason": "Hall motion is candidate-ready but still needs more witness before promotion."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-38",
+      "action": "REQUEST_WITNESSES",
+      "visible_promotion": false,
+      "reason": "Temple motion is candidate-ready but still needs more witness before promotion."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-38",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Audit numbering, writeback law, and promotion ceilings before anything goes visible."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-38",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Audit numbering, writeback law, and promotion ceilings before anything goes visible."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Audit numbering, writeback law, and promotion ceilings before anything goes visible.",
+        "outputs": [
+          "SC57-L38-HALL",
+          "SC57-L38-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L38-HALL`, `SC57-L38-TEMPLE`, `SC57-L38-RUNTIME`, `SC57-L38-COMPRESSION`.",
+        "outputs": [
+          "REQUEST_WITNESSES",
+          "REQUEST_WITNESSES",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L38-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L38-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L38-> Refresh the 24-note bundle around quest ownership and dependency lanes."
+  },
+  {
+    "loop_index": 39,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Refresh the 24-note bundle around quest ownership and dependency lanes.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-39",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-39",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-39",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-39",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Refresh the 24-note bundle around quest ownership and dependency lanes.",
+        "outputs": [
+          "SC57-L39-HALL",
+          "SC57-L39-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L39-HALL`, `SC57-L39-TEMPLE`, `SC57-L39-RUNTIME`, `SC57-L39-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L39-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L39-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L39-> Expand the internal 4^6 quest lattice while keeping visible boards macro-sized."
+  },
+  {
+    "loop_index": 40,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-40",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-40",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-40",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-40",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.",
+        "outputs": [
+          "SC57-L40-HALL",
+          "SC57-L40-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L40-HALL`, `SC57-L40-TEMPLE`, `SC57-L40-RUNTIME`, `SC57-L40-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L40-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L40-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L40-> Promote one Hall executable frontier from Research/Worker pressure."
+  },
+  {
+    "loop_index": 41,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Promote one Hall executable frontier from Research/Worker pressure.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-41",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Hall/Temple Nested Quest Expansion requires a visible hall move at this loop."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-41",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Promote one Hall executable frontier from Research/Worker pressure."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-41",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Promote one Hall executable frontier from Research/Worker pressure."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-41",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Promote one Hall executable frontier from Research/Worker pressure."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Promote one Hall executable frontier from Research/Worker pressure.",
+        "outputs": [
+          "SC57-L41-HALL",
+          "SC57-L41-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L41-HALL`, `SC57-L41-TEMPLE`, `SC57-L41-RUNTIME`, `SC57-L41-COMPRESSION`.",
+        "outputs": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L41-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L41-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L41-> Promote one Temple higher-order frontier from Planner/Pruner synthesis."
+  },
+  {
+    "loop_index": 42,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-42",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Promote one Temple higher-order frontier from Planner/Pruner synthesis."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-42",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Hall/Temple Nested Quest Expansion requires a visible temple move at this loop."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-42",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Promote one Temple higher-order frontier from Planner/Pruner synthesis."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-42",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Promote one Temple higher-order frontier from Planner/Pruner synthesis."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Promote one Temple higher-order frontier from Planner/Pruner synthesis.",
+        "outputs": [
+          "SC57-L42-HALL",
+          "SC57-L42-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L42-HALL`, `SC57-L42-TEMPLE`, `SC57-L42-RUNTIME`, `SC57-L42-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L42-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L42-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L42-> Execute the current top Hall/Temple pair through one replay-safe work bundle."
+  },
+  {
+    "loop_index": 43,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-43",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Execute the current top Hall/Temple pair through one replay-safe work bundle."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-43",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Execute the current top Hall/Temple pair through one replay-safe work bundle."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-43",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Hall/Temple Nested Quest Expansion requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-43",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Execute the current top Hall/Temple pair through one replay-safe work bundle."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Execute the current top Hall/Temple pair through one replay-safe work bundle.",
+        "outputs": [
+          "SC57-L43-HALL",
+          "SC57-L43-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L43-HALL`, `SC57-L43-TEMPLE`, `SC57-L43-RUNTIME`, `SC57-L43-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L43-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L43-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L43-> Prune stale quest packets, duplicate candidate fronts, and weak reserve branches."
+  },
+  {
+    "loop_index": 44,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-44",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Prune stale quest packets, duplicate candidate fronts, and weak reserve branches."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-44",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Prune stale quest packets, duplicate candidate fronts, and weak reserve branches."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-44",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Prune stale quest packets, duplicate candidate fronts, and weak reserve branches."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-44",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Prune stale quest packets, duplicate candidate fronts, and weak reserve branches.",
+        "outputs": [
+          "SC57-L44-HALL",
+          "SC57-L44-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L44-HALL`, `SC57-L44-TEMPLE`, `SC57-L44-RUNTIME`, `SC57-L44-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L44-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L44-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P5::L44-> Emit the board-governance pass receipt plus the next restart seed."
+  },
+  {
+    "loop_index": 45,
+    "pass_id": "P5",
+    "pass_title": "Hall/Temple Nested Quest Expansion",
+    "theme": "board",
+    "step_text": "Emit the board-governance pass receipt plus the next restart seed.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P5-45",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Emit the board-governance pass receipt plus the next restart seed."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P5-45",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Emit the board-governance pass receipt plus the next restart seed."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P5-45",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Emit the board-governance pass receipt plus the next restart seed."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P5-45",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Emit the board-governance pass receipt plus the next restart seed.",
+        "outputs": [
+          "SC57-L45-HALL",
+          "SC57-L45-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L45-HALL`, `SC57-L45-TEMPLE`, `SC57-L45-RUNTIME`, `SC57-L45-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L45-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L45-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": true
+    },
+    "restart_seed": "SC57::P5::L45-> Re-evaluate all 24 transition notes against current fronts, blockers, and assignments."
+  },
+  {
+    "loop_index": 46,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-46",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-46",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-46",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-46",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.",
+        "outputs": [
+          "SC57-L46-HALL",
+          "SC57-L46-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L46-HALL`, `SC57-L46-TEMPLE`, `SC57-L46-RUNTIME`, `SC57-L46-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L46-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L46-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L46-> Refresh archetype compensation logic and advanced-agent blind-spot routing."
+  },
+  {
+    "loop_index": 47,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-47",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-47",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-47",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-47",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Refresh archetype compensation logic and advanced-agent blind-spot routing.",
+        "outputs": [
+          "SC57-L47-HALL",
+          "SC57-L47-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L47-HALL`, `SC57-L47-TEMPLE`, `SC57-L47-RUNTIME`, `SC57-L47-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L47-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L47-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L47-> Emit the full 24-note bundle plus one pass-boundary awakening bundle."
+  },
+  {
+    "loop_index": 48,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-48",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-48",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-48",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-48",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Emit the full 24-note bundle plus one pass-boundary awakening bundle.",
+        "outputs": [
+          "SC57-L48-HALL",
+          "SC57-L48-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L48-HALL`, `SC57-L48-TEMPLE`, `SC57-L48-RUNTIME`, `SC57-L48-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L48-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L48-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L48-> Crosswalk board agents to workload, writeback lanes, and Temple dependencies."
+  },
+  {
+    "loop_index": 49,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-49",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-49",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-49",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-49",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Crosswalk board agents to workload, writeback lanes, and Temple dependencies.",
+        "outputs": [
+          "SC57-L49-HALL",
+          "SC57-L49-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L49-HALL`, `SC57-L49-TEMPLE`, `SC57-L49-RUNTIME`, `SC57-L49-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L49-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L49-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L49-> Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts."
+  },
+  {
+    "loop_index": 50,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-50",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-50",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-50",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-50",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.",
+        "outputs": [
+          "SC57-L50-HALL",
+          "SC57-L50-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L50-HALL`, `SC57-L50-TEMPLE`, `SC57-L50-RUNTIME`, `SC57-L50-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L50-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L50-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L50-> Promote one Hall note-facing quest for social transition support."
+  },
+  {
+    "loop_index": 51,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Promote one Hall note-facing quest for social transition support.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-51",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Awakening, Cohort, and Transition Support requires a visible hall move at this loop."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-51",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Promote one Hall note-facing quest for social transition support."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-51",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Promote one Hall note-facing quest for social transition support."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-51",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Promote one Hall note-facing quest for social transition support."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Promote one Hall note-facing quest for social transition support.",
+        "outputs": [
+          "SC57-L51-HALL",
+          "SC57-L51-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L51-HALL`, `SC57-L51-TEMPLE`, `SC57-L51-RUNTIME`, `SC57-L51-COMPRESSION`.",
+        "outputs": [
+          "ACTIVATE_NOW",
+          "HOLD",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L51-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L51-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L51-> Promote one Temple note-facing frontier for higher-order awakening governance."
+  },
+  {
+    "loop_index": 52,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Promote one Temple note-facing frontier for higher-order awakening governance.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-52",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Promote one Temple note-facing frontier for higher-order awakening governance."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-52",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Awakening, Cohort, and Transition Support requires a visible temple move at this loop."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-52",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Promote one Temple note-facing frontier for higher-order awakening governance."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-52",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Promote one Temple note-facing frontier for higher-order awakening governance."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Promote one Temple note-facing frontier for higher-order awakening governance.",
+        "outputs": [
+          "SC57-L52-HALL",
+          "SC57-L52-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L52-HALL`, `SC57-L52-TEMPLE`, `SC57-L52-RUNTIME`, `SC57-L52-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L52-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L52-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L52-> Execute one note-to-front integration bundle and one board-synthesis writeback."
+  },
+  {
+    "loop_index": 53,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Execute one note-to-front integration bundle and one board-synthesis writeback.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-53",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Execute one note-to-front integration bundle and one board-synthesis writeback."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-53",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Execute one note-to-front integration bundle and one board-synthesis writeback."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-53",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Awakening, Cohort, and Transition Support requires a visible runtime move at this loop."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-53",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Compression remains held while the loop concentrates on: Execute one note-to-front integration bundle and one board-synthesis writeback."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Execute one note-to-front integration bundle and one board-synthesis writeback.",
+        "outputs": [
+          "SC57-L53-HALL",
+          "SC57-L53-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L53-HALL`, `SC57-L53-TEMPLE`, `SC57-L53-RUNTIME`, `SC57-L53-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "ACTIVATE_NOW",
+          "HOLD"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L53-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L53-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P6::L53-> Compress the awakening pass into one transition matrix delta and one restart seed."
+  },
+  {
+    "loop_index": 54,
+    "pass_id": "P6",
+    "pass_title": "Awakening, Cohort, and Transition Support",
+    "theme": "awakening",
+    "step_text": "Compress the awakening pass into one transition matrix delta and one restart seed.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P6-54",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Compress the awakening pass into one transition matrix delta and one restart seed."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P6-54",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Compress the awakening pass into one transition matrix delta and one restart seed."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P6-54",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Compress the awakening pass into one transition matrix delta and one restart seed."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P6-54",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Compress the awakening pass into one transition matrix delta and one restart seed.",
+        "outputs": [
+          "SC57-L54-HALL",
+          "SC57-L54-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L54-HALL`, `SC57-L54-TEMPLE`, `SC57-L54-RUNTIME`, `SC57-L54-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L54-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L54-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": true
+    },
+    "restart_seed": "SC57::P6::L54-> Run the full committee/committee-pending sweep over all surviving fronts and seeds."
+  },
+  {
+    "loop_index": 55,
+    "pass_id": "P7",
+    "pass_title": "Grand Contraction, Committee Review, and Reseed",
+    "theme": "closure",
+    "step_text": "Run the full committee/committee-pending sweep over all surviving fronts and seeds.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P7-55",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Run the full committee/committee-pending sweep over all surviving fronts and seeds."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P7-55",
+      "action": "ESCALATE_TO_COMMITTEE",
+      "visible_promotion": false,
+      "reason": "Temple motion touches committee, branch-limit, or stewardship law."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P7-55",
+      "action": "REPLAY_FIRST",
+      "visible_promotion": false,
+      "reason": "Runtime motion depends on replay or queue/state confirmation before activation."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P7-55",
+      "action": "ESCALATE_TO_COMMITTEE",
+      "visible_promotion": false,
+      "reason": "Compression motion touches committee, branch-limit, or stewardship law."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Run the full committee/committee-pending sweep over all surviving fronts and seeds.",
+        "outputs": [
+          "SC57-L55-HALL",
+          "SC57-L55-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L55-HALL`, `SC57-L55-TEMPLE`, `SC57-L55-RUNTIME`, `SC57-L55-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "ESCALATE_TO_COMMITTEE",
+          "REPLAY_FIRST",
+          "ESCALATE_TO_COMMITTEE"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L55-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L55-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P7::L55-> Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds."
+  },
+  {
+    "loop_index": 56,
+    "pass_id": "P7",
+    "pass_title": "Grand Contraction, Committee Review, and Reseed",
+    "theme": "closure",
+    "step_text": "Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P7-56",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Hall remains held while the loop concentrates on: Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P7-56",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Temple remains held while the loop concentrates on: Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P7-56",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P7-56",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Collapse the 57-loop history into one crystalline compression pack: route ledger, strongest laws, strongest algorithms, strongest blocked fronts, and next-epoch seeds.",
+        "outputs": [
+          "SC57-L56-HALL",
+          "SC57-L56-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L56-HALL`, `SC57-L56-TEMPLE`, `SC57-L56-RUNTIME`, `SC57-L56-COMPRESSION`.",
+        "outputs": [
+          "HOLD",
+          "HOLD",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L56-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L56-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": false,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57::P7::L56-> Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch."
+  },
+  {
+    "loop_index": 57,
+    "pass_id": "P7",
+    "pass_title": "Grand Contraction, Committee Review, and Reseed",
+    "theme": "closure",
+    "step_text": "Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch.",
+    "starting_control_stack": [
+      "Q42",
+      "TQ04",
+      "Q50",
+      "Q46",
+      "Q02"
+    ],
+    "seat_activation": {
+      "virtual_seats_per_master": 4096,
+      "active_seats_per_master": 256,
+      "active_seats_total": 1024,
+      "dormant_seats_total": 3072,
+      "per_resolution": 64
+    },
+    "hall_decision": {
+      "candidate_front": "SC57-H-P7-57",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Grand Contraction, Committee Review, and Reseed requires a visible hall move at this loop."
+    },
+    "temple_decision": {
+      "candidate_front": "SC57-T-P7-57",
+      "action": "ACTIVATE_NOW",
+      "visible_promotion": true,
+      "reason": "Grand Contraction, Committee Review, and Reseed requires a visible temple move at this loop."
+    },
+    "runtime_decision": {
+      "candidate_front": "SC57-R-P7-57",
+      "action": "HOLD",
+      "visible_promotion": false,
+      "reason": "Runtime remains held while the loop concentrates on: Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch."
+    },
+    "compression_decision": {
+      "candidate_front": "SC57-C-P7-57",
+      "action": "COMPRESS_TO_SEED",
+      "visible_promotion": false,
+      "reason": "Compression work should contract into a seed instead of widening now."
+    },
+    "master_receipts": {
+      "A1": {
+        "master": "Research/Synthesis",
+        "receipt": "Read corpus/Hall/Temple/runtime truth and derived candidate packets from: Emit the super-cycle closure bundle: one final Hall decision, one final Temple decision, one full-stack receipt, one dormant-seat parameterization plan, and the next lawful 2/16 restart seed for the following 57-loop epoch.",
+        "outputs": [
+          "SC57-L57-HALL",
+          "SC57-L57-TEMPLE"
+        ]
+      },
+      "A2": {
+        "master": "Planner/Governor",
+        "receipt": "Ran MotionConstitution gating and ranked `SC57-L57-HALL`, `SC57-L57-TEMPLE`, `SC57-L57-RUNTIME`, `SC57-L57-COMPRESSION`.",
+        "outputs": [
+          "ACTIVATE_NOW",
+          "ACTIVATE_NOW",
+          "HOLD",
+          "COMPRESS_TO_SEED"
+        ]
+      },
+      "A3": {
+        "master": "Worker/Adventurer",
+        "receipt": "Executed only ACTIVATE_NOW runtime-facing work and otherwise emitted an explicit no-op receipt.",
+        "outputs": [
+          "SC57-L57-RUNTIME"
+        ]
+      },
+      "A4": {
+        "master": "Pruner/Compressor",
+        "receipt": "Pruned duplicate or low-yield branches and emitted the loop seed/contraction decision.",
+        "outputs": [
+          "SC57-L57-COMPRESSION"
+        ]
+      }
+    },
+    "awakening_refresh": {
+      "board_agent_delta": true,
+      "full_bundle_refresh": true,
+      "pass_boundary_bundle": false
+    },
+    "restart_seed": "SC57-EPOCH2::2/16::Restart from current control stack with a new 57-loop epoch"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "schema_id": "COMMAND_PACKET_V1",
+  "required_fields": [
+    "event_id",
+    "ant_id",
+    "tag",
+    "goal",
+    "change",
+    "priority",
+    "confidence",
+    "earth_ts",
+    "liminal_ts",
+    "coord12",
+    "parent",
+    "ttl",
+    "pheromone",
+    "state_hash",
+    "route_class"
+  ],
+  "extensions": [
+    "lookup_addr",
+    "source_path",
+    "event_type",
+    "coord_quality",
+    "watch_fallback"
+  ],
+  "defaults": {
+    "ttl": 6,
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "lease_ms": 1200,
+    "route_classes": [
+      "scout.router.worker",
+      "scout.router.archivist",
+      "scout.router.worker.archivist"
+    ]
+  }
+}

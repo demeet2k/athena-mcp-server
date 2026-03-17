@@ -1,0 +1,56 @@
+{
+  "quest_id": "Q57-L02-03",
+  "title": "Runtime Receipt Binding",
+  "completed_at": "2026-03-13T23:39:22.095018+00:00",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "mode": "LOCAL_WITNESS_ONLY"
+  },
+  "authority": {
+    "parent": "NEXT57",
+    "local_membrane": "COMMAND_MEMBRANE_V1",
+    "protocol_ref": "self_actualize/next57_command_protocol.json",
+    "state_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_membrane_state.json"
+  },
+  "verified_event": {
+    "event_id": "EVT-20260313-0007",
+    "binding_status": "complete",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "claimant": "WORKER-02",
+    "receipt_summary": "aligned packet schema probe for command membrane v1",
+    "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0007.json",
+    "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0007",
+    "claim_lease_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json#EVT-20260313-0007",
+    "receipt_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_archivist_receipts.json#EVT-20260313-0007",
+    "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0007.json"
+  },
+  "queue_truth": {
+    "queue_depth": 4,
+    "active_leases": 0,
+    "pending_replay_count": 4,
+    "live_event_ledger_shape": "rows-object"
+  },
+  "capillary_truth": {
+    "edge_count": 1,
+    "top_edge_id": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "top_edge_grade": "vein",
+    "top_edge_strength": 1.0
+  },
+  "mirror_sync": {
+    "active_run_ref": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+    "build_queue_ref": "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+    "active_queue_ref": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+    "hall_board_ref": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+    "temple_board_ref": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+    "active_loop": "L02 Survey :: A02 self_actualize",
+    "next_hall_quest": "NEXT57-H-COMMAND-MEMBRANE",
+    "next_temple_quest": "NEXT57-T-COMMAND-LAW",
+    "restart_seed": "L03 Survey A03 ECOSYSTEM",
+    "docs_gate": "BLOCKED / LOCAL_WITNESS_ONLY"
+  },
+  "entrypoint_verification": {
+    "wrapper_status": "OK",
+    "package_status": "OK",
+    "package_build": "OK"
+  }
+}

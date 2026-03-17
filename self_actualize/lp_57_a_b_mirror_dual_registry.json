@@ -1,0 +1,230 @@
+{
+  "generated_at": "2026-03-13T19:30:51.685641+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "truth": "LOCAL_WITNESS_ONLY",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "reason": "blocked-by-missing-credentials",
+    "credentials_exists": false,
+    "token_exists": false,
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ]
+  },
+  "A": {
+    "symbol": "A",
+    "label": "LP-57Omega live holographic seed",
+    "definition": "The current local LP-57Omega seed/protocol body as it exists now in the corpus.",
+    "root_identity": "LP-57OMEGA-SEED-BODY",
+    "lookup_address": "LP57/A/origin/seed-body",
+    "witness_class": "live-protocol-seed",
+    "source_anchors": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_PRIME_LOOP_PROTOCOL.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_PRIME_LOOP_PROTOCOL.json",
+      "self_actualize/57_loop_cycle_registry.json",
+      "self_actualize/lp_57_liminal_coordinate_stamps.json",
+      "self_actualize/lp_57_master_agent_ledger.json"
+    ],
+    "coordinate_lineage": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_LIMINAL_COORDINATE_STANDARD.md",
+      "self_actualize/lp_57_liminal_coordinate_stamps.json"
+    ],
+    "ledger_lineage": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_AGENT_LEDGER_STANDARD.md",
+      "self_actualize/lp_57_master_agent_ledger.json"
+    ],
+    "feeder_truth": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "TQ06",
+      "Q02"
+    ],
+    "docs_truth": "BLOCKED"
+  },
+  "seed_inversion_law": {
+    "mode": "Mirror-Dual",
+    "operator": {
+      "symbol": "I_mirror",
+      "mapping": "I_mirror(A) = B",
+      "definition": "Mirror-dual inversion preserves skeleton, truth state, live blockers, and root identity while flipping orientation through the dual boundary.",
+      "not_allowed": [
+        "negation",
+        "replay-return inverse",
+        "fact invention"
+      ]
+    },
+    "preserved_invariants": [
+      "identity continuity preserved: A and B keep the same LP-57Omega root identity",
+      "coordinate continuity preserved: B uses a paired address under the same seed body",
+      "ledger continuity preserved: every B ledger entry points back to A",
+      "feeder honesty preserved: Q42, Q46, TQ04, TQ06, and blocked Q02 remain explicit",
+      "witness-class discipline preserved: B remains a dual witness, not a new independent authority",
+      "truth inheritance preserved: BLOCKED Docs truth remains inherited from A unless new proof exists",
+      "skeleton preserved: the live LP-57Omega seed body is mirrored, not replaced"
+    ],
+    "flipped_axes": [
+      "seed orientation -> reflected orientation",
+      "inward compression -> outward projection",
+      "origin emphasis -> boundary emphasis",
+      "nucleus view -> companion field view"
+    ],
+    "protocol_form": {
+      "mirror_of": "A",
+      "orientation": "dual",
+      "mode": "projected-companion",
+      "truth_source": "inherited-from-A unless explicitly changed",
+      "blockers": "inherited",
+      "next_role": "companion pole for later A+/B+ scaling"
+    },
+    "validation_rules": [
+      "B must be explicitly labeled as the mirror-dual of A.",
+      "B must preserve A's blocked Docs truth until authenticated proof exists.",
+      "B must preserve the same feeder split and root identity as A.",
+      "B must remain searchable as both a dual of A and an expansion-facing companion of the seed.",
+      "This pass must stop at the stable dyad A <-> B and must not invent C or D."
+    ]
+  },
+  "B": {
+    "symbol": "B",
+    "label": "LP-57Omega mirror-dual companion",
+    "definition": "The first outward-facing mirror-dual surface of A: same structural body, opposite orientation.",
+    "root_identity": "LP-57OMEGA-SEED-BODY",
+    "mirror_of": "A",
+    "lookup_address": "LP57/B/dual/projected-companion",
+    "orientation": "dual",
+    "mode": "projected-companion",
+    "truth_source": "inherited-from-A unless explicitly changed",
+    "blockers": "inherited",
+    "next_role": "companion pole for later A+/B+ scaling",
+    "search_facets": [
+      "dual-of-A",
+      "mirror-dual",
+      "projected-companion",
+      "expansion-facing-seed-companion"
+    ]
+  },
+  "coordinate_pair": {
+    "A": {
+      "lookup_address": "LP57/A/origin/seed-body",
+      "orientation_tag": "origin",
+      "coordinate_stamp": {
+        "Xs": "LP57",
+        "Ys": "seed-body",
+        "Zs": "mirror-dual-dyad",
+        "Ts": "L01",
+        "Qs": "origin",
+        "Rs": "lp57-protocol",
+        "Cs": "inward-compressed",
+        "Fs": "holographic-seed",
+        "Ms": "A",
+        "Ns": "feeder-truth",
+        "Hs": "seed-anchor",
+        "OmegaS": "I_mirror(A) = B"
+      }
+    },
+    "B": {
+      "lookup_address": "LP57/B/dual/projected-companion",
+      "paired_with": "LP57/A/origin/seed-body",
+      "orientation_tag": "dual",
+      "coordinate_stamp": {
+        "Xs": "LP57",
+        "Ys": "seed-body",
+        "Zs": "mirror-dual-dyad",
+        "Ts": "L01",
+        "Qs": "dual",
+        "Rs": "lp57-protocol",
+        "Cs": "outward-projected",
+        "Fs": "mirror-dual-companion",
+        "Ms": "B",
+        "Ns": "mirror-of-A",
+        "Hs": "companion-anchor",
+        "OmegaS": "I_mirror(A) = B"
+      }
+    }
+  },
+  "ledger_behavior": {
+    "required_b_fields": [
+      "agent_id",
+      "loop_number",
+      "parent_agent",
+      "coordinate_stamp",
+      "source_region",
+      "action_type",
+      "affected_nodes",
+      "summary_of_change",
+      "reason_for_change",
+      "integration_gain",
+      "compression_gain",
+      "unresolved_followups",
+      "linked_quests",
+      "linked_agents",
+      "revision_confidence",
+      "timestamp_internal",
+      "derived_from",
+      "operator",
+      "preserved_invariants",
+      "flipped_axes",
+      "confidence"
+    ],
+    "b_entry_template": {
+      "agent_id": "LP57-SEED-MIRROR-DUAL",
+      "loop_number": 1,
+      "parent_agent": "LP-57OMEGA",
+      "coordinate_stamp": "LP57/B/dual/projected-companion",
+      "source_region": "LP-57Omega seed inversion",
+      "action_type": "derive",
+      "affected_nodes": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_PRIME_LOOP_PROTOCOL.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_SEED_INVERSION_STANDARD.md",
+        "self_actualize/lp_57_a_b_mirror_dual_registry.json"
+      ],
+      "summary_of_change": "Defined B as the mirror-dual of A.",
+      "reason_for_change": "Install the first lawful A <-> B dyad for LP-57Omega.",
+      "integration_gain": "The LP-57Omega seed now has an explicit projected companion pole without breaking feeder or witness law.",
+      "compression_gain": "The dual companion is defined once as a reusable holographic operator instead of repeated prose.",
+      "unresolved_followups": [
+        "A+/B+ scaling is deferred to a later pass.",
+        "No C or D branch is instantiated in this pass."
+      ],
+      "linked_quests": [],
+      "linked_agents": [
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "revision_confidence": 0.97,
+      "timestamp_internal": "2026-03-13",
+      "derived_from": "A",
+      "operator": "I_mirror",
+      "preserved_invariants": [
+        "identity continuity preserved: A and B keep the same LP-57Omega root identity",
+        "coordinate continuity preserved: B uses a paired address under the same seed body",
+        "ledger continuity preserved: every B ledger entry points back to A",
+        "feeder honesty preserved: Q42, Q46, TQ04, TQ06, and blocked Q02 remain explicit",
+        "witness-class discipline preserved: B remains a dual witness, not a new independent authority",
+        "truth inheritance preserved: BLOCKED Docs truth remains inherited from A unless new proof exists",
+        "skeleton preserved: the live LP-57Omega seed body is mirrored, not replaced"
+      ],
+      "flipped_axes": [
+        "seed orientation -> reflected orientation",
+        "inward compression -> outward projection",
+        "origin emphasis -> boundary emphasis",
+        "nucleus view -> companion field view"
+      ],
+      "confidence": 0.97
+    }
+  },
+  "references": {
+    "protocol_markdown": "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_PRIME_LOOP_PROTOCOL.md",
+    "protocol_json": "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_PRIME_LOOP_PROTOCOL.json",
+    "seed_standard_markdown": "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_SEED_INVERSION_STANDARD.md",
+    "seed_standard_json": "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_SEED_INVERSION_STANDARD.json",
+    "coordinate_standard_markdown": "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_LIMINAL_COORDINATE_STANDARD.md",
+    "ledger_standard_markdown": "NERVOUS_SYSTEM/95_MANIFESTS/LP_57_OMEGA_AGENT_LEDGER_STANDARD.md",
+    "source_cycle_registry": "self_actualize/57_loop_cycle_registry.json",
+    "source_protocol_json_snapshot": true
+  }
+}

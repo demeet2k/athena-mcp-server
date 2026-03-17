@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-03-13T21:36:16.302672+00:00",
+  "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+  "derivation_version": "2026-03-09.q18.runtime",
+  "derivation_command": "python -m self_actualize.runtime.derive_witness_hierarchy",
+  "ignore_dirs": [
+    ".git",
+    ".idea",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "__pycache__"
+  ],
+  "witnesses": {
+    "physical": {
+      "label": "Physical witness",
+      "value": 1021742,
+      "meaning": "full workspace body on disk using runtime ignore rules",
+      "source": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+      "source_timestamp": "2026-03-13T21:56:41.933386+00:00",
+      "provenance": "recursive file sweep excluding runtime ignore directories"
+    },
+    "indexed": {
+      "label": "Indexed witness",
+      "value": 7895,
+      "meaning": "live searchable records in corpus_atlas.json",
+      "source": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+      "source_timestamp": "2026-03-13T21:35:33.734557+00:00",
+      "provenance": "len(corpus_atlas.records)"
+    },
+    "board": {
+      "label": "Board witness",
+      "value": 14742,
+      "meaning": "workspace slice visible to the realtime board",
+      "source": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\00_STATUS\\00_BOARD_STATUS.md",
+      "source_timestamp": "2026-03-13T21:55:30.228459+00:00",
+      "provenance": "parsed from board status markdown"
+    },
+    "archive": {
+      "label": "Archive witness",
+      "value": 2041,
+      "meaning": "archive-backed records indexed but not yet promoted into live roots",
+      "source": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_atlas.json",
+      "source_timestamp": "2026-03-08T13:24:18.686859+00:00",
+      "provenance": "len(archive_atlas.records) across 16 archives",
+      "archive_count": 16
+    },
+    "promoted": {
+      "label": "Promoted witness",
+      "value": 1818,
+      "meaning": "promoted bronze nervous-system slice declared by the active bronze state header",
+      "source": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\_build\\nervous_system\\manifests\\STATE_HEADER.md",
+      "source_timestamp": "2026-03-09T16:32:05.114081+00:00",
+      "provenance": "parsed from live_atlas_records in bronze state header"
+    }
+  }
+}

@@ -3,9 +3,10 @@
 ## Google Docs Live Memory Gateway
 
 - Status: **BLOCKED**
+- Verified on: `2026-03-13`
 - Reason: `credentials.json` and `token.json` not found
-- Expected location: `Trading Bot/credentials.json`
-- Impact: Line E (Prompt Line) cannot pull live updates
+- Expected location: `Trading Bot/credentials.json` and `Trading Bot/token.json`
+- Impact: Line E (Prompt Line) cannot pull live updates, so Athenachka, AP6D, and deep-root synchronization must remain local-witness only
 
 ## Fallback Order (when blocked)
 

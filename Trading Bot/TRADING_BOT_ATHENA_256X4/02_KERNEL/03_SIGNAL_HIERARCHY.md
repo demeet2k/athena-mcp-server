@@ -1,0 +1,6 @@
+# Signal Hierarchy
+
+- `NEXUS_ALERT`
+- `REGIME_SHIFT`
+- `PHASE_EDGE`
+- `QUALITY_READ`

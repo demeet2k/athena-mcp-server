@@ -1,0 +1,182 @@
+[
+  {
+    "agent_id": "Athena Prime",
+    "liminal_transition": "N+4 -> N+5",
+    "liminal_band": "orchestration",
+    "shadow_feeder": "Q42 / Q46 / TQ04 / Q50 / Q02",
+    "support_anchors": [
+      "Ch12",
+      "Ch13",
+      "Ch16",
+      "AppM",
+      "AppQ"
+    ],
+    "stabilization_markers": [
+      "restart coherence preserved",
+      "no fragmenting of live fronts",
+      "Hall and Temple agree on the same conductor state"
+    ],
+    "failure_markers": [
+      "parallel doctrinal split",
+      "active front renamed without writeback",
+      "machine truth diverges from owner-facing surfaces"
+    ],
+    "assist_actions": [
+      "arbitrate which quest packet becomes owner-facing",
+      "keep the 57-loop cadence synchronized across all surfaces",
+      "preserve specialization without fragmenting the conductor law"
+    ],
+    "writeback_targets": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+    ],
+    "restart_seed": "AthenaPrime::LoopCadence::Keep-one-story",
+    "reassessment_window": "every loop boundary",
+    "truth": "LOCAL_ONLY_BLOCKED_DOCS"
+  },
+  {
+    "agent_id": "Water",
+    "liminal_transition": "N+4 -> N+5",
+    "liminal_band": "continuity",
+    "shadow_feeder": "Q42 carried witness",
+    "support_anchors": [
+      "Ch12",
+      "Ch13",
+      "Ch16",
+      "AppM",
+      "AppQ"
+    ],
+    "stabilization_markers": [
+      "memory corridor preserved",
+      "blocked conditions named honestly",
+      "residual drift re-entered through replay-safe routes"
+    ],
+    "failure_markers": [
+      "continuity claims without replay proof",
+      "Docs gate implied live when blocked",
+      "queue drift detached from receipts"
+    ],
+    "assist_actions": [
+      "carry witness state across loop boundaries",
+      "keep memory/replay corridors explicit",
+      "stabilize residual drift instead of hiding it"
+    ],
+    "writeback_targets": [
+      "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+      "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md"
+    ],
+    "restart_seed": "Water::Continuity::Preserve-carrythrough",
+    "reassessment_window": "after each loop receipt",
+    "truth": "LOCAL_ONLY_BLOCKED_DOCS"
+  },
+  {
+    "agent_id": "Earth",
+    "liminal_transition": "N+4 -> N+5",
+    "liminal_band": "legality",
+    "shadow_feeder": "TQ04",
+    "support_anchors": [
+      "Ch12",
+      "AppH",
+      "AppI",
+      "AppM",
+      "AppQ"
+    ],
+    "stabilization_markers": [
+      "contract and manifest paths agree",
+      "quarantine and re-entry are named",
+      "root precedence remains lawful"
+    ],
+    "failure_markers": [
+      "owner surface missing",
+      "historical mirror reactivated as live authority",
+      "route legality omitted from execution packets"
+    ],
+    "assist_actions": [
+      "bind legality gates into every agent lane",
+      "preserve manifest truth and quarantine rules",
+      "gate re-entry through witnessed appendix paths"
+    ],
+    "writeback_targets": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_LOOP_QUAD_AGENT_CONTRACT.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/08_NEXT_57_LOOP_QUAD_AGENT_CONDUCTOR_DECREE.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md"
+    ],
+    "restart_seed": "Earth::Legality::Re-entry-gated",
+    "reassessment_window": "whenever a control surface is rewritten",
+    "truth": "LOCAL_ONLY_BLOCKED_DOCS"
+  },
+  {
+    "agent_id": "Fire",
+    "liminal_transition": "N+4 -> N+5",
+    "liminal_band": "activation",
+    "shadow_feeder": "Q50 / worker packet lane",
+    "support_anchors": [
+      "Ch13",
+      "Ch16",
+      "AppM",
+      "AppQ"
+    ],
+    "stabilization_markers": [
+      "bounded execution only",
+      "no-theater scaling",
+      "activation follows evidence and budget"
+    ],
+    "failure_markers": [
+      "execution outruns proof",
+      "new frontier invented without target surfaces",
+      "worker packet lacks writeback or restart seed"
+    ],
+    "assist_actions": [
+      "ignite only the highest-yield bounded work",
+      "route activation through runtime-proof lanes",
+      "preserve reserve-bound expansion rules"
+    ],
+    "writeback_targets": [
+      "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/18_NEXT_57_LOOP_QUAD_AGENT_CONDUCTOR.md"
+    ],
+    "restart_seed": "Fire::Activation::Bounded-next-packet",
+    "reassessment_window": "before any worker claim closes",
+    "truth": "LOCAL_ONLY_BLOCKED_DOCS"
+  },
+  {
+    "agent_id": "Air",
+    "liminal_transition": "N+4 -> N+5",
+    "liminal_band": "routing",
+    "shadow_feeder": "AppQ ingress lane",
+    "support_anchors": [
+      "AppQ",
+      "Ch12",
+      "Ch13",
+      "Ch16",
+      "AppM"
+    ],
+    "stabilization_markers": [
+      "naming clarity preserved",
+      "topology and truth stay attached",
+      "symbolic guardrails stay machine-legible"
+    ],
+    "failure_markers": [
+      "front split collapsed into one field",
+      "QS64-25 invented",
+      "active deep authority cited from a historical mirror"
+    ],
+    "assist_actions": [
+      "keep route names explicit and distinct",
+      "bind ingress, topology, and replay into the same corridor",
+      "protect symbolic guardrails in machine artifacts"
+    ],
+    "writeback_targets": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_LOOP_QUAD_AGENT_CONDUCTOR_CHARTER.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/18_NEXT_57_LOOP_QUAD_AGENT_CONDUCTOR.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md"
+    ],
+    "restart_seed": "Air::Routing::Keep-the-split-lawful",
+    "reassessment_window": "whenever fronts or route names change",
+    "truth": "LOCAL_ONLY_BLOCKED_DOCS"
+  }
+]

@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-03-09T15:24:59.608266+00:00",
-  "deep_pass": 6,
+  "generated_at": "2026-03-13T01:33:57.078910+00:00",
+  "deep_pass": 17,
   "nodes": [
     {
       "id": "FAMILY-civilization-and-governance",
       "kind": "family",
       "family": "civilization-and-governance",
       "label": "Civilization design, hierarchy, governance, and law",
-      "doc_count": 46
+      "doc_count": 42
     },
     {
       "id": "COUNCIL-civilization_and_governance",
@@ -29,6 +29,19 @@
       "label": "General corpus support"
     },
     {
+      "id": "FAMILY-helical-recursion-engine",
+      "kind": "family",
+      "family": "helical-recursion-engine",
+      "label": "Helical recursion, lift law, and manifestation engine",
+      "doc_count": 3
+    },
+    {
+      "id": "COUNCIL-helical_recursion_engine",
+      "kind": "family_council",
+      "family": "helical-recursion-engine",
+      "label": "Helical recursion, lift law, and manifestation engine"
+    },
+    {
       "id": "FAMILY-higher-dimensional-geometry",
       "kind": "family",
       "family": "higher-dimensional-geometry",
@@ -46,7 +59,7 @@
       "kind": "family",
       "family": "identity-and-instruction",
       "label": "Athena identity, pedagogy, and narrative voice",
-      "doc_count": 11
+      "doc_count": 14
     },
     {
       "id": "COUNCIL-identity_and_instruction",
@@ -98,7 +111,7 @@
       "kind": "family",
       "family": "transport-and-runtime",
       "label": "Transport, runtime, and executable framework",
-      "doc_count": 38
+      "doc_count": 39
     },
     {
       "id": "COUNCIL-transport_and_runtime",
@@ -281,7 +294,7 @@
     {
       "id": "CIVILIZATION-KERNEL",
       "kind": "civilization_kernel",
-      "deep_pass": 6
+      "deep_pass": 17
     },
     {
       "id": "Ch01<0000>.S1.a",

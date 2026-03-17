@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "description": "Fibonacci unlock ladder mapping levels to quest class gates",
+  "fibonacci_sequence": [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89],
+  "unlock_ladder": {
+    "1": {
+      "class": "Solo",
+      "description": "Base solo quests available from the start",
+      "stations_unlocked": ["S01", "S02"]
+    },
+    "3": {
+      "class": "Guild",
+      "description": "Guild quests unlock, enabling small-group cooperation",
+      "stations_unlocked": ["S03", "S04"]
+    },
+    "5": {
+      "class": "Community",
+      "description": "Community quests unlock, enabling large-group and repair operations",
+      "stations_unlocked": ["S05", "S06", "S07"]
+    },
+    "8": {
+      "class": "Temple",
+      "description": "Temple rite quests unlock, requiring ethical certification",
+      "stations_unlocked": ["S08", "S09", "S10"]
+    },
+    "13": {
+      "class": "Storm",
+      "description": "Storm quests unlock, enabling coalition-based PhiStorm events",
+      "stations_unlocked": ["S11", "S12", "S13", "S14"]
+    },
+    "21": {
+      "class": "Publish",
+      "description": "Publish quests unlock, promoting outputs to external registries",
+      "stations_unlocked": ["S15", "S16"]
+    },
+    "34": {
+      "class": "Seeding",
+      "description": "Seeding quests unlock, spawning new atlas branches",
+      "stations_unlocked": ["S17"]
+    },
+    "55": {
+      "class": "Policy",
+      "description": "Policy quests unlock, enabling governance modifications",
+      "stations_unlocked": ["S18"]
+    },
+    "89": {
+      "class": "Migration",
+      "description": "Migration quests unlock, enabling full atlas version transitions",
+      "stations_unlocked": ["S19"]
+    }
+  }
+}

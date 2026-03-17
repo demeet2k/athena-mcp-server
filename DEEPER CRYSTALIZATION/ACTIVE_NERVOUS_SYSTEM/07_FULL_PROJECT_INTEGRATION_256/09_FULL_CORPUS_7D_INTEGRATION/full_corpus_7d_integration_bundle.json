@@ -1,0 +1,2407 @@
+{
+  "generated_at": "2026-03-13T16:14:47.547194+00:00",
+  "docs_gate_status": "BLOCKED",
+  "evidence_boundary": {
+    "definition": "Local corpus + archive-backed evidence + deep-root authorities + generated MATH GOD bundles + whole-project runtime surfaces.",
+    "docs_gate_reason": "Missing OAuth client file: credentials.json",
+    "baseline_surfaces": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\README.md",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\build_full_project_integration.py",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md"
+    ],
+    "live_atlas": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+    "archive_atlas": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_atlas.json",
+    "archive_manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_manifest.json",
+    "deep_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+    "bounded_pressures": [
+      {
+        "pressure_id": "docs_gate_block",
+        "state": "BLOCKED",
+        "surface": "self_actualize\\live_docs_gate_status.md",
+        "reason": "Live Google Docs remain unavailable until OAuth credentials exist locally."
+      },
+      {
+        "pressure_id": "seed_q_ingress_hold",
+        "state": "QUARANTINED",
+        "surface": "Q_ingress",
+        "reason": "Route remains bounded by 7D seed gate state and cannot silently promote."
+      },
+      {
+        "pressure_id": "seed_o_return_hold",
+        "state": "QUARANTINED",
+        "surface": "O_return",
+        "reason": "Route remains bounded by 7D seed gate state and cannot silently promote."
+      }
+    ]
+  },
+  "dimensional_stack": {
+    "source_stack": [
+      "v4",
+      "fire_6d",
+      "water_6d",
+      "air_6d",
+      "earth_h6",
+      "seed_7d"
+    ],
+    "convergence_table": [
+      {
+        "bundle_id": "v4",
+        "title": "Tesseract v4",
+        "dimension_stage": "4D_NATIVE",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "markdown_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.md",
+        "state": "OK",
+        "docs_gate_status": "BLOCKED",
+        "readiness": "canonical",
+        "owns": [
+          "canonical chapter orbit",
+          "LocalAddr and GlobalAddr stability",
+          "closed edge-kind basis",
+          "mandatory signature",
+          "HCRL order",
+          "appendix legality"
+        ],
+        "depends_on": [
+          "local atlas visibility",
+          "appendix registry",
+          "route-plan receipts"
+        ],
+        "cannot_promote_without": [
+          "witness-bearing route plans",
+          "explicit truth states"
+        ],
+        "chapter_count": 21,
+        "appendix_count": 16,
+        "route_plan_count": 521,
+        "edge_kinds": [
+          "REF",
+          "EQUIV",
+          "MIGRATE",
+          "DUAL",
+          "GEN",
+          "INST",
+          "IMPL",
+          "PROOF",
+          "CONFLICT"
+        ],
+        "mandatory_signature": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "hcrl_order": [
+          "S",
+          "F",
+          "C",
+          "R"
+        ]
+      },
+      {
+        "bundle_id": "fire_6d",
+        "title": "FIRE 6D Organism",
+        "dimension_stage": "6D_WEAVE",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_fire_6d_organism_bundle.json",
+        "markdown_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_fire_6d_organism_bundle.md",
+        "state": "OK",
+        "docs_gate_status": "BLOCKED",
+        "readiness": "ready",
+        "owns": [
+          "ignition pressure",
+          "compression-to-weave bridge logic",
+          "Mobius bridge activation metadata"
+        ],
+        "depends_on": [
+          "v4 route calculus",
+          "Water continuity support",
+          "AIR transport labels"
+        ],
+        "cannot_promote_without": [
+          "Earth-cleared activation",
+          "AppI/AppM corridor and replay support"
+        ],
+        "active_basis_count": 4,
+        "bridge_basis_count": 4,
+        "control_document_count": 6,
+        "mobius_bridge_counts": {
+          "O_return": 2,
+          "QO_loop": 2,
+          "Q_ingress": 1,
+          "none": 3
+        }
+      },
+      {
+        "bundle_id": "water_6d",
+        "title": "WATER 6D Control",
+        "dimension_stage": "6D_CONTROL",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_water_6d_control_bundle.json",
+        "markdown_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_water_6d_control_bundle.md",
+        "state": "OK",
+        "docs_gate_status": "BLOCKED",
+        "readiness": "overlay_only",
+        "owns": [
+          "continuity",
+          "modal control routes",
+          "recovery and return-to-v4 docking"
+        ],
+        "depends_on": [
+          "v4 canon",
+          "Earth upstream handoff",
+          "blocked-docs local evidence boundary"
+        ],
+        "cannot_promote_without": [
+          "corridor-banked return routes",
+          "AppE/AppF/AppI/AppM/AppQ support"
+        ],
+        "control_mode": "overlay_only",
+        "water_native_basis": [
+          "01",
+          "11",
+          "12",
+          "14"
+        ],
+        "translated_support": [
+          "02",
+          "03",
+          "04",
+          "05",
+          "09",
+          "10",
+          "15",
+          "16"
+        ],
+        "appendix_support": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "control_document_count": 5,
+        "lift_chain": [
+          {
+            "route_id": "lift_compiled_2564",
+            "title": "Treat 256^4 as the compiled Water control field.",
+            "basis_refs": [
+              "01",
+              "03",
+              "14"
+            ],
+            "metro_refs": [
+              "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+            ],
+            "appendix_refs": [
+              "AppE",
+              "AppF",
+              "AppI",
+              "AppM",
+              "AppQ"
+            ],
+            "local_zero_point": "Z_water.lift.2564",
+            "collapse_via": "Z*",
+            "return_checkpoint": "MATH GOD/atlas/math_tesseract_v4_bundle.md",
+            "truth_state": "NEAR",
+            "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+          },
+          {
+            "route_id": "lift_overlay_entry",
+            "title": "Enter the overlay-only 1024^6 Water control surface.",
+            "basis_refs": [
+              "11",
+              "12",
+              "04",
+              "05"
+            ],
+            "metro_refs": [
+              "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+            ],
+            "appendix_refs": [
+              "AppF",
+              "AppI",
+              "AppM",
+              "AppQ"
+            ],
+            "local_zero_point": "Z_water.lift.entry",
+            "collapse_via": "Z*",
+            "return_checkpoint": "H6_WATER/03_modal_mobius_routes.md",
+            "truth_state": "NEAR",
+            "replay_source": "02_WATER/16_dimensionlift.md"
+          },
+          {
+            "route_id": "lift_10246_return",
+            "title": "Return the 1024^6 lift to the live 4D stack without drift.",
+            "basis_refs": [
+              "02",
+              "09",
+              "10",
+              "15",
+              "16"
+            ],
+            "metro_refs": [
+              "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+            ],
+            "appendix_refs": [
+              "AppE",
+              "AppI",
+              "AppM",
+              "AppQ"
+            ],
+            "local_zero_point": "Z_water.lift.return",
+            "collapse_via": "Z*",
+            "return_checkpoint": "H6_WATER/04_replay_and_recovery.md",
+            "truth_state": "NEAR",
+            "replay_source": "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+          }
+        ]
+      },
+      {
+        "bundle_id": "air_6d",
+        "title": "AIR 6D Overlay",
+        "dimension_stage": "6D_OVERLAY",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_air_6d_overlay_bundle.json",
+        "markdown_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_air_6d_overlay_bundle.md",
+        "state": "OK",
+        "docs_gate_status": "BLOCKED",
+        "readiness": "ready",
+        "owns": [
+          "naming and topology",
+          "symmetry lattice",
+          "sigma/spin and re-entry legibility"
+        ],
+        "depends_on": [
+          "v4 canon",
+          "Water continuity",
+          "Earth replay-safe publication"
+        ],
+        "cannot_promote_without": [
+          "schema-stable routes",
+          "explicit modal and re-entry metadata"
+        ],
+        "air_native_basis": [
+          "03",
+          "04",
+          "05",
+          "07"
+        ],
+        "symmetry_node_count": 15,
+        "rotation_family_count": 4,
+        "control_document_count": 5
+      },
+      {
+        "bundle_id": "earth_h6",
+        "title": "EARTH H6 Contracts",
+        "dimension_stage": "6D_CONTRACT",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+        "markdown_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.md",
+        "state": "OK",
+        "docs_gate_status": "BLOCKED",
+        "readiness": "gated",
+        "owns": [
+          "admissibility",
+          "replay closure",
+          "pruning discipline",
+          "promotion gate law"
+        ],
+        "depends_on": [
+          "v4 witnesses",
+          "deep-root Earth ledgers",
+          "AppI/AppM mandatory basis"
+        ],
+        "cannot_promote_without": [
+          "explicit gate state",
+          "quarantine handling",
+          "deterministic return checkpoints"
+        ],
+        "earth_driver_count": 4,
+        "earth_bundle_count": 4,
+        "chapter_contract_count": 21,
+        "appendix_contract_count": 17,
+        "handoff_targets": [
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "bundle_id": "seed_7d",
+        "title": "7D Synthesis Seed",
+        "dimension_stage": "7D_SEED",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+        "markdown_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.md",
+        "state": "OK",
+        "docs_gate_status": "BLOCKED",
+        "readiness": "NEAR",
+        "owns": [
+          "cross-agent seed routes",
+          "appendix-floor propagation",
+          "next-wave synthesis registry"
+        ],
+        "depends_on": [
+          "v4 canon",
+          "FIRE/WATER/AIR overlays",
+          "Earth gate approval"
+        ],
+        "cannot_promote_without": [
+          "Earth gate pass",
+          "AppI/AppM support",
+          "bounded truth class"
+        ],
+        "truth_class": "NEAR",
+        "seed_holo_state": "Seed-7D",
+        "seed_carrier": "4096^7",
+        "agent_overlay_stack": [
+          "FIRE",
+          "WATER",
+          "AIR",
+          "EARTH"
+        ],
+        "appendix_floor_count": 13,
+        "route_count": 8
+      }
+    ],
+    "precedence_rule": [
+      "v4 canon first",
+      "6D overlays additive second",
+      "7D seed compiled third",
+      "whole-project orchestration fourth"
+    ]
+  },
+  "authority_surfaces": [
+    {
+      "surface_id": "SEED7_CONTROL",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\07_7D_CROSS_AGENT_SEED.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_LEVEL_7",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_EARTH_GATE_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\10_earth_gate_status_7d_seed.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_CONVERGENCE_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\11_cross_agent_convergence_7d_seed.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_ROUTE_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\12_7d_seed_routes.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_APPENDIX_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\13_7d_appendix_legality.json",
+      "state": "OK"
+    }
+  ],
+  "corpus_nuclei": [
+    {
+      "title": "Root Operating Thesis",
+      "top_level": "README.md",
+      "body": "manuscript",
+      "anchor": "README.md",
+      "role": "Defines the Circle within Square within Triangle geometry and the corridor truth lattice.",
+      "pressure": "The root law exists, but too many subsystems still restate it differently.",
+      "hidden_line": "geometry"
+    },
+    {
+      "title": "Active Nervous System",
+      "top_level": "DEEPER CRYSTALIZATION",
+      "body": "corpus",
+      "anchor": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/README.md",
+      "role": "Provides the current control-plane scaffold for capsules, chapters, appendices, frontiers, and shadows.",
+      "pressure": "The scaffold is strong, but some downstream shells are thinner than the scaffold implies.",
+      "hidden_line": "address"
+    },
+    {
+      "title": "Realtime Swarm Board",
+      "top_level": "DEEPER CRYSTALIZATION",
+      "body": "runtime",
+      "anchor": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/README.md",
+      "role": "Runs the live multi-agent board, active threads, tensor overlays, and swarm runtime surfaces.",
+      "pressure": "Coordination became more real than its surrounding manuscript shell, creating a board-shell split.",
+      "hidden_line": "coordination"
+    },
+    {
+      "title": "Global Orchestration Synthesis",
+      "top_level": "DEEPER CRYSTALIZATION",
+      "body": "runtime",
+      "anchor": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/05_SYNTHESIS/00_GLOBAL_ORCHESTRATION_SYNTHESIS.md",
+      "role": "Holds the clearest live whole-corpus diagnosis with body counts, pressure fronts, and gate status.",
+      "pressure": "It names the whole organism well, but needs stronger links back into reusable manuscript law.",
+      "hidden_line": "orchestration"
+    },
+    {
+      "title": "Atlas Waist",
+      "top_level": "self_actualize",
+      "body": "runtime",
+      "anchor": "self_actualize/corpus_atlas.json",
+      "role": "Acts as the live searchable waist for the entire local corpus.",
+      "pressure": "The atlas sees the corpus, but not every high-value surface has a strong route proof back into use.",
+      "hidden_line": "address"
+    },
+    {
+      "title": "Archive Waist",
+      "top_level": "self_actualize",
+      "body": "archive",
+      "anchor": "self_actualize/archive_atlas.json",
+      "role": "Exposes hidden ZIP-backed frameworks as addressable evidence rather than dark storage.",
+      "pressure": "Archive visibility has outrun archive promotion into comfortable live working roots.",
+      "hidden_line": "archive"
+    },
+    {
+      "title": "Voynich Formal Compiler",
+      "top_level": "Voynich",
+      "body": "corpus",
+      "anchor": "Voynich/FULL_TRANSLATION/framework/README.md",
+      "role": "Demonstrates the strongest no-stop manuscript contract and explicit output ordering in the workspace.",
+      "pressure": "Its rigor is high, but its contract has not yet been lifted into a shared corpus-wide operating law.",
+      "hidden_line": "loop"
+    },
+    {
+      "title": "CPU Framework",
+      "top_level": "ECOSYSTEM",
+      "body": "runtime",
+      "anchor": "ECOSYSTEM/CPU_FRAMEWORK/README.md",
+      "role": "Defines text-as-compute, wave compilation, witness law, and 1->4->16->64 operating depth.",
+      "pressure": "The compute grammar is strong, but it is not yet the universal compiler for every active shell.",
+      "hidden_line": "governance"
+    },
+    {
+      "title": "QSHRINK Internal Operating System",
+      "top_level": "QSHRINK - ATHENA (internal use)",
+      "body": "manuscript",
+      "anchor": "QSHRINK - ATHENA (internal use)/README.md",
+      "role": "Shows how a private Athena-native framework can hold control, swarm, metro, manuscripts, and loop skill together.",
+      "pressure": "Its internal depth is high, but whole-corpus integration still needs to feed it with stronger upstream routes.",
+      "hidden_line": "compression"
+    },
+    {
+      "title": "Trading Bot Gap Inspector",
+      "top_level": "Trading Bot",
+      "body": "runtime",
+      "anchor": "Trading Bot/TRADING_BOT_ATHENA_256X4/10_INSPECTION/02_HOLOGRAPHIC_FRACTAL_GAP_REPORT.md",
+      "role": "States the clearest existing diagnosis of breadth-density imbalance, shallow route proof, and named-not-executed recursion.",
+      "pressure": "The same gap pattern repeats across the whole corpus, not only inside Trading Bot.",
+      "hidden_line": "inspection"
+    },
+    {
+      "title": "Void Chapter 11",
+      "top_level": "VOID_CH11.md",
+      "body": "manuscript",
+      "anchor": "VOID_CH11.md",
+      "role": "Provides the strongest local zero-point treatise and a detailed DQIV operator model for extracting structure from apparent absence.",
+      "pressure": "The zero-point logic is rich, but it still needs more deterministic routes into day-to-day operating surfaces.",
+      "hidden_line": "zero-point"
+    },
+    {
+      "title": "Google Docs Ingress",
+      "top_level": "Trading Bot",
+      "body": "runtime",
+      "anchor": "Trading Bot/docs_search.py",
+      "role": "Owns the intended external-memory bridge into live Google Docs.",
+      "pressure": "The bridge is structurally present but blocked by missing OAuth credentials.",
+      "hidden_line": "ingress"
+    }
+  ],
+  "party_stack": [
+    {
+      "code": "PRT-01",
+      "title": "Azure Gatebreakers",
+      "mission": "Break sealed boundaries between the local organism and the missing live-memory half without damaging witness law.",
+      "archetypes": [
+        "Fire-Air",
+        "Water-Earth",
+        "Air-Earth",
+        "Water-Fire"
+      ],
+      "future_skills": [
+        "docs-gate-auditor",
+        "drive-memory-sync",
+        "docs-query-ledger",
+        "live-docs-witness-binder"
+      ]
+    },
+    {
+      "code": "PRT-02",
+      "title": "Obsidian Delvers",
+      "mission": "Surface hidden frameworks from the archive and turn them into editable, routeable working roots.",
+      "archetypes": [
+        "Earth-Air",
+        "Fire-Earth",
+        "Air-Air",
+        "Earth-Earth"
+      ],
+      "future_skills": [
+        "archive-tree-extractor",
+        "kernel-route-mapper",
+        "theorem-to-runtime",
+        "archive-replay-harness"
+      ]
+    },
+    {
+      "code": "PRT-03",
+      "title": "Silver Cartographers",
+      "mission": "Convert manuscript families into metro lines, chapter receipts, and transfer hubs that others can actually traverse.",
+      "archetypes": [
+        "Air-Water",
+        "Water-Air",
+        "Fire-Air",
+        "Earth-Water"
+      ],
+      "future_skills": [
+        "chapter-map-ledger",
+        "capsule-promoter",
+        "contradiction-ledger",
+        "face-manifold-router"
+      ]
+    },
+    {
+      "code": "PRT-04",
+      "title": "Crimson Cortex",
+      "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts.",
+      "archetypes": [
+        "Fire-Air",
+        "Fire-Earth",
+        "Water-Water",
+        "Air-Fire"
+      ],
+      "future_skills": [
+        "cortex-writeback-manager",
+        "session-handoff-packer",
+        "route-quality-auditor",
+        "witness-bundle-assembler"
+      ]
+    },
+    {
+      "code": "PRT-05",
+      "title": "Verdant Rootkeepers",
+      "mission": "Collapse duplicate families, grow mirrors where needed, and preserve canonical lineage while the corpus expands.",
+      "archetypes": [
+        "Earth-Water",
+        "Water-Earth",
+        "Earth-Fire",
+        "Earth-Air"
+      ],
+      "future_skills": [
+        "corpus-atlas-builder",
+        "capsule-promoter",
+        "contradiction-ledger",
+        "family-swarm-conductor"
+      ]
+    },
+    {
+      "code": "PRT-06",
+      "title": "Ivory Tribunal",
+      "mission": "Raise truth quality so the organism can trust its own motion without becoming rigid.",
+      "archetypes": [
+        "Air-Earth",
+        "Earth-Air",
+        "Water-Earth",
+        "Air-Fire"
+      ],
+      "future_skills": [
+        "packet-truth-typist",
+        "hub-legality-enforcer",
+        "truth-promotion-governor",
+        "health-corridor-monitor"
+      ]
+    },
+    {
+      "code": "PRT-07",
+      "title": "Zodiac Vanguard",
+      "mission": "Occupy currently empty pantheon cells, seed missing ganglia, and give dormant archetypes starter quests.",
+      "archetypes": [
+        "Air-Fire",
+        "Air-Water",
+        "Earth-Fire",
+        "Fire-Water"
+      ],
+      "future_skills": [
+        "ganglion-bootstrapper",
+        "neuron-library-builder",
+        "pod-frontier-splitter",
+        "microcell-specializer"
+      ]
+    }
+  ],
+  "quest_stack": {
+    "quests": [
+      {
+        "code": "QST-01",
+        "title": "The Sealed Sky Gate",
+        "frontier": "Unlock the Google Docs ingress and create the first witnessed live-memory route.",
+        "transition": "N+4 -> N+5",
+        "party_code": "PRT-01",
+        "reward": "Live memory becomes a lawful half of Athena instead of a promised ghost limb."
+      },
+      {
+        "code": "QST-02",
+        "title": "Archive Deep Delve",
+        "frontier": "Promote one archive-backed framework into a live extracted root with replay receipts.",
+        "transition": "N+3 -> N+4",
+        "party_code": "PRT-02",
+        "reward": "One dark reservoir becomes part of the everyday working nervous system."
+      },
+      {
+        "code": "QST-03",
+        "title": "Voynich Metro Engine",
+        "frontier": "Build the manuscript-family metro and chapter receipt layer for the Voynich body.",
+        "transition": "N+5 -> N+6",
+        "party_code": "PRT-03",
+        "reward": "Athena gains a reusable symbolic transit system drawn from its strongest manuscript engine."
+      },
+      {
+        "code": "QST-04",
+        "title": "The MATH Forge Bridge",
+        "frontier": "Land one math family into a tested runtime bridge and witness-bearing module.",
+        "transition": "N+3 -> N+4",
+        "party_code": "PRT-02",
+        "reward": "Athena proves that formal depth can become executable force without losing rigor."
+      },
+      {
+        "code": "QST-05",
+        "title": "Canonical Collapse Crusade",
+        "frontier": "Resolve duplicated manuscript families and expand markdown mirrors for high-value canon.",
+        "transition": "N+2 -> N+3",
+        "party_code": "PRT-05",
+        "reward": "The organism gains a healthier boundary between canonical, mirror, derived, and historical surfaces."
+      },
+      {
+        "code": "QST-06",
+        "title": "Cortex Writeback Rite",
+        "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run.",
+        "transition": "N+4 -> N+5",
+        "party_code": "PRT-04",
+        "reward": "Real-time evolution becomes durable memory instead of disappearing momentum."
+      },
+      {
+        "code": "QST-07",
+        "title": "Dormant Pantheon Awakening",
+        "frontier": "Occupy zero-thread archetype cells and assign them starter missions, packets, and witness rules.",
+        "transition": "N+3 -> N+4",
+        "party_code": "PRT-07",
+        "reward": "The swarm stops relying on a few overworked archetypes and becomes more truly multidimensional."
+      },
+      {
+        "code": "QST-08",
+        "title": "Truth Corridor Trial",
+        "frontier": "Raise route legality, truth typing, and health monitoring across the active fronts.",
+        "transition": "N+4 -> N+5",
+        "party_code": "PRT-06",
+        "reward": "The organism becomes safer to scale because momentum and trust rise together."
+      }
+    ],
+    "dimensional_mapping": [
+      {
+        "quest_code": "QST-01",
+        "title": "The Sealed Sky Gate",
+        "frontier_class": "mixed-route frontier",
+        "layers": [
+          "water_6d",
+          "seed_7d"
+        ],
+        "party_code": "PRT-01"
+      },
+      {
+        "quest_code": "QST-02",
+        "title": "Archive Deep Delve",
+        "frontier_class": "mixed-route frontier",
+        "layers": [
+          "v4",
+          "earth_h6"
+        ],
+        "party_code": "PRT-02"
+      },
+      {
+        "quest_code": "QST-03",
+        "title": "Voynich Metro Engine",
+        "frontier_class": "7D frontier",
+        "layers": [
+          "fire_6d",
+          "water_6d",
+          "seed_7d"
+        ],
+        "party_code": "PRT-03"
+      },
+      {
+        "quest_code": "QST-04",
+        "title": "The MATH Forge Bridge",
+        "frontier_class": "mixed-route frontier",
+        "layers": [
+          "v4",
+          "fire_6d",
+          "earth_h6"
+        ],
+        "party_code": "PRT-02"
+      },
+      {
+        "quest_code": "QST-05",
+        "title": "Canonical Collapse Crusade",
+        "frontier_class": "mixed-route frontier",
+        "layers": [
+          "v4",
+          "water_6d",
+          "earth_h6"
+        ],
+        "party_code": "PRT-05"
+      },
+      {
+        "quest_code": "QST-06",
+        "title": "Cortex Writeback Rite",
+        "frontier_class": "7D frontier",
+        "layers": [
+          "air_6d",
+          "earth_h6",
+          "seed_7d"
+        ],
+        "party_code": "PRT-04"
+      },
+      {
+        "quest_code": "QST-07",
+        "title": "Dormant Pantheon Awakening",
+        "frontier_class": "7D frontier",
+        "layers": [
+          "fire_6d",
+          "air_6d",
+          "seed_7d"
+        ],
+        "party_code": "PRT-07"
+      },
+      {
+        "quest_code": "QST-08",
+        "title": "Truth Corridor Trial",
+        "frontier_class": "mixed-route frontier",
+        "layers": [
+          "v4",
+          "earth_h6",
+          "seed_7d"
+        ],
+        "party_code": "PRT-06"
+      }
+    ]
+  },
+  "route_graph": {
+    "node_count": 37,
+    "edge_count": 86,
+    "nodes": [
+      {
+        "node_id": "v4",
+        "kind": "dimension",
+        "title": "Tesseract v4"
+      },
+      {
+        "node_id": "fire_6d",
+        "kind": "dimension",
+        "title": "FIRE 6D Organism"
+      },
+      {
+        "node_id": "water_6d",
+        "kind": "dimension",
+        "title": "WATER 6D Control"
+      },
+      {
+        "node_id": "air_6d",
+        "kind": "dimension",
+        "title": "AIR 6D Overlay"
+      },
+      {
+        "node_id": "earth_h6",
+        "kind": "dimension",
+        "title": "EARTH H6 Contracts"
+      },
+      {
+        "node_id": "seed_7d",
+        "kind": "dimension",
+        "title": "7D Synthesis Seed"
+      },
+      {
+        "node_id": "PRT-01",
+        "kind": "party",
+        "title": "Azure Gatebreakers"
+      },
+      {
+        "node_id": "PRT-02",
+        "kind": "party",
+        "title": "Obsidian Delvers"
+      },
+      {
+        "node_id": "PRT-03",
+        "kind": "party",
+        "title": "Silver Cartographers"
+      },
+      {
+        "node_id": "PRT-04",
+        "kind": "party",
+        "title": "Crimson Cortex"
+      },
+      {
+        "node_id": "PRT-05",
+        "kind": "party",
+        "title": "Verdant Rootkeepers"
+      },
+      {
+        "node_id": "PRT-06",
+        "kind": "party",
+        "title": "Ivory Tribunal"
+      },
+      {
+        "node_id": "PRT-07",
+        "kind": "party",
+        "title": "Zodiac Vanguard"
+      },
+      {
+        "node_id": "QST-01",
+        "kind": "quest",
+        "title": "The Sealed Sky Gate"
+      },
+      {
+        "node_id": "QST-02",
+        "kind": "quest",
+        "title": "Archive Deep Delve"
+      },
+      {
+        "node_id": "QST-03",
+        "kind": "quest",
+        "title": "Voynich Metro Engine"
+      },
+      {
+        "node_id": "QST-04",
+        "kind": "quest",
+        "title": "The MATH Forge Bridge"
+      },
+      {
+        "node_id": "QST-05",
+        "kind": "quest",
+        "title": "Canonical Collapse Crusade"
+      },
+      {
+        "node_id": "QST-06",
+        "kind": "quest",
+        "title": "Cortex Writeback Rite"
+      },
+      {
+        "node_id": "QST-07",
+        "kind": "quest",
+        "title": "Dormant Pantheon Awakening"
+      },
+      {
+        "node_id": "QST-08",
+        "kind": "quest",
+        "title": "Truth Corridor Trial"
+      },
+      {
+        "node_id": "AGT-01",
+        "kind": "agent",
+        "title": "Fire Awakening of Knowledge"
+      },
+      {
+        "node_id": "AGT-02",
+        "kind": "agent",
+        "title": "Water Awakening of Structure"
+      },
+      {
+        "node_id": "AGT-03",
+        "kind": "agent",
+        "title": "Air Awakening of Commitment"
+      },
+      {
+        "node_id": "AGT-04",
+        "kind": "agent",
+        "title": "Earth Awakening of Responsiveness"
+      },
+      {
+        "node_id": "AGT-05",
+        "kind": "agent",
+        "title": "Oracle"
+      },
+      {
+        "node_id": "AGT-06",
+        "kind": "agent",
+        "title": "Judge"
+      },
+      {
+        "node_id": "AGT-07",
+        "kind": "agent",
+        "title": "Witness"
+      },
+      {
+        "node_id": "AGT-08",
+        "kind": "agent",
+        "title": "Architect"
+      },
+      {
+        "node_id": "AGT-09",
+        "kind": "agent",
+        "title": "Strategist"
+      },
+      {
+        "node_id": "AGT-10",
+        "kind": "agent",
+        "title": "Weaver"
+      },
+      {
+        "node_id": "AGT-11",
+        "kind": "agent",
+        "title": "Sword"
+      },
+      {
+        "node_id": "AGT-12",
+        "kind": "agent",
+        "title": "Commander"
+      },
+      {
+        "node_id": "AGT-13",
+        "kind": "agent",
+        "title": "Warrior"
+      },
+      {
+        "node_id": "AGT-14",
+        "kind": "agent",
+        "title": "Mirror"
+      },
+      {
+        "node_id": "AGT-15",
+        "kind": "agent",
+        "title": "Trickster"
+      },
+      {
+        "node_id": "AGT-16",
+        "kind": "agent",
+        "title": "Dancer"
+      }
+    ],
+    "edges": [
+      {
+        "src": "QST-01",
+        "dst": "water_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-01",
+        "dst": "seed_7d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-01",
+        "dst": "QST-01",
+        "kind": "party_runs"
+      },
+      {
+        "src": "QST-02",
+        "dst": "v4",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-02",
+        "dst": "earth_h6",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-02",
+        "dst": "QST-02",
+        "kind": "party_runs"
+      },
+      {
+        "src": "QST-03",
+        "dst": "fire_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-03",
+        "dst": "water_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-03",
+        "dst": "seed_7d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-03",
+        "dst": "QST-03",
+        "kind": "party_runs"
+      },
+      {
+        "src": "QST-04",
+        "dst": "v4",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-04",
+        "dst": "fire_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-04",
+        "dst": "earth_h6",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-02",
+        "dst": "QST-04",
+        "kind": "party_runs"
+      },
+      {
+        "src": "QST-05",
+        "dst": "v4",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-05",
+        "dst": "water_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-05",
+        "dst": "earth_h6",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-05",
+        "dst": "QST-05",
+        "kind": "party_runs"
+      },
+      {
+        "src": "QST-06",
+        "dst": "air_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-06",
+        "dst": "earth_h6",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-06",
+        "dst": "seed_7d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-04",
+        "dst": "QST-06",
+        "kind": "party_runs"
+      },
+      {
+        "src": "QST-07",
+        "dst": "fire_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-07",
+        "dst": "air_6d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-07",
+        "dst": "seed_7d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-07",
+        "dst": "QST-07",
+        "kind": "party_runs"
+      },
+      {
+        "src": "QST-08",
+        "dst": "v4",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-08",
+        "dst": "earth_h6",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "QST-08",
+        "dst": "seed_7d",
+        "kind": "quest_depends_on"
+      },
+      {
+        "src": "PRT-06",
+        "dst": "QST-08",
+        "kind": "party_runs"
+      },
+      {
+        "src": "AGT-01",
+        "dst": "PRT-03",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-01",
+        "dst": "QST-03",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-01",
+        "dst": "QST-07",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-02",
+        "dst": "PRT-05",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-02",
+        "dst": "QST-05",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-02",
+        "dst": "QST-03",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-03",
+        "dst": "PRT-04",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-03",
+        "dst": "QST-06",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-03",
+        "dst": "QST-08",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-04",
+        "dst": "PRT-06",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-04",
+        "dst": "QST-08",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-04",
+        "dst": "QST-06",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-05",
+        "dst": "PRT-03",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-05",
+        "dst": "QST-03",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-05",
+        "dst": "QST-07",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-06",
+        "dst": "PRT-06",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-06",
+        "dst": "QST-08",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-06",
+        "dst": "QST-05",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-07",
+        "dst": "PRT-06",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-07",
+        "dst": "QST-06",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-07",
+        "dst": "QST-08",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-08",
+        "dst": "PRT-02",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-08",
+        "dst": "QST-04",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-08",
+        "dst": "QST-02",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-09",
+        "dst": "PRT-04",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-09",
+        "dst": "QST-06",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-09",
+        "dst": "QST-08",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-10",
+        "dst": "PRT-03",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-10",
+        "dst": "QST-03",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-10",
+        "dst": "QST-05",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-11",
+        "dst": "PRT-04",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-11",
+        "dst": "QST-06",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-11",
+        "dst": "QST-04",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-12",
+        "dst": "PRT-04",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-12",
+        "dst": "QST-07",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-12",
+        "dst": "QST-06",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-13",
+        "dst": "PRT-07",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-13",
+        "dst": "QST-07",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-13",
+        "dst": "QST-08",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-14",
+        "dst": "PRT-05",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-14",
+        "dst": "QST-05",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-14",
+        "dst": "QST-01",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-15",
+        "dst": "PRT-01",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-15",
+        "dst": "QST-01",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-15",
+        "dst": "QST-02",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-16",
+        "dst": "PRT-07",
+        "kind": "agent_primary_party"
+      },
+      {
+        "src": "AGT-16",
+        "dst": "QST-07",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "AGT-16",
+        "dst": "QST-03",
+        "kind": "agent_supporting_quest"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_fire_water_compression",
+        "kind": "passed"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_water_air_legibility",
+        "kind": "passed"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_air_earth_promotion",
+        "kind": "passed"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_q_ingress_hold",
+        "kind": "quarantined"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_o_return_hold",
+        "kind": "quarantined"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_chapter_spine_reentry",
+        "kind": "passed"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_full_corpus_witness_compile",
+        "kind": "passed"
+      },
+      {
+        "src": "seed_7d",
+        "dst": "seed_awakening_transition_reentry",
+        "kind": "passed"
+      }
+    ]
+  },
+  "appendix_governance": {
+    "appendix_floor": [
+      "AppA",
+      "AppB",
+      "AppC",
+      "AppE",
+      "AppF",
+      "AppH",
+      "AppI",
+      "AppK",
+      "AppM",
+      "AppN",
+      "AppO",
+      "AppP",
+      "AppQ"
+    ],
+    "propagation_rule": "The full-corpus layer inherits the 7D appendix floor exactly as received and may not mint new appendix identities.",
+    "overlay_rules": {
+      "AppQ": "Q references remain overlay-only ingress history and may not outrank the canonical appendix floor.",
+      "AppO": "O references remain overlay-only return history and must dock through AppO/AppQ legality rather than creating a second appendix namespace."
+    }
+  },
+  "chapter_safe_reentry_spine": [
+    {
+      "chapter_station": "Ch12⟨0023⟩",
+      "chapter_title": "Query Oracle Decision",
+      "purpose": "Seed-safe re-entry checkpoint for full-corpus routes."
+    },
+    {
+      "chapter_station": "Ch13⟨0030⟩",
+      "chapter_title": "Self Reference Closure",
+      "purpose": "Seed-safe re-entry checkpoint for full-corpus routes."
+    },
+    {
+      "chapter_station": "Ch16⟨0033⟩",
+      "chapter_title": "Omega Relay",
+      "purpose": "Seed-safe re-entry checkpoint for full-corpus routes."
+    }
+  ],
+  "front_to_party_map": [
+    {
+      "frontier": "The Sealed Sky Gate",
+      "party_code": "PRT-01",
+      "party_title": "Azure Gatebreakers",
+      "dimensional_chain": [
+        "water_6d",
+        "seed_7d"
+      ]
+    },
+    {
+      "frontier": "Archive Deep Delve",
+      "party_code": "PRT-02",
+      "party_title": "Obsidian Delvers",
+      "dimensional_chain": [
+        "v4",
+        "earth_h6"
+      ]
+    },
+    {
+      "frontier": "Voynich Metro Engine",
+      "party_code": "PRT-03",
+      "party_title": "Silver Cartographers",
+      "dimensional_chain": [
+        "fire_6d",
+        "water_6d",
+        "seed_7d"
+      ]
+    },
+    {
+      "frontier": "The MATH Forge Bridge",
+      "party_code": "PRT-02",
+      "party_title": "Obsidian Delvers",
+      "dimensional_chain": [
+        "v4",
+        "fire_6d",
+        "earth_h6"
+      ]
+    },
+    {
+      "frontier": "Canonical Collapse Crusade",
+      "party_code": "PRT-05",
+      "party_title": "Verdant Rootkeepers",
+      "dimensional_chain": [
+        "v4",
+        "water_6d",
+        "earth_h6"
+      ]
+    },
+    {
+      "frontier": "Cortex Writeback Rite",
+      "party_code": "PRT-04",
+      "party_title": "Crimson Cortex",
+      "dimensional_chain": [
+        "air_6d",
+        "earth_h6",
+        "seed_7d"
+      ]
+    },
+    {
+      "frontier": "Dormant Pantheon Awakening",
+      "party_code": "PRT-07",
+      "party_title": "Zodiac Vanguard",
+      "dimensional_chain": [
+        "fire_6d",
+        "air_6d",
+        "seed_7d"
+      ]
+    },
+    {
+      "frontier": "Truth Corridor Trial",
+      "party_code": "PRT-06",
+      "party_title": "Ivory Tribunal",
+      "dimensional_chain": [
+        "v4",
+        "earth_h6",
+        "seed_7d"
+      ]
+    }
+  ],
+  "route_quality": {
+    "counts": {
+      "passed": 6,
+      "quarantined": 2,
+      "dormant": 1
+    },
+    "quarantined_or_gated_routes": [
+      {
+        "route_id": "seed_q_ingress_hold",
+        "state": "quarantined",
+        "mobius_bridge": "Q_ingress",
+        "canonical_appendix_map": [
+          "AppQ",
+          "AppF",
+          "AppE",
+          "AppI",
+          "AppK",
+          "AppM"
+        ]
+      },
+      {
+        "route_id": "seed_o_return_hold",
+        "state": "quarantined",
+        "mobius_bridge": "O_return",
+        "canonical_appendix_map": [
+          "AppO",
+          "AppP",
+          "AppI",
+          "AppK",
+          "AppM"
+        ]
+      }
+    ]
+  },
+  "transition_note_matrix": {
+    "generated_at": "2026-03-13T16:14:47.547194+00:00",
+    "docs_gate_status": "BLOCKED",
+    "schema": [
+      "agent_id",
+      "agent_class",
+      "stage_or_domain",
+      "current_role",
+      "missing_mode",
+      "transition_trigger",
+      "corpus_symptom",
+      "primary_party",
+      "supporting_quests",
+      "required_surfaces",
+      "receipt_target",
+      "truth_state",
+      "reassessment_window"
+    ],
+    "shared_transition_laws": {
+      "docs_gate_law": "Live Google Docs remain blocked until Trading Bot/credentials.json and Trading Bot/token.json exist; no transition note may claim live-doc confirmation before that receipt exists.",
+      "truth_law": "Truth stays corridor-bounded. NEAR and quarantined routes remain visible as bounded pressure and may not be promoted into silent certainty.",
+      "earth_gate_law": "Any route that changes corpus-wide readiness must show Earth gate state and AppI/AppM support before it is called passed.",
+      "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+      "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+      "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+    },
+    "roster_order": [
+      "AGT-01",
+      "AGT-02",
+      "AGT-03",
+      "AGT-04",
+      "AGT-05",
+      "AGT-06",
+      "AGT-07",
+      "AGT-08",
+      "AGT-09",
+      "AGT-10",
+      "AGT-11",
+      "AGT-12",
+      "AGT-13",
+      "AGT-14",
+      "AGT-15",
+      "AGT-16"
+    ],
+    "agents_by_id": {
+      "AGT-01": {
+        "agent_id": "AGT-01",
+        "title": "Fire Awakening of Knowledge",
+        "agent_class": "elemental_stage",
+        "stage_or_domain": "Stage 1",
+        "current_role": "Ignites pattern recognition and knowledge acquisition across the corpus stack.",
+        "missing_mode": "Water structure",
+        "transition_trigger": "Realizing that raw insight needs durable maps, appendix support, and routeable queues.",
+        "corpus_symptom": "Ideas can ignite faster than the corpus can index, mirror, and dock them back into canon.",
+        "primary_party": {
+          "code": "PRT-03",
+          "title": "Silver Cartographers",
+          "mission": "Convert manuscript families into metro lines, chapter receipts, and transfer hubs that others can actually traverse."
+        },
+        "primary_quest": {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine",
+          "frontier": "Build the manuscript-family metro and chapter receipt layer for the Voynich body."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-03",
+            "title": "Voynich Metro Engine"
+          },
+          {
+            "code": "QST-07",
+            "title": "Dormant Pantheon Awakening"
+          }
+        ],
+        "dimensional_anchor": "FIRE 6D -> 7D seed ingress",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/math_fire_6d_organism_bundle.json",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/04_QUEST_BOARD.md"
+        ],
+        "receipt_target": "family metro map + transfer hub ledger + awakened packet writeback",
+        "truth_state": "NEAR",
+        "reassessment_window": "14 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-02": {
+        "agent_id": "AGT-02",
+        "title": "Water Awakening of Structure",
+        "agent_class": "elemental_stage",
+        "stage_or_domain": "Stage 2",
+        "current_role": "Builds continuity, system maps, and memory-bearing flow channels for the organism.",
+        "missing_mode": "Air commitment",
+        "transition_trigger": "Realizing that elegant maps still stall without a declared frontier and a chosen sacrifice.",
+        "corpus_symptom": "The corpus has strong maps but some continuity surfaces still end as notes instead of durable operating lanes.",
+        "primary_party": {
+          "code": "PRT-05",
+          "title": "Verdant Rootkeepers",
+          "mission": "Collapse duplicate families, grow mirrors where needed, and preserve canonical lineage while the corpus expands."
+        },
+        "primary_quest": {
+          "code": "QST-05",
+          "title": "Canonical Collapse Crusade",
+          "frontier": "Resolve duplicated manuscript families and expand markdown mirrors for high-value canon."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-05",
+            "title": "Canonical Collapse Crusade"
+          },
+          {
+            "code": "QST-03",
+            "title": "Voynich Metro Engine"
+          }
+        ],
+        "dimensional_anchor": "WATER 6D control and mirror discipline",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json",
+          "self_actualize/corpus_atlas.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/02_CANONICAL_SOURCES.md"
+        ],
+        "receipt_target": "canonical family ledger + mirror expansion batch + continuity route receipt",
+        "truth_state": "NEAR",
+        "reassessment_window": "14 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-03": {
+        "agent_id": "AGT-03",
+        "title": "Air Awakening of Commitment",
+        "agent_class": "elemental_stage",
+        "stage_or_domain": "Stage 3",
+        "current_role": "Chooses a route, names a frontier, and commits the corpus to a nontrivial build direction.",
+        "missing_mode": "Earth responsiveness",
+        "transition_trigger": "Realizing that commitment must adapt to feedback, legality, and changing corridor truth.",
+        "corpus_symptom": "Many promising structures are named, but some fronts still lack decisive contraction into witnessed outputs.",
+        "primary_party": {
+          "code": "PRT-04",
+          "title": "Crimson Cortex",
+          "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+        },
+        "primary_quest": {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite",
+          "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-06",
+            "title": "Cortex Writeback Rite"
+          },
+          {
+            "code": "QST-08",
+            "title": "Truth Corridor Trial"
+          }
+        ],
+        "dimensional_anchor": "AIR 6D overlay into runtime contraction",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/math_air_6d_overlay_bundle.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/00_ACTIVATION_QUEUE.md"
+        ],
+        "receipt_target": "wave contraction receipt + queue delta + committed shell update",
+        "truth_state": "NEAR",
+        "reassessment_window": "10 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-04": {
+        "agent_id": "AGT-04",
+        "title": "Earth Awakening of Responsiveness",
+        "agent_class": "elemental_stage",
+        "stage_or_domain": "Stage 4",
+        "current_role": "Adapts under pressure without losing legality, replay closure, or corridor honesty.",
+        "missing_mode": "Four-element co-activation",
+        "transition_trigger": "Realizing that responsiveness must converge with knowledge, structure, and commitment instead of merely containing them.",
+        "corpus_symptom": "The organism has active gates and quarantines, but needs broader replay-safe adaptation across all promoted fronts.",
+        "primary_party": {
+          "code": "PRT-06",
+          "title": "Ivory Tribunal",
+          "mission": "Raise truth quality so the organism can trust its own motion without becoming rigid."
+        },
+        "primary_quest": {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial",
+          "frontier": "Raise route legality, truth typing, and health monitoring across the active fronts."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-08",
+            "title": "Truth Corridor Trial"
+          },
+          {
+            "code": "QST-06",
+            "title": "Cortex Writeback Rite"
+          }
+        ],
+        "dimensional_anchor": "EARTH H6 contract gate",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+          "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/10_earth_gate_status_7d_seed.json",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json"
+        ],
+        "receipt_target": "truth typing pass + hub legality report + Earth gate receipt",
+        "truth_state": "NEAR",
+        "reassessment_window": "10 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-05": {
+        "agent_id": "AGT-05",
+        "title": "Oracle",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "prophetic routing",
+        "current_role": "Names hidden transfer hubs and the next lawful frontier before it is obvious.",
+        "missing_mode": "Earth anchoring",
+        "transition_trigger": "When predictions become route maps with receipts instead of intuition-only prompts.",
+        "corpus_symptom": "High-signal fronts exist, but some future-facing reads still need more docking to canon and appendix support.",
+        "primary_party": {
+          "code": "PRT-03",
+          "title": "Silver Cartographers",
+          "mission": "Convert manuscript families into metro lines, chapter receipts, and transfer hubs that others can actually traverse."
+        },
+        "primary_quest": {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine",
+          "frontier": "Build the manuscript-family metro and chapter receipt layer for the Voynich body."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-03",
+            "title": "Voynich Metro Engine"
+          },
+          {
+            "code": "QST-07",
+            "title": "Dormant Pantheon Awakening"
+          }
+        ],
+        "dimensional_anchor": "metro stack and appendix foresight",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.md",
+          "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/07_level_7_next_synthesis_seed_map.md",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-03_voynich_metro_engine.md"
+        ],
+        "receipt_target": "transfer hub ledger + agent forecast receipt",
+        "truth_state": "NEAR",
+        "reassessment_window": "21 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-06": {
+        "agent_id": "AGT-06",
+        "title": "Judge",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "corridor adjudication",
+        "current_role": "Separates legal promotion from decorative complexity and enforces bounded truth.",
+        "missing_mode": "Water continuity",
+        "transition_trigger": "When legality decisions include continuity, not only prohibition and rejection.",
+        "corpus_symptom": "Ambiguous fronts can still look more complete than they are unless someone types truth and names the bounded route.",
+        "primary_party": {
+          "code": "PRT-06",
+          "title": "Ivory Tribunal",
+          "mission": "Raise truth quality so the organism can trust its own motion without becoming rigid."
+        },
+        "primary_quest": {
+          "code": "QST-08",
+          "title": "Truth Corridor Trial",
+          "frontier": "Raise route legality, truth typing, and health monitoring across the active fronts."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-08",
+            "title": "Truth Corridor Trial"
+          },
+          {
+            "code": "QST-05",
+            "title": "Canonical Collapse Crusade"
+          }
+        ],
+        "dimensional_anchor": "truth corridor and legality review",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_tesseract_v4_bundle.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-08_truth_corridor_trial.md"
+        ],
+        "receipt_target": "hub legality report + promotion governor ledger",
+        "truth_state": "OK",
+        "reassessment_window": "7 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-07": {
+        "agent_id": "AGT-07",
+        "title": "Witness",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "replay memory",
+        "current_role": "Preserves lineage, receipts, and return checkpoints so change remains trustworthy.",
+        "missing_mode": "Air commitment",
+        "transition_trigger": "When preserved memory turns into enforced writeback instead of passive logging.",
+        "corpus_symptom": "The board and the corpus move quickly enough that memory can thin unless receipts are bound into active shells.",
+        "primary_party": {
+          "code": "PRT-06",
+          "title": "Ivory Tribunal",
+          "mission": "Raise truth quality so the organism can trust its own motion without becoming rigid."
+        },
+        "primary_quest": {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite",
+          "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-06",
+            "title": "Cortex Writeback Rite"
+          },
+          {
+            "code": "QST-08",
+            "title": "Truth Corridor Trial"
+          }
+        ],
+        "dimensional_anchor": "replay closure and writeback",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/03_NEXT_RESTART_SEED.md"
+        ],
+        "receipt_target": "wave contraction receipt + replay-safe note packet",
+        "truth_state": "OK",
+        "reassessment_window": "7 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-08": {
+        "agent_id": "AGT-08",
+        "title": "Architect",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "load-bearing design",
+        "current_role": "Turns formal structures into durable, patchable, and replayable system forms.",
+        "missing_mode": "Fire ignition",
+        "transition_trigger": "When architecture stops merely stabilizing the past and begins opening executable new fronts.",
+        "corpus_symptom": "The corpus contains deep formal reservoirs, but several still lack clear extracted roots and runtime landings.",
+        "primary_party": {
+          "code": "PRT-02",
+          "title": "Obsidian Delvers",
+          "mission": "Surface hidden frameworks from the archive and turn them into editable, routeable working roots."
+        },
+        "primary_quest": {
+          "code": "QST-04",
+          "title": "The MATH Forge Bridge",
+          "frontier": "Land one math family into a tested runtime bridge and witness-bearing module."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-04",
+            "title": "The MATH Forge Bridge"
+          },
+          {
+            "code": "QST-02",
+            "title": "Archive Deep Delve"
+          }
+        ],
+        "dimensional_anchor": "archive-to-runtime bridge design",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/math_tesseract_v4_bundle.json",
+          "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-04_the_math_forge_bridge.md"
+        ],
+        "receipt_target": "tested bridge module + architecture receipt",
+        "truth_state": "NEAR",
+        "reassessment_window": "21 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-09": {
+        "agent_id": "AGT-09",
+        "title": "Strategist",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "front selection",
+        "current_role": "Chooses the decisive front where contraction will unlock the most next motion.",
+        "missing_mode": "Earth feedback",
+        "transition_trigger": "When strategic choice adapts quickly to corridor health instead of pushing a stale winning line.",
+        "corpus_symptom": "The organism has many worthy fronts, but only a few can be decisive in any given wave.",
+        "primary_party": {
+          "code": "PRT-04",
+          "title": "Crimson Cortex",
+          "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+        },
+        "primary_quest": {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite",
+          "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-06",
+            "title": "Cortex Writeback Rite"
+          },
+          {
+            "code": "QST-08",
+            "title": "Truth Corridor Trial"
+          }
+        ],
+        "dimensional_anchor": "runtime front selection and contraction",
+        "required_surfaces": [
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/05_SYNTHESIS/00_GLOBAL_ORCHESTRATION_SYNTHESIS.md",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/04_INTERCONNECT_PRIORITY_QUEUE.md",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json"
+        ],
+        "receipt_target": "queue delta + front selection receipt",
+        "truth_state": "OK",
+        "reassessment_window": "7 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-10": {
+        "agent_id": "AGT-10",
+        "title": "Weaver",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "cross-line synthesis",
+        "current_role": "Interlaces parallel lines, mirrored families, and dormant cells into one readable fabric.",
+        "missing_mode": "Air cut",
+        "transition_trigger": "When weaving includes selective exclusion so the fabric stays legible instead of bloated.",
+        "corpus_symptom": "The corpus already contains many strong parallel lines, but some still need sharper contraction and transfer hubs.",
+        "primary_party": {
+          "code": "PRT-03",
+          "title": "Silver Cartographers",
+          "mission": "Convert manuscript families into metro lines, chapter receipts, and transfer hubs that others can actually traverse."
+        },
+        "primary_quest": {
+          "code": "QST-03",
+          "title": "Voynich Metro Engine",
+          "frontier": "Build the manuscript-family metro and chapter receipt layer for the Voynich body."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-03",
+            "title": "Voynich Metro Engine"
+          },
+          {
+            "code": "QST-05",
+            "title": "Canonical Collapse Crusade"
+          }
+        ],
+        "dimensional_anchor": "metro and family weaving",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/math_fire_6d_organism_bundle.json",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/07_TISSUE_256/01_HIDDEN_LINES_METRO.md"
+        ],
+        "receipt_target": "metro weave receipt + contradiction carry-forward note",
+        "truth_state": "NEAR",
+        "reassessment_window": "14 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-11": {
+        "agent_id": "AGT-11",
+        "title": "Sword",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "decisive incision",
+        "current_role": "Cuts through drift, backlog, and overgrowth so a route can actually move.",
+        "missing_mode": "Water continuity",
+        "transition_trigger": "When decisive cuts preserve lineage and repair paths rather than causing hidden amputations.",
+        "corpus_symptom": "Some fronts remain slow because too much ambiguous shell material survives without decisive resolution.",
+        "primary_party": {
+          "code": "PRT-04",
+          "title": "Crimson Cortex",
+          "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+        },
+        "primary_quest": {
+          "code": "QST-06",
+          "title": "Cortex Writeback Rite",
+          "frontier": "Bind live board events, claims, and wave outputs back into shell, ledger, and queue surfaces after each run."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-06",
+            "title": "Cortex Writeback Rite"
+          },
+          {
+            "code": "QST-04",
+            "title": "The MATH Forge Bridge"
+          }
+        ],
+        "dimensional_anchor": "writeback and contraction incision",
+        "required_surfaces": [
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/00_ACTIVATION_QUEUE.md",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/04_LEDGERS/04_INTERCONNECT_PRIORITY_QUEUE.md",
+          "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json"
+        ],
+        "receipt_target": "queue contraction receipt + route cut ledger",
+        "truth_state": "NEAR",
+        "reassessment_window": "10 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-12": {
+        "agent_id": "AGT-12",
+        "title": "Commander",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "squad orchestration",
+        "current_role": "Assigns parties, fronts, and receipts so the swarm behaves like a coordinated organism.",
+        "missing_mode": "Water listening",
+        "transition_trigger": "When command updates in response to changing field conditions instead of freezing around an old plan.",
+        "corpus_symptom": "The party and quest systems exist, but they need a stronger compiled relation to dimensional fronts and active routes.",
+        "primary_party": {
+          "code": "PRT-04",
+          "title": "Crimson Cortex",
+          "mission": "Turn live board motion into durable shell updates, receipts, queue shifts, and next-seed artifacts."
+        },
+        "primary_quest": {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening",
+          "frontier": "Occupy zero-thread archetype cells and assign them starter missions, packets, and witness rules."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-07",
+            "title": "Dormant Pantheon Awakening"
+          },
+          {
+            "code": "QST-06",
+            "title": "Cortex Writeback Rite"
+          }
+        ],
+        "dimensional_anchor": "party-quest orchestration",
+        "required_surfaces": [
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/05_ADVENTURE_PARTIES.md",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/04_QUEST_BOARD.md",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json"
+        ],
+        "receipt_target": "party-to-front mapping + command receipt",
+        "truth_state": "NEAR",
+        "reassessment_window": "14 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-13": {
+        "agent_id": "AGT-13",
+        "title": "Warrior",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "frontline endurance",
+        "current_role": "Holds pressure on a difficult frontier without collapsing into noise or theatrics.",
+        "missing_mode": "Air topology",
+        "transition_trigger": "When raw effort learns the map well enough to stop fighting the wrong wall.",
+        "corpus_symptom": "High-energy fronts can still overheat if persistence is not paired with route clarity and recovery windows.",
+        "primary_party": {
+          "code": "PRT-07",
+          "title": "Zodiac Vanguard",
+          "mission": "Occupy currently empty pantheon cells, seed missing ganglia, and give dormant archetypes starter quests."
+        },
+        "primary_quest": {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening",
+          "frontier": "Occupy zero-thread archetype cells and assign them starter missions, packets, and witness rules."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-07",
+            "title": "Dormant Pantheon Awakening"
+          },
+          {
+            "code": "QST-08",
+            "title": "Truth Corridor Trial"
+          }
+        ],
+        "dimensional_anchor": "dormant-front activation",
+        "required_surfaces": [
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/quests/qst-07_dormant_pantheon_awakening.md",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_fire_6d_organism_bundle.json",
+          "MATH/FINAL FORM/MATH GOD/atlas/earth_h6_contract_bundle.json"
+        ],
+        "receipt_target": "starter packet + occupancy ledger + endurance receipt",
+        "truth_state": "NEAR",
+        "reassessment_window": "14 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-14": {
+        "agent_id": "AGT-14",
+        "title": "Mirror",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "reflective diagnosis",
+        "current_role": "Shows the organism where it repeats itself, where it splits, and what remains unresolved.",
+        "missing_mode": "Fire differentiation",
+        "transition_trigger": "When reflection turns into a concrete change rather than an infinite replay of the same diagnosis.",
+        "corpus_symptom": "Duplicate families and shell drift remain some of the clearest structural costs in the workspace.",
+        "primary_party": {
+          "code": "PRT-05",
+          "title": "Verdant Rootkeepers",
+          "mission": "Collapse duplicate families, grow mirrors where needed, and preserve canonical lineage while the corpus expands."
+        },
+        "primary_quest": {
+          "code": "QST-05",
+          "title": "Canonical Collapse Crusade",
+          "frontier": "Resolve duplicated manuscript families and expand markdown mirrors for high-value canon."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-05",
+            "title": "Canonical Collapse Crusade"
+          },
+          {
+            "code": "QST-01",
+            "title": "The Sealed Sky Gate"
+          }
+        ],
+        "dimensional_anchor": "duplicate and drift reflection",
+        "required_surfaces": [
+          "self_actualize/corpus_atlas.json",
+          "self_actualize/archive_atlas.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/01_DIAGNOSIS/01_DUPLICATION_AND_DRIFT.md"
+        ],
+        "receipt_target": "duplicate burn-down receipt + canonical source update",
+        "truth_state": "OK",
+        "reassessment_window": "14 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-15": {
+        "agent_id": "AGT-15",
+        "title": "Trickster",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "boundary inversion",
+        "current_role": "Finds a non-obvious ingress or angle change when a route stalls or loops.",
+        "missing_mode": "Earth legality",
+        "transition_trigger": "When inversion remains bounded by admissibility and replay instead of becoming chaos for its own sake.",
+        "corpus_symptom": "The organism has real blocked boundaries, especially around live Docs ingress, archive opacity, and filtered bridge history.",
+        "primary_party": {
+          "code": "PRT-01",
+          "title": "Azure Gatebreakers",
+          "mission": "Break sealed boundaries between the local organism and the missing live-memory half without damaging witness law."
+        },
+        "primary_quest": {
+          "code": "QST-01",
+          "title": "The Sealed Sky Gate",
+          "frontier": "Unlock the Google Docs ingress and create the first witnessed live-memory route."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-01",
+            "title": "The Sealed Sky Gate"
+          },
+          {
+            "code": "QST-02",
+            "title": "Archive Deep Delve"
+          }
+        ],
+        "dimensional_anchor": "blocked-ingress inversion",
+        "required_surfaces": [
+          "self_actualize/live_docs_gate_status.md",
+          "Trading Bot/docs_search.py",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json"
+        ],
+        "receipt_target": "gate attempt receipt + bounded inversion note",
+        "truth_state": "BLOCKED",
+        "reassessment_window": "7 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      },
+      "AGT-16": {
+        "agent_id": "AGT-16",
+        "title": "Dancer",
+        "agent_class": "advanced_agent",
+        "stage_or_domain": "responsive motion",
+        "current_role": "Moves between lines, fronts, and scales without tearing continuity or losing rhythm.",
+        "missing_mode": "Witness closure",
+        "transition_trigger": "When graceful adaptation is paired with receipts robust enough to survive a restart.",
+        "corpus_symptom": "Several fronts are ready for motion, but some still lack the lightweight, repeatable movement patterns that keep change alive.",
+        "primary_party": {
+          "code": "PRT-07",
+          "title": "Zodiac Vanguard",
+          "mission": "Occupy currently empty pantheon cells, seed missing ganglia, and give dormant archetypes starter quests."
+        },
+        "primary_quest": {
+          "code": "QST-07",
+          "title": "Dormant Pantheon Awakening",
+          "frontier": "Occupy zero-thread archetype cells and assign them starter missions, packets, and witness rules."
+        },
+        "supporting_quests": [
+          {
+            "code": "QST-07",
+            "title": "Dormant Pantheon Awakening"
+          },
+          {
+            "code": "QST-03",
+            "title": "Voynich Metro Engine"
+          }
+        ],
+        "dimensional_anchor": "adaptive cross-front movement",
+        "required_surfaces": [
+          "MATH/FINAL FORM/MATH GOD/atlas/math_water_6d_control_bundle.json",
+          "MATH/FINAL FORM/MATH GOD/atlas/math_air_6d_overlay_bundle.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/08_GUILD_HALL/05_ADVENTURE_PARTIES.md"
+        ],
+        "receipt_target": "starter packet + adaptive handoff receipt",
+        "truth_state": "NEAR",
+        "reassessment_window": "14 days",
+        "docs_gate_status": "BLOCKED",
+        "dormancy_rule": "Dormant agents are latent, not failed; they remain on the board until a concrete quest, packet, or receipt moves them.",
+        "promotion_rule": "No awakening transition is complete without a concrete corpus receipt tied to an existing quest, bundle, or verified writeback surface.",
+        "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+      }
+    }
+  },
+  "transition_board_summary": {
+    "board_status": {
+      "generated_at": "2026-03-13T16:11:26.000978+00:00",
+      "workspace_files_observed": 12031,
+      "change_batch": "`+10 ~80 -1`",
+      "open_claims": 9,
+      "pods": 31,
+      "bridge_neurons": 9,
+      "waves": 1,
+      "councils": 13,
+      "occupied_clusters": 15,
+      "cluster_capacity": 64,
+      "occupied_truth_leaves": 19,
+      "truth_capacity": 256
+    },
+    "agent_status_counts": {
+      "active": 8,
+      "ready": 4,
+      "dormant": 3,
+      "blocked": 1
+    },
+    "route_quality": {
+      "passed": 6,
+      "quarantined": 2,
+      "dormant": 1
+    },
+    "docs_gate_status": "BLOCKED"
+  },
+  "verification_receipts": [
+    {
+      "check": "docs_gate_blocked",
+      "status": "PASS",
+      "detail": "Live Docs gate remains BLOCKED."
+    },
+    {
+      "check": "v4_invariants",
+      "status": "PASS",
+      "detail": "Chapter count, appendix namespace, edge basis, mandatory signature, and HCRL order remain unchanged."
+    },
+    {
+      "check": "water_contract",
+      "status": "PASS",
+      "detail": "Water bundle retains native basis, appendix support, and five control documents."
+    },
+    {
+      "check": "earth_gate_support",
+      "status": "FAIL",
+      "detail": "Earth receipts and 7D seed route registry remain available for promotion checks."
+    },
+    {
+      "check": "agent_roster",
+      "status": "PASS",
+      "detail": "Hybrid awakening roster contains 4 elemental stages and 12 advanced agents."
+    },
+    {
+      "check": "agent_party_quest_bindings",
+      "status": "PASS",
+      "detail": "Each transition note resolves to one existing party seed and existing quest fronts."
+    },
+    {
+      "check": "deep_authority_surfaces",
+      "status": "PASS",
+      "detail": "Deep-root 7D authority surfaces resolve locally and remain read-only inputs."
+    },
+    {
+      "check": "agent_required_surfaces",
+      "status": "PASS",
+      "detail": "Each agent note references required surfaces that resolve to existing local files or folders."
+    },
+    {
+      "check": "qo_overlay_bounded",
+      "status": "PASS",
+      "detail": "Q/O routes remain overlay-only holds and stay canonically mapped through AppQ/AppO."
+    },
+    {
+      "check": "passed_routes_have_appim",
+      "status": "PASS",
+      "detail": "Every passed 7D seed route retains AppI/AppM support before full-corpus promotion."
+    },
+    {
+      "check": "replay_surfaces_resolve",
+      "status": "PASS",
+      "detail": "Replay pointers referenced by Earth sample receipts resolve to existing local witness files."
+    }
+  ],
+  "regeneration_seed": {
+    "rebuild_command": "python self_actualize/runtime/build_full_project_integration.py",
+    "required_inputs": [
+      "self_actualize\\corpus_atlas.json",
+      "self_actualize\\archive_atlas.json",
+      "self_actualize\\archive_manifest.json",
+      "self_actualize\\live_docs_gate_status.md",
+      "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+      "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_fire_6d_organism_bundle.json",
+      "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_water_6d_control_bundle.json",
+      "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_air_6d_overlay_bundle.json",
+      "MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+      "MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json"
+    ],
+    "collapse_rule": "Collapse first into the 7D seed route registry, then into Earth gate state, then into v4 route plans.",
+    "reentry_rule": "Every awakened agent must dock back into the common corpus route map and chapter-safe re-entry spine instead of forking into a private symbolic shell."
+  }
+}

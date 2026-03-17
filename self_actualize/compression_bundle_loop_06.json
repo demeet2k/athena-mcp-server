@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "CompressionBundle",
+  "loop_id": "L06",
+  "objective": "prune low-signal pair noise",
+  "no_silent_deletion": true,
+  "degrade_targets": [
+    "residual mirror",
+    "receipt",
+    "reserve",
+    "NEAR",
+    "AMBIG"
+  ],
+  "truth_state": "OK"
+}

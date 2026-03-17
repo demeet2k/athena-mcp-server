@@ -3,17 +3,17 @@ network_id: "juggling_network_09"
 document_role: "juggling_network"
 scale: 9
 membership_mask: "1111111110000"
-coverage_ratio: 0.896006
-entropy: 0.868265
+coverage_ratio: 0.897637
+entropy: 0.863048
 centroid:
-  x: -0.41897
-  y: 0.908
-  theta_deg: 114.769557
+  x: -0.496543
+  y: 0.868012
+  theta_deg: 119.771533
 macro_barycentric:
-  earth: 0.143759
-  water: 0.275063
-  fire: 0.153906
-  air: 0.427272
+  earth: 0.226864
+  water: 0.149858
+  fire: 0.271825
+  air: 0.351453
 crystal_gate:
   dominant_macro: "Air"
   address: [3, 3, 2, 3]
@@ -39,7 +39,7 @@ generated_from:
   corpus_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/corpus_atlas.json"
   archive_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/archive_atlas.json"
   live_docs_gate_status: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/live_docs_gate_status.md"
-generated_at: "2026-03-09T15:17:43.648801+00:00"
+generated_at: "2026-03-13T15:05:01.539820+00:00"
 ---
 # 9-Ball Cascade Network
 

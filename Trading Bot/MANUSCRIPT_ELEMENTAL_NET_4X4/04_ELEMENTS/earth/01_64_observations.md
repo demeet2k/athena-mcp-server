@@ -1,0 +1,66 @@
+# Earth 64 Observations
+
+- `M01` in `kernel` mode through `earth` sees HIGHER-D SQUARE CIRCLE TRIANGLE as a native/native contribution: Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M01` in `dynamics` mode through `earth` sees HIGHER-D SQUARE CIRCLE TRIANGLE as a native/projected contribution: Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M01` in `verification` mode through `earth` sees HIGHER-D SQUARE CIRCLE TRIANGLE as a native/native contribution: Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M01` in `navigation` mode through `earth` sees HIGHER-D SQUARE CIRCLE TRIANGLE as a native/native contribution: Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M02` in `kernel` mode through `earth` sees Holographic Reality Structure as a translated/native contribution: Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M02` in `dynamics` mode through `earth` sees Holographic Reality Structure as a translated/native contribution: Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M02` in `verification` mode through `earth` sees Holographic Reality Structure as a translated/projected contribution: Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M02` in `navigation` mode through `earth` sees Holographic Reality Structure as a translated/projected contribution: Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M03` in `kernel` mode through `earth` sees LEGAL TRANSPORT CALCULUS as a native/native contribution: Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M03` in `dynamics` mode through `earth` sees LEGAL TRANSPORT CALCULUS as a native/projected contribution: Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M03` in `verification` mode through `earth` sees LEGAL TRANSPORT CALCULUS as a native/native contribution: Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M03` in `navigation` mode through `earth` sees LEGAL TRANSPORT CALCULUS as a native/native contribution: Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M04` in `kernel` mode through `earth` sees Pi Algorithm Engine as a native/native contribution: Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M04` in `dynamics` mode through `earth` sees Pi Algorithm Engine as a native/native contribution: Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M04` in `verification` mode through `earth` sees Pi Algorithm Engine as a native/native contribution: Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M04` in `navigation` mode through `earth` sees Pi Algorithm Engine as a native/projected contribution: Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M05` in `kernel` mode through `earth` sees PRIME Toolkit Kernel as a native/native contribution: Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M05` in `dynamics` mode through `earth` sees PRIME Toolkit Kernel as a native/projected contribution: Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M05` in `verification` mode through `earth` sees PRIME Toolkit Kernel as a native/native contribution: Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M05` in `navigation` mode through `earth` sees PRIME Toolkit Kernel as a native/projected contribution: Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M06` in `kernel` mode through `earth` sees QUAD HOLOGRAPHIC ROTATION as a native/projected contribution: Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M06` in `dynamics` mode through `earth` sees QUAD HOLOGRAPHIC ROTATION as a native/native contribution: Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M06` in `verification` mode through `earth` sees QUAD HOLOGRAPHIC ROTATION as a native/native contribution: Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M06` in `navigation` mode through `earth` sees QUAD HOLOGRAPHIC ROTATION as a native/projected contribution: Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M07` in `kernel` mode through `earth` sees THE 4 CONSTANTS FINAL as a native/native contribution: Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M07` in `dynamics` mode through `earth` sees THE 4 CONSTANTS FINAL as a native/projected contribution: Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M07` in `verification` mode through `earth` sees THE 4 CONSTANTS FINAL as a native/native contribution: Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M07` in `navigation` mode through `earth` sees THE 4 CONSTANTS FINAL as a native/native contribution: Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M08` in `kernel` mode through `earth` sees The Holographic Kernel as a native/native contribution: Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M08` in `dynamics` mode through `earth` sees The Holographic Kernel as a native/projected contribution: Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M08` in `verification` mode through `earth` sees The Holographic Kernel as a native/native contribution: Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M08` in `navigation` mode through `earth` sees The Holographic Kernel as a native/native contribution: Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M09` in `kernel` mode through `earth` sees THE UNIFIED CYCLICAL TIME SYSTEM as a translated/projected contribution: Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M09` in `dynamics` mode through `earth` sees THE UNIFIED CYCLICAL TIME SYSTEM as a translated/native contribution: Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M09` in `verification` mode through `earth` sees THE UNIFIED CYCLICAL TIME SYSTEM as a translated/projected contribution: Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M09` in `navigation` mode through `earth` sees THE UNIFIED CYCLICAL TIME SYSTEM as a translated/native contribution: Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M10` in `kernel` mode through `earth` sees 6 Dimensional Hologram as a translated/native contribution: Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M10` in `dynamics` mode through `earth` sees 6 Dimensional Hologram as a translated/native contribution: Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M10` in `verification` mode through `earth` sees 6 Dimensional Hologram as a translated/projected contribution: Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M10` in `navigation` mode through `earth` sees 6 Dimensional Hologram as a translated/projected contribution: Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M11` in `kernel` mode through `earth` sees Calculus and Geometry as a native/native contribution: Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M11` in `dynamics` mode through `earth` sees Calculus and Geometry as a native/projected contribution: Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M11` in `verification` mode through `earth` sees Calculus and Geometry as a native/projected contribution: Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M11` in `navigation` mode through `earth` sees Calculus and Geometry as a native/native contribution: Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M12` in `kernel` mode through `earth` sees HOLOGRAPHIC TUNNELING as a translated/projected contribution: Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M12` in `dynamics` mode through `earth` sees HOLOGRAPHIC TUNNELING as a translated/native contribution: Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M12` in `verification` mode through `earth` sees HOLOGRAPHIC TUNNELING as a translated/native contribution: Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M12` in `navigation` mode through `earth` sees HOLOGRAPHIC TUNNELING as a translated/projected contribution: Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M13` in `kernel` mode through `earth` sees TIME FRACTAL as a translated/projected contribution: Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M13` in `dynamics` mode through `earth` sees TIME FRACTAL as a translated/native contribution: Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M13` in `verification` mode through `earth` sees TIME FRACTAL as a translated/projected contribution: Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M13` in `navigation` mode through `earth` sees TIME FRACTAL as a translated/native contribution: Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M14` in `kernel` mode through `earth` sees Omega Metro Calculus as a native/native contribution: Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M14` in `dynamics` mode through `earth` sees Omega Metro Calculus as a native/projected contribution: Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M14` in `verification` mode through `earth` sees Omega Metro Calculus as a native/native contribution: Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M14` in `navigation` mode through `earth` sees Omega Metro Calculus as a native/native contribution: Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M15` in `kernel` mode through `earth` sees Omega Tunneling Coherence Crystal as a native/projected contribution: Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M15` in `dynamics` mode through `earth` sees Omega Tunneling Coherence Crystal as a native/native contribution: Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M15` in `verification` mode through `earth` sees Omega Tunneling Coherence Crystal as a native/native contribution: Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M15` in `navigation` mode through `earth` sees Omega Tunneling Coherence Crystal as a native/native contribution: Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M16` in `kernel` mode through `earth` sees Constant Finder as a native/native contribution: Constructs a commutation witness, verifier, and promotion protocol for certified constants.
+- `M16` in `dynamics` mode through `earth` sees Constant Finder as a native/projected contribution: Constructs a commutation witness, verifier, and promotion protocol for certified constants.
+- `M16` in `verification` mode through `earth` sees Constant Finder as a native/native contribution: Constructs a commutation witness, verifier, and promotion protocol for certified constants.
+- `M16` in `navigation` mode through `earth` sees Constant Finder as a native/projected contribution: Constructs a commutation witness, verifier, and promotion protocol for certified constants.

@@ -1,0 +1,94 @@
+[
+  {
+    "packet_id": "SC57-L02-COMPRESSION",
+    "target": "compression",
+    "candidate_front": "SC57-C-P1-02",
+    "expected_action": "HOLD",
+    "chosen_action": "HOLD",
+    "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+    "planner_visible_promotion": false,
+    "score": 0.102831,
+    "obligations": [
+      "preserve queue entry",
+      "re-evaluate after dependency or pressure change"
+    ],
+    "next_seed": {
+      "seed_id": "sc57-c-p1-02__hold",
+      "seed_value": 0.65,
+      "origin_candidate_id": "SC57-L02-COMPRESSION",
+      "origin_action": "HOLD",
+      "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet",
+      "next_lawful_attempt": "re-score_after_dependency_shift",
+      "priority_score": 0.102831
+    }
+  },
+  {
+    "packet_id": "SC57-L02-HALL",
+    "target": "hall",
+    "candidate_front": "SC57-H-P1-02",
+    "expected_action": "HOLD",
+    "chosen_action": "HOLD",
+    "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+    "planner_visible_promotion": false,
+    "score": 0.102831,
+    "obligations": [
+      "preserve queue entry",
+      "re-evaluate after dependency or pressure change"
+    ],
+    "next_seed": {
+      "seed_id": "sc57-h-p1-02__hold",
+      "seed_value": 0.65,
+      "origin_candidate_id": "SC57-L02-HALL",
+      "origin_action": "HOLD",
+      "route_signature": "BrainstemChamber->QuestBoard:hall:quest_packet",
+      "next_lawful_attempt": "re-score_after_dependency_shift",
+      "priority_score": 0.102831
+    }
+  },
+  {
+    "packet_id": "SC57-L02-TEMPLE",
+    "target": "temple",
+    "candidate_front": "SC57-T-P1-02",
+    "expected_action": "HOLD",
+    "chosen_action": "HOLD",
+    "reason": "The packet has value, but timing or dependency order is not yet lawful.",
+    "planner_visible_promotion": false,
+    "score": 0.102831,
+    "obligations": [
+      "preserve queue entry",
+      "re-evaluate after dependency or pressure change"
+    ],
+    "next_seed": {
+      "seed_id": "sc57-t-p1-02__hold",
+      "seed_value": 0.65,
+      "origin_candidate_id": "SC57-L02-TEMPLE",
+      "origin_action": "HOLD",
+      "route_signature": "BrainstemChamber->CommitteeChamber:temple:quest_packet",
+      "next_lawful_attempt": "re-score_after_dependency_shift",
+      "priority_score": 0.102831
+    }
+  },
+  {
+    "packet_id": "SC57-L02-RUNTIME",
+    "target": "runtime",
+    "candidate_front": "SC57-R-P1-02",
+    "expected_action": "REPLAY_FIRST",
+    "chosen_action": "REPLAY_FIRST",
+    "reason": "Replay dependency remains unresolved, so motion must pass through ReplayKernel first.",
+    "planner_visible_promotion": false,
+    "score": 0.081991,
+    "obligations": [
+      "schedule replay job in ReplayKernel",
+      "block public closure until replay receipt returns"
+    ],
+    "next_seed": {
+      "seed_id": "sc57-r-p1-02__replay_first",
+      "seed_value": 0.65,
+      "origin_candidate_id": "SC57-L02-RUNTIME",
+      "origin_action": "REPLAY_FIRST",
+      "route_signature": "BrainstemChamber->ReplayKernel:runtime:replay_job",
+      "next_lawful_attempt": "replay_then_re-score",
+      "priority_score": 0.081991
+    }
+  }
+]

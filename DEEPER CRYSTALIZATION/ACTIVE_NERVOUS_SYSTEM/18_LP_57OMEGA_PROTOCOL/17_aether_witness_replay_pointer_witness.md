@@ -1,0 +1,13018 @@
+# LP-57Omega AETHER Witness/Replay Pointer Witness
+
+- Truth status: `NEAR-derived`
+- LP-57 role: `L01-closed substrate enhancement`
+- Packet sync role: `L02 Packet Truth Sync input witness`
+- Record count: `45`
+- Concrete pointer count: `60`
+- Lens lock: `F`
+- Phase map: `Phi0=R+ / Phi1=R- / Phi2=Q4 / Phi3=T3`
+- Sigma path: `AppA -> AppI -> AppM`
+- Route preset `rtL`: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Route preset `rtZ`: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+
+## Pointer ABI Lock
+
+```json
+{
+  "aether_lattice_abi": {
+    "lens": "F",
+    "lens_label": "Flower",
+    "phase_bins": {
+      "Phi0": "R+",
+      "Phi1": "R-",
+      "Phi2": "Q4",
+      "Phi3": "T3"
+    },
+    "slots": [
+      "Core",
+      "Ticket",
+      "Residual",
+      "Test"
+    ],
+    "slot_policy": {
+      "R": "Core",
+      "Q": "Core",
+      "T": "Residual"
+    },
+    "bundles": [
+      "B01",
+      "B02",
+      "B03",
+      "B10",
+      "B11",
+      "B12",
+      "B13",
+      "B20",
+      "B21",
+      "B22",
+      "B23",
+      "B30",
+      "B31",
+      "B32",
+      "B33"
+    ]
+  },
+  "witness_lock": {
+    "type": "INTERNAL_SLICE",
+    "scope": [
+      "OPS",
+      "DEFINE",
+      "SYSTEM"
+    ],
+    "timestamp": "Tick_2B",
+    "collector": "SYSTEM",
+    "version_pins": "V_2B"
+  },
+  "replay_lock": {
+    "steps": [
+      "ResolveZ",
+      "ExpandAE",
+      "RouteV2",
+      "SlotCheck"
+    ],
+    "checks": [
+      "Sigma",
+      "Hub<=6",
+      "ZMatch"
+    ],
+    "env_pin": "E_2B"
+  }
+}
+```
+
+## Rotation Pairs
+
+### R01 :: slot `21/65`
+- Source set: `['A']`
+- Z alias: `ZA`
+- Z expanded: `Z(Fire)`
+- Check key: `loc(A)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R01:+",
+    "binding_id": "R01:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B01",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B01;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R01,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B01",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B01",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B01;Core)"
+      },
+      "hash": "2502e87edb1d3143db89f3dbc26ef47f8a63811f3ddc2e648068df77cf2932a6",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R01,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "77d70765665fd3e7656bfa38bfda5eba94eba08f7aa8fef497e5c58941d214f8"
+    },
+    "z": "ZA",
+    "checkpoint": "loc(A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R01:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B01",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B01",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B01;Core)"
+    },
+    "ae_token": "AE=(F,R+,B01;Core)",
+    "z_binding": "ZA",
+    "z_expanded": "Z(Fire)",
+    "check_key": "loc(A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R01,+]",
+    "replay_seed_id": "RS[R01,+]",
+    "witness_seed": {
+      "seed_id": "WS[R01,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B01",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B01",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B01;Core)"
+      },
+      "hash": "2502e87edb1d3143db89f3dbc26ef47f8a63811f3ddc2e648068df77cf2932a6",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R01,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "77d70765665fd3e7656bfa38bfda5eba94eba08f7aa8fef497e5c58941d214f8"
+    }
+  },
+  {
+    "pointer_id": "R01:-",
+    "binding_id": "R01:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B01",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B01;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R01,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B01",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B01",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B01;Core)"
+      },
+      "hash": "81a630f90d73126fd0363403dcec8cd88e0cd4ca7db4617250d3b9338e94b7ae",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R01,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "ac199e82f7086e03c0e22519d7980a2f11c4b6b0a16deaf9a261e8189b9c0026"
+    },
+    "z": "ZA",
+    "checkpoint": "loc(A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R01:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B01",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B01",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B01;Core)"
+    },
+    "ae_token": "AE=(F,R-,B01;Core)",
+    "z_binding": "ZA",
+    "z_expanded": "Z(Fire)",
+    "check_key": "loc(A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R01,-]",
+    "replay_seed_id": "RS[R01,-]",
+    "witness_seed": {
+      "seed_id": "WS[R01,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B01",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B01",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B01;Core)"
+      },
+      "hash": "81a630f90d73126fd0363403dcec8cd88e0cd4ca7db4617250d3b9338e94b7ae",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R01,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "ac199e82f7086e03c0e22519d7980a2f11c4b6b0a16deaf9a261e8189b9c0026"
+    }
+  }
+]
+```
+
+### R02 :: slot `22/65`
+- Source set: `['B']`
+- Z alias: `ZB`
+- Z expanded: `Z(Water)`
+- Check key: `loc(B)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R02:+",
+    "binding_id": "R02:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B02",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B02;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R02,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B02",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B02",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B02;Core)"
+      },
+      "hash": "d0f61946eacf31a1f56fdff98376bc7c7ef719f3a407a96cce7d895ca226f9d3",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R02,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "7886db3c13381f2c6c5de7bf76bb2ae6e94dee980fcddbbfd9c9b8ff03ed4049"
+    },
+    "z": "ZB",
+    "checkpoint": "loc(B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R02:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B02",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B02",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B02;Core)"
+    },
+    "ae_token": "AE=(F,R+,B02;Core)",
+    "z_binding": "ZB",
+    "z_expanded": "Z(Water)",
+    "check_key": "loc(B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R02,+]",
+    "replay_seed_id": "RS[R02,+]",
+    "witness_seed": {
+      "seed_id": "WS[R02,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B02",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B02",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B02;Core)"
+      },
+      "hash": "d0f61946eacf31a1f56fdff98376bc7c7ef719f3a407a96cce7d895ca226f9d3",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R02,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "7886db3c13381f2c6c5de7bf76bb2ae6e94dee980fcddbbfd9c9b8ff03ed4049"
+    }
+  },
+  {
+    "pointer_id": "R02:-",
+    "binding_id": "R02:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B02",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B02;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R02,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B02",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B02",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B02;Core)"
+      },
+      "hash": "710ee9110c724af8d6f754598dc7a356d73842030c2d365aa83f8a724332f78b",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R02,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "c3745fe7f6e0d0eae84bcd03bbd2aca16333bd7db5255ca95e717d28f3b69e01"
+    },
+    "z": "ZB",
+    "checkpoint": "loc(B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R02:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B02",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B02",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B02;Core)"
+    },
+    "ae_token": "AE=(F,R-,B02;Core)",
+    "z_binding": "ZB",
+    "z_expanded": "Z(Water)",
+    "check_key": "loc(B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R02,-]",
+    "replay_seed_id": "RS[R02,-]",
+    "witness_seed": {
+      "seed_id": "WS[R02,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B02",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B02",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B02;Core)"
+      },
+      "hash": "710ee9110c724af8d6f754598dc7a356d73842030c2d365aa83f8a724332f78b",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R02,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "c3745fe7f6e0d0eae84bcd03bbd2aca16333bd7db5255ca95e717d28f3b69e01"
+    }
+  }
+]
+```
+
+### R03 :: slot `23/65`
+- Source set: `['A', 'B']`
+- Z alias: `ZA+ZB`
+- Z expanded: `Z(Fire)+Z(Water)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R03:+",
+    "binding_id": "R03:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B03",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B03;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R03,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B03",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B03",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B03;Core)"
+      },
+      "hash": "f5b73b76cb78877205702fba37045c8dc83fbcf9c9771ab6f19f188b48a53fc9",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R03,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "b7bb1d4acce71b8d4857ed23136c64d81be104323f75bf0f9cfdec7c3d29d8cb"
+    },
+    "z": "ZA+ZB",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "R03:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B03",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B03",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B03;Core)"
+    },
+    "ae_token": "AE=(F,R+,B03;Core)",
+    "z_binding": "ZA+ZB",
+    "z_expanded": "Z(Fire)+Z(Water)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[R03,+]",
+    "replay_seed_id": "RS[R03,+]",
+    "witness_seed": {
+      "seed_id": "WS[R03,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B03",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B03",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B03;Core)"
+      },
+      "hash": "f5b73b76cb78877205702fba37045c8dc83fbcf9c9771ab6f19f188b48a53fc9",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R03,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "b7bb1d4acce71b8d4857ed23136c64d81be104323f75bf0f9cfdec7c3d29d8cb"
+    }
+  },
+  {
+    "pointer_id": "R03:-",
+    "binding_id": "R03:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B03",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B03;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R03,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B03",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B03",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B03;Core)"
+      },
+      "hash": "28eff61a23acc8dc2684954bbfdf750c68c7c04e66b40b4751a334c9fdeea3cb",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R03,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "cc4aa2904d066cc82a1266e99131c34110d8a464fa61e61a13400b3cd18e76b6"
+    },
+    "z": "ZA+ZB",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "R03:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B03",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B03",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B03;Core)"
+    },
+    "ae_token": "AE=(F,R-,B03;Core)",
+    "z_binding": "ZA+ZB",
+    "z_expanded": "Z(Fire)+Z(Water)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[R03,-]",
+    "replay_seed_id": "RS[R03,-]",
+    "witness_seed": {
+      "seed_id": "WS[R03,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B03",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B03",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B03;Core)"
+      },
+      "hash": "28eff61a23acc8dc2684954bbfdf750c68c7c04e66b40b4751a334c9fdeea3cb",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R03,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "cc4aa2904d066cc82a1266e99131c34110d8a464fa61e61a13400b3cd18e76b6"
+    }
+  }
+]
+```
+
+### R10 :: slot `24/65`
+- Source set: `['C']`
+- Z alias: `ZC`
+- Z expanded: `Z(Air)`
+- Check key: `loc(C)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R10:+",
+    "binding_id": "R10:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B10",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B10;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R10,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B10",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B10",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B10;Core)"
+      },
+      "hash": "fdbb1bdcbcc756a665f39ca70cbca8cbe6cdba73fa5e7c79fe0d8fc898979a14",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R10,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "fe0c670f2a7b7e8cfa3cf95b2a69283e080313e8802239572bf9ca0bf1082279"
+    },
+    "z": "ZC",
+    "checkpoint": "loc(C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R10:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B10",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B10",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B10;Core)"
+    },
+    "ae_token": "AE=(F,R+,B10;Core)",
+    "z_binding": "ZC",
+    "z_expanded": "Z(Air)",
+    "check_key": "loc(C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R10,+]",
+    "replay_seed_id": "RS[R10,+]",
+    "witness_seed": {
+      "seed_id": "WS[R10,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B10",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B10",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B10;Core)"
+      },
+      "hash": "fdbb1bdcbcc756a665f39ca70cbca8cbe6cdba73fa5e7c79fe0d8fc898979a14",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R10,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "fe0c670f2a7b7e8cfa3cf95b2a69283e080313e8802239572bf9ca0bf1082279"
+    }
+  },
+  {
+    "pointer_id": "R10:-",
+    "binding_id": "R10:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B10",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B10;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R10,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B10",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B10",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B10;Core)"
+      },
+      "hash": "5444391e8d9dfc4ce9109b249deef6c3cc303e1e5531256e2c9a5078b8c4f39f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R10,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "9304defff638ac6869cd1c307409d129b3ca59af0d9c7c2e1bc301cca3f47dc5"
+    },
+    "z": "ZC",
+    "checkpoint": "loc(C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R10:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B10",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B10",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B10;Core)"
+    },
+    "ae_token": "AE=(F,R-,B10;Core)",
+    "z_binding": "ZC",
+    "z_expanded": "Z(Air)",
+    "check_key": "loc(C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R10,-]",
+    "replay_seed_id": "RS[R10,-]",
+    "witness_seed": {
+      "seed_id": "WS[R10,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B10",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B10",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B10;Core)"
+      },
+      "hash": "5444391e8d9dfc4ce9109b249deef6c3cc303e1e5531256e2c9a5078b8c4f39f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R10,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "9304defff638ac6869cd1c307409d129b3ca59af0d9c7c2e1bc301cca3f47dc5"
+    }
+  }
+]
+```
+
+### R11 :: slot `25/65`
+- Source set: `['A', 'C']`
+- Z alias: `ZA+ZC`
+- Z expanded: `Z(Fire)+Z(Air)`
+- Check key: `loc(A>C)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R11:+",
+    "binding_id": "R11:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B11",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B11;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R11,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B11",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B11",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B11;Core)"
+      },
+      "hash": "f44f1fdfdfa9e693ee5ecd00631fee66ae6cb4f7265432001d1c7cef46c4dd4f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R11,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "14f1cde32fc7d281fd86fcef68de1921ef05be9c74627963f52703b25476d419"
+    },
+    "z": "ZA+ZC",
+    "checkpoint": "loc(A>C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R11:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B11",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B11",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B11;Core)"
+    },
+    "ae_token": "AE=(F,R+,B11;Core)",
+    "z_binding": "ZA+ZC",
+    "z_expanded": "Z(Fire)+Z(Air)",
+    "check_key": "loc(A>C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R11,+]",
+    "replay_seed_id": "RS[R11,+]",
+    "witness_seed": {
+      "seed_id": "WS[R11,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B11",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B11",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B11;Core)"
+      },
+      "hash": "f44f1fdfdfa9e693ee5ecd00631fee66ae6cb4f7265432001d1c7cef46c4dd4f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R11,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "14f1cde32fc7d281fd86fcef68de1921ef05be9c74627963f52703b25476d419"
+    }
+  },
+  {
+    "pointer_id": "R11:-",
+    "binding_id": "R11:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B11",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B11;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R11,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B11",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B11",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B11;Core)"
+      },
+      "hash": "d32fa3e54dafeaee4e87949bfd4b1d68f7735f1bbd3f6a4ef9a17fa61408e877",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R11,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "d6c5bb47c078437abfa4773b39fcd071adff89bc72a0e4a13dc3e7c075055466"
+    },
+    "z": "ZA+ZC",
+    "checkpoint": "loc(A>C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R11:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B11",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B11",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B11;Core)"
+    },
+    "ae_token": "AE=(F,R-,B11;Core)",
+    "z_binding": "ZA+ZC",
+    "z_expanded": "Z(Fire)+Z(Air)",
+    "check_key": "loc(A>C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R11,-]",
+    "replay_seed_id": "RS[R11,-]",
+    "witness_seed": {
+      "seed_id": "WS[R11,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B11",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B11",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B11;Core)"
+      },
+      "hash": "d32fa3e54dafeaee4e87949bfd4b1d68f7735f1bbd3f6a4ef9a17fa61408e877",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R11,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "d6c5bb47c078437abfa4773b39fcd071adff89bc72a0e4a13dc3e7c075055466"
+    }
+  }
+]
+```
+
+### R12 :: slot `26/65`
+- Source set: `['B', 'C']`
+- Z alias: `ZB+ZC`
+- Z expanded: `Z(Water)+Z(Air)`
+- Check key: `loc(C>B)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R12:+",
+    "binding_id": "R12:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B12",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B12;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R12,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B12",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B12",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B12;Core)"
+      },
+      "hash": "de0135a32ad64f833fd2da5a7eb543fc10d6f80c47c2884949588abe20bc6a75",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R12,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "fa129f1cd89337c4567aa97ceef776bbe9673579b4c68480d6278517a856deb5"
+    },
+    "z": "ZB+ZC",
+    "checkpoint": "loc(C>B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R12:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B12",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B12",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B12;Core)"
+    },
+    "ae_token": "AE=(F,R+,B12;Core)",
+    "z_binding": "ZB+ZC",
+    "z_expanded": "Z(Water)+Z(Air)",
+    "check_key": "loc(C>B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R12,+]",
+    "replay_seed_id": "RS[R12,+]",
+    "witness_seed": {
+      "seed_id": "WS[R12,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B12",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B12",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B12;Core)"
+      },
+      "hash": "de0135a32ad64f833fd2da5a7eb543fc10d6f80c47c2884949588abe20bc6a75",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R12,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "fa129f1cd89337c4567aa97ceef776bbe9673579b4c68480d6278517a856deb5"
+    }
+  },
+  {
+    "pointer_id": "R12:-",
+    "binding_id": "R12:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B12",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B12;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R12,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B12",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B12",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B12;Core)"
+      },
+      "hash": "e7fc4579735962881a76cf3de5014eb1d5ed104fac4b3392d0f3290fc55b427d",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R12,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "3ba285444be193ca7370ce5141b24a05fb94a8de37a1f38c3d55c9b5169f773b"
+    },
+    "z": "ZB+ZC",
+    "checkpoint": "loc(C>B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R12:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B12",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B12",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B12;Core)"
+    },
+    "ae_token": "AE=(F,R-,B12;Core)",
+    "z_binding": "ZB+ZC",
+    "z_expanded": "Z(Water)+Z(Air)",
+    "check_key": "loc(C>B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R12,-]",
+    "replay_seed_id": "RS[R12,-]",
+    "witness_seed": {
+      "seed_id": "WS[R12,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B12",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B12",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B12;Core)"
+      },
+      "hash": "e7fc4579735962881a76cf3de5014eb1d5ed104fac4b3392d0f3290fc55b427d",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R12,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "3ba285444be193ca7370ce5141b24a05fb94a8de37a1f38c3d55c9b5169f773b"
+    }
+  }
+]
+```
+
+### R13 :: slot `27/65`
+- Source set: `['A', 'B', 'C']`
+- Z alias: `ZA+ZB+ZC`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Air)`
+- Check key: `loc(A>C>B)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R13:+",
+    "binding_id": "R13:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B13",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B13;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R13,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B13",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B13",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B13;Core)"
+      },
+      "hash": "05c832dd0a0729e3b51bed9e020a7ec63d731669e22c2e668e58d5df42d7e983",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R13,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "2c4b240f73878e078875904a67abe625613a73669fd89fda8f651725ed4124f4"
+    },
+    "z": "ZA+ZB+ZC",
+    "checkpoint": "loc(A>C>B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R13:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B13",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B13",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B13;Core)"
+    },
+    "ae_token": "AE=(F,R+,B13;Core)",
+    "z_binding": "ZA+ZB+ZC",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)",
+    "check_key": "loc(A>C>B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R13,+]",
+    "replay_seed_id": "RS[R13,+]",
+    "witness_seed": {
+      "seed_id": "WS[R13,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B13",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B13",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B13;Core)"
+      },
+      "hash": "05c832dd0a0729e3b51bed9e020a7ec63d731669e22c2e668e58d5df42d7e983",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R13,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "2c4b240f73878e078875904a67abe625613a73669fd89fda8f651725ed4124f4"
+    }
+  },
+  {
+    "pointer_id": "R13:-",
+    "binding_id": "R13:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B13",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B13;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R13,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B13",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B13",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B13;Core)"
+      },
+      "hash": "90c48ab2387c7fe51254cbbccb006337c7b5e62011530c0353073737576520c4",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R13,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "e1b1ed36df46734713a057c96ede754e19626b6d4400efb62148ade79aede4c8"
+    },
+    "z": "ZA+ZB+ZC",
+    "checkpoint": "loc(A>C>B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R13:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B13",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B13",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B13;Core)"
+    },
+    "ae_token": "AE=(F,R-,B13;Core)",
+    "z_binding": "ZA+ZB+ZC",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)",
+    "check_key": "loc(A>C>B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R13,-]",
+    "replay_seed_id": "RS[R13,-]",
+    "witness_seed": {
+      "seed_id": "WS[R13,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B13",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B13",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B13;Core)"
+      },
+      "hash": "90c48ab2387c7fe51254cbbccb006337c7b5e62011530c0353073737576520c4",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R13,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "e1b1ed36df46734713a057c96ede754e19626b6d4400efb62148ade79aede4c8"
+    }
+  }
+]
+```
+
+### R20 :: slot `28/65`
+- Source set: `['D']`
+- Z alias: `ZD`
+- Z expanded: `Z(Earth)`
+- Check key: `loc(D)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R20:+",
+    "binding_id": "R20:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B20",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B20;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R20,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B20",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B20",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B20;Core)"
+      },
+      "hash": "24225ca55c3d2e9c9906ceb56761960a826809e66505f860941f80ca7acdb678",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R20,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "3f5ce03ab4903d075cb56a843418c83f165f77181db6a1bdebf5a8cef6adab1e"
+    },
+    "z": "ZD",
+    "checkpoint": "loc(D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R20:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B20",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B20",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B20;Core)"
+    },
+    "ae_token": "AE=(F,R+,B20;Core)",
+    "z_binding": "ZD",
+    "z_expanded": "Z(Earth)",
+    "check_key": "loc(D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R20,+]",
+    "replay_seed_id": "RS[R20,+]",
+    "witness_seed": {
+      "seed_id": "WS[R20,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B20",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B20",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B20;Core)"
+      },
+      "hash": "24225ca55c3d2e9c9906ceb56761960a826809e66505f860941f80ca7acdb678",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R20,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "3f5ce03ab4903d075cb56a843418c83f165f77181db6a1bdebf5a8cef6adab1e"
+    }
+  },
+  {
+    "pointer_id": "R20:-",
+    "binding_id": "R20:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B20",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B20;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R20,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B20",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B20",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B20;Core)"
+      },
+      "hash": "9fd3b0976aad2faf59057eb950a15d821178c83e99b7b299277aa13de0c4d445",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R20,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "43414e68b0c2940e65d78fcf6f3ef700df40763980c61eaabbf9e67202e6dc94"
+    },
+    "z": "ZD",
+    "checkpoint": "loc(D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R20:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B20",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B20",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B20;Core)"
+    },
+    "ae_token": "AE=(F,R-,B20;Core)",
+    "z_binding": "ZD",
+    "z_expanded": "Z(Earth)",
+    "check_key": "loc(D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R20,-]",
+    "replay_seed_id": "RS[R20,-]",
+    "witness_seed": {
+      "seed_id": "WS[R20,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B20",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B20",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B20;Core)"
+      },
+      "hash": "9fd3b0976aad2faf59057eb950a15d821178c83e99b7b299277aa13de0c4d445",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R20,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "43414e68b0c2940e65d78fcf6f3ef700df40763980c61eaabbf9e67202e6dc94"
+    }
+  }
+]
+```
+
+### R21 :: slot `29/65`
+- Source set: `['A', 'D']`
+- Z alias: `ZA+ZD`
+- Z expanded: `Z(Fire)+Z(Earth)`
+- Check key: `loc(D>A)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R21:+",
+    "binding_id": "R21:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B21",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B21;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R21,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B21",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B21",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B21;Core)"
+      },
+      "hash": "ce29531d9a1f62e6d1cf3e91f2f7fe7c48f3cab7ca90f6291bb4de50dfca1dba",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R21,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "ec77e2a386a3f3a28aca1be5054a2b8f7199b3880fa03410759d79c93937bc1a"
+    },
+    "z": "ZA+ZD",
+    "checkpoint": "loc(D>A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R21:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B21",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B21",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B21;Core)"
+    },
+    "ae_token": "AE=(F,R+,B21;Core)",
+    "z_binding": "ZA+ZD",
+    "z_expanded": "Z(Fire)+Z(Earth)",
+    "check_key": "loc(D>A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R21,+]",
+    "replay_seed_id": "RS[R21,+]",
+    "witness_seed": {
+      "seed_id": "WS[R21,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B21",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B21",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B21;Core)"
+      },
+      "hash": "ce29531d9a1f62e6d1cf3e91f2f7fe7c48f3cab7ca90f6291bb4de50dfca1dba",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R21,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "ec77e2a386a3f3a28aca1be5054a2b8f7199b3880fa03410759d79c93937bc1a"
+    }
+  },
+  {
+    "pointer_id": "R21:-",
+    "binding_id": "R21:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B21",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B21;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R21,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B21",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B21",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B21;Core)"
+      },
+      "hash": "ffb9baf11cfca2d9c7ae45839bf6bf0a48af697b193266fe71d7f547b6f0e9b1",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R21,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "42bd23f85d3a777b739810337c402b556d941e46db46b9afa4b2896d44ab3941"
+    },
+    "z": "ZA+ZD",
+    "checkpoint": "loc(D>A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R21:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B21",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B21",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B21;Core)"
+    },
+    "ae_token": "AE=(F,R-,B21;Core)",
+    "z_binding": "ZA+ZD",
+    "z_expanded": "Z(Fire)+Z(Earth)",
+    "check_key": "loc(D>A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R21,-]",
+    "replay_seed_id": "RS[R21,-]",
+    "witness_seed": {
+      "seed_id": "WS[R21,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B21",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B21",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B21;Core)"
+      },
+      "hash": "ffb9baf11cfca2d9c7ae45839bf6bf0a48af697b193266fe71d7f547b6f0e9b1",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R21,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "42bd23f85d3a777b739810337c402b556d941e46db46b9afa4b2896d44ab3941"
+    }
+  }
+]
+```
+
+### R22 :: slot `30/65`
+- Source set: `['B', 'D']`
+- Z alias: `ZB+ZD`
+- Z expanded: `Z(Water)+Z(Earth)`
+- Check key: `loc(B>D)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R22:+",
+    "binding_id": "R22:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B22",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B22;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R22,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B22",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B22",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B22;Core)"
+      },
+      "hash": "587b5f1b54366885bd813b7d50a996575d5281f08645ebdefb87e9fe193453fc",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R22,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "af0eed452b6a53358a93702c193806f8f01486a7c9a1457996ed5ec6c391039b"
+    },
+    "z": "ZB+ZD",
+    "checkpoint": "loc(B>D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R22:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B22",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B22",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B22;Core)"
+    },
+    "ae_token": "AE=(F,R+,B22;Core)",
+    "z_binding": "ZB+ZD",
+    "z_expanded": "Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R22,+]",
+    "replay_seed_id": "RS[R22,+]",
+    "witness_seed": {
+      "seed_id": "WS[R22,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B22",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B22",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B22;Core)"
+      },
+      "hash": "587b5f1b54366885bd813b7d50a996575d5281f08645ebdefb87e9fe193453fc",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R22,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "af0eed452b6a53358a93702c193806f8f01486a7c9a1457996ed5ec6c391039b"
+    }
+  },
+  {
+    "pointer_id": "R22:-",
+    "binding_id": "R22:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B22",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B22;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R22,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B22",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B22",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B22;Core)"
+      },
+      "hash": "f6600b84716b41a19406b67d88e6d8387e798eb3d6e6775e4c1ec2f64850a24f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R22,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "b8c45f864988fe2b0881f5cb2630bde5890638ce2c14d28abd8f5bd640707860"
+    },
+    "z": "ZB+ZD",
+    "checkpoint": "loc(B>D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R22:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B22",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B22",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B22;Core)"
+    },
+    "ae_token": "AE=(F,R-,B22;Core)",
+    "z_binding": "ZB+ZD",
+    "z_expanded": "Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R22,-]",
+    "replay_seed_id": "RS[R22,-]",
+    "witness_seed": {
+      "seed_id": "WS[R22,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B22",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B22",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B22;Core)"
+      },
+      "hash": "f6600b84716b41a19406b67d88e6d8387e798eb3d6e6775e4c1ec2f64850a24f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R22,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "b8c45f864988fe2b0881f5cb2630bde5890638ce2c14d28abd8f5bd640707860"
+    }
+  }
+]
+```
+
+### R23 :: slot `31/65`
+- Source set: `['A', 'B', 'D']`
+- Z alias: `ZA+ZB+ZD`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Earth)`
+- Check key: `loc(B>D>A)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R23:+",
+    "binding_id": "R23:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B23",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B23;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R23,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B23",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B23",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B23;Core)"
+      },
+      "hash": "d1e5af03cf6053b08be6dba9420cd9633bde946805b087d6481b15ac0402d38e",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R23,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "f7920808cd2a44360d05ab04a4978c60f91d11ef84ea5eb9eb9c8ff49c07a863"
+    },
+    "z": "ZA+ZB+ZD",
+    "checkpoint": "loc(B>D>A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R23:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B23",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B23",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B23;Core)"
+    },
+    "ae_token": "AE=(F,R+,B23;Core)",
+    "z_binding": "ZA+ZB+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D>A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R23,+]",
+    "replay_seed_id": "RS[R23,+]",
+    "witness_seed": {
+      "seed_id": "WS[R23,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B23",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B23",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B23;Core)"
+      },
+      "hash": "d1e5af03cf6053b08be6dba9420cd9633bde946805b087d6481b15ac0402d38e",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R23,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "f7920808cd2a44360d05ab04a4978c60f91d11ef84ea5eb9eb9c8ff49c07a863"
+    }
+  },
+  {
+    "pointer_id": "R23:-",
+    "binding_id": "R23:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B23",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B23;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R23,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B23",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B23",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B23;Core)"
+      },
+      "hash": "9736f4139c34f94ddba43d0543a794bd01ad85a161bdda0a32d5f70162d9c181",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R23,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "80976260ce8281ed9bb2d46c1fa862c08edea252b07b6e59b4811f89fac4541c"
+    },
+    "z": "ZA+ZB+ZD",
+    "checkpoint": "loc(B>D>A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R23:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B23",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B23",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B23;Core)"
+    },
+    "ae_token": "AE=(F,R-,B23;Core)",
+    "z_binding": "ZA+ZB+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D>A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R23,-]",
+    "replay_seed_id": "RS[R23,-]",
+    "witness_seed": {
+      "seed_id": "WS[R23,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B23",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B23",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B23;Core)"
+      },
+      "hash": "9736f4139c34f94ddba43d0543a794bd01ad85a161bdda0a32d5f70162d9c181",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R23,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "80976260ce8281ed9bb2d46c1fa862c08edea252b07b6e59b4811f89fac4541c"
+    }
+  }
+]
+```
+
+### R30 :: slot `32/65`
+- Source set: `['C', 'D']`
+- Z alias: `ZC+ZD`
+- Z expanded: `Z(Air)+Z(Earth)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R30:+",
+    "binding_id": "R30:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B30",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B30;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R30,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B30",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B30",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B30;Core)"
+      },
+      "hash": "a39370d304c5fd8c8996e14ff0f77e9d778ee77f8cf6d3a6fd9d646dfd1bbbfe",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R30,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "998981c2ecc3275869d43a0df639caa76b6487ec3d07bbfe844047712d8ff226"
+    },
+    "z": "ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "R30:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B30",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B30",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B30;Core)"
+    },
+    "ae_token": "AE=(F,R+,B30;Core)",
+    "z_binding": "ZC+ZD",
+    "z_expanded": "Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[R30,+]",
+    "replay_seed_id": "RS[R30,+]",
+    "witness_seed": {
+      "seed_id": "WS[R30,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B30",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B30",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B30;Core)"
+      },
+      "hash": "a39370d304c5fd8c8996e14ff0f77e9d778ee77f8cf6d3a6fd9d646dfd1bbbfe",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R30,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "998981c2ecc3275869d43a0df639caa76b6487ec3d07bbfe844047712d8ff226"
+    }
+  },
+  {
+    "pointer_id": "R30:-",
+    "binding_id": "R30:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B30",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B30;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R30,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B30",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B30",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B30;Core)"
+      },
+      "hash": "1ab94657c2bce5ac82b7476e9ea98eef790157ceffbd81b2ff77b583416a4307",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R30,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "343ff8b72edf6173c30a6c51fb103a9220b245568a4b32192425421e23db0cbf"
+    },
+    "z": "ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "R30:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B30",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B30",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B30;Core)"
+    },
+    "ae_token": "AE=(F,R-,B30;Core)",
+    "z_binding": "ZC+ZD",
+    "z_expanded": "Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[R30,-]",
+    "replay_seed_id": "RS[R30,-]",
+    "witness_seed": {
+      "seed_id": "WS[R30,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B30",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B30",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B30;Core)"
+      },
+      "hash": "1ab94657c2bce5ac82b7476e9ea98eef790157ceffbd81b2ff77b583416a4307",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R30,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "343ff8b72edf6173c30a6c51fb103a9220b245568a4b32192425421e23db0cbf"
+    }
+  }
+]
+```
+
+### R31 :: slot `33/65`
+- Source set: `['A', 'C', 'D']`
+- Z alias: `ZA+ZC+ZD`
+- Z expanded: `Z(Fire)+Z(Air)+Z(Earth)`
+- Check key: `loc(D>A>C)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R31:+",
+    "binding_id": "R31:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B31",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B31;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R31,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B31",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B31",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B31;Core)"
+      },
+      "hash": "52ba2088431174518a6b6c3ac45e1b08c5a652ccb51e384fb1b2100f583c1bee",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R31,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "42af57b1a2821d48010a5af6d4ff34fd96d20e642e82335cc21af135374ac397"
+    },
+    "z": "ZA+ZC+ZD",
+    "checkpoint": "loc(D>A>C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R31:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B31",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B31",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B31;Core)"
+    },
+    "ae_token": "AE=(F,R+,B31;Core)",
+    "z_binding": "ZA+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Air)+Z(Earth)",
+    "check_key": "loc(D>A>C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R31,+]",
+    "replay_seed_id": "RS[R31,+]",
+    "witness_seed": {
+      "seed_id": "WS[R31,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B31",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B31",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B31;Core)"
+      },
+      "hash": "52ba2088431174518a6b6c3ac45e1b08c5a652ccb51e384fb1b2100f583c1bee",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R31,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "42af57b1a2821d48010a5af6d4ff34fd96d20e642e82335cc21af135374ac397"
+    }
+  },
+  {
+    "pointer_id": "R31:-",
+    "binding_id": "R31:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B31",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B31;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R31,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B31",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B31",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B31;Core)"
+      },
+      "hash": "41468b638b8821cd823d52530b0300e8c0a82d83fce20573d76c169484c4a67b",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R31,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "73099c7e4a76b3162341d0e879d6a7c85f167e1fc9e8f0f47d91fad5ef9c4ffd"
+    },
+    "z": "ZA+ZC+ZD",
+    "checkpoint": "loc(D>A>C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R31:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B31",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B31",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B31;Core)"
+    },
+    "ae_token": "AE=(F,R-,B31;Core)",
+    "z_binding": "ZA+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Air)+Z(Earth)",
+    "check_key": "loc(D>A>C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R31,-]",
+    "replay_seed_id": "RS[R31,-]",
+    "witness_seed": {
+      "seed_id": "WS[R31,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B31",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B31",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B31;Core)"
+      },
+      "hash": "41468b638b8821cd823d52530b0300e8c0a82d83fce20573d76c169484c4a67b",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R31,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "73099c7e4a76b3162341d0e879d6a7c85f167e1fc9e8f0f47d91fad5ef9c4ffd"
+    }
+  }
+]
+```
+
+### R32 :: slot `34/65`
+- Source set: `['B', 'C', 'D']`
+- Z alias: `ZB+ZC+ZD`
+- Z expanded: `Z(Water)+Z(Air)+Z(Earth)`
+- Check key: `loc(C>B>D)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R32:+",
+    "binding_id": "R32:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B32",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B32;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R32,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B32",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B32",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B32;Core)"
+      },
+      "hash": "060bd39061dd5c812b332298baf59069825381074313e5650de5c60f0b7c640c",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R32,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "29949e6ff2e9fd8d21a6c8ca87ca4def10c70d324402facf74085572383d709a"
+    },
+    "z": "ZB+ZC+ZD",
+    "checkpoint": "loc(C>B>D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R32:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B32",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B32",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B32;Core)"
+    },
+    "ae_token": "AE=(F,R+,B32;Core)",
+    "z_binding": "ZB+ZC+ZD",
+    "z_expanded": "Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "loc(C>B>D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R32,+]",
+    "replay_seed_id": "RS[R32,+]",
+    "witness_seed": {
+      "seed_id": "WS[R32,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B32",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B32",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B32;Core)"
+      },
+      "hash": "060bd39061dd5c812b332298baf59069825381074313e5650de5c60f0b7c640c",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R32,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "29949e6ff2e9fd8d21a6c8ca87ca4def10c70d324402facf74085572383d709a"
+    }
+  },
+  {
+    "pointer_id": "R32:-",
+    "binding_id": "R32:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B32",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B32;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R32,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B32",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B32",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B32;Core)"
+      },
+      "hash": "7c612fa65ed1f50b9906c7c924c7b4f5af278fb755cb66993169fc37c192ada3",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R32,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "3e1d2c19596e24c2ca9a371278031946f8f071bc6b19a10b4156f2504f3a8db1"
+    },
+    "z": "ZB+ZC+ZD",
+    "checkpoint": "loc(C>B>D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "R32:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B32",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B32",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B32;Core)"
+    },
+    "ae_token": "AE=(F,R-,B32;Core)",
+    "z_binding": "ZB+ZC+ZD",
+    "z_expanded": "Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "loc(C>B>D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[R32,-]",
+    "replay_seed_id": "RS[R32,-]",
+    "witness_seed": {
+      "seed_id": "WS[R32,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B32",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B32",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B32;Core)"
+      },
+      "hash": "7c612fa65ed1f50b9906c7c924c7b4f5af278fb755cb66993169fc37c192ada3",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R32,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "3e1d2c19596e24c2ca9a371278031946f8f071bc6b19a10b4156f2504f3a8db1"
+    }
+  }
+]
+```
+
+### R33 :: slot `35/65`
+- Source set: `['A', 'B', 'C', 'D']`
+- Z alias: `ZA+ZB+ZC+ZD`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Air)+Z(Earth)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "R33:+",
+    "binding_id": "R33:+",
+    "binding_key": "plus",
+    "AE": {
+      "lens": "F",
+      "phase": "R+",
+      "bundle": "B33",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R+,B33;Core)",
+    "phase_id": "Phi0",
+    "phase_label": "R+",
+    "orientation": "plus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R33,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B33",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B33",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B33;Core)"
+      },
+      "hash": "2664e46095b2f935f6a8b55a577b7f8cb11604b680d498958d3ce1d2ec03db0d",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R33,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "cc5b3cc23545a7d2512b631cefefd13e6fb59618460c3507353a22397214fd40"
+    },
+    "z": "ZA+ZB+ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "R33:+",
+    "orientation_name": "plus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R+",
+      "Bundle": "B33",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R+",
+      "phase_id": "Phi0",
+      "phase_label": "R+",
+      "bundle": "B33",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R+,B33;Core)"
+    },
+    "ae_token": "AE=(F,R+,B33;Core)",
+    "z_binding": "ZA+ZB+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[R33,+]",
+    "replay_seed_id": "RS[R33,+]",
+    "witness_seed": {
+      "seed_id": "WS[R33,+]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R+",
+        "Bundle": "B33",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R+",
+        "phase_id": "Phi0",
+        "phase_label": "R+",
+        "bundle": "B33",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R+,B33;Core)"
+      },
+      "hash": "2664e46095b2f935f6a8b55a577b7f8cb11604b680d498958d3ce1d2ec03db0d",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R33,+]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R+",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R+",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R+,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "cc5b3cc23545a7d2512b631cefefd13e6fb59618460c3507353a22397214fd40"
+    }
+  },
+  {
+    "pointer_id": "R33:-",
+    "binding_id": "R33:-",
+    "binding_key": "minus",
+    "AE": {
+      "lens": "F",
+      "phase": "R-",
+      "bundle": "B33",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,R-,B33;Core)",
+    "phase_id": "Phi1",
+    "phase_label": "R-",
+    "orientation": "minus",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[R33,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B33",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B33",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B33;Core)"
+      },
+      "hash": "9be5462c48f911b4ddd0556d6069859b2d15044c0aed89a3a1d9abbcc9fa0ce7",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[R33,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "43775ee8e117f2e802efda4b6112dd2a95a9aa99a449883665cd946a84dcc24b"
+    },
+    "z": "ZA+ZB+ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "R33:-",
+    "orientation_name": "minus",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "R-",
+      "Bundle": "B33",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "R-",
+      "phase_id": "Phi1",
+      "phase_label": "R-",
+      "bundle": "B33",
+      "slot": "Core",
+      "canonical_key": "AE=(F,R-,B33;Core)"
+    },
+    "ae_token": "AE=(F,R-,B33;Core)",
+    "z_binding": "ZA+ZB+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[R33,-]",
+    "replay_seed_id": "RS[R33,-]",
+    "witness_seed": {
+      "seed_id": "WS[R33,-]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "R-",
+        "Bundle": "B33",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "R-",
+        "phase_id": "Phi1",
+        "phase_label": "R-",
+        "bundle": "B33",
+        "slot": "Core",
+        "canonical_key": "AE=(F,R-,B33;Core)"
+      },
+      "hash": "9be5462c48f911b4ddd0556d6069859b2d15044c0aed89a3a1d9abbcc9fa0ce7",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[R33,-]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "R-",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "R-",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,R-,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "43775ee8e117f2e802efda4b6112dd2a95a9aa99a449883665cd946a84dcc24b"
+    }
+  }
+]
+```
+
+## Base-4 Q4 Records
+
+### Q01 :: slot `36/65`
+- Source set: `['A']`
+- Z alias: `ZA`
+- Z expanded: `Z(Fire)`
+- Check key: `loc(A)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q01:spin",
+    "binding_id": "Q01:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B01",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B01;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q01]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B01",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B01",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B01;Core)"
+      },
+      "hash": "6ba50cfb3b8ad6d3e5996d76689e4c6d7d681f1276581d68ed117edfdcd1ef37",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q01]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "879ea31b0307f925dced5f9155403bce9f9a56a8f8455fd134caabe70c59d311"
+    },
+    "z": "ZA",
+    "checkpoint": "loc(A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q01:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B01",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B01",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B01;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B01;Core)",
+    "z_binding": "ZA",
+    "z_expanded": "Z(Fire)",
+    "check_key": "loc(A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q01]",
+    "replay_seed_id": "RS[Q01]",
+    "witness_seed": {
+      "seed_id": "WS[Q01]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B01",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B01",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B01;Core)"
+      },
+      "hash": "6ba50cfb3b8ad6d3e5996d76689e4c6d7d681f1276581d68ed117edfdcd1ef37",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q01]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B01",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B01",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B01;Core)"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "879ea31b0307f925dced5f9155403bce9f9a56a8f8455fd134caabe70c59d311"
+    }
+  }
+]
+```
+
+### Q02 :: slot `37/65`
+- Source set: `['B']`
+- Z alias: `ZB`
+- Z expanded: `Z(Water)`
+- Check key: `loc(B)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q02:spin",
+    "binding_id": "Q02:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B02",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B02;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q02]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B02",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B02",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B02;Core)"
+      },
+      "hash": "cb15048a103caa24828cbbf48a8b9ab020f69ea63aff66f198fd92cd0d1979fc",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q02]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "00f9e49a6a6af4b8fbe8c79e58b7561c849aee461bd253f01306723bb3a5b928"
+    },
+    "z": "ZB",
+    "checkpoint": "loc(B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q02:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B02",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B02",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B02;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B02;Core)",
+    "z_binding": "ZB",
+    "z_expanded": "Z(Water)",
+    "check_key": "loc(B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q02]",
+    "replay_seed_id": "RS[Q02]",
+    "witness_seed": {
+      "seed_id": "WS[Q02]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B02",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B02",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B02;Core)"
+      },
+      "hash": "cb15048a103caa24828cbbf48a8b9ab020f69ea63aff66f198fd92cd0d1979fc",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q02]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B02",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B02",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B02;Core)"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "00f9e49a6a6af4b8fbe8c79e58b7561c849aee461bd253f01306723bb3a5b928"
+    }
+  }
+]
+```
+
+### Q03 :: slot `38/65`
+- Source set: `['A', 'B']`
+- Z alias: `ZA+ZB`
+- Z expanded: `Z(Fire)+Z(Water)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q03:spin",
+    "binding_id": "Q03:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B03",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B03;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q03]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B03",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B03",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B03;Core)"
+      },
+      "hash": "3d49cf83e60e0d63fc146624cf31e0618d762705bb15c99ea62c1f8aeaaf7826",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q03]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "bf6be3d4813f29fb26d39f7c3a63a81b306584a8f3e85283706deca0bfa71e72"
+    },
+    "z": "ZA+ZB",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "Q03:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B03",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B03",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B03;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B03;Core)",
+    "z_binding": "ZA+ZB",
+    "z_expanded": "Z(Fire)+Z(Water)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[Q03]",
+    "replay_seed_id": "RS[Q03]",
+    "witness_seed": {
+      "seed_id": "WS[Q03]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B03",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B03",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B03;Core)"
+      },
+      "hash": "3d49cf83e60e0d63fc146624cf31e0618d762705bb15c99ea62c1f8aeaaf7826",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q03]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B03",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B03",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B03;Core)"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "bf6be3d4813f29fb26d39f7c3a63a81b306584a8f3e85283706deca0bfa71e72"
+    }
+  }
+]
+```
+
+### Q10 :: slot `39/65`
+- Source set: `['C']`
+- Z alias: `ZC`
+- Z expanded: `Z(Air)`
+- Check key: `loc(C)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q10:spin",
+    "binding_id": "Q10:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B10",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B10;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q10]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B10",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B10",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B10;Core)"
+      },
+      "hash": "06c47d9d14c9dca0479c871e8c3c04226754f378619b25ad9490d7f0ceae849a",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q10]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "81413917b3f436b37bddaae0b7e0248ebd42aaaf3e62f7f21ca5fdab859a046d"
+    },
+    "z": "ZC",
+    "checkpoint": "loc(C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q10:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B10",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B10",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B10;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B10;Core)",
+    "z_binding": "ZC",
+    "z_expanded": "Z(Air)",
+    "check_key": "loc(C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q10]",
+    "replay_seed_id": "RS[Q10]",
+    "witness_seed": {
+      "seed_id": "WS[Q10]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B10",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B10",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B10;Core)"
+      },
+      "hash": "06c47d9d14c9dca0479c871e8c3c04226754f378619b25ad9490d7f0ceae849a",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q10]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B10",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B10",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B10;Core)"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "81413917b3f436b37bddaae0b7e0248ebd42aaaf3e62f7f21ca5fdab859a046d"
+    }
+  }
+]
+```
+
+### Q11 :: slot `40/65`
+- Source set: `['A', 'C']`
+- Z alias: `ZA+ZC`
+- Z expanded: `Z(Fire)+Z(Air)`
+- Check key: `loc(A>C)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q11:spin",
+    "binding_id": "Q11:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B11",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B11;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q11]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B11",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B11",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B11;Core)"
+      },
+      "hash": "3ea762188055865dd11bcb7bd78800081839bc4035e8740a52b93c8a31061ce8",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q11]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "1671c09f398ca166916f09a96976cb70acc66fa07b8c00816e226d1c8888a40f"
+    },
+    "z": "ZA+ZC",
+    "checkpoint": "loc(A>C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q11:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B11",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B11",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B11;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B11;Core)",
+    "z_binding": "ZA+ZC",
+    "z_expanded": "Z(Fire)+Z(Air)",
+    "check_key": "loc(A>C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q11]",
+    "replay_seed_id": "RS[Q11]",
+    "witness_seed": {
+      "seed_id": "WS[Q11]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B11",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B11",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B11;Core)"
+      },
+      "hash": "3ea762188055865dd11bcb7bd78800081839bc4035e8740a52b93c8a31061ce8",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q11]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B11",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B11",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B11;Core)"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "1671c09f398ca166916f09a96976cb70acc66fa07b8c00816e226d1c8888a40f"
+    }
+  }
+]
+```
+
+### Q12 :: slot `41/65`
+- Source set: `['B', 'C']`
+- Z alias: `ZB+ZC`
+- Z expanded: `Z(Water)+Z(Air)`
+- Check key: `loc(C>B)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q12:spin",
+    "binding_id": "Q12:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B12",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B12;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q12]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B12",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B12",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B12;Core)"
+      },
+      "hash": "1b7ac6765010ca5dc0d684499d5db45fc1a760a6d7f63eb9c14048e488877fc9",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q12]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "36b6e7560c2b44b4e261f66a967065cba8ab81a0d8a7d1001c9ea9a2e8a4490d"
+    },
+    "z": "ZB+ZC",
+    "checkpoint": "loc(C>B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q12:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B12",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B12",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B12;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B12;Core)",
+    "z_binding": "ZB+ZC",
+    "z_expanded": "Z(Water)+Z(Air)",
+    "check_key": "loc(C>B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q12]",
+    "replay_seed_id": "RS[Q12]",
+    "witness_seed": {
+      "seed_id": "WS[Q12]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B12",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B12",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B12;Core)"
+      },
+      "hash": "1b7ac6765010ca5dc0d684499d5db45fc1a760a6d7f63eb9c14048e488877fc9",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q12]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B12",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B12",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B12;Core)"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "36b6e7560c2b44b4e261f66a967065cba8ab81a0d8a7d1001c9ea9a2e8a4490d"
+    }
+  }
+]
+```
+
+### Q13 :: slot `42/65`
+- Source set: `['A', 'B', 'C']`
+- Z alias: `ZA+ZB+ZC`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Air)`
+- Check key: `loc(A>C>B)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q13:spin",
+    "binding_id": "Q13:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B13",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B13;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q13]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B13",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B13",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B13;Core)"
+      },
+      "hash": "0fe07c09d291455b623e925fcae90f5815515ba641601df92443af149c4f0093",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q13]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "a40c0b8b6d6ccb36100b723abcd7992539bff372c1dee1545e1eeee9927e492a"
+    },
+    "z": "ZA+ZB+ZC",
+    "checkpoint": "loc(A>C>B)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q13:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B13",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B13",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B13;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B13;Core)",
+    "z_binding": "ZA+ZB+ZC",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)",
+    "check_key": "loc(A>C>B)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q13]",
+    "replay_seed_id": "RS[Q13]",
+    "witness_seed": {
+      "seed_id": "WS[Q13]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B13",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B13",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B13;Core)"
+      },
+      "hash": "0fe07c09d291455b623e925fcae90f5815515ba641601df92443af149c4f0093",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q13]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B13",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B13",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B13;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "a40c0b8b6d6ccb36100b723abcd7992539bff372c1dee1545e1eeee9927e492a"
+    }
+  }
+]
+```
+
+### Q20 :: slot `43/65`
+- Source set: `['D']`
+- Z alias: `ZD`
+- Z expanded: `Z(Earth)`
+- Check key: `loc(D)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q20:spin",
+    "binding_id": "Q20:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B20",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B20;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q20]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B20",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B20",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B20;Core)"
+      },
+      "hash": "fe52a0abc0178d64a8f5693e476724ae981dcd716c314c20794bc33810a4feb1",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q20]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "630e7fddb82e72b23f4f41f61b08476ee1fa5cdf4f8cfb007058a8a6a6b4e735"
+    },
+    "z": "ZD",
+    "checkpoint": "loc(D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q20:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B20",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B20",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B20;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B20;Core)",
+    "z_binding": "ZD",
+    "z_expanded": "Z(Earth)",
+    "check_key": "loc(D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q20]",
+    "replay_seed_id": "RS[Q20]",
+    "witness_seed": {
+      "seed_id": "WS[Q20]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B20",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B20",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B20;Core)"
+      },
+      "hash": "fe52a0abc0178d64a8f5693e476724ae981dcd716c314c20794bc33810a4feb1",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q20]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B20",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B20",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B20;Core)"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "630e7fddb82e72b23f4f41f61b08476ee1fa5cdf4f8cfb007058a8a6a6b4e735"
+    }
+  }
+]
+```
+
+### Q21 :: slot `44/65`
+- Source set: `['A', 'D']`
+- Z alias: `ZA+ZD`
+- Z expanded: `Z(Fire)+Z(Earth)`
+- Check key: `loc(D>A)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q21:spin",
+    "binding_id": "Q21:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B21",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B21;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q21]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B21",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B21",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B21;Core)"
+      },
+      "hash": "488934b95044f70327acb81349ec23e4c3f15cf4d3a10c2d07ddaf2c80a0d9b2",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q21]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "208e6c6c771354d0372b7a4bb308a3479590cb70739ddf9710d0d6e06d8f0731"
+    },
+    "z": "ZA+ZD",
+    "checkpoint": "loc(D>A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q21:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B21",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B21",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B21;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B21;Core)",
+    "z_binding": "ZA+ZD",
+    "z_expanded": "Z(Fire)+Z(Earth)",
+    "check_key": "loc(D>A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q21]",
+    "replay_seed_id": "RS[Q21]",
+    "witness_seed": {
+      "seed_id": "WS[Q21]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B21",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B21",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B21;Core)"
+      },
+      "hash": "488934b95044f70327acb81349ec23e4c3f15cf4d3a10c2d07ddaf2c80a0d9b2",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q21]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B21",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B21",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B21;Core)"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "208e6c6c771354d0372b7a4bb308a3479590cb70739ddf9710d0d6e06d8f0731"
+    }
+  }
+]
+```
+
+### Q22 :: slot `45/65`
+- Source set: `['B', 'D']`
+- Z alias: `ZB+ZD`
+- Z expanded: `Z(Water)+Z(Earth)`
+- Check key: `loc(B>D)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q22:spin",
+    "binding_id": "Q22:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B22",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B22;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q22]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B22",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B22",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B22;Core)"
+      },
+      "hash": "1d7b325151576ee8595c904757c595553622d753a979af7a6de30ac52fdfa88f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q22]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "7449d15591914df94a8647ba4b1dd1ca9f6731edaf6608b358c40d3feb124bd2"
+    },
+    "z": "ZB+ZD",
+    "checkpoint": "loc(B>D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q22:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B22",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B22",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B22;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B22;Core)",
+    "z_binding": "ZB+ZD",
+    "z_expanded": "Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q22]",
+    "replay_seed_id": "RS[Q22]",
+    "witness_seed": {
+      "seed_id": "WS[Q22]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B22",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B22",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B22;Core)"
+      },
+      "hash": "1d7b325151576ee8595c904757c595553622d753a979af7a6de30ac52fdfa88f",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q22]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B22",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B22",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B22;Core)"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "7449d15591914df94a8647ba4b1dd1ca9f6731edaf6608b358c40d3feb124bd2"
+    }
+  }
+]
+```
+
+### Q23 :: slot `46/65`
+- Source set: `['A', 'B', 'D']`
+- Z alias: `ZA+ZB+ZD`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Earth)`
+- Check key: `loc(B>D>A)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q23:spin",
+    "binding_id": "Q23:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B23",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B23;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q23]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B23",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B23",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B23;Core)"
+      },
+      "hash": "66e7157f126036c09b99f2dffc84e08c0ca94041fee36a0f2ac490629ee9546e",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q23]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "f483932e9de087d4802ed6ce181d684c52f2e2c95a4b80ce9f6289c8447dbe77"
+    },
+    "z": "ZA+ZB+ZD",
+    "checkpoint": "loc(B>D>A)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q23:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B23",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B23",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B23;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B23;Core)",
+    "z_binding": "ZA+ZB+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D>A)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q23]",
+    "replay_seed_id": "RS[Q23]",
+    "witness_seed": {
+      "seed_id": "WS[Q23]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B23",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B23",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B23;Core)"
+      },
+      "hash": "66e7157f126036c09b99f2dffc84e08c0ca94041fee36a0f2ac490629ee9546e",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q23]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B23",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B23",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B23;Core)"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "f483932e9de087d4802ed6ce181d684c52f2e2c95a4b80ce9f6289c8447dbe77"
+    }
+  }
+]
+```
+
+### Q30 :: slot `47/65`
+- Source set: `['C', 'D']`
+- Z alias: `ZC+ZD`
+- Z expanded: `Z(Air)+Z(Earth)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q30:spin",
+    "binding_id": "Q30:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B30",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B30;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q30]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B30",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B30",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B30;Core)"
+      },
+      "hash": "6c4b5ae46e4d4883727d6dde7e3066888c0c7ae9faaeb03df8a95561af0725c2",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q30]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "55d025d5d07855c4e95c1ea0ac66c16eba5436d4ac7e3303aa55e6a085058960"
+    },
+    "z": "ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "Q30:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B30",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B30",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B30;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B30;Core)",
+    "z_binding": "ZC+ZD",
+    "z_expanded": "Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[Q30]",
+    "replay_seed_id": "RS[Q30]",
+    "witness_seed": {
+      "seed_id": "WS[Q30]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B30",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B30",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B30;Core)"
+      },
+      "hash": "6c4b5ae46e4d4883727d6dde7e3066888c0c7ae9faaeb03df8a95561af0725c2",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q30]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B30",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B30",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B30;Core)"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "55d025d5d07855c4e95c1ea0ac66c16eba5436d4ac7e3303aa55e6a085058960"
+    }
+  }
+]
+```
+
+### Q31 :: slot `48/65`
+- Source set: `['A', 'C', 'D']`
+- Z alias: `ZA+ZC+ZD`
+- Z expanded: `Z(Fire)+Z(Air)+Z(Earth)`
+- Check key: `loc(D>A>C)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q31:spin",
+    "binding_id": "Q31:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B31",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B31;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q31]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B31",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B31",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B31;Core)"
+      },
+      "hash": "5b797a2059852a77e8f299cb5eb466df29e03bc7d57ee11b0a563e34d5700b06",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q31]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "53b3445d3b8049beeb3ce1ab90fa990aa90826026450ceaf926d2a5b6dbb668d"
+    },
+    "z": "ZA+ZC+ZD",
+    "checkpoint": "loc(D>A>C)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q31:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B31",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B31",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B31;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B31;Core)",
+    "z_binding": "ZA+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Air)+Z(Earth)",
+    "check_key": "loc(D>A>C)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q31]",
+    "replay_seed_id": "RS[Q31]",
+    "witness_seed": {
+      "seed_id": "WS[Q31]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B31",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B31",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B31;Core)"
+      },
+      "hash": "5b797a2059852a77e8f299cb5eb466df29e03bc7d57ee11b0a563e34d5700b06",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q31]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B31",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B31",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B31;Core)"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "53b3445d3b8049beeb3ce1ab90fa990aa90826026450ceaf926d2a5b6dbb668d"
+    }
+  }
+]
+```
+
+### Q32 :: slot `49/65`
+- Source set: `['B', 'C', 'D']`
+- Z alias: `ZB+ZC+ZD`
+- Z expanded: `Z(Water)+Z(Air)+Z(Earth)`
+- Check key: `loc(C>B>D)`
+- Route key: `rtL`
+- Route path: `AppA>AppI>AppM>AppF>AppN>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q32:spin",
+    "binding_id": "Q32:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B32",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B32;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q32]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B32",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B32",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B32;Core)"
+      },
+      "hash": "14fa276e0b10b7d7a9bffe1dad41ca62250ce065687886e75a4c2e26bef9eac7",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q32]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "46f3b890db9bc6e9e1cb209d4d23cd6e0d5a9deac0b59b89a488ba9ff88baa31"
+    },
+    "z": "ZB+ZC+ZD",
+    "checkpoint": "loc(C>B>D)",
+    "route_id": "rtL",
+    "route_path": "AppA>AppI>AppM>AppF>AppN>Ch21<0110>",
+    "orientation_id": "Q32:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B32",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B32",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B32;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B32;Core)",
+    "z_binding": "ZB+ZC+ZD",
+    "z_expanded": "Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "loc(C>B>D)",
+    "route_key": "rtL",
+    "witness_seed_id": "WS[Q32]",
+    "replay_seed_id": "RS[Q32]",
+    "witness_seed": {
+      "seed_id": "WS[Q32]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B32",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B32",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B32;Core)"
+      },
+      "hash": "14fa276e0b10b7d7a9bffe1dad41ca62250ce065687886e75a4c2e26bef9eac7",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q32]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B32",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B32",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B32;Core)"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtL",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "46f3b890db9bc6e9e1cb209d4d23cd6e0d5a9deac0b59b89a488ba9ff88baa31"
+    }
+  }
+]
+```
+
+### Q33 :: slot `50/65`
+- Source set: `['A', 'B', 'C', 'D']`
+- Z alias: `ZA+ZB+ZC+ZD`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Air)+Z(Earth)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-core operator shell`
+
+```json
+[
+  {
+    "pointer_id": "Q33:spin",
+    "binding_id": "Q33:spin",
+    "binding_key": "spin",
+    "AE": {
+      "lens": "F",
+      "phase": "Q4",
+      "bundle": "B33",
+      "slot": "Core"
+    },
+    "Location": "AE=(F,Q4,B33;Core)",
+    "phase_id": "Phi2",
+    "phase_label": "Q4",
+    "orientation": "spin",
+    "hidden_pole": null,
+    "slot": "Core",
+    "WitnessPtr": {
+      "seed_id": "WS[Q33]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B33",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B33",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B33;Core)"
+      },
+      "hash": "01080a90c99a44651d4f5cdfb874c43c31a2421f7d01f185ab0f1af3df5ed663",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[Q33]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "1444145075b50427e22111ff9e38a1bce33a7aa67427a5c4b15a907342da728b"
+    },
+    "z": "ZA+ZB+ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "Q33:spin",
+    "orientation_name": "spin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "Q4",
+      "Bundle": "B33",
+      "Slot": "Core",
+      "lens": "F",
+      "phase": "Q4",
+      "phase_id": "Phi2",
+      "phase_label": "Q4",
+      "bundle": "B33",
+      "slot": "Core",
+      "canonical_key": "AE=(F,Q4,B33;Core)"
+    },
+    "ae_token": "AE=(F,Q4,B33;Core)",
+    "z_binding": "ZA+ZB+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[Q33]",
+    "replay_seed_id": "RS[Q33]",
+    "witness_seed": {
+      "seed_id": "WS[Q33]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "Q4",
+        "Bundle": "B33",
+        "Slot": "Core",
+        "lens": "F",
+        "phase": "Q4",
+        "phase_id": "Phi2",
+        "phase_label": "Q4",
+        "bundle": "B33",
+        "slot": "Core",
+        "canonical_key": "AE=(F,Q4,B33;Core)"
+      },
+      "hash": "01080a90c99a44651d4f5cdfb874c43c31a2421f7d01f185ab0f1af3df5ed663",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[Q33]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "Q4",
+          "Bundle": "B33",
+          "Slot": "Core",
+          "lens": "F",
+          "phase": "Q4",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "bundle": "B33",
+          "slot": "Core",
+          "canonical_key": "AE=(F,Q4,B33;Core)"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Core"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "1444145075b50427e22111ff9e38a1bce33a7aa67427a5c4b15a907342da728b"
+    }
+  }
+]
+```
+
+## Base-3 T3 Residual Records
+
+### T01 :: slot `51/65`
+- Source set: `['A']`
+- Z alias: `ZA`
+- Z expanded: `Z(Fire)`
+- Check key: `loc(A)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `C`
+
+```json
+[
+  {
+    "pointer_id": "T01:antispin",
+    "binding_id": "T01:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B01",
+      "slot": "Residual",
+      "hidden_pole": "C"
+    },
+    "Location": "AE=(F,T3,B01:h=C;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "C",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T01]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B01",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B01",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "fd0adcd7f7b862505146756ff1542c3685fe8d19b6fd2c8bfdff54aa8f4847a0",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T01]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B01",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B01",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B01",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B01",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "2dc0baaa7923692e3d0e979ae223595932ad29b21b53e1f5af9d6ee64572eadb"
+    },
+    "z": "ZA",
+    "checkpoint": "loc(A)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T01:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B01",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B01",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+      "hidden_pole": "C",
+      "HiddenPole": "C"
+    },
+    "ae_token": "AE=(F,T3,B01:h=C;Residual)",
+    "z_binding": "ZA",
+    "z_expanded": "Z(Fire)",
+    "check_key": "loc(A)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T01]",
+    "replay_seed_id": "RS[T01]",
+    "witness_seed": {
+      "seed_id": "WS[T01]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B01",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B01",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "fd0adcd7f7b862505146756ff1542c3685fe8d19b6fd2c8bfdff54aa8f4847a0",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T01]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B01",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B01",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B01",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B01",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA",
+        "check_key": "loc(A)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "2dc0baaa7923692e3d0e979ae223595932ad29b21b53e1f5af9d6ee64572eadb"
+    }
+  }
+]
+```
+
+### T02 :: slot `52/65`
+- Source set: `['B']`
+- Z alias: `ZB`
+- Z expanded: `Z(Water)`
+- Check key: `loc(B)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T02:antispin",
+    "binding_id": "T02:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B02",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B02:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T02]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B02",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B02",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "c57773ffe96e3eab3014d2083b3e9daa5354324ddc6ab042ee9ddd9d8012f4b4",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T02]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B02",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B02",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B02",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B02",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "97a1868323ea7f08fd09116f56d1a2b5fdb084fc3597b095b820d057f68141c3"
+    },
+    "z": "ZB",
+    "checkpoint": "loc(B)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T02:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B02",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B02",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B02:h=A;Residual)",
+    "z_binding": "ZB",
+    "z_expanded": "Z(Water)",
+    "check_key": "loc(B)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T02]",
+    "replay_seed_id": "RS[T02]",
+    "witness_seed": {
+      "seed_id": "WS[T02]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B02",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B02",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "c57773ffe96e3eab3014d2083b3e9daa5354324ddc6ab042ee9ddd9d8012f4b4",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T02]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B02",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B02",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B02",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B02",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB",
+        "check_key": "loc(B)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "97a1868323ea7f08fd09116f56d1a2b5fdb084fc3597b095b820d057f68141c3"
+    }
+  }
+]
+```
+
+### T03 :: slot `53/65`
+- Source set: `['A', 'B']`
+- Z alias: `ZA+ZB`
+- Z expanded: `Z(Fire)+Z(Water)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `C`
+
+```json
+[
+  {
+    "pointer_id": "T03:antispin",
+    "binding_id": "T03:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B03",
+      "slot": "Residual",
+      "hidden_pole": "C"
+    },
+    "Location": "AE=(F,T3,B03:h=C;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "C",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T03]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B03",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B03",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "04b7b062df53e64233b75844c9068c03d988dda440368bc91b01482f4a3cd4dd",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T03]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B03",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B03",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B03",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B03",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "445ada8fc953e0f46e8fdc68ad824e89759b3e96906a0b140affbf7783d37f6f"
+    },
+    "z": "ZA+ZB",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T03:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B03",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B03",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+      "hidden_pole": "C",
+      "HiddenPole": "C"
+    },
+    "ae_token": "AE=(F,T3,B03:h=C;Residual)",
+    "z_binding": "ZA+ZB",
+    "z_expanded": "Z(Fire)+Z(Water)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T03]",
+    "replay_seed_id": "RS[T03]",
+    "witness_seed": {
+      "seed_id": "WS[T03]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B03",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B03",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "04b7b062df53e64233b75844c9068c03d988dda440368bc91b01482f4a3cd4dd",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T03]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B03",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B03",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B03",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B03",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "445ada8fc953e0f46e8fdc68ad824e89759b3e96906a0b140affbf7783d37f6f"
+    }
+  }
+]
+```
+
+### T10 :: slot `54/65`
+- Source set: `['C']`
+- Z alias: `ZC`
+- Z expanded: `Z(Air)`
+- Check key: `loc(C)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T10:antispin",
+    "binding_id": "T10:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B10",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B10:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T10]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B10",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B10",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "193aff21f472cec5b304acf88c26097c980d4dc0c1840ee3b0eb1bd744789d73",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T10]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B10",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B10",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B10",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B10",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "db9f75569dba53ecab619f38828c4e793080234f32a1a45f6f5034bec74053f5"
+    },
+    "z": "ZC",
+    "checkpoint": "loc(C)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T10:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B10",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B10",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B10:h=A;Residual)",
+    "z_binding": "ZC",
+    "z_expanded": "Z(Air)",
+    "check_key": "loc(C)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T10]",
+    "replay_seed_id": "RS[T10]",
+    "witness_seed": {
+      "seed_id": "WS[T10]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B10",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B10",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "193aff21f472cec5b304acf88c26097c980d4dc0c1840ee3b0eb1bd744789d73",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T10]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B10",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B10",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B10",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B10",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC",
+        "check_key": "loc(C)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "db9f75569dba53ecab619f38828c4e793080234f32a1a45f6f5034bec74053f5"
+    }
+  }
+]
+```
+
+### T11 :: slot `55/65`
+- Source set: `['A', 'C']`
+- Z alias: `ZA+ZC`
+- Z expanded: `Z(Fire)+Z(Air)`
+- Check key: `loc(A>C)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `B`
+
+```json
+[
+  {
+    "pointer_id": "T11:antispin",
+    "binding_id": "T11:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B11",
+      "slot": "Residual",
+      "hidden_pole": "B"
+    },
+    "Location": "AE=(F,T3,B11:h=B;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "B",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T11]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B11",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B11",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+        "hidden_pole": "B",
+        "HiddenPole": "B"
+      },
+      "hash": "fab867827595696aad51af1976508d2bf99e0a0c40a0c179823fbb3e65bb57fc",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T11]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B11",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B11",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B11",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B11",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "7f99d40c4ac50dbe814965ffddfaabe8d1f843a9f43545048a5615b36f3331fe"
+    },
+    "z": "ZA+ZC",
+    "checkpoint": "loc(A>C)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T11:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B11",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B11",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+      "hidden_pole": "B",
+      "HiddenPole": "B"
+    },
+    "ae_token": "AE=(F,T3,B11:h=B;Residual)",
+    "z_binding": "ZA+ZC",
+    "z_expanded": "Z(Fire)+Z(Air)",
+    "check_key": "loc(A>C)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T11]",
+    "replay_seed_id": "RS[T11]",
+    "witness_seed": {
+      "seed_id": "WS[T11]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B11",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B11",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+        "hidden_pole": "B",
+        "HiddenPole": "B"
+      },
+      "hash": "fab867827595696aad51af1976508d2bf99e0a0c40a0c179823fbb3e65bb57fc",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T11]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B11",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B11",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B11",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B11",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC",
+        "check_key": "loc(A>C)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "7f99d40c4ac50dbe814965ffddfaabe8d1f843a9f43545048a5615b36f3331fe"
+    }
+  }
+]
+```
+
+### T12 :: slot `56/65`
+- Source set: `['B', 'C']`
+- Z alias: `ZB+ZC`
+- Z expanded: `Z(Water)+Z(Air)`
+- Check key: `loc(C>B)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T12:antispin",
+    "binding_id": "T12:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B12",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B12:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T12]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B12",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B12",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "60405cd520251e6ba6a0ed730561a4201dca721237d524ed138f8ab44fcc5a0d",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T12]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B12",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B12",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B12",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B12",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "38a8422f3f9c81a771b7a62bd030805fe232ca102cf2cf516e0911c23cb70011"
+    },
+    "z": "ZB+ZC",
+    "checkpoint": "loc(C>B)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T12:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B12",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B12",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B12:h=A;Residual)",
+    "z_binding": "ZB+ZC",
+    "z_expanded": "Z(Water)+Z(Air)",
+    "check_key": "loc(C>B)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T12]",
+    "replay_seed_id": "RS[T12]",
+    "witness_seed": {
+      "seed_id": "WS[T12]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B12",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B12",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "60405cd520251e6ba6a0ed730561a4201dca721237d524ed138f8ab44fcc5a0d",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T12]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B12",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B12",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B12",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B12",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC",
+        "check_key": "loc(C>B)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "38a8422f3f9c81a771b7a62bd030805fe232ca102cf2cf516e0911c23cb70011"
+    }
+  }
+]
+```
+
+### T13 :: slot `57/65`
+- Source set: `['A', 'B', 'C']`
+- Z alias: `ZA+ZB+ZC`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Air)`
+- Check key: `loc(A>C>B)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `D`
+
+```json
+[
+  {
+    "pointer_id": "T13:antispin",
+    "binding_id": "T13:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B13",
+      "slot": "Residual",
+      "hidden_pole": "D"
+    },
+    "Location": "AE=(F,T3,B13:h=D;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "D",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T13]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B13",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B13",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+        "hidden_pole": "D",
+        "HiddenPole": "D"
+      },
+      "hash": "0a4a2ff40a400c0f0308bde9eabdfcd830c4405bda5092952bbe2e0a04303bca",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T13]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B13",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B13",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+          "hidden_pole": "D",
+          "HiddenPole": "D"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B13",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B13",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+          "hidden_pole": "D",
+          "HiddenPole": "D"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "55eca3f177e25ee7a79904a51ce332e9bbf8f8f7f5489b5edbabbcab222dd5b6"
+    },
+    "z": "ZA+ZB+ZC",
+    "checkpoint": "loc(A>C>B)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T13:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B13",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B13",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+      "hidden_pole": "D",
+      "HiddenPole": "D"
+    },
+    "ae_token": "AE=(F,T3,B13:h=D;Residual)",
+    "z_binding": "ZA+ZB+ZC",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)",
+    "check_key": "loc(A>C>B)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T13]",
+    "replay_seed_id": "RS[T13]",
+    "witness_seed": {
+      "seed_id": "WS[T13]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B13",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B13",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+        "hidden_pole": "D",
+        "HiddenPole": "D"
+      },
+      "hash": "0a4a2ff40a400c0f0308bde9eabdfcd830c4405bda5092952bbe2e0a04303bca",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T13]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B13",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B13",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+          "hidden_pole": "D",
+          "HiddenPole": "D"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B13",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B13",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+          "hidden_pole": "D",
+          "HiddenPole": "D"
+        },
+        "z_binding": "ZA+ZB+ZC",
+        "check_key": "loc(A>C>B)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "55eca3f177e25ee7a79904a51ce332e9bbf8f8f7f5489b5edbabbcab222dd5b6"
+    }
+  }
+]
+```
+
+### T20 :: slot `58/65`
+- Source set: `['D']`
+- Z alias: `ZD`
+- Z expanded: `Z(Earth)`
+- Check key: `loc(D)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T20:antispin",
+    "binding_id": "T20:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B20",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B20:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T20]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B20",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B20",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "dbf8b25504e6ecdf328d56d96922c8b771a174f32ad8913b693e58df2b3cde35",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T20]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B20",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B20",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B20",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B20",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "b48dd80299dcc8e70f0570471c69e4f0cc3efd46f225140da8b0a7d9fde9ae94"
+    },
+    "z": "ZD",
+    "checkpoint": "loc(D)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T20:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B20",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B20",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B20:h=A;Residual)",
+    "z_binding": "ZD",
+    "z_expanded": "Z(Earth)",
+    "check_key": "loc(D)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T20]",
+    "replay_seed_id": "RS[T20]",
+    "witness_seed": {
+      "seed_id": "WS[T20]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B20",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B20",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "dbf8b25504e6ecdf328d56d96922c8b771a174f32ad8913b693e58df2b3cde35",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T20]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B20",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B20",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B20",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B20",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZD",
+        "check_key": "loc(D)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "b48dd80299dcc8e70f0570471c69e4f0cc3efd46f225140da8b0a7d9fde9ae94"
+    }
+  }
+]
+```
+
+### T21 :: slot `59/65`
+- Source set: `['A', 'D']`
+- Z alias: `ZA+ZD`
+- Z expanded: `Z(Fire)+Z(Earth)`
+- Check key: `loc(D>A)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `C`
+
+```json
+[
+  {
+    "pointer_id": "T21:antispin",
+    "binding_id": "T21:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B21",
+      "slot": "Residual",
+      "hidden_pole": "C"
+    },
+    "Location": "AE=(F,T3,B21:h=C;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "C",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T21]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B21",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B21",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "f82c88a2527d25511a4045583c67e2a028671f8349a695768db9904bf16eb25b",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T21]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B21",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B21",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B21",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B21",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "861197e07cd3b40135439e5a4dea0708c8d11bf77f0bed71ff75e08a8bf3d8a1"
+    },
+    "z": "ZA+ZD",
+    "checkpoint": "loc(D>A)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T21:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B21",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B21",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+      "hidden_pole": "C",
+      "HiddenPole": "C"
+    },
+    "ae_token": "AE=(F,T3,B21:h=C;Residual)",
+    "z_binding": "ZA+ZD",
+    "z_expanded": "Z(Fire)+Z(Earth)",
+    "check_key": "loc(D>A)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T21]",
+    "replay_seed_id": "RS[T21]",
+    "witness_seed": {
+      "seed_id": "WS[T21]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B21",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B21",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "f82c88a2527d25511a4045583c67e2a028671f8349a695768db9904bf16eb25b",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T21]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B21",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B21",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B21",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B21",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZD",
+        "check_key": "loc(D>A)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "861197e07cd3b40135439e5a4dea0708c8d11bf77f0bed71ff75e08a8bf3d8a1"
+    }
+  }
+]
+```
+
+### T22 :: slot `60/65`
+- Source set: `['B', 'D']`
+- Z alias: `ZB+ZD`
+- Z expanded: `Z(Water)+Z(Earth)`
+- Check key: `loc(B>D)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T22:antispin",
+    "binding_id": "T22:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B22",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B22:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T22]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B22",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B22",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "a9093a40810624ee808cd99e3e48a6efbd6d12f29bb944380b9e3b10ed916337",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T22]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B22",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B22",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B22",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B22",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "bbda6b67e20af695ccbe88c9fba37a15633fd88db6f33d53efa37bfd5bf92e5e"
+    },
+    "z": "ZB+ZD",
+    "checkpoint": "loc(B>D)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T22:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B22",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B22",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B22:h=A;Residual)",
+    "z_binding": "ZB+ZD",
+    "z_expanded": "Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T22]",
+    "replay_seed_id": "RS[T22]",
+    "witness_seed": {
+      "seed_id": "WS[T22]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B22",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B22",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "a9093a40810624ee808cd99e3e48a6efbd6d12f29bb944380b9e3b10ed916337",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T22]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B22",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B22",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B22",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B22",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZD",
+        "check_key": "loc(B>D)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "bbda6b67e20af695ccbe88c9fba37a15633fd88db6f33d53efa37bfd5bf92e5e"
+    }
+  }
+]
+```
+
+### T23 :: slot `61/65`
+- Source set: `['A', 'B', 'D']`
+- Z alias: `ZA+ZB+ZD`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Earth)`
+- Check key: `loc(B>D>A)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `C`
+
+```json
+[
+  {
+    "pointer_id": "T23:antispin",
+    "binding_id": "T23:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B23",
+      "slot": "Residual",
+      "hidden_pole": "C"
+    },
+    "Location": "AE=(F,T3,B23:h=C;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "C",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T23]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B23",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B23",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "48e0c7e48d0e8a00eb3acf243be1f0bef976a112b912704f3e92926c3c550603",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T23]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B23",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B23",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B23",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B23",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "77e28b8e00d77de4b27631b4f5f875423afc16a0ee94815ad851d81ec1fdfc4e"
+    },
+    "z": "ZA+ZB+ZD",
+    "checkpoint": "loc(B>D>A)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T23:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B23",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B23",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+      "hidden_pole": "C",
+      "HiddenPole": "C"
+    },
+    "ae_token": "AE=(F,T3,B23:h=C;Residual)",
+    "z_binding": "ZA+ZB+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Earth)",
+    "check_key": "loc(B>D>A)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T23]",
+    "replay_seed_id": "RS[T23]",
+    "witness_seed": {
+      "seed_id": "WS[T23]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B23",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B23",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+        "hidden_pole": "C",
+        "HiddenPole": "C"
+      },
+      "hash": "48e0c7e48d0e8a00eb3acf243be1f0bef976a112b912704f3e92926c3c550603",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T23]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B23",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B23",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B23",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B23",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+          "hidden_pole": "C",
+          "HiddenPole": "C"
+        },
+        "z_binding": "ZA+ZB+ZD",
+        "check_key": "loc(B>D>A)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "77e28b8e00d77de4b27631b4f5f875423afc16a0ee94815ad851d81ec1fdfc4e"
+    }
+  }
+]
+```
+
+### T30 :: slot `62/65`
+- Source set: `['C', 'D']`
+- Z alias: `ZC+ZD`
+- Z expanded: `Z(Air)+Z(Earth)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T30:antispin",
+    "binding_id": "T30:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B30",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B30:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T30]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B30",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B30",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "99c8ab7bc01d636169a01a587b35197ef6d679d10112454603f63e13be988ecb",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T30]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B30",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B30",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B30",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B30",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "136583f20552dc076c025caede9e52a844a9e04014dc460564ac6198183af1aa"
+    },
+    "z": "ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T30:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B30",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B30",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B30:h=A;Residual)",
+    "z_binding": "ZC+ZD",
+    "z_expanded": "Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T30]",
+    "replay_seed_id": "RS[T30]",
+    "witness_seed": {
+      "seed_id": "WS[T30]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B30",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B30",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "99c8ab7bc01d636169a01a587b35197ef6d679d10112454603f63e13be988ecb",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T30]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B30",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B30",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B30",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B30",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "136583f20552dc076c025caede9e52a844a9e04014dc460564ac6198183af1aa"
+    }
+  }
+]
+```
+
+### T31 :: slot `63/65`
+- Source set: `['A', 'C', 'D']`
+- Z alias: `ZA+ZC+ZD`
+- Z expanded: `Z(Fire)+Z(Air)+Z(Earth)`
+- Check key: `loc(D>A>C)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `B`
+
+```json
+[
+  {
+    "pointer_id": "T31:antispin",
+    "binding_id": "T31:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B31",
+      "slot": "Residual",
+      "hidden_pole": "B"
+    },
+    "Location": "AE=(F,T3,B31:h=B;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "B",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T31]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B31",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B31",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+        "hidden_pole": "B",
+        "HiddenPole": "B"
+      },
+      "hash": "b3b36fa65d68c16f1b82b7d9a94009f6b536f2a1a5c3a1f2b460a76ab3fa398c",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T31]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B31",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B31",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B31",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B31",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "6993dfaa5fd7ccbf3d862f4b9a78c6ffa235cb225bb52b299d97b6128106a7b8"
+    },
+    "z": "ZA+ZC+ZD",
+    "checkpoint": "loc(D>A>C)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T31:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B31",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B31",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+      "hidden_pole": "B",
+      "HiddenPole": "B"
+    },
+    "ae_token": "AE=(F,T3,B31:h=B;Residual)",
+    "z_binding": "ZA+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Air)+Z(Earth)",
+    "check_key": "loc(D>A>C)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T31]",
+    "replay_seed_id": "RS[T31]",
+    "witness_seed": {
+      "seed_id": "WS[T31]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B31",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B31",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+        "hidden_pole": "B",
+        "HiddenPole": "B"
+      },
+      "hash": "b3b36fa65d68c16f1b82b7d9a94009f6b536f2a1a5c3a1f2b460a76ab3fa398c",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T31]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B31",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B31",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B31",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B31",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+          "hidden_pole": "B",
+          "HiddenPole": "B"
+        },
+        "z_binding": "ZA+ZC+ZD",
+        "check_key": "loc(D>A>C)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "6993dfaa5fd7ccbf3d862f4b9a78c6ffa235cb225bb52b299d97b6128106a7b8"
+    }
+  }
+]
+```
+
+### T32 :: slot `64/65`
+- Source set: `['B', 'C', 'D']`
+- Z alias: `ZB+ZC+ZD`
+- Z expanded: `Z(Water)+Z(Air)+Z(Earth)`
+- Check key: `loc(C>B>D)`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T32:antispin",
+    "binding_id": "T32:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B32",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B32:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T32]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B32",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B32",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "0a144e365b6f69d12aed20f848b463ddaa34f0dfe8307d5dd0ae3e4f26890f86",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T32]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B32",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B32",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B32",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B32",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "4d1dfa2a633152e929535f5c03304bccc560014c14bbc24fc6073a990e1d579c"
+    },
+    "z": "ZB+ZC+ZD",
+    "checkpoint": "loc(C>B>D)",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T32:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B32",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B32",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B32:h=A;Residual)",
+    "z_binding": "ZB+ZC+ZD",
+    "z_expanded": "Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "loc(C>B>D)",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T32]",
+    "replay_seed_id": "RS[T32]",
+    "witness_seed": {
+      "seed_id": "WS[T32]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B32",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B32",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "0a144e365b6f69d12aed20f848b463ddaa34f0dfe8307d5dd0ae3e4f26890f86",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T32]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B32",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B32",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B32",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B32",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZB+ZC+ZD",
+        "check_key": "loc(C>B>D)",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "4d1dfa2a633152e929535f5c03304bccc560014c14bbc24fc6073a990e1d579c"
+    }
+  }
+]
+```
+
+### T33 :: slot `65/65`
+- Source set: `['A', 'B', 'C', 'D']`
+- Z alias: `ZA+ZB+ZC+ZD`
+- Z expanded: `Z(Fire)+Z(Water)+Z(Air)+Z(Earth)`
+- Check key: `Z*`
+- Route key: `rtZ`
+- Route path: `AppA>AppI>AppM>AppF>AppG>Ch21<0110>`
+- Packaging status: `flower-residual t3 shell`
+- Hidden pole: `A`
+
+```json
+[
+  {
+    "pointer_id": "T33:antispin",
+    "binding_id": "T33:antispin",
+    "binding_key": "antispin",
+    "AE": {
+      "lens": "F",
+      "phase": "T3",
+      "bundle": "B33",
+      "slot": "Residual",
+      "hidden_pole": "A"
+    },
+    "Location": "AE=(F,T3,B33:h=A;Residual)",
+    "phase_id": "Phi3",
+    "phase_label": "T3",
+    "orientation": "antispin",
+    "hidden_pole": "A",
+    "slot": "Residual",
+    "WitnessPtr": {
+      "seed_id": "WS[T33]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B33",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B33",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "dd68be0a6b802ff714cef7739f7ae0eab3dd27e1087b0ba9d5981be7c1599118",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "ReplayPtr": {
+      "seed_id": "RS[T33]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B33",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B33",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B33",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B33",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "f81d7934b84e831331b6b4139be37deae71ed5d63801815ef55fe6b03de14ea1"
+    },
+    "z": "ZA+ZB+ZC+ZD",
+    "checkpoint": "Z*",
+    "route_id": "rtZ",
+    "route_path": "AppA>AppI>AppM>AppF>AppG>Ch21<0110>",
+    "orientation_id": "T33:antispin",
+    "orientation_name": "antispin",
+    "ae_coord": {
+      "Lens": "F",
+      "Phase": "T3",
+      "Bundle": "B33",
+      "Slot": "Residual",
+      "lens": "F",
+      "phase": "T3",
+      "phase_id": "Phi3",
+      "phase_label": "T3",
+      "bundle": "B33",
+      "slot": "Residual",
+      "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+      "hidden_pole": "A",
+      "HiddenPole": "A"
+    },
+    "ae_token": "AE=(F,T3,B33:h=A;Residual)",
+    "z_binding": "ZA+ZB+ZC+ZD",
+    "z_expanded": "Z(Fire)+Z(Water)+Z(Air)+Z(Earth)",
+    "check_key": "Z*",
+    "route_key": "rtZ",
+    "witness_seed_id": "WS[T33]",
+    "replay_seed_id": "RS[T33]",
+    "witness_seed": {
+      "seed_id": "WS[T33]",
+      "type": "INTERNAL_SLICE",
+      "location": {
+        "Lens": "F",
+        "Phase": "T3",
+        "Bundle": "B33",
+        "Slot": "Residual",
+        "lens": "F",
+        "phase": "T3",
+        "phase_id": "Phi3",
+        "phase_label": "T3",
+        "bundle": "B33",
+        "slot": "Residual",
+        "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+        "hidden_pole": "A",
+        "HiddenPole": "A"
+      },
+      "hash": "dd68be0a6b802ff714cef7739f7ae0eab3dd27e1087b0ba9d5981be7c1599118",
+      "scope": [
+        "OPS",
+        "DEFINE",
+        "SYSTEM"
+      ],
+      "timestamp": "Tick_2B",
+      "collector": "SYSTEM",
+      "version_pins": "V_2B"
+    },
+    "replay_seed": {
+      "seed_id": "RS[T33]",
+      "inputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B33",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B33",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ"
+      },
+      "steps": [
+        "ResolveZ",
+        "ExpandAE",
+        "RouteV2",
+        "SlotCheck"
+      ],
+      "expected_outputs": {
+        "ae_coord": {
+          "Lens": "F",
+          "Phase": "T3",
+          "Bundle": "B33",
+          "Slot": "Residual",
+          "lens": "F",
+          "phase": "T3",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "bundle": "B33",
+          "slot": "Residual",
+          "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+          "hidden_pole": "A",
+          "HiddenPole": "A"
+        },
+        "z_binding": "ZA+ZB+ZC+ZD",
+        "check_key": "Z*",
+        "route_key": "rtZ",
+        "slot": "Residual"
+      },
+      "checks": [
+        "Sigma",
+        "Hub<=6",
+        "ZMatch"
+      ],
+      "env_pin": "E_2B",
+      "hash": "f81d7934b84e831331b6b4139be37deae71ed5d63801815ef55fe6b03de14ea1"
+    }
+  }
+]
+```

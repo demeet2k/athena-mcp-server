@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-03-13T05:04:28.766480+00:00",
+  "derivation_version": "2026-03-13.q42-flower-pass-v1",
+  "truth": "OK",
+  "flower_core_status": "OK",
+  "external_gate_overlay_status": "blocked-by-missing-credentials",
+  "flower_activation_status": "OK",
+  "cloud_truth": "OK",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "verifier_truth": {
+    "qshrink_runtime_verification": "OK",
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK",
+    "runtime_waist": "OK"
+  },
+  "next_restart_seed": "QS64-19 Connectivity-Diagnose-Cloud"
+}

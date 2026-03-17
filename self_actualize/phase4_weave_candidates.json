@@ -1,0 +1,390 @@
+{
+  "generated_at": "2026-03-13T20:44:21.903232+00:00",
+  "derivation_version": "2026-03-12.phase4-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\28_PHASE4_WEAVE_CANDIDATE_LEDGER.md",
+  "candidates": [
+    {
+      "weave_id": "WV-0001",
+      "src": "A17",
+      "dst": "A07",
+      "expected_gain": 0.841,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-06",
+        "SC-08",
+        "SC-09",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A17",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "source_surface": "Stoicheia (Element Sudoku)",
+      "target_surface": "Trading Bot",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Repairs coverage_gap on Stoicheia (Element Sudoku) by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "weave_id": "WV-0002",
+      "src": "A18",
+      "dst": "A07",
+      "expected_gain": 0.827,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-06",
+        "SC-08",
+        "SC-09",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A18",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "source_surface": "CLEAN",
+      "target_surface": "Trading Bot",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Repairs coverage_gap on CLEAN by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "weave_id": "WV-0003",
+      "src": "A11",
+      "dst": "A07",
+      "expected_gain": 0.786,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-06",
+        "SC-08",
+        "SC-09",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A11",
+        "GCR",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "source_surface": "FRESH",
+      "target_surface": "Trading Bot",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Repairs coverage_gap on FRESH by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "weave_id": "WV-0004",
+      "src": "A08",
+      "dst": "A07",
+      "expected_gain": 0.786,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-06",
+        "SC-08",
+        "SC-09",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A08",
+        "GCL",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "source_surface": "Quadrant Binary",
+      "target_surface": "Trading Bot",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Repairs coverage_gap on Quadrant Binary by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "weave_id": "WV-0005",
+      "src": "A13",
+      "dst": "A07",
+      "expected_gain": 0.785,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-06",
+        "SC-08",
+        "SC-09",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A13",
+        "GCR",
+        "GCW",
+        "GCP",
+        "A07"
+      ],
+      "source_surface": "I AM ATHENA",
+      "target_surface": "Trading Bot",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Repairs coverage_gap on I AM ATHENA by docking it through Grand Central toward Trading Bot."
+    },
+    {
+      "weave_id": "WV-0006",
+      "src": "A19",
+      "dst": "A09",
+      "expected_gain": 0.777,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-06",
+        "SC-08",
+        "SC-09",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A19",
+        "GCL+GCR",
+        "GCW",
+        "GCC",
+        "A09"
+      ],
+      "source_surface": "mycelial_unified_nervous_system_bundle",
+      "target_surface": "QSHRINK - ATHENA (internal use)",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Repairs coverage_gap on mycelial_unified_nervous_system_bundle by docking it through Grand Central toward QSHRINK - ATHENA (internal use)."
+    },
+    {
+      "weave_id": "WV-0007",
+      "src": "P-K01-K01",
+      "dst": "P-K01-K16",
+      "expected_gain": 0.559,
+      "required_shortcuts": [
+        "SC-03",
+        "SC-07",
+        "SC-08",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "P-K01-K01",
+        "GCW",
+        "GCZ",
+        "P-K01-K16"
+      ],
+      "source_surface": "The Holographic Manuscript Brain -> The Holographic Manuscript Brain",
+      "target_surface": "The Holographic Manuscript Brain -> Ch19 Recursive Self-Reference and Self-Repair",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field."
+    },
+    {
+      "weave_id": "WV-0008",
+      "src": "P-K02-K01",
+      "dst": "P-K02-K16",
+      "expected_gain": 0.53,
+      "required_shortcuts": [
+        "SC-03",
+        "SC-07",
+        "SC-08",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "P-K02-K01",
+        "GCW",
+        "GCZ",
+        "P-K02-K16"
+      ],
+      "source_surface": "Self-Routing Meta-Framework -> The Holographic Manuscript Brain",
+      "target_surface": "Self-Routing Meta-Framework -> Ch19 Recursive Self-Reference and Self-Repair",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field."
+    },
+    {
+      "weave_id": "WV-0009",
+      "src": "P-K01-K06",
+      "dst": "P-K16-K06",
+      "expected_gain": 0.542,
+      "required_shortcuts": [
+        "SC-03",
+        "SC-07",
+        "SC-08",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "P-K01-K06",
+        "GCW",
+        "GCZ",
+        "P-K16-K06"
+      ],
+      "source_surface": "The Holographic Manuscript Brain -> Time Fractal",
+      "target_surface": "Ch19 Recursive Self-Reference and Self-Repair -> Time Fractal",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field."
+    },
+    {
+      "weave_id": "WV-0010",
+      "src": "P-K01-K12",
+      "dst": "P-K16-K12",
+      "expected_gain": 0.542,
+      "required_shortcuts": [
+        "SC-03",
+        "SC-07",
+        "SC-08",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "P-K01-K12",
+        "GCW",
+        "GCZ",
+        "P-K16-K12"
+      ],
+      "source_surface": "The Holographic Manuscript Brain -> Torat Ha-Mispar",
+      "target_surface": "Ch19 Recursive Self-Reference and Self-Repair -> Torat Ha-Mispar",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field."
+    },
+    {
+      "weave_id": "WV-0011",
+      "src": "P-K06-K01",
+      "dst": "P-K06-K16",
+      "expected_gain": 0.542,
+      "required_shortcuts": [
+        "SC-03",
+        "SC-07",
+        "SC-08",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "P-K06-K01",
+        "GCW",
+        "GCZ",
+        "P-K06-K16"
+      ],
+      "source_surface": "Time Fractal -> The Holographic Manuscript Brain",
+      "target_surface": "Time Fractal -> Ch19 Recursive Self-Reference and Self-Repair",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field."
+    },
+    {
+      "weave_id": "WV-0012",
+      "src": "P-K12-K01",
+      "dst": "P-K12-K16",
+      "expected_gain": 0.542,
+      "required_shortcuts": [
+        "SC-03",
+        "SC-07",
+        "SC-08",
+        "SC-10",
+        "SC-11",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "P-K12-K01",
+        "GCW",
+        "GCZ",
+        "P-K12-K16"
+      ],
+      "source_surface": "Torat Ha-Mispar -> The Holographic Manuscript Brain",
+      "target_surface": "Torat Ha-Mispar -> Ch19 Recursive Self-Reference and Self-Repair",
+      "status": "READY",
+      "bridge_edge_id": "",
+      "note": "Moves a neglected pair toward a lower-neglect sibling family without flattening the 16x16 field."
+    },
+    {
+      "weave_id": "WV-0013",
+      "src": "A16",
+      "dst": "A06",
+      "expected_gain": 0.94,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-04",
+        "SC-06",
+        "SC-08",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A16",
+        "GCL+GCR",
+        "GCZ",
+        "A06"
+      ],
+      "source_surface": "Athena FLEET",
+      "target_surface": "Voynich",
+      "status": "READY",
+      "bridge_edge_id": "CS-001",
+      "note": "Direct fleet-to-proof contraction lane."
+    },
+    {
+      "weave_id": "WV-0014",
+      "src": "A06",
+      "dst": "A09",
+      "expected_gain": 0.91,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-04",
+        "SC-08",
+        "SC-09",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A06",
+        "GCR",
+        "GCW",
+        "A09"
+      ],
+      "source_surface": "Voynich",
+      "target_surface": "QSHRINK - ATHENA (internal use)",
+      "status": "READY",
+      "bridge_edge_id": "CS-002",
+      "note": "Direct proof-to-compression contraction lane."
+    },
+    {
+      "weave_id": "WV-0015",
+      "src": "A16",
+      "dst": "A15",
+      "expected_gain": 0.9,
+      "required_shortcuts": [
+        "SC-01",
+        "SC-05",
+        "SC-06",
+        "SC-08",
+        "SC-13"
+      ],
+      "promotion_route": [
+        "A16",
+        "GCL+GCR",
+        "GCP",
+        "A15"
+      ],
+      "source_surface": "Athena FLEET",
+      "target_surface": "ORGIN",
+      "status": "READY",
+      "bridge_edge_id": "CS-003",
+      "note": "Direct fleet-to-origin inheritance lane."
+    }
+  ],
+  "summary": {
+    "candidate_count": 15
+  }
+}

@@ -13,6 +13,9 @@ This directory contains the cross-reference graph of the nervous system — all 
 | `REF_EDGES.md` | REF | cross-chapter dependencies | PENDING |
 | `EQUIV_EDGES.md` | EQUIV | duplicate/equivalent sources | PENDING |
 | `MIGRATE_EDGES.md` | MIGRATE | version transitions | PENDING |
+| `NEURON_SYNAPSE_BRIDGES.md` | REF, GEN, IMPL | reusable neuron library nucleus | SEEDED |
+| `AFFECTIVE_EPISTEMIC_NEURON_EDGES.md` | GEN, IMPL, PROOF | charged pair-cell to neuron-wave bridges | SEEDED |
+| `PHASE4_STRUCTURED_NEURON_EDGES.md` | REF, GEN, IMPL, PROOF | body/kernel/node/pair/wave/writeback bridge law | LIVE |
 
 ## Edge Kind Basis (closed set)
 

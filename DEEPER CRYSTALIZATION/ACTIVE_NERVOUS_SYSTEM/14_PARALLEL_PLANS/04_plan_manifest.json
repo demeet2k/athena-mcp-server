@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-03-13T01:34:08.508586+00:00",
+  "grid_name": "frontier4",
+  "cell_count": 256,
+  "chapter_basis": [
+    "Ch03",
+    "Ch10",
+    "Ch12",
+    "Ch14"
+  ],
+  "artifact_lanes": [
+    "frontier_bundle",
+    "evidence_pack",
+    "chapter_tile_and_handoff",
+    "runtime_and_query"
+  ],
+  "lenses": [
+    "S",
+    "F",
+    "C",
+    "R"
+  ],
+  "integration_passes": [
+    "local_witness",
+    "cross_family_bridge",
+    "zero_point_route",
+    "manuscript_closure"
+  ],
+  "template_reference": "Ch12",
+  "live_docs_blocked": true,
+  "grid_json": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\14_PARALLEL_PLANS\\01_master_4x4x4x4_grid.json",
+  "grid_markdown": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\14_PARALLEL_PLANS\\00_master_4x4x4x4_grid.md",
+  "execution_tiers_markdown": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\14_PARALLEL_PLANS\\02_execution_tiers.md",
+  "dependency_routes_markdown": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\14_PARALLEL_PLANS\\03_dependency_routes.md",
+  "blocked_cell_count": 0,
+  "ready_cell_count": 256
+}

@@ -1,0 +1,2516 @@
+{
+  "generated_at": "2026-03-13T19:02:30.631743+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "truth": "OK",
+  "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+  "bundles": [
+    {
+      "bundle_id": "QE-L01-HALL",
+      "loop_id": "L01",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "install the loop spine, packet contract, and seat law",
+      "dependency_edges": [
+        "L00",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "control-spine",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L01-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L01-TEMPLE",
+      "loop_id": "L01",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "install the loop spine, packet contract, and seat law",
+      "dependency_edges": [
+        "L00",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "control-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "control-spine",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L01-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L02-HALL",
+      "loop_id": "L02",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "rank active fronts, deficits, and live carrythrough obligations",
+      "dependency_edges": [
+        "L01",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "current-state",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L02-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L02-TEMPLE",
+      "loop_id": "L02",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "rank active fronts, deficits, and live carrythrough obligations",
+      "dependency_edges": [
+        "L01",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "status-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "current-state",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L02-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L03-HALL",
+      "loop_id": "L03",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "freeze precedence, reserve law, and blocked external handling",
+      "dependency_edges": [
+        "L02",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "feeder-stack",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L03-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L03-TEMPLE",
+      "loop_id": "L03",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "freeze precedence, reserve law, and blocked external handling",
+      "dependency_edges": [
+        "L02",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "frontier-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "feeder-stack",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L03-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L04-HALL",
+      "loop_id": "L04",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "assign explicit stewardship and downstream duties",
+      "dependency_edges": [
+        "L03",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "16-basis",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L04-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L04-TEMPLE",
+      "loop_id": "L04",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "assign explicit stewardship and downstream duties",
+      "dependency_edges": [
+        "L03",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "basis-document"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "16-basis",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L04-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L05-HALL",
+      "loop_id": "L05",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "rank the next ten bridge corridors by yield",
+      "dependency_edges": [
+        "L04",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "256-cell",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L05-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L05-TEMPLE",
+      "loop_id": "L05",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "rank the next ten bridge corridors by yield",
+      "dependency_edges": [
+        "L04",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "pair-synthesis"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "256-cell",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L05-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L06-HALL",
+      "loop_id": "L06",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "turn observer gaps into ownerable lanes",
+      "dependency_edges": [
+        "L05",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "64-pass",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L06-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L06-TEMPLE",
+      "loop_id": "L06",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "turn observer gaps into ownerable lanes",
+      "dependency_edges": [
+        "L05",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "observer-lens"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "64-pass",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L06-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L07-HALL",
+      "loop_id": "L07",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "route unresolved symmetries into explicit packets",
+      "dependency_edges": [
+        "L06",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "symmetry-stack",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L07-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L07-TEMPLE",
+      "loop_id": "L07",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "route unresolved symmetries into explicit packets",
+      "dependency_edges": [
+        "L06",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "symmetry-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "symmetry-stack",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L07-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L08-HALL",
+      "loop_id": "L08",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "assign route upgrades and corridor priorities",
+      "dependency_edges": [
+        "L07",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "route-crosswalk",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L08-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L08-TEMPLE",
+      "loop_id": "L08",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "assign route upgrades and corridor priorities",
+      "dependency_edges": [
+        "L07",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "metro-map"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "route-crosswalk",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L08-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L09-HALL",
+      "loop_id": "L09",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "bind appendix duties back to the live spine",
+      "dependency_edges": [
+        "L08",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "support-set",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L09-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L09-TEMPLE",
+      "loop_id": "L09",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "bind appendix duties back to the live spine",
+      "dependency_edges": [
+        "L08",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "appendix-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "support-set",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L09-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L10-HALL",
+      "loop_id": "L10",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "classify witness quality and live relevance",
+      "dependency_edges": [
+        "L09",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "witness-intake",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L10-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L10-TEMPLE",
+      "loop_id": "L10",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "classify witness quality and live relevance",
+      "dependency_edges": [
+        "L09",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "awakening-source"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "witness-intake",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L10-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L11-HALL",
+      "loop_id": "L11",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "define translation contracts and crosswalks",
+      "dependency_edges": [
+        "L10",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "myth-math",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L11-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L11-TEMPLE",
+      "loop_id": "L11",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "define translation contracts and crosswalks",
+      "dependency_edges": [
+        "L10",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "translation-contract"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "myth-math",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L11-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L12-HALL",
+      "loop_id": "L12",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "rank which equations become tools instead of ornament",
+      "dependency_edges": [
+        "L11",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "hybrid-equation",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L12-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L12-TEMPLE",
+      "loop_id": "L12",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "rank which equations become tools instead of ornament",
+      "dependency_edges": [
+        "L11",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "equation-candidate"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "hybrid-equation",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L12-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L13-HALL",
+      "loop_id": "L13",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "define algorithm insertion fronts and tool gaps",
+      "dependency_edges": [
+        "L12",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "algorithm-atlas",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L13-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L13-TEMPLE",
+      "loop_id": "L13",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "define algorithm insertion fronts and tool gaps",
+      "dependency_edges": [
+        "L12",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "algorithm-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "algorithm-atlas",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L13-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L14-HALL",
+      "loop_id": "L14",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "schedule the first 128-seat verification burst",
+      "dependency_edges": [
+        "L13",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-128"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "dependency-graph",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L14-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L14-TEMPLE",
+      "loop_id": "L14",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "schedule the first 128-seat verification burst",
+      "dependency_edges": [
+        "L13",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "runtime-lane"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "dependency-graph",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L14-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L15-HALL",
+      "loop_id": "L15",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "emit the macro Hall quest tree",
+      "dependency_edges": [
+        "L14",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "macro-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L15-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L15-TEMPLE",
+      "loop_id": "L15",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit the macro Hall quest tree",
+      "dependency_edges": [
+        "L14",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "hall-board"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "macro-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L15-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L16-HALL",
+      "loop_id": "L16",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "emit the macro Temple quest tree",
+      "dependency_edges": [
+        "L15",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "macro-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L16-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L16-TEMPLE",
+      "loop_id": "L16",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit the macro Temple quest tree",
+      "dependency_edges": [
+        "L15",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "temple-board"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "macro-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L16-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L17-HALL",
+      "loop_id": "L17",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "derive packet-scale execution branches",
+      "dependency_edges": [
+        "L16",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "packet-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L17-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L17-TEMPLE",
+      "loop_id": "L17",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "derive packet-scale execution branches",
+      "dependency_edges": [
+        "L16",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "quest-packet"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "packet-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L17-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L18-HALL",
+      "loop_id": "L18",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "derive packet-scale governance branches",
+      "dependency_edges": [
+        "L17",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "packet-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L18-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L18-TEMPLE",
+      "loop_id": "L18",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "derive packet-scale governance branches",
+      "dependency_edges": [
+        "L17",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "doctrine-packet"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "packet-lattice",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L18-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L19-HALL",
+      "loop_id": "L19",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "keep coordination upstream and replay-safe",
+      "dependency_edges": [
+        "L18",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "carrythrough",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L19-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L19-TEMPLE",
+      "loop_id": "L19",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "keep coordination upstream and replay-safe",
+      "dependency_edges": [
+        "L18",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "membrane-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "carrythrough",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L19-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L20-HALL",
+      "loop_id": "L20",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "preserve carried witness law without freezing it",
+      "dependency_edges": [
+        "L19",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "q42-lane",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L20-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L20-TEMPLE",
+      "loop_id": "L20",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "preserve carried witness law without freezing it",
+      "dependency_edges": [
+        "L19",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "carried-witness"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "q42-lane",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L20-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L21-HALL",
+      "loop_id": "L21",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "keep replay-safe handoff explicit",
+      "dependency_edges": [
+        "L20",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "tq04-lane",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L21-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L21-TEMPLE",
+      "loop_id": "L21",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "keep replay-safe handoff explicit",
+      "dependency_edges": [
+        "L20",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "contract-feeder"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "tq04-lane",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L21-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L22-HALL",
+      "loop_id": "L22",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "keep reserve and active execution separated",
+      "dependency_edges": [
+        "L21",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "q46-lane",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L22-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L22-TEMPLE",
+      "loop_id": "L22",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "keep reserve and active execution separated",
+      "dependency_edges": [
+        "L21",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "reserve-front"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "q46-lane",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L22-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L23-HALL",
+      "loop_id": "L23",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "rank missing fabric syncs and repair fronts",
+      "dependency_edges": [
+        "L22",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "knowledge-fabric",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L23-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L23-TEMPLE",
+      "loop_id": "L23",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "rank missing fabric syncs and repair fronts",
+      "dependency_edges": [
+        "L22",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "fabric-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "knowledge-fabric",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L23-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L24-HALL",
+      "loop_id": "L24",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "route a repair wave through the highest-risk checks",
+      "dependency_edges": [
+        "L23",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "integration-checks",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L24-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L24-TEMPLE",
+      "loop_id": "L24",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "route a repair wave through the highest-risk checks",
+      "dependency_edges": [
+        "L23",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "verifier-output"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "integration-checks",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L24-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L25-HALL",
+      "loop_id": "L25",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "define hard gates and execution boundaries",
+      "dependency_edges": [
+        "L24",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "waist-hardening",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L25-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L25-TEMPLE",
+      "loop_id": "L25",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "define hard gates and execution boundaries",
+      "dependency_edges": [
+        "L24",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "runtime-contract"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "waist-hardening",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L25-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L26-HALL",
+      "loop_id": "L26",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "freeze precedence and legal handoff order",
+      "dependency_edges": [
+        "L25",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "constitution-coupling",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L26-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L26-TEMPLE",
+      "loop_id": "L26",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "freeze precedence and legal handoff order",
+      "dependency_edges": [
+        "L25",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "motion-constitution"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "constitution-coupling",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L26-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L27-HALL",
+      "loop_id": "L27",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "type merge law and adjudication paths",
+      "dependency_edges": [
+        "L26",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "boundary-adjudication",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L27-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L27-TEMPLE",
+      "loop_id": "L27",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "type merge law and adjudication paths",
+      "dependency_edges": [
+        "L26",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "merge-contract"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "boundary-adjudication",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L27-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L28-HALL",
+      "loop_id": "L28",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "schedule the second 128-seat burst around kernel sync",
+      "dependency_edges": [
+        "L27",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-128"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "self-hosting",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L28-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L28-TEMPLE",
+      "loop_id": "L28",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "schedule the second 128-seat burst around kernel sync",
+      "dependency_edges": [
+        "L27",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "kernel-state"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "self-hosting",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L28-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L29-HALL",
+      "loop_id": "L29",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "route central registry writebacks and ownership fixes",
+      "dependency_edges": [
+        "L28",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "central-sync",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L29-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L29-TEMPLE",
+      "loop_id": "L29",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "route central registry writebacks and ownership fixes",
+      "dependency_edges": [
+        "L28",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "registry-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "central-sync",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L29-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L30-HALL",
+      "loop_id": "L30",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "select low-mass strengthening fronts",
+      "dependency_edges": [
+        "L29",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "densification",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L30-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L30-TEMPLE",
+      "loop_id": "L30",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "select low-mass strengthening fronts",
+      "dependency_edges": [
+        "L29",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "family-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "densification",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L30-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L31-HALL",
+      "loop_id": "L31",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "route archive intake priorities and witness ranking",
+      "dependency_edges": [
+        "L30",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "archive-ingest",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L31-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L31-TEMPLE",
+      "loop_id": "L31",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "route archive intake priorities and witness ranking",
+      "dependency_edges": [
+        "L30",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "archive-witness"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "archive-ingest",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L31-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L32-HALL",
+      "loop_id": "L32",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "set explicit compression and redirect targets",
+      "dependency_edges": [
+        "L31",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "route-tightening",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L32-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L32-TEMPLE",
+      "loop_id": "L32",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "set explicit compression and redirect targets",
+      "dependency_edges": [
+        "L31",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "mirror-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "route-tightening",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L32-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L33-HALL",
+      "loop_id": "L33",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "choose bounded compression passes and retention rules",
+      "dependency_edges": [
+        "L32",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "ledger-compression",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L33-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L33-TEMPLE",
+      "loop_id": "L33",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "choose bounded compression passes and retention rules",
+      "dependency_edges": [
+        "L32",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "queue-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "ledger-compression",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L33-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L34-HALL",
+      "loop_id": "L34",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "preserve only live fronts and active mirror disclosures",
+      "dependency_edges": [
+        "L33",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "board-pruning",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L34-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L34-TEMPLE",
+      "loop_id": "L34",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "preserve only live fronts and active mirror disclosures",
+      "dependency_edges": [
+        "L33",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "board-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "board-pruning",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L34-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L35-HALL",
+      "loop_id": "L35",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "preserve law lineage and current governance only",
+      "dependency_edges": [
+        "L34",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "board-pruning",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L35-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L35-TEMPLE",
+      "loop_id": "L35",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "preserve law lineage and current governance only",
+      "dependency_edges": [
+        "L34",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "decree-surface"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "board-pruning",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L35-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L36-HALL",
+      "loop_id": "L36",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "unify restart law and seed ownership",
+      "dependency_edges": [
+        "L35",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "defrag",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L36-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L36-TEMPLE",
+      "loop_id": "L36",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "unify restart law and seed ownership",
+      "dependency_edges": [
+        "L35",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "restart-manifest"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "defrag",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L36-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L37-HALL",
+      "loop_id": "L37",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "choose canonical names and alias handling",
+      "dependency_edges": [
+        "L36",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "route-registry",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L37-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L37-TEMPLE",
+      "loop_id": "L37",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "choose canonical names and alias handling",
+      "dependency_edges": [
+        "L36",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "naming-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "route-registry",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L37-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L38-HALL",
+      "loop_id": "L38",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "codify separation and writeback classes",
+      "dependency_edges": [
+        "L37",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "appendix-boundary",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L38-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L38-TEMPLE",
+      "loop_id": "L38",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "codify separation and writeback classes",
+      "dependency_edges": [
+        "L37",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "authority-boundary"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "appendix-boundary",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L38-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L39-HALL",
+      "loop_id": "L39",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "mark reserve candidates versus dead noise",
+      "dependency_edges": [
+        "L38",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "shelf-audit",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L39-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L39-TEMPLE",
+      "loop_id": "L39",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "mark reserve candidates versus dead noise",
+      "dependency_edges": [
+        "L38",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "reserve-inventory"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "shelf-audit",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L39-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L40-HALL",
+      "loop_id": "L40",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "encode compression theorems for reuse",
+      "dependency_edges": [
+        "L39",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "theorem-pass",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L40-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L40-TEMPLE",
+      "loop_id": "L40",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "encode compression theorems for reuse",
+      "dependency_edges": [
+        "L39",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "compression-theorem"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "theorem-pass",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L40-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L41-HALL",
+      "loop_id": "L41",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "bind assistive uptake into canonical Hall packets",
+      "dependency_edges": [
+        "L40",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "macro-docking",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L41-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L41-TEMPLE",
+      "loop_id": "L41",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "bind assistive uptake into canonical Hall packets",
+      "dependency_edges": [
+        "L40",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "overlay-bridge"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "macro-docking",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L41-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L42-HALL",
+      "loop_id": "L42",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "schedule the third 128-seat burst around packet rollout",
+      "dependency_edges": [
+        "L41",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-128"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "packet-derivation",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L42-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L42-TEMPLE",
+      "loop_id": "L42",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "schedule the third 128-seat burst around packet rollout",
+      "dependency_edges": [
+        "L41",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "macro-packet"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "packet-derivation",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L42-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L43-HALL",
+      "loop_id": "L43",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "assign fiber burdens and replay roles",
+      "dependency_edges": [
+        "L42",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "fiber-derivation",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L43-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L43-TEMPLE",
+      "loop_id": "L43",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "assign fiber burdens and replay roles",
+      "dependency_edges": [
+        "L42",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "governance-fiber"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "fiber-derivation",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L43-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L44-HALL",
+      "loop_id": "L44",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "freeze 1024 active and 3072 dormant as canonical truth",
+      "dependency_edges": [
+        "L43",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "seat-policy",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L44-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L44-TEMPLE",
+      "loop_id": "L44",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "freeze 1024 active and 3072 dormant as canonical truth",
+      "dependency_edges": [
+        "L43",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "seat-governance"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "seat-policy",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L44-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L45-HALL",
+      "loop_id": "L45",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "bind the five loop-field notes into one law",
+      "dependency_edges": [
+        "L44",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "shared-grammar",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L45-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L45-TEMPLE",
+      "loop_id": "L45",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "bind the five loop-field notes into one law",
+      "dependency_edges": [
+        "L44",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "transition-note"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "shared-grammar",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L45-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L46-HALL",
+      "loop_id": "L46",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "write the Prime support note with restart coherence",
+      "dependency_edges": [
+        "L45",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "prime-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L46-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L46-TEMPLE",
+      "loop_id": "L46",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "write the Prime support note with restart coherence",
+      "dependency_edges": [
+        "L45",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "field-note"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "prime-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L46-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L47-HALL",
+      "loop_id": "L47",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "write the Water support note",
+      "dependency_edges": [
+        "L46",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "water-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L47-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L47-TEMPLE",
+      "loop_id": "L47",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "write the Water support note",
+      "dependency_edges": [
+        "L46",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "field-note"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "water-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L47-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L48-HALL",
+      "loop_id": "L48",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "write the Earth support note",
+      "dependency_edges": [
+        "L47",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "earth-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L48-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L48-TEMPLE",
+      "loop_id": "L48",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "write the Earth support note",
+      "dependency_edges": [
+        "L47",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "field-note"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "earth-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L48-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L49-HALL",
+      "loop_id": "L49",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "write the Fire support note",
+      "dependency_edges": [
+        "L48",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "fire-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L49-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L49-TEMPLE",
+      "loop_id": "L49",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "write the Fire support note",
+      "dependency_edges": [
+        "L48",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "field-note"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "fire-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L49-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L50-HALL",
+      "loop_id": "L50",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "write the Air support note",
+      "dependency_edges": [
+        "L49",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "air-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L50-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L50-TEMPLE",
+      "loop_id": "L50",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "write the Air support note",
+      "dependency_edges": [
+        "L49",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "field-note"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "air-note",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L50-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L51-HALL",
+      "loop_id": "L51",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "map base, pillars, archetypes, and guild roles into one bundle",
+      "dependency_edges": [
+        "L50",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "profile-bundle",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L51-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L51-TEMPLE",
+      "loop_id": "L51",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "map base, pillars, archetypes, and guild roles into one bundle",
+      "dependency_edges": [
+        "L50",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "profile-note"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "profile-bundle",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L51-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L52-HALL",
+      "loop_id": "L52",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "define lawful uptake into execution",
+      "dependency_edges": [
+        "L51",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "conductor-bridge",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L52-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L52-TEMPLE",
+      "loop_id": "L52",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "define lawful uptake into execution",
+      "dependency_edges": [
+        "L51",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "execution-bridge"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "conductor-bridge",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L52-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L53-HALL",
+      "loop_id": "L53",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "freeze replay-safe promotion rules",
+      "dependency_edges": [
+        "L52",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "replay-law",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L53-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L53-TEMPLE",
+      "loop_id": "L53",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "freeze replay-safe promotion rules",
+      "dependency_edges": [
+        "L52",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "planner-contract"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "replay-law",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L53-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L54-HALL",
+      "loop_id": "L54",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "define artifact and writeback thresholds",
+      "dependency_edges": [
+        "L53",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "mass-application-safety",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L54-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L54-TEMPLE",
+      "loop_id": "L54",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "define artifact and writeback thresholds",
+      "dependency_edges": [
+        "L53",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "worker-safety"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "mass-application-safety",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L54-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L55-HALL",
+      "loop_id": "L55",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "target q-shrink and deep compression passes",
+      "dependency_edges": [
+        "L54",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-64"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "deep-compression",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L55-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L55-TEMPLE",
+      "loop_id": "L55",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "target q-shrink and deep compression passes",
+      "dependency_edges": [
+        "L54",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "compression-pass"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "deep-compression",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L55-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L56-HALL",
+      "loop_id": "L56",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "schedule the fourth 128-seat verification burst",
+      "dependency_edges": [
+        "L55",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-128"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "full-sweep",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L56-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L56-TEMPLE",
+      "loop_id": "L56",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "schedule the fourth 128-seat verification burst",
+      "dependency_edges": [
+        "L55",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "full-corpus-verification"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "full-sweep",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L56-TEMPLE",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L57-HALL",
+      "loop_id": "L57",
+      "zone": "GuildHall",
+      "quest_count": 4,
+      "macro_objective": "emit the next 57-seed and lawful reopen set",
+      "dependency_edges": [
+        "L56",
+        "MotionConstitution_L1",
+        "preserved-feeder-split",
+        "TopK-256"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+      ],
+      "packet_type": "GuildQuestPacketSet",
+      "zone_kind": "cycle-seal",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L57-HALL",
+      "truth": "OK"
+    },
+    {
+      "bundle_id": "QE-L57-TEMPLE",
+      "loop_id": "L57",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit the next 57-seed and lawful reopen set",
+      "dependency_edges": [
+        "L56",
+        "jointatlas.merge-automaton@0.1.0",
+        "deep-root-authority",
+        "final-ledger"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "packet_type": "TempleQuestPacketSet",
+      "zone_kind": "cycle-seal",
+      "coordinate_stamp": "self_actualize\\lp_57_liminal_coordinate_stamps.json::COORD-L57-TEMPLE",
+      "truth": "OK"
+    }
+  ]
+}

@@ -21,6 +21,8 @@
 - confirm all map files exist in `self_actualize\mycelium_brain`
 - confirm the metro index points to each core surface
 - confirm queue files match the current highest-yield frontier
+- confirm `GLOBAL_EMERGENT_GUILD_HALL/00_GUILD_HALL_INDEX.md` exists
+- confirm the guild hall boards remain proposal and coordination surfaces rather than drifting into a second canonical cortex
 
 ### Toolkit Integrity Gate
 
@@ -53,6 +55,30 @@
 - confirm a route packet is produced
 - append findings to `route_quality_ledger.json`
 
+### Holographic Fractal Gate
+
+- confirm `18_holographic_fractal_integration_audit.md` exists
+- confirm `19_deepest_self_improvement_plan_256x256.md` exists
+- confirm `20_realtime_deeper_enhancement_synthesis.md` exists
+- confirm `manifests/HOLOGRAPHIC_FRACTAL_ACTIVE_FRONT.md` exists
+- confirm build queue, validation queue, and route-quality ledger reflect the same active front
+- confirm the active front touches at least two adjacent scales in the organism
+
+### Realtime Coupling Gate
+
+- confirm a meaningful delta updates at least one witness-bearing surface
+- confirm the delta is reflected into center or metro navigation when its meaning changes the organism
+- confirm the delta is reflected into build or weakest-front queue when priorities change
+- confirm the delta is reflected into validation, manifest, or route ledger when truth or runtime state changes
+- confirm the next restart seed still points at the strongest unresolved front
+
+### Guild Hall Gate
+
+- confirm the guild hall index exists
+- confirm message, plan, idea, and change boards exist
+- confirm guild hall surfaces are linked from the metro index
+- confirm the build queue still treats the guild hall as a social coordination membrane rather than an execution waist
+
 ## Review Rhythm
 
 ### Daily
@@ -81,3 +107,4 @@
 3. one fresh runtime episode logged in the route ledger
 4. one toolkit-guided manuscript pass with receipt writeback
 5. one archive-promotion rehearsal or live extraction using the canonical protocol
+6. one Trading Bot governance-plane bridge into the live nervous-system truth corridor

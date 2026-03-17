@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-03-13T01:33:58.017579+00:00",
+  "family": "helical-recursion-engine",
+  "record_count": 4,
+  "chapter_targets": [
+    "Ch11",
+    "Ch18",
+    "Ch20",
+    "Ch21"
+  ],
+  "appendix_targets": [
+    "AppF",
+    "AppG",
+    "AppI",
+    "AppM"
+  ],
+  "core_laws": {
+    "complement": "C(k/16) = (16-k)/16",
+    "seed_complement": "C(2/16) = 14/16",
+    "bridge_identity": "14/16|_n equiv 2/16|_(n+1)",
+    "lift": "|X_(n+1)| <= (1/8)|X_n| with stronger function and lower bloat"
+  },
+  "live_docs_blocked": true,
+  "records": [
+    {
+      "name": "2026-03-09_helical_recursion_and_ch12_boundary_checks",
+      "source_layer": "LocalProject",
+      "relative_path": "LocalProject/13_ACCEPTED_INPUTS/2026-03-09_helical_recursion_and_ch12_boundary_checks.md",
+      "chapter_targets": [
+        "Ch11",
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ],
+      "appendix_targets": [
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "name": "2026-03-09_perfect_recursion_helical_manifestation_engine",
+      "source_layer": "LocalProject",
+      "relative_path": "LocalProject/13_ACCEPTED_INPUTS/2026-03-09_perfect_recursion_helical_manifestation_engine.md",
+      "chapter_targets": [
+        "Ch11",
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ],
+      "appendix_targets": [
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "name": "ns_builder",
+      "source_layer": "LocalProject",
+      "relative_path": "LocalProject/ns_builder.py",
+      "chapter_targets": [
+        "Ch17",
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ],
+      "appendix_targets": [
+        "AppA",
+        "AppD",
+        "AppG",
+        "AppP"
+      ]
+    },
+    {
+      "name": "THE 4 CONSTANTS FINAL (phi, pi, i, e)",
+      "source_layer": "MemoryDocs",
+      "relative_path": "MemoryDocs/THE 4 CONSTANTS FINAL (phi, pi, i, e).docx",
+      "chapter_targets": [
+        "Ch11",
+        "Ch18",
+        "Ch20",
+        "Ch21"
+      ],
+      "appendix_targets": [
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppM"
+      ]
+    }
+  ]
+}

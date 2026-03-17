@@ -1,0 +1,41 @@
+{
+  "schema": "ReceiptVerifierSpec",
+  "version": "1.9",
+  "description": "Receipt-chain verifier and linter specification",
+  "lint_codes": {
+    "L001": "claim_pack missing quest_id",
+    "L002": "claim_pack missing agent_id",
+    "L003": "claim_pack missing station",
+    "L004": "claim_pack station out of range [1,19]",
+    "L005": "claim_pack missing truth_state",
+    "L006": "claim_pack invalid truth_state",
+    "L007": "claim_pack missing element_vector",
+    "L008": "claim_pack element_vector not unit",
+    "L009": "witness_bundle missing quest_id",
+    "L010": "witness_bundle missing witnesses",
+    "L011": "witness_bundle empty witnesses",
+    "L012": "witness_bundle missing evidence hash",
+    "L013": "replay_bundle missing quest_id",
+    "L014": "replay_bundle missing replay_steps",
+    "L015": "replay_bundle empty replay_steps",
+    "L016": "replay_bundle missing determinism_proof",
+    "L017": "receipt_entry missing entry_hash",
+    "L018": "receipt_entry missing chain_hash",
+    "L019": "receipt_entry chain_hash mismatch",
+    "L020": "receipt_registry missing entries",
+    "L021": "sealed_bundle missing registry"
+  },
+  "verification_rules": {
+    "chain_integrity": "each receipt references previous receipt hash via sha256",
+    "seal_closure": "seal receipt must reference all prior receipts",
+    "deterministic_replay": "replay must produce identical output on re-execution",
+    "lint_zero_failures": "full_lint() must return 0 failures for valid bundles"
+  },
+  "required_fields": {
+    "claim_pack": ["quest_id", "agent_id", "station", "truth_state", "element_vector", "timestamp"],
+    "witness_bundle": ["quest_id", "witnesses", "evidence_hash", "timestamp"],
+    "replay_bundle": ["quest_id", "replay_steps", "determinism_proof", "timestamp"],
+    "receipt_entry": ["entry_hash", "chain_hash", "phase", "timestamp"],
+    "sealed_bundle": ["bundle_hash", "registry", "seal_timestamp", "verifier_version"]
+  }
+}

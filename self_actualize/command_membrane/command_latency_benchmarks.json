@@ -1,0 +1,11 @@
+{
+  "formula": "T_sugar = T_detect + T_encode + T_route + T_claim + T_commit",
+  "metrics": [
+    "T_detect",
+    "T_encode",
+    "T_route",
+    "T_claim",
+    "T_commit",
+    "T_sugar"
+  ]
+}

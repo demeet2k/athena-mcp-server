@@ -1,0 +1,311 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "station_count": 19,
+  "stations": [
+    {
+      "number": "S01",
+      "name": "Genesis Spark",
+      "element_vector": {
+        "fire": 1.618,
+        "air": 0.0,
+        "water": 0.0,
+        "earth": 0.0
+      },
+      "quest_classes": ["Solo"],
+      "unlock_level": 1,
+      "payout_base": 1.0,
+      "description": "The initial ignition point. A single fire-dominant station where the solo player begins the atlas journey.",
+      "tags": ["origin", "fire", "solo", "fibonacci-1"],
+      "capsule_ref": 198
+    },
+    {
+      "number": "S02",
+      "name": "Foundation Stone",
+      "element_vector": {
+        "fire": 0.0,
+        "air": 0.0,
+        "water": 0.0,
+        "earth": 1.618
+      },
+      "quest_classes": ["Solo"],
+      "unlock_level": 1,
+      "payout_base": 1.0,
+      "description": "Grounding station. Earth-dominant anchor establishing the foundation for all subsequent quest paths.",
+      "tags": ["foundation", "earth", "solo", "fibonacci-1"],
+      "capsule_ref": 199
+    },
+    {
+      "number": "S03",
+      "name": "First Breath",
+      "element_vector": {
+        "fire": 0.0,
+        "air": 1.618,
+        "water": 0.0,
+        "earth": 0.0
+      },
+      "quest_classes": ["Solo", "Guild"],
+      "unlock_level": 3,
+      "payout_base": 0.618,
+      "description": "Air-dominant station representing the first expansion of awareness. Guild quests become available.",
+      "tags": ["air", "expansion", "guild-unlock", "fibonacci-3"],
+      "capsule_ref": 200
+    },
+    {
+      "number": "S04",
+      "name": "Mirror Pool",
+      "element_vector": {
+        "fire": 0.0,
+        "air": 0.0,
+        "water": 1.618,
+        "earth": 0.0
+      },
+      "quest_classes": ["Solo", "Guild"],
+      "unlock_level": 3,
+      "payout_base": 0.618,
+      "description": "Water-dominant reflection station. Quests here involve self-referential validation and mirror-state analysis.",
+      "tags": ["water", "reflection", "mirror", "fibonacci-3"],
+      "capsule_ref": 201
+    },
+    {
+      "number": "S05",
+      "name": "Cross Bridge",
+      "element_vector": {
+        "fire": 0.618,
+        "air": 0.618,
+        "water": 0.0,
+        "earth": 0.0
+      },
+      "quest_classes": ["Solo", "Guild", "Community"],
+      "unlock_level": 5,
+      "payout_base": 0.382,
+      "description": "First dual-element station bridging fire and air. Community quests unlock at this level.",
+      "tags": ["dual", "fire-air", "bridge", "community-unlock", "fibonacci-5"],
+      "capsule_ref": 202
+    },
+    {
+      "number": "S06",
+      "name": "Deep Root",
+      "element_vector": {
+        "fire": 0.0,
+        "air": 0.0,
+        "water": 0.618,
+        "earth": 0.618
+      },
+      "quest_classes": ["Solo", "Guild", "Community"],
+      "unlock_level": 5,
+      "payout_base": 0.382,
+      "description": "Dual water-earth station. Deep structural quests requiring community cooperation.",
+      "tags": ["dual", "water-earth", "deep", "fibonacci-5"],
+      "capsule_ref": 203
+    },
+    {
+      "number": "S07",
+      "name": "Alchemical Forge",
+      "element_vector": {
+        "fire": 0.618,
+        "air": 0.0,
+        "water": 0.618,
+        "earth": 0.0
+      },
+      "quest_classes": ["Solo", "Community", "Repair"],
+      "unlock_level": 5,
+      "payout_base": 0.382,
+      "description": "Fire-water alchemical station. Repair quests first appear here, enabling correction of prior quest outputs.",
+      "tags": ["dual", "fire-water", "alchemy", "repair-unlock", "fibonacci-5"],
+      "capsule_ref": 204
+    },
+    {
+      "number": "S08",
+      "name": "Temple Gate",
+      "element_vector": {
+        "fire": 0.0,
+        "air": 0.618,
+        "water": 0.0,
+        "earth": 0.618
+      },
+      "quest_classes": ["Solo", "TempleRite"],
+      "unlock_level": 8,
+      "payout_base": 0.236,
+      "description": "Air-earth temple station. TempleRite quests unlock, requiring ethical certification.",
+      "tags": ["dual", "air-earth", "temple", "templerite-unlock", "fibonacci-8"],
+      "capsule_ref": 205
+    },
+    {
+      "number": "S09",
+      "name": "Triad Furnace",
+      "element_vector": {
+        "fire": 0.382,
+        "air": 0.382,
+        "water": 0.382,
+        "earth": 0.0
+      },
+      "quest_classes": ["Solo", "Guild", "Community"],
+      "unlock_level": 8,
+      "payout_base": 0.236,
+      "description": "Three-element chamber combining fire, air, and water. Complex multi-phase quests.",
+      "tags": ["triad", "fire-air-water", "furnace", "fibonacci-8"],
+      "capsule_ref": 206
+    },
+    {
+      "number": "S10",
+      "name": "Living Archive",
+      "element_vector": {
+        "fire": 0.0,
+        "air": 0.382,
+        "water": 0.382,
+        "earth": 0.382
+      },
+      "quest_classes": ["Solo", "Guild", "Community"],
+      "unlock_level": 8,
+      "payout_base": 0.236,
+      "description": "Three-element chamber combining air, water, and earth. Archival and persistence quests.",
+      "tags": ["triad", "air-water-earth", "archive", "fibonacci-8"],
+      "capsule_ref": 207
+    },
+    {
+      "number": "S11",
+      "name": "Storm Cradle",
+      "element_vector": {
+        "fire": 0.382,
+        "air": 0.0,
+        "water": 0.382,
+        "earth": 0.382
+      },
+      "quest_classes": ["Solo", "Guild", "Community", "Storm"],
+      "unlock_level": 13,
+      "payout_base": 0.146,
+      "description": "Three-element chamber combining fire, water, and earth. Storm-class quests begin here.",
+      "tags": ["triad", "fire-water-earth", "storm-cradle", "fibonacci-13"],
+      "capsule_ref": 208
+    },
+    {
+      "number": "S12",
+      "name": "Wind Forge",
+      "element_vector": {
+        "fire": 0.382,
+        "air": 0.382,
+        "water": 0.0,
+        "earth": 0.382
+      },
+      "quest_classes": ["Solo", "Guild", "Community"],
+      "unlock_level": 13,
+      "payout_base": 0.146,
+      "description": "Three-element chamber combining fire, air, and earth. High-energy forging quests.",
+      "tags": ["triad", "fire-air-earth", "forge", "fibonacci-13"],
+      "capsule_ref": 209
+    },
+    {
+      "number": "S13",
+      "name": "PhiStorm Eye",
+      "element_vector": {
+        "fire": 0.236,
+        "air": 0.236,
+        "water": 0.236,
+        "earth": 0.236
+      },
+      "quest_classes": ["Solo", "Guild", "Community", "Storm", "Crown"],
+      "unlock_level": 13,
+      "payout_base": 0.146,
+      "description": "Crown station with all four elements at phi^-3. The eye of the PhiStorm where all element vectors converge.",
+      "tags": ["crown", "all-elements", "phistorm", "convergence", "fibonacci-13"],
+      "capsule_ref": 210
+    },
+    {
+      "number": "S14",
+      "name": "Certification Hall",
+      "element_vector": {
+        "fire": 0.146,
+        "air": 0.236,
+        "water": 0.236,
+        "earth": 0.146
+      },
+      "quest_classes": ["Solo", "Certification"],
+      "unlock_level": 13,
+      "payout_base": 0.09,
+      "description": "Certification station. Quests here produce verifiable witness bundles and truth certificates.",
+      "tags": ["certification", "witness", "fibonacci-13"],
+      "capsule_ref": 211
+    },
+    {
+      "number": "S15",
+      "name": "Resonance Chamber",
+      "element_vector": {
+        "fire": 0.236,
+        "air": 0.236,
+        "water": 0.146,
+        "earth": 0.146
+      },
+      "quest_classes": ["Solo", "Guild", "Resonance"],
+      "unlock_level": 21,
+      "payout_base": 0.09,
+      "description": "Resonance station. Quests produce harmonic outputs that amplify across the atlas network.",
+      "tags": ["resonance", "harmonic", "fibonacci-21"],
+      "capsule_ref": 212
+    },
+    {
+      "number": "S16",
+      "name": "Publish Gate",
+      "element_vector": {
+        "fire": 0.146,
+        "air": 0.146,
+        "water": 0.236,
+        "earth": 0.236
+      },
+      "quest_classes": ["Solo", "Publish"],
+      "unlock_level": 21,
+      "payout_base": 0.09,
+      "description": "Publish station. Quest outputs are promoted to external-facing capsules and public registries.",
+      "tags": ["publish", "external", "fibonacci-21"],
+      "capsule_ref": 213
+    },
+    {
+      "number": "S17",
+      "name": "Seeding Ground",
+      "element_vector": {
+        "fire": 0.236,
+        "air": 0.236,
+        "water": 0.236,
+        "earth": 0.236
+      },
+      "quest_classes": ["Solo", "Community", "Crown", "Seeding"],
+      "unlock_level": 34,
+      "payout_base": 0.056,
+      "description": "Crown seeding station. Quests here plant new atlas branches and spawn child quest trees.",
+      "tags": ["crown", "all-elements", "seeding", "fibonacci-34"],
+      "capsule_ref": 214
+    },
+    {
+      "number": "S18",
+      "name": "Policy Forum",
+      "element_vector": {
+        "fire": 0.146,
+        "air": 0.382,
+        "water": 0.146,
+        "earth": 0.382
+      },
+      "quest_classes": ["Solo", "Governance", "Policy"],
+      "unlock_level": 55,
+      "payout_base": 0.034,
+      "description": "Governance station. Quests modify atlas-wide policies and voting parameters.",
+      "tags": ["governance", "policy", "fibonacci-55"],
+      "capsule_ref": 215
+    },
+    {
+      "number": "S19",
+      "name": "Migration Council",
+      "element_vector": {
+        "fire": 0.236,
+        "air": 0.236,
+        "water": 0.236,
+        "earth": 0.236
+      },
+      "quest_classes": ["Solo", "Crown", "Migration"],
+      "unlock_level": 89,
+      "payout_base": 0.021,
+      "description": "Crown migration station. The highest unlock level. Quests orchestrate full atlas migrations and version transitions.",
+      "tags": ["crown", "all-elements", "migration", "fibonacci-89"],
+      "capsule_ref": 216
+    }
+  ]
+}

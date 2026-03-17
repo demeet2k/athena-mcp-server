@@ -107,6 +107,20 @@ Stations:
 - `nervous_system\manifests\NEXT_SELF_PROMPT.md`
 - `nervous_system\sessions\SESSION_2026-03-09_zero_point.md`
 
+### 10. Bruno Archetype Compression Line
+
+Stations:
+
+- `MATH\FINAL FORM\MYTH - MATH\Philosophy\BRUNO _working_.docx`
+- `MATH\FINAL FORM\COMPLETE TOMES\ATHENA\esoteric\BRUNO–ATHENA  TOME.docx`
+- `DEEPER CRYSTALIZATION\ACTIVE_NERVOUS_SYSTEM\02_CORPUS_CAPSULES\135_bruno_working.md`
+- `DEEPER CRYSTALIZATION\ACTIVE_NERVOUS_SYSTEM\02_CORPUS_CAPSULES\54_athena_the_archetype.md`
+- `DEEPER CRYSTALIZATION\ACTIVE_NERVOUS_SYSTEM\02_CORPUS_CAPSULES\182_the_magus.md`
+- `Voynich\FRESH\_extracted\The Holographic Manuscript Brain.txt`
+- `self_actualize\mycelium_brain\nervous_system\families\FAMILY_bruno_archetype_compression.md`
+- `self_actualize\mycelium_brain\nervous_system\families\FAMILY_bruno_route_map.md`
+- `self_actualize\mycelium_brain\nervous_system\neurons\NEURON_bruno_registry_rewrite_to_archetype_runtime.md`
+
 ## Zero-Point Hub
 
 `self_actualize\mycelium_brain`

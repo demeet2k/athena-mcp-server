@@ -1,0 +1,279 @@
+{
+  "generated_at": "2026-03-12T20:46:18.064573+00:00",
+  "derivation_version": "2026-03-12.phase3-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_self_hosting_kernel",
+  "scripts": [
+    {
+      "script": "__init__.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "atlas.py",
+      "lane": "self_observation",
+      "supports": [
+        "observe",
+        "measure"
+      ],
+      "note": "extracts current state into machine-readable evidence"
+    },
+    {
+      "script": "build_full_project_integration.py",
+      "lane": "self_publication",
+      "supports": [
+        "publish",
+        "writeback"
+      ],
+      "note": "pushes successful transforms back into manuscript and runtime outputs"
+    },
+    {
+      "script": "build_qshrink_athena_internal.py",
+      "lane": "self_repair",
+      "supports": [
+        "repair",
+        "patch"
+      ],
+      "note": "targets repair and corridor hardening"
+    },
+    {
+      "script": "build_trading_bot_athena_framework.py",
+      "lane": "self_repair",
+      "supports": [
+        "repair",
+        "patch"
+      ],
+      "note": "targets repair and corridor hardening"
+    },
+    {
+      "script": "cli.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "contracts.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "derive_body_tensor.py",
+      "lane": "self_observation",
+      "supports": [
+        "observe",
+        "measure"
+      ],
+      "note": "extracts current state into machine-readable evidence"
+    },
+    {
+      "script": "derive_bruno_address_c_leaf_promotion.py",
+      "lane": "self_regeneration",
+      "supports": [
+        "regenerate",
+        "reseed"
+      ],
+      "note": "rebuilds kernels, helix schemas, or reseeding surfaces"
+    },
+    {
+      "script": "derive_bruno_b12_operator_table.py",
+      "lane": "self_regeneration",
+      "supports": [
+        "regenerate",
+        "reseed"
+      ],
+      "note": "rebuilds kernels, helix schemas, or reseeding surfaces"
+    },
+    {
+      "script": "derive_deep_integration_neural_net.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "derive_frontier_leverage_ranking.py",
+      "lane": "self_measurement",
+      "supports": [
+        "verify",
+        "rank"
+      ],
+      "note": "scores or verifies runtime condition"
+    },
+    {
+      "script": "derive_grand_central_station.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "derive_helix_recursion_schema.py",
+      "lane": "self_regeneration",
+      "supports": [
+        "regenerate",
+        "reseed"
+      ],
+      "note": "rebuilds kernels, helix schemas, or reseeding surfaces"
+    },
+    {
+      "script": "derive_prop_channel_algebra.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "derive_self_hosting_kernel.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "derive_semantic_mass_ledger.py",
+      "lane": "self_observation",
+      "supports": [
+        "observe",
+        "measure"
+      ],
+      "note": "extracts current state into machine-readable evidence"
+    },
+    {
+      "script": "derive_trading_bot_truth_corridor.py",
+      "lane": "self_repair",
+      "supports": [
+        "repair",
+        "patch"
+      ],
+      "note": "targets repair and corridor hardening"
+    },
+    {
+      "script": "derive_void_ch11_ok_theorem.py",
+      "lane": "self_regeneration",
+      "supports": [
+        "regenerate",
+        "reseed"
+      ],
+      "note": "rebuilds kernels, helix schemas, or reseeding surfaces"
+    },
+    {
+      "script": "derive_void_ch11_precursor_reconciliation.py",
+      "lane": "self_repair",
+      "supports": [
+        "repair",
+        "patch"
+      ],
+      "note": "targets repair and corridor hardening"
+    },
+    {
+      "script": "derive_witness_hierarchy.py",
+      "lane": "self_observation",
+      "supports": [
+        "observe",
+        "measure"
+      ],
+      "note": "extracts current state into machine-readable evidence"
+    },
+    {
+      "script": "engine.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "generate_void_tome_part1.py",
+      "lane": "self_publication",
+      "supports": [
+        "publish",
+        "writeback"
+      ],
+      "note": "pushes successful transforms back into manuscript and runtime outputs"
+    },
+    {
+      "script": "reconcile_scan.py",
+      "lane": "self_observation",
+      "supports": [
+        "observe",
+        "measure"
+      ],
+      "note": "extracts current state into machine-readable evidence"
+    },
+    {
+      "script": "self_hosting_contracts.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "skills_registry.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "swarm_board.py",
+      "lane": "self_routing",
+      "supports": [
+        "route",
+        "schedule"
+      ],
+      "note": "moves packets, routes, or station traffic through the live system"
+    },
+    {
+      "script": "verify_aqm_runtime_lane.py",
+      "lane": "self_measurement",
+      "supports": [
+        "verify",
+        "rank"
+      ],
+      "note": "scores or verifies runtime condition"
+    },
+    {
+      "script": "verify_atlasforge_runtime_lane.py",
+      "lane": "self_measurement",
+      "supports": [
+        "verify",
+        "rank"
+      ],
+      "note": "scores or verifies runtime condition"
+    }
+  ],
+  "summary": {
+    "lane_counts": {
+      "self_observation": 5,
+      "self_measurement": 3,
+      "self_routing": 11,
+      "self_repair": 4,
+      "self_regeneration": 4,
+      "self_publication": 2
+    },
+    "script_count": 29
+  }
+}

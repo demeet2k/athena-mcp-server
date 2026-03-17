@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-03-12T20:46:18.064573+00:00",
+  "derivation_version": "2026-03-12.phase3-v1",
+  "docs_gate": "BLOCKED",
+  "kernel_status": "LIVE_LOCAL_SCOPE",
+  "current_config": {
+    "core_mode": "DUAL_ENGINE",
+    "end_state": "SELF_HOSTING_KERNEL",
+    "authority_order": [
+      "cortex",
+      "runtime",
+      "governance_mirror"
+    ],
+    "station_status": "LIVE_LOCAL_SCOPE",
+    "docs_gate": "BLOCKED",
+    "witness_summary": {
+      "physical": 8883,
+      "indexed": 7339,
+      "board": 9109,
+      "archive": 2041,
+      "promoted": 1818,
+      "generated": 3535
+    },
+    "current_checkpoint_id": "CHK-2026-03-12-PH3-LOCAL-01",
+    "route_baseline": 0.81
+  },
+  "active_policy": [
+    "witness before collapse",
+    "no silent lineage deletion",
+    "local-scope honesty until Docs ingress is live",
+    "publication return is required before a self-transform counts as complete",
+    "Grand Central remains the transfer hall for self-bearing traffic"
+  ],
+  "mode_ledger": [
+    {
+      "mode": "observe",
+      "status": "ACTIVE",
+      "witness_class": "generated",
+      "note": "measurement and dashboard refresh are now live"
+    },
+    {
+      "mode": "edit",
+      "status": "READY",
+      "witness_class": "indexed",
+      "note": "contract-bound edits may proceed after checkpoint capture"
+    },
+    {
+      "mode": "repair",
+      "status": "READY",
+      "witness_class": "generated",
+      "note": "route drift and stale authority claims can be repaired locally"
+    },
+    {
+      "mode": "regenerate",
+      "status": "READY",
+      "witness_class": "indexed",
+      "note": "seed-backed chapter and overview regeneration can now be scheduled"
+    },
+    {
+      "mode": "rollback",
+      "status": "GUARDED",
+      "witness_class": "generated",
+      "note": "rollback is legal only through the named checkpoint corridor"
+    },
+    {
+      "mode": "publish",
+      "status": "READY",
+      "witness_class": "indexed",
+      "note": "publication requires triple landing into cortex, runtime, and receipt surfaces"
+    }
+  ],
+  "checkpoint_protocol": {
+    "required_before": [
+      "contract-bound edit",
+      "repair packet",
+      "regeneration packet",
+      "rollback packet",
+      "publication packet"
+    ],
+    "checkpoint_id_prefix": "CHK-YYYY-MM-DD-PH3-",
+    "captures": [
+      "self model snapshot",
+      "self state snapshot",
+      "contract digest",
+      "lineage head",
+      "volatile runtime memory"
+    ],
+    "restore_command": "python -m self_actualize.runtime.derive_self_hosting_kernel"
+  },
+  "restart_protocol": {
+    "kernel_source": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+    "states": [
+      "descend",
+      "zero",
+      "emerge",
+      "resume"
+    ],
+    "law": "restart passes through replay and continuity receipt instead of narrative restart",
+    "resume_targets": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\self_state_registry.json",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\25_self_hosting_kernel_runtime.md"
+    ]
+  },
+  "volatile_memory": {
+    "active_fronts": [
+      "self-hosting kernel synchronization",
+      "capsule deepening",
+      "graph tissue growth",
+      "publication-return closure"
+    ],
+    "blockers": [
+      "Google Docs ingress is blocked by missing OAuth client material",
+      "full atlas regeneration still trails board-visible witness",
+      "capsule and graph deepening remain incomplete"
+    ],
+    "top_dispatch_route": "C-007 Trading Bot -> self_actualize = 7.958",
+    "runtime_lane_truth": {
+      "atlasforge": "OK",
+      "aqm": "OK"
+    }
+  },
+  "route_context": {
+    "source_station": "Grand Central Station",
+    "publication_return": "cortex + runtime mirror + receipt",
+    "top_station_routes": [
+      "C-007:Trading Bot->self_actualize",
+      "C-008:DEEPER CRYSTALIZATION->self_actualize",
+      "C-011:NERUAL NETWORK->self_actualize"
+    ],
+    "current_checkpoint_id": "CHK-2026-03-12-PH3-LOCAL-01",
+    "lineage_anchor": "L4"
+  },
+  "truth_citations": {
+    "docs_gate": "physical",
+    "witness_summary": "generated",
+    "station_status": "generated",
+    "route_baseline": "generated",
+    "runtime_lane_truth": "generated"
+  }
+}

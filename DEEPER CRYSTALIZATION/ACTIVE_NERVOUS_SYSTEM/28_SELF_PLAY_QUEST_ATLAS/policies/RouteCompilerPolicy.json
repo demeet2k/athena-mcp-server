@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "route-compiler",
+  "description": "Route compilation rules governing sigma hubs, overlay maps, and publish routing",
+  "sigma": ["AppA", "AppI", "AppM"],
+  "sigma_descriptions": {
+    "AppA": "Appendix A - primary routing hub for atlas-internal traffic",
+    "AppI": "Appendix I - secondary hub for inter-station transfers",
+    "AppM": "Appendix M - tertiary hub for metro-level routing"
+  },
+  "hub_cap": 6,
+  "hub_cap_description": "Maximum number of active routes through any single hub at one time",
+  "overlay_map": {
+    "fire_dominant": {
+      "primary_hub": "AppA",
+      "fallback_hub": "AppI",
+      "stations": ["S01", "S05", "S07", "S09", "S11", "S12"]
+    },
+    "air_dominant": {
+      "primary_hub": "AppI",
+      "fallback_hub": "AppM",
+      "stations": ["S03", "S05", "S08", "S09", "S10", "S12"]
+    },
+    "water_dominant": {
+      "primary_hub": "AppM",
+      "fallback_hub": "AppA",
+      "stations": ["S04", "S06", "S07", "S09", "S10", "S11"]
+    },
+    "earth_dominant": {
+      "primary_hub": "AppA",
+      "fallback_hub": "AppM",
+      "stations": ["S02", "S06", "S08", "S10", "S11", "S12"]
+    },
+    "crown": {
+      "primary_hub": "AppI",
+      "fallback_hub": "AppA",
+      "stations": ["S13", "S17", "S19"]
+    }
+  },
+  "publish_hub": "AppO",
+  "publish_hub_description": "Dedicated output hub for publish-class quests (S16 and above)",
+  "routing_rules": [
+    "Routes must pass through at least one sigma hub before reaching destination",
+    "If primary hub is at capacity (hub_cap), route through fallback hub",
+    "Crown stations may use any sigma hub as primary",
+    "Publish-class outputs always terminate at AppO regardless of element overlay",
+    "Route compiler must reject cycles of length > 3",
+    "All routes must be logged in the route manifest with timestamp and hash"
+  ],
+  "compile_options": {
+    "max_hops": 4,
+    "timeout_ms": 5000,
+    "retry_on_hub_full": true,
+    "retry_max": 3
+  }
+}

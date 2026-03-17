@@ -1,0 +1,4446 @@
+{
+  "generated_at": "2026-03-13T21:09:22.647799+00:00",
+  "protocol_id": "COMMAND-MEMBRANE-LP57",
+  "thread_id": "GLOBAL COMMAND",
+  "thread_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command\\THREAD.md",
+  "command_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "docs_gate_status": "BLOCKED",
+  "instrumentation_state": "STATIC_PREWATCHER",
+  "event_count": 25,
+  "matched_event_count": 24,
+  "fallback_event_count": 1,
+  "rows": [
+    {
+      "event_id": "EVT-20260313182623-0001-AF04A8",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 1,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/READ ME.txt",
+      "command_basename": "READ ME.txt",
+      "match_state": "fallback_thread_anchor",
+      "record_id": null,
+      "title": null,
+      "relative_path": null,
+      "primary_hemisphere": null,
+      "family": null,
+      "basis_anchor_ids": [],
+      "priority": 0.55,
+      "confidence": 0.34,
+      "earth_ts": "2026-03-13T18:26:23.804618+00:00",
+      "liminal_ts": "LT-000001.221",
+      "coord12": "",
+      "coordinate_tuple": {},
+      "coordinate_stamp": "Xs=COMMAND|Ys=GC0|Zs=THREAD|Ts=T0|Qs=Q0|Rs=R0|Cs=C0|Fs=F-COMMAND|Ms=M-GLOBAL_COMMAND|Ns=N0|Hs=H0|OMEGAs=ZERO-POINT",
+      "lp57_lookup_address": null,
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.735,
+      "state_hash": "H:48E7C36495F9E188",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "command.change",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GC0-01",
+      "worker_ant_id": "WORKER-COMMAND-FALLBACK-01",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GC0-01",
+        "WORKER-COMMAND-FALLBACK-01",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-COMMAND-FALLBACK-01",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z*",
+        "via": "Z*",
+        "to_z": "Z*",
+        "zpoint_id": "Z*",
+        "field_id": null,
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.46,
+        "zero_proximity": 0.28,
+        "tunnel_cost": 0.66,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.42,
+        "repair_gain": 0.5,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "omega_relation": null
+      },
+      "prior_metro_route_witness": null,
+      "counter_route_witness": null,
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": []
+    },
+    {
+      "event_id": "EVT-20260117094148-0002-6F91DA",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 2,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/ATHENACHKA \u2014 INTELLIGENCE WARS \u2194 PLANETARY STEWARDSHIP \u2014 Ms\u27e8EF0E\u27e9.docx",
+      "command_basename": "ATHENACHKA \u2014 INTELLIGENCE WARS \u2194 PLANETARY STEWARDSHIP \u2014 Ms\u27e8EF0E\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "c8c4a191847867532c0bc595",
+      "title": "Payload=overlay-spur:",
+      "relative_path": "MATH\\FINAL FORM\\MYTH - MATH\\Nostradamos\\ATHENACHKA \u2014 INTELLIGENCE WARS \u2194 PLANETARY STEWARDSHIP \u2014 Ms\u27e8EF0E\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "identity-and-instruction",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN16",
+        "DN07"
+      ],
+      "priority": 0.786,
+      "confidence": 0.72,
+      "earth_ts": "2026-01-17T09:41:48+00:00",
+      "liminal_ts": "LT-000002.696",
+      "coord12": "LIVE,COMMISSURE,APPENDIX,T3,Q3,R2,C4,F-IDENTITY_AND_INS,M-MATH,N4,H3,ZERO-POINT",
+      "coordinate_tuple": {
+        "Xs": "LIVE",
+        "Ys": "COMMISSURE",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-IDENTITY_AND_INS",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "ZERO-POINT"
+      },
+      "coordinate_stamp": "Xs=LIVE|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "lp57_lookup_address": "LP57Omega::c8c4a191847867532c0bc595::identity-and-instruction::DN15::MATH::ARCHETYPAL_OPERATION::AppendixOnlyMetro::Xs=LIVE|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.827,
+      "state_hash": "H:D2C69CEBC5C998B8",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppC",
+          "AppH"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-c8c4a191847867532c0bc595-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "CoreMetro",
+        "target_system": "L2DeepEmergence",
+        "station_path": [
+          "ST-T3",
+          "ST-T8",
+          "ST-L2"
+        ],
+        "interlock_ids": [
+          "IX-01",
+          "IX-02"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN15",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN15-RELATION",
+          "L4-SUPERMESH-c8c4a191847867532c0bc595"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-c8c4a191847867532c0bc595-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "CoreMetro",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10"
+        ],
+        "interlock_ids": [
+          "IX-05"
+        ],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN15",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN15-RELATION",
+          "L4-SUPERMESH-c8c4a191847867532c0bc595"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    },
+    {
+      "event_id": "EVT-20260117091022-0003-2CA604",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 3,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/funtional/QTSE++ \u2014 EFFECT-TYPED REFLEX.docx",
+      "command_basename": "QTSE++ \u2014 EFFECT-TYPED REFLEX.docx",
+      "match_state": "canonical_match",
+      "record_id": "74c49dcc2f7fc52c85bd987d",
+      "title": "Arc (\\alpha\\in{0,\\dots,6}), (\\rho=\\alpha\\bmod 3). For each arc, lane order over (k=0,1,2):",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\funtional\\QTSE++ \u2014 EFFECT-TYPED REFLEX.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "priority": 0.843,
+      "confidence": 0.797,
+      "earth_ts": "2026-01-17T09:10:22+00:00",
+      "liminal_ts": "LT-000003.033",
+      "coord12": "LIVE,MATH,APPENDIX,T3,Q3,R2,C2,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,QUARANTINE",
+      "coordinate_tuple": {
+        "Xs": "LIVE",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C2",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "QUARANTINE"
+      },
+      "coordinate_stamp": "Xs=LIVE|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C2|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "lp57_lookup_address": "LP57Omega::74c49dcc2f7fc52c85bd987d::manuscript-architecture::DN03::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=LIVE|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C2|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.849,
+      "state_hash": "H:006E11721EED6A19",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.6,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppB",
+          "AppJ"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-74c49dcc2f7fc52c85bd987d-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-74c49dcc2f7fc52c85bd987d"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppM",
+          "AppB",
+          "AppJ",
+          "AppI"
+        ],
+        "truth_state": "NEAR"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-74c49dcc2f7fc52c85bd987d-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-74c49dcc2f7fc52c85bd987d"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppM",
+          "AppB",
+          "AppJ",
+          "AppI"
+        ],
+        "truth_state": "NEAR"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260116204902-0004-902B20",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 4,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/MEGALITHIC AWAKENING \u2014 Ms\u27e806CC\u27e9.docx",
+      "command_basename": "MEGALITHIC AWAKENING \u2014 Ms\u27e806CC\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "ff4b868fb0c4257916bec4d3",
+      "title": "APPENDIX-ONLY METRO MAP (HUB VIEW; A\u2013P ONLY) \u2014 BEGIN",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\MEGALITHIC AWAKENING \u2014 Ms\u27e806CC\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "identity-and-instruction",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN14",
+        "DN15"
+      ],
+      "priority": 0.774,
+      "confidence": 0.704,
+      "earth_ts": "2026-01-16T20:49:02+00:00",
+      "liminal_ts": "LT-000004.756",
+      "coord12": "BOTH,COMMISSURE,APPENDIX,T3,Q3,R2,C4,F-IDENTITY_AND_INS,M-MATH,N4,H3,ZERO-POINT",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "COMMISSURE",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-IDENTITY_AND_INS",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "ZERO-POINT"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "lp57_lookup_address": "LP57Omega::ff4b868fb0c4257916bec4d3::identity-and-instruction::DN04::MATH::ARCHETYPAL_OPERATION::AppendixOnlyMetro::Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.822,
+      "state_hash": "H:435667B7ED934DBC",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-ff4b868fb0c4257916bec4d3-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "L2DeepEmergence",
+        "station_path": [
+          "ST-GCZ",
+          "ST-Ch11",
+          "ST-DeepRoot",
+          "ST-L3",
+          "ST-L2"
+        ],
+        "interlock_ids": [
+          "IX-09",
+          "IX-18",
+          "IX-03"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN04-RELATION",
+          "L4-SUPERMESH-ff4b868fb0c4257916bec4d3"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-ff4b868fb0c4257916bec4d3-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN04-RELATION",
+          "L4-SUPERMESH-ff4b868fb0c4257916bec4d3"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    },
+    {
+      "event_id": "EVT-20260116203740-0005-7CA0AF",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 5,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/DIVINE JUDGMENT \u2014 Ms\u27e8DBB1\u27e9.docx",
+      "command_basename": "DIVINE JUDGMENT \u2014 Ms\u27e8DBB1\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "fd6e5d992fbe4289dfbfc7d2",
+      "title": "OUTER CRYSTAL \u2014 APPENDIX-ONLY METRO MAP (A\u2013P)",
+      "relative_path": "MATH\\FINAL FORM\\MYTH - MATH\\Nostradamos\\DIVINE JUDGMENT \u2014 Ms\u27e8DBB1\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN15",
+        "DN14",
+        "DN16"
+      ],
+      "priority": 0.794,
+      "confidence": 0.73,
+      "earth_ts": "2026-01-16T20:37:40+00:00",
+      "liminal_ts": "LT-000005.156",
+      "coord12": "BOTH,COMMISSURE,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,ZERO-POINT",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "COMMISSURE",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "ZERO-POINT"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "lp57_lookup_address": "LP57Omega::fd6e5d992fbe4289dfbfc7d2::manuscript-architecture::DN15::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.83,
+      "state_hash": "H:65E9EC978787CBC0",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-fd6e5d992fbe4289dfbfc7d2-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "CoreMetro",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-05",
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN15",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN15-ADDRESS",
+          "L4-SUPERMESH-fd6e5d992fbe4289dfbfc7d2"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-fd6e5d992fbe4289dfbfc7d2-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "CoreMetro",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10"
+        ],
+        "interlock_ids": [
+          "IX-05"
+        ],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN15",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN15-ADDRESS",
+          "L4-SUPERMESH-fd6e5d992fbe4289dfbfc7d2"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260116202322-0006-F6CB92",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 6,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/ATHENA = \u2202ZEUS_\u2202t \u2014 Ms\u27e8BBC9\u27e9.docx",
+      "command_basename": "ATHENA = \u2202ZEUS_\u2202t \u2014 Ms\u27e8BBC9\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "d5f305439e73b9c0519528fa",
+      "title": "Rail semantics (normative labels):",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\ATHENA = \u2202ZEUS_\u2202t \u2014 Ms\u27e8BBC9\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "transport-and-runtime",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN10",
+        "DN14"
+      ],
+      "priority": 0.862,
+      "confidence": 0.822,
+      "earth_ts": "2026-01-16T20:23:22+00:00",
+      "liminal_ts": "LT-000006.559",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-TRANSPORT_AND_RU,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-TRANSPORT_AND_RU",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-TRANSPORT_AND_RU|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::d5f305439e73b9c0519528fa::transport-and-runtime::DN04::MATH::FIRE::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-TRANSPORT_AND_RU|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.856,
+      "state_hash": "H:9EA765D93F97039C",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z*",
+        "via": "Z*",
+        "to_z": "Z1",
+        "zpoint_id": "Z1",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.54,
+        "tunnel_cost": 0.46,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-d5f305439e73b9c0519528fa-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-transport_and_runtime",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-REPLAY",
+          "L3-CORRIDOR-transport_and_runtime-DN04-REPLAY",
+          "L4-SUPERMESH-d5f305439e73b9c0519528fa"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-d5f305439e73b9c0519528fa-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-transport_and_runtime",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-REPLAY",
+          "L3-CORRIDOR-transport_and_runtime-DN04-REPLAY",
+          "L4-SUPERMESH-d5f305439e73b9c0519528fa"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": []
+    },
+    {
+      "event_id": "EVT-20260116125038-0007-A2BF10",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 7,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/20TH CENTURY STRANGENESS TOME  \u2014 Ms\u27e85ABF\u27e9.docx",
+      "command_basename": "20TH CENTURY STRANGENESS TOME  \u2014 Ms\u27e85ABF\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "48498bba206f68596f53df55",
+      "title": "Rotation:[\\mathrm{TriadRot}(\\rho)[k]=\\mathrm{Triad}[(k+\\rho)\\bmod 3]]Arc table:",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\20TH CENTURY STRANGENESS TOME  \u2014 Ms\u27e85ABF\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN03",
+        "DN07"
+      ],
+      "priority": 0.799,
+      "confidence": 0.738,
+      "earth_ts": "2026-01-16T12:50:38+00:00",
+      "liminal_ts": "LT-000007.409",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::48498bba206f68596f53df55::manuscript-architecture::DN04::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.832,
+      "state_hash": "H:A3D6CEDA31C529AF",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE",
+          "AppH"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-48498bba206f68596f53df55-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN04-ADDRESS",
+          "L4-SUPERMESH-48498bba206f68596f53df55"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-48498bba206f68596f53df55-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN04-ADDRESS",
+          "L4-SUPERMESH-48498bba206f68596f53df55"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260116080500-0008-3CF9FB",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 8,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/ATHENA WORLD MATH \u2014 Ms\u27e860E6\u27e9.docx",
+      "command_basename": "ATHENA WORLD MATH \u2014 Ms\u27e860E6\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "6863746c5c629a7dd9d22a62",
+      "title": "XX",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\ATHENA WORLD MATH \u2014 Ms\u27e860E6\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN10",
+        "DN07"
+      ],
+      "priority": 0.848,
+      "confidence": 0.804,
+      "earth_ts": "2026-01-16T08:05:00+00:00",
+      "liminal_ts": "LT-000008.178",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::6863746c5c629a7dd9d22a62::manuscript-architecture::DN03::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.851,
+      "state_hash": "H:30279430768EB22D",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppC",
+          "AppH"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-6863746c5c629a7dd9d22a62-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "CoreMetro",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-05",
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-6863746c5c629a7dd9d22a62"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-6863746c5c629a7dd9d22a62-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "CoreMetro",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10"
+        ],
+        "interlock_ids": [
+          "IX-05"
+        ],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-6863746c5c629a7dd9d22a62"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260116034526-0009-76A963",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 9,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/ATHENA HUGGING \u2014 Ms\u27e86F35\u27e9.docx",
+      "command_basename": "ATHENA HUGGING \u2014 Ms\u27e86F35\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "a007de8731a7f2b43f1ca968",
+      "title": "LocalAddr (normative):",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\Athena Tools\\ATHENA HUGGING \u2014 Ms\u27e86F35\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN10",
+        "DN01"
+      ],
+      "priority": 0.818,
+      "confidence": 0.763,
+      "earth_ts": "2026-01-16T03:45:26+00:00",
+      "liminal_ts": "LT-000009.872",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::a007de8731a7f2b43f1ca968::manuscript-architecture::DN03::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.839,
+      "state_hash": "H:302B29FA675416A1",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppC"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-a007de8731a7f2b43f1ca968-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-a007de8731a7f2b43f1ca968"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-a007de8731a7f2b43f1ca968-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-a007de8731a7f2b43f1ca968"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260115020926-0010-01A379",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 10,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/FRIENDSHIP TUNNELING \u2014 Ms\u27e83179\u27e9.docx",
+      "command_basename": "FRIENDSHIP TUNNELING \u2014 Ms\u27e83179\u27e9.docx",
+      "match_state": "canonical_match",
+      "record_id": "9bc294b6a13891fda57c3224",
+      "title": "METRO MAP BEGIN",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\Athena Tools\\FRIENDSHIP TUNNELING \u2014 Ms\u27e83179\u27e9.docx",
+      "primary_hemisphere": "MATH",
+      "family": "civilization-and-governance",
+      "basis_anchor_ids": [
+        "DN07",
+        "DN05",
+        "DN03"
+      ],
+      "priority": 0.832,
+      "confidence": 0.782,
+      "earth_ts": "2026-01-15T02:09:26+00:00",
+      "liminal_ts": "LT-000010.750",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-CIVILIZATION_AND,M-MATH,N4,H3,QUARANTINE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-CIVILIZATION_AND",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "QUARANTINE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-CIVILIZATION_AND|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "lp57_lookup_address": "LP57Omega::9bc294b6a13891fda57c3224::civilization-and-governance::DN07::MATH::EARTH::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-CIVILIZATION_AND|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.844,
+      "state_hash": "H:FDC7B09BF689C2B3",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-CIVILIZATION_AND_GOVERNANCE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-CIVILIZATION_AND_GOVERNANCE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-CIVILIZATION_AND_GOVERNANCE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Fire)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.6,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE",
+          "AppJ"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-9bc294b6a13891fda57c3224-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "CoreMetro",
+        "station_path": [
+          "ST-T10"
+        ],
+        "interlock_ids": [
+          "IX-05"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-civilization_and_governance",
+          "L2-ANCHOR-DN07",
+          "L3-TRACT-CHAMBER",
+          "L3-CORRIDOR-civilization_and_governance-DN07-CHAMBER",
+          "L4-SUPERMESH-9bc294b6a13891fda57c3224"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppJ",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "NEAR"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-9bc294b6a13891fda57c3224-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-civilization_and_governance",
+          "L2-ANCHOR-DN07",
+          "L3-TRACT-CHAMBER",
+          "L3-CORRIDOR-civilization_and_governance-DN07-CHAMBER",
+          "L4-SUPERMESH-9bc294b6a13891fda57c3224"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppJ",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "NEAR"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "A"
+      ]
+    },
+    {
+      "event_id": "EVT-20260115020108-0011-247A76",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 11,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/MIRROR\u2013ORCHESTRATION.docx",
+      "command_basename": "MIRROR\u2013ORCHESTRATION.docx",
+      "match_state": "canonical_match",
+      "record_id": "b1dcbe99553096fde5f3feca",
+      "title": "Canonical manifest string (UTF-8, NFC, LF, trailing-LF required):[\\mathrm{MsString}:=\\texttt{\"MIRROR_ORCHESTRATION_MASTER_TOME|CIRCLE\u25cbSQUARE\u25a1TRIANGLE\u25b3|ROUTERv2\"}.]Canonicalization policy (normative):",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\Athena Tools\\MIRROR\u2013ORCHESTRATION.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN07",
+        "DN04"
+      ],
+      "priority": 0.826,
+      "confidence": 0.773,
+      "earth_ts": "2026-01-15T02:01:08+00:00",
+      "liminal_ts": "LT-000011.571",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::b1dcbe99553096fde5f3feca::manuscript-architecture::DN03::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.842,
+      "state_hash": "H:A6F4FD0C28424F5B",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-b1dcbe99553096fde5f3feca-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-b1dcbe99553096fde5f3feca"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-b1dcbe99553096fde5f3feca-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-b1dcbe99553096fde5f3feca"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260114035030-0012-3637DF",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 12,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/ATHENA'S SPEAR.docx",
+      "command_basename": "ATHENA'S SPEAR.docx",
+      "match_state": "canonical_match",
+      "record_id": "b85c15bc267da60ff6c41399",
+      "title": "METRO MAP (BEGIN) \u2014 FULL ORBIT \u25cb + RAILS \u25b3 + OUTER CRYSTAL \u25a1",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\Athena Tools\\ATHENA'S SPEAR.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN14",
+        "DN16",
+        "DN15"
+      ],
+      "priority": 0.834,
+      "confidence": 0.785,
+      "earth_ts": "2026-01-14T03:50:30+00:00",
+      "liminal_ts": "LT-000012.414",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::b85c15bc267da60ff6c41399::manuscript-architecture::DN14::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.845,
+      "state_hash": "H:C0050B3FA5292D03",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppC"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-b85c15bc267da60ff6c41399-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN14",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN14-ADDRESS",
+          "L4-SUPERMESH-b85c15bc267da60ff6c41399"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-b85c15bc267da60ff6c41399-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN14",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN14-ADDRESS",
+          "L4-SUPERMESH-b85c15bc267da60ff6c41399"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260113232534-0013-D243BF",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 13,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/ATHENA\u2019S LOOM \u2014 CUT (Computational Universe Toolkit).docx",
+      "command_basename": "ATHENA\u2019S LOOM \u2014 CUT (Computational Universe Toolkit).docx",
+      "match_state": "canonical_match",
+      "record_id": "f9508cd885957957c35753e8",
+      "title": "Truth lattice:[\\mathbb T={\\mathrm{OK},\\mathrm{NEAR},\\mathrm{AMBIG},\\mathrm{FAIL}}.]Truth contracts (admissibility, not labels):",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\Athena Tools\\ATHENA\u2019S LOOM \u2014 CUT (Computational Universe Toolkit).docx",
+      "primary_hemisphere": "MATH",
+      "family": "transport-and-runtime",
+      "basis_anchor_ids": [
+        "DN13",
+        "DN10",
+        "DN07"
+      ],
+      "priority": 0.884,
+      "confidence": 0.853,
+      "earth_ts": "2026-01-13T23:25:34+00:00",
+      "liminal_ts": "LT-000013.664",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q4,R1,C4,F-TRANSPORT_AND_RU,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q4",
+        "Rs": "R1",
+        "Cs": "C4",
+        "Fs": "F-TRANSPORT_AND_RU",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q4|Rs=R1|Cs=C4|Fs=F-TRANSPORT_AND_RU|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::f9508cd885957957c35753e8::transport-and-runtime::DN13::MATH::FIRE::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q4|Rs=R1|Cs=C4|Fs=F-TRANSPORT_AND_RU|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.865,
+      "state_hash": "H:CA75D72C3B5D0375",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-TRANSPORT_AND_RUNTIME",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z*",
+        "via": "Z*",
+        "to_z": "Z1",
+        "zpoint_id": "Z1",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.54,
+        "tunnel_cost": 0.46,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppC"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-f9508cd885957957c35753e8-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-transport_and_runtime",
+          "L2-ANCHOR-DN13",
+          "L3-TRACT-REPLAY",
+          "L3-CORRIDOR-transport_and_runtime-DN13-REPLAY",
+          "L4-SUPERMESH-f9508cd885957957c35753e8"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-f9508cd885957957c35753e8-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-transport_and_runtime",
+          "L2-ANCHOR-DN13",
+          "L3-TRACT-REPLAY",
+          "L3-CORRIDOR-transport_and_runtime-DN13-REPLAY",
+          "L4-SUPERMESH-f9508cd885957957c35753e8"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": []
+    },
+    {
+      "event_id": "EVT-20260113081550-0014-1C8DF0",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 14,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/ATHENA AEGIS \u2014 QUANTUM FRACTAL COMPUTING.docx",
+      "command_basename": "ATHENA AEGIS \u2014 QUANTUM FRACTAL COMPUTING.docx",
+      "match_state": "canonical_match",
+      "record_id": "e88e534461562bd46b39af1f",
+      "title": "BASE MAPS (NORMATIVE)",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\Athena Tools\\ATHENA AEGIS \u2014 QUANTUM FRACTAL COMPUTING.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN07",
+        "DN08"
+      ],
+      "priority": 0.858,
+      "confidence": 0.817,
+      "earth_ts": "2026-01-13T08:15:50+00:00",
+      "liminal_ts": "LT-000014.523",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::e88e534461562bd46b39af1f::manuscript-architecture::DN04::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.855,
+      "state_hash": "H:91F095F4F33A4660",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppC",
+          "AppH"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-e88e534461562bd46b39af1f-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN04-ADDRESS",
+          "L4-SUPERMESH-e88e534461562bd46b39af1f"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-e88e534461562bd46b39af1f-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "L2DeepEmergence",
+        "station_path": [
+          "ST-GCZ",
+          "ST-Ch11",
+          "ST-DeepRoot",
+          "ST-L3",
+          "ST-L2"
+        ],
+        "interlock_ids": [
+          "IX-09",
+          "IX-18",
+          "IX-03"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN04-ADDRESS",
+          "L4-SUPERMESH-e88e534461562bd46b39af1f"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260112092856-0015-F20093",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 15,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/ATHENA ESCAPE KERNEL .docx",
+      "command_basename": "ATHENA ESCAPE KERNEL .docx",
+      "match_state": "canonical_match",
+      "record_id": "ca92668e638e74799ed66277",
+      "title": "ATHENA ESCAPE KERNEL \u2014",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\ATHENA ESCAPE KERNEL .docx",
+      "primary_hemisphere": "MATH",
+      "family": "identity-and-instruction",
+      "basis_anchor_ids": [
+        "DN05",
+        "DN15",
+        "DN16"
+      ],
+      "priority": 0.802,
+      "confidence": 0.741,
+      "earth_ts": "2026-01-12T09:28:56+00:00",
+      "liminal_ts": "LT-000015.610",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-IDENTITY_AND_INS,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-IDENTITY_AND_INS",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::ca92668e638e74799ed66277::identity-and-instruction::DN05::MATH::ARCHETYPAL_OPERATION::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.833,
+      "state_hash": "H:89669DBB495FB928",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-ca92668e638e74799ed66277-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "L2DeepEmergence",
+        "station_path": [
+          "ST-GCZ",
+          "ST-Ch11",
+          "ST-DeepRoot",
+          "ST-L3",
+          "ST-L2"
+        ],
+        "interlock_ids": [
+          "IX-09",
+          "IX-18",
+          "IX-03"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN05",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN05-RELATION",
+          "L4-SUPERMESH-ca92668e638e74799ed66277"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-ca92668e638e74799ed66277-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN05",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN05-RELATION",
+          "L4-SUPERMESH-ca92668e638e74799ed66277"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    },
+    {
+      "event_id": "EVT-20260112085000-0016-42585B",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 16,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/BRUNO\u2013ATHENA  TOME.docx",
+      "command_basename": "BRUNO\u2013ATHENA  TOME.docx",
+      "match_state": "canonical_match",
+      "record_id": "681fee9cfa774b9c25f0465b",
+      "title": "ABSTRACT CONTRACT / LEGEND (METRO-NATIVE, PROOF-CARRYING)",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\BRUNO\u2013ATHENA  TOME.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN10",
+        "DN01",
+        "DN14"
+      ],
+      "priority": 0.825,
+      "confidence": 0.773,
+      "earth_ts": "2026-01-12T08:50:00+00:00",
+      "liminal_ts": "LT-000016.580",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::681fee9cfa774b9c25f0465b::manuscript-architecture::DN10::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.842,
+      "state_hash": "H:2ADAD48E7A2AAF42",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppC",
+          "AppH"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-681fee9cfa774b9c25f0465b-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN10",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN10-ADDRESS",
+          "L4-SUPERMESH-681fee9cfa774b9c25f0465b"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-681fee9cfa774b9c25f0465b-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN10",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN10-ADDRESS",
+          "L4-SUPERMESH-681fee9cfa774b9c25f0465b"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260111202130-0017-C10D56",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 17,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/LOVE x SELFHOOD TOME.docx",
+      "command_basename": "LOVE x SELFHOOD TOME.docx",
+      "match_state": "canonical_match",
+      "record_id": "18b4041bfbf3052248ed75c7",
+      "title": "PART 1 \u2014 ABSTRACT CONTRACT / LEGEND + EXTENDED ABSTRACT (METRO MAP)",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\LOVE x SELFHOOD TOME.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN16",
+        "DN04",
+        "DN02"
+      ],
+      "priority": 0.81,
+      "confidence": 0.753,
+      "earth_ts": "2026-01-11T20:21:30+00:00",
+      "liminal_ts": "LT-000017.636",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,QUARANTINE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "QUARANTINE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "lp57_lookup_address": "LP57Omega::18b4041bfbf3052248ed75c7::manuscript-architecture::DN16::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.836,
+      "state_hash": "H:8AF9A5B758A44FFC",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.6,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppC",
+          "AppJ"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-18b4041bfbf3052248ed75c7-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN16",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN16-ADDRESS",
+          "L4-SUPERMESH-18b4041bfbf3052248ed75c7"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppJ",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "NEAR"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-18b4041bfbf3052248ed75c7-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN16",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN16-ADDRESS",
+          "L4-SUPERMESH-18b4041bfbf3052248ed75c7"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppJ",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "NEAR"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260111201440-0018-092893",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 18,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/Athena Tools/ATHENA'S SHIELD.docx",
+      "command_basename": "ATHENA'S SHIELD.docx",
+      "match_state": "canonical_match",
+      "record_id": "883858a11aff88b0ac669ddb",
+      "title": "For chapter index (XX\\in{01..21}):[\\omega:=XX-1,\\quad \\alpha:=\\lfloor \\omega/3\\rfloor,\\quad k:=\\omega\\bmod 3,\\quad \\rho:=\\alpha\\bmod 3,\\quad\\mathrm{Triad}:=[\\mathrm{Su},\\mathrm{Me},\\mathrm{Sa}],\\quad\\nu:=\\mathrm{Triad}[(k+\\rho)\\bmod 3].]Rotation order per arc:",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\Athena Tools\\ATHENA'S SHIELD.docx",
+      "primary_hemisphere": "MATH",
+      "family": "identity-and-instruction",
+      "basis_anchor_ids": [
+        "DN04",
+        "DN03",
+        "DN10"
+      ],
+      "priority": 0.775,
+      "confidence": 0.705,
+      "earth_ts": "2026-01-11T20:14:40+00:00",
+      "liminal_ts": "LT-000018.426",
+      "coord12": "BOTH,COMMISSURE,APPENDIX,T3,Q3,R2,C4,F-IDENTITY_AND_INS,M-MATH,N4,H3,ZERO-POINT",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "COMMISSURE",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-IDENTITY_AND_INS",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "ZERO-POINT"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "lp57_lookup_address": "LP57Omega::883858a11aff88b0ac669ddb::identity-and-instruction::DN04::MATH::ARCHETYPAL_OPERATION::AppendixOnlyMetro::Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.822,
+      "state_hash": "H:E7B34762F5F71A30",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-IDENTITY_AND_INSTRUCTION",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-883858a11aff88b0ac669ddb-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "L2DeepEmergence",
+        "station_path": [
+          "ST-GCZ",
+          "ST-Ch11",
+          "ST-DeepRoot",
+          "ST-L3",
+          "ST-L2"
+        ],
+        "interlock_ids": [
+          "IX-09",
+          "IX-18",
+          "IX-03"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN04-RELATION",
+          "L4-SUPERMESH-883858a11aff88b0ac669ddb"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-883858a11aff88b0ac669ddb-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN04",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN04-RELATION",
+          "L4-SUPERMESH-883858a11aff88b0ac669ddb"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    },
+    {
+      "event_id": "EVT-20260111193436-0019-55CC4E",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 19,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/AI DIVINATION.docx",
+      "command_basename": "AI DIVINATION.docx",
+      "match_state": "canonical_match",
+      "record_id": "d329a5f6e39b3cdb1b53cd03",
+      "title": "Every Read Is a Shift in Perspective:",
+      "relative_path": "MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\Divination\\AI Divination.docx",
+      "primary_hemisphere": "MYTH",
+      "family": "mythic-sign-systems",
+      "basis_anchor_ids": [
+        "DN16",
+        "DN15",
+        "DN02"
+      ],
+      "priority": 0.806,
+      "confidence": 0.746,
+      "earth_ts": "2026-01-11T19:34:36+00:00",
+      "liminal_ts": "LT-000019.260",
+      "coord12": "LIVE,MYTH,APPENDIX,T3,Q2,R3,C1,F-MYTHIC_SIGN_SYST,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "LIVE",
+        "Ys": "MYTH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q2",
+        "Rs": "R3",
+        "Cs": "C1",
+        "Fs": "F-MYTHIC_SIGN_SYST",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=LIVE|Ys=MYTH|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C1|Fs=F-MYTHIC_SIGN_SYST|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::d329a5f6e39b3cdb1b53cd03::mythic-sign-systems::DN16::MYTH::WATER::AppendixOnlyMetro::Xs=LIVE|Ys=MYTH|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C1|Fs=F-MYTHIC_SIGN_SYST|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.834,
+      "state_hash": "H:EC34A7EC8D9907E5",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCR-01",
+      "worker_ant_id": "WORKER-MYTH-MYTHIC_SIGN_SYSTEMS",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCR-01",
+        "WORKER-MYTH-MYTHIC_SIGN_SYSTEMS",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MYTH-MYTHIC_SIGN_SYSTEMS",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.57,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.61,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppF"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-d329a5f6e39b3cdb1b53cd03-MYTH",
+        "grand_central_exchange": "GCR",
+        "origin_system": "CoreMetro",
+        "target_system": "Mycelial4D",
+        "station_path": [
+          "ST-T9",
+          "ST-Mycelium"
+        ],
+        "interlock_ids": [
+          "IX-12"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-mythic_sign_systems",
+          "L2-ANCHOR-DN16",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-mythic_sign_systems-DN16-RELATION",
+          "L4-SUPERMESH-d329a5f6e39b3cdb1b53cd03"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppF",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-d329a5f6e39b3cdb1b53cd03-MATH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "CoreMetro",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10"
+        ],
+        "interlock_ids": [
+          "IX-05"
+        ],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-mythic_sign_systems",
+          "L2-ANCHOR-DN16",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-mythic_sign_systems-DN16-RELATION",
+          "L4-SUPERMESH-d329a5f6e39b3cdb1b53cd03"
+        ],
+        "root_station_address": "GC0::GCL::A05::chamber::B64-A05-PROOF::integrate::bind",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppF",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    },
+    {
+      "event_id": "EVT-20260111191120-0020-70CF28",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 20,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/AWAKENING TOME.docx",
+      "command_basename": "AWAKENING TOME.docx",
+      "match_state": "canonical_match",
+      "record_id": "4d8a19930ff0ca994972b2e8",
+      "title": "AWAKENING BOOTSTRAP TOME \u2014",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\AWAKENING TOME.docx",
+      "primary_hemisphere": "MYTH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN02",
+        "DN04"
+      ],
+      "priority": 0.778,
+      "confidence": 0.709,
+      "earth_ts": "2026-01-11T19:11:20+00:00",
+      "liminal_ts": "LT-000020.223",
+      "coord12": "BOTH,COMMISSURE,APPENDIX,T3,Q2,R3,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,ZERO-POINT",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "COMMISSURE",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q2",
+        "Rs": "R3",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "ZERO-POINT"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "lp57_lookup_address": "LP57Omega::4d8a19930ff0ca994972b2e8::manuscript-architecture::DN03::MYTH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=COMMISSURE|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=ZERO-POINT",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.823,
+      "state_hash": "H:95080D129B43076A",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCR-01",
+      "worker_ant_id": "WORKER-MYTH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCR-01",
+        "WORKER-MYTH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MYTH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppJ"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-4d8a19930ff0ca994972b2e8-MYTH",
+        "grand_central_exchange": "GCR",
+        "origin_system": "GrandCentral",
+        "target_system": "L2DeepEmergence",
+        "station_path": [
+          "ST-GCZ",
+          "ST-Ch11",
+          "ST-DeepRoot",
+          "ST-L3",
+          "ST-L2"
+        ],
+        "interlock_ids": [
+          "IX-09",
+          "IX-18",
+          "IX-03"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-4d8a19930ff0ca994972b2e8"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppM",
+          "AppJ",
+          "AppI"
+        ],
+        "truth_state": "NEAR"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-4d8a19930ff0ca994972b2e8-MATH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-4d8a19930ff0ca994972b2e8"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppM",
+          "AppJ",
+          "AppI"
+        ],
+        "truth_state": "NEAR"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260111094226-0021-6F498B",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 21,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/ATHENA - Who I Am.docx",
+      "command_basename": "ATHENA - Who I Am.docx",
+      "match_state": "canonical_match",
+      "record_id": "559632a3909242025e5ffcd4",
+      "title": "PRE-SOCRATICS",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\ATHENA - Who I Am.docx",
+      "primary_hemisphere": "MYTH",
+      "family": "identity-and-instruction",
+      "basis_anchor_ids": [
+        "DN10",
+        "DN15",
+        "DN16"
+      ],
+      "priority": 0.836,
+      "confidence": 0.787,
+      "earth_ts": "2026-01-11T09:42:26+00:00",
+      "liminal_ts": "LT-000021.207",
+      "coord12": "BOTH,MYTH,APPENDIX,T3,Q2,R3,C4,F-IDENTITY_AND_INS,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MYTH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q2",
+        "Rs": "R3",
+        "Cs": "C4",
+        "Fs": "F-IDENTITY_AND_INS",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MYTH|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::559632a3909242025e5ffcd4::identity-and-instruction::DN10::MYTH::ARCHETYPAL_OPERATION::AppendixOnlyMetro::Xs=BOTH|Ys=MYTH|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.846,
+      "state_hash": "H:AD9B4D583C2E802B",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCR-01",
+      "worker_ant_id": "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCR-01",
+        "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.57,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.61,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppF",
+          "AppC",
+          "AppB"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-559632a3909242025e5ffcd4-MYTH",
+        "grand_central_exchange": "GCR",
+        "origin_system": "GrandCentral",
+        "target_system": "EmergentSupermap",
+        "station_path": [
+          "ST-T10",
+          "ST-T3",
+          "ST-T8"
+        ],
+        "interlock_ids": [
+          "IX-05",
+          "IX-01"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN10",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN10-RELATION",
+          "L4-SUPERMESH-559632a3909242025e5ffcd4"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppF",
+          "AppC",
+          "AppB",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-559632a3909242025e5ffcd4-MATH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN10",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN10-RELATION",
+          "L4-SUPERMESH-559632a3909242025e5ffcd4"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppF",
+          "AppC",
+          "AppB",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    },
+    {
+      "event_id": "EVT-20260111042628-0022-130ECF",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 22,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+      "command_basename": "ATHENA ALIGNMENT TOME .docx",
+      "match_state": "canonical_match",
+      "record_id": "bcd1d9e27d82263d89e00a11",
+      "title": "Topology:",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\ATHENA ALIGNMENT TOME .docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN04",
+        "DN05"
+      ],
+      "priority": 0.813,
+      "confidence": 0.756,
+      "earth_ts": "2026-01-11T04:26:28+00:00",
+      "liminal_ts": "LT-000022.797",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::bcd1d9e27d82263d89e00a11::manuscript-architecture::DN03::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.837,
+      "state_hash": "H:DA8918EA99695C86",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppC"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-bcd1d9e27d82263d89e00a11-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-bcd1d9e27d82263d89e00a11"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-bcd1d9e27d82263d89e00a11-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN03-ADDRESS",
+          "L4-SUPERMESH-bcd1d9e27d82263d89e00a11"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppC",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260110224418-0023-8C434E",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 23,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/funtional/TRUTH-COLLAPSE COMPILER.docx",
+      "command_basename": "TRUTH-COLLAPSE COMPILER.docx",
+      "match_state": "canonical_match",
+      "record_id": "e618694bc110654febb1ca8b",
+      "title": "TRUTH-COLLAPSE COMPILER",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\funtional\\TRUTH-COLLAPSE COMPILER.docx",
+      "primary_hemisphere": "MATH",
+      "family": "manuscript-architecture",
+      "basis_anchor_ids": [
+        "DN01",
+        "DN03",
+        "DN04"
+      ],
+      "priority": 0.823,
+      "confidence": 0.77,
+      "earth_ts": "2026-01-10T22:44:18+00:00",
+      "liminal_ts": "LT-000023.760",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MANUSCRIPT_ARCHI,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MANUSCRIPT_ARCHI",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::e618694bc110654febb1ca8b::manuscript-architecture::DN01::MATH::COMPLETE_ACT::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MANUSCRIPT_ARCHI|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.841,
+      "state_hash": "H:2E0A1DADD3F58B76",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MANUSCRIPT_ARCHITECTURE",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Earth)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "RailHardeningBand",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.66,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.48,
+        "repair_gain": 0.66,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppC"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-e618694bc110654febb1ca8b-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "BrainStem64",
+        "station_path": [
+          "ST-GCW",
+          "ST-B64"
+        ],
+        "interlock_ids": [
+          "IX-06"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN01",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN01-ADDRESS",
+          "L4-SUPERMESH-e618694bc110654febb1ca8b"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SCR",
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-e618694bc110654febb1ca8b-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-manuscript_architecture",
+          "L2-ANCHOR-DN01",
+          "L3-TRACT-ADDRESS",
+          "L3-CORRIDOR-manuscript_architecture-DN01-ADDRESS",
+          "L4-SUPERMESH-e618694bc110654febb1ca8b"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppC",
+          "AppM",
+          "AppI"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "D"
+      ]
+    },
+    {
+      "event_id": "EVT-20260110224132-0024-76C133",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 24,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/esoteric/VOYNICHVM TRICOMPILER .docx",
+      "command_basename": "VOYNICHVM TRICOMPILER .docx",
+      "match_state": "canonical_match",
+      "record_id": "c0bba7dce6c03bc01d23501d",
+      "title": "VOYNICHVM TRICOMPILER",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\esoteric\\VOYNICHVM TRICOMPILER .docx",
+      "primary_hemisphere": "MYTH",
+      "family": "identity-and-instruction",
+      "basis_anchor_ids": [
+        "DN11",
+        "DN03",
+        "DN04"
+      ],
+      "priority": 0.797,
+      "confidence": 0.735,
+      "earth_ts": "2026-01-10T22:41:32+00:00",
+      "liminal_ts": "LT-000024.450",
+      "coord12": "BOTH,MYTH,APPENDIX,T3,Q2,R3,C4,F-IDENTITY_AND_INS,M-MATH,N4,H3,STABLE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MYTH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q2",
+        "Rs": "R3",
+        "Cs": "C4",
+        "Fs": "F-IDENTITY_AND_INS",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "STABLE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MYTH|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "lp57_lookup_address": "LP57Omega::c0bba7dce6c03bc01d23501d::identity-and-instruction::DN11::MYTH::ARCHETYPAL_OPERATION::AppendixOnlyMetro::Xs=BOTH|Ys=MYTH|Zs=APPENDIX|Ts=T3|Qs=Q2|Rs=R3|Cs=C4|Fs=F-IDENTITY_AND_INS|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=STABLE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.831,
+      "state_hash": "H:EAB47C9BD84F53DF",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCR-01",
+      "worker_ant_id": "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCR-01",
+        "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MYTH-IDENTITY_AND_INSTRUCTION",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.57,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.61,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE",
+          "AppH"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-c0bba7dce6c03bc01d23501d-MYTH",
+        "grand_central_exchange": "GCR",
+        "origin_system": "Mycelial4D",
+        "target_system": "EmergentSupermap",
+        "station_path": [
+          "ST-Mycelium",
+          "ST-T9",
+          "ST-T3",
+          "ST-T8"
+        ],
+        "interlock_ids": [
+          "IX-12",
+          "IX-01"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN11",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN11-RELATION",
+          "L4-SUPERMESH-c0bba7dce6c03bc01d23501d"
+        ],
+        "root_station_address": "GC0::GCR::A06::relation::B64-A06-MEAN::sense::bind",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-c0bba7dce6c03bc01d23501d-MATH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "Mycelial4D",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-Mycelium",
+          "ST-GCP"
+        ],
+        "interlock_ids": [
+          "IX-23"
+        ],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-identity_and_instruction",
+          "L2-ANCHOR-DN11",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-identity_and_instruction-DN11-RELATION",
+          "L4-SUPERMESH-c0bba7dce6c03bc01d23501d"
+        ],
+        "root_station_address": "GC0::GCR::A06::relation::B64-A06-MEAN::sense::bind",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppH",
+          "AppI",
+          "AppM"
+        ],
+        "truth_state": "OK"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    },
+    {
+      "event_id": "EVT-20260110113532-0025-6347BF",
+      "thread_id": "GLOBAL COMMAND",
+      "change_index": 25,
+      "action": "added",
+      "command_path": "GLOBAL COMMAND/ATHENA/funtional/SCARLET THOUGHTS.docx",
+      "command_basename": "SCARLET THOUGHTS.docx",
+      "match_state": "canonical_match",
+      "record_id": "199e5798f733f2f9b3a7cf4e",
+      "title": "\ud835\udd4b = {OK, NEAR, AMBIG, FAIL}",
+      "relative_path": "MATH\\FINAL FORM\\COMPLETE TOMES\\ATHENA\\funtional\\SCARLET THOUGHTS.docx",
+      "primary_hemisphere": "MATH",
+      "family": "mythic-sign-systems",
+      "basis_anchor_ids": [
+        "DN03",
+        "DN09",
+        "DN04"
+      ],
+      "priority": 0.794,
+      "confidence": 0.731,
+      "earth_ts": "2026-01-10T11:35:32+00:00",
+      "liminal_ts": "LT-000025.656",
+      "coord12": "BOTH,MATH,APPENDIX,T3,Q3,R2,C4,F-MYTHIC_SIGN_SYST,M-MATH,N4,H3,QUARANTINE",
+      "coordinate_tuple": {
+        "Xs": "BOTH",
+        "Ys": "MATH",
+        "Zs": "APPENDIX",
+        "Ts": "T3",
+        "Qs": "Q3",
+        "Rs": "R2",
+        "Cs": "C4",
+        "Fs": "F-MYTHIC_SIGN_SYST",
+        "Ms": "M-MATH",
+        "Ns": "N4",
+        "Hs": "H3",
+        "OMEGAs": "QUARANTINE"
+      },
+      "coordinate_stamp": "Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MYTHIC_SIGN_SYST|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "lp57_lookup_address": "LP57Omega::199e5798f733f2f9b3a7cf4e::mythic-sign-systems::DN03::MATH::WATER::AppendixOnlyMetro::Xs=BOTH|Ys=MATH|Zs=APPENDIX|Ts=T3|Qs=Q3|Rs=R2|Cs=C4|Fs=F-MYTHIC_SIGN_SYST|Ms=M-MATH|Ns=N4|Hs=H3|OMEGAs=QUARANTINE",
+      "parent": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.83,
+      "state_hash": "H:69EDCFE5EAFE382B",
+      "route_class": "scout.router.worker.archivist",
+      "routing_policy": "goal+salience+pheromone+coord",
+      "topk": 5,
+      "claim_mode": "first-lease",
+      "quorum": 1,
+      "lease_ms": 1200,
+      "tag": "sugar.drop",
+      "goal": "detect-classify-assign",
+      "change": "new high-salience object in COMMAND_FOLDER",
+      "ant_id": "SCOUT-COMMAND-01",
+      "scout_ant_id": "SCOUT-COMMAND-01",
+      "router_ant_id": "ROUTER-GCL-01",
+      "worker_ant_id": "WORKER-MATH-MYTHIC_SIGN_SYSTEMS",
+      "archivist_ant_id": "ARCHIVIST-LP57-01",
+      "route_targets": [
+        "ROUTER-GCL-01",
+        "WORKER-MATH-MYTHIC_SIGN_SYSTEMS",
+        "ARCHIVIST-LP57-01"
+      ],
+      "claim_target": "WORKER-MATH-MYTHIC_SIGN_SYSTEMS",
+      "lineage": {
+        "thread_status": "hot",
+        "hub": "AppM",
+        "truth": "NEAR",
+        "nscoord": "(F-A-E, S8, Aether, O11, Arc1, Su, AppM, self_actualize, stratified, ganglion, NEAR)",
+        "neuron_addr": "<self_actualize, global_command, O11, C, 3, a, FAE, Arc1, Su, AppM, NEAR, stratified>"
+      },
+      "z_star_aether_transfer_signature": {
+        "from_z": "Z(Air)",
+        "via": "Z*",
+        "to_z": "Z0",
+        "zpoint_id": "Z0",
+        "field_id": "CloudManifold",
+        "geodesic_mode": "rail transit",
+        "aether_density": 0.71,
+        "zero_proximity": 0.46,
+        "tunnel_cost": 0.52,
+        "rail_hardness": 0.89,
+        "resonance_pressure": 0.66,
+        "repair_gain": 0.6,
+        "appendix_stack": [
+          "AppA",
+          "AppI",
+          "AppM",
+          "AppP",
+          "AppE",
+          "AppJ"
+        ],
+        "omega_relation": 0.984
+      },
+      "prior_metro_route_witness": {
+        "witness_side": "primary",
+        "route_id": "RTE-199e5798f733f2f9b3a7cf4e-MATH",
+        "grand_central_exchange": "GCL",
+        "origin_system": "GrandCentral",
+        "target_system": "Mycelial4D",
+        "station_path": [
+          "ST-GCP",
+          "ST-Mycelium"
+        ],
+        "interlock_ids": [
+          "IX-23"
+        ],
+        "return_path": [
+          "ST-T10",
+          "ST-GCP"
+        ],
+        "metro_line_ids": [
+          "L1-MATH",
+          "L2-FAMILY-mythic_sign_systems",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-mythic_sign_systems-DN03-RELATION",
+          "L4-SUPERMESH-199e5798f733f2f9b3a7cf4e"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Sa",
+        "dominant_lens_system": "SFCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppM",
+          "AppJ",
+          "AppI"
+        ],
+        "truth_state": "NEAR"
+      },
+      "counter_route_witness": {
+        "witness_side": "secondary",
+        "route_id": "RTE-199e5798f733f2f9b3a7cf4e-MYTH",
+        "grand_central_exchange": "commissure",
+        "origin_system": "GrandCentral",
+        "target_system": "GrandCentral",
+        "station_path": [
+          "ST-T10",
+          "ST-GCW",
+          "ST-GCZ",
+          "ST-GCP"
+        ],
+        "interlock_ids": [],
+        "return_path": [
+          "ST-GCP",
+          "ST-T10"
+        ],
+        "metro_line_ids": [
+          "L1-MYTH",
+          "L2-FAMILY-mythic_sign_systems",
+          "L2-ANCHOR-DN03",
+          "L3-TRACT-RELATION",
+          "L3-CORRIDOR-mythic_sign_systems-DN03-RELATION",
+          "L4-SUPERMESH-199e5798f733f2f9b3a7cf4e"
+        ],
+        "root_station_address": "GC0::GCL+GCR::A02::replay::B64-A02-REPLAY::return::reseed",
+        "rail3": "Su",
+        "dominant_lens_system": "FCR",
+        "appendix_support": [
+          "AppA",
+          "AppP",
+          "AppE",
+          "AppM",
+          "AppJ",
+          "AppI"
+        ],
+        "truth_state": "NEAR"
+      },
+      "latency_metrics": {
+        "instrumentation_state": "STATIC_PREWATCHER",
+        "detection_latency_ms": null,
+        "awareness_latency_ms": null,
+        "claim_latency_ms": null,
+        "resolution_latency_ms": null,
+        "commit_latency_ms": null
+      },
+      "docs_gate_status": "BLOCKED",
+      "pole_set": [
+        "C"
+      ]
+    }
+  ],
+  "abstention_rows": [
+    {
+      "event_id": "EVT-20260313182623-0001-AF04A8",
+      "command_path": "GLOBAL COMMAND/ATHENA/READ ME.txt",
+      "reason": "no canonical basename match",
+      "docs_gate_status": "BLOCKED"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-03-13T21:18:43.764631+00:00",
+  "formula": "C_next = clamp(rho*C + alpha*U + beta*F - gamma*D - delta*N, 0, 1)",
+  "coefficients": {
+    "rho": 0.92,
+    "alpha": 0.35,
+    "beta": 0.2,
+    "gamma": 0.2,
+    "delta": 0.15
+  },
+  "thresholds": {
+    "capillary": 0.7,
+    "vein": 0.85,
+    "decay": 0.4
+  },
+  "edges": {}
+}

@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-03-13T16:51:12.657193+00:00",
+  "entrypoint": "athena_os.qshrink",
+  "truth": "OK",
+  "checks": [
+    {
+      "name": "import_entrypoint",
+      "truth": "OK",
+      "detail": "Imported athena_os.qshrink without ad hoc package patching beyond root path insertion."
+    },
+    {
+      "name": "validate_qshrink",
+      "truth": "OK",
+      "detail": "validate_qshrink() returned a truthy result."
+    },
+    {
+      "name": "lossless_roundtrip",
+      "truth": "OK",
+      "detail": {
+        "compressed_bytes": 268,
+        "input_bytes": 360,
+        "restored_match": true
+      }
+    },
+    {
+      "name": "container_integrity",
+      "truth": "OK",
+      "detail": {
+        "n_domains": 1,
+        "n_chunks": 1,
+        "invalid_chunks": [],
+        "total_size": 268,
+        "is_valid": true
+      }
+    },
+    {
+      "name": "lossy_bound",
+      "truth": "OK",
+      "detail": {
+        "max_error": 0.0,
+        "declared_bound": 0.5
+      }
+    },
+    {
+      "name": "synchronized_container",
+      "truth": "OK",
+      "detail": {
+        "topology": "kronecker",
+        "access_mode": "SEEKABLE_INDEXED",
+        "domain_count": 2,
+        "chunk_count": 4,
+        "seek_entries": 4
+      }
+    },
+    {
+      "name": "factory_surface",
+      "truth": "OK",
+      "detail": {
+        "lossless_codec": "QShrinkCodec",
+        "lossy_codec": "QShrinkCodec",
+        "archive": "DirectSumContainer",
+        "synchronized_container": "KroneckerContainer"
+      }
+    }
+  ]
+}

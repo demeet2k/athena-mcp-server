@@ -1,28 +1,8 @@
 # Tome Construction Prompt
 
-Use this when generating the tome in staged parts.
+Bridge shim only.
 
-Part 1:
+Canonical contract: `../tool_kit/04_tome_construction_contract.md`
 
-- title
-- abstract contract / legend
-- extended abstract
-- metro map
-- appendix outer crystal
-- deterministic router rule
-
-Part 2:
-
-- fully expanded chapters
-
-Part 3:
-
-- fully expanded appendices
-
-Hard laws:
-
-- do not output later parts before requested
-- preserve symbol discipline
-- preserve route discipline
-- preserve truth-lattice discipline
-- preserve continuation markers when output limits are reached
+Pruning reason: part-staged tome generation belongs in the canonical contract lane.
+This path stays alive only as a redirect for earlier references.

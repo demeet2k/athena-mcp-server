@@ -1,0 +1,310 @@
+{
+  "generated_at": "2026-03-13T21:33:09.357154+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "reward_protocol_id": "LP-57OMEGA-REWARD-V1",
+  "reward_hierarchy": {
+    "state_reward": "diagnostic-only",
+    "quest_reward": "primary-xp-source",
+    "loop_reward": "4-agent completion bonus",
+    "frontier_reward": "cross-loop stabilization bonus",
+    "crown_reward": "reserved for rare canonization outcomes"
+  },
+  "quest_credits": [
+    {
+      "quest_id": "LP57-QP-L01-A1",
+      "loop_id": "L01",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L01.A1.D1.B111111.SYNTH-RESEARCH",
+      "assist_agent_ids": [
+        "AP6D-WATER",
+        "floating-agent-03"
+      ],
+      "parent_chain_ids": [
+        "A1"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 60,
+      "final_xp_delta": 60,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L01.A1.D1.B111111.SYNTH-RESEARCH": 42,
+        "A1": 12,
+        "AP6D-WATER": 3,
+        "floating-agent-03": 3
+      },
+      "truth": "NEAR"
+    },
+    {
+      "quest_id": "LP57-QP-L01-A2",
+      "loop_id": "L01",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L01.A2.D1.B111111.PLANNER-ARCHITECT",
+      "assist_agent_ids": [
+        "AP6D-PRIME",
+        "floating-agent-05"
+      ],
+      "parent_chain_ids": [
+        "A2"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 56,
+      "final_xp_delta": 56,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L01.A2.D1.B111111.PLANNER-ARCHITECT": 39,
+        "A2": 11,
+        "AP6D-PRIME": 3,
+        "floating-agent-05": 3
+      },
+      "truth": "NEAR"
+    },
+    {
+      "quest_id": "LP57-QP-L01-A3",
+      "loop_id": "L01",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L01.A3.D1.B111111.WORKER-ADVENTURER",
+      "assist_agent_ids": [
+        "AP6D-FIRE",
+        "floating-agent-06"
+      ],
+      "parent_chain_ids": [
+        "A3"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 61,
+      "final_xp_delta": 61,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L01.A3.D1.B111111.WORKER-ADVENTURER": 43,
+        "A3": 12,
+        "AP6D-FIRE": 3,
+        "floating-agent-06": 3
+      },
+      "truth": "NEAR"
+    },
+    {
+      "quest_id": "LP57-QP-L01-A4",
+      "loop_id": "L01",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L01.A4.D1.B111111.PRUNE-CRYSTAL",
+      "assist_agent_ids": [
+        "AP6D-EARTH",
+        "floating-agent-08"
+      ],
+      "parent_chain_ids": [
+        "A4"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 61,
+      "final_xp_delta": 61,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L01.A4.D1.B111111.PRUNE-CRYSTAL": 43,
+        "A4": 12,
+        "AP6D-EARTH": 3,
+        "floating-agent-08": 3
+      },
+      "truth": "NEAR"
+    },
+    {
+      "quest_id": "LP57-QP-L02-A1",
+      "loop_id": "L02",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L02.A1.D2.B111112.SYNTH-RESEARCH",
+      "assist_agent_ids": [
+        "AP6D-WATER",
+        "floating-agent-03"
+      ],
+      "parent_chain_ids": [
+        "A1"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 60,
+      "final_xp_delta": 60,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L02.A1.D2.B111112.SYNTH-RESEARCH": 42,
+        "A1": 12,
+        "AP6D-WATER": 3,
+        "floating-agent-03": 3
+      },
+      "truth": "NEAR"
+    },
+    {
+      "quest_id": "LP57-QP-L02-A2",
+      "loop_id": "L02",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L02.A2.D2.B111112.PLANNER-ARCHITECT",
+      "assist_agent_ids": [
+        "AP6D-PRIME",
+        "floating-agent-05"
+      ],
+      "parent_chain_ids": [
+        "A2"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 56,
+      "final_xp_delta": 56,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L02.A2.D2.B111112.PLANNER-ARCHITECT": 39,
+        "A2": 11,
+        "AP6D-PRIME": 3,
+        "floating-agent-05": 3
+      },
+      "truth": "NEAR"
+    },
+    {
+      "quest_id": "LP57-QP-L02-A3",
+      "loop_id": "L02",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L02.A3.D2.B111112.WORKER-ADVENTURER",
+      "assist_agent_ids": [
+        "AP6D-FIRE",
+        "floating-agent-06"
+      ],
+      "parent_chain_ids": [
+        "A3"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 61,
+      "final_xp_delta": 61,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L02.A3.D2.B111112.WORKER-ADVENTURER": 43,
+        "A3": 12,
+        "AP6D-FIRE": 3,
+        "floating-agent-06": 3
+      },
+      "truth": "NEAR"
+    },
+    {
+      "quest_id": "LP57-QP-L02-A4",
+      "loop_id": "L02",
+      "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+      "primary_agent_id": "L02.A4.D2.B111112.PRUNE-CRYSTAL",
+      "assist_agent_ids": [
+        "AP6D-EARTH",
+        "floating-agent-08"
+      ],
+      "parent_chain_ids": [
+        "A4"
+      ],
+      "reward_transform": "BASE",
+      "base_xp_delta": 61,
+      "final_xp_delta": 61,
+      "outcome": "POSITIVE",
+      "credit_shares": {
+        "L02.A4.D2.B111112.PRUNE-CRYSTAL": 43,
+        "A4": 12,
+        "AP6D-EARTH": 3,
+        "floating-agent-08": 3
+      },
+      "truth": "NEAR"
+    }
+  ],
+  "loop_rewards": [
+    {
+      "evaluation": {
+        "run_id": "RR::LOOP::L01",
+        "scope": "loop",
+        "loop_id": "L01",
+        "agent_ids": [
+          "A1",
+          "A2",
+          "A3",
+          "A4"
+        ],
+        "baseline_snapshot_ref": "SNAP::L01::loop::pre",
+        "post_snapshot_ref": "SNAP::L01::loop::post",
+        "reward_vector": {
+          "integration_gain": 0.22,
+          "compression_gain": 0.18,
+          "replay_gain": 0.2,
+          "witness_gain": 0.18,
+          "route_clarity_gain": 0.16,
+          "quest_closure_gain": 0.5,
+          "blocker_honesty_gain": 0.35,
+          "phi_efficiency_gain": 0.24,
+          "regression_loss": 0.0,
+          "bloat_loss": 0.0,
+          "contradiction_increase": 0.0,
+          "orphaned_node_loss": 0.0,
+          "replay_break_loss": 0.0,
+          "control_surface_drift": 0.0,
+          "unauthorized_activation_loss": 0.0,
+          "docs_dishonesty_loss": 0.0
+        },
+        "positive_score": 0.246061,
+        "negative_score": 0.0,
+        "net_efficiency_score": 24.61,
+        "reward_transform": "BASE",
+        "xp_delta": 25,
+        "outcome": "POSITIVE",
+        "residuals": [],
+        "truth": "NEAR"
+      },
+      "credit_shares": {
+        "A1": 6,
+        "A2": 6,
+        "A3": 6,
+        "A4": 6
+      }
+    }
+  ],
+  "frontier_rewards": [
+    {
+      "evaluation": {
+        "run_id": "RR::FRONTIER::LP57",
+        "scope": "frontier",
+        "loop_id": "L02",
+        "agent_ids": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "AP6D-PRIME"
+        ],
+        "baseline_snapshot_ref": "SNAP::LP57::frontier::pre",
+        "post_snapshot_ref": "SNAP::LP57::frontier::post",
+        "reward_vector": {
+          "integration_gain": 0.28,
+          "compression_gain": 0.12,
+          "replay_gain": 0.24,
+          "witness_gain": 0.24,
+          "route_clarity_gain": 0.2,
+          "quest_closure_gain": 0.16,
+          "blocker_honesty_gain": 0.5,
+          "phi_efficiency_gain": 0.3,
+          "regression_loss": 0.0,
+          "bloat_loss": 0.0,
+          "contradiction_increase": 0.0,
+          "orphaned_node_loss": 0.0,
+          "replay_break_loss": 0.0,
+          "control_surface_drift": 0.0,
+          "unauthorized_activation_loss": 0.0,
+          "docs_dishonesty_loss": 0.0
+        },
+        "positive_score": 0.261212,
+        "negative_score": 0.0,
+        "net_efficiency_score": 26.12,
+        "reward_transform": "PHI",
+        "xp_delta": 42,
+        "outcome": "POSITIVE",
+        "residuals": [],
+        "truth": "NEAR"
+      },
+      "credit_shares": {
+        "A1": 8,
+        "A2": 8,
+        "A3": 8,
+        "A4": 8,
+        "AP6D-PRIME": 8
+      }
+    }
+  ],
+  "crown_rewards": [],
+  "recent_positive_delta": 543,
+  "recent_negative_delta": 0,
+  "reward_pressure_note": "Positive pressure dominates; promotion remains governance-locked until level-100 agents satisfy replay and docs-honesty gates."
+}

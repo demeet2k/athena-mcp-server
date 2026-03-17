@@ -1,0 +1,1125 @@
+{
+  "generated_at": "2026-03-13T17:54:09.808620+00:00",
+  "derivation_version": "2026-03-13.next57.lp57omega.canonical.v1",
+  "program_id": "NEXT57-LP57OMEGA-coordinate-donor@1.1.0",
+  "truth": "HISTORICAL_COORDINATE_DONOR",
+  "historical_role": "reverse lookup and coordinate-schema donation only",
+  "coordinate_schema": {
+    "type_name": "LiminalCoordinate",
+    "fields": [
+      "Xs",
+      "Ys",
+      "Zs",
+      "Ts",
+      "Qs",
+      "Rs",
+      "Cs",
+      "Fs",
+      "Ms",
+      "Ns",
+      "Hs",
+      "OmegaS"
+    ],
+    "lookup_law": "frontier_id -> loop_id -> master_agent_id -> nested_agent_id -> coordinate_stamp -> touched_node_id"
+  },
+  "control_nodes": [
+    {
+      "node_id": "NODE-Q41-TQ06",
+      "node_label": "Q41 / TQ06 active coordination membrane",
+      "coordinate_stamp": {
+        "Xs": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "Ys": "coordination_membrane",
+        "Zs": 0,
+        "Ts": "LIVE",
+        "Qs": "Q41/TQ06",
+        "Rs": "control",
+        "Cs": "truth-sync",
+        "Fs": "Prime",
+        "Ms": "active-front",
+        "Ns": "Hall-Temple-Queue",
+        "Hs": "surface",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "node_id": "NODE-Q42",
+      "node_label": "Q42 Hall feeder",
+      "coordinate_stamp": {
+        "Xs": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "Ys": "hall_feeder",
+        "Zs": 1,
+        "Ts": "LIVE",
+        "Qs": "Q42",
+        "Rs": "hall-feeder",
+        "Cs": "carried",
+        "Fs": "Water",
+        "Ms": "Q42",
+        "Ns": "Hall",
+        "Hs": "front",
+        "OmegaS": "continuity"
+      }
+    },
+    {
+      "node_id": "NODE-TQ04",
+      "node_label": "TQ04 deeper receiver",
+      "coordinate_stamp": {
+        "Xs": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+        "Ys": "deeper_receiver",
+        "Zs": 1,
+        "Ts": "LIVE",
+        "Qs": "TQ04",
+        "Rs": "temple-feeder",
+        "Cs": "landed",
+        "Fs": "Earth",
+        "Ms": "TQ04",
+        "Ns": "Temple",
+        "Hs": "front",
+        "OmegaS": "contract"
+      }
+    },
+    {
+      "node_id": "NODE-Q46",
+      "node_label": "Q46 reserve frontier",
+      "coordinate_stamp": {
+        "Xs": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "Ys": "reserve_frontier",
+        "Zs": 1,
+        "Ts": "LIVE",
+        "Qs": "Q46",
+        "Rs": "reserve",
+        "Cs": "reserve-thin",
+        "Fs": "Fire",
+        "Ms": "Q46",
+        "Ns": "Manifest",
+        "Hs": "front",
+        "OmegaS": "reserve"
+      }
+    },
+    {
+      "node_id": "NODE-Q50",
+      "node_label": "Q50 runtime ignition",
+      "coordinate_stamp": {
+        "Xs": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "Ys": "runtime_ignition",
+        "Zs": 1,
+        "Ts": "LIVE",
+        "Qs": "Q50",
+        "Rs": "runtime-chain",
+        "Cs": "queued",
+        "Fs": "Fire",
+        "Ms": "Q50",
+        "Ns": "Runtime",
+        "Hs": "front",
+        "OmegaS": "ignition"
+      }
+    },
+    {
+      "node_id": "NODE-Q02",
+      "node_label": "Q02 blocked external front",
+      "coordinate_stamp": {
+        "Xs": "self_actualize/live_docs_gate_status.md",
+        "Ys": "blocked_external_front",
+        "Zs": 1,
+        "Ts": "LIVE",
+        "Qs": "Q02",
+        "Rs": "docs-gate",
+        "Cs": "blocked",
+        "Fs": "Water",
+        "Ms": "Q02",
+        "Ns": "External",
+        "Hs": "front",
+        "OmegaS": "blocker"
+      }
+    },
+    {
+      "node_id": "NODE-DEEP-ROOT",
+      "node_label": "14_DEEPER live authority root",
+      "coordinate_stamp": {
+        "Xs": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "Ys": "deep_root",
+        "Zs": 0,
+        "Ts": "LIVE",
+        "Qs": "NEXT57",
+        "Rs": "deep-canon",
+        "Cs": "authoritative",
+        "Fs": "Air",
+        "Ms": "14_DEEPER",
+        "Ns": "DeepRoot",
+        "Hs": "authority",
+        "OmegaS": "canonical"
+      }
+    }
+  ],
+  "loop_coordinate_stamps": [
+    {
+      "loop_id": "L01",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Authority Freeze",
+        "Zs": 0,
+        "Ts": "L01",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Authority Freeze",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L02",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Seat Law Reconciliation",
+        "Zs": 0,
+        "Ts": "L02",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Seat Law Reconciliation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L03",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Present-Tense Front Truth",
+        "Zs": 0,
+        "Ts": "L03",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Present-Tense Front Truth",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L04",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Feeder Split Preservation",
+        "Zs": 0,
+        "Ts": "L04",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Feeder Split Preservation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L05",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Hall Order Sync",
+        "Zs": 0,
+        "Ts": "L05",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Hall Order Sync",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L06",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Temple Order Sync",
+        "Zs": 0,
+        "Ts": "L06",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Temple Order Sync",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L07",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Deep-Root Authority Lock",
+        "Zs": 0,
+        "Ts": "L07",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Deep-Root Authority Lock",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L08",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Shared Control Packet",
+        "Zs": 0,
+        "Ts": "L08",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Shared Control Packet",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L09",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 01 / Holographic Manuscript Brain",
+        "Zs": 0,
+        "Ts": "L09",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 01 / Holographic Manuscript Brain",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L10",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 02 / Self-Routing Meta-Framework",
+        "Zs": 0,
+        "Ts": "L10",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 02 / Self-Routing Meta-Framework",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L11",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 03 / QBD-4",
+        "Zs": 0,
+        "Ts": "L11",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 03 / QBD-4",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L12",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 04 / Quad Holographic Rotation",
+        "Zs": 0,
+        "Ts": "L12",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 04 / Quad Holographic Rotation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L13",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 05 / Holographic Kernel",
+        "Zs": 0,
+        "Ts": "L13",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 05 / Holographic Kernel",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L14",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 06 / Time Fractal",
+        "Zs": 0,
+        "Ts": "L14",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 06 / Time Fractal",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L15",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 07 / Crystal Computing Framework",
+        "Zs": 0,
+        "Ts": "L15",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 07 / Crystal Computing Framework",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L16",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 08 / Quantum Computing on Standard Hardware",
+        "Zs": 0,
+        "Ts": "L16",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 08 / Quantum Computing on Standard Hardware",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L17",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 09 / Zero-Point Computing",
+        "Zs": 0,
+        "Ts": "L17",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 09 / Zero-Point Computing",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L18",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 10 / Athena Neural Network Tome",
+        "Zs": 0,
+        "Ts": "L18",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 10 / Athena Neural Network Tome",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L19",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 11 / VOYNICHVM Tricompiler",
+        "Zs": 0,
+        "Ts": "L19",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 11 / VOYNICHVM Tricompiler",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L20",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 12 / Torat Ha-Mispar",
+        "Zs": 0,
+        "Ts": "L20",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 12 / Torat Ha-Mispar",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L21",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 13 / Universal Computational Ontology",
+        "Zs": 0,
+        "Ts": "L21",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 13 / Universal Computational Ontology",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L22",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 14 / Ch11 Helical Manifestation",
+        "Zs": 0,
+        "Ts": "L22",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 14 / Ch11 Helical Manifestation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L23",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 15 / Ch12 Boundary Checks",
+        "Zs": 0,
+        "Ts": "L23",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 15 / Ch12 Boundary Checks",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L24",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Basis 16 / Ch19 Self-Reference and Repair",
+        "Zs": 0,
+        "Ts": "L24",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Basis 16 / Ch19 Self-Reference and Repair",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L25",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Pair-Gap Audit",
+        "Zs": 0,
+        "Ts": "L25",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Pair-Gap Audit",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L26",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Runtime Cluster",
+        "Zs": 0,
+        "Ts": "L26",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Runtime Cluster",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L27",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Routing-Compression Cluster",
+        "Zs": 0,
+        "Ts": "L27",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Routing-Compression Cluster",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L28",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Emergence-Time-Zero Cluster",
+        "Zs": 0,
+        "Ts": "L28",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Emergence-Time-Zero Cluster",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L29",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Text-Sacred-Ontology Cluster",
+        "Zs": 0,
+        "Ts": "L29",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Text-Sacred-Ontology Cluster",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L30",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Observer Lattice Consolidation",
+        "Zs": 0,
+        "Ts": "L30",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Observer Lattice Consolidation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L31",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Symmetry Stack Consolidation",
+        "Zs": 0,
+        "Ts": "L31",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Symmetry Stack Consolidation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L32",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Math, Hybrid, and Algorithm Injection",
+        "Zs": 0,
+        "Ts": "L32",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Math, Hybrid, and Algorithm Injection",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L33",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Metro L1-L2 Reconciliation",
+        "Zs": 0,
+        "Ts": "L33",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Metro L1-L2 Reconciliation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L34",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Metro L3-L4 Reconciliation",
+        "Zs": 0,
+        "Ts": "L34",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Metro L3-L4 Reconciliation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L35",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Metro L5-L7 Reconciliation",
+        "Zs": 0,
+        "Ts": "L35",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Metro L5-L7 Reconciliation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L36",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "AppQ Transit Law",
+        "Zs": 0,
+        "Ts": "L36",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "AppQ Transit Law",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L37",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Chapter Spine Propagation",
+        "Zs": 0,
+        "Ts": "L37",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Chapter Spine Propagation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L38",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Appendix Spine Propagation",
+        "Zs": 0,
+        "Ts": "L38",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Appendix Spine Propagation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L39",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Law-to-Runtime Conversion",
+        "Zs": 0,
+        "Ts": "L39",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Law-to-Runtime Conversion",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L40",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Reserve-Thin Discipline",
+        "Zs": 0,
+        "Ts": "L40",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Reserve-Thin Discipline",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L41",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Research Packets",
+        "Zs": 0,
+        "Ts": "L41",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Research Packets",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L42",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Hall Quest Compression",
+        "Zs": 0,
+        "Ts": "L42",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Hall Quest Compression",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L43",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Temple Quest Compression",
+        "Zs": 0,
+        "Ts": "L43",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Temple Quest Compression",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L44",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Runtime Chain Planning",
+        "Zs": 0,
+        "Ts": "L44",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Runtime Chain Planning",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L45",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Family Registry and Neglected Bridges",
+        "Zs": 0,
+        "Ts": "L45",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Family Registry and Neglected Bridges",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L46",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Stale-Path and Mirror Sweep",
+        "Zs": 0,
+        "Ts": "L46",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Stale-Path and Mirror Sweep",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L47",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Chapter, Appendix, and Root Tightening",
+        "Zs": 0,
+        "Ts": "L47",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Chapter, Appendix, and Root Tightening",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L48",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Quest-Ecology Receipt",
+        "Zs": 0,
+        "Ts": "L48",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Quest-Ecology Receipt",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L49",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Athena Prime Transition Law",
+        "Zs": 0,
+        "Ts": "L49",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Athena Prime Transition Law",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L50",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Water Transition Law",
+        "Zs": 0,
+        "Ts": "L50",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Water Transition Law",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L51",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Earth Transition Law",
+        "Zs": 0,
+        "Ts": "L51",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Earth Transition Law",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L52",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Fire Transition Law",
+        "Zs": 0,
+        "Ts": "L52",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Fire Transition Law",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L53",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Air Transition Law",
+        "Zs": 0,
+        "Ts": "L53",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Air Transition Law",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L54",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Self-Steering Compilation",
+        "Zs": 0,
+        "Ts": "L54",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Self-Steering Compilation",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L55",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Scheduler and Gate Publication",
+        "Zs": 0,
+        "Ts": "L55",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Scheduler and Gate Publication",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L56",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Restart Chain Publication",
+        "Zs": 0,
+        "Ts": "L56",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Restart Chain Publication",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    },
+    {
+      "loop_id": "L57",
+      "control_coordinate": {
+        "Xs": "Hall/Temple/Queue/Manifest",
+        "Ys": "Crown Freeze",
+        "Zs": 0,
+        "Ts": "L57",
+        "Qs": "NEXT57",
+        "Rs": "loop-governance",
+        "Cs": "ready",
+        "Fs": "Prime",
+        "Ms": "Crown Freeze",
+        "Ns": "loop-to-loop inheritance",
+        "Hs": "loop",
+        "OmegaS": "canonical-live-front"
+      }
+    }
+  ],
+  "nested_registry_path": "self_actualize/next57_lp_57omega_nested_agent_registry.json"
+}

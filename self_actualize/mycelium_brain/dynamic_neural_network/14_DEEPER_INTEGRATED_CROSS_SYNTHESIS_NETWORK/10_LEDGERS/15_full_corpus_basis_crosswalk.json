@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "integration_scope": "FULL_CORPUS",
+  "family_to_basis": {
+    "canonical_basis": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16"],
+    "complete_tomes": ["06", "08", "10", "13", "14", "15", "16"],
+    "frameworks_code": ["03", "04", "05", "07", "09", "10", "13"],
+    "runtime_manuscript_sections": ["02", "09", "14", "15", "16"],
+    "awakening_tome": ["06", "10", "14", "15", "16"],
+    "historical_mirrors": ["02", "14", "15"]
+  },
+  "basis_to_families": {
+    "02": ["canonical_basis", "runtime_manuscript_sections", "historical_mirrors"],
+    "03": ["canonical_basis", "frameworks_code"],
+    "04": ["canonical_basis", "frameworks_code"],
+    "05": ["canonical_basis", "frameworks_code"],
+    "06": ["canonical_basis", "complete_tomes", "awakening_tome"],
+    "07": ["canonical_basis", "frameworks_code"],
+    "08": ["canonical_basis", "complete_tomes"],
+    "09": ["canonical_basis", "frameworks_code", "runtime_manuscript_sections"],
+    "10": ["canonical_basis", "complete_tomes", "frameworks_code", "awakening_tome"],
+    "13": ["canonical_basis", "complete_tomes", "frameworks_code"],
+    "14": ["canonical_basis", "complete_tomes", "runtime_manuscript_sections", "awakening_tome", "historical_mirrors"],
+    "15": ["canonical_basis", "complete_tomes", "runtime_manuscript_sections", "awakening_tome", "historical_mirrors"],
+    "16": ["canonical_basis", "complete_tomes", "runtime_manuscript_sections", "awakening_tome"]
+  }
+}

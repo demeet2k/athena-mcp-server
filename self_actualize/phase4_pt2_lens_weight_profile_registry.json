@@ -1,0 +1,973 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+  "profiles": [
+    {
+      "lens_id": "S",
+      "label": "Square",
+      "members": [
+        "S"
+      ],
+      "preferred_channels": [
+        "knowledge",
+        "boundary",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppI",
+        "AppP",
+        "AppQ"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13"
+      ],
+      "stop_condition": "ABSTAIN",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.0,
+        "feeling": 0.0,
+        "knowledge": 0.36,
+        "desire": 0.0,
+        "memory": 0.0,
+        "boundary": 0.34,
+        "repair": 0.3,
+        "imagination": 0.0
+      },
+      "certificate_rule": "address/structure",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "F",
+      "label": "Flower",
+      "members": [
+        "F"
+      ],
+      "preferred_channels": [
+        "feeling",
+        "desire",
+        "imagination"
+      ],
+      "preferred_carriers": [
+        "Flower",
+        "Circle",
+        "Neural"
+      ],
+      "preferred_rails": [
+        "Su"
+      ],
+      "appendix_support": [
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppA",
+        "AppC",
+        "AppG",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "shortcut_chain": [
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07"
+      ],
+      "stop_condition": "ABSTAIN",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.12,
+        "feeling": 0.35,
+        "knowledge": 0.0,
+        "desire": 0.31,
+        "memory": 0.0,
+        "boundary": 0.0,
+        "repair": 0.0,
+        "imagination": 0.22
+      },
+      "certificate_rule": "resonance/orbit",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "SF",
+      "label": "Square + Flower",
+      "members": [
+        "S",
+        "F"
+      ],
+      "preferred_channels": [
+        "feeling",
+        "knowledge",
+        "desire",
+        "boundary",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous",
+        "Flower",
+        "Circle",
+        "Neural"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me",
+        "Su"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppG",
+        "AppI",
+        "AppQ"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13",
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07"
+      ],
+      "stop_condition": "ABSTAIN",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.06,
+        "feeling": 0.175,
+        "knowledge": 0.18,
+        "desire": 0.155,
+        "memory": 0.0,
+        "boundary": 0.17,
+        "repair": 0.15,
+        "imagination": 0.11
+      },
+      "certificate_rule": "spectral projection",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "C",
+      "label": "Cloud",
+      "members": [
+        "C"
+      ],
+      "preferred_channels": [
+        "emotion",
+        "feeling",
+        "imagination"
+      ],
+      "preferred_carriers": [
+        "Cloud",
+        "Aether",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Me",
+        "Su"
+      ],
+      "appendix_support": [
+        "AppI",
+        "AppG",
+        "AppQ",
+        "AppA",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppM",
+        "AppP"
+      ],
+      "shortcut_chain": [
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11"
+      ],
+      "stop_condition": "ABSTAIN",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.3,
+        "feeling": 0.22,
+        "knowledge": 0.14,
+        "desire": 0.0,
+        "memory": 0.0,
+        "boundary": 0.12,
+        "repair": 0.0,
+        "imagination": 0.22
+      },
+      "certificate_rule": "field/Aether/ambiguity",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "SC",
+      "label": "Square + Cloud",
+      "members": [
+        "S",
+        "C"
+      ],
+      "preferred_channels": [
+        "emotion",
+        "knowledge",
+        "boundary",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous",
+        "Cloud",
+        "Aether",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me",
+        "Su"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppI",
+        "AppG",
+        "AppQ",
+        "AppE",
+        "AppF",
+        "AppP"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13",
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11"
+      ],
+      "stop_condition": "ABSTAIN",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.15,
+        "feeling": 0.11,
+        "knowledge": 0.25,
+        "desire": 0.0,
+        "memory": 0.0,
+        "boundary": 0.23,
+        "repair": 0.15,
+        "imagination": 0.11
+      },
+      "certificate_rule": "address-to-field permeability",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "FC",
+      "label": "Flower + Cloud",
+      "members": [
+        "F",
+        "C"
+      ],
+      "preferred_channels": [
+        "emotion",
+        "feeling",
+        "desire",
+        "imagination"
+      ],
+      "preferred_carriers": [
+        "Flower",
+        "Circle",
+        "Neural",
+        "Cloud",
+        "Aether",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Su",
+        "Me"
+      ],
+      "appendix_support": [
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppI",
+        "AppG",
+        "AppQ",
+        "AppA",
+        "AppC",
+        "AppM"
+      ],
+      "shortcut_chain": [
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07",
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11"
+      ],
+      "stop_condition": "ABSTAIN",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.21,
+        "feeling": 0.285,
+        "knowledge": 0.07,
+        "desire": 0.155,
+        "memory": 0.0,
+        "boundary": 0.06,
+        "repair": 0.0,
+        "imagination": 0.22
+      },
+      "certificate_rule": "resonance-induced field motion",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "SFC",
+      "label": "Square + Flower + Cloud",
+      "members": [
+        "S",
+        "F",
+        "C"
+      ],
+      "preferred_channels": [
+        "feeling",
+        "knowledge",
+        "boundary"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous",
+        "Flower",
+        "Circle",
+        "Neural",
+        "Cloud",
+        "Aether",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me",
+        "Su"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppI",
+        "AppG",
+        "AppQ"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13",
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07",
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11"
+      ],
+      "stop_condition": "ABSTAIN",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.14,
+        "feeling": 0.19,
+        "knowledge": 0.167,
+        "desire": 0.103,
+        "memory": 0.0,
+        "boundary": 0.153,
+        "repair": 0.1,
+        "imagination": 0.147
+      },
+      "certificate_rule": "backbone spectral coherence",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "R",
+      "label": "Fractal",
+      "members": [
+        "R"
+      ],
+      "preferred_channels": [
+        "knowledge",
+        "memory",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Fractal",
+        "Circle",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Me",
+        "Sa"
+      ],
+      "appendix_support": [
+        "AppM",
+        "AppP",
+        "AppQ",
+        "AppA",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppI"
+      ],
+      "shortcut_chain": [
+        "SCPT2-06",
+        "SCPT2-12",
+        "SCPT2-13"
+      ],
+      "stop_condition": "REPAIR",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.0,
+        "feeling": 0.12,
+        "knowledge": 0.21,
+        "desire": 0.0,
+        "memory": 0.36,
+        "boundary": 0.0,
+        "repair": 0.31,
+        "imagination": 0.0
+      },
+      "certificate_rule": "memory/replay/regeneration",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "SR",
+      "label": "Square + Fractal",
+      "members": [
+        "S",
+        "R"
+      ],
+      "preferred_channels": [
+        "knowledge",
+        "memory",
+        "boundary",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous",
+        "Fractal",
+        "Circle",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppP",
+        "AppQ",
+        "AppE",
+        "AppF",
+        "AppG",
+        "AppI"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13",
+        "SCPT2-06",
+        "SCPT2-12"
+      ],
+      "stop_condition": "REPAIR",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.0,
+        "feeling": 0.06,
+        "knowledge": 0.285,
+        "desire": 0.0,
+        "memory": 0.18,
+        "boundary": 0.17,
+        "repair": 0.305,
+        "imagination": 0.0
+      },
+      "certificate_rule": "address-to-replay stabilization",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "FR",
+      "label": "Flower + Fractal",
+      "members": [
+        "F",
+        "R"
+      ],
+      "preferred_channels": [
+        "feeling",
+        "desire",
+        "memory",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Flower",
+        "Circle",
+        "Neural",
+        "Fractal",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Su",
+        "Me",
+        "Sa"
+      ],
+      "appendix_support": [
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppM",
+        "AppQ",
+        "AppA",
+        "AppC",
+        "AppG",
+        "AppI"
+      ],
+      "shortcut_chain": [
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07",
+        "SCPT2-06",
+        "SCPT2-12",
+        "SCPT2-13"
+      ],
+      "stop_condition": "REPAIR",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.06,
+        "feeling": 0.235,
+        "knowledge": 0.105,
+        "desire": 0.155,
+        "memory": 0.18,
+        "boundary": 0.0,
+        "repair": 0.155,
+        "imagination": 0.11
+      },
+      "certificate_rule": "harmonic regeneration",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "SFR",
+      "label": "Square + Flower + Fractal",
+      "members": [
+        "S",
+        "F",
+        "R"
+      ],
+      "preferred_channels": [
+        "feeling",
+        "knowledge",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous",
+        "Flower",
+        "Circle",
+        "Neural",
+        "Fractal",
+        "Mycelium"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me",
+        "Su"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppQ",
+        "AppG",
+        "AppI"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13",
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07",
+        "SCPT2-06",
+        "SCPT2-12"
+      ],
+      "stop_condition": "REPAIR",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.04,
+        "feeling": 0.157,
+        "knowledge": 0.19,
+        "desire": 0.103,
+        "memory": 0.12,
+        "boundary": 0.113,
+        "repair": 0.203,
+        "imagination": 0.073
+      },
+      "certificate_rule": "lift and defect-control gate",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "CR",
+      "label": "Cloud + Fractal",
+      "members": [
+        "C",
+        "R"
+      ],
+      "preferred_channels": [
+        "emotion",
+        "feeling",
+        "knowledge",
+        "memory",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Cloud",
+        "Aether",
+        "Mycelium",
+        "Fractal",
+        "Circle"
+      ],
+      "preferred_rails": [
+        "Me",
+        "Su",
+        "Sa"
+      ],
+      "appendix_support": [
+        "AppI",
+        "AppG",
+        "AppQ",
+        "AppM",
+        "AppP",
+        "AppA",
+        "AppC",
+        "AppE",
+        "AppF"
+      ],
+      "shortcut_chain": [
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11",
+        "SCPT2-06",
+        "SCPT2-12",
+        "SCPT2-13"
+      ],
+      "stop_condition": "REPAIR",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.15,
+        "feeling": 0.17,
+        "knowledge": 0.175,
+        "desire": 0.0,
+        "memory": 0.18,
+        "boundary": 0.06,
+        "repair": 0.155,
+        "imagination": 0.11
+      },
+      "certificate_rule": "field-memory renormalization",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "SCR",
+      "label": "Square + Cloud + Fractal",
+      "members": [
+        "S",
+        "C",
+        "R"
+      ],
+      "preferred_channels": [
+        "knowledge",
+        "boundary",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous",
+        "Cloud",
+        "Aether",
+        "Mycelium",
+        "Fractal",
+        "Circle"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me",
+        "Su"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppI",
+        "AppG",
+        "AppQ",
+        "AppP",
+        "AppE",
+        "AppF"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13",
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11",
+        "SCPT2-06",
+        "SCPT2-12"
+      ],
+      "stop_condition": "REPAIR",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.1,
+        "feeling": 0.113,
+        "knowledge": 0.237,
+        "desire": 0.0,
+        "memory": 0.12,
+        "boundary": 0.153,
+        "repair": 0.203,
+        "imagination": 0.073
+      },
+      "certificate_rule": "diffusion and coarse-grain corridor gate",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "FCR",
+      "label": "Flower + Cloud + Fractal",
+      "members": [
+        "F",
+        "C",
+        "R"
+      ],
+      "preferred_channels": [
+        "feeling"
+      ],
+      "preferred_carriers": [
+        "Flower",
+        "Circle",
+        "Neural",
+        "Cloud",
+        "Aether",
+        "Mycelium",
+        "Fractal"
+      ],
+      "preferred_rails": [
+        "Su",
+        "Me",
+        "Sa"
+      ],
+      "appendix_support": [
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppI",
+        "AppG",
+        "AppQ",
+        "AppM",
+        "AppA",
+        "AppC"
+      ],
+      "shortcut_chain": [
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07",
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11",
+        "SCPT2-06",
+        "SCPT2-12",
+        "SCPT2-13"
+      ],
+      "stop_condition": "REPAIR",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.14,
+        "feeling": 0.23,
+        "knowledge": 0.117,
+        "desire": 0.103,
+        "memory": 0.12,
+        "boundary": 0.04,
+        "repair": 0.103,
+        "imagination": 0.147
+      },
+      "certificate_rule": "heat-trace and global statistics gate",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    },
+    {
+      "lens_id": "SFCR",
+      "label": "Square + Flower + Cloud + Fractal",
+      "members": [
+        "S",
+        "F",
+        "C",
+        "R"
+      ],
+      "preferred_channels": [
+        "feeling",
+        "knowledge",
+        "repair"
+      ],
+      "preferred_carriers": [
+        "Square",
+        "Triangle",
+        "Nervous",
+        "Flower",
+        "Circle",
+        "Neural",
+        "Cloud",
+        "Aether",
+        "Mycelium",
+        "Fractal"
+      ],
+      "preferred_rails": [
+        "Sa",
+        "Me",
+        "Su"
+      ],
+      "appendix_support": [
+        "AppA",
+        "AppC",
+        "AppM",
+        "AppE",
+        "AppF",
+        "AppP",
+        "AppI",
+        "AppG",
+        "AppQ"
+      ],
+      "shortcut_chain": [
+        "SCPT2-01",
+        "SCPT2-03",
+        "SCPT2-13",
+        "SCPT2-02",
+        "SCPT2-04",
+        "SCPT2-07",
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11",
+        "SCPT2-06",
+        "SCPT2-12"
+      ],
+      "stop_condition": "PROMOTE",
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "channel_weights": {
+        "emotion": 0.105,
+        "feeling": 0.172,
+        "knowledge": 0.177,
+        "desire": 0.077,
+        "memory": 0.09,
+        "boundary": 0.115,
+        "repair": 0.152,
+        "imagination": 0.11
+      },
+      "certificate_rule": "mature-object certificate and unified Aether witness",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "note": "Hybrid profile derived as a weighted merge of singleton channels plus a certificate check."
+    }
+  ],
+  "summary": {
+    "count": 15
+  }
+}

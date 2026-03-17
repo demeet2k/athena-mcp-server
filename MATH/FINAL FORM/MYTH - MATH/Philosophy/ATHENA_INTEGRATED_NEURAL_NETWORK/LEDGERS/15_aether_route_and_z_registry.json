@@ -1,0 +1,49 @@
+{
+  "build_date": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate_reason": "Google Docs access is blocked locally because `Trading Bot/credentials.json` and `Trading Bot/token.json` are missing.",
+  "authority_class": "descriptive",
+  "mandatory_sigma": [
+    "AppA",
+    "AppI",
+    "AppM"
+  ],
+  "continuity_floors": [
+    "AppI",
+    "AppM",
+    "AppQ",
+    "AppO"
+  ],
+  "phase_bins": {
+    "\u03a60": "R+",
+    "\u03a61": "R-",
+    "\u03a62": "Q4",
+    "\u03a63": "T3"
+  },
+  "route_aliases": {
+    "rtL": {
+      "alias": "\u03a3-F-N-21",
+      "path": "AppA>AppI>AppM>AppF>AppN>Ch21\u27e80110\u27e9"
+    },
+    "rtZ": {
+      "alias": "\u03a3-F-G-21",
+      "path": "AppA>AppI>AppM>AppF>AppG>Ch21\u27e80110\u27e9"
+    }
+  },
+  "z_aliases": {
+    "ZA": "Z(Fire)",
+    "ZB": "Z(Water)",
+    "ZC": "Z(Air)",
+    "ZD": "Z(Earth)"
+  },
+  "fixed_pins": {
+    "timestamp": "Tick_2B",
+    "version": "V_2B",
+    "env": "E_2B"
+  },
+  "checks": [
+    "\u03a3",
+    "Hub<=6",
+    "ZMatch"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-03-13T04:39:22.435688+00:00",
+  "truth": "NEAR-derived",
+  "recently_refused": {
+    "Q_REFUSE": {
+      "count": 1,
+      "last_action": "REFUSE_INADMISSIBLE",
+      "updated_at": "2026-03-13T04:39:22.435688+00:00"
+    }
+  },
+  "recently_quarantined": {
+    "ImmuneScheduler->BrainstemChamber:immune:quarantine_packet": {
+      "last_action": "QUARANTINE",
+      "updated_at": "2026-03-13T04:39:22.435688+00:00"
+    }
+  },
+  "committee_pending_routes": [
+    "CommitteeChamber->BrainstemChamber:governance:committee_escalation"
+  ],
+  "history": [
+    {
+      "candidate_id": "Q_REFUSE",
+      "action": "REFUSE_INADMISSIBLE",
+      "route_signature": "QuestBoard->PublicCommitSurface:transport:quest_packet",
+      "priority_score": 0.27216,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_WITNESS",
+      "action": "REQUEST_WITNESSES",
+      "route_signature": "QuestBoard->BrainstemChamber:truth:quest_packet",
+      "priority_score": 0.25088,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_ACTIVATE",
+      "action": "ACTIVATE_NOW",
+      "route_signature": "QuestBoard->BrainstemChamber:transport:quest_packet",
+      "priority_score": 0.237196,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_ESCALATE",
+      "action": "ESCALATE_TO_COMMITTEE",
+      "route_signature": "CommitteeChamber->BrainstemChamber:governance:committee_escalation",
+      "priority_score": 0.190512,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_QUARANTINE",
+      "action": "QUARANTINE",
+      "route_signature": "ImmuneScheduler->BrainstemChamber:immune:quarantine_packet",
+      "priority_score": 0.089545,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_HOLD",
+      "action": "HOLD",
+      "route_signature": "QuestBoard->BrainstemChamber:transport:quest_packet",
+      "priority_score": 0.074938,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_COMPRESS",
+      "action": "REQUEST_WITNESSES",
+      "route_signature": "ContinuationSeedVault->BrainstemChamber:continuation:continuation_seed",
+      "priority_score": 0.06384,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_HELP",
+      "action": "REQUEST_HELP",
+      "route_signature": "AgentRegistry->BrainstemChamber:governance:help_request",
+      "priority_score": 0.063,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    },
+    {
+      "candidate_id": "Q_REPLAY",
+      "action": "REPLAY_FIRST",
+      "route_signature": "ImmuneScheduler->BrainstemChamber:replay:replay_job",
+      "priority_score": 0.049612,
+      "timestamp": "2026-03-13T04:39:22.435688+00:00"
+    }
+  ]
+}

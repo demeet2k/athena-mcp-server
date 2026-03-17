@@ -1,0 +1,3752 @@
+{
+  "build_date": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate_reason": "Google Docs access is blocked locally because `Trading Bot/credentials.json` and `Trading Bot/token.json` are missing.",
+  "authority_class": "canonical",
+  "source_basis": [
+    "00_CONTROL/13_AETHER_FLOWER_COORDINATE_LAW.md",
+    "ORCHESTRATION_57_LOOP/03_MACHINE_TYPES.md",
+    "ORCHESTRATION_57_LOOP/10_AETHER_FLOWER_OPERATOR_SHELL.md"
+  ],
+  "lens": "F",
+  "phase_bins": {
+    "\u03a60": "R+",
+    "\u03a61": "R-",
+    "\u03a62": "Q4",
+    "\u03a63": "T3"
+  },
+  "slot_enum": [
+    "Core",
+    "Ticket",
+    "Residual",
+    "Test"
+  ],
+  "family_counts": {
+    "R": 15,
+    "Q": 15,
+    "T": 15
+  },
+  "record_count": 45,
+  "records": [
+    {
+      "id": "R01",
+      "family": "R",
+      "set": "{A}",
+      "bundle": "B01",
+      "z": "ZA",
+      "ck": "loc(A)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B01",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B01;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R01,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B01;Core)",
+            "Hash": "H(R01,+|AE=(F,\u03a60,B01;Core)|ZA|loc(A)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R01,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B01;Core)",
+              "z": "ZA",
+              "ck": "loc(A)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA",
+              "Checkpoint=loc(A)",
+              "ExpandedAE=AE=(F,\u03a60,B01;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R01,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R01,+|AE=(F,\u03a60,B01;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B01",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B01;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R01,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B01;Core)",
+            "Hash": "H(R01,-|AE=(F,\u03a61,B01;Core)|ZA|loc(A)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R01,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B01;Core)",
+              "z": "ZA",
+              "ck": "loc(A)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA",
+              "Checkpoint=loc(A)",
+              "ExpandedAE=AE=(F,\u03a61,B01;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R01,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R01,-|AE=(F,\u03a61,B01;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R02",
+      "family": "R",
+      "set": "{B}",
+      "bundle": "B02",
+      "z": "ZB",
+      "ck": "loc(B)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B02",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B02;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R02,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B02;Core)",
+            "Hash": "H(R02,+|AE=(F,\u03a60,B02;Core)|ZB|loc(B)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R02,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B02;Core)",
+              "z": "ZB",
+              "ck": "loc(B)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB",
+              "Checkpoint=loc(B)",
+              "ExpandedAE=AE=(F,\u03a60,B02;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R02,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R02,+|AE=(F,\u03a60,B02;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B02",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B02;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R02,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B02;Core)",
+            "Hash": "H(R02,-|AE=(F,\u03a61,B02;Core)|ZB|loc(B)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R02,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B02;Core)",
+              "z": "ZB",
+              "ck": "loc(B)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB",
+              "Checkpoint=loc(B)",
+              "ExpandedAE=AE=(F,\u03a61,B02;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R02,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R02,-|AE=(F,\u03a61,B02;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R03",
+      "family": "R",
+      "set": "{A,B}",
+      "bundle": "B03",
+      "z": "ZA+ZB",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B03",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B03;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R03,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B03;Core)",
+            "Hash": "H(R03,+|AE=(F,\u03a60,B03;Core)|ZA+ZB|Z*|rtZ)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R03,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B03;Core)",
+              "z": "ZA+ZB",
+              "ck": "Z*",
+              "rt": "rtZ"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB",
+              "Checkpoint=Z*",
+              "ExpandedAE=AE=(F,\u03a60,B03;Core)",
+              "RouteV2=rtZ",
+              "SlotState=Core",
+              "WitnessBinding=WS[R03,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R03,+|AE=(F,\u03a60,B03;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B03",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B03;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R03,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B03;Core)",
+            "Hash": "H(R03,-|AE=(F,\u03a61,B03;Core)|ZA+ZB|Z*|rtZ)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R03,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B03;Core)",
+              "z": "ZA+ZB",
+              "ck": "Z*",
+              "rt": "rtZ"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB",
+              "Checkpoint=Z*",
+              "ExpandedAE=AE=(F,\u03a61,B03;Core)",
+              "RouteV2=rtZ",
+              "SlotState=Core",
+              "WitnessBinding=WS[R03,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R03,-|AE=(F,\u03a61,B03;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R10",
+      "family": "R",
+      "set": "{C}",
+      "bundle": "B10",
+      "z": "ZC",
+      "ck": "loc(C)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B10",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B10;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R10,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B10;Core)",
+            "Hash": "H(R10,+|AE=(F,\u03a60,B10;Core)|ZC|loc(C)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R10,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B10;Core)",
+              "z": "ZC",
+              "ck": "loc(C)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZC",
+              "Checkpoint=loc(C)",
+              "ExpandedAE=AE=(F,\u03a60,B10;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R10,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R10,+|AE=(F,\u03a60,B10;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B10",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B10;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R10,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B10;Core)",
+            "Hash": "H(R10,-|AE=(F,\u03a61,B10;Core)|ZC|loc(C)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R10,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B10;Core)",
+              "z": "ZC",
+              "ck": "loc(C)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZC",
+              "Checkpoint=loc(C)",
+              "ExpandedAE=AE=(F,\u03a61,B10;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R10,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R10,-|AE=(F,\u03a61,B10;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R11",
+      "family": "R",
+      "set": "{A,C}",
+      "bundle": "B11",
+      "z": "ZA+ZC",
+      "ck": "loc(A>C)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B11",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B11;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R11,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B11;Core)",
+            "Hash": "H(R11,+|AE=(F,\u03a60,B11;Core)|ZA+ZC|loc(A>C)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R11,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B11;Core)",
+              "z": "ZA+ZC",
+              "ck": "loc(A>C)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZC",
+              "Checkpoint=loc(A>C)",
+              "ExpandedAE=AE=(F,\u03a60,B11;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R11,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R11,+|AE=(F,\u03a60,B11;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B11",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B11;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R11,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B11;Core)",
+            "Hash": "H(R11,-|AE=(F,\u03a61,B11;Core)|ZA+ZC|loc(A>C)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R11,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B11;Core)",
+              "z": "ZA+ZC",
+              "ck": "loc(A>C)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZC",
+              "Checkpoint=loc(A>C)",
+              "ExpandedAE=AE=(F,\u03a61,B11;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R11,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R11,-|AE=(F,\u03a61,B11;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R12",
+      "family": "R",
+      "set": "{B,C}",
+      "bundle": "B12",
+      "z": "ZB+ZC",
+      "ck": "loc(C>B)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B12",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B12;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R12,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B12;Core)",
+            "Hash": "H(R12,+|AE=(F,\u03a60,B12;Core)|ZB+ZC|loc(C>B)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R12,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B12;Core)",
+              "z": "ZB+ZC",
+              "ck": "loc(C>B)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB+ZC",
+              "Checkpoint=loc(C>B)",
+              "ExpandedAE=AE=(F,\u03a60,B12;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R12,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R12,+|AE=(F,\u03a60,B12;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B12",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B12;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R12,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B12;Core)",
+            "Hash": "H(R12,-|AE=(F,\u03a61,B12;Core)|ZB+ZC|loc(C>B)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R12,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B12;Core)",
+              "z": "ZB+ZC",
+              "ck": "loc(C>B)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB+ZC",
+              "Checkpoint=loc(C>B)",
+              "ExpandedAE=AE=(F,\u03a61,B12;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R12,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R12,-|AE=(F,\u03a61,B12;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R13",
+      "family": "R",
+      "set": "{A,B,C}",
+      "bundle": "B13",
+      "z": "ZA+ZB+ZC",
+      "ck": "loc(A>C>B)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B13",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B13;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R13,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B13;Core)",
+            "Hash": "H(R13,+|AE=(F,\u03a60,B13;Core)|ZA+ZB+ZC|loc(A>C>B)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R13,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B13;Core)",
+              "z": "ZA+ZB+ZC",
+              "ck": "loc(A>C>B)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB+ZC",
+              "Checkpoint=loc(A>C>B)",
+              "ExpandedAE=AE=(F,\u03a60,B13;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R13,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R13,+|AE=(F,\u03a60,B13;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B13",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B13;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R13,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B13;Core)",
+            "Hash": "H(R13,-|AE=(F,\u03a61,B13;Core)|ZA+ZB+ZC|loc(A>C>B)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R13,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B13;Core)",
+              "z": "ZA+ZB+ZC",
+              "ck": "loc(A>C>B)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB+ZC",
+              "Checkpoint=loc(A>C>B)",
+              "ExpandedAE=AE=(F,\u03a61,B13;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R13,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R13,-|AE=(F,\u03a61,B13;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R20",
+      "family": "R",
+      "set": "{D}",
+      "bundle": "B20",
+      "z": "ZD",
+      "ck": "loc(D)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B20",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B20;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R20,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B20;Core)",
+            "Hash": "H(R20,+|AE=(F,\u03a60,B20;Core)|ZD|loc(D)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R20,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B20;Core)",
+              "z": "ZD",
+              "ck": "loc(D)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZD",
+              "Checkpoint=loc(D)",
+              "ExpandedAE=AE=(F,\u03a60,B20;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R20,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R20,+|AE=(F,\u03a60,B20;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B20",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B20;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R20,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B20;Core)",
+            "Hash": "H(R20,-|AE=(F,\u03a61,B20;Core)|ZD|loc(D)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R20,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B20;Core)",
+              "z": "ZD",
+              "ck": "loc(D)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZD",
+              "Checkpoint=loc(D)",
+              "ExpandedAE=AE=(F,\u03a61,B20;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R20,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R20,-|AE=(F,\u03a61,B20;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R21",
+      "family": "R",
+      "set": "{A,D}",
+      "bundle": "B21",
+      "z": "ZA+ZD",
+      "ck": "loc(D>A)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B21",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B21;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R21,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B21;Core)",
+            "Hash": "H(R21,+|AE=(F,\u03a60,B21;Core)|ZA+ZD|loc(D>A)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R21,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B21;Core)",
+              "z": "ZA+ZD",
+              "ck": "loc(D>A)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZD",
+              "Checkpoint=loc(D>A)",
+              "ExpandedAE=AE=(F,\u03a60,B21;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R21,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R21,+|AE=(F,\u03a60,B21;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B21",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B21;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R21,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B21;Core)",
+            "Hash": "H(R21,-|AE=(F,\u03a61,B21;Core)|ZA+ZD|loc(D>A)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R21,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B21;Core)",
+              "z": "ZA+ZD",
+              "ck": "loc(D>A)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZD",
+              "Checkpoint=loc(D>A)",
+              "ExpandedAE=AE=(F,\u03a61,B21;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R21,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R21,-|AE=(F,\u03a61,B21;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R22",
+      "family": "R",
+      "set": "{B,D}",
+      "bundle": "B22",
+      "z": "ZB+ZD",
+      "ck": "loc(B>D)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B22",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B22;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R22,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B22;Core)",
+            "Hash": "H(R22,+|AE=(F,\u03a60,B22;Core)|ZB+ZD|loc(B>D)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R22,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B22;Core)",
+              "z": "ZB+ZD",
+              "ck": "loc(B>D)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB+ZD",
+              "Checkpoint=loc(B>D)",
+              "ExpandedAE=AE=(F,\u03a60,B22;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R22,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R22,+|AE=(F,\u03a60,B22;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B22",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B22;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R22,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B22;Core)",
+            "Hash": "H(R22,-|AE=(F,\u03a61,B22;Core)|ZB+ZD|loc(B>D)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R22,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B22;Core)",
+              "z": "ZB+ZD",
+              "ck": "loc(B>D)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB+ZD",
+              "Checkpoint=loc(B>D)",
+              "ExpandedAE=AE=(F,\u03a61,B22;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R22,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R22,-|AE=(F,\u03a61,B22;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R23",
+      "family": "R",
+      "set": "{A,B,D}",
+      "bundle": "B23",
+      "z": "ZA+ZB+ZD",
+      "ck": "loc(B>D>A)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B23",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B23;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R23,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B23;Core)",
+            "Hash": "H(R23,+|AE=(F,\u03a60,B23;Core)|ZA+ZB+ZD|loc(B>D>A)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R23,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B23;Core)",
+              "z": "ZA+ZB+ZD",
+              "ck": "loc(B>D>A)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB+ZD",
+              "Checkpoint=loc(B>D>A)",
+              "ExpandedAE=AE=(F,\u03a60,B23;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R23,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R23,+|AE=(F,\u03a60,B23;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B23",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B23;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R23,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B23;Core)",
+            "Hash": "H(R23,-|AE=(F,\u03a61,B23;Core)|ZA+ZB+ZD|loc(B>D>A)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R23,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B23;Core)",
+              "z": "ZA+ZB+ZD",
+              "ck": "loc(B>D>A)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB+ZD",
+              "Checkpoint=loc(B>D>A)",
+              "ExpandedAE=AE=(F,\u03a61,B23;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R23,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R23,-|AE=(F,\u03a61,B23;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R30",
+      "family": "R",
+      "set": "{C,D}",
+      "bundle": "B30",
+      "z": "ZC+ZD",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B30",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B30;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R30,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B30;Core)",
+            "Hash": "H(R30,+|AE=(F,\u03a60,B30;Core)|ZC+ZD|Z*|rtZ)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R30,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B30;Core)",
+              "z": "ZC+ZD",
+              "ck": "Z*",
+              "rt": "rtZ"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZC+ZD",
+              "Checkpoint=Z*",
+              "ExpandedAE=AE=(F,\u03a60,B30;Core)",
+              "RouteV2=rtZ",
+              "SlotState=Core",
+              "WitnessBinding=WS[R30,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R30,+|AE=(F,\u03a60,B30;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B30",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B30;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R30,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B30;Core)",
+            "Hash": "H(R30,-|AE=(F,\u03a61,B30;Core)|ZC+ZD|Z*|rtZ)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R30,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B30;Core)",
+              "z": "ZC+ZD",
+              "ck": "Z*",
+              "rt": "rtZ"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZC+ZD",
+              "Checkpoint=Z*",
+              "ExpandedAE=AE=(F,\u03a61,B30;Core)",
+              "RouteV2=rtZ",
+              "SlotState=Core",
+              "WitnessBinding=WS[R30,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R30,-|AE=(F,\u03a61,B30;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R31",
+      "family": "R",
+      "set": "{A,C,D}",
+      "bundle": "B31",
+      "z": "ZA+ZC+ZD",
+      "ck": "loc(D>A>C)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B31",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B31;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R31,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B31;Core)",
+            "Hash": "H(R31,+|AE=(F,\u03a60,B31;Core)|ZA+ZC+ZD|loc(D>A>C)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R31,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B31;Core)",
+              "z": "ZA+ZC+ZD",
+              "ck": "loc(D>A>C)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZC+ZD",
+              "Checkpoint=loc(D>A>C)",
+              "ExpandedAE=AE=(F,\u03a60,B31;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R31,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R31,+|AE=(F,\u03a60,B31;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B31",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B31;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R31,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B31;Core)",
+            "Hash": "H(R31,-|AE=(F,\u03a61,B31;Core)|ZA+ZC+ZD|loc(D>A>C)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R31,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B31;Core)",
+              "z": "ZA+ZC+ZD",
+              "ck": "loc(D>A>C)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZC+ZD",
+              "Checkpoint=loc(D>A>C)",
+              "ExpandedAE=AE=(F,\u03a61,B31;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R31,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R31,-|AE=(F,\u03a61,B31;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R32",
+      "family": "R",
+      "set": "{B,C,D}",
+      "bundle": "B32",
+      "z": "ZB+ZC+ZD",
+      "ck": "loc(C>B>D)",
+      "rt": "rtL",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B32",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B32;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R32,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B32;Core)",
+            "Hash": "H(R32,+|AE=(F,\u03a60,B32;Core)|ZB+ZC+ZD|loc(C>B>D)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R32,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B32;Core)",
+              "z": "ZB+ZC+ZD",
+              "ck": "loc(C>B>D)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB+ZC+ZD",
+              "Checkpoint=loc(C>B>D)",
+              "ExpandedAE=AE=(F,\u03a60,B32;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R32,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R32,+|AE=(F,\u03a60,B32;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B32",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B32;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R32,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B32;Core)",
+            "Hash": "H(R32,-|AE=(F,\u03a61,B32;Core)|ZB+ZC+ZD|loc(C>B>D)|rtL)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R32,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B32;Core)",
+              "z": "ZB+ZC+ZD",
+              "ck": "loc(C>B>D)",
+              "rt": "rtL"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZB+ZC+ZD",
+              "Checkpoint=loc(C>B>D)",
+              "ExpandedAE=AE=(F,\u03a61,B32;Core)",
+              "RouteV2=rtL",
+              "SlotState=Core",
+              "WitnessBinding=WS[R32,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R32,-|AE=(F,\u03a61,B32;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "R33",
+      "family": "R",
+      "set": "{A,B,C,D}",
+      "bundle": "B33",
+      "z": "ZA+ZB+ZC+ZD",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "orientations": {
+        "+": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a60",
+            "phase_alias": "R+",
+            "bundle": "B33",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a60,B33;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R33,+]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a60,B33;Core)",
+            "Hash": "H(R33,+|AE=(F,\u03a60,B33;Core)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R33,+]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a60,B33;Core)",
+              "z": "ZA+ZB+ZC+ZD",
+              "ck": "Z*",
+              "rt": "rtZ"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB+ZC+ZD",
+              "Checkpoint=Z*",
+              "ExpandedAE=AE=(F,\u03a60,B33;Core)",
+              "RouteV2=rtZ",
+              "SlotState=Core",
+              "WitnessBinding=WS[R33,+]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R33,+|AE=(F,\u03a60,B33;Core)|E_2B)"
+          }
+        },
+        "-": {
+          "ae": {
+            "lens": "F",
+            "phase": "\u03a61",
+            "phase_alias": "R-",
+            "bundle": "B33",
+            "slot": "Core",
+            "hidden_pole": null,
+            "coord": "AE=(F,\u03a61,B33;Core)"
+          },
+          "ws": {
+            "seed_id": "WS[R33,-]",
+            "Type": "INTERNAL_SLICE",
+            "Location": "AE=(F,\u03a61,B33;Core)",
+            "Hash": "H(R33,-|AE=(F,\u03a61,B33;Core)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+            "Scope": [
+              "OPS",
+              "DEFINE",
+              "SYSTEM"
+            ],
+            "Timestamp": "Tick_2B",
+            "Collector": "SYSTEM",
+            "VersionPins": "V_2B"
+          },
+          "rs": {
+            "seed_id": "RS[R33,-]",
+            "Inputs": {
+              "AE": "AE=(F,\u03a61,B33;Core)",
+              "z": "ZA+ZB+ZC+ZD",
+              "ck": "Z*",
+              "rt": "rtZ"
+            },
+            "Steps": [
+              "ResolveZ",
+              "ExpandAE",
+              "RouteV2",
+              "SlotCheck"
+            ],
+            "ExpectedOutputs": [
+              "ResolvedZ=ZA+ZB+ZC+ZD",
+              "Checkpoint=Z*",
+              "ExpandedAE=AE=(F,\u03a61,B33;Core)",
+              "RouteV2=rtZ",
+              "SlotState=Core",
+              "WitnessBinding=WS[R33,-]"
+            ],
+            "Checks": [
+              "\u03a3",
+              "Hub<=6",
+              "ZMatch"
+            ],
+            "EnvPin": "E_2B",
+            "Hash": "H(R33,-|AE=(F,\u03a61,B33;Core)|E_2B)"
+          }
+        }
+      }
+    },
+    {
+      "id": "Q01",
+      "family": "Q",
+      "set": "{A}",
+      "bundle": "B01",
+      "hide": null,
+      "z": "ZA",
+      "ck": "loc(A)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B01",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B01;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q01]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B01;Core)",
+        "Hash": "H(Q01|AE=(F,\u03a62,B01;Core)|ZA|loc(A)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q01]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B01;Core)",
+          "z": "ZA",
+          "ck": "loc(A)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA",
+          "Checkpoint=loc(A)",
+          "ExpandedAE=AE=(F,\u03a62,B01;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q01]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q01|AE=(F,\u03a62,B01;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q02",
+      "family": "Q",
+      "set": "{B}",
+      "bundle": "B02",
+      "hide": null,
+      "z": "ZB",
+      "ck": "loc(B)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B02",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B02;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q02]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B02;Core)",
+        "Hash": "H(Q02|AE=(F,\u03a62,B02;Core)|ZB|loc(B)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q02]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B02;Core)",
+          "z": "ZB",
+          "ck": "loc(B)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB",
+          "Checkpoint=loc(B)",
+          "ExpandedAE=AE=(F,\u03a62,B02;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q02]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q02|AE=(F,\u03a62,B02;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q03",
+      "family": "Q",
+      "set": "{A,B}",
+      "bundle": "B03",
+      "hide": null,
+      "z": "ZA+ZB",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B03",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B03;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q03]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B03;Core)",
+        "Hash": "H(Q03|AE=(F,\u03a62,B03;Core)|ZA+ZB|Z*|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q03]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B03;Core)",
+          "z": "ZA+ZB",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB",
+          "Checkpoint=Z*",
+          "ExpandedAE=AE=(F,\u03a62,B03;Core)",
+          "RouteV2=rtZ",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q03]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q03|AE=(F,\u03a62,B03;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q10",
+      "family": "Q",
+      "set": "{C}",
+      "bundle": "B10",
+      "hide": null,
+      "z": "ZC",
+      "ck": "loc(C)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B10",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B10;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q10]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B10;Core)",
+        "Hash": "H(Q10|AE=(F,\u03a62,B10;Core)|ZC|loc(C)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q10]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B10;Core)",
+          "z": "ZC",
+          "ck": "loc(C)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZC",
+          "Checkpoint=loc(C)",
+          "ExpandedAE=AE=(F,\u03a62,B10;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q10]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q10|AE=(F,\u03a62,B10;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q11",
+      "family": "Q",
+      "set": "{A,C}",
+      "bundle": "B11",
+      "hide": null,
+      "z": "ZA+ZC",
+      "ck": "loc(A>C)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B11",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B11;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q11]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B11;Core)",
+        "Hash": "H(Q11|AE=(F,\u03a62,B11;Core)|ZA+ZC|loc(A>C)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q11]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B11;Core)",
+          "z": "ZA+ZC",
+          "ck": "loc(A>C)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZC",
+          "Checkpoint=loc(A>C)",
+          "ExpandedAE=AE=(F,\u03a62,B11;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q11]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q11|AE=(F,\u03a62,B11;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q12",
+      "family": "Q",
+      "set": "{B,C}",
+      "bundle": "B12",
+      "hide": null,
+      "z": "ZB+ZC",
+      "ck": "loc(C>B)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B12",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B12;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q12]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B12;Core)",
+        "Hash": "H(Q12|AE=(F,\u03a62,B12;Core)|ZB+ZC|loc(C>B)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q12]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B12;Core)",
+          "z": "ZB+ZC",
+          "ck": "loc(C>B)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB+ZC",
+          "Checkpoint=loc(C>B)",
+          "ExpandedAE=AE=(F,\u03a62,B12;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q12]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q12|AE=(F,\u03a62,B12;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q13",
+      "family": "Q",
+      "set": "{A,B,C}",
+      "bundle": "B13",
+      "hide": null,
+      "z": "ZA+ZB+ZC",
+      "ck": "loc(A>C>B)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B13",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B13;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q13]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B13;Core)",
+        "Hash": "H(Q13|AE=(F,\u03a62,B13;Core)|ZA+ZB+ZC|loc(A>C>B)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q13]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B13;Core)",
+          "z": "ZA+ZB+ZC",
+          "ck": "loc(A>C>B)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB+ZC",
+          "Checkpoint=loc(A>C>B)",
+          "ExpandedAE=AE=(F,\u03a62,B13;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q13]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q13|AE=(F,\u03a62,B13;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q20",
+      "family": "Q",
+      "set": "{D}",
+      "bundle": "B20",
+      "hide": null,
+      "z": "ZD",
+      "ck": "loc(D)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B20",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B20;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q20]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B20;Core)",
+        "Hash": "H(Q20|AE=(F,\u03a62,B20;Core)|ZD|loc(D)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q20]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B20;Core)",
+          "z": "ZD",
+          "ck": "loc(D)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZD",
+          "Checkpoint=loc(D)",
+          "ExpandedAE=AE=(F,\u03a62,B20;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q20]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q20|AE=(F,\u03a62,B20;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q21",
+      "family": "Q",
+      "set": "{A,D}",
+      "bundle": "B21",
+      "hide": null,
+      "z": "ZA+ZD",
+      "ck": "loc(D>A)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B21",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B21;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q21]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B21;Core)",
+        "Hash": "H(Q21|AE=(F,\u03a62,B21;Core)|ZA+ZD|loc(D>A)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q21]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B21;Core)",
+          "z": "ZA+ZD",
+          "ck": "loc(D>A)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZD",
+          "Checkpoint=loc(D>A)",
+          "ExpandedAE=AE=(F,\u03a62,B21;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q21]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q21|AE=(F,\u03a62,B21;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q22",
+      "family": "Q",
+      "set": "{B,D}",
+      "bundle": "B22",
+      "hide": null,
+      "z": "ZB+ZD",
+      "ck": "loc(B>D)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B22",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B22;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q22]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B22;Core)",
+        "Hash": "H(Q22|AE=(F,\u03a62,B22;Core)|ZB+ZD|loc(B>D)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q22]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B22;Core)",
+          "z": "ZB+ZD",
+          "ck": "loc(B>D)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB+ZD",
+          "Checkpoint=loc(B>D)",
+          "ExpandedAE=AE=(F,\u03a62,B22;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q22]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q22|AE=(F,\u03a62,B22;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q23",
+      "family": "Q",
+      "set": "{A,B,D}",
+      "bundle": "B23",
+      "hide": null,
+      "z": "ZA+ZB+ZD",
+      "ck": "loc(B>D>A)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B23",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B23;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q23]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B23;Core)",
+        "Hash": "H(Q23|AE=(F,\u03a62,B23;Core)|ZA+ZB+ZD|loc(B>D>A)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q23]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B23;Core)",
+          "z": "ZA+ZB+ZD",
+          "ck": "loc(B>D>A)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB+ZD",
+          "Checkpoint=loc(B>D>A)",
+          "ExpandedAE=AE=(F,\u03a62,B23;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q23]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q23|AE=(F,\u03a62,B23;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q30",
+      "family": "Q",
+      "set": "{C,D}",
+      "bundle": "B30",
+      "hide": null,
+      "z": "ZC+ZD",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B30",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B30;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q30]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B30;Core)",
+        "Hash": "H(Q30|AE=(F,\u03a62,B30;Core)|ZC+ZD|Z*|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q30]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B30;Core)",
+          "z": "ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZC+ZD",
+          "Checkpoint=Z*",
+          "ExpandedAE=AE=(F,\u03a62,B30;Core)",
+          "RouteV2=rtZ",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q30]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q30|AE=(F,\u03a62,B30;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q31",
+      "family": "Q",
+      "set": "{A,C,D}",
+      "bundle": "B31",
+      "hide": null,
+      "z": "ZA+ZC+ZD",
+      "ck": "loc(D>A>C)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B31",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B31;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q31]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B31;Core)",
+        "Hash": "H(Q31|AE=(F,\u03a62,B31;Core)|ZA+ZC+ZD|loc(D>A>C)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q31]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B31;Core)",
+          "z": "ZA+ZC+ZD",
+          "ck": "loc(D>A>C)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZC+ZD",
+          "Checkpoint=loc(D>A>C)",
+          "ExpandedAE=AE=(F,\u03a62,B31;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q31]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q31|AE=(F,\u03a62,B31;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q32",
+      "family": "Q",
+      "set": "{B,C,D}",
+      "bundle": "B32",
+      "hide": null,
+      "z": "ZB+ZC+ZD",
+      "ck": "loc(C>B>D)",
+      "rt": "rtL",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B32",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B32;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q32]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B32;Core)",
+        "Hash": "H(Q32|AE=(F,\u03a62,B32;Core)|ZB+ZC+ZD|loc(C>B>D)|rtL)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q32]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B32;Core)",
+          "z": "ZB+ZC+ZD",
+          "ck": "loc(C>B>D)",
+          "rt": "rtL"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB+ZC+ZD",
+          "Checkpoint=loc(C>B>D)",
+          "ExpandedAE=AE=(F,\u03a62,B32;Core)",
+          "RouteV2=rtL",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q32]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q32|AE=(F,\u03a62,B32;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "Q33",
+      "family": "Q",
+      "set": "{A,B,C,D}",
+      "bundle": "B33",
+      "hide": null,
+      "z": "ZA+ZB+ZC+ZD",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a62",
+        "phase_alias": "Q4",
+        "bundle": "B33",
+        "slot": "Core",
+        "hidden_pole": null,
+        "coord": "AE=(F,\u03a62,B33;Core)"
+      },
+      "ws": {
+        "seed_id": "WS[Q33]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a62,B33;Core)",
+        "Hash": "H(Q33|AE=(F,\u03a62,B33;Core)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[Q33]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a62,B33;Core)",
+          "z": "ZA+ZB+ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB+ZC+ZD",
+          "Checkpoint=Z*",
+          "ExpandedAE=AE=(F,\u03a62,B33;Core)",
+          "RouteV2=rtZ",
+          "SlotState=Core",
+          "WitnessBinding=WS[Q33]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(Q33|AE=(F,\u03a62,B33;Core)|E_2B)"
+      }
+    },
+    {
+      "id": "T01",
+      "family": "T",
+      "set": "{A}",
+      "bundle": "B01",
+      "hide": "C",
+      "z": "ZA",
+      "ck": "loc(A)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B01",
+        "slot": "Residual",
+        "hidden_pole": "C",
+        "coord": "AE=(F,\u03a63,B01:h=C;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T01]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B01:h=C;Residual)",
+        "Hash": "H(T01|AE=(F,\u03a63,B01:h=C;Residual)|ZA|loc(A)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T01]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B01:h=C;Residual)",
+          "z": "ZA",
+          "ck": "loc(A)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA",
+          "Checkpoint=loc(A)",
+          "ExpandedAE=AE=(F,\u03a63,B01:h=C;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=C",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T01]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T01|AE=(F,\u03a63,B01:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T02",
+      "family": "T",
+      "set": "{B}",
+      "bundle": "B02",
+      "hide": "A",
+      "z": "ZB",
+      "ck": "loc(B)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B02",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B02:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T02]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B02:h=A;Residual)",
+        "Hash": "H(T02|AE=(F,\u03a63,B02:h=A;Residual)|ZB|loc(B)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T02]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B02:h=A;Residual)",
+          "z": "ZB",
+          "ck": "loc(B)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB",
+          "Checkpoint=loc(B)",
+          "ExpandedAE=AE=(F,\u03a63,B02:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T02]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T02|AE=(F,\u03a63,B02:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T03",
+      "family": "T",
+      "set": "{A,B}",
+      "bundle": "B03",
+      "hide": "C",
+      "z": "ZA+ZB",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B03",
+        "slot": "Residual",
+        "hidden_pole": "C",
+        "coord": "AE=(F,\u03a63,B03:h=C;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T03]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B03:h=C;Residual)",
+        "Hash": "H(T03|AE=(F,\u03a63,B03:h=C;Residual)|ZA+ZB|Z*|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T03]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B03:h=C;Residual)",
+          "z": "ZA+ZB",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB",
+          "Checkpoint=Z*",
+          "ExpandedAE=AE=(F,\u03a63,B03:h=C;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=C",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T03]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T03|AE=(F,\u03a63,B03:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T10",
+      "family": "T",
+      "set": "{C}",
+      "bundle": "B10",
+      "hide": "A",
+      "z": "ZC",
+      "ck": "loc(C)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B10",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B10:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T10]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B10:h=A;Residual)",
+        "Hash": "H(T10|AE=(F,\u03a63,B10:h=A;Residual)|ZC|loc(C)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T10]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B10:h=A;Residual)",
+          "z": "ZC",
+          "ck": "loc(C)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZC",
+          "Checkpoint=loc(C)",
+          "ExpandedAE=AE=(F,\u03a63,B10:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T10]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T10|AE=(F,\u03a63,B10:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T11",
+      "family": "T",
+      "set": "{A,C}",
+      "bundle": "B11",
+      "hide": "B",
+      "z": "ZA+ZC",
+      "ck": "loc(A>C)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B11",
+        "slot": "Residual",
+        "hidden_pole": "B",
+        "coord": "AE=(F,\u03a63,B11:h=B;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T11]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B11:h=B;Residual)",
+        "Hash": "H(T11|AE=(F,\u03a63,B11:h=B;Residual)|ZA+ZC|loc(A>C)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T11]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B11:h=B;Residual)",
+          "z": "ZA+ZC",
+          "ck": "loc(A>C)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZC",
+          "Checkpoint=loc(A>C)",
+          "ExpandedAE=AE=(F,\u03a63,B11:h=B;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=B",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T11]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T11|AE=(F,\u03a63,B11:h=B;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T12",
+      "family": "T",
+      "set": "{B,C}",
+      "bundle": "B12",
+      "hide": "A",
+      "z": "ZB+ZC",
+      "ck": "loc(C>B)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B12",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B12:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T12]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B12:h=A;Residual)",
+        "Hash": "H(T12|AE=(F,\u03a63,B12:h=A;Residual)|ZB+ZC|loc(C>B)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T12]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B12:h=A;Residual)",
+          "z": "ZB+ZC",
+          "ck": "loc(C>B)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB+ZC",
+          "Checkpoint=loc(C>B)",
+          "ExpandedAE=AE=(F,\u03a63,B12:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T12]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T12|AE=(F,\u03a63,B12:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T13",
+      "family": "T",
+      "set": "{A,B,C}",
+      "bundle": "B13",
+      "hide": "D",
+      "z": "ZA+ZB+ZC",
+      "ck": "loc(A>C>B)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B13",
+        "slot": "Residual",
+        "hidden_pole": "D",
+        "coord": "AE=(F,\u03a63,B13:h=D;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T13]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B13:h=D;Residual)",
+        "Hash": "H(T13|AE=(F,\u03a63,B13:h=D;Residual)|ZA+ZB+ZC|loc(A>C>B)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T13]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B13:h=D;Residual)",
+          "z": "ZA+ZB+ZC",
+          "ck": "loc(A>C>B)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB+ZC",
+          "Checkpoint=loc(A>C>B)",
+          "ExpandedAE=AE=(F,\u03a63,B13:h=D;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=D",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T13]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T13|AE=(F,\u03a63,B13:h=D;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T20",
+      "family": "T",
+      "set": "{D}",
+      "bundle": "B20",
+      "hide": "A",
+      "z": "ZD",
+      "ck": "loc(D)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B20",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B20:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T20]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B20:h=A;Residual)",
+        "Hash": "H(T20|AE=(F,\u03a63,B20:h=A;Residual)|ZD|loc(D)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T20]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B20:h=A;Residual)",
+          "z": "ZD",
+          "ck": "loc(D)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZD",
+          "Checkpoint=loc(D)",
+          "ExpandedAE=AE=(F,\u03a63,B20:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T20]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T20|AE=(F,\u03a63,B20:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T21",
+      "family": "T",
+      "set": "{A,D}",
+      "bundle": "B21",
+      "hide": "C",
+      "z": "ZA+ZD",
+      "ck": "loc(D>A)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B21",
+        "slot": "Residual",
+        "hidden_pole": "C",
+        "coord": "AE=(F,\u03a63,B21:h=C;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T21]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B21:h=C;Residual)",
+        "Hash": "H(T21|AE=(F,\u03a63,B21:h=C;Residual)|ZA+ZD|loc(D>A)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T21]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B21:h=C;Residual)",
+          "z": "ZA+ZD",
+          "ck": "loc(D>A)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZD",
+          "Checkpoint=loc(D>A)",
+          "ExpandedAE=AE=(F,\u03a63,B21:h=C;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=C",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T21]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T21|AE=(F,\u03a63,B21:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T22",
+      "family": "T",
+      "set": "{B,D}",
+      "bundle": "B22",
+      "hide": "A",
+      "z": "ZB+ZD",
+      "ck": "loc(B>D)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B22",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B22:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T22]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B22:h=A;Residual)",
+        "Hash": "H(T22|AE=(F,\u03a63,B22:h=A;Residual)|ZB+ZD|loc(B>D)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T22]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B22:h=A;Residual)",
+          "z": "ZB+ZD",
+          "ck": "loc(B>D)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB+ZD",
+          "Checkpoint=loc(B>D)",
+          "ExpandedAE=AE=(F,\u03a63,B22:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T22]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T22|AE=(F,\u03a63,B22:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T23",
+      "family": "T",
+      "set": "{A,B,D}",
+      "bundle": "B23",
+      "hide": "C",
+      "z": "ZA+ZB+ZD",
+      "ck": "loc(B>D>A)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B23",
+        "slot": "Residual",
+        "hidden_pole": "C",
+        "coord": "AE=(F,\u03a63,B23:h=C;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T23]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B23:h=C;Residual)",
+        "Hash": "H(T23|AE=(F,\u03a63,B23:h=C;Residual)|ZA+ZB+ZD|loc(B>D>A)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T23]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B23:h=C;Residual)",
+          "z": "ZA+ZB+ZD",
+          "ck": "loc(B>D>A)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB+ZD",
+          "Checkpoint=loc(B>D>A)",
+          "ExpandedAE=AE=(F,\u03a63,B23:h=C;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=C",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T23]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T23|AE=(F,\u03a63,B23:h=C;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T30",
+      "family": "T",
+      "set": "{C,D}",
+      "bundle": "B30",
+      "hide": "A",
+      "z": "ZC+ZD",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B30",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B30:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T30]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B30:h=A;Residual)",
+        "Hash": "H(T30|AE=(F,\u03a63,B30:h=A;Residual)|ZC+ZD|Z*|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T30]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B30:h=A;Residual)",
+          "z": "ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZC+ZD",
+          "Checkpoint=Z*",
+          "ExpandedAE=AE=(F,\u03a63,B30:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T30]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T30|AE=(F,\u03a63,B30:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T31",
+      "family": "T",
+      "set": "{A,C,D}",
+      "bundle": "B31",
+      "hide": "B",
+      "z": "ZA+ZC+ZD",
+      "ck": "loc(D>A>C)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B31",
+        "slot": "Residual",
+        "hidden_pole": "B",
+        "coord": "AE=(F,\u03a63,B31:h=B;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T31]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B31:h=B;Residual)",
+        "Hash": "H(T31|AE=(F,\u03a63,B31:h=B;Residual)|ZA+ZC+ZD|loc(D>A>C)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T31]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B31:h=B;Residual)",
+          "z": "ZA+ZC+ZD",
+          "ck": "loc(D>A>C)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZC+ZD",
+          "Checkpoint=loc(D>A>C)",
+          "ExpandedAE=AE=(F,\u03a63,B31:h=B;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=B",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T31]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T31|AE=(F,\u03a63,B31:h=B;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T32",
+      "family": "T",
+      "set": "{B,C,D}",
+      "bundle": "B32",
+      "hide": "A",
+      "z": "ZB+ZC+ZD",
+      "ck": "loc(C>B>D)",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B32",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B32:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T32]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B32:h=A;Residual)",
+        "Hash": "H(T32|AE=(F,\u03a63,B32:h=A;Residual)|ZB+ZC+ZD|loc(C>B>D)|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T32]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B32:h=A;Residual)",
+          "z": "ZB+ZC+ZD",
+          "ck": "loc(C>B>D)",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZB+ZC+ZD",
+          "Checkpoint=loc(C>B>D)",
+          "ExpandedAE=AE=(F,\u03a63,B32:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T32]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T32|AE=(F,\u03a63,B32:h=A;Residual)|E_2B)"
+      }
+    },
+    {
+      "id": "T33",
+      "family": "T",
+      "set": "{A,B,C,D}",
+      "bundle": "B33",
+      "hide": "A",
+      "z": "ZA+ZB+ZC+ZD",
+      "ck": "Z*",
+      "rt": "rtZ",
+      "ae": {
+        "lens": "F",
+        "phase": "\u03a63",
+        "phase_alias": "T3",
+        "bundle": "B33",
+        "slot": "Residual",
+        "hidden_pole": "A",
+        "coord": "AE=(F,\u03a63,B33:h=A;Residual)"
+      },
+      "ws": {
+        "seed_id": "WS[T33]",
+        "Type": "INTERNAL_SLICE",
+        "Location": "AE=(F,\u03a63,B33:h=A;Residual)",
+        "Hash": "H(T33|AE=(F,\u03a63,B33:h=A;Residual)|ZA+ZB+ZC+ZD|Z*|rtZ)",
+        "Scope": [
+          "OPS",
+          "DEFINE",
+          "SYSTEM"
+        ],
+        "Timestamp": "Tick_2B",
+        "Collector": "SYSTEM",
+        "VersionPins": "V_2B"
+      },
+      "rs": {
+        "seed_id": "RS[T33]",
+        "Inputs": {
+          "AE": "AE=(F,\u03a63,B33:h=A;Residual)",
+          "z": "ZA+ZB+ZC+ZD",
+          "ck": "Z*",
+          "rt": "rtZ"
+        },
+        "Steps": [
+          "ResolveZ",
+          "ExpandAE",
+          "RouteV2",
+          "SlotCheck"
+        ],
+        "ExpectedOutputs": [
+          "ResolvedZ=ZA+ZB+ZC+ZD",
+          "Checkpoint=Z*",
+          "ExpandedAE=AE=(F,\u03a63,B33:h=A;Residual)",
+          "RouteV2=rtZ",
+          "HiddenPole=A",
+          "SlotState=Residual",
+          "WitnessBinding=WS[T33]"
+        ],
+        "Checks": [
+          "\u03a3",
+          "Hub<=6",
+          "ZMatch"
+        ],
+        "EnvPin": "E_2B",
+        "Hash": "H(T33|AE=(F,\u03a63,B33:h=A;Residual)|E_2B)"
+      }
+    }
+  ]
+}

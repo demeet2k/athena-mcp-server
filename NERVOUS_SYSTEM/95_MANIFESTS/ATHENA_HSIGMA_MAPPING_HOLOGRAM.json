@@ -1,0 +1,2859 @@
+{
+  "generated_at": "2026-03-13T12:51:54.110948-07:00",
+  "generated_at_utc": "2026-03-13T19:51:54Z",
+  "timezone": "America/Los_Angeles",
+  "docs_gate": "BLOCKED",
+  "symbolic_name": "HSigma",
+  "visibility_mode": "class-exhaustive / instance-frontier",
+  "counts": {
+    "layers": 11,
+    "routes": 13,
+    "tunnels": 6,
+    "strata": 5,
+    "nexus_rows": 19,
+    "seated_rows": 16,
+    "frontier_rows": 2,
+    "inferred_rows": 1,
+    "timing_states": 256,
+    "mindsweeper_cells": 4864
+  },
+  "contracts": {
+    "HSigmaManifest": [
+      "metadata",
+      "counts",
+      "layers",
+      "dimensional_strata",
+      "topology_seed",
+      "frontier_map",
+      "routes",
+      "bridges",
+      "tunnels",
+      "nexus_rows",
+      "timing_engine",
+      "route_gate_book",
+      "nexus_exposure_book",
+      "master_keys",
+      "phrase_macros",
+      "mindsweeper",
+      "hidden_candidates",
+      "frontier_policy",
+      "save_state"
+    ],
+    "HSigmaCell": [
+      "row_id",
+      "byte",
+      "coords",
+      "weight",
+      "visibility",
+      "hidden_pressure",
+      "contradiction",
+      "frontier_fraction",
+      "route_density",
+      "exposed_nexus_count",
+      "exposed_tunnel_count",
+      "instability",
+      "class",
+      "active_routes",
+      "reached_strata",
+      "reachable_rows"
+    ],
+    "HSigmaSaveState": [
+      "current_state",
+      "top_master_keys",
+      "frontier_rows",
+      "hidden_candidates",
+      "regeneration_seed"
+    ]
+  },
+  "layers": [
+    {
+      "id": "L1",
+      "symbol": "\u039b1",
+      "name": "Metro",
+      "description": "Discrete transfer-optimized routing graph. Preserves station identity, interchange load, and map legibility."
+    },
+    {
+      "id": "L2",
+      "symbol": "\u039b2",
+      "name": "Mycelium",
+      "description": "Branching adaptive diffusion graph. Preserves branching, growth pressure, substrate spread, and filament continuity."
+    },
+    {
+      "id": "L3",
+      "symbol": "\u039b3",
+      "name": "Neural",
+      "description": "Convergence/divergence associative graph. Preserves recurrence, cross-link density, witness attachment, and pattern compression."
+    },
+    {
+      "id": "L4",
+      "symbol": "\u039b4",
+      "name": "Zero",
+      "description": "Collapse/normalization pole. Preserves sink behavior, reset behavior, route simplification, and graph normalization."
+    },
+    {
+      "id": "L5",
+      "symbol": "\u039b5",
+      "name": "Liminal",
+      "description": "Phase-shift / uncertainty / transition layer. Preserves ambiguity without erasing structure. Mediates pole changes and inter-map transfer."
+    },
+    {
+      "id": "L6",
+      "symbol": "\u039b6",
+      "name": "Aether",
+      "description": "Expansion / lift / outward projection pole. Preserves reopening, re-expansion, lift behavior, and possibility inflation."
+    },
+    {
+      "id": "L7",
+      "symbol": "\u039b7",
+      "name": "Tunnel",
+      "description": "Nonlocal bypass layer. Preserves entrance/exit identity, bypass invariants, and shortcut legality."
+    },
+    {
+      "id": "L8",
+      "symbol": "\u039b8",
+      "name": "BridgeReturn",
+      "description": "Linkage layer for transfer, return, folding, and structural reattachment. Includes ordinary bridges and return hinges."
+    },
+    {
+      "id": "L9",
+      "symbol": "\u039b9",
+      "name": "Dimensional",
+      "description": "Lift, crossing, non-planar projection, and manifold transit layer. Hosts dimensional lifts and manifold crossings."
+    },
+    {
+      "id": "L10",
+      "symbol": "\u039b10",
+      "name": "ReplayWitnessProof",
+      "description": "Evidentiary route layer. Preserves recurrence, observation, replay, witness-bearing continuity, and proof-bearing closure."
+    },
+    {
+      "id": "L11",
+      "symbol": "\u039b11",
+      "name": "SeedRegeneration",
+      "description": "Compression and re-seeding layer. Preserves regeneration anchors, seed crystals, and save-state survivability."
+    }
+  ],
+  "dimensional_strata": [
+    {
+      "id": "D0",
+      "name": "Planar routing stratum",
+      "description": "Metro / mycelium / neural surface-level navigation."
+    },
+    {
+      "id": "D1",
+      "name": "Hinge / liminal stratum",
+      "description": "Transfer, phase-shift, bridge approach, ambiguity mediation."
+    },
+    {
+      "id": "D2",
+      "name": "Pole stratum",
+      "description": "Zero collapse and aether expansion."
+    },
+    {
+      "id": "D3",
+      "name": "Nonlocal transit stratum",
+      "description": "Tunnels, lifts, crossings, nonlocal bridgework."
+    },
+    {
+      "id": "D4",
+      "name": "Evidentiary / regenerative stratum",
+      "description": "Replay, witness, proof closure, seed preservation, regeneration."
+    }
+  ],
+  "topology_seed": {
+    "Metro": [
+      "Liminal",
+      "BridgeReturn",
+      "ReplayWitnessProof"
+    ],
+    "Mycelium": [
+      "Liminal",
+      "Aether",
+      "SeedRegeneration"
+    ],
+    "Neural": [
+      "Liminal",
+      "ReplayWitnessProof",
+      "Dimensional"
+    ],
+    "Zero": [
+      "Liminal",
+      "Tunnel",
+      "ReplayWitnessProof"
+    ],
+    "Aether": [
+      "Liminal",
+      "Tunnel",
+      "Dimensional",
+      "SeedRegeneration"
+    ],
+    "Liminal": [
+      "Metro",
+      "Mycelium",
+      "Neural",
+      "Zero",
+      "Aether",
+      "Tunnel",
+      "BridgeReturn",
+      "Dimensional"
+    ],
+    "Tunnel": [
+      "Zero",
+      "Aether",
+      "Liminal",
+      "Dimensional",
+      "ReplayWitnessProof"
+    ],
+    "BridgeReturn": [
+      "Metro",
+      "Liminal",
+      "Dimensional",
+      "ReplayWitnessProof"
+    ],
+    "Dimensional": [
+      "BridgeReturn",
+      "Tunnel",
+      "ReplayWitnessProof"
+    ],
+    "ReplayWitnessProof": [
+      "Zero",
+      "BridgeReturn",
+      "Neural",
+      "SeedRegeneration"
+    ],
+    "SeedRegeneration": [
+      "Aether",
+      "Mycelium",
+      "ReplayWitnessProof"
+    ]
+  },
+  "frontier_map": [
+    "exact counts of local zero points and local aether points",
+    "exact metro station inventory",
+    "exact mycelial branch multiplicity",
+    "exact neural convergence multiplicity",
+    "tunnel midspans / collapsed interiors",
+    "exact pairing of entrances to exits",
+    "whether a M\u00f6bius return hinge is seated now",
+    "whether a proof anchor is seated now",
+    "exact coordinates of seed crystals",
+    "exact manifold crossing multiplicity",
+    "exact witness/proof closures"
+  ],
+  "routes": [
+    {
+      "id": "R1",
+      "name": "Metro rail",
+      "description": "Ordinary planar transit; optimizes transfer clarity.",
+      "gate": {
+        "q0": [
+          0,
+          1
+        ],
+        "q1": [
+          0,
+          1
+        ],
+        "q2": [
+          0,
+          1
+        ],
+        "q3": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Mycelial filament",
+      "description": "Branching spread; optimizes diffusion and branch discovery.",
+      "gate": {
+        "q0": [
+          1,
+          2
+        ],
+        "q1": [
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2
+        ],
+        "q3": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Neural link",
+      "description": "Convergence/divergence; optimizes associative recurrence.",
+      "gate": {
+        "q0": [
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Zero-collapse route",
+      "description": "Normalization path into zero structures.",
+      "gate": {
+        "q0": [
+          0,
+          2
+        ],
+        "q1": [
+          0,
+          1
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "R5",
+      "name": "Liminal transition route",
+      "description": "Mediated phase-shift path between distinct structural families.",
+      "gate": {
+        "q0": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          1,
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2
+        ],
+        "q3": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "R6",
+      "name": "Aether expansion route",
+      "description": "Reopening / lift / outward projection path.",
+      "gate": {
+        "q0": [
+          1,
+          3
+        ],
+        "q1": [
+          0,
+          2
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R7",
+      "name": "Tunnel bypass route",
+      "description": "Nonlocal shortcut that preserves entrance/exit legality.",
+      "gate": {
+        "q0": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "R8",
+      "name": "Bridge / hinge route",
+      "description": "Structural attachment, transfer, and return-line support.",
+      "gate": {
+        "q0": [
+          0,
+          1,
+          3
+        ],
+        "q1": [
+          0,
+          1,
+          3
+        ],
+        "q2": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          0,
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R9",
+      "name": "Dimensional lift route",
+      "description": "Vertical or non-planar transit into higher structural span.",
+      "gate": {
+        "q0": [
+          1,
+          3
+        ],
+        "q1": [
+          1,
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R10",
+      "name": "Manifold crossing route",
+      "description": "Cross-sheet transit where distinct sections intersect lawfully.",
+      "gate": {
+        "q0": [
+          2,
+          3
+        ],
+        "q1": [
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "R11",
+      "name": "Replay loop",
+      "description": "Recurrence path used for return, verification, and memory.",
+      "gate": {
+        "q0": [
+          3
+        ],
+        "q1": [
+          0,
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R12",
+      "name": "Witness / proof-bearing route",
+      "description": "Evidentiary path; supports witness and possible proof closure.",
+      "gate": {
+        "q0": [
+          0,
+          3
+        ],
+        "q1": [
+          0,
+          2
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          0,
+          2,
+          3
+        ]
+      },
+      "invariant": "replay support required"
+    },
+    {
+      "id": "R13",
+      "name": "Seed / regeneration route",
+      "description": "Compression-safe route into seed crystals and regeneration.",
+      "gate": {
+        "q0": [
+          1,
+          3
+        ],
+        "q1": [
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          2,
+          3
+        ]
+      },
+      "invariant": "aether or replay support required"
+    }
+  ],
+  "bridges": [
+    {
+      "id": "B/TR",
+      "name": "Transfer bridge",
+      "description": "Connects distinct route families while preserving source and target identity."
+    },
+    {
+      "id": "B/DH",
+      "name": "Dimensional hinge",
+      "description": "Supports lawful move between planar and nonlocal strata."
+    },
+    {
+      "id": "B/MR",
+      "name": "Mobius return hinge",
+      "description": "Return-fold bridge; currently frontier until supported."
+    },
+    {
+      "id": "B/WB",
+      "name": "Witness bridge",
+      "description": "Carries replay into witness-bearing structure."
+    },
+    {
+      "id": "B/BC",
+      "name": "Compression bridge",
+      "description": "High compression-value bridge that collapses multiple local paths into one recoverable line."
+    }
+  ],
+  "tunnels": [
+    {
+      "id": "T/ZC",
+      "name": "Zero-collapse tunnel",
+      "strongest": "q0 in {0,2}, q2 has IN, q3 in {0,2}",
+      "entry": "zero-leaning node",
+      "exit": "normalized or return-compatible node"
+    },
+    {
+      "id": "T/AL",
+      "name": "Aether-lift tunnel",
+      "strongest": "q0 in {1,3}, q2 has ANTI, q3 in {1,3}",
+      "entry": "liminal or post-zero node",
+      "exit": "aether or lift-facing node"
+    },
+    {
+      "id": "T/LS",
+      "name": "Liminal-shortcut tunnel",
+      "strongest": "q1 in {2,3}, q3 = 3",
+      "entry": "liminal transfer",
+      "exit": "nearby cross-family hub"
+    },
+    {
+      "id": "T/DJ",
+      "name": "Dimensional-jump tunnel",
+      "strongest": "q1 = 3, q3 = 3",
+      "entry": "bridge or tunnel gateway",
+      "exit": "lift or crossing station"
+    },
+    {
+      "id": "T/RR",
+      "name": "Replay-return tunnel",
+      "strongest": "q0 = 3, q1 in {1,3}",
+      "entry": "replay anchor",
+      "exit": "zero / return hinge / witness zone"
+    },
+    {
+      "id": "T/BC",
+      "name": "Bridge-compression tunnel",
+      "strongest": "q3 in {0,3}",
+      "entry": "high-centrality hub",
+      "exit": "replay or bridge station"
+    }
+  ],
+  "nexus_rows": [
+    {
+      "id": "Z0",
+      "title": "Global Zero Anchor",
+      "status": "seated",
+      "node_class": "zero anchor",
+      "host_layers": [
+        "Zero",
+        "Liminal",
+        "Tunnel",
+        "Dimensional",
+        "ReplayWitnessProof"
+      ],
+      "incident_routes": [
+        "R4",
+        "R5",
+        "R7",
+        "R8",
+        "R9",
+        "R11"
+      ],
+      "span": 4,
+      "polarity": "Z++",
+      "related_hubs": [
+        "L0",
+        "TE",
+        "DB",
+        "RA"
+      ],
+      "touching_tunnels": [
+        "T/ZC",
+        "T/RR",
+        "T/BC"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C3"
+      ],
+      "strata": [
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          0,
+          2
+        ],
+        "q1": [
+          0,
+          1
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          0,
+          2,
+          3
+        ]
+      },
+      "schematic_degree": 6,
+      "centrality_prior": 0.8571428571428571,
+      "w0": 83
+    },
+    {
+      "id": "ZL",
+      "title": "Local Zero Point",
+      "status": "seated",
+      "node_class": "local zero point",
+      "host_layers": [
+        "Zero",
+        "Liminal",
+        "Tunnel"
+      ],
+      "incident_routes": [
+        "R4",
+        "R5",
+        "R7"
+      ],
+      "span": 3,
+      "polarity": "Z+",
+      "related_hubs": [
+        "L0",
+        "TE",
+        "Z0"
+      ],
+      "touching_tunnels": [
+        "T/ZC"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C6"
+      ],
+      "strata": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "exposure": {
+        "q0": [
+          0,
+          2
+        ],
+        "q1": [
+          0,
+          2
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          0,
+          2
+        ]
+      },
+      "schematic_degree": 3,
+      "centrality_prior": 0.42857142857142855,
+      "w0": 50
+    },
+    {
+      "id": "A0",
+      "title": "Primary Aether Point",
+      "status": "seated",
+      "node_class": "aether point",
+      "host_layers": [
+        "Aether",
+        "Liminal",
+        "Tunnel",
+        "Dimensional",
+        "SeedRegeneration"
+      ],
+      "incident_routes": [
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "span": 4,
+      "polarity": "A++",
+      "related_hubs": [
+        "L0",
+        "TX",
+        "DL",
+        "SC"
+      ],
+      "touching_tunnels": [
+        "T/AL",
+        "T/DJ"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C5"
+      ],
+      "strata": [
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          3
+        ],
+        "q1": [
+          0,
+          2
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          1,
+          3
+        ]
+      },
+      "schematic_degree": 5,
+      "centrality_prior": 0.7142857142857143,
+      "w0": 75
+    },
+    {
+      "id": "L0",
+      "title": "Liminal Transfer Point",
+      "status": "seated",
+      "node_class": "liminal transfer hinge",
+      "host_layers": [
+        "Liminal",
+        "Zero",
+        "Aether",
+        "Tunnel",
+        "BridgeReturn",
+        "Dimensional"
+      ],
+      "incident_routes": [
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9",
+        "R10"
+      ],
+      "span": 4,
+      "polarity": "balanced mediator",
+      "related_hubs": [
+        "Z0",
+        "A0",
+        "MS",
+        "DB"
+      ],
+      "touching_tunnels": [
+        "T/LS",
+        "T/ZC",
+        "T/AL",
+        "T/DJ"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "strata": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "exposure": {
+        "q0": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          1,
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2
+        ],
+        "q3": [
+          3
+        ]
+      },
+      "schematic_degree": 7,
+      "centrality_prior": 1.0,
+      "w0": 92
+    },
+    {
+      "id": "MT",
+      "title": "Metro Transfer Hub",
+      "status": "seated",
+      "node_class": "metro transfer hub",
+      "host_layers": [
+        "Metro",
+        "Liminal",
+        "BridgeReturn",
+        "ReplayWitnessProof"
+      ],
+      "incident_routes": [
+        "R1",
+        "R5",
+        "R8",
+        "R11"
+      ],
+      "span": 3,
+      "polarity": "neutral",
+      "related_hubs": [
+        "MS",
+        "L0",
+        "RA"
+      ],
+      "touching_tunnels": [
+        "T/LS",
+        "T/BC"
+      ],
+      "hidden_neighbors": [
+        "C2"
+      ],
+      "strata": [
+        "D0",
+        "D1",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          0,
+          1,
+          3
+        ],
+        "q1": [
+          0,
+          1
+        ],
+        "q2": [
+          0,
+          1
+        ],
+        "q3": [
+          0,
+          1
+        ]
+      },
+      "schematic_degree": 4,
+      "centrality_prior": 0.5714285714285714,
+      "w0": 58
+    },
+    {
+      "id": "MS",
+      "title": "Master Transfer Station",
+      "status": "seated",
+      "node_class": "cross-family master interchange",
+      "host_layers": [
+        "Metro",
+        "Mycelium",
+        "Neural",
+        "Liminal",
+        "BridgeReturn",
+        "Dimensional",
+        "ReplayWitnessProof"
+      ],
+      "incident_routes": [
+        "R1",
+        "R2",
+        "R3",
+        "R5",
+        "R8",
+        "R9",
+        "R11"
+      ],
+      "span": 4,
+      "polarity": "neutral structural hinge",
+      "related_hubs": [
+        "MT",
+        "MY",
+        "NN",
+        "DB"
+      ],
+      "touching_tunnels": [
+        "T/LS",
+        "T/BC",
+        "T/DJ"
+      ],
+      "hidden_neighbors": [
+        "C2",
+        "C3"
+      ],
+      "strata": [
+        "D0",
+        "D1",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          0,
+          1,
+          2
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          0,
+          3
+        ]
+      },
+      "schematic_degree": 7,
+      "centrality_prior": 1.0,
+      "w0": 92
+    },
+    {
+      "id": "MY",
+      "title": "Mycelium Branch Hub",
+      "status": "seated",
+      "node_class": "mycelial branching hub",
+      "host_layers": [
+        "Mycelium",
+        "Liminal",
+        "Aether",
+        "SeedRegeneration"
+      ],
+      "incident_routes": [
+        "R2",
+        "R5",
+        "R6",
+        "R7",
+        "R13"
+      ],
+      "span": 4,
+      "polarity": "A+",
+      "related_hubs": [
+        "MS",
+        "A0",
+        "SC",
+        "L0"
+      ],
+      "touching_tunnels": [
+        "T/LS",
+        "T/AL"
+      ],
+      "hidden_neighbors": [
+        "C2",
+        "C5",
+        "C6"
+      ],
+      "strata": [
+        "D0",
+        "D1",
+        "D2",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          2
+        ],
+        "q1": [
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2
+        ],
+        "q3": [
+          2,
+          3
+        ]
+      },
+      "schematic_degree": 5,
+      "centrality_prior": 0.7142857142857143,
+      "w0": 75
+    },
+    {
+      "id": "NN",
+      "title": "Neural Convergence Hub",
+      "status": "seated",
+      "node_class": "neural convergence hub",
+      "host_layers": [
+        "Neural",
+        "Liminal",
+        "Aether",
+        "Dimensional",
+        "ReplayWitnessProof"
+      ],
+      "incident_routes": [
+        "R3",
+        "R5",
+        "R6",
+        "R7",
+        "R10",
+        "R12"
+      ],
+      "span": 5,
+      "polarity": "balanced-liminal",
+      "related_hubs": [
+        "MS",
+        "MC",
+        "WA",
+        "L0"
+      ],
+      "touching_tunnels": [
+        "T/LS",
+        "T/DJ"
+      ],
+      "hidden_neighbors": [
+        "C2",
+        "C4",
+        "C6"
+      ],
+      "strata": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          1,
+          3
+        ]
+      },
+      "schematic_degree": 6,
+      "centrality_prior": 0.8571428571428571,
+      "w0": 91
+    },
+    {
+      "id": "TE",
+      "title": "Tunnel Entrance",
+      "status": "seated",
+      "node_class": "tunnel entrance",
+      "host_layers": [
+        "Tunnel",
+        "Zero",
+        "Liminal",
+        "BridgeReturn"
+      ],
+      "incident_routes": [
+        "R4",
+        "R5",
+        "R7",
+        "R8"
+      ],
+      "span": 3,
+      "polarity": "Z+ entry",
+      "related_hubs": [
+        "Z0",
+        "L0",
+        "DB"
+      ],
+      "touching_tunnels": [
+        "T/ZC",
+        "T/LS",
+        "T/DJ"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C3"
+      ],
+      "strata": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "exposure": {
+        "q0": [
+          0,
+          2
+        ],
+        "q1": [
+          1,
+          3
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          3
+        ]
+      },
+      "schematic_degree": 4,
+      "centrality_prior": 0.5714285714285714,
+      "w0": 58
+    },
+    {
+      "id": "TX",
+      "title": "Tunnel Exit",
+      "status": "seated",
+      "node_class": "tunnel exit",
+      "host_layers": [
+        "Tunnel",
+        "Aether",
+        "Liminal",
+        "BridgeReturn"
+      ],
+      "incident_routes": [
+        "R5",
+        "R6",
+        "R7",
+        "R8"
+      ],
+      "span": 3,
+      "polarity": "A+ release",
+      "related_hubs": [
+        "A0",
+        "L0",
+        "DL"
+      ],
+      "touching_tunnels": [
+        "T/AL",
+        "T/LS",
+        "T/DJ"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C3"
+      ],
+      "strata": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          3
+        ],
+        "q1": [
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          3
+        ]
+      },
+      "schematic_degree": 4,
+      "centrality_prior": 0.5714285714285714,
+      "w0": 58
+    },
+    {
+      "id": "DB",
+      "title": "Dimensional Bridge Station",
+      "status": "seated",
+      "node_class": "dimensional bridge station",
+      "host_layers": [
+        "BridgeReturn",
+        "Liminal",
+        "Dimensional",
+        "Tunnel"
+      ],
+      "incident_routes": [
+        "R5",
+        "R7",
+        "R8",
+        "R9",
+        "R10"
+      ],
+      "span": 3,
+      "polarity": "balanced",
+      "related_hubs": [
+        "L0",
+        "MS",
+        "MC",
+        "TE",
+        "TX"
+      ],
+      "touching_tunnels": [
+        "T/DJ",
+        "T/BC"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C3"
+      ],
+      "strata": [
+        "D1",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          1,
+          3
+        ]
+      },
+      "schematic_degree": 5,
+      "centrality_prior": 0.7142857142857143,
+      "w0": 67
+    },
+    {
+      "id": "DL",
+      "title": "Dimensional Lift",
+      "status": "seated",
+      "node_class": "dimensional lift station",
+      "host_layers": [
+        "Dimensional",
+        "Aether",
+        "Tunnel"
+      ],
+      "incident_routes": [
+        "R6",
+        "R7",
+        "R9",
+        "R10"
+      ],
+      "span": 2,
+      "polarity": "A+",
+      "related_hubs": [
+        "A0",
+        "DB",
+        "MC",
+        "TX"
+      ],
+      "touching_tunnels": [
+        "T/AL",
+        "T/DJ"
+      ],
+      "hidden_neighbors": [
+        "C1",
+        "C3"
+      ],
+      "strata": [
+        "D2",
+        "D3"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          3
+        ],
+        "q1": [
+          1,
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          1,
+          3
+        ]
+      },
+      "schematic_degree": 4,
+      "centrality_prior": 0.5714285714285714,
+      "w0": 50
+    },
+    {
+      "id": "MC",
+      "title": "Manifold Crossing",
+      "status": "seated",
+      "node_class": "manifold crossing station",
+      "host_layers": [
+        "Dimensional",
+        "BridgeReturn",
+        "Neural",
+        "ReplayWitnessProof"
+      ],
+      "incident_routes": [
+        "R7",
+        "R8",
+        "R9",
+        "R10",
+        "R12"
+      ],
+      "span": 3,
+      "polarity": "balanced-opposed",
+      "related_hubs": [
+        "DB",
+        "DL",
+        "NN",
+        "WA"
+      ],
+      "touching_tunnels": [
+        "T/DJ",
+        "T/BC"
+      ],
+      "hidden_neighbors": [
+        "C3",
+        "C4"
+      ],
+      "strata": [
+        "D0",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          2,
+          3
+        ],
+        "q1": [
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          3
+        ]
+      },
+      "schematic_degree": 5,
+      "centrality_prior": 0.7142857142857143,
+      "w0": 67
+    },
+    {
+      "id": "RA",
+      "title": "Replay Anchor",
+      "status": "seated",
+      "node_class": "replay anchor",
+      "host_layers": [
+        "ReplayWitnessProof",
+        "BridgeReturn",
+        "SeedRegeneration"
+      ],
+      "incident_routes": [
+        "R8",
+        "R11",
+        "R12",
+        "R13"
+      ],
+      "span": 3,
+      "polarity": "Z-return bias",
+      "related_hubs": [
+        "MR",
+        "WA",
+        "SC",
+        "MT"
+      ],
+      "touching_tunnels": [
+        "T/RR",
+        "T/BC"
+      ],
+      "hidden_neighbors": [
+        "C4",
+        "C5"
+      ],
+      "strata": [
+        "D1",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          3
+        ],
+        "q1": [
+          0,
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          0,
+          3
+        ]
+      },
+      "schematic_degree": 4,
+      "centrality_prior": 0.5714285714285714,
+      "w0": 58
+    },
+    {
+      "id": "WA",
+      "title": "Witness Anchor",
+      "status": "seated",
+      "node_class": "witness anchor",
+      "host_layers": [
+        "ReplayWitnessProof",
+        "Neural"
+      ],
+      "incident_routes": [
+        "R5",
+        "R11",
+        "R12"
+      ],
+      "span": 2,
+      "polarity": "Z-stabilized",
+      "related_hubs": [
+        "RA",
+        "NN",
+        "PA"
+      ],
+      "touching_tunnels": [
+        "T/RR"
+      ],
+      "hidden_neighbors": [
+        "C4"
+      ],
+      "strata": [
+        "D0",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          0,
+          3
+        ],
+        "q1": [
+          0,
+          2
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          0,
+          2,
+          3
+        ]
+      },
+      "schematic_degree": 3,
+      "centrality_prior": 0.42857142857142855,
+      "w0": 42
+    },
+    {
+      "id": "SC",
+      "title": "Seed Crystal",
+      "status": "seated",
+      "node_class": "seed crystal / regeneration anchor",
+      "host_layers": [
+        "SeedRegeneration",
+        "Aether",
+        "Mycelium",
+        "ReplayWitnessProof"
+      ],
+      "incident_routes": [
+        "R6",
+        "R11",
+        "R12",
+        "R13"
+      ],
+      "span": 3,
+      "polarity": "A-seeded",
+      "related_hubs": [
+        "A0",
+        "MY",
+        "RA"
+      ],
+      "touching_tunnels": [
+        "T/AL",
+        "T/RR"
+      ],
+      "hidden_neighbors": [
+        "C5"
+      ],
+      "strata": [
+        "D0",
+        "D2",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          3
+        ],
+        "q1": [
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          2,
+          3
+        ]
+      },
+      "schematic_degree": 4,
+      "centrality_prior": 0.5714285714285714,
+      "w0": 58
+    },
+    {
+      "id": "MR",
+      "title": "Mobius Return Hinge",
+      "status": "frontier",
+      "node_class": "return hinge / Mobius hinge",
+      "host_layers": [
+        "BridgeReturn",
+        "ReplayWitnessProof",
+        "Zero"
+      ],
+      "incident_routes": [
+        "R4",
+        "R7",
+        "R8",
+        "R11"
+      ],
+      "span": 3,
+      "polarity": "cyclic return",
+      "related_hubs": [
+        "RA",
+        "Z0",
+        "DB"
+      ],
+      "touching_tunnels": [
+        "T/RR",
+        "T/ZC"
+      ],
+      "hidden_neighbors": [
+        "C4"
+      ],
+      "strata": [
+        "D1",
+        "D2",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          3
+        ],
+        "q1": [
+          1,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          0,
+          3
+        ]
+      },
+      "schematic_degree": 4,
+      "centrality_prior": 0.5714285714285714,
+      "w0": 58
+    },
+    {
+      "id": "PA",
+      "title": "Proof Anchor",
+      "status": "frontier",
+      "node_class": "proof anchor",
+      "host_layers": [
+        "ReplayWitnessProof",
+        "BridgeReturn"
+      ],
+      "incident_routes": [
+        "R8",
+        "R11",
+        "R12"
+      ],
+      "span": 2,
+      "polarity": "Z-stabilized evidentiary closure",
+      "related_hubs": [
+        "WA",
+        "RA",
+        "MR"
+      ],
+      "touching_tunnels": [],
+      "hidden_neighbors": [
+        "C4"
+      ],
+      "strata": [
+        "D1",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          3
+        ],
+        "q1": [
+          0,
+          2
+        ],
+        "q2": [
+          0,
+          1,
+          2
+        ],
+        "q3": [
+          0,
+          3
+        ]
+      },
+      "schematic_degree": 3,
+      "centrality_prior": 0.42857142857142855,
+      "w0": 42
+    },
+    {
+      "id": "LP",
+      "title": "Latent Pressure Hub",
+      "status": "inferred",
+      "node_class": "unresolved but pressure-bearing nexus",
+      "host_layers": [
+        "Liminal",
+        "BridgeReturn",
+        "Dimensional"
+      ],
+      "incident_routes": [
+        "R5",
+        "R7",
+        "R8",
+        "R9",
+        "R10"
+      ],
+      "span": 3,
+      "polarity": "unresolved",
+      "related_hubs": [
+        "L0",
+        "DB",
+        "MC",
+        "MS"
+      ],
+      "touching_tunnels": [
+        "T/LS",
+        "T/DJ",
+        "T/BC"
+      ],
+      "hidden_neighbors": [],
+      "strata": [
+        "D1",
+        "D3",
+        "D4"
+      ],
+      "exposure": {
+        "q0": [
+          1,
+          2,
+          3
+        ],
+        "q1": [
+          2,
+          3
+        ],
+        "q2": [
+          1,
+          2,
+          3
+        ],
+        "q3": [
+          3
+        ]
+      },
+      "schematic_degree": 5,
+      "centrality_prior": 0.7142857142857143,
+      "w0": 67
+    }
+  ],
+  "timing_engine": {
+    "space": "Z4^4",
+    "byte_formula": "B = q0 + 4q1 + 16q2 + 64q3",
+    "neighborhood": "toroidal axis-neighbors only",
+    "current_surrogate_formula": {
+      "q0": "floor(local_hour / 6)",
+      "q1": "weekday mod 4",
+      "q2": "floor(minute / 15)",
+      "q3": "day_of_year mod 4"
+    },
+    "current_byte": 50,
+    "current_coords": {
+      "q0": 2,
+      "q1": 0,
+      "q2": 3,
+      "q3": 0
+    },
+    "current_neighbors": [
+      2,
+      34,
+      49,
+      51,
+      54,
+      62,
+      114,
+      242
+    ]
+  },
+  "route_gate_book": {
+    "R1": {
+      "q0": [
+        0,
+        1
+      ],
+      "q1": [
+        0,
+        1
+      ],
+      "q2": [
+        0,
+        1
+      ],
+      "q3": [
+        0,
+        1
+      ]
+    },
+    "R2": {
+      "q0": [
+        1,
+        2
+      ],
+      "q1": [
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2
+      ],
+      "q3": [
+        2,
+        3
+      ]
+    },
+    "R3": {
+      "q0": [
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        1,
+        3
+      ]
+    },
+    "R4": {
+      "q0": [
+        0,
+        2
+      ],
+      "q1": [
+        0,
+        1
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        0,
+        2
+      ]
+    },
+    "R5": {
+      "q0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        1,
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2
+      ],
+      "q3": [
+        3
+      ]
+    },
+    "R6": {
+      "q0": [
+        1,
+        3
+      ],
+      "q1": [
+        0,
+        2
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        1,
+        3
+      ]
+    },
+    "R7": {
+      "q0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        3
+      ]
+    },
+    "R8": {
+      "q0": [
+        0,
+        1,
+        3
+      ],
+      "q1": [
+        0,
+        1,
+        3
+      ],
+      "q2": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        0,
+        1,
+        3
+      ]
+    },
+    "R9": {
+      "q0": [
+        1,
+        3
+      ],
+      "q1": [
+        1,
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        1,
+        3
+      ]
+    },
+    "R10": {
+      "q0": [
+        2,
+        3
+      ],
+      "q1": [
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        3
+      ]
+    },
+    "R11": {
+      "q0": [
+        3
+      ],
+      "q1": [
+        0,
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        0,
+        3
+      ]
+    },
+    "R12": {
+      "q0": [
+        0,
+        3
+      ],
+      "q1": [
+        0,
+        2
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        0,
+        2,
+        3
+      ]
+    },
+    "R13": {
+      "q0": [
+        1,
+        3
+      ],
+      "q1": [
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        2,
+        3
+      ]
+    }
+  },
+  "nexus_exposure_book": {
+    "Z0": {
+      "q0": [
+        0,
+        2
+      ],
+      "q1": [
+        0,
+        1
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        0,
+        2,
+        3
+      ]
+    },
+    "ZL": {
+      "q0": [
+        0,
+        2
+      ],
+      "q1": [
+        0,
+        2
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        0,
+        2
+      ]
+    },
+    "A0": {
+      "q0": [
+        1,
+        3
+      ],
+      "q1": [
+        0,
+        2
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        1,
+        3
+      ]
+    },
+    "L0": {
+      "q0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        1,
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2
+      ],
+      "q3": [
+        3
+      ]
+    },
+    "MT": {
+      "q0": [
+        0,
+        1,
+        3
+      ],
+      "q1": [
+        0,
+        1
+      ],
+      "q2": [
+        0,
+        1
+      ],
+      "q3": [
+        0,
+        1
+      ]
+    },
+    "MS": {
+      "q0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        0,
+        1,
+        2
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        0,
+        3
+      ]
+    },
+    "MY": {
+      "q0": [
+        1,
+        2
+      ],
+      "q1": [
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2
+      ],
+      "q3": [
+        2,
+        3
+      ]
+    },
+    "NN": {
+      "q0": [
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        1,
+        3
+      ]
+    },
+    "TE": {
+      "q0": [
+        0,
+        2
+      ],
+      "q1": [
+        1,
+        3
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        3
+      ]
+    },
+    "TX": {
+      "q0": [
+        1,
+        3
+      ],
+      "q1": [
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        3
+      ]
+    },
+    "DB": {
+      "q0": [
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        1,
+        3
+      ]
+    },
+    "DL": {
+      "q0": [
+        1,
+        3
+      ],
+      "q1": [
+        1,
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        1,
+        3
+      ]
+    },
+    "MC": {
+      "q0": [
+        2,
+        3
+      ],
+      "q1": [
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        3
+      ]
+    },
+    "RA": {
+      "q0": [
+        3
+      ],
+      "q1": [
+        0,
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        0,
+        3
+      ]
+    },
+    "WA": {
+      "q0": [
+        0,
+        3
+      ],
+      "q1": [
+        0,
+        2
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        0,
+        2,
+        3
+      ]
+    },
+    "SC": {
+      "q0": [
+        1,
+        3
+      ],
+      "q1": [
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        2,
+        3
+      ]
+    },
+    "MR": {
+      "q0": [
+        3
+      ],
+      "q1": [
+        1,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        0,
+        3
+      ]
+    },
+    "PA": {
+      "q0": [
+        3
+      ],
+      "q1": [
+        0,
+        2
+      ],
+      "q2": [
+        0,
+        1,
+        2
+      ],
+      "q3": [
+        0,
+        3
+      ]
+    },
+    "LP": {
+      "q0": [
+        1,
+        2,
+        3
+      ],
+      "q1": [
+        2,
+        3
+      ],
+      "q2": [
+        1,
+        2,
+        3
+      ],
+      "q3": [
+        3
+      ]
+    }
+  },
+  "master_keys": [
+    {
+      "id": "K0",
+      "coords": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "byte": 0,
+      "signature": "SEAT / TOG-SAME / IN-IN / WALL",
+      "use": "baseline seating, zero normalization, metro/witness stabilization"
+    },
+    {
+      "id": "K1",
+      "coords": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "byte": 212,
+      "signature": "SEAT / TOG-OPP / IN-ANTI / MIX",
+      "use": "first hidden-tunnel and liminal fracture probe"
+    },
+    {
+      "id": "K2",
+      "coords": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "byte": 81,
+      "signature": "ADVANCE / TOG-SAME / IN-ANTI / WHEEL",
+      "use": "coherent aether lift, dimensional opening, seed approach"
+    },
+    {
+      "id": "K3",
+      "coords": [
+        1,
+        2,
+        1,
+        3
+      ],
+      "byte": 217,
+      "signature": "ADVANCE / SPLIT-SAME / IN-ANTI / MIX",
+      "use": "mycelial branching and hidden transfer scan"
+    },
+    {
+      "id": "K4",
+      "coords": [
+        2,
+        1,
+        2,
+        2
+      ],
+      "byte": 166,
+      "signature": "CROSS / TOG-OPP / ANTI-IN / FLOOR",
+      "use": "counterphase floor cut, branch-convergence triangulation"
+    },
+    {
+      "id": "K5",
+      "coords": [
+        2,
+        3,
+        1,
+        3
+      ],
+      "byte": 222,
+      "signature": "CROSS / SPLIT-OPP / IN-ANTI / MIX",
+      "use": "manifold crossing, dimensional jump, latent hub pressure"
+    },
+    {
+      "id": "K6",
+      "coords": [
+        3,
+        0,
+        3,
+        0
+      ],
+      "byte": 51,
+      "signature": "RETURN / TOG-SAME / ANTI-ANTI / WALL",
+      "use": "replay closure, witness verification, proof-pressure check"
+    },
+    {
+      "id": "K7",
+      "coords": [
+        3,
+        1,
+        3,
+        3
+      ],
+      "byte": 247,
+      "signature": "RETURN / TOG-OPP / ANTI-ANTI / MIX",
+      "use": "Mobius-return test, contradiction resolution, replay tunnel scan"
+    },
+    {
+      "id": "K8",
+      "coords": [
+        3,
+        2,
+        2,
+        3
+      ],
+      "byte": 235,
+      "signature": "RETURN / SPLIT-SAME / ANTI-IN / MIX",
+      "use": "seed recovery and regeneration coupling"
+    },
+    {
+      "id": "K9",
+      "coords": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "byte": 255,
+      "signature": "RETURN / SPLIT-OPP / ANTI-ANTI / MIX",
+      "use": "maximal frontier excavation and hidden-pressure saturation"
+    }
+  ],
+  "phrase_macros": [
+    {
+      "id": "PHI_hidden",
+      "bytes": [
+        0,
+        212,
+        217,
+        222,
+        255,
+        247,
+        51
+      ],
+      "purpose": "seat -> fracture -> branch -> crossing -> saturate hidden pressure -> return -> verify"
+    },
+    {
+      "id": "PHI_regen",
+      "bytes": [
+        0,
+        81,
+        235,
+        247,
+        51
+      ],
+      "purpose": "seat -> lift -> recover seed -> test return -> verify closure"
+    },
+    {
+      "id": "PHI_transfer",
+      "bytes": [
+        0,
+        166,
+        217,
+        212
+      ],
+      "purpose": "baseline seat -> counterphase floor cut -> split branch scan -> hidden liminal probe"
+    }
+  ],
+  "mindsweeper": {
+    "rows": 19,
+    "cols": 256,
+    "cells": 4864,
+    "current_byte": 50,
+    "current_top_rows": [
+      "MS",
+      "NN",
+      "DB",
+      "LP",
+      "A0"
+    ]
+  },
+  "hidden_candidates": [
+    {
+      "id": "C1",
+      "name": "Zero-Aether Mediating Lift Hub",
+      "evidence_states": [
+        212,
+        166,
+        222,
+        247,
+        255
+      ],
+      "adjacent_rows": [
+        "Z0",
+        "L0",
+        "A0",
+        "TE",
+        "TX"
+      ],
+      "route_support": [
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R9"
+      ],
+      "confidence": "medium-high",
+      "disposition": "frontier",
+      "support": {
+        "state_count": 5,
+        "route_family_count": 5,
+        "hidden_pressure_avg": 0.124,
+        "contradiction_avg": 0.0,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Metro-Mycelium-Neural Composite Transfer Node",
+      "evidence_states": [
+        217,
+        166,
+        212
+      ],
+      "adjacent_rows": [
+        "MT",
+        "MS",
+        "MY",
+        "NN",
+        "L0"
+      ],
+      "route_support": [
+        "R1",
+        "R2",
+        "R3",
+        "R5",
+        "R8",
+        "R9"
+      ],
+      "confidence": "high structural",
+      "disposition": "frontier",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 6,
+        "hidden_pressure_avg": 0.147,
+        "contradiction_avg": 0.0,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Dimensional Midspan Bridge",
+      "evidence_states": [
+        222,
+        247,
+        255
+      ],
+      "adjacent_rows": [
+        "DB",
+        "DL",
+        "MC",
+        "TE",
+        "TX"
+      ],
+      "route_support": [
+        "R7",
+        "R8",
+        "R9",
+        "R10"
+      ],
+      "confidence": "high structural",
+      "disposition": "frontier",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 4,
+        "hidden_pressure_avg": 0.1,
+        "contradiction_avg": 0.0,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      }
+    },
+    {
+      "id": "C4",
+      "name": "Replay-Proof Closure Junction",
+      "evidence_states": [
+        51,
+        247,
+        255
+      ],
+      "adjacent_rows": [
+        "RA",
+        "WA",
+        "MR",
+        "PA"
+      ],
+      "route_support": [
+        "R8",
+        "R11",
+        "R12"
+      ],
+      "confidence": "medium",
+      "disposition": "frontier",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 3,
+        "hidden_pressure_avg": 0.2,
+        "contradiction_avg": 0.083,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      }
+    },
+    {
+      "id": "C5",
+      "name": "Seed-Replay Regeneration Coupler",
+      "evidence_states": [
+        81,
+        235,
+        247
+      ],
+      "adjacent_rows": [
+        "SC",
+        "A0",
+        "RA",
+        "MY"
+      ],
+      "route_support": [
+        "R6",
+        "R11",
+        "R13"
+      ],
+      "confidence": "medium",
+      "disposition": "frontier",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 3,
+        "hidden_pressure_avg": 0.192,
+        "contradiction_avg": 0.083,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      }
+    },
+    {
+      "id": "C6",
+      "name": "Frontier Liminal Distributor",
+      "evidence_states": [
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255
+      ],
+      "adjacent_rows": [
+        "L0",
+        "ZL",
+        "A0",
+        "MS"
+      ],
+      "route_support": [
+        "R5",
+        "R7",
+        "R8",
+        "R9",
+        "R10"
+      ],
+      "confidence": "low-medium",
+      "disposition": "frontier",
+      "support": {
+        "state_count": 32,
+        "route_family_count": 5,
+        "hidden_pressure_avg": 0.114,
+        "contradiction_avg": 0.027,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      }
+    }
+  ],
+  "frontier_policy": "never promote unsupported latent structure into explicit fact"
+}

@@ -1,0 +1,65 @@
+{
+  "truth": "OK",
+  "protocol_id": "COMMAND_MEMBRANE_V1",
+  "canonical_authority": "NEXT57",
+  "canonical_surface": "GLOBAL COMMAND",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "witness_class": "LOCAL_WITNESS_ONLY",
+    "detail": "blocked-by-missing-credentials",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "credentials_exists": false,
+    "token_exists": false
+  },
+  "routing_defaults": {
+    "policy_id": "goal+file_family+coord12_proximity+queue_pressure+capillary_strength+role_compatibility",
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "ttl": 6,
+    "lease_ms": 1200
+  },
+  "coord12_labels": [
+    "utc_atomic",
+    "earth_rotation_phase",
+    "earth_orbital_phase",
+    "node_anchor",
+    "solar_phase",
+    "lunar_phase",
+    "shared12_phase",
+    "planetary_slot",
+    "runtime_region",
+    "queue_pressure",
+    "goal_salience",
+    "novelty_concentration"
+  ],
+  "capillary_formula": "C_next = clamp01(0.82*C + 0.30*U + 0.18*F - 0.16*D - 0.14*N)",
+  "latency_equation": "T_sugar = T_detect + T_encode + T_route + T_claim + T_commit",
+  "current_runtime_truth": {
+    "canonical_authority": "NEXT57",
+    "active_loop": "L02",
+    "active_family": "A02 self_actualize",
+    "restart_seed": "L03 Survey A03 ECOSYSTEM",
+    "visible_caps": {
+      "hall": 8,
+      "temple": 8
+    },
+    "active_membrane": "Q41 / TQ06",
+    "feeders": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "TQ06",
+      "Q02(blocked)"
+    ]
+  },
+  "verified_paths": {
+    "protocol": "self_actualize/next57_command_protocol.json",
+    "schema": "self_actualize/next57_command_event_packet_schema.json",
+    "capillary": "self_actualize/next57_command_capillary_law.json",
+    "latency": "self_actualize/next57_command_latency_benchmarks.json"
+  }
+}

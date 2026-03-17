@@ -1,0 +1,40 @@
+{
+  "schema_id": "CommandEventPacketV1",
+  "required_fields": [
+    "event_id",
+    "source_root",
+    "relative_path",
+    "event_kind",
+    "tag",
+    "goal",
+    "change",
+    "priority",
+    "confidence",
+    "earth_ts",
+    "liminal_ts",
+    "coord12",
+    "delta_tau",
+    "velocity_tau",
+    "parent",
+    "ttl",
+    "pheromone",
+    "state_hash",
+    "route_class",
+    "lineage",
+    "claim_state"
+  ],
+  "coord12_keys": [
+    "utc_atomic",
+    "earth_rotation_phase",
+    "earth_orbital_phase",
+    "node_anchor",
+    "solar_phase",
+    "lunar_phase",
+    "shared12_phase",
+    "planetary_slot",
+    "runtime_region",
+    "queue_pressure",
+    "goal_salience",
+    "novelty_concentration"
+  ]
+}

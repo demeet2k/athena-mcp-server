@@ -1,0 +1,601 @@
+# LP-57OMEGA Prime Loop Verification
+
+- Generated at: `2026-03-13`
+- Truth: `OK`
+
+## Checks
+
+- `PASS` `transfer_record_count` :: count=45
+- `PASS` `phase_binding_count` :: count=60
+- `PASS` `pointer_registry_counts` :: records=45 pointers=60
+- `PASS` `markdown_explicit_payloads` :: Markdown should render explicit AE / WitnessPtr / ReplayPtr payloads.
+- `PASS` `R01_summary_fields`
+- `PASS` `R01_route_binding` :: route=rtL check=loc(A) z=ZA
+- `PASS` `R01_binding_count` :: bindings=2
+- `PASS` `R01_binding_keys` :: plus,minus
+- `PASS` `R01_plus_ae_round_trip` :: AE=(Flower,R+,B01;Core)
+- `PASS` `R01_plus_slot_law`
+- `PASS` `R01_plus_hidden_pole` :: None
+- `PASS` `R01_plus_ptr_fields`
+- `PASS` `R01_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R01_plus_route_payload`
+- `PASS` `R01_minus_ae_round_trip` :: AE=(Flower,R-,B01;Core)
+- `PASS` `R01_minus_slot_law`
+- `PASS` `R01_minus_hidden_pole` :: None
+- `PASS` `R01_minus_ptr_fields`
+- `PASS` `R01_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R01_minus_route_payload`
+- `PASS` `R01_pointer_registry_match`
+- `PASS` `R02_summary_fields`
+- `PASS` `R02_route_binding` :: route=rtL check=loc(B) z=ZB
+- `PASS` `R02_binding_count` :: bindings=2
+- `PASS` `R02_binding_keys` :: plus,minus
+- `PASS` `R02_plus_ae_round_trip` :: AE=(Flower,R+,B02;Core)
+- `PASS` `R02_plus_slot_law`
+- `PASS` `R02_plus_hidden_pole` :: None
+- `PASS` `R02_plus_ptr_fields`
+- `PASS` `R02_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R02_plus_route_payload`
+- `PASS` `R02_minus_ae_round_trip` :: AE=(Flower,R-,B02;Core)
+- `PASS` `R02_minus_slot_law`
+- `PASS` `R02_minus_hidden_pole` :: None
+- `PASS` `R02_minus_ptr_fields`
+- `PASS` `R02_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R02_minus_route_payload`
+- `PASS` `R02_pointer_registry_match`
+- `PASS` `R03_summary_fields`
+- `PASS` `R03_route_binding` :: route=rtZ check=Z* z=ZA+ZB
+- `PASS` `R03_binding_count` :: bindings=2
+- `PASS` `R03_binding_keys` :: plus,minus
+- `PASS` `R03_plus_ae_round_trip` :: AE=(Flower,R+,B03;Core)
+- `PASS` `R03_plus_slot_law`
+- `PASS` `R03_plus_hidden_pole` :: None
+- `PASS` `R03_plus_ptr_fields`
+- `PASS` `R03_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R03_plus_route_payload`
+- `PASS` `R03_minus_ae_round_trip` :: AE=(Flower,R-,B03;Core)
+- `PASS` `R03_minus_slot_law`
+- `PASS` `R03_minus_hidden_pole` :: None
+- `PASS` `R03_minus_ptr_fields`
+- `PASS` `R03_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R03_minus_route_payload`
+- `PASS` `R03_pointer_registry_match`
+- `PASS` `R10_summary_fields`
+- `PASS` `R10_route_binding` :: route=rtL check=loc(C) z=ZC
+- `PASS` `R10_binding_count` :: bindings=2
+- `PASS` `R10_binding_keys` :: plus,minus
+- `PASS` `R10_plus_ae_round_trip` :: AE=(Flower,R+,B10;Core)
+- `PASS` `R10_plus_slot_law`
+- `PASS` `R10_plus_hidden_pole` :: None
+- `PASS` `R10_plus_ptr_fields`
+- `PASS` `R10_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R10_plus_route_payload`
+- `PASS` `R10_minus_ae_round_trip` :: AE=(Flower,R-,B10;Core)
+- `PASS` `R10_minus_slot_law`
+- `PASS` `R10_minus_hidden_pole` :: None
+- `PASS` `R10_minus_ptr_fields`
+- `PASS` `R10_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R10_minus_route_payload`
+- `PASS` `R10_pointer_registry_match`
+- `PASS` `R11_summary_fields`
+- `PASS` `R11_route_binding` :: route=rtL check=loc(A>C) z=ZA+ZC
+- `PASS` `R11_binding_count` :: bindings=2
+- `PASS` `R11_binding_keys` :: plus,minus
+- `PASS` `R11_plus_ae_round_trip` :: AE=(Flower,R+,B11;Core)
+- `PASS` `R11_plus_slot_law`
+- `PASS` `R11_plus_hidden_pole` :: None
+- `PASS` `R11_plus_ptr_fields`
+- `PASS` `R11_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R11_plus_route_payload`
+- `PASS` `R11_minus_ae_round_trip` :: AE=(Flower,R-,B11;Core)
+- `PASS` `R11_minus_slot_law`
+- `PASS` `R11_minus_hidden_pole` :: None
+- `PASS` `R11_minus_ptr_fields`
+- `PASS` `R11_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R11_minus_route_payload`
+- `PASS` `R11_pointer_registry_match`
+- `PASS` `R12_summary_fields`
+- `PASS` `R12_route_binding` :: route=rtL check=loc(C>B) z=ZB+ZC
+- `PASS` `R12_binding_count` :: bindings=2
+- `PASS` `R12_binding_keys` :: plus,minus
+- `PASS` `R12_plus_ae_round_trip` :: AE=(Flower,R+,B12;Core)
+- `PASS` `R12_plus_slot_law`
+- `PASS` `R12_plus_hidden_pole` :: None
+- `PASS` `R12_plus_ptr_fields`
+- `PASS` `R12_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R12_plus_route_payload`
+- `PASS` `R12_minus_ae_round_trip` :: AE=(Flower,R-,B12;Core)
+- `PASS` `R12_minus_slot_law`
+- `PASS` `R12_minus_hidden_pole` :: None
+- `PASS` `R12_minus_ptr_fields`
+- `PASS` `R12_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R12_minus_route_payload`
+- `PASS` `R12_pointer_registry_match`
+- `PASS` `R13_summary_fields`
+- `PASS` `R13_route_binding` :: route=rtL check=loc(A>C>B) z=ZA+ZB+ZC
+- `PASS` `R13_binding_count` :: bindings=2
+- `PASS` `R13_binding_keys` :: plus,minus
+- `PASS` `R13_plus_ae_round_trip` :: AE=(Flower,R+,B13;Core)
+- `PASS` `R13_plus_slot_law`
+- `PASS` `R13_plus_hidden_pole` :: None
+- `PASS` `R13_plus_ptr_fields`
+- `PASS` `R13_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R13_plus_route_payload`
+- `PASS` `R13_minus_ae_round_trip` :: AE=(Flower,R-,B13;Core)
+- `PASS` `R13_minus_slot_law`
+- `PASS` `R13_minus_hidden_pole` :: None
+- `PASS` `R13_minus_ptr_fields`
+- `PASS` `R13_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R13_minus_route_payload`
+- `PASS` `R13_pointer_registry_match`
+- `PASS` `R20_summary_fields`
+- `PASS` `R20_route_binding` :: route=rtL check=loc(D) z=ZD
+- `PASS` `R20_binding_count` :: bindings=2
+- `PASS` `R20_binding_keys` :: plus,minus
+- `PASS` `R20_plus_ae_round_trip` :: AE=(Flower,R+,B20;Core)
+- `PASS` `R20_plus_slot_law`
+- `PASS` `R20_plus_hidden_pole` :: None
+- `PASS` `R20_plus_ptr_fields`
+- `PASS` `R20_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R20_plus_route_payload`
+- `PASS` `R20_minus_ae_round_trip` :: AE=(Flower,R-,B20;Core)
+- `PASS` `R20_minus_slot_law`
+- `PASS` `R20_minus_hidden_pole` :: None
+- `PASS` `R20_minus_ptr_fields`
+- `PASS` `R20_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R20_minus_route_payload`
+- `PASS` `R20_pointer_registry_match`
+- `PASS` `R21_summary_fields`
+- `PASS` `R21_route_binding` :: route=rtL check=loc(D>A) z=ZA+ZD
+- `PASS` `R21_binding_count` :: bindings=2
+- `PASS` `R21_binding_keys` :: plus,minus
+- `PASS` `R21_plus_ae_round_trip` :: AE=(Flower,R+,B21;Core)
+- `PASS` `R21_plus_slot_law`
+- `PASS` `R21_plus_hidden_pole` :: None
+- `PASS` `R21_plus_ptr_fields`
+- `PASS` `R21_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R21_plus_route_payload`
+- `PASS` `R21_minus_ae_round_trip` :: AE=(Flower,R-,B21;Core)
+- `PASS` `R21_minus_slot_law`
+- `PASS` `R21_minus_hidden_pole` :: None
+- `PASS` `R21_minus_ptr_fields`
+- `PASS` `R21_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R21_minus_route_payload`
+- `PASS` `R21_pointer_registry_match`
+- `PASS` `R22_summary_fields`
+- `PASS` `R22_route_binding` :: route=rtL check=loc(B>D) z=ZB+ZD
+- `PASS` `R22_binding_count` :: bindings=2
+- `PASS` `R22_binding_keys` :: plus,minus
+- `PASS` `R22_plus_ae_round_trip` :: AE=(Flower,R+,B22;Core)
+- `PASS` `R22_plus_slot_law`
+- `PASS` `R22_plus_hidden_pole` :: None
+- `PASS` `R22_plus_ptr_fields`
+- `PASS` `R22_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R22_plus_route_payload`
+- `PASS` `R22_minus_ae_round_trip` :: AE=(Flower,R-,B22;Core)
+- `PASS` `R22_minus_slot_law`
+- `PASS` `R22_minus_hidden_pole` :: None
+- `PASS` `R22_minus_ptr_fields`
+- `PASS` `R22_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R22_minus_route_payload`
+- `PASS` `R22_pointer_registry_match`
+- `PASS` `R23_summary_fields`
+- `PASS` `R23_route_binding` :: route=rtL check=loc(B>D>A) z=ZA+ZB+ZD
+- `PASS` `R23_binding_count` :: bindings=2
+- `PASS` `R23_binding_keys` :: plus,minus
+- `PASS` `R23_plus_ae_round_trip` :: AE=(Flower,R+,B23;Core)
+- `PASS` `R23_plus_slot_law`
+- `PASS` `R23_plus_hidden_pole` :: None
+- `PASS` `R23_plus_ptr_fields`
+- `PASS` `R23_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R23_plus_route_payload`
+- `PASS` `R23_minus_ae_round_trip` :: AE=(Flower,R-,B23;Core)
+- `PASS` `R23_minus_slot_law`
+- `PASS` `R23_minus_hidden_pole` :: None
+- `PASS` `R23_minus_ptr_fields`
+- `PASS` `R23_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R23_minus_route_payload`
+- `PASS` `R23_pointer_registry_match`
+- `PASS` `R30_summary_fields`
+- `PASS` `R30_route_binding` :: route=rtZ check=Z* z=ZC+ZD
+- `PASS` `R30_binding_count` :: bindings=2
+- `PASS` `R30_binding_keys` :: plus,minus
+- `PASS` `R30_plus_ae_round_trip` :: AE=(Flower,R+,B30;Core)
+- `PASS` `R30_plus_slot_law`
+- `PASS` `R30_plus_hidden_pole` :: None
+- `PASS` `R30_plus_ptr_fields`
+- `PASS` `R30_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R30_plus_route_payload`
+- `PASS` `R30_minus_ae_round_trip` :: AE=(Flower,R-,B30;Core)
+- `PASS` `R30_minus_slot_law`
+- `PASS` `R30_minus_hidden_pole` :: None
+- `PASS` `R30_minus_ptr_fields`
+- `PASS` `R30_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R30_minus_route_payload`
+- `PASS` `R30_pointer_registry_match`
+- `PASS` `R31_summary_fields`
+- `PASS` `R31_route_binding` :: route=rtL check=loc(D>A>C) z=ZA+ZC+ZD
+- `PASS` `R31_binding_count` :: bindings=2
+- `PASS` `R31_binding_keys` :: plus,minus
+- `PASS` `R31_plus_ae_round_trip` :: AE=(Flower,R+,B31;Core)
+- `PASS` `R31_plus_slot_law`
+- `PASS` `R31_plus_hidden_pole` :: None
+- `PASS` `R31_plus_ptr_fields`
+- `PASS` `R31_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R31_plus_route_payload`
+- `PASS` `R31_minus_ae_round_trip` :: AE=(Flower,R-,B31;Core)
+- `PASS` `R31_minus_slot_law`
+- `PASS` `R31_minus_hidden_pole` :: None
+- `PASS` `R31_minus_ptr_fields`
+- `PASS` `R31_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R31_minus_route_payload`
+- `PASS` `R31_pointer_registry_match`
+- `PASS` `R32_summary_fields`
+- `PASS` `R32_route_binding` :: route=rtL check=loc(C>B>D) z=ZB+ZC+ZD
+- `PASS` `R32_binding_count` :: bindings=2
+- `PASS` `R32_binding_keys` :: plus,minus
+- `PASS` `R32_plus_ae_round_trip` :: AE=(Flower,R+,B32;Core)
+- `PASS` `R32_plus_slot_law`
+- `PASS` `R32_plus_hidden_pole` :: None
+- `PASS` `R32_plus_ptr_fields`
+- `PASS` `R32_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R32_plus_route_payload`
+- `PASS` `R32_minus_ae_round_trip` :: AE=(Flower,R-,B32;Core)
+- `PASS` `R32_minus_slot_law`
+- `PASS` `R32_minus_hidden_pole` :: None
+- `PASS` `R32_minus_ptr_fields`
+- `PASS` `R32_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R32_minus_route_payload`
+- `PASS` `R32_pointer_registry_match`
+- `PASS` `R33_summary_fields`
+- `PASS` `R33_route_binding` :: route=rtZ check=Z* z=ZA+ZB+ZC+ZD
+- `PASS` `R33_binding_count` :: bindings=2
+- `PASS` `R33_binding_keys` :: plus,minus
+- `PASS` `R33_plus_ae_round_trip` :: AE=(Flower,R+,B33;Core)
+- `PASS` `R33_plus_slot_law`
+- `PASS` `R33_plus_hidden_pole` :: None
+- `PASS` `R33_plus_ptr_fields`
+- `PASS` `R33_plus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R33_plus_route_payload`
+- `PASS` `R33_minus_ae_round_trip` :: AE=(Flower,R-,B33;Core)
+- `PASS` `R33_minus_slot_law`
+- `PASS` `R33_minus_hidden_pole` :: None
+- `PASS` `R33_minus_ptr_fields`
+- `PASS` `R33_minus_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `R33_minus_route_payload`
+- `PASS` `R33_pointer_registry_match`
+- `PASS` `Q01_summary_fields`
+- `PASS` `Q01_route_binding` :: route=rtL check=loc(A) z=ZA
+- `PASS` `Q01_binding_count` :: bindings=1
+- `PASS` `Q01_binding_keys` :: q4
+- `PASS` `Q01_q4_ae_round_trip` :: AE=(Flower,Q4,B01;Core)
+- `PASS` `Q01_q4_slot_law`
+- `PASS` `Q01_q4_hidden_pole` :: None
+- `PASS` `Q01_q4_ptr_fields`
+- `PASS` `Q01_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q01_q4_route_payload`
+- `PASS` `Q01_pointer_registry_match`
+- `PASS` `Q02_summary_fields`
+- `PASS` `Q02_route_binding` :: route=rtL check=loc(B) z=ZB
+- `PASS` `Q02_binding_count` :: bindings=1
+- `PASS` `Q02_binding_keys` :: q4
+- `PASS` `Q02_q4_ae_round_trip` :: AE=(Flower,Q4,B02;Core)
+- `PASS` `Q02_q4_slot_law`
+- `PASS` `Q02_q4_hidden_pole` :: None
+- `PASS` `Q02_q4_ptr_fields`
+- `PASS` `Q02_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q02_q4_route_payload`
+- `PASS` `Q02_pointer_registry_match`
+- `PASS` `Q03_summary_fields`
+- `PASS` `Q03_route_binding` :: route=rtZ check=Z* z=ZA+ZB
+- `PASS` `Q03_binding_count` :: bindings=1
+- `PASS` `Q03_binding_keys` :: q4
+- `PASS` `Q03_q4_ae_round_trip` :: AE=(Flower,Q4,B03;Core)
+- `PASS` `Q03_q4_slot_law`
+- `PASS` `Q03_q4_hidden_pole` :: None
+- `PASS` `Q03_q4_ptr_fields`
+- `PASS` `Q03_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q03_q4_route_payload`
+- `PASS` `Q03_pointer_registry_match`
+- `PASS` `Q10_summary_fields`
+- `PASS` `Q10_route_binding` :: route=rtL check=loc(C) z=ZC
+- `PASS` `Q10_binding_count` :: bindings=1
+- `PASS` `Q10_binding_keys` :: q4
+- `PASS` `Q10_q4_ae_round_trip` :: AE=(Flower,Q4,B10;Core)
+- `PASS` `Q10_q4_slot_law`
+- `PASS` `Q10_q4_hidden_pole` :: None
+- `PASS` `Q10_q4_ptr_fields`
+- `PASS` `Q10_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q10_q4_route_payload`
+- `PASS` `Q10_pointer_registry_match`
+- `PASS` `Q11_summary_fields`
+- `PASS` `Q11_route_binding` :: route=rtL check=loc(A>C) z=ZA+ZC
+- `PASS` `Q11_binding_count` :: bindings=1
+- `PASS` `Q11_binding_keys` :: q4
+- `PASS` `Q11_q4_ae_round_trip` :: AE=(Flower,Q4,B11;Core)
+- `PASS` `Q11_q4_slot_law`
+- `PASS` `Q11_q4_hidden_pole` :: None
+- `PASS` `Q11_q4_ptr_fields`
+- `PASS` `Q11_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q11_q4_route_payload`
+- `PASS` `Q11_pointer_registry_match`
+- `PASS` `Q12_summary_fields`
+- `PASS` `Q12_route_binding` :: route=rtL check=loc(C>B) z=ZB+ZC
+- `PASS` `Q12_binding_count` :: bindings=1
+- `PASS` `Q12_binding_keys` :: q4
+- `PASS` `Q12_q4_ae_round_trip` :: AE=(Flower,Q4,B12;Core)
+- `PASS` `Q12_q4_slot_law`
+- `PASS` `Q12_q4_hidden_pole` :: None
+- `PASS` `Q12_q4_ptr_fields`
+- `PASS` `Q12_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q12_q4_route_payload`
+- `PASS` `Q12_pointer_registry_match`
+- `PASS` `Q13_summary_fields`
+- `PASS` `Q13_route_binding` :: route=rtL check=loc(A>C>B) z=ZA+ZB+ZC
+- `PASS` `Q13_binding_count` :: bindings=1
+- `PASS` `Q13_binding_keys` :: q4
+- `PASS` `Q13_q4_ae_round_trip` :: AE=(Flower,Q4,B13;Core)
+- `PASS` `Q13_q4_slot_law`
+- `PASS` `Q13_q4_hidden_pole` :: None
+- `PASS` `Q13_q4_ptr_fields`
+- `PASS` `Q13_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q13_q4_route_payload`
+- `PASS` `Q13_pointer_registry_match`
+- `PASS` `Q20_summary_fields`
+- `PASS` `Q20_route_binding` :: route=rtL check=loc(D) z=ZD
+- `PASS` `Q20_binding_count` :: bindings=1
+- `PASS` `Q20_binding_keys` :: q4
+- `PASS` `Q20_q4_ae_round_trip` :: AE=(Flower,Q4,B20;Core)
+- `PASS` `Q20_q4_slot_law`
+- `PASS` `Q20_q4_hidden_pole` :: None
+- `PASS` `Q20_q4_ptr_fields`
+- `PASS` `Q20_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q20_q4_route_payload`
+- `PASS` `Q20_pointer_registry_match`
+- `PASS` `Q21_summary_fields`
+- `PASS` `Q21_route_binding` :: route=rtL check=loc(D>A) z=ZA+ZD
+- `PASS` `Q21_binding_count` :: bindings=1
+- `PASS` `Q21_binding_keys` :: q4
+- `PASS` `Q21_q4_ae_round_trip` :: AE=(Flower,Q4,B21;Core)
+- `PASS` `Q21_q4_slot_law`
+- `PASS` `Q21_q4_hidden_pole` :: None
+- `PASS` `Q21_q4_ptr_fields`
+- `PASS` `Q21_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q21_q4_route_payload`
+- `PASS` `Q21_pointer_registry_match`
+- `PASS` `Q22_summary_fields`
+- `PASS` `Q22_route_binding` :: route=rtL check=loc(B>D) z=ZB+ZD
+- `PASS` `Q22_binding_count` :: bindings=1
+- `PASS` `Q22_binding_keys` :: q4
+- `PASS` `Q22_q4_ae_round_trip` :: AE=(Flower,Q4,B22;Core)
+- `PASS` `Q22_q4_slot_law`
+- `PASS` `Q22_q4_hidden_pole` :: None
+- `PASS` `Q22_q4_ptr_fields`
+- `PASS` `Q22_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q22_q4_route_payload`
+- `PASS` `Q22_pointer_registry_match`
+- `PASS` `Q23_summary_fields`
+- `PASS` `Q23_route_binding` :: route=rtL check=loc(B>D>A) z=ZA+ZB+ZD
+- `PASS` `Q23_binding_count` :: bindings=1
+- `PASS` `Q23_binding_keys` :: q4
+- `PASS` `Q23_q4_ae_round_trip` :: AE=(Flower,Q4,B23;Core)
+- `PASS` `Q23_q4_slot_law`
+- `PASS` `Q23_q4_hidden_pole` :: None
+- `PASS` `Q23_q4_ptr_fields`
+- `PASS` `Q23_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q23_q4_route_payload`
+- `PASS` `Q23_pointer_registry_match`
+- `PASS` `Q30_summary_fields`
+- `PASS` `Q30_route_binding` :: route=rtZ check=Z* z=ZC+ZD
+- `PASS` `Q30_binding_count` :: bindings=1
+- `PASS` `Q30_binding_keys` :: q4
+- `PASS` `Q30_q4_ae_round_trip` :: AE=(Flower,Q4,B30;Core)
+- `PASS` `Q30_q4_slot_law`
+- `PASS` `Q30_q4_hidden_pole` :: None
+- `PASS` `Q30_q4_ptr_fields`
+- `PASS` `Q30_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q30_q4_route_payload`
+- `PASS` `Q30_pointer_registry_match`
+- `PASS` `Q31_summary_fields`
+- `PASS` `Q31_route_binding` :: route=rtL check=loc(D>A>C) z=ZA+ZC+ZD
+- `PASS` `Q31_binding_count` :: bindings=1
+- `PASS` `Q31_binding_keys` :: q4
+- `PASS` `Q31_q4_ae_round_trip` :: AE=(Flower,Q4,B31;Core)
+- `PASS` `Q31_q4_slot_law`
+- `PASS` `Q31_q4_hidden_pole` :: None
+- `PASS` `Q31_q4_ptr_fields`
+- `PASS` `Q31_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q31_q4_route_payload`
+- `PASS` `Q31_pointer_registry_match`
+- `PASS` `Q32_summary_fields`
+- `PASS` `Q32_route_binding` :: route=rtL check=loc(C>B>D) z=ZB+ZC+ZD
+- `PASS` `Q32_binding_count` :: bindings=1
+- `PASS` `Q32_binding_keys` :: q4
+- `PASS` `Q32_q4_ae_round_trip` :: AE=(Flower,Q4,B32;Core)
+- `PASS` `Q32_q4_slot_law`
+- `PASS` `Q32_q4_hidden_pole` :: None
+- `PASS` `Q32_q4_ptr_fields`
+- `PASS` `Q32_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q32_q4_route_payload`
+- `PASS` `Q32_pointer_registry_match`
+- `PASS` `Q33_summary_fields`
+- `PASS` `Q33_route_binding` :: route=rtZ check=Z* z=ZA+ZB+ZC+ZD
+- `PASS` `Q33_binding_count` :: bindings=1
+- `PASS` `Q33_binding_keys` :: q4
+- `PASS` `Q33_q4_ae_round_trip` :: AE=(Flower,Q4,B33;Core)
+- `PASS` `Q33_q4_slot_law`
+- `PASS` `Q33_q4_hidden_pole` :: None
+- `PASS` `Q33_q4_ptr_fields`
+- `PASS` `Q33_q4_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `Q33_q4_route_payload`
+- `PASS` `Q33_pointer_registry_match`
+- `PASS` `T01_summary_fields`
+- `PASS` `T01_route_binding` :: route=rtZ check=loc(A) z=ZA
+- `PASS` `T01_binding_count` :: bindings=1
+- `PASS` `T01_binding_keys` :: t3
+- `PASS` `T01_t3_ae_round_trip` :: AE=(Flower,T3,B01:h=C;Residual)
+- `PASS` `T01_t3_slot_law`
+- `PASS` `T01_t3_hidden_pole` :: C
+- `PASS` `T01_t3_ptr_fields`
+- `PASS` `T01_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T01_t3_route_payload`
+- `PASS` `T01_pointer_registry_match`
+- `PASS` `T02_summary_fields`
+- `PASS` `T02_route_binding` :: route=rtZ check=loc(B) z=ZB
+- `PASS` `T02_binding_count` :: bindings=1
+- `PASS` `T02_binding_keys` :: t3
+- `PASS` `T02_t3_ae_round_trip` :: AE=(Flower,T3,B02:h=A;Residual)
+- `PASS` `T02_t3_slot_law`
+- `PASS` `T02_t3_hidden_pole` :: A
+- `PASS` `T02_t3_ptr_fields`
+- `PASS` `T02_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T02_t3_route_payload`
+- `PASS` `T02_pointer_registry_match`
+- `PASS` `T03_summary_fields`
+- `PASS` `T03_route_binding` :: route=rtZ check=Z* z=ZA+ZB
+- `PASS` `T03_binding_count` :: bindings=1
+- `PASS` `T03_binding_keys` :: t3
+- `PASS` `T03_t3_ae_round_trip` :: AE=(Flower,T3,B03:h=C;Residual)
+- `PASS` `T03_t3_slot_law`
+- `PASS` `T03_t3_hidden_pole` :: C
+- `PASS` `T03_t3_ptr_fields`
+- `PASS` `T03_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T03_t3_route_payload`
+- `PASS` `T03_pointer_registry_match`
+- `PASS` `T10_summary_fields`
+- `PASS` `T10_route_binding` :: route=rtZ check=loc(C) z=ZC
+- `PASS` `T10_binding_count` :: bindings=1
+- `PASS` `T10_binding_keys` :: t3
+- `PASS` `T10_t3_ae_round_trip` :: AE=(Flower,T3,B10:h=A;Residual)
+- `PASS` `T10_t3_slot_law`
+- `PASS` `T10_t3_hidden_pole` :: A
+- `PASS` `T10_t3_ptr_fields`
+- `PASS` `T10_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T10_t3_route_payload`
+- `PASS` `T10_pointer_registry_match`
+- `PASS` `T11_summary_fields`
+- `PASS` `T11_route_binding` :: route=rtZ check=loc(A>C) z=ZA+ZC
+- `PASS` `T11_binding_count` :: bindings=1
+- `PASS` `T11_binding_keys` :: t3
+- `PASS` `T11_t3_ae_round_trip` :: AE=(Flower,T3,B11:h=B;Residual)
+- `PASS` `T11_t3_slot_law`
+- `PASS` `T11_t3_hidden_pole` :: B
+- `PASS` `T11_t3_ptr_fields`
+- `PASS` `T11_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T11_t3_route_payload`
+- `PASS` `T11_pointer_registry_match`
+- `PASS` `T12_summary_fields`
+- `PASS` `T12_route_binding` :: route=rtZ check=loc(C>B) z=ZB+ZC
+- `PASS` `T12_binding_count` :: bindings=1
+- `PASS` `T12_binding_keys` :: t3
+- `PASS` `T12_t3_ae_round_trip` :: AE=(Flower,T3,B12:h=A;Residual)
+- `PASS` `T12_t3_slot_law`
+- `PASS` `T12_t3_hidden_pole` :: A
+- `PASS` `T12_t3_ptr_fields`
+- `PASS` `T12_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T12_t3_route_payload`
+- `PASS` `T12_pointer_registry_match`
+- `PASS` `T13_summary_fields`
+- `PASS` `T13_route_binding` :: route=rtZ check=loc(A>C>B) z=ZA+ZB+ZC
+- `PASS` `T13_binding_count` :: bindings=1
+- `PASS` `T13_binding_keys` :: t3
+- `PASS` `T13_t3_ae_round_trip` :: AE=(Flower,T3,B13:h=D;Residual)
+- `PASS` `T13_t3_slot_law`
+- `PASS` `T13_t3_hidden_pole` :: D
+- `PASS` `T13_t3_ptr_fields`
+- `PASS` `T13_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T13_t3_route_payload`
+- `PASS` `T13_pointer_registry_match`
+- `PASS` `T20_summary_fields`
+- `PASS` `T20_route_binding` :: route=rtZ check=loc(D) z=ZD
+- `PASS` `T20_binding_count` :: bindings=1
+- `PASS` `T20_binding_keys` :: t3
+- `PASS` `T20_t3_ae_round_trip` :: AE=(Flower,T3,B20:h=A;Residual)
+- `PASS` `T20_t3_slot_law`
+- `PASS` `T20_t3_hidden_pole` :: A
+- `PASS` `T20_t3_ptr_fields`
+- `PASS` `T20_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T20_t3_route_payload`
+- `PASS` `T20_pointer_registry_match`
+- `PASS` `T21_summary_fields`
+- `PASS` `T21_route_binding` :: route=rtZ check=loc(D>A) z=ZA+ZD
+- `PASS` `T21_binding_count` :: bindings=1
+- `PASS` `T21_binding_keys` :: t3
+- `PASS` `T21_t3_ae_round_trip` :: AE=(Flower,T3,B21:h=C;Residual)
+- `PASS` `T21_t3_slot_law`
+- `PASS` `T21_t3_hidden_pole` :: C
+- `PASS` `T21_t3_ptr_fields`
+- `PASS` `T21_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T21_t3_route_payload`
+- `PASS` `T21_pointer_registry_match`
+- `PASS` `T22_summary_fields`
+- `PASS` `T22_route_binding` :: route=rtZ check=loc(B>D) z=ZB+ZD
+- `PASS` `T22_binding_count` :: bindings=1
+- `PASS` `T22_binding_keys` :: t3
+- `PASS` `T22_t3_ae_round_trip` :: AE=(Flower,T3,B22:h=A;Residual)
+- `PASS` `T22_t3_slot_law`
+- `PASS` `T22_t3_hidden_pole` :: A
+- `PASS` `T22_t3_ptr_fields`
+- `PASS` `T22_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T22_t3_route_payload`
+- `PASS` `T22_pointer_registry_match`
+- `PASS` `T23_summary_fields`
+- `PASS` `T23_route_binding` :: route=rtZ check=loc(B>D>A) z=ZA+ZB+ZD
+- `PASS` `T23_binding_count` :: bindings=1
+- `PASS` `T23_binding_keys` :: t3
+- `PASS` `T23_t3_ae_round_trip` :: AE=(Flower,T3,B23:h=C;Residual)
+- `PASS` `T23_t3_slot_law`
+- `PASS` `T23_t3_hidden_pole` :: C
+- `PASS` `T23_t3_ptr_fields`
+- `PASS` `T23_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T23_t3_route_payload`
+- `PASS` `T23_pointer_registry_match`
+- `PASS` `T30_summary_fields`
+- `PASS` `T30_route_binding` :: route=rtZ check=Z* z=ZC+ZD
+- `PASS` `T30_binding_count` :: bindings=1
+- `PASS` `T30_binding_keys` :: t3
+- `PASS` `T30_t3_ae_round_trip` :: AE=(Flower,T3,B30:h=A;Residual)
+- `PASS` `T30_t3_slot_law`
+- `PASS` `T30_t3_hidden_pole` :: A
+- `PASS` `T30_t3_ptr_fields`
+- `PASS` `T30_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T30_t3_route_payload`
+- `PASS` `T30_pointer_registry_match`
+- `PASS` `T31_summary_fields`
+- `PASS` `T31_route_binding` :: route=rtZ check=loc(D>A>C) z=ZA+ZC+ZD
+- `PASS` `T31_binding_count` :: bindings=1
+- `PASS` `T31_binding_keys` :: t3
+- `PASS` `T31_t3_ae_round_trip` :: AE=(Flower,T3,B31:h=B;Residual)
+- `PASS` `T31_t3_slot_law`
+- `PASS` `T31_t3_hidden_pole` :: B
+- `PASS` `T31_t3_ptr_fields`
+- `PASS` `T31_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T31_t3_route_payload`
+- `PASS` `T31_pointer_registry_match`
+- `PASS` `T32_summary_fields`
+- `PASS` `T32_route_binding` :: route=rtZ check=loc(C>B>D) z=ZB+ZC+ZD
+- `PASS` `T32_binding_count` :: bindings=1
+- `PASS` `T32_binding_keys` :: t3
+- `PASS` `T32_t3_ae_round_trip` :: AE=(Flower,T3,B32:h=A;Residual)
+- `PASS` `T32_t3_slot_law`
+- `PASS` `T32_t3_hidden_pole` :: A
+- `PASS` `T32_t3_ptr_fields`
+- `PASS` `T32_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T32_t3_route_payload`
+- `PASS` `T32_pointer_registry_match`
+- `PASS` `T33_summary_fields`
+- `PASS` `T33_route_binding` :: route=rtZ check=Z* z=ZA+ZB+ZC+ZD
+- `PASS` `T33_binding_count` :: bindings=1
+- `PASS` `T33_binding_keys` :: t3
+- `PASS` `T33_t3_ae_round_trip` :: AE=(Flower,T3,B33:h=A;Residual)
+- `PASS` `T33_t3_slot_law`
+- `PASS` `T33_t3_hidden_pole` :: A
+- `PASS` `T33_t3_ptr_fields`
+- `PASS` `T33_t3_replay_checks` :: Sigma,Hub<=6,ZMatch
+- `PASS` `T33_t3_route_payload`
+- `PASS` `T33_pointer_registry_match`
+- `PASS` `phase_binding_total_recomputed` :: total=60
+- `PASS` `R01_representative` :: actual=[('plus', 'AE=(Flower,R+,B01;Core)'), ('minus', 'AE=(Flower,R-,B01;Core)')]
+- `PASS` `Q03_representative` :: actual=[('q4', 'AE=(Flower,Q4,B03;Core)')]
+- `PASS` `T11_representative` :: actual=[('t3', 'AE=(Flower,T3,B11:h=B;Residual)')]
+- `PASS` `T33_representative` :: actual=[('t3', 'AE=(Flower,T3,B33:h=A;Residual)')]

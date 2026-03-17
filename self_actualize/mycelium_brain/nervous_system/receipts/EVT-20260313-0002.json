@@ -1,0 +1,58 @@
+{
+  "execution_receipt": {
+    "event_id": "EVT-20260313-0002",
+    "worker_id": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+    "artifact_targets": [
+      "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+    ],
+    "writeback_set": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_SENSORY_MEMBRANE.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_CAPILLARY_LAW.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_LATENCY_BENCHMARKS.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+      "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md"
+    ],
+    "result": "blocked_live_docs_dependency",
+    "started_at": "2026-03-13T21:22:50.248399+00:00",
+    "committed_at": "2026-03-13T21:22:56.893781+00:00",
+    "blocked_reason": "",
+    "restart_seed": "EVT-20260313-0002::blocked_live_docs_dependency::global-command-athena-athena-alignment-tome-docx",
+    "owner_surface": "command-folder",
+    "claim_id": "CLM-20260313T212250Z-a6ab75",
+    "route_path": "SCOUT-01>ROUTER-01>L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER>ARCHIVIST-01",
+    "replay_ptr": "self_actualize/mycelium_brain/nervous_system/events/EVT-20260313-0002.json",
+    "verification_witness": 0.6,
+    "effort_quality": 0.0,
+    "contribution_share": 0.45,
+    "learning_novelty": 0.0,
+    "verified_outcome_class": "unverified",
+    "integration_gain": 0.91,
+    "compression_gain": 0.0,
+    "unresolved_followups": [
+      "Blocked because live Google Docs credentials are still unavailable."
+    ]
+  },
+  "latency": {
+    "event_id": "EVT-20260313-0002",
+    "detection_latency_ms": 5331363444.157,
+    "awareness_latency_ms": 6771.913,
+    "claim_latency_ms": 12032.329,
+    "resolution_latency_ms": 0.0,
+    "commit_latency_ms": 6645.382,
+    "t_sugar_ms": 5331388893.781,
+    "delta_tau": 39.388129,
+    "delta_earth_ms": 39388.129,
+    "liminal_velocity": 1.0,
+    "resolution_class": "transitional",
+    "recorded_at": "2026-03-13T21:22:56.893781+00:00",
+    "swarm_awareness_latency_ms": 6771.913,
+    "capillary_score": 0.0,
+    "liminal_delta": 0.0,
+    "commit_latency_alias_ms": 0.0,
+    "route_policy": ""
+  }
+}

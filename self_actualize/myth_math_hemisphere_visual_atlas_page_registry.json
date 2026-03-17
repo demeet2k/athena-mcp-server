@@ -1,0 +1,1949 @@
+{
+  "generated_at": "2026-03-13T21:08:35.620621+00:00",
+  "docs_gate_status": "BLOCKED",
+  "page_count": 61,
+  "page_counts": {
+    "anchor_index": 1,
+    "anchor_shard": 16,
+    "coverage": 1,
+    "family_shard": 10,
+    "hemisphere": 2,
+    "main_index": 1,
+    "overview": 1,
+    "record_locator_index": 1,
+    "record_locator_shard": 16,
+    "target_system_index": 1,
+    "target_system_shard": 11
+  },
+  "pages": [
+    {
+      "page_id": "VA-ANCHOR",
+      "title": "Anchor Crosswalk Atlas",
+      "page_type": "anchor_index",
+      "relative_path": "35_anchor_crosswalk_atlas.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\35_anchor_crosswalk_atlas.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\35_anchor_crosswalk_atlas.md",
+      "slice": {
+        "facet": "anchor"
+      },
+      "counts": {
+        "anchor_count": 16,
+        "record_count": 502
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN01",
+      "title": "Anchor Atlas: DN01",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn01.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn01.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn01.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN01"
+      },
+      "counts": {
+        "record_count": 251,
+        "primary_math": 199,
+        "primary_myth": 52
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN02",
+      "title": "Anchor Atlas: DN02",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn02.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn02.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn02.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN02"
+      },
+      "counts": {
+        "record_count": 35,
+        "primary_math": 27,
+        "primary_myth": 8
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN03",
+      "title": "Anchor Atlas: DN03",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn03.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn03.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn03.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN03"
+      },
+      "counts": {
+        "record_count": 175,
+        "primary_math": 141,
+        "primary_myth": 34
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN04",
+      "title": "Anchor Atlas: DN04",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn04.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn04.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn04.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN04"
+      },
+      "counts": {
+        "record_count": 114,
+        "primary_math": 91,
+        "primary_myth": 23
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN05",
+      "title": "Anchor Atlas: DN05",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn05.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn05.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn05.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN05"
+      },
+      "counts": {
+        "record_count": 331,
+        "primary_math": 267,
+        "primary_myth": 64
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN06",
+      "title": "Anchor Atlas: DN06",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn06.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn06.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn06.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN06"
+      },
+      "counts": {
+        "record_count": 24,
+        "primary_math": 19,
+        "primary_myth": 5
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN07",
+      "title": "Anchor Atlas: DN07",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn07.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn07.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn07.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN07"
+      },
+      "counts": {
+        "record_count": 31,
+        "primary_math": 30,
+        "primary_myth": 1
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN08",
+      "title": "Anchor Atlas: DN08",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn08.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn08.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn08.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN08"
+      },
+      "counts": {
+        "record_count": 27,
+        "primary_math": 26,
+        "primary_myth": 1
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN09",
+      "title": "Anchor Atlas: DN09",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn09.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn09.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn09.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN09"
+      },
+      "counts": {
+        "record_count": 29,
+        "primary_math": 18,
+        "primary_myth": 11
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN10",
+      "title": "Anchor Atlas: DN10",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn10.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn10.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn10.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN10"
+      },
+      "counts": {
+        "record_count": 13,
+        "primary_math": 9,
+        "primary_myth": 4
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN11",
+      "title": "Anchor Atlas: DN11",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn11.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn11.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn11.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN11"
+      },
+      "counts": {
+        "record_count": 10,
+        "primary_math": 7,
+        "primary_myth": 3
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN12",
+      "title": "Anchor Atlas: DN12",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn12.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn12.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn12.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN12"
+      },
+      "counts": {
+        "record_count": 1,
+        "primary_math": 1,
+        "primary_myth": 0
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN13",
+      "title": "Anchor Atlas: DN13",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn13.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn13.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn13.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN13"
+      },
+      "counts": {
+        "record_count": 5,
+        "primary_math": 3,
+        "primary_myth": 2
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN14",
+      "title": "Anchor Atlas: DN14",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn14.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn14.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn14.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN14"
+      },
+      "counts": {
+        "record_count": 220,
+        "primary_math": 171,
+        "primary_myth": 49
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN15",
+      "title": "Anchor Atlas: DN15",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn15.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn15.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn15.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN15"
+      },
+      "counts": {
+        "record_count": 138,
+        "primary_math": 117,
+        "primary_myth": 21
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-ANCHOR-DN16",
+      "title": "Anchor Atlas: DN16",
+      "page_type": "anchor_shard",
+      "relative_path": "visual_atlas/anchor_dn16.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\anchor_dn16.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\anchor_dn16.md",
+      "slice": {
+        "facet": "anchor",
+        "value": "DN16"
+      },
+      "counts": {
+        "record_count": 102,
+        "primary_math": 83,
+        "primary_myth": 19
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-COVERAGE",
+      "title": "Atlas Coverage Receipt",
+      "page_type": "coverage",
+      "relative_path": "38_atlas_coverage_receipt.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\38_atlas_coverage_receipt.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\38_atlas_coverage_receipt.md",
+      "slice": {
+        "layer": "visual_atlas",
+        "coverage": "full"
+      },
+      "counts": {
+        "record_count": 502,
+        "page_count": 61,
+        "docs_gate_status": "BLOCKED"
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-civilization_and_governance",
+      "title": "Family Atlas: civilization-and-governance",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_civilization_and_governance.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_civilization_and_governance.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_civilization_and_governance.md",
+      "slice": {
+        "facet": "family",
+        "value": "civilization-and-governance"
+      },
+      "counts": {
+        "record_count": 64,
+        "primary_math": 51,
+        "primary_myth": 13,
+        "bridge_records": 10
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-general_corpus",
+      "title": "Family Atlas: general-corpus",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_general_corpus.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_general_corpus.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_general_corpus.md",
+      "slice": {
+        "facet": "family",
+        "value": "general-corpus"
+      },
+      "counts": {
+        "record_count": 98,
+        "primary_math": 86,
+        "primary_myth": 12,
+        "bridge_records": 48
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-helical_recursion_engine",
+      "title": "Family Atlas: helical-recursion-engine",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_helical_recursion_engine.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_helical_recursion_engine.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_helical_recursion_engine.md",
+      "slice": {
+        "facet": "family",
+        "value": "helical-recursion-engine"
+      },
+      "counts": {
+        "record_count": 2,
+        "primary_math": 2,
+        "primary_myth": 0,
+        "bridge_records": 0
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-higher_dimensional_geometry",
+      "title": "Family Atlas: higher-dimensional-geometry",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_higher_dimensional_geometry.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_higher_dimensional_geometry.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_higher_dimensional_geometry.md",
+      "slice": {
+        "facet": "family",
+        "value": "higher-dimensional-geometry"
+      },
+      "counts": {
+        "record_count": 22,
+        "primary_math": 22,
+        "primary_myth": 0,
+        "bridge_records": 0
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-identity_and_instruction",
+      "title": "Family Atlas: identity-and-instruction",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_identity_and_instruction.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_identity_and_instruction.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_identity_and_instruction.md",
+      "slice": {
+        "facet": "family",
+        "value": "identity-and-instruction"
+      },
+      "counts": {
+        "record_count": 20,
+        "primary_math": 8,
+        "primary_myth": 12,
+        "bridge_records": 9
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-live_orchestration",
+      "title": "Family Atlas: live-orchestration",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_live_orchestration.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_live_orchestration.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_live_orchestration.md",
+      "slice": {
+        "facet": "family",
+        "value": "live-orchestration"
+      },
+      "counts": {
+        "record_count": 2,
+        "primary_math": 2,
+        "primary_myth": 0,
+        "bridge_records": 0
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-manuscript_architecture",
+      "title": "Family Atlas: manuscript-architecture",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_manuscript_architecture.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_manuscript_architecture.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_manuscript_architecture.md",
+      "slice": {
+        "facet": "family",
+        "value": "manuscript-architecture"
+      },
+      "counts": {
+        "record_count": 71,
+        "primary_math": 67,
+        "primary_myth": 4,
+        "bridge_records": 9
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-mythic_sign_systems",
+      "title": "Family Atlas: mythic-sign-systems",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_mythic_sign_systems.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_mythic_sign_systems.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_mythic_sign_systems.md",
+      "slice": {
+        "facet": "family",
+        "value": "mythic-sign-systems"
+      },
+      "counts": {
+        "record_count": 36,
+        "primary_math": 8,
+        "primary_myth": 28,
+        "bridge_records": 6
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-transport_and_runtime",
+      "title": "Family Atlas: transport-and-runtime",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_transport_and_runtime.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_transport_and_runtime.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_transport_and_runtime.md",
+      "slice": {
+        "facet": "family",
+        "value": "transport-and-runtime"
+      },
+      "counts": {
+        "record_count": 142,
+        "primary_math": 140,
+        "primary_myth": 2,
+        "bridge_records": 1
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-FAMILY-void_and_collapse",
+      "title": "Family Atlas: void-and-collapse",
+      "page_type": "family_shard",
+      "relative_path": "visual_atlas/family_void_and_collapse.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\family_void_and_collapse.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\family_void_and_collapse.md",
+      "slice": {
+        "facet": "family",
+        "value": "void-and-collapse"
+      },
+      "counts": {
+        "record_count": 45,
+        "primary_math": 17,
+        "primary_myth": 28,
+        "bridge_records": 27
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-HEM-MATH",
+      "title": "MATH Route Topology Atlas",
+      "page_type": "hemisphere",
+      "relative_path": "33_math_route_topology_atlas.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\33_math_route_topology_atlas.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\33_math_route_topology_atlas.md",
+      "slice": {
+        "facet": "hemisphere",
+        "value": "MATH"
+      },
+      "counts": {
+        "route_ref_count": 502,
+        "primary_record_count": 403,
+        "secondary_record_count": 99,
+        "target_system_count": 10
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-HEM-MYTH",
+      "title": "MYTH Route Topology Atlas",
+      "page_type": "hemisphere",
+      "relative_path": "34_myth_route_topology_atlas.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\34_myth_route_topology_atlas.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\34_myth_route_topology_atlas.md",
+      "slice": {
+        "facet": "hemisphere",
+        "value": "MYTH"
+      },
+      "counts": {
+        "route_ref_count": 502,
+        "primary_record_count": 99,
+        "secondary_record_count": 403,
+        "target_system_count": 8
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-INDEX",
+      "title": "Visual Atlas Index",
+      "page_type": "main_index",
+      "relative_path": "31_visual_atlas_index.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\31_visual_atlas_index.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\31_visual_atlas_index.md",
+      "slice": {
+        "layer": "visual_atlas"
+      },
+      "counts": {
+        "record_count": 502,
+        "page_count": 61,
+        "family_shards": 10,
+        "anchor_shards": 16,
+        "target_system_shards": 11,
+        "locator_shards": 16
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR",
+      "title": "Record Locator Index",
+      "page_type": "record_locator_index",
+      "relative_path": "37_record_locator_index.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\37_record_locator_index.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\37_record_locator_index.md",
+      "slice": {
+        "facet": "top_level"
+      },
+      "counts": {
+        "top_level_count": 16,
+        "record_count": 502
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-4_bit",
+      "title": "Record Locator: 4-Bit",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_4_bit.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_4_bit.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_4_bit.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "4-Bit"
+      },
+      "counts": {
+        "record_count": 2
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-algorithms",
+      "title": "Record Locator: Algorithms",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_algorithms.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_algorithms.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_algorithms.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Algorithms"
+      },
+      "counts": {
+        "record_count": 15
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-complete_tomes",
+      "title": "Record Locator: COMPLETE TOMES",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_complete_tomes.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_complete_tomes.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_complete_tomes.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "COMPLETE TOMES"
+      },
+      "counts": {
+        "record_count": 93
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-frameworks_code",
+      "title": "Record Locator: FRAMEWORKS CODE",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_frameworks_code.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_frameworks_code.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_frameworks_code.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "FRAMEWORKS CODE"
+      },
+      "counts": {
+        "record_count": 6
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-global_math_myth",
+      "title": "Record Locator: GLOBAL MATH - MYTH",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_global_math_myth.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_global_math_myth.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_global_math_myth.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "GLOBAL MATH - MYTH"
+      },
+      "counts": {
+        "record_count": 17
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-hybrid_equations",
+      "title": "Record Locator: Hybrid Equations",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_hybrid_equations.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_hybrid_equations.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_hybrid_equations.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Hybrid Equations"
+      },
+      "counts": {
+        "record_count": 15
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-hybrid_equations_for_algorithmic_shortcuts_docx",
+      "title": "Record Locator: Hybrid Equations for Algorithmic Shortcuts.docx",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_hybrid_equations_for_algorithmic_shortcuts_docx.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_hybrid_equations_for_algorithmic_shortcuts_docx.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_hybrid_equations_for_algorithmic_shortcuts_docx.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Hybrid Equations for Algorithmic Shortcuts.docx"
+      },
+      "counts": {
+        "record_count": 1
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-latin_rose_math",
+      "title": "Record Locator: Latin Rose Math",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_latin_rose_math.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_latin_rose_math.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_latin_rose_math.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Latin Rose Math"
+      },
+      "counts": {
+        "record_count": 3
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-math_god",
+      "title": "Record Locator: MATH GOD",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_math_god.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_math_god.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_math_god.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "MATH GOD"
+      },
+      "counts": {
+        "record_count": 33
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-matrix_multiplication",
+      "title": "Record Locator: Matrix Multiplication",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_matrix_multiplication.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_matrix_multiplication.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_matrix_multiplication.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Matrix Multiplication"
+      },
+      "counts": {
+        "record_count": 66
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-myth_math",
+      "title": "Record Locator: MYTH - MATH",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_myth_math.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_myth_math.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_myth_math.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "MYTH - MATH"
+      },
+      "counts": {
+        "record_count": 137
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-q_shrink",
+      "title": "Record Locator: Q shrink",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_q_shrink.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_q_shrink.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_q_shrink.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Q shrink"
+      },
+      "counts": {
+        "record_count": 17
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-the_crystal",
+      "title": "Record Locator: The Crystal",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_the_crystal.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_the_crystal.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_the_crystal.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "The Crystal"
+      },
+      "counts": {
+        "record_count": 31
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-the_theory_of_texture_docx",
+      "title": "Record Locator: THE THEORY OF TEXTURE.docx",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_the_theory_of_texture_docx.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_the_theory_of_texture_docx.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_the_theory_of_texture_docx.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "THE THEORY OF TEXTURE.docx"
+      },
+      "counts": {
+        "record_count": 1
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-tri_solenoidal_engine_tse_geometric_nested_compression_fractals_docx",
+      "title": "Record Locator: Tri-Solenoidal Engine (TSE)_ Geometric Nested Compression Fractals.docx",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_tri_solenoidal_engine_tse_geometric_nested_compression_fractals_docx.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_tri_solenoidal_engine_tse_geometric_nested_compression_fractals_docx.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_tri_solenoidal_engine_tse_geometric_nested_compression_fractals_docx.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Tri-Solenoidal Engine (TSE)_ Geometric Nested Compression Fractals.docx"
+      },
+      "counts": {
+        "record_count": 1
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-LOCATOR-tunneling",
+      "title": "Record Locator: Tunneling",
+      "page_type": "record_locator_shard",
+      "relative_path": "visual_atlas/record_locator_tunneling.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\record_locator_tunneling.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\record_locator_tunneling.md",
+      "slice": {
+        "facet": "top_level",
+        "value": "Tunneling"
+      },
+      "counts": {
+        "record_count": 64
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-OVERVIEW",
+      "title": "Corpus Overview Map",
+      "page_type": "overview",
+      "relative_path": "32_corpus_overview_map.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\32_corpus_overview_map.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\32_corpus_overview_map.md",
+      "slice": {
+        "layer": "visual_atlas",
+        "focus": "record_to_hub"
+      },
+      "counts": {
+        "record_count": 502,
+        "family_count": 10,
+        "target_system_count": 11,
+        "anchor_count": 16
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-SYSTEM",
+      "title": "Target-System Atlas",
+      "page_type": "target_system_index",
+      "relative_path": "36_target_system_atlas.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\36_target_system_atlas.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\36_target_system_atlas.md",
+      "slice": {
+        "facet": "target_system"
+      },
+      "counts": {
+        "target_system_count": 11,
+        "record_count": 502
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-brainstem64",
+      "title": "Target-System Atlas: BrainStem64",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_brainstem64.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_brainstem64.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_brainstem64.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "BrainStem64"
+      },
+      "counts": {
+        "record_count": 64,
+        "math_route_refs": 64,
+        "myth_route_refs": 0
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-coremetro",
+      "title": "Target-System Atlas: CoreMetro",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_coremetro.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_coremetro.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_coremetro.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "CoreMetro"
+      },
+      "counts": {
+        "record_count": 64,
+        "math_route_refs": 51,
+        "myth_route_refs": 44
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-crosscorpusmycelial",
+      "title": "Target-System Atlas: CrossCorpusMycelial",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_crosscorpusmycelial.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_crosscorpusmycelial.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_crosscorpusmycelial.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "CrossCorpusMycelial"
+      },
+      "counts": {
+        "record_count": 50,
+        "math_route_refs": 4,
+        "myth_route_refs": 46
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-deeprootmetrostack",
+      "title": "Target-System Atlas: DeepRootMetroStack",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_deeprootmetrostack.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_deeprootmetrostack.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_deeprootmetrostack.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "DeepRootMetroStack"
+      },
+      "counts": {
+        "record_count": 47,
+        "math_route_refs": 19,
+        "myth_route_refs": 29
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-emergentsupermap",
+      "title": "Target-System Atlas: EmergentSupermap",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_emergentsupermap.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_emergentsupermap.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_emergentsupermap.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "EmergentSupermap"
+      },
+      "counts": {
+        "record_count": 9,
+        "math_route_refs": 0,
+        "myth_route_refs": 9
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-grandcentral",
+      "title": "Target-System Atlas: GrandCentral",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_grandcentral.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_grandcentral.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_grandcentral.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "GrandCentral"
+      },
+      "counts": {
+        "record_count": 411,
+        "math_route_refs": 252,
+        "myth_route_refs": 300
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-hdsctmetro",
+      "title": "Target-System Atlas: HDSCTMetro",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_hdsctmetro.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_hdsctmetro.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_hdsctmetro.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "HDSCTMetro"
+      },
+      "counts": {
+        "record_count": 22,
+        "math_route_refs": 22,
+        "myth_route_refs": 21
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-l2deepemergence",
+      "title": "Target-System Atlas: L2DeepEmergence",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_l2deepemergence.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_l2deepemergence.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_l2deepemergence.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "L2DeepEmergence"
+      },
+      "counts": {
+        "record_count": 34,
+        "math_route_refs": 9,
+        "myth_route_refs": 25
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-l3neural",
+      "title": "Target-System Atlas: L3Neural",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_l3neural.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_l3neural.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_l3neural.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "L3Neural"
+      },
+      "counts": {
+        "record_count": 2,
+        "math_route_refs": 2,
+        "myth_route_refs": 0
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-mycelial4d",
+      "title": "Target-System Atlas: Mycelial4D",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_mycelial4d.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_mycelial4d.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_mycelial4d.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "Mycelial4D"
+      },
+      "counts": {
+        "record_count": 36,
+        "math_route_refs": 17,
+        "myth_route_refs": 28
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    },
+    {
+      "page_id": "VA-TARGET-plexus256",
+      "title": "Target-System Atlas: Plexus256",
+      "page_type": "target_system_shard",
+      "relative_path": "visual_atlas/target_system_plexus256.md",
+      "canonical_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\visual_atlas\\target_system_plexus256.md",
+      "mirror_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\HEMISPHERES\\visual_atlas\\target_system_plexus256.md",
+      "slice": {
+        "facet": "target_system",
+        "value": "Plexus256"
+      },
+      "counts": {
+        "record_count": 62,
+        "math_route_refs": 62,
+        "myth_route_refs": 0
+      },
+      "linked_outputs": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_node_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_edge_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_page_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_record_locator_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_hemisphere_visual_atlas_manifest.json"
+      ],
+      "source_registries": [
+        "record_registry",
+        "dual_route_registry",
+        "direct_edge_registry",
+        "navigator_facet_index",
+        "composer_seed_registry",
+        "synthesis_seed_registry"
+      ]
+    }
+  ]
+}

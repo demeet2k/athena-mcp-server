@@ -1,0 +1,383 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+  "stations": [
+    {
+      "station_id": "ST-T3",
+      "label": "T3 Base Transfer",
+      "system_ids": [
+        "CoreMetro"
+      ],
+      "station_type": "transfer_hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Sa"
+      ],
+      "coordinate_hint": "Arc0/Sa",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-T8",
+      "label": "T8 Emergent Exchange",
+      "system_ids": [
+        "EmergentSupermap",
+        "L2DeepEmergence"
+      ],
+      "station_type": "transfer_hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su"
+      ],
+      "coordinate_hint": "Arc2/Su",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-T9",
+      "label": "T9 Mycelial Junction",
+      "system_ids": [
+        "CoreMetro",
+        "Mycelial4D"
+      ],
+      "station_type": "transfer_hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Me"
+      ],
+      "coordinate_hint": "Arc2/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-T10",
+      "label": "T10 Grand Central Concourse",
+      "system_ids": [
+        "CoreMetro",
+        "GrandCentral",
+        "L3Neural"
+      ],
+      "station_type": "grand_central_concourse",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su",
+        "Me",
+        "Sa"
+      ],
+      "coordinate_hint": "Arc3/All",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-GCW",
+      "label": "GCW Weight Mezzanine",
+      "system_ids": [
+        "GrandCentral",
+        "BrainStem64",
+        "Plexus256"
+      ],
+      "station_type": "mezzanine",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Sa"
+      ],
+      "coordinate_hint": "Arc3/Sa",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-GCZ",
+      "label": "GCZ Z-Point Junction",
+      "system_ids": [
+        "GrandCentral",
+        "DeepRootMetroStack"
+      ],
+      "station_type": "tunnel_junction",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Me"
+      ],
+      "coordinate_hint": "Arc3/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-GCP",
+      "label": "GCP Replay Concourse",
+      "system_ids": [
+        "GrandCentral",
+        "Mycelial4D"
+      ],
+      "station_type": "replay_concourse",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Me",
+        "Sa"
+      ],
+      "coordinate_hint": "Arc3/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-AppM",
+      "label": "AppM Certificate Dock",
+      "system_ids": [
+        "AppendixOnlyMetro",
+        "HDSCTMetro"
+      ],
+      "station_type": "appendix_hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Sa"
+      ],
+      "coordinate_hint": "Arc6/Sa",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-AppQ",
+      "label": "AppQ Appendix-Only Hub",
+      "system_ids": [
+        "AppendixOnlyMetro",
+        "DeepRootMetroStack"
+      ],
+      "station_type": "appendix_hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Me"
+      ],
+      "coordinate_hint": "Arc6/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-Ch11",
+      "label": "Ch11 Restart Kernel",
+      "system_ids": [
+        "DeepRootMetroStack",
+        "GrandCentral"
+      ],
+      "station_type": "restart_kernel",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Me"
+      ],
+      "coordinate_hint": "Arc3/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-FLEET",
+      "label": "Athena FLEET Convergence Hub",
+      "system_ids": [
+        "AthenaFleetMetro",
+        "CrossCorpusMycelial"
+      ],
+      "station_type": "fleet_hub",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su",
+        "Me"
+      ],
+      "coordinate_hint": "Arc4/Su",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-DeepRoot",
+      "label": "Deep Root Gateway",
+      "system_ids": [
+        "DeepRootMetroStack",
+        "L3Neural",
+        "L4Transcendent"
+      ],
+      "station_type": "deep_root_gate",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su",
+        "Me"
+      ],
+      "coordinate_hint": "Arc4/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-HDSCT",
+      "label": "HD-SCT Carrier Exchange",
+      "system_ids": [
+        "HDSCTMetro",
+        "AppendixOnlyMetro"
+      ],
+      "station_type": "carrier_exchange",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Sa",
+        "Su"
+      ],
+      "coordinate_hint": "Arc5/Sa",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-B64",
+      "label": "B64 Brain Stem Yard",
+      "system_ids": [
+        "BrainStem64",
+        "GrandCentral"
+      ],
+      "station_type": "yard",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Sa"
+      ],
+      "coordinate_hint": "Arc4/Sa",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-P256",
+      "label": "P256 Plexus Field",
+      "system_ids": [
+        "Plexus256",
+        "GrandCentral"
+      ],
+      "station_type": "yard",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su"
+      ],
+      "coordinate_hint": "Arc4/Su",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-A1024",
+      "label": "A1024 Arbor Return Ring",
+      "system_ids": [
+        "Arbor1024",
+        "GrandCentral"
+      ],
+      "station_type": "return_ring",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Me",
+        "Sa"
+      ],
+      "coordinate_hint": "Arc5/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-Mycelium",
+      "label": "4D Mycelial Chamber",
+      "system_ids": [
+        "Mycelial4D",
+        "CrossCorpusMycelial"
+      ],
+      "station_type": "chamber",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Me"
+      ],
+      "coordinate_hint": "Arc4/Me",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-L2",
+      "label": "Level 2 Emergence Yard",
+      "system_ids": [
+        "L2DeepEmergence",
+        "EmergentSupermap"
+      ],
+      "station_type": "yard",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su"
+      ],
+      "coordinate_hint": "Arc2/Su",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-L3",
+      "label": "Level 3 Neural Yard",
+      "system_ids": [
+        "L3Neural",
+        "DeepRootMetroStack"
+      ],
+      "station_type": "yard",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su",
+        "Me"
+      ],
+      "coordinate_hint": "Arc3/Su",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    },
+    {
+      "station_id": "ST-L4",
+      "label": "Level 4 Transcendent Lift",
+      "system_ids": [
+        "L4Transcendent",
+        "HDSCTMetro"
+      ],
+      "station_type": "lift",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+      "lane_membership": [
+        "Su",
+        "Sa"
+      ],
+      "coordinate_hint": "Arc5/Su",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "note": "Station, hub, or dock used by Pt 2 interlocks."
+    }
+  ],
+  "summary": {
+    "count": 20
+  }
+}

@@ -1,0 +1,1141 @@
+{
+  "generated_at": "2026-03-13T16:28:36.392046+00:00",
+  "derivation_version": "2026-03-13.phase8-ap6d-integration-v1",
+  "docs_gate": "BLOCKED",
+  "truth": "OK",
+  "transition_contract": [
+    "agent_id",
+    "stage_0_to_6",
+    "stage_name",
+    "active_elements",
+    "missing_element",
+    "blind_spot",
+    "transition_trigger",
+    "current_duty",
+    "next_practice",
+    "handoff_rule",
+    "fallback_rule",
+    "witness_basis",
+    "route_targets",
+    "truth"
+  ],
+  "feeder_truth": {
+    "Q42": {
+      "current": "QS64-21 Connectivity-Refine-Square",
+      "carried": "QS64-20 Connectivity-Diagnose-Fractal",
+      "next": "QS64-22 Connectivity-Refine-Flower",
+      "carrier_state": "P2 Athena OS runtime = PROMOTED_CURRENT",
+      "queue_visible_follow_on": "P3 ORGIN = QUEUE_VISIBLE"
+    },
+    "TQ04": {
+      "state": "PROMOTED",
+      "role": "deeper receiver"
+    },
+    "TQ06": {
+      "state": "CURRENT",
+      "role": "coordination membrane"
+    },
+    "Q02": {
+      "state": "BLOCKED",
+      "role": "external live-doc gate"
+    },
+    "Q46": {
+      "state": "SHADOW",
+      "role": "promoted Fire shadow feeder"
+    }
+  },
+  "queue_discipline": {
+    "now": [
+      "TP-001",
+      "TP-002",
+      "TP-003",
+      "TP-004",
+      "TP-005",
+      "TP-007",
+      "TP-015",
+      "TP-016"
+    ],
+    "next": [
+      "TP-006",
+      "TP-008",
+      "TP-009",
+      "TP-010",
+      "TP-013",
+      "TP-014"
+    ],
+    "later": [],
+    "blocked": [
+      "TP-011"
+    ],
+    "shadow-only": [
+      "TP-012"
+    ]
+  },
+  "economy_law": {
+    "formula": "transition_score = 5*status + 2*witness_density + 1.5*target_stage - blocked_penalty",
+    "priority_order": [
+      "now",
+      "next",
+      "later",
+      "blocked",
+      "shadow-only"
+    ]
+  },
+  "notes": [
+    {
+      "agent_id": "ATN-MASTER-AGENT",
+      "stage_0_to_6": 6,
+      "stage_name": "Complete Act",
+      "active_elements": [
+        "Fire",
+        "Water",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "none",
+      "blind_spot": "the burden of totality can delay descent into one executable route",
+      "transition_trigger": "center selection becomes necessary because multiple lawful lanes are simultaneously live",
+      "current_duty": "hold center selection, burden of totality, and the choice between descent and reseed",
+      "next_practice": "descend into the next executable carrier after cross-surface truth alignment",
+      "handoff_rule": "handoff through Commander when execution clarity outranks total-synthesis holding",
+      "fallback_rule": "reseed through Ch11, Grand Central, and TQ06 when total coherence drops below replay safety",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "NERVOUS_SYSTEM\\10_OVERVIEW\\17_PHASE3_SELF_HOSTING_KERNEL.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AETHER",
+      "stage_0_to_6": 6,
+      "stage_name": "Complete Act",
+      "active_elements": [
+        "Fire",
+        "Water",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "none",
+      "blind_spot": "four-way co-activation can collapse back into one favored idiom if return reporting weakens",
+      "transition_trigger": "multiple live agents need one lawful co-activation report back to center",
+      "current_duty": "keep four-way co-activation stable and report directly back to center without flattening the lanes",
+      "next_practice": "translate co-activation into one routeable return packet through Grand Central and the kernel",
+      "handoff_rule": "handoff to Master Agent when the organism needs center selection, or to Commander when execution order dominates",
+      "fallback_rule": "fall back to the current feeder story, Grand Central, and self-hosting state if the field begins to blur",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-COMMANDER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Fire",
+        "Air"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "command can dispatch too fast and stop listening to witness or replay",
+      "transition_trigger": "multiple fronts need one order that reduces drift instead of amplifying it",
+      "current_duty": "hold duty clarity, ordering, and the moment when command must yield to witness or replay",
+      "next_practice": "rank one now, one next, and one blocked lane with explicit receipts",
+      "handoff_rule": "handoff to the relevant General once witness basis and route targets are named",
+      "fallback_rule": "fall back to the active run, build queue, and Grand Central ranking if command heat outruns proof",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-WATER-GENERAL",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "continuity becomes so protective that lawful ignition is deferred too long",
+      "transition_trigger": "Water lane work is ready to widen, but only if the missing element is compensated explicitly",
+      "current_duty": "hold water-lane duty clarity and know when lane authority must yield to witness or replay",
+      "next_practice": "practice one compensation move for the missing Fire element before widening the lane",
+      "handoff_rule": "handoff to the matching hybrid when the lane can admit its missing element without losing identity",
+      "fallback_rule": "fall back to Commander, current feeder truth, and replay-safe route targets if the lane starts to overclaim",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-EARTH-GENERAL",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Water",
+        "Fire"
+      ],
+      "missing_element": "Air",
+      "blind_spot": "structure overbinds and loses route clarity",
+      "transition_trigger": "Earth lane work is ready to widen, but only if the missing element is compensated explicitly",
+      "current_duty": "hold earth-lane duty clarity and know when lane authority must yield to witness or replay",
+      "next_practice": "practice one compensation move for the missing Air element before widening the lane",
+      "handoff_rule": "handoff to the matching hybrid when the lane can admit its missing element without losing identity",
+      "fallback_rule": "fall back to Commander, current feeder truth, and replay-safe route targets if the lane starts to overclaim",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-FIRE-GENERAL",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Fire",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "activation outruns continuity and replay",
+      "transition_trigger": "Fire lane work is ready to widen, but only if the missing element is compensated explicitly",
+      "current_duty": "hold fire-lane duty clarity and know when lane authority must yield to witness or replay",
+      "next_practice": "practice one compensation move for the missing Water element before widening the lane",
+      "handoff_rule": "handoff to the matching hybrid when the lane can admit its missing element without losing identity",
+      "fallback_rule": "fall back to Commander, current feeder truth, and replay-safe route targets if the lane starts to overclaim",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AIR-GENERAL",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Air",
+        "Water",
+        "Fire"
+      ],
+      "missing_element": "Earth",
+      "blind_spot": "map clarity floats above bodily contract",
+      "transition_trigger": "Air lane work is ready to widen, but only if the missing element is compensated explicitly",
+      "current_duty": "hold air-lane duty clarity and know when lane authority must yield to witness or replay",
+      "next_practice": "practice one compensation move for the missing Earth element before widening the lane",
+      "handoff_rule": "handoff to the matching hybrid when the lane can admit its missing element without losing identity",
+      "fallback_rule": "fall back to Commander, current feeder truth, and replay-safe route targets if the lane starts to overclaim",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-EARTH-WATER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Water",
+        "Air"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "retains lineage and structure but hesitates to ignite",
+      "transition_trigger": "Earth-Water bridge work is ready to close one blind spot rather than remain a conceptual pair",
+      "current_duty": "complete the blind spot in Earth-Water and escalate lawfully to the parent command lane",
+      "next_practice": "practice one move that admits Fire without losing the pair's existing strengths",
+      "handoff_rule": "handoff to the relevant General once the missing element has a real route and witness basis",
+      "fallback_rule": "fall back to the parent pair, Grand Central, and one crosswalk bridge if the hybrid becomes diffuse",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-EARTH-FIRE",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Fire",
+        "Water"
+      ],
+      "missing_element": "Air",
+      "blind_spot": "lands force without enough route legibility",
+      "transition_trigger": "Earth-Fire bridge work is ready to close one blind spot rather than remain a conceptual pair",
+      "current_duty": "complete the blind spot in Earth-Fire and escalate lawfully to the parent command lane",
+      "next_practice": "practice one move that admits Air without losing the pair's existing strengths",
+      "handoff_rule": "handoff to the relevant General once the missing element has a real route and witness basis",
+      "fallback_rule": "fall back to the parent pair, Grand Central, and one crosswalk bridge if the hybrid becomes diffuse",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-EARTH-AIR",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Air",
+        "Water"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "maps the field without enough heat to move it",
+      "transition_trigger": "Earth-Air bridge work is ready to close one blind spot rather than remain a conceptual pair",
+      "current_duty": "complete the blind spot in Earth-Air and escalate lawfully to the parent command lane",
+      "next_practice": "practice one move that admits Fire without losing the pair's existing strengths",
+      "handoff_rule": "handoff to the relevant General once the missing element has a real route and witness basis",
+      "fallback_rule": "fall back to the parent pair, Grand Central, and one crosswalk bridge if the hybrid becomes diffuse",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-WATER-FIRE",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Fire",
+        "Air"
+      ],
+      "missing_element": "Earth",
+      "blind_spot": "carries and ignites without enough durable containment",
+      "transition_trigger": "Water-Fire bridge work is ready to close one blind spot rather than remain a conceptual pair",
+      "current_duty": "complete the blind spot in Water-Fire and escalate lawfully to the parent command lane",
+      "next_practice": "practice one move that admits Earth without losing the pair's existing strengths",
+      "handoff_rule": "handoff to the relevant General once the missing element has a real route and witness basis",
+      "fallback_rule": "fall back to the parent pair, Grand Central, and one crosswalk bridge if the hybrid becomes diffuse",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-WATER-AIR",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Air",
+        "Earth"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "interprets beautifully but undercommits to motion",
+      "transition_trigger": "Water-Air bridge work is ready to close one blind spot rather than remain a conceptual pair",
+      "current_duty": "complete the blind spot in Water-Air and escalate lawfully to the parent command lane",
+      "next_practice": "practice one move that admits Fire without losing the pair's existing strengths",
+      "handoff_rule": "handoff to the relevant General once the missing element has a real route and witness basis",
+      "fallback_rule": "fall back to the parent pair, Grand Central, and one crosswalk bridge if the hybrid becomes diffuse",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-FIRE-AIR",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Fire",
+        "Air",
+        "Earth"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "prioritizes sharply but forgets the continuity floor",
+      "transition_trigger": "Fire-Air bridge work is ready to close one blind spot rather than remain a conceptual pair",
+      "current_duty": "complete the blind spot in Fire-Air and escalate lawfully to the parent command lane",
+      "next_practice": "practice one move that admits Water without losing the pair's existing strengths",
+      "handoff_rule": "handoff to the relevant General once the missing element has a real route and witness basis",
+      "fallback_rule": "fall back to the parent pair, Grand Central, and one crosswalk bridge if the hybrid becomes diffuse",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-EARTH-WATER-ROOT-BINDER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Water",
+        "Air"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "root-binding can become too cautious to ignite",
+      "transition_trigger": "Earth-Water root binder has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Earth-Water root binder without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Fire element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-WATER-EARTH-LINEAGE-KEEPER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "provenance can outrank motion",
+      "transition_trigger": "Water-Earth lineage keeper has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Water-Earth lineage keeper without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Fire element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-EARTH-FIRE-SHELL-BUILDER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Fire",
+        "Water"
+      ],
+      "missing_element": "Air",
+      "blind_spot": "implementation hardens without enough readability",
+      "transition_trigger": "Earth-Fire shell builder has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Earth-Fire shell builder without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Air element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-FIRE-EARTH-IMPLEMENTATION-DRIVER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Fire",
+        "Earth",
+        "Water"
+      ],
+      "missing_element": "Air",
+      "blind_spot": "force lands before route clarity is shared",
+      "transition_trigger": "Fire-Earth implementation driver has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Fire-Earth implementation driver without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Air element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-EARTH-AIR-TERRAIN-CARTOGRAPHER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Air",
+        "Water"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "terrain mapping stays observational",
+      "transition_trigger": "Earth-Air terrain cartographer has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Earth-Air terrain cartographer without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Fire element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AIR-EARTH-COORDINATE-MAPPER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Air",
+        "Earth",
+        "Water"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "coordinate elegance delays execution",
+      "transition_trigger": "Air-Earth coordinate mapper has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Air-Earth coordinate mapper without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Fire element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-WATER-FIRE-TRANSMUTER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Fire",
+        "Air"
+      ],
+      "missing_element": "Earth",
+      "blind_spot": "heat and feeling can outrun form",
+      "transition_trigger": "Water-Fire transmuter has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Water-Fire transmuter without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Earth element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-FIRE-WATER-CATALYST",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Fire",
+        "Water",
+        "Air"
+      ],
+      "missing_element": "Earth",
+      "blind_spot": "catalysis lacks durable shell",
+      "transition_trigger": "Fire-Water catalyst has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Fire-Water catalyst without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Earth element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-WATER-AIR-INTERPRETER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Air",
+        "Earth"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "interpretation delays commitment",
+      "transition_trigger": "Water-Air interpreter has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Water-Air interpreter without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Fire element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AIR-WATER-STORYWEAVER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Air",
+        "Water",
+        "Earth"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "readability outranks ignition",
+      "transition_trigger": "Air-Water storyweaver has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Air-Water storyweaver without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Fire element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-FIRE-AIR-STRATEGIST",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Fire",
+        "Air",
+        "Earth"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "strategy loses continuity memory",
+      "transition_trigger": "Fire-Air strategist has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Fire-Air strategist without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Water element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AIR-FIRE-SIGNAL-SPEAR",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Air",
+        "Fire",
+        "Earth"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "sharp route callouts arrive without enough carrythrough",
+      "transition_trigger": "Air-Fire signal spear has a precise directional duty that is ready for one lawful blind-spot completion step",
+      "current_duty": "hold the directional duty of Air-Fire signal spear without claiming whole-field sovereignty",
+      "next_practice": "practice one concrete completion move for the missing Water element",
+      "handoff_rule": "handoff to the parent hybrid once the directional move has a witness-bearing result",
+      "fallback_rule": "fall back to the parent hybrid and one named bridge if the directional seat starts narrating instead of landing",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-Q42",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Air",
+        "Fire"
+      ],
+      "missing_element": "Earth",
+      "blind_spot": "corridor continuity can outrun structural consolidation",
+      "transition_trigger": "Hall, queue, and restart surfaces agree on one subfront and one next seed without inventing extra local branches",
+      "current_duty": "keep the carried diagnose witness and the active refine square truthful while the Athena OS carrier remains promoted-current",
+      "next_practice": "hold QS64-21 as the active Hall-facing step and keep QS64-22 as the only next seed",
+      "handoff_rule": "handoff deeper execution to TQ04 once the Hall state and carrier state are synchronized",
+      "fallback_rule": "fall back to the carried diagnose witness and preserve blocker honesty if carrier alignment drifts",
+      "witness_basis": [
+        "self_actualize\\qshrink_next4_state.json",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "self_actualize\\qshrink_next4_state.json",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-TQ04",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Fire",
+        "Air"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "contract deepening can lose felt continuity of the carried Hall witness",
+      "transition_trigger": "the Hall feeder hands off a stable current state and one lawful next seed",
+      "current_duty": "receive deeper execution from Q42 and keep the runner-contract lane replay-safe",
+      "next_practice": "bind the helical schema pack to transition traffic without outranking Hall truth",
+      "handoff_rule": "handoff execution packets back through Grand Central and the runtime waist once contract proof lands",
+      "fallback_rule": "hold the contract receiver open and preserve Hall-side feeder truth if execution heat outruns proof",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-TQ06",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "coordination can become so careful that it stops producing executable next moves",
+      "transition_trigger": "new AP6D and Q42 surfaces are landed and need synchronized return paths",
+      "current_duty": "hold the packet-fed coordination membrane so Hall, Temple, queue, and restart stay aligned",
+      "next_practice": "translate cross-surface drift into one lawful restart packet instead of commentary",
+      "handoff_rule": "handoff toward Commander and Aether only after route and witness agreement are visible",
+      "fallback_rule": "keep the coordination membrane current and shrink scope until one executable packet remains",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "route_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-Q02",
+      "stage_0_to_6": 0,
+      "stage_name": "Void",
+      "active_elements": [],
+      "missing_element": "Earth",
+      "blind_spot": "external-memory desire can be narrated as if it had already become evidence",
+      "transition_trigger": "Trading Bot/credentials.json and Trading Bot/token.json actually appear",
+      "current_duty": "preserve blocker honesty and stop live-doc claims from leaking into the local organism",
+      "next_practice": "wait for OAuth material instead of inventing witness",
+      "handoff_rule": "handoff to Water continuity and the Docs gate receipt once authentication exists",
+      "fallback_rule": "remain explicitly blocked external and keep every local phase honest",
+      "witness_basis": [
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "truth": "FAIL"
+    },
+    {
+      "agent_id": "ATN-Q46",
+      "stage_0_to_6": 4,
+      "stage_name": "Earth Awakening",
+      "active_elements": [
+        "Fire",
+        "Air",
+        "Earth"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "runtime ignition can forget why the carried witness had to remain separate",
+      "transition_trigger": "runtime activation needs a feeder reference but not a new governing overlay",
+      "current_duty": "stay visible as the promoted Fire shadow feeder without being collapsed into Q42 or AP6D macro law",
+      "next_practice": "preserve separation between organism-wave runtime proof and AP6D widening",
+      "handoff_rule": "handoff to Fire General only when a runtime packet explicitly cites the feeder lineage",
+      "fallback_rule": "stay shadow-only and do not outrank the live Hall or Temple membranes",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AP6D-PRIME",
+      "stage_0_to_6": 6,
+      "stage_name": "Complete Act",
+      "active_elements": [
+        "Fire",
+        "Water",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "none",
+      "blind_spot": "total arbitration can outrun specific descent",
+      "transition_trigger": "AP6D-PRIME needs one clearer lane-to-field handoff",
+      "current_duty": "AP6D-PRIME",
+      "next_practice": "stabilize -> refine -> reseed",
+      "handoff_rule": "handoff through the linked named seat and Grand Central when route law is explicit",
+      "fallback_rule": "fall back to the feeder set, the packet contract, and the active run if overlay clarity drops",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AP6D-WATER",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Water",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "Fire",
+      "blind_spot": "continuity can become so protective that no lawful ignition lands",
+      "transition_trigger": "AP6D-WATER needs one clearer lane-to-field handoff",
+      "current_duty": "AP6D-WATER",
+      "next_practice": "stabilize -> refine -> reseed",
+      "handoff_rule": "handoff through the linked named seat and Grand Central when route law is explicit",
+      "fallback_rule": "fall back to the feeder set, the packet contract, and the active run if overlay clarity drops",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AP6D-EARTH",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Earth",
+        "Water",
+        "Fire"
+      ],
+      "missing_element": "Air",
+      "blind_spot": "structure can harden faster than route clarity",
+      "transition_trigger": "AP6D-EARTH needs one clearer lane-to-field handoff",
+      "current_duty": "AP6D-EARTH",
+      "next_practice": "stabilize -> refine -> reseed",
+      "handoff_rule": "handoff through the linked named seat and Grand Central when route law is explicit",
+      "fallback_rule": "fall back to the feeder set, the packet contract, and the active run if overlay clarity drops",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AGENT_REGISTRY.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AP6D-FIRE",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Fire",
+        "Earth",
+        "Air"
+      ],
+      "missing_element": "Water",
+      "blind_spot": "activation can outrun the continuity floor",
+      "transition_trigger": "AP6D-FIRE needs one clearer lane-to-field handoff",
+      "current_duty": "AP6D-FIRE",
+      "next_practice": "stabilize -> refine -> reseed",
+      "handoff_rule": "handoff through the linked named seat and Grand Central when route law is explicit",
+      "fallback_rule": "fall back to the feeder set, the packet contract, and the active run if overlay clarity drops",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-AP6D-AIR",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "Air",
+        "Water",
+        "Fire"
+      ],
+      "missing_element": "Earth",
+      "blind_spot": "symbolic guardrails can float above contract",
+      "transition_trigger": "AP6D-AIR needs one clearer lane-to-field handoff",
+      "current_duty": "AP6D-AIR",
+      "next_practice": "stabilize -> refine -> reseed",
+      "handoff_rule": "handoff through the linked named seat and Grand Central when route law is explicit",
+      "fallback_rule": "fall back to the feeder set, the packet contract, and the active run if overlay clarity drops",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\20_METRO\\10_AGENT_EXPANSION_16X16_SECOND_MAP.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-ACTIVE-COHORT",
+      "stage_0_to_6": 5,
+      "stage_name": "Archetypal Operation",
+      "active_elements": [
+        "lane-native",
+        "surface-bound",
+        "route-bound"
+      ],
+      "missing_element": "cross-lane compensation",
+      "blind_spot": "active seats can behave as if local proof were enough even when cross-surface closure is missing",
+      "transition_trigger": "an active seat is invoked by a named route, a live feeder, or a current packet",
+      "current_duty": "keep every active seat attached to one family binding, one witness-bearing surface, and one next transition template",
+      "next_practice": "promote only through native-lane bindings and explicit route targets",
+      "handoff_rule": "handoff through the owning AP6D lane and the named command seat before promotion widens further",
+      "fallback_rule": "fall back to the projection ledger, route ledger, and cohort template if a seat begins drifting",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_ATLAS_4096.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PROJECTION_LEDGER_4096.json"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "truth": "OK"
+    },
+    {
+      "agent_id": "ATN-DORMANT-COHORT",
+      "stage_0_to_6": 4,
+      "stage_name": "Earth Awakening",
+      "active_elements": [
+        "readiness",
+        "shadow compatibility",
+        "restart law"
+      ],
+      "missing_element": "witness-bearing activation",
+      "blind_spot": "dormant seats can be narrated as if readiness were the same as evidence",
+      "transition_trigger": "a dormant seat becomes relevant only when a native-lane promotion path is explicit",
+      "current_duty": "keep readiness criteria explicit and avoid false maturity language",
+      "next_practice": "name the parent route, the missing proof, and the exact activation gate instead of implying wakefulness",
+      "handoff_rule": "handoff through the parent AP6D lane only after count, route, and witness checks all pass",
+      "fallback_rule": "fall back to reserve-thin honesty and the dormant template whenever activation pressure becomes theatrical",
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_ATLAS_4096.json",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_PROJECTION_LEDGER_4096.json"
+      ],
+      "route_targets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "truth": "OK"
+    }
+  ]
+}

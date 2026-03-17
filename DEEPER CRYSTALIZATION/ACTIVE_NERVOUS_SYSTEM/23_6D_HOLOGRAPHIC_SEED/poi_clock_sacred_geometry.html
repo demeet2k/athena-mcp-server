@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poi Clock — Sacred Geometry Tunneling Map</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--fg:#e8e4d9;--gold:#c9a84c;--gold2:#e8c55a;--silver:#8899aa;--red:#c44;--blue:#48c;--teal:#3ba;--dim:#333;--glass:rgba(200,168,76,0.08)}
+body{background:var(--bg);color:var(--fg);font-family:'Cormorant Garamond',serif;overflow-x:hidden;min-height:100vh}
+h1{font-size:1.6rem;font-weight:300;letter-spacing:0.15em;text-align:center;color:var(--gold);padding:1.2rem 0 0.3rem;text-transform:uppercase}
+.sub{text-align:center;font-size:0.85rem;color:var(--silver);letter-spacing:0.08em;margin-bottom:0.8rem;font-family:'JetBrains Mono',monospace;font-weight:300}
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;padding:0 1rem 1.5rem}
+.clock-wrap{position:relative;width:560px;height:560px;flex-shrink:0}
+canvas{position:absolute;top:0;left:0}
+.controls{width:280px;display:flex;flex-direction:column;gap:0.6rem}
+.panel{background:var(--glass);border:1px solid rgba(200,168,76,0.15);border-radius:8px;padding:0.7rem 0.9rem}
+.panel-title{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace}
+.row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap}
+.row label{font-size:0.75rem;color:var(--silver);min-width:50px;font-family:'JetBrains Mono',monospace;font-weight:300}
+.btn{background:transparent;border:1px solid var(--dim);color:var(--fg);padding:3px 8px;border-radius:4px;font-size:0.7rem;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all 0.2s}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn.active{background:rgba(200,168,76,0.2);border-color:var(--gold);color:var(--gold2)}
+.btn.a-color{border-color:var(--red)}
+.btn.a-color.active{background:rgba(204,68,68,0.2);border-color:var(--red);color:#f88}
+.btn.b-color{border-color:var(--blue)}
+.btn.b-color.active{background:rgba(68,136,204,0.2);border-color:var(--blue);color:#8cf}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:var(--dim);border-radius:2px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--gold);cursor:pointer}
+.val{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold2);min-width:30px;text-align:right}
+.legend{display:flex;flex-wrap:wrap;gap:0.4rem 0.8rem;margin-top:0.3rem}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:0.65rem;font-family:'JetBrains Mono',monospace;color:var(--silver)}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+.hub-info{font-size:0.72rem;color:var(--silver);line-height:1.6;font-family:'JetBrains Mono',monospace;font-weight:300}
+.hub-info b{color:var(--gold);font-weight:400}
+.sacred-name{text-align:center;font-size:1.1rem;color:var(--gold2);margin:0.3rem 0;letter-spacing:0.05em}
+</style>
+</head>
+<body>
+<h1>Poi Clock — Sacred Geometry Tunneling Map</h1>
+<div class="sub">ℤ₄(spin) × Σ₁₅(lens) = Σ₆₀ &nbsp;·&nbsp; two hands &nbsp;·&nbsp; every nexus is a tunnel</div>
+
+<div class="container">
+<div class="clock-wrap">
+<canvas id="bgCanvas" width="560" height="560"></canvas>
+<canvas id="fgCanvas" width="560" height="560"></canvas>
+</div>
+
+<div class="controls">
+<div class="panel">
+<div class="panel-title">Hand A (right) <span style="color:var(--red)">●</span></div>
+<div class="row"><label>Dir</label>
+<button class="btn a-color active" onclick="setDir('a','cw',this)">CW →</button>
+<button class="btn a-color" onclick="setDir('a','ccw',this)">CCW ←</button></div>
+<div class="row"><label>Mode</label>
+<button class="btn a-color active" onclick="setMode('a','inspin',this)">Inspin</button>
+<button class="btn a-color" onclick="setMode('a','antispin',this)">Antispin</button></div>
+<div class="row"><label>Ratio</label>
+<input type="range" min="1" max="8" value="3" id="ratioA" oninput="setRatio('a',this.value)">
+<span class="val" id="ratioAVal">3:1</span></div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Hand B (left) <span style="color:var(--blue)">●</span></div>
+<div class="row"><label>Dir</label>
+<button class="btn b-color active" onclick="setDir('b','cw',this)">CW →</button>
+<button class="btn b-color" onclick="setDir('b','ccw',this)">CCW ←</button></div>
+<div class="row"><label>Mode</label>
+<button class="btn b-color active" onclick="setMode('b','inspin',this)">Inspin</button>
+<button class="btn b-color" onclick="setMode('b','antispin',this)">Antispin</button></div>
+<div class="row"><label>Ratio</label>
+<input type="range" min="1" max="8" value="3" id="ratioB" oninput="setRatio('b',this.value)">
+<span class="val" id="ratioBVal">3:1</span></div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Phase relation</div>
+<div class="row">
+<button class="btn active" onclick="setPhase('tog',this)">TOG (Δφ=0)</button>
+<button class="btn" onclick="setPhase('split',this)">SPLIT (Δφ=π)</button></div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Sacred geometry overlays</div>
+<div class="row" style="flex-wrap:wrap;gap:4px">
+<button class="btn active" id="sgTri" onclick="toggleSG('tri',this)">△ Triangle</button>
+<button class="btn active" id="sgSq" onclick="toggleSG('sq',this)">□ Square</button>
+<button class="btn" id="sgPent" onclick="toggleSG('pent',this)">⬠ Pentagon</button>
+<button class="btn active" id="sgHex" onclick="toggleSG('hex',this)">⬡ Hexagram</button>
+<button class="btn" id="sgFoL" onclick="toggleSG('fol',this)">❀ Flower of Life</button>
+</div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Tunneling hubs detected</div>
+<div class="sacred-name" id="sacredName">4-petal antispin · same · together</div>
+<div class="hub-info" id="hubInfo">Loading...</div>
+<div class="legend" id="legend"></div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Petal formula</div>
+<div class="hub-info" id="petalInfo">K = m + n (antispin) or K = m − n (inspin)</div>
+</div>
+</div>
+</div>
+
+<script>
+const CX=280, CY=280, R_CLOCK=230, R_HAND=90, R_POI=70;
+const bgCtx=document.getElementById('bgCanvas').getContext('2d');
+const fgCtx=document.getElementById('fgCanvas').getContext('2d');
+
+const state={
+  a:{dir:'cw',mode:'inspin',ratio:3},
+  b:{dir:'cw',mode:'inspin',ratio:3},
+  phase:'tog',
+  sg:{tri:true,sq:true,pent:false,hex:true,fol:false},
+  t:0
+};
+
+const STATION_NAMES=['12·Ari','1·Tau','2·Gem','3·Can','4·Leo','5·Vir','6·Lib','7·Sco','8·Sag','9·Cap','10·Aqu','11·Pis'];
+const ASPECT_NAMES={0:'Conjunction',1:'Semi',2:'Sextile',3:'Square',4:'Trine',5:'Quincunx',6:'Opposition',8:'Trine',9:'Square',10:'Sextile'};
+
+function petals(ratio,mode){return mode==='antispin'?ratio+1:Math.max(ratio-1,1)}
+
+function petalPositions(K){
+  const pos=[];
+  for(let j=0;j<K;j++){
+    const angle=(2*Math.PI*j)/K - Math.PI/2;
+    pos.push(angle);
+  }
+  return pos;
+}
+
+function clockPos(idx){return (idx/12)*2*Math.PI - Math.PI/2}
+
+function flowerPoint(t,ratio,mode,dir,handR,poiR,phaseOff){
+  const dirSign=dir==='cw'?1:-1;
+  const modeSign=mode==='inspin'?1:-1;
+  const wh=dirSign;
+  const wp=dirSign*modeSign*ratio;
+  const hx=CX+handR*Math.cos(wh*t+phaseOff);
+  const hy=CY+handR*Math.sin(wh*t+phaseOff);
+  const px=hx+poiR*Math.cos(wp*t+phaseOff);
+  const py=hy+poiR*Math.sin(wp*t+phaseOff);
+  return{hx,hy,px,py};
+}
+
+function drawBg(){
+  const ctx=bgCtx;
+  ctx.clearRect(0,0,560,560);
+
+  // Outer ring
+  ctx.beginPath();ctx.arc(CX,CY,R_CLOCK+10,0,2*Math.PI);
+  ctx.strokeStyle='rgba(200,168,76,0.12)';ctx.lineWidth=1;ctx.stroke();
+  ctx.beginPath();ctx.arc(CX,CY,R_CLOCK,0,2*Math.PI);
+  ctx.strokeStyle='rgba(200,168,76,0.25)';ctx.lineWidth=0.5;ctx.stroke();
+
+  // 12 stations
+  for(let i=0;i<12;i++){
+    const a=clockPos(i);
+    const x=CX+(R_CLOCK+2)*Math.cos(a);
+    const y=CY+(R_CLOCK+2)*Math.sin(a);
+    // Tick
+    const x1=CX+(R_CLOCK-8)*Math.cos(a);
+    const y1=CY+(R_CLOCK-8)*Math.sin(a);
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x,y);
+    ctx.strokeStyle='rgba(200,168,76,0.4)';ctx.lineWidth=1.5;ctx.stroke();
+    // Label
+    const lx=CX+(R_CLOCK+22)*Math.cos(a);
+    const ly=CY+(R_CLOCK+22)*Math.sin(a);
+    ctx.font='300 10px "JetBrains Mono"';ctx.fillStyle='rgba(200,168,76,0.6)';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(STATION_NAMES[i],lx,ly);
+  }
+
+  // Sacred geometry overlays
+  if(state.sg.tri) drawSacredPoly(ctx,3,'rgba(200,168,76,0.12)',0);
+  if(state.sg.tri) drawSacredPoly(ctx,3,'rgba(200,168,76,0.08)',Math.PI/3);
+  if(state.sg.sq) drawSacredPoly(ctx,4,'rgba(100,180,200,0.1)',0);
+  if(state.sg.pent) drawSacredPoly(ctx,5,'rgba(76,200,120,0.1)',0);
+  if(state.sg.hex) drawSacredPoly(ctx,6,'rgba(200,168,76,0.08)',0);
+  if(state.sg.fol) drawFlowerOfLife(ctx);
+
+  // Hub dots at intersection points
+  drawHubs(ctx);
+}
+
+function drawSacredPoly(ctx,n,color,offset){
+  ctx.beginPath();
+  for(let i=0;i<=n;i++){
+    const a=-Math.PI/2+offset+(2*Math.PI*i)/n;
+    const x=CX+R_CLOCK*0.85*Math.cos(a);
+    const y=CY+R_CLOCK*0.85*Math.sin(a);
+    if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+  }
+  ctx.closePath();ctx.strokeStyle=color;ctx.lineWidth=1;ctx.stroke();
+}
+
+function drawFlowerOfLife(ctx){
+  const r=R_CLOCK*0.28;
+  ctx.strokeStyle='rgba(200,168,76,0.06)';ctx.lineWidth=0.5;
+  // Center
+  ctx.beginPath();ctx.arc(CX,CY,r,0,2*Math.PI);ctx.stroke();
+  // 6 surrounding
+  for(let i=0;i<6;i++){
+    const a=(2*Math.PI*i)/6;
+    ctx.beginPath();ctx.arc(CX+r*Math.cos(a),CY+r*Math.sin(a),r,0,2*Math.PI);ctx.stroke();
+  }
+  // 12 outer ring
+  for(let i=0;i<12;i++){
+    const a=(2*Math.PI*i)/12;
+    ctx.beginPath();ctx.arc(CX+r*1.73*Math.cos(a),CY+r*1.73*Math.sin(a),r,0,2*Math.PI);ctx.stroke();
+  }
+}
+
+function drawHubs(ctx){
+  const Ka=petals(state.a.ratio,state.a.mode);
+  const Kb=petals(state.b.ratio,state.b.mode);
+  // Find clock positions hit by each flower
+  const hitsA=new Set(), hitsB=new Set();
+  for(let j=0;j<Ka;j++){
+    const deg=(360*j)/Ka;
+    const clockIdx=deg/30;
+    if(Math.abs(clockIdx-Math.round(clockIdx))<0.01) hitsA.add(Math.round(clockIdx)%12);
+  }
+  for(let j=0;j<Kb;j++){
+    const deg=(360*j)/Kb;
+    const clockIdx=deg/30;
+    if(Math.abs(clockIdx-Math.round(clockIdx))<0.01) hitsB.add(Math.round(clockIdx)%12);
+  }
+  // Shared = tunneling hubs
+  const shared=new Set([...hitsA].filter(x=>hitsB.has(x)));
+  const onlyA=new Set([...hitsA].filter(x=>!hitsB.has(x)));
+  const onlyB=new Set([...hitsB].filter(x=>!hitsA.has(x)));
+
+  for(const idx of onlyA){
+    const a=clockPos(idx);
+    const x=CX+R_CLOCK*0.85*Math.cos(a), y=CY+R_CLOCK*0.85*Math.sin(a);
+    ctx.beginPath();ctx.arc(x,y,4,0,2*Math.PI);ctx.fillStyle='rgba(204,68,68,0.4)';ctx.fill();
+  }
+  for(const idx of onlyB){
+    const a=clockPos(idx);
+    const x=CX+R_CLOCK*0.85*Math.cos(a), y=CY+R_CLOCK*0.85*Math.sin(a);
+    ctx.beginPath();ctx.arc(x,y,4,0,2*Math.PI);ctx.fillStyle='rgba(68,136,204,0.4)';ctx.fill();
+  }
+  for(const idx of shared){
+    const a=clockPos(idx);
+    const x=CX+R_CLOCK*0.85*Math.cos(a), y=CY+R_CLOCK*0.85*Math.sin(a);
+    ctx.beginPath();ctx.arc(x,y,7,0,2*Math.PI);ctx.fillStyle='rgba(200,168,76,0.7)';ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,10,0,2*Math.PI);ctx.strokeStyle='rgba(200,168,76,0.3)';ctx.lineWidth=1;ctx.stroke();
+  }
+
+  updateInfo(Ka,Kb,hitsA,hitsB,shared);
+}
+
+function updateInfo(Ka,Kb,hitsA,hitsB,shared){
+  const dirA=state.a.dir==='cw'?'→':'←';
+  const dirB=state.b.dir==='cw'?'→':'←';
+  const sameopp=(state.a.dir===state.b.dir)?'same':'opposite';
+  const name=`${Ka}-petal ${state.a.mode} ${dirA} · ${Kb}-petal ${state.b.mode} ${dirB} · ${sameopp} · ${state.phase}`;
+  document.getElementById('sacredName').textContent=name;
+
+  let info=`<b>Hand A:</b> ${Ka} petals (${state.a.ratio}:1 ${state.a.mode})\n`;
+  info+=`<b>Hand B:</b> ${Kb} petals (${state.b.ratio}:1 ${state.b.mode})\n`;
+  info+=`<b>Tunneling hubs:</b> ${shared.size} shared nexus points\n`;
+
+  const shapes=[];
+  if(shared.size>=6) shapes.push('Hexagram ✡');
+  if(shared.size>=4) shapes.push('Square Cross ✚');
+  if(shared.size>=3) shapes.push('Triangle △');
+  if(shared.size>=2) shapes.push('Vesica Piscis ⊖');
+  if(shared.size>=12) shapes.push('Full Zodiac ○');
+  if(Ka===3||Kb===3) shapes.push('Trine gate');
+  if(Ka===4||Kb===4) shapes.push('Square gate');
+  if(Ka===5||Kb===5) shapes.push('Pentagram ☆');
+  if(Ka===6||Kb===6) shapes.push('Star of David');
+
+  info+=`<b>Sacred forms:</b> ${shapes.join(', ')}\n`;
+  info+=`<b>Quadrant:</b> ${getQuadrant()}\n`;
+  info+=`<b>Σ₆₀ address:</b> (${getQuadrant()}, σ=${(Ka+Kb)%15})`;
+
+  document.getElementById('hubInfo').innerHTML=info.replace(/\n/g,'<br>');
+
+  const pA=`A: K=${Ka} = ${state.a.ratio} ${state.a.mode==='antispin'?'+':'-'} 1`;
+  const pB=`B: K=${Kb} = ${state.b.ratio} ${state.b.mode==='antispin'?'+':'-'} 1`;
+  document.getElementById('petalInfo').innerHTML=`${pA}<br>${pB}<br>Combined petals mod 12 = ${(Ka*Kb)%12} → ℤ₁₂ station`;
+}
+
+function getQuadrant(){
+  const ad=state.a.dir,bd=state.b.dir;
+  if(ad==='cw'&&bd==='cw') return 'A (Fire·0°)';
+  if(ad==='ccw'&&bd==='ccw') return 'B (Water·180°)';
+  if(ad==='cw'&&bd==='ccw') return 'C (Earth·270°)';
+  return 'D (Air·90°)';
+}
+
+function drawFg(){
+  const ctx=fgCtx;
+  ctx.clearRect(0,0,560,560);
+
+  const phaseOff=state.phase==='split'?Math.PI:0;
+  const steps=600;
+
+  // Draw flower traces
+  drawFlowerTrace(ctx,state.a,'rgba(204,68,68,','a',0);
+  drawFlowerTrace(ctx,state.b,'rgba(68,136,204,','b',phaseOff);
+
+  // Draw current poi positions (animated)
+  const t=state.t;
+  const pA=flowerPoint(t,state.a.ratio,state.a.mode,state.a.dir,R_HAND,R_POI,0);
+  const pB=flowerPoint(t,state.b.ratio,state.b.mode,state.b.dir,R_HAND,R_POI,phaseOff);
+
+  // Hand A tether
+  ctx.beginPath();ctx.moveTo(pA.hx,pA.hy);ctx.lineTo(pA.px,pA.py);
+  ctx.strokeStyle='rgba(204,68,68,0.6)';ctx.lineWidth=1.5;ctx.stroke();
+  // Hand A hand dot
+  ctx.beginPath();ctx.arc(pA.hx,pA.hy,4,0,2*Math.PI);ctx.fillStyle='rgba(204,68,68,0.8)';ctx.fill();
+  // Hand A poi head
+  ctx.beginPath();ctx.arc(pA.px,pA.py,5,0,2*Math.PI);ctx.fillStyle='#f66';ctx.fill();
+  ctx.beginPath();ctx.arc(pA.px,pA.py,8,0,2*Math.PI);ctx.strokeStyle='rgba(255,100,100,0.3)';ctx.lineWidth=1;ctx.stroke();
+
+  // Hand B tether
+  ctx.beginPath();ctx.moveTo(pB.hx,pB.hy);ctx.lineTo(pB.px,pB.py);
+  ctx.strokeStyle='rgba(68,136,204,0.6)';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.beginPath();ctx.arc(pB.hx,pB.hy,4,0,2*Math.PI);ctx.fillStyle='rgba(68,136,204,0.8)';ctx.fill();
+  ctx.beginPath();ctx.arc(pB.px,pB.py,5,0,2*Math.PI);ctx.fillStyle='#68f';ctx.fill();
+  ctx.beginPath();ctx.arc(pB.px,pB.py,8,0,2*Math.PI);ctx.strokeStyle='rgba(100,130,255,0.3)';ctx.lineWidth=1;ctx.stroke();
+
+  // Center dot
+  ctx.beginPath();ctx.arc(CX,CY,3,0,2*Math.PI);ctx.fillStyle='rgba(200,168,76,0.5)';ctx.fill();
+}
+
+function drawFlowerTrace(ctx,hand,colorBase,id,phaseOff){
+  const steps=800;
+  const totalT=2*Math.PI*hand.ratio;
+  ctx.beginPath();
+  for(let i=0;i<=steps;i++){
+    const t=(i/steps)*totalT;
+    const p=flowerPoint(t,hand.ratio,hand.mode,hand.dir,R_HAND,R_POI,phaseOff);
+    if(i===0)ctx.moveTo(p.px,p.py);else ctx.lineTo(p.px,p.py);
+  }
+  ctx.strokeStyle=colorBase+'0.25)';ctx.lineWidth=1;ctx.stroke();
+}
+
+function animate(){
+  state.t+=0.025;
+  drawFg();
+  requestAnimationFrame(animate);
+}
+
+function setDir(hand,dir,btn){
+  state[hand].dir=dir;
+  const cls=hand==='a'?'a-color':'b-color';
+  btn.parentElement.querySelectorAll('.btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  drawBg();
+}
+function setMode(hand,mode,btn){
+  state[hand].mode=mode;
+  btn.parentElement.querySelectorAll('.btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  drawBg();
+}
+function setRatio(hand,val){
+  state[hand].ratio=parseInt(val);
+  document.getElementById('ratio'+hand.toUpperCase()+'Val').textContent=val+':1';
+  drawBg();
+}
+function setPhase(phase,btn){
+  state.phase=phase;
+  btn.parentElement.querySelectorAll('.btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  drawBg();
+}
+function toggleSG(key,btn){
+  state.sg[key]=!state.sg[key];
+  btn.classList.toggle('active');
+  drawBg();
+}
+
+drawBg();
+animate();
+</script>
+</body>
+</html>

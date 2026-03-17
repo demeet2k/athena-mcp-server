@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-03-13",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "checks": {
+    "projection_records": 4,
+    "basis_routes": 16,
+    "matrix_routes": 256,
+    "observer_passes": 64,
+    "witness_states": 16,
+    "atlas_total": 4096,
+    "atlas_active": 1024,
+    "atlas_dormant": 3072,
+    "wave_count": 4,
+    "wave_sizes": {
+      "Wave0": 1024,
+      "Cohort1": 1024,
+      "Cohort2": 1024,
+      "Cohort3": 1024
+    },
+    "wave_states": {
+      "Wave0": "ACTIVE",
+      "Cohort1": "DORMANT",
+      "Cohort2": "DORMANT",
+      "Cohort3": "DORMANT"
+    },
+    "seat_ledger_rows": 4096,
+    "seat_map_rows": 4096,
+    "bridge_records": 16384,
+    "nexus_records": 4096,
+    "seat_map_hsigma_annotations": true,
+    "bridge_hsigma_annotations": true,
+    "nexus_hsigma_annotations": true
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-03-13T04:17:37.187298+00:00",
+  "truth": "OK",
+  "append_only_rule": {
+    "append_only": true,
+    "entry_ids_monotonic": true,
+    "terminal_decisions_require_ledger": true
+  },
+  "entry_count": 5,
+  "entries": [
+    {
+      "entry_id": "MLE-0001",
+      "committee_pack_ref": "CP-commit_path",
+      "chosen_destination": "COMMIT",
+      "supporting_witnesses": [
+        "WIT-commit_path-001",
+        "WIT-commit_path-002"
+      ],
+      "replay_bundle_ref": "RPK-commit_path",
+      "governance_approval_ref": "GOV-commit_path",
+      "dissent_refs": [],
+      "continuation_seed_ref": "SEED-commit_path",
+      "timestamp": "2026-03-13T04:17:37.186294+00:00"
+    },
+    {
+      "entry_id": "MLE-0002",
+      "committee_pack_ref": "CP-defer_near_path",
+      "chosen_destination": "DEFER_NEAR",
+      "supporting_witnesses": [
+        "WIT-defer_near_path-001",
+        "WIT-defer_near_path-002"
+      ],
+      "replay_bundle_ref": "RPK-defer_near_path",
+      "governance_approval_ref": null,
+      "dissent_refs": [],
+      "continuation_seed_ref": "SEED-defer_near_path",
+      "timestamp": "2026-03-13T04:17:37.186294+00:00"
+    },
+    {
+      "entry_id": "MLE-0003",
+      "committee_pack_ref": "CP-defer_ambig_path",
+      "chosen_destination": "DEFER_AMBIG",
+      "supporting_witnesses": [
+        "WIT-defer_ambig_path-001",
+        "WIT-defer_ambig_path-002"
+      ],
+      "replay_bundle_ref": "RPK-defer_ambig_path",
+      "governance_approval_ref": null,
+      "dissent_refs": [],
+      "continuation_seed_ref": "SEED-defer_ambig_path",
+      "timestamp": "2026-03-13T04:17:37.186294+00:00"
+    },
+    {
+      "entry_id": "MLE-0004",
+      "committee_pack_ref": "CP-quarantine_path",
+      "chosen_destination": "QUARANTINE_FAIL",
+      "supporting_witnesses": [
+        "WIT-quarantine_path-001",
+        "WIT-quarantine_path-002"
+      ],
+      "replay_bundle_ref": "RPK-quarantine_path",
+      "governance_approval_ref": null,
+      "dissent_refs": [],
+      "continuation_seed_ref": "SEED-quarantine_path",
+      "timestamp": "2026-03-13T04:17:37.187298+00:00"
+    },
+    {
+      "entry_id": "MLE-0005",
+      "committee_pack_ref": "CP-refuse_path",
+      "chosen_destination": "REFUSE",
+      "supporting_witnesses": [
+        "WIT-refuse_path-001",
+        "WIT-refuse_path-002"
+      ],
+      "replay_bundle_ref": "RPK-refuse_path",
+      "governance_approval_ref": "GOV-refuse_path",
+      "dissent_refs": [],
+      "continuation_seed_ref": "SEED-refuse_path",
+      "timestamp": "2026-03-13T04:17:37.187298+00:00"
+    }
+  ],
+  "next_seed": "MotionConstitution_L1"
+}

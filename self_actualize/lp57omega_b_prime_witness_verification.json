@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-03-13T20:38:48.608636+00:00",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "dense_shell_rows": 64,
+  "witnessed_rows": 45,
+  "pointer_expanded_rows": 45,
+  "witness_seed_payloads": 60,
+  "replay_seed_payloads": 60,
+  "checks": {
+    "docs_gate_blocked": true,
+    "count_vector": true,
+    "payload_count_vector": true,
+    "ps_rows_untouched": true,
+    "rotation_payload_contract": true,
+    "spin_payload_contract": true,
+    "antispin_payload_contract": true,
+    "symbolic_hash_policy": true,
+    "route_alias_contract": true,
+    "flower_phase_assignments": true,
+    "markdown_contract": true
+  }
+}

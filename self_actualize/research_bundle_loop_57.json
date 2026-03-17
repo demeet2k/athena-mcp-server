@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L57",
+  "status": "PENDING",
+  "lead_agent": "PRUNER",
+  "objective": "synthesize the complete 57-loop lineage",
+  "advancement_tuple": {
+    "focus_family": "reseed",
+    "frontier_type": "successor-seed-and-game-time-reset",
+    "dominant_evidence_class": "successor-ledger",
+    "compression_target": "closed-cycle-residue"
+  },
+  "truth_state": "NEAR"
+}

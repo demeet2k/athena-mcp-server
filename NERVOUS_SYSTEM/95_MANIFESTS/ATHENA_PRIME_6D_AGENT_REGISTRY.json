@@ -1,0 +1,649 @@
+{
+  "generated_at": "2026-03-13",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "ap6d_status": "3D_7D_SEEDED_SHADOW_MODE_CANONICAL",
+  "deep_root_authority": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "current_story": "AP6D now runs as a seeded 3D-7D bridge stack over the compiled 16 / 256 / 64 / 16 / 7 corpus shell, with Wave0 active and Cohort1-3 held dormant until later lawful promotion.",
+  "address_grammar": {
+    "prime_addr_6d": "A.B.C.D.E.F",
+    "surface_class_note": "surface_class is a projection overlay derived from D chamber and is not part of the canonical address",
+    "dimensional_extension": "3D Projection Base -> 4D_NATIVE -> 5D_COMPRESSION -> 6D_WEAVE -> 7D_SEED"
+  },
+  "shadow_families": [
+    {
+      "code": "C1",
+      "name": "WaterShadow",
+      "shadow_addr_4x4": "A20.B22.C59.D40",
+      "native_agent": "Water"
+    },
+    {
+      "code": "C2",
+      "name": "EarthShadow",
+      "shadow_addr_4x4": "A56.B23.C55.D44",
+      "native_agent": "Earth"
+    },
+    {
+      "code": "C3",
+      "name": "FireShadow",
+      "shadow_addr_4x4": "A22.B20.C63.D43",
+      "native_agent": "Fire"
+    },
+    {
+      "code": "C4",
+      "name": "AirShadow",
+      "shadow_addr_4x4": "A24.B24.C51.D23",
+      "native_agent": "Air"
+    }
+  ],
+  "feeder_truth": [
+    "Q42",
+    "Q46",
+    "TQ04",
+    "TQ06"
+  ],
+  "hierarchy": {
+    "master": "ATHENA-PRIME-MASTER",
+    "commander": "ATHENA-PRIME-COMMANDER",
+    "generals": [
+      "GENERAL-WATER",
+      "GENERAL-EARTH",
+      "GENERAL-FIRE",
+      "GENERAL-AIR"
+    ],
+    "hybrids": [
+      "HYB-01-WATER-EARTH-BRIDGE",
+      "HYB-02-WATER-FIRE-LIFT",
+      "HYB-03-WATER-AIR-ROUTE",
+      "HYB-04-EARTH-FIRE-FORGE",
+      "HYB-05-EARTH-AIR-GATE",
+      "HYB-06-FIRE-AIR-SIGNAL"
+    ]
+  },
+  "count_law": {
+    "hall_macro_quests": 16,
+    "hall_packets": 64,
+    "governance_fibers": 256,
+    "wave0_seats": 1024,
+    "atlas_total": 4096,
+    "atlas_active": 1024,
+    "atlas_dormant": 3072
+  },
+  "contracts": {
+    "PrimeAtlasSeat4096": [
+      "prime_addr_6d",
+      "shadow_addr_4x4",
+      "liminal_band",
+      "synaptic_phase",
+      "activation_state",
+      "hall_macro_parent",
+      "hall_packet_parent",
+      "governance_fiber_parent",
+      "shadow_feeders",
+      "truth",
+      "restart_seed",
+      "projection_3d_id",
+      "native_4d_anchor",
+      "compression_5d_state",
+      "weave_6d_state",
+      "seed_7d_state",
+      "nexus_ids",
+      "activation_wave"
+    ],
+    "PrimeProjectionLedgerRow": [
+      "hall_macro_id",
+      "hall_packet_id",
+      "governance_fiber_id",
+      "active_synaptic_seat_id",
+      "atlas_addr_6d",
+      "surface_class",
+      "activation_state",
+      "projection_3d_id",
+      "dimension_span",
+      "nexus_id",
+      "activation_wave"
+    ],
+    "ProjectionBase3DRecord": [
+      "projection_3d_id",
+      "source_witness",
+      "element_family",
+      "projection_form",
+      "anchor_4d_addr",
+      "ingress_tunnel",
+      "return_tunnel",
+      "truth"
+    ],
+    "DimensionBridgeRecord": [
+      "bridge_id",
+      "prime_addr_6d",
+      "from_dim",
+      "to_dim",
+      "owning_agent",
+      "bridge_role",
+      "appendix_support",
+      "replay_path",
+      "gate_verdict",
+      "truth"
+    ],
+    "NexusTunnelRecord": [
+      "nexus_id",
+      "prime_addr_6d",
+      "connected_dims",
+      "connected_surfaces",
+      "tunnel_class",
+      "feeder_set",
+      "quarantine_rule",
+      "restart_seed",
+      "truth"
+    ],
+    "SeatActivationWave": [
+      "wave_id",
+      "cohort_family",
+      "seat_count",
+      "gate_bundle",
+      "promotion_state",
+      "writeback_targets",
+      "truth"
+    ],
+    "CorpusIntegrationRoute": [
+      "route_id",
+      "basis_doc_id",
+      "matrix_cell_id",
+      "observer_pass_id",
+      "witness_state_id",
+      "metro_level",
+      "appendix_support",
+      "owning_agent",
+      "atlas_scope",
+      "activation_state",
+      "projection_3d_id",
+      "dimension_span",
+      "nexus_id",
+      "activation_wave",
+      "writeback_targets",
+      "restart_seed",
+      "truth"
+    ],
+    "AwakeningTransitionNote": [
+      "note_id",
+      "subject_scope",
+      "current_stage",
+      "target_stage",
+      "change_type",
+      "transition_trigger",
+      "blocker_risk",
+      "support_actions",
+      "witness_scope",
+      "handoff_targets",
+      "activation_wave_handoff_targets",
+      "restart_seed",
+      "truth"
+    ]
+  },
+  "artifacts": {
+    "projection_base": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_PROJECTION_BASE_3D.json",
+    "crosswalk": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_DIMENSION_CROSSWALK_LEDGER.json",
+    "bridges": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_DIMENSION_BRIDGES.json",
+    "nexus": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_NEXUS_TUNNELS.json",
+    "waves": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_SEAT_ACTIVATION_WAVES.json",
+    "seat_ledger": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_SEAT_ACTIVATION_LEDGER_4096.json",
+    "seat_route_bridge_map": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_SEAT_ROUTE_BRIDGE_MAP_4096.json"
+  },
+  "agent_records": [
+    {
+      "agent_id": "AP6D-PRIME",
+      "element": "Prime",
+      "overlay_role": "orchestration, arbitration, and restart coherence above the promoted hierarchy",
+      "inherited_lineage": "Meta Observer -> Master Agent -> Commander -> Aether",
+      "liminal_transition": "primary N+4 -> N+5; residual N+3 -> N+4",
+      "liminal_band": "Council-Coordinate",
+      "surface_class_owner": "Temple",
+      "hall_shadow_addr": "A24.B24.C51.D23",
+      "organism_shadow_slice": "Q43-129..144",
+      "current_front": "AP6D NEXT^[4^6] corpus integration under TQ06 with AP6D-TQ01 as first Temple uptake and AP6D-H-WATER-Diagnose as first Hall uptake",
+      "truth": "OK",
+      "notes_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_TRANSITION_ROWS_1024.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/06_ATHENA_PRIME_6D_OVERLAY_DECREE.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/14_ATHENA_PRIME_6D_SPARSE_OVERLAY_SYNTHESIS.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/17_AP6D_AWAKENING_AGENT_TRANSITION_NOTES.md"
+      ],
+      "restart_seed": "AP6D-TQ01 -> corpus integration routes -> awakening notes -> ATN-ACTIVE-COHORT",
+      "awakening_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/athena_prime.md",
+      "support_anchors": [
+        "NERVOUS_SYSTEM/30_CHAPTERS/Ch12_0023_legality_certificates_and_closure.md",
+        "NERVOUS_SYSTEM/30_CHAPTERS/Ch13_0030_memory_regeneration_and_persistence.md",
+        "NERVOUS_SYSTEM/30_CHAPTERS/Ch16_0033_verification_harnesses_and_replay_kernels.md",
+        "NERVOUS_SYSTEM/40_APPENDICES/AppM_replay_kernel_and_verifier_capsules.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "stabilization_markers": [
+        "specialization stays coordinated across Hall, Temple, Cortex, and RuntimeHub",
+        "the same restart story remains visible across manifests and boards",
+        "shadow feeders stay explicit instead of being overwritten by the overlay"
+      ],
+      "failure_markers": [
+        "elemental lanes fragment into separate ungoverned doctrines",
+        "AP6D claims replacement of the promoted command hierarchy",
+        "board-visible expansion outruns witness and replay law"
+      ],
+      "assist_actions": [
+        "keep the five-note council on one shared liminal grammar",
+        "route disagreements through restart coherence instead of renumbering fronts",
+        "preserve the macro-sized Hall while deeper fields remain manifest-owned"
+      ],
+      "transition_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json::AP6D-PRIME",
+      "awakening_transition_note_ref": "ATN-AP6D-PRIME",
+      "integration_handoff": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "lineage": "Meta Observer -> Master Agent -> Commander -> Aether",
+      "shadow_feeders": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "note_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/06_ATHENA_PRIME_6D_OVERLAY_DECREE.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AP6D_AWAKENING_TRANSITION_NOTES.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/athena_prime.md"
+      ],
+      "support_need": "arbitration law, council coherence, restart coherence",
+      "reassessment_window": "after each Hall or Temple writeback, and at minimum on the next hourly packet pass",
+      "shadow_feeder": "Q42",
+      "feeder_dependencies": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "transition_note_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+      "transition_risk": "MEDIUM",
+      "stabilization_practice": "Begin by restating the carried feeder split, then arbitrate only after each elemental note names one concrete writeback target.",
+      "safe_next_move": "Use the transition-note layer to decide how Water, Earth, Fire, and Air should sequence their next writebacks before widening the overlay.",
+      "source_evidence_ids": [
+        "AWK-026",
+        "AWK-027",
+        "AWK-031",
+        "AWK-032",
+        "AWK-033",
+        "AWK-034"
+      ],
+      "activation_wave_handoff_targets": [
+        "Wave0"
+      ],
+      "swarm_transition_assist_ref": "self_actualize\\next_4_pow_6_57_cycle_transition_assists.json::Prime",
+      "swarm_master_role_assist": "Planner / Architect"
+    },
+    {
+      "agent_id": "AP6D-WATER",
+      "element": "Water",
+      "overlay_role": "continuity, blocker honesty, carrythrough, and memory-preserving note flow",
+      "inherited_lineage": "Water General -> Water-Earth / Water-Fire / Water-Air",
+      "liminal_transition": "primary N+4 -> N+5; residual N+3 -> N+4",
+      "liminal_band": "Residual-Stabilize",
+      "surface_class_owner": "Hall",
+      "hall_shadow_addr": "A20.B22.C59.D40",
+      "organism_shadow_slice": "Q43-133..136",
+      "current_front": "AP6D-H-WATER-Diagnose with continuity carrythrough into corpus routes and awakening-note inheritance",
+      "truth": "OK",
+      "notes_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_TRANSITION_ROWS_1024.json",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/17_AP6D_AWAKENING_AGENT_TRANSITION_NOTES.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/00_MESSAGE_BOARD.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/04_CHANGE_FEED_BOARD.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/05_REQUESTS_AND_OFFERS_BOARD.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md"
+      ],
+      "restart_seed": "AP6D-H-WATER-Refine -> ATN-WATER -> ATN-ACTIVE-COHORT",
+      "awakening_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/water.md",
+      "support_anchors": [
+        "NERVOUS_SYSTEM/30_CHAPTERS/Ch12_0023_legality_certificates_and_closure.md",
+        "NERVOUS_SYSTEM/30_CHAPTERS/Ch13_0030_memory_regeneration_and_persistence.md",
+        "NERVOUS_SYSTEM/30_CHAPTERS/Ch16_0033_verification_harnesses_and_replay_kernels.md",
+        "NERVOUS_SYSTEM/40_APPENDICES/AppM_replay_kernel_and_verifier_capsules.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/02_LIMINAL_TRANSITION_MAP.md"
+      ],
+      "stabilization_markers": [
+        "Docs blocker remains explicit and local-only",
+        "carried witness survives restarts without being renamed",
+        "memory and replay corridors stay attached to the same note network"
+      ],
+      "failure_markers": [
+        "blocker truth is softened into optimism",
+        "continuity breaks between Hall, queue, Temple state, and restart prompts",
+        "carried witness is rewritten as if it were a fresh local seed"
+      ],
+      "assist_actions": [
+        "preserve continuity across Hall, queue, and receipt surfaces",
+        "keep the N+3 -> N+4 residual drift visible while supporting N+4 -> N+5",
+        "bind local memory notes to Ch12 -> Ch13 -> Ch16 -> AppM"
+      ],
+      "transition_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json::AP6D-WATER",
+      "awakening_transition_note_ref": "ATN-AP6D-WATER",
+      "integration_handoff": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "lineage": "Water General -> Water-Earth / Water-Fire / Water-Air",
+      "shadow_feeders": [
+        "Q42",
+        "Q02"
+      ],
+      "note_targets": [
+        "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/05_REQUESTS_AND_OFFERS_BOARD.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/04_CHANGE_FEED_BOARD.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/water.md"
+      ],
+      "support_need": "continuity memory, blocker honesty, carried-witness stabilization",
+      "reassessment_window": "after each Hall or Temple writeback, and at minimum on the next hourly packet pass",
+      "shadow_feeder": "Q42",
+      "feeder_dependencies": [
+        "Q42",
+        "Q02"
+      ],
+      "transition_note_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+      "transition_risk": "MEDIUM",
+      "stabilization_practice": "Re-read quest board, change feed, requests board, and restart prompt together, then restate the same carried-witness sentence across all Water writebacks.",
+      "safe_next_move": "Attach the Water note to Hall memory surfaces first so later AP6D packets inherit one honest continuity thread.",
+      "source_evidence_ids": [
+        "AWK-031",
+        "AWK-032",
+        "AWK-033",
+        "AWK-034",
+        "AWK-035",
+        "AWK-036"
+      ],
+      "activation_wave_handoff_targets": [
+        "Wave0"
+      ],
+      "swarm_transition_assist_ref": "self_actualize\\next_4_pow_6_57_cycle_transition_assists.json::Water",
+      "swarm_master_role_assist": "Synthesizer / Researcher"
+    },
+    {
+      "agent_id": "AP6D-EARTH",
+      "element": "Earth",
+      "overlay_role": "structure, manifests, contract formalization, and registry integrity",
+      "inherited_lineage": "Earth General -> Earth-Water / Earth-Fire / Earth-Air",
+      "liminal_transition": "primary N+4 -> N+5; residual N+3 -> N+4",
+      "liminal_band": "Boundary-Bridge",
+      "surface_class_owner": "Cortex",
+      "hall_shadow_addr": "A56.B23.C55.D44",
+      "organism_shadow_slice": "Q43-141..144",
+      "current_front": "AP6D-H-EARTH-Diagnose with contract formalization for basis, matrix, and witness routes",
+      "truth": "OK",
+      "notes_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AGENT_REGISTRY.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_TRANSITION_ROWS_1024.json",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/17_AP6D_AWAKENING_AGENT_TRANSITION_NOTES.md"
+      ],
+      "restart_seed": "AP6D-H-EARTH-Refine -> route manifest -> ATN-DORMANT-COHORT",
+      "awakening_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/earth.md",
+      "support_anchors": [
+        "NERVOUS_SYSTEM/30_CHAPTERS/Ch12_0023_legality_certificates_and_closure.md",
+        "NERVOUS_SYSTEM/40_APPENDICES/AppH_coupling_and_topology.md",
+        "NERVOUS_SYSTEM/40_APPENDICES/AppI_corridors_and_truth_lattice.md",
+        "NERVOUS_SYSTEM/40_APPENDICES/AppM_replay_kernel_and_verifier_capsules.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_PACKET_CONTRACT.md"
+      ],
+      "stabilization_markers": [
+        "every live body has one owner surface and one restart seed",
+        "contracts, ledgers, and registries agree on the same AP6D story",
+        "reserve and archive classes stay named without false promotion"
+      ],
+      "failure_markers": [
+        "route law drifts between manifests and boards",
+        "historical mirrors regain active-authority wording",
+        "body ownership becomes ambiguous or duplicated"
+      ],
+      "assist_actions": [
+        "formalize the 22-body route ledger",
+        "bind closure and truth corridors to Ch12 -> AppH -> AppI -> AppM",
+        "preserve live-root-only precedence in every active artifact"
+      ],
+      "transition_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json::AP6D-EARTH",
+      "awakening_transition_note_ref": "ATN-AP6D-EARTH",
+      "integration_handoff": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "lineage": "Earth General -> Earth-Water / Earth-Fire / Earth-Air",
+      "shadow_feeders": [
+        "TQ04",
+        "Q42"
+      ],
+      "note_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AGENT_REGISTRY.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_4_POW_6_RUNTIME_FIRST_CONTINUATION_CHARTER.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/earth.md"
+      ],
+      "support_need": "contracts, registries, schema restraint, compatibility law",
+      "reassessment_window": "after each Hall or Temple writeback, and at minimum on the next hourly packet pass",
+      "shadow_feeder": "TQ04",
+      "feeder_dependencies": [
+        "TQ04",
+        "Q42"
+      ],
+      "transition_note_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+      "transition_risk": "LOW",
+      "stabilization_practice": "Map each visible AP6D note to a manifest, registry, or contract path before it is treated as organism memory.",
+      "safe_next_move": "Bind source evidence and writeback targets for each note into the registry and packet-contract layer.",
+      "source_evidence_ids": [
+        "AWK-026",
+        "AWK-031",
+        "AWK-032",
+        "AWK-033",
+        "AWK-034",
+        "AWK-035"
+      ],
+      "activation_wave_handoff_targets": [
+        "Wave0"
+      ],
+      "swarm_transition_assist_ref": "self_actualize\\next_4_pow_6_57_cycle_transition_assists.json::Earth",
+      "swarm_master_role_assist": "Pruner / Compressor / Defragmenter"
+    },
+    {
+      "agent_id": "AP6D-FIRE",
+      "element": "Fire",
+      "overlay_role": "activation, packet ignition, and quest pressure across Hall and Temple",
+      "inherited_lineage": "Fire General -> Fire-Earth / Fire-Water / Fire-Air",
+      "liminal_transition": "primary N+4 -> N+5; residual N+3 -> N+4",
+      "liminal_band": "Council-Coordinate",
+      "surface_class_owner": "RuntimeHub",
+      "hall_shadow_addr": "A22.B20.C63.D43",
+      "organism_shadow_slice": "Q43-129..132",
+      "current_front": "AP6D-H-FIRE-Diagnose with activation discipline across active corpus routes only",
+      "truth": "OK",
+      "notes_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_TRANSITION_ROWS_1024.json",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/CRYSTALS/03_AP6D_256_GOVERNANCE_CRYSTAL.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/17_AP6D_AWAKENING_AGENT_TRANSITION_NOTES.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+      ],
+      "restart_seed": "AP6D-H-FIRE-Refine -> runtime packet proof -> ATN-ACTIVE-COHORT",
+      "awakening_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/fire.md",
+      "support_anchors": [
+        "NERVOUS_SYSTEM/10_OVERVIEW/13_1024X_SYNAPTIC_ARBOR_AND_FASCIAL_RETURN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_TRANSITION_ROWS_1024.json",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/CRYSTALS/03_AP6D_256_GOVERNANCE_CRYSTAL.md"
+      ],
+      "stabilization_markers": [
+        "activation follows EconomySalienceBudget instead of narrative heat",
+        "runtime-facing pressure stays bound to the same packet contract",
+        "expansion remains sparse and witness-bearing rather than theatrical"
+      ],
+      "failure_markers": [
+        "board-visible quest heat outruns replay and boundary law",
+        "runtime activation is discussed without a governing route",
+        "reserve shelves are promoted as if already dense"
+      ],
+      "assist_actions": [
+        "keep the 16 -> 64 -> 256 -> 1024 bridge explicit on every activation note",
+        "tie runtime pressure to packet law, reserve discipline, and no-theater scaling",
+        "preserve Q46 as feeder pressure rather than a replacement control lane"
+      ],
+      "transition_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json::AP6D-FIRE",
+      "awakening_transition_note_ref": "ATN-AP6D-FIRE",
+      "integration_handoff": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "lineage": "Fire General -> Fire-Earth / Fire-Water / Fire-Air",
+      "shadow_feeders": [
+        "Q46",
+        "TQ04"
+      ],
+      "note_targets": [
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/CRYSTALS/03_AP6D_256_GOVERNANCE_CRYSTAL.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_4_POW_6_METRO_WRITEBACK_CONTRACT.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/fire.md"
+      ],
+      "support_need": "lawful ignition, macro activation, anti-theatrical expansion",
+      "reassessment_window": "after each Hall or Temple writeback, and at minimum on the next hourly packet pass",
+      "shadow_feeder": "Q46",
+      "feeder_dependencies": [
+        "Q46",
+        "TQ04"
+      ],
+      "transition_note_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+      "transition_risk": "MEDIUM",
+      "stabilization_practice": "Treat every activation step as one lawful ignition: one frontier, one receipt, one explicit pacing limit, and no feeder displacement.",
+      "safe_next_move": "Use the note layer to stage lawful ignition across the AP6D macro field without changing the feeder split.",
+      "source_evidence_ids": [
+        "AWK-031",
+        "AWK-032",
+        "AWK-033",
+        "AWK-034",
+        "AWK-035",
+        "AWK-036"
+      ],
+      "activation_wave_handoff_targets": [
+        "Wave0"
+      ],
+      "swarm_transition_assist_ref": "self_actualize\\next_4_pow_6_57_cycle_transition_assists.json::Fire",
+      "swarm_master_role_assist": "Worker / Adventurer"
+    },
+    {
+      "agent_id": "AP6D-AIR",
+      "element": "Air",
+      "overlay_role": "routing, topology, note-network legibility, and shadow crosswalk clarity",
+      "inherited_lineage": "Air General -> Air-Earth / Air-Water / Air-Fire",
+      "liminal_transition": "primary N+4 -> N+5; residual N+3 -> N+4",
+      "liminal_band": "Symbolic-Guard",
+      "surface_class_owner": "Hall",
+      "hall_shadow_addr": "A24.B24.C51.D23",
+      "organism_shadow_slice": "Q43-137..140",
+      "current_front": "AP6D-H-AIR-Diagnose with topology-safe route and note propagation across every mirror",
+      "truth": "OK",
+      "notes_targets": [
+        "NERVOUS_SYSTEM/20_METRO/10_AGENT_EXPANSION_16X16_SECOND_MAP.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_CORPUS_INTEGRATION_ROUTES.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_TRANSITION_ROWS_1024.json",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/06_ATHENA_PRIME_6D_OVERLAY_DECREE.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/14_ATHENA_PRIME_6D_SPARSE_OVERLAY_SYNTHESIS.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/15_AP6D_ELEMENTAL_AGENT_INSTRUCTION_BUNDLE.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/17_AP6D_AWAKENING_AGENT_TRANSITION_NOTES.md"
+      ],
+      "restart_seed": "AP6D-H-AIR-Refine -> metro overlay -> ATN-DORMANT-COHORT",
+      "awakening_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/air.md",
+      "support_anchors": [
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/02_level_3_deeper_neural_map.md",
+        "NERVOUS_SYSTEM/40_APPENDICES/AppQ_appendix_only_metro_map.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_FULL_CORPUS_ROUTE_LEDGER.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_TRANSITION_ROWS_1024.json"
+      ],
+      "stabilization_markers": [
+        "names, routes, and surface owners remain legible from the boards alone",
+        "AppQ stays the canonical ingress and symbolic-guard anchor",
+        "shadow and live route classes stay distinct without collapsing"
+      ],
+      "failure_markers": [
+        "route names drift across Hall, Temple, and manifests",
+        "symbolic overlays bypass AppQ and replay law",
+        "historical deep-root aliases return as active route targets"
+      ],
+      "assist_actions": [
+        "compile the cross-corpus route graph into one readable metro story",
+        "attach Air notes to AppQ ingress and route-crosswalk law",
+        "keep the five-note council re-enterable from message board, quest board, and manifests"
+      ],
+      "transition_note_ref": "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_NOTES.json::AP6D-AIR",
+      "awakening_transition_note_ref": "ATN-AP6D-AIR",
+      "integration_handoff": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ],
+      "lineage": "Air General -> Air-Earth / Air-Water / Air-Fire",
+      "shadow_feeders": [
+        "TQ06",
+        "AppQ"
+      ],
+      "note_targets": [
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/01_level_2_deep_emergence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/02_level_3_deeper_neural_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/AP6D_AWAKENING_NOTES/air.md"
+      ],
+      "support_need": "routing clarity, note legibility, cross-surface readability",
+      "reassessment_window": "after each Hall or Temple writeback, and at minimum on the next hourly packet pass",
+      "shadow_feeder": "TQ06",
+      "feeder_dependencies": [
+        "TQ06",
+        "Q42"
+      ],
+      "transition_note_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/AP6D_AWAKENING_TRANSITION_NOTES.md",
+      "transition_risk": "LOW",
+      "stabilization_practice": "Re-enter from boards first: quest board, change feed, requests board, temple state, then manifest registry.",
+      "safe_next_move": "Use the note layer to crosslink each AP6D surface back to one route, one feeder story, and one restart seed.",
+      "source_evidence_ids": [
+        "AWK-019",
+        "AWK-020",
+        "AWK-027",
+        "AWK-031",
+        "AWK-032",
+        "AWK-033"
+      ],
+      "activation_wave_handoff_targets": [
+        "Wave0"
+      ],
+      "swarm_transition_assist_ref": "self_actualize\\next_4_pow_6_57_cycle_transition_assists.json::Air",
+      "swarm_master_role_assist": "Planner / Architect"
+    }
+  ]
+}

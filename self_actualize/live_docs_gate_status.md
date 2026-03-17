@@ -1,8 +1,8 @@
 # Live Docs Gate Status
 
-Date: 2026-03-09
+Date: 2026-03-13
 
-- Query: `Bruno texts archetypes infinite compression`
+- Query: `heaven reward xp phi adventure guild leveling agent tags promotion mini hive`
 - Command status: `BLOCKED`
 - Return code: `1`
 

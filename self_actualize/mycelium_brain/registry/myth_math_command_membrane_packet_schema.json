@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-03-13T21:09:22.647799+00:00",
+  "protocol_id": "COMMAND-MEMBRANE-LP57",
+  "protocol_display_name": "Command Folder Sensory Membrane",
+  "docs_gate_status": "BLOCKED",
+  "packet_fields": [
+    "event_id",
+    "ant_id",
+    "tag",
+    "goal",
+    "change",
+    "priority",
+    "confidence",
+    "earth_ts",
+    "liminal_ts",
+    "coord12",
+    "parent",
+    "ttl",
+    "pheromone",
+    "state_hash",
+    "route_class"
+  ],
+  "latency_metrics": [
+    "detection_latency_ms",
+    "awareness_latency_ms",
+    "claim_latency_ms",
+    "resolution_latency_ms",
+    "commit_latency_ms"
+  ],
+  "ant_classes": [
+    "scout",
+    "router",
+    "worker",
+    "archivist"
+  ],
+  "routing_defaults": {
+    "policy": "goal+salience+pheromone+coord",
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "lease_ms": 1200,
+    "ttl": 6,
+    "route_class": "scout.router.worker.archivist"
+  },
+  "capillary_law": {
+    "formula": "C_ij(t+1)=rho*C_ij(t)+alpha*U_ij+beta*F_ij-gamma*D_ij-delta*N_ij",
+    "coefficients": {
+      "rho": 0.82,
+      "alpha": 0.4,
+      "beta": 0.3,
+      "gamma": 0.18,
+      "delta": 0.12
+    },
+    "thresholds": {
+      "vein": 0.85,
+      "capillary": 0.65,
+      "candidate": 0.45
+    }
+  },
+  "notes": [
+    "COMMAND FOLDER is treated as a sensory membrane, not a passive container.",
+    "Prompt-level latency is modeled now; keystroke-level latency requires client instrumentation.",
+    "Unmatched command events remain explicit fallback anchors instead of invented canonical matches."
+  ]
+}

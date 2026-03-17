@@ -9,8 +9,6 @@
 
 ## Live Threads
 - `monitor` `37-gate looping skill and `256^256` corpus plus Chapter 11 hyperplans` (DEEPER CRYSTALIZATION)
-- `monitor` `DEEPER CRYSTALIZATION` (DEEPER CRYSTALIZATION)
-- `monitor` `ECOSYSTEM` (ECOSYSTEM)
 
 ## Frontier Gaps
 - none

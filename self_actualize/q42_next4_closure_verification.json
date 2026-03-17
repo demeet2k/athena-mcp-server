@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-03-13T16:05:04.830262+00:00",
+  "derivation_command": "python -m self_actualize.runtime.verify_q42_next4_closure",
+  "truth": "FAIL",
+  "checks": {
+    "next4_state_roles": true,
+    "agent_matrix_roles": false,
+    "network_roles": true,
+    "canonical_bundle_roles": false,
+    "runtime_membrane_roles": true,
+    "control_state_packet_roles": false,
+    "active_queue_current_state": true,
+    "temple_state_current_state": true,
+    "next_self_prompt_current_state": true,
+    "active_front_current_state": true,
+    "active_run_current_state": true,
+    "build_queue_current_state": false,
+    "quest_board_current_state": true,
+    "looped_plan_current_state": false,
+    "docs_gate_honest": true
+  },
+  "failed_checks": [
+    "agent_matrix_roles",
+    "canonical_bundle_roles",
+    "control_state_packet_roles",
+    "build_queue_current_state",
+    "looped_plan_current_state"
+  ],
+  "expected_roles": {
+    "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+    "next_hall_seed": "none; do not invent QS64-25",
+    "deeper_receiving_frontier": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "queued_follow_on": "P3 ORGIN",
+    "reserve_frontier": "Q46",
+    "blocked_external_front": "Q02"
+  }
+}

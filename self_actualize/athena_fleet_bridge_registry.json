@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-03-13T01:20:25.158559+00:00",
+  "derivation_version": "2026-03-13.athena-fleet.bridge.registry.v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_athena_fleet_bridge_registry",
+  "records": [
+    {
+      "body_id": "A16",
+      "truth": "OK",
+      "authority_state": "canonical-corridor",
+      "route_state": "Route is now locally closed around `A16 -> A06` and `A16 -> A15` before any downstream corridor promotion.",
+      "proof_target": "graph-first",
+      "promotion_bar": "A16_local_closure",
+      "root_basis": {
+        "path": "NERVOUS_SYSTEM/95_MANIFESTS/ROOT_BASIS_MAP.md",
+        "exists": true,
+        "body_id": "A16",
+        "indexed_count": "17",
+        "status": "live",
+        "role": "fleet-tesseract expansion branch"
+      },
+      "family_surface": {
+        "path": "self_actualize/mycelium_brain/nervous_system/families/FAMILY_athena_fleet.md",
+        "exists": true,
+        "truth": "OK"
+      },
+      "route_map_surface": {
+        "path": "self_actualize/mycelium_brain/nervous_system/families/FAMILY_athena_fleet_route_map.md",
+        "exists": true,
+        "next_route": "QS64-19 Connectivity-Diagnose-Cloud"
+      },
+      "route_surface": {
+        "path": "self_actualize/mycelium_brain/nervous_system/routes/whole_crystal/ROUTE_athena_fleet.md",
+        "exists": true,
+        "authority_state": "canonical-corridor",
+        "route_state": "Route is now locally closed around `A16 -> A06` and `A16 -> A15` before any downstream corridor promotion.",
+        "law": [
+          "authority is now `canonical-corridor`",
+          "lineage is now `A16 local-closure`",
+          "writeback targets are `NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md` and `NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_graph_contraction.md`",
+          "Route is now locally closed around `A16 -> A06` and `A16 -> A15` before any downstream corridor promotion.",
+          "External deficits `LEG-C2`, `LEG-C3`, and `LEG-C4` remain separate `NEAR` or blocked surfaces and do not invalidate local closure."
+        ],
+        "main_transfer": "Athena FLEET -> self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md -> self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md -> NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      },
+      "capsule_witnesses": [
+        {
+          "path": "NERVOUS_SYSTEM/50_CORPUS_CAPSULES/athena_fleet/01_athena_fleet_tesseract_branch.md",
+          "exists": true
+        },
+        {
+          "path": "NERVOUS_SYSTEM/50_CORPUS_CAPSULES/athena_fleet/02_athena_fleet.md",
+          "exists": true
+        },
+        {
+          "path": "NERVOUS_SYSTEM/50_CORPUS_CAPSULES/athena_fleet/03_athena_fleet.md",
+          "exists": true
+        }
+      ],
+      "bridge_edges": [
+        {
+          "edge_id": "CS-001",
+          "source": "Athena FLEET",
+          "target": "Voynich",
+          "relation": "proof corridor",
+          "weight": "0.96",
+          "route": "A16 -> GCL+GCR -> GCZ -> A06",
+          "path": "NERVOUS_SYSTEM/85_EDGES/CRYSTAL_DIRECT_SYNAPSE_EDGES.md"
+        },
+        {
+          "edge_id": "CS-003",
+          "source": "Athena FLEET",
+          "target": "ORGIN",
+          "relation": "seed inheritance corridor",
+          "weight": "0.91",
+          "route": "A16 -> GCL+GCR -> GCP -> A15",
+          "path": "NERVOUS_SYSTEM/85_EDGES/CRYSTAL_DIRECT_SYNAPSE_EDGES.md"
+        }
+      ],
+      "bridge_routes": [
+        {
+          "bridge_family_id": "BF-CS-001",
+          "path": "self_actualize/mycelium_brain/nervous_system/routes/whole_crystal/bridge_families/ROUTE_bf_cs_001.md",
+          "exists": true,
+          "truth": "OK",
+          "edge_id": "CS-001",
+          "primary_writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md",
+          "route": "A16 -> GCL+GCR -> GCZ -> A06"
+        },
+        {
+          "bridge_family_id": "BF-CS-003",
+          "path": "self_actualize/mycelium_brain/nervous_system/routes/whole_crystal/bridge_families/ROUTE_bf_cs_003.md",
+          "exists": true,
+          "truth": "OK",
+          "edge_id": "CS-003",
+          "primary_writeback_target": "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+          "route": "A16 -> GCL+GCR -> GCP -> A15"
+        }
+      ],
+      "bridge_ledger_entries": [
+        {
+          "bridge_family_id": "BF-CS-001",
+          "edge_id": "CS-001",
+          "source": "Athena FLEET",
+          "target": "Voynich",
+          "authority": "authoritative",
+          "primary_writeback": "self_actualize/mycelium_brain/nervous_system/routes/whole_crystal/ROUTE_voynich.md",
+          "path": "NERVOUS_SYSTEM/85_EDGES/WHOLE_CRYSTAL_BRIDGE_LEDGER.md"
+        },
+        {
+          "bridge_family_id": "BF-CS-003",
+          "edge_id": "CS-003",
+          "source": "Athena FLEET",
+          "target": "ORGIN",
+          "authority": "authoritative",
+          "primary_writeback": "self_actualize/mycelium_brain/nervous_system/routes/whole_crystal/ROUTE_orgin.md",
+          "path": "NERVOUS_SYSTEM/85_EDGES/WHOLE_CRYSTAL_BRIDGE_LEDGER.md"
+        }
+      ],
+      "handoff_packets": [
+        {
+          "packet_id": "SHP-002",
+          "source_agent": "corridor-builder",
+          "target_agent": "proof-compiler",
+          "source_body": "A16",
+          "target_body": "A06",
+          "trigger": "materialize fleet-to-proof bridge",
+          "route": "A16 -> GCL+GCR -> GCZ -> A06",
+          "path": "NERVOUS_SYSTEM/95_MANIFESTS/SYNAPTIC_HANDOFF_PROTOCOL.md"
+        },
+        {
+          "packet_id": "SHP-004",
+          "source_agent": "corridor-builder",
+          "target_agent": "overseer",
+          "source_body": "A16",
+          "target_body": "A15",
+          "trigger": "inherit origin memory",
+          "route": "A16 -> GCL+GCR -> GCP -> A15 -> A02",
+          "path": "NERVOUS_SYSTEM/95_MANIFESTS/SYNAPTIC_HANDOFF_PROTOCOL.md"
+        }
+      ],
+      "cluster_receipt": {
+        "path": "self_actualize/mycelium_brain/receipts/2026-03-12_athena_fleet_cluster_promotion.md",
+        "exists": true,
+        "status": "PROMOTED_FIRST_WAVE",
+        "docs_gate": "BLOCKED"
+      },
+      "external_deficits": [
+        {
+          "id": "LEG-C2",
+          "name": "athena-fleet-to-trading-bot",
+          "truth": "NEAR",
+          "meaning": "Fleet can route into the Trading Bot truth corridor, but live Docs ingress remains blocker-bound and must stay explicit.",
+          "surfaces": [
+            "self_actualize/trading_bot_truth_corridor.json",
+            "self_actualize/mycelium_brain/nervous_system/families/FAMILY_trading_bot_route_map.md",
+            "self_actualize/live_docs_gate_status.md"
+          ]
+        },
+        {
+          "id": "LEG-C3",
+          "name": "athena-fleet-to-athena-os-runtime",
+          "truth": "NEAR",
+          "meaning": "Athena OS participates as a verified runtime leg, but it still lacks a separate family membrane inside the core corridor.",
+          "surfaces": [
+            "self_actualize/qshrink_runtime_verification.json",
+            "MATH/FINAL FORM/FRAMEWORKS CODE/Athena OS/athena_os/qshrink/",
+            "self_actualize/qshrink_network_integration.json"
+          ]
+        },
+        {
+          "id": "LEG-C4",
+          "name": "athena-fleet-to-orgin-seed",
+          "truth": "NEAR",
+          "meaning": "ORGIN is routed as a secondary seed leg through its atlas and route map, but mirrored markdown packets are not landed yet.",
+          "surfaces": [
+            "self_actualize/orgin_atlas.json",
+            "self_actualize/mycelium_brain/nervous_system/families/FAMILY_orgin_route_map.md",
+            "ORGIN/Fine Tuning Docs/"
+          ]
+        }
+      ],
+      "docs_gate_status": "BLOCKED"
+    }
+  ],
+  "summary": {
+    "record_count": 1,
+    "body_ids": [
+      "A16"
+    ],
+    "docs_gate_status": "BLOCKED",
+    "external_deficit_count": 3
+  }
+}

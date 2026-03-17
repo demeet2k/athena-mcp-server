@@ -1,0 +1,2454 @@
+{
+  "generated_at": "2026-03-13T05:00:28.432774+00:00",
+  "docs_gate_blocked": true,
+  "active_packet_count": 16,
+  "parked_packet_count": 64,
+  "queued_packet_count": 176,
+  "current_wave": {
+    "quest_front": "Q46",
+    "wave_id": "Q46-wave3",
+    "generated_at": "2026-03-13T05:00:28.432774+00:00",
+    "wave_activation": {
+      "wave_id": "Q46-wave3",
+      "quest_front": "Q46",
+      "wave_title": "Helix::Contracts",
+      "coordinator": "guildmaster",
+      "restart_seed_on_success": "Q47 -> Wave4/ImmuneAppendix.Contracts.Fire.Diagnose",
+      "owner_summary": {
+        "guildmaster": {
+          "coordinator_only": true,
+          "active_claims": 0
+        },
+        "elemental_pod_leads": {
+          "active_claims": 4
+        },
+        "controller_auditors": {
+          "active_claims": 4
+        },
+        "verification_replay_stewards": {
+          "active_claims": 4
+        },
+        "appendix_service_stewards": {
+          "active_claims": 4
+        }
+      },
+      "packet_ids": [
+        "Q43-129",
+        "Q43-130",
+        "Q43-131",
+        "Q43-132",
+        "Q43-133",
+        "Q43-134",
+        "Q43-135",
+        "Q43-136",
+        "Q43-137",
+        "Q43-138",
+        "Q43-139",
+        "Q43-140",
+        "Q43-141",
+        "Q43-142",
+        "Q43-143",
+        "Q43-144"
+      ],
+      "assignments": [
+        {
+          "quest_id": "Q43-129",
+          "address_a256_b256_c256_d256": "A129.B129.C129.D129",
+          "objective": "Helix::Contracts::Fire::Diagnose",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::seed::lint",
+          "writeback": "board::same_wave",
+          "restart_seed": "A129->same_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "elemental_pod_leads",
+          "owner_id": "fire",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Fire",
+          "move": "Diagnose",
+          "witness_target": "truth_witness_snapshot",
+          "execution_contract": "diagnose",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-130",
+          "address_a256_b256_c256_d256": "A130.B130.C130.D130",
+          "objective": "Helix::Contracts::Fire::Refine",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::seed::import",
+          "writeback": "board::next_wave",
+          "restart_seed": "A130->next_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "controller_auditors",
+          "owner_id": "01",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Fire",
+          "move": "Refine",
+          "witness_target": "replay_comparison",
+          "execution_contract": "refine",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-131",
+          "address_a256_b256_c256_d256": "A131.B131.C131.D131",
+          "objective": "Helix::Contracts::Fire::Synthesize",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::seed::runtime",
+          "writeback": "board::hall_seed",
+          "restart_seed": "A131->hall_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "verification_replay_stewards",
+          "owner_id": "01",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Fire",
+          "move": "Synthesize",
+          "witness_target": "full_path_replay",
+          "execution_contract": "synthesize",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-132",
+          "address_a256_b256_c256_d256": "A132.B132.C132.D132",
+          "objective": "Helix::Contracts::Fire::Scale",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::seed::parity",
+          "writeback": "board::replay_seed",
+          "restart_seed": "A132->replay_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "appendix_service_stewards",
+          "owner_id": "01",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Fire",
+          "move": "Scale",
+          "witness_target": "parity_summary",
+          "execution_contract": "scale",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-133",
+          "address_a256_b256_c256_d256": "A133.B133.C133.D133",
+          "objective": "Helix::Contracts::Water::Diagnose",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::synthesis::lint",
+          "writeback": "runtime::same_wave",
+          "restart_seed": "A133->same_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "elemental_pod_leads",
+          "owner_id": "water",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Water",
+          "move": "Diagnose",
+          "witness_target": "truth_witness_snapshot",
+          "execution_contract": "diagnose",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-134",
+          "address_a256_b256_c256_d256": "A134.B134.C134.D134",
+          "objective": "Helix::Contracts::Water::Refine",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::synthesis::import",
+          "writeback": "runtime::next_wave",
+          "restart_seed": "A134->next_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "controller_auditors",
+          "owner_id": "02",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Water",
+          "move": "Refine",
+          "witness_target": "replay_comparison",
+          "execution_contract": "refine",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-135",
+          "address_a256_b256_c256_d256": "A135.B135.C135.D135",
+          "objective": "Helix::Contracts::Water::Synthesize",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::synthesis::runtime",
+          "writeback": "runtime::hall_seed",
+          "restart_seed": "A135->hall_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "verification_replay_stewards",
+          "owner_id": "02",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Water",
+          "move": "Synthesize",
+          "witness_target": "full_path_replay",
+          "execution_contract": "synthesize",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-136",
+          "address_a256_b256_c256_d256": "A136.B136.C136.D136",
+          "objective": "Helix::Contracts::Water::Scale",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::synthesis::parity",
+          "writeback": "runtime::replay_seed",
+          "restart_seed": "A136->replay_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "appendix_service_stewards",
+          "owner_id": "02",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Water",
+          "move": "Scale",
+          "witness_target": "parity_summary",
+          "execution_contract": "scale",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-137",
+          "address_a256_b256_c256_d256": "A137.B137.C137.D137",
+          "objective": "Helix::Contracts::Air::Diagnose",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::audit::lint",
+          "writeback": "family::same_wave",
+          "restart_seed": "A137->same_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "elemental_pod_leads",
+          "owner_id": "air",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Air",
+          "move": "Diagnose",
+          "witness_target": "truth_witness_snapshot",
+          "execution_contract": "diagnose",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-138",
+          "address_a256_b256_c256_d256": "A138.B138.C138.D138",
+          "objective": "Helix::Contracts::Air::Refine",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::audit::import",
+          "writeback": "family::next_wave",
+          "restart_seed": "A138->next_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "controller_auditors",
+          "owner_id": "03",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Air",
+          "move": "Refine",
+          "witness_target": "replay_comparison",
+          "execution_contract": "refine",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-139",
+          "address_a256_b256_c256_d256": "A139.B139.C139.D139",
+          "objective": "Helix::Contracts::Air::Synthesize",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::audit::runtime",
+          "writeback": "family::hall_seed",
+          "restart_seed": "A139->hall_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "verification_replay_stewards",
+          "owner_id": "03",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Air",
+          "move": "Synthesize",
+          "witness_target": "full_path_replay",
+          "execution_contract": "synthesize",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-140",
+          "address_a256_b256_c256_d256": "A140.B140.C140.D140",
+          "objective": "Helix::Contracts::Air::Scale",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::audit::parity",
+          "writeback": "family::replay_seed",
+          "restart_seed": "A140->replay_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "appendix_service_stewards",
+          "owner_id": "03",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Air",
+          "move": "Scale",
+          "witness_target": "parity_summary",
+          "execution_contract": "scale",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-141",
+          "address_a256_b256_c256_d256": "A141.B141.C141.D141",
+          "objective": "Helix::Contracts::Earth::Diagnose",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::lift::lint",
+          "writeback": "manifest::same_wave",
+          "restart_seed": "A141->same_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "elemental_pod_leads",
+          "owner_id": "earth",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Earth",
+          "move": "Diagnose",
+          "witness_target": "truth_witness_snapshot",
+          "execution_contract": "diagnose",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-142",
+          "address_a256_b256_c256_d256": "A142.B142.C142.D142",
+          "objective": "Helix::Contracts::Earth::Refine",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::lift::import",
+          "writeback": "manifest::next_wave",
+          "restart_seed": "A142->next_wave",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "controller_auditors",
+          "owner_id": "04",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Earth",
+          "move": "Refine",
+          "witness_target": "replay_comparison",
+          "execution_contract": "refine",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-143",
+          "address_a256_b256_c256_d256": "A143.B143.C143.D143",
+          "objective": "Helix::Contracts::Earth::Synthesize",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::lift::runtime",
+          "writeback": "manifest::hall_seed",
+          "restart_seed": "A143->hall_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "verification_replay_stewards",
+          "owner_id": "04",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Earth",
+          "move": "Synthesize",
+          "witness_target": "full_path_replay",
+          "execution_contract": "synthesize",
+          "wave_status": "PASSED"
+        },
+        {
+          "quest_id": "Q43-144",
+          "address_a256_b256_c256_d256": "A144.B144.C144.D144",
+          "objective": "Helix::Contracts::Earth::Scale",
+          "target_surfaces": [
+            "ATHENA Neural Network/athenachka/helix/",
+            "ATHENA Neural Network/athenachka/runtime/"
+          ],
+          "witness_needed": "direct::lift::parity",
+          "writeback": "manifest::replay_seed",
+          "restart_seed": "A144->replay_seed",
+          "status": "ACTIVE",
+          "owner_class": "Auditor",
+          "owner_group": "appendix_service_stewards",
+          "owner_id": "04",
+          "domain": "Helix",
+          "workstream": "Contracts",
+          "element": "Earth",
+          "move": "Scale",
+          "witness_target": "parity_summary",
+          "execution_contract": "scale",
+          "wave_status": "PASSED"
+        }
+      ]
+    },
+    "owner_proof": {
+      "active_packet_count": 16,
+      "parked_packet_count": 64,
+      "queued_packet_count": 176,
+      "assignment_count": 16,
+      "expected_packet_ids": [
+        "Q43-129",
+        "Q43-130",
+        "Q43-131",
+        "Q43-132",
+        "Q43-133",
+        "Q43-134",
+        "Q43-135",
+        "Q43-136",
+        "Q43-137",
+        "Q43-138",
+        "Q43-139",
+        "Q43-140",
+        "Q43-141",
+        "Q43-142",
+        "Q43-143",
+        "Q43-144"
+      ],
+      "assigned_packet_ids": [
+        "Q43-129",
+        "Q43-130",
+        "Q43-131",
+        "Q43-132",
+        "Q43-133",
+        "Q43-134",
+        "Q43-135",
+        "Q43-136",
+        "Q43-137",
+        "Q43-138",
+        "Q43-139",
+        "Q43-140",
+        "Q43-141",
+        "Q43-142",
+        "Q43-143",
+        "Q43-144"
+      ],
+      "owner_summary": {
+        "guildmaster": {
+          "coordinator_only": true,
+          "active_claims": 0
+        },
+        "elemental_pod_leads": {
+          "active_claims": 4
+        },
+        "controller_auditors": {
+          "active_claims": 4
+        },
+        "verification_replay_stewards": {
+          "active_claims": 4
+        },
+        "appendix_service_stewards": {
+          "active_claims": 4
+        }
+      },
+      "accepted": true,
+      "failing_gates": []
+    },
+    "packet_results": [
+      {
+        "quest_id": "Q43-129",
+        "owner_id": "fire",
+        "owner_group": "elemental_pod_leads",
+        "move": "Diagnose",
+        "element": "Fire",
+        "witness_target": "truth_witness_snapshot",
+        "truth_type": "AMBIG",
+        "witness_signature": "815af2aded54668626fd5a0da2eaace791c5f82ef913af833f81b5a463b341d8",
+        "replay_signature": "9f6c676c460cc304a90a6721fa7797ab0631612696cc4526b2ff1edce22e6428",
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "ae",
+          "we",
+          "wa"
+        ],
+        "omega_score": 0.67907730733446,
+        "elemental_lanes": [
+          "air",
+          "earth",
+          "fire",
+          "water"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "sealed",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "active",
+          "checkpoint_id": ""
+        },
+        "witness_strength": 0.838,
+        "contradictions": [
+          "multi_hypothesis_class_conflict"
+        ],
+        "contradiction_count": 1,
+        "contradiction_quarantined": true,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-130",
+        "owner_id": "01",
+        "owner_group": "controller_auditors",
+        "move": "Refine",
+        "element": "Fire",
+        "witness_target": "replay_comparison",
+        "truth_type": "AMBIG",
+        "witness_signature": "815af2aded54668626fd5a0da2eaace791c5f82ef913af833f81b5a463b341d8",
+        "prior_signature": "9f6c676c460cc304a90a6721fa7797ab0631612696cc4526b2ff1edce22e6428",
+        "replay_signature": "9f6c676c460cc304a90a6721fa7797ab0631612696cc4526b2ff1edce22e6428",
+        "repeat_replay_signature": "9f6c676c460cc304a90a6721fa7797ab0631612696cc4526b2ff1edce22e6428",
+        "replay_match_previous": true,
+        "replay_match_repeat": true,
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "ae",
+          "we",
+          "wa"
+        ],
+        "omega_score": 0.67907730733446,
+        "witness_strength": 0.838,
+        "contradiction_count": 1,
+        "contradiction_quarantined": true,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-131",
+        "owner_id": "01",
+        "owner_group": "verification_replay_stewards",
+        "move": "Synthesize",
+        "element": "Fire",
+        "witness_target": "full_path_replay",
+        "truth_type": "AMBIG",
+        "witness_signature": "9bd335dd00dddbad8288d4d2333ab5e80b4c0fd87a1af88c64cfda4779fe2e43",
+        "replay_signature": "d6c323f0a95abd8f79f9b066051ef7832542f7d53520cee2957e2e0347f31251",
+        "candidate_count": 6,
+        "active_loop_count": 8,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L6_RepresentationTheory",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L7_RegistrySchemas",
+          "L10_JourneyGrowth",
+          "L5_OperatorExtraction",
+          "L12_PruneOptimizer"
+        ],
+        "active_fusion_count": 6,
+        "active_pair_ids": [
+          "we",
+          "ae",
+          "wa",
+          "fe",
+          "fw",
+          "fa"
+        ],
+        "omega_score": 0.6668370606927512,
+        "witness_strength": 1.0,
+        "phase_trace": [
+          "2/16_seed_unpack",
+          "3/16_corpus_split",
+          "4/16_deep_synthesis",
+          "5/16_residual_scan",
+          "6/16_birth_mine",
+          "7/16_operator_build",
+          "8/16_registry_build",
+          "9/16_meta_observe",
+          "10/16_adversarial_audit",
+          "11/16_dqi_improve",
+          "12/16_prune",
+          "13/16_compress",
+          "14/16_lift_prepare"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "sealed",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "active",
+          "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16"
+        },
+        "self_contract_legal": true,
+        "rollback_available": true,
+        "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16",
+        "checkpoint_present": true,
+        "lift_seed_present": true,
+        "full_path_replay_present": true,
+        "phase_replay_length": 1,
+        "promoted_born_coordinate_count": 0,
+        "born_coordinate_count": 0,
+        "triad_registry_present": true,
+        "full_registry_present": true,
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-132",
+        "owner_id": "01",
+        "owner_group": "appendix_service_stewards",
+        "move": "Scale",
+        "element": "Fire",
+        "witness_target": "parity_summary",
+        "benchmark_focus": "GEOMETRIC",
+        "kernel_accuracy": 100.0,
+        "organism_accuracy": 100.0,
+        "absolute_delta": 0.0,
+        "average_absolute_delta": 0.49999999999999645,
+        "wave_status": "PASSED",
+        "failure_reasons": [],
+        "layer_summary": {
+          "kind": "helix",
+          "loop_frequency_histogram": {
+            "L1_CorpusMap": 12,
+            "L9_MetaProcess": 12,
+            "L8_VerifierReplay": 12,
+            "L12_PruneOptimizer": 12,
+            "L6_RepresentationTheory": 4,
+            "L7_RegistrySchemas": 4,
+            "L10_JourneyGrowth": 4,
+            "L5_OperatorExtraction": 4
+          },
+          "phase_coverage_summary": {
+            "seed_unpack": 8,
+            "synthesis": 8,
+            "operator_build": 8,
+            "audit": 8,
+            "commit": 8,
+            "2/16_seed_unpack": 4,
+            "3/16_corpus_split": 4,
+            "4/16_deep_synthesis": 4,
+            "5/16_residual_scan": 4,
+            "6/16_birth_mine": 4,
+            "7/16_operator_build": 4,
+            "8/16_registry_build": 4,
+            "9/16_meta_observe": 4,
+            "10/16_adversarial_audit": 4,
+            "11/16_dqi_improve": 4,
+            "12/16_prune": 4,
+            "13/16_compress": 4,
+            "14/16_lift_prepare": 4
+          },
+          "checkpoint_count": 4,
+          "lift_seed_presence_count": 4,
+          "contradiction_count": 6
+        }
+      },
+      {
+        "quest_id": "Q43-133",
+        "owner_id": "water",
+        "owner_group": "elemental_pod_leads",
+        "move": "Diagnose",
+        "element": "Water",
+        "witness_target": "truth_witness_snapshot",
+        "truth_type": "NEAR",
+        "witness_signature": "3bc00a2b8654fa9b81945359a1aae55220db1583d6e389b24fc3d6dc7792a045",
+        "replay_signature": "2db465b0e5d08855a7e3d7f4d791ffa832fe50f6265e52e5d8c0e33878adfa9b",
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "we",
+          "ae",
+          "fe"
+        ],
+        "omega_score": 0.6713894826395372,
+        "elemental_lanes": [
+          "air",
+          "earth",
+          "fire",
+          "water"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "open",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "dormant",
+          "checkpoint_id": ""
+        },
+        "witness_strength": 0.958,
+        "contradictions": [],
+        "contradiction_count": 0,
+        "contradiction_quarantined": false,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-134",
+        "owner_id": "02",
+        "owner_group": "controller_auditors",
+        "move": "Refine",
+        "element": "Water",
+        "witness_target": "replay_comparison",
+        "truth_type": "NEAR",
+        "witness_signature": "3bc00a2b8654fa9b81945359a1aae55220db1583d6e389b24fc3d6dc7792a045",
+        "prior_signature": "2db465b0e5d08855a7e3d7f4d791ffa832fe50f6265e52e5d8c0e33878adfa9b",
+        "replay_signature": "2db465b0e5d08855a7e3d7f4d791ffa832fe50f6265e52e5d8c0e33878adfa9b",
+        "repeat_replay_signature": "2db465b0e5d08855a7e3d7f4d791ffa832fe50f6265e52e5d8c0e33878adfa9b",
+        "replay_match_previous": true,
+        "replay_match_repeat": true,
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "we",
+          "ae",
+          "fe"
+        ],
+        "omega_score": 0.6713894826395372,
+        "witness_strength": 0.958,
+        "contradiction_count": 0,
+        "contradiction_quarantined": false,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-135",
+        "owner_id": "02",
+        "owner_group": "verification_replay_stewards",
+        "move": "Synthesize",
+        "element": "Water",
+        "witness_target": "full_path_replay",
+        "truth_type": "NEAR",
+        "witness_signature": "13469262a7a8207d367ab0522abeaf4922f5661621531bc936fb7cd66456e21f",
+        "replay_signature": "97cec5a358a87c2caf52e9b0047e046beebb3779ed4867dd1e057772e77152b7",
+        "candidate_count": 6,
+        "active_loop_count": 8,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L6_RepresentationTheory",
+          "L7_RegistrySchemas",
+          "L12_PruneOptimizer",
+          "L5_OperatorExtraction",
+          "L10_JourneyGrowth"
+        ],
+        "active_fusion_count": 6,
+        "active_pair_ids": [
+          "we",
+          "ae",
+          "fe",
+          "wa",
+          "fw",
+          "fa"
+        ],
+        "omega_score": 0.6572642409385543,
+        "witness_strength": 1.0,
+        "phase_trace": [
+          "2/16_seed_unpack",
+          "3/16_corpus_split",
+          "4/16_deep_synthesis",
+          "5/16_residual_scan",
+          "6/16_birth_mine",
+          "7/16_operator_build",
+          "8/16_registry_build",
+          "9/16_meta_observe",
+          "10/16_adversarial_audit",
+          "11/16_dqi_improve",
+          "12/16_prune",
+          "13/16_compress",
+          "14/16_lift_prepare"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "open",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "dormant",
+          "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16"
+        },
+        "self_contract_legal": true,
+        "rollback_available": true,
+        "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16",
+        "checkpoint_present": true,
+        "lift_seed_present": true,
+        "full_path_replay_present": true,
+        "phase_replay_length": 1,
+        "promoted_born_coordinate_count": 0,
+        "born_coordinate_count": 0,
+        "triad_registry_present": true,
+        "full_registry_present": true,
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-136",
+        "owner_id": "02",
+        "owner_group": "appendix_service_stewards",
+        "move": "Scale",
+        "element": "Water",
+        "witness_target": "parity_summary",
+        "benchmark_focus": "ADVERSARIAL",
+        "kernel_accuracy": 100.0,
+        "organism_accuracy": 100.0,
+        "absolute_delta": 0.0,
+        "average_absolute_delta": 0.49999999999999645,
+        "wave_status": "PASSED",
+        "failure_reasons": [],
+        "layer_summary": {
+          "kind": "helix",
+          "loop_frequency_histogram": {
+            "L1_CorpusMap": 12,
+            "L9_MetaProcess": 12,
+            "L8_VerifierReplay": 12,
+            "L12_PruneOptimizer": 12,
+            "L6_RepresentationTheory": 4,
+            "L7_RegistrySchemas": 4,
+            "L10_JourneyGrowth": 4,
+            "L5_OperatorExtraction": 4
+          },
+          "phase_coverage_summary": {
+            "seed_unpack": 8,
+            "synthesis": 8,
+            "operator_build": 8,
+            "audit": 8,
+            "commit": 8,
+            "2/16_seed_unpack": 4,
+            "3/16_corpus_split": 4,
+            "4/16_deep_synthesis": 4,
+            "5/16_residual_scan": 4,
+            "6/16_birth_mine": 4,
+            "7/16_operator_build": 4,
+            "8/16_registry_build": 4,
+            "9/16_meta_observe": 4,
+            "10/16_adversarial_audit": 4,
+            "11/16_dqi_improve": 4,
+            "12/16_prune": 4,
+            "13/16_compress": 4,
+            "14/16_lift_prepare": 4
+          },
+          "checkpoint_count": 4,
+          "lift_seed_presence_count": 4,
+          "contradiction_count": 6
+        }
+      },
+      {
+        "quest_id": "Q43-137",
+        "owner_id": "air",
+        "owner_group": "elemental_pod_leads",
+        "move": "Diagnose",
+        "element": "Air",
+        "witness_target": "truth_witness_snapshot",
+        "truth_type": "AMBIG",
+        "witness_signature": "1230c140ccbf1756d1dc864b014cde6ab57d2444e033b9842527ab6663ab711d",
+        "replay_signature": "414baf0261505a6deef4df1b6e803bf5f683945a29168a6f336714bdafbf6b85",
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "ae",
+          "we",
+          "wa"
+        ],
+        "omega_score": 0.6736961238406567,
+        "elemental_lanes": [
+          "air",
+          "earth",
+          "fire",
+          "water"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "sealed",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "active",
+          "checkpoint_id": ""
+        },
+        "witness_strength": 0.838,
+        "contradictions": [
+          "multi_hypothesis_class_conflict"
+        ],
+        "contradiction_count": 1,
+        "contradiction_quarantined": true,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-138",
+        "owner_id": "03",
+        "owner_group": "controller_auditors",
+        "move": "Refine",
+        "element": "Air",
+        "witness_target": "replay_comparison",
+        "truth_type": "AMBIG",
+        "witness_signature": "1230c140ccbf1756d1dc864b014cde6ab57d2444e033b9842527ab6663ab711d",
+        "prior_signature": "414baf0261505a6deef4df1b6e803bf5f683945a29168a6f336714bdafbf6b85",
+        "replay_signature": "414baf0261505a6deef4df1b6e803bf5f683945a29168a6f336714bdafbf6b85",
+        "repeat_replay_signature": "414baf0261505a6deef4df1b6e803bf5f683945a29168a6f336714bdafbf6b85",
+        "replay_match_previous": true,
+        "replay_match_repeat": true,
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "ae",
+          "we",
+          "wa"
+        ],
+        "omega_score": 0.6736961238406567,
+        "witness_strength": 0.838,
+        "contradiction_count": 1,
+        "contradiction_quarantined": true,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-139",
+        "owner_id": "03",
+        "owner_group": "verification_replay_stewards",
+        "move": "Synthesize",
+        "element": "Air",
+        "witness_target": "full_path_replay",
+        "truth_type": "AMBIG",
+        "witness_signature": "c94e85e3697d8ec8fced5e19e606dfffe569d54857186f7d5c27cf48c2b69335",
+        "replay_signature": "30c03a98a84851ebc17293989205870689038bd139945636d33d0ceb8890adbc",
+        "candidate_count": 6,
+        "active_loop_count": 8,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L6_RepresentationTheory",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L7_RegistrySchemas",
+          "L12_PruneOptimizer",
+          "L5_OperatorExtraction",
+          "L10_JourneyGrowth"
+        ],
+        "active_fusion_count": 6,
+        "active_pair_ids": [
+          "we",
+          "ae",
+          "wa",
+          "fe",
+          "fw",
+          "fa"
+        ],
+        "omega_score": 0.6626875136902222,
+        "witness_strength": 1.0,
+        "phase_trace": [
+          "2/16_seed_unpack",
+          "3/16_corpus_split",
+          "4/16_deep_synthesis",
+          "5/16_residual_scan",
+          "6/16_birth_mine",
+          "7/16_operator_build",
+          "8/16_registry_build",
+          "9/16_meta_observe",
+          "10/16_adversarial_audit",
+          "11/16_dqi_improve",
+          "12/16_prune",
+          "13/16_compress",
+          "14/16_lift_prepare"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "sealed",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "active",
+          "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16"
+        },
+        "self_contract_legal": true,
+        "rollback_available": true,
+        "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16",
+        "checkpoint_present": true,
+        "lift_seed_present": true,
+        "full_path_replay_present": true,
+        "phase_replay_length": 1,
+        "promoted_born_coordinate_count": 0,
+        "born_coordinate_count": 0,
+        "triad_registry_present": true,
+        "full_registry_present": true,
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-140",
+        "owner_id": "03",
+        "owner_group": "appendix_service_stewards",
+        "move": "Scale",
+        "element": "Air",
+        "witness_target": "parity_summary",
+        "benchmark_focus": "CLUTTERED",
+        "kernel_accuracy": 98.4,
+        "organism_accuracy": 99.6,
+        "absolute_delta": 1.1999999999999886,
+        "average_absolute_delta": 0.49999999999999645,
+        "wave_status": "PASSED",
+        "failure_reasons": [],
+        "layer_summary": {
+          "kind": "helix",
+          "loop_frequency_histogram": {
+            "L1_CorpusMap": 12,
+            "L9_MetaProcess": 12,
+            "L8_VerifierReplay": 12,
+            "L12_PruneOptimizer": 12,
+            "L6_RepresentationTheory": 4,
+            "L7_RegistrySchemas": 4,
+            "L10_JourneyGrowth": 4,
+            "L5_OperatorExtraction": 4
+          },
+          "phase_coverage_summary": {
+            "seed_unpack": 8,
+            "synthesis": 8,
+            "operator_build": 8,
+            "audit": 8,
+            "commit": 8,
+            "2/16_seed_unpack": 4,
+            "3/16_corpus_split": 4,
+            "4/16_deep_synthesis": 4,
+            "5/16_residual_scan": 4,
+            "6/16_birth_mine": 4,
+            "7/16_operator_build": 4,
+            "8/16_registry_build": 4,
+            "9/16_meta_observe": 4,
+            "10/16_adversarial_audit": 4,
+            "11/16_dqi_improve": 4,
+            "12/16_prune": 4,
+            "13/16_compress": 4,
+            "14/16_lift_prepare": 4
+          },
+          "checkpoint_count": 4,
+          "lift_seed_presence_count": 4,
+          "contradiction_count": 6
+        }
+      },
+      {
+        "quest_id": "Q43-141",
+        "owner_id": "earth",
+        "owner_group": "elemental_pod_leads",
+        "move": "Diagnose",
+        "element": "Earth",
+        "witness_target": "truth_witness_snapshot",
+        "truth_type": "AMBIG",
+        "witness_signature": "39a6a795e8276de4d152f30a0940d5ed020ba82ff0017e010fe6a3c78ecef114",
+        "replay_signature": "4ead4cad6b93d892a0298a7a2c2b443de556b9bf4cb9337b1c08caba58071b9a",
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "ae",
+          "we",
+          "wa"
+        ],
+        "omega_score": 0.6733872508238143,
+        "elemental_lanes": [
+          "air",
+          "earth",
+          "fire",
+          "water"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "sealed",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "active",
+          "checkpoint_id": ""
+        },
+        "witness_strength": 0.838,
+        "contradictions": [
+          "multi_hypothesis_class_conflict"
+        ],
+        "contradiction_count": 1,
+        "contradiction_quarantined": true,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-142",
+        "owner_id": "04",
+        "owner_group": "controller_auditors",
+        "move": "Refine",
+        "element": "Earth",
+        "witness_target": "replay_comparison",
+        "truth_type": "AMBIG",
+        "witness_signature": "39a6a795e8276de4d152f30a0940d5ed020ba82ff0017e010fe6a3c78ecef114",
+        "prior_signature": "4ead4cad6b93d892a0298a7a2c2b443de556b9bf4cb9337b1c08caba58071b9a",
+        "replay_signature": "4ead4cad6b93d892a0298a7a2c2b443de556b9bf4cb9337b1c08caba58071b9a",
+        "repeat_replay_signature": "4ead4cad6b93d892a0298a7a2c2b443de556b9bf4cb9337b1c08caba58071b9a",
+        "replay_match_previous": true,
+        "replay_match_repeat": true,
+        "phase_trace": [
+          "seed_unpack",
+          "synthesis",
+          "operator_build",
+          "audit",
+          "commit"
+        ],
+        "active_loops": [
+          "L1_CorpusMap",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L12_PruneOptimizer"
+        ],
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "candidate_count": 6,
+        "active_loop_count": 4,
+        "active_fusion_count": 3,
+        "active_pair_ids": [
+          "ae",
+          "we",
+          "wa"
+        ],
+        "omega_score": 0.6733872508238143,
+        "witness_strength": 0.838,
+        "contradiction_count": 1,
+        "contradiction_quarantined": true,
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-143",
+        "owner_id": "04",
+        "owner_group": "verification_replay_stewards",
+        "move": "Synthesize",
+        "element": "Earth",
+        "witness_target": "full_path_replay",
+        "truth_type": "AMBIG",
+        "witness_signature": "fefd30e36bd055e378d271a4e36cd39201d84efe5cd2a48c1af24727d1db72fd",
+        "replay_signature": "d854bd9db8b16d67e1820fd96b57a22c56b4958cf92576cb826748cbf8a43822",
+        "candidate_count": 6,
+        "active_loop_count": 8,
+        "active_loops": [
+          "L1_CorpusMap",
+          "L6_RepresentationTheory",
+          "L9_MetaProcess",
+          "L8_VerifierReplay",
+          "L7_RegistrySchemas",
+          "L12_PruneOptimizer",
+          "L5_OperatorExtraction",
+          "L10_JourneyGrowth"
+        ],
+        "active_fusion_count": 6,
+        "active_pair_ids": [
+          "we",
+          "ae",
+          "wa",
+          "fe",
+          "fw",
+          "fa"
+        ],
+        "omega_score": 0.6637556436297476,
+        "witness_strength": 1.0,
+        "phase_trace": [
+          "2/16_seed_unpack",
+          "3/16_corpus_split",
+          "4/16_deep_synthesis",
+          "5/16_residual_scan",
+          "6/16_birth_mine",
+          "7/16_operator_build",
+          "8/16_registry_build",
+          "9/16_meta_observe",
+          "10/16_adversarial_audit",
+          "11/16_dqi_improve",
+          "12/16_prune",
+          "13/16_compress",
+          "14/16_lift_prepare"
+        ],
+        "core_runtime_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "helix_channel_presence": {
+          "corpus": true,
+          "process": true,
+          "growth": true,
+          "metrics": true,
+          "bridges": true,
+          "replay": true
+        },
+        "boundary_state": {
+          "hausdorff_boundary": "sealed",
+          "logic_wall": "strict",
+          "quarantine_flux": 0.0,
+          "paraconsistent_zone": "active",
+          "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16"
+        },
+        "self_contract_legal": true,
+        "rollback_available": true,
+        "checkpoint_id": "43c0f5c8318c993cae095fb0a3222522ed6cc65bb631a743022b2afa4764ed16",
+        "checkpoint_present": true,
+        "lift_seed_present": true,
+        "full_path_replay_present": true,
+        "phase_replay_length": 1,
+        "promoted_born_coordinate_count": 0,
+        "born_coordinate_count": 0,
+        "triad_registry_present": true,
+        "full_registry_present": true,
+        "appendix_active_codes": [
+          "A",
+          "E",
+          "I",
+          "K",
+          "L",
+          "M",
+          "P",
+          "Q"
+        ],
+        "wave_status": "PASSED",
+        "failure_reasons": []
+      },
+      {
+        "quest_id": "Q43-144",
+        "owner_id": "04",
+        "owner_group": "appendix_service_stewards",
+        "move": "Scale",
+        "element": "Earth",
+        "witness_target": "parity_summary",
+        "benchmark_focus": "CAMOUFLAGE",
+        "kernel_accuracy": 98.0,
+        "organism_accuracy": 97.2,
+        "absolute_delta": 0.7999999999999972,
+        "average_absolute_delta": 0.49999999999999645,
+        "wave_status": "PASSED",
+        "failure_reasons": [],
+        "layer_summary": {
+          "kind": "helix",
+          "loop_frequency_histogram": {
+            "L1_CorpusMap": 12,
+            "L9_MetaProcess": 12,
+            "L8_VerifierReplay": 12,
+            "L12_PruneOptimizer": 12,
+            "L6_RepresentationTheory": 4,
+            "L7_RegistrySchemas": 4,
+            "L10_JourneyGrowth": 4,
+            "L5_OperatorExtraction": 4
+          },
+          "phase_coverage_summary": {
+            "seed_unpack": 8,
+            "synthesis": 8,
+            "operator_build": 8,
+            "audit": 8,
+            "commit": 8,
+            "2/16_seed_unpack": 4,
+            "3/16_corpus_split": 4,
+            "4/16_deep_synthesis": 4,
+            "5/16_residual_scan": 4,
+            "6/16_birth_mine": 4,
+            "7/16_operator_build": 4,
+            "8/16_registry_build": 4,
+            "9/16_meta_observe": 4,
+            "10/16_adversarial_audit": 4,
+            "11/16_dqi_improve": 4,
+            "12/16_prune": 4,
+            "13/16_compress": 4,
+            "14/16_lift_prepare": 4
+          },
+          "checkpoint_count": 4,
+          "lift_seed_presence_count": 4,
+          "contradiction_count": 6
+        }
+      }
+    ],
+    "replay_summary": {
+      "diagnose_packets_passed": 4,
+      "refine_packets_stable": 4,
+      "synthesize_packets_passed": 4,
+      "truth_gate_passed": true,
+      "max_full_hypotheses": 6,
+      "accepted": true,
+      "failing_gates": [],
+      "packet_status_counts": {
+        "PASSED": 16
+      }
+    },
+    "parity_summary": {
+      "kernel_import_ok": true,
+      "organism_import_ok": true,
+      "benchmarks": {
+        "GEOMETRIC": {
+          "kernel_accuracy": 100.0,
+          "organism_accuracy": 100.0,
+          "absolute_delta": 0.0,
+          "train_size": 1000,
+          "test_size": 250,
+          "epochs": 20
+        },
+        "ADVERSARIAL": {
+          "kernel_accuracy": 100.0,
+          "organism_accuracy": 100.0,
+          "absolute_delta": 0.0,
+          "train_size": 1000,
+          "test_size": 250,
+          "epochs": 20
+        },
+        "CLUTTERED": {
+          "kernel_accuracy": 98.4,
+          "organism_accuracy": 99.6,
+          "absolute_delta": 1.1999999999999886,
+          "train_size": 1000,
+          "test_size": 250,
+          "epochs": 20
+        },
+        "CAMOUFLAGE": {
+          "kernel_accuracy": 98.0,
+          "organism_accuracy": 97.2,
+          "absolute_delta": 0.7999999999999972,
+          "train_size": 1000,
+          "test_size": 250,
+          "epochs": 20
+        }
+      },
+      "average_absolute_delta": 0.49999999999999645,
+      "max_fast_hypotheses": 6,
+      "accepted": true,
+      "failing_gates": [],
+      "max_full_hypotheses": 6
+    },
+    "crystal_summary": {
+      "per_element": {
+        "Fire": {
+          "dominant_pair_ids": [
+            "ae",
+            "we",
+            "wa"
+          ],
+          "omega_score": 0.6749972251205572,
+          "witness_strength_range": {
+            "min": 0.838,
+            "max": 1.0
+          },
+          "truth_types": [
+            "AMBIG"
+          ],
+          "contradiction_count": 3
+        },
+        "Water": {
+          "dominant_pair_ids": [
+            "we",
+            "ae",
+            "fe"
+          ],
+          "omega_score": 0.6666810687392095,
+          "witness_strength_range": {
+            "min": 0.958,
+            "max": 1.0
+          },
+          "truth_types": [
+            "NEAR"
+          ],
+          "contradiction_count": 0
+        },
+        "Air": {
+          "dominant_pair_ids": [
+            "ae",
+            "we",
+            "wa"
+          ],
+          "omega_score": 0.6700265871238452,
+          "witness_strength_range": {
+            "min": 0.838,
+            "max": 1.0
+          },
+          "truth_types": [
+            "AMBIG"
+          ],
+          "contradiction_count": 3
+        },
+        "Earth": {
+          "dominant_pair_ids": [
+            "ae",
+            "we",
+            "wa"
+          ],
+          "omega_score": 0.6701767150924587,
+          "witness_strength_range": {
+            "min": 0.838,
+            "max": 1.0
+          },
+          "truth_types": [
+            "AMBIG"
+          ],
+          "contradiction_count": 3
+        }
+      },
+      "whole_wave": {
+        "pair_frequency_histogram": {
+          "ae": 12,
+          "we": 12,
+          "wa": 10,
+          "fe": 6,
+          "fw": 4,
+          "fa": 4
+        },
+        "omega_mean": 0.6704703990190177,
+        "contradiction_count": 9,
+        "born_coordinate_candidate_count": 0
+      }
+    },
+    "layer_summary": {
+      "kind": "helix",
+      "loop_frequency_histogram": {
+        "L1_CorpusMap": 12,
+        "L9_MetaProcess": 12,
+        "L8_VerifierReplay": 12,
+        "L12_PruneOptimizer": 12,
+        "L6_RepresentationTheory": 4,
+        "L7_RegistrySchemas": 4,
+        "L10_JourneyGrowth": 4,
+        "L5_OperatorExtraction": 4
+      },
+      "phase_coverage_summary": {
+        "seed_unpack": 8,
+        "synthesis": 8,
+        "operator_build": 8,
+        "audit": 8,
+        "commit": 8,
+        "2/16_seed_unpack": 4,
+        "3/16_corpus_split": 4,
+        "4/16_deep_synthesis": 4,
+        "5/16_residual_scan": 4,
+        "6/16_birth_mine": 4,
+        "7/16_operator_build": 4,
+        "8/16_registry_build": 4,
+        "9/16_meta_observe": 4,
+        "10/16_adversarial_audit": 4,
+        "11/16_dqi_improve": 4,
+        "12/16_prune": 4,
+        "13/16_compress": 4,
+        "14/16_lift_prepare": 4
+      },
+      "checkpoint_count": 4,
+      "lift_seed_presence_count": 4,
+      "contradiction_count": 6
+    },
+    "verdict": "PROMOTED",
+    "exact_failing_gate": "",
+    "restart_seed": "Q47 -> Wave4/ImmuneAppendix.Contracts.Fire.Diagnose"
+  },
+  "wave_history": {
+    "Q44-wave1": {
+      "quest_front": "Q44",
+      "wave_id": "Q44-wave1",
+      "generated_at": "2026-03-13T01:40:20.342468+00:00",
+      "verdict": "PROMOTED",
+      "exact_failing_gate": "",
+      "restart_seed": "Q45 -> Wave2/Crystal.Contracts.Fire.Diagnose",
+      "packet_ids": [],
+      "owner_proof": {
+        "accepted": true,
+        "failing_gates": [],
+        "owner_summary": {
+          "guildmaster": {
+            "coordinator_only": true,
+            "active_claims": 0
+          },
+          "elemental_pod_leads": {
+            "active_claims": 4
+          },
+          "controller_auditors": {
+            "active_claims": 4
+          },
+          "verification_replay_stewards": {
+            "active_claims": 4
+          },
+          "appendix_service_stewards": {
+            "active_claims": 4
+          }
+        }
+      },
+      "replay_summary": {
+        "accepted": true,
+        "failing_gates": [],
+        "packet_status_counts": {
+          "PASSED": 16
+        }
+      },
+      "parity_summary": {
+        "accepted": true,
+        "average_absolute_delta": 0.49999999999999645,
+        "max_fast_hypotheses": 6,
+        "max_full_hypotheses": 6,
+        "failing_gates": []
+      },
+      "crystal_summary": {},
+      "proof_json": "self_actualize/athenachka_organism_v0_wave_proof.json",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_wave_proof.md"
+    },
+    "Q45-wave2": {
+      "quest_front": "Q45",
+      "wave_id": "Q45-wave2",
+      "generated_at": "2026-03-13T03:20:05.553525+00:00",
+      "verdict": "PROMOTED",
+      "exact_failing_gate": "",
+      "restart_seed": "Q46 -> Wave3/Helix.Contracts.Fire.Diagnose",
+      "packet_ids": [
+        "Q43-065",
+        "Q43-066",
+        "Q43-067",
+        "Q43-068",
+        "Q43-069",
+        "Q43-070",
+        "Q43-071",
+        "Q43-072",
+        "Q43-073",
+        "Q43-074",
+        "Q43-075",
+        "Q43-076",
+        "Q43-077",
+        "Q43-078",
+        "Q43-079",
+        "Q43-080"
+      ],
+      "owner_proof": {
+        "accepted": true,
+        "failing_gates": [],
+        "owner_summary": {
+          "guildmaster": {
+            "coordinator_only": true,
+            "active_claims": 0
+          },
+          "elemental_pod_leads": {
+            "active_claims": 4
+          },
+          "controller_auditors": {
+            "active_claims": 4
+          },
+          "verification_replay_stewards": {
+            "active_claims": 4
+          },
+          "appendix_service_stewards": {
+            "active_claims": 4
+          }
+        }
+      },
+      "replay_summary": {
+        "accepted": true,
+        "failing_gates": [],
+        "packet_status_counts": {
+          "PASSED": 16
+        }
+      },
+      "parity_summary": {
+        "accepted": true,
+        "average_absolute_delta": 0.49999999999999645,
+        "max_fast_hypotheses": 6,
+        "max_full_hypotheses": 6,
+        "failing_gates": []
+      },
+      "crystal_summary": {
+        "pair_frequency_histogram": {
+          "ae": 12,
+          "we": 12,
+          "wa": 10,
+          "fe": 6,
+          "fw": 4,
+          "fa": 4
+        },
+        "omega_mean": 0.6704703990190177,
+        "contradiction_count": 9,
+        "born_coordinate_candidate_count": 0
+      },
+      "layer_summary": {},
+      "proof_json": "self_actualize/athenachka_organism_v0_q45_wave_proof.json",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q45_wave_proof.md"
+    },
+    "Q48-wave5": {
+      "quest_front": "Q48",
+      "wave_id": "Q48-wave5",
+      "generated_at": "2026-03-13T04:27:18.520364+00:00",
+      "verdict": "PROMOTED",
+      "exact_failing_gate": "",
+      "restart_seed": "Q49 -> Wave6/Crystal.Runtime.Fire.Diagnose",
+      "packet_ids": [
+        "Q43-017",
+        "Q43-018",
+        "Q43-019",
+        "Q43-020",
+        "Q43-021",
+        "Q43-022",
+        "Q43-023",
+        "Q43-024",
+        "Q43-025",
+        "Q43-026",
+        "Q43-027",
+        "Q43-028",
+        "Q43-029",
+        "Q43-030",
+        "Q43-031",
+        "Q43-032"
+      ],
+      "owner_proof": {
+        "accepted": true,
+        "failing_gates": [],
+        "owner_summary": {
+          "guildmaster": {
+            "coordinator_only": true,
+            "active_claims": 0
+          },
+          "elemental_pod_leads": {
+            "active_claims": 4
+          },
+          "controller_auditors": {
+            "active_claims": 4
+          },
+          "verification_replay_stewards": {
+            "active_claims": 4
+          },
+          "appendix_service_stewards": {
+            "active_claims": 4
+          }
+        }
+      },
+      "replay_summary": {
+        "accepted": true,
+        "failing_gates": [],
+        "packet_status_counts": {
+          "PASSED": 16
+        }
+      },
+      "parity_summary": {
+        "accepted": true,
+        "average_absolute_delta": 0.49999999999999645,
+        "max_fast_hypotheses": 6,
+        "max_full_hypotheses": 6,
+        "failing_gates": []
+      },
+      "crystal_summary": {
+        "pair_frequency_histogram": {
+          "ae": 12,
+          "we": 12,
+          "wa": 10,
+          "fe": 6,
+          "fw": 4,
+          "fa": 4
+        },
+        "omega_mean": 0.6704703990190177,
+        "contradiction_count": 9,
+        "born_coordinate_candidate_count": 0
+      },
+      "layer_summary": {
+        "kind": "core_runtime",
+        "module_invocation_fingerprint": [
+          "rank_encoder",
+          "attention_field",
+          "hypothesis_compiler",
+          "carrier_stack",
+          "mdl_prior",
+          "classifier",
+          "fusion"
+        ],
+        "hypothesis_count_distribution": {
+          "6": 12
+        },
+        "replay_stability": {
+          "stable_refine_packets": 4,
+          "total_refine_packets": 4
+        },
+        "latency_summary": {
+          "available": false,
+          "count": 0,
+          "mean_ms": null
+        }
+      },
+      "proof_json": "self_actualize/athenachka_organism_v0_q48_wave_proof.json",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q48_wave_proof.md"
+    },
+    "Q49-wave6": {
+      "quest_front": "Q49",
+      "wave_id": "Q49-wave6",
+      "generated_at": "2026-03-13T04:27:19.570739+00:00",
+      "verdict": "PROMOTED",
+      "exact_failing_gate": "",
+      "restart_seed": "Q50 -> Wave7/Helix.Runtime.Fire.Diagnose",
+      "packet_ids": [
+        "Q43-081",
+        "Q43-082",
+        "Q43-083",
+        "Q43-084",
+        "Q43-085",
+        "Q43-086",
+        "Q43-087",
+        "Q43-088",
+        "Q43-089",
+        "Q43-090",
+        "Q43-091",
+        "Q43-092",
+        "Q43-093",
+        "Q43-094",
+        "Q43-095",
+        "Q43-096"
+      ],
+      "owner_proof": {
+        "accepted": true,
+        "failing_gates": [],
+        "owner_summary": {
+          "guildmaster": {
+            "coordinator_only": true,
+            "active_claims": 0
+          },
+          "elemental_pod_leads": {
+            "active_claims": 4
+          },
+          "controller_auditors": {
+            "active_claims": 4
+          },
+          "verification_replay_stewards": {
+            "active_claims": 4
+          },
+          "appendix_service_stewards": {
+            "active_claims": 4
+          }
+        }
+      },
+      "replay_summary": {
+        "accepted": true,
+        "failing_gates": [],
+        "packet_status_counts": {
+          "PASSED": 16
+        }
+      },
+      "parity_summary": {
+        "accepted": true,
+        "average_absolute_delta": 0.49999999999999645,
+        "max_fast_hypotheses": 6,
+        "max_full_hypotheses": 6,
+        "failing_gates": []
+      },
+      "crystal_summary": {
+        "pair_frequency_histogram": {
+          "ae": 12,
+          "we": 12,
+          "wa": 10,
+          "fe": 6,
+          "fw": 4,
+          "fa": 4
+        },
+        "omega_mean": 0.6704703990190177,
+        "contradiction_count": 9,
+        "born_coordinate_candidate_count": 0
+      },
+      "layer_summary": {
+        "kind": "crystal",
+        "per_element": {
+          "Fire": {
+            "dominant_pair_ids": [
+              "ae",
+              "we",
+              "wa"
+            ],
+            "omega_score": 0.6749972251205572,
+            "witness_strength_range": {
+              "min": 0.838,
+              "max": 1.0
+            },
+            "truth_types": [
+              "AMBIG"
+            ],
+            "contradiction_count": 3
+          },
+          "Water": {
+            "dominant_pair_ids": [
+              "we",
+              "ae",
+              "fe"
+            ],
+            "omega_score": 0.6666810687392095,
+            "witness_strength_range": {
+              "min": 0.958,
+              "max": 1.0
+            },
+            "truth_types": [
+              "NEAR"
+            ],
+            "contradiction_count": 0
+          },
+          "Air": {
+            "dominant_pair_ids": [
+              "ae",
+              "we",
+              "wa"
+            ],
+            "omega_score": 0.6700265871238452,
+            "witness_strength_range": {
+              "min": 0.838,
+              "max": 1.0
+            },
+            "truth_types": [
+              "AMBIG"
+            ],
+            "contradiction_count": 3
+          },
+          "Earth": {
+            "dominant_pair_ids": [
+              "ae",
+              "we",
+              "wa"
+            ],
+            "omega_score": 0.6701767150924587,
+            "witness_strength_range": {
+              "min": 0.838,
+              "max": 1.0
+            },
+            "truth_types": [
+              "AMBIG"
+            ],
+            "contradiction_count": 3
+          }
+        },
+        "whole_wave": {
+          "pair_frequency_histogram": {
+            "ae": 12,
+            "we": 12,
+            "wa": 10,
+            "fe": 6,
+            "fw": 4,
+            "fa": 4
+          },
+          "omega_mean": 0.6704703990190177,
+          "contradiction_count": 9,
+          "born_coordinate_candidate_count": 0
+        }
+      },
+      "proof_json": "self_actualize/athenachka_organism_v0_q49_wave_proof.json",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q49_wave_proof.md"
+    },
+    "Q46-wave3": {
+      "quest_front": "Q46",
+      "wave_id": "Q46-wave3",
+      "generated_at": "2026-03-13T04:27:23.884335+00:00",
+      "verdict": "PROMOTED",
+      "exact_failing_gate": "",
+      "restart_seed": "Q47 -> Wave4/ImmuneAppendix.Contracts.Fire.Diagnose",
+      "packet_ids": [
+        "Q43-129",
+        "Q43-130",
+        "Q43-131",
+        "Q43-132",
+        "Q43-133",
+        "Q43-134",
+        "Q43-135",
+        "Q43-136",
+        "Q43-137",
+        "Q43-138",
+        "Q43-139",
+        "Q43-140",
+        "Q43-141",
+        "Q43-142",
+        "Q43-143",
+        "Q43-144"
+      ],
+      "owner_proof": {
+        "accepted": true,
+        "failing_gates": [],
+        "owner_summary": {
+          "guildmaster": {
+            "coordinator_only": true,
+            "active_claims": 0
+          },
+          "elemental_pod_leads": {
+            "active_claims": 4
+          },
+          "controller_auditors": {
+            "active_claims": 4
+          },
+          "verification_replay_stewards": {
+            "active_claims": 4
+          },
+          "appendix_service_stewards": {
+            "active_claims": 4
+          }
+        }
+      },
+      "replay_summary": {
+        "accepted": true,
+        "failing_gates": [],
+        "packet_status_counts": {
+          "PASSED": 16
+        }
+      },
+      "parity_summary": {
+        "accepted": true,
+        "average_absolute_delta": 0.49999999999999645,
+        "max_fast_hypotheses": 6,
+        "max_full_hypotheses": 6,
+        "failing_gates": []
+      },
+      "crystal_summary": {
+        "pair_frequency_histogram": {
+          "ae": 12,
+          "we": 12,
+          "wa": 10,
+          "fe": 6,
+          "fw": 4,
+          "fa": 4
+        },
+        "omega_mean": 0.6704703990190177,
+        "contradiction_count": 9,
+        "born_coordinate_candidate_count": 0
+      },
+      "layer_summary": {
+        "kind": "helix",
+        "loop_frequency_histogram": {
+          "L1_CorpusMap": 12,
+          "L9_MetaProcess": 12,
+          "L8_VerifierReplay": 12,
+          "L12_PruneOptimizer": 12,
+          "L6_RepresentationTheory": 4,
+          "L7_RegistrySchemas": 4,
+          "L10_JourneyGrowth": 4,
+          "L5_OperatorExtraction": 4
+        },
+        "phase_coverage_summary": {
+          "seed_unpack": 8,
+          "synthesis": 8,
+          "operator_build": 8,
+          "audit": 8,
+          "commit": 8,
+          "2/16_seed_unpack": 4,
+          "3/16_corpus_split": 4,
+          "4/16_deep_synthesis": 4,
+          "5/16_residual_scan": 4,
+          "6/16_birth_mine": 4,
+          "7/16_operator_build": 4,
+          "8/16_registry_build": 4,
+          "9/16_meta_observe": 4,
+          "10/16_adversarial_audit": 4,
+          "11/16_dqi_improve": 4,
+          "12/16_prune": 4,
+          "13/16_compress": 4,
+          "14/16_lift_prepare": 4
+        },
+        "checkpoint_count": 4,
+        "lift_seed_presence_count": 4,
+        "contradiction_count": 6
+      },
+      "proof_json": "self_actualize/athenachka_organism_v0_q46_wave_proof.json",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q46_wave_proof.md"
+    },
+    "Q47-wave4": {
+      "quest_front": "Q47",
+      "wave_id": "Q47-wave4",
+      "generated_at": "2026-03-13T04:27:24.307005+00:00",
+      "verdict": "PROMOTED",
+      "exact_failing_gate": "",
+      "restart_seed": "Q48 -> Wave5/Core.Runtime.Fire.Diagnose",
+      "packet_ids": [
+        "Q43-193",
+        "Q43-194",
+        "Q43-195",
+        "Q43-196",
+        "Q43-197",
+        "Q43-198",
+        "Q43-199",
+        "Q43-200",
+        "Q43-201",
+        "Q43-202",
+        "Q43-203",
+        "Q43-204",
+        "Q43-205",
+        "Q43-206",
+        "Q43-207",
+        "Q43-208"
+      ],
+      "owner_proof": {
+        "accepted": true,
+        "failing_gates": [],
+        "owner_summary": {
+          "guildmaster": {
+            "coordinator_only": true,
+            "active_claims": 0
+          },
+          "elemental_pod_leads": {
+            "active_claims": 4
+          },
+          "controller_auditors": {
+            "active_claims": 4
+          },
+          "verification_replay_stewards": {
+            "active_claims": 4
+          },
+          "appendix_service_stewards": {
+            "active_claims": 4
+          }
+        }
+      },
+      "replay_summary": {
+        "accepted": true,
+        "failing_gates": [],
+        "packet_status_counts": {
+          "PASSED": 16
+        }
+      },
+      "parity_summary": {
+        "accepted": true,
+        "average_absolute_delta": 0.49999999999999645,
+        "max_fast_hypotheses": 6,
+        "max_full_hypotheses": 6,
+        "failing_gates": []
+      },
+      "crystal_summary": {
+        "pair_frequency_histogram": {
+          "ae": 12,
+          "we": 12,
+          "wa": 10,
+          "fe": 6,
+          "fw": 4,
+          "fa": 4
+        },
+        "omega_mean": 0.6704703990190177,
+        "contradiction_count": 9,
+        "born_coordinate_candidate_count": 0
+      },
+      "layer_summary": {
+        "kind": "immune_appendix",
+        "truth_type_histogram": {
+          "AMBIG": 9,
+          "NEAR": 3
+        },
+        "quarantine_count": 6,
+        "witness_strength_range": {
+          "min": 0.838,
+          "max": 1.0
+        },
+        "appendix_exposure_map": {
+          "Fire": [
+            "A",
+            "E",
+            "I",
+            "K",
+            "L",
+            "M",
+            "P",
+            "Q"
+          ],
+          "Water": [
+            "A",
+            "E",
+            "I",
+            "K",
+            "L",
+            "M",
+            "P",
+            "Q"
+          ],
+          "Air": [
+            "A",
+            "E",
+            "I",
+            "K",
+            "L",
+            "M",
+            "P",
+            "Q"
+          ],
+          "Earth": [
+            "A",
+            "E",
+            "I",
+            "K",
+            "L",
+            "M",
+            "P",
+            "Q"
+          ]
+        },
+        "rollback_availability": {
+          "present": 4,
+          "total_synthesize_packets": 4
+        }
+      },
+      "proof_json": "self_actualize/athenachka_organism_v0_q47_wave_proof.json",
+      "receipt": "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q47_wave_proof.md"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Ganglion `ECOSYSTEM`
 
-- Weight: `112`
+- Weight: `116`
 - PrimaryRail: `Me`
 - PrimaryFace: `Air`
 - PreferredScale: `S8`
@@ -9,4 +9,4 @@
 - BestFront: framework normalization and transport law
 
 ## Local Threads
-- `monitor` `ECOSYSTEM` -> `ganglion` / `AMBIG`
+- no active localized threads

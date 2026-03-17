@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-03-13T20:44:22.008760+00:00",
+  "derivation_version": "2026-03-12.phase4-v1",
+  "docs_gate": "BLOCKED",
+  "canonical_scope": "live_19_body_organism_with_16_kernel_inner_compiler",
+  "body_count": 19,
+  "kernel_count": 16,
+  "node_count": 53,
+  "pair_count": 307,
+  "wave_count": 40,
+  "shortcut_count": 13,
+  "neglect_count": 326,
+  "weave_count": 15,
+  "receipt_count": 7,
+  "query_modes": [
+    "locate",
+    "route",
+    "neglect",
+    "fire",
+    "promote"
+  ],
+  "validation": {
+    "docs_gate_blocked": true,
+    "body_registry_complete": true,
+    "kernel_registry_complete": true,
+    "pair_registry_complete": false,
+    "query_modes_complete": true,
+    "receipt_closure_present": true
+  },
+  "top_neglects": [
+    {
+      "surface_id": "A17",
+      "surface_type": "body",
+      "score": 65.13
+    },
+    {
+      "surface_id": "A18",
+      "surface_type": "body",
+      "score": 63.25
+    },
+    {
+      "surface_id": "A11",
+      "surface_type": "body",
+      "score": 57.96
+    },
+    {
+      "surface_id": "A08",
+      "surface_type": "body",
+      "score": 57.92
+    },
+    {
+      "surface_id": "A13",
+      "surface_type": "body",
+      "score": 57.84
+    }
+  ],
+  "top_waves": [
+    {
+      "wave_id": "W-K03-K15-1",
+      "pair_id": "P-K03-K15",
+      "objective": "knowledge proof backfill"
+    },
+    {
+      "wave_id": "W-K04-K15-1",
+      "pair_id": "P-K04-K15",
+      "objective": "knowledge proof backfill"
+    },
+    {
+      "wave_id": "W-K05-K15-1",
+      "pair_id": "P-K05-K15",
+      "objective": "knowledge proof backfill"
+    },
+    {
+      "wave_id": "W-K07-K15-1",
+      "pair_id": "P-K07-K15",
+      "objective": "knowledge proof backfill"
+    },
+    {
+      "wave_id": "W-K15-K03-1",
+      "pair_id": "P-K15-K03",
+      "objective": "knowledge proof backfill"
+    }
+  ],
+  "next_frontier": [
+    "propagate live query receipts into hourly neglected-area scans",
+    "increase node registry coverage for chapter and appendix surfaces",
+    "prune stale mirrors as soft-demotion witnesses instead of silent authority"
+  ]
+}

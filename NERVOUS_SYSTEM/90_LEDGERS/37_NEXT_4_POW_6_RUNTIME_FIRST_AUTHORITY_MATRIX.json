@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-03-13T15:02:10.099019+00:00",
+  "truth": "OK",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`\n\n## Stderr"
+  },
+  "canonical_address_grammar": "A.B.C.D.E.F",
+  "surface_class_note": "surface_class is a projection overlay only and never part of canonical addressing",
+  "current_front_fields": {
+    "carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "current_execution": "QS64-24 Connectivity-Refine-Fractal [closed Hall-local bundle; runtime-first reconciliation]",
+    "next_seed": "none; do not invent QS64-25",
+    "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "reserve_frontier": "Q46",
+    "blocked_overlay": "Q02"
+  },
+  "current_q42_representation": {
+    "front_id": "Q42",
+    "carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "current_execution": "QS64-24 Connectivity-Refine-Fractal [closed Hall-local bundle; runtime-first reconciliation]",
+    "next_seed": "none; do not invent QS64-25",
+    "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "reserve_frontier": "Q46",
+    "blocked_overlay": "Q02"
+  },
+  "downstream_q42_ap6d_representation": {
+    "temple_uptake": "AP6D-TQ01",
+    "hall_uptake": "AP6D-H-WATER-Diagnose",
+    "active_subset": "1024 ACTIVE",
+    "dormant_subset": "3072 DORMANT",
+    "shadow_feeders": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "TQ06"
+    ]
+  },
+  "surface_groups": {
+    "cortex": [
+      "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AGENT_REGISTRY.json"
+    ],
+    "runtime_hub": [
+      "self_actualize/qshrink_network_integration.json",
+      "self_actualize/qshrink_agent_task_matrix.json",
+      "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+      "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md"
+    ],
+    "hall": [
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/05_REQUESTS_AND_OFFERS_BOARD.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/04_CHANGE_FEED_BOARD.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/14_ATHENA_PRIME_6D_SPARSE_OVERLAY_SYNTHESIS.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/15_AP6D_ELEMENTAL_AGENT_INSTRUCTION_BUNDLE.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AP6D_AWAKENING_TRANSITION_NOTES.md"
+    ],
+    "temple": [
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/06_ATHENA_PRIME_6D_OVERLAY_DECREE.md",
+      "self_actualize/mycelium_brain/ATHENA TEMPLE/CRYSTALS/03_AP6D_256_GOVERNANCE_CRYSTAL.md"
+    ],
+    "deep_root": [
+      "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+      "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+      "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/01_level_2_deep_emergence_metro_map.md",
+      "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/02_level_3_deeper_neural_map.md",
+      "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+      "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md"
+    ],
+    "historical_or_stale": [
+      "self_actualize/q42_flower_pass_verification.json",
+      "NERVOUS_SYSTEM/95_MANIFESTS/Q42_FLOWER_PASS_VERIFICATION.md",
+      "NERVOUS_SYSTEM/95_MANIFESTS/Q42_FLOWER_PASS_MANIFEST.md"
+    ]
+  },
+  "authority_decisions": [
+    "Use the runtime-first six-field contract as current control truth.",
+    "Preserve the Flower verification bundle as historical proof, not current authority.",
+    "Treat AP6D as additive shadow governance above live feeders."
+  ]
+}

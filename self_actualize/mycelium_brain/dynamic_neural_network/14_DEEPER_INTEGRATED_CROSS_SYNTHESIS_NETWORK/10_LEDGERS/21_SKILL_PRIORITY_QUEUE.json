@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "authority_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "priority_order": [
+    "skill.tunnel-lane-routing.v1",
+    "skill.seed-compression-reentry.v1",
+    "skill.bridge-migration-compatibility.v1",
+    "skill.self-audit-regression.v1",
+    "skill.self-model-seed-continuity.v1",
+    "skill.demand-aware-growth-scheduler.v1"
+  ],
+  "priority_queue": [
+    {
+      "skill_node_id": "skill.tunnel-lane-routing.v1",
+      "skill_class": "TunnelSkill",
+      "pressure_vector": {
+        "deficiency": 5,
+        "dependency": 5,
+        "replay_readiness": 4,
+        "active_front_pressure": 5,
+        "economy_salience": 5
+      },
+      "dependencies": [
+        "deeper-network-basis-router",
+        "metro-resolution-expander",
+        "appendix-crystal-governor"
+      ],
+      "unlocks": [
+        "lane-stack-orchestrator",
+        "h6-seed-convergence-compiler"
+      ],
+      "evidence_readiness": "HIGH",
+      "priority_score": 0.98,
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\09_SKILLS\\lane-stack-orchestrator\\SKILL.md",
+      "next_artifact": "09_SKILLS/lane-stack-orchestrator/SKILL.md",
+      "active_front_refs": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+      ],
+      "status": "LANDED"
+    },
+    {
+      "skill_node_id": "skill.seed-compression-reentry.v1",
+      "skill_class": "ReplaySkill",
+      "pressure_vector": {
+        "deficiency": 5,
+        "dependency": 5,
+        "replay_readiness": 5,
+        "active_front_pressure": 5,
+        "economy_salience": 4
+      },
+      "dependencies": [
+        "lane-stack-orchestrator",
+        "13_6D_EARTH_CONTROL",
+        "AppI",
+        "AppM"
+      ],
+      "unlocks": [
+        "Seed-6D",
+        "7D_SEED",
+        "NEXT^[4^6]"
+      ],
+      "evidence_readiness": "HIGH",
+      "priority_score": 0.97,
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\09_SKILLS\\h6-seed-convergence-compiler\\SKILL.md",
+      "next_artifact": "09_SKILLS/h6-seed-convergence-compiler/SKILL.md",
+      "active_front_refs": [
+        "13_6D_H6_CONVERGENCE/00_INDEX.md",
+        "00_CONTROL/07_7D_CROSS_AGENT_SEED.md",
+        "00_CONTROL/08_NEXT_4_6_FULL_CORPUS_STABILIZATION.md"
+      ],
+      "status": "LANDED"
+    },
+    {
+      "skill_node_id": "skill.bridge-migration-compatibility.v1",
+      "skill_class": "BridgeSkill",
+      "pressure_vector": {
+        "deficiency": 4,
+        "dependency": 4,
+        "replay_readiness": 3,
+        "active_front_pressure": 4,
+        "economy_salience": 4
+      },
+      "dependencies": [
+        "pair-matrix-synthesizer",
+        "appendix-crystal-governor",
+        "cohesion-pruning-governor"
+      ],
+      "unlocks": [
+        "future bridge migration skill",
+        "archive-to-live compatibility receipts"
+      ],
+      "evidence_readiness": "MEDIUM",
+      "priority_score": 0.84,
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_DESIRED_SKILL_GRAPH.md",
+      "next_artifact": "09_SKILLS/bridge-migration-compatibility/SKILL.md",
+      "active_front_refs": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+        "10_LEDGERS/16_cross_agent_family_convergence.json",
+        "10_LEDGERS/19_level_7_full_corpus_stabilization.json"
+      ],
+      "status": "QUEUED"
+    },
+    {
+      "skill_node_id": "skill.self-audit-regression.v1",
+      "skill_class": "GovernanceSkill",
+      "pressure_vector": {
+        "deficiency": 4,
+        "dependency": 4,
+        "replay_readiness": 4,
+        "active_front_pressure": 5,
+        "economy_salience": 4
+      },
+      "dependencies": [
+        "cohesion-pruning-governor",
+        "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md"
+      ],
+      "unlocks": [
+        "drift repair",
+        "regression receipts",
+        "bundle legality audits"
+      ],
+      "evidence_readiness": "MEDIUM",
+      "priority_score": 0.82,
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_DESIRED_SKILL_GRAPH.md",
+      "next_artifact": "09_SKILLS/self-audit-regression/SKILL.md",
+      "active_front_refs": [
+        "10_LEDGERS/06_SKILL_COHESION_AND_BLOAT_PRUNING_2026-03-12.md",
+        "NERVOUS_SYSTEM/90_LEDGERS/15_CORPUS_PRUNING_AND_COHESION_AUDIT_2026-03-12.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md"
+      ],
+      "status": "QUEUED"
+    },
+    {
+      "skill_node_id": "skill.self-model-seed-continuity.v1",
+      "skill_class": "SelfModelSkill",
+      "pressure_vector": {
+        "deficiency": 4,
+        "dependency": 5,
+        "replay_readiness": 4,
+        "active_front_pressure": 4,
+        "economy_salience": 4
+      },
+      "dependencies": [
+        "skill.seed-compression-reentry.v1",
+        "skill.self-audit-regression.v1",
+        "NERVOUS_SYSTEM/95_MANIFESTS/SELF_MODEL_REGISTRY.md"
+      ],
+      "unlocks": [
+        "identity-safe seed promotion",
+        "self-hosting continuity"
+      ],
+      "evidence_readiness": "MEDIUM",
+      "priority_score": 0.79,
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\20_DESIRED_SKILL_GRAPH.md",
+      "next_artifact": "09_SKILLS/self-model-seed-continuity/SKILL.md",
+      "active_front_refs": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/SELF_MODEL_REGISTRY.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/SELF_STATE_REGISTRY.md",
+        "00_CONTROL/07_7D_CROSS_AGENT_SEED.md"
+      ],
+      "status": "QUEUED"
+    },
+    {
+      "skill_node_id": "skill.demand-aware-growth-scheduler.v1",
+      "skill_class": "MetaChunkSkill",
+      "pressure_vector": {
+        "deficiency": 5,
+        "dependency": 4,
+        "replay_readiness": 4,
+        "active_front_pressure": 5,
+        "economy_salience": 5
+      },
+      "dependencies": [
+        "skill.tunnel-lane-routing.v1",
+        "skill.seed-compression-reentry.v1",
+        "skill.self-audit-regression.v1",
+        "skill.self-model-seed-continuity.v1"
+      ],
+      "unlocks": [
+        "desired skill graph queue",
+        "meta-observer growth scheduling"
+      ],
+      "evidence_readiness": "HIGH",
+      "priority_score": 0.94,
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\09_SKILLS\\desired-skill-graph-scheduler\\SKILL.md",
+      "next_artifact": "09_SKILLS/desired-skill-graph-scheduler/SKILL.md",
+      "active_front_refs": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+        "10_LEDGERS/04_PRECEDENCE_AND_ECONOMY.md"
+      ],
+      "status": "LANDED"
+    }
+  ]
+}

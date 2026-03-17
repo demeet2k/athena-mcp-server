@@ -1,0 +1,772 @@
+{
+  "generated_at": "2026-03-12T11:20:00-07:00",
+  "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+  "docs_gate": "BLOCKED",
+  "stats": {
+    "files_scanned": 1176,
+    "code_spans_scanned": 26606,
+    "missing_ref_count": 76,
+    "gate_blocker_count": 72,
+    "historical_marker_count": 121,
+    "gate_blocker_file_count": 40,
+    "files_flagged": 109,
+    "skill_files_flagged": 0,
+    "doc_files_flagged": 106
+  },
+  "top_flagged_files": [
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\04_deeper_emergent_metro_supermap.md",
+      "code_span_count": 56,
+      "missing_refs": [
+        {
+          "token": "FRESH\\# THE MANUSCRIPT SEED",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\FRESH\\# THE MANUSCRIPT SEED"
+        },
+        {
+          "token": "FRESH\\The Holographic Manuscript Brain",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\FRESH\\The Holographic Manuscript Brain"
+        },
+        {
+          "token": "ECOSYSTEM\\01_crystal_agent_framework.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ECOSYSTEM\\01_crystal_agent_framework.md"
+        },
+        {
+          "token": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\132_bruno_working.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\132_bruno_working.md"
+        },
+        {
+          "token": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\51_athena_the_archetype.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\51_athena_the_archetype.md"
+        },
+        {
+          "token": "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\179_the_magus.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\179_the_magus.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER CRYSTALIZATION\\_build\\nervous_system"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\08_4D_MYCELIAL_CROSS_CORPUS_EXPANSION.md",
+      "code_span_count": 20,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/00_INDEX.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\00_INDEX.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/01_BASIS.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\01_BASIS.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/02_ORDERED_CORRIDOR_MATRIX.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\02_ORDERED_CORRIDOR_MATRIX.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/03_HIGH_YIELD_CROSSINGS.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\03_HIGH_YIELD_CROSSINGS.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/09_4d_mycelial_cross_corpus_metro.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\09_4d_mycelial_cross_corpus_metro.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_4d_mycelial_cross_corpus_support.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_4d_mycelial_cross_corpus_support.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "mycelial_4d_cross_corpus/"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\09_64X_BRAIN_STEM_FASCIA_EXPANSION.md",
+      "code_span_count": 24,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/04_64_FASCIA_BUNDLE_REGISTRY.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\04_64_FASCIA_BUNDLE_REGISTRY.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/05_BRAIN_STEM_RELAYS.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\05_BRAIN_STEM_RELAYS.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/10_64x_brain_stem_fascia_metro.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\10_64x_brain_stem_fascia_metro.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_64x_brain_stem_fascia_support.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_64x_brain_stem_fascia_support.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "mycelial_4d_cross_corpus/"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\10_256X_PLEXUS_MICROFASCIA_EXPANSION.md",
+      "code_span_count": 23,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/06_256_PLEXUS_MICROFIBER_REGISTRY.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\06_256_PLEXUS_MICROFIBER_REGISTRY.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/07_PLEXUS_RELAYS.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\07_PLEXUS_RELAYS.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/11_256x_plexus_microfascia_metro.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\11_256x_plexus_microfascia_metro.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_256x_plexus_microfascia_support.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_256x_plexus_microfascia_support.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "mycelial_4d_cross_corpus/"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\11_1024X_SYNAPTIC_ARBOR_EXPANSION.md",
+      "code_span_count": 25,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/08_1024_SYNAPTIC_ARBOR_REGISTRY.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\08_1024_SYNAPTIC_ARBOR_REGISTRY.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/09_ARBOR_RELAYS.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\09_ARBOR_RELAYS.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/12_1024x_synaptic_arbor_metro.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\12_1024x_synaptic_arbor_metro.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_1024x_synaptic_arbor_support.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_1024x_synaptic_arbor_support.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "mycelial_4d_cross_corpus/"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+      "code_span_count": 118,
+      "missing_refs": [],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER CRYSTALIZATION/_build/nervous_system",
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\12_FULL_FRAMEWORK_STATUS_AUDIT_2026-03-12.md",
+      "code_span_count": 257,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": [
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\AGENT_EXPANSION_ACTIVE_FRONT.md",
+      "code_span_count": 26,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/agent_expansion_second_pass/02_MATRIX.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\agent_expansion_second_pass\\02_MATRIX.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/agent_expansion_second_pass/04_SPAWN_LATTICE_256.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\agent_expansion_second_pass\\04_SPAWN_LATTICE_256.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/agent_expansion_second_pass/05_EDGE_AND_SYNAPSE_REGISTRY.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\agent_expansion_second_pass\\05_EDGE_AND_SYNAPSE_REGISTRY.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/07_agent_expansion_edge_synapse_metro.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_agent_expansion_edge_synapse_metro.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\README.md",
+      "code_span_count": 55,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot\\credentials.json",
+        "Trading Bot\\token.json"
+      ],
+      "historical_markers": [
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\README.md",
+      "code_span_count": 50,
+      "missing_refs": [],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER CRYSTALIZATION\\_build\\nervous_system",
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\packets\\SYN_2026-03-10_agent_expansion_16x16_second_mapping.md",
+      "code_span_count": 14,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/agent_expansion_second_pass/01_BASIS.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\agent_expansion_second_pass\\01_BASIS.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/agent_expansion_second_pass/02_MATRIX.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\agent_expansion_second_pass\\02_MATRIX.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/agent_expansion_second_pass/03_DIRECTIONAL_ARCHETYPE_PROJECTION.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\agent_expansion_second_pass\\03_DIRECTIONAL_ARCHETYPE_PROJECTION.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/05_AGENT_EXPANSION_SECOND_PASS_16X16.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\05_AGENT_EXPANSION_SECOND_PASS_16X16.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\03_QUADRANT_BINARY_FULL_CORPUS_SYNTHESIS.md",
+      "code_span_count": 39,
+      "missing_refs": [
+        {
+          "token": "Trading Bot/docs_search.py \"quadrant binary framework\" --max-results 10",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\docs_search.py \"quadrant binary framework\" --max-results 10"
+        },
+        {
+          "token": "Quadrant Binary/QBD-4 - Quadrant Binary Dynamics.docx",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4 - Quadrant Binary Dynamics.docx"
+        },
+        {
+          "token": "Quadrant Binary/QBD-4X - Quadrant Binary V2.docx",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4X - Quadrant Binary V2.docx"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\05_META_OBSERVER_AGENT_EXPANSION_AUDIT.md",
+      "code_span_count": 30,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": [
+        "DEEPER CRYSTALIZATION/_build/nervous_system"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\PROMOTION_LEDGER.md",
+      "code_span_count": 9,
+      "missing_refs": [],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\10_siteswap_cross_synthesis_receipt.md",
+      "code_span_count": 29,
+      "missing_refs": [
+        {
+          "token": "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/gin/agents.py",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os\\gin\\agents.py"
+        },
+        {
+          "token": "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/hdcs/controller.py",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os\\hdcs\\controller.py"
+        },
+        {
+          "token": "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena Tomes.zip::TOME_PROGRAMS/WITNESS_REPLAY_SYSTEM.ts",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena Tomes.zip::TOME_PROGRAMS\\WITNESS_REPLAY_SYSTEM.ts"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\MASTER_MYCELIUM_MAP_ATHENA\\00_MASTER_MYCELIUM_MAP_ATHENA.md",
+      "code_span_count": 94,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\09_SKILLS\\00_SKILL_ROUTER.md",
+      "code_span_count": 20,
+      "missing_refs": [],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\06_SKILL_COHESION_AND_BLOAT_PRUNING_2026-03-12.md",
+      "code_span_count": 25,
+      "missing_refs": [],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+      "code_span_count": 217,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": [
+        "DEEPER CRYSTALIZATION/_build/nervous_system"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\18_holographic_fractal_integration_audit.md",
+      "code_span_count": 36,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": [
+        "DEEPER CRYSTALIZATION/_build/nervous_system"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_void_ch11_primary_source.md",
+      "code_span_count": 16,
+      "missing_refs": [
+        {
+          "token": "self_actualize/manuscript_sections/011_ch11_void_book_and_restart_token_tunneling.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\011_ch11_void_book_and_restart_token_tunneling.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER CRYSTALIZATION/_build/nervous_system"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\SKILL_COHESION_ACTIVE_FRONT.md",
+      "code_span_count": 7,
+      "missing_refs": [],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_live_docs_gate.md",
+      "code_span_count": 7,
+      "missing_refs": [
+        {
+          "token": "Trading Bot\\.venv\\Scripts\\python.exe Trading Bot\\docs_search.py manuscript neural network metro map --any",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\.venv\\Scripts\\python.exe Trading Bot\\docs_search.py manuscript neural network metro map --any"
+        }
+      ],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_ms7341_treatise_instantiation.md",
+      "code_span_count": 11,
+      "missing_refs": [
+        {
+          "token": "self_actualize/manuscript_sections/013_ch11_quantum_spring_emergent_symbiotic_agency.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\013_ch11_quantum_spring_emergent_symbiotic_agency.md"
+        }
+      ],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_q09_void_ch11_canonical_root_promotion.md",
+      "code_span_count": 21,
+      "missing_refs": [
+        {
+          "token": "self_actualize/manuscript_sections/011_ch11_quantum_spring_hyper_observer_witness.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\011_ch11_quantum_spring_hyper_observer_witness.md"
+        },
+        {
+          "token": "self_actualize/manuscript_sections/011_ch11_quantum_spring_hyper_observer_witness.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\011_ch11_quantum_spring_hyper_observer_witness.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "DEEPER CRYSTALIZATION/_build/nervous_system"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-10_deeper_integrated_cross_synthesis_network.md",
+      "code_span_count": 29,
+      "missing_refs": [
+        {
+          "token": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\00_APPENDIX_CRYSTAL_SKELETON.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\00_APPENDIX_CRYSTAL_SKELETON.md"
+        }
+      ],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\.codex\\skills\\deeper-integrated-neural-network\\SKILL.md",
+      "code_span_count": 36,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\.codex\\skills\\deeper-integrated-neural-network\\SKILL.md",
+      "code_span_count": 36,
+      "missing_refs": [],
+      "gate_blockers": [
+        "Trading Bot/credentials.json",
+        "Trading Bot/token.json"
+      ],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\.codex\\skills\\guild-hall-quest-loop\\SKILL.md",
+      "code_span_count": 19,
+      "missing_refs": [],
+      "gate_blockers": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\credentials.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\token.json"
+      ],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\.codex\\skills\\guild-hall-quest-loop\\SKILL.md",
+      "code_span_count": 19,
+      "missing_refs": [],
+      "gate_blockers": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\credentials.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\token.json"
+      ],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\02_CONSOLIDATION_RECEIPT.md",
+      "code_span_count": 34,
+      "missing_refs": [],
+      "gate_blockers": [],
+      "historical_markers": [
+        "ACTIVE_NERVOUS_SYSTEM",
+        "DEEPER CRYSTALIZATION/_build/nervous_system"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\12_256X_PLEXUS_AND_MICROFASCIA.md",
+      "code_span_count": 13,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/04_64_FASCIA_BUNDLE_REGISTRY.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\04_64_FASCIA_BUNDLE_REGISTRY.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "mycelial_4d_cross_corpus/"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\13_1024X_SYNAPTIC_ARBOR_AND_FASCIAL_RETURN.md",
+      "code_span_count": 14,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/mycelial_4d_cross_corpus/06_256_PLEXUS_MICROFIBER_REGISTRY.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\mycelial_4d_cross_corpus\\06_256_PLEXUS_MICROFIBER_REGISTRY.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": [
+        "mycelial_4d_cross_corpus/"
+      ]
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\05_DEEPER_EMERGENT_METRO_SUPERMAP.md",
+      "code_span_count": 44,
+      "missing_refs": [
+        {
+          "token": "FRESH/# THE MANUSCRIPT SEED",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\FRESH\\# THE MANUSCRIPT SEED"
+        },
+        {
+          "token": "FRESH/The Holographic Manuscript Brain",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\FRESH\\The Holographic Manuscript Brain"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch17_0100_deployment_and_bounded_agency.md",
+      "code_span_count": 116,
+      "missing_refs": [
+        {
+          "token": "self_actualize/manuscript_sections/013_ch11_quantum_spring_emergent_symbiotic_agency.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\013_ch11_quantum_spring_emergent_symbiotic_agency.md"
+        },
+        {
+          "token": "self_actualize/manuscript_sections/017_ch17_prop_types_the_physics_of_communication_channels.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\017_ch17_prop_types_the_physics_of_communication_channels.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch18_0101_macro_invariants_and_universal_math_stack.md",
+      "code_span_count": 103,
+      "missing_refs": [
+        {
+          "token": "self_actualize/manuscript_sections/013_ch11_quantum_spring_emergent_symbiotic_agency.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\013_ch11_quantum_spring_emergent_symbiotic_agency.md"
+        },
+        {
+          "token": "self_actualize/manuscript_sections/018_ch18_style_grammar_expression_modes_of_coordination.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\018_ch18_style_grammar_expression_modes_of_coordination.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+      "code_span_count": 17,
+      "missing_refs": [
+        {
+          "token": "Quadrant Binary/QBD-4 - Quadrant Binary Dynamics.docx",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4 - Quadrant Binary Dynamics.docx"
+        },
+        {
+          "token": "Quadrant Binary/QBD-4X - Quadrant Binary V2.docx",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4X - Quadrant Binary V2.docx"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+      "code_span_count": 13,
+      "missing_refs": [
+        {
+          "token": "Voynich/crystals/",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Voynich\\crystals"
+        },
+        {
+          "token": "Voynich/vml/",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Voynich\\vml"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\02_NEURON_GENERATOR_FULL_CORPUS_SYNTHESIS.md",
+      "code_span_count": 64,
+      "missing_refs": [
+        {
+          "token": "Quadrant Binary/QBD-4 - Quadrant Binary Dynamics.docx",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4 - Quadrant Binary Dynamics.docx"
+        },
+        {
+          "token": "Quadrant Binary/QBD-4X - Quadrant Binary V2.docx",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4X - Quadrant Binary V2.docx"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\07_4D_MYCELIAL_ORGANISM_RESTRUCTURE.md",
+      "code_span_count": 12,
+      "missing_refs": [
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/08_4d_mycelial_organism_metro.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_4d_mycelial_organism_metro.md"
+        },
+        {
+          "token": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_4d_mycelial_organism_support.md",
+          "resolved_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_4d_mycelial_organism_support.md"
+        }
+      ],
+      "gate_blockers": [],
+      "historical_markers": []
+    }
+  ],
+  "skill_files_flagged": [],
+  "doc_files_flagged": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\02_CONSOLIDATION_RECEIPT.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\12_256X_PLEXUS_AND_MICROFASCIA.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\13_1024X_SYNAPTIC_ARBOR_AND_FASCIAL_RETURN.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\05_DEEPER_EMERGENT_METRO_SUPERMAP.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\20_METRO\\10_AGENT_EXPANSION_16X16_SECOND_MAP.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch17_0100_deployment_and_bounded_agency.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch18_0101_macro_invariants_and_universal_math_stack.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\02_NEURON_GENERATOR_FULL_CORPUS_SYNTHESIS.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\03_QUADRANT_BINARY_FULL_CORPUS_SYNTHESIS.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\05_META_OBSERVER_AGENT_EXPANSION_AUDIT.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\07_4D_MYCELIAL_ORGANISM_RESTRUCTURE.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\08_4D_MYCELIAL_CROSS_CORPUS_EXPANSION.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\09_64X_BRAIN_STEM_FASCIA_EXPANSION.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\10_256X_PLEXUS_MICROFASCIA_EXPANSION.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\11_1024X_SYNAPTIC_ARBOR_EXPANSION.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\12_FULL_FRAMEWORK_STATUS_AUDIT_2026-03-12.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\PROMOTION_LEDGER.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\00_INTEGRATION_CHARTER_2026-03-12.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\AGENT_EXPANSION_ACTIVE_FRONT.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\02_core_metro_map.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\03_deeper_emergent_metro_map.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\10_siteswap_cross_synthesis_receipt.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\11_nervous_system_topology.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NETWORK\\SKILLS\\appendix-crystal-integrator\\SKILL.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NETWORK\\SKILLS\\deep-corpus-neural-integrator\\SKILL.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NETWORK\\SKILLS\\deep-neural-metro-cartographer\\SKILL.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NET_ATHENA\\01_NEUTRAL_FULL_BODY_DEEP_SYNTHESIS.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\01_FULL_ATHENA_SYNTHESIS.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\06_GUILD_PROMOTION_PROTOCOL.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\07_CANONICAL_WITNESS_HIERARCHY.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\11_TEMPLE_QUEST_CRYSTAL_64.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\04_CHANGE_FEED_BOARD.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\MASTER_MYCELIUM_MAP_ATHENA\\00_MASTER_MYCELIUM_MAP_ATHENA.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\MASTER_MYCELIUM_MAP_ATHENA\\01_LAYER_ONE_ELEMENTAL_TRUNKS.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\MASTER_MYCELIUM_MAP_ATHENA\\03_LAYER_THREE_INFRASTRUCTURE_ORGANS.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\README.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\00_BUILD_CHARTER.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\09_SKILLS\\00_SKILL_ROUTER.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\00_MANIFEST.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\04_PRECEDENCE_AND_ECONOMY.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\06_SKILL_COHESION_AND_BLOAT_PRUNING_2026-03-12.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\04_deeper_emergent_metro_supermap.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\11_swarm_runtime_topology.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\18_holographic_fractal_integration_audit.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\README.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_bruno_archetype_compression.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_bruno_primary_sources.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_bruno_route_map.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_void_ch11.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_void_ch11_primary_source.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_void_ch11_route_map.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\VOID_CH11_CANONICAL_ROOT.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\VOID_CH11_OK_THEOREM.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\families\\VOID_CH11_PRECURSOR_MIRROR_RECONCILIATION.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_1024x_synaptic_arbor.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_256x_plexus_microfascia.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_4d_cross_corpus_mycelium.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_brain_stem_fascia_64.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_bruno.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\WITNESS_bruno_family.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\ledgers\\WITNESS_void_ch11_family.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\SKILL_COHESION_ACTIVE_FRONT.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\WEAKEST_FRONT_QUEUE.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_4d_cross_corpus_corridor.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_agent_expansion_spawn_edge_registry.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_brain_stem_address_tract.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_brain_stem_chamber_tract.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_brain_stem_relation_tract.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_fascia_bundle_64_mesh.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_microfascia_256_plexus.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_synaptic_arbor_1024_mesh.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_synaptic_bind_phase.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_synaptic_gate_phase.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_synaptic_prime_phase.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_synaptic_reseed_phase.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_void_ch11_to_self_actualize_runtime.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\packets\\SYN_2026-03-10_agent_expansion_16x16_second_mapping.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\receipts\\2026-03-09_recursive_swarm_deepening.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\waves\\WAVE_2026-03-09_higher_dimensional_mapping.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_active_atlas_body_tensor_refresh.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_canonical_witness_hierarchy.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_deep_integration_neural_net.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_gate37_recursive_integration.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_guild_promotion_protocol.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_live_docs_gate.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_machine_derived_witness_hierarchy.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_ms7341_treatise_instantiation.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_q01_single_source_truth.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_q09_void_ch11_canonical_root_promotion.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_q17_witness_class_status_surfaces.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_temple_64_quest_expansion.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_whole_organism_progress_ledger.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_witness_hierarchy_derivation.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-10_deeper_integrated_cross_synthesis_network.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-10_q11_void_ch11_precursor_mirror_reconciliation.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\registry\\01_tandem_frontier_claims.md"
+  ]
+}

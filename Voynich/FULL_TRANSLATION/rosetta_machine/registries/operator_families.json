@@ -1,0 +1,1040 @@
+[
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "keeps a carrier live or receptive"
+      ]
+    },
+    "cycle_rules": [
+      "keeps a carrier live or receptive"
+    ],
+    "default_role": "moisten, activate, prime carrier",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "wet/prime",
+    "id": "operator_family:W",
+    "inputs": [
+      "y",
+      "sy",
+      "sair",
+      "yshey"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "moisten, activate, prime carrier"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "W",
+    "symbol": "W",
+    "token_families": [
+      "y",
+      "sy",
+      "sair",
+      "yshey"
+    ],
+    "transform": {
+      "family": "wet/prime"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "roots the process in a substrate"
+      ]
+    },
+    "cycle_rules": [
+      "roots the process in a substrate"
+    ],
+    "default_role": "load base, root, or starting matter",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "load substrate",
+    "id": "operator_family:L",
+    "inputs": [
+      "ar",
+      "dar",
+      "chear"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "load base, root, or starting matter"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "L",
+    "symbol": "L",
+    "token_families": [
+      "ar",
+      "dar",
+      "chear"
+    ],
+    "transform": {
+      "family": "load substrate"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "raises activation energy"
+      ]
+    },
+    "cycle_rules": [
+      "raises activation energy"
+    ],
+    "default_role": "energize, heat, propel transition",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "heat/drive",
+    "id": "operator_family:H",
+    "inputs": [
+      "o",
+      "ot",
+      "sho"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "energize, heat, propel transition"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "H",
+    "symbol": "H",
+    "token_families": [
+      "o",
+      "ot",
+      "sho"
+    ],
+    "transform": {
+      "family": "heat/drive"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "keeps the route explicit through a transfer channel"
+      ]
+    },
+    "cycle_rules": [
+      "keeps the route explicit through a transfer channel"
+    ],
+    "default_role": "move through conduit or neck",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "throat transfer",
+    "id": "operator_family:T",
+    "inputs": [
+      "cth",
+      "cht",
+      "cthol"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "move through conduit or neck"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "T",
+    "symbol": "T",
+    "token_families": [
+      "cth",
+      "cht",
+      "cthol"
+    ],
+    "transform": {
+      "family": "throat transfer"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "turns a passing fraction into a held product"
+      ]
+    },
+    "cycle_rules": [
+      "turns a passing fraction into a held product"
+    ],
+    "default_role": "catch, collect, retain a fraction",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "capture",
+    "id": "operator_family:C",
+    "inputs": [
+      "kor",
+      "chor",
+      "keey"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "catch, collect, retain a fraction"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "C",
+    "symbol": "C",
+    "token_families": [
+      "kor",
+      "chor",
+      "keey"
+    ],
+    "transform": {
+      "family": "capture"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "prevents uncontrolled leakage"
+      ]
+    },
+    "cycle_rules": [
+      "prevents uncontrolled leakage"
+    ],
+    "default_role": "close, hold, clamp, contain",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "seal/contain",
+    "id": "operator_family:S",
+    "inputs": [
+      "k",
+      "ckh",
+      "kos",
+      "kaiin"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "close, hold, clamp, contain"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "S",
+    "symbol": "S",
+    "token_families": [
+      "k",
+      "ckh",
+      "kos",
+      "kaiin"
+    ],
+    "transform": {
+      "family": "seal/contain"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "adds a checkpoint without inventing a new transform"
+      ]
+    },
+    "cycle_rules": [
+      "adds a checkpoint without inventing a new transform"
+    ],
+    "default_role": "check, repeat-check, validate",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "verify",
+    "id": "operator_family:V",
+    "inputs": [
+      "cthar",
+      "sckhey",
+      "ckhey"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "check, repeat-check, validate"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "V",
+    "symbol": "V",
+    "token_families": [
+      "cthar",
+      "sckhey",
+      "ckhey"
+    ],
+    "transform": {
+      "family": "verify"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "locks a transfer path into a stable connection"
+      ]
+    },
+    "cycle_rules": [
+      "locks a transfer path into a stable connection"
+    ],
+    "default_role": "bind, ligature, connect and secure line",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "bind conduit",
+    "id": "operator_family:B",
+    "inputs": [
+      "cthy",
+      "daicthy",
+      "chod"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "bind, ligature, connect and secure line"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "B",
+    "symbol": "B",
+    "token_families": [
+      "cthy",
+      "daicthy",
+      "chod"
+    ],
+    "transform": {
+      "family": "bind conduit"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "raises pressure without changing route order"
+      ]
+    },
+    "cycle_rules": [
+      "raises pressure without changing route order"
+    ],
+    "default_role": "place or stabilize in pressure vessel",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "pressure secure",
+    "id": "operator_family:P",
+    "inputs": [
+      "cph",
+      "psh",
+      "cpho"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "place or stabilize in pressure vessel"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "P",
+    "symbol": "P",
+    "token_families": [
+      "cph",
+      "psh",
+      "cpho"
+    ],
+    "transform": {
+      "family": "pressure secure"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "stabilizes a high-heat boundary"
+      ]
+    },
+    "cycle_rules": [
+      "stabilizes a high-heat boundary"
+    ],
+    "default_role": "hard seal under furnace or active heat",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "fire-seal secure",
+    "id": "operator_family:F",
+    "inputs": [
+      "cfh",
+      "far",
+      "cfhoaiin"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "hard seal under furnace or active heat"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "F",
+    "symbol": "F",
+    "token_families": [
+      "cfh",
+      "far",
+      "cfhoaiin"
+    ],
+    "transform": {
+      "family": "fire-seal secure"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "re-enters the route through a contained loop"
+      ]
+    },
+    "cycle_rules": [
+      "re-enters the route through a contained loop"
+    ],
+    "default_role": "rotate, phase-shift, return through circuit",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "recirculate/phase-shift",
+    "id": "operator_family:R",
+    "inputs": [
+      "ok",
+      "okol",
+      "okchoy"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "rotate, phase-shift, return through circuit"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "R",
+    "symbol": "R",
+    "token_families": [
+      "ok",
+      "okol",
+      "okchoy"
+    ],
+    "transform": {
+      "family": "recirculate/phase-shift"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "ends a live phase in a stable state"
+      ]
+    },
+    "cycle_rules": [
+      "ends a live phase in a stable state"
+    ],
+    "default_role": "stabilize, lock, complete fixation",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "fix",
+    "id": "operator_family:D",
+    "inputs": [
+      "d",
+      "dan",
+      "dal",
+      "shody"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "stabilize, lock, complete fixation"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "D",
+    "symbol": "D",
+    "token_families": [
+      "d",
+      "dan",
+      "dal",
+      "shody"
+    ],
+    "transform": {
+      "family": "fix"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "explicitly certifies cycle completion"
+      ]
+    },
+    "cycle_rules": [
+      "explicitly certifies cycle completion"
+    ],
+    "default_role": "mark stage complete, certify passage",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "checkpoint",
+    "id": "operator_family:Q",
+    "inputs": [
+      "dain",
+      "daiin",
+      "daiiin"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "mark stage complete, certify passage"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "Q",
+    "symbol": "Q",
+    "token_families": [
+      "dain",
+      "daiin",
+      "daiiin"
+    ],
+    "transform": {
+      "family": "checkpoint"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "raises fixation strength through repetition"
+      ]
+    },
+    "cycle_rules": [
+      "raises fixation strength through repetition"
+    ],
+    "default_role": "repeat or intensify fixation",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "triple-fix",
+    "id": "operator_family:X",
+    "inputs": [
+      "dydyd"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "repeat or intensify fixation"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "X",
+    "symbol": "X",
+    "token_families": [
+      "dydyd"
+    ],
+    "transform": {
+      "family": "triple-fix"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "makes the terminal output legible"
+      ]
+    },
+    "cycle_rules": [
+      "makes the terminal output legible"
+    ],
+    "default_role": "route to final output or discharge gate",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "collect/output gate",
+    "id": "operator_family:G",
+    "inputs": [
+      "chtor",
+      "chor",
+      "ro"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "route to final output or discharge gate"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "G",
+    "symbol": "G",
+    "token_families": [
+      "chtor",
+      "chor",
+      "ro"
+    ],
+    "transform": {
+      "family": "collect/output gate"
+    }
+  },
+  {
+    "confidence": 0.94,
+    "constraints": {
+      "cycle_rules": [
+        "merges previously distinct states"
+      ]
+    },
+    "cycle_rules": [
+      "merges previously distinct states"
+    ],
+    "default_role": "join or marry separate carriers",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "direct",
+    "export_targets": [
+      "hybrid_legal_dsl",
+      "json_schema",
+      "python",
+      "typescript_javascript",
+      "rust",
+      "c",
+      "cpp",
+      "java",
+      "html",
+      "react_tsx",
+      "pytorch",
+      "math_ir",
+      "flow_dsl",
+      "vml_ir",
+      "aqm",
+      "cut",
+      "liminal",
+      "chemistry",
+      "biology",
+      "physics",
+      "geometry",
+      "trigonometry",
+      "music",
+      "juggling",
+      "astrology"
+    ],
+    "family": "conjunction",
+    "id": "operator_family:M",
+    "inputs": [
+      "am"
+    ],
+    "kind": "operator_family",
+    "outputs": [
+      "join or marry separate carriers"
+    ],
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/vml_operator_registry.md"
+    ],
+    "source_unit": "M",
+    "symbol": "M",
+    "token_families": [
+      "am"
+    ],
+    "transform": {
+      "family": "conjunction"
+    }
+  }
+]

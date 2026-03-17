@@ -3,17 +3,17 @@ network_id: "juggling_network_10"
 document_role: "juggling_network"
 scale: 10
 membership_mask: "1111111111000"
-coverage_ratio: 0.92559
-entropy: 0.85299
+coverage_ratio: 0.927048
+entropy: 0.847537
 centroid:
-  x: -0.46237
-  y: 0.886687
-  theta_deg: 117.540121
+  x: -0.537879
+  y: 0.843022
+  theta_deg: 122.539337
 macro_barycentric:
-  earth: 0.139877
-  water: 0.271568
-  fire: 0.181329
-  air: 0.407227
+  earth: 0.223
+  water: 0.146463
+  fire: 0.29907
+  air: 0.331467
 crystal_gate:
   dominant_macro: "Air"
   address: [3, 3, 2, 3]
@@ -40,7 +40,7 @@ generated_from:
   corpus_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/corpus_atlas.json"
   archive_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/archive_atlas.json"
   live_docs_gate_status: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/live_docs_gate_status.md"
-generated_at: "2026-03-09T15:17:43.648801+00:00"
+generated_at: "2026-03-13T15:05:01.540817+00:00"
 ---
 # 10-Ball Fountain Network
 

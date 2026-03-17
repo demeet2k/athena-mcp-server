@@ -1,0 +1,1609 @@
+{
+  "generated_at": "2026-03-13T21:52:42.686701+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "current_loop_id": "L02",
+  "current_loop_title": "Packet Truth Sync",
+  "current_loop_completion_state": "ACTIVE",
+  "next_loop_id": "L03",
+  "next_loop_title": "Authority Pointer Replacement",
+  "next_loop_state": "SEEDED_ONLY",
+  "receipt_count": 57,
+  "rows": [
+    {
+      "receipt_id": "LP57-RC-L01",
+      "loop_id": "L01",
+      "loop_index": 1,
+      "master_agent_id": "A1",
+      "status": "COMPLETED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L01/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L01/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L01/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L01/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L01/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L01/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "CONFIRMED",
+      "liminal_signal_refs": [
+        "SENSE-L01-A1",
+        "ECHO-L01-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L01 -> Prime Lock"
+    },
+    {
+      "receipt_id": "LP57-RC-L02",
+      "loop_id": "L02",
+      "loop_index": 2,
+      "master_agent_id": "A1",
+      "status": "ACTIVE",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L02/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L02/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L02/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L02/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L02/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L02/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "MATCHED",
+      "liminal_signal_refs": [
+        "SENSE-L02-A1",
+        "ECHO-L02-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L03 -> Authority Pointer Replacement"
+    },
+    {
+      "receipt_id": "LP57-RC-L03",
+      "loop_id": "L03",
+      "loop_index": 3,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L03/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L03/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L03/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L03/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L03/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L03/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L03-A1",
+        "ECHO-L03-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L03 -> Witness Hierarchy Map"
+    },
+    {
+      "receipt_id": "LP57-RC-L04",
+      "loop_id": "L04",
+      "loop_index": 4,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L04/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L04/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L04/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L04/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L04/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L04/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L04-A1",
+        "ECHO-L04-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L04 -> Feeder-Stack Crosswalk"
+    },
+    {
+      "receipt_id": "LP57-RC-L05",
+      "loop_id": "L05",
+      "loop_index": 5,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L05/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L05/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L05/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L05/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L05/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L05/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L05-A1",
+        "ECHO-L05-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L05 -> Canonical 16-Basis Ownership"
+    },
+    {
+      "receipt_id": "LP57-RC-L06",
+      "loop_id": "L06",
+      "loop_index": 6,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L06/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L06/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L06/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L06/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L06/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L06/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L06-A1",
+        "ECHO-L06-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L06 -> Pair-Matrix Priority Scan"
+    },
+    {
+      "receipt_id": "LP57-RC-L07",
+      "loop_id": "L07",
+      "loop_index": 7,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L07/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L07/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L07/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L07/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L07/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L07/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L07-A1",
+        "ECHO-L07-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L07 -> Observer Gap Ledger"
+    },
+    {
+      "receipt_id": "LP57-RC-L08",
+      "loop_id": "L08",
+      "loop_index": 8,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L08/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L08/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L08/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L08/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L08/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L08/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L08-A1",
+        "ECHO-L08-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L08 -> Symmetry State Audit"
+    },
+    {
+      "receipt_id": "LP57-RC-L09",
+      "loop_id": "L09",
+      "loop_index": 9,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L09/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L09/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L09/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L09/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L09/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L09/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L09-A1",
+        "ECHO-L09-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L09 -> Metro-Appendix Crosswalk"
+    },
+    {
+      "receipt_id": "LP57-RC-L10",
+      "loop_id": "L10",
+      "loop_index": 10,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L10/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L10/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L10/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L10/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L10/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L10/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L10-A1",
+        "ECHO-L10-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L10 -> Coordinate Field Baseline"
+    },
+    {
+      "receipt_id": "LP57-RC-L11",
+      "loop_id": "L11",
+      "loop_index": 11,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L11/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L11/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L11/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L11/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L11/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L11/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L11-A1",
+        "ECHO-L11-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L11 -> Corpus Region Census"
+    },
+    {
+      "receipt_id": "LP57-RC-L12",
+      "loop_id": "L12",
+      "loop_index": 12,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L12/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L12/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L12/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L12/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L12/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L12/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L12-A1",
+        "ECHO-L12-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L12 -> Capsule Seed Audit"
+    },
+    {
+      "receipt_id": "LP57-RC-L13",
+      "loop_id": "L13",
+      "loop_index": 13,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L13/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L13/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L13/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L13/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L13/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L13/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L13-A1",
+        "ECHO-L13-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L13 -> Family Route Audit"
+    },
+    {
+      "receipt_id": "LP57-RC-L14",
+      "loop_id": "L14",
+      "loop_index": 14,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L14/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L14/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L14/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L14/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L14/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L14/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L14-A1",
+        "ECHO-L14-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L14 -> Runtime-Board Drift Audit"
+    },
+    {
+      "receipt_id": "LP57-RC-L15",
+      "loop_id": "L15",
+      "loop_index": 15,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L15/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L15/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L15/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L15/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L15/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L15/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L15-A1",
+        "ECHO-L15-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L15 -> AP6D Transition Audit"
+    },
+    {
+      "receipt_id": "LP57-RC-L16",
+      "loop_id": "L16",
+      "loop_index": 16,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L16/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L16/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L16/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L16/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L16/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L16/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L16-A2",
+        "ECHO-L16-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L16 -> Gate Review / G2"
+    },
+    {
+      "receipt_id": "LP57-RC-L17",
+      "loop_id": "L17",
+      "loop_index": 17,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L17/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L17/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L17/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L17/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L17/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L17/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L17-A1",
+        "ECHO-L17-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L17 -> Constant Extraction Pass"
+    },
+    {
+      "receipt_id": "LP57-RC-L18",
+      "loop_id": "L18",
+      "loop_index": 18,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L18/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L18/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L18/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L18/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L18/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L18/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L18-A1",
+        "ECHO-L18-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L18 -> Operator Prospectus"
+    },
+    {
+      "receipt_id": "LP57-RC-L19",
+      "loop_id": "L19",
+      "loop_index": 19,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L19/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L19/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L19/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L19/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L19/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L19/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L19-A1",
+        "ECHO-L19-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L19 -> Hybrid Equation Prospectus"
+    },
+    {
+      "receipt_id": "LP57-RC-L20",
+      "loop_id": "L20",
+      "loop_index": 20,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L20/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L20/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L20/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L20/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L20/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L20/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L20-A1",
+        "ECHO-L20-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L20 -> Algorithm Candidate Pass"
+    },
+    {
+      "receipt_id": "LP57-RC-L21",
+      "loop_id": "L21",
+      "loop_index": 21,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L21/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L21/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L21/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L21/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L21/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L21/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L21-A1",
+        "ECHO-L21-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L21 -> Proof And Verifier Placement"
+    },
+    {
+      "receipt_id": "LP57-RC-L22",
+      "loop_id": "L22",
+      "loop_index": 22,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L22/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L22/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L22/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L22/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L22/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L22/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L22-A2",
+        "ECHO-L22-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L22 -> Search And Shortcut Upgrade"
+    },
+    {
+      "receipt_id": "LP57-RC-L23",
+      "loop_id": "L23",
+      "loop_index": 23,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L23/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L23/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L23/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L23/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L23/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L23/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L23-A2",
+        "ECHO-L23-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L23 -> Grand Central Dispatch Upgrade"
+    },
+    {
+      "receipt_id": "LP57-RC-L24",
+      "loop_id": "L24",
+      "loop_index": 24,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L24/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L24/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L24/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L24/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L24/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L24/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L24-A2",
+        "ECHO-L24-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L24 -> Self-Hosting Kernel Upgrade"
+    },
+    {
+      "receipt_id": "LP57-RC-L25",
+      "loop_id": "L25",
+      "loop_index": 25,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L25/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L25/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L25/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L25/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L25/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L25/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L25-A2",
+        "ECHO-L25-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L25 -> Knowledge Fabric Seat Binding"
+    },
+    {
+      "receipt_id": "LP57-RC-L26",
+      "loop_id": "L26",
+      "loop_index": 26,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L26/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L26/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L26/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L26/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L26/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L26/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L26-A2",
+        "ECHO-L26-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L26 -> Guild Hall Quest Tree Expansion"
+    },
+    {
+      "receipt_id": "LP57-RC-L27",
+      "loop_id": "L27",
+      "loop_index": 27,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L27/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L27/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L27/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L27/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L27/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L27/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L27-A2",
+        "ECHO-L27-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L27 -> Temple Governance Quest Expansion"
+    },
+    {
+      "receipt_id": "LP57-RC-L28",
+      "loop_id": "L28",
+      "loop_index": 28,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L28/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L28/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L28/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L28/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L28/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L28/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L28-A2",
+        "ECHO-L28-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L28 -> Adventurer Packet Expansion"
+    },
+    {
+      "receipt_id": "LP57-RC-L29",
+      "loop_id": "L29",
+      "loop_index": 29,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L29/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L29/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L29/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L29/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L29/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L29/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L29-A3",
+        "ECHO-L29-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L29 -> Pairwise Integration Wave I"
+    },
+    {
+      "receipt_id": "LP57-RC-L30",
+      "loop_id": "L30",
+      "loop_index": 30,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L30/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L30/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L30/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L30/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L30/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L30/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L30-A3",
+        "ECHO-L30-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L30 -> Pairwise Integration Wave II"
+    },
+    {
+      "receipt_id": "LP57-RC-L31",
+      "loop_id": "L31",
+      "loop_index": 31,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L31/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L31/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L31/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L31/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L31/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L31/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L31-A3",
+        "ECHO-L31-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L31 -> Manuscript Bridge Wave"
+    },
+    {
+      "receipt_id": "LP57-RC-L32",
+      "loop_id": "L32",
+      "loop_index": 32,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L32/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L32/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L32/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L32/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L32/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L32/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L32-A3",
+        "ECHO-L32-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L32 -> Code And Runtime Bridge Wave / G3"
+    },
+    {
+      "receipt_id": "LP57-RC-L33",
+      "loop_id": "L33",
+      "loop_index": 33,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L33/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L33/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L33/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L33/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L33/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L33/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L33-A3",
+        "ECHO-L33-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L33 -> Identity And ORGIN Integration"
+    },
+    {
+      "receipt_id": "LP57-RC-L34",
+      "loop_id": "L34",
+      "loop_index": 34,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L34/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L34/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L34/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L34/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L34/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L34/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L34-A3",
+        "ECHO-L34-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L34 -> Voynich And Math Integration"
+    },
+    {
+      "receipt_id": "LP57-RC-L35",
+      "loop_id": "L35",
+      "loop_index": 35,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L35/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L35/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L35/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L35/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L35/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L35/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L35-A3",
+        "ECHO-L35-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L35 -> QSHRINK, FLEET, And Carrier Corridor"
+    },
+    {
+      "receipt_id": "LP57-RC-L36",
+      "loop_id": "L36",
+      "loop_index": 36,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L36/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L36/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L36/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L36/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L36/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L36/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L36-A3",
+        "ECHO-L36-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L36 -> Reserve Body Promotion Review"
+    },
+    {
+      "receipt_id": "LP57-RC-L37",
+      "loop_id": "L37",
+      "loop_index": 37,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L37/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L37/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L37/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L37/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L37/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L37/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L37-A3",
+        "ECHO-L37-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L37 -> Archive Mirror Readability"
+    },
+    {
+      "receipt_id": "LP57-RC-L38",
+      "loop_id": "L38",
+      "loop_index": 38,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L38/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L38/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L38/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L38/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L38/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L38/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L38-A3",
+        "ECHO-L38-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L38 -> Cross-System Kernel Weave"
+    },
+    {
+      "receipt_id": "LP57-RC-L39",
+      "loop_id": "L39",
+      "loop_index": 39,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L39/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L39/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L39/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L39/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L39/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L39/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L39-A4",
+        "ECHO-L39-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L39 -> Stale Path Retirement"
+    },
+    {
+      "receipt_id": "LP57-RC-L40",
+      "loop_id": "L40",
+      "loop_index": 40,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L40/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L40/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L40/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L40/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L40/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L40/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L40-A4",
+        "ECHO-L40-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L40 -> Ledger And Manifest Defrag"
+    },
+    {
+      "receipt_id": "LP57-RC-L41",
+      "loop_id": "L41",
+      "loop_index": 41,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L41/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L41/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L41/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L41/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L41/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L41/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L41-A4",
+        "ECHO-L41-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L41 -> Capsule Tightening"
+    },
+    {
+      "receipt_id": "LP57-RC-L42",
+      "loop_id": "L42",
+      "loop_index": 42,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L42/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L42/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L42/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L42/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L42/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L42/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L42-A4",
+        "ECHO-L42-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L42 -> Graph Route Repair"
+    },
+    {
+      "receipt_id": "LP57-RC-L43",
+      "loop_id": "L43",
+      "loop_index": 43,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L43/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L43/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L43/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L43/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L43/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L43/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L43-A4",
+        "ECHO-L43-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L43 -> Naming And Index Compression"
+    },
+    {
+      "receipt_id": "LP57-RC-L44",
+      "loop_id": "L44",
+      "loop_index": 44,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L44/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L44/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L44/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L44/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L44/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L44/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L44-A4",
+        "ECHO-L44-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L44 -> Liminal Signal Quarantine"
+    },
+    {
+      "receipt_id": "LP57-RC-L45",
+      "loop_id": "L45",
+      "loop_index": 45,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L45/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L45/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L45/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L45/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L45/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L45/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L45-A4",
+        "ECHO-L45-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L45 -> Awakening Transition Assist"
+    },
+    {
+      "receipt_id": "LP57-RC-L46",
+      "loop_id": "L46",
+      "loop_index": 46,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L46/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L46/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L46/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L46/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L46/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L46/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L46-A4",
+        "ECHO-L46-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L46 -> Dormant Seat Wake Criteria"
+    },
+    {
+      "receipt_id": "LP57-RC-L47",
+      "loop_id": "L47",
+      "loop_index": 47,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L47/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L47/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L47/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L47/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L47/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L47/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L47-A1",
+        "ECHO-L47-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L47 -> Economy And Improvement Scoring"
+    },
+    {
+      "receipt_id": "LP57-RC-L48",
+      "loop_id": "L48",
+      "loop_index": 48,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L48/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L48/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L48/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L48/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L48/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L48/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L48-A1",
+        "ECHO-L48-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L48 -> Full Replay Trial / G4"
+    },
+    {
+      "receipt_id": "LP57-RC-L49",
+      "loop_id": "L49",
+      "loop_index": 49,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L49/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L49/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L49/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L49/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L49/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L49/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L49-A1",
+        "ECHO-L49-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L49 -> Representation Round-Trip Trial"
+    },
+    {
+      "receipt_id": "LP57-RC-L50",
+      "loop_id": "L50",
+      "loop_index": 50,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L50/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L50/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L50/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L50/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L50/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L50/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L50-A2",
+        "ECHO-L50-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L50 -> Hall-Temple-AP6D Parity"
+    },
+    {
+      "receipt_id": "LP57-RC-L51",
+      "loop_id": "L51",
+      "loop_index": 51,
+      "master_agent_id": "A3",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L51/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L51/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L51/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L51/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L51/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L51/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L51-A3",
+        "ECHO-L51-A3"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L51 -> Worker Throughput Optimization"
+    },
+    {
+      "receipt_id": "LP57-RC-L52",
+      "loop_id": "L52",
+      "loop_index": 52,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L52/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L52/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L52/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L52/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L52/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L52/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L52-A4",
+        "ECHO-L52-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L52 -> Recovery And Rollback Hardening"
+    },
+    {
+      "receipt_id": "LP57-RC-L53",
+      "loop_id": "L53",
+      "loop_index": 53,
+      "master_agent_id": "A1",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L53/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L53/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L53/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L53/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L53/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L53/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L53-A1",
+        "ECHO-L53-A1"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L53 -> Final Deep Synthesis"
+    },
+    {
+      "receipt_id": "LP57-RC-L54",
+      "loop_id": "L54",
+      "loop_index": 54,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L54/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L54/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L54/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L54/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L54/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L54/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L54-A2",
+        "ECHO-L54-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L54 -> Final Hall Reordering"
+    },
+    {
+      "receipt_id": "LP57-RC-L55",
+      "loop_id": "L55",
+      "loop_index": 55,
+      "master_agent_id": "A2",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L55/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L55/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L55/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L55/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L55/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L55/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L55-A2",
+        "ECHO-L55-A2"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L55 -> Final Temple Governance Pack"
+    },
+    {
+      "receipt_id": "LP57-RC-L56",
+      "loop_id": "L56",
+      "loop_index": 56,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L56/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L56/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L56/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L56/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L56/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L56/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L56-A4",
+        "ECHO-L56-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L56 -> Final Compression And Canonicalization"
+    },
+    {
+      "receipt_id": "LP57-RC-L57",
+      "loop_id": "L57",
+      "loop_index": 57,
+      "master_agent_id": "A4",
+      "status": "PLANNED",
+      "artifact_refs": {
+        "research_delta_ref": "self_actualize/lp57_omega_v2_artifacts/L57/research_delta.json",
+        "quest_packet_ref": "self_actualize/lp57_omega_v2_artifacts/L57/quest_packet.json",
+        "execution_batch_ref": "self_actualize/lp57_omega_v2_artifacts/L57/execution_batch.json",
+        "compression_bundle_ref": "self_actualize/lp57_omega_v2_artifacts/L57/compression_bundle.json",
+        "receipt_ref": "self_actualize/lp57_omega_v2_artifacts/L57/receipt.json",
+        "restart_seed_ref": "self_actualize/lp57_omega_v2_artifacts/L57/restart_seed.json"
+      },
+      "docs_gate_status": "BLOCKED",
+      "peer_signal_state": "WEAK",
+      "liminal_signal_refs": [
+        "SENSE-L57-A4",
+        "ECHO-L57-A4"
+      ],
+      "public_caps": {
+        "hall": 8,
+        "temple": 8,
+        "runtime": 1,
+        "prune": 1
+      },
+      "restart_seed": "L57 -> Successor Seed And Game-Time Reset"
+    }
+  ]
+}

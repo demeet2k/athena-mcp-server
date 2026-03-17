@@ -3,12 +3,12 @@ network_id: "juggling_network_02"
 document_role: "juggling_network"
 scale: 2
 membership_mask: "1100000000000"
-coverage_ratio: 0.104967
-entropy: 0.737815
+coverage_ratio: 0.203909
+entropy: 0.645112
 centroid:
-  x: 0.989684
-  y: 0.143265
-  theta_deg: 8.236814
+  x: 0.996473
+  y: 0.083915
+  theta_deg: 4.813639
 macro_barycentric:
   earth: 0.55106
   water: 0.448939
@@ -32,7 +32,7 @@ generated_from:
   corpus_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/corpus_atlas.json"
   archive_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/archive_atlas.json"
   live_docs_gate_status: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/live_docs_gate_status.md"
-generated_at: "2026-03-09T15:17:43.644799+00:00"
+generated_at: "2026-03-13T15:05:01.532818+00:00"
 ---
 # 2-Ball Exchange Network
 

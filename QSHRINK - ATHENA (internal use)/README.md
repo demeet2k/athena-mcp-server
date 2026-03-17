@@ -33,3 +33,14 @@ Build the deeper Athena-native QSHRINK framework by integrating:
 10. `08_LOOP_SKILL/00_LOOP_SKILL_CHARTER.md`
 11. `09_REPAIR_256X256/00_REPAIR_README.md`
 12. `10_CH11_256X256/00_CH11_README.md`
+
+## Pruning Law
+
+This internal operating system is allowed to be deep, but not shapeless.
+
+- manuscript doctrine belongs in the named control and manuscript files
+- generated lattices belong in indexed generated zones
+- new side copies should not be created when a cell, packet, or atom can be regenerated from an index
+- public-facing canonical QSHRINK manuscripts live in `MATH/FINAL FORM/Q shrink/`
+
+See `PRUNING_LEDGER.md` for the active compression map.

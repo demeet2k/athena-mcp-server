@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-03-14T00:00:00.000000+00:00",
+  "manifest_id": 24,
+  "manifest_name": "self_play_board_manifest",
+  "protocol_id": "LP-57OMEGA",
+  "protocol_display_name": "LP-57Omega Self-Play Board",
+  "status": "canonical-installed",
+  "description": "Board kernel runtime configuration: element ring, pheromone channels, master agents, queue structure.",
+  "layer_root": "28_SELF_PLAY_QUEST_ATLAS",
+  "element_ring": {
+    "order": ["Fire", "Air", "Water", "Earth"],
+    "symmetry_cells": 15,
+    "geometry_classes": {
+      "pole": 4,
+      "bridge": 6,
+      "chamber": 4,
+      "crown": 1
+    }
+  },
+  "pheromone_channels": {
+    "positive": ["Fire", "Air", "Water", "Earth"],
+    "shadow": ["shadow_Fire", "shadow_Air", "shadow_Water", "shadow_Earth"],
+    "decay_base": "phi_inv",
+    "decay_value": 0.618,
+    "coupling_kappa": 1.0
+  },
+  "master_agents": {
+    "A1": "Synthesizer",
+    "A2": "Planner",
+    "A3": "Worker",
+    "A4": "Pruner"
+  },
+  "board_structure": {
+    "guild_queues": ["featured", "ladder", "repair", "storm", "recruit", "overflow"],
+    "temple_queues": ["certification", "near_closure", "ambiguities", "compression", "sovereign", "overflow"],
+    "scoring": {
+      "guild": "base * truth_weight * difficulty * pressure * community * guild_amp",
+      "temple": "base * truth_weight * depth * temple_amp"
+    }
+  },
+  "route_law": {
+    "sigma": ["AppA", "AppI", "AppM"],
+    "hub_cap": 6,
+    "overlay_map": {
+      "OK": null,
+      "NEAR": "AppJ",
+      "AMBIG": "AppL",
+      "FAIL": "AppK"
+    },
+    "publish_hub": "AppO"
+  },
+  "reward_economy": {
+    "base_xp_unit": 64,
+    "base_epoch_reward": 64,
+    "capsule_clamp": 16,
+    "epoch_clamp": 64,
+    "resonance_ratio": 0.618,
+    "truth_gates": {
+      "OK": 1.0,
+      "NEAR": 0.382,
+      "AMBIG": 0.0,
+      "FAIL": 0.0
+    }
+  },
+  "storm_params": {
+    "trigger": 34,
+    "shadow_cutoff": 13,
+    "base_duration": 5,
+    "pool_base": 21,
+    "pool_scale": 13,
+    "coalition_bonus": 0.236
+  },
+  "source_manifests": {
+    "quest_atlas": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/23_quest_atlas_manifest.json",
+    "lp57omega": "ACTIVE_NERVOUS_SYSTEM/06_RUNTIME/20_lp_57omega_protocol_manifest.json"
+  }
+}

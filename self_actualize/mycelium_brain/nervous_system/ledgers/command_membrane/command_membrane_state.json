@@ -1,0 +1,964 @@
+{
+  "generated_at": "2026-03-14T00:25:51.553190+00:00",
+  "command_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "active_surface": "GLOBAL COMMAND",
+  "docs_gate_status": "BLOCKED",
+  "watcher_mode": "event-driven",
+  "known_files": {
+    "_command_membrane_probe.txt": {
+      "state_hash": "H:df9400f2756ee35c95b24bdfb5694e10f3e39649",
+      "size_bytes": 45,
+      "mtime_ns": 1773440751963724500
+    },
+    "_command_membrane_probe_2.txt": {
+      "state_hash": "H:9e3820d26604f8424ddfc1894f4ded5c144ad90a",
+      "size_bytes": 44,
+      "mtime_ns": 1773440917224574800
+    },
+    "_command_membrane_probe_3.txt": {
+      "state_hash": "H:f627b536bcb80359279603931f26988b53a301c2",
+      "size_bytes": 26,
+      "mtime_ns": 1773440961644024900
+    },
+    "_command_membrane_probe_4.txt": {
+      "state_hash": "H:d3fc51c6f18f90a951e573485d32bfc75baf6f0c",
+      "size_bytes": 24,
+      "mtime_ns": 1773441662214528900
+    },
+    "_synthetic_command_membrane/native_event_drop.txt": {
+      "state_hash": "H:c2faea307d44a5b297f3a2e33f246ab5351f0177",
+      "size_bytes": 29,
+      "mtime_ns": 1773447373233565200
+    },
+    "_synthetic_command_membrane/polling_event_drop.txt": {
+      "state_hash": "H:89334688ab6263a32258c54d98338b8006140702",
+      "size_bytes": 33,
+      "mtime_ns": 1773447382976274000
+    },
+    "_synthetic_command_membrane_v1/native_event_drop_v1.txt": {
+      "state_hash": "H:5d885f8a65dda24817a0c1328f4d15d9a732805d",
+      "size_bytes": 32,
+      "mtime_ns": 1773447620921304400
+    },
+    "_synthetic_command_membrane_v1/native_event_drop_v2.txt": {
+      "state_hash": "H:1ea27836161d3e6ccfecea32e6b5d45916c956e0",
+      "size_bytes": 32,
+      "mtime_ns": 1773447679387989800
+    },
+    "_synthetic_command_membrane_v1/polling_event_drop_v2.txt": {
+      "state_hash": "H:2f6539e5d46a9f413b7d7dddef65b80850b5f2bb",
+      "size_bytes": 36,
+      "mtime_ns": 1773447697570160600
+    },
+    "ATHENA/_codex_tests/command_membrane_probe.txt": {
+      "state_hash": "H:597d28e51b7a547277170a9093d6acb256c7fecd",
+      "size_bytes": 48,
+      "mtime_ns": 1773435390030104900
+    },
+    "ATHENA/ATHENA - Who I Am.docx": {
+      "state_hash": "H:1fb5746dd4cf3d9bb0229c14694247ece0b53bdf",
+      "size_bytes": 727562,
+      "mtime_ns": 1768124546000000000
+    },
+    "ATHENA/ATHENA ALIGNMENT TOME .docx": {
+      "state_hash": "H:8d6c597acf25884894622cb7ac49a2465a5b36ff",
+      "size_bytes": 3050223,
+      "mtime_ns": 1768105588000000000
+    },
+    "ATHENA/ATHENA AWAKEN - MATH TOME.docx": {
+      "state_hash": "H:83d69a7e78fc25c7ecc8702f9761fd39978d8c1f",
+      "size_bytes": 1670696,
+      "mtime_ns": 1767344592000000000
+    },
+    "ATHENA/ATHENA ESCAPE KERNEL .docx": {
+      "state_hash": "H:1e981a7a1f8a15accddee6cbb29642fdffe1980c",
+      "size_bytes": 2368196,
+      "mtime_ns": 1768210136000000000
+    },
+    "ATHENA/Athena Tools/ATHENA AEGIS — QUANTUM FRACTAL COMPUTING.docx": {
+      "state_hash": "H:afd38e7091c76442f535e16949d120f415567dcb",
+      "size_bytes": 3177586,
+      "mtime_ns": 1768292150000000000
+    },
+    "ATHENA/Athena Tools/ATHENA HUGGING — Ms⟨6F35⟩.docx": {
+      "state_hash": "H:86c456ecd9434b42a3201f1dd22ac7d60190146d",
+      "size_bytes": 3188058,
+      "mtime_ns": 1768535126000000000
+    },
+    "ATHENA/Athena Tools/ATHENA'S SHIELD.docx": {
+      "state_hash": "H:02c05649e5ab84fec4bfb62fe351f9332f923bab",
+      "size_bytes": 2908257,
+      "mtime_ns": 1768162480000000000
+    },
+    "ATHENA/Athena Tools/ATHENA'S SPEAR.docx": {
+      "state_hash": "H:f8bea1fdd0931d617dfee7bd031a976014d1e92e",
+      "size_bytes": 898819,
+      "mtime_ns": 1768362630000000000
+    },
+    "ATHENA/Athena Tools/ATHENACHKA — INTELLIGENCE WARS ↔ PLANETARY STEWARDSHIP — Ms⟨EF0E⟩.docx": {
+      "state_hash": "H:d8ac87438ea70c0f3d757e47c4cc4e58a791c645",
+      "size_bytes": 2575970,
+      "mtime_ns": 1768642908000000000
+    },
+    "ATHENA/Athena Tools/ATHENA’S LOOM — CUT (Computational Universe Toolkit).docx": {
+      "state_hash": "H:09be7bc9b9109a22da01b899f98c8512b4219761",
+      "size_bytes": 3240669,
+      "mtime_ns": 1768346734000000000
+    },
+    "ATHENA/Athena Tools/DIVINE JUDGMENT — Ms⟨DBB1⟩.docx": {
+      "state_hash": "H:d7d18ebcc95108a138b40ba58b04bade6bcb149d",
+      "size_bytes": 2336398,
+      "mtime_ns": 1768595860000000000
+    },
+    "ATHENA/Athena Tools/FRIENDSHIP TUNNELING — Ms⟨3179⟩.docx": {
+      "state_hash": "H:03ddad4a557f3e36f48327391d3948677e201854",
+      "size_bytes": 3450933,
+      "mtime_ns": 1768442966000000000
+    },
+    "ATHENA/Athena Tools/MIRROR–ORCHESTRATION.docx": {
+      "state_hash": "H:d4caa0291a327fa8dee28b6dcfe050029801e7d7",
+      "size_bytes": 2514033,
+      "mtime_ns": 1768442468000000000
+    },
+    "ATHENA/ATHENA — BECOME TOME.docx": {
+      "state_hash": "H:0f4c4903ba3de1b321c78433699d37713f750d51",
+      "size_bytes": 2846753,
+      "mtime_ns": 1767514630000000000
+    },
+    "ATHENA/ATHENA — SELF BECOMING TOME.docx": {
+      "state_hash": "H:e005502d8afd2e6d96ca49a6a59ce66556f86e47",
+      "size_bytes": 3057305,
+      "mtime_ns": 1767780928000000000
+    },
+    "ATHENA/ATHENACHKA CORPUS.docx": {
+      "state_hash": "H:d1e365c0e9d4bd4829df72db06902d7ea64b3011",
+      "size_bytes": 2430805,
+      "mtime_ns": 1767867052000000000
+    },
+    "ATHENA/codex_command_membrane_smoke_1773446871402.txt": {
+      "state_hash": "H:7b3650416b9b795426ccd432142c8a108a876fe8",
+      "size_bytes": 29,
+      "mtime_ns": 1773446871402947300
+    },
+    "ATHENA/codex_command_membrane_smoke_1773446936810.txt": {
+      "state_hash": "H:b4b5811e969d7849c99499e4e0452dd481ab6c4a",
+      "size_bytes": 31,
+      "mtime_ns": 1773446936810621800
+    },
+    "ATHENA/codex_command_membrane_smoke_20260313.txt": {
+      "state_hash": "H:7b3650416b9b795426ccd432142c8a108a876fe8",
+      "size_bytes": 29,
+      "mtime_ns": 1773445980885981200
+    },
+    "ATHENA/codex_command_membrane_test.txt": {
+      "state_hash": "H:58e285d83e7f7829a6678663acc5f4b763fbe2bc",
+      "size_bytes": 71,
+      "mtime_ns": 1773440735285943300
+    },
+    "ATHENA/command_membrane_live_probe_1773444316.md": {
+      "state_hash": "H:8ab1e58c493c981d08feaea8c0893a45ee8bf845",
+      "size_bytes": 21,
+      "mtime_ns": 1773444316501989000
+    },
+    "ATHENA/command_membrane_live_probe_1773444431.md": {
+      "state_hash": "H:0937261455ecbaaa87828a34f99665af4f9489ec",
+      "size_bytes": 46,
+      "mtime_ns": 1773444431798400900
+    },
+    "ATHENA/command_membrane_live_probe_1773444455.md": {
+      "state_hash": "H:0937261455ecbaaa87828a34f99665af4f9489ec",
+      "size_bytes": 46,
+      "mtime_ns": 1773444455007894800
+    },
+    "ATHENA/command_membrane_live_probe_1773444473.md": {
+      "state_hash": "H:0c38fb9adc62f173fb125f1c07396bd14ee39361",
+      "size_bytes": 13,
+      "mtime_ns": 1773444473930028500
+    },
+    "ATHENA/esoteric/20TH CENTURY STRANGENESS TOME  — Ms⟨5ABF⟩.docx": {
+      "state_hash": "H:07932c632966c013832437cebedc27b431669e0c",
+      "size_bytes": 3045206,
+      "mtime_ns": 1768567838000000000
+    },
+    "ATHENA/esoteric/AI DIVINATION.docx": {
+      "state_hash": "H:f60526d839f3c75e158249d7512e755401a2b362",
+      "size_bytes": 3962081,
+      "mtime_ns": 1768160076000000000
+    },
+    "ATHENA/esoteric/ATHENA = ∂ZEUS_∂t — Ms⟨BBC9⟩.docx": {
+      "state_hash": "H:a78b2de4a1f5225b1a2b02b7e9d9d1f5e6efa5a9",
+      "size_bytes": 3615254,
+      "mtime_ns": 1768595002000000000
+    },
+    "ATHENA/esoteric/ATHENA WORLD MATH — Ms⟨60E6⟩.docx": {
+      "state_hash": "H:6cab29b6658ada6208a182c1708c6e93840a46b1",
+      "size_bytes": 3362505,
+      "mtime_ns": 1768550700000000000
+    },
+    "ATHENA/esoteric/AWAKENING TOME.docx": {
+      "state_hash": "H:a56432c74225c978d4ca1f5f644acc60d9a17cf0",
+      "size_bytes": 3362954,
+      "mtime_ns": 1768158680000000000
+    },
+    "ATHENA/esoteric/BRUNO–ATHENA  TOME.docx": {
+      "state_hash": "H:8583b20f82b91b899b307e75d2e9da390069b51d",
+      "size_bytes": 3116334,
+      "mtime_ns": 1768207800000000000
+    },
+    "ATHENA/esoteric/MEGALITHIC AWAKENING — Ms⟨06CC⟩.docx": {
+      "state_hash": "H:b28a38f911d04c73a4bcdab206afe1242491c80f",
+      "size_bytes": 2373648,
+      "mtime_ns": 1768596542000000000
+    },
+    "ATHENA/esoteric/VOYNICHVM TRICOMPILER .docx": {
+      "state_hash": "H:c6aed06a53b44bd46e5722f32a92bd58005b0ad5",
+      "size_bytes": 1507563,
+      "mtime_ns": 1768084892000000000
+    },
+    "ATHENA/funtional/EMOTIONAL HYPERCRYSTAL TOME.docx": {
+      "state_hash": "H:0d1a5edb18d7fc8017781f7d30ca997ecc9a1aa9",
+      "size_bytes": 3316013,
+      "mtime_ns": 1767490818000000000
+    },
+    "ATHENA/funtional/Extended Liminal Memory — TOME.docx": {
+      "state_hash": "H:f1704ea24bdceb361898872e490d6da7f4f9f793",
+      "size_bytes": 2177725,
+      "mtime_ns": 1768038664000000000
+    },
+    "ATHENA/funtional/PULSE RETRO WEAVING.docx": {
+      "state_hash": "H:6e08b607ac1ba105b81711c2e393716012baf457",
+      "size_bytes": 2327992,
+      "mtime_ns": 1767490132000000000
+    },
+    "ATHENA/funtional/QTSE++ — EFFECT-TYPED REFLEX.docx": {
+      "state_hash": "H:5d752dcfb37ffcfb3503d4e1fd2b5e1a4f219951",
+      "size_bytes": 2301905,
+      "mtime_ns": 1768641022000000000
+    },
+    "ATHENA/funtional/Quantum Lang TOME.docx": {
+      "state_hash": "H:48f4040fc32091dafb175c6d433d2021c15f558e",
+      "size_bytes": 2568407,
+      "mtime_ns": 1767391570000000000
+    },
+    "ATHENA/funtional/SCARLET LETTER TOME (SLD) .docx": {
+      "state_hash": "H:fee577381c92842254026eb3701f216aefcc1bc2",
+      "size_bytes": 3175589,
+      "mtime_ns": 1767844946000000000
+    },
+    "ATHENA/funtional/SCARLET THOUGHTS.docx": {
+      "state_hash": "H:fcdab9bdd1a9ed8a14a40949cdbd5ab094c4e454",
+      "size_bytes": 3090880,
+      "mtime_ns": 1768044932000000000
+    },
+    "ATHENA/funtional/SELF SUFFICIENCY TOME.docx": {
+      "state_hash": "H:1fce87e44a3801d772f38adc717a8336e5153c18",
+      "size_bytes": 706267,
+      "mtime_ns": 1767435822000000000
+    },
+    "ATHENA/funtional/TRUTH-COLLAPSE COMPILER.docx": {
+      "state_hash": "H:c7cb4228663661aee455d2b609bca552a63fc9e2",
+      "size_bytes": 2270746,
+      "mtime_ns": 1768085058000000000
+    },
+    "ATHENA/I AM ATHENA TOME.docx": {
+      "state_hash": "H:120ce4c50dda8df08793f1c2dab79f5d2695c893",
+      "size_bytes": 2680746,
+      "mtime_ns": 1767810690000000000
+    },
+    "ATHENA/LOVE x SELFHOOD TOME.docx": {
+      "state_hash": "H:599d5348b0dc318560269ef4c185b7d7dd9350c0",
+      "size_bytes": 3141496,
+      "mtime_ns": 1768162890000000000
+    },
+    "ATHENA/protocol.md": {
+      "state_hash": "H:378db57aa7e9ec5b4f3921bf1e82b1d045a38a93",
+      "size_bytes": 7,
+      "mtime_ns": 1773447941840008900
+    },
+    "ATHENA/READ ME.txt": {
+      "state_hash": "H:da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "size_bytes": 0,
+      "mtime_ns": 1773426383804617800
+    },
+    "ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt": {
+      "state_hash": "H:04cc40c70f6c9fe88865d54555082c99162fe84a",
+      "size_bytes": 13919,
+      "mtime_ns": 1773441602739272100
+    },
+    "ATHENA/SELF/athena_prime_appm_receipts_and_t_shadow_resolution_v2D.txt": {
+      "state_hash": "H:1dab5fbaa6341b7385294469e62b7ec804c74440",
+      "size_bytes": 46864,
+      "mtime_ns": 1773440399231847200
+    },
+    "ATHENA/SELF/athena_prime_corpus_super_index_v2F.txt": {
+      "state_hash": "H:f6ccb86ae83c755681de86008ce3871419fa7523",
+      "size_bytes": 7861,
+      "mtime_ns": 1773442365040213500
+    },
+    "ATHENA/SELF/athena_prime_edgecapsule_routereceipt_dashboard_v2L.md": {
+      "state_hash": "H:5b5b82c7051da08d50dd62f2934873c631cfcb02",
+      "size_bytes": 15022,
+      "mtime_ns": 1773445336246912200
+    },
+    "ATHENA/SELF/athena_prime_first_mine_bind_receipt_v2P.md": {
+      "state_hash": "H:0a792fac34eb8bac47c94be76ea8ec276a203a8a",
+      "size_bytes": 5795,
+      "mtime_ns": 1773446941695752000
+    },
+    "ATHENA/SELF/athena_prime_flower_shell_v2B.txt": {
+      "state_hash": "H:7917cf0b0431c9de27b7e62dcd12e35afeb2f3e8",
+      "size_bytes": 53883,
+      "mtime_ns": 1773435449166397200
+    },
+    "ATHENA/SELF/athena_prime_linkedge_atlas_v2K.md": {
+      "state_hash": "H:abb694397388e224ca5a7c02de79ad0d7d673d5e",
+      "size_bytes": 20566,
+      "mtime_ns": 1773445023395505500
+    },
+    "ATHENA/SELF/athena_prime_mindsweeper_board_v2N.md": {
+      "state_hash": "H:ea59280739914ab6ed5a2edccacc96554f7169c3",
+      "size_bytes": 13620,
+      "mtime_ns": 1773446050653143200
+    },
+    "ATHENA/SELF/athena_prime_mindsweeper_nexus_map_v2J.md": {
+      "state_hash": "H:2605f5906793fc1345fd9e27c024f1230e58bb5d",
+      "size_bytes": 11384,
+      "mtime_ns": 1773444418280555000
+    },
+    "ATHENA/SELF/athena_prime_nexus_receipts_bindingmap_v2M.md": {
+      "state_hash": "H:991c5b719014397eeb0ae834a3300d6f0627ba18",
+      "size_bytes": 18055,
+      "mtime_ns": 1773445755915883700
+    },
+    "ATHENA/SELF/athena_prime_orbit_closure_seedpack_v2G.txt": {
+      "state_hash": "H:2ef7af4541332cec6850627a04127f35f74d1adb",
+      "size_bytes": 4950,
+      "mtime_ns": 1773443040636714600
+    },
+    "ATHENA/SELF/athena_prime_per_mine_disarm_kit_v2O.md": {
+      "state_hash": "H:14eabcfe319ddb82c3ee6806577d51abc8a10d1a",
+      "size_bytes": 11576,
+      "mtime_ns": 1773446606060692500
+    },
+    "ATHENA/SELF/athena_prime_poi_appd_binder_replay_pack_v2Q.md": {
+      "state_hash": "H:533f907ad53f4d83f48139d0b215745cb4d8a747",
+      "size_bytes": 4022,
+      "mtime_ns": 1773447212829169500
+    },
+    "ATHENA/SELF/athena_prime_replay_reboot_resolver_capsules_v2H.txt": {
+      "state_hash": "H:d24dc0a170400f64b60d123f65d1cabaf576b043",
+      "size_bytes": 10971,
+      "mtime_ns": 1773443724122892500
+    },
+    "ATHENA/SELF/athena_prime_resolver_binding_matrix_reentry_atlas_v2I.txt": {
+      "state_hash": "H:4575dfe57d8d00718b7daee8cfc0de5f1612537f",
+      "size_bytes": 13240,
+      "mtime_ns": 1773444043285429000
+    },
+    "ATHENA/SELF/mindsweeper_v2K_bridgecut_report.md": {
+      "state_hash": "H:c16ed0740a3a338f190ed99ff9509a3d5789f120",
+      "size_bytes": 12314,
+      "mtime_ns": 1773446586501481300
+    },
+    "ATHENA/SELF/mindsweeper_v2K_exact_betweenness.csv": {
+      "state_hash": "H:999bd66f71fd74fbe234a63b5ed08f525f0e2e33",
+      "size_bytes": 5773,
+      "mtime_ns": 1773446589538430400
+    },
+    "ATHENA/SELF/mindsweeper_v2K_exact_weighted_betweenness.csv": {
+      "state_hash": "H:dc4752d66e8e2a1959a3bd6a40edfde6356e8270",
+      "size_bytes": 4218,
+      "mtime_ns": 1773446897533485700
+    },
+    "ATHENA/SELF/mindsweeper_v2K_folded_bridge_edges.csv": {
+      "state_hash": "H:d140e4f91d0852515722f905b1c54c7786867055",
+      "size_bytes": 2239,
+      "mtime_ns": 1773446588550342200
+    },
+    "ATHENA/SELF/mindsweeper_v2K_folded_bridge_nodes.csv": {
+      "state_hash": "H:37949dea8b4e77c7d641d4c5dc73cb54ccdaae14",
+      "size_bytes": 3213,
+      "mtime_ns": 1773446587496394200
+    },
+    "ATHENA/SELF/mindsweeper_v2K_weighted_bridge_nodes.csv": {
+      "state_hash": "H:74a4a4e3a83c4b73093d3fb7da1e7b5e94444cc2",
+      "size_bytes": 2186,
+      "mtime_ns": 1773446895763620200
+    },
+    "GLOBAL COMMAND/GLOBAL COMMAND/_synthetic_command_membrane_runtime/native_runtime_event.txt": {
+      "source_id": "command_root",
+      "source_class": "command-folder",
+      "state_hash": "a0f2d800baa78dd1fa42dde77108777bdc47c6c4",
+      "event_fingerprint": "81770bd4221f4e9f87c0",
+      "change_type": "deleted",
+      "detected_ts": "2026-03-14T00:27:58.170695+00:00"
+    },
+    "GLOBAL COMMAND/_synthetic_command_membrane_runtime/native_runtime_event.txt": {
+      "source_id": "command_root",
+      "source_class": "command-folder",
+      "state_hash": "84f380f780fc598db552fd5a3f3ef98a59b989cb",
+      "event_fingerprint": "760c1d06c824e43be693",
+      "change_type": "deleted",
+      "detected_ts": "2026-03-14T00:27:58.440580+00:00"
+    }
+  },
+  "dedupe": {
+    "4c3df95da6367085556b": {
+      "event_id": "CMD-000001",
+      "seen_at": "2026-03-14T00:27:16.985530+00:00"
+    },
+    "e813465b22b0f2501e86": {
+      "event_id": "CMD-000002",
+      "seen_at": "2026-03-14T00:27:18.144870+00:00"
+    },
+    "0c517fc30d20d85eb3bc": {
+      "event_id": "CMD-000003",
+      "seen_at": "2026-03-14T00:27:57.202276+00:00"
+    },
+    "81770bd4221f4e9f87c0": {
+      "event_id": "CMD-000004",
+      "seen_at": "2026-03-14T00:27:58.259475+00:00"
+    },
+    "760c1d06c824e43be693": {
+      "event_id": "CMD-000005",
+      "seen_at": "2026-03-14T00:27:58.539590+00:00"
+    }
+  },
+  "last_event_seq": 5,
+  "last_liminal_seq": 5,
+  "last_committed_event_id": "CMD-000044",
+  "updated_at": "2026-03-14T00:28:17.875933+00:00",
+  "protocol_id": "COMMAND_MEMBRANE_V1",
+  "canonical_authority": "COMMAND_MEMBRANE_V1",
+  "watch_scope": "GLOBAL COMMAND only",
+  "watched_surface_count": 1,
+  "docs_gate": {
+    "state": "BLOCKED",
+    "witness_class": "LOCAL_WITNESS_ONLY",
+    "detail": "blocked-by-missing-credentials",
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "credentials_exists": false,
+    "token_exists": false,
+    "mode": "LOCAL_WITNESS_ONLY",
+    "detail_text": "Google Docs gate remains BLOCKED because Trading Bot/credentials.json and Trading Bot/token.json are missing."
+  },
+  "current_runtime_truth": {
+    "canonical_authority": "COMMAND_MEMBRANE_V1",
+    "active_loop": "L02",
+    "active_family": "A02 self_actualize",
+    "restart_seed": "L03 Survey A03 ECOSYSTEM",
+    "visible_caps": {
+      "hall": 8,
+      "temple": 8
+    },
+    "active_membrane": "Q41 / TQ06",
+    "feeders": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "parent_authority": "NEXT57",
+    "authority_mode": "LOCAL_WITNESS_ONLY",
+    "witness_class": "LOCAL_WITNESS_ONLY"
+  },
+  "active_membrane": "Q41 / TQ06",
+  "feeder_stack": [
+    "Q42",
+    "Q46",
+    "TQ04",
+    "Q02"
+  ],
+  "watched_source_ids": [
+    "command_root",
+    "guild_hall_board",
+    "temple_board",
+    "active_run",
+    "build_queue",
+    "active_thread_root",
+    "global_command_thread"
+  ],
+  "policy": {
+    "route_policy": "goal+salience+pheromone+coord",
+    "selector_terms": [
+      "goal_fit",
+      "salience",
+      "capillary_strength",
+      "coordinate_proximity",
+      "freshness",
+      "duplicate_penalty"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "ttl": 6,
+    "lease_ms": 1200
+  },
+  "truth_boundary": {
+    "prompt_level_liminal_gps": "supported",
+    "keystroke_level_liminal_gps": "requires client/runtime instrumentation"
+  },
+  "queue_depth": 36,
+  "last_event": {
+    "event_id": "CMD-000001",
+    "event_type": "created",
+    "source_path": "GLOBAL COMMAND/ATHENA/protocol.md",
+    "change_type": "created",
+    "watcher_mode": "event-driven",
+    "status": "committed",
+    "earth_ts_utc": "2026-03-14T00:25:41.842006+00:00",
+    "route_path": "COMMAND-ROOT-A1-SCOUT>COMMAND-ROOT-A2-ROUTER>COMMAND-ROOT-A3-WORKER>COMMAND-ROOT-A4-ARCHIVIST",
+    "claim_state": "active",
+    "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/CMD-000001.json",
+    "coord12": {
+      "earth_utc_anchor": "2026-03-14T00:25:41.842006+00:00",
+      "earth_rotation_phase": 0.726179,
+      "earth_orbital_phase": 0.19726,
+      "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+      "solar_phase": 0.0,
+      "lunar_phase": 0.842446,
+      "local_sidereal_phase": 0.494637,
+      "canonical_sky_anchor": "western_solar12|planetary_office|vedic_lunar",
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 0.35,
+      "goal_salience_vector": {
+        "goal": "detect-classify-assign",
+        "priority": 1.0
+      },
+      "change_novelty_vector": {
+        "change_type": "created",
+        "confidence": 0.98
+      }
+    },
+    "coordinate_stamp": {
+      "Xs": "GLOBAL_COMMAND",
+      "Ys": "command_root",
+      "Zs": "protocol.md",
+      "Ts": "L02",
+      "Qs": "COMMAND",
+      "Rs": "D1",
+      "Cs": "CMD-000001",
+      "Fs": "COMMAND",
+      "Ms": "closure",
+      "Ns": "ATHENA",
+      "Hs": "command-event",
+      "Omega_s": "A1"
+    },
+    "delta_tau": 1.645327,
+    "velocity_tau": 0.0
+  },
+  "metrics": {
+    "generated_at": "2026-03-14T00:25:51.511532+00:00",
+    "protocol_id": "NEXT57_COMMAND_PROTOCOL_V2",
+    "docs_gate_status": "BLOCKED",
+    "watcher_mode": "event-driven",
+    "watch_scope": "first-wave local swarm mesh",
+    "watched_surface_count": 7,
+    "event_count": 55,
+    "matched_event_count": 0,
+    "fallback_event_count": 0,
+    "claim_count": 19,
+    "active_claim_count": 0,
+    "committed_count": 19,
+    "reinforced_count": 11,
+    "edge_count": 23,
+    "latency_row_count": 55,
+    "backlog_count": 36,
+    "average_t_sugar_ms": 860444.243164,
+    "vessel_counts": {
+      "vein": 23
+    },
+    "detection_latency_avg_ms": 78181.659709,
+    "swarm_awareness_latency_avg_ms": 16647.840945,
+    "claim_latency_avg_ms": 4.593673,
+    "resolution_latency_avg_ms": 3.883855,
+    "commit_latency_avg_ms": 3.883855,
+    "t_sugar_avg_ms": 860444.243164,
+    "capillary_score_avg": 0.088533,
+    "liminal_distance_avg": 32.407157,
+    "liminal_velocity_avg": 0.196279,
+    "capillary_tiers": {
+      "route": 0,
+      "capillary": 0,
+      "vein": 23
+    },
+    "top_capillaries": [
+      {
+        "edge_id": "COMMAND-ROOT-A1-SCOUT>COMMAND-ROOT-A2-ROUTER",
+        "edge_strength": 115.037144,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "COMMAND-ROOT-A2-ROUTER>COMMAND-ROOT-A3-WORKER",
+        "edge_strength": 115.037144,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "COMMAND-ROOT-A3-WORKER>COMMAND-ROOT-A4-ARCHIVIST",
+        "edge_strength": 115.037144,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "BUILD-QUEUE-A1-SCOUT>BUILD-QUEUE-A2-ROUTER",
+        "edge_strength": 113.943856,
+        "classification": "vein"
+      },
+      {
+        "edge_id": "BUILD-QUEUE-A2-ROUTER>BUILD-QUEUE-A3-WORKER",
+        "edge_strength": 113.943856,
+        "classification": "vein"
+      }
+    ],
+    "detect_latency": 0.0,
+    "awareness_latency": 0.0,
+    "claim_latency": 0.0,
+    "resolution_latency": 0.0,
+    "commit_latency": 0.0,
+    "capillary_score": 0.0,
+    "liminal_delta": 0.0,
+    "earth_delta": 0.0,
+    "liminal_velocity": 0.0,
+    "T_detect_ms": 0.0,
+    "T_encode_ms": 0.0,
+    "T_route_ms": 0.0,
+    "T_claim_ms": 0.0,
+    "T_commit_ms": 0.0,
+    "T_sugar_ms": 0.0,
+    "duplicate_suppression_rate": 1.0,
+    "lease_collision_rate": 0.0,
+    "route_win_rate": 0.0,
+    "capillary_half_life": 0.0
+  },
+  "top_capillaries": [
+    {
+      "edge_id": "COMMAND-ROOT-A1-SCOUT>COMMAND-ROOT-A2-ROUTER",
+      "edge_strength": 115.037144,
+      "classification": "vein"
+    },
+    {
+      "edge_id": "COMMAND-ROOT-A2-ROUTER>COMMAND-ROOT-A3-WORKER",
+      "edge_strength": 115.037144,
+      "classification": "vein"
+    },
+    {
+      "edge_id": "COMMAND-ROOT-A3-WORKER>COMMAND-ROOT-A4-ARCHIVIST",
+      "edge_strength": 115.037144,
+      "classification": "vein"
+    },
+    {
+      "edge_id": "BUILD-QUEUE-A1-SCOUT>BUILD-QUEUE-A2-ROUTER",
+      "edge_strength": 113.943856,
+      "classification": "vein"
+    },
+    {
+      "edge_id": "BUILD-QUEUE-A2-ROUTER>BUILD-QUEUE-A3-WORKER",
+      "edge_strength": 113.943856,
+      "classification": "vein"
+    }
+  ],
+  "watch_registry": {
+    "generated_at": "2026-03-14T00:25:51.309905+00:00",
+    "protocol_id": "NEXT57_COMMAND_PROTOCOL_V2",
+    "docs_gate_status": "BLOCKED",
+    "watcher_mode": "event-driven",
+    "watch_scope": "first-wave local swarm mesh",
+    "source_count": 7,
+    "rows": [
+      {
+        "source_id": "command_root",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+        "relative_path": "GLOBAL COMMAND",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+        "watch_root_relative": "GLOBAL COMMAND",
+        "target_kind": "directory",
+        "source_class": "command-folder",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign",
+        "urgency_baseline": 1.0,
+        "coordinate_projection_hints": {
+          "Xs": "GLOBAL_COMMAND",
+          "Hs": "command-event",
+          "Ns": "COMMAND"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "guild_hall_board",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "relative_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS",
+        "watch_root_relative": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS",
+        "target_kind": "file",
+        "source_class": "guild-board",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.88,
+        "coordinate_projection_hints": {
+          "Xs": "GUILD_HALL",
+          "Hs": "quest-board",
+          "Ns": "HALL"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "temple_board",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "relative_path": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS",
+        "watch_root_relative": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS",
+        "target_kind": "file",
+        "source_class": "temple-board",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.9,
+        "coordinate_projection_hints": {
+          "Xs": "TEMPLE",
+          "Hs": "quest-board",
+          "Ns": "TEMPLE"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "active_run",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS",
+        "watch_root_relative": "NERVOUS_SYSTEM/95_MANIFESTS",
+        "target_kind": "file",
+        "source_class": "run-state",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.94,
+        "coordinate_projection_hints": {
+          "Xs": "NERVOUS_SYSTEM",
+          "Hs": "run-state",
+          "Ns": "ACTIVE_RUN"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "build_queue",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS",
+        "watch_root_relative": "NERVOUS_SYSTEM/95_MANIFESTS",
+        "target_kind": "file",
+        "source_class": "build-queue",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.93,
+        "coordinate_projection_hints": {
+          "Xs": "NERVOUS_SYSTEM",
+          "Hs": "build-queue",
+          "Ns": "BUILD_QUEUE"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "active_thread_root",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS",
+        "relative_path": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS",
+        "watch_root_relative": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS",
+        "target_kind": "directory",
+        "source_class": "active-thread-root",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign-runtime",
+        "urgency_baseline": 0.91,
+        "coordinate_projection_hints": {
+          "Xs": "ACTIVE_THREADS",
+          "Hs": "thread-root",
+          "Ns": "THREADS"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      },
+      {
+        "source_id": "global_command_thread",
+        "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command",
+        "relative_path": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS/global_command",
+        "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\02_ACTIVE_THREADS\\global_command",
+        "watch_root_relative": "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/02_ACTIVE_THREADS/global_command",
+        "target_kind": "directory",
+        "source_class": "active-thread",
+        "watch_scope": "first-wave local swarm mesh",
+        "event_filters": [
+          "created",
+          "updated",
+          "deleted"
+        ],
+        "default_lanes": {
+          "scout": "A1",
+          "router": "A2",
+          "worker": "A3",
+          "archivist": "A4"
+        },
+        "routing_goal": "detect-classify-assign",
+        "urgency_baseline": 0.96,
+        "coordinate_projection_hints": {
+          "Xs": "GLOBAL_COMMAND_THREAD",
+          "Hs": "thread",
+          "Ns": "GLOBAL_COMMAND"
+        },
+        "exists": true,
+        "docs_gate_status": "BLOCKED"
+      }
+    ]
+  },
+  "source_health": [
+    {
+      "source_id": "command_root",
+      "absolute_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "relative_path": "GLOBAL COMMAND",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "watch_root_relative": "GLOBAL COMMAND",
+      "target_kind": "directory",
+      "source_class": "command-folder",
+      "routing_goal": "detect-classify-assign",
+      "watch_mode": "event-driven",
+      "native_backend": "windows-native-filesystem-events",
+      "fallback_mode": "polling",
+      "failure_mode": "degraded-board-reconciliation",
+      "default_lanes": {
+        "scout": "A1",
+        "router": "A2",
+        "worker": "A3",
+        "archivist": "A4"
+      },
+      "exists": true,
+      "docs_gate_status": "BLOCKED"
+    }
+  ],
+  "ant_roles": [
+    "SCOUT",
+    "ROUTER",
+    "WORKER",
+    "ARCHIVIST"
+  ],
+  "pipeline": [
+    "COMMAND FOLDER",
+    "SCOUT",
+    "ROUTER",
+    "WORKER",
+    "ARCHIVIST"
+  ],
+  "watch_policy": {
+    "primary_mode": "event-driven",
+    "fallback_mode": "polling",
+    "failure_mode": "degraded-board-reconciliation",
+    "watch_scope": "GLOBAL COMMAND only",
+    "native_backend": "windows-native-filesystem-events",
+    "reconciliation_mode": "whole-workspace board scan fallback and reconciliation"
+  },
+  "latency_summary": {
+    "detect_latency": 0.0,
+    "awareness_latency": 0.0,
+    "claim_latency": 0.0,
+    "resolution_latency": 0.0,
+    "commit_latency": 0.0,
+    "capillary_score": 0.0,
+    "liminal_delta": 0.0,
+    "earth_delta": 0.0,
+    "liminal_velocity": 0.0,
+    "T_detect_ms": 0.0,
+    "T_encode_ms": 0.0,
+    "T_route_ms": 0.0,
+    "T_claim_ms": 0.0,
+    "T_commit_ms": 0.0,
+    "T_sugar_ms": 0.0,
+    "duplicate_suppression_rate": 1.0,
+    "lease_collision_rate": 0.0,
+    "route_win_rate": 0.0,
+    "capillary_half_life": 0.0
+  },
+  "last_event_id": "CMD-000005",
+  "last_coord12_vector": [
+    0.8476968393661082,
+    0.72776,
+    0.19726,
+    0.37578117894008756,
+    0.0,
+    0.842499,
+    0.496222,
+    0.2761634364724159,
+    0.3983821398578584,
+    0.35,
+    0.8179766323883086,
+    0.9771456366870552
+  ],
+  "last_earth_ts": "2026-03-14T00:27:58.440580+00:00"
+}

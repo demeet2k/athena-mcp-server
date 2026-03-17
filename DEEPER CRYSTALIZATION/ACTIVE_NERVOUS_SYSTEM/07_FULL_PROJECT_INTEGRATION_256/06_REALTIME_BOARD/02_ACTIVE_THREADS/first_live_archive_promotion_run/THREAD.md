@@ -17,8 +17,8 @@
 - Regime: `restart-token`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(A-E-F, B12, Air, O01, Arc1, Me, AppB, MATH, restart-token, pod, AMBIG)`
-- NeuronAddr: `<MATH, first_live_archive_promotion_run, O01, C, 3, a, AEF, Arc1, Me, AppB, AMBIG, restart-token>`
+- NSCoord: `(A-E-F, B12, Air, O16, Arc1, Me, AppB, MATH, restart-token, pod, AMBIG)`
+- NeuronAddr: `<MATH, first_live_archive_promotion_run, O16, C, 3, a, AEF, Arc1, Me, AppB, AMBIG, restart-token>`
 - ContractionTarget: `cortex/first_live_archive_promotion_run.md`
 
 ## Claims

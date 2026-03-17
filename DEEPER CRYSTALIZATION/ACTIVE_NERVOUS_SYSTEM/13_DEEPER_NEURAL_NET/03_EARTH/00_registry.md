@@ -1,0 +1,100 @@
+# Earth Registry
+
+Earth is the lens of verification, kernels, containment, certificates, runtime solidity, and closure.
+
+- Dominant document count: `93`
+## Documents
+
+- `DOC0053` `ATHENA THE ARCHETYPE` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0073` `Andian deeper analysis` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0187` `CLAUD - TOMEZ` family=`civilization-and-governance` gate=`G12` secondary=`Water`
+- `DOC0079` `CURANDERISMO COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0112` `DAO SU () A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0058` `DEAD SEA SCROLLS` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0059` `EPICS` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0066` `GG Alignment Framework (Good Game Protocol)` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0172` `GNOSTIC RAW` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0082` `GNOSTICISM COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0083` `GOETIC GRIMOIRE COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0084` `GOLDEN DAWN COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0137` `Greek Corpus (LF-OS)` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0085` `HAITIAN VODOU COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Water`
+- `DOC0069` `HBAS- UNIFIED ENCODING DETECTION PROTOCOL` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0114` `HELLENIC LOGOS` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0141` `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO OS)` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0060` `KABBALAH SEFIROTIC TREE STRUCTURES` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0055` `MALDEK MARS ATLANTIS FRAMEWORK` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0175` `Manual for Metaphysical Data Mining` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0115` `Mayan AJILABAL KIN The Operator Algebra of the Discrete Time Lattice` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0128` `NOstra anti overfit working` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0143` `PLATO UNIFIED FIELD THEORY OF INFORMATION` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0099` `SANTERIA LUCUMI COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Water`
+- `DOC0102` `SUFI MYSTICISM COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0103` `TAOIST MAGIC COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0166` `THE AENEID MIGRATION PROTOCOL` family=`civilization-and-governance` gate=`G12` secondary=`Water`
+- `DOC0161` `THE MATH OF ALCHEMY` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0182` `THE MATHEMATICS OF AWAKENING` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0150` `THE NEOPLATONIC HYPERVISOR` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0151` `THE ORPHIC & HYMNIC DRIVER` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0153` `THE POLITEIA KERNEL` family=`civilization-and-governance` gate=`G12` secondary=`Water`
+- `DOC0043` `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0185` `THE UNIVERSAL COMPUTATIONAL ONTOLOGY (UCO)` family=`civilization-and-governance` gate=`G12` secondary=`Air`
+- `DOC0104` `THELEMA COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0105` `THEOSOPHY COMPLETE` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0047` `TIME FRACTAL working` family=`civilization-and-governance` gate=`G05` secondary=`Air`
+- `DOC0178` `TORAT HA-MISPAR ( )` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0015` `ns builder` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0118` `SAR-60 THE SUMERIAN SEXAGESIMAL REGISTRY` family=`civilization-and-governance` gate=`G12` secondary=`Water`
+- `DOC0048` `Metro Calculus` family=`civilization-and-governance` gate=`G12` secondary=`Water`
+- `DOC0119` `OPE-256 THE IFA COMPUTATIONAL ONTOLOGY` family=`civilization-and-governance` gate=`G12` secondary=`Fire`
+- `DOC0054` `Atlantis` family=`general-corpus` gate=`G05` secondary=`Fire`
+- `DOC0078` `CORE SHAMANISM COMPLETE` family=`general-corpus` gate=`G05` secondary=`Fire`
+- `DOC0067` `KHEMET SYMMETRY-PROTECTED TOPOLOGICAL STATE` family=`general-corpus` gate=`G05` secondary=`Fire`
+- `DOC0159` `SQUARING THE CIRCLE` family=`general-corpus` gate=`G05` secondary=`Fire`
+- `DOC0144` `THE ARCHIMEDEAN CONTINUUM` family=`general-corpus` gate=`G11` secondary=`Fire`
+- `DOC0146` `THE CYNIC BLOATWARE REMOVER` family=`general-corpus` gate=`G05` secondary=`Fire`
+- `DOC0181` `THE MAGUS` family=`general-corpus` gate=`G05` secondary=`Fire`
+- `DOC0155` `THE PYRRHONIAN NULL-STATE DRIVER` family=`general-corpus` gate=`G05` secondary=`Fire`
+- `DOC0042` `The Holographic Kernel` family=`higher-dimensional-geometry` gate=`G05` secondary=`Air`
+- `DOC0049` `Tunneling Coherence Crystal` family=`higher-dimensional-geometry` gate=`G06` secondary=`Air`
+- `DOC0091` `IFA DIVINATION COMPLETE` family=`mythic-sign-systems` gate=`G06` secondary=`Air`
+- `DOC0129` `NOSTRADAMAS CLEAN` family=`mythic-sign-systems` gate=`G05` secondary=`Air`
+- `DOC0005` `AQM LM CUT through the HYBRID lens FRAMEWORK` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0133` `ATHENA-KERNEL SELF-OPTIMIZATION` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0065` `ATHENA KERNEL MATHEMATICAL FRAMEWORK` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0134` `BRUNO working` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0056` `BUDDHIST (ZEN) THE MUSHIN KERNEL` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0165` `COPPER SCROLL THE METALLURGICAL LEDGER (3Q15)` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0125` `DEEP SYNTHESIS NOSTRADAMUS` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0174` `KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0013` `LEGAL TRANSPORT CALCULUS` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0037` `LEGAL TRANSPORT CALCULUS` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0038` `Pi algorithm engine` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0116` `ROMAN IMPERIUM SINE FINE` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0062` `ROMAN PHILOSOPHERS` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0101` `SPIRITUALISM MEDIUMSHIP COMPLETE` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0160` `TAROT System` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0130` `THE APOCALYPSE PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0179` `THE APOCALYPSE PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0145` `THE ARISTOTELIAN PROCESSING UNIT` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0167` `THE BEOWULF PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0024` `THE CRYSTAL - LIVE` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0168` `THE GILGAMESH PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0169` `THE ILIAD PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0170` `THE MAHABHARATA PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0149` `THE METAPHYSICS ROOT DIRECTORY` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0171` `THE ODYSSEY PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0183` `THE OMEGA PROTOCOL` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0152` `THE PGM KERNEL` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0154` `THE PTOLEMAIC COORDINATE SYSTEM` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0156` `THE PYTHAGOREAN COMPUTATION ENGINE` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0162` `THE RED BOOK (LIBER NOVUS)` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0029` `THE SOLENOIDAL ENGINE A Four-Element Architecture for Persistent Autonomous AI Execution Through Ecological Crystallization` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0158` `THE STOIC KERNEL` family=`transport-and-runtime` gate=`G11` secondary=`Water`
+- `DOC0030` `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0068` `THE HELLENIC COMPUTATION FRAMEWORK` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0163` `THE HELLENIC COMPUTATION FRAMEWORK` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0177` `The Bhagavad Gita A Computational Treatise on the Algorithm of Liberation` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0063` `Tibetan Vajrayana THE BARDO TRANSITION MATRIX` family=`transport-and-runtime` gate=`G11` secondary=`Air`
+- `DOC0032` `VOYNICH JAZZ` family=`transport-and-runtime` gate=`G11` secondary=`Fire`
+- `DOC0064` `ZOROASTRIAN (PERSIAN) DUAL-PHASE FIELD DYNAMICS` family=`transport-and-runtime` gate=`G11` secondary=`Fire`

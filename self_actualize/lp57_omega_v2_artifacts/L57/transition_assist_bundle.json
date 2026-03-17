@@ -1,0 +1,579 @@
+{
+  "generated_at": "2026-03-13T23:39:25.244772+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "loop_id": "L57",
+  "status": "QUEUED",
+  "bundle_type": "TransitionAssistBundle",
+  "notes": [
+    {
+      "note_id": "TA-001",
+      "agent_id": "Master Agent",
+      "stage_0_to_6": 1,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-002",
+      "agent_id": "Aether",
+      "stage_0_to_6": 2,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-003",
+      "agent_id": "Commander",
+      "stage_0_to_6": 3,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-004",
+      "agent_id": "General-North",
+      "stage_0_to_6": 4,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-005",
+      "agent_id": "General-East",
+      "stage_0_to_6": 5,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-006",
+      "agent_id": "General-South",
+      "stage_0_to_6": 6,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-007",
+      "agent_id": "General-West",
+      "stage_0_to_6": 0,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-008",
+      "agent_id": "Hybrid-01",
+      "stage_0_to_6": 1,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-009",
+      "agent_id": "Hybrid-02",
+      "stage_0_to_6": 2,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-010",
+      "agent_id": "Hybrid-03",
+      "stage_0_to_6": 3,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-011",
+      "agent_id": "Hybrid-04",
+      "stage_0_to_6": 4,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-012",
+      "agent_id": "Hybrid-05",
+      "stage_0_to_6": 5,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-013",
+      "agent_id": "Hybrid-06",
+      "stage_0_to_6": 6,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-014",
+      "agent_id": "Archetype-01",
+      "stage_0_to_6": 0,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-015",
+      "agent_id": "Archetype-02",
+      "stage_0_to_6": 1,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-016",
+      "agent_id": "Archetype-03",
+      "stage_0_to_6": 2,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-017",
+      "agent_id": "Archetype-04",
+      "stage_0_to_6": 3,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-018",
+      "agent_id": "Archetype-05",
+      "stage_0_to_6": 4,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-019",
+      "agent_id": "Archetype-06",
+      "stage_0_to_6": 5,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-020",
+      "agent_id": "Archetype-07",
+      "stage_0_to_6": 6,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-021",
+      "agent_id": "Archetype-08",
+      "stage_0_to_6": 0,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-022",
+      "agent_id": "Archetype-09",
+      "stage_0_to_6": 1,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-023",
+      "agent_id": "Archetype-10",
+      "stage_0_to_6": 2,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-024",
+      "agent_id": "Archetype-11",
+      "stage_0_to_6": 3,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-025",
+      "agent_id": "Archetype-12",
+      "stage_0_to_6": 4,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-026",
+      "agent_id": "Q42",
+      "stage_0_to_6": 5,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-027",
+      "agent_id": "Q46",
+      "stage_0_to_6": 6,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-028",
+      "agent_id": "TQ04",
+      "stage_0_to_6": 0,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    },
+    {
+      "note_id": "TA-029",
+      "agent_id": "Q02",
+      "stage_0_to_6": 1,
+      "active_elements": [
+        "crosswalk",
+        "routing"
+      ],
+      "missing_element": "compression",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "AMBIG"
+    },
+    {
+      "note_id": "TA-030",
+      "agent_id": "DormantSeatTemplate",
+      "stage_0_to_6": 2,
+      "active_elements": [
+        "memory",
+        "execution"
+      ],
+      "missing_element": "basis-ownership",
+      "blind_spot": "feeder blending or blocked-front promotion drift",
+      "transition_trigger": "sealed feeder-stack crosswalk plus replay-safe L05 handoff",
+      "current_duty": "Seal L04 Feeder-Stack Crosswalk and prepare L05 Canonical 16-Basis Ownership",
+      "next_practice": "cite the exact feeder tuple before promoting any runtime or governance front",
+      "handoff_rule": "A1 synthesizes the feeder tuple, A2 emits L04 quests, A3 binds Hall/Temple/control surfaces, A4 prunes rival feeder stories",
+      "fallback_rule": "degrade to NEAR or AMBIG and keep Q46 reserve-only with Q02 blocked",
+      "witness_basis": "physical > indexed > board > archive > promoted with deep-root precedence preserved",
+      "route_target": "basis-ownership",
+      "truth_state": "NEAR"
+    }
+  ]
+}

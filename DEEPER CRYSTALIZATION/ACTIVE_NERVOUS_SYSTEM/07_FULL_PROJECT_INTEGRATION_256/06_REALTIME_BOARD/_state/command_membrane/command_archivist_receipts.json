@@ -1,0 +1,1375 @@
+[
+  {
+    "event_id": "EVT-20260313T214302Z-14BA5E",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 5.054,
+    "swarm_awareness_latency_ms": 15.717,
+    "claim_latency_ms": 2.818,
+    "resolution_latency_ms": 0.008,
+    "capillary_score": 0.711367,
+    "liminal_distance": 0.0,
+    "liminal_velocity": 0.0,
+    "integration_gain": 1.0,
+    "compression_gain": 0.0,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:2552A468D7161B70"
+    },
+    "claim_id": "CLM-20260313T214302Z-34f0ff",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 24.592,
+    "committed_at": "2026-03-13T21:43:02.206244+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 3.060326,
+    "reward_class": "rotate",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.0,
+    "first_jackpot": 0.0,
+    "capillary_bonus": 3.060326,
+    "heaven_alignment": 0.0,
+    "heaven_total_after": 3.060326,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T214302Z-14BA5E",
+    "reward_multiplier": 0.999999,
+    "gold_deposit": 3.060326,
+    "bridge_deposit": 0.8,
+    "route_mode": "rotate",
+    "crown": "none",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T214339Z-2EAACF",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 6.001,
+    "swarm_awareness_latency_ms": 19.27,
+    "claim_latency_ms": 3.307,
+    "resolution_latency_ms": 0.009,
+    "capillary_score": 1.0,
+    "liminal_distance": 10.738674,
+    "liminal_velocity": 0.288826,
+    "integration_gain": 0.175,
+    "compression_gain": 0.825,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:2C40E7252E857639"
+    },
+    "claim_id": "CLM-20260313T214339Z-a45397",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 29.82,
+    "committed_at": "2026-03-13T21:43:39.392712+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 2.303824,
+    "reward_class": "rotate",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.0,
+    "first_jackpot": 0.0,
+    "capillary_bonus": 2.303824,
+    "heaven_alignment": 0.0,
+    "heaven_total_after": 2.303824,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T214339Z-2EAACF",
+    "reward_multiplier": 0.999999,
+    "gold_deposit": 2.303824,
+    "bridge_deposit": 0.8,
+    "route_mode": "rotate",
+    "crown": "none",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T215829Z-67B020",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 0.0,
+    "claim_latency_ms": 3208.585,
+    "resolution_latency_ms": 0.0,
+    "capillary_score": 0.0,
+    "liminal_distance": 256.869055,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:E612A703A13D1014"
+    },
+    "claim_id": "CLM-EVT-20260313T215829Z-67B020",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 3208.585,
+    "committed_at": "2026-03-13T21:58:35.323444+00:00",
+    "front_ref": "GLOBAL COMMAND"
+  },
+  {
+    "event_id": "EVT-20260313T220121Z-337755",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 16.37,
+    "claim_latency_ms": 5.073,
+    "resolution_latency_ms": 0.011,
+    "capillary_score": 2.043076,
+    "liminal_distance": 49.882597,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:DA252CF0D5749931"
+    },
+    "claim_id": "CLM-20260313T220122Z-f939c5",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 28.677,
+    "committed_at": "2026-03-13T22:01:22.010546+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 5.887729,
+    "reward_class": "rotate",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 0.0,
+    "capillary_bonus": 5.887729,
+    "heaven_alignment": 0.1375,
+    "heaven_total_after": 5.887729,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220121Z-337755",
+    "reward_multiplier": 1.159419,
+    "gold_deposit": 5.887729,
+    "bridge_deposit": 0.69,
+    "route_mode": "rotate",
+    "crown": "none",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220157Z-335FA6",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 19.235,
+    "claim_latency_ms": 2.855,
+    "resolution_latency_ms": 0.009,
+    "capillary_score": 4.27136,
+    "liminal_distance": 10.26269,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:DE039A4B3B663604"
+    },
+    "claim_id": "CLM-20260313T220157Z-0e9be0",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 30.282,
+    "committed_at": "2026-03-13T22:01:57.562564+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.396323,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.396323,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.396323,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220157Z-335FA6",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.396323,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220221Z-97BF35",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 4.512,
+    "swarm_awareness_latency_ms": 17.404,
+    "claim_latency_ms": 2.686,
+    "resolution_latency_ms": 0.007,
+    "capillary_score": 5.934105,
+    "liminal_distance": 6.780987,
+    "liminal_velocity": 0.289013,
+    "integration_gain": 1.0,
+    "compression_gain": 0.0,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:6C992AF7DD1677FB"
+    },
+    "claim_id": "CLM-20260313T220221Z-4092cb",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 27.486,
+    "committed_at": "2026-03-13T22:02:21.023106+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 10.809794,
+    "reward_class": "rotate",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 0.0,
+    "capillary_bonus": 10.809794,
+    "heaven_alignment": 0.5,
+    "heaven_total_after": 10.809794,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220221Z-97BF35",
+    "reward_multiplier": 1.999996,
+    "gold_deposit": 10.809794,
+    "bridge_deposit": 0.4,
+    "route_mode": "rotate",
+    "crown": "none",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220354Z-AF7EC2",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 4.113,
+    "swarm_awareness_latency_ms": 14.441,
+    "claim_latency_ms": 2.447,
+    "resolution_latency_ms": 0.006,
+    "capillary_score": 6.396827,
+    "liminal_distance": 27.018429,
+    "liminal_velocity": 0.288696,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:CEBD9EF565965C0B"
+    },
+    "claim_id": "CLM-20260313T220354Z-50c53f",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 23.218,
+    "committed_at": "2026-03-13T22:03:54.606172+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.395975,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.395975,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.395975,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220354Z-AF7EC2",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.395975,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220440Z-AAEBC0",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 6.006,
+    "swarm_awareness_latency_ms": 16.684,
+    "claim_latency_ms": 2.665,
+    "resolution_latency_ms": 0.007,
+    "capillary_score": 6.683439,
+    "liminal_distance": 13.232073,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:03A9B2A4F1049756"
+    },
+    "claim_id": "CLM-20260313T220440Z-15598e",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 26.578,
+    "committed_at": "2026-03-13T22:04:40.446015+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.391926,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.391926,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.391926,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220440Z-AAEBC0",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.391926,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220618Z-E3D72C",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 5.518,
+    "swarm_awareness_latency_ms": 19.01,
+    "claim_latency_ms": 2.956,
+    "resolution_latency_ms": 0.009,
+    "capillary_score": 6.874251,
+    "liminal_distance": 28.177829,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:58CD5ECEFD9FAF97"
+    },
+    "claim_id": "CLM-20260313T220618Z-7b784b",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 30.39,
+    "committed_at": "2026-03-13T22:06:18.061410+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.390387,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.390387,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.390387,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220618Z-E3D72C",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.390387,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220643Z-21EECD",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 20.27,
+    "claim_latency_ms": 3.255,
+    "resolution_latency_ms": 0.01,
+    "capillary_score": 7.012557,
+    "liminal_distance": 7.437661,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:F031C6FB658C47EF"
+    },
+    "claim_id": "CLM-20260313T220643Z-fde2a6",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 33.412,
+    "committed_at": "2026-03-13T22:06:43.829683+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.395251,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.395251,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.395251,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220643Z-21EECD",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.395251,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220803Z-49D794",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 20.809,
+    "claim_latency_ms": 3.084,
+    "resolution_latency_ms": 0.008,
+    "capillary_score": 7.117671,
+    "liminal_distance": 22.933858,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:D1ADF98DB9669065"
+    },
+    "claim_id": "CLM-20260313T220803Z-8359b4",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 33.094,
+    "committed_at": "2026-03-13T22:08:03.274433+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.394901,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.394901,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.394901,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220803Z-49D794",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.394901,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220829Z-ED88A2",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 22.35,
+    "claim_latency_ms": 2.895,
+    "resolution_latency_ms": 0.007,
+    "capillary_score": 7.201674,
+    "liminal_distance": 7.579606,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:5D1DD177EA97B30A"
+    },
+    "claim_id": "CLM-20260313T220829Z-155dd9",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 33.945,
+    "committed_at": "2026-03-13T22:08:29.531161+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.393735,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.393735,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.393735,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220829Z-ED88A2",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.393735,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T220920Z-0318E2",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 6.548,
+    "swarm_awareness_latency_ms": 19.234,
+    "claim_latency_ms": 3.215,
+    "resolution_latency_ms": 0.009,
+    "capillary_score": 7.750725,
+    "liminal_distance": 14.705038,
+    "liminal_velocity": 0.288747,
+    "integration_gain": 1.0,
+    "compression_gain": 0.0,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:5B9494E945BEB470"
+    },
+    "claim_id": "CLM-20260313T220920Z-e9bd9c",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 32.16,
+    "committed_at": "2026-03-13T22:09:20.456509+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 10.803944,
+    "reward_class": "rotate",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 0.0,
+    "capillary_bonus": 10.803944,
+    "heaven_alignment": 0.5,
+    "heaven_total_after": 10.803944,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T220920Z-0318E2",
+    "reward_multiplier": 1.999996,
+    "gold_deposit": 10.803944,
+    "bridge_deposit": 0.4,
+    "route_mode": "rotate",
+    "crown": "none",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T221002Z-E8E710",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 5.988,
+    "swarm_awareness_latency_ms": 18.381,
+    "claim_latency_ms": 3.074,
+    "resolution_latency_ms": 0.007,
+    "capillary_score": 7.239588,
+    "liminal_distance": 12.084657,
+    "liminal_velocity": 0.288794,
+    "integration_gain": 0.175,
+    "compression_gain": 0.825,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:919163AD49111A4D"
+    },
+    "claim_id": "CLM-20260313T221002Z-27b61a",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 30.647,
+    "committed_at": "2026-03-13T22:10:02.300489+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 8.252104,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 8.252104,
+    "heaven_alignment": 0.175,
+    "heaven_total_after": 8.252104,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T221002Z-E8E710",
+    "reward_multiplier": 1.21212,
+    "gold_deposit": 8.252104,
+    "bridge_deposit": 0.66,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T221135Z-93670B",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 9.413,
+    "swarm_awareness_latency_ms": 2739.887,
+    "claim_latency_ms": 110.73,
+    "resolution_latency_ms": 2743.8,
+    "capillary_score": 0.0,
+    "liminal_distance": 26.872075,
+    "liminal_velocity": 0.288675,
+    "encode_latency_ms": 0.0,
+    "route_latency_ms": 2739.887,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:72152EB13AF53985"
+    },
+    "claim_id": "CLM-EVT-20260313T221135Z-93670B",
+    "commit_latency_ms": 2.395,
+    "t_sugar_ms": 2862.425,
+    "committed_at": "2026-03-13T22:11:40.951660+00:00",
+    "front_ref": "GLOBAL COMMAND"
+  },
+  {
+    "event_id": "EVT-20260313T221658Z-CA1A01",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 11.701,
+    "swarm_awareness_latency_ms": 3358.993,
+    "claim_latency_ms": 244.085,
+    "resolution_latency_ms": 4602.772,
+    "capillary_score": 0.0,
+    "liminal_distance": 93.199452,
+    "liminal_velocity": 0.288675,
+    "encode_latency_ms": 0.0,
+    "route_latency_ms": 3358.993,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:3F32752D6750A3DD"
+    },
+    "claim_id": "CLM-EVT-20260313T221658Z-CA1A01",
+    "commit_latency_ms": 2.549,
+    "t_sugar_ms": 3617.328,
+    "committed_at": "2026-03-13T22:17:06.415467+00:00",
+    "front_ref": "GLOBAL COMMAND"
+  },
+  {
+    "event_id": "EVT-20260313T222359Z-EBE7D1",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 7.0,
+    "swarm_awareness_latency_ms": 20.31,
+    "claim_latency_ms": 4.841,
+    "resolution_latency_ms": 0.01,
+    "capillary_score": 3.753292,
+    "liminal_distance": 121.742064,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:67CAE550CADCCD80"
+    },
+    "claim_id": "CLM-20260313T222359Z-a6ce9c",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 36.0,
+    "committed_at": "2026-03-13T22:23:59.972534+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.386656,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.386656,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.386656,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T222359Z-EBE7D1",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.386656,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T222428Z-DF4DEF",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 9.001,
+    "swarm_awareness_latency_ms": 35.73,
+    "claim_latency_ms": 4.059,
+    "resolution_latency_ms": 0.014,
+    "capillary_score": 4.932111,
+    "liminal_distance": 8.305102,
+    "liminal_velocity": 0.288677,
+    "integration_gain": 0.175,
+    "compression_gain": 0.825,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:F872647367B53585"
+    },
+    "claim_id": "CLM-20260313T222428Z-35da06",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 53.731,
+    "committed_at": "2026-03-13T22:24:28.760043+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 8.236201,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 8.236201,
+    "heaven_alignment": 0.175,
+    "heaven_total_after": 8.236201,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T222428Z-DF4DEF",
+    "reward_multiplier": 1.21212,
+    "gold_deposit": 8.236201,
+    "bridge_deposit": 0.66,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T222535Z-6FB6D9",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 7.982,
+    "swarm_awareness_latency_ms": 30.251,
+    "claim_latency_ms": 4.735,
+    "resolution_latency_ms": 0.013,
+    "capillary_score": 5.987215,
+    "liminal_distance": 19.222288,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:0BCD0D8CAA1A4EFC"
+    },
+    "claim_id": "CLM-20260313T222535Z-9b6350",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 49.605,
+    "committed_at": "2026-03-13T22:25:35.343444+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.377468,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.377468,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.377468,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T222535Z-6FB6D9",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.377468,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  },
+  {
+    "event_id": "EVT-20260313T223553Z-520774",
+    "claim_ant_id": "WORKER-02",
+    "result": "success",
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "detection_latency_ms": 0.0,
+    "swarm_awareness_latency_ms": 20.178,
+    "claim_latency_ms": 3.209,
+    "resolution_latency_ms": 0.006,
+    "capillary_score": 6.606092,
+    "liminal_distance": 178.317485,
+    "liminal_velocity": 0.288675,
+    "integration_gain": 0.275,
+    "compression_gain": 0.725,
+    "unresolved_followups": [],
+    "replay_ptr": {
+      "Inputs": [
+        "COMMAND packet payload",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/last_command_snapshot.json",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/command_membrane/command_runtime_state.json",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson"
+      ],
+      "Steps": [
+        "DetectEncode",
+        "RouteV1",
+        "FirstLeaseClaim",
+        "CommitReinforce"
+      ],
+      "ExpectedOutputs": [
+        "resolved command packet",
+        "resolved route decision",
+        "resolved claim lease",
+        "resolved commit receipt",
+        "reinforcement verdict"
+      ],
+      "Checks": [
+        "TopK<=5",
+        "Quorum=1",
+        "TTL=6",
+        "LocalOnlyWitness"
+      ],
+      "EnvPin": {
+        "workspace_root": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "command_root": "GLOBAL COMMAND",
+        "docs_gate_status": "BLOCKED"
+      },
+      "Hash": "H:1BBAC1E678D5ED5E"
+    },
+    "claim_id": "CLM-20260313T223553Z-667572",
+    "commit_latency_ms": 0.0,
+    "t_sugar_ms": 33.205,
+    "committed_at": "2026-03-13T22:35:53.037449+00:00",
+    "front_ref": "GLOBAL COMMAND",
+    "reward_delta": 9.395352,
+    "reward_class": "reinforce",
+    "try_bonus": 0.8,
+    "assist_bonus": 0.18,
+    "first_jackpot": 1.79,
+    "capillary_bonus": 9.395352,
+    "heaven_alignment": 0.275,
+    "heaven_total_after": 9.395352,
+    "seed_mode": "",
+    "dual_reference": "",
+    "reward_receipt_id": "JOY-RECEIPT-EVT-20260313T223553Z-520774",
+    "reward_multiplier": 1.379308,
+    "gold_deposit": 9.395352,
+    "bridge_deposit": 0.58,
+    "route_mode": "reinforce",
+    "crown": "prime",
+    "verification_class": "committed_verified"
+  }
+]

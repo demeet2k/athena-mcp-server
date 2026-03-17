@@ -1,0 +1,7175 @@
+{
+  "generated_at": "2026-03-13T00:25:02",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "return_code": "1",
+    "query": "",
+    "note": "Error: Missing OAuth client file: credentials.json\nCreate/download a Desktop App OAuth client in Google Cloud Console and save it as credentials.json (or pass --credentials)."
+  },
+  "live_summary": {
+    "record_count": 521,
+    "top_levels": [
+      [
+        "MYTH - MATH",
+        144
+      ],
+      [
+        "COMPLETE TOMES",
+        96
+      ],
+      [
+        "Matrix Multiplication",
+        71
+      ],
+      [
+        "Tunneling",
+        66
+      ],
+      [
+        "MATH GOD",
+        33
+      ],
+      [
+        "The Crystal",
+        31
+      ],
+      [
+        "GLOBAL MATH - MYTH",
+        17
+      ],
+      [
+        "Q shrink",
+        17
+      ],
+      [
+        "Algorithms",
+        15
+      ],
+      [
+        "Hybrid Equations",
+        15
+      ],
+      [
+        "FRAMEWORKS CODE",
+        8
+      ],
+      [
+        "Latin Rose Math",
+        3
+      ],
+      [
+        "4-Bit",
+        2
+      ],
+      [
+        "Hybrid Equations for Algorithmic Shortcuts.docx",
+        1
+      ],
+      [
+        "THE THEORY OF TEXTURE.docx",
+        1
+      ],
+      [
+        "Tri-Solenoidal Engine (TSE)_ Geometric Nested Compression Fractals.docx",
+        1
+      ]
+    ],
+    "extensions": [
+      [
+        ".docx",
+        267
+      ],
+      [
+        ".md",
+        98
+      ],
+      [
+        ".csv",
+        66
+      ],
+      [
+        ".py",
+        28
+      ],
+      [
+        ".zip",
+        16
+      ],
+      [
+        ".pdf",
+        14
+      ],
+      [
+        ".png",
+        8
+      ],
+      [
+        ".json",
+        5
+      ],
+      [
+        ".txt",
+        5
+      ],
+      [
+        ".cpp",
+        4
+      ],
+      [
+        ".cpu",
+        2
+      ],
+      [
+        ".cuda",
+        2
+      ],
+      [
+        ".ps1",
+        2
+      ],
+      [
+        ".sh",
+        2
+      ],
+      [
+        ".toml",
+        1
+      ],
+      [
+        "[noext]",
+        1
+      ]
+    ]
+  },
+  "archive_summary": {
+    "archive_count": 16,
+    "entry_count": 2041,
+    "top_levels": [
+      [
+        "FRAMEWORKS CODE",
+        1289
+      ],
+      [
+        "The Crystal",
+        347
+      ],
+      [
+        "COMPLETE TOMES",
+        169
+      ],
+      [
+        "Q shrink",
+        146
+      ],
+      [
+        "Matrix Multiplication",
+        55
+      ],
+      [
+        "MYTH - MATH",
+        35
+      ]
+    ],
+    "extensions": [
+      [
+        ".py",
+        1325
+      ],
+      [
+        ".js",
+        265
+      ],
+      [
+        ".md",
+        108
+      ],
+      [
+        ".docx",
+        93
+      ],
+      [
+        ".ts",
+        79
+      ],
+      [
+        ".pyc",
+        62
+      ],
+      [
+        ".rs",
+        21
+      ],
+      [
+        ".png",
+        16
+      ],
+      [
+        ".toml",
+        10
+      ],
+      [
+        ".csv",
+        8
+      ],
+      [
+        ".pdf",
+        8
+      ],
+      [
+        ".txt",
+        7
+      ],
+      [
+        "[noext]",
+        7
+      ],
+      [
+        ".cpp",
+        6
+      ],
+      [
+        ".json",
+        5
+      ],
+      [
+        ".sh",
+        5
+      ],
+      [
+        ".cpu",
+        3
+      ],
+      [
+        ".cuda",
+        3
+      ],
+      [
+        ".html",
+        3
+      ],
+      [
+        ".ps1",
+        3
+      ],
+      [
+        ".bat",
+        2
+      ],
+      [
+        ".tex",
+        1
+      ],
+      [
+        ".zip",
+        1
+      ]
+    ]
+  },
+  "code_scan": {
+    "available": true,
+    "file_count": 840,
+    "projects": {
+      "Athena OS": 430,
+      "ATLAS FORGE  - Framework": 302,
+      "POLE STAR GEMM - MATRIX MULTIPLICATION": 9,
+      "Q-SHRINK": 99
+    },
+    "class_count": 5381,
+    "function_count": 2101,
+    "import_count": 15125
+  },
+  "signal_lexicon": [
+    [
+      "space",
+      268
+    ],
+    [
+      "tome",
+      242
+    ],
+    [
+      "kernel",
+      236
+    ],
+    [
+      "crystal",
+      235
+    ],
+    [
+      "myth",
+      235
+    ],
+    [
+      "structure",
+      209
+    ],
+    [
+      "canonical",
+      181
+    ],
+    [
+      "square",
+      174
+    ],
+    [
+      "omega",
+      167
+    ],
+    [
+      "core",
+      164
+    ],
+    [
+      "full",
+      151
+    ],
+    [
+      "these",
+      144
+    ],
+    [
+      "quad",
+      141
+    ],
+    [
+      "athena",
+      141
+    ],
+    [
+      "systems",
+      138
+    ],
+    [
+      "four",
+      136
+    ]
+  ],
+  "passes": [
+    {
+      "match_count": 1733,
+      "live_match_count": 317,
+      "archive_match_count": 1416,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          991
+        ],
+        [
+          "COMPLETE TOMES",
+          218
+        ],
+        [
+          "The Crystal",
+          212
+        ],
+        [
+          "MYTH - MATH",
+          150
+        ],
+        [
+          "Q shrink",
+          60
+        ],
+        [
+          "MATH GOD",
+          33
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          1416
+        ],
+        [
+          "Manuscript",
+          247
+        ],
+        [
+          "Synthesis",
+          51
+        ],
+        [
+          "Runtime",
+          19
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\08_METRO_LINES.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 7,
+          "hits": [
+            "kernel",
+            "ontology",
+            "operating system",
+            "logos"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\HARD MATH\\THE_HELLENIC_COMPUTATION_FRAMEWORK.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 6,
+          "hits": [
+            "kernel",
+            "core",
+            "foundation",
+            "operating system"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Myth\\HELLENIC LOGOS .docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 6,
+          "hits": [
+            "kernel",
+            "ontology",
+            "operating system",
+            "logos"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\ATHENA-KERNEL SELF-OPTIMIZATION.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 6,
+          "hits": [
+            "kernel",
+            "operating system",
+            "logos",
+            "athena"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\THE_HELLENIC_COMPUTATION_FRAMEWORK.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 6,
+          "hits": [
+            "kernel",
+            "core",
+            "foundation",
+            "operating system"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\THE ATHENA PROTOCOL (SEED).docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 6,
+          "hits": [
+            "core",
+            "seed",
+            "operating system",
+            "athena"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 BECOME TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "seed",
+            "operating system",
+            "athena"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\EMOTIONAL HYPERCRYSTAL TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "core",
+            "operating system",
+            "athena"
+          ]
+        }
+      ],
+      "id": "P01",
+      "title": "Kernel Recovery",
+      "description": "Recover the recurring kernel that makes the corpus behave like one organism instead of a pile of manuscripts."
+    },
+    {
+      "match_count": 1200,
+      "live_match_count": 285,
+      "archive_match_count": 915,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          626
+        ],
+        [
+          "The Crystal",
+          177
+        ],
+        [
+          "COMPLETE TOMES",
+          153
+        ],
+        [
+          "MYTH - MATH",
+          90
+        ],
+        [
+          "Q shrink",
+          51
+        ],
+        [
+          "Tunneling",
+          26
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          915
+        ],
+        [
+          "Manuscript",
+          227
+        ],
+        [
+          "Synthesis",
+          31
+        ],
+        [
+          "Runtime",
+          27
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME II \u2014 Quantum Arithmetic & Analysis.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "state",
+            "value",
+            "hilbert",
+            "carrier"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA AWAKEN - MATH TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "state",
+            "value",
+            "hilbert",
+            "carrier"
+          ]
+        },
+        {
+          "relative_path": "4-Bit\\BIT4_ The Four-State Completion of the Bit.docx",
+          "source_layer": "live",
+          "top_level": "4-Bit",
+          "score": 6,
+          "hits": [
+            "state",
+            "value",
+            "carrier",
+            "bit4"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\02_CORE_LANGUAGE_ANALYSIS.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 6,
+          "hits": [
+            "state",
+            "hilbert",
+            "carrier",
+            "density"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\MATH GOD.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 6,
+          "hits": [
+            "state",
+            "hilbert",
+            "density",
+            "number"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\(AQM) and Q-Phi Framework 1.1.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 5,
+          "hits": [
+            "state",
+            "value",
+            "hilbert",
+            "number"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME IV \u2014 Kernel Closure at Infinite Resolution.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "state",
+            "value",
+            "carrier",
+            "number"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\N-N+7\\(N+3 $_to$ N+4).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "state",
+            "hilbert",
+            "carrier",
+            "space"
+          ]
+        }
+      ],
+      "id": "P02",
+      "title": "State Value Deepening",
+      "description": "Track how the corpus redefines numbers, states, carriers, and values as richer semantic objects."
+    },
+    {
+      "match_count": 636,
+      "live_match_count": 181,
+      "archive_match_count": 455,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          269
+        ],
+        [
+          "COMPLETE TOMES",
+          136
+        ],
+        [
+          "The Crystal",
+          97
+        ],
+        [
+          "Q shrink",
+          35
+        ],
+        [
+          "MYTH - MATH",
+          29
+        ],
+        [
+          "MATH GOD",
+          24
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          455
+        ],
+        [
+          "Manuscript",
+          131
+        ],
+        [
+          "Synthesis",
+          30
+        ],
+        [
+          "Runtime",
+          20
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\03_SYNTHESIS_03_BOUNDARY_TOTALIZATION.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 7,
+          "hits": [
+            "boundary",
+            "liminal",
+            "corridor",
+            "ambigu"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\THE (N \u2192 N+7) TREATISE.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 6,
+          "hits": [
+            "boundary",
+            "corridor",
+            "ambigu",
+            "bulk"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME IV \u2014 Kernel Closure at Infinite Resolution.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "ambigu",
+            "bulk",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM MASTER TOME \u2014 LIMINAL MATHEMATICS (LM).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "liminal",
+            "corridor",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM\\LM TOME I \u2014 FOUNDATIONS & SEMANTICS.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "liminal",
+            "corridor",
+            "ambigu"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\03_INTEROPERABILITY_STACK.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "corridor",
+            "ambigu",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\01_SYNTHESIS_01_KERNEL_RECOVERY.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "corridor",
+            "ambigu",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "boundary",
+            "liminal",
+            "bulk",
+            "bound"
+          ]
+        }
+      ],
+      "id": "P03",
+      "title": "Boundary Totalization",
+      "description": "Expose how ambiguity, singularity, liminality, and corridor logic become first-class rather than hidden failure."
+    },
+    {
+      "match_count": 745,
+      "live_match_count": 238,
+      "archive_match_count": 507,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          278
+        ],
+        [
+          "The Crystal",
+          143
+        ],
+        [
+          "COMPLETE TOMES",
+          132
+        ],
+        [
+          "Matrix Multiplication",
+          84
+        ],
+        [
+          "Tunneling",
+          66
+        ],
+        [
+          "MATH GOD",
+          18
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          507
+        ],
+        [
+          "Manuscript",
+          129
+        ],
+        [
+          "Runtime",
+          86
+        ],
+        [
+          "Synthesis",
+          23
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\03_INTEROPERABILITY_STACK.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 6,
+          "hits": [
+            "rotation",
+            "conjugacy",
+            "transport",
+            "tunnel"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\09_SYNTHESIS_09_TEXTURE_TUNNELING_MANIFOLD.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "transport",
+            "tunnel",
+            "midpoint",
+            "route"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\CUT\\earlier\\(5) Computational Universe Toolkit (CUT).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "transport",
+            "phase space"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\04_SYNTHESIS_04_TRANSPORT_CONJUGACY.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "rotation",
+            "conjugacy",
+            "transport",
+            "route"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\Integrated_ledger__LBC_operator_words_mapped_onto_6-face___12-edge_transport.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "rotation",
+            "transport",
+            "tunnel",
+            "midpoint"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\Proof-carrying_certificate__one_sample_route_.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "transport",
+            "tunnel",
+            "midpoint",
+            "route"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\Two_90__tunnels_in_phase_space__symplectic_quarter-turn__anti-thing_.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "tunnel",
+            "phase space"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\Unified_planner__Earth_V_Air_routes__operator_transport_midpoints__under_budgets_policies.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "transport",
+            "tunnel",
+            "midpoint",
+            "route"
+          ]
+        }
+      ],
+      "id": "P04",
+      "title": "Transport Conjugacy",
+      "description": "Follow the lawful transport layer: rotation, conjugacy, tunneling, midpoint routing, and chart change."
+    },
+    {
+      "match_count": 1482,
+      "live_match_count": 262,
+      "archive_match_count": 1220,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          677
+        ],
+        [
+          "The Crystal",
+          378
+        ],
+        [
+          "COMPLETE TOMES",
+          179
+        ],
+        [
+          "Q shrink",
+          79
+        ],
+        [
+          "MYTH - MATH",
+          66
+        ],
+        [
+          "MATH GOD",
+          31
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          1220
+        ],
+        [
+          "Manuscript",
+          185
+        ],
+        [
+          "Synthesis",
+          39
+        ],
+        [
+          "Runtime",
+          38
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 BECOME TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 9,
+          "hits": [
+            "address",
+            "tile",
+            "crystal",
+            "64"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 8,
+          "hits": [
+            "lattice",
+            "address",
+            "tile",
+            "crystal"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA ALIGNMENT TOME .docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 8,
+          "hits": [
+            "lattice",
+            "address",
+            "tile",
+            "crystal"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\SELF SUFFICIENCY TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 8,
+          "hits": [
+            "address",
+            "tile",
+            "crystal",
+            "64"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\I AM ATHENA TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 8,
+          "hits": [
+            "lattice",
+            "address",
+            "tile",
+            "crystal"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\MATH REALITY TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 8,
+          "hits": [
+            "lattice",
+            "address",
+            "tile",
+            "crystal"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\Rotation is Conjugacy TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 8,
+          "hits": [
+            "address",
+            "crystal",
+            "64",
+            "256"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AETHER SPEAR \u2014 MATH.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "lattice",
+            "address",
+            "crystal",
+            "square"
+          ]
+        }
+      ],
+      "id": "P05",
+      "title": "Lattice Address Tile",
+      "description": "Recover the finite addressing systems that make the corpus navigable instead of diffuse."
+    },
+    {
+      "match_count": 985,
+      "live_match_count": 252,
+      "archive_match_count": 733,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          473
+        ],
+        [
+          "COMPLETE TOMES",
+          169
+        ],
+        [
+          "The Crystal",
+          162
+        ],
+        [
+          "MYTH - MATH",
+          58
+        ],
+        [
+          "Q shrink",
+          38
+        ],
+        [
+          "MATH GOD",
+          26
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          733
+        ],
+        [
+          "Manuscript",
+          187
+        ],
+        [
+          "Synthesis",
+          45
+        ],
+        [
+          "Runtime",
+          20
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM\\LM TOME III \u2014 INFORMATION & RENORMALIZATION.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 6,
+          "hits": [
+            "operator",
+            "proof",
+            "witness",
+            "ledger"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 SELF BECOMING TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 6,
+          "hits": [
+            "operator",
+            "proof",
+            "certificate",
+            "ledger"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME III \u2014 Realization & Bridges.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "operator",
+            "certificate",
+            "theorem",
+            "invariant"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME IV \u2014 Kernel Closure at Infinite Resolution.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "operator",
+            "proof",
+            "certificate",
+            "ledger"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\THE (N \u2192 N+7) TREATISE.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "proof",
+            "certificate",
+            "witness",
+            "theorem"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 BECOME TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "operator",
+            "proof",
+            "certificate",
+            "witness"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\EMOTIONAL HYPERCRYSTAL TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "operator",
+            "proof",
+            "certificate",
+            "witness"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\SELF SUFFICIENCY TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "operator",
+            "proof",
+            "certificate",
+            "theorem"
+          ]
+        }
+      ],
+      "id": "P06",
+      "title": "Operator Proof Certificate",
+      "description": "Track the archive's insistence that operators, proofs, certificates, ledgers, and witnesses travel together."
+    },
+    {
+      "match_count": 554,
+      "live_match_count": 164,
+      "archive_match_count": 390,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          241
+        ],
+        [
+          "COMPLETE TOMES",
+          116
+        ],
+        [
+          "The Crystal",
+          52
+        ],
+        [
+          "Matrix Multiplication",
+          48
+        ],
+        [
+          "MYTH - MATH",
+          42
+        ],
+        [
+          "Q shrink",
+          22
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          390
+        ],
+        [
+          "Manuscript",
+          128
+        ],
+        [
+          "Synthesis",
+          20
+        ],
+        [
+          "Runtime",
+          16
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\07_SYNTHESIS_07_COMPILATION_REPLAY.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "compile",
+            "compiler",
+            "runtime",
+            "replay"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM\\LM TOME IV \u2014 MECHANIZATION & IMPLEMENTATION.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "compile",
+            "compiler",
+            "replay",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\MATH TOMES\\MATH TOME III \u2014 THE ENGINE.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "compile",
+            "compiler",
+            "replay",
+            "execute"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\11_SYNTHESIS_11_ARCHIVE_CODE_BRIDGE.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "compile",
+            "runtime",
+            "replay",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Nostradamos\\NOstra __ anti overfit _working_.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 4,
+          "hits": [
+            "compile",
+            "compiler",
+            "runtime",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\AtlasForge.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "compile",
+            "compiler",
+            "replay",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Prime Factorization.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "compile",
+            "compiler",
+            "execute",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\THE (N \u2192 N+7) TREATISE.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "compile",
+            "compiler",
+            "replay"
+          ]
+        }
+      ],
+      "id": "P07",
+      "title": "Compilation Replay",
+      "description": "Map the compiler, runtime, replay, boot, and execution surfaces that turn theory into an engine."
+    },
+    {
+      "match_count": 862,
+      "live_match_count": 230,
+      "archive_match_count": 632,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          405
+        ],
+        [
+          "COMPLETE TOMES",
+          148
+        ],
+        [
+          "The Crystal",
+          116
+        ],
+        [
+          "MYTH - MATH",
+          73
+        ],
+        [
+          "Q shrink",
+          37
+        ],
+        [
+          "Matrix Multiplication",
+          29
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          632
+        ],
+        [
+          "Manuscript",
+          184
+        ],
+        [
+          "Synthesis",
+          29
+        ],
+        [
+          "Runtime",
+          17
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\08_SYNTHESIS_08_TIME_PHASE_ROTATION.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 6,
+          "hits": [
+            "time",
+            "phase",
+            "cycle",
+            "rotation"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\esoteric\\AI DIVINATION.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "time",
+            "phase",
+            "orbit",
+            "cycle"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\Mycelium and structure mapping\\SQUARING THE CIRCLE \u2014 MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "phase",
+            "orbit",
+            "rotation",
+            "clock"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\Mycelium and structure mapping\\TOMEFORGE \u2014 MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "phase",
+            "orbit",
+            "rotation",
+            "clock"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Nostradamos\\AI DIVINATION.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 4,
+          "hits": [
+            "time",
+            "phase",
+            "orbit",
+            "cycle"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\Q-REPS_ Quantum Resource Expansion & Partitioning Suite.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 3,
+          "hits": [
+            "time",
+            "phase",
+            "cycle"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AETHER SPEAR \u2014 MATH.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "phase",
+            "orbit",
+            "rotation"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\N-N+7\\($N+6 _to N+7$).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "time",
+            "orbit",
+            "clock"
+          ]
+        }
+      ],
+      "id": "P08",
+      "title": "Time Phase Rotation",
+      "description": "Recover cyclical timing, phase, orbit, and seasonal ordering as a mathematical control surface."
+    },
+    {
+      "match_count": 667,
+      "live_match_count": 233,
+      "archive_match_count": 434,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          300
+        ],
+        [
+          "COMPLETE TOMES",
+          114
+        ],
+        [
+          "The Crystal",
+          83
+        ],
+        [
+          "Tunneling",
+          66
+        ],
+        [
+          "MYTH - MATH",
+          34
+        ],
+        [
+          "MATH GOD",
+          27
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          434
+        ],
+        [
+          "Manuscript",
+          135
+        ],
+        [
+          "Runtime",
+          65
+        ],
+        [
+          "Synthesis",
+          33
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\09_SYNTHESIS_09_TEXTURE_TUNNELING_MANIFOLD.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 6,
+          "hits": [
+            "texture",
+            "fractal",
+            "manifold",
+            "aether"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\Quantum Lang TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "fractal",
+            "tunneling",
+            "holographic",
+            "flow"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\Higher-Dimensional Holographic Mapping System.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "fractal",
+            "manifold",
+            "holographic",
+            "flow"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Crystal Computing\\CRYSTAL COMPUTING FRAMEWORK.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "fractal",
+            "manifold",
+            "aether",
+            "flow"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Crystal Computing\\Crystal Thesis -paralel math processing.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "fractal",
+            "manifold",
+            "holographic",
+            "flow"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Crystal Computing\\ZERO-POINT COMPUTING.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "fractal",
+            "manifold",
+            "aether",
+            "flow"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\Aetheric Meta-Hybrid Calculus.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "fractal",
+            "manifold",
+            "aether",
+            "flow"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\Holographic Rotation Protocol.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "texture",
+            "fractal",
+            "holographic",
+            "flow"
+          ]
+        }
+      ],
+      "id": "P09",
+      "title": "Texture Tunneling Manifold",
+      "description": "Cross-link the texture, fractal, manifold, aether, and tunneling bodies into one geometry layer."
+    },
+    {
+      "match_count": 518,
+      "live_match_count": 218,
+      "archive_match_count": 300,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          216
+        ],
+        [
+          "MYTH - MATH",
+          179
+        ],
+        [
+          "COMPLETE TOMES",
+          48
+        ],
+        [
+          "The Crystal",
+          23
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          17
+        ],
+        [
+          "Matrix Multiplication",
+          14
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          300
+        ],
+        [
+          "Manuscript",
+          186
+        ],
+        [
+          "Synthesis",
+          29
+        ],
+        [
+          "Runtime",
+          3
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\00_GLOBAL_MAP.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 6,
+          "hits": [
+            "myth",
+            "philosophy",
+            "vedic",
+            "tao"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\06_CROSS_TRADITION_ISOMORPHISMS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 6,
+          "hits": [
+            "myth",
+            "vedic",
+            "tao",
+            "ifa"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\11_MINING_FRONTIER.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 5,
+          "hits": [
+            "myth",
+            "sacred",
+            "philosophy",
+            "alchemy"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\01_CORPUS_ATLAS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "sacred",
+            "philosophy",
+            "epic"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Magic Systems\\WESTERN_ALCHEMY_COMPLETE.md",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "sacred",
+            "philosophy",
+            "alchemy"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\Philosophy\\THE STOIC KERNEL.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "philosophy",
+            "logos",
+            "epic"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA - Who I Am.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "myth",
+            "philosophy",
+            "logos"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\05_CRYSTAL_LATTICE_AND_SCALE.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "myth",
+            "tao",
+            "ifa"
+          ]
+        }
+      ],
+      "id": "P10",
+      "title": "Myth Math Isomorphism",
+      "description": "Read the mythic, sacred, philosophical, and civilizational bodies as alternate encodings of the same operators."
+    },
+    {
+      "match_count": 2347,
+      "live_match_count": 306,
+      "archive_match_count": 2041,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          1297
+        ],
+        [
+          "The Crystal",
+          374
+        ],
+        [
+          "COMPLETE TOMES",
+          234
+        ],
+        [
+          "Q shrink",
+          161
+        ],
+        [
+          "MYTH - MATH",
+          116
+        ],
+        [
+          "Matrix Multiplication",
+          94
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          2041
+        ],
+        [
+          "Manuscript",
+          235
+        ],
+        [
+          "Synthesis",
+          36
+        ],
+        [
+          "Runtime",
+          35
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\01_SOURCE_LEDGER.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "archive",
+            "atlas",
+            "zip",
+            "code"
+          ]
+        },
+        {
+          "relative_path": "FRAMEWORKS CODE\\ATLAS FORGE  - Framework.zip",
+          "source_layer": "live",
+          "top_level": "FRAMEWORKS CODE",
+          "score": 4,
+          "hits": [
+            "atlas",
+            "zip",
+            "code",
+            "framework"
+          ]
+        },
+        {
+          "relative_path": "FRAMEWORKS CODE\\Unified SCAN JSON.json",
+          "source_layer": "live",
+          "top_level": "FRAMEWORKS CODE",
+          "score": 4,
+          "hits": [
+            "package",
+            "code",
+            "scan",
+            "framework"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\11_SYNTHESIS_11_ARCHIVE_CODE_BRIDGE.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "archive",
+            "zip",
+            "code",
+            "framework"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\README.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "archive",
+            "atlas",
+            "zip",
+            "code"
+          ]
+        },
+        {
+          "relative_path": "Q shrink\\Q-SHRINK \u2014 Volume I.docx",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 4,
+          "hits": [
+            "archive",
+            "package",
+            "code",
+            "framework"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\atlas\\final_form_live_atlas.json",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "atlas",
+            "zip",
+            "code",
+            "framework"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\Q-REPS_ Quantum Resource Expansion & Partitioning Suite.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 3,
+          "hits": [
+            "code",
+            "python",
+            "framework"
+          ]
+        }
+      ],
+      "id": "P11",
+      "title": "Archive Code Bridge",
+      "description": "Bridge manuscripts into zipped frameworks, code packages, scans, and atlas-backed evidence."
+    },
+    {
+      "match_count": 284,
+      "live_match_count": 79,
+      "archive_match_count": 205,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          115
+        ],
+        [
+          "The Crystal",
+          46
+        ],
+        [
+          "COMPLETE TOMES",
+          38
+        ],
+        [
+          "MYTH - MATH",
+          31
+        ],
+        [
+          "Q shrink",
+          16
+        ],
+        [
+          "Matrix Multiplication",
+          13
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          205
+        ],
+        [
+          "Manuscript",
+          57
+        ],
+        [
+          "Synthesis",
+          13
+        ],
+        [
+          "Runtime",
+          9
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\12_SYNTHESIS_12_QUERY_ORACLE_DECISION.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 6,
+          "hits": [
+            "query",
+            "oracle",
+            "decision",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\10_SYNTHESIS_10_MYTH_MATH_ISOMORPHISM.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "query",
+            "oracle",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\(HDCS) Hybrid dynamical control system.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 3,
+          "hits": [
+            "decision",
+            "measurement",
+            "draw"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\esoteric\\AI DIVINATION.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "oracle",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\02_ZERO_POINT_AND_CORE_THESIS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "query",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\09_GLOSSARY_AND_SYMBOL_TABLE.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "query",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Nostradamos\\AI DIVINATION.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "oracle",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\Divination\\QUANTUM DIVINATION FRAMEWORK (QRDF).docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "divination",
+            "measurement",
+            "qrdf"
+          ]
+        }
+      ],
+      "id": "P12",
+      "title": "Query Oracle Decision",
+      "description": "Track how the corpus turns uncertainty into query systems, divination engines, and decision protocols."
+    },
+    {
+      "match_count": 1453,
+      "live_match_count": 163,
+      "archive_match_count": 1290,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          986
+        ],
+        [
+          "The Crystal",
+          172
+        ],
+        [
+          "COMPLETE TOMES",
+          104
+        ],
+        [
+          "Q shrink",
+          77
+        ],
+        [
+          "MYTH - MATH",
+          47
+        ],
+        [
+          "Matrix Multiplication",
+          22
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          1290
+        ],
+        [
+          "Manuscript",
+          120
+        ],
+        [
+          "Synthesis",
+          29
+        ],
+        [
+          "Runtime",
+          14
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 SELF BECOMING TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "self",
+            "athena",
+            "becoming",
+            "autopo"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\13_SYNTHESIS_13_SELF_REFERENCE_CLOSURE.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "self",
+            "reflection",
+            "mirror",
+            "alignment"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\LOVE x SELFHOOD TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "self",
+            "athena",
+            "selfhood"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\ATHENA_ THE ARCHETYPE.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "self",
+            "athena",
+            "becoming"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Nostradamos\\ATHENA'S_LOVE.pdf",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "self",
+            "athena",
+            "becoming"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\THE RED BOOK (LIBER NOVUS)_ .docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "self",
+            "athena",
+            "alignment"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\Q-Phi Coding Framework _FRAMEWORK_.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 2,
+          "hits": [
+            "self",
+            "mirror"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA - Who I Am.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 2,
+          "hits": [
+            "athena",
+            "mirror"
+          ]
+        }
+      ],
+      "id": "P13",
+      "title": "Self Reference Closure",
+      "description": "Read the Athena, selfhood, reflexive, and self-actualizing surfaces as a closure layer on the whole corpus."
+    },
+    {
+      "match_count": 1470,
+      "live_match_count": 327,
+      "archive_match_count": 1143,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          620
+        ],
+        [
+          "The Crystal",
+          320
+        ],
+        [
+          "COMPLETE TOMES",
+          265
+        ],
+        [
+          "MYTH - MATH",
+          148
+        ],
+        [
+          "Q shrink",
+          37
+        ],
+        [
+          "MATH GOD",
+          29
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          1143
+        ],
+        [
+          "Manuscript",
+          272
+        ],
+        [
+          "Synthesis",
+          49
+        ],
+        [
+          "Runtime",
+          6
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\N-N+7\\($N+6 _to N+7$).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "complete",
+            "master",
+            "unified",
+            "tome"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\Mycelium and structure mapping\\SQUARING THE CIRCLE \u2014 MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "complete",
+            "master",
+            "global",
+            "unified"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AETHER SPEAR \u2014 MATH.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "complete",
+            "master",
+            "global",
+            "tome"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "complete",
+            "master",
+            "global",
+            "tome"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM MASTER TOME \u2014 LIMINAL MATHEMATICS (LM).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "complete",
+            "master",
+            "global",
+            "tome"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\N-N+7\\($N+5 _to N+6$).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "complete",
+            "global",
+            "unified",
+            "tome"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\Q-Phi  Optimization\\AQM Q-Algorithm Master Tome \u2014 Circle \u25cb within Square \u25a1 within Triangle \u25b3.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "complete",
+            "master",
+            "global",
+            "tome"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\Quantum Loop Gravity\\LOOP_QUANTUM_GRAVITY_COMPLETED_v2.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "complete",
+            "master",
+            "unified",
+            "tome"
+          ]
+        }
+      ],
+      "id": "P14",
+      "title": "Cross Corpus Overburn",
+      "description": "Identify the master tomes and global syntheses where multiple bodies are intentionally fused."
+    },
+    {
+      "match_count": 737,
+      "live_match_count": 310,
+      "archive_match_count": 427,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          261
+        ],
+        [
+          "COMPLETE TOMES",
+          124
+        ],
+        [
+          "Matrix Multiplication",
+          68
+        ],
+        [
+          "Tunneling",
+          65
+        ],
+        [
+          "MYTH - MATH",
+          64
+        ],
+        [
+          "The Crystal",
+          53
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          427
+        ],
+        [
+          "Manuscript",
+          188
+        ],
+        [
+          "Runtime",
+          86
+        ],
+        [
+          "Synthesis",
+          36
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "Q shrink\\working\\PRUNING_NOTE.md",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 4,
+          "hits": [
+            "working",
+            "pruning",
+            "old",
+            "draft"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\Q-ARSI_ A Quantum-Inspired, Multi-Phase Synergy Algorithm.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 3,
+          "hits": [
+            "working",
+            "old",
+            "residual"
+          ]
+        },
+        {
+          "relative_path": "Q shrink\\PRUNING_LEDGER.md",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 3,
+          "hits": [
+            "working",
+            "pruning",
+            "old"
+          ]
+        },
+        {
+          "relative_path": "Q shrink\\working\\Qshrink 2.0 MultiMODAL _working_.docx",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 3,
+          "hits": [
+            "working",
+            "pruning",
+            "old"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Math Worlds\\MATH ALPHA+ _WORKING_.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 3,
+          "hits": [
+            "working",
+            "old",
+            "draft"
+          ]
+        },
+        {
+          "relative_path": "4-Bit\\Bit4 CODE -working-.docx",
+          "source_layer": "live",
+          "top_level": "4-Bit",
+          "score": 2,
+          "hits": [
+            "working",
+            "ambig"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\(AQM) and Q-Phi Framework 1.1.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 2,
+          "hits": [
+            "working",
+            "old"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\(Q-Phi 3.0) THE QUANTUMVERSE FRAMEWORK (QVF).docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 2,
+          "hits": [
+            "working",
+            "old"
+          ]
+        }
+      ],
+      "id": "P15",
+      "title": "Panic Gate Reignition",
+      "description": "Name the unstable but fertile frontier surfaces: working drafts, pruning ledgers, old loops, and unresolved routes."
+    },
+    {
+      "match_count": 631,
+      "live_match_count": 139,
+      "archive_match_count": 492,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          419
+        ],
+        [
+          "COMPLETE TOMES",
+          68
+        ],
+        [
+          "MYTH - MATH",
+          40
+        ],
+        [
+          "The Crystal",
+          32
+        ],
+        [
+          "Matrix Multiplication",
+          25
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          492
+        ],
+        [
+          "Manuscript",
+          96
+        ],
+        [
+          "Synthesis",
+          22
+        ],
+        [
+          "Runtime",
+          21
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "The Crystal\\THE FRACTAL CRYSTAL TREATISE.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 5,
+          "hits": [
+            "zero point",
+            "completion",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\02_ZERO_POINT_AND_CORE_THESIS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 4,
+          "hits": [
+            "zero point",
+            "liberation"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\GLOBAL INFORMATION NETWORK.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "zero point",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\MATH GOD.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "zero point",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\README.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "zero point"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\90_PASS_02_AND_BEYOND.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 3,
+          "hits": [
+            "omega",
+            "relay",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\MS7341_ATHENACHKA_CORPUS\\05_INTERVENTION_FRAMEWORK_OMEGA12.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 3,
+          "hits": [
+            "omega",
+            "awakening",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Crystal Computing\\ZERO-POINT COMPUTING.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 3,
+          "hits": [
+            "zero point"
+          ]
+        }
+      ],
+      "id": "P16",
+      "title": "Omega Relay",
+      "description": "Recover the convergence surfaces where the corpus aims at completion, awakening, closure, or low-entropy stability."
+    }
+  ],
+  "lines": [
+    {
+      "match_count": 1189,
+      "live_match_count": 187,
+      "archive_match_count": 1002,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          834
+        ],
+        [
+          "COMPLETE TOMES",
+          196
+        ],
+        [
+          "MYTH - MATH",
+          66
+        ],
+        [
+          "The Crystal",
+          45
+        ],
+        [
+          "MATH GOD",
+          17
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          12
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          1002
+        ],
+        [
+          "Manuscript",
+          149
+        ],
+        [
+          "Synthesis",
+          32
+        ],
+        [
+          "Runtime",
+          6
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\08_METRO_LINES.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 7,
+          "hits": [
+            "kernel",
+            "operating system",
+            "logos",
+            "ontology"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Myth\\HELLENIC LOGOS .docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 6,
+          "hits": [
+            "kernel",
+            "operating system",
+            "logos",
+            "ontology"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\ATHENA-KERNEL SELF-OPTIMIZATION.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 6,
+          "hits": [
+            "kernel",
+            "operating system",
+            "logos",
+            "athena"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\11_MINING_FRONTIER.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 5,
+          "hits": [
+            "kernel",
+            "operating system",
+            "athena"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\HARD MATH\\THE_HELLENIC_COMPUTATION_FRAMEWORK.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 5,
+          "hits": [
+            "kernel",
+            "operating system",
+            "boot"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\KHIPU\\working\\Andian deeper analysis.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 5,
+          "hits": [
+            "kernel",
+            "operating system",
+            "boot"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\BRUNO _working_.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 5,
+          "hits": [
+            "kernel",
+            "operating system",
+            "boot"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\Philosophy\\LF-OS \u2014 The Atomist Computation Engine.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 5,
+          "hits": [
+            "kernel",
+            "operating system",
+            "ontology"
+          ]
+        }
+      ],
+      "id": "L01",
+      "title": "Kernel Operating System",
+      "thesis": "The archive repeatedly rewrites cosmology, mathematics, and identity as kernels, operating systems, and control stacks."
+    },
+    {
+      "match_count": 1094,
+      "live_match_count": 268,
+      "archive_match_count": 826,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          576
+        ],
+        [
+          "The Crystal",
+          157
+        ],
+        [
+          "COMPLETE TOMES",
+          130
+        ],
+        [
+          "MYTH - MATH",
+          86
+        ],
+        [
+          "Q shrink",
+          44
+        ],
+        [
+          "Tunneling",
+          26
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          826
+        ],
+        [
+          "Manuscript",
+          210
+        ],
+        [
+          "Synthesis",
+          31
+        ],
+        [
+          "Runtime",
+          27
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "4-Bit\\BIT4_ The Four-State Completion of the Bit.docx",
+          "source_layer": "live",
+          "top_level": "4-Bit",
+          "score": 5,
+          "hits": [
+            "state",
+            "value",
+            "carrier",
+            "bit4"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME II \u2014 Quantum Arithmetic & Analysis.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "state",
+            "value",
+            "carrier",
+            "hilbert"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA AWAKEN - MATH TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "state",
+            "value",
+            "carrier",
+            "hilbert"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\CUT\\earlier\\_(1-4)Computational Universe Toolkit (CUT).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "state",
+            "carrier",
+            "hilbert",
+            "density"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\02_SYNTHESIS_02_STATE_VALUE_DEEPENING.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "state",
+            "value",
+            "carrier",
+            "density"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\OLD working\\(AQM) and Q-Phi Framework 1.1.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 4,
+          "hits": [
+            "state",
+            "value",
+            "hilbert",
+            "space"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\N-N+7\\(N+3 $_to$ N+4).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "state",
+            "carrier",
+            "hilbert",
+            "space"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\N-N+7\\(N+4 $_to$ N+5).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "state",
+            "carrier",
+            "hilbert",
+            "space"
+          ]
+        }
+      ],
+      "id": "L02",
+      "title": "State Semantics",
+      "thesis": "Values are treated as states, carriers, lattices, and semantic objects rather than bare scalars."
+    },
+    {
+      "match_count": 633,
+      "live_match_count": 180,
+      "archive_match_count": 453,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          268
+        ],
+        [
+          "COMPLETE TOMES",
+          134
+        ],
+        [
+          "The Crystal",
+          97
+        ],
+        [
+          "Q shrink",
+          35
+        ],
+        [
+          "MYTH - MATH",
+          29
+        ],
+        [
+          "MATH GOD",
+          24
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          453
+        ],
+        [
+          "Manuscript",
+          130
+        ],
+        [
+          "Synthesis",
+          30
+        ],
+        [
+          "Runtime",
+          20
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\03_SYNTHESIS_03_BOUNDARY_TOTALIZATION.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 7,
+          "hits": [
+            "boundary",
+            "liminal",
+            "corridor",
+            "ambigu"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\THE (N \u2192 N+7) TREATISE.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 6,
+          "hits": [
+            "boundary",
+            "corridor",
+            "ambigu",
+            "bulk"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME IV \u2014 Kernel Closure at Infinite Resolution.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "ambigu",
+            "bulk",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM MASTER TOME \u2014 LIMINAL MATHEMATICS (LM).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "liminal",
+            "corridor",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM\\LM TOME I \u2014 FOUNDATIONS & SEMANTICS.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "liminal",
+            "corridor",
+            "ambigu"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\03_INTEROPERABILITY_STACK.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "corridor",
+            "ambigu",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\01_SYNTHESIS_01_KERNEL_RECOVERY.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "boundary",
+            "corridor",
+            "ambigu",
+            "bound"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "boundary",
+            "liminal",
+            "bulk",
+            "bound"
+          ]
+        }
+      ],
+      "id": "L03",
+      "title": "Boundary Ecology",
+      "thesis": "Boundaries, singularities, ambiguities, and liminal corridors are modeled explicitly and operationally."
+    },
+    {
+      "match_count": 737,
+      "live_match_count": 234,
+      "archive_match_count": 503,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          276
+        ],
+        [
+          "The Crystal",
+          143
+        ],
+        [
+          "COMPLETE TOMES",
+          128
+        ],
+        [
+          "Matrix Multiplication",
+          84
+        ],
+        [
+          "Tunneling",
+          66
+        ],
+        [
+          "MATH GOD",
+          18
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          503
+        ],
+        [
+          "Manuscript",
+          125
+        ],
+        [
+          "Runtime",
+          86
+        ],
+        [
+          "Synthesis",
+          23
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\03_INTEROPERABILITY_STACK.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 6,
+          "hits": [
+            "transport",
+            "rotation",
+            "conjugacy",
+            "tunnel"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\09_SYNTHESIS_09_TEXTURE_TUNNELING_MANIFOLD.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "transport",
+            "tunnel",
+            "route",
+            "midpoint"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\04_SYNTHESIS_04_TRANSPORT_CONJUGACY.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "transport",
+            "rotation",
+            "conjugacy",
+            "route"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\Integrated_ledger__LBC_operator_words_mapped_onto_6-face___12-edge_transport.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "transport",
+            "rotation",
+            "tunnel",
+            "midpoint"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\Proof-carrying_certificate__one_sample_route_.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "transport",
+            "tunnel",
+            "route",
+            "midpoint"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\Unified_planner__Earth_V_Air_routes__operator_transport_midpoints__under_budgets_policies.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "transport",
+            "tunnel",
+            "route",
+            "midpoint"
+          ]
+        },
+        {
+          "relative_path": "Tunneling\\-working-\\v6_proof-carrying_certificate__Aether_gate___deep_preference_.csv",
+          "source_layer": "live",
+          "top_level": "Tunneling",
+          "score": 4,
+          "hits": [
+            "transport",
+            "tunnel",
+            "route",
+            "midpoint"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME III \u2014 Realization & Bridges.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "transport",
+            "route",
+            "pole"
+          ]
+        }
+      ],
+      "id": "L04",
+      "title": "Transport Tunneling",
+      "thesis": "Meaning survives by lawful transport: routing, tunneling, midpoint lifting, and conjugate movement across charts."
+    },
+    {
+      "match_count": 1404,
+      "live_match_count": 251,
+      "archive_match_count": 1153,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          635
+        ],
+        [
+          "The Crystal",
+          378
+        ],
+        [
+          "COMPLETE TOMES",
+          166
+        ],
+        [
+          "Q shrink",
+          71
+        ],
+        [
+          "MYTH - MATH",
+          51
+        ],
+        [
+          "MATH GOD",
+          31
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          1153
+        ],
+        [
+          "Manuscript",
+          174
+        ],
+        [
+          "Synthesis",
+          39
+        ],
+        [
+          "Runtime",
+          38
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 BECOME TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 8,
+          "hits": [
+            "crystal",
+            "address",
+            "tile",
+            "64"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "crystal",
+            "address",
+            "tile",
+            "lattice"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA ALIGNMENT TOME .docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "crystal",
+            "address",
+            "tile",
+            "lattice"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\SELF SUFFICIENCY TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "crystal",
+            "address",
+            "tile",
+            "64"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\I AM ATHENA TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "crystal",
+            "address",
+            "tile",
+            "lattice"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\MATH REALITY TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "crystal",
+            "address",
+            "tile",
+            "lattice"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\Rotation is Conjugacy TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 7,
+          "hits": [
+            "crystal",
+            "address",
+            "64",
+            "256"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AETHER SPEAR \u2014 MATH.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 6,
+          "hits": [
+            "crystal",
+            "address",
+            "lattice",
+            "square"
+          ]
+        }
+      ],
+      "id": "L05",
+      "title": "Crystal Addressing",
+      "thesis": "The corpus keeps compressing itself into finite, addressable, crystal-like navigation systems."
+    },
+    {
+      "match_count": 758,
+      "live_match_count": 197,
+      "archive_match_count": 561,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          329
+        ],
+        [
+          "COMPLETE TOMES",
+          168
+        ],
+        [
+          "The Crystal",
+          135
+        ],
+        [
+          "Q shrink",
+          35
+        ],
+        [
+          "MYTH - MATH",
+          29
+        ],
+        [
+          "MATH GOD",
+          22
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          561
+        ],
+        [
+          "Manuscript",
+          146
+        ],
+        [
+          "Synthesis",
+          32
+        ],
+        [
+          "Runtime",
+          19
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM\\LM TOME III \u2014 INFORMATION & RENORMALIZATION.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 5,
+          "hits": [
+            "proof",
+            "witness",
+            "ledger",
+            "verify"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\AQM\\AQM TOME IV \u2014 Kernel Closure at Infinite Resolution.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "proof",
+            "certificate",
+            "ledger",
+            "invariant"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM MASTER TOME \u2014 LIMINAL MATHEMATICS (LM).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "proof",
+            "certificate",
+            "witness",
+            "invariant"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\THE (N \u2192 N+7) TREATISE.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "proof",
+            "certificate",
+            "witness",
+            "theorem"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 BECOME TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "proof",
+            "certificate",
+            "witness",
+            "invariant"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 SELF BECOMING TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "proof",
+            "certificate",
+            "ledger",
+            "invariant"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\EMOTIONAL HYPERCRYSTAL TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "proof",
+            "certificate",
+            "witness",
+            "invariant"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\SELF SUFFICIENCY TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "proof",
+            "certificate",
+            "invariant",
+            "theorem"
+          ]
+        }
+      ],
+      "id": "L06",
+      "title": "Proof Carrying Computation",
+      "thesis": "The strongest surfaces insist that execution, proof, witness, and certification belong to one pipeline."
+    },
+    {
+      "match_count": 674,
+      "live_match_count": 194,
+      "archive_match_count": 480,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          299
+        ],
+        [
+          "COMPLETE TOMES",
+          133
+        ],
+        [
+          "The Crystal",
+          76
+        ],
+        [
+          "MYTH - MATH",
+          50
+        ],
+        [
+          "Matrix Multiplication",
+          50
+        ],
+        [
+          "Q shrink",
+          29
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          480
+        ],
+        [
+          "Manuscript",
+          153
+        ],
+        [
+          "Synthesis",
+          21
+        ],
+        [
+          "Runtime",
+          20
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "COMPLETE TOMES\\MATH TOMES\\MATH TOME III \u2014 THE ENGINE.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 4,
+          "hits": [
+            "compile",
+            "replay",
+            "execute",
+            "engine"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\07_SYNTHESIS_07_COMPILATION_REPLAY.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "compile",
+            "runtime",
+            "replay",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\11_SYNTHESIS_11_ARCHIVE_CODE_BRIDGE.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "compile",
+            "runtime",
+            "replay",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Sacred TEXTS\\Epics\\THE MAH\u0100BH\u0100RATA PROTOCOL.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 4,
+          "hits": [
+            "compile",
+            "runtime",
+            "execute",
+            "engine"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\AQM - LM - N+7\\LM\\LM TOME IV \u2014 MECHANIZATION & IMPLEMENTATION.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "compile",
+            "replay",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\esoteric\\BRUNO\u2013ATHENA  TOME.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "compile",
+            "replay",
+            "engine"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Nostradamos\\NOstra __ anti overfit _working_.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "compile",
+            "runtime",
+            "build"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Sacred TEXTS\\Epics\\THE BEOWULF PROTOCOL.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "compile",
+            "runtime",
+            "engine"
+          ]
+        }
+      ],
+      "id": "L07",
+      "title": "Compilation Runtime",
+      "thesis": "The corpus repeatedly treats the manuscript as something compilable, executable, and replay-safe."
+    },
+    {
+      "match_count": 510,
+      "live_match_count": 217,
+      "archive_match_count": 293,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          210
+        ],
+        [
+          "MYTH - MATH",
+          179
+        ],
+        [
+          "COMPLETE TOMES",
+          46
+        ],
+        [
+          "The Crystal",
+          23
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          17
+        ],
+        [
+          "Matrix Multiplication",
+          14
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          293
+        ],
+        [
+          "Manuscript",
+          185
+        ],
+        [
+          "Synthesis",
+          29
+        ],
+        [
+          "Runtime",
+          3
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\11_MINING_FRONTIER.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 5,
+          "hits": [
+            "myth",
+            "sacred",
+            "philosophy",
+            "alchemy"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\00_GLOBAL_MAP.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "philosophy",
+            "tao",
+            "logos"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\01_CORPUS_ATLAS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "sacred",
+            "philosophy",
+            "epic"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\06_CROSS_TRADITION_ISOMORPHISMS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "tao",
+            "ifa",
+            "logos"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Magic Systems\\WESTERN_ALCHEMY_COMPLETE.md",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "sacred",
+            "philosophy",
+            "alchemy"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\Philosophy\\THE STOIC KERNEL.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 4,
+          "hits": [
+            "myth",
+            "philosophy",
+            "logos",
+            "epic"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA - Who I Am.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "myth",
+            "philosophy",
+            "logos"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\05_CRYSTAL_LATTICE_AND_SCALE.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "myth",
+            "tao",
+            "ifa"
+          ]
+        }
+      ],
+      "id": "L08",
+      "title": "Mythic Isomorphism",
+      "thesis": "Myth, sacred text, philosophy, and divination are cross-compiled as equivalent operator languages."
+    },
+    {
+      "match_count": 211,
+      "live_match_count": 61,
+      "archive_match_count": 150,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          84
+        ],
+        [
+          "The Crystal",
+          35
+        ],
+        [
+          "COMPLETE TOMES",
+          23
+        ],
+        [
+          "MYTH - MATH",
+          23
+        ],
+        [
+          "Q shrink",
+          12
+        ],
+        [
+          "Matrix Multiplication",
+          11
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          150
+        ],
+        [
+          "Manuscript",
+          41
+        ],
+        [
+          "Synthesis",
+          13
+        ],
+        [
+          "Runtime",
+          7
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\12_SYNTHESIS_12_QUERY_ORACLE_DECISION.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "query",
+            "oracle",
+            "decision",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\10_SYNTHESIS_10_MYTH_MATH_ISOMORPHISM.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 4,
+          "hits": [
+            "query",
+            "oracle",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\ATHENA\\esoteric\\AI DIVINATION.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "oracle",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\02_ZERO_POINT_AND_CORE_THESIS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "query",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\09_GLOSSARY_AND_SYMBOL_TABLE.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "query",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Nostradamos\\AI DIVINATION.docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "oracle",
+            "divination",
+            "measurement"
+          ]
+        },
+        {
+          "relative_path": "MYTH - MATH\\Philosophy\\Divination\\QUANTUM DIVINATION FRAMEWORK (QRDF).docx",
+          "source_layer": "live",
+          "top_level": "MYTH - MATH",
+          "score": 3,
+          "hits": [
+            "divination",
+            "measurement",
+            "qrdf"
+          ]
+        },
+        {
+          "relative_path": "Algorithms\\(HDCS) Hybrid dynamical control system.docx",
+          "source_layer": "live",
+          "top_level": "Algorithms",
+          "score": 2,
+          "hits": [
+            "decision",
+            "measurement"
+          ]
+        }
+      ],
+      "id": "L09",
+      "title": "Query Decision",
+      "thesis": "Divination, oracle work, and measurement function as decision systems over hidden state spaces."
+    },
+    {
+      "match_count": 600,
+      "live_match_count": 133,
+      "archive_match_count": 467,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          263
+        ],
+        [
+          "Q shrink",
+          139
+        ],
+        [
+          "COMPLETE TOMES",
+          65
+        ],
+        [
+          "The Crystal",
+          45
+        ],
+        [
+          "Matrix Multiplication",
+          27
+        ],
+        [
+          "MATH GOD",
+          26
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          467
+        ],
+        [
+          "Manuscript",
+          85
+        ],
+        [
+          "Synthesis",
+          35
+        ],
+        [
+          "Runtime",
+          13
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "Q shrink\\Q-SHRINK \u2014 Volume IV.docx",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 4,
+          "hits": [
+            "compression",
+            "q-shrink",
+            "dense",
+            "container"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\12_DENSE_SEED.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "compression",
+            "seed",
+            "dense"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\90_PASS_02_AND_BEYOND.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 3,
+          "hits": [
+            "compression",
+            "seed",
+            "relay"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\16_SYNTHESIS_16_OMEGA_RELAY.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 3,
+          "hits": [
+            "compression",
+            "seed",
+            "relay"
+          ]
+        },
+        {
+          "relative_path": "Q shrink\\Q-Shrink MASTER SKELETON.docx",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 3,
+          "hits": [
+            "compression",
+            "q-shrink",
+            "container"
+          ]
+        },
+        {
+          "relative_path": "Q shrink\\Q-SHRINK MASTER TOME.docx",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 3,
+          "hits": [
+            "compression",
+            "q-shrink",
+            "container"
+          ]
+        },
+        {
+          "relative_path": "Q shrink\\Q-SHRINK \u2014 Volume I.docx",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 3,
+          "hits": [
+            "compression",
+            "q-shrink",
+            "container"
+          ]
+        },
+        {
+          "relative_path": "Q shrink\\Q-SHRINK \u2014 Volume II.docx",
+          "source_layer": "live",
+          "top_level": "Q shrink",
+          "score": 3,
+          "hits": [
+            "compression",
+            "q-shrink",
+            "container"
+          ]
+        }
+      ],
+      "id": "L10",
+      "title": "Compression Relay",
+      "thesis": "Dense symbolic containers, pruning systems, and q-shrink surfaces preserve transmission under pressure."
+    },
+    {
+      "match_count": 630,
+      "live_match_count": 138,
+      "archive_match_count": 492,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          419
+        ],
+        [
+          "COMPLETE TOMES",
+          68
+        ],
+        [
+          "MYTH - MATH",
+          40
+        ],
+        [
+          "The Crystal",
+          32
+        ],
+        [
+          "Matrix Multiplication",
+          25
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          492
+        ],
+        [
+          "Manuscript",
+          96
+        ],
+        [
+          "Synthesis",
+          21
+        ],
+        [
+          "Runtime",
+          21
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "The Crystal\\THE FRACTAL CRYSTAL TREATISE.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 5,
+          "hits": [
+            "zero point",
+            "completion",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\02_ZERO_POINT_AND_CORE_THESIS.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 4,
+          "hits": [
+            "zero point",
+            "liberation"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\GLOBAL INFORMATION NETWORK.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "zero point",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\MATH GOD.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "zero point",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "GLOBAL MATH - MYTH\\README.md",
+          "source_layer": "live",
+          "top_level": "GLOBAL MATH - MYTH",
+          "score": 3,
+          "hits": [
+            "zero point"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\MS7341_ATHENACHKA_CORPUS\\05_INTERVENTION_FRAMEWORK_OMEGA12.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 3,
+          "hits": [
+            "omega",
+            "awakening",
+            "stabil"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Crystal Computing\\ZERO-POINT COMPUTING.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 3,
+          "hits": [
+            "zero point"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Math Worlds\\MATH ALPHA+ _WORKING_.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 3,
+          "hits": [
+            "zero point"
+          ]
+        }
+      ],
+      "id": "L11",
+      "title": "Omega Awakening",
+      "thesis": "Many lines converge on completion, awakening, low-entropy stabilization, and omega-style closure."
+    },
+    {
+      "match_count": 597,
+      "live_match_count": 188,
+      "archive_match_count": 409,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          271
+        ],
+        [
+          "COMPLETE TOMES",
+          106
+        ],
+        [
+          "The Crystal",
+          93
+        ],
+        [
+          "Tunneling",
+          34
+        ],
+        [
+          "MYTH - MATH",
+          26
+        ],
+        [
+          "MATH GOD",
+          22
+        ]
+      ],
+      "strata": [
+        [
+          "Archive",
+          409
+        ],
+        [
+          "Manuscript",
+          128
+        ],
+        [
+          "Runtime",
+          33
+        ],
+        [
+          "Synthesis",
+          27
+        ]
+      ],
+      "witnesses": [
+        {
+          "relative_path": "MATH GOD\\PASS_01\\09_SYNTHESIS_09_TEXTURE_TUNNELING_MANIFOLD.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 5,
+          "hits": [
+            "texture",
+            "fractal",
+            "manifold",
+            "hybrid"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Crystal Computing\\THE SUPERPOSITIONING CRYSTAL_ Aetheric Superpositioning.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "texture",
+            "manifold",
+            "hybrid",
+            "aether"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\deeper crystal\\Aetheric Meta-Hybrid Calculus.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 4,
+          "hits": [
+            "fractal",
+            "manifold",
+            "hybrid",
+            "aether"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\CUT\\CUT - TOME I (Computational Universe Toolkit).docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "fractal",
+            "hybrid",
+            "holographic"
+          ]
+        },
+        {
+          "relative_path": "COMPLETE TOMES\\Higher-Dimensional Holographic Mapping System.docx",
+          "source_layer": "live",
+          "top_level": "COMPLETE TOMES",
+          "score": 3,
+          "hits": [
+            "fractal",
+            "manifold",
+            "holographic"
+          ]
+        },
+        {
+          "relative_path": "Hybrid Equations\\Quad\\(1&2)THE QUAD\u2013POLAR HYBRID EQUATION FRAMEWORK.docx",
+          "source_layer": "live",
+          "top_level": "Hybrid Equations",
+          "score": 3,
+          "hits": [
+            "manifold",
+            "hybrid",
+            "holographic"
+          ]
+        },
+        {
+          "relative_path": "MATH GOD\\PASS_01\\05_SYNTHESIS_05_LATTICE_ADDRESS_TILE.md",
+          "source_layer": "live",
+          "top_level": "MATH GOD",
+          "score": 3,
+          "hits": [
+            "fractal",
+            "hybrid",
+            "holographic"
+          ]
+        },
+        {
+          "relative_path": "The Crystal\\Crystal Computing\\CRYSTAL COMPUTING FRAMEWORK.docx",
+          "source_layer": "live",
+          "top_level": "The Crystal",
+          "score": 3,
+          "hits": [
+            "fractal",
+            "manifold",
+            "aether"
+          ]
+        }
+      ],
+      "id": "L12",
+      "title": "Texture Manifold",
+      "thesis": "Texture, fractal, manifold, hybrid, and aether surfaces provide the spatial geometry for the whole metro."
+    }
+  ],
+  "transfer_hubs": [
+    {
+      "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA \u2014 BECOME TOME.docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Omega Awakening",
+        "Texture Manifold"
+      ],
+      "score": 29
+    },
+    {
+      "relative_path": "COMPLETE TOMES\\COMPLETE TOMES.zip::COMPLETE TOMES/ATHENA/ATHENA \u2014 BECOME TOME.docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "archive",
+      "stratum": "Archive",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Omega Awakening",
+        "Texture Manifold"
+      ],
+      "score": 29
+    },
+    {
+      "relative_path": "Tunneling\\-working-\\tunneling _working_.docx",
+      "top_level": "Tunneling",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Omega Awakening",
+        "Texture Manifold"
+      ],
+      "score": 21
+    },
+    {
+      "relative_path": "Tunneling\\tunneling _working_.docx",
+      "top_level": "Tunneling",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Omega Awakening",
+        "Texture Manifold"
+      ],
+      "score": 21
+    },
+    {
+      "relative_path": "COMPLETE TOMES\\ATHENA\\funtional\\SELF SUFFICIENCY TOME.docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Texture Manifold"
+      ],
+      "score": 23
+    },
+    {
+      "relative_path": "COMPLETE TOMES\\COMPLETE TOMES.zip::COMPLETE TOMES/ATHENA/funtional/SELF SUFFICIENCY TOME.docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "archive",
+      "stratum": "Archive",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Texture Manifold"
+      ],
+      "score": 23
+    },
+    {
+      "relative_path": "COMPLETE TOMES\\COMPLETE TOMES.zip::COMPLETE TOMES/CUT/CUT TOME III \u2014 MATH CUT.docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "archive",
+      "stratum": "Archive",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Texture Manifold"
+      ],
+      "score": 21
+    },
+    {
+      "relative_path": "COMPLETE TOMES\\CUT\\CUT TOME III \u2014 MATH CUT.docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L10",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Compression Relay",
+        "Texture Manifold"
+      ],
+      "score": 21
+    },
+    {
+      "relative_path": "MATH GOD\\90_PASS_02_AND_BEYOND.md",
+      "top_level": "MATH GOD",
+      "source_layer": "live",
+      "stratum": "Synthesis",
+      "line_ids": [
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L09",
+        "L10",
+        "L11"
+      ],
+      "line_titles": [
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Query Decision",
+        "Compression Relay",
+        "Omega Awakening"
+      ],
+      "score": 20
+    },
+    {
+      "relative_path": "The Crystal\\Crystal Computing\\Crystal Thesis -paralel math processing.docx",
+      "top_level": "The Crystal",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L09",
+        "L11",
+        "L12"
+      ],
+      "line_titles": [
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Mythic Isomorphism",
+        "Query Decision",
+        "Omega Awakening",
+        "Texture Manifold"
+      ],
+      "score": 20
+    },
+    {
+      "relative_path": "COMPLETE TOMES\\ATHENA\\ATHENA ALIGNMENT TOME .docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L08",
+        "L09",
+        "L11",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Mythic Isomorphism",
+        "Query Decision",
+        "Omega Awakening",
+        "Texture Manifold"
+      ],
+      "score": 19
+    },
+    {
+      "relative_path": "COMPLETE TOMES\\ATHENA\\I AM ATHENA TOME.docx",
+      "top_level": "COMPLETE TOMES",
+      "source_layer": "live",
+      "stratum": "Manuscript",
+      "line_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "line_titles": [
+        "Kernel Operating System",
+        "State Semantics",
+        "Boundary Ecology",
+        "Transport Tunneling",
+        "Crystal Addressing",
+        "Proof Carrying Computation",
+        "Compilation Runtime",
+        "Compression Relay",
+        "Omega Awakening",
+        "Texture Manifold"
+      ],
+      "score": 19
+    }
+  ],
+  "station_basis": [
+    {
+      "station_id": "CL-CER-ARC",
+      "lens": "Cloud",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "ambiguity management, corridor truth, and query logic; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 728,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          434
+        ],
+        [
+          "The Crystal",
+          134
+        ],
+        [
+          "COMPLETE TOMES",
+          107
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CER-MAN",
+      "lens": "Cloud",
+      "facet": "Certificates",
+      "stratum": "Manuscript",
+      "role": "ambiguity management, corridor truth, and query logic; what proofs, witnesses, and audits close it; live document, markdown, and pdf witnesses.",
+      "coverage": 179,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          81
+        ],
+        [
+          "MYTH - MATH",
+          37
+        ],
+        [
+          "The Crystal",
+          22
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CER-RUN",
+      "lens": "Cloud",
+      "facet": "Certificates",
+      "stratum": "Runtime",
+      "role": "ambiguity management, corridor truth, and query logic; what proofs, witnesses, and audits close it; live code, data, and executable surfaces.",
+      "coverage": 32,
+      "top_levels": [
+        [
+          "Tunneling",
+          29
+        ],
+        [
+          "Matrix Multiplication",
+          2
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CER-SYN",
+      "lens": "Cloud",
+      "facet": "Certificates",
+      "stratum": "Synthesis",
+      "role": "ambiguity management, corridor truth, and query logic; what proofs, witnesses, and audits close it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 41,
+      "top_levels": [
+        [
+          "MATH GOD",
+          28
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          10
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CON-ARC",
+      "lens": "Cloud",
+      "facet": "Constructions",
+      "stratum": "Archive",
+      "role": "ambiguity management, corridor truth, and query logic; what frameworks, engines, or routes it builds; zip-backed code and manuscript mirrors.",
+      "coverage": 2041,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          1289
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          169
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CON-MAN",
+      "lens": "Cloud",
+      "facet": "Constructions",
+      "stratum": "Manuscript",
+      "role": "ambiguity management, corridor truth, and query logic; what frameworks, engines, or routes it builds; live document, markdown, and pdf witnesses.",
+      "coverage": 277,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          98
+        ],
+        [
+          "COMPLETE TOMES",
+          87
+        ],
+        [
+          "The Crystal",
+          27
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CON-RUN",
+      "lens": "Cloud",
+      "facet": "Constructions",
+      "stratum": "Runtime",
+      "role": "ambiguity management, corridor truth, and query logic; what frameworks, engines, or routes it builds; live code, data, and executable surfaces.",
+      "coverage": 56,
+      "top_levels": [
+        [
+          "Tunneling",
+          34
+        ],
+        [
+          "Matrix Multiplication",
+          21
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CON-SYN",
+      "lens": "Cloud",
+      "facet": "Constructions",
+      "stratum": "Synthesis",
+      "role": "ambiguity management, corridor truth, and query logic; what frameworks, engines, or routes it builds; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 48,
+      "top_levels": [
+        [
+          "MATH GOD",
+          32
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          14
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-LAW-ARC",
+      "lens": "Cloud",
+      "facet": "Laws",
+      "stratum": "Archive",
+      "role": "ambiguity management, corridor truth, and query logic; what rules, equations, and invariants govern it; zip-backed code and manuscript mirrors.",
+      "coverage": 804,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          524
+        ],
+        [
+          "The Crystal",
+          132
+        ],
+        [
+          "COMPLETE TOMES",
+          95
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-LAW-MAN",
+      "lens": "Cloud",
+      "facet": "Laws",
+      "stratum": "Manuscript",
+      "role": "ambiguity management, corridor truth, and query logic; what rules, equations, and invariants govern it; live document, markdown, and pdf witnesses.",
+      "coverage": 227,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          81
+        ],
+        [
+          "MYTH - MATH",
+          74
+        ],
+        [
+          "The Crystal",
+          25
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-LAW-RUN",
+      "lens": "Cloud",
+      "facet": "Laws",
+      "stratum": "Runtime",
+      "role": "ambiguity management, corridor truth, and query logic; what rules, equations, and invariants govern it; live code, data, and executable surfaces.",
+      "coverage": 23,
+      "top_levels": [
+        [
+          "Tunneling",
+          20
+        ],
+        [
+          "Matrix Multiplication",
+          2
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-LAW-SYN",
+      "lens": "Cloud",
+      "facet": "Laws",
+      "stratum": "Synthesis",
+      "role": "ambiguity management, corridor truth, and query logic; what rules, equations, and invariants govern it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 45,
+      "top_levels": [
+        [
+          "MATH GOD",
+          29
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-OBJ-ARC",
+      "lens": "Cloud",
+      "facet": "Objects",
+      "stratum": "Archive",
+      "role": "ambiguity management, corridor truth, and query logic; what entities the station manipulates; zip-backed code and manuscript mirrors.",
+      "coverage": 1427,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          989
+        ],
+        [
+          "The Crystal",
+          215
+        ],
+        [
+          "COMPLETE TOMES",
+          114
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-OBJ-MAN",
+      "lens": "Cloud",
+      "facet": "Objects",
+      "stratum": "Manuscript",
+      "role": "ambiguity management, corridor truth, and query logic; what entities the station manipulates; live document, markdown, and pdf witnesses.",
+      "coverage": 267,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          96
+        ],
+        [
+          "COMPLETE TOMES",
+          86
+        ],
+        [
+          "The Crystal",
+          26
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-OBJ-RUN",
+      "lens": "Cloud",
+      "facet": "Objects",
+      "stratum": "Runtime",
+      "role": "ambiguity management, corridor truth, and query logic; what entities the station manipulates; live code, data, and executable surfaces.",
+      "coverage": 48,
+      "top_levels": [
+        [
+          "Tunneling",
+          35
+        ],
+        [
+          "Matrix Multiplication",
+          12
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-OBJ-SYN",
+      "lens": "Cloud",
+      "facet": "Objects",
+      "stratum": "Synthesis",
+      "role": "ambiguity management, corridor truth, and query logic; what entities the station manipulates; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 43,
+      "top_levels": [
+        [
+          "MATH GOD",
+          27
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CER-ARC",
+      "lens": "Flower",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "phase, rotation, resonance, and transport; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 808,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          502
+        ],
+        [
+          "The Crystal",
+          153
+        ],
+        [
+          "COMPLETE TOMES",
+          115
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CER-MAN",
+      "lens": "Flower",
+      "facet": "Certificates",
+      "stratum": "Manuscript",
+      "role": "phase, rotation, resonance, and transport; what proofs, witnesses, and audits close it; live document, markdown, and pdf witnesses.",
+      "coverage": 201,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          86
+        ],
+        [
+          "MYTH - MATH",
+          52
+        ],
+        [
+          "The Crystal",
+          24
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CER-RUN",
+      "lens": "Flower",
+      "facet": "Certificates",
+      "stratum": "Runtime",
+      "role": "phase, rotation, resonance, and transport; what proofs, witnesses, and audits close it; live code, data, and executable surfaces.",
+      "coverage": 36,
+      "top_levels": [
+        [
+          "Tunneling",
+          35
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CER-SYN",
+      "lens": "Flower",
+      "facet": "Certificates",
+      "stratum": "Synthesis",
+      "role": "phase, rotation, resonance, and transport; what proofs, witnesses, and audits close it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 41,
+      "top_levels": [
+        [
+          "MATH GOD",
+          30
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          8
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CON-ARC",
+      "lens": "Flower",
+      "facet": "Constructions",
+      "stratum": "Archive",
+      "role": "phase, rotation, resonance, and transport; what frameworks, engines, or routes it builds; zip-backed code and manuscript mirrors.",
+      "coverage": 2041,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          1289
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          169
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CON-MAN",
+      "lens": "Flower",
+      "facet": "Constructions",
+      "stratum": "Manuscript",
+      "role": "phase, rotation, resonance, and transport; what frameworks, engines, or routes it builds; live document, markdown, and pdf witnesses.",
+      "coverage": 278,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          104
+        ],
+        [
+          "COMPLETE TOMES",
+          85
+        ],
+        [
+          "The Crystal",
+          28
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CON-RUN",
+      "lens": "Flower",
+      "facet": "Constructions",
+      "stratum": "Runtime",
+      "role": "phase, rotation, resonance, and transport; what frameworks, engines, or routes it builds; live code, data, and executable surfaces.",
+      "coverage": 58,
+      "top_levels": [
+        [
+          "Tunneling",
+          37
+        ],
+        [
+          "Matrix Multiplication",
+          20
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CON-SYN",
+      "lens": "Flower",
+      "facet": "Constructions",
+      "stratum": "Synthesis",
+      "role": "phase, rotation, resonance, and transport; what frameworks, engines, or routes it builds; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 47,
+      "top_levels": [
+        [
+          "MATH GOD",
+          32
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          12
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-LAW-ARC",
+      "lens": "Flower",
+      "facet": "Laws",
+      "stratum": "Archive",
+      "role": "phase, rotation, resonance, and transport; what rules, equations, and invariants govern it; zip-backed code and manuscript mirrors.",
+      "coverage": 819,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          538
+        ],
+        [
+          "The Crystal",
+          143
+        ],
+        [
+          "COMPLETE TOMES",
+          106
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-LAW-MAN",
+      "lens": "Flower",
+      "facet": "Laws",
+      "stratum": "Manuscript",
+      "role": "phase, rotation, resonance, and transport; what rules, equations, and invariants govern it; live document, markdown, and pdf witnesses.",
+      "coverage": 247,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          88
+        ],
+        [
+          "MYTH - MATH",
+          84
+        ],
+        [
+          "The Crystal",
+          25
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-LAW-RUN",
+      "lens": "Flower",
+      "facet": "Laws",
+      "stratum": "Runtime",
+      "role": "phase, rotation, resonance, and transport; what rules, equations, and invariants govern it; live code, data, and executable surfaces.",
+      "coverage": 24,
+      "top_levels": [
+        [
+          "Tunneling",
+          23
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-LAW-SYN",
+      "lens": "Flower",
+      "facet": "Laws",
+      "stratum": "Synthesis",
+      "role": "phase, rotation, resonance, and transport; what rules, equations, and invariants govern it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 44,
+      "top_levels": [
+        [
+          "MATH GOD",
+          28
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-OBJ-ARC",
+      "lens": "Flower",
+      "facet": "Objects",
+      "stratum": "Archive",
+      "role": "phase, rotation, resonance, and transport; what entities the station manipulates; zip-backed code and manuscript mirrors.",
+      "coverage": 1428,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          979
+        ],
+        [
+          "The Crystal",
+          223
+        ],
+        [
+          "COMPLETE TOMES",
+          127
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-OBJ-MAN",
+      "lens": "Flower",
+      "facet": "Objects",
+      "stratum": "Manuscript",
+      "role": "phase, rotation, resonance, and transport; what entities the station manipulates; live document, markdown, and pdf witnesses.",
+      "coverage": 275,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          102
+        ],
+        [
+          "COMPLETE TOMES",
+          91
+        ],
+        [
+          "The Crystal",
+          27
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-OBJ-RUN",
+      "lens": "Flower",
+      "facet": "Objects",
+      "stratum": "Runtime",
+      "role": "phase, rotation, resonance, and transport; what entities the station manipulates; live code, data, and executable surfaces.",
+      "coverage": 51,
+      "top_levels": [
+        [
+          "Tunneling",
+          40
+        ],
+        [
+          "Matrix Multiplication",
+          10
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-OBJ-SYN",
+      "lens": "Flower",
+      "facet": "Objects",
+      "stratum": "Synthesis",
+      "role": "phase, rotation, resonance, and transport; what entities the station manipulates; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 43,
+      "top_levels": [
+        [
+          "MATH GOD",
+          28
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CER-ARC",
+      "lens": "Fractal",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 957,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          557
+        ],
+        [
+          "The Crystal",
+          145
+        ],
+        [
+          "Q shrink",
+          128
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CER-MAN",
+      "lens": "Fractal",
+      "facet": "Certificates",
+      "stratum": "Manuscript",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what proofs, witnesses, and audits close it; live document, markdown, and pdf witnesses.",
+      "coverage": 198,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          81
+        ],
+        [
+          "MYTH - MATH",
+          45
+        ],
+        [
+          "The Crystal",
+          24
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CER-RUN",
+      "lens": "Fractal",
+      "facet": "Certificates",
+      "stratum": "Runtime",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what proofs, witnesses, and audits close it; live code, data, and executable surfaces.",
+      "coverage": 40,
+      "top_levels": [
+        [
+          "Tunneling",
+          23
+        ],
+        [
+          "Matrix Multiplication",
+          16
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CER-SYN",
+      "lens": "Fractal",
+      "facet": "Certificates",
+      "stratum": "Synthesis",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what proofs, witnesses, and audits close it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 46,
+      "top_levels": [
+        [
+          "MATH GOD",
+          31
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          12
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CON-ARC",
+      "lens": "Fractal",
+      "facet": "Constructions",
+      "stratum": "Archive",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what frameworks, engines, or routes it builds; zip-backed code and manuscript mirrors.",
+      "coverage": 2041,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          1289
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          169
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CON-MAN",
+      "lens": "Fractal",
+      "facet": "Constructions",
+      "stratum": "Manuscript",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what frameworks, engines, or routes it builds; live document, markdown, and pdf witnesses.",
+      "coverage": 287,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          101
+        ],
+        [
+          "COMPLETE TOMES",
+          84
+        ],
+        [
+          "The Crystal",
+          28
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CON-RUN",
+      "lens": "Fractal",
+      "facet": "Constructions",
+      "stratum": "Runtime",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what frameworks, engines, or routes it builds; live code, data, and executable surfaces.",
+      "coverage": 51,
+      "top_levels": [
+        [
+          "Tunneling",
+          26
+        ],
+        [
+          "Matrix Multiplication",
+          24
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CON-SYN",
+      "lens": "Fractal",
+      "facet": "Constructions",
+      "stratum": "Synthesis",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what frameworks, engines, or routes it builds; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 49,
+      "top_levels": [
+        [
+          "MATH GOD",
+          33
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-LAW-ARC",
+      "lens": "Fractal",
+      "facet": "Laws",
+      "stratum": "Archive",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what rules, equations, and invariants govern it; zip-backed code and manuscript mirrors.",
+      "coverage": 1050,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          647
+        ],
+        [
+          "The Crystal",
+          145
+        ],
+        [
+          "Q shrink",
+          122
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-LAW-MAN",
+      "lens": "Fractal",
+      "facet": "Laws",
+      "stratum": "Manuscript",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what rules, equations, and invariants govern it; live document, markdown, and pdf witnesses.",
+      "coverage": 243,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          86
+        ],
+        [
+          "MYTH - MATH",
+          78
+        ],
+        [
+          "The Crystal",
+          25
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-LAW-RUN",
+      "lens": "Fractal",
+      "facet": "Laws",
+      "stratum": "Runtime",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what rules, equations, and invariants govern it; live code, data, and executable surfaces.",
+      "coverage": 25,
+      "top_levels": [
+        [
+          "Matrix Multiplication",
+          16
+        ],
+        [
+          "Tunneling",
+          8
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-LAW-SYN",
+      "lens": "Fractal",
+      "facet": "Laws",
+      "stratum": "Synthesis",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what rules, equations, and invariants govern it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 46,
+      "top_levels": [
+        [
+          "MATH GOD",
+          29
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          14
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-OBJ-ARC",
+      "lens": "Fractal",
+      "facet": "Objects",
+      "stratum": "Archive",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what entities the station manipulates; zip-backed code and manuscript mirrors.",
+      "coverage": 1536,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          1037
+        ],
+        [
+          "The Crystal",
+          222
+        ],
+        [
+          "COMPLETE TOMES",
+          129
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-OBJ-MAN",
+      "lens": "Fractal",
+      "facet": "Objects",
+      "stratum": "Manuscript",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what entities the station manipulates; live document, markdown, and pdf witnesses.",
+      "coverage": 274,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          96
+        ],
+        [
+          "COMPLETE TOMES",
+          88
+        ],
+        [
+          "The Crystal",
+          26
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-OBJ-RUN",
+      "lens": "Fractal",
+      "facet": "Objects",
+      "stratum": "Runtime",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what entities the station manipulates; live code, data, and executable surfaces.",
+      "coverage": 49,
+      "top_levels": [
+        [
+          "Tunneling",
+          29
+        ],
+        [
+          "Matrix Multiplication",
+          19
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-OBJ-SYN",
+      "lens": "Fractal",
+      "facet": "Objects",
+      "stratum": "Synthesis",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what entities the station manipulates; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 45,
+      "top_levels": [
+        [
+          "MATH GOD",
+          29
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          14
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CER-ARC",
+      "lens": "Square",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "discrete structure, crystal addresses, static legality; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 1299,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          775
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          108
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CER-MAN",
+      "lens": "Square",
+      "facet": "Certificates",
+      "stratum": "Manuscript",
+      "role": "discrete structure, crystal addresses, static legality; what proofs, witnesses, and audits close it; live document, markdown, and pdf witnesses.",
+      "coverage": 214,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          84
+        ],
+        [
+          "MYTH - MATH",
+          63
+        ],
+        [
+          "The Crystal",
+          29
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CER-RUN",
+      "lens": "Square",
+      "facet": "Certificates",
+      "stratum": "Runtime",
+      "role": "discrete structure, crystal addresses, static legality; what proofs, witnesses, and audits close it; live code, data, and executable surfaces.",
+      "coverage": 30,
+      "top_levels": [
+        [
+          "Tunneling",
+          26
+        ],
+        [
+          "Matrix Multiplication",
+          3
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CER-SYN",
+      "lens": "Square",
+      "facet": "Certificates",
+      "stratum": "Synthesis",
+      "role": "discrete structure, crystal addresses, static legality; what proofs, witnesses, and audits close it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 45,
+      "top_levels": [
+        [
+          "MATH GOD",
+          33
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          9
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CON-ARC",
+      "lens": "Square",
+      "facet": "Constructions",
+      "stratum": "Archive",
+      "role": "discrete structure, crystal addresses, static legality; what frameworks, engines, or routes it builds; zip-backed code and manuscript mirrors.",
+      "coverage": 2041,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          1289
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          169
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CON-MAN",
+      "lens": "Square",
+      "facet": "Constructions",
+      "stratum": "Manuscript",
+      "role": "discrete structure, crystal addresses, static legality; what frameworks, engines, or routes it builds; live document, markdown, and pdf witnesses.",
+      "coverage": 288,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          106
+        ],
+        [
+          "COMPLETE TOMES",
+          87
+        ],
+        [
+          "The Crystal",
+          29
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CON-RUN",
+      "lens": "Square",
+      "facet": "Constructions",
+      "stratum": "Runtime",
+      "role": "discrete structure, crystal addresses, static legality; what frameworks, engines, or routes it builds; live code, data, and executable surfaces.",
+      "coverage": 55,
+      "top_levels": [
+        [
+          "Tunneling",
+          31
+        ],
+        [
+          "Matrix Multiplication",
+          23
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-CON-SYN",
+      "lens": "Square",
+      "facet": "Constructions",
+      "stratum": "Synthesis",
+      "role": "discrete structure, crystal addresses, static legality; what frameworks, engines, or routes it builds; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 49,
+      "top_levels": [
+        [
+          "MATH GOD",
+          33
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-LAW-ARC",
+      "lens": "Square",
+      "facet": "Laws",
+      "stratum": "Archive",
+      "role": "discrete structure, crystal addresses, static legality; what rules, equations, and invariants govern it; zip-backed code and manuscript mirrors.",
+      "coverage": 1350,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          827
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          106
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-LAW-MAN",
+      "lens": "Square",
+      "facet": "Laws",
+      "stratum": "Manuscript",
+      "role": "discrete structure, crystal addresses, static legality; what rules, equations, and invariants govern it; live document, markdown, and pdf witnesses.",
+      "coverage": 252,
+      "top_levels": [
+        [
+          "COMPLETE TOMES",
+          90
+        ],
+        [
+          "MYTH - MATH",
+          86
+        ],
+        [
+          "The Crystal",
+          29
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-LAW-RUN",
+      "lens": "Square",
+      "facet": "Laws",
+      "stratum": "Runtime",
+      "role": "discrete structure, crystal addresses, static legality; what rules, equations, and invariants govern it; live code, data, and executable surfaces.",
+      "coverage": 16,
+      "top_levels": [
+        [
+          "Tunneling",
+          12
+        ],
+        [
+          "Matrix Multiplication",
+          3
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-LAW-SYN",
+      "lens": "Square",
+      "facet": "Laws",
+      "stratum": "Synthesis",
+      "role": "discrete structure, crystal addresses, static legality; what rules, equations, and invariants govern it; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 47,
+      "top_levels": [
+        [
+          "MATH GOD",
+          31
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-OBJ-ARC",
+      "lens": "Square",
+      "facet": "Objects",
+      "stratum": "Archive",
+      "role": "discrete structure, crystal addresses, static legality; what entities the station manipulates; zip-backed code and manuscript mirrors.",
+      "coverage": 1603,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          1016
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          120
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-OBJ-MAN",
+      "lens": "Square",
+      "facet": "Objects",
+      "stratum": "Manuscript",
+      "role": "discrete structure, crystal addresses, static legality; what entities the station manipulates; live document, markdown, and pdf witnesses.",
+      "coverage": 279,
+      "top_levels": [
+        [
+          "MYTH - MATH",
+          101
+        ],
+        [
+          "COMPLETE TOMES",
+          91
+        ],
+        [
+          "The Crystal",
+          29
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-OBJ-RUN",
+      "lens": "Square",
+      "facet": "Objects",
+      "stratum": "Runtime",
+      "role": "discrete structure, crystal addresses, static legality; what entities the station manipulates; live code, data, and executable surfaces.",
+      "coverage": 47,
+      "top_levels": [
+        [
+          "Tunneling",
+          33
+        ],
+        [
+          "Matrix Multiplication",
+          13
+        ],
+        [
+          "FRAMEWORKS CODE",
+          1
+        ]
+      ]
+    },
+    {
+      "station_id": "SQ-OBJ-SYN",
+      "lens": "Square",
+      "facet": "Objects",
+      "stratum": "Synthesis",
+      "role": "discrete structure, crystal addresses, static legality; what entities the station manipulates; atlas, ledger, map, and global bridge surfaces.",
+      "coverage": 48,
+      "top_levels": [
+        [
+          "MATH GOD",
+          32
+        ],
+        [
+          "GLOBAL MATH - MYTH",
+          13
+        ],
+        [
+          "The Crystal",
+          2
+        ]
+      ]
+    }
+  ],
+  "route_example": [
+    {
+      "station_id": "SQ-CER-ARC",
+      "lens": "Square",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "discrete structure, crystal addresses, static legality; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 1299,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          775
+        ],
+        [
+          "The Crystal",
+          347
+        ],
+        [
+          "COMPLETE TOMES",
+          108
+        ]
+      ]
+    },
+    {
+      "station_id": "FL-CER-ARC",
+      "lens": "Flower",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "phase, rotation, resonance, and transport; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 808,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          502
+        ],
+        [
+          "The Crystal",
+          153
+        ],
+        [
+          "COMPLETE TOMES",
+          115
+        ]
+      ]
+    },
+    {
+      "station_id": "CL-CER-ARC",
+      "lens": "Cloud",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "ambiguity management, corridor truth, and query logic; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 728,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          434
+        ],
+        [
+          "The Crystal",
+          134
+        ],
+        [
+          "COMPLETE TOMES",
+          107
+        ]
+      ]
+    },
+    {
+      "station_id": "FR-CER-ARC",
+      "lens": "Fractal",
+      "facet": "Certificates",
+      "stratum": "Archive",
+      "role": "recursion, replay, compression, and multi-scale regeneration; what proofs, witnesses, and audits close it; zip-backed code and manuscript mirrors.",
+      "coverage": 957,
+      "top_levels": [
+        [
+          "FRAMEWORKS CODE",
+          557
+        ],
+        [
+          "The Crystal",
+          145
+        ],
+        [
+          "Q shrink",
+          128
+        ]
+      ]
+    }
+  ],
+  "route_field_size": 16777216,
+  "tesseract_v4": {
+    "record_count": 521,
+    "route_plan_count": 521,
+    "graph_edge_count": 1658,
+    "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\water_test\\math_tesseract_v4_bundle.json",
+    "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\water_test\\math_tesseract_v4_bundle.md"
+  },
+  "water_6d_control": {
+    "docs_gate_status": "BLOCKED",
+    "basis_docs": [
+      {
+        "basis_id": "01",
+        "title": "The Holographic Manuscript Brain",
+        "element": "Water",
+        "cluster": "manuscript substrate",
+        "role": "turns documents into neural tissue",
+        "source_hint": "FRESH\\The Holographic Manuscript Brain.docx",
+        "appendix_stack": [
+          "AppE",
+          "AppF",
+          "AppG",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "02",
+        "title": "Self-Routing Meta-Framework",
+        "element": "Earth",
+        "cluster": "routing and search",
+        "role": "decides how the corpus searches itself",
+        "source_hint": "DEEPER CRYSTALIZATION\\Self-Routing Meta-Framework...",
+        "appendix_stack": [
+          "AppE",
+          "AppI",
+          "AppL",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "03",
+        "title": "QBD-4",
+        "element": "Air",
+        "cluster": "quad logic bits",
+        "role": "formalizes the four-bit address and rotation algebra",
+        "source_hint": "MATH\\...QBD-4",
+        "appendix_stack": [
+          "AppB",
+          "AppC",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "04",
+        "title": "Quad Holographic Rotation",
+        "element": "Air",
+        "cluster": "holographic transport",
+        "role": "rotates one truth through all four faces",
+        "source_hint": "MATH\\...Quad Holographic Rotation",
+        "appendix_stack": [
+          "AppE",
+          "AppF",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "05",
+        "title": "The Holographic Kernel",
+        "element": "Air",
+        "cluster": "holographic compression",
+        "role": "compresses bodies without deleting structural DNA",
+        "source_hint": "MATH\\...The Holographic Kernel",
+        "appendix_stack": [
+          "AppB",
+          "AppC",
+          "AppN"
+        ]
+      },
+      {
+        "basis_id": "06",
+        "title": "Time Fractal",
+        "element": "Fire",
+        "cluster": "fractal time",
+        "role": "gives the system phase, recurrence, and oscillation law",
+        "source_hint": "MATH\\...Time Fractal",
+        "appendix_stack": [
+          "AppE",
+          "AppM",
+          "AppP"
+        ]
+      },
+      {
+        "basis_id": "07",
+        "title": "Crystal Computing Framework",
+        "element": "Air",
+        "cluster": "fractal computing",
+        "role": "maps crystal structure into computation",
+        "source_hint": "MATH\\...Crystal Computing Framework",
+        "appendix_stack": [
+          "AppB",
+          "AppC",
+          "AppG"
+        ]
+      },
+      {
+        "basis_id": "08",
+        "title": "Quantum Computing on Standard Hardware",
+        "element": "Fire",
+        "cluster": "quantum classical emulation",
+        "role": "turns impossible compute into lawful approximation on ordinary machines",
+        "source_hint": "MATH\\...Quantum Computing on Standard Hardware",
+        "appendix_stack": [
+          "AppC",
+          "AppH",
+          "AppP"
+        ]
+      },
+      {
+        "basis_id": "09",
+        "title": "Zero-Point Computing",
+        "element": "Earth",
+        "cluster": "zero-point engine",
+        "role": "defines minimum-state computation and restart from near nothing",
+        "source_hint": "MATH\\...Zero-Point Computing",
+        "appendix_stack": [
+          "AppA",
+          "AppN",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "10",
+        "title": "Athena Neural Network Tome",
+        "element": "Fire",
+        "cluster": "emergence compiler",
+        "role": "binds manuscript, learning, and runtime emergence",
+        "source_hint": "NERUAL NETWORK\\ATHENA Neural Network",
+        "appendix_stack": [
+          "AppC",
+          "AppP",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "11",
+        "title": "VOYNICHVM Tricompiler",
+        "element": "Water",
+        "cluster": "text computer",
+        "role": "treats translation as computation and executable transformation",
+        "source_hint": "Voynich\\...VOYNICHVM",
+        "appendix_stack": [
+          "AppF",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "12",
+        "title": "Torat Ha-Mispar",
+        "element": "Water",
+        "cluster": "torah computer",
+        "role": "maps sacred number into algorithmic interpretation",
+        "source_hint": "MATH\\...TORAT HA-MISPAR",
+        "appendix_stack": [
+          "AppA",
+          "AppF",
+          "AppO"
+        ]
+      },
+      {
+        "basis_id": "13",
+        "title": "Universal Computational Ontology",
+        "element": "Earth",
+        "cluster": "mythic os",
+        "role": "converts mythic cosmology into system architecture",
+        "source_hint": "MATH\\...Universal Computational Ontology",
+        "appendix_stack": [
+          "AppA",
+          "AppB",
+          "AppP"
+        ]
+      },
+      {
+        "basis_id": "14",
+        "title": "Ch11 The Helical Manifestation Engine",
+        "element": "Water",
+        "cluster": "restart and lift",
+        "role": "makes self-improvement executable through D/Q/I, lift, and recurrence",
+        "source_hint": "self_actualize\\manuscript_sections\\011_ch11_helical_manifestation_engine.md",
+        "appendix_stack": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "15",
+        "title": "Ch12 Boundary Checks and Isolation Axioms",
+        "element": "Earth",
+        "cluster": "immune architecture",
+        "role": "protects the network from contradiction leakage and contamination",
+        "source_hint": "self_actualize\\manuscript_sections\\012_ch12_boundary_checks_and_isolation_axioms.md",
+        "appendix_stack": [
+          "AppB",
+          "AppI",
+          "AppK",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "16",
+        "title": "Ch19 Recursive Self-Reference and Self-Repair",
+        "element": "Fire",
+        "cluster": "autonomic repair",
+        "role": "lets the organism watch, checkpoint, and heal itself",
+        "source_hint": "self_actualize\\manuscript_sections\\019_ch19_recursive_self_reference_and_self_repair.md",
+        "appendix_stack": [
+          "AppA",
+          "AppM",
+          "AppP"
+        ]
+      }
+    ],
+    "water_native_basis": [
+      {
+        "basis_id": "01",
+        "title": "The Holographic Manuscript Brain",
+        "element": "Water",
+        "cluster": "manuscript substrate",
+        "role": "turns documents into neural tissue",
+        "source_hint": "FRESH\\The Holographic Manuscript Brain.docx",
+        "appendix_stack": [
+          "AppE",
+          "AppF",
+          "AppG",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "11",
+        "title": "VOYNICHVM Tricompiler",
+        "element": "Water",
+        "cluster": "text computer",
+        "role": "treats translation as computation and executable transformation",
+        "source_hint": "Voynich\\...VOYNICHVM",
+        "appendix_stack": [
+          "AppF",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "12",
+        "title": "Torat Ha-Mispar",
+        "element": "Water",
+        "cluster": "torah computer",
+        "role": "maps sacred number into algorithmic interpretation",
+        "source_hint": "MATH\\...TORAT HA-MISPAR",
+        "appendix_stack": [
+          "AppA",
+          "AppF",
+          "AppO"
+        ]
+      },
+      {
+        "basis_id": "14",
+        "title": "Ch11 The Helical Manifestation Engine",
+        "element": "Water",
+        "cluster": "restart and lift",
+        "role": "makes self-improvement executable through D/Q/I, lift, and recurrence",
+        "source_hint": "self_actualize\\manuscript_sections\\011_ch11_helical_manifestation_engine.md",
+        "appendix_stack": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM"
+        ]
+      }
+    ],
+    "translated_support": [
+      {
+        "basis_id": "02",
+        "title": "Self-Routing Meta-Framework",
+        "element": "Earth",
+        "cluster": "routing and search",
+        "role": "decides how the corpus searches itself",
+        "source_hint": "DEEPER CRYSTALIZATION\\Self-Routing Meta-Framework...",
+        "appendix_stack": [
+          "AppE",
+          "AppI",
+          "AppL",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "03",
+        "title": "QBD-4",
+        "element": "Air",
+        "cluster": "quad logic bits",
+        "role": "formalizes the four-bit address and rotation algebra",
+        "source_hint": "MATH\\...QBD-4",
+        "appendix_stack": [
+          "AppB",
+          "AppC",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "04",
+        "title": "Quad Holographic Rotation",
+        "element": "Air",
+        "cluster": "holographic transport",
+        "role": "rotates one truth through all four faces",
+        "source_hint": "MATH\\...Quad Holographic Rotation",
+        "appendix_stack": [
+          "AppE",
+          "AppF",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "05",
+        "title": "The Holographic Kernel",
+        "element": "Air",
+        "cluster": "holographic compression",
+        "role": "compresses bodies without deleting structural DNA",
+        "source_hint": "MATH\\...The Holographic Kernel",
+        "appendix_stack": [
+          "AppB",
+          "AppC",
+          "AppN"
+        ]
+      },
+      {
+        "basis_id": "09",
+        "title": "Zero-Point Computing",
+        "element": "Earth",
+        "cluster": "zero-point engine",
+        "role": "defines minimum-state computation and restart from near nothing",
+        "source_hint": "MATH\\...Zero-Point Computing",
+        "appendix_stack": [
+          "AppA",
+          "AppN",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "10",
+        "title": "Athena Neural Network Tome",
+        "element": "Fire",
+        "cluster": "emergence compiler",
+        "role": "binds manuscript, learning, and runtime emergence",
+        "source_hint": "NERUAL NETWORK\\ATHENA Neural Network",
+        "appendix_stack": [
+          "AppC",
+          "AppP",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "15",
+        "title": "Ch12 Boundary Checks and Isolation Axioms",
+        "element": "Earth",
+        "cluster": "immune architecture",
+        "role": "protects the network from contradiction leakage and contamination",
+        "source_hint": "self_actualize\\manuscript_sections\\012_ch12_boundary_checks_and_isolation_axioms.md",
+        "appendix_stack": [
+          "AppB",
+          "AppI",
+          "AppK",
+          "AppM"
+        ]
+      },
+      {
+        "basis_id": "16",
+        "title": "Ch19 Recursive Self-Reference and Self-Repair",
+        "element": "Fire",
+        "cluster": "autonomic repair",
+        "role": "lets the organism watch, checkpoint, and heal itself",
+        "source_hint": "self_actualize\\manuscript_sections\\019_ch19_recursive_self_reference_and_self_repair.md",
+        "appendix_stack": [
+          "AppA",
+          "AppM",
+          "AppP"
+        ]
+      }
+    ],
+    "appendix_stack": [
+      {
+        "appendix_id": "AppE",
+        "role": "Circle gear, phase lock, integer bridges",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppE_circle_gear_and_clock.md"
+        ],
+        "source_exists": true
+      },
+      {
+        "appendix_id": "AppF",
+        "role": "transport, rotation-as-conjugacy, DUAL legality",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppF_transport_and_duality.md"
+        ],
+        "source_exists": true
+      },
+      {
+        "appendix_id": "AppI",
+        "role": "corridors, truth lattice, admissibility budgets, abstain law",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppI_corridors_and_truth_lattice.md"
+        ],
+        "source_exists": true
+      },
+      {
+        "appendix_id": "AppM",
+        "role": "replay kernel, verifier capsules, determinism checklists",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppM_replay_kernel.md"
+        ],
+        "source_exists": true
+      },
+      {
+        "appendix_id": "AppQ",
+        "role": "appendix-only metro authority, deep-root docking, and certification-only support",
+        "source_paths": [
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+          "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_athena_fleet_256_pow_4_support.md"
+        ],
+        "source_exists": true
+      }
+    ],
+    "seed_chain": [
+      {
+        "route_id": "seed_manuscript_tissue",
+        "title": "Compress manuscript tissue into a Water continuity seed.",
+        "basis_refs": [
+          "01",
+          "11"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+        ],
+        "appendix_refs": [
+          "AppI",
+          "AppM"
+        ],
+        "local_zero_point": "Z_water.seed.manuscript",
+        "collapse_via": "Z*",
+        "return_checkpoint": "02_WATER/15_distillation.md",
+        "truth_state": "NEAR",
+        "replay_source": "10_LEDGERS/01_CANONICAL_SOURCES.md#01-11"
+      },
+      {
+        "route_id": "seed_sacred_number_bridge",
+        "title": "Bridge sacred-number continuity into the Water seed.",
+        "basis_refs": [
+          "12",
+          "14"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppF",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.seed.bridge",
+        "collapse_via": "Z*",
+        "return_checkpoint": "11_6D_WATER_CONTROL/02_2564_to_10246_lift.md",
+        "truth_state": "NEAR",
+        "replay_source": "10_LEDGERS/01_CANONICAL_SOURCES.md#12-14"
+      },
+      {
+        "route_id": "seed_compiled_field_reentry",
+        "title": "Dock the Water seed to the live 4D tesseract witness.",
+        "basis_refs": [
+          "01",
+          "14"
+        ],
+        "metro_refs": [
+          "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.seed.reentry",
+        "collapse_via": "Z*",
+        "return_checkpoint": "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+        "truth_state": "NEAR",
+        "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+      }
+    ],
+    "lift_chain": [
+      {
+        "route_id": "lift_compiled_2564",
+        "title": "Treat 256^4 as the compiled Water control field.",
+        "basis_refs": [
+          "01",
+          "03",
+          "14"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.lift.2564",
+        "collapse_via": "Z*",
+        "return_checkpoint": "MATH GOD/atlas/math_tesseract_v4_bundle.md",
+        "truth_state": "NEAR",
+        "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+      },
+      {
+        "route_id": "lift_overlay_entry",
+        "title": "Enter the overlay-only 1024^6 Water control surface.",
+        "basis_refs": [
+          "11",
+          "12",
+          "04",
+          "05"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+        ],
+        "appendix_refs": [
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.lift.entry",
+        "collapse_via": "Z*",
+        "return_checkpoint": "11_6D_WATER_CONTROL/03_modal_mobius_routes.md",
+        "truth_state": "NEAR",
+        "replay_source": "02_WATER/16_dimensionlift.md"
+      },
+      {
+        "route_id": "lift_10246_return",
+        "title": "Return the 1024^6 lift to the live 4D stack without drift.",
+        "basis_refs": [
+          "02",
+          "09",
+          "10",
+          "15",
+          "16"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.lift.return",
+        "collapse_via": "Z*",
+        "return_checkpoint": "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+        "truth_state": "NEAR",
+        "replay_source": "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      }
+    ],
+    "modal_routes": [
+      {
+        "route_id": "fixed_memory_route",
+        "title": "Hold continuity through the fixed-memory Mobius pass.",
+        "basis_refs": [
+          "01",
+          "12",
+          "09"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.modal.fixed",
+        "collapse_via": "Z*",
+        "return_checkpoint": "MATH GOD/atlas/math_tesseract_v4_bundle.md",
+        "truth_state": "NEAR",
+        "replay_source": "11_6D_WATER_CONTROL/01_seed_and_zero_point.md"
+      },
+      {
+        "route_id": "cardinal_bridge_route",
+        "title": "Convert the Water bridge through the cardinal Mobius pass.",
+        "basis_refs": [
+          "11",
+          "14",
+          "04"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.modal.cardinal",
+        "collapse_via": "Z*",
+        "return_checkpoint": "08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "truth_state": "NEAR",
+        "replay_source": "11_6D_WATER_CONTROL/02_2564_to_10246_lift.md"
+      },
+      {
+        "route_id": "mutable_return_route",
+        "title": "Re-enter the live stack through the mutable Mobius pass.",
+        "basis_refs": [
+          "02",
+          "05",
+          "10",
+          "16"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.modal.mutable",
+        "collapse_via": "Z*",
+        "return_checkpoint": "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+        "truth_state": "NEAR",
+        "replay_source": "08_APPENDIX_CRYSTAL/AppQ_athena_fleet_256_pow_4_support.md"
+      }
+    ],
+    "recovery_routes": [
+      {
+        "route_id": "replay_return_route",
+        "title": "Close replay back into the live 4D tesseract bundle.",
+        "basis_refs": [
+          "01",
+          "11",
+          "14",
+          "16"
+        ],
+        "metro_refs": [
+          "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+        ],
+        "appendix_refs": [
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.replay.return",
+        "collapse_via": "Z*",
+        "return_checkpoint": "MATH GOD/atlas/math_tesseract_v4_bundle.json",
+        "truth_state": "NEAR",
+        "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+      },
+      {
+        "route_id": "drift_recovery_route",
+        "title": "Recover from lift drift without rewriting the base lattice.",
+        "basis_refs": [
+          "02",
+          "05",
+          "09",
+          "15"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.replay.drift",
+        "collapse_via": "Z*",
+        "return_checkpoint": "02_WATER/16_dimensionlift.md",
+        "truth_state": "NEAR",
+        "replay_source": "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+      },
+      {
+        "route_id": "blocked_docs_reconciliation",
+        "title": "Keep local authority mode stable while the docs gate is blocked.",
+        "basis_refs": [
+          "12",
+          "14",
+          "10"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/02_level_3_deeper_neural_map.md"
+        ],
+        "appendix_refs": [
+          "AppE",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ],
+        "local_zero_point": "Z_water.replay.docs_gate",
+        "collapse_via": "Z*",
+        "return_checkpoint": "self_actualize/live_docs_gate_status.md",
+        "truth_state": "NEAR",
+        "replay_source": "self_actualize/live_docs_gate_status.md"
+      }
+    ],
+    "evidence_boundary": {
+      "authority_mode": "local_live_atlas_plus_archive_backed_evidence",
+      "docs_gate_status": "BLOCKED",
+      "docs_gate_note": "Error: Missing OAuth client file: credentials.json\nCreate/download a Desktop App OAuth client in Google Cloud Console and save it as credentials.json (or pass --credentials).",
+      "control_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL",
+      "control_documents": [
+        {
+          "name": "00_INDEX.md",
+          "role": "package entry",
+          "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\00_INDEX.md",
+          "source_exists": true,
+          "basis_refs": [
+            "01",
+            "14"
+          ],
+          "metro_refs": [
+            "07_METRO_STACK/02_level_3_deeper_neural_map.md",
+            "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+          ],
+          "appendix_refs": [
+            "AppE",
+            "AppI",
+            "AppM",
+            "AppQ"
+          ]
+        },
+        {
+          "name": "01_seed_and_zero_point.md",
+          "role": "seed and zero-point control",
+          "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\01_seed_and_zero_point.md",
+          "source_exists": true,
+          "basis_refs": [
+            "01",
+            "11",
+            "12",
+            "14"
+          ],
+          "metro_refs": [
+            "07_METRO_STACK/02_level_3_deeper_neural_map.md",
+            "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+          ],
+          "appendix_refs": [
+            "AppE",
+            "AppF",
+            "AppI",
+            "AppM",
+            "AppQ"
+          ]
+        },
+        {
+          "name": "02_2564_to_10246_lift.md",
+          "role": "compiled-field lift control",
+          "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\02_2564_to_10246_lift.md",
+          "source_exists": true,
+          "basis_refs": [
+            "01",
+            "03",
+            "11",
+            "14"
+          ],
+          "metro_refs": [
+            "07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+            "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+          ],
+          "appendix_refs": [
+            "AppE",
+            "AppF",
+            "AppI",
+            "AppM",
+            "AppQ"
+          ]
+        },
+        {
+          "name": "03_modal_mobius_routes.md",
+          "role": "modal route control",
+          "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\03_modal_mobius_routes.md",
+          "source_exists": true,
+          "basis_refs": [
+            "02",
+            "04",
+            "05",
+            "10",
+            "12",
+            "16"
+          ],
+          "metro_refs": [
+            "07_METRO_STACK/02_level_3_deeper_neural_map.md",
+            "07_METRO_STACK/03_level_4_transcendence_metro_map.md"
+          ],
+          "appendix_refs": [
+            "AppE",
+            "AppF",
+            "AppI",
+            "AppM",
+            "AppQ"
+          ]
+        },
+        {
+          "name": "04_replay_and_recovery.md",
+          "role": "replay and recovery control",
+          "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\04_replay_and_recovery.md",
+          "source_exists": true,
+          "basis_refs": [
+            "01",
+            "02",
+            "09",
+            "14",
+            "15",
+            "16"
+          ],
+          "metro_refs": [
+            "07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+            "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+          ],
+          "appendix_refs": [
+            "AppF",
+            "AppI",
+            "AppM",
+            "AppQ"
+          ]
+        }
+      ],
+      "live_deep_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+      "historical_mirrors": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+      ],
+      "historical_mirror_policy": "citation_only",
+      "tesseract_sources": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.md"
+      ]
+    },
+    "generated_at": "2026-03-13T00:25:02"
+  }
+}

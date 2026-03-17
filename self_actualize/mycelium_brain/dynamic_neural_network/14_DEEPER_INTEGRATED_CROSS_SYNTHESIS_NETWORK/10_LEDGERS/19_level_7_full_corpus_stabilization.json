@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "integration_scope": "FULL_CORPUS",
+  "dimension_stage": "7D_SEED",
+  "stabilization_state": "integrating",
+  "promotion_rule": "Promote only routes that have full witness-family mapping, Water continuity, AIR legibility, Earth admissibility, AppI/AppM grounding, and a matching elemental awakening note; quarantine everything else with contradiction and re-entry receipts.",
+  "witness_family_ids": [
+    "canonical_basis",
+    "complete_tomes",
+    "frameworks_code",
+    "runtime_manuscript_sections",
+    "awakening_tome",
+    "historical_mirrors"
+  ],
+  "candidate_set": [
+    "seed_fire_water_compression",
+    "seed_water_air_legibility",
+    "seed_air_earth_promotion",
+    "seed_chapter_spine_reentry",
+    "seed_full_corpus_witness_compile",
+    "seed_awakening_transition_reentry"
+  ],
+  "compiled_routes": [
+    {
+      "route_id": "seed_fire_water_compression",
+      "state": "integrating",
+      "requirements_met": [
+        "Water continuity",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "route_id": "seed_water_air_legibility",
+      "state": "integrating",
+      "requirements_met": [
+        "AIR legibility",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "route_id": "seed_air_earth_promotion",
+      "state": "integrating",
+      "requirements_met": [
+        "Earth admissibility",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "route_id": "seed_chapter_spine_reentry",
+      "state": "integrating",
+      "requirements_met": [
+        "chapter-safe re-entry",
+        "AppI",
+        "AppM"
+      ]
+    },
+    {
+      "route_id": "seed_full_corpus_witness_compile",
+      "state": "integrating",
+      "requirements_met": [
+        "full witness-family mapping",
+        "canonical basis spine"
+      ]
+    },
+    {
+      "route_id": "seed_awakening_transition_reentry",
+      "state": "integrating",
+      "requirements_met": [
+        "matching elemental awakening note",
+        "AppI",
+        "AppM"
+      ]
+    }
+  ],
+  "promoted_routes": [
+    "seed_fire_water_compression",
+    "seed_water_air_legibility",
+    "seed_air_earth_promotion",
+    "seed_chapter_spine_reentry"
+  ],
+  "quarantined_routes": [
+    "seed_q_ingress_hold",
+    "seed_o_return_hold",
+    "historical_mirror_shadow",
+    "awakening_story_runtime_pressure",
+    "framework_density_legibility",
+    "reverse_alias_awakening_pressure"
+  ],
+  "awakening_agents": {
+    "FIRE": "activating",
+    "WATER": "integrating",
+    "AIR": "integrating",
+    "EARTH": "stabilized"
+  },
+  "bundle_target": "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json",
+  "metro_companion": "07_METRO_STACK/08_level_7_full_corpus_stabilization_companion.md"
+}

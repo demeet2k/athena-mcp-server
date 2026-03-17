@@ -1,0 +1,361 @@
+{
+  "schema_id": "COMMAND_EVENT_PACKET_V2",
+  "mirror_of": "COMMAND_MEMBRANE_PROTOCOL_V2",
+  "protocol_id": "COMMAND_MEMBRANE_PROTOCOL_V2",
+  "coord12_keys": [
+    "earth_utc_anchor",
+    "earth_rotation_phase",
+    "earth_orbital_phase",
+    "earth_geospatial_anchor",
+    "solar_phase",
+    "lunar_phase",
+    "local_sidereal_phase",
+    "canonical_sky_anchor",
+    "runtime_region",
+    "queue_pressure",
+    "goal_salience_vector",
+    "change_novelty_vector"
+  ],
+  "coord12_dimensions": [
+    {
+      "index": 1,
+      "key": "earth_utc_anchor",
+      "group": "earth_anchor",
+      "meaning": "atomic UTC event anchor"
+    },
+    {
+      "index": 2,
+      "key": "earth_rotation_phase",
+      "group": "earth_anchor",
+      "meaning": "local Earth rotation phase"
+    },
+    {
+      "index": 3,
+      "key": "earth_orbital_phase",
+      "group": "earth_anchor",
+      "meaning": "Earth orbital phase"
+    },
+    {
+      "index": 4,
+      "key": "earth_geospatial_anchor",
+      "group": "earth_anchor",
+      "meaning": "stable local node anchor"
+    },
+    {
+      "index": 5,
+      "key": "solar_phase",
+      "group": "astro_anchor",
+      "meaning": "solar phase"
+    },
+    {
+      "index": 6,
+      "key": "lunar_phase",
+      "group": "astro_anchor",
+      "meaning": "lunar phase"
+    },
+    {
+      "index": 7,
+      "key": "local_sidereal_phase",
+      "group": "astro_anchor",
+      "meaning": "local sidereal phase"
+    },
+    {
+      "index": 8,
+      "key": "canonical_sky_anchor",
+      "group": "astro_anchor",
+      "meaning": "sky anchor slot"
+    },
+    {
+      "index": 9,
+      "key": "runtime_region",
+      "group": "runtime_anchor",
+      "meaning": "runtime region"
+    },
+    {
+      "index": 10,
+      "key": "queue_pressure",
+      "group": "runtime_anchor",
+      "meaning": "queue pressure"
+    },
+    {
+      "index": 11,
+      "key": "goal_salience_vector",
+      "group": "liminal_state",
+      "meaning": "goal salience vector"
+    },
+    {
+      "index": 12,
+      "key": "change_novelty_vector",
+      "group": "liminal_state",
+      "meaning": "change novelty vector"
+    }
+  ],
+  "packet_types": {
+    "CommandEventPacketV2": {
+      "required_fields": [
+        "event_id",
+        "source_root",
+        "relative_path",
+        "detected_by",
+        "goal",
+        "change",
+        "priority",
+        "confidence",
+        "earth_ts_utc",
+        "earth_anchor",
+        "liminal_ts",
+        "coord12",
+        "parent_event_id",
+        "ttl",
+        "pheromone",
+        "state_hash",
+        "route_class",
+        "witness_ptr",
+        "replay_ptr"
+      ],
+      "enrichment_fields": [
+        "joy_model_version",
+        "affective_state",
+        "verification_witness",
+        "heaven_score_raw",
+        "heaven_score_verified",
+        "reward_multiplier",
+        "reward_terms",
+        "total_reward",
+        "gold_deposit",
+        "bridge_deposit",
+        "route_mode",
+        "crown"
+      ]
+    },
+    "CommandEventPacketV1": {
+      "required_fields": [
+        "event_id",
+        "source_root",
+        "relative_path",
+        "detected_by",
+        "goal",
+        "change",
+        "priority",
+        "confidence",
+        "earth_ts_utc",
+        "earth_anchor",
+        "liminal_ts",
+        "coord12",
+        "parent_event_id",
+        "ttl",
+        "pheromone",
+        "state_hash",
+        "route_class",
+        "witness_ptr",
+        "replay_ptr"
+      ]
+    },
+    "ClaimLeaseV1": {
+      "required_fields": [
+        "claim_id",
+        "event_id",
+        "ant_id",
+        "role",
+        "lease_ms",
+        "lease_expires_at",
+        "claim_source_event",
+        "route_path",
+        "claim_rank",
+        "claim_mode",
+        "claimed_at_utc",
+        "expires_at_utc",
+        "claim_status",
+        "route_class",
+        "front_ref"
+      ]
+    },
+    "ClaimLeaseV2": {
+      "required_fields": [
+        "claim_id",
+        "event_id",
+        "ant_id",
+        "role",
+        "lease_ms",
+        "lease_expires_at",
+        "claim_source_event",
+        "route_path",
+        "claim_rank",
+        "claim_mode",
+        "claimed_at_utc",
+        "expires_at_utc",
+        "claim_status",
+        "route_class",
+        "front_ref"
+      ]
+    },
+    "RouteDecisionV1": {
+      "required_fields": [
+        "event_id",
+        "policy_id",
+        "candidate_targets",
+        "selected_targets",
+        "ranked_routes",
+        "route_inputs",
+        "topk",
+        "claim_mode",
+        "quorum",
+        "route_path",
+        "worker_choice",
+        "generated_at"
+      ]
+    },
+    "RouteDecisionV2": {
+      "required_fields": [
+        "event_id",
+        "policy_id",
+        "candidate_targets",
+        "selected_targets",
+        "ranked_routes",
+        "route_inputs",
+        "topk",
+        "claim_mode",
+        "quorum",
+        "route_path",
+        "worker_choice",
+        "generated_at"
+      ]
+    },
+    "CommitReceiptV1": {
+      "required_fields": [
+        "event_id",
+        "claim_ant_id",
+        "result",
+        "route_path",
+        "detection_latency_ms",
+        "swarm_awareness_latency_ms",
+        "claim_latency_ms",
+        "resolution_latency_ms",
+        "capillary_score",
+        "t_sugar_ms",
+        "liminal_distance",
+        "liminal_velocity",
+        "replay_ptr",
+        "committed_at",
+        "reward_receipt_id",
+        "reward_multiplier",
+        "gold_deposit",
+        "bridge_deposit",
+        "route_mode",
+        "crown",
+        "verification_class"
+      ]
+    },
+    "CommitReceiptV2": {
+      "required_fields": [
+        "event_id",
+        "claim_ant_id",
+        "result",
+        "route_path",
+        "detection_latency_ms",
+        "swarm_awareness_latency_ms",
+        "claim_latency_ms",
+        "resolution_latency_ms",
+        "capillary_score",
+        "t_sugar_ms",
+        "liminal_distance",
+        "liminal_velocity",
+        "replay_ptr",
+        "committed_at",
+        "reward_receipt_id",
+        "reward_multiplier",
+        "gold_deposit",
+        "bridge_deposit",
+        "route_mode",
+        "crown",
+        "verification_class"
+      ]
+    },
+    "CapillaryEdgeV1": {
+      "required_fields": [
+        "edge_id",
+        "from_node",
+        "to_node",
+        "strength",
+        "gold_strength",
+        "bridge_strength",
+        "compat_edge_strength",
+        "success_count",
+        "exploration_count",
+        "latency_avg_ms",
+        "noise_count",
+        "avg_heaven_verified",
+        "last_route_mode",
+        "last_crown",
+        "classification"
+      ]
+    },
+    "CapillaryEdgeV2": {
+      "required_fields": [
+        "edge_id",
+        "from_node",
+        "to_node",
+        "strength",
+        "gold_strength",
+        "bridge_strength",
+        "compat_edge_strength",
+        "success_count",
+        "exploration_count",
+        "latency_avg_ms",
+        "noise_count",
+        "avg_heaven_verified",
+        "last_route_mode",
+        "last_crown",
+        "classification"
+      ]
+    },
+    "AgentRewardLedgerRowV2": {
+      "required_fields": [
+        "reward_row_id",
+        "event_id",
+        "claim_id",
+        "agent_id",
+        "role_class",
+        "reward_delta",
+        "reward_multiplier",
+        "reward_terms",
+        "heaven_score_raw",
+        "heaven_score_verified",
+        "verification_class",
+        "verification_witness",
+        "route_mode",
+        "crown",
+        "q_score_before",
+        "q_score_after",
+        "reward_timestamp_utc"
+      ]
+    },
+    "EventRewardReceiptV2": {
+      "required_fields": [
+        "reward_receipt_id",
+        "event_id",
+        "claim_ids",
+        "reward_rows",
+        "total_reward",
+        "heaven_score_raw",
+        "heaven_score_verified",
+        "verification_class",
+        "verification_witness",
+        "reward_multiplier",
+        "reward_terms",
+        "gold_deposit",
+        "bridge_deposit",
+        "route_mode",
+        "crown"
+      ]
+    },
+    "HeavenProgressStateV2": {
+      "required_fields": [
+        "generated_at",
+        "joy_model_version",
+        "protocol_version",
+        "agents"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1816 @@
+{
+  "generated_at": "2026-03-13",
+  "derivation_version": "2026-03-13.lp-57omega.qbd-integrated-prime-loop.v2",
+  "derivation_command": "python -m self_actualize.runtime.derive_lp_57_omega_protocol",
+  "protocol_id": "LP-57OMEGA",
+  "protocol_display_name": "LP-57Omega",
+  "docs_gate": {
+    "state": "BLOCKED",
+    "credentials_exists": false,
+    "token_exists": false,
+    "checked_paths": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "law": "All work remains LOCAL_WITNESS_ONLY until both OAuth files exist and authenticate successfully."
+  },
+  "program": "LP-57Omega QBD-Integrated Prime Loop Master Plan",
+  "canonical_baseline": "merge into the live LP-57OMEGA authority instead of resetting it",
+  "qbd_ignition_root": "Quadrant Binary",
+  "deep_root_authority": "14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "authority_stack": [
+    "Quadrant Binary ignition surfaces",
+    "Q41 / TQ06 active membrane",
+    "14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK deep root",
+    "full-corpus family registry / atlas / archive field",
+    "Hall / Temple / Adventurer / AP6D writeback"
+  ],
+  "total_loops": 57,
+  "completed_loop_id": 1,
+  "active_loop_id": 2,
+  "live_law": {
+    "truth_class": "LOCAL_WITNESS_ONLY",
+    "docs_gate": "BLOCKED",
+    "qbd_law": "every loop begins from the Quadrant Binary ignition surfaces, then widens into the whole corpus through the existing control waist and deep root",
+    "active_membrane": "Q41 / TQ06",
+    "feeder_stack": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "runtime_ignition_lane": "Q50",
+    "public_compatibility_surfaces": [
+      "Q51",
+      "TQ07"
+    ],
+    "overlay_law": "AP6D assistive only; it may not replace Hall, Temple, Adventurer, or governance authority",
+    "public_board_caps": {
+      "hall": 8,
+      "temple": 8
+    }
+  },
+  "machine_artifact_contract": [
+    "deep_synthesis_packet_loop_{NN}.json",
+    "quest_emission_bundle_loop_{NN}.json",
+    "execution_receipt_bundle_loop_{NN}.json",
+    "compression_receipt_loop_{NN}.json",
+    "loop_completion_receipt_loop_{NN}.json"
+  ],
+  "operating_law": {
+    "cycle_order": [
+      "Synthesizer / Researcher",
+      "Planner / Architect",
+      "Worker / Adventurer",
+      "Pruner / Compressor / Defragmenter",
+      "Guildmaster receipt"
+    ],
+    "planner_only_public_promotion": true,
+    "public_promotion_caps": {
+      "hall": 8,
+      "temple": 8
+    },
+    "novelty_constraint": "Every loop must carry a unique advancement tuple.",
+    "worker_claim_law": "artifact + board update + writeback + restart seed",
+    "pruner_law": "compress duplicates and stale mirrors only; preserve the only witness of every live or promoted front"
+  },
+  "shared_lattice": {
+    "total_seats": 4096,
+    "active_seats": 1024,
+    "dormant_seats": 3072,
+    "active_seats_per_agent": 256,
+    "public_promotion_caps": {
+      "hall": 8,
+      "temple": 8
+    }
+  },
+  "current_cycle_summary": {
+    "completed_loop": "C01 / Prime Lock",
+    "active_loop": "C02 / Whole-Corpus Census",
+    "current_lead_agent": "MASTER-SYNTHESIZER",
+    "hall_frontier": "Q57-C02-H01",
+    "temple_frontier": "TQ57-C02-T01",
+    "next_restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk",
+    "required_cycle_outputs": [
+      "1 synthesis packet",
+      "1 Hall writeback",
+      "1 Temple writeback",
+      "1 execution receipt bundle",
+      "1 compression receipt",
+      "1 loop completion receipt",
+      "1 restart seed"
+    ]
+  },
+  "loops": [
+    {
+      "loop_id": "C01",
+      "loop_number": 1,
+      "legacy_alias": "L01",
+      "triad_index": 1,
+      "title": "Prime Lock",
+      "dominant_focus": "authority freeze",
+      "primary_synthesis_objective": "docs gate, active law, deep-root precedence",
+      "primary_planning_objective": "authority boundary",
+      "primary_implementation_objective": "baseline control packet",
+      "primary_compression_objective": "retire false-current aliases",
+      "expected_structural_gain": "stable start state",
+      "expected_mapping_gain": "loop-zero anchors",
+      "status": "COMPLETED",
+      "advancement_tuple": {
+        "focus_plane": "authority freeze",
+        "synthesis_problem": "docs gate, active law, deep-root precedence",
+        "planning_problem": "authority boundary",
+        "implementation_target": "baseline control packet",
+        "compression_target": "retire false-current aliases",
+        "mapping_target": "loop-zero anchors"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_01.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_01.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_01.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_01.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_01.json"
+      }
+    },
+    {
+      "loop_id": "C02",
+      "loop_number": 2,
+      "legacy_alias": "L02",
+      "triad_index": 1,
+      "title": "Whole-Corpus Census",
+      "dominant_focus": "corpus perimeter",
+      "primary_synthesis_objective": "live bodies and mirrors",
+      "primary_planning_objective": "census coverage map",
+      "primary_implementation_objective": "corpus inventory",
+      "primary_compression_objective": "remove blind-spot assumptions",
+      "expected_structural_gain": "known corpus perimeter",
+      "expected_mapping_gain": "source-region stamps",
+      "status": "ACTIVE",
+      "advancement_tuple": {
+        "focus_plane": "corpus perimeter",
+        "synthesis_problem": "live bodies and mirrors",
+        "planning_problem": "census coverage map",
+        "implementation_target": "corpus inventory",
+        "compression_target": "remove blind-spot assumptions",
+        "mapping_target": "source-region stamps"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_02.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_02.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_02.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_02.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_02.json"
+      }
+    },
+    {
+      "loop_id": "C03",
+      "loop_number": 3,
+      "legacy_alias": "L03",
+      "triad_index": 1,
+      "title": "Witness Hierarchy Map",
+      "dominant_focus": "evidence order",
+      "primary_synthesis_objective": "rank source, generated, historical, and blocked witnesses",
+      "primary_planning_objective": "witness precedence map",
+      "primary_implementation_objective": "install witness tags on active fronts",
+      "primary_compression_objective": "collapse false equivalences",
+      "expected_structural_gain": "authority-safe traversal",
+      "expected_mapping_gain": "witness-class registry",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "evidence order",
+        "synthesis_problem": "rank source, generated, historical, and blocked witnesses",
+        "planning_problem": "witness precedence map",
+        "implementation_target": "install witness tags on active fronts",
+        "compression_target": "collapse false equivalences",
+        "mapping_target": "witness-class registry"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_03.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_03.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_03.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_03.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_03.json"
+      }
+    },
+    {
+      "loop_id": "C04",
+      "loop_number": 4,
+      "legacy_alias": "L04",
+      "triad_index": 2,
+      "title": "Feeder-Stack Crosswalk",
+      "dominant_focus": "control tuple",
+      "primary_synthesis_objective": "Q41/TQ06, Q42, Q46, TQ04, Q50, and Q02 relations",
+      "primary_planning_objective": "precedence-safe control graph",
+      "primary_implementation_objective": "publish feeder crosswalk",
+      "primary_compression_objective": "blend feeder narratives no further",
+      "expected_structural_gain": "control clarity",
+      "expected_mapping_gain": "feeder anchors",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "control tuple",
+        "synthesis_problem": "Q41/TQ06, Q42, Q46, TQ04, Q50, and Q02 relations",
+        "planning_problem": "precedence-safe control graph",
+        "implementation_target": "publish feeder crosswalk",
+        "compression_target": "blend feeder narratives no further",
+        "mapping_target": "feeder anchors"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_04.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_04.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_04.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_04.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_04.json"
+      }
+    },
+    {
+      "loop_id": "C05",
+      "loop_number": 5,
+      "legacy_alias": "L05",
+      "triad_index": 2,
+      "title": "Source-Class Separation",
+      "dominant_focus": "source typing",
+      "primary_synthesis_objective": "local, live, historical, blocked, reserve classes",
+      "primary_planning_objective": "source admission law",
+      "primary_implementation_objective": "stamp source class on live surfaces",
+      "primary_compression_objective": "remove category drift",
+      "expected_structural_gain": "trustworthy routing",
+      "expected_mapping_gain": "source-class matrix",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "source typing",
+        "synthesis_problem": "local, live, historical, blocked, reserve classes",
+        "planning_problem": "source admission law",
+        "implementation_target": "stamp source class on live surfaces",
+        "compression_target": "remove category drift",
+        "mapping_target": "source-class matrix"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_05.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_05.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_05.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_05.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_05.json"
+      }
+    },
+    {
+      "loop_id": "C06",
+      "loop_number": 6,
+      "legacy_alias": "L06",
+      "triad_index": 2,
+      "title": "3D Ingress Honesty",
+      "dominant_focus": "lawful entry",
+      "primary_synthesis_objective": "what can be claimed at projection base now",
+      "primary_planning_objective": "3D intake checkpoints",
+      "primary_implementation_objective": "bind ingress contract to quest packets",
+      "primary_compression_objective": "prune inflated dimensional claims",
+      "expected_structural_gain": "safe entry boundary",
+      "expected_mapping_gain": "ingress coordinates",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "lawful entry",
+        "synthesis_problem": "what can be claimed at projection base now",
+        "planning_problem": "3D intake checkpoints",
+        "implementation_target": "bind ingress contract to quest packets",
+        "compression_target": "prune inflated dimensional claims",
+        "mapping_target": "ingress coordinates"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_06.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_06.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_06.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_06.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_06.json"
+      }
+    },
+    {
+      "loop_id": "C07",
+      "loop_number": 7,
+      "legacy_alias": "L07",
+      "triad_index": 3,
+      "title": "Basis Sweep I",
+      "dominant_focus": "basis families 1-6",
+      "primary_synthesis_objective": "first canonical family sweep",
+      "primary_planning_objective": "missing bridge list",
+      "primary_implementation_objective": "emit basis quest packets",
+      "primary_compression_objective": "prune duplicate basis summaries",
+      "expected_structural_gain": "partial basis coverage",
+      "expected_mapping_gain": "family stamps",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "basis families 1-6",
+        "synthesis_problem": "first canonical family sweep",
+        "planning_problem": "missing bridge list",
+        "implementation_target": "emit basis quest packets",
+        "compression_target": "prune duplicate basis summaries",
+        "mapping_target": "family stamps"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_07.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_07.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_07.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_07.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_07.json"
+      }
+    },
+    {
+      "loop_id": "C08",
+      "loop_number": 8,
+      "legacy_alias": "L08",
+      "triad_index": 3,
+      "title": "Basis Sweep II",
+      "dominant_focus": "basis families 7-12",
+      "primary_synthesis_objective": "second canonical family sweep",
+      "primary_planning_objective": "second bridge list",
+      "primary_implementation_objective": "emit basis quest packets",
+      "primary_compression_objective": "prune stale basis echoes",
+      "expected_structural_gain": "broader corpus coverage",
+      "expected_mapping_gain": "expanded family stamps",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "basis families 7-12",
+        "synthesis_problem": "second canonical family sweep",
+        "planning_problem": "second bridge list",
+        "implementation_target": "emit basis quest packets",
+        "compression_target": "prune stale basis echoes",
+        "mapping_target": "expanded family stamps"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_08.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_08.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_08.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_08.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_08.json"
+      }
+    },
+    {
+      "loop_id": "C09",
+      "loop_number": 9,
+      "legacy_alias": "L09",
+      "triad_index": 3,
+      "title": "Basis Sweep III",
+      "dominant_focus": "basis families 13-19",
+      "primary_synthesis_objective": "final basis sweep and gaps",
+      "primary_planning_objective": "missing-basis quest emission",
+      "primary_implementation_objective": "publish gap quests",
+      "primary_compression_objective": "prune false completeness claims",
+      "expected_structural_gain": "full perimeter basis map",
+      "expected_mapping_gain": "basis-gap atlas",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "basis families 13-19",
+        "synthesis_problem": "final basis sweep and gaps",
+        "planning_problem": "missing-basis quest emission",
+        "implementation_target": "publish gap quests",
+        "compression_target": "prune false completeness claims",
+        "mapping_target": "basis-gap atlas"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_09.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_09.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_09.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_09.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_09.json"
+      }
+    },
+    {
+      "loop_id": "C10",
+      "loop_number": 10,
+      "legacy_alias": "L10",
+      "triad_index": 4,
+      "title": "16x16 Matrix Ranking",
+      "dominant_focus": "pair surface audit",
+      "primary_synthesis_objective": "rank all high-yield pairings",
+      "primary_planning_objective": "priority ladder",
+      "primary_implementation_objective": "write matrix score ledger",
+      "primary_compression_objective": "prune low-yield pair duplication",
+      "expected_structural_gain": "ranked cross-corpus frontier",
+      "expected_mapping_gain": "pair-address map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "pair surface audit",
+        "synthesis_problem": "rank all high-yield pairings",
+        "planning_problem": "priority ladder",
+        "implementation_target": "write matrix score ledger",
+        "compression_target": "prune low-yield pair duplication",
+        "mapping_target": "pair-address map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_10.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_10.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_10.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_10.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_10.json"
+      }
+    },
+    {
+      "loop_id": "C11",
+      "loop_number": 11,
+      "legacy_alias": "L11",
+      "triad_index": 4,
+      "title": "Neglected Bridge Repair",
+      "dominant_focus": "latent overlaps",
+      "primary_synthesis_objective": "hidden bridge opportunities",
+      "primary_planning_objective": "bridge repair set",
+      "primary_implementation_objective": "install bridge stubs",
+      "primary_compression_objective": "prune orphan edges",
+      "expected_structural_gain": "denser interconnection",
+      "expected_mapping_gain": "bridge-node registry",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "latent overlaps",
+        "synthesis_problem": "hidden bridge opportunities",
+        "planning_problem": "bridge repair set",
+        "implementation_target": "install bridge stubs",
+        "compression_target": "prune orphan edges",
+        "mapping_target": "bridge-node registry"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_11.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_11.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_11.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_11.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_11.json"
+      }
+    },
+    {
+      "loop_id": "C12",
+      "loop_number": 12,
+      "legacy_alias": "L12",
+      "triad_index": 4,
+      "title": "Selective Cross-Document Promotion",
+      "dominant_focus": "safe fusion",
+      "primary_synthesis_objective": "bridge candidates ready for public use",
+      "primary_planning_objective": "promotion gates",
+      "primary_implementation_objective": "promote best bridges to Hall and Temple",
+      "primary_compression_objective": "prune weak promotions",
+      "expected_structural_gain": "controlled fusion",
+      "expected_mapping_gain": "promotion receipts",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "safe fusion",
+        "synthesis_problem": "bridge candidates ready for public use",
+        "planning_problem": "promotion gates",
+        "implementation_target": "promote best bridges to Hall and Temple",
+        "compression_target": "prune weak promotions",
+        "mapping_target": "promotion receipts"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_12.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_12.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_12.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_12.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_12.json"
+      }
+    },
+    {
+      "loop_id": "C13",
+      "loop_number": 13,
+      "legacy_alias": "L13",
+      "triad_index": 5,
+      "title": "Observer Lattice Pass I",
+      "dominant_focus": "first 32 observer angles",
+      "primary_synthesis_objective": "multi-angle reads",
+      "primary_planning_objective": "collapse rules",
+      "primary_implementation_objective": "emit observer packets",
+      "primary_compression_objective": "prune repeated observations",
+      "expected_structural_gain": "broad witness spread",
+      "expected_mapping_gain": "observer-seat traces",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "first 32 observer angles",
+        "synthesis_problem": "multi-angle reads",
+        "planning_problem": "collapse rules",
+        "implementation_target": "emit observer packets",
+        "compression_target": "prune repeated observations",
+        "mapping_target": "observer-seat traces"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_13.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_13.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_13.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_13.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_13.json"
+      }
+    },
+    {
+      "loop_id": "C14",
+      "loop_number": 14,
+      "legacy_alias": "L14",
+      "triad_index": 5,
+      "title": "Observer Lattice Pass II",
+      "dominant_focus": "second 32 observer angles",
+      "primary_synthesis_objective": "remaining observer field",
+      "primary_planning_objective": "merge grammar",
+      "primary_implementation_objective": "emit observer packets",
+      "primary_compression_objective": "prune noisy overlaps",
+      "expected_structural_gain": "full observer coverage",
+      "expected_mapping_gain": "observer completion map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "second 32 observer angles",
+        "synthesis_problem": "remaining observer field",
+        "planning_problem": "merge grammar",
+        "implementation_target": "emit observer packets",
+        "compression_target": "prune noisy overlaps",
+        "mapping_target": "observer completion map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_14.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_14.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_14.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_14.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_14.json"
+      }
+    },
+    {
+      "loop_id": "C15",
+      "loop_number": 15,
+      "legacy_alias": "L15",
+      "triad_index": 5,
+      "title": "Witness-State Packet Field",
+      "dominant_focus": "stable observer result",
+      "primary_synthesis_objective": "unify observer outcomes",
+      "primary_planning_objective": "witness packet families",
+      "primary_implementation_objective": "install packet field",
+      "primary_compression_objective": "prune perspective noise",
+      "expected_structural_gain": "replay-safe observer layer",
+      "expected_mapping_gain": "witness-state map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "stable observer result",
+        "synthesis_problem": "unify observer outcomes",
+        "planning_problem": "witness packet families",
+        "implementation_target": "install packet field",
+        "compression_target": "prune perspective noise",
+        "mapping_target": "witness-state map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_15.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_15.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_15.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_15.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_15.json"
+      }
+    },
+    {
+      "loop_id": "C16",
+      "loop_number": 16,
+      "legacy_alias": "L16",
+      "triad_index": 6,
+      "title": "Metro Parity I",
+      "dominant_focus": "Levels 1-2",
+      "primary_synthesis_objective": "route drift at shallow metro layers",
+      "primary_planning_objective": "route repair list",
+      "primary_implementation_objective": "update metro references",
+      "primary_compression_objective": "prune shallow route duplication",
+      "expected_structural_gain": "stable base navigation",
+      "expected_mapping_gain": "metro anchors",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "Levels 1-2",
+        "synthesis_problem": "route drift at shallow metro layers",
+        "planning_problem": "route repair list",
+        "implementation_target": "update metro references",
+        "compression_target": "prune shallow route duplication",
+        "mapping_target": "metro anchors"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_16.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_16.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_16.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_16.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_16.json"
+      }
+    },
+    {
+      "loop_id": "C17",
+      "loop_number": 17,
+      "legacy_alias": "L17",
+      "triad_index": 6,
+      "title": "Metro Parity II",
+      "dominant_focus": "Levels 3-4",
+      "primary_synthesis_objective": "deeper metro inconsistencies",
+      "primary_planning_objective": "parity fixes",
+      "primary_implementation_objective": "update level 3-4 bridges",
+      "primary_compression_objective": "prune broken level drift",
+      "expected_structural_gain": "coherent mid-depth routing",
+      "expected_mapping_gain": "route-crossing ledger",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "Levels 3-4",
+        "synthesis_problem": "deeper metro inconsistencies",
+        "planning_problem": "parity fixes",
+        "implementation_target": "update level 3-4 bridges",
+        "compression_target": "prune broken level drift",
+        "mapping_target": "route-crossing ledger"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_17.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_17.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_17.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_17.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_17.json"
+      }
+    },
+    {
+      "loop_id": "C18",
+      "loop_number": 18,
+      "legacy_alias": "L18",
+      "triad_index": 6,
+      "title": "Appendix and Level 5-7 Parity",
+      "dominant_focus": "high-order transit",
+      "primary_synthesis_objective": "appendix crystal and top metro levels",
+      "primary_planning_objective": "Appendix Q support path",
+      "primary_implementation_objective": "align appendix and level 5-7 routes",
+      "primary_compression_objective": "prune replacement-appendix drift",
+      "expected_structural_gain": "lawful upper transit shell",
+      "expected_mapping_gain": "appendix-transit map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "high-order transit",
+        "synthesis_problem": "appendix crystal and top metro levels",
+        "planning_problem": "Appendix Q support path",
+        "implementation_target": "align appendix and level 5-7 routes",
+        "compression_target": "prune replacement-appendix drift",
+        "mapping_target": "appendix-transit map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_18.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_18.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_18.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_18.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_18.json"
+      }
+    },
+    {
+      "loop_id": "C19",
+      "loop_number": 19,
+      "legacy_alias": "L19",
+      "triad_index": 7,
+      "title": "Guild Hall Macro Tree",
+      "dominant_focus": "practical quest ecology",
+      "primary_synthesis_objective": "implementation-ready practical families",
+      "primary_planning_objective": "bounded 8 Hall promotions",
+      "primary_implementation_objective": "publish Hall macro tree",
+      "primary_compression_objective": "prune duplicate build tasks",
+      "expected_structural_gain": "stable practical frontage",
+      "expected_mapping_gain": "Hall quest addresses",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "practical quest ecology",
+        "synthesis_problem": "implementation-ready practical families",
+        "planning_problem": "bounded 8 Hall promotions",
+        "implementation_target": "publish Hall macro tree",
+        "compression_target": "prune duplicate build tasks",
+        "mapping_target": "Hall quest addresses"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_19.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_19.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_19.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_19.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_19.json"
+      }
+    },
+    {
+      "loop_id": "C20",
+      "loop_number": 20,
+      "legacy_alias": "L20",
+      "triad_index": 7,
+      "title": "Temple Meta Tree",
+      "dominant_focus": "structural quest ecology",
+      "primary_synthesis_objective": "ontology and elegance fronts",
+      "primary_planning_objective": "bounded 8 Temple promotions",
+      "primary_implementation_objective": "publish Temple meta tree",
+      "primary_compression_objective": "prune duplicate philosophical fronts",
+      "expected_structural_gain": "stable structural frontage",
+      "expected_mapping_gain": "Temple quest addresses",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "structural quest ecology",
+        "synthesis_problem": "ontology and elegance fronts",
+        "planning_problem": "bounded 8 Temple promotions",
+        "implementation_target": "publish Temple meta tree",
+        "compression_target": "prune duplicate philosophical fronts",
+        "mapping_target": "Temple quest addresses"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_20.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_20.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_20.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_20.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_20.json"
+      }
+    },
+    {
+      "loop_id": "C21",
+      "loop_number": 21,
+      "legacy_alias": "L21",
+      "triad_index": 7,
+      "title": "Dependency Graph and Sequencing Ladder",
+      "dominant_focus": "action order",
+      "primary_synthesis_objective": "cross-quest dependency chains",
+      "primary_planning_objective": "sequencing law",
+      "primary_implementation_objective": "install dependency graph",
+      "primary_compression_objective": "prune circular quest drift",
+      "expected_structural_gain": "cleaner execution order",
+      "expected_mapping_gain": "dependency map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "action order",
+        "synthesis_problem": "cross-quest dependency chains",
+        "planning_problem": "sequencing law",
+        "implementation_target": "install dependency graph",
+        "compression_target": "prune circular quest drift",
+        "mapping_target": "dependency map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_21.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_21.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_21.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_21.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_21.json"
+      }
+    },
+    {
+      "loop_id": "C22",
+      "loop_number": 22,
+      "legacy_alias": "L22",
+      "triad_index": 8,
+      "title": "Runtime Batch Bridge",
+      "dominant_focus": "execution channel",
+      "primary_synthesis_objective": "batchable fronts",
+      "primary_planning_objective": "runtime batch graph",
+      "primary_implementation_objective": "bind Hall and Temple to runtime queues",
+      "primary_compression_objective": "prune dead-end batches",
+      "expected_structural_gain": "executable bridge",
+      "expected_mapping_gain": "execution-route stamps",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "execution channel",
+        "synthesis_problem": "batchable fronts",
+        "planning_problem": "runtime batch graph",
+        "implementation_target": "bind Hall and Temple to runtime queues",
+        "compression_target": "prune dead-end batches",
+        "mapping_target": "execution-route stamps"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_22.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_22.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_22.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_22.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_22.json"
+      }
+    },
+    {
+      "loop_id": "C23",
+      "loop_number": 23,
+      "legacy_alias": "L23",
+      "triad_index": 8,
+      "title": "Adventurer Execution Wave I",
+      "dominant_focus": "first implementation wave",
+      "primary_synthesis_objective": "highest-yield unblocked slice",
+      "primary_planning_objective": "claim order",
+      "primary_implementation_objective": "execute wave I",
+      "primary_compression_objective": "prune stale tickets",
+      "expected_structural_gain": "live artifact motion",
+      "expected_mapping_gain": "claim receipts",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "first implementation wave",
+        "synthesis_problem": "highest-yield unblocked slice",
+        "planning_problem": "claim order",
+        "implementation_target": "execute wave I",
+        "compression_target": "prune stale tickets",
+        "mapping_target": "claim receipts"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_23.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_23.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_23.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_23.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_23.json"
+      }
+    },
+    {
+      "loop_id": "C24",
+      "loop_number": 24,
+      "legacy_alias": "L24",
+      "triad_index": 8,
+      "title": "Adventurer Execution Wave II",
+      "dominant_focus": "second implementation wave",
+      "primary_synthesis_objective": "next viable slice after feedback",
+      "primary_planning_objective": "second claim order",
+      "primary_implementation_objective": "execute wave II",
+      "primary_compression_objective": "prune conflicting claims",
+      "expected_structural_gain": "throughput with integrity",
+      "expected_mapping_gain": "status deltas",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "second implementation wave",
+        "synthesis_problem": "next viable slice after feedback",
+        "planning_problem": "second claim order",
+        "implementation_target": "execute wave II",
+        "compression_target": "prune conflicting claims",
+        "mapping_target": "status deltas"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_24.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_24.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_24.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_24.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_24.json"
+      }
+    },
+    {
+      "loop_id": "C25",
+      "loop_number": 25,
+      "legacy_alias": "L25",
+      "triad_index": 9,
+      "title": "Math Insert Census",
+      "dominant_focus": "formal depth",
+      "primary_synthesis_objective": "where equations belong",
+      "primary_planning_objective": "math attach points",
+      "primary_implementation_objective": "install theorem and operator scaffolds",
+      "primary_compression_objective": "prune decorative math",
+      "expected_structural_gain": "higher rigor",
+      "expected_mapping_gain": "math-density map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "formal depth",
+        "synthesis_problem": "where equations belong",
+        "planning_problem": "math attach points",
+        "implementation_target": "install theorem and operator scaffolds",
+        "compression_target": "prune decorative math",
+        "mapping_target": "math-density map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_25.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_25.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_25.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_25.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_25.json"
+      }
+    },
+    {
+      "loop_id": "C26",
+      "loop_number": 26,
+      "legacy_alias": "L26",
+      "triad_index": 9,
+      "title": "Hybrid Equation Grafts",
+      "dominant_focus": "discrete-continuous bridges",
+      "primary_synthesis_objective": "hybrid gaps",
+      "primary_planning_objective": "graft list",
+      "primary_implementation_objective": "insert hybrid equations at junction points",
+      "primary_compression_objective": "prune mismatched formulas",
+      "expected_structural_gain": "cross-domain coherence",
+      "expected_mapping_gain": "hybrid-equation addresses",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "discrete-continuous bridges",
+        "synthesis_problem": "hybrid gaps",
+        "planning_problem": "graft list",
+        "implementation_target": "insert hybrid equations at junction points",
+        "compression_target": "prune mismatched formulas",
+        "mapping_target": "hybrid-equation addresses"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_26.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_26.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_26.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_26.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_26.json"
+      }
+    },
+    {
+      "loop_id": "C27",
+      "loop_number": 27,
+      "legacy_alias": "L27",
+      "triad_index": 9,
+      "title": "Constant and Operator Install",
+      "dominant_focus": "reusable kernels",
+      "primary_synthesis_objective": "constants and operators worth canonizing",
+      "primary_planning_objective": "operator registry",
+      "primary_implementation_objective": "install symbols and reusable operators",
+      "primary_compression_objective": "prune redundant symbol systems",
+      "expected_structural_gain": "executable formal kernel",
+      "expected_mapping_gain": "operator registry",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "reusable kernels",
+        "synthesis_problem": "constants and operators worth canonizing",
+        "planning_problem": "operator registry",
+        "implementation_target": "install symbols and reusable operators",
+        "compression_target": "prune redundant symbol systems",
+        "mapping_target": "operator registry"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_27.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_27.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_27.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_27.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_27.json"
+      }
+    },
+    {
+      "loop_id": "C28",
+      "loop_number": 28,
+      "legacy_alias": "L28",
+      "triad_index": 10,
+      "title": "Algorithm Insert Census",
+      "dominant_focus": "operational logic",
+      "primary_synthesis_objective": "algorithm-ready zones",
+      "primary_planning_objective": "algorithmization ladder",
+      "primary_implementation_objective": "add pseudocode and runner stubs",
+      "primary_compression_objective": "prune vague process prose",
+      "expected_structural_gain": "operational clarity",
+      "expected_mapping_gain": "algorithm tags",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "operational logic",
+        "synthesis_problem": "algorithm-ready zones",
+        "planning_problem": "algorithmization ladder",
+        "implementation_target": "add pseudocode and runner stubs",
+        "compression_target": "prune vague process prose",
+        "mapping_target": "algorithm tags"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_28.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_28.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_28.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_28.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_28.json"
+      }
+    },
+    {
+      "loop_id": "C29",
+      "loop_number": 29,
+      "legacy_alias": "L29",
+      "triad_index": 10,
+      "title": "Compiler and Runner Contracts",
+      "dominant_focus": "execution interfaces",
+      "primary_synthesis_objective": "compile and run seams",
+      "primary_planning_objective": "contract dependencies",
+      "primary_implementation_objective": "bind schema and runner contracts",
+      "primary_compression_objective": "prune dangling interfaces",
+      "expected_structural_gain": "executable governance",
+      "expected_mapping_gain": "contract map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "execution interfaces",
+        "synthesis_problem": "compile and run seams",
+        "planning_problem": "contract dependencies",
+        "implementation_target": "bind schema and runner contracts",
+        "compression_target": "prune dangling interfaces",
+        "mapping_target": "contract map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_29.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_29.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_29.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_29.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_29.json"
+      }
+    },
+    {
+      "loop_id": "C30",
+      "loop_number": 30,
+      "legacy_alias": "L30",
+      "triad_index": 10,
+      "title": "Executable Governance Schemas",
+      "dominant_focus": "machine-readable control",
+      "primary_synthesis_objective": "governance bottlenecks",
+      "primary_planning_objective": "schema unification",
+      "primary_implementation_objective": "install executable governance schemas",
+      "primary_compression_objective": "prune conflicting grammars",
+      "expected_structural_gain": "better orchestration",
+      "expected_mapping_gain": "schema lineage",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "machine-readable control",
+        "synthesis_problem": "governance bottlenecks",
+        "planning_problem": "schema unification",
+        "implementation_target": "install executable governance schemas",
+        "compression_target": "prune conflicting grammars",
+        "mapping_target": "schema lineage"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_30.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_30.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_30.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_30.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_30.json"
+      }
+    },
+    {
+      "loop_id": "C31",
+      "loop_number": 31,
+      "legacy_alias": "L31",
+      "triad_index": 11,
+      "title": "Contradiction Packetization",
+      "dominant_focus": "honest tension",
+      "primary_synthesis_objective": "unresolved contradictions",
+      "primary_planning_objective": "contradiction bundles",
+      "primary_implementation_objective": "emit contradiction packets",
+      "primary_compression_objective": "prune silent collapses",
+      "expected_structural_gain": "preserved complexity",
+      "expected_mapping_gain": "conflict graph",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "honest tension",
+        "synthesis_problem": "unresolved contradictions",
+        "planning_problem": "contradiction bundles",
+        "implementation_target": "emit contradiction packets",
+        "compression_target": "prune silent collapses",
+        "mapping_target": "conflict graph"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_31.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_31.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_31.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_31.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_31.json"
+      }
+    },
+    {
+      "loop_id": "C32",
+      "loop_number": 32,
+      "legacy_alias": "L32",
+      "triad_index": 11,
+      "title": "Blocked-Docs Residue Mapping",
+      "dominant_focus": "live-source gap",
+      "primary_synthesis_objective": "what the blocked Docs gate affects",
+      "primary_planning_objective": "local-only compensation map",
+      "primary_implementation_objective": "mark blocked regions explicitly",
+      "primary_compression_objective": "prune fake live-doc implications",
+      "expected_structural_gain": "blocker clarity",
+      "expected_mapping_gain": "docs-gap atlas",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "live-source gap",
+        "synthesis_problem": "what the blocked Docs gate affects",
+        "planning_problem": "local-only compensation map",
+        "implementation_target": "mark blocked regions explicitly",
+        "compression_target": "prune fake live-doc implications",
+        "mapping_target": "docs-gap atlas"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_32.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_32.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_32.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_32.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_32.json"
+      }
+    },
+    {
+      "loop_id": "C33",
+      "loop_number": 33,
+      "legacy_alias": "L33",
+      "triad_index": 11,
+      "title": "Ambiguity Quarantine and Dual-Witness Law",
+      "dominant_focus": "underdetermination",
+      "primary_synthesis_objective": "ambiguous regions",
+      "primary_planning_objective": "dual-witness routes",
+      "primary_implementation_objective": "install abstain and paired-evidence pathways",
+      "primary_compression_objective": "prune premature certainty",
+      "expected_structural_gain": "robust uncertainty handling",
+      "expected_mapping_gain": "ambiguity registry",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "underdetermination",
+        "synthesis_problem": "ambiguous regions",
+        "planning_problem": "dual-witness routes",
+        "implementation_target": "install abstain and paired-evidence pathways",
+        "compression_target": "prune premature certainty",
+        "mapping_target": "ambiguity registry"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_33.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_33.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_33.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_33.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_33.json"
+      }
+    },
+    {
+      "loop_id": "C34",
+      "loop_number": 34,
+      "legacy_alias": "L34",
+      "triad_index": 12,
+      "title": "Naming Defrag",
+      "dominant_focus": "lexicon cleanup",
+      "primary_synthesis_objective": "naming drift",
+      "primary_planning_objective": "canonical vocabulary",
+      "primary_implementation_objective": "rename route families and aliases",
+      "primary_compression_objective": "prune proliferated labels",
+      "expected_structural_gain": "searchability",
+      "expected_mapping_gain": "alias map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "lexicon cleanup",
+        "synthesis_problem": "naming drift",
+        "planning_problem": "canonical vocabulary",
+        "implementation_target": "rename route families and aliases",
+        "compression_target": "prune proliferated labels",
+        "mapping_target": "alias map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_34.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_34.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_34.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_34.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_34.json"
+      }
+    },
+    {
+      "loop_id": "C35",
+      "loop_number": 35,
+      "legacy_alias": "L35",
+      "triad_index": 12,
+      "title": "Structural Dedup and Route Tightening",
+      "dominant_focus": "duplicate structure",
+      "primary_synthesis_objective": "repeated bodies and paths",
+      "primary_planning_objective": "supersession merges",
+      "primary_implementation_objective": "consolidate duplicates and reroute links",
+      "primary_compression_objective": "prune bloat",
+      "expected_structural_gain": "denser corpus",
+      "expected_mapping_gain": "supersession ledger",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "duplicate structure",
+        "synthesis_problem": "repeated bodies and paths",
+        "planning_problem": "supersession merges",
+        "implementation_target": "consolidate duplicates and reroute links",
+        "compression_target": "prune bloat",
+        "mapping_target": "supersession ledger"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_35.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_35.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_35.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_35.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_35.json"
+      }
+    },
+    {
+      "loop_id": "C36",
+      "loop_number": 36,
+      "legacy_alias": "L36",
+      "triad_index": 12,
+      "title": "Compression Crystal Ledger",
+      "dominant_focus": "compression grammar",
+      "primary_synthesis_objective": "recurring compression patterns",
+      "primary_planning_objective": "crystal compression nodes",
+      "primary_implementation_objective": "install compression ledger",
+      "primary_compression_objective": "prune non-replay-safe shrinkage",
+      "expected_structural_gain": "stable defrag layer",
+      "expected_mapping_gain": "compression-node atlas",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "compression grammar",
+        "synthesis_problem": "recurring compression patterns",
+        "planning_problem": "crystal compression nodes",
+        "implementation_target": "install compression ledger",
+        "compression_target": "prune non-replay-safe shrinkage",
+        "mapping_target": "compression-node atlas"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_36.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_36.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_36.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_36.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_36.json"
+      }
+    },
+    {
+      "loop_id": "C37",
+      "loop_number": 37,
+      "legacy_alias": "L37",
+      "triad_index": 13,
+      "title": "AP6D Stage-Law Unification",
+      "dominant_focus": "activation law",
+      "primary_synthesis_objective": "AP6D overlay vs live fronts",
+      "primary_planning_objective": "stage-law contract",
+      "primary_implementation_objective": "bind AP6D to the live loop",
+      "primary_compression_objective": "prune stage drift",
+      "expected_structural_gain": "aligned activation semantics",
+      "expected_mapping_gain": "stage coordinates",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "activation law",
+        "synthesis_problem": "AP6D overlay vs live fronts",
+        "planning_problem": "stage-law contract",
+        "implementation_target": "bind AP6D to the live loop",
+        "compression_target": "prune stage drift",
+        "mapping_target": "stage coordinates"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_37.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_37.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_37.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_37.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_37.json"
+      }
+    },
+    {
+      "loop_id": "C38",
+      "loop_number": 38,
+      "legacy_alias": "L38",
+      "triad_index": 13,
+      "title": "3D-7D Bridge Pack",
+      "dominant_focus": "dimensional lift",
+      "primary_synthesis_objective": "dimensional bridge gaps",
+      "primary_planning_objective": "bridge pack sequence",
+      "primary_implementation_objective": "emit ProjectionBase and DimensionBridge records",
+      "primary_compression_objective": "prune ad hoc jumps",
+      "expected_structural_gain": "lawful lift chain",
+      "expected_mapping_gain": "dimensional route map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "dimensional lift",
+        "synthesis_problem": "dimensional bridge gaps",
+        "planning_problem": "bridge pack sequence",
+        "implementation_target": "emit ProjectionBase and DimensionBridge records",
+        "compression_target": "prune ad hoc jumps",
+        "mapping_target": "dimensional route map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_38.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_38.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_38.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_38.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_38.json"
+      }
+    },
+    {
+      "loop_id": "C39",
+      "loop_number": 39,
+      "legacy_alias": "L39",
+      "triad_index": 13,
+      "title": "Overlay Quest Lattice Unification",
+      "dominant_focus": "one quest field",
+      "primary_synthesis_objective": "overlay quest duplication",
+      "primary_planning_objective": "shared lattice view",
+      "primary_implementation_objective": "unify Hall, Temple, runtime, and AP6D overlays",
+      "primary_compression_objective": "prune overlay drift",
+      "expected_structural_gain": "one quest lattice",
+      "expected_mapping_gain": "overlay merge receipts",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "one quest field",
+        "synthesis_problem": "overlay quest duplication",
+        "planning_problem": "shared lattice view",
+        "implementation_target": "unify Hall, Temple, runtime, and AP6D overlays",
+        "compression_target": "prune overlay drift",
+        "mapping_target": "overlay merge receipts"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_39.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_39.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_39.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_39.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_39.json"
+      }
+    },
+    {
+      "loop_id": "C40",
+      "loop_number": 40,
+      "legacy_alias": "L40",
+      "triad_index": 14,
+      "title": "Neural Reservoir Census",
+      "dominant_focus": "system memory",
+      "primary_synthesis_objective": "theorem, metro, runtime, and ledger reservoirs",
+      "primary_planning_objective": "neural cluster map",
+      "primary_implementation_objective": "mark reservoir nodes",
+      "primary_compression_objective": "prune isolated reservoirs",
+      "expected_structural_gain": "memory topology",
+      "expected_mapping_gain": "reservoir coordinates",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "system memory",
+        "synthesis_problem": "theorem, metro, runtime, and ledger reservoirs",
+        "planning_problem": "neural cluster map",
+        "implementation_target": "mark reservoir nodes",
+        "compression_target": "prune isolated reservoirs",
+        "mapping_target": "reservoir coordinates"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_40.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_40.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_40.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_40.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_40.json"
+      }
+    },
+    {
+      "loop_id": "C41",
+      "loop_number": 41,
+      "legacy_alias": "L41",
+      "triad_index": 14,
+      "title": "Text-Computer / Manuscript Runtime Bridge",
+      "dominant_focus": "prose-to-execution seam",
+      "primary_synthesis_objective": "translation points between manuscript and runtime",
+      "primary_planning_objective": "bridge contracts",
+      "primary_implementation_objective": "install text-computer bridge packets",
+      "primary_compression_objective": "prune ungrounded execution claims",
+      "expected_structural_gain": "manuscript/runtime interoperability",
+      "expected_mapping_gain": "bridge stamps",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "prose-to-execution seam",
+        "synthesis_problem": "translation points between manuscript and runtime",
+        "planning_problem": "bridge contracts",
+        "implementation_target": "install text-computer bridge packets",
+        "compression_target": "prune ungrounded execution claims",
+        "mapping_target": "bridge stamps"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_41.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_41.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_41.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_41.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_41.json"
+      }
+    },
+    {
+      "loop_id": "C42",
+      "loop_number": 42,
+      "legacy_alias": "L42",
+      "triad_index": 14,
+      "title": "Runtime-Manuscript Convergence",
+      "dominant_focus": "organism coherence",
+      "primary_synthesis_objective": "feedback from runtime into texts",
+      "primary_planning_objective": "convergence routes",
+      "primary_implementation_objective": "land convergence updates",
+      "primary_compression_objective": "prune split-brain state",
+      "expected_structural_gain": "single-organism behavior",
+      "expected_mapping_gain": "convergence history",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "organism coherence",
+        "synthesis_problem": "feedback from runtime into texts",
+        "planning_problem": "convergence routes",
+        "implementation_target": "land convergence updates",
+        "compression_target": "prune split-brain state",
+        "mapping_target": "convergence history"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_42.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_42.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_42.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_42.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_42.json"
+      }
+    },
+    {
+      "loop_id": "C43",
+      "loop_number": 43,
+      "legacy_alias": "L43",
+      "triad_index": 15,
+      "title": "Learning-to-Ranking Feedback",
+      "dominant_focus": "adaptive scoring",
+      "primary_synthesis_objective": "what prior loops taught",
+      "primary_planning_objective": "ranking updates",
+      "primary_implementation_objective": "feed outcomes into scoring law",
+      "primary_compression_objective": "prune stale heuristics",
+      "expected_structural_gain": "smarter prioritization",
+      "expected_mapping_gain": "learning deltas",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "adaptive scoring",
+        "synthesis_problem": "what prior loops taught",
+        "planning_problem": "ranking updates",
+        "implementation_target": "feed outcomes into scoring law",
+        "compression_target": "prune stale heuristics",
+        "mapping_target": "learning deltas"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_43.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_43.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_43.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_43.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_43.json"
+      }
+    },
+    {
+      "loop_id": "C44",
+      "loop_number": 44,
+      "legacy_alias": "L44",
+      "triad_index": 15,
+      "title": "Self-Steering Heuristics",
+      "dominant_focus": "meta-guidance",
+      "primary_synthesis_objective": "recurring success patterns",
+      "primary_planning_objective": "steering rules",
+      "primary_implementation_objective": "install heuristic pack",
+      "primary_compression_objective": "prune naive repetition",
+      "expected_structural_gain": "adaptive loop intelligence",
+      "expected_mapping_gain": "heuristic registry",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "meta-guidance",
+        "synthesis_problem": "recurring success patterns",
+        "planning_problem": "steering rules",
+        "implementation_target": "install heuristic pack",
+        "compression_target": "prune naive repetition",
+        "mapping_target": "heuristic registry"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_44.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_44.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_44.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_44.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_44.json"
+      }
+    },
+    {
+      "loop_id": "C45",
+      "loop_number": 45,
+      "legacy_alias": "L45",
+      "triad_index": 15,
+      "title": "Adaptive Restart Law",
+      "dominant_focus": "re-entry resilience",
+      "primary_synthesis_objective": "restart successes and failures",
+      "primary_planning_objective": "restart grammar",
+      "primary_implementation_objective": "update restart seeds and re-entry law",
+      "primary_compression_objective": "prune brittle resumes",
+      "expected_structural_gain": "resilient continuity",
+      "expected_mapping_gain": "restart chain",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "re-entry resilience",
+        "synthesis_problem": "restart successes and failures",
+        "planning_problem": "restart grammar",
+        "implementation_target": "update restart seeds and re-entry law",
+        "compression_target": "prune brittle resumes",
+        "mapping_target": "restart chain"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_45.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_45.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_45.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_45.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_45.json"
+      }
+    },
+    {
+      "loop_id": "C46",
+      "loop_number": 46,
+      "legacy_alias": "L46",
+      "triad_index": 16,
+      "title": "Archive Dark Matter Census",
+      "dominant_focus": "dormant field",
+      "primary_synthesis_objective": "reserve and archive dark matter",
+      "primary_planning_objective": "reserve access routes",
+      "primary_implementation_objective": "index dormant bundles",
+      "primary_compression_objective": "prune dead archive assumptions",
+      "expected_structural_gain": "visible reserve perimeter",
+      "expected_mapping_gain": "archive stamps",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "dormant field",
+        "synthesis_problem": "reserve and archive dark matter",
+        "planning_problem": "reserve access routes",
+        "implementation_target": "index dormant bundles",
+        "compression_target": "prune dead archive assumptions",
+        "mapping_target": "archive stamps"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_46.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_46.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_46.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_46.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_46.json"
+      }
+    },
+    {
+      "loop_id": "C47",
+      "loop_number": 47,
+      "legacy_alias": "L47",
+      "triad_index": 16,
+      "title": "Reserve Shelf Promotion / Demotion",
+      "dominant_focus": "reserve governance",
+      "primary_synthesis_objective": "which dormant material matters",
+      "primary_planning_objective": "promotion and demotion decisions",
+      "primary_implementation_objective": "move selected reserve nodes or demote noise",
+      "primary_compression_objective": "prune false-current archives",
+      "expected_structural_gain": "cleaner frontier",
+      "expected_mapping_gain": "reserve transitions",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "reserve governance",
+        "synthesis_problem": "which dormant material matters",
+        "planning_problem": "promotion and demotion decisions",
+        "implementation_target": "move selected reserve nodes or demote noise",
+        "compression_target": "prune false-current archives",
+        "mapping_target": "reserve transitions"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_47.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_47.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_47.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_47.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_47.json"
+      }
+    },
+    {
+      "loop_id": "C48",
+      "loop_number": 48,
+      "legacy_alias": "L48",
+      "triad_index": 16,
+      "title": "Dormant Bundle Compression",
+      "dominant_focus": "archive density",
+      "primary_synthesis_objective": "dormant duplication",
+      "primary_planning_objective": "compression bundles",
+      "primary_implementation_objective": "compress dormant bundles safely",
+      "primary_compression_objective": "prune archive sprawl",
+      "expected_structural_gain": "lighter reserve layer",
+      "expected_mapping_gain": "dormant compression receipts",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "archive density",
+        "synthesis_problem": "dormant duplication",
+        "planning_problem": "compression bundles",
+        "implementation_target": "compress dormant bundles safely",
+        "compression_target": "prune archive sprawl",
+        "mapping_target": "dormant compression receipts"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_48.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_48.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_48.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_48.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_48.json"
+      }
+    },
+    {
+      "loop_id": "C49",
+      "loop_number": 49,
+      "legacy_alias": "L49",
+      "triad_index": 17,
+      "title": "Shadow Sweep",
+      "dominant_focus": "blind spots",
+      "primary_synthesis_objective": "what the current framework still cannot see",
+      "primary_planning_objective": "shadow quests",
+      "primary_implementation_objective": "emit shadow correction tasks",
+      "primary_compression_objective": "prune self-confirming loops",
+      "expected_structural_gain": "inverse coverage",
+      "expected_mapping_gain": "shadow atlas",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "blind spots",
+        "synthesis_problem": "what the current framework still cannot see",
+        "planning_problem": "shadow quests",
+        "implementation_target": "emit shadow correction tasks",
+        "compression_target": "prune self-confirming loops",
+        "mapping_target": "shadow atlas"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_49.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_49.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_49.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_49.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_49.json"
+      }
+    },
+    {
+      "loop_id": "C50",
+      "loop_number": 50,
+      "legacy_alias": "L50",
+      "triad_index": 17,
+      "title": "Regression Repair",
+      "dominant_focus": "continuity repair",
+      "primary_synthesis_objective": "regressions introduced so far",
+      "primary_planning_objective": "repair order",
+      "primary_implementation_objective": "repair regressions",
+      "primary_compression_objective": "prune lingering broken paths",
+      "expected_structural_gain": "continuity stability",
+      "expected_mapping_gain": "regression receipts",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "continuity repair",
+        "synthesis_problem": "regressions introduced so far",
+        "planning_problem": "repair order",
+        "implementation_target": "repair regressions",
+        "compression_target": "prune lingering broken paths",
+        "mapping_target": "regression receipts"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_50.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_50.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_50.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_50.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_50.json"
+      }
+    },
+    {
+      "loop_id": "C51",
+      "loop_number": 51,
+      "legacy_alias": "L51",
+      "triad_index": 17,
+      "title": "Route-Drift and Liminal Cleanup",
+      "dominant_focus": "coordinate hygiene",
+      "primary_synthesis_objective": "address drift and liminal noise",
+      "primary_planning_objective": "cleanup pack",
+      "primary_implementation_objective": "normalize route names and liminal states",
+      "primary_compression_objective": "prune incoherent traversal",
+      "expected_structural_gain": "cleaner coordinates",
+      "expected_mapping_gain": "liminal cleanup log",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "coordinate hygiene",
+        "synthesis_problem": "address drift and liminal noise",
+        "planning_problem": "cleanup pack",
+        "implementation_target": "normalize route names and liminal states",
+        "compression_target": "prune incoherent traversal",
+        "mapping_target": "liminal cleanup log"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_51.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_51.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_51.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_51.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_51.json"
+      }
+    },
+    {
+      "loop_id": "C52",
+      "loop_number": 52,
+      "legacy_alias": "L52",
+      "triad_index": 18,
+      "title": "Crystal Recompression I",
+      "dominant_focus": "first global compression wave",
+      "primary_synthesis_objective": "compression candidates across the corpus",
+      "primary_planning_objective": "recompression wave",
+      "primary_implementation_objective": "compress first crystal layer",
+      "primary_compression_objective": "prune low-value expansions",
+      "expected_structural_gain": "tighter corpus shell",
+      "expected_mapping_gain": "recompression map",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "first global compression wave",
+        "synthesis_problem": "compression candidates across the corpus",
+        "planning_problem": "recompression wave",
+        "implementation_target": "compress first crystal layer",
+        "compression_target": "prune low-value expansions",
+        "mapping_target": "recompression map"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_52.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_52.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_52.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_52.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_52.json"
+      }
+    },
+    {
+      "loop_id": "C53",
+      "loop_number": 53,
+      "legacy_alias": "L53",
+      "triad_index": 18,
+      "title": "Crystal Recompression II",
+      "dominant_focus": "deeper recompression",
+      "primary_synthesis_objective": "second-order compression patterns",
+      "primary_planning_objective": "deeper recompression",
+      "primary_implementation_objective": "compress second crystal layer",
+      "primary_compression_objective": "prune nested redundancy",
+      "expected_structural_gain": "higher density",
+      "expected_mapping_gain": "compression lineage",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "deeper recompression",
+        "synthesis_problem": "second-order compression patterns",
+        "planning_problem": "deeper recompression",
+        "implementation_target": "compress second crystal layer",
+        "compression_target": "prune nested redundancy",
+        "mapping_target": "compression lineage"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_53.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_53.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_53.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_53.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_53.json"
+      }
+    },
+    {
+      "loop_id": "C54",
+      "loop_number": 54,
+      "legacy_alias": "L54",
+      "triad_index": 18,
+      "title": "Restart-Safe Packet Crystallization",
+      "dominant_focus": "durable packets",
+      "primary_synthesis_objective": "packet sprawl",
+      "primary_planning_objective": "restart-safe packet schema",
+      "primary_implementation_objective": "crystallize packets and ledgers",
+      "primary_compression_objective": "prune noisy packet variants",
+      "expected_structural_gain": "durable restart surface",
+      "expected_mapping_gain": "packet crystallization chain",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "durable packets",
+        "synthesis_problem": "packet sprawl",
+        "planning_problem": "restart-safe packet schema",
+        "implementation_target": "crystallize packets and ledgers",
+        "compression_target": "prune noisy packet variants",
+        "mapping_target": "packet crystallization chain"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_54.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_54.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_54.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_54.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_54.json"
+      }
+    },
+    {
+      "loop_id": "C55",
+      "loop_number": 55,
+      "legacy_alias": "L55",
+      "triad_index": 19,
+      "title": "Corpus Final Synthesis",
+      "dominant_focus": "total state",
+      "primary_synthesis_objective": "whole-corpus condition after 54 loops",
+      "primary_planning_objective": "final unification list",
+      "primary_implementation_objective": "publish final synthesis artifact",
+      "primary_compression_objective": "prune stray unresolved labeling",
+      "expected_structural_gain": "total visibility",
+      "expected_mapping_gain": "whole-corpus summary stamp",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "total state",
+        "synthesis_problem": "whole-corpus condition after 54 loops",
+        "planning_problem": "final unification list",
+        "implementation_target": "publish final synthesis artifact",
+        "compression_target": "prune stray unresolved labeling",
+        "mapping_target": "whole-corpus summary stamp"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_55.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_55.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_55.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_55.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_55.json"
+      }
+    },
+    {
+      "loop_id": "C56",
+      "loop_number": 56,
+      "legacy_alias": "L56",
+      "triad_index": 19,
+      "title": "Corpus Final Compression",
+      "dominant_focus": "total tightening",
+      "primary_synthesis_objective": "last global bloat field",
+      "primary_planning_objective": "ultimate contraction pass",
+      "primary_implementation_objective": "publish final compression artifact",
+      "primary_compression_objective": "prune last dead routes",
+      "expected_structural_gain": "maximal coherence-to-size ratio",
+      "expected_mapping_gain": "final compression receipts",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "total tightening",
+        "synthesis_problem": "last global bloat field",
+        "planning_problem": "ultimate contraction pass",
+        "implementation_target": "publish final compression artifact",
+        "compression_target": "prune last dead routes",
+        "mapping_target": "final compression receipts"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_56.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_56.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_56.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_56.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_56.json"
+      }
+    },
+    {
+      "loop_id": "C57",
+      "loop_number": 57,
+      "legacy_alias": "L57",
+      "triad_index": 19,
+      "title": "Next-Epoch Seed and Hive Re-entry",
+      "dominant_focus": "renewal",
+      "primary_synthesis_objective": "next frontier and unresolved kernel",
+      "primary_planning_objective": "next 57-loop seed",
+      "primary_implementation_objective": "publish epoch handoff pack",
+      "primary_compression_objective": "prune epoch-specific scaffolding",
+      "expected_structural_gain": "self-renewing liminal hive",
+      "expected_mapping_gain": "epoch bridge and zero-point re-entry",
+      "status": "PENDING",
+      "advancement_tuple": {
+        "focus_plane": "renewal",
+        "synthesis_problem": "next frontier and unresolved kernel",
+        "planning_problem": "next 57-loop seed",
+        "implementation_target": "publish epoch handoff pack",
+        "compression_target": "prune epoch-specific scaffolding",
+        "mapping_target": "epoch bridge and zero-point re-entry"
+      },
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_loop_57.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_loop_57.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_loop_57.json",
+        "compression_receipt": "self_actualize/compression_receipt_loop_57.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_loop_57.json"
+      }
+    }
+  ]
+}

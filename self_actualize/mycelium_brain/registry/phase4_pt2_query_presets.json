@@ -1,0 +1,228 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+  "queries": [
+    {
+      "query_id": "QPT2-01",
+      "mode": "locate",
+      "scope": "all active registries",
+      "active_shortcuts": [
+        "SCPT2-01",
+        "SCPT2-08",
+        "SCPT2-13"
+      ],
+      "stop_rule": "ABSTAIN",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    },
+    {
+      "query_id": "QPT2-02",
+      "mode": "route",
+      "scope": "system and interlock graph",
+      "active_shortcuts": [
+        "SCPT2-03",
+        "SCPT2-09",
+        "SCPT2-10"
+      ],
+      "stop_rule": "REPAIR",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    },
+    {
+      "query_id": "QPT2-03",
+      "mode": "fire",
+      "scope": "lens states and field weights",
+      "active_shortcuts": [
+        "SCPT2-04",
+        "SCPT2-07",
+        "SCPT2-11"
+      ],
+      "stop_rule": "PROMOTE",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    },
+    {
+      "query_id": "QPT2-04",
+      "mode": "promote",
+      "scope": "lawful promotion candidates",
+      "active_shortcuts": [
+        "SCPT2-03",
+        "SCPT2-09",
+        "SCPT2-12"
+      ],
+      "stop_rule": "PROMOTE",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    },
+    {
+      "query_id": "QPT2-05",
+      "mode": "interlock",
+      "scope": "metro interlock registry",
+      "active_shortcuts": [
+        "SCPT2-09",
+        "SCPT2-13"
+      ],
+      "stop_rule": "PROMOTE",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    },
+    {
+      "query_id": "QPT2-06",
+      "mode": "lens",
+      "scope": "lens profiles and lens states",
+      "active_shortcuts": [
+        "SCPT2-07",
+        "SCPT2-08"
+      ],
+      "stop_rule": "REPAIR",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    },
+    {
+      "query_id": "QPT2-07",
+      "mode": "field",
+      "scope": "field, z-point, and aether surfaces",
+      "active_shortcuts": [
+        "SCPT2-05",
+        "SCPT2-10",
+        "SCPT2-11"
+      ],
+      "stop_rule": "ABSTAIN",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    },
+    {
+      "query_id": "QPT2-08",
+      "mode": "project",
+      "scope": "projection spaces and assignments",
+      "active_shortcuts": [
+        "SCPT2-07",
+        "SCPT2-13"
+      ],
+      "stop_rule": "REPAIR",
+      "default_exploration_order": [
+        "body",
+        "system",
+        "coordinate",
+        "lens",
+        "pair",
+        "wave",
+        "field",
+        "interlock",
+        "writeback"
+      ],
+      "writeback_targets": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+      "note": "Phase 4 Pt 2 query preset."
+    }
+  ],
+  "summary": {
+    "count": 8
+  }
+}

@@ -1,15 +1,610 @@
 {
-  "added": 0,
-  "modified": 1,
+  "added": 7,
+  "modified": 79,
   "removed": 0,
-  "total": 1,
+  "total": 86,
   "changes": [
     {
       "kind": "modified",
-      "relative_path": ".claude/settings.local.json",
-      "top_level": ".claude",
-      "mtime_ns": 1773070969202241700,
-      "mtime_iso": "2026-03-09T15:42:49.202242+00:00"
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_STATE.json",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773441353091928600,
+      "mtime_iso": "2026-03-13T22:35:53.091928+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/23_ap7d_delta_feed.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353079929400,
+      "mtime_iso": "2026-03-13T22:35:53.079929+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/24_ap7d_handoff_feed.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353079929400,
+      "mtime_iso": "2026-03-13T22:35:53.079929+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/35_command_cmt_feed.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353079929400,
+      "mtime_iso": "2026-03-13T22:35:53.079929+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/36_command_rin_feed.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353079929400,
+      "mtime_iso": "2026-03-13T22:35:53.079929+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353078929100,
+      "mtime_iso": "2026-03-13T22:35:53.078929+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/33_command_rte_feed.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353078929100,
+      "mtime_iso": "2026-03-13T22:35:53.078929+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/34_command_clm_feed.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353078929100,
+      "mtime_iso": "2026-03-13T22:35:53.078929+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/37_command_capillary_edge_ledger.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441353054356000,
+      "mtime_iso": "2026-03-13T22:35:53.054356+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/command_membrane/__init__.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441346230691700,
+      "mtime_iso": "2026-03-13T22:35:46.230692+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/command_membrane_capillary_graph.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441344344287500,
+      "mtime_iso": "2026-03-13T22:35:44.344287+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/command_membrane_runtime_state.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441344344287500,
+      "mtime_iso": "2026-03-13T22:35:44.344287+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/ATHENA TEMPLE/11_COMMAND_MEMBRANE_DECREE.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441344343287400,
+      "mtime_iso": "2026-03-13T22:35:44.343287+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/command_membrane_capillary_law.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441344342288300,
+      "mtime_iso": "2026-03-13T22:35:44.342288+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/command_membrane_packet_schema.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441344342288300,
+      "mtime_iso": "2026-03-13T22:35:44.342288+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/20_COMMAND_MEMBRANE_PROTOCOL.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441344342288300,
+      "mtime_iso": "2026-03-13T22:35:44.342288+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/command_membrane_protocol.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441344341287200,
+      "mtime_iso": "2026-03-13T22:35:44.341287+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/registry/command_membrane_protocol_v2_verification.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441330439427500,
+      "mtime_iso": "2026-03-13T22:35:30.439428+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_PROTOCOL_V2.md",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773441330436410700,
+      "mtime_iso": "2026-03-13T22:35:30.436411+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_capillary_law_v2.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441330435412100,
+      "mtime_iso": "2026-03-13T22:35:30.435412+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_event_packet_schema_v2.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441330435412100,
+      "mtime_iso": "2026-03-13T22:35:30.435412+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_latency_benchmarks_v2.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441330435412100,
+      "mtime_iso": "2026-03-13T22:35:30.435412+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_protocol_v2.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441330434410200,
+      "mtime_iso": "2026-03-13T22:35:30.434410+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/registry/command_membrane_protocol_v2.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441330433410100,
+      "mtime_iso": "2026-03-13T22:35:30.433410+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/command_membrane_v1.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441322544033700,
+      "mtime_iso": "2026-03-13T22:35:22.544034+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/capillary_graph.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441301761907100,
+      "mtime_iso": "2026-03-13T22:35:01.761907+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/state.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441301760908400,
+      "mtime_iso": "2026-03-13T22:35:01.760908+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/hall.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441301759901200,
+      "mtime_iso": "2026-03-13T22:35:01.759901+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/temple.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441301759901200,
+      "mtime_iso": "2026-03-13T22:35:01.759901+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/capillary.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441301758395500,
+      "mtime_iso": "2026-03-13T22:35:01.758395+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/protocol.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441301758395500,
+      "mtime_iso": "2026-03-13T22:35:01.758395+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/schema.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441301758395500,
+      "mtime_iso": "2026-03-13T22:35:01.758395+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "Quadrant Binary/__codex_edit_links/command_spine.py",
+      "top_level": "Quadrant Binary",
+      "mtime_ns": 1773441271743860300,
+      "mtime_iso": "2026-03-13T22:34:31.743860+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/command_spine.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441271743860300,
+      "mtime_iso": "2026-03-13T22:34:31.743860+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/swarm_board.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441256433971000,
+      "mtime_iso": "2026-03-13T22:34:16.433971+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/command_membrane_runtime_entrypoint_v2.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441243734085200,
+      "mtime_iso": "2026-03-13T22:34:03.734085+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149401594600,
+      "mtime_iso": "2026-03-13T22:32:29.401595+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773441149400595700,
+      "mtime_iso": "2026-03-13T22:32:29.400596+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773441149399595700,
+      "mtime_iso": "2026-03-13T22:32:29.399596+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149399595700,
+      "mtime_iso": "2026-03-13T22:32:29.399596+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_PROTOCOL_V1.md",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773441149398594700,
+      "mtime_iso": "2026-03-13T22:32:29.398595+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149398594700,
+      "mtime_iso": "2026-03-13T22:32:29.398595+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/registry/command_membrane_protocol_v1.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149397595600,
+      "mtime_iso": "2026-03-13T22:32:29.397596+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_reward_field.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149397595600,
+      "mtime_iso": "2026-03-13T22:32:29.397596+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_capillary_law.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149396593800,
+      "mtime_iso": "2026-03-13T22:32:29.396594+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_latency_benchmarks.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149396593800,
+      "mtime_iso": "2026-03-13T22:32:29.396594+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_event_packet_schema.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149395593500,
+      "mtime_iso": "2026-03-13T22:32:29.395593+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/next57_command_protocol.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149395593500,
+      "mtime_iso": "2026-03-13T22:32:29.395593+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/watched_surface_registry.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149392592600,
+      "mtime_iso": "2026-03-13T22:32:29.392593+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_live_manifest.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149391592600,
+      "mtime_iso": "2026-03-13T22:32:29.391593+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_surface_health.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149391592600,
+      "mtime_iso": "2026-03-13T22:32:29.391593+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_capillary_edges.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149390585500,
+      "mtime_iso": "2026-03-13T22:32:29.390585+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_latency_benchmark_registry.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149390585500,
+      "mtime_iso": "2026-03-13T22:32:29.390585+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_ledger.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149389081900,
+      "mtime_iso": "2026-03-13T22:32:29.389082+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149388082400,
+      "mtime_iso": "2026-03-13T22:32:29.388083+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_live_event_ledger.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149387083900,
+      "mtime_iso": "2026-03-13T22:32:29.387084+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_membrane_state.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149386084300,
+      "mtime_iso": "2026-03-13T22:32:29.386084+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_sensor_events.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441149386084300,
+      "mtime_iso": "2026-03-13T22:32:29.386084+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/derive_command_membrane_protocol.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441098836773600,
+      "mtime_iso": "2026-03-13T22:31:38.836774+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/verify_command_membrane_protocol_v2.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441088374520600,
+      "mtime_iso": "2026-03-13T22:31:28.374521+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/runtime/derive_command_membrane_protocol_v2.py",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773441034359158300,
+      "mtime_iso": "2026-03-13T22:30:34.359158+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0004.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440993711029500,
+      "mtime_iso": "2026-03-13T22:29:53.711030+00:00"
+    },
+    {
+      "kind": "added",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/routes.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440993710028300,
+      "mtime_iso": "2026-03-13T22:29:53.710028+00:00"
+    },
+    {
+      "kind": "added",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/projections.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440993690049100,
+      "mtime_iso": "2026-03-13T22:29:53.690049+00:00"
+    },
+    {
+      "kind": "added",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/claims.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440993688040200,
+      "mtime_iso": "2026-03-13T22:29:53.688040+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0006.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440961739546100,
+      "mtime_iso": "2026-03-13T22:29:21.739546+00:00"
+    },
+    {
+      "kind": "added",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/packets.ndjson",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440961658539400,
+      "mtime_iso": "2026-03-13T22:29:21.658539+00:00"
+    },
+    {
+      "kind": "added",
+      "relative_path": "GLOBAL COMMAND/_command_membrane_probe_3.txt",
+      "top_level": "GLOBAL COMMAND",
+      "mtime_ns": 1773440961644024900,
+      "mtime_iso": "2026-03-13T22:29:21.644025+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0005.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440936163229500,
+      "mtime_iso": "2026-03-13T22:28:56.163229+00:00"
+    },
+    {
+      "kind": "added",
+      "relative_path": "GLOBAL COMMAND/_command_membrane_probe_2.txt",
+      "top_level": "GLOBAL COMMAND",
+      "mtime_ns": 1773440917224574800,
+      "mtime_iso": "2026-03-13T22:28:37.224575+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440841896853600,
+      "mtime_iso": "2026-03-13T22:27:21.896854+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440834108250000,
+      "mtime_iso": "2026-03-13T22:27:14.108250+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_PROTOCOL_VERIFICATION.json",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773440818043580900,
+      "mtime_iso": "2026-03-13T22:26:58.043581+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0003.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440817982055400,
+      "mtime_iso": "2026-03-13T22:26:57.982055+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0002.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440817974048500,
+      "mtime_iso": "2026-03-13T22:26:57.974049+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/05_REQUESTS_AND_OFFERS_BOARD.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440813929607200,
+      "mtime_iso": "2026-03-13T22:26:53.929607+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/04_CHANGE_FEED_BOARD.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440801114488100,
+      "mtime_iso": "2026-03-13T22:26:41.114488+00:00"
+    },
+    {
+      "kind": "added",
+      "relative_path": "self_actualize/mycelium_brain/receipts/2026-03-13_q41_tq06_hourly_packet_bundle_sync_pass14.md",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440792210616400,
+      "mtime_iso": "2026-03-13T22:26:32.210616+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0001.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440770687811300,
+      "mtime_iso": "2026-03-13T22:26:10.687811+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "GLOBAL COMMAND/_command_membrane_probe.txt",
+      "top_level": "GLOBAL COMMAND",
+      "mtime_ns": 1773440751963724500,
+      "mtime_iso": "2026-03-13T22:25:51.963725+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/90_LEDGERS/astrological_schedulers/planetary_office_packet.md",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773440751605546000,
+      "mtime_iso": "2026-03-13T22:25:51.605546+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/mycelium_brain/registry/command_membrane_protocol_v1_verification.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440746724536500,
+      "mtime_iso": "2026-03-13T22:25:46.724536+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_RUNTIME_WITNESS.md",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773440746723534100,
+      "mtime_iso": "2026-03-13T22:25:46.723534+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "self_actualize/command_membrane_protocol_derivation.json",
+      "top_level": "self_actualize",
+      "mtime_ns": 1773440746715534800,
+      "mtime_iso": "2026-03-13T22:25:46.715535+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/80_TOOLKIT/15_COMMAND_MEMBRANE_PROTOCOL.md",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773440746714535400,
+      "mtime_iso": "2026-03-13T22:25:46.714535+00:00"
+    },
+    {
+      "kind": "modified",
+      "relative_path": "NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_VERIFICATION.json",
+      "top_level": "NERVOUS_SYSTEM",
+      "mtime_ns": 1773440739758650700,
+      "mtime_iso": "2026-03-13T22:25:39.758651+00:00"
     }
   ]
 }

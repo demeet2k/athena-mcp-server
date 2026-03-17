@@ -1,0 +1,17 @@
+{
+  "wave_id": "WAVE-20260313T215314Z",
+  "goal": "continue the higher-dimensional swarm from the strongest admissible frontier",
+  "active_pods": [
+    "POD-01-first_live_archive_promotion_run",
+    "POD-02-google_docs_bootstrap_gate"
+  ],
+  "shared_kernel": "board_status + family_tensor + current_claims",
+  "writeback_set": [
+    "00_STATUS/00_BOARD_STATUS.md",
+    "03_CLAIMS/00_ACTIVE_CLAIMS.md",
+    "08_SWARM_RUNTIME/manifests/ACTIVE_RUN.md"
+  ],
+  "stop_condition": "gate unlock or one reusable artifact lands",
+  "restart_seed": "Start at the beginning again. Check the live Docs gate, preserve the blocker exactly if blocked, then choose the smallest stronger front.",
+  "gate_status": "BLOCKED"
+}

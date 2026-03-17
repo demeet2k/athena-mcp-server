@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-03-13T21:23:03.056291+00:00",
+  "docs_gate_status": "BLOCKED",
+  "rows": [
+    {
+      "event_id": "EVT-20260313-0002",
+      "source_id": "command_root",
+      "source_class": "command-folder",
+      "active_surface": "GLOBAL COMMAND",
+      "t_detect_ms": 5331363444.157,
+      "t_encode_ms": 6771.913,
+      "t_route_ms": 6771.913,
+      "t_claim_ms": 12032.329,
+      "t_commit_ms": 6645.382,
+      "t_sugar_ms": 5331388893.781,
+      "capillary_score": 0.0,
+      "route_path": "SCOUT-01>ROUTER-01>L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER>ARCHIVIST-01",
+      "recorded_at": "2026-03-13T21:22:56.893781+00:00",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "event_id": "EVT-20260313-0001",
+      "source_id": "",
+      "source_class": "",
+      "active_surface": "GLOBAL COMMAND",
+      "t_detect_ms": 0.0,
+      "t_encode_ms": 7168.378,
+      "t_route_ms": 7168.378,
+      "t_claim_ms": 0.0,
+      "t_commit_ms": 0.0,
+      "t_sugar_ms": 0.0,
+      "capillary_score": 0.0,
+      "route_path": "SCOUT-01>ROUTER-01>L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER>ARCHIVIST-01",
+      "recorded_at": "2026-03-13T21:21:52.056028+00:00",
+      "docs_gate_status": "BLOCKED"
+    }
+  ],
+  "row_count": 2
+}

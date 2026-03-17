@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-03-13T21:00:44.152287+00:00",
+  "derivation_version": "2026-03-12.q07.runtime-waist",
+  "derivation_command": "python -m self_actualize.runtime.verify_runtime_waist",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "checks": [
+    {
+      "label": "atlas_contract",
+      "status": "OK",
+      "details": {
+        "source_label": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json + C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\archive_atlas.json",
+        "record_count": 9923,
+        "query": "self actualize runtime engine atlas swarm board verification",
+        "regime": "orchestration",
+        "top_records": [
+          {
+            "record_id": "3740f35d0006a681afc9f20f",
+            "relative_path": "self_actualize\\runtime\\engine.py",
+            "kind": "code",
+            "score": 23.5
+          },
+          {
+            "record_id": "387b93c8b900ca9b4b21265a",
+            "relative_path": "self_actualize\\runtime\\swarm_board.py",
+            "kind": "code",
+            "score": 22.25
+          },
+          {
+            "record_id": "bb66c147fc059da37ba47db8",
+            "relative_path": "self_actualize\\mycelium_brain\\nervous_system\\neurons\\NEURON_void_ch11_to_self_actualize_runtime.md",
+            "kind": "text",
+            "score": 21.65
+          },
+          {
+            "record_id": "5ee24779e532995d3d66aba7",
+            "relative_path": "self_actualize\\runtime\\atlas.py",
+            "kind": "code",
+            "score": 20.6
+          },
+          {
+            "record_id": "4f3545e2e587c5776a98414d",
+            "relative_path": "self_actualize\\runtime\\verify_atlasforge_runtime_lane.py",
+            "kind": "code",
+            "score": 20.5
+          }
+        ]
+      }
+    },
+    {
+      "label": "engine_packet",
+      "status": "OK",
+      "details": {
+        "objective": "create a repeatable verification harness around the main runtime waist",
+        "verdict": "NEAR",
+        "selected_route_id": "R-SQUARE-01",
+        "route_count": 3,
+        "evidence_count": 9,
+        "replay_hash_prefix": "a50141c5b21182fe",
+        "patch_emitted": true,
+        "top_improvement": "Operationalize Google Docs memory sync"
+      }
+    },
+    {
+      "label": "swarm_board_pipeline",
+      "status": "OK",
+      "details": {
+        "docs_gate_status": "BLOCKED",
+        "file_count": 14605,
+        "thread_count": 40,
+        "pod_count": 34,
+        "neuron_count": 9,
+        "wave_count": 1,
+        "chosen_front": "Google Docs bootstrap gate",
+        "chosen_family": "Trading Bot",
+        "recent_change_count": 160
+      }
+    },
+    {
+      "label": "swarm_board_build_command",
+      "status": "OK",
+      "details": {
+        "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.swarm_board build",
+        "cwd": "C:\\Users\\dmitr\\Documents\\Athena Agent",
+        "stdout": "Board refreshed at 2026-03-13T21:00:41.245914+00:00 (+8 ~1057 -0, 29 claims, 27 notes).\nBoard root: C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\nCommand membrane refreshed at 2026-03-13T21:00:44.000741+00:00 (backend=windows-native-watch, packets=9, capillaries=5, docs=BLOCKED).",
+        "stderr": "",
+        "board_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD"
+      }
+    }
+  ],
+  "failed_checks": [],
+  "next_seed": "FRONT-INT-SKILL-COHESION",
+  "lane_law": "The runtime waist stays trusted only while atlas lookup, engine packet synthesis, and swarm-board compilation can all replay locally through one verifier."
+}

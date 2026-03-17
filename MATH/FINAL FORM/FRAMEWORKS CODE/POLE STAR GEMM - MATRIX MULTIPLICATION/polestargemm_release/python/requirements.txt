@@ -1,0 +1,4 @@
+numpy>=1.22
+torch>=2.0
+# Optional (enables sparse plan in core)
+scipy>=1.9

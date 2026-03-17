@@ -17,8 +17,8 @@
 - Regime: `classical`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(F-A-E, S8, Aether, O08, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
-- NeuronAddr: `<self_actualize, first_runtime_route_quality_receipt_writeback, O08, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
+- NSCoord: `(F-A-E, S8, Aether, O33, Arc1, Su, AppM, self_actualize, classical, pod, AMBIG)`
+- NeuronAddr: `<self_actualize, first_runtime_route_quality_receipt_writeback, O33, C, 3, a, FAE, Arc1, Su, AppM, AMBIG, classical>`
 - ContractionTarget: `cortex/first_runtime_route_quality_receipt_writeback.md`
 
 ## Claims

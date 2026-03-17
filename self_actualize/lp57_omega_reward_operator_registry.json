@@ -1,0 +1,192 @@
+{
+  "generated_at": "2026-03-13T21:52:42.782757+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "docs_gate_status": "BLOCKED",
+  "model": "Hybrid Phi",
+  "operators": [
+    {
+      "reward_operator_id": "identity",
+      "reward_multiplier": 1.0,
+      "risk_band": "standard",
+      "reward_reason": "standard practical or governance quest"
+    },
+    {
+      "reward_operator_id": "phi",
+      "reward_multiplier": 1.61803398875,
+      "risk_band": "integration",
+      "reward_reason": "high-value integration or bridge quest"
+    },
+    {
+      "reward_operator_id": "double_phi",
+      "reward_multiplier": 3.2360679775,
+      "risk_band": "frontier",
+      "reward_reason": "boss or frontier quest promoted by the planner"
+    },
+    {
+      "reward_operator_id": "phi_square",
+      "reward_multiplier": 2.61803398875,
+      "risk_band": "convergence",
+      "reward_reason": "rare convergence, zero-point, or cross-family closure quest"
+    },
+    {
+      "reward_operator_id": "zero",
+      "reward_multiplier": 0.0,
+      "risk_band": "bootstrap",
+      "reward_reason": "spawn, init, or bootstrap task"
+    }
+  ],
+  "rank_bands": [
+    {
+      "rank_class": "F",
+      "level_min": 0,
+      "level_max": 14
+    },
+    {
+      "rank_class": "E",
+      "level_min": 15,
+      "level_max": 29
+    },
+    {
+      "rank_class": "D",
+      "level_min": 30,
+      "level_max": 44
+    },
+    {
+      "rank_class": "C",
+      "level_min": 45,
+      "level_max": 59
+    },
+    {
+      "rank_class": "B",
+      "level_min": 60,
+      "level_max": 74
+    },
+    {
+      "rank_class": "A",
+      "level_min": 75,
+      "level_max": 89
+    },
+    {
+      "rank_class": "S",
+      "level_min": 90,
+      "level_max": 100
+    }
+  ],
+  "level_thresholds": [
+    0,
+    100,
+    202,
+    306,
+    412,
+    520,
+    630,
+    742,
+    856,
+    973,
+    1092,
+    1213,
+    1337,
+    1463,
+    1591,
+    1722,
+    1855,
+    1991,
+    2130,
+    2271,
+    2415,
+    2562,
+    2712,
+    2865,
+    3021,
+    3180,
+    3342,
+    3507,
+    3675,
+    3846,
+    4021,
+    4199,
+    4381,
+    4566,
+    4755,
+    4947,
+    5143,
+    5343,
+    5547,
+    5755,
+    5967,
+    6183,
+    6403,
+    6627,
+    6856,
+    7089,
+    7327,
+    7569,
+    7816,
+    8068,
+    8325,
+    8587,
+    8854,
+    9126,
+    9403,
+    9686,
+    9974,
+    10268,
+    10568,
+    10873,
+    11184,
+    11501,
+    11825,
+    12155,
+    12491,
+    12834,
+    13183,
+    13539,
+    13902,
+    14272,
+    14649,
+    15034,
+    15426,
+    15826,
+    16234,
+    16650,
+    17074,
+    17506,
+    17946,
+    18395,
+    18853,
+    19319,
+    19794,
+    20279,
+    20773,
+    21277,
+    21791,
+    22315,
+    22849,
+    23393,
+    23948,
+    24513,
+    25089,
+    25677,
+    26276,
+    26887,
+    27510,
+    28145,
+    28792,
+    29452,
+    30124
+  ],
+  "penalty_model": "Strict but Damped",
+  "promotion_model": "Prestige Hive",
+  "promotion_level": 100,
+  "mini_hive": {
+    "role_count": 4,
+    "roles": [
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "virtual_seats_per_role": 4096,
+    "total_virtual_seats": 16384
+  }
+}

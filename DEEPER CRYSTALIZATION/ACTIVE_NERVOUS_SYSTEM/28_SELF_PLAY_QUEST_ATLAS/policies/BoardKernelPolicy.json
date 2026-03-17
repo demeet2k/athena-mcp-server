@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "board-kernel",
+  "description": "Board kernel rules governing determinism, scoring, and queue assignment",
+  "determinism": {
+    "required": true,
+    "description": "All quest evaluations must be deterministic given the same seed and inputs",
+    "rules": [
+      "Every quest evaluation must produce identical output given identical (seed, input_state) pairs",
+      "No external randomness sources permitted during evaluation",
+      "Floating-point operations must use IEEE 754 double precision with round-to-nearest-even",
+      "State transitions must be serializable and replayable"
+    ]
+  },
+  "scoring_formulas": {
+    "quest_score": {
+      "formula": "base_xp * gamma(truth_state) * difficulty_multiplier * phi^(-(pass-1))",
+      "variables": {
+        "base_xp": "From RewardPolicy_v1.base_xp (default: 64)",
+        "gamma": "Truth-state discount factor from RewardPolicy_v1",
+        "difficulty_multiplier": "From payout matrix difficulty column",
+        "phi": "1.618033988749895",
+        "pass": "Pass number (1, 2, or 3)"
+      }
+    },
+    "station_score": {
+      "formula": "sum(quest_scores) * element_coherence_bonus",
+      "element_coherence_bonus": "1.0 + 0.618 * (1 - element_vector_variance)"
+    },
+    "player_score": {
+      "formula": "sum(station_scores) * unlock_depth_multiplier",
+      "unlock_depth_multiplier": "log_phi(max_unlock_level)"
+    }
+  },
+  "queue_assignment": {
+    "rules": [
+      "Quests are assigned to evaluation queues by station number modulo queue_count",
+      "Queue count is determined by available evaluator capacity",
+      "Priority ordering within queue: Crown > Storm > TempleRite > Community > Guild > Solo",
+      "Stale quests (age > epoch_clamp epochs) are deprioritized to the tail",
+      "Repair quests inherit the priority of their target claim"
+    ],
+    "queue_count_default": 8,
+    "max_queue_depth": 256,
+    "stale_threshold_epochs": 64
+  }
+}

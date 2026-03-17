@@ -1,17 +1,18 @@
 # Water
 
 - Role: memory, continuity, manuscript flow
-- ThreadCount: `3`
-- PodCount: `0`
-- BridgeNeuronCount: `1`
+- ThreadCount: `2`
+- PodCount: `1`
+- BridgeNeuronCount: `3`
 
 ## Live Threads
-- `I AM ATHENA`
+- `TQ06`
 - `NERVOUS_SYSTEM`
-- `Voynich`
 
 ## Live Pods
-- none
+- `POD-06-tq06`
 
 ## Bridge Neurons
 - `NEURON-01-voynich-to-self_actualize`
+- `NEURON-03-orgin-to-deeper_crystalization`
+- `NEURON-09-clean-to-deeper_crystalization`

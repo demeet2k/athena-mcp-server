@@ -1,0 +1,210 @@
+{
+  "generated_at": "2026-03-09",
+  "root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary",
+  "scope": {
+    "files_scanned": 5,
+    "words_total_approx": 432011,
+    "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\quadrant_binary_corpus_atlas.json",
+    "live_docs_gate": "blocked"
+  },
+  "truth_class": "NEAR",
+  "inventory": [
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\4-Bit\\Bit4 CODE -working-.docx",
+      "modified_at": "2025-12-26",
+      "words_approx": 44368,
+      "role": "exploratory_bit_shadow_lane"
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\4-Bit\\BIT4_ The Four-State Completion of the Bit.docx",
+      "modified_at": "2025-12-26",
+      "words_approx": 63977,
+      "role": "formal_bit4_substrate"
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4 - Quadrant Binary Dynamics.docx",
+      "modified_at": "2026-01-09",
+      "words_approx": 90937,
+      "role": "chapter_and_appendix_metro"
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD-4X - Quadrant Binary V2.docx",
+      "modified_at": "2026-01-10",
+      "words_approx": 107889,
+      "role": "abstract_contract_and_graph_schema"
+    },
+    {
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Quadrant Binary\\QBD 5 Tri-Boundry V3.docx",
+      "modified_at": "2026-01-11",
+      "words_approx": 124840,
+      "role": "tri_boundary_runtime_kernel"
+    }
+  ],
+  "explicit_structure": [
+    {
+      "name": "foundation_lane",
+      "files": [
+        "4-Bit\\Bit4 CODE -working-.docx",
+        "4-Bit\\BIT4_ The Four-State Completion of the Bit.docx"
+      ],
+      "purpose": "semantic completion of the bit"
+    },
+    {
+      "name": "runtime_lane",
+      "files": [
+        "QBD-4 - Quadrant Binary Dynamics.docx",
+        "QBD-4X - Quadrant Binary V2.docx",
+        "QBD 5 Tri-Boundry V3.docx"
+      ],
+      "purpose": "metro-native proof-carrying runtime"
+    }
+  ],
+  "hidden_lines": [
+    {
+      "name": "Shadow Completion",
+      "topology": "open",
+      "files": [
+        "Bit4 CODE -working",
+        "BIT4",
+        "QBD-4X",
+        "QBD-4",
+        "QBD 5"
+      ]
+    },
+    {
+      "name": "4^4 Crystalization",
+      "topology": "circular",
+      "files": [
+        "BIT4",
+        "QBD-4X",
+        "QBD-4",
+        "QBD 5"
+      ]
+    },
+    {
+      "name": "Addressability",
+      "topology": "circular",
+      "files": [
+        "BIT4",
+        "QBD-4X",
+        "QBD-4",
+        "QBD 5"
+      ]
+    },
+    {
+      "name": "Proof-Carrying",
+      "topology": "circular",
+      "files": [
+        "BIT4",
+        "QBD-4X",
+        "QBD-4",
+        "QBD 5"
+      ]
+    },
+    {
+      "name": "Outer Crystal Hub",
+      "topology": "circular",
+      "files": [
+        "QBD-4X",
+        "QBD-4",
+        "QBD 5"
+      ]
+    },
+    {
+      "name": "Boundary Discipline",
+      "topology": "open",
+      "files": [
+        "Bit4 CODE -working",
+        "BIT4",
+        "QBD-4X",
+        "QBD-4",
+        "QBD 5"
+      ]
+    }
+  ],
+  "transfer_hubs": [
+    {
+      "name": "4^4 Tile / Address Algebra",
+      "intersects": [
+        "4^4 Crystalization",
+        "Addressability",
+        "Outer Crystal Hub"
+      ]
+    },
+    {
+      "name": "Truth Spine",
+      "intersects": [
+        "Shadow Completion",
+        "Proof-Carrying",
+        "Boundary Discipline"
+      ]
+    },
+    {
+      "name": "Sigma Spine",
+      "intersects": [
+        "Addressability",
+        "Proof-Carrying",
+        "Outer Crystal Hub",
+        "Boundary Discipline"
+      ]
+    },
+    {
+      "name": "RouteV2",
+      "intersects": [
+        "Addressability",
+        "Proof-Carrying",
+        "Boundary Discipline",
+        "Outer Crystal Hub"
+      ]
+    }
+  ],
+  "zero_point_hub": {
+    "name": "addressable_shadow_complete_proof_object",
+    "description": "The smallest unit that may remain four-valued, receives a stable address, and cannot be promoted without replayable evidence."
+  },
+  "stable_surfaces": [
+    "binary incompleteness",
+    "four-state semantics",
+    "4^4 tiling",
+    "address algebra",
+    "proof/replay discipline",
+    "metro/mycelium routing"
+  ],
+  "active_fronts": [
+    "canonicalize_qbd_runtime_manuscripts",
+    "bridge_bit4_semantics_to_qbd_runtime",
+    "convert_docx_corpus_to_canonical_text_source",
+    "turn_route_examples_into_executable_tests"
+  ],
+  "blockers": [
+    "live_docs_gate_blocked",
+    "source_of_truth_fragmented_across_five_docx_files",
+    "qbd_versions_not_formally_merged",
+    "runtime_is_specified_more_than_it_is_implemented"
+  ],
+  "gate_deficits": [
+    "G05",
+    "G06_partial",
+    "G07",
+    "G13",
+    "G14",
+    "G24_partial",
+    "G35",
+    "G37_partial"
+  ],
+  "next_moves": [
+    "write_bit_substrate_to_route_discipline_bridge_chapter",
+    "merge_qbd_4_qbd_4x_qbd_5_into_one_markdown_master",
+    "build_machine_readable_hub_map",
+    "add_section_level_supersession_manifest",
+    "reconcile_with_live_docs_when_available"
+  ],
+  "canonical_flow": [
+    "BIT4_substrate",
+    "addressed_tile",
+    "routed_path",
+    "proof_replay_envelope",
+    "truth_promotion",
+    "published_or_quarantined_result"
+  ]
+}

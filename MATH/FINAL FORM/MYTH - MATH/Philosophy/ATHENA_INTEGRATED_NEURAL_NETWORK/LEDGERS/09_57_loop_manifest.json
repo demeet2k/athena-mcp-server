@@ -1,0 +1,118 @@
+{
+  "build_date": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate_reason": "Google Docs access is blocked locally because `Trading Bot/credentials.json` and `Trading Bot/token.json` are missing.",
+  "loop_count": 57,
+  "foundation_loop_count": 25,
+  "archetype_loop_count": 4,
+  "zodiac_loop_count": 12,
+  "anchor_loop_count": 16,
+  "current_live_state": {
+    "completed_loop": "L01 Prime Lock",
+    "active_loop": "L02 Whole-Corpus Census",
+    "governing_temple_quest": "TQ07",
+    "live_feeder_stack": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "planner_public_hall_cap": 8,
+    "planner_public_temple_cap": 8
+  },
+  "active_front_freeze": {
+    "docs_gate": "BLOCKED",
+    "hall_feeders": [
+      "Q42",
+      "Q50",
+      "AP6D shadow fronts"
+    ],
+    "temple_membrane": "TQ06",
+    "temple_active": [
+      "TQ03",
+      "TQ05",
+      "TQ06"
+    ],
+    "temple_promoted": [
+      "TQ04"
+    ],
+    "blocked_front": "Q02",
+    "ap6d_state": "1024 ACTIVE / 3072 DORMANT",
+    "completed_loop": "L01 Prime Lock",
+    "active_loop": "L02 Whole-Corpus Census",
+    "governing_temple_quest": "TQ07",
+    "planner_public_hall_cap": 8,
+    "planner_public_temple_cap": 8,
+    "live_feeder_stack": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ]
+  },
+  "liminal_coordinate_schema": {
+    "dimension_count": 12,
+    "dimensions": [
+      "Xs",
+      "Ys",
+      "Zs",
+      "Ts",
+      "Qs",
+      "Rs",
+      "Cs",
+      "Fs",
+      "Ms",
+      "Ns",
+      "Hs",
+      "\u03a9s"
+    ]
+  },
+  "ledger_standard": {
+    "field_count": 16,
+    "fields": [
+      "agent_id",
+      "loop_number",
+      "parent_agent",
+      "coordinate_stamp",
+      "source_region",
+      "action_type",
+      "affected_nodes",
+      "summary_of_change",
+      "reason_for_change",
+      "integration_gain",
+      "compression_gain",
+      "unresolved_followups",
+      "linked_quests",
+      "linked_agents",
+      "revision_confidence",
+      "timestamp_internal"
+    ],
+    "action_types": [
+      "observe",
+      "plan",
+      "implement",
+      "bridge",
+      "formalize",
+      "compress",
+      "prune",
+      "map",
+      "retire",
+      "restart"
+    ]
+  },
+  "nested_seat_model": {
+    "compiled_seat_count": 4096,
+    "top_k_per_master_agent": 8,
+    "max_hall_macro_quests_per_loop": 8,
+    "max_temple_macro_quests_per_loop": 8,
+    "max_ledger_only_packets_per_loop": 8,
+    "resolution_bands": [
+      "manuscript scale",
+      "chapter scale",
+      "section scale",
+      "concept scale",
+      "equation / algorithm scale",
+      "metadata / routing / indexing scale"
+    ]
+  }
+}

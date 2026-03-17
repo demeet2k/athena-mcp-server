@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-03-13T16:29:18.217471+00:00",
+  "derivation_version": "2026-03-13.phase8-ap6d-integration-v1",
+  "truth": "OK",
+  "checks": [
+    {
+      "name": "authority_coherence",
+      "truth": "OK",
+      "detail": [
+        {
+          "rank": 1,
+          "surface": "NERVOUS_SYSTEM",
+          "role": "Cortex"
+        },
+        {
+          "rank": 2,
+          "surface": "self_actualize/mycelium_brain",
+          "role": "RuntimeHub"
+        },
+        {
+          "rank": 3,
+          "surface": "ECOSYSTEM/NERVOUS_SYSTEM",
+          "role": "GovernanceMirror"
+        }
+      ]
+    },
+    {
+      "name": "seat_integrity",
+      "truth": "OK",
+      "detail": {
+        "source_atlas": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_ATLAS_4096.json",
+        "legacy_atlas_status": "SEEDED_1024_ACTIVE_3072_DORMANT",
+        "legacy_count_law": {
+          "atlas_total": 4096,
+          "atlas_active": 1024,
+          "atlas_dormant": 3072
+        },
+        "total_seats": 4096,
+        "active_seats": 1024,
+        "dormant_seats": 3072,
+        "activation_law": "native shadow-family seats are ACTIVE; non-native shadow-family seats remain DORMANT",
+        "active_template_ref": "SEAT-TEMPLATE-ACTIVE",
+        "dormant_template_ref": "SEAT-TEMPLATE-DORMANT"
+      }
+    },
+    {
+      "name": "binding_integrity",
+      "truth": "OK",
+      "detail": {
+        "named_total": 35,
+        "by_state": {
+          "ACTIVE": 33,
+          "BLOCKED": 1,
+          "SHADOW": 1
+        },
+        "by_stratum": {
+          "Pole": 2,
+          "Command": 5,
+          "Hybrid": 6,
+          "Archetype": 12,
+          "Feeder": 5,
+          "SeatField": 5
+        }
+      }
+    },
+    {
+      "name": "transition_coverage",
+      "truth": "OK",
+      "detail": {
+        "named_seats_with_transition_notes": 35,
+        "named_seat_total": 35,
+        "required_bridge_set_present": true,
+        "active_seat_template_witness_bound": true,
+        "dormant_template_present": true
+      }
+    },
+    {
+      "name": "bridge_coherence",
+      "truth": "OK",
+      "detail": {
+        "feeder_to_lane": 3,
+        "blocked_external_feeder": 1,
+        "shadow_feeder": 1,
+        "overlay_to_pole": 2,
+        "pole_to_command": 1,
+        "command_to_station": 1,
+        "pole_to_kernel": 1,
+        "pole_to_fabric": 1,
+        "lane_to_family": 8,
+        "overlay_to_deep_root": 1,
+        "command_to_general": 4,
+        "pole_to_family": 1
+      }
+    },
+    {
+      "name": "gate_honesty",
+      "truth": "OK",
+      "detail": "BLOCKED"
+    },
+    {
+      "name": "drift_closure",
+      "truth": "OK",
+      "detail": {
+        "active_run": "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "build_queue": "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "quest_board": "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      }
+    },
+    {
+      "name": "replay_safety",
+      "truth": "OK",
+      "detail": {
+        "bridge_count": 25,
+        "packet_count": 16
+      }
+    }
+  ]
+}

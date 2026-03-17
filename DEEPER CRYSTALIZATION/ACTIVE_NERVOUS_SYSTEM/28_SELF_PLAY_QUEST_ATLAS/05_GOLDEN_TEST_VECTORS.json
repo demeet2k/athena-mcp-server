@@ -1,0 +1,112 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "description": "15 golden test vectors for atlas validation",
+  "vectors": [
+    {
+      "id": "GTV-01",
+      "category": "unlock",
+      "name": "Solo entry gate",
+      "input": {"player_level": 1, "station": "S01"},
+      "expected_result": {"access": true, "quest_classes": ["Solo"]}
+    },
+    {
+      "id": "GTV-02",
+      "category": "unlock",
+      "name": "Guild gate at level 2 (below threshold)",
+      "input": {"player_level": 2, "station": "S03"},
+      "expected_result": {"access": false, "reason": "unlock_level_3_required"}
+    },
+    {
+      "id": "GTV-03",
+      "category": "unlock",
+      "name": "Guild gate at level 3 (exact threshold)",
+      "input": {"player_level": 3, "station": "S03"},
+      "expected_result": {"access": true, "quest_classes": ["Solo", "Guild"]}
+    },
+    {
+      "id": "GTV-04",
+      "category": "payout",
+      "name": "S01 pass-1 standard payout",
+      "input": {"station": "S01", "pass": 1, "difficulty": "standard"},
+      "expected_result": {"payout": 1.0}
+    },
+    {
+      "id": "GTV-05",
+      "category": "payout",
+      "name": "S01 pass-2 standard payout (phi decay)",
+      "input": {"station": "S01", "pass": 2, "difficulty": "standard"},
+      "expected_result": {"payout": 0.618}
+    },
+    {
+      "id": "GTV-06",
+      "category": "payout",
+      "name": "S05 pass-1 legendary payout",
+      "input": {"station": "S05", "pass": 1, "difficulty": "legendary"},
+      "expected_result": {"payout": 1.0}
+    },
+    {
+      "id": "GTV-07",
+      "category": "element",
+      "name": "S13 element vector sum equals 4 * 0.236",
+      "input": {"station": "S13"},
+      "expected_result": {"vector_sum": 0.944, "is_crown": true}
+    },
+    {
+      "id": "GTV-08",
+      "category": "element",
+      "name": "S07 dual-element fire-water balance",
+      "input": {"station": "S07"},
+      "expected_result": {"fire": 0.618, "water": 0.618, "balanced": true}
+    },
+    {
+      "id": "GTV-09",
+      "category": "storm",
+      "name": "Storm trigger at coalition size 34",
+      "input": {"coalition_size": 34, "station": "S13"},
+      "expected_result": {"storm_triggered": true, "bonus": 0.236}
+    },
+    {
+      "id": "GTV-10",
+      "category": "storm",
+      "name": "Storm below trigger threshold",
+      "input": {"coalition_size": 33, "station": "S13"},
+      "expected_result": {"storm_triggered": false}
+    },
+    {
+      "id": "GTV-11",
+      "category": "reward",
+      "name": "Base XP with gamma_ok truth state",
+      "input": {"truth_state": "OK", "base_xp": 64},
+      "expected_result": {"xp_awarded": 64, "gamma": 1.0}
+    },
+    {
+      "id": "GTV-12",
+      "category": "reward",
+      "name": "Base XP with gamma_near truth state",
+      "input": {"truth_state": "NEAR", "base_xp": 64},
+      "expected_result": {"xp_awarded": 24.448, "gamma": 0.382}
+    },
+    {
+      "id": "GTV-13",
+      "category": "migration",
+      "name": "Migration freeze window enforcement",
+      "input": {"station": "S19", "migration_state": "freeze"},
+      "expected_result": {"writes_allowed": false, "reads_allowed": true}
+    },
+    {
+      "id": "GTV-14",
+      "category": "certification",
+      "name": "Temple rite ethical certification pass",
+      "input": {"station": "S08", "ethics_check": "pass", "witness_count": 3},
+      "expected_result": {"certified": true, "witness_quorum": true}
+    },
+    {
+      "id": "GTV-15",
+      "category": "promotion",
+      "name": "NEAR to OK truth promotion with upgrade plan",
+      "input": {"current_state": "NEAR", "has_upgrade_plan": true, "has_witness": true},
+      "expected_result": {"promoted_to": "OK", "promotion_valid": true}
+    }
+  ]
+}

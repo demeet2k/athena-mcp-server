@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-03-13T21:09:22.647799+00:00",
+  "protocol_id": "COMMAND-MEMBRANE-LP57",
+  "protocol_display_name": "Command Folder Sensory Membrane",
+  "docs_gate_status": "BLOCKED",
+  "counts": {
+    "events": 25,
+    "matched_events": 24,
+    "fallback_events": 1,
+    "capillary_edges": 22
+  },
+  "coverage": {
+    "matched_events": 24,
+    "fallback_events": 1,
+    "unclaimed_events": 0,
+    "vessel_class_counts": {
+      "vein": 1,
+      "candidate": 18,
+      "capillary": 3
+    }
+  },
+  "outputs": {
+    "packet_schema": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_command_membrane_packet_schema.json",
+    "event_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_command_membrane_event_registry.json",
+    "capillary_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_command_membrane_capillary_registry.json",
+    "manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_command_membrane_manifest.json"
+  },
+  "authority_inputs": {
+    "full_corpus_authority_registry": 8692,
+    "lp57omega_coordinate_registry": 8692,
+    "dual_route_registry": 1004,
+    "pt2_holo_rows": 419,
+    "pt2_aether_rows": 419
+  },
+  "notes": [
+    "The COMMAND FOLDER is modeled as a sensory membrane anchored to the global_command thread.",
+    "Latency metrics remain uninstrumented until a live watcher/runtime hook exists."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-03-13",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "bridge_coverage": {
+    "required": 16384,
+    "verified": 16384,
+    "status": "COMPLETE"
+  },
+  "activation_coverage": {
+    "wave0": 1024,
+    "cohort1": 1024,
+    "cohort2": 1024,
+    "cohort3": 1024,
+    "active_total": 1024,
+    "dormant_total": 3072,
+    "status": "SEEDED_SHADOW_MODE"
+  },
+  "unresolved_dark_matter": [
+    "historical seeded-only mirrors remain readable but non-authoritative",
+    "legacy 1024-row transition artifacts remain as Wave0 witness history"
+  ],
+  "remaining_gate_debt": [
+    "Google Docs remains BLOCKED until Trading Bot/credentials.json and Trading Bot/token.json exist."
+  ],
+  "mirror_targets": [
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/14_ATHENA_PRIME_6D_SPARSE_OVERLAY_SYNTHESIS.md",
+    "self_actualize/mycelium_brain/ATHENA TEMPLE/06_ATHENA_PRIME_6D_OVERLAY_DECREE.md",
+    "NERVOUS_SYSTEM/95_MANIFESTS/AGENT_EXPANSION_ACTIVE_FRONT.md",
+    "self_actualize/mycelium_brain/nervous_system/manifests/AGENT_EXPANSION_ACTIVE_FRONT.md",
+    "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/16_full_corpus_integration_awakening_agents.md"
+  ]
+}

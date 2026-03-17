@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-03-13T19:57:06Z",
+  "swarm_id": "AP7D-SWARM-20260313-01",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "source_mode": "local-only",
+  "canonical_write_authority": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "overlay_stage": "AP7D",
+  "ceiling_stage": "7D_SEED",
+  "stage_chain": [
+    "4D_NATIVE",
+    "5D_COMPRESSION",
+    "6D_WEAVE",
+    "7D_SEED",
+    "NEXT^[4^6]",
+    "AP7D"
+  ],
+  "hierarchy": {
+    "prime_id": "AP7D-PRIME",
+    "council_count": 4,
+    "macro_count": 16,
+    "packet_count": 64,
+    "fiber_count": 256,
+    "activation_mode": "lazy_queue"
+  },
+  "activation_summary": {
+    "prime_active": true,
+    "active_councils": [
+      "AP7D-C-A",
+      "AP7D-C-E",
+      "AP7D-C-F",
+      "AP7D-C-W"
+    ],
+    "active_macros": [
+      "AP7D-H-AA",
+      "AP7D-H-EE",
+      "AP7D-H-FF",
+      "AP7D-H-WW"
+    ],
+    "active_packets": [
+      "AP7D-P-AAA",
+      "AP7D-P-EEE",
+      "AP7D-P-FFF",
+      "AP7D-P-WWW"
+    ],
+    "active_fibers": [
+      "AP7D-G-EEEE",
+      "AP7D-G-WWWW",
+      "AP7D-G-FFFF",
+      "AP7D-G-AAAA"
+    ],
+    "dormant_fibers": 252
+  },
+  "agent_order": [
+    "FIRE",
+    "WATER",
+    "AIR",
+    "EARTH"
+  ],
+  "lineage_alphabet": [
+    "E",
+    "W",
+    "F",
+    "A"
+  ],
+  "appendix_floors": {
+    "FIRE": [
+      "AppE",
+      "AppP",
+      "AppI",
+      "AppM"
+    ],
+    "WATER": [
+      "AppE",
+      "AppF",
+      "AppO",
+      "AppI",
+      "AppM"
+    ],
+    "AIR": [
+      "AppB",
+      "AppC",
+      "AppN",
+      "AppI",
+      "AppM"
+    ],
+    "EARTH": [
+      "AppB",
+      "AppK",
+      "AppM",
+      "AppN",
+      "AppI"
+    ]
+  },
+  "shared_restart_rule": "If a live agent stalls or the run ends, emit RST, demote to dormant, and resume only from the last canonical feed-backed seed.",
+  "canonical_feeds": {
+    "intent": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\26_ap7d_intent_feed.ndjson",
+    "heartbeat": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\22_ap7d_heartbeat_feed.ndjson",
+    "delta": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\23_ap7d_delta_feed.ndjson",
+    "handoff": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\24_ap7d_handoff_feed.ndjson",
+    "restart_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\25_ap7d_restart_seed_registry.json"
+  },
+  "mirror_surfaces": {
+    "hall_status": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\17_AP7D_SWARM_STATUS.md",
+    "temple_quest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md"
+  }
+}

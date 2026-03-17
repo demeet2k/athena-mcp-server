@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-03-13",
+  "truth": "OK",
+  "checks": {
+    "docs_gate_status": "BLOCKED",
+    "note_count": 16,
+    "note_class_counts": {
+      "ap6d_lane": 5,
+      "awakening_stage": 7,
+      "archetype": 4
+    },
+    "frontier_seed": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "TQ06"
+    ],
+    "basis_size": 16,
+    "pair_count": 256,
+    "active_rows": 1024,
+    "atlas_active": 1024,
+    "atlas_dormant": 3072,
+    "receipt_count": 4
+  }
+}

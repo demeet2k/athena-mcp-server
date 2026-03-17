@@ -1,0 +1,69 @@
+{
+  "events": [
+    {
+      "data": {
+        "seed": 1
+      },
+      "event_type": "StartRun",
+      "seq": 1
+    },
+    {
+      "data": {
+        "lenses": [
+          "orbit_plausibility",
+          "perihelion_clustering",
+          "pole_alignment",
+          "precession_dominance",
+          "detectability"
+        ]
+      },
+      "event_type": "BuildLenses",
+      "seq": 2
+    },
+    {
+      "data": {
+        "proposal_Omega_sigma_deg": 35.0,
+        "proposal_i_sigma_deg": 12.0,
+        "proposal_varpi_sigma_deg": 50.0,
+        "tno_mean_Omega_deg": 336.76994864580126,
+        "tno_mean_i_deg": 5.1319940067940575,
+        "tno_mean_varpi_deg": 56.665208718123026,
+        "varpi9_mu_deg": 236.665208718123
+      },
+      "event_type": "ProposalHints",
+      "seq": 3
+    },
+    {
+      "data": {
+        "elapsed_s": 3.79950213432312,
+        "n_initial": 2000
+      },
+      "event_type": "Q_SEARCH_Done",
+      "seq": 4
+    },
+    {
+      "data": {
+        "best_log_score": -293.5178141113273,
+        "elite_keep": 50
+      },
+      "event_type": "EliteSelect",
+      "seq": 5
+    },
+    {
+      "data": {
+        "best_log_score": -278.0132308950961,
+        "pool_size": 300,
+        "round": 1
+      },
+      "event_type": "RefineRound",
+      "seq": 6
+    },
+    {
+      "data": {
+        "out_dir": "qphi_out_smoke"
+      },
+      "event_type": "WriteOutputs",
+      "seq": 7
+    }
+  ]
+}

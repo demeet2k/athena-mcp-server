@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L21",
+  "status": "PENDING",
+  "lead_agent": "SYNTHESIZER",
+  "objective": "synthesize where candidates lack tests or replay proofs",
+  "advancement_tuple": {
+    "focus_family": "verification",
+    "frontier_type": "proof-and-verifier-placement",
+    "dominant_evidence_class": "verification-ledger",
+    "compression_target": "unverifiable-advancement-claims"
+  },
+  "truth_state": "NEAR"
+}

@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-03-13T22:35:30.439427+00:00",
+  "truth": "OK",
+  "checks": {
+    "protocol_id_exact": true,
+    "derive_result_protocol_id_exact": true,
+    "docs_gate_blocked": true,
+    "docs_gate_honest_local_only": true,
+    "routing_policy_exact": true,
+    "routing_defaults_exact": true,
+    "selector_terms_exact": true,
+    "reward_layer_present": true,
+    "reward_layer_positive_only": true,
+    "packet_types_present": true,
+    "coord12_complete": true,
+    "protocol_mirror_match": true,
+    "capillary_law_match": true,
+    "latency_benchmark_match": true,
+    "runtime_writebacks_exist": true,
+    "runtime_writebacks_parse": true,
+    "feed_surfaces_exist": true,
+    "manifest_mentions_v2_law": true,
+    "runtime_prefers_v2": true,
+    "runtime_falls_back_to_v1_when_v2_missing": true
+  },
+  "artifacts": {
+    "registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\registry\\command_membrane_protocol_v2.json",
+    "manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\COMMAND_MEMBRANE_PROTOCOL_V2.md",
+    "protocol": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_protocol_v2.json",
+    "packet_schema": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_event_packet_schema_v2.json",
+    "capillary_law": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_capillary_law_v2.json",
+    "latency_benchmarks": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_command_latency_benchmarks_v2.json",
+    "reward_rows": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\_state\\command_membrane\\command_reward_rows.json",
+    "reward_receipts": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\_state\\command_membrane\\command_reward_receipts.json",
+    "joy_state": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\_state\\command_membrane\\command_agent_joy_state.json"
+  }
+}

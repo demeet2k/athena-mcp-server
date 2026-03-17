@@ -1,0 +1,166 @@
+{
+  "generated_at": "2026-03-10T03:47:49.434282+00:00",
+  "derivation_version": "2026-03-10.q25.guild-state.runtime",
+  "derivation_command": "python -m self_actualize.runtime.derive_frontier_leverage_ranking",
+  "source_paths": {
+    "semantic_mass_ledger": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\semantic_mass_ledger.json",
+    "witness_hierarchy": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\witness_hierarchy.json",
+    "corpus_atlas_summary": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas_summary.md",
+    "quest_board": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+  },
+  "source_timestamps": {
+    "semantic_mass_ledger": "2026-03-10T01:57:43.614802+00:00",
+    "witness_hierarchy": "2026-03-10T02:01:55.530252+00:00",
+    "corpus_atlas_summary": "2026-03-09T19:57:10.123171+00:00",
+    "quest_board": "2026-03-10T03:31:30.446046+00:00"
+  },
+  "current_evidence": {
+    "indexed_witness": 7308,
+    "physical_witness": 7799,
+    "board_witness": 7654,
+    "archive_witness": 2041,
+    "promoted_witness": 1818,
+    "live_source_share_percent": 43.1,
+    "live_generated_share_percent": 48.4,
+    "archive_backed_share_percent": 27.9
+  },
+  "rank_formula": "source_or_archive_lift + cross_scale_writeback + restart_gain + execution_readiness - blocker_penalty",
+  "rank_dimensions": [
+    "source_or_archive_lift",
+    "cross_scale_writeback",
+    "restart_gain",
+    "execution_readiness",
+    "blocker_penalty"
+  ],
+  "blocked_frontiers": [
+    {
+      "id": "Q02",
+      "title": "Unlock The Live Memory Gate",
+      "state": "BLOCKED",
+      "anchor_body": "Trading Bot",
+      "semantic_anchor": "ledger-heavy governance source",
+      "witness_anchor": "indexed + board",
+      "source_or_archive_lift": 4,
+      "cross_scale_writeback": 5,
+      "restart_gain": 5,
+      "execution_readiness": 0,
+      "blocker_penalty": 5,
+      "pressure_note": "highest latent memory unlock, but still blocked by missing OAuth material",
+      "evidence": {
+        "anchor_records": 1917,
+        "ledger_records": 267,
+        "source_records": 196,
+        "board_witness": 7654
+      },
+      "leverage_score": 9
+    }
+  ],
+  "executable_frontiers": [
+    {
+      "id": "Q35",
+      "title": "Mirror ORGIN Into A Routed Seed Corpus",
+      "state": "OPEN",
+      "anchor_body": "ORGIN",
+      "semantic_anchor": "source mirror + routed working memory",
+      "witness_anchor": "source + board",
+      "source_or_archive_lift": 3,
+      "cross_scale_writeback": 4,
+      "restart_gain": 3,
+      "execution_readiness": 3,
+      "blocker_penalty": 0,
+      "pressure_note": "ORGIN now has identity and routing, so the next leverage move is to give it searchable mirror tissue instead of leaving it mostly binary matter",
+      "evidence": {
+        "source_records": 153,
+        "board_witness": 7654
+      },
+      "leverage_score": 13
+    },
+    {
+      "id": "Q07",
+      "title": "Harden The Runtime Waist With Tests",
+      "state": "OPEN",
+      "anchor_body": "self_actualize",
+      "semantic_anchor": "runtime source + replay closure",
+      "witness_anchor": "indexed + receipt",
+      "source_or_archive_lift": 2,
+      "cross_scale_writeback": 3,
+      "restart_gain": 3,
+      "execution_readiness": 4,
+      "blocker_penalty": 0,
+      "pressure_note": "replay trust still trails synthesis sophistication, so even a narrow test lane pays across many future fronts",
+      "evidence": {
+        "self_actualize_records": 1186,
+        "receipt_records": 65
+      },
+      "leverage_score": 12
+    },
+    {
+      "id": "Q39",
+      "title": "Externalize The 5/16 Contradiction Packets",
+      "state": "OPEN",
+      "anchor_body": "ATHENA TEMPLE",
+      "semantic_anchor": "contradiction packetization + hall-temple writeback",
+      "witness_anchor": "indexed + board + promoted",
+      "source_or_archive_lift": 2,
+      "cross_scale_writeback": 4,
+      "restart_gain": 3,
+      "execution_readiness": 3,
+      "blocker_penalty": 0,
+      "pressure_note": "the active contradiction band is concrete enough to packetize and route downstream",
+      "evidence": {
+        "temple_records": 0,
+        "board_witness": 7654,
+        "promoted_witness": 1818
+      },
+      "leverage_score": 12
+    },
+    {
+      "id": "Q10",
+      "title": "Densify One Low-Mass Family",
+      "state": "OPEN",
+      "anchor_body": "NERVOUS_SYSTEM",
+      "semantic_anchor": "source continuity + family density repair",
+      "witness_anchor": "indexed",
+      "source_or_archive_lift": 2,
+      "cross_scale_writeback": 2,
+      "restart_gain": 3,
+      "execution_readiness": 4,
+      "blocker_penalty": 0,
+      "pressure_note": "family density skew remains a real long-range coherence risk, but the immediate leverage is lower than the fronts above",
+      "evidence": {
+        "nervous_system_records": 155,
+        "source_records": 3148
+      },
+      "leverage_score": 11
+    },
+    {
+      "id": "Q40",
+      "title": "Sweep Stale Bruno References Beyond The Canonical Family Core",
+      "state": "OPEN",
+      "anchor_body": "self_actualize",
+      "semantic_anchor": "stale-reference cleanup + atlas-facing consistency",
+      "witness_anchor": "board + indexed",
+      "source_or_archive_lift": 1,
+      "cross_scale_writeback": 3,
+      "restart_gain": 2,
+      "execution_readiness": 4,
+      "blocker_penalty": 0,
+      "pressure_note": "the Bruno family core is now clean, so older meta-surfaces need a stale-reference sweep",
+      "evidence": {
+        "indexed_witness": 7308,
+        "board_witness": 7654
+      },
+      "leverage_score": 10
+    }
+  ],
+  "unassigned_fronts": [
+    {
+      "id": "FRONT-NEXT-ARCHIVE-CANDIDATE",
+      "title": "Choose The Next Archive Root After ATLAS FORGE",
+      "why_now": "the first archive lift is now executable, so the next dark-matter root should be ranked deliberately rather than reopened by narrative heat",
+      "anchor_records": 2041,
+      "ledger_records": 575
+    }
+  ],
+  "recommended_next_seed": "Q35"
+}

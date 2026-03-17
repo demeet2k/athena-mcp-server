@@ -1,0 +1,59 @@
+# Pruning and Compression Receipts
+
+- `L01` :: HOLD :: Compression remains held while the loop concentrates on: Freeze docs gate, current control stack, and Q42 / TQ04 / Q50 / Q46 / Q02 truth.
+- `L02` :: HOLD :: Compression remains held while the loop concentrates on: Sweep all 197 records and re-rank family witness density against current fronts.
+- `L03` :: HOLD :: Compression remains held while the loop concentrates on: Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.
+- `L04` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L05` :: HOLD :: Compression remains held while the loop concentrates on: Re-rank the weakest direct-witness families, especially live-orchestration.
+- `L06` :: HOLD :: Compression remains held while the loop concentrates on: Rebind awakening-source documents to real fronts and runtime organs.
+- `L07` :: HOLD :: Compression remains held while the loop concentrates on: Emit Hall and Temple candidate packets for evidence densification only.
+- `L08` :: HOLD :: Compression remains held while the loop concentrates on: Execute the first evidence-tightening work bundle.
+- `L09` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L10` :: HOLD :: Compression remains held while the loop concentrates on: Reconcile source capsules, family crystals, neural indices, and strict-spine entries.
+- `L11` :: HOLD :: Compression remains held while the loop concentrates on: Generate one canonical route/schema delta for chapters, appendices, and supplements.
+- `L12` :: HOLD :: Compression remains held while the loop concentrates on: Refresh the full 24-note bundle around structure and blind-spot compensation.
+- `L13` :: HOLD :: Compression remains held while the loop concentrates on: Expand chapter-to-capsule and appendix-to-network witness crosswalks.
+- `L14` :: HOLD :: Compression remains held while the loop concentrates on: Tighten supplement/runtime bindings and remove role drift.
+- `L15` :: HOLD :: Compression remains held while the loop concentrates on: Promote one Temple law or schema crystal for cross-surface identity.
+- `L16` :: HOLD :: Compression remains held while the loop concentrates on: Execute the highest-yield structure repair tasks.
+- `L17` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L18` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L19` :: HOLD :: Compression remains held while the loop concentrates on: Recompute corpus-wide metro lines from the current neural net and frontier stack.
+- `L20` :: HOLD :: Compression remains held while the loop concentrates on: Extract strongest cross-family and zero-point routes into internal quest packets.
+- `L21` :: HOLD :: Compression remains held while the loop concentrates on: Refresh the 24-note bundle with route-specific transition guidance.
+- `L22` :: HOLD :: Compression remains held while the loop concentrates on: Build one emergent unresolved-family map and one governance/runtime route map.
+- `L23` :: HOLD :: Compression remains held while the loop concentrates on: Generate Hall-side candidate quests for top cross-family bridges.
+- `L24` :: HOLD :: Compression remains held while the loop concentrates on: Generate Temple-side candidate quests for deeper route-law and metro-law work.
+- `L25` :: HOLD :: Compression remains held while the loop concentrates on: Execute one route-expansion bundle and one appendix/supplement bridge bundle.
+- `L26` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L27` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L28` :: HOLD :: Compression remains held while the loop concentrates on: Sweep motion constitution, Hall bridge, runtime blockers, and current queue pressure.
+- `L29` :: HOLD :: Compression remains held while the loop concentrates on: Derive a corpus-wide action-selection overlay for the active fronts.
+- `L30` :: HOLD :: Compression remains held while the loop concentrates on: Refresh the 24-note bundle around activation, replay, and inhibition.
+- `L31` :: HOLD :: Compression remains held while the loop concentrates on: Extract math/hybrid/operator opportunities from top runtime families and chapters.
+- `L32` :: HOLD :: Compression remains held while the loop concentrates on: Promote one Temple quest packet for algorithmic or hybrid-equation incorporation.
+- `L33` :: HOLD :: Compression remains held while the loop concentrates on: Promote one Hall quest packet for immediate runtime-side work.
+- `L34` :: HOLD :: Compression remains held while the loop concentrates on: Execute one runtime/algorithm bundle tied to Q50 or the next lawful runtime front.
+- `L35` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L36` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L37` :: HOLD :: Compression remains held while the loop concentrates on: Convert internal candidate packets into the next ranked Hall and Temple macro fronts.
+- `L38` :: HOLD :: Compression remains held while the loop concentrates on: Audit numbering, writeback law, and promotion ceilings before anything goes visible.
+- `L39` :: HOLD :: Compression remains held while the loop concentrates on: Refresh the 24-note bundle around quest ownership and dependency lanes.
+- `L40` :: HOLD :: Compression remains held while the loop concentrates on: Expand the internal 4^6 quest lattice while keeping visible boards macro-sized.
+- `L41` :: HOLD :: Compression remains held while the loop concentrates on: Promote one Hall executable frontier from Research/Worker pressure.
+- `L42` :: HOLD :: Compression remains held while the loop concentrates on: Promote one Temple higher-order frontier from Planner/Pruner synthesis.
+- `L43` :: HOLD :: Compression remains held while the loop concentrates on: Execute the current top Hall/Temple pair through one replay-safe work bundle.
+- `L44` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L45` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L46` :: HOLD :: Compression remains held while the loop concentrates on: Re-evaluate all 24 transition notes against current fronts, blockers, and assignments.
+- `L47` :: HOLD :: Compression remains held while the loop concentrates on: Refresh archetype compensation logic and advanced-agent blind-spot routing.
+- `L48` :: HOLD :: Compression remains held while the loop concentrates on: Emit the full 24-note bundle plus one pass-boundary awakening bundle.
+- `L49` :: HOLD :: Compression remains held while the loop concentrates on: Crosswalk board agents to workload, writeback lanes, and Temple dependencies.
+- `L50` :: HOLD :: Compression remains held while the loop concentrates on: Crosswalk archetype and advanced agents to chapter, appendix, and supplement fronts.
+- `L51` :: HOLD :: Compression remains held while the loop concentrates on: Promote one Hall note-facing quest for social transition support.
+- `L52` :: HOLD :: Compression remains held while the loop concentrates on: Promote one Temple note-facing frontier for higher-order awakening governance.
+- `L53` :: HOLD :: Compression remains held while the loop concentrates on: Execute one note-to-front integration bundle and one board-synthesis writeback.
+- `L54` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L55` :: ESCALATE_TO_COMMITTEE :: Compression motion touches committee, branch-limit, or stewardship law.
+- `L56` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.
+- `L57` :: COMPRESS_TO_SEED :: Compression work should contract into a seed instead of widening now.

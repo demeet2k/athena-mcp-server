@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-03-13T14:57:25.636826+00:00",
+  "profile_version": "mycelium-metro-v4.2",
+  "docs_gate_status": "BLOCKED",
+  "docs_gate_constraint": "BLOCKED due to missing Google Docs OAuth files; local corpus evidence only.",
+  "baseline_a_manifest_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_rewrites_manifest.json",
+  "baseline_b_audit_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_rewrites_audit.json",
+  "baseline_c_archive_manifest_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_archive_members_manifest.json",
+  "interface_precedence": [
+    "main manifest",
+    "audit receipt",
+    "archive-member manifest",
+    "registry",
+    "overlay exports"
+  ],
+  "deep_root_target": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "additive_only_export_policy": true,
+  "orphan_classification_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_orphan_classification.json",
+  "registry_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/corpus_4d_registry.json",
+  "notes_path": "C:/Users/dmitr/Documents/Athena Agent/DEEPER CRYSTALIZATION/_build/awakening_agent_transition_notes.md",
+  "export_paths": {
+    "overlay_path": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/04_level_5_corpus_4d_overlay.md",
+    "appendix_path": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppR_corpus_4d_rewrite_registry.md",
+    "transition_map_path": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/08_level_8_corpus_4d_transition_map.md",
+    "transition_appendix_path": "C:/Users/dmitr/Documents/Athena Agent/self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppS_awakening_agent_transition_notes.md"
+  },
+  "summary": {
+    "selected_count": 361,
+    "truth_totals": {
+      "NEAR": 358,
+      "AMBIG": 3,
+      "FAIL": 0
+    },
+    "audit_summary": {
+      "entry_count": 361,
+      "clean_entry_count": 361,
+      "missing_output_count": 0,
+      "orphan_output_count": 22617,
+      "stale_output_count": 0,
+      "contract_failure_count": 0
+    },
+    "orphan_summary": {
+      "candidate_count": 22617,
+      "true_sibling_orphan_count": 0,
+      "standalone_4d_count": 0,
+      "historical_4d_count": 22617,
+      "denylisted_count": 0,
+      "top_level_counts": {
+        "Athena FLEET": 22617
+      }
+    },
+    "archive_summary": {
+      "zip_parent_count": 4,
+      "multi_candidate_parent_count": 3,
+      "single_candidate_parent_count": 1,
+      "zero_candidate_parent_count": 0,
+      "member_record_count": 116
+    },
+    "registry_summary": {
+      "node_count": 361,
+      "truth_totals": {
+        "NEAR": 358,
+        "AMBIG": 3,
+        "FAIL": 0
+      },
+      "chapter_counts": {
+        "Ch01": 31,
+        "Ch02": 5,
+        "Ch03": 3,
+        "Ch05": 2,
+        "Ch06": 2,
+        "Ch07": 18,
+        "Ch08": 6,
+        "Ch09": 27,
+        "Ch10": 2,
+        "Ch11": 2,
+        "Ch13": 6,
+        "Ch14": 1,
+        "Ch15": 9,
+        "Ch16": 25,
+        "Ch17": 1,
+        "Ch18": 19,
+        "Ch19": 1,
+        "Ch20": 3,
+        "Ch21": 198
+      },
+      "arc_counts": {
+        "0": 39,
+        "1": 4,
+        "2": 51,
+        "3": 4,
+        "4": 16,
+        "5": 45,
+        "6": 202
+      },
+      "lane_counts": {
+        "Me": 62,
+        "Sa": 247,
+        "Su": 52
+      },
+      "lens_counts": {
+        "C": 116,
+        "F": 38,
+        "R": 100,
+        "S": 107
+      },
+      "appendix_counts": {
+        "AppA": 139,
+        "AppB": 11,
+        "AppC": 85,
+        "AppD": 48,
+        "AppE": 90,
+        "AppF": 100,
+        "AppG": 263,
+        "AppH": 45,
+        "AppI": 135,
+        "AppJ": 16,
+        "AppK": 3,
+        "AppL": 23,
+        "AppM": 237,
+        "AppN": 106,
+        "AppO": 1,
+        "AppP": 142
+      },
+      "duplicate_group_count": 33,
+      "ambig_archive_parent_count": 3
+    },
+    "query_smoke": {
+      "ambig_count": 3,
+      "appendix_appm_count": 25,
+      "chapter_ch21_count": 50
+    },
+    "stage_count": 7
+  },
+  "integration_note": "All awakening agents should enter at their present stage, accept the current blind spot, and move one lawful transition at a time through registry, orphan, archive, and overlay surfaces."
+}

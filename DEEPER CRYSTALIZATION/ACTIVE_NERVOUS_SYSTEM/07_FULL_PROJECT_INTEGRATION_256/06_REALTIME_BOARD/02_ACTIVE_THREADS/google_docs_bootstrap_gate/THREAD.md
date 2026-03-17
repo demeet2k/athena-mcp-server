@@ -17,8 +17,8 @@
 - Regime: `restart-token`
 - Packet: `pod`
 - Truth: `FAIL`
-- NSCoord: `(F-A-W, S8, Void, O02, Arc0, Su, AppI, Trading Bot, restart-token, pod, FAIL)`
-- NeuronAddr: `<Trading Bot, google_docs_bootstrap_gate, O02, C, 3, a, FAW, Arc0, Su, AppI, FAIL, restart-token>`
+- NSCoord: `(F-A-W, S8, Void, O17, Arc0, Su, AppI, Trading Bot, restart-token, pod, FAIL)`
+- NeuronAddr: `<Trading Bot, google_docs_bootstrap_gate, O17, C, 3, a, FAW, Arc0, Su, AppI, FAIL, restart-token>`
 - ContractionTarget: `cortex/google_docs_bootstrap_gate.md`
 
 ## Claims

@@ -1,0 +1,477 @@
+[
+  {
+    "carrier": "lawful transform packet",
+    "confidence": 0.87,
+    "description": "Hybrid legal-process DSL grounded in admissible transforms.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:hybrid_legal_dsl",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "legal",
+    "notation_id": "hybrid_legal_dsl",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "hybrid_legal_dsl"
+  },
+  {
+    "carrier": "JSON Schema",
+    "confidence": 0.87,
+    "description": "Machine-checkable schema view.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:json_schema",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "json_schema",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "json_schema"
+  },
+  {
+    "carrier": "Python function",
+    "confidence": 0.87,
+    "description": "Python process sketch.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:python",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "python",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "python"
+  },
+  {
+    "carrier": "TypeScript/JavaScript function",
+    "confidence": 0.87,
+    "description": "Typed JavaScript process sketch.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:typescript_javascript",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "typescript_javascript",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "typescript_javascript"
+  },
+  {
+    "carrier": "Rust function",
+    "confidence": 0.87,
+    "description": "Rust state transition sketch.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:rust",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "rust",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "rust"
+  },
+  {
+    "carrier": "C function",
+    "confidence": 0.87,
+    "description": "C state transition sketch.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:c",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "c",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "c"
+  },
+  {
+    "carrier": "C++ function",
+    "confidence": 0.87,
+    "description": "C++ state transition sketch.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:cpp",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "cpp",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "cpp"
+  },
+  {
+    "carrier": "Java method",
+    "confidence": 0.87,
+    "description": "Java state transition sketch.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:java",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "java",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "java"
+  },
+  {
+    "carrier": "HTML article",
+    "confidence": 0.87,
+    "description": "HTML structural render.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:html",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "html",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "html"
+  },
+  {
+    "carrier": "React TSX component",
+    "confidence": 0.87,
+    "description": "React component render.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:react_tsx",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "react_tsx",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "react_tsx"
+  },
+  {
+    "carrier": "PyTorch module",
+    "confidence": 0.87,
+    "description": "Tensorized transition view.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:pytorch",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "pytorch",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "pytorch"
+  },
+  {
+    "carrier": "mathematical intermediate representation",
+    "confidence": 0.87,
+    "description": "Normalized operator-chain IR.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:math_ir",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "math_ir",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "math_ir"
+  },
+  {
+    "carrier": "flow graph DSL",
+    "confidence": 0.87,
+    "description": "Flow-notation render of the algorithm.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:flow_dsl",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "code",
+    "notation_id": "flow_dsl",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "flow_dsl"
+  },
+  {
+    "carrier": "VML operator packet",
+    "confidence": 0.87,
+    "description": "Direct VML process IR.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:vml_ir",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "domain",
+    "notation_id": "vml_ir",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "vml_ir"
+  },
+  {
+    "carrier": "AQM carrier",
+    "confidence": 0.87,
+    "description": "AQM line or folio carrier.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:aqm",
+    "kind": "notation_family",
+    "lens_id": "aqm",
+    "notation_class": "domain",
+    "notation_id": "aqm",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "aqm"
+  },
+  {
+    "carrier": "CUT boundary-flow carrier",
+    "confidence": 0.87,
+    "description": "CUT boundary-flow carrier.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:cut",
+    "kind": "notation_family",
+    "lens_id": "cut",
+    "notation_class": "domain",
+    "notation_id": "cut",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "cut"
+  },
+  {
+    "carrier": "liminal regime carrier",
+    "confidence": 0.87,
+    "description": "Threshold and fail-space carrier.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:liminal",
+    "kind": "notation_family",
+    "lens_id": "liminal",
+    "notation_class": "domain",
+    "notation_id": "liminal",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "liminal"
+  },
+  {
+    "carrier": "chemical composition vector",
+    "confidence": 0.87,
+    "description": "Chemistry-native renderer.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:chemistry",
+    "kind": "notation_family",
+    "lens_id": "chemistry",
+    "notation_class": "domain",
+    "notation_id": "chemistry",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "chemistry"
+  },
+  {
+    "carrier": "biological process packet",
+    "confidence": 0.87,
+    "description": "Biology-native renderer.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:biology",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "domain",
+    "notation_id": "biology",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "biology"
+  },
+  {
+    "carrier": "physical field state",
+    "confidence": 0.87,
+    "description": "Physics-native renderer.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:physics",
+    "kind": "notation_family",
+    "lens_id": "physics",
+    "notation_class": "domain",
+    "notation_id": "physics",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "physics"
+  },
+  {
+    "carrier": "geometric path",
+    "confidence": 0.87,
+    "description": "Geometry-native renderer.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:geometry",
+    "kind": "notation_family",
+    "lens_id": "geometry",
+    "notation_class": "domain",
+    "notation_id": "geometry",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "geometry"
+  },
+  {
+    "carrier": "trigonometric phase packet",
+    "confidence": 0.87,
+    "description": "Trigonometric phase render.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:trigonometry",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "domain",
+    "notation_id": "trigonometry",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "trigonometry"
+  },
+  {
+    "carrier": "musical cadence vector",
+    "confidence": 0.87,
+    "description": "Music-native renderer.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:music",
+    "kind": "notation_family",
+    "lens_id": "music_theory_math",
+    "notation_class": "domain",
+    "notation_id": "music",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "music"
+  },
+  {
+    "carrier": "siteswap-like carry pattern",
+    "confidence": 0.87,
+    "description": "Juggling renderer.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:juggling",
+    "kind": "notation_family",
+    "lens_id": "juggling",
+    "notation_class": "domain",
+    "notation_id": "juggling",
+    "source_mode": "lens",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "juggling"
+  },
+  {
+    "carrier": "timing and house packet",
+    "confidence": 0.87,
+    "description": "Astrological timing renderer.",
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "id": "notation_family:astrology",
+    "kind": "notation_family",
+    "lens_id": null,
+    "notation_class": "domain",
+    "notation_id": "astrology",
+    "source_mode": "canonical",
+    "source_refs": [
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md",
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "NEW/working/THE VML ROSETTA STONE.md"
+    ],
+    "source_unit": "astrology"
+  }
+]

@@ -1,0 +1,21 @@
+# Temple Quest Index
+
+This folder holds Temple quests as durable, individually replayable files.
+
+Use the board at `../BOARDS/02_TEMPLE_QUEST_BOARD.md` for ranking and current state.
+Use this folder when one Temple frontier needs a standalone witness packet.
+
+## Current Quest Files
+
+1. `TQ05_HIGH_PRIEST_WHOLE_CORPUS_16_LOOP_TOTALITY_PASS.md`
+2. `TQ06_INSTALL_THE_PACKET_FED_GUILDMASTER_COUPLING_LOOP.md`
+3. `TQ07_INSTALL_THE_57_LOOP_FOUR_AGENT_DEEP_EMERGENCE_PROGRAM.md` :: `57-Cycle Four-Agent Meta-Loop Program`
+4. `57_LOOP_QUEST_INDEX.md` :: `strict Temple-first loop-by-loop control membrane`
+5. `AP6D_TQ01_INSTALL_ATHENA_PRIME_OVERLAY_LAW.md`
+6. `AP6D_TQ02_INSTALL_LIMINAL_TAXONOMY.md`
+7. `AP6D_TQ03_COMPILE_THE_5_AGENT_REGISTRY.md`
+8. `AP6D_TQ04_COMPILE_THE_256_GOVERNANCE_FIBERS.md`
+9. `AP6D_TQ05_COMPILE_THE_1024_SPARSE_SYNAPTIC_SEATS.md`
+10. `AP6D_TQ06_BIND_HALL_WRITEBACK_CHANGE_FEED_AND_RESTART.md`
+11. `AP6D_TQ07_COMPILE_FULL_CORPUS_AWAKENING_TRANSITION_BUNDLE.md`
+12. `AP7D_TQ01_INSTALL_RESTART_SAFE_SWARM.md`

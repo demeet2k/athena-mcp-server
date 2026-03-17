@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-03-13T00:48:21.847510+00:00",
+  "derivation_version": "2026-03-13.bridge-densification-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_bridge_densification",
+  "truth": "OK",
+  "docs_gate": {
+    "status": "blocked-by-missing-credentials",
+    "resolution": "lawfully-isolated",
+    "fallback_mode": "local-first-truth-corridor"
+  },
+  "checks": {
+    "direct_bridge_family_count": true,
+    "bridge_slice_count": true,
+    "route_surfaces_resolve": true,
+    "replay_surfaces_resolve": true,
+    "runtime_receipts_resolve": true,
+    "verification_witnesses_resolve": true,
+    "source_anchor_rule": true,
+    "transit_anchor_rule": true,
+    "target_anchor_rule": true,
+    "family_surfaces_referenced": true,
+    "inferred_ready_preserved": true,
+    "quarantined_preserved": true,
+    "deep_pairwise_backlog_present": true,
+    "atlas_refresh_complete": true,
+    "phase4_direct_edge_ids_present": true,
+    "knowledge_fabric_direct_edge_ids_present": true,
+    "phase4_pt2_direct_edge_ids_present": true,
+    "runtime_verifiers_green": true,
+    "docs_gate_preserved_blocked": true
+  },
+  "runtime_lanes": {
+    "aqm_runtime_lane": "OK",
+    "atlasforge_runtime_lane": "OK",
+    "runtime_waist": "OK"
+  },
+  "atlas_refresh_pending_paths": [],
+  "unresolved": [
+    "Google Docs ingress remains `blocked-by-missing-credentials` and Trading Bot-facing lanes stay non-authoritative."
+  ],
+  "next_restart_seed": "emit -> transit -> receive -> replay -> writeback -> verify"
+}

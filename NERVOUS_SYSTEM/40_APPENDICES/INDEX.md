@@ -16,3 +16,12 @@
 - [AppN - Container Formats and Virtual Mount](./AppN_container_formats_and_virtual_mount.md)
 - [AppO - Publication Import/Export Bundles](./AppO_publication_importexport_bundles.md)
 - [AppP - Deployment Profiles and Monitoring](./AppP_deployment_profiles_and_monitoring.md)
+
+## AIR 6D overlay contract
+
+- Address and symmetry legality: `AppA`, `AppB`, `AppC`
+- Orbit, transport, and topology legality: `AppE`, `AppF`, `AppH`
+- Truth, replay, seed storage, and appendix-only ingress legality: `AppI`, `AppM`, `AppN`, plus deep-root `AppQ`
+- Reverse-field `O` is an overlay alias only and does not create or rename a canonical appendix file.
+- The AIR anchor spine remains `Ch12<0023>`, `Ch13<0030>`, `Ch16<0033>` with `AppH`, `AppI`, and `AppM`.
+- Docs gate status remains `BLOCKED`.

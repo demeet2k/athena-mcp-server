@@ -1,0 +1,31 @@
+{
+  "protocol_id": "COMMAND_MEMBRANE_V1",
+  "command_root": "GLOBAL COMMAND",
+  "flow": "GLOBAL COMMAND -> Scout -> Router -> Worker -> Archivist",
+  "watch_mode": {
+    "primary": "EVENT_DRIVEN",
+    "fallback": "DEGRADED_POLLING",
+    "fallback_requires_explicit_opt_in": true
+  },
+  "routing_policy": {
+    "policy": "goal+file_family+coord12_proximity+queue_pressure+capillary_strength+role_compatibility",
+    "weights": {
+      "goal_match": 0.28,
+      "file_family": 0.18,
+      "coord_proximity": 0.16,
+      "queue_pressure": 0.12,
+      "capillary_strength": 0.16,
+      "role_compatibility": 0.1
+    },
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "ttl": 6,
+    "lease_ms": 1200
+  },
+  "docs_gate": {
+    "status": "BLOCKED",
+    "detail": "blocked-by-missing-oauth",
+    "source": "self_actualize/live_docs_gate_status.md"
+  }
+}

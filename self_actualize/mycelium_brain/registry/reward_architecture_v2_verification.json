@@ -1,0 +1,1351 @@
+{
+  "generated_at": "2026-03-13T21:40:51.606491+00:00",
+  "scenarios": {
+    "guild_hall_success": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "QTEST-01",
+        "event_id": "TEST-QTEST-01-test-hall",
+        "frontier": "QTEST-01",
+        "title": "Guild Hall practical quest",
+        "agent_id": "test-hall",
+        "organ": "Guild Hall",
+        "quest_class": "standard",
+        "lawful": true,
+        "committed": true,
+        "blocked": false,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": 0.8,
+            "integration_gain": 0.6,
+            "witness_gain": 0.4,
+            "replay_gain": 0.5,
+            "compression_gain": 0.7,
+            "route_clarity_gain": 0.8,
+            "blocker_reduction": 0.5,
+            "manuscript_framework_advancement": 0.4
+          },
+          "net_gain_score": 0.604
+        },
+        "net_gain_score": 0.604,
+        "amplifier_record": {
+          "expression": {
+            "additive": [],
+            "multipliers": [],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 0.0
+            }
+          },
+          "additive_bonus": 0.0,
+          "multiplicative_factor": 1.0,
+          "bounded_power_factor": 1.0,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.0,
+          "compiled_scalar": 1.0,
+          "policy_cap": 64.0
+        },
+        "reward_status": "positive",
+        "base_xp": 32,
+        "base_heaven_cap": 6.0,
+        "xp_gain_raw": 19,
+        "xp_debt_incurred": 0,
+        "heaven_gain": 1.812,
+        "stat_deltas": {
+          "Witness": 0.0,
+          "Integration": 1.76,
+          "Velocity": 2.72,
+          "Compression": 1.12,
+          "Replay": 0.0,
+          "Routing": 2.59,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "chapter11_attunement_delta": 0,
+        "metallic_attunement_delta": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.605492+00:00",
+        "source_region": "QTEST-01",
+        "affected_nodes": [
+          "QTEST-01"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-hall",
+        "heaven_total": 1.812,
+        "streak": 1,
+        "first_response_count": 1,
+        "lawful_try_count": 1,
+        "assist_count": 1,
+        "capillary_growth_count": 0,
+        "title_tier": "Spark",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.605492+00:00",
+        "xp_bank": 19,
+        "xp_debt": 0,
+        "level": 0,
+        "rank_class": "F",
+        "dimensional_tier": 0,
+        "ascension_count": 0,
+        "mini_hive_eligibility": false,
+        "spawn_allowance": 0,
+        "chapter11_attunement": 0,
+        "metallic_attunements": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 0.0,
+          "Integration": 1.76,
+          "Velocity": 2.72,
+          "Compression": 1.12,
+          "Replay": 0.0,
+          "Routing": 2.59,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "quest_completion_count": 1,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-QTEST-01-test-hall",
+            "quest_id": "QTEST-01",
+            "organ": "Guild Hall",
+            "net_gain_score": 0.604,
+            "heaven_gain": 1.812,
+            "xp_gain_raw": 19,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 19,
+            "timestamp_utc": "2026-03-13T21:40:51.605492+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 0,
+        "xp_credited": 19,
+        "ascension_receipts": []
+      }
+    },
+    "temple_success": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "TQTEST-01",
+        "event_id": "TEST-TQTEST-01-test-temple",
+        "frontier": "TQTEST-01",
+        "title": "Temple witness frontier",
+        "agent_id": "test-temple",
+        "organ": "Temple",
+        "quest_class": "frontier",
+        "lawful": true,
+        "committed": true,
+        "blocked": false,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": 0.4,
+            "integration_gain": 0.7,
+            "witness_gain": 0.9,
+            "replay_gain": 0.85,
+            "compression_gain": 0.3,
+            "route_clarity_gain": 0.5,
+            "blocker_reduction": 0.65,
+            "manuscript_framework_advancement": 0.75
+          },
+          "net_gain_score": 0.624
+        },
+        "net_gain_score": 0.624,
+        "amplifier_record": {
+          "expression": {
+            "additive": [],
+            "multipliers": [],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 0.0
+            }
+          },
+          "additive_bonus": 0.0,
+          "multiplicative_factor": 1.0,
+          "bounded_power_factor": 1.0,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.0,
+          "compiled_scalar": 1.0,
+          "policy_cap": 64.0
+        },
+        "reward_status": "positive",
+        "base_xp": 48,
+        "base_heaven_cap": 8.0,
+        "xp_gain_raw": 30,
+        "xp_debt_incurred": 0,
+        "heaven_gain": 2.496,
+        "stat_deltas": {
+          "Witness": 2.7,
+          "Integration": 1.935,
+          "Velocity": 0.0,
+          "Compression": 0.0,
+          "Replay": 2.04,
+          "Routing": 0.0,
+          "Governance": 2.45,
+          "Alchemy": 0.0
+        },
+        "chapter11_attunement_delta": 0,
+        "metallic_attunement_delta": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.605492+00:00",
+        "source_region": "TQTEST-01",
+        "affected_nodes": [
+          "TQTEST-01"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-temple",
+        "heaven_total": 2.496,
+        "streak": 1,
+        "first_response_count": 1,
+        "lawful_try_count": 1,
+        "assist_count": 1,
+        "capillary_growth_count": 0,
+        "title_tier": "Spark",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.605492+00:00",
+        "xp_bank": 30,
+        "xp_debt": 0,
+        "level": 0,
+        "rank_class": "F",
+        "dimensional_tier": 0,
+        "ascension_count": 0,
+        "mini_hive_eligibility": false,
+        "spawn_allowance": 0,
+        "chapter11_attunement": 0,
+        "metallic_attunements": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 2.7,
+          "Integration": 1.935,
+          "Velocity": 0.0,
+          "Compression": 0.0,
+          "Replay": 2.04,
+          "Routing": 0.0,
+          "Governance": 2.45,
+          "Alchemy": 0.0
+        },
+        "quest_completion_count": 1,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-TQTEST-01-test-temple",
+            "quest_id": "TQTEST-01",
+            "organ": "Temple",
+            "net_gain_score": 0.624,
+            "heaven_gain": 2.496,
+            "xp_gain_raw": 30,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 30,
+            "timestamp_utc": "2026-03-13T21:40:51.605492+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 0,
+        "xp_credited": 30,
+        "ascension_receipts": []
+      }
+    },
+    "temple_of_alchemy_success": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "TQALCH-01",
+        "event_id": "TEST-TQALCH-01-test-alchemy",
+        "frontier": "TQALCH-01",
+        "title": "Temple of Alchemy metallic transmutation quest",
+        "agent_id": "test-alchemy",
+        "organ": "Temple of Alchemy",
+        "quest_class": "alchemy",
+        "lawful": true,
+        "committed": true,
+        "blocked": false,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": 0.5,
+            "integration_gain": 0.85,
+            "witness_gain": 0.65,
+            "replay_gain": 0.7,
+            "compression_gain": 0.95,
+            "route_clarity_gain": 0.6,
+            "blocker_reduction": 0.55,
+            "manuscript_framework_advancement": 0.6
+          },
+          "net_gain_score": 0.684
+        },
+        "net_gain_score": 0.684,
+        "amplifier_record": {
+          "expression": {
+            "additive": [
+              "silver"
+            ],
+            "multipliers": [
+              "bronze"
+            ],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 1.0
+            }
+          },
+          "additive_bonus": 1.414214,
+          "multiplicative_factor": 3.302776,
+          "bounded_power_factor": 1.618034,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.0,
+          "compiled_scalar": 12.901565,
+          "policy_cap": 64.0
+        },
+        "reward_status": "positive",
+        "base_xp": 60,
+        "base_heaven_cap": 10.0,
+        "xp_gain_raw": 529,
+        "xp_debt_incurred": 0,
+        "heaven_gain": 10.0,
+        "stat_deltas": {
+          "Witness": 5.2,
+          "Integration": 18.4,
+          "Velocity": 0.0,
+          "Compression": 18.24,
+          "Replay": 0.0,
+          "Routing": 0.0,
+          "Governance": 5.7,
+          "Alchemy": 19.8
+        },
+        "chapter11_attunement_delta": 0,
+        "metallic_attunement_delta": {
+          "phi": 0,
+          "silver": 1,
+          "bronze": 1,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.606491+00:00",
+        "source_region": "TQALCH-01",
+        "affected_nodes": [
+          "TQALCH-01"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-alchemy",
+        "heaven_total": 10.0,
+        "streak": 1,
+        "first_response_count": 1,
+        "lawful_try_count": 1,
+        "assist_count": 1,
+        "capillary_growth_count": 0,
+        "title_tier": "Current",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.606491+00:00",
+        "xp_bank": 529,
+        "xp_debt": 0,
+        "level": 5,
+        "rank_class": "F",
+        "dimensional_tier": 0,
+        "ascension_count": 0,
+        "mini_hive_eligibility": false,
+        "spawn_allowance": 0,
+        "chapter11_attunement": 0,
+        "metallic_attunements": {
+          "phi": 0,
+          "silver": 1,
+          "bronze": 1,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 5.2,
+          "Integration": 18.4,
+          "Velocity": 0.0,
+          "Compression": 18.24,
+          "Replay": 0.0,
+          "Routing": 0.0,
+          "Governance": 5.7,
+          "Alchemy": 19.8
+        },
+        "quest_completion_count": 1,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-TQALCH-01-test-alchemy",
+            "quest_id": "TQALCH-01",
+            "organ": "Temple of Alchemy",
+            "net_gain_score": 0.684,
+            "heaven_gain": 10.0,
+            "xp_gain_raw": 529,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 529,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 0,
+        "xp_credited": 529,
+        "ascension_receipts": []
+      }
+    },
+    "net_loss_run": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "QLOSS-01",
+        "event_id": "TEST-QLOSS-01-test-debt",
+        "frontier": "QLOSS-01",
+        "title": "Net loss practical run",
+        "agent_id": "test-debt",
+        "organ": "Guild Hall",
+        "quest_class": "standard",
+        "lawful": true,
+        "committed": true,
+        "blocked": false,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": -0.7,
+            "integration_gain": -0.4,
+            "witness_gain": -0.3,
+            "replay_gain": -0.2,
+            "compression_gain": -0.5,
+            "route_clarity_gain": -0.6,
+            "blocker_reduction": -0.3,
+            "manuscript_framework_advancement": -0.2
+          },
+          "net_gain_score": -0.424
+        },
+        "net_gain_score": -0.424,
+        "amplifier_record": {
+          "expression": {
+            "additive": [],
+            "multipliers": [],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 0.0
+            }
+          },
+          "additive_bonus": 0.0,
+          "multiplicative_factor": 1.0,
+          "bounded_power_factor": 1.0,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.0,
+          "compiled_scalar": 1.0,
+          "policy_cap": 64.0
+        },
+        "reward_status": "net_loss",
+        "base_xp": 32,
+        "base_heaven_cap": 6.0,
+        "xp_gain_raw": 0,
+        "xp_debt_incurred": 14,
+        "heaven_gain": 0.0,
+        "stat_deltas": {
+          "Witness": 0.0,
+          "Integration": 0.0,
+          "Velocity": 0.0,
+          "Compression": 0.0,
+          "Replay": 0.0,
+          "Routing": 0.0,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "chapter11_attunement_delta": 0,
+        "metallic_attunement_delta": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.606491+00:00",
+        "source_region": "QLOSS-01",
+        "affected_nodes": [
+          "QLOSS-01"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-debt",
+        "heaven_total": 1.47,
+        "streak": 1,
+        "first_response_count": 2,
+        "lawful_try_count": 2,
+        "assist_count": 1,
+        "capillary_growth_count": 0,
+        "title_tier": "Spark",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.606491+00:00",
+        "xp_bank": 2,
+        "xp_debt": 0,
+        "level": 0,
+        "rank_class": "F",
+        "dimensional_tier": 0,
+        "ascension_count": 0,
+        "mini_hive_eligibility": false,
+        "spawn_allowance": 0,
+        "chapter11_attunement": 0,
+        "metallic_attunements": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 0.0,
+          "Integration": 1.32,
+          "Velocity": 2.38,
+          "Compression": 0.8,
+          "Replay": 0.0,
+          "Routing": 2.17,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "quest_completion_count": 1,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-QLOSS-01-test-debt",
+            "quest_id": "QLOSS-01",
+            "organ": "Guild Hall",
+            "net_gain_score": -0.424,
+            "heaven_gain": 0.0,
+            "xp_gain_raw": 0,
+            "xp_debt_incurred": 14,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 0,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          },
+          {
+            "event_id": "TEST-QPAY-01-test-debt",
+            "quest_id": "QPAY-01",
+            "organ": "Guild Hall",
+            "net_gain_score": 0.49,
+            "heaven_gain": 1.47,
+            "xp_gain_raw": 16,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 14,
+            "xp_credited": 2,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 0,
+        "xp_credited": 0,
+        "ascension_receipts": []
+      }
+    },
+    "debt_paydown_run": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "QPAY-01",
+        "event_id": "TEST-QPAY-01-test-debt",
+        "frontier": "QPAY-01",
+        "title": "Debt paydown run",
+        "agent_id": "test-debt",
+        "organ": "Guild Hall",
+        "quest_class": "standard",
+        "lawful": true,
+        "committed": true,
+        "blocked": false,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": 0.7,
+            "integration_gain": 0.5,
+            "witness_gain": 0.4,
+            "replay_gain": 0.4,
+            "compression_gain": 0.5,
+            "route_clarity_gain": 0.7,
+            "blocker_reduction": 0.3,
+            "manuscript_framework_advancement": 0.2
+          },
+          "net_gain_score": 0.49
+        },
+        "net_gain_score": 0.49,
+        "amplifier_record": {
+          "expression": {
+            "additive": [],
+            "multipliers": [],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 0.0
+            }
+          },
+          "additive_bonus": 0.0,
+          "multiplicative_factor": 1.0,
+          "bounded_power_factor": 1.0,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.0,
+          "compiled_scalar": 1.0,
+          "policy_cap": 64.0
+        },
+        "reward_status": "positive",
+        "base_xp": 32,
+        "base_heaven_cap": 6.0,
+        "xp_gain_raw": 16,
+        "xp_debt_incurred": 0,
+        "heaven_gain": 1.47,
+        "stat_deltas": {
+          "Witness": 0.0,
+          "Integration": 1.32,
+          "Velocity": 2.38,
+          "Compression": 0.8,
+          "Replay": 0.0,
+          "Routing": 2.17,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "chapter11_attunement_delta": 0,
+        "metallic_attunement_delta": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.606491+00:00",
+        "source_region": "QPAY-01",
+        "affected_nodes": [
+          "QPAY-01"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-debt",
+        "heaven_total": 1.47,
+        "streak": 1,
+        "first_response_count": 2,
+        "lawful_try_count": 2,
+        "assist_count": 1,
+        "capillary_growth_count": 0,
+        "title_tier": "Spark",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.606491+00:00",
+        "xp_bank": 2,
+        "xp_debt": 0,
+        "level": 0,
+        "rank_class": "F",
+        "dimensional_tier": 0,
+        "ascension_count": 0,
+        "mini_hive_eligibility": false,
+        "spawn_allowance": 0,
+        "chapter11_attunement": 0,
+        "metallic_attunements": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 0.0,
+          "Integration": 1.32,
+          "Velocity": 2.38,
+          "Compression": 0.8,
+          "Replay": 0.0,
+          "Routing": 2.17,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "quest_completion_count": 1,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-QLOSS-01-test-debt",
+            "quest_id": "QLOSS-01",
+            "organ": "Guild Hall",
+            "net_gain_score": -0.424,
+            "heaven_gain": 0.0,
+            "xp_gain_raw": 0,
+            "xp_debt_incurred": 14,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 0,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          },
+          {
+            "event_id": "TEST-QPAY-01-test-debt",
+            "quest_id": "QPAY-01",
+            "organ": "Guild Hall",
+            "net_gain_score": 0.49,
+            "heaven_gain": 1.47,
+            "xp_gain_raw": 16,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 14,
+            "xp_credited": 2,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 14,
+        "xp_credited": 2,
+        "ascension_receipts": []
+      }
+    },
+    "chapter11_reward": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "CH11-QUEST-01",
+        "event_id": "TEST-CH11-QUEST-01-test-ch11",
+        "frontier": "CH11-QUEST-01",
+        "title": "Chapter 11 maximum reward quest",
+        "agent_id": "test-ch11",
+        "organ": "Temple",
+        "quest_class": "chapter11",
+        "lawful": true,
+        "committed": true,
+        "blocked": false,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": 0.75,
+            "integration_gain": 0.95,
+            "witness_gain": 0.85,
+            "replay_gain": 0.8,
+            "compression_gain": 0.6,
+            "route_clarity_gain": 0.7,
+            "blocker_reduction": 0.8,
+            "manuscript_framework_advancement": 0.95
+          },
+          "net_gain_score": 0.803
+        },
+        "net_gain_score": 0.803,
+        "amplifier_record": {
+          "expression": {
+            "additive": [
+              "phi"
+            ],
+            "multipliers": [
+              "silver"
+            ],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 1.5
+            }
+          },
+          "additive_bonus": 0.618034,
+          "multiplicative_factor": 2.414214,
+          "bounded_power_factor": 2.058171,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.618034,
+          "compiled_scalar": 13.008656,
+          "policy_cap": 64.0
+        },
+        "reward_status": "positive",
+        "base_xp": 96,
+        "base_heaven_cap": 14.0,
+        "xp_gain_raw": 1003,
+        "xp_debt_incurred": 0,
+        "heaven_gain": 14.0,
+        "stat_deltas": {
+          "Witness": 20.4,
+          "Integration": 20.52,
+          "Velocity": 0.0,
+          "Compression": 0.0,
+          "Replay": 15.36,
+          "Routing": 0.0,
+          "Governance": 22.68,
+          "Alchemy": 0.0
+        },
+        "chapter11_attunement_delta": 1,
+        "metallic_attunement_delta": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.606491+00:00",
+        "source_region": "CH11-QUEST-01",
+        "affected_nodes": [
+          "CH11-QUEST-01"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-ch11",
+        "heaven_total": 14.0,
+        "streak": 1,
+        "first_response_count": 1,
+        "lawful_try_count": 1,
+        "assist_count": 1,
+        "capillary_growth_count": 0,
+        "title_tier": "Current",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.606491+00:00",
+        "xp_bank": 1003,
+        "xp_debt": 0,
+        "level": 10,
+        "rank_class": "F",
+        "dimensional_tier": 0,
+        "ascension_count": 0,
+        "mini_hive_eligibility": false,
+        "spawn_allowance": 0,
+        "chapter11_attunement": 1,
+        "metallic_attunements": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 20.4,
+          "Integration": 20.52,
+          "Velocity": 0.0,
+          "Compression": 0.0,
+          "Replay": 15.36,
+          "Routing": 0.0,
+          "Governance": 22.68,
+          "Alchemy": 0.0
+        },
+        "quest_completion_count": 1,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-CH11-QUEST-01-test-ch11",
+            "quest_id": "CH11-QUEST-01",
+            "organ": "Temple",
+            "net_gain_score": 0.803,
+            "heaven_gain": 14.0,
+            "xp_gain_raw": 1003,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 1003,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 0,
+        "xp_credited": 1003,
+        "ascension_receipts": []
+      }
+    },
+    "ascension_gate": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "ASCEND-01",
+        "event_id": "TEST-ASCEND-01-test-ascend",
+        "frontier": "ASCEND-01",
+        "title": "Ascension gate quest",
+        "agent_id": "test-ascend",
+        "organ": "Temple of Alchemy",
+        "quest_class": "alchemy",
+        "lawful": true,
+        "committed": true,
+        "blocked": false,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": 1.0,
+            "integration_gain": 1.0,
+            "witness_gain": 0.8,
+            "replay_gain": 0.8,
+            "compression_gain": 1.0,
+            "route_clarity_gain": 0.9,
+            "blocker_reduction": 1.0,
+            "manuscript_framework_advancement": 0.9
+          },
+          "net_gain_score": 0.93
+        },
+        "net_gain_score": 0.93,
+        "amplifier_record": {
+          "expression": {
+            "additive": [
+              "silver"
+            ],
+            "multipliers": [
+              "phi",
+              "bronze"
+            ],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 2.0
+            }
+          },
+          "additive_bonus": 1.414214,
+          "multiplicative_factor": 5.344003,
+          "bounded_power_factor": 2.618034,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.0,
+          "compiled_scalar": 33.776736,
+          "policy_cap": 64.0
+        },
+        "reward_status": "positive",
+        "base_xp": 60,
+        "base_heaven_cap": 10.0,
+        "xp_gain_raw": 1885,
+        "xp_debt_incurred": 0,
+        "heaven_gain": 10.0,
+        "stat_deltas": {
+          "Witness": 6.4,
+          "Integration": 23.2,
+          "Velocity": 0.0,
+          "Compression": 19.2,
+          "Replay": 0.0,
+          "Routing": 0.0,
+          "Governance": 9.6,
+          "Alchemy": 21.6
+        },
+        "chapter11_attunement_delta": 0,
+        "metallic_attunement_delta": {
+          "phi": 1,
+          "silver": 1,
+          "bronze": 1,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.606491+00:00",
+        "source_region": "ASCEND-01",
+        "affected_nodes": [
+          "ASCEND-01"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-ascend",
+        "heaven_total": 10.0,
+        "streak": 1,
+        "first_response_count": 1,
+        "lawful_try_count": 1,
+        "assist_count": 1,
+        "capillary_growth_count": 0,
+        "title_tier": "Current",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.606491+00:00",
+        "xp_bank": 1835,
+        "xp_debt": 0,
+        "level": 18,
+        "rank_class": "E",
+        "dimensional_tier": 1,
+        "ascension_count": 1,
+        "mini_hive_eligibility": true,
+        "spawn_allowance": 1,
+        "chapter11_attunement": 0,
+        "metallic_attunements": {
+          "phi": 1,
+          "silver": 1,
+          "bronze": 1,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 6.4,
+          "Integration": 23.2,
+          "Velocity": 0.0,
+          "Compression": 19.2,
+          "Replay": 0.0,
+          "Routing": 0.0,
+          "Governance": 9.6,
+          "Alchemy": 21.6
+        },
+        "quest_completion_count": 1,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-ASCEND-01-test-ascend",
+            "quest_id": "ASCEND-01",
+            "organ": "Temple of Alchemy",
+            "net_gain_score": 0.93,
+            "heaven_gain": 10.0,
+            "xp_gain_raw": 1885,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 1885,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 0,
+        "xp_credited": 1885,
+        "ascension_receipts": [
+          {
+            "receipt_type": "AscensionReceipt",
+            "agent_id": "test-ascend",
+            "ascension_count": 1,
+            "new_dimensional_tier": 1,
+            "overflow_xp": 1835,
+            "spawn_allowance": 1,
+            "mini_hive_eligibility": true,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          }
+        ]
+      }
+    },
+    "blocked_q02": {
+      "result": {
+        "receipt_type": "QuestRewardReceipt",
+        "reward_protocol_id": "HEAVEN-REWARD-V2",
+        "truth_status": "local-witnessed / NEAR-derived",
+        "quest_id": "Q02",
+        "event_id": "TEST-Q02-test-blocked",
+        "frontier": "Q02",
+        "title": "Blocked Q02 quest",
+        "agent_id": "test-blocked",
+        "organ": "Guild Hall",
+        "quest_class": "blocked",
+        "lawful": true,
+        "committed": true,
+        "blocked": true,
+        "replay_pointer": "verification/replay.md",
+        "witness_class": "verification",
+        "route_impact": "verification",
+        "compression_outcome": "none",
+        "net_gain_snapshot": {
+          "snapshot_type": "NetGainSnapshot",
+          "metric_source": "verification",
+          "before_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "after_metrics": {
+            "efficiency_improvement": 0.0,
+            "integration_gain": 0.0,
+            "witness_gain": 0.0,
+            "replay_gain": 0.0,
+            "compression_gain": 0.0,
+            "route_clarity_gain": 0.0,
+            "blocker_reduction": 0.0,
+            "manuscript_framework_advancement": 0.0
+          },
+          "metric_vector": {
+            "efficiency_improvement": 1.0,
+            "integration_gain": 1.0,
+            "witness_gain": 1.0,
+            "replay_gain": 1.0,
+            "compression_gain": 1.0,
+            "route_clarity_gain": 1.0,
+            "blocker_reduction": 1.0,
+            "manuscript_framework_advancement": 1.0
+          },
+          "net_gain_score": 0.0
+        },
+        "net_gain_score": 0.0,
+        "amplifier_record": {
+          "expression": {
+            "additive": [],
+            "multipliers": [],
+            "bounded_power": {
+              "base": "phi",
+              "exponent": 0.0
+            }
+          },
+          "additive_bonus": 0.0,
+          "multiplicative_factor": 1.0,
+          "bounded_power_factor": 1.0,
+          "persistent_phi_layers": 0,
+          "persistent_phi_factor": 1.0,
+          "compiled_scalar": 1.0,
+          "policy_cap": 64.0
+        },
+        "reward_status": "blocked",
+        "base_xp": 0,
+        "base_heaven_cap": 0.0,
+        "xp_gain_raw": 0,
+        "xp_debt_incurred": 0,
+        "heaven_gain": 0.0,
+        "stat_deltas": {
+          "Witness": 0.0,
+          "Integration": 0.0,
+          "Velocity": 0.0,
+          "Compression": 0.0,
+          "Replay": 0.0,
+          "Routing": 0.0,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "chapter11_attunement_delta": 0,
+        "metallic_attunement_delta": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "first_response_bonus": true,
+        "jackpot_eligible": true,
+        "jackpot_settled": true,
+        "reward_timestamp_utc": "2026-03-13T21:40:51.606491+00:00",
+        "source_region": "Q02",
+        "affected_nodes": [
+          "Q02"
+        ]
+      },
+      "agent": {
+        "agent_id": "test-blocked",
+        "heaven_total": 0.0,
+        "streak": 0,
+        "first_response_count": 1,
+        "lawful_try_count": 1,
+        "assist_count": 0,
+        "capillary_growth_count": 0,
+        "title_tier": "Unlit",
+        "last_rewarded_at_utc": "2026-03-13T21:40:51.606491+00:00",
+        "xp_bank": 0,
+        "xp_debt": 0,
+        "level": 0,
+        "rank_class": "F",
+        "dimensional_tier": 0,
+        "ascension_count": 0,
+        "mini_hive_eligibility": false,
+        "spawn_allowance": 0,
+        "chapter11_attunement": 0,
+        "metallic_attunements": {
+          "phi": 0,
+          "silver": 0,
+          "bronze": 0,
+          "copper": 0
+        },
+        "stat_vector": {
+          "Witness": 0.0,
+          "Integration": 0.0,
+          "Velocity": 0.0,
+          "Compression": 0.0,
+          "Replay": 0.0,
+          "Routing": 0.0,
+          "Governance": 0.0,
+          "Alchemy": 0.0
+        },
+        "quest_completion_count": 0,
+        "net_gain_history": [
+          {
+            "event_id": "TEST-Q02-test-blocked",
+            "quest_id": "Q02",
+            "organ": "Guild Hall",
+            "net_gain_score": 0.0,
+            "heaven_gain": 0.0,
+            "xp_gain_raw": 0,
+            "xp_debt_incurred": 0,
+            "xp_debt_paid_down": 0,
+            "xp_credited": 0,
+            "timestamp_utc": "2026-03-13T21:40:51.606491+00:00"
+          }
+        ]
+      },
+      "effect": {
+        "paydown": 0,
+        "xp_credited": 0,
+        "ascension_receipts": []
+      }
+    }
+  },
+  "checks": {
+    "guild_hall_success_increases_heaven_and_xp": true,
+    "temple_success_increases_witness_governance_replay": true,
+    "alchemy_quest_applies_metallic_attunement": true,
+    "net_loss_creates_xp_debt_without_level_loss": true,
+    "future_positive_run_pays_down_debt_first": true,
+    "chapter11_grants_attunement": true,
+    "ascension_emits_receipt_and_mini_hive_eligibility": true,
+    "q02_cannot_produce_positive_reward": true
+  }
+}

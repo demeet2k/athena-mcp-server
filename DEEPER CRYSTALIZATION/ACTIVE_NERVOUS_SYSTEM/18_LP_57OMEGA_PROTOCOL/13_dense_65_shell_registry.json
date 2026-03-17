@@ -1,0 +1,7470 @@
+{
+  "generated_at": "2026-03-13T23:37:05.728284+00:00",
+  "docs_gate_status": "BLOCKED",
+  "prior_seed_position": "1/65",
+  "row_count": 65,
+  "group_counts": {
+    "H": 1,
+    "P": 4,
+    "S": 15,
+    "R": 15,
+    "Q": 15,
+    "T": 15
+  },
+  "rows": [
+    {
+      "shell_position": "1/65",
+      "cell_id": "H00",
+      "cell_family": "H",
+      "label": "prior seed/header shell",
+      "record_kind": "H",
+      "record_index": 1,
+      "record_id": "H00",
+      "dense_kernel_ref": "DenseKernel65::H00",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK"
+    },
+    {
+      "shell_position": "2/65",
+      "cell_id": "P0",
+      "cell_family": "P",
+      "pole": "A",
+      "label": "Fire",
+      "theta": "0deg",
+      "rot_plus": "C",
+      "inverse": "B",
+      "rot_minus": "D",
+      "z": "Z(Fire)",
+      "ae": "AE[F]",
+      "record_index": 2,
+      "record_id": "P0",
+      "record_kind": "P",
+      "dense_kernel_ref": "DenseKernel65::P0",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "pole_set": [
+        "A"
+      ],
+      "card": 1
+    },
+    {
+      "shell_position": "3/65",
+      "cell_id": "P2",
+      "cell_family": "P",
+      "pole": "B",
+      "label": "Water",
+      "theta": "180deg",
+      "rot_plus": "D",
+      "inverse": "A",
+      "rot_minus": "C",
+      "z": "Z(Water)",
+      "ae": "AE[W]",
+      "record_index": 3,
+      "record_id": "P2",
+      "record_kind": "P",
+      "dense_kernel_ref": "DenseKernel65::P2",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "pole_set": [
+        "B"
+      ],
+      "card": 1
+    },
+    {
+      "shell_position": "4/65",
+      "cell_id": "P1",
+      "cell_family": "P",
+      "pole": "C",
+      "label": "Air",
+      "theta": "90deg",
+      "rot_plus": "B",
+      "inverse": "D",
+      "rot_minus": "A",
+      "z": "Z(Air)",
+      "ae": "AE[A]",
+      "record_index": 4,
+      "record_id": "P1",
+      "record_kind": "P",
+      "dense_kernel_ref": "DenseKernel65::P1",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "pole_set": [
+        "C"
+      ],
+      "card": 1
+    },
+    {
+      "shell_position": "5/65",
+      "cell_id": "P3",
+      "cell_family": "P",
+      "pole": "D",
+      "label": "Earth",
+      "theta": "270deg",
+      "rot_plus": "A",
+      "inverse": "C",
+      "rot_minus": "B",
+      "z": "Z(Earth)",
+      "ae": "AE[E]",
+      "record_index": 5,
+      "record_id": "P3",
+      "record_kind": "P",
+      "dense_kernel_ref": "DenseKernel65::P3",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "pole_set": [
+        "D"
+      ],
+      "card": 1
+    },
+    {
+      "shell_position": "6/65",
+      "cell_id": "S01",
+      "cell_family": "S",
+      "mu": "01",
+      "pole_set": [
+        "A"
+      ],
+      "card": 1,
+      "record_index": 6,
+      "record_id": "S01",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S01",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "01"
+    },
+    {
+      "shell_position": "7/65",
+      "cell_id": "S02",
+      "cell_family": "S",
+      "mu": "02",
+      "pole_set": [
+        "B"
+      ],
+      "card": 1,
+      "record_index": 7,
+      "record_id": "S02",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S02",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "02"
+    },
+    {
+      "shell_position": "8/65",
+      "cell_id": "S03",
+      "cell_family": "S",
+      "mu": "03",
+      "pole_set": [
+        "A",
+        "B"
+      ],
+      "card": 2,
+      "record_index": 8,
+      "record_id": "S03",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S03",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "03"
+    },
+    {
+      "shell_position": "9/65",
+      "cell_id": "S10",
+      "cell_family": "S",
+      "mu": "10",
+      "pole_set": [
+        "C"
+      ],
+      "card": 1,
+      "record_index": 9,
+      "record_id": "S10",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S10",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "10"
+    },
+    {
+      "shell_position": "10/65",
+      "cell_id": "S11",
+      "cell_family": "S",
+      "mu": "11",
+      "pole_set": [
+        "A",
+        "C"
+      ],
+      "card": 2,
+      "record_index": 10,
+      "record_id": "S11",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S11",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "11"
+    },
+    {
+      "shell_position": "11/65",
+      "cell_id": "S12",
+      "cell_family": "S",
+      "mu": "12",
+      "pole_set": [
+        "B",
+        "C"
+      ],
+      "card": 2,
+      "record_index": 11,
+      "record_id": "S12",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S12",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "12"
+    },
+    {
+      "shell_position": "12/65",
+      "cell_id": "S13",
+      "cell_family": "S",
+      "mu": "13",
+      "pole_set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "card": 3,
+      "record_index": 12,
+      "record_id": "S13",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S13",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "13"
+    },
+    {
+      "shell_position": "13/65",
+      "cell_id": "S20",
+      "cell_family": "S",
+      "mu": "20",
+      "pole_set": [
+        "D"
+      ],
+      "card": 1,
+      "record_index": 13,
+      "record_id": "S20",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S20",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "20"
+    },
+    {
+      "shell_position": "14/65",
+      "cell_id": "S21",
+      "cell_family": "S",
+      "mu": "21",
+      "pole_set": [
+        "A",
+        "D"
+      ],
+      "card": 2,
+      "record_index": 14,
+      "record_id": "S21",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S21",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "21"
+    },
+    {
+      "shell_position": "15/65",
+      "cell_id": "S22",
+      "cell_family": "S",
+      "mu": "22",
+      "pole_set": [
+        "B",
+        "D"
+      ],
+      "card": 2,
+      "record_index": 15,
+      "record_id": "S22",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S22",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "22"
+    },
+    {
+      "shell_position": "16/65",
+      "cell_id": "S23",
+      "cell_family": "S",
+      "mu": "23",
+      "pole_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "card": 3,
+      "record_index": 16,
+      "record_id": "S23",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S23",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "23"
+    },
+    {
+      "shell_position": "17/65",
+      "cell_id": "S30",
+      "cell_family": "S",
+      "mu": "30",
+      "pole_set": [
+        "C",
+        "D"
+      ],
+      "card": 2,
+      "record_index": 17,
+      "record_id": "S30",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S30",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "30"
+    },
+    {
+      "shell_position": "18/65",
+      "cell_id": "S31",
+      "cell_family": "S",
+      "mu": "31",
+      "pole_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "record_index": 18,
+      "record_id": "S31",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S31",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "31"
+    },
+    {
+      "shell_position": "19/65",
+      "cell_id": "S32",
+      "cell_family": "S",
+      "mu": "32",
+      "pole_set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "record_index": 19,
+      "record_id": "S32",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S32",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "32"
+    },
+    {
+      "shell_position": "20/65",
+      "cell_id": "S33",
+      "cell_family": "S",
+      "mu": "33",
+      "pole_set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 4,
+      "record_index": 20,
+      "record_id": "S33",
+      "record_kind": "S",
+      "dense_kernel_ref": "DenseKernel65::S33",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "33"
+    },
+    {
+      "shell_position": "21/65",
+      "cell_id": "R01",
+      "cell_family": "R",
+      "src_set": [
+        "A"
+      ],
+      "rot_plus_set": [
+        "C"
+      ],
+      "rot_minus_set": [
+        "D"
+      ],
+      "record_index": 21,
+      "record_id": "R01",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R01",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "01",
+      "pole_set": [
+        "A"
+      ],
+      "card": 1,
+      "rot_plus": [
+        "C"
+      ],
+      "rot_minus": [
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R01",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZA",
+        "zstar_target": "ZA",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R01",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "01",
+      "ae_bindings": [
+        {
+          "orientation_id": "R01:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B01",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B01",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B01;Core)"
+          }
+        },
+        {
+          "orientation_id": "R01:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B01",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B01",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B01;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R01:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B01",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B01",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B01;Core)"
+          },
+          "ae_token": "AE=(F,R+,B01;Core)"
+        },
+        {
+          "pointer_id": "R01:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B01",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B01",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B01;Core)"
+          },
+          "ae_token": "AE=(F,R-,B01;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "22/65",
+      "cell_id": "R02",
+      "cell_family": "R",
+      "src_set": [
+        "B"
+      ],
+      "rot_plus_set": [
+        "D"
+      ],
+      "rot_minus_set": [
+        "C"
+      ],
+      "record_index": 22,
+      "record_id": "R02",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R02",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "02",
+      "pole_set": [
+        "B"
+      ],
+      "card": 1,
+      "rot_plus": [
+        "D"
+      ],
+      "rot_minus": [
+        "C"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R02",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZB",
+        "zstar_target": "ZB",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R02",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "02",
+      "ae_bindings": [
+        {
+          "orientation_id": "R02:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B02",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B02",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B02;Core)"
+          }
+        },
+        {
+          "orientation_id": "R02:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B02",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B02",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B02;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R02:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B02",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B02",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B02;Core)"
+          },
+          "ae_token": "AE=(F,R+,B02;Core)"
+        },
+        {
+          "pointer_id": "R02:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B02",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B02",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B02;Core)"
+          },
+          "ae_token": "AE=(F,R-,B02;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "23/65",
+      "cell_id": "R03",
+      "cell_family": "R",
+      "src_set": [
+        "A",
+        "B"
+      ],
+      "rot_plus_set": [
+        "C",
+        "D"
+      ],
+      "rot_minus_set": [
+        "C",
+        "D"
+      ],
+      "record_index": 23,
+      "record_id": "R03",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R03",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "03",
+      "pole_set": [
+        "A",
+        "B"
+      ],
+      "card": 2,
+      "rot_plus": [
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "C",
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R03",
+        "zstar_mode": "zstar_tunnel",
+        "zstar_source": "ZA+ZB",
+        "zstar_target": "ZA+ZB",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R03",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "03",
+      "ae_bindings": [
+        {
+          "orientation_id": "R03:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B03",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B03",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B03;Core)"
+          }
+        },
+        {
+          "orientation_id": "R03:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B03",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B03",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B03;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R03:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B03",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B03",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B03;Core)"
+          },
+          "ae_token": "AE=(F,R+,B03;Core)"
+        },
+        {
+          "pointer_id": "R03:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B03",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B03",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B03;Core)"
+          },
+          "ae_token": "AE=(F,R-,B03;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "24/65",
+      "cell_id": "R10",
+      "cell_family": "R",
+      "src_set": [
+        "C"
+      ],
+      "rot_plus_set": [
+        "B"
+      ],
+      "rot_minus_set": [
+        "A"
+      ],
+      "record_index": 24,
+      "record_id": "R10",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R10",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "10",
+      "pole_set": [
+        "C"
+      ],
+      "card": 1,
+      "rot_plus": [
+        "B"
+      ],
+      "rot_minus": [
+        "A"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R10",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZC",
+        "zstar_target": "ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R10",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "10",
+      "ae_bindings": [
+        {
+          "orientation_id": "R10:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B10",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B10",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B10;Core)"
+          }
+        },
+        {
+          "orientation_id": "R10:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B10",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B10",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B10;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R10:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B10",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B10",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B10;Core)"
+          },
+          "ae_token": "AE=(F,R+,B10;Core)"
+        },
+        {
+          "pointer_id": "R10:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B10",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B10",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B10;Core)"
+          },
+          "ae_token": "AE=(F,R-,B10;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "25/65",
+      "cell_id": "R11",
+      "cell_family": "R",
+      "src_set": [
+        "A",
+        "C"
+      ],
+      "rot_plus_set": [
+        "B",
+        "C"
+      ],
+      "rot_minus_set": [
+        "A",
+        "D"
+      ],
+      "record_index": 25,
+      "record_id": "R11",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R11",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "11",
+      "pole_set": [
+        "A",
+        "C"
+      ],
+      "card": 2,
+      "rot_plus": [
+        "B",
+        "C"
+      ],
+      "rot_minus": [
+        "A",
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R11",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZA+ZC",
+        "zstar_target": "ZA+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R11",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "11",
+      "ae_bindings": [
+        {
+          "orientation_id": "R11:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B11",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B11",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B11;Core)"
+          }
+        },
+        {
+          "orientation_id": "R11:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B11",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B11",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B11;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R11:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B11",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B11",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B11;Core)"
+          },
+          "ae_token": "AE=(F,R+,B11;Core)"
+        },
+        {
+          "pointer_id": "R11:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B11",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B11",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B11;Core)"
+          },
+          "ae_token": "AE=(F,R-,B11;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "26/65",
+      "cell_id": "R12",
+      "cell_family": "R",
+      "src_set": [
+        "B",
+        "C"
+      ],
+      "rot_plus_set": [
+        "B",
+        "D"
+      ],
+      "rot_minus_set": [
+        "A",
+        "C"
+      ],
+      "record_index": 26,
+      "record_id": "R12",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R12",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "12",
+      "pole_set": [
+        "B",
+        "C"
+      ],
+      "card": 2,
+      "rot_plus": [
+        "B",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "C"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R12",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZB+ZC",
+        "zstar_target": "ZB+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R12",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "12",
+      "ae_bindings": [
+        {
+          "orientation_id": "R12:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B12",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B12",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B12;Core)"
+          }
+        },
+        {
+          "orientation_id": "R12:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B12",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B12",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B12;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R12:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B12",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B12",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B12;Core)"
+          },
+          "ae_token": "AE=(F,R+,B12;Core)"
+        },
+        {
+          "pointer_id": "R12:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B12",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B12",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B12;Core)"
+          },
+          "ae_token": "AE=(F,R-,B12;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "27/65",
+      "cell_id": "R13",
+      "cell_family": "R",
+      "src_set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rot_plus_set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_minus_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "record_index": 27,
+      "record_id": "R13",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R13",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "13",
+      "pole_set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "card": 3,
+      "rot_plus": [
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "C",
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R13",
+        "zstar_mode": "zstar_tunnel",
+        "zstar_source": "ZA+ZB+ZC",
+        "zstar_target": "ZA+ZB+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R13",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "13",
+      "ae_bindings": [
+        {
+          "orientation_id": "R13:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B13",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B13",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B13;Core)"
+          }
+        },
+        {
+          "orientation_id": "R13:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B13",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B13",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B13;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R13:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B13",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B13",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B13;Core)"
+          },
+          "ae_token": "AE=(F,R+,B13;Core)"
+        },
+        {
+          "pointer_id": "R13:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B13",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B13",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B13;Core)"
+          },
+          "ae_token": "AE=(F,R-,B13;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "28/65",
+      "cell_id": "R20",
+      "cell_family": "R",
+      "src_set": [
+        "D"
+      ],
+      "rot_plus_set": [
+        "A"
+      ],
+      "rot_minus_set": [
+        "B"
+      ],
+      "record_index": 28,
+      "record_id": "R20",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R20",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "20",
+      "pole_set": [
+        "D"
+      ],
+      "card": 1,
+      "rot_plus": [
+        "A"
+      ],
+      "rot_minus": [
+        "B"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R20",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZD",
+        "zstar_target": "ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R20",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "20",
+      "ae_bindings": [
+        {
+          "orientation_id": "R20:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B20",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B20",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B20;Core)"
+          }
+        },
+        {
+          "orientation_id": "R20:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B20",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B20",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B20;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R20:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B20",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B20",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B20;Core)"
+          },
+          "ae_token": "AE=(F,R+,B20;Core)"
+        },
+        {
+          "pointer_id": "R20:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B20",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B20",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B20;Core)"
+          },
+          "ae_token": "AE=(F,R-,B20;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "29/65",
+      "cell_id": "R21",
+      "cell_family": "R",
+      "src_set": [
+        "A",
+        "D"
+      ],
+      "rot_plus_set": [
+        "A",
+        "C"
+      ],
+      "rot_minus_set": [
+        "B",
+        "D"
+      ],
+      "record_index": 29,
+      "record_id": "R21",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R21",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "21",
+      "pole_set": [
+        "A",
+        "D"
+      ],
+      "card": 2,
+      "rot_plus": [
+        "A",
+        "C"
+      ],
+      "rot_minus": [
+        "B",
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R21",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZA+ZD",
+        "zstar_target": "ZA+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R21",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "21",
+      "ae_bindings": [
+        {
+          "orientation_id": "R21:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B21",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B21",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B21;Core)"
+          }
+        },
+        {
+          "orientation_id": "R21:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B21",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B21",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B21;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R21:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B21",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B21",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B21;Core)"
+          },
+          "ae_token": "AE=(F,R+,B21;Core)"
+        },
+        {
+          "pointer_id": "R21:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B21",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B21",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B21;Core)"
+          },
+          "ae_token": "AE=(F,R-,B21;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "30/65",
+      "cell_id": "R22",
+      "cell_family": "R",
+      "src_set": [
+        "B",
+        "D"
+      ],
+      "rot_plus_set": [
+        "A",
+        "D"
+      ],
+      "rot_minus_set": [
+        "B",
+        "C"
+      ],
+      "record_index": 30,
+      "record_id": "R22",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R22",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "22",
+      "pole_set": [
+        "B",
+        "D"
+      ],
+      "card": 2,
+      "rot_plus": [
+        "A",
+        "D"
+      ],
+      "rot_minus": [
+        "B",
+        "C"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R22",
+        "zstar_mode": "adjacent_bridge",
+        "zstar_source": "ZB+ZD",
+        "zstar_target": "ZB+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R22",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "22",
+      "ae_bindings": [
+        {
+          "orientation_id": "R22:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B22",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B22",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B22;Core)"
+          }
+        },
+        {
+          "orientation_id": "R22:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B22",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B22",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B22;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R22:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B22",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B22",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B22;Core)"
+          },
+          "ae_token": "AE=(F,R+,B22;Core)"
+        },
+        {
+          "pointer_id": "R22:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B22",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B22",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B22;Core)"
+          },
+          "ae_token": "AE=(F,R-,B22;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "31/65",
+      "cell_id": "R23",
+      "cell_family": "R",
+      "src_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "rot_plus_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "rot_minus_set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "record_index": 31,
+      "record_id": "R23",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R23",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "23",
+      "pole_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "card": 3,
+      "rot_plus": [
+        "A",
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "B",
+        "C",
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R23",
+        "zstar_mode": "zstar_tunnel",
+        "zstar_source": "ZA+ZB+ZD",
+        "zstar_target": "ZA+ZB+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R23",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "23",
+      "ae_bindings": [
+        {
+          "orientation_id": "R23:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B23",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B23",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B23;Core)"
+          }
+        },
+        {
+          "orientation_id": "R23:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B23",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B23",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B23;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R23:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B23",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B23",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B23;Core)"
+          },
+          "ae_token": "AE=(F,R+,B23;Core)"
+        },
+        {
+          "pointer_id": "R23:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B23",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B23",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B23;Core)"
+          },
+          "ae_token": "AE=(F,R-,B23;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "32/65",
+      "cell_id": "R30",
+      "cell_family": "R",
+      "src_set": [
+        "C",
+        "D"
+      ],
+      "rot_plus_set": [
+        "A",
+        "B"
+      ],
+      "rot_minus_set": [
+        "A",
+        "B"
+      ],
+      "record_index": 32,
+      "record_id": "R30",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R30",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "30",
+      "pole_set": [
+        "C",
+        "D"
+      ],
+      "card": 2,
+      "rot_plus": [
+        "A",
+        "B"
+      ],
+      "rot_minus": [
+        "A",
+        "B"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R30",
+        "zstar_mode": "zstar_tunnel",
+        "zstar_source": "ZC+ZD",
+        "zstar_target": "ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R30",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "30",
+      "ae_bindings": [
+        {
+          "orientation_id": "R30:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B30",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B30",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B30;Core)"
+          }
+        },
+        {
+          "orientation_id": "R30:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B30",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B30",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B30;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R30:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B30",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B30",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B30;Core)"
+          },
+          "ae_token": "AE=(F,R+,B30;Core)"
+        },
+        {
+          "pointer_id": "R30:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B30",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B30",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B30;Core)"
+          },
+          "ae_token": "AE=(F,R-,B30;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "33/65",
+      "cell_id": "R31",
+      "cell_family": "R",
+      "src_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "rot_plus_set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rot_minus_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "record_index": 33,
+      "record_id": "R31",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R31",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "31",
+      "pole_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "rot_plus": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rot_minus": [
+        "A",
+        "B",
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R31",
+        "zstar_mode": "zstar_tunnel",
+        "zstar_source": "ZA+ZC+ZD",
+        "zstar_target": "ZA+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R31",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "31",
+      "ae_bindings": [
+        {
+          "orientation_id": "R31:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B31",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B31",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B31;Core)"
+          }
+        },
+        {
+          "orientation_id": "R31:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B31",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B31",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B31;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R31:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B31",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B31",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B31;Core)"
+          },
+          "ae_token": "AE=(F,R+,B31;Core)"
+        },
+        {
+          "pointer_id": "R31:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B31",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B31",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B31;Core)"
+          },
+          "ae_token": "AE=(F,R-,B31;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "34/65",
+      "cell_id": "R32",
+      "cell_family": "R",
+      "src_set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_plus_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "rot_minus_set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "record_index": 34,
+      "record_id": "R32",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R32",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "32",
+      "pole_set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "rot_plus": [
+        "A",
+        "B",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "B",
+        "C"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R32",
+        "zstar_mode": "zstar_tunnel",
+        "zstar_source": "ZB+ZC+ZD",
+        "zstar_target": "ZB+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R32",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "32",
+      "ae_bindings": [
+        {
+          "orientation_id": "R32:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B32",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B32",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B32;Core)"
+          }
+        },
+        {
+          "orientation_id": "R32:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B32",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B32",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B32;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R32:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B32",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B32",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B32;Core)"
+          },
+          "ae_token": "AE=(F,R+,B32;Core)"
+        },
+        {
+          "pointer_id": "R32:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B32",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B32",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B32;Core)"
+          },
+          "ae_token": "AE=(F,R-,B32;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "35/65",
+      "cell_id": "R33",
+      "cell_family": "R",
+      "src_set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_plus_set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_minus_set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "record_index": 35,
+      "record_id": "R33",
+      "record_kind": "R",
+      "dense_kernel_ref": "DenseKernel65::R33",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "33",
+      "pole_set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 4,
+      "rot_plus": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rot_minus": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "dense_transfer_signature": {
+        "record_id": "R33",
+        "zstar_mode": "zstar_tunnel",
+        "zstar_source": "ZA+ZB+ZC+ZD",
+        "zstar_target": "ZA+ZB+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "R+ / R-",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "R33",
+        "prior_route_class": "adjacent_rotation_pair",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "33",
+      "ae_bindings": [
+        {
+          "orientation_id": "R33:+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B33",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B33",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B33;Core)"
+          }
+        },
+        {
+          "orientation_id": "R33:-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B33",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B33",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B33;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "R33:+",
+          "orientation": "plus",
+          "phase_id": "Phi0",
+          "phase_label": "R+",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R+",
+            "Bundle": "B33",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R+",
+            "phase_id": "Phi0",
+            "phase_label": "R+",
+            "bundle": "B33",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R+,B33;Core)"
+          },
+          "ae_token": "AE=(F,R+,B33;Core)"
+        },
+        {
+          "pointer_id": "R33:-",
+          "orientation": "minus",
+          "phase_id": "Phi1",
+          "phase_label": "R-",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "R-",
+            "Bundle": "B33",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "R-",
+            "phase_id": "Phi1",
+            "phase_label": "R-",
+            "bundle": "B33",
+            "slot": "Core",
+            "canonical_key": "AE=(F,R-,B33;Core)"
+          },
+          "ae_token": "AE=(F,R-,B33;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "36/65",
+      "cell_id": "Q01",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "record_index": 36,
+      "record_id": "Q01",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q01",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "01",
+      "pole_set": [
+        "A"
+      ],
+      "card": 1,
+      "dense_transfer_signature": {
+        "record_id": "Q01",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZA",
+        "zstar_target": "ZA",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q01",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "01",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q01:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B01",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B01",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B01;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q01:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B01",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B01",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B01;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B01;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "37/65",
+      "cell_id": "Q02",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "record_index": 37,
+      "record_id": "Q02",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q02",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "02",
+      "pole_set": [
+        "B"
+      ],
+      "card": 1,
+      "dense_transfer_signature": {
+        "record_id": "Q02",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZB",
+        "zstar_target": "ZB",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q02",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "02",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q02:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B02",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B02",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B02;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q02:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B02",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B02",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B02;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B02;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "38/65",
+      "cell_id": "Q03",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 38,
+      "record_id": "Q03",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q03",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "03",
+      "pole_set": [
+        "A",
+        "B"
+      ],
+      "card": 2,
+      "dense_transfer_signature": {
+        "record_id": "Q03",
+        "zstar_mode": "order_4_orbit_with_zstar",
+        "zstar_source": "ZA+ZB",
+        "zstar_target": "ZA+ZB",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q03",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "03",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q03:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B03",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B03",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B03;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q03:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B03",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B03",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B03;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B03;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "39/65",
+      "cell_id": "Q10",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "C"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "A"
+        ]
+      ],
+      "record_index": 39,
+      "record_id": "Q10",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q10",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "10",
+      "pole_set": [
+        "C"
+      ],
+      "card": 1,
+      "dense_transfer_signature": {
+        "record_id": "Q10",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZC",
+        "zstar_target": "ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q10",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "10",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q10:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B10",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B10",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B10;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q10:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B10",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B10",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B10;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B10;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "40/65",
+      "cell_id": "Q11",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "record_index": 40,
+      "record_id": "Q11",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q11",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "11",
+      "pole_set": [
+        "A",
+        "C"
+      ],
+      "card": 2,
+      "dense_transfer_signature": {
+        "record_id": "Q11",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZA+ZC",
+        "zstar_target": "ZA+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q11",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "11",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q11:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B11",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B11",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B11;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q11:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B11",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B11",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B11;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B11;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "41/65",
+      "cell_id": "Q12",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "record_index": 41,
+      "record_id": "Q12",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q12",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "12",
+      "pole_set": [
+        "B",
+        "C"
+      ],
+      "card": 2,
+      "dense_transfer_signature": {
+        "record_id": "Q12",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZB+ZC",
+        "zstar_target": "ZB+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q12",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "12",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q12:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B12",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B12",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B12;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q12:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B12",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B12",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B12;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B12;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "42/65",
+      "cell_id": "Q13",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 42,
+      "record_id": "Q13",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q13",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "13",
+      "pole_set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "card": 3,
+      "dense_transfer_signature": {
+        "record_id": "Q13",
+        "zstar_mode": "order_4_orbit_with_zstar",
+        "zstar_source": "ZA+ZB+ZC",
+        "zstar_target": "ZA+ZB+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q13",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "13",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q13:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B13",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B13",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B13;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q13:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B13",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B13",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B13;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B13;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "43/65",
+      "cell_id": "Q20",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "D"
+        ],
+        [
+          "A"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "record_index": 43,
+      "record_id": "Q20",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q20",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "20",
+      "pole_set": [
+        "D"
+      ],
+      "card": 1,
+      "dense_transfer_signature": {
+        "record_id": "Q20",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZD",
+        "zstar_target": "ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q20",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "20",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q20:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B20",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B20",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B20;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q20:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B20",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B20",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B20;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B20;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "44/65",
+      "cell_id": "Q21",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "record_index": 44,
+      "record_id": "Q21",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q21",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "21",
+      "pole_set": [
+        "A",
+        "D"
+      ],
+      "card": 2,
+      "dense_transfer_signature": {
+        "record_id": "Q21",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZA+ZD",
+        "zstar_target": "ZA+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q21",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "21",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q21:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B21",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B21",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B21;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q21:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B21",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B21",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B21;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B21;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "45/65",
+      "cell_id": "Q22",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "record_index": 45,
+      "record_id": "Q22",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q22",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "22",
+      "pole_set": [
+        "B",
+        "D"
+      ],
+      "card": 2,
+      "dense_transfer_signature": {
+        "record_id": "Q22",
+        "zstar_mode": "order_4_orbit",
+        "zstar_source": "ZB+ZD",
+        "zstar_target": "ZB+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q22",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "22",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q22:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B22",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B22",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B22;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q22:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B22",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B22",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B22;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B22;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "46/65",
+      "cell_id": "Q23",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 46,
+      "record_id": "Q23",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q23",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "23",
+      "pole_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "card": 3,
+      "dense_transfer_signature": {
+        "record_id": "Q23",
+        "zstar_mode": "order_4_orbit_with_zstar",
+        "zstar_source": "ZA+ZB+ZD",
+        "zstar_target": "ZA+ZB+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q23",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "23",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q23:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B23",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B23",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B23;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q23:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B23",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B23",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B23;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B23;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "47/65",
+      "cell_id": "Q30",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "record_index": 47,
+      "record_id": "Q30",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q30",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "30",
+      "pole_set": [
+        "C",
+        "D"
+      ],
+      "card": 2,
+      "dense_transfer_signature": {
+        "record_id": "Q30",
+        "zstar_mode": "order_4_orbit_with_zstar",
+        "zstar_source": "ZC+ZD",
+        "zstar_target": "ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q30",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "30",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q30:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B30",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B30",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B30;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q30:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B30",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B30",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B30;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B30;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "48/65",
+      "cell_id": "Q31",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "record_index": 48,
+      "record_id": "Q31",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q31",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "31",
+      "pole_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "dense_transfer_signature": {
+        "record_id": "Q31",
+        "zstar_mode": "order_4_orbit_with_zstar",
+        "zstar_source": "ZA+ZC+ZD",
+        "zstar_target": "ZA+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q31",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "31",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q31:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B31",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B31",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B31;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q31:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B31",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B31",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B31;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B31;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "49/65",
+      "cell_id": "Q32",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "record_index": 49,
+      "record_id": "Q32",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q32",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "32",
+      "pole_set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "dense_transfer_signature": {
+        "record_id": "Q32",
+        "zstar_mode": "order_4_orbit_with_zstar",
+        "zstar_source": "ZB+ZC+ZD",
+        "zstar_target": "ZB+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q32",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "32",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q32:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B32",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B32",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B32;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q32:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B32",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B32",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B32;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B32;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "50/65",
+      "cell_id": "Q33",
+      "cell_family": "Q",
+      "base4_orbit": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 50,
+      "record_id": "Q33",
+      "record_kind": "Q",
+      "dense_kernel_ref": "DenseKernel65::Q33",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "33",
+      "pole_set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 4,
+      "dense_transfer_signature": {
+        "record_id": "Q33",
+        "zstar_mode": "order_4_orbit_with_zstar",
+        "zstar_source": "ZA+ZB+ZC+ZD",
+        "zstar_target": "ZA+ZB+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "Q4",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "Q33",
+        "prior_route_class": "order_4_rotation_orbit",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "33",
+      "ae_bindings": [
+        {
+          "orientation_id": "Q33:spin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B33",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B33",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B33;Core)"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "Q33:spin",
+          "orientation": "spin",
+          "phase_id": "Phi2",
+          "phase_label": "Q4",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "Q4",
+            "Bundle": "B33",
+            "Slot": "Core",
+            "lens": "F",
+            "phase": "Q4",
+            "phase_id": "Phi2",
+            "phase_label": "Q4",
+            "bundle": "B33",
+            "slot": "Core",
+            "canonical_key": "AE=(F,Q4,B33;Core)"
+          },
+          "ae_token": "AE=(F,Q4,B33;Core)"
+        }
+      ]
+    },
+    {
+      "shell_position": "51/65",
+      "cell_id": "T01",
+      "cell_family": "T",
+      "hide_pole": "C",
+      "triad_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "record_index": 51,
+      "record_id": "T01",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T01",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "01",
+      "pole_set": [
+        "A"
+      ],
+      "card": 1,
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T01",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZA",
+        "zstar_target": "ZA",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T01",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "01",
+      "ae_bindings": [
+        {
+          "orientation_id": "T01:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B01",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B01",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T01:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B01",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B01",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B01:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          },
+          "ae_token": "AE=(F,T3,B01:h=C;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "52/65",
+      "cell_id": "T02",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "record_index": 52,
+      "record_id": "T02",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T02",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "02",
+      "pole_set": [
+        "B"
+      ],
+      "card": 1,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "B"
+        ],
+        [
+          "D"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T02",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZB",
+        "zstar_target": "ZB",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T02",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "02",
+      "ae_bindings": [
+        {
+          "orientation_id": "T02:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B02",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B02",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T02:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B02",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B02",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B02:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B02:h=A;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "53/65",
+      "cell_id": "T03",
+      "cell_family": "T",
+      "hide_pole": "C",
+      "triad_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "record_index": 53,
+      "record_id": "T03",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T03",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "03",
+      "pole_set": [
+        "A",
+        "B"
+      ],
+      "card": 2,
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T03",
+        "zstar_mode": "order_3_antispin_with_zstar",
+        "zstar_source": "ZA+ZB",
+        "zstar_target": "ZA+ZB",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T03",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "03",
+      "ae_bindings": [
+        {
+          "orientation_id": "T03:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B03",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B03",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T03:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B03",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B03",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B03:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          },
+          "ae_token": "AE=(F,T3,B03:h=C;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "54/65",
+      "cell_id": "T10",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "C"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "record_index": 54,
+      "record_id": "T10",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T10",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "10",
+      "pole_set": [
+        "C"
+      ],
+      "card": 1,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "C"
+        ],
+        [
+          "B"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "C"
+        ],
+        [
+          "D"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T10",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZC",
+        "zstar_target": "ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T10",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "10",
+      "ae_bindings": [
+        {
+          "orientation_id": "T10:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B10",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B10",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T10:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B10",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B10",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B10:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B10:h=A;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "55/65",
+      "cell_id": "T11",
+      "cell_family": "T",
+      "hide_pole": "B",
+      "triad_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 55,
+      "record_id": "T11",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T11",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "11",
+      "pole_set": [
+        "A",
+        "C"
+      ],
+      "card": 2,
+      "triad": [
+        "A",
+        "C",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T11",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZA+ZC",
+        "zstar_target": "ZA+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T11",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "11",
+      "ae_bindings": [
+        {
+          "orientation_id": "T11:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B11",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B11",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+            "hidden_pole": "B",
+            "HiddenPole": "B"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T11:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B11",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B11",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B11:h=B;Residual)",
+            "hidden_pole": "B",
+            "HiddenPole": "B"
+          },
+          "ae_token": "AE=(F,T3,B11:h=B;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "56/65",
+      "cell_id": "T12",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "record_index": 56,
+      "record_id": "T12",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T12",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "12",
+      "pole_set": [
+        "B",
+        "C"
+      ],
+      "card": 2,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T12",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZB+ZC",
+        "zstar_target": "ZB+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T12",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "12",
+      "ae_bindings": [
+        {
+          "orientation_id": "T12:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B12",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B12",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T12:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B12",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B12",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B12:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B12:h=A;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "57/65",
+      "cell_id": "T13",
+      "cell_family": "T",
+      "hide_pole": "D",
+      "triad_set": [
+        "A",
+        "C",
+        "B"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "record_index": 57,
+      "record_id": "T13",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T13",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "13",
+      "pole_set": [
+        "A",
+        "B",
+        "C"
+      ],
+      "card": 3,
+      "triad": [
+        "A",
+        "C",
+        "B"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T13",
+        "zstar_mode": "order_3_antispin_with_zstar",
+        "zstar_source": "ZA+ZB+ZC",
+        "zstar_target": "ZA+ZB+ZC",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T13",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "13",
+      "ae_bindings": [
+        {
+          "orientation_id": "T13:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B13",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B13",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+            "hidden_pole": "D",
+            "HiddenPole": "D"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T13:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B13",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B13",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B13:h=D;Residual)",
+            "hidden_pole": "D",
+            "HiddenPole": "D"
+          },
+          "ae_token": "AE=(F,T3,B13:h=D;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "58/65",
+      "cell_id": "T20",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "D"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "D"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "record_index": 58,
+      "record_id": "T20",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T20",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "20",
+      "pole_set": [
+        "D"
+      ],
+      "card": 1,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "D"
+        ],
+        [
+          "C"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "D"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T20",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZD",
+        "zstar_target": "ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T20",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "20",
+      "ae_bindings": [
+        {
+          "orientation_id": "T20:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B20",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B20",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T20:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B20",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B20",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B20:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B20:h=A;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "59/65",
+      "cell_id": "T21",
+      "cell_family": "T",
+      "hide_pole": "C",
+      "triad_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "record_index": 59,
+      "record_id": "T21",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T21",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "21",
+      "pole_set": [
+        "A",
+        "D"
+      ],
+      "card": 2,
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T21",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZA+ZD",
+        "zstar_target": "ZA+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T21",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "21",
+      "ae_bindings": [
+        {
+          "orientation_id": "T21:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B21",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B21",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T21:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B21",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B21",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B21:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          },
+          "ae_token": "AE=(F,T3,B21:h=C;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "60/65",
+      "cell_id": "T22",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 60,
+      "record_id": "T22",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T22",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "22",
+      "pole_set": [
+        "B",
+        "D"
+      ],
+      "card": 2,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T22",
+        "zstar_mode": "order_3_antispin",
+        "zstar_source": "ZB+ZD",
+        "zstar_target": "ZB+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": false,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T22",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "22",
+      "ae_bindings": [
+        {
+          "orientation_id": "T22:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B22",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B22",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T22:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B22",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B22",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B22:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B22:h=A;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "61/65",
+      "cell_id": "T23",
+      "cell_family": "T",
+      "hide_pole": "C",
+      "triad_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "record_index": 61,
+      "record_id": "T23",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T23",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "23",
+      "pole_set": [
+        "A",
+        "B",
+        "D"
+      ],
+      "card": 3,
+      "triad": [
+        "A",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T23",
+        "zstar_mode": "order_3_antispin_with_zstar",
+        "zstar_source": "ZA+ZB+ZD",
+        "zstar_target": "ZA+ZB+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T23",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "23",
+      "ae_bindings": [
+        {
+          "orientation_id": "T23:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B23",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B23",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T23:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B23",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B23",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B23:h=C;Residual)",
+            "hidden_pole": "C",
+            "HiddenPole": "C"
+          },
+          "ae_token": "AE=(F,T3,B23:h=C;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "62/65",
+      "cell_id": "T30",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "record_index": 62,
+      "record_id": "T30",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T30",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "30",
+      "pole_set": [
+        "C",
+        "D"
+      ],
+      "card": 2,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T30",
+        "zstar_mode": "order_3_antispin_with_zstar",
+        "zstar_source": "ZC+ZD",
+        "zstar_target": "ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T30",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "30",
+      "ae_bindings": [
+        {
+          "orientation_id": "T30:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B30",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B30",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T30:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B30",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B30",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B30:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B30:h=A;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "63/65",
+      "cell_id": "T31",
+      "cell_family": "T",
+      "hide_pole": "B",
+      "triad_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 63,
+      "record_id": "T31",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T31",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "31",
+      "pole_set": [
+        "A",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "triad": [
+        "A",
+        "C",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T31",
+        "zstar_mode": "order_3_antispin_with_zstar",
+        "zstar_source": "ZA+ZC+ZD",
+        "zstar_target": "ZA+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T31",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "31",
+      "ae_bindings": [
+        {
+          "orientation_id": "T31:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B31",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B31",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+            "hidden_pole": "B",
+            "HiddenPole": "B"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T31:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B31",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B31",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B31:h=B;Residual)",
+            "hidden_pole": "B",
+            "HiddenPole": "B"
+          },
+          "ae_token": "AE=(F,T3,B31:h=B;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "64/65",
+      "cell_id": "T32",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 64,
+      "record_id": "T32",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T32",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "32",
+      "pole_set": [
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 3,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T32",
+        "zstar_mode": "order_3_antispin_with_zstar",
+        "zstar_source": "ZB+ZC+ZD",
+        "zstar_target": "ZB+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T32",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "32",
+      "ae_bindings": [
+        {
+          "orientation_id": "T32:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B32",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B32",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T32:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B32",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B32",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B32:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B32:h=A;Residual)"
+        }
+      ]
+    },
+    {
+      "shell_position": "65/65",
+      "cell_id": "T33",
+      "cell_family": "T",
+      "hide_pole": "A",
+      "triad_set": [
+        "C",
+        "B",
+        "D"
+      ],
+      "anti_plus_orbit": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "anti_minus_orbit": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "record_index": 65,
+      "record_id": "T33",
+      "record_kind": "T",
+      "dense_kernel_ref": "DenseKernel65::T33",
+      "sigma_path": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "authority_refs": {
+        "sigma_ingress": "AppA",
+        "truth_lattice": "AppI",
+        "replay_kernel": "AppM",
+        "rotation_authority": "AppF",
+        "antispin_authority": "AppG"
+      },
+      "truth": "OK",
+      "mu_code": "33",
+      "pole_set": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "card": 4,
+      "triad": [
+        "C",
+        "B",
+        "D"
+      ],
+      "base3_antispin_plus": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "base3_antispin_minus": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "dense_transfer_signature": {
+        "record_id": "T33",
+        "zstar_mode": "order_3_antispin_with_zstar",
+        "zstar_source": "ZA+ZB+ZC+ZD",
+        "zstar_target": "ZA+ZB+ZC+ZD",
+        "aether_binding": {
+          "sigma_path": [
+            "AppA",
+            "AppI",
+            "AppM"
+          ],
+          "phase_bin": "T3",
+          "rotation_authority": "AppF",
+          "antispin_authority": "AppG"
+        },
+        "opposite_pole_policy": "adjacent_bridge_or_zstar_tunnel_only",
+        "tunnel_required": true,
+        "legality_class": "OK",
+        "proof_ref": "Sigma=AppA->AppI->AppM ; AppF rotation ; AppG antispin"
+      },
+      "dense_metro_witness": {
+        "record_id": "T33",
+        "prior_route_class": "order_3_antispin_lock",
+        "prior_route_path": [
+          "AppA",
+          "AppI",
+          "AppM"
+        ],
+        "appf_rotation_ref": "AppF",
+        "appg_antispin_ref": "AppG",
+        "appi_truth_ref": "AppI",
+        "appm_replay_ref": "AppM",
+        "witness_status": "OK"
+      },
+      "mu": "33",
+      "ae_bindings": [
+        {
+          "orientation_id": "T33:antispin",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B33",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B33",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          }
+        }
+      ],
+      "explicit_aether_coordinates": [
+        {
+          "pointer_id": "T33:antispin",
+          "orientation": "antispin",
+          "phase_id": "Phi3",
+          "phase_label": "T3",
+          "ae_coord": {
+            "Lens": "F",
+            "Phase": "T3",
+            "Bundle": "B33",
+            "Slot": "Residual",
+            "lens": "F",
+            "phase": "T3",
+            "phase_id": "Phi3",
+            "phase_label": "T3",
+            "bundle": "B33",
+            "slot": "Residual",
+            "canonical_key": "AE=(F,T3,B33:h=A;Residual)",
+            "hidden_pole": "A",
+            "HiddenPole": "A"
+          },
+          "ae_token": "AE=(F,T3,B33:h=A;Residual)"
+        }
+      ]
+    }
+  ]
+}

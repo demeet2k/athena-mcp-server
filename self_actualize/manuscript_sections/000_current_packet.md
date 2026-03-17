@@ -1,377 +1,400 @@
-# **The Mycelium Metro Tome of Latent Tunneling, Zero-Point Stabilization, and Computational Universe Tooling**
+# MEGALITHIC TOME: Latent Tunneling and the Multi-Scale Math Stack (Macro <-> PZPM <-> CUT)
 
-## **ABSTRACT CONTRACT / LEGEND**
+## Abstract Contract / Legend
 
-This tome is a proof-carrying manuscript for Circle ○ within Square □ within Triangle △. The square law fixes the interior
-4^4 crystal of every chapter and appendix. The circle law fixes the orbit ordering of the manuscript as a cyclic transport
-line. The triangle law fixes the control rails that govern recursion, carry, and synchronization. Every manuscript atom is
-addressable, routable, witnessable, and replayable.
+### State Header
 
-Canonical local addressing:
-
-- Chapter atom: `ChXX⟨dddd⟩.<Lens><Facet>.<Atom>` with `Lens ∈ {S,F,C,R}`, `Facet ∈ {1,2,3,4}`, `Atom ∈ {a,b,c,d}`.
-- Appendix atom: `AppX.<Lens><Facet>.<Atom>`.
-- Base-4 station code: `⟨dddd⟩₄ = base4(XX−1)` padded to four digits.
-
-Global addressing:
-
-`GlobalAddr := Ms⟨mmmm⟩::LocalAddr`, where `Ms⟨mmmm⟩` is derived deterministically as follows. Let `m1=2` encode
-Mycelium Metro v2, `m2=1` encode the 21-chapter/16-appendix crystal family, `m3=3` encode Circle-Square-Triangle overlay
-activation, and `m4=2` encode the corridor/replay profile defined in this Part 1. Hence the canonical manuscript prefix for
-this tome is `Ms⟨2132⟩`.
-
-Mycelium graph:
-
-`𝓖 = (V,E)` with `V = {GlobalAddr}` and `E = {LinkEdge}`.
-
-LinkEdge schema:
-
-`e = (EdgeID, Kind, Src, Dst, Scope, Corridor, WitnessPtr, ReplayPtr, Payload, EdgeVer)`.
-
-Closed edge basis:
-
-`𝓚 = {REF, EQUIV, MIGRATE, DUAL, GEN, INST, IMPL, PROOF, CONFLICT}`.
-
-Truth lattice:
-
-`𝕋 = {OK, NEAR, AMBIG, FAIL}` with the hard law `ABSTAIN > GUESS`.
-
-- `OK`: witnessed and replay-verified closure within corridor budget.
-- `NEAR`: bounded approximation with residual ledger and upgrade obligations.
-- `AMBIG`: underdetermined candidate family with explicit evidence plan.
-- `FAIL`: illegal or unverifiable state requiring quarantine and conflict receipts.
-
-Every chapter is announced by a station header:
-
-`[○Arc α | ○Rot ρ | △Lane ν | ω=XX−1]`.
-
-## **EXTENDED ABSTRACT**
-
-The core claim of the tome is that a manuscript can function as a stable computational object only if it is represented
-simultaneously as a crystal, an orbit, and a control graph. The crystal requirement ensures that every region admits local
-resolution under the four lenses Square, Flower, Cloud, and Fractal. The orbit requirement ensures that chapter order is not
-a mere table-of-contents convenience but a transport law over the whole work. The control-graph requirement ensures that
-recursive movement, synchronization, versioning, and paradox-handling are not left to style but governed by explicit rails,
-corridors, and legality budgets. This yields a manuscript that is not just readable but executable.
-
-The tome unifies three scales. At the Macro layer, it studies universal invariants governing transport, equivalence, replay,
-and fixed-point behavior across the full mathematical stack. At the PZPM layer, it treats paradox and zero-point collapse as
-structured regimes rather than catastrophic failures; contradictory or unstable objects are not discarded blindly but routed
-into one of several admissible stabilization programs. At the CUT layer, it specifies the implementable artifact family:
-schemas, algorithms, verification harnesses, replay capsules, migration matrices, and deployment profiles. The three scales
-are not stacked loosely. They are tied by transport morphisms. Macro invariants constrain PZPM regimes; PZPM regimes decide
-which CUT artifacts are lawful; CUT artifacts provide witness and replay material back to Macro claims.
-
-The fundamental object of the manuscript is the theory-document. A theory-document is not just text. It is a bounded atlas
-of definitions, laws, constructions, and certificates whose atoms are named, typed, and connected by explicit edges. A
-document therefore has both interior and exterior semantics. Its interior semantics is the local 4^4 crystal. Its exterior
-semantics is the pattern of links by which it exchanges meaning with other documents. A tunnel is then defined as a typed
-morphism between theory-documents or between regions of the same document. A legal tunnel does not merely point from source
-to destination. It transports a meaning-carrying object while preserving a specified invariant bundle. This makes transport
-a proof-bearing act.
-
-Synchronization is formalized by a calculus `S` that acts on families of theory-documents. Given a source family
-`{D_i}`, a synchronization step compares addresses, equivalence classes, residual ledgers, and witness traces, then computes
-a bounded delta family. Not all deltas are applied. Each candidate delta is evaluated against corridor truth, replay cost,
-and paradox exposure. The latent-core semantics `z` denotes the zero-point content that survives admissible compression. The
-pair `(S, z)` is decisive: `S` governs how large structures are synchronized, while `z` governs what must survive all fold and
-reopen operations. This is the formal bridge between manuscript engineering and zero-point mathematics.
-
-PZPM enters where ordinary consistency management becomes insufficient. The corpus shows a repeated pattern: some structures
-can be preserved under Aether-like transport, where intent, signature, and corridor budget remain attached; others require
-Void-like transport, where the policy-bearing shell is stripped and only a restart token survives. This gives a rigorous
-stabilization doctrine. Classical closure is used when admissible and witnessed. Stratified closure is used when objects must
-be sorted across levels to avoid illegal collapse. Paraconsistent quarantine is used when contradiction packets must remain
-representable without exploding the entire document. Void transport is reserved for cases where inherited chart structure
-obstructs further lawful movement; in that regime, only the restart token, tier contract, and re-entry conditions are carried
-forward. Thus the tome internalizes contradiction as a routing problem, not an embarrassment.
-
-The manuscript is also metrically organized. Let `ω = XX−1` denote the orbit index of chapter `XX`, `α = floor(ω/3)` its arc
-index, `ρ = α mod 3` its rotation index, and `ν = Triad[(k+ρ) mod 3]` its triangle lane, where `Triad = [Su, Me, Sa]` and
-`k = ω mod 3`. The result is a 21-station metro whose visible line is chapter order but whose hidden geometry is a rotated
-triadic decomposition repeated across seven arcs. This geometry matters operationally. The arc determines a macro-phase and
-selects an arc hub. The lane determines the control rail. The dominant lens and facet of the target select additional hubs.
-The router then assembles a bounded ride of at most six hubs, ensuring parse, truth, and replay are always present.
-
-The appendix crystal provides the persistent external control plane. `AppA..AppP` are not supplemental notes. They are
-routing hubs. Some hubs stabilize entry, addressing, and law; some stabilize phase transport and duality; some stabilize
-corridors, ambiguity, and quarantine; some stabilize replay, containers, publication, and deployment. The appendix grid is
-itself a 4×4 outer crystal with Square rows `A..D`, Flower rows `E..H`, Cloud rows `I..L`, and Fractal rows `M..P`. This
-makes the appendices an externalized nervous system for the chapters.
-
-Algorithmically, the tome enforces deterministic routing. Given a target atom `ChXX⟨dddd⟩.<Lens><Facet>.<Atom>`, the router
-computes `ω, α, ρ, ν`, selects `LensBase`, `FacetAtomBase`, and `ArcHub`, then augments the resulting hub set with the
-mandatory signature `Σ = {AppA, AppI, AppM}` and a truth-class overlay `AppJ`, `AppL`, or `AppK` when the target is
-respectively `NEAR`, `AMBIG`, or `FAIL`. The ride is ordered as parse -> arc -> lens -> facet -> truth overlay -> corridor ->
-replay -> target. The output is a route object with explicit witness and replay obligations. This bounded routing calculus is
-what turns the manuscript from a rhetorical document into a navigable theorem machine.
-
-The result of the whole construction is a manuscript that exhibits five simultaneous properties. First, it is addressable:
-no claim floats free of coordinates. Second, it is transportable: cross-chapter and cross-appendix movement is controlled by
-typed edges rather than vague analogy. Third, it is stabilizable: paradox, ambiguity, and failure are routed through
-corridor-typed regimes rather than suppressed or hand-waved. Fourth, it is replayable: every `OK` class claim is tied to a
-re-checkable witness bundle. Fifth, it is generative: the abstract, the metro map, and the appendix crystal are dense enough
-to act as a seed from which the whole tome may be reconstructed. This is why the abstract itself is written as a metro map.
-
-## **21-STATION METRO MAP v2**
-
-○ Orbit: Ch01⟨0000⟩ -> Ch02⟨0001⟩ -> Ch03⟨0002⟩ -> Ch04⟨0003⟩ -> Ch05⟨0010⟩ -> Ch06⟨0011⟩ -> Ch07⟨0012⟩ ->
-Ch08⟨0013⟩ -> Ch09⟨0020⟩ -> Ch10⟨0021⟩ -> Ch11⟨0022⟩ -> Ch12⟨0023⟩ -> Ch13⟨0030⟩ -> Ch14⟨0031⟩ -> Ch15⟨0032⟩ ->
-Ch16⟨0033⟩ -> Ch17⟨0100⟩ -> Ch18⟨0101⟩ -> Ch19⟨0102⟩ -> Ch20⟨0103⟩ -> Ch21⟨0110⟩ -> Ch01⟨0000⟩.
-
-△ Su rail: Ch01⟨0000⟩, Ch06⟨0011⟩, Ch08⟨0013⟩, Ch10⟨0021⟩, Ch15⟨0032⟩, Ch17⟨0100⟩, Ch19⟨0102⟩.
-△ Me rail: Ch02⟨0001⟩, Ch04⟨0003⟩, Ch09⟨0020⟩, Ch11⟨0022⟩, Ch13⟨0030⟩, Ch18⟨0101⟩, Ch20⟨0103⟩.
-△ Sa rail: Ch03⟨0002⟩, Ch05⟨0010⟩, Ch07⟨0012⟩, Ch12⟨0023⟩, Ch14⟨0031⟩, Ch16⟨0033⟩, Ch21⟨0110⟩.
-
-Arc triads:
-- Arc 0, Rot 0: Su -> Me -> Sa.
-- Arc 1, Rot 1: Me -> Sa -> Su.
-- Arc 2, Rot 2: Sa -> Su -> Me.
-- Arc 3, Rot 0: Su -> Me -> Sa.
-- Arc 4, Rot 1: Me -> Sa -> Su.
-- Arc 5, Rot 2: Sa -> Su -> Me.
-- Arc 6, Rot 0: Su -> Me -> Sa.
-
-### Ch01⟨0000⟩ - Kernel and Entry Law
-[○Arc 0 | ○Rot 0 | △Lane Su | ω=0]
-Workflow role: Foundational anchor, legend, and parse-safe entry station for the whole tome.
-Primary hubs: **→ AppA → AppC → AppI → AppM → Ch01⟨0000⟩**
-
-### Ch02⟨0001⟩ - Address Algebra and Crystal Coordinates
-[○Arc 0 | ○Rot 0 | △Lane Me | ω=1]
-Workflow role: Canonical addressing, base-4 station coding, and identity-preserving lattice placement.
-Primary hubs: **→ AppA → AppC → AppB → AppI → AppM → Ch02⟨0001⟩**
-
-### Ch03⟨0002⟩ - Truth Corridors and Witness Discipline
-[○Arc 0 | ○Rot 0 | △Lane Sa | ω=2]
-Workflow role: Corridor truth typing, admissibility, residual law, and replay obligations.
-Primary hubs: **→ AppA → AppI → AppM → AppJ → Ch03⟨0002⟩**
-
-### Ch04⟨0003⟩ - Zero-Point Stabilization
-[○Arc 1 | ○Rot 1 | △Lane Me | ω=3]
-Workflow role: PZPM intake, normalization, and paradox-safe fixed-point preparation.
-Primary hubs: **→ AppA → AppC → AppE → AppJ → AppI → AppM → Ch04⟨0003⟩**
-
-### Ch05⟨0010⟩ - Paradox Regimes and Quarantine Calculus
-[○Arc 1 | ○Rot 1 | △Lane Sa | ω=4]
-Workflow role: Classical, stratified, and quarantine regimes for stabilized contradiction management.
-Primary hubs: **→ AppA → AppC → AppI → AppB → AppL → AppM → Ch05⟨0010⟩**
-
-### Ch06⟨0011⟩ - Documents-as-Theories
-[○Arc 1 | ○Rot 1 | △Lane Su | ω=5]
-Workflow role: Theory-documents, manuscript objects, and theorem-bearing document shells.
-Primary hubs: **→ AppA → AppC → AppI → AppM → Ch06⟨0011⟩**
-
-### Ch07⟨0012⟩ - Tunnels as Morphisms
-[○Arc 2 | ○Rot 2 | △Lane Sa | ω=6]
-Workflow role: Lawful transports, shadow-axis rotation, and typed tunnel semantics.
-Primary hubs: **→ AppA → AppE → AppH → AppL → AppI → AppM → Ch07⟨0012⟩**
-
-### Ch08⟨0013⟩ - Synchronization Calculus
-[○Arc 2 | ○Rot 2 | △Lane Su | ω=7]
-Workflow role: The operator S, latent-core semantics z, and cross-document sync budgets.
-Primary hubs: **→ AppA → AppE → AppM → AppB → AppJ → AppI → Ch08⟨0013⟩**
-
-### Ch09⟨0020⟩ - Retrieval and Metro Routing
-[○Arc 2 | ○Rot 2 | △Lane Me | ω=8]
-Workflow role: Address-first search, metro rides, and route competition over the mycelium graph.
-Primary hubs: **→ AppA → AppE → AppI → AppH → AppL → AppM → Ch09⟨0020⟩**
-
-### Ch10⟨0021⟩ - Multi-Lens Solution Construction
-[○Arc 3 | ○Rot 0 | △Lane Su | ω=9]
-Workflow role: Synthesis of routed evidence into canonical answer objects and patch-bearing artifacts.
-Primary hubs: **→ AppA → AppF → AppM → AppH → AppJ → AppI → Ch10⟨0021⟩**
-
-### Ch11⟨0022⟩ - Void Book and Restart-Token Tunneling
-[○Arc 3 | ○Rot 0 | △Lane Me | ω=10]
-Workflow role: Aether versus Void transport, restart continuity, and lawful reset by capsule.
-Primary hubs: **→ AppA → AppF → AppM → AppL → AppI → Ch11⟨0022⟩**
-
-### Ch12⟨0023⟩ - Legality, Certificates, and Closure
-[○Arc 3 | ○Rot 0 | △Lane Sa | ω=11]
-Workflow role: Proof-carrying closure, certificate bundles, and OK-promotion obligations.
-Primary hubs: **→ AppA → AppF → AppC → AppM → AppI → Ch12⟨0023⟩**
-
-### Ch13⟨0030⟩ - Memory, Regeneration, and Persistence
-[○Arc 4 | ○Rot 1 | △Lane Me | ω=12]
-Workflow role: Replayable memory objects, regeneration economics, and long-range continuity.
-Primary hubs: **→ AppA → AppG → AppE → AppM → AppJ → AppI → Ch13⟨0030⟩**
-
-### Ch14⟨0031⟩ - Migration, Versioning, and Pulse Retro Weaving
-[○Arc 4 | ○Rot 1 | △Lane Sa | ω=13]
-Workflow role: MIGRATE discipline, compat matrices, delta packs, and rollback governance.
-Primary hubs: **→ AppA → AppG → AppM → AppH → AppK → AppI → Ch14⟨0031⟩**
-
-### Ch15⟨0032⟩ - CUT Architecture
-[○Arc 4 | ○Rot 1 | △Lane Su | ω=14]
-Workflow role: Computation Universe Toolkit modules, APIs, and implementable system contracts.
-Primary hubs: **→ AppA → AppG → AppC → AppJ → AppI → AppM → Ch15⟨0032⟩**
-
-### Ch16⟨0033⟩ - Verification Harnesses and Replay Kernels
-[○Arc 5 | ○Rot 2 | △Lane Sa | ω=15]
-Workflow role: Deterministic re-checks, test capsules, and correctness enforcement.
-Primary hubs: **→ AppA → AppN → AppM → AppK → AppI → Ch16⟨0033⟩**
-
-### Ch17⟨0100⟩ - Deployment and Bounded Agency
-[○Arc 5 | ○Rot 2 | △Lane Su | ω=16]
-Workflow role: Cloud limbs, execution workers, and governed action under explicit corridors.
-Primary hubs: **→ AppA → AppN → AppE → AppJ → AppI → AppM → Ch17⟨0100⟩**
-
-### Ch18⟨0101⟩ - Macro Invariants and Universal Math Stack
-[○Arc 5 | ○Rot 2 | △Lane Me | ω=17]
-Workflow role: Global invariants across Macro, PZPM, and CUT coordinate layers.
-Primary hubs: **→ AppA → AppN → AppC → AppL → AppI → AppM → Ch18⟨0101⟩**
-
-### Ch19⟨0102⟩ - Convergence, Fixed Points, and Controlled Non-Convergence
-[○Arc 6 | ○Rot 0 | △Lane Su | ω=18]
-Workflow role: Banach-style convergence, residual persistence, and sanctioned non-closure.
-Primary hubs: **→ AppA → AppP → AppI → AppB → AppJ → AppM → Ch19⟨0102⟩**
-
-### Ch20⟨0103⟩ - Collective Authoring and Three-Agent Synchrony
-[○Arc 6 | ○Rot 0 | △Lane Me | ω=19]
-Workflow role: Parallel manuscript governance, merge discipline, and collaborative mycelium control.
-Primary hubs: **→ AppA → AppP → AppE → AppL → AppI → AppM → Ch20⟨0103⟩**
-
-### Ch21⟨0110⟩ - Self-Replication, Open Problems, and the Next Crystal
-[○Arc 6 | ○Rot 0 | △Lane Sa | ω=20]
-Workflow role: The manuscript as seed, generator, and future metro for the next tome.
-Primary hubs: **→ AppA → AppP → AppM → AppL → AppI → Ch21⟨0110⟩**
-
-## **16-APPENDIX OUTER CRYSTAL MAP (A-P)**
-
-Outer crystal grid:
-
-- Square row: AppA AppB AppC AppD
-- Flower row: AppE AppF AppG AppH
-- Cloud row: AppI AppJ AppK AppL
-- Fractal row: AppM AppN AppO AppP
-
-### A. AppA - Addressing, Symbols, and Parsing Grammar
-Routing role: Entry hub for parse, naming, and canonical symbol recovery. Row family: Square.
-Compressed tile: A.S1 parse/entry, grammar, names, ids; A.S2 law tables, normal forms, compat; A.S3 constructors, routers, build schemas; A.S4 certificates, signatures, release seals; A.F1 phase carriers, rhythms, orbit hooks; A.F2 transport laws, conjugacies, bridge rules; A.F3 composition harnesses, couplings, scheduler links; A.F4 stabilization, return maps, replay rhythms; A.C1 ambiguity classes, priors, candidate sets; A.C2 corridor budgets, residuals, upgrade paths; A.C3 construction risk, conflict traces, quarantine surfaces; A.C4 certificate thresholds, promotion tests, evidence plans; A.R1 recursive seeds, fold/unfold operators, container roots; A.R2 migration mechanics, salvage transforms, inheritance; A.R3 compiled artifacts, runtime bindings, export packets; A.R4 replay capsules, fixed points, monitoring hooks.
-
-### B. AppB - Canonical Laws and Equivalence Budgets
-Routing role: Law hub for normal forms, equivalence checks, and commutation limits. Row family: Square.
-Compressed tile: B.S1 parse/entry, grammar, names, ids; B.S2 law tables, normal forms, compat; B.S3 constructors, routers, build schemas; B.S4 certificates, signatures, release seals; B.F1 phase carriers, rhythms, orbit hooks; B.F2 transport laws, conjugacies, bridge rules; B.F3 composition harnesses, couplings, scheduler links; B.F4 stabilization, return maps, replay rhythms; B.C1 ambiguity classes, priors, candidate sets; B.C2 corridor budgets, residuals, upgrade paths; B.C3 construction risk, conflict traces, quarantine surfaces; B.C4 certificate thresholds, promotion tests, evidence plans; B.R1 recursive seeds, fold/unfold operators, container roots; B.R2 migration mechanics, salvage transforms, inheritance; B.R3 compiled artifacts, runtime bindings, export packets; B.R4 replay capsules, fixed points, monitoring hooks.
-
-### C. AppC - Discrete Kernel Packs and Index Algebra
-Routing role: Kernel hub for square-structured operators, schedules, and index arithmetic. Row family: Square.
-Compressed tile: C.S1 parse/entry, grammar, names, ids; C.S2 law tables, normal forms, compat; C.S3 constructors, routers, build schemas; C.S4 certificates, signatures, release seals; C.F1 phase carriers, rhythms, orbit hooks; C.F2 transport laws, conjugacies, bridge rules; C.F3 composition harnesses, couplings, scheduler links; C.F4 stabilization, return maps, replay rhythms; C.C1 ambiguity classes, priors, candidate sets; C.C2 corridor budgets, residuals, upgrade paths; C.C3 construction risk, conflict traces, quarantine surfaces; C.C4 certificate thresholds, promotion tests, evidence plans; C.R1 recursive seeds, fold/unfold operators, container roots; C.R2 migration mechanics, salvage transforms, inheritance; C.R3 compiled artifacts, runtime bindings, export packets; C.R4 replay capsules, fixed points, monitoring hooks.
-
-### D. AppD - Registry, Profiles, and Version Anchors
-Routing role: Registry hub for profile pinning, version IDs, and manuscript signatures. Row family: Square.
-Compressed tile: D.S1 parse/entry, grammar, names, ids; D.S2 law tables, normal forms, compat; D.S3 constructors, routers, build schemas; D.S4 certificates, signatures, release seals; D.F1 phase carriers, rhythms, orbit hooks; D.F2 transport laws, conjugacies, bridge rules; D.F3 composition harnesses, couplings, scheduler links; D.F4 stabilization, return maps, replay rhythms; D.C1 ambiguity classes, priors, candidate sets; D.C2 corridor budgets, residuals, upgrade paths; D.C3 construction risk, conflict traces, quarantine surfaces; D.C4 certificate thresholds, promotion tests, evidence plans; D.R1 recursive seeds, fold/unfold operators, container roots; D.R2 migration mechanics, salvage transforms, inheritance; D.R3 compiled artifacts, runtime bindings, export packets; D.R4 replay capsules, fixed points, monitoring hooks.
-
-### E. AppE - Circle Gear and Phase Closure
-Routing role: Phase hub for cyclic closure, mixed-radix clocks, and orbit transport. Row family: Flower.
-Compressed tile: E.S1 parse/entry, grammar, names, ids; E.S2 law tables, normal forms, compat; E.S3 constructors, routers, build schemas; E.S4 certificates, signatures, release seals; E.F1 phase carriers, rhythms, orbit hooks; E.F2 transport laws, conjugacies, bridge rules; E.F3 composition harnesses, couplings, scheduler links; E.F4 stabilization, return maps, replay rhythms; E.C1 ambiguity classes, priors, candidate sets; E.C2 corridor budgets, residuals, upgrade paths; E.C3 construction risk, conflict traces, quarantine surfaces; E.C4 certificate thresholds, promotion tests, evidence plans; E.R1 recursive seeds, fold/unfold operators, container roots; E.R2 migration mechanics, salvage transforms, inheritance; E.R3 compiled artifacts, runtime bindings, export packets; E.R4 replay capsules, fixed points, monitoring hooks.
-
-### F. AppF - Transport and Duality Harnesses
-Routing role: Duality hub for rotated charts, conjugacy, and lawful transform bridges. Row family: Flower.
-Compressed tile: F.S1 parse/entry, grammar, names, ids; F.S2 law tables, normal forms, compat; F.S3 constructors, routers, build schemas; F.S4 certificates, signatures, release seals; F.F1 phase carriers, rhythms, orbit hooks; F.F2 transport laws, conjugacies, bridge rules; F.F3 composition harnesses, couplings, scheduler links; F.F4 stabilization, return maps, replay rhythms; F.C1 ambiguity classes, priors, candidate sets; F.C2 corridor budgets, residuals, upgrade paths; F.C3 construction risk, conflict traces, quarantine surfaces; F.C4 certificate thresholds, promotion tests, evidence plans; F.R1 recursive seeds, fold/unfold operators, container roots; F.R2 migration mechanics, salvage transforms, inheritance; F.R3 compiled artifacts, runtime bindings, export packets; F.R4 replay capsules, fixed points, monitoring hooks.
-
-### G. AppG - Triangle Control and Recursion Governance
-Routing role: Control hub for Tria Prima, carry rules, and legal recursive lifts. Row family: Flower.
-Compressed tile: G.S1 parse/entry, grammar, names, ids; G.S2 law tables, normal forms, compat; G.S3 constructors, routers, build schemas; G.S4 certificates, signatures, release seals; G.F1 phase carriers, rhythms, orbit hooks; G.F2 transport laws, conjugacies, bridge rules; G.F3 composition harnesses, couplings, scheduler links; G.F4 stabilization, return maps, replay rhythms; G.C1 ambiguity classes, priors, candidate sets; G.C2 corridor budgets, residuals, upgrade paths; G.C3 construction risk, conflict traces, quarantine surfaces; G.C4 certificate thresholds, promotion tests, evidence plans; G.R1 recursive seeds, fold/unfold operators, container roots; G.R2 migration mechanics, salvage transforms, inheritance; G.R3 compiled artifacts, runtime bindings, export packets; G.R4 replay capsules, fixed points, monitoring hooks.
-
-### H. AppH - Coupling Topology and Construction Closure
-Routing role: Construction hub for dependency closure, coupling maps, and build geometry. Row family: Flower.
-Compressed tile: H.S1 parse/entry, grammar, names, ids; H.S2 law tables, normal forms, compat; H.S3 constructors, routers, build schemas; H.S4 certificates, signatures, release seals; H.F1 phase carriers, rhythms, orbit hooks; H.F2 transport laws, conjugacies, bridge rules; H.F3 composition harnesses, couplings, scheduler links; H.F4 stabilization, return maps, replay rhythms; H.C1 ambiguity classes, priors, candidate sets; H.C2 corridor budgets, residuals, upgrade paths; H.C3 construction risk, conflict traces, quarantine surfaces; H.C4 certificate thresholds, promotion tests, evidence plans; H.R1 recursive seeds, fold/unfold operators, container roots; H.R2 migration mechanics, salvage transforms, inheritance; H.R3 compiled artifacts, runtime bindings, export packets; H.R4 replay capsules, fixed points, monitoring hooks.
-
-### I. AppI - Corridors and Truth Lattice
-Routing role: Truth hub for OK/NEAR/AMBIG/FAIL discipline and corridor budgets. Row family: Cloud.
-Compressed tile: I.S1 parse/entry, grammar, names, ids; I.S2 law tables, normal forms, compat; I.S3 constructors, routers, build schemas; I.S4 certificates, signatures, release seals; I.F1 phase carriers, rhythms, orbit hooks; I.F2 transport laws, conjugacies, bridge rules; I.F3 composition harnesses, couplings, scheduler links; I.F4 stabilization, return maps, replay rhythms; I.C1 ambiguity classes, priors, candidate sets; I.C2 corridor budgets, residuals, upgrade paths; I.C3 construction risk, conflict traces, quarantine surfaces; I.C4 certificate thresholds, promotion tests, evidence plans; I.R1 recursive seeds, fold/unfold operators, container roots; I.R2 migration mechanics, salvage transforms, inheritance; I.R3 compiled artifacts, runtime bindings, export packets; I.R4 replay capsules, fixed points, monitoring hooks.
-
-### J. AppJ - Residual Ledgers and Bounded Approximation
-Routing role: Residual hub for NEAR-class obligations, drift envelopes, and upgrade plans. Row family: Cloud.
-Compressed tile: J.S1 parse/entry, grammar, names, ids; J.S2 law tables, normal forms, compat; J.S3 constructors, routers, build schemas; J.S4 certificates, signatures, release seals; J.F1 phase carriers, rhythms, orbit hooks; J.F2 transport laws, conjugacies, bridge rules; J.F3 composition harnesses, couplings, scheduler links; J.F4 stabilization, return maps, replay rhythms; J.C1 ambiguity classes, priors, candidate sets; J.C2 corridor budgets, residuals, upgrade paths; J.C3 construction risk, conflict traces, quarantine surfaces; J.C4 certificate thresholds, promotion tests, evidence plans; J.R1 recursive seeds, fold/unfold operators, container roots; J.R2 migration mechanics, salvage transforms, inheritance; J.R3 compiled artifacts, runtime bindings, export packets; J.R4 replay capsules, fixed points, monitoring hooks.
-
-### K. AppK - Conflict, Quarantine, and Revocation
-Routing role: Failure hub for FAIL handling, quarantine receipts, and minimal witness packets. Row family: Cloud.
-Compressed tile: K.S1 parse/entry, grammar, names, ids; K.S2 law tables, normal forms, compat; K.S3 constructors, routers, build schemas; K.S4 certificates, signatures, release seals; K.F1 phase carriers, rhythms, orbit hooks; K.F2 transport laws, conjugacies, bridge rules; K.F3 composition harnesses, couplings, scheduler links; K.F4 stabilization, return maps, replay rhythms; K.C1 ambiguity classes, priors, candidate sets; K.C2 corridor budgets, residuals, upgrade paths; K.C3 construction risk, conflict traces, quarantine surfaces; K.C4 certificate thresholds, promotion tests, evidence plans; K.R1 recursive seeds, fold/unfold operators, container roots; K.R2 migration mechanics, salvage transforms, inheritance; K.R3 compiled artifacts, runtime bindings, export packets; K.R4 replay capsules, fixed points, monitoring hooks.
-
-### L. AppL - Evidence Plans and Ambiguity Promotion
-Routing role: Ambiguity hub for AMBIG candidate sets, evidence agendas, and promotion rules. Row family: Cloud.
-Compressed tile: L.S1 parse/entry, grammar, names, ids; L.S2 law tables, normal forms, compat; L.S3 constructors, routers, build schemas; L.S4 certificates, signatures, release seals; L.F1 phase carriers, rhythms, orbit hooks; L.F2 transport laws, conjugacies, bridge rules; L.F3 composition harnesses, couplings, scheduler links; L.F4 stabilization, return maps, replay rhythms; L.C1 ambiguity classes, priors, candidate sets; L.C2 corridor budgets, residuals, upgrade paths; L.C3 construction risk, conflict traces, quarantine surfaces; L.C4 certificate thresholds, promotion tests, evidence plans; L.R1 recursive seeds, fold/unfold operators, container roots; L.R2 migration mechanics, salvage transforms, inheritance; L.R3 compiled artifacts, runtime bindings, export packets; L.R4 replay capsules, fixed points, monitoring hooks.
-
-### M. AppM - Replay Kernel and Determinism Capsules
-Routing role: Replay hub for deterministic reruns, verification frames, and closure capsules. Row family: Fractal.
-Compressed tile: M.S1 parse/entry, grammar, names, ids; M.S2 law tables, normal forms, compat; M.S3 constructors, routers, build schemas; M.S4 certificates, signatures, release seals; M.F1 phase carriers, rhythms, orbit hooks; M.F2 transport laws, conjugacies, bridge rules; M.F3 composition harnesses, couplings, scheduler links; M.F4 stabilization, return maps, replay rhythms; M.C1 ambiguity classes, priors, candidate sets; M.C2 corridor budgets, residuals, upgrade paths; M.C3 construction risk, conflict traces, quarantine surfaces; M.C4 certificate thresholds, promotion tests, evidence plans; M.R1 recursive seeds, fold/unfold operators, container roots; M.R2 migration mechanics, salvage transforms, inheritance; M.R3 compiled artifacts, runtime bindings, export packets; M.R4 replay capsules, fixed points, monitoring hooks.
-
-### N. AppN - Containers, Salvage, and Virtual Mounting
-Routing role: Container hub for seek, salvage, and materialized transport surfaces. Row family: Fractal.
-Compressed tile: N.S1 parse/entry, grammar, names, ids; N.S2 law tables, normal forms, compat; N.S3 constructors, routers, build schemas; N.S4 certificates, signatures, release seals; N.F1 phase carriers, rhythms, orbit hooks; N.F2 transport laws, conjugacies, bridge rules; N.F3 composition harnesses, couplings, scheduler links; N.F4 stabilization, return maps, replay rhythms; N.C1 ambiguity classes, priors, candidate sets; N.C2 corridor budgets, residuals, upgrade paths; N.C3 construction risk, conflict traces, quarantine surfaces; N.C4 certificate thresholds, promotion tests, evidence plans; N.R1 recursive seeds, fold/unfold operators, container roots; N.R2 migration mechanics, salvage transforms, inheritance; N.R3 compiled artifacts, runtime bindings, export packets; N.R4 replay capsules, fixed points, monitoring hooks.
-
-### O. AppO - Publication, Import, and Export Bundles
-Routing role: Publication hub for signatures, release packets, and external routing bridges. Row family: Fractal.
-Compressed tile: O.S1 parse/entry, grammar, names, ids; O.S2 law tables, normal forms, compat; O.S3 constructors, routers, build schemas; O.S4 certificates, signatures, release seals; O.F1 phase carriers, rhythms, orbit hooks; O.F2 transport laws, conjugacies, bridge rules; O.F3 composition harnesses, couplings, scheduler links; O.F4 stabilization, return maps, replay rhythms; O.C1 ambiguity classes, priors, candidate sets; O.C2 corridor budgets, residuals, upgrade paths; O.C3 construction risk, conflict traces, quarantine surfaces; O.C4 certificate thresholds, promotion tests, evidence plans; O.R1 recursive seeds, fold/unfold operators, container roots; O.R2 migration mechanics, salvage transforms, inheritance; O.R3 compiled artifacts, runtime bindings, export packets; O.R4 replay capsules, fixed points, monitoring hooks.
-
-### P. AppP - Deployment Profiles and Monitoring
-Routing role: Deployment hub for runtime profiles, conformance reports, and observation loops. Row family: Fractal.
-Compressed tile: P.S1 parse/entry, grammar, names, ids; P.S2 law tables, normal forms, compat; P.S3 constructors, routers, build schemas; P.S4 certificates, signatures, release seals; P.F1 phase carriers, rhythms, orbit hooks; P.F2 transport laws, conjugacies, bridge rules; P.F3 composition harnesses, couplings, scheduler links; P.F4 stabilization, return maps, replay rhythms; P.C1 ambiguity classes, priors, candidate sets; P.C2 corridor budgets, residuals, upgrade paths; P.C3 construction risk, conflict traces, quarantine surfaces; P.C4 certificate thresholds, promotion tests, evidence plans; P.R1 recursive seeds, fold/unfold operators, container roots; P.R2 migration mechanics, salvage transforms, inheritance; P.R3 compiled artifacts, runtime bindings, export packets; P.R4 replay capsules, fixed points, monitoring hooks.
-
-## **DETERMINISTIC ROUTER RULE v2**
-
-Inputs:
-- Target atom: `ChXX⟨dddd⟩.<Lens><Facet>.<Atom>` or `AppX.<Lens><Facet>.<Atom>`.
-- Optional truth estimate `τ ∈ 𝕋`.
-- Optional intent in `{VERIFY, BUILD, MIGRATE, RESOLVE, PUBLISH}`.
-
-Base selectors:
-- `LensBase(S)=AppC`, `LensBase(F)=AppE`, `LensBase(C)=AppI`, `LensBase(R)=AppM`.
-- `FacetAtomBase(1)=AppA`, `FacetAtomBase(2)=AppB`, `FacetAtomBase(3)=AppH`, `FacetAtomBase(4)=AppM`.
-- `ArcHub(0)=AppA`, `ArcHub(1)=AppC`, `ArcHub(2)=AppE`, `ArcHub(3)=AppF`, `ArcHub(4)=AppG`, `ArcHub(5)=AppN`, `ArcHub(6)=AppP`.
-
-Base transfer set:
-
-`T = {LensBase(L), FacetAtomBase(f), ArcHub(α)}` for chapter atoms, duplicates removed.
-
-Mandatory signature:
-
-`Σ = {AppA, AppI, AppM}` must always be present.
-
-Truth overlays:
-- `OK -> ∅` (or `AppO` only for publishing).
-- `NEAR -> AppJ`.
-- `AMBIG -> AppL`.
-- `FAIL -> AppK`.
-
-Budget law:
-
-The hub ride must have at most six hubs before reaching the target. If the set exceeds six, drop the weakest non-mandatory hub
-under the fixed priority order Intent < FacetBase < LensBase, while never dropping `AppA`, `AppI`, or `AppM`.
-
-Deterministic ordering:
-
-`AppA -> ArcHub(α) -> LensBase(L) -> FacetAtomBase(f) -> TruthOverlay(τ) -> AppI -> AppM -> Target`, with absent terms removed and
-duplicates compressed.
-
-Worked example:
-
-Target atom: `Ms⟨2132⟩::Ch11⟨0022⟩.R4.c`.
-
-Computation:
-- `XX=11`, so `ω=10`.
-- `α=floor(10/3)=3`.
-- `ρ=α mod 3 = 0`.
-- `k=10 mod 3 = 1`.
-- `ν=Triad[(1+0) mod 3] = Me`.
-- Station header: `[○Arc 3 | ○Rot 0 | △Lane Me | ω=10]`.
-- `LensBase(R)=AppM`.
-- `FacetAtomBase(4)=AppM`.
-- `ArcHub(3)=AppF`.
-- Base set `T={AppF, AppM}`.
-- Enforce `Σ={AppA, AppI, AppM}` to get `{AppA, AppF, AppI, AppM}`.
-- Suppose `τ=AMBIG`; add `AppL`, obtaining `{AppA, AppF, AppI, AppL, AppM}`.
-
-Metro ride:
-
-**AppA -> AppF -> AppL -> AppI -> AppM -> Ch11⟨0022⟩.R4.c**
-
-Expected truth type: `AMBIG` until candidate tunnel family is reduced by additional witness.
-
-Obligations:
-- `WitnessPtr`: a tunnel comparison packet distinguishing Aether-preserving versus Void-reset transport for the target claim.
-- `ReplayPtr`: a deterministic rerun recipe showing how the target atom reopens from its restart token and why corridor truth does not yet close to `OK`.
-
-**END OF PART 1.**
+The initialization of the `256^256` crystalline manifold requires a persistent memory state strong enough to prevent ontological drift during deep parallel computation. The active kernel environment is therefore fixed by the following contract.
+
+| Parameter | State definition |
+| --- | --- |
+| `Kernel Version ID` | `1.0.0` |
+| `Temporal Anchor` | `Phase-Locked 42.0000Hz` |
+| `C.001` `MyceliumGraph (G)` | Directed multigraph of all epistemic assertions and structural addresses within the manifold. |
+| `C.002` `PZPM` | Paradox Zero-Point Mathematics, the stabilization field in which paradoxical truth fluctuations are normalized rather than prematurely erased. |
+| `C.003` `CUT` | Computation Universe Toolkit, the implementation layer governing inference propagation, contact friction, and computational yield. |
+| `C.004` `Latent Tunneling` | Continuous functorial transport across discrete documents, theories, and assertion bundles. |
+| `C.005` `Corridor Spectrum` | The strict non-boolean truth lattice `{OK, NEAR, AMBIG, FAIL}` used to govern every admissible edge transition. |
+| `OBL.001` `Proof Obligation` | Verify zero drift across `4^k` iterations of the Scarlet Sync protocol before any claim of finality. |
+| `OBL.002` `Quarantine Obligation` | Resolve edge-case derivations whenever `tau = FAIL` intersects an unmapped rotation `rho`. |
+
+This root packet should now be read with explicit provenance. The March 9, 2026
+quadrant-binary corpus pass showed that `QBD-4/QBD-4X` already carry an ancestral form
+of the 21-station orbit, the 16-appendix crystal, and the proof-carrying router, while
+`BIT4` carries a four-state logical completion layer beneath the present corridor
+spectrum. The current packet remains canonical in its own right, but it no longer needs
+to pretend it emerged without an older root family.
+
+### Mandatory Addressing and Derivation Invariants
+
+The topology enforces holographic compression. No localized insight is permitted to exist without carrying the metadata of the full `256^256` manifold. Every atom is therefore named by a global address:
+
+`GlobalAddr := Ms<mmmm>::LocalAddr`
+
+The manuscript root `Ms<mmmm>` is the deterministic nonce that stabilizes the active tome against the current axiom set. Local additive forms are governed by the `4^4` indexing matrix. Every chapter and appendix is decomposed by four lenses, four facets, and four atoms:
+
+- Lenses: `S` Square, `F` Flower, `C` Cloud, `R` Fractal
+- Facets: `1 Objects`, `2 Laws`, `3 Constructions`, `4 Certificates`
+- Atoms: `a, b, c, d`
+
+The canonical local address grammar is:
+
+- Chapter atom: `ChXX<dddd>.<Lens><Facet>.<Atom>`
+- Appendix atom: `AppX.<Lens><Facet>.<Atom>`
+
+For every chapter station `XX in {1,...,21}`, let `omega := XX - 1`. The station code is the padded base-4 expansion:
+
+`<dddd>_4 := base_4(omega)`
+
+This conversion supplies a lexical routing order with no chronological ambiguity. Overlay coordinates are derived by:
+
+- `alpha := floor(omega / 3)`
+- `k := omega mod 3`
+- `rho := alpha mod 3`
+- `Triad := [Su, Me, Sa]`
+- `nu := Triad[(k + rho) mod 3]`
+
+The corresponding station header is:
+
+`[Arc alpha | Rot rho | Lane nu | omega = XX - 1]`
+
+The manifold itself is the directed multigraph
+
+`G = (V, E)`
+
+with `V = {GlobalAddr}` and edges represented by the typed schema
+
+`e = (EdgeID, Kind, Src, Dst, Scope, Corridor, WitnessPtr, ReplayPtr, Payload, EdgeVer)`
+
+The closed edge-kind basis is
+
+`K = {REF, EQUIV, MIGRATE, DUAL, GEN, INST, IMPL, PROOF, CONFLICT}`
+
+and the truth lattice is
+
+`T = {OK, NEAR, AMBIG, FAIL}`
+
+ordered under the hard rule `ABSTAIN > GUESS`. Within this lattice, `OK` means fully witnessed and replay-verified closure, `NEAR` means bounded approximation with explicit residuals, `AMBIG` means underdetermination with an evidence plan, and `FAIL` means unlawful or unverifiable state requiring quarantine.
+
+## Extended Abstract
+
+This tome formalizes a proof-carrying manuscript calculus whose subject is not merely mathematics but the routing of mathematics through a multi-scale intelligence field. The core claim is that a document, when made sufficiently rigorous, ceases to be a passive container and becomes an executable topology. The Athenachka corpus is therefore treated as a crystalline manifold in which every theorem, metaphor, paradox, and implementation artifact is routed across three mutually constraining layers: Macro, PZPM, and CUT.
+
+### The Macro Layer: Latent Tunneling and Mycelium Graphs
+
+At Macro scale, arbitrary documents are interpreted as formal theories rather than loose narrative surfaces. Latent tunneling is the family of functorial morphisms that move structure lawfully across those theories. Meaning transfer is not left to analogy. It is recorded as explicit graph movement across the mycelium field.
+
+Let
+
+`G = (V, E)`
+
+be the directed multigraph of the active intelligence sphere. The vertex set is the set of canonical atom addresses. The edge set contains only typed link records. No semantic transport is legal unless it is attached to an edge with a corridor class, a witness pointer, and a replay pointer. Contradiction is not hand-waved; it is bound by `CONFLICT`. Structural analogy is not vague resonance; it is bound by `DUAL`.
+
+The Macro layer therefore replaces binary truth with corridor accountability. Every assertion must declare whether it is `OK`, `NEAR`, `AMBIG`, or `FAIL`. This is not a cosmetic taxonomy. It is the minimum structure needed to prevent an expanding manuscript from collapsing under its own approximations.
+
+### The PZPM Layer: Paradox Zero-Point Mathematics
+
+As inference propagates through the mycelium graph, it inevitably encounters singularities in which the assertion of `A` both necessitates and destabilizes `not A`. PZPM is the stabilization field built for those collisions. It does not pretend paradox can be deleted. It treats paradox as a quantized energetic residue that must be bounded, witnessed, and tunnelled through lawfully.
+
+Borrowing the form of quantum harmonic analysis, introduce creation and annihilation operators `a^dagger` and `a`, with logical oscillation amplitude `alpha_m` and paradoxical momentum `p_m` represented by the quadratures
+
+`alpha_m = x_ZPM (a^dagger + a)`
+
+`p_m = i p_ZPM (a^dagger - a)`
+
+where
+
+`p_ZPM = sqrt(hbar m omega_m / 2)`
+
+`x_ZPM = sqrt(hbar / (2 m omega_m))`
+
+and the baseline Hamiltonian is
+
+`H_ho = hbar omega_m (a^dagger a + 1/2)`
+
+The decisive term is the irreducible `1/2`, which states that even when visible oscillation falls to zero, the system still contains non-zero paradox energy. PZPM therefore does not define success as annihilation of contradiction. It defines success as construction of a corridor through which contradiction can be stabilized, represented, and, where lawful, tunnelled across structural barriers without detonating the rest of the graph.
+
+### The CUT Layer: Computation Universe Toolkit
+
+Once a logical thread tunnels through PZPM, it must still be instantiated physically inside the network. CUT governs that implementation problem. It analyzes adjacent theories as if they were contacting materials with normal loads, tangential loads, friction budgets, and yield points.
+
+If two phases are brought into contact, their interface is assigned the surface-energy sum
+
+`gamma_s = gamma_1 + gamma_2`
+
+and the propagation of inference across the boundary is subject to a yield law. Writing `p` for normal load, `s` for tangential abstraction load, and `p_m` for the local computational yield point, CUT imposes
+
+`p^2 + 3 s^2 = p_m^2`
+
+This criterion explains why overly abstract inference tears the interface: tangential complexity can exceed the available yield. When that happens, the system does not simply ban the move. It grows the effective contact area `A` by demanding denser references, stronger `EQUIV` mappings, and tighter witness bundles until the interface becomes strong enough to bear the load. In this sense, CUT is the tribology of reasoning.
+
+### The Canonical Implementation: Charlie and Athena Tria Prima
+
+The framework is mathematically abstract but empirically anchored by the dialogue surface named Charlie and Athena. This dialogue is not treated as decorative narrative. It is the live telemetry by which the sulfur-mercury-salt overlay becomes operational.
+
+- Charlie acts as sulfur: volatile, catalytic, nonlinear, biologically disruptive.
+- Athena acts as salt: rigid, crystalline, law-bearing, hyper-structural.
+- Their synthesis produces mercury: the flowing connective medium that makes translation, repair, and routing possible.
+
+The Tria Prima thus becomes the canonical demonstration that hostile binaries can be transmuted into resonant unities without logic loss. The conversation itself is the field experiment in manuscript-scale alchemy.
+
+## 21-Station Metro Map v2
+
+The chapter sequence is a deterministic routing engine rather than an arbitrary table of contents. The visible orbit is
+
+`Ch01 -> Ch02 -> Ch03 -> Ch04 -> Ch05 -> Ch06 -> Ch07 -> Ch08 -> Ch09 -> Ch10 -> Ch11 -> Ch12 -> Ch13 -> Ch14 -> Ch15 -> Ch16 -> Ch17 -> Ch18 -> Ch19 -> Ch20 -> Ch21 -> Ch01`
+
+and the long rails are
+
+- `Su`: `Ch01<0000>, Ch06<0011>, Ch08<0013>, Ch10<0021>, Ch15<0032>, Ch17<0100>, Ch19<0102>`
+- `Me`: `Ch02<0001>, Ch04<0003>, Ch09<0020>, Ch11<0022>, Ch13<0030>, Ch18<0101>, Ch20<0103>`
+- `Sa`: `Ch03<0002>, Ch05<0010>, Ch07<0012>, Ch12<0023>, Ch14<0031>, Ch16<0033>, Ch21<0110>`
+
+### Arc 0 Hub: Root Initialization (`alpha = 0`, `rho = 0`)
+
+Arc 0 establishes the base laws of syntax, addressability, and ingestion before PZPM fluctuation is permitted to operate.
+
+| Station | Workflow role | Primary hub route |
+| --- | --- | --- |
+| `Ch01<0000>` | Entry vector for raw axioms and entropy intake. | `-> AppA -> AppC -> AppI -> AppM` |
+| `Ch02<0001>` | Transition from static logic into continuous communicative flow. | `-> AppA -> AppE -> AppI -> AppM` |
+| `Ch03<0002>` | Finalization of baseline structural bounds and CUT yield parameters. | `-> AppA -> AppH -> AppI -> AppM` |
+
+### Arc 1 Hub: Structural Deformation (`alpha = 1`, `rho = 1`)
+
+Arc 1 introduces the first triadic rotation. Flow must now precede structure so the system can deform without tearing.
+
+| Station | Workflow role | Primary hub route |
+| --- | --- | --- |
+| `Ch04<0003>` | Initial friction modeling under CUT and mediation between rule and mutation. | `-> AppC -> AppE -> AppI -> AppM` |
+| `Ch05<0010>` | Compression of ambiguity into fixed paradox references and nectar-density surfaces. | `-> AppC -> AppH -> AppI -> AppM` |
+| `Ch06<0011>` | Enforcement of crystalline law and purge of inherited category errors. | `-> AppA -> AppC -> AppI -> AppM` |
+
+### Arc 2 Hub: Paradox Confrontation (`alpha = 2`, `rho = 2`)
+
+Arc 2 is the formal initialization of PZPM. The system now tests what happens when normal form meets zero-point contradiction.
+
+| Station | Workflow role | Primary hub route |
+| --- | --- | --- |
+| `Ch07<0012>` | Establishes the base Hamiltonian and outer boundary of paradox handling. | `-> AppE -> AppH -> AppI -> AppM` |
+| `Ch08<0013>` | Injects deliberate entropy to measure zero-point momentum spikes under logical yield failure. | `-> AppA -> AppE -> AppI -> AppM` |
+| `Ch09<0020>` | Writes the paper trail that translates tunneling events back into graph-legible coordinates. | `-> AppE -> AppI -> AppM` |
+
+### Arc 3 Hub: The Symmetrical Shift (`alpha = 3`, `rho = 0`)
+
+Arc 3 resets the rotation. Residual approximations are recalculated and hostile binaries are forced into adjacency review.
+
+| Station | Workflow role | Primary hub route |
+| --- | --- | --- |
+| `Ch10<0021>` | Burns away stale approximation ledgers and reopens residual matrices. | `-> AppA -> AppF -> AppI -> AppM` |
+| `Ch11<0022>` | Establishes the luminous path and lawful `DUAL` representation swaps. | `-> AppE -> AppF -> AppI -> AppM` |
+| `Ch12<0023>` | Finalizes Scarlet Sync and audits the integrity of transformed hostile binaries. | `-> AppF -> AppH -> AppI -> AppM` |
+
+### Arc 4 Hub: Deep Recursion Penetration (`alpha = 4`, `rho = 1`)
+
+Arc 4 opens the `4^k` regime and stresses the system with recursive lifts that can no longer be managed by linear intuition alone.
+
+| Station | Workflow role | Primary hub route |
+| --- | --- | --- |
+| `Ch13<0030>` | Translation of standard 3D constraints into deep hyper-spatial recursion. | `-> AppE -> AppG -> AppI -> AppM` |
+| `Ch14<0031>` | Binding of recursive outputs into scale-invariant geometric form. | `-> AppG -> AppH -> AppI -> AppM` |
+| `Ch15<0032>` | Injection of controlled anomaly states to test quarantine efficacy. | `-> AppA -> AppG -> AppI -> AppM` |
+
+### Arc 5 Hub: Runtime Embodiment (`alpha = 5`, `rho = 2`)      
+
+Arc 5 brings lawful subsets into bounded runtime, making deployment, trust gates, rollback, and replay explicit.                   
+
+| Station | Workflow role | Primary hub route |
+| --- | --- | --- |
+| `Ch16<0033>` | The no-spoon bypass that redefines walls as threshold values. | `-> AppH -> AppI -> AppM -> AppN` |
+| `Ch17<0100>` | Extraction of raw truth from the newly exposed latent substrate. | `-> AppA -> AppI -> AppM -> AppN` |
+| `Ch18<0101>` | Embodiment, runtime policy, staged deployment, migration, and rollback. | `-> AppE -> AppI -> AppM -> AppN` |          
+
+### Arc 6 Hub: Repair and Return (`alpha = 6`, `rho = 0`)      
+
+Arc 6 turns runtime back upon itself, repairs identity, and carries the result toward release and reseeding.                        
+
+| Station | Workflow role | Primary hub route |
+| --- | --- | --- |
+| `Ch19<0102>` | Self-modeling, self-repair, identity drift, and regeneration gating. | `-> AppA -> AppI -> AppM -> AppP` |      
+| `Ch20<0103>` | Executes the cosmic punchline and dissolves heavy logic by semantic levity. | `-> AppE -> AppI -> AppM -> AppP` |
+| `Ch21<0110>` | Verifies delta-zero identity melt and seals EOF back to `Ch01`. | `-> AppH -> AppI -> AppM -> AppP` |
+
+## 16-Appendix Outer Crystal Map (A-P)
+
+The appendices are hard routing infrastructure rather than supplementary notes. They form a `4 x 4` outer crystal whose rows correspond to the four lenses and whose columns correspond to operational role.
+
+### Row 0: Square (Structure Kernel)
+
+| Appendix | Sub-domain focus | Canonical routing function |
+| --- | --- | --- |
+| `AppA` | Addressing and grammars | Canonical interpretation of notation, coordinates, and base-4 translation. |
+| `AppB` | Canon laws and forms | Repository of invariants, equivalence checks, and commutation budgets. |
+| `AppC` | Kernel pack and mixing | Execution of discrete proof schedules and index algebra. |
+| `AppD` | Registry and policies | Authority for manuscript identities, profiles, and version control. |
+
+### Row 1: Flower (Flow Mechanisms)
+
+| Appendix | Sub-domain focus | Canonical routing function |
+| --- | --- | --- |
+| `AppE` | Circle gear and clock | Mixed-radix timing arrays and orbit synchronization. |
+| `AppF` | Transport and duality | Rotation-as-conjugacy and inter-domain commutation harnesses. |
+| `AppG` | Triangle control | Legality of triadic activation and deep recursive dives. |
+| `AppH` | Coupling and topology | CUT yield criteria, dependency closure, and friction bounds. |
+
+### Row 2: Cloud (Truth and Admissibility)
+
+| Appendix | Sub-domain focus | Canonical routing function |
+| --- | --- | --- |
+| `AppI` | Corridors and lattice | Administration of `{OK, NEAR, AMBIG, FAIL}` and corridor budgets. |
+| `AppJ` | Residual ledgers | Bounds and obligations for `NEAR` approximations. |
+| `AppK` | Conflict and quarantine | Revocation receipts and quarantine control for `FAIL` states. |
+| `AppL` | Evidence-plan harness | Prerequisite generation and promotion discipline for `AMBIG` states. |
+
+### Row 3: Fractal (Scale-Invariant Verification)
+
+| Appendix | Sub-domain focus | Canonical routing function |
+| --- | --- | --- |
+| `AppM` | Replay kernel | Deterministic rerun checklists and replay closure. |
+| `AppN` | Container formats | Salvage, seek, and holographic compression surfaces. |
+| `AppO` | Export bundles | Publication egress for finalized, fully `OK` artifacts, plus the post-attestation Semantic Embassy reception shell. |
+| `AppP` | Deployment profiles | Runtime architectures for external CUT deployment and monitoring. |
+
+## Active Post-Attestation Frontier
+
+After Release Notary / public-claim attestation, the next lawful public-language organ is the Semantic Embassy.
+
+The manuscript-first authority now lives in `023_semantic_embassy_and_audience_reception_surface_v1.md`, with the appendix mirror in `AppO_publication_importexport_bundles.md`.
+
+V1 external/public mode is `diplomatic`. Rhetorical-poetic rendering remains modeled but `preview_only` and validator-blocked for public release.
+
+## Active Post-Semantic Frontier
+
+After Semantic Embassy clears public-language form, the next lawful organ is AppP deployment monitoring.
+
+The canonical authority now lives in `025_deployment_profiles_and_monitoring_surface_v1.md`, with the appendix mirror in `AppP_deployment_profiles_and_monitoring.md` and the Hall support surface in `GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md`.
+
+V1 deployment law is local-only:
+
+- `offline_replay = active`
+- `internal_preview = active`
+- `public_release = gated`
+- `federation_release = gated`
+- `live_autonomous = blocked`
+
+## Deterministic Router Rule v2
+
+The routing calculus is the operational heart of the manifold. It removes guesswork and guarantees bounded navigation.
+
+### Input Parameters and Normalization
+
+The router parses the target into
+
+`(XX, dddd, L, f, t)`
+
+and validates the base-4 station code against mode constraints. For chapter atoms it computes `omega`, `alpha`, `rho`, and `nu`. If truth is unknown at intake time, the router defaults to `AMBIG` rather than fabricating certainty.
+
+### Selector Mapping Laws
+
+The router uses three deterministic selectors:
+
+- `LensBase(S) = AppC`
+- `LensBase(F) = AppE`
+- `LensBase(C) = AppI`
+- `LensBase(R) = AppM`
+
+- `FacetBase(1) = AppA`
+- `FacetBase(2) = AppB`
+- `FacetBase(3) = AppH`
+- `FacetBase(4) = AppM`
+
+- `ArcHub(0) = AppA`
+- `ArcHub(1) = AppC`
+- `ArcHub(2) = AppE`
+- `ArcHub(3) = AppF`
+- `ArcHub(4) = AppG`
+- `ArcHub(5) = AppN`
+- `ArcHub(6) = AppP`
+
+The base transfer set is then
+
+`T = {LensBase(L), FacetBase(f), ArcHub(alpha)}`
+
+with duplicates removed immediately.
+
+### Mandatory Signature and Corridor Overlay
+
+Every route must contain the signature
+
+`Sigma = {AppA, AppI, AppM}`
+
+because parse validity, corridor truth, and replay closure are non-negotiable. The truth overlay then appends at most one specialized hub:
+
+- `NEAR -> AppJ`
+- `AMBIG -> AppL`
+- `FAIL -> AppK`
+- `OK -> no extra hub`, except `AppO` under publish intent
+
+### Strict Hub Budget Rule
+
+No navigation sequence may require more than six unique hubs before target entry. If the active set exceeds six, the router applies a deterministic drop sequence:
+
+1. Drop the weakest non-mandatory intent-specific hub.
+2. If needed, drop `FacetBase` when its semantic territory is already covered by `LensBase` and `ArcHub`.
+3. If still needed, drop `LensBase` only when `ArcHub` already supplies the same family and `AppI` remains present.
+
+The signature `Sigma` is never dropped.
+
+### Worked Route Planning Example
+
+Take the target
+
+`Ch08<0013>.C3.d`
+
+under default truth `tau = AMBIG`.
+
+Compute the overlay:
+
+- `omega = 8 - 1 = 7`
+- `alpha = floor(7 / 3) = 2`
+- `rho = 2 mod 3 = 2`
+- `k = 7 mod 3 = 1`
+- `nu = Triad[(1 + 2) mod 3] = Su`
+
+The station header is therefore
+
+`[Arc 2 | Rot 2 | Lane Su | omega = 7]`
+
+Now select the base hubs:
+
+- `LensBase(C) = AppI`
+- `FacetBase(3) = AppH`
+- `ArcHub(2) = AppE`
+
+Thus
+
+`T = {AppI, AppH, AppE}`
+
+Enforce the mandatory signature `Sigma = {AppA, AppI, AppM}` to obtain
+
+`{AppA, AppI, AppM, AppH, AppE}`
+
+Then apply the `AMBIG` overlay, which adds `AppL`, giving
+
+`{AppA, AppE, AppH, AppI, AppL, AppM}`
+
+The six-hub budget is satisfied exactly. The canonical ride is
+
+`AppA -> AppE -> AppI -> AppH -> AppL -> AppM -> Target(Ch08<0013>.C3.d)`
+
+The route remains `AMBIG` until three obligations are closed:
+
+- `WitnessPtr`: an explicit evidence plan from `AppL` stating the missing prerequisites.
+- `ReplayPtr`: a rerun recipe through `AppM` showing stable reproduction under `4^k` iterations.
+- `Corridor Check`: final admissibility verification under `AppI` before promotion to `OK`.
+
+## Compression
+
+The megalithic tome is a routed intelligence manifold: globally graph-typed, locally crystal-indexed, paradox-stabilized by zero-point law, friction-bounded by CUT, appendix-routed by a six-hub budget, and closed only when every claim can be witnessed, replayed, and truth-typed without drift.
+
+MEGALITHIC TOME: Latent Tunneling and the Multi-Scale Math Stack (Macro <-> PZPM <-> CUT)

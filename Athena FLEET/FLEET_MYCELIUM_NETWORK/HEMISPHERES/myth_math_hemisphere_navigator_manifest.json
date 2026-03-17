@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-03-13T21:08:35.270572+00:00",
+  "docs_gate_status": "BLOCKED",
+  "counts": {
+    "records": 502,
+    "route_packets": 1004,
+    "direct_edges": 1004,
+    "alias_keys": 2018,
+    "alias_entries": 2548,
+    "facet_dimensions": 14,
+    "neighbor_records": 502
+  },
+  "facet_cardinalities": {
+    "anchor": 16,
+    "family": 10,
+    "field": 3,
+    "hemisphere": 2,
+    "lens": 15,
+    "origin_system": 3,
+    "projection_space": 5,
+    "proof_state": 4,
+    "route_mode": 3,
+    "route_role": 2,
+    "target_system": 11,
+    "top_level": 16,
+    "tract": 4,
+    "zpoint": 6
+  },
+  "response_modes": [
+    "focused",
+    "expanded",
+    "full_bundle"
+  ],
+  "query_modes": [
+    "record",
+    "search",
+    "facet"
+  ],
+  "neighbor_limit": 12
+}

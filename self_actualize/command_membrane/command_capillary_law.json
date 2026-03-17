@@ -1,0 +1,15 @@
+{
+  "formula": "C_next = clamp(0,1, rho*C + alpha*U + beta*F - gamma*D - delta*N)",
+  "weights": {
+    "rho": 0.92,
+    "alpha": 0.3,
+    "beta": 0.25,
+    "gamma": 0.25,
+    "delta": 0.2
+  },
+  "thresholds": {
+    "vein": 0.88,
+    "capillary": 0.7,
+    "dormant": 0.35
+  }
+}

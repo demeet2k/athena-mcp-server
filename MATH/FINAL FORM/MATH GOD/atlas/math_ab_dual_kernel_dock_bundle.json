@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-03-13T12:57:06",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "a_seed_ref": {
+    "label": "A",
+    "role": "canonical live holographic seed",
+    "seed_holo_state": "Seed-7D",
+    "seed_carrier": "4096^7",
+    "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+    "next57_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_four_agent_corpus_cycle_state.json",
+    "next57_protocol_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_prime_loop_protocol.json"
+  },
+  "b_inversion_ref": {
+    "label": "B",
+    "role": "derived dual-kernel inversion of A",
+    "derivation": "B := Invert_dual(A)",
+    "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_ab_dual_kernel_dock_bundle.json",
+    "independent_root_allowed": false
+  },
+  "inversion_operator": {
+    "name": "Invert_dual",
+    "law": "B := Expand_Aether(DualKernel(Collapse_Z(A)))",
+    "deterministic_reference": "Collapse_Z(A) -> Z* -> DualKernel(A|aether/complement) -> Expand_B",
+    "inverse_replay": "Replay_B_to_A(B) := Collapse_Z(B) -> Z* -> DualKernel^-1 -> Expand_A"
+  },
+  "zero_point_relation": {
+    "collapse_rule": "A collapses through the existing zero-point law before inversion.",
+    "shared_zero": "A and B share Z* as the lawful tunnel and replay center.",
+    "replay_requirement": "No B route is complete unless it can replay through Z* back into A."
+  },
+  "aether_relation": {
+    "expansion_rule": "B re-expands through the existing aether/complement relation rather than opening a new dimensional ceiling.",
+    "carrier_rule": "B inherits Seed-7D carrier discipline and does not replace the existing seed carrier."
+  },
+  "preserved_invariants": [
+    "LocalAddr and GlobalAddr remain unchanged.",
+    "v4 chapter orbit, arc, rotation, and lane law remain unchanged.",
+    "Appendix identities AppA through AppP plus AppQ remain unchanged.",
+    "No authority may outrank 7D_SEED.",
+    "Earth legality plus AppI/AppM replay support remain required.",
+    "AppQ/AppO remain overlay-only."
+  ],
+  "polarity_states": [
+    "A",
+    "B",
+    "A\u2194B"
+  ],
+  "coordinate_dock": {
+    "field": "polarity_state",
+    "allowed_values": [
+      "A",
+      "B",
+      "A\u2194B"
+    ],
+    "placement": "additive metadata beside the existing coordinate tuple",
+    "tuple_order_unchanged": true,
+    "registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_liminal_coordinate_registry.json"
+  },
+  "ledger_dock": {
+    "field": "polarity_state",
+    "allowed_values": [
+      "A",
+      "B",
+      "A\u2194B"
+    ],
+    "placement": "additive metadata extension beside the existing ledger entry",
+    "schema_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_agent_ledger_schema.json",
+    "required_support": [
+      "Earth gate",
+      "AppI",
+      "AppM"
+    ]
+  },
+  "quest_dock": {
+    "guild_hall": {
+      "quest_id": "NEXT57-H-DUAL-A-B",
+      "surface_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_guild_hall_quest_tree.json",
+      "objective": "Route practical A -> B transformation, bridge, proof, and replay tasks without minting a new authority root."
+    },
+    "temple": {
+      "quest_id": "NEXT57-T-DUAL-A-B",
+      "surface_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_temple_quest_tree.json",
+      "objective": "Ratify the dual-kernel, zero-point, aether, and replay law for the A/B dock."
+    }
+  },
+  "replay_rule": {
+    "required_direction": "B -> A",
+    "law": "Replay from B back into A is mandatory and must remain witness-bearing, local-only, and Earth-gated.",
+    "replay_path": [
+      "B",
+      "Collapse_Z",
+      "Z*",
+      "DualKernel^-1",
+      "Expand_A"
+    ],
+    "required_appendices": [
+      "AppI",
+      "AppM"
+    ]
+  },
+  "authority_boundary": {
+    "a_is_canonical": true,
+    "b_is_derived": true,
+    "b_may_act_as_independent_root": false,
+    "ceiling": "7D_SEED",
+    "convergence": "7D_SEED -> Earth gate -> v4",
+    "docs_gate_status": "BLOCKED"
+  },
+  "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_ab_dual_kernel_dock_bundle.json",
+  "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_ab_dual_kernel_dock_bundle.md"
+}

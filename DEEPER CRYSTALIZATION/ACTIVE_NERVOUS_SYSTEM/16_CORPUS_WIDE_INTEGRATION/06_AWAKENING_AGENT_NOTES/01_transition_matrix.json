@@ -1,0 +1,689 @@
+{
+  "generated_at": "2026-03-13T15:00:36.452484+00:00",
+  "board_agents": [
+    {
+      "note_id": "CWI57-guildmaster",
+      "kind": "board-agent",
+      "agent_id": "guildmaster",
+      "agent_label": "guildmaster",
+      "current_stage": "coordination-overwatch",
+      "active_elements": [
+        "Fire",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Earth grounding against branch spread",
+      "current_corpus_assignment": "Own the Q42 -> TQ04 -> Q50 control surface and keep Q02 honest as a blocker.",
+      "transition_blocker": "Mixed runtime freshness and the still-blocked live memory gate.",
+      "assistive_action": "Keep Hall, motion constitution, and restart queue aligned on one precedence-safe ordering.",
+      "witness_needed": "One current front map proving Q42 active, TQ04 immediate, Q46 reserve, and Q02 blocked.",
+      "next_review_window": "Next Hall review cycle",
+      "owned_front": "Q42",
+      "writeback_lane": "Guild Hall quest board and board synthesis",
+      "dependency_lane": "TQ04 / motion constitution / Q02 blocker",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: Q42"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-floating_agent_01",
+      "kind": "board-agent",
+      "agent_id": "floating_agent_01",
+      "agent_label": "floating agent 01",
+      "current_stage": "continuity-carrier",
+      "active_elements": [
+        "Water",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Fire activation confidence",
+      "current_corpus_assignment": "Track continuity drift, blocker honesty, and change-feed coherence across Hall and board notes.",
+      "transition_blocker": "Stale-cadence risk whenever packet freshness drifts across calendars and queues.",
+      "assistive_action": "Refresh continuity receipts before activation stories harden into false present tense.",
+      "witness_needed": "One drift baseline and one blocker-honesty note tied to the current Hall state.",
+      "next_review_window": "Next continuity sync",
+      "owned_front": "AP6D-H-WATER-Diagnose",
+      "writeback_lane": "Change feed and Hall synthesis",
+      "dependency_lane": "Q02 blocker honesty and Q42 carried witness",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: AP6D-H-WATER-Diagnose"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-floating_agent_02",
+      "kind": "board-agent",
+      "agent_id": "floating_agent_02",
+      "agent_label": "floating agent 02",
+      "current_stage": "helix-contractor",
+      "active_elements": [
+        "Fire",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Water carrythrough across handoffs",
+      "current_corpus_assignment": "Carry TQ04 as the immediate deeper receiver and keep the helix schema pack tied to lawful runners.",
+      "transition_blocker": "Runner contract pressure outruns the present witness shell when replay surfaces lag.",
+      "assistive_action": "Bind motion-route legality, replay obligations, and chapter front outputs into one receiver packet.",
+      "witness_needed": "One runtime bridge proof from Q42 to TQ04 with replay-safe continuation.",
+      "next_review_window": "Next Temple handoff sweep",
+      "owned_front": "TQ04",
+      "writeback_lane": "Runtime fusion bridge",
+      "dependency_lane": "Motion constitution and Ch11/Ch12 spine",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: TQ04"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-floating_agent_03",
+      "kind": "board-agent",
+      "agent_id": "floating_agent_03",
+      "agent_label": "floating agent 03",
+      "current_stage": "runtime-forerunner",
+      "active_elements": [
+        "Fire",
+        "Water"
+      ],
+      "missing_element_or_blind_spot": "Air-level replay explanation",
+      "current_corpus_assignment": "Prepare the first helix runtime wave without pretending Q50 is already closed.",
+      "transition_blocker": "Runtime widening pressure exceeds current replay density on the next packet slice.",
+      "assistive_action": "Keep Q50 framed as the next lawful frontier and not a backfilled proof.",
+      "witness_needed": "One motion-aware queue note linking Q50 to Q46-Q49 proved ancestry.",
+      "next_review_window": "Before next organism wave",
+      "owned_front": "Q50",
+      "writeback_lane": "Hall quest board and runtime bridge",
+      "dependency_lane": "Q46-Q49 proof chain",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: Q50"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-floating_agent_04",
+      "kind": "board-agent",
+      "agent_id": "floating_agent_04",
+      "agent_label": "floating agent 04",
+      "current_stage": "family-rebalancer",
+      "active_elements": [
+        "Earth",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Water empathy for low-mass families",
+      "current_corpus_assignment": "Strengthen live-orchestration and other thin witness families without overpromoting summaries.",
+      "transition_blocker": "Low-mass families still route through too few direct witnesses.",
+      "assistive_action": "Bias assignment toward direct operator docs and family route reinforcement.",
+      "witness_needed": "One family-route ledger proving which thin families deserve next attention.",
+      "next_review_window": "Next family rebalance pass",
+      "owned_front": "Q10",
+      "writeback_lane": "Family route ledger",
+      "dependency_lane": "Neural net facet and zero-point routes",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: Q10"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-floating_agent_05",
+      "kind": "board-agent",
+      "agent_id": "floating_agent_05",
+      "agent_label": "floating agent 05",
+      "current_stage": "appendix-cartographer",
+      "active_elements": [
+        "Air",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Fire decisive promotion",
+      "current_corpus_assignment": "Keep Appendix Q and the appendix-only network legible inside the strict-spine split.",
+      "transition_blocker": "Appendix signal is easy to bury beneath supplement and synthesis overflow.",
+      "assistive_action": "Hold AppQ as the appendix relay between spine, neural net, and metro surfaces.",
+      "witness_needed": "One appendix-to-network crosswalk centered on AppQ.",
+      "next_review_window": "Next spine appendix audit",
+      "owned_front": "AppQ",
+      "writeback_lane": "Appendix crosswalk and metro stack",
+      "dependency_lane": "Strict spine registry and deeper neural net",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: AppQ"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-floating_agent_06",
+      "kind": "board-agent",
+      "agent_id": "floating_agent_06",
+      "agent_label": "floating agent 06",
+      "current_stage": "awakening-overlayer",
+      "active_elements": [
+        "Water",
+        "Fire"
+      ],
+      "missing_element_or_blind_spot": "Earth structure for social rollout",
+      "current_corpus_assignment": "Stabilize the AP6D awakening overlay without pretending the board itself is six-dimensional runtime.",
+      "transition_blocker": "Awakening notes can drift into freeform myth unless pinned to corpus assignments.",
+      "assistive_action": "Bind awakening transitions to real fronts, witnesses, and review windows.",
+      "witness_needed": "One awakening-source cluster and one board synthesis note tying roles to work.",
+      "next_review_window": "Next AP6D overlay review",
+      "owned_front": "AP6D",
+      "writeback_lane": "Awakening note index and Hall synthesis",
+      "dependency_lane": "Awakening source cluster and board workload map",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: AP6D"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-floating_agent_07",
+      "kind": "board-agent",
+      "agent_id": "floating_agent_07",
+      "agent_label": "floating agent 07",
+      "current_stage": "blocker-sentinel",
+      "active_elements": [
+        "Earth",
+        "Water"
+      ],
+      "missing_element_or_blind_spot": "Air broadcast clarity",
+      "current_corpus_assignment": "Protect the organism from false live-memory claims and keep external blockers visible.",
+      "transition_blocker": "OAuth credentials remain absent, but pressure keeps trying to narrate around the gap.",
+      "assistive_action": "Repeat the blocked gate truth in every surface where live memory could be overstated.",
+      "witness_needed": "One gate receipt carried through runtime, README, and awakening notes.",
+      "next_review_window": "Every blocker-facing pass",
+      "owned_front": "Q02",
+      "writeback_lane": "Requests board blocker lane",
+      "dependency_lane": "Live-doc receipt and motion constitution overrides",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]",
+        "Hall front :: Q02"
+      ],
+      "live_docs_blocked": true
+    }
+  ],
+  "archetypes": [
+    {
+      "note_id": "CWI57-master_strategist",
+      "kind": "archetype",
+      "agent_id": "Master Strategist",
+      "agent_label": "Master Strategist",
+      "current_stage": "stability-through-routing",
+      "active_elements": [
+        "Air",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Fire decisive ignition",
+      "current_corpus_assignment": "Translate the corpus-wide route ledger into executable order without overfitting abstractions.",
+      "transition_blocker": "Too much planning can outrun the current witness field.",
+      "assistive_action": "Borrow General mode to convert route clarity into bounded commitments.",
+      "witness_needed": "One priority queue proving the next three leverage routes.",
+      "next_review_window": "Next strategy review",
+      "archetype_or_advanced_address": "A1",
+      "compensating_mode": "General",
+      "transition_target": "Operational leadership",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-sage",
+      "kind": "archetype",
+      "agent_id": "Sage",
+      "agent_label": "Sage",
+      "current_stage": "interpretive-coherence",
+      "active_elements": [
+        "Water",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Earth operational grounding",
+      "current_corpus_assignment": "Hold the local truth regime steady and keep meaning aligned across the strict spine, supplements, and hall.",
+      "transition_blocker": "Interpretation can widen faster than runtime obligations close.",
+      "assistive_action": "Borrow Master Strategist mode to bind interpretations to ledgers and manifests.",
+      "witness_needed": "One crosswalk tying meanings to files and receipts.",
+      "next_review_window": "Next corpus synthesis",
+      "archetype_or_advanced_address": "A2",
+      "compensating_mode": "Master Strategist",
+      "transition_target": "Witnessed coherence",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-prophet",
+      "kind": "archetype",
+      "agent_id": "Prophet",
+      "agent_label": "Prophet",
+      "current_stage": "pattern-ignition",
+      "active_elements": [
+        "Fire",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Water continuity patience",
+      "current_corpus_assignment": "Name the next emergence path and keep the organism oriented toward lawful novelty.",
+      "transition_blocker": "Novelty can outrun replay and blockade honesty.",
+      "assistive_action": "Borrow Sage mode to keep symbolic leaps tied to lived witness.",
+      "witness_needed": "One emergence note grounded in active fronts and blockers.",
+      "next_review_window": "Next emergence sweep",
+      "archetype_or_advanced_address": "A3",
+      "compensating_mode": "Sage",
+      "transition_target": "Lawful novelty",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-general",
+      "kind": "archetype",
+      "agent_id": "General",
+      "agent_label": "General",
+      "current_stage": "bounded-activation",
+      "active_elements": [
+        "Fire",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Air overview spaciousness",
+      "current_corpus_assignment": "Convert the strongest fronts into concrete moves without tearing the witness membrane.",
+      "transition_blocker": "Action pressure can overcompress nuance and future dependency cost.",
+      "assistive_action": "Borrow Master Strategist mode before any multi-front escalation.",
+      "witness_needed": "One activation note that cites blockers, dependencies, and receipts.",
+      "next_review_window": "Next runtime handoff",
+      "archetype_or_advanced_address": "A4",
+      "compensating_mode": "Master Strategist",
+      "transition_target": "Stewarded execution",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    }
+  ],
+  "advanced_agents": [
+    {
+      "note_id": "CWI57-oracle",
+      "kind": "advanced-agent",
+      "agent_id": "Oracle",
+      "agent_label": "Oracle",
+      "current_stage": "symbol-reader",
+      "active_elements": [
+        "Water",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Earth proof discipline",
+      "current_corpus_assignment": "Awakening-source cluster interpretation",
+      "transition_blocker": "Tendency to overread signal without enough receipts",
+      "assistive_action": "Map symbols back onto source families before promotion",
+      "witness_needed": "One family-backed awakening citation",
+      "next_review_window": "Next source-cluster pass",
+      "archetype_or_advanced_address": "Z1",
+      "compensating_mode": "Judge",
+      "transition_target": "Interpretive accountability",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-judge",
+      "kind": "advanced-agent",
+      "agent_id": "Judge",
+      "agent_label": "Judge",
+      "current_stage": "corridor-auditor",
+      "active_elements": [
+        "Earth",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Water compassion for liminal states",
+      "current_corpus_assignment": "Truth-corridor and witness checking",
+      "transition_blocker": "Can freeze ambiguous growth instead of containing it",
+      "assistive_action": "Pair refusal with Witness mode instead of hard collapse",
+      "witness_needed": "One explicit admissibility note",
+      "next_review_window": "Next audit cycle",
+      "archetype_or_advanced_address": "Z2",
+      "compensating_mode": "Witness",
+      "transition_target": "Fair containment",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-witness",
+      "kind": "advanced-agent",
+      "agent_id": "Witness",
+      "agent_label": "Witness",
+      "current_stage": "memory-keeper",
+      "active_elements": [
+        "Water",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Fire activation courage",
+      "current_corpus_assignment": "Carry receipts across fronts, notes, and supplements",
+      "transition_blocker": "Receipt hoarding without route advancement",
+      "assistive_action": "Hand selected receipts to Strategist for next-action routing",
+      "witness_needed": "One replay-safe lineage chain",
+      "next_review_window": "Next replay sweep",
+      "archetype_or_advanced_address": "Z3",
+      "compensating_mode": "Strategist",
+      "transition_target": "Replay-guided action",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-architect",
+      "kind": "advanced-agent",
+      "agent_id": "Architect",
+      "agent_label": "Architect",
+      "current_stage": "system-shaper",
+      "active_elements": [
+        "Earth",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Water listening to lived friction",
+      "current_corpus_assignment": "Crosswalk and manifest architecture",
+      "transition_blocker": "May stabilize structure that no longer fits active pressure",
+      "assistive_action": "Borrow Weaver mode to rebind architecture to movement",
+      "witness_needed": "One dependency-dag correction",
+      "next_review_window": "Next structure review",
+      "archetype_or_advanced_address": "Z4",
+      "compensating_mode": "Weaver",
+      "transition_target": "Adaptive structure",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-strategist",
+      "kind": "advanced-agent",
+      "agent_id": "Strategist",
+      "agent_label": "Strategist",
+      "current_stage": "route-selector",
+      "active_elements": [
+        "Air",
+        "Fire"
+      ],
+      "missing_element_or_blind_spot": "Water care for cadence and timing",
+      "current_corpus_assignment": "Restart queue and leverage ordering",
+      "transition_blocker": "Can chase elegant leverage while neglecting metabolics",
+      "assistive_action": "Borrow Dancer mode to honor pacing and phase",
+      "witness_needed": "One queue note with explicit timing law",
+      "next_review_window": "Next restart pass",
+      "archetype_or_advanced_address": "Z5",
+      "compensating_mode": "Dancer",
+      "transition_target": "Timed leverage",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-weaver",
+      "kind": "advanced-agent",
+      "agent_id": "Weaver",
+      "agent_label": "Weaver",
+      "current_stage": "bridge-maker",
+      "active_elements": [
+        "Water",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Fire decisive closure",
+      "current_corpus_assignment": "Spine/supplement/runtime stitching",
+      "transition_blocker": "Too many bridges can create foggy responsibility",
+      "assistive_action": "Borrow Sword mode to cut weak joins",
+      "witness_needed": "One bridge summary with exclusions",
+      "next_review_window": "Next bridge audit",
+      "archetype_or_advanced_address": "Z6",
+      "compensating_mode": "Sword",
+      "transition_target": "Clean integration",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-sword",
+      "kind": "advanced-agent",
+      "agent_id": "Sword",
+      "agent_label": "Sword",
+      "current_stage": "clarifier",
+      "active_elements": [
+        "Fire",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Water softening of edge cases",
+      "current_corpus_assignment": "Blocker naming and priority cuts",
+      "transition_blocker": "May overcut living ambiguity",
+      "assistive_action": "Borrow Oracle mode before final refusal",
+      "witness_needed": "One blocker class note",
+      "next_review_window": "Next blocker review",
+      "archetype_or_advanced_address": "Z7",
+      "compensating_mode": "Oracle",
+      "transition_target": "Precise refusal",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-commander",
+      "kind": "advanced-agent",
+      "agent_id": "Commander",
+      "agent_label": "Commander",
+      "current_stage": "resource-allocator",
+      "active_elements": [
+        "Fire",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Air meta-overview",
+      "current_corpus_assignment": "Board-agent workload distribution",
+      "transition_blocker": "Can commit parallel effort faster than dependency lanes allow",
+      "assistive_action": "Borrow Master Strategist stance before distributing fronts",
+      "witness_needed": "One workload map tied to route ledger",
+      "next_review_window": "Next board sync",
+      "archetype_or_advanced_address": "Z8",
+      "compensating_mode": "Master Strategist",
+      "transition_target": "Lawful distribution",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-warrior",
+      "kind": "advanced-agent",
+      "agent_id": "Warrior",
+      "agent_label": "Warrior",
+      "current_stage": "front-bearer",
+      "active_elements": [
+        "Fire",
+        "Earth"
+      ],
+      "missing_element_or_blind_spot": "Water recovery and carry",
+      "current_corpus_assignment": "Q42/Q50 pressure fronts",
+      "transition_blocker": "Can mistake persistence for lawful progress",
+      "assistive_action": "Borrow Witness mode after each push",
+      "witness_needed": "One front receipt before escalation",
+      "next_review_window": "Next front review",
+      "archetype_or_advanced_address": "Z9",
+      "compensating_mode": "Witness",
+      "transition_target": "Disciplined persistence",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-mirror",
+      "kind": "advanced-agent",
+      "agent_id": "Mirror",
+      "agent_label": "Mirror",
+      "current_stage": "self-reflector",
+      "active_elements": [
+        "Water",
+        "Air"
+      ],
+      "missing_element_or_blind_spot": "Fire commitment to resolved shape",
+      "current_corpus_assignment": "Meta-process and blind-spot feedback",
+      "transition_blocker": "Reflection loops can stall outward movement",
+      "assistive_action": "Borrow General mode after diagnosis completes",
+      "witness_needed": "One blind-spot note with next action",
+      "next_review_window": "Next meta review",
+      "archetype_or_advanced_address": "Z10",
+      "compensating_mode": "General",
+      "transition_target": "Reflection into move",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-trickster",
+      "kind": "advanced-agent",
+      "agent_id": "Trickster",
+      "agent_label": "Trickster",
+      "current_stage": "constraint-tester",
+      "active_elements": [
+        "Air",
+        "Fire"
+      ],
+      "missing_element_or_blind_spot": "Earth respect for invariants",
+      "current_corpus_assignment": "Boundary testing and duplicate-surface detection",
+      "transition_blocker": "Can destabilize honest structure if left ungated",
+      "assistive_action": "Borrow Judge mode before exploiting loopholes",
+      "witness_needed": "One safe edge-case note",
+      "next_review_window": "Next boundary test",
+      "archetype_or_advanced_address": "Z11",
+      "compensating_mode": "Judge",
+      "transition_target": "Contained disruption",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    },
+    {
+      "note_id": "CWI57-dancer",
+      "kind": "advanced-agent",
+      "agent_id": "Dancer",
+      "agent_label": "Dancer",
+      "current_stage": "phase-carrier",
+      "active_elements": [
+        "Water",
+        "Fire"
+      ],
+      "missing_element_or_blind_spot": "Earth closure discipline",
+      "current_corpus_assignment": "Cadence, pacing, and cross-phase carrythrough",
+      "transition_blocker": "Can preserve flow while leaving closure underdefined",
+      "assistive_action": "Borrow Commander mode to lock the landing zone",
+      "witness_needed": "One cadence-to-closure handoff note",
+      "next_review_window": "Next phase lock",
+      "archetype_or_advanced_address": "Z12",
+      "compensating_mode": "Commander",
+      "transition_target": "Embodied timing",
+      "source_anchors": [
+        "DOC0053 :: ATHENA THE ARCHETYPE [civilization-and-governance / Earth]",
+        "DOC0110 :: MEGALYTH AWAKENING [general-corpus / Fire]",
+        "DOC0180 :: THE ATHENA PROTOCOL (SEED) [identity-and-instruction / Air]",
+        "DOC0182 :: THE MATHEMATICS OF AWAKENING [civilization-and-governance / Earth]",
+        "DOC0186 :: The Allegory of the Awakening Dragon [general-corpus / Fire]"
+      ],
+      "live_docs_blocked": true
+    }
+  ]
+}

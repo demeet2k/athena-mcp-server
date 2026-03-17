@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-03-13T20:30:00+00:00",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "authority_mode": "live deep root plus MATH GOD canon; package export is downstream only",
+  "dimension_stages": [
+    "4D_NATIVE",
+    "5D_COMPRESSION",
+    "6D_WEAVE"
+  ],
+  "baseline_metro_level": 4,
+  "additive_metro_levels": [
+    5,
+    6
+  ],
+  "active_basis_ids": [
+    "06",
+    "08",
+    "10",
+    "16"
+  ],
+  "bridge_basis_ids": [
+    "14",
+    "04",
+    "09",
+    "15"
+  ],
+  "default_appendices": [
+    "AppA",
+    "AppE",
+    "AppF",
+    "AppI",
+    "AppM",
+    "AppO",
+    "AppP",
+    "AppQ"
+  ],
+  "control_surfaces": [
+    "00_CONTROL/06_FIRE_5D_6D_EXTENSION.md",
+    "01_FIRE/17_ignition_pressure_and_overburden_map.md",
+    "01_FIRE/18_5d_compression_field.md",
+    "01_FIRE/19_level_5_mobius_bridge_map.md",
+    "01_FIRE/20_level_6_hologram_weave_map.md",
+    "01_FIRE/21_reverse_appendix_overlay_ledger.md",
+    "01_FIRE/22_cross_agent_handoff_ledger.md",
+    "07_METRO_STACK/05_level_5_mobius_bridge_map.md",
+    "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+    "08_APPENDIX_CRYSTAL/01_reverse_appendix_overlay_ledger.md"
+  ],
+  "mobius_bridge_values": [
+    "none",
+    "Q_ingress",
+    "O_return",
+    "QO_loop"
+  ],
+  "reverse_overlay_registry": [
+    {"station": "Z", "class": "upper_reverse_field", "bridge_status": "collapse_anchor", "canonical_appendix_map": ["AppM", "AppI"]},
+    {"station": "Y", "class": "upper_reverse_field", "bridge_status": "mirror_fold", "canonical_appendix_map": ["AppF", "AppB"]},
+    {"station": "X", "class": "upper_reverse_field", "bridge_status": "transport_gate", "canonical_appendix_map": ["AppF", "AppH"]},
+    {"station": "W", "class": "upper_reverse_field", "bridge_status": "support_span", "canonical_appendix_map": ["AppH", "AppE"]},
+    {"station": "V", "class": "upper_reverse_field", "bridge_status": "recursive_turn", "canonical_appendix_map": ["AppG", "AppM"]},
+    {"station": "U", "class": "upper_reverse_field", "bridge_status": "retention_field", "canonical_appendix_map": ["AppN", "AppM"]},
+    {"station": "T", "class": "upper_reverse_field", "bridge_status": "phase_shift", "canonical_appendix_map": ["AppE", "AppF"]},
+    {"station": "S", "class": "upper_reverse_field", "bridge_status": "pre_hinge_stabilizer", "canonical_appendix_map": ["AppD", "AppP"]},
+    {"station": "R", "class": "upper_reverse_field", "bridge_status": "reflection_gate", "canonical_appendix_map": ["AppF", "AppO"]},
+    {"station": "Q", "class": "mobius_hinge", "bridge_status": "Q_ingress", "canonical_appendix_map": ["AppQ", "AppF", "AppE"]},
+    {"station": "P", "class": "bridge_band", "bridge_status": "conversion_band", "canonical_appendix_map": ["AppP", "AppN"]},
+    {"station": "O", "class": "mobius_hinge", "bridge_status": "O_return", "canonical_appendix_map": ["AppO", "AppP", "AppI"]},
+    {"station": "N", "class": "bridge_band", "bridge_status": "QO_loop", "canonical_appendix_map": ["AppN", "AppM"]},
+    {"station": "M", "class": "bridge_band", "bridge_status": "return_stabilizer", "canonical_appendix_map": ["AppM", "AppP"]},
+    {"station": "L", "class": "bridge_band", "bridge_status": "memory_return", "canonical_appendix_map": ["AppN", "AppM"]},
+    {"station": "K", "class": "bridge_band", "bridge_status": "reentry_anchor", "canonical_appendix_map": ["AppA", "AppM"]}
+  ],
+  "handoff_contracts": [
+    {
+      "agent": "Water",
+      "title": "Continuity and retained identity",
+      "required_appendices": ["AppE", "AppI", "AppM"]
+    },
+    {
+      "agent": "Air",
+      "title": "Naming and topology",
+      "required_appendices": ["AppA", "AppF", "AppQ"]
+    },
+    {
+      "agent": "Earth",
+      "title": "Replay and admissibility under load",
+      "required_appendices": ["AppI", "AppM", "AppO", "AppP"]
+    }
+  ],
+  "package_export_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\LEDGERS\\05_fire_6d_export_registry.json"
+}

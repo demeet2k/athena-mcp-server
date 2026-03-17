@@ -1,13 +1,13 @@
 # Archetype Water-Fire
 
 - Role: Transmuter of raw notes into linked narrative motion
-- ThreadCount: `1`
+- ThreadCount: `0`
 - PodCount: `0`
-- MicroModes: `Earth:1`
-- Truths: `AMBIG:1`
+- MicroModes: `none`
+- Truths: `none`
 
 ## Live Threads
-- `I AM ATHENA`
+- none
 
 ## Live Pods
 - none

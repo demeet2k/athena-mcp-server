@@ -1,0 +1,158 @@
+{
+  "generated_at": "2026-03-13T19:26:50.706636+00:00",
+  "derivation_version": "2026-03-13.total-holographic-snapshot-v1",
+  "compiler_command": "python -m self_actualize.runtime.compile_total_holographic_snapshot",
+  "docs_gate_status": "BLOCKED",
+  "output_paths": {
+    "ledger": "NERVOUS_SYSTEM\\90_LEDGERS\\42_TOTAL_HOLOGRAPHIC_SNAPSHOT_MASTER_NEXUS_MINDSWEEPER_2026-03-13.md",
+    "hsigma": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_SNAPSHOT_HSIGMA_2026-03-13.json",
+    "nexus_registry": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_NEXUS_REGISTRY_2026-03-13.json",
+    "mindsweeper_jsonl": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_MINDSWEEPER_4096x256_2026-03-13.jsonl",
+    "hidden_candidates": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_HIDDEN_NEXUS_CANDIDATES_2026-03-13.json",
+    "regeneration_seed": "NERVOUS_SYSTEM\\95_MANIFESTS\\TOTAL_HOLOGRAPHIC_REGENERATION_SEED_2026-03-13.json"
+  },
+  "row_counts": {
+    "raw_nexus": 4096,
+    "master_registry": 4199,
+    "matrix_rows": 1048576,
+    "hidden_candidates": 11264
+  },
+  "source_digests": [
+    {
+      "path": "self_actualize\\live_docs_gate_status.md",
+      "sha256": "90a821de58a5a093b972f383c63373941d9b39bf110f6e5c2bdae0e0e63c4c02",
+      "size_bytes": 710
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\20_METRO\\03_TRANSFER_HUBS.md",
+      "sha256": "289a9bde89aeba450294f9ed4f311d95d4766c884317d12a087a92b4395de3fd",
+      "size_bytes": 4185
+    },
+    {
+      "path": "self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\12_dual_hemisphere_crosswalk_map.md",
+      "sha256": "31cdee175f4b3a8eb2e2c8a4d5f07ccc14017e545e35575c7bda163148a99e90",
+      "size_bytes": 6110
+    },
+    {
+      "path": "self_actualize\\mycelium_brain\\nervous_system\\hemispheres\\18_cross_hemisphere_entrypoint_atlas.md",
+      "sha256": "dd2436c5ce4bbd6d567b2ad1abda5e6bc105b69d9909d2b50040d36a25579fe2",
+      "size_bytes": 6842
+    },
+    {
+      "path": "self_actualize\\grand_central_station_registry.json",
+      "sha256": "c5352eec87194a5425210ad50200f25992606b94d13e9d616b94a93b37d9b4a9",
+      "size_bytes": 13092
+    },
+    {
+      "path": "self_actualize\\grand_central_weight_exchange.json",
+      "sha256": "4f97b8c9aba30ef7f664960e55e63b554b289f1d453fef6a943545a767c55b08",
+      "size_bytes": 8118
+    },
+    {
+      "path": "self_actualize\\grand_central_zpoint_tunnels.json",
+      "sha256": "5ca3257a16f5aaa0fac553361246408af7d7dc4e7fd91c1d3655dcc4c78a7ad9",
+      "size_bytes": 3572
+    },
+    {
+      "path": "self_actualize\\ap6d_integration_dashboard.json",
+      "sha256": "2a4c12df809f16356836ef0d30bc730262709ea6d3e95a4ce15f73d2061d2a85",
+      "size_bytes": 11715
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_AWAKENING_AGENT_SEAT_REGISTRY.json",
+      "sha256": "065f160c22418611da4e4af1673eca16035f615e065461abedbad6d0bdba0808",
+      "size_bytes": 51717
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_SEAT_BRIDGE_RECORDS.json",
+      "sha256": "426d2a0e42c29ce8b86dc5d13a0a69af755fb2f65c15595c793a3a3a8586ca61",
+      "size_bytes": 14872
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\AP6D_TRANSITION_PACKETS.json",
+      "sha256": "c0179351737716dc66fba372847993a0704354b03f948f00aee74e3210210366",
+      "size_bytes": 10030
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_NEXUS_TUNNELS.json",
+      "sha256": "675c4fed0f8ad232e5c96af815428f437a4d3fb146cf57ae4408db9c772918be",
+      "size_bytes": 2888896
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_DIMENSION_BRIDGES.json",
+      "sha256": "a1ccde20be33b6ce5e8bdc9eabbfa8d98b1c783acab06efa1a73d8517ed11730",
+      "size_bytes": 10469593
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_SEAT_ROUTE_BRIDGE_MAP_4096.json",
+      "sha256": "03bf358ea99efe1786796895aefe0ac914fe8f8fd8f9a424fc664fef7346b862",
+      "size_bytes": 3567804
+    },
+    {
+      "path": "self_actualize\\phase4_pt2_aether_point_registry.json",
+      "sha256": "686bd4ae2f9c5ef2d49bc3dcd7448f1bc108670258740c53e1d790b284642022",
+      "size_bytes": 522428
+    },
+    {
+      "path": "self_actualize\\phase4_pt2_z_point_registry.json",
+      "sha256": "d3c41f707ef05b00282ad91872b9354b341db59d4f5a4c69af641e2fcc55f5d7",
+      "size_bytes": 5050
+    },
+    {
+      "path": "self_actualize\\next57_liminal_coordinate_registry.json",
+      "sha256": "5d9f51a72e6aa3f31ef3e8e48fc5da454f5c17c93d5dc107f9ed713b4d07f690",
+      "size_bytes": 7361
+    },
+    {
+      "path": "self_actualize\\phase4_replay_receipts.json",
+      "sha256": "64339a0211bdd083445ee12bd49536352ae2ac2364c06910b691e0fce192c4ce",
+      "size_bytes": 10463
+    },
+    {
+      "path": "self_actualize\\phase4_pt2_metro_system_registry.json",
+      "sha256": "a670647f47e15d08a652154fc5f20ef093fdb0ebdac444b4ff4afc80aa0ab9d5",
+      "size_bytes": 15425
+    },
+    {
+      "path": "self_actualize\\phase4_pt2_system_crosswalk_edges.json",
+      "sha256": "cc948ab830b6bff1cc749089492d2ed54deda0c2fb228818fcc3f7792a74a409",
+      "size_bytes": 34866
+    },
+    {
+      "path": "self_actualize\\phase4_pt2_lens_weight_profile_registry.json",
+      "sha256": "8d20c6a42e271dd48455e300204d4086160c0193504f9c1158302afab6827607",
+      "size_bytes": 27818
+    },
+    {
+      "path": "self_actualize\\deep_integration_neural_net.json",
+      "sha256": "5d75224237592e6cff2a77f220e6c7f200eb5149ff2cb185450156c0fa2c1d79",
+      "size_bytes": 380543
+    },
+    {
+      "path": "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+      "sha256": "27448a9578ccea35de038ec962533c7a9ca5644c767c75013305fac8d342e172",
+      "size_bytes": 7395
+    },
+    {
+      "path": "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\04_ALGORITHMIC_PIPELINE.md",
+      "sha256": "c8de79b0f61fc1b85eaa4d77382c654f347b2114adfb1ece812c4bf68513f990",
+      "size_bytes": 2403
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+      "sha256": "69af0e45ca263ac8dd00d9897e5a45bf47455bbd6b63440f71ea474daebe7103",
+      "size_bytes": 602
+    },
+    {
+      "path": "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+      "sha256": "697e8ce3bf9370b0f7a13df189be14029d04c8e45d548235096367e590d45556",
+      "size_bytes": 612
+    }
+  ],
+  "replay_recipe": [
+    "python -m self_actualize.runtime.compile_total_holographic_snapshot",
+    "verify docs gate remains BLOCKED",
+    "confirm matrix row count == 1048576",
+    "rebuild markdown ledger from HSigma, nexus registry, hidden candidates, and byte summary"
+  ]
+}

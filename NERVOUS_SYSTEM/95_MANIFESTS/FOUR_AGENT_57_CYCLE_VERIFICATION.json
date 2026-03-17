@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-03-13T16:54:28.924181+00:00",
+  "truth": "OK",
+  "checks": {
+    "docs_gate_blocked": true,
+    "master_registry_rows_5": true,
+    "packet_atlas_depth_counts_ok": true,
+    "packet_atlas_total_entries": true,
+    "receipt_index_loops_57": true,
+    "hall_macro_section_present": true,
+    "temple_mirror_section_present": true,
+    "hall_macro_rows_4": true,
+    "temple_mirror_rows_5": true,
+    "active_run_overlay_present": true,
+    "build_queue_overlay_present": true,
+    "next_self_overlay_present": true,
+    "active_queue_overlay_present": true,
+    "current_cycle_owner_known": true,
+    "current_phase_known": true,
+    "current_spine_preserved": true
+  },
+  "live_spine": {
+    "active_coordination_membrane": "Q41 / TQ06",
+    "q42_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "q42_operational_current": "QS64-21 Connectivity-Refine-Square",
+    "q42_historical_local_proof": "QS64-24 Connectivity-Refine-Fractal",
+    "q42_next_hall_seed": "QS64-22 Connectivity-Refine-Flower",
+    "deeper_receiver": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "reserve_frontier": "Q46",
+    "blocked_external_front": "Q02",
+    "separate_runtime_seed": "Q50 -> Wave7/Helix.Runtime.Fire.Diagnose",
+    "ap6d_operational_current": "QS64-24 Connectivity-Refine-Fractal",
+    "ap6d_next_hall_seed": "none; do not invent QS64-25",
+    "docs_gate_status": "BLOCKED",
+    "docs_gate_truth": "FAIL"
+  },
+  "counts": {
+    "families": 19,
+    "passes": 3,
+    "loops": 57,
+    "primary_agents": 4,
+    "prime_arbiter": 1,
+    "atlas_total": 4096,
+    "atlas_active": 1024,
+    "atlas_dormant": 3072,
+    "seat_registry_entries": 228,
+    "quest_cluster_entries": 228
+  },
+  "current_frontier": {
+    "hall_front": "Q51",
+    "temple_front": "TQ07",
+    "current_loop": "C01",
+    "current_family": "A01 NERVOUS_SYSTEM",
+    "current_phase": "Survey",
+    "restart_seed": "C02 -> A02 Survey"
+  }
+}

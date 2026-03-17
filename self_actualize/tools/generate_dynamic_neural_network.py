@@ -497,8 +497,8 @@ def render_index(atlas: dict, archive_atlas: dict, corpus_basis: list[dict], doc
 
         ## Build Snapshot
 
-        - Live atlas records: `{atlas["record_count"]}`
-        - Archive atlas records: `{archive_atlas["record_count"]}`
+        - Indexed witness (live atlas): `{atlas["record_count"]}`
+        - Archive witness (archive atlas): `{archive_atlas["record_count"]}`
         - Live Docs gate: `{infer_gate_status()}`
         - Whole-system coordinate: `<coverage={system_geo["coverage_ratio"]}, theta={system_geo["theta_deg"]}, dominant={system_geo["dominant_macro"]}>`
 
@@ -530,6 +530,23 @@ def render_index(atlas: dict, archive_atlas: dict, corpus_basis: list[dict], doc
 
 def render_framework_synthesis(atlas: dict, archive_atlas: dict, satellite_records: list[dict]) -> str:
     satellite_lines = "\n".join(f"- `{record['relative_path']}`" for record in satellite_records)
+    summary = atlas.get("summary", {})
+    d3_lines = "\n".join(
+        f"- `{line}`: `{count}`"
+        for line, count in summary.get("by_d3_line", {}).items()
+    ) or "- `unknown`: `0`"
+    d5_states = "\n".join(
+        f"- `{state}`: `{count}`"
+        for state, count in summary.get("by_d5_state", {}).items()
+    ) or "- `unknown`: `0`"
+    d6_states = "\n".join(
+        f"- `{state}`: `{count}`"
+        for state, count in summary.get("by_d6_state", {}).items()
+    ) or "- `unknown`: `0`"
+    canonical_statuses = "\n".join(
+        f"- `{status}`: `{count}`"
+        for status, count in summary.get("by_canonical_status", {}).items()
+    ) or "- `unknown`: `0`"
     return (
         "# Whole-Project Framework Synthesis\n\n"
         "The project is not a loose pile of books, math notes, and experiments. It is a routed manuscript organism trying to make meaning addressable, admissible, witness-bearing, replayable, and eventually executable across one shared corpus.\n\n"
@@ -544,6 +561,16 @@ def render_framework_synthesis(atlas: dict, archive_atlas: dict, satellite_recor
         "6. Text computers and mythic operating systems through `VOYNICHVM TRICOMPILER`, `TORAT HA-MISPAR`, `THE UNIVERSAL COMPUTATIONAL ONTOLOGY`, and the CPU exemplar layer.\n"
         "7. The proof-carrying neural runtime through the Athena neural network manuscripts and Python implementations.\n"
         "8. Siteswap as temporal orchestration through the Chapter 11 juggling/pod architecture.\n\n"
+        "## Dimensional Backplane\n\n"
+        "The live atlas now carries additive dimensional bindings so 3D ingress, 4D native compilation, 5D compression, and 6D weave routes can be queried directly instead of inferred from prose alone.\n\n"
+        "### 3D ingress lines\n\n"
+        f"{d3_lines}\n\n"
+        "### 5D compression states\n\n"
+        f"{d5_states}\n\n"
+        "### 6D weave states\n\n"
+        f"{d6_states}\n\n"
+        "### Canonical status\n\n"
+        f"{canonical_statuses}\n\n"
         "## Named Query Resolution\n\n"
         "- `quad logic bits`: `QBD-4` and `QBD-4X`\n"
         "- `quantum thinking`: `Quantum Computing on Standard Hardware`, `ZERO-POINT COMPUTING`, `ATHENA AEGIS`, `ATHENA’S LOOM`\n"
@@ -592,6 +619,7 @@ def render_corpus_geometry(corpus_basis: list[dict]) -> str:
 def render_document_geometry(document_basis: list[dict], satellite_records: list[dict]) -> str:
     rows = []
     for item in document_basis:
+        basis_refs = ", ".join(item["record"].get("control_bindings", {}).get("basis_refs", [])) or "-"
         rows.append(
             [
                 item["name"],
@@ -600,13 +628,14 @@ def render_document_geometry(document_basis: list[dict], satellite_records: list
                 f'{item["global_weight"]:.6f}',
                 item["macro"],
                 item["cluster"],
+                basis_refs,
                 f'{item["theta_deg"]:.3f}',
             ]
         )
     satellite_list = "\n".join(f"- `{record['relative_path']}`" for record in satellite_records)
     return (
         "# Document Geometry\n\n"
-        + table(["Document", "Path", "Bytes", "Weight", "Macro", "Cluster", "Theta"], rows)
+        + table(["Document", "Path", "Bytes", "Weight", "Macro", "Cluster", "Basis refs", "Theta"], rows)
         + "\n\n## Satellite Documents\n\n"
         + satellite_list
         + "\n"

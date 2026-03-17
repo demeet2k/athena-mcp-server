@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L23",
+  "status": "PENDING",
+  "lead_agent": "PLANNER",
+  "objective": "synthesize route weighting and dispatch bottlenecks",
+  "advancement_tuple": {
+    "focus_family": "grand-central",
+    "frontier_type": "grand-central-dispatch-upgrade",
+    "dominant_evidence_class": "dispatch-ledger",
+    "compression_target": "redundant-route-law"
+  },
+  "truth_state": "NEAR"
+}

@@ -1,0 +1,41 @@
+"""Gateway Algebra Module - Pell equations, Möbius boosts, hyperbolic navigation."""
+
+from atlasforge.gateway.gateway import (
+    GatewayScalar,
+    BoostMatrix,
+    PellSolution,
+    PellGateway,
+    FoldLadder,
+    GatewayAlgebra,
+    SpecialGateways,
+    solve_pell_fundamental,
+    gateway_from_angle,
+    gateway_angle,
+    hyperbolic_distance,
+    create_gateway_algebra,
+    pell_orbit,
+    velocity_addition,
+    rapidity_from_velocity,
+    velocity_from_rapidity,
+    transmission_coefficient,
+)
+
+__all__ = [
+    'GatewayScalar',
+    'BoostMatrix',
+    'PellSolution',
+    'PellGateway',
+    'FoldLadder',
+    'GatewayAlgebra',
+    'SpecialGateways',
+    'solve_pell_fundamental',
+    'gateway_from_angle',
+    'gateway_angle',
+    'hyperbolic_distance',
+    'create_gateway_algebra',
+    'pell_orbit',
+    'velocity_addition',
+    'rapidity_from_velocity',
+    'velocity_from_rapidity',
+    'transmission_coefficient',
+]

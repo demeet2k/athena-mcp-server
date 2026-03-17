@@ -1,0 +1,440 @@
+{
+  "generated_at": "2026-03-13T14:53:18.842544+00:00",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "count_law": {
+    "hall_macro_quests": 16,
+    "hall_packets": 64,
+    "governance_fibers": 256,
+    "active_synaptic_seats": 1024,
+    "atlas_total": 4096,
+    "atlas_dormant": 3072
+  },
+  "basis_to_elemental_lanes": [
+    {
+      "basis_doc_id": "K01",
+      "title": "The Holographic Manuscript Brain",
+      "elemental_lane": "Water",
+      "primary_move": "Diagnose",
+      "hall_macro_parent": "AP6D-H-WATER-Diagnose",
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42",
+      "shadow_family": "WaterShadow"
+    },
+    {
+      "basis_doc_id": "K02",
+      "title": "Self-Routing Meta-Framework",
+      "elemental_lane": "Earth",
+      "primary_move": "Diagnose",
+      "hall_macro_parent": "AP6D-H-EARTH-Diagnose",
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04",
+      "shadow_family": "EarthShadow"
+    },
+    {
+      "basis_doc_id": "K03",
+      "title": "QBD-4",
+      "elemental_lane": "Air",
+      "primary_move": "Diagnose",
+      "hall_macro_parent": "AP6D-H-AIR-Diagnose",
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06",
+      "shadow_family": "AirShadow"
+    },
+    {
+      "basis_doc_id": "K04",
+      "title": "Quad Holographic Rotation",
+      "elemental_lane": "Air",
+      "primary_move": "Refine",
+      "hall_macro_parent": "AP6D-H-AIR-Refine",
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06",
+      "shadow_family": "AirShadow"
+    },
+    {
+      "basis_doc_id": "K05",
+      "title": "The Holographic Kernel",
+      "elemental_lane": "Air",
+      "primary_move": "Synthesize",
+      "hall_macro_parent": "AP6D-H-AIR-Synthesize",
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06",
+      "shadow_family": "AirShadow"
+    },
+    {
+      "basis_doc_id": "K06",
+      "title": "Time Fractal",
+      "elemental_lane": "Fire",
+      "primary_move": "Diagnose",
+      "hall_macro_parent": "AP6D-H-FIRE-Diagnose",
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46",
+      "shadow_family": "FireShadow"
+    },
+    {
+      "basis_doc_id": "K07",
+      "title": "Crystal Computing Framework",
+      "elemental_lane": "Air",
+      "primary_move": "Scale",
+      "hall_macro_parent": "AP6D-H-AIR-Scale",
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06",
+      "shadow_family": "AirShadow"
+    },
+    {
+      "basis_doc_id": "K08",
+      "title": "Quantum Computing on Standard Hardware",
+      "elemental_lane": "Fire",
+      "primary_move": "Refine",
+      "hall_macro_parent": "AP6D-H-FIRE-Refine",
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46",
+      "shadow_family": "FireShadow"
+    },
+    {
+      "basis_doc_id": "K09",
+      "title": "Zero-Point Computing",
+      "elemental_lane": "Earth",
+      "primary_move": "Refine",
+      "hall_macro_parent": "AP6D-H-EARTH-Refine",
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04",
+      "shadow_family": "EarthShadow"
+    },
+    {
+      "basis_doc_id": "K10",
+      "title": "Athena Neural Network Tome",
+      "elemental_lane": "Fire",
+      "primary_move": "Synthesize",
+      "hall_macro_parent": "AP6D-H-FIRE-Synthesize",
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46",
+      "shadow_family": "FireShadow"
+    },
+    {
+      "basis_doc_id": "K11",
+      "title": "VOYNICHVM Tricompiler",
+      "elemental_lane": "Water",
+      "primary_move": "Refine",
+      "hall_macro_parent": "AP6D-H-WATER-Refine",
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42",
+      "shadow_family": "WaterShadow"
+    },
+    {
+      "basis_doc_id": "K12",
+      "title": "Torat Ha-Mispar",
+      "elemental_lane": "Water",
+      "primary_move": "Synthesize",
+      "hall_macro_parent": "AP6D-H-WATER-Synthesize",
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42",
+      "shadow_family": "WaterShadow"
+    },
+    {
+      "basis_doc_id": "K13",
+      "title": "Universal Computational Ontology",
+      "elemental_lane": "Earth",
+      "primary_move": "Synthesize",
+      "hall_macro_parent": "AP6D-H-EARTH-Synthesize",
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04",
+      "shadow_family": "EarthShadow"
+    },
+    {
+      "basis_doc_id": "K14",
+      "title": "Ch11 The Helical Manifestation Engine",
+      "elemental_lane": "Water",
+      "primary_move": "Scale",
+      "hall_macro_parent": "AP6D-H-WATER-Scale",
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42",
+      "shadow_family": "WaterShadow"
+    },
+    {
+      "basis_doc_id": "K15",
+      "title": "Ch12 Boundary Checks and Isolation Axioms",
+      "elemental_lane": "Earth",
+      "primary_move": "Scale",
+      "hall_macro_parent": "AP6D-H-EARTH-Scale",
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04",
+      "shadow_family": "EarthShadow"
+    },
+    {
+      "basis_doc_id": "K16",
+      "title": "Ch19 Recursive Self-Reference and Self-Repair",
+      "elemental_lane": "Fire",
+      "primary_move": "Scale",
+      "hall_macro_parent": "AP6D-H-FIRE-Scale",
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46",
+      "shadow_family": "FireShadow"
+    }
+  ],
+  "macro_projection_rows": [
+    {
+      "hall_macro_id": "AP6D-H-WATER-Diagnose",
+      "element": "Water",
+      "move": "Diagnose",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42"
+    },
+    {
+      "hall_macro_id": "AP6D-H-WATER-Refine",
+      "element": "Water",
+      "move": "Refine",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42"
+    },
+    {
+      "hall_macro_id": "AP6D-H-WATER-Synthesize",
+      "element": "Water",
+      "move": "Synthesize",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42"
+    },
+    {
+      "hall_macro_id": "AP6D-H-WATER-Scale",
+      "element": "Water",
+      "move": "Scale",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_note_id": "FTN-Q42"
+    },
+    {
+      "hall_macro_id": "AP6D-H-EARTH-Diagnose",
+      "element": "Earth",
+      "move": "Diagnose",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04"
+    },
+    {
+      "hall_macro_id": "AP6D-H-EARTH-Refine",
+      "element": "Earth",
+      "move": "Refine",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04"
+    },
+    {
+      "hall_macro_id": "AP6D-H-EARTH-Synthesize",
+      "element": "Earth",
+      "move": "Synthesize",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04"
+    },
+    {
+      "hall_macro_id": "AP6D-H-EARTH-Scale",
+      "element": "Earth",
+      "move": "Scale",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_note_id": "FTN-TQ04"
+    },
+    {
+      "hall_macro_id": "AP6D-H-FIRE-Diagnose",
+      "element": "Fire",
+      "move": "Diagnose",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46"
+    },
+    {
+      "hall_macro_id": "AP6D-H-FIRE-Refine",
+      "element": "Fire",
+      "move": "Refine",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46"
+    },
+    {
+      "hall_macro_id": "AP6D-H-FIRE-Synthesize",
+      "element": "Fire",
+      "move": "Synthesize",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46"
+    },
+    {
+      "hall_macro_id": "AP6D-H-FIRE-Scale",
+      "element": "Fire",
+      "move": "Scale",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_note_id": "FTN-Q46"
+    },
+    {
+      "hall_macro_id": "AP6D-H-AIR-Diagnose",
+      "element": "Air",
+      "move": "Diagnose",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06"
+    },
+    {
+      "hall_macro_id": "AP6D-H-AIR-Refine",
+      "element": "Air",
+      "move": "Refine",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06"
+    },
+    {
+      "hall_macro_id": "AP6D-H-AIR-Synthesize",
+      "element": "Air",
+      "move": "Synthesize",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06"
+    },
+    {
+      "hall_macro_id": "AP6D-H-AIR-Scale",
+      "element": "Air",
+      "move": "Scale",
+      "hall_packet_count": 4,
+      "governance_fiber_count": 16,
+      "active_seat_count": 64,
+      "atlas_seat_count": 256,
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_note_id": "FTN-TQ06"
+    }
+  ],
+  "agent_projection_rows": [
+    {
+      "agent_id": "AP6D-PRIME",
+      "macro_count": 16,
+      "hall_packet_count": 16,
+      "governance_fiber_count": 64,
+      "active_seat_count": 256,
+      "atlas_family": "CouncilOverlay",
+      "transition_note_id": "ATN-AP6D-PRIME",
+      "feeder_dependencies": [
+        "Q42",
+        "Q46",
+        "TQ04",
+        "TQ06"
+      ]
+    },
+    {
+      "agent_id": "AP6D-WATER",
+      "macro_count": 4,
+      "hall_packet_count": 16,
+      "governance_fiber_count": 64,
+      "active_seat_count": 256,
+      "atlas_family": "WaterShadow",
+      "transition_note_id": "ATN-AP6D-WATER",
+      "feeder_dependencies": [
+        "Q42"
+      ]
+    },
+    {
+      "agent_id": "AP6D-EARTH",
+      "macro_count": 4,
+      "hall_packet_count": 16,
+      "governance_fiber_count": 64,
+      "active_seat_count": 256,
+      "atlas_family": "EarthShadow",
+      "transition_note_id": "ATN-AP6D-EARTH",
+      "feeder_dependencies": [
+        "TQ04"
+      ]
+    },
+    {
+      "agent_id": "AP6D-FIRE",
+      "macro_count": 4,
+      "hall_packet_count": 16,
+      "governance_fiber_count": 64,
+      "active_seat_count": 256,
+      "atlas_family": "FireShadow",
+      "transition_note_id": "ATN-AP6D-FIRE",
+      "feeder_dependencies": [
+        "Q46"
+      ]
+    },
+    {
+      "agent_id": "AP6D-AIR",
+      "macro_count": 4,
+      "hall_packet_count": 16,
+      "governance_fiber_count": 64,
+      "active_seat_count": 256,
+      "atlas_family": "AirShadow",
+      "transition_note_id": "ATN-AP6D-AIR",
+      "feeder_dependencies": [
+        "TQ06"
+      ]
+    }
+  ],
+  "path_drift_reconciliation": [
+    {
+      "legacy_ref": "ATHENA TEMPLE/06_ATHENA_PRIME_6D_OVERLAY_DECREE.md",
+      "live_ref": "self_actualize/mycelium_brain/ATHENA TEMPLE/06_ATHENA_PRIME_6D_OVERLAY_DECREE.md",
+      "live_exists": true
+    },
+    {
+      "legacy_ref": "ATHENA TEMPLE/CRYSTALS/03_AP6D_256_GOVERNANCE_CRYSTAL.md",
+      "live_ref": "self_actualize/mycelium_brain/ATHENA TEMPLE/CRYSTALS/03_AP6D_256_GOVERNANCE_CRYSTAL.md",
+      "live_exists": true
+    },
+    {
+      "legacy_ref": "ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+      "live_ref": "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+      "live_exists": true
+    },
+    {
+      "legacy_ref": "ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+      "live_ref": "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+      "live_exists": true
+    }
+  ]
+}

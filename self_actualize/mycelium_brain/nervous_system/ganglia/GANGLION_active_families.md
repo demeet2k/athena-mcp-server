@@ -11,6 +11,11 @@ This ganglion file names the currently active family clusters for the deeper eme
 - role: formal kernel, theorem base, transport manifold
 - primary surfaces: `MATH/FINAL FORM/`
 
+### Bruno ganglion
+
+- role: archetypal compression, registry rewrite, virtue operator routing
+- primary surfaces: `families/FAMILY_bruno_archetype_compression.md`
+
 ### Voynich ganglion
 
 - role: executable manuscript, crystal compression, staged corpus logic
@@ -33,8 +38,8 @@ This ganglion file names the currently active family clusters for the deeper eme
 
 ### Trading Bot ganglion
 
-- role: live Docs gateway and external memory interface
-- primary surfaces: `Trading Bot/`
+- role: live Docs gateway, external memory interface, and truth-corridor source organ
+- primary surfaces: `Trading Bot/`; `families/FAMILY_trading_bot.md`; `families/FAMILY_trading_bot_route_map.md`
 
 ## Immediate Contraction Target
 

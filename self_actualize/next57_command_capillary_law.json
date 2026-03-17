@@ -1,0 +1,6 @@
+{
+  "law_id": "COMMAND_MEMBRANE_CAPILLARY_LAW_V1",
+  "canonical_protocol_id": "NEXT57_COMMAND_PROTOCOL_V1",
+  "formula": "C_next = clamp(0,1, rho*C + alpha*U + beta*F - gamma*D - delta*N)",
+  "edge_strength_formula": "repeated fast useful routes strengthen; noisy or slow routes decay"
+}

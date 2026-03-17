@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-03-13",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "contract": "SeatActivationWave",
+  "waves": [
+    {
+      "wave_id": "Wave0",
+      "cohort_family": "NativeShadow",
+      "seat_count": 1024,
+      "gate_bundle": [
+        "witness_parity",
+        "replay_parity",
+        "tunnel_legality",
+        "mirror_parity"
+      ],
+      "promotion_state": "ACTIVE",
+      "active_total_after_wave": 1024,
+      "bridge_role": "4D_NATIVE",
+      "writeback_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_ATLAS_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_SEAT_ACTIVATION_LEDGER_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_INTEGRATION_RECEIPT.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "wave_id": "Cohort1",
+      "cohort_family": "FirstNonNativeShadow",
+      "seat_count": 1024,
+      "gate_bundle": [
+        "witness_parity",
+        "replay_parity",
+        "tunnel_legality",
+        "mirror_parity"
+      ],
+      "promotion_state": "DORMANT",
+      "active_total_after_wave": 1024,
+      "bridge_role": "5D_COMPRESSION",
+      "writeback_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_ATLAS_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_SEAT_ACTIVATION_LEDGER_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_INTEGRATION_RECEIPT.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "wave_id": "Cohort2",
+      "cohort_family": "SecondNonNativeShadow",
+      "seat_count": 1024,
+      "gate_bundle": [
+        "witness_parity",
+        "replay_parity",
+        "tunnel_legality",
+        "mirror_parity"
+      ],
+      "promotion_state": "DORMANT",
+      "active_total_after_wave": 1024,
+      "bridge_role": "6D_WEAVE",
+      "writeback_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_ATLAS_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_SEAT_ACTIVATION_LEDGER_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_INTEGRATION_RECEIPT.json"
+      ],
+      "truth": "OK"
+    },
+    {
+      "wave_id": "Cohort3",
+      "cohort_family": "ThirdNonNativeShadow",
+      "seat_count": 1024,
+      "gate_bundle": [
+        "witness_parity",
+        "replay_parity",
+        "tunnel_legality",
+        "mirror_parity"
+      ],
+      "promotion_state": "DORMANT",
+      "active_total_after_wave": 1024,
+      "bridge_role": "7D_SEED",
+      "writeback_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_ATLAS_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_SEAT_ACTIVATION_LEDGER_4096.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_INTEGRATION_RECEIPT.json"
+      ],
+      "truth": "OK"
+    }
+  ]
+}

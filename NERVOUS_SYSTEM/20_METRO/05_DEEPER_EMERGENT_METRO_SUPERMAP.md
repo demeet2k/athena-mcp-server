@@ -86,9 +86,20 @@ Stations:
 - `ECOSYSTEM/NERVOUS_SYSTEM/README.md`
 - `ECOSYSTEM/00_README.md`
 
+### 9. Grand-Central Convergence Line
+
+Stations:
+
+- `NERVOUS_SYSTEM/10_OVERVIEW/15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md`
+- `NERVOUS_SYSTEM/20_METRO/19_GRAND_CENTRAL_STATION_METRO_MAP.md`
+- `NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md`
+- `Athena FLEET/FLEET_MYCELIUM_NETWORK/SUPERMESH/athena_repo_supermesh.json`
+- `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/14_grand_central_station.md`
+
 ## Transfer Hubs
 
 - `NERVOUS_SYSTEM/00_INDEX.md`
+- `NERVOUS_SYSTEM/20_METRO/19_GRAND_CENTRAL_STATION_METRO_MAP.md`
 - `self_actualize/mycelium_brain/`
 - `self_actualize/corpus_atlas.json`
 - `ECOSYSTEM/05_MYCELIUM_ROUTING.md`
@@ -110,3 +121,12 @@ It is the only region already holding prompts, maps, queues, receipts, higher-di
 Reason:
 
 It is the canonical contraction surface where deep swarm outputs become stable shared memory.
+
+## Grand-Central Hub
+
+`NERVOUS_SYSTEM/20_METRO/19_GRAND_CENTRAL_STATION_METRO_MAP.md`
+
+Reason:
+
+It is now the explicit interchange where cortex, runtime, atlas, replay, weighting, and
+cross-corpus departures share one route law.

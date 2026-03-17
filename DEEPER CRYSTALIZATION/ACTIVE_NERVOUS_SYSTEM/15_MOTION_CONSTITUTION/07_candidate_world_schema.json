@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MotionConstitution_L1 Candidate World",
+  "type": "object",
+  "required": [
+    "brainstem_state",
+    "candidates"
+  ],
+  "properties": {
+    "brainstem_state": {
+      "type": "object",
+      "required": [
+        "G",
+        "Pi",
+        "Omega",
+        "I",
+        "R"
+      ],
+      "properties": {
+        "G": {
+          "type": "string"
+        },
+        "Pi": {
+          "type": "string"
+        },
+        "Omega": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "denied_packet_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "I": {
+          "type": "object",
+          "properties": {
+            "quarantine_classes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "unresolved_failure_classes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "committee_pending_routes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "R": {
+          "type": "object",
+          "properties": {
+            "replay_capacity": {
+              "type": "number"
+            },
+            "replay_memory_quality": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "weights": {
+          "type": "object"
+        },
+        "beta": {
+          "type": "number"
+        }
+      }
+    },
+    "hysteresis_state_path": {
+      "type": "string"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "source_queue",
+          "source_organ",
+          "target_organ",
+          "current_family",
+          "packet_type_expected",
+          "axes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source_queue": {
+            "type": "string",
+            "enum": [
+              "QuestBoard",
+              "AgentRegistry",
+              "Committee outputs",
+              "Immune scheduler outputs",
+              "Continuation seeds"
+            ]
+          },
+          "role_family": {
+            "type": "string"
+          },
+          "source_organ": {
+            "type": "string"
+          },
+          "target_organ": {
+            "type": "string"
+          },
+          "current_family": {
+            "type": "string"
+          },
+          "truth_burden": {
+            "type": "string"
+          },
+          "packet_type_expected": {
+            "type": "string"
+          },
+          "continuation_seed": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "blockers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "blocker_classes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "axes": {
+            "type": "object",
+            "properties": {
+              "truth_readiness": {
+                "type": "number"
+              },
+              "integration_yield": {
+                "type": "number"
+              },
+              "replay_cost": {
+                "type": "number"
+              },
+              "contradiction_heat": {
+                "type": "number"
+              },
+              "pressure_gradient": {
+                "type": "number"
+              },
+              "organ_adjacency": {
+                "type": "number"
+              },
+              "branch_burden": {
+                "type": "number"
+              },
+              "seed_value": {
+                "type": "number"
+              },
+              "closure_gain": {
+                "type": "number"
+              },
+              "heart_need": {
+                "type": "number"
+              },
+              "replay_readiness": {
+                "type": "number"
+              },
+              "failure_debt": {
+                "type": "number"
+              },
+              "risk": {
+                "type": "number"
+              },
+              "cost": {
+                "type": "number"
+              }
+            }
+          },
+          "flags": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

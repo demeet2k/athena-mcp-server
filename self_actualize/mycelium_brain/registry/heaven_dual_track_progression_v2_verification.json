@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-03-13T21:44:55.109964+00:00",
+  "protocol_id": "HEAVEN-DUAL-TRACK-V2",
+  "truth": "OK",
+  "checks": {
+    "protocol_id": true,
+    "state_exists": true,
+    "leaderboard_exists": true,
+    "operator_registry_exists": true,
+    "progression_ledger_exists": true,
+    "promotion_registry_exists": true,
+    "scope_is_dual_track": true,
+    "reward_rows_present": true,
+    "agent_progress_present": true,
+    "dual_track_fields_present": true,
+    "agent_progress_fields": true,
+    "heaven_nonnegative": true,
+    "xp_signed_present": true,
+    "operator_positive_gain": true,
+    "loss_cap_linear": true,
+    "promotion_threshold_logic": true,
+    "class_band_logic": true,
+    "leaderboard_sections": true,
+    "operator_registry_sections": true,
+    "promotion_registry_sections": true,
+    "progression_rows_present": true,
+    "manifest_mentions_dual_track": true,
+    "compat_manifest_updated": true,
+    "hall_mentions_xp_leaders": true,
+    "temple_mentions_harmful_runs": true,
+    "compat_temple_updated": true
+  }
+}

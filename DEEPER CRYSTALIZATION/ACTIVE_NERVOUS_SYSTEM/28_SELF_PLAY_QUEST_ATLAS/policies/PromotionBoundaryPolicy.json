@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "promotion-boundary",
+  "description": "Truth promotion boundary rules governing state transitions between AMBIG, NEAR, and OK",
+  "promotion_paths": {
+    "AMBIG_to_NEAR": {
+      "description": "Promote an AMBIG claim to NEAR truth state",
+      "requirements": [
+        "New evidence must be submitted addressing the ambiguity",
+        "At least 1 fresh witness must provide CONFIRM attestation",
+        "Evidence hash must differ from original submission",
+        "Cooldown of 3 epochs since last promotion attempt must have elapsed"
+      ],
+      "cooldown_epochs": 3,
+      "witness_quorum": 1,
+      "payout_effect": "NEAR vesting begins at near_vest_ratio (0.382)"
+    },
+    "NEAR_to_OK": {
+      "description": "Promote a NEAR claim to OK truth state",
+      "requirements": [
+        "An upgrade plan must be submitted and approved by at least 1 steward",
+        "At least 2 fresh witnesses must provide CONFIRM attestation",
+        "No active disputes against the claim",
+        "Cooldown of 5 epochs since NEAR certification must have elapsed",
+        "Upgrade plan must reference specific improvements over original submission"
+      ],
+      "cooldown_epochs": 5,
+      "witness_quorum": 2,
+      "payout_effect": "Remaining 0.618 of payout is released (total becomes 1.0)"
+    }
+  },
+  "demotion_paths": {
+    "OK_to_NEAR": {
+      "description": "Demote an OK claim to NEAR due to disputes",
+      "trigger": "3 or more DISPUTE attestations from distinct witnesses",
+      "effect": [
+        "Truth state reverts to NEAR",
+        "Excess payout (0.618 portion) is clawed back",
+        "Re-evaluation is triggered automatically",
+        "Claim enters 8-epoch review period"
+      ],
+      "review_period_epochs": 8
+    },
+    "NEAR_to_AMBIG": {
+      "description": "Demote a NEAR claim to AMBIG due to evidence invalidation",
+      "trigger": "Evidence hash matches a known-invalid hash in the invalidation registry",
+      "effect": [
+        "Truth state reverts to AMBIG",
+        "Vested NEAR payout (0.382 portion) is clawed back",
+        "Player notified of demotion and reason"
+      ]
+    }
+  },
+  "boundary_invariants": [
+    "No claim may skip states (e.g., AMBIG cannot go directly to OK)",
+    "Promotion cooldowns are enforced strictly by epoch count",
+    "Fresh witnesses must not have witnessed the same claim in any prior state",
+    "Demotion triggers are evaluated continuously, not only at promotion time",
+    "Clawback amounts are computed from the original payout matrix values",
+    "All promotion and demotion events are logged in the ReceiptRegistry"
+  ],
+  "void_rules": {
+    "description": "VOID is a terminal state with special rules",
+    "rules": [
+      "VOID claims cannot be promoted to any other state",
+      "VOID is assigned when evidence is proven fraudulent or fabricated",
+      "VOID assignment requires unanimous witness DISPUTE (all witnesses)",
+      "VOID claims trigger ethics watchlist review for the submitting player",
+      "VOID claims remain in the registry for audit purposes but carry zero payout"
+    ]
+  }
+}

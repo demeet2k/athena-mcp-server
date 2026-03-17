@@ -1,42 +1,37 @@
 # Active Queue
 
-## P0
+## COMMAND Membrane Queue
 
-1. Unlock the live Google Docs gate by providing `credentials.json`.
-2. Generate the first successful Docs manifest after auth.
-3. Keep the explicit query and gate receipt current on every re-check.
+- Active loop: `L02 Survey :: A02 self_actualize`
+- Next Hall quest: `NEXT57-H-COMMAND-MEMBRANE`
+- Next Temple quest: `NEXT57-T-COMMAND-LAW`
+- Restart seed: `L03 Survey A03 ECOSYSTEM`
+- Docs gate: `BLOCKED / LOCAL_WITNESS_ONLY`
+- Queue depth: `4`
+- Active leases: `0`
+- Pending replay: `4`
+- Latest committed command event: `EVT-20260314-0011`
 
-## P1
+## Current Command Front
 
-1. Promote one archive-backed framework into a canonical live source tree.
-2. Extend the corpus family crystal with manuscript-level maps for Voynich and MATH.
-3. Create a corpus family receipt for each major family.
-4. Use the tandem agentic loop prompt pack as the shared coordination kernel for multi-agent nervous-system work.
-5. Use the family frontier matrix to keep simultaneous agents off the same shard.
+- Active membrane: `Q41 / TQ06`
+- Family: `A02 self_actualize`
+- Watch scope: `GLOBAL COMMAND only`
+- Canonical authority: `LP57OMEGA_COMMAND_MEMBRANE_V1`
 
-## P2
+## Queue Truth
 
-1. Convert more alternate sections into routeable chapter files.
-2. Materialize appendix surfaces as standalone documents.
-3. Bind the nervous-system maps back into the route-quality ledger.
-4. Land contraction receipts whenever multiple shards merge into one chapter-, family-, or corpus-level artifact.
+- Pending replay refs: `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_live_event_ledger.json`
+- Claim ledger: `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_ledger.json`
+- Capillary ledger: `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_capillary_edges.json`
+- Public state: `NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_STATE.json`
 
-## Immediate Checks To Run Next
+<!-- COMMAND_MEMBRANE_ACTIVE_QUEUE:START -->
+## Command Membrane
 
-1. Google Docs auth bootstrap after credentials arrive.
-2. Route `Void_CH11` through the new family tensor and manifest surfaces.
-3. Promote one Chapter 11 witness into a live family-owned canonical markdown surface.
-4. Log one fresh runtime episode in the route ledger.
-5. Bind one manuscript family or Chapter 11 precursor into the family index and rails.
-6. Use the 37-gate skill to route the next critique loop into a deterministic gate, hyperplan, and manuscript front.
-
-## Queue Law
-
-Every completed item must strengthen one of:
-
-- searchability
-- replayability
-- routeability
-- chapter production speed
-- corpus coherence
-- cooperative reuse across simultaneous agents
+- Queue depth: `45`
+- Active leases: `0`
+- Watcher mode: `event-driven`
+- Last event: `CMD-000005`
+- Top capillary: `BUILD-QUEUE-A1-SCOUT>BUILD-QUEUE-A2-ROUTER`
+<!-- COMMAND_MEMBRANE_ACTIVE_QUEUE:END -->

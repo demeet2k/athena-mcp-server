@@ -1,0 +1,37 @@
+# Time Fractal -> QBD-4
+
+## Neutral synthesis
+
+Time Fractal and QBD-4 form an ordered bridge in which fractal time is asked to inform quad logic bits. The row document starts as the question-carrier and the column document becomes the receiving surface. Their governing relation is `translational cross-bridge`, and the bridge law is to move from explosive novelty into lawful graph structure. Shared support surfaces: AppM.
+
+## Four-lens read
+
+- `Fire`: the pair is read through ignition, risk, decisive transformation, and catalytic emergence. Time Fractal initiates, QBD-4 receives, and the test is whether one document's strengths survive translation into the other's domain.
+- `Water`: the pair is read through circulation, thaw, coordination, and coherence under motion. Time Fractal initiates, QBD-4 receives, and the test is whether one document's strengths survive translation into the other's domain.
+- `Air`: the pair is read through topology, relation, routing, and abstraction. Time Fractal initiates, QBD-4 receives, and the test is whether one document's strengths survive translation into the other's domain.
+- `Earth`: the pair is read through embodiment, durability, institutionalization, and load-bearing form. Time Fractal initiates, QBD-4 receives, and the test is whether one document's strengths survive translation into the other's domain.
+
+## Sixteen-loop pass
+
+- `CorpusMap`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they maps the whole corpus as one routed body, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `OntologyLattice`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they turns recurring themes into stable function classes, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `ResidualPressure`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they mines contradiction, ambiguity, and unresolved pressure, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `BridgeMiner`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they discovers lawful routes between isolated zones, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `OperatorExtraction`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they extracts transforms and executable operators, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `RepresentationTheory`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they decides how truths should be carried, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `RegistrySchemas`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they stabilizes outputs into reusable contracts, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `VerifierReplay`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they checks proof density and replay closure, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `MetaProcess`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they observes the process that is observing, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `JourneyGrowth`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they tracks how the Orchestrator changes with the corpus, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `PathologyLab`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they profiles failure, drift, winter, and corruption modes, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `PruneOptimizer`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they removes non-load-bearing bloat, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `CrossDomainTransfer`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they tests which laws survive translation, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `NovelGenerator`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they births new coordinates and new operators, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `Distillation`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they compresses bodies into portable seeds, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+- `DimensionLift`: Time Fractal contributes gives the system phase, recurrence, and oscillation law, while QBD-4 contributes formalizes the four-bit address and rotation algebra. Together they converts closure into a stronger next-layer seed, converting fractal time into quad logic bits through move from explosive novelty into lawful graph structure.
+
+## Appendix stack
+
+- Required support: AppM, AppE, AppP, AppB, AppC, AppQ
+- Ordered relation: `translational cross-bridge`
+- Metro implication: this cell strengthens the route from `fractal time` toward `quad logic bits`.

@@ -1,0 +1,146 @@
+{
+  "active_lanes": [
+    "offline_replay",
+    "internal_preview"
+  ],
+  "blocked_examples": [
+    {
+      "case_id": "CIW-FAIL-001",
+      "label": "docs-gate breach",
+      "result": {
+        "blocked_reasons": [
+          "docs gate remains BLOCKED"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-001",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-002",
+      "label": "public-grade bypass",
+      "result": {
+        "blocked_reasons": [
+          "route bypasses Motion Constitution or Route Table",
+          "missing replay proof",
+          "Semantic Embassy validation missing"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-002",
+        "route_ok": false,
+        "semantic_ok": false
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-003",
+      "label": "missing probe",
+      "result": {
+        "blocked_reasons": [
+          "missing monitoring probe"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-003",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-004",
+      "label": "missing rollback",
+      "result": {
+        "blocked_reasons": [
+          "missing rollback trigger"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-004",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-005",
+      "label": "ownerless region assignment",
+      "result": {
+        "blocked_reasons": [
+          "ownerless region assignment"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-005",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-006",
+      "label": "live autonomous deployment request",
+      "result": {
+        "blocked_reasons": [
+          "live autonomous deployment is blocked in v1"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-006",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    }
+  ],
+  "blocked_lanes": [
+    "live_autonomous"
+  ],
+  "dashboard_hash": "0123bb5b493449e42419333b6749b599ce4631a38dc8ea19707ce2735f1ed50d",
+  "derivation_version": "2026-03-13.corpus-integration-wave.v1",
+  "docs_gate_status": "BLOCKED",
+  "gated_lanes": [
+    "public_release",
+    "federation_release"
+  ],
+  "major_region_count": 12,
+  "next_frontier": "council-grade social coordination hardening",
+  "passing_example": {
+    "deployment_monitor_result": {
+      "decision": "sustain",
+      "next_seed": "Seed/Promote::internal_preview_to_center_writeback",
+      "reasons": [
+        "lane stayed inside replay, semantic, and monitoring law"
+      ],
+      "receipt_ref": "INT-PASS-001",
+      "result_id": "DMR-PASS-001"
+    },
+    "integration_monitor_result": {
+      "blocked_reasons": [],
+      "deployment_ok": true,
+      "monitor_decision": "sustain",
+      "result_id": "IMR-PASS-001",
+      "route_ok": true,
+      "semantic_ok": true
+    },
+    "receipt": {
+      "deployment_lane": "internal_preview",
+      "emitted_state": "preview_emitted",
+      "receipt_id": "INT-PASS-001",
+      "route_receipt": "BrainstemChamber -> ReplayKernel -> SemanticEmbassy -> AppP::internal_preview",
+      "semantic_validation_ref": "self_actualize/mycelium_brain/registry/semantic_export_validator_registry.json#success_case",
+      "source_packet": "QuestBoard::Q43-137"
+    }
+  },
+  "success_criterion": "lawful Organism -> Social transition rather than raw file growth",
+  "transition_label": "N+4 -> N+5 / Organism -> Social",
+  "transition_support_note_count": 22,
+  "writeback_surfaces": [
+    "self_actualize/manuscript_sections/000_current_packet.md",
+    "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+    "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+    "self_actualize/mycelium_brain/nervous_system/07_validation_and_refresh.md",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/04_CHANGE_FEED_BOARD.md",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/05_REQUESTS_AND_OFFERS_BOARD.md",
+    "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md"
+  ],
+  "zero_point": "integrate without fragmenting"
+}

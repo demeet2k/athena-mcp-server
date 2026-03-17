@@ -1,0 +1,83 @@
+{
+  "build_date": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "authority_class": "descriptive",
+  "source_basis": [
+    "00_CONTROL/14_AETHER_RESOLVER_LAW.md",
+    "ORCHESTRATION_57_LOOP/12_AETHER_SYMBOLIC_RESOLVER.md"
+  ],
+  "external_witness_tails": {
+    "Ch21\u27e80110\u27e9": {
+      "class": "external-symbolic-witness",
+      "local_path": null,
+      "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+    }
+  },
+  "route_to_external_tail": {
+    "rtL": {
+      "external_tail": {
+        "alias": "Ch21\u27e80110\u27e9",
+        "class": "external-symbolic-witness",
+        "local_path": null,
+        "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+      },
+      "referenced_by": [
+        "R01",
+        "R02",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R20",
+        "R21",
+        "R22",
+        "R23",
+        "R31",
+        "R32",
+        "Q01",
+        "Q02",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q20",
+        "Q21",
+        "Q22",
+        "Q23",
+        "Q31",
+        "Q32"
+      ]
+    },
+    "rtZ": {
+      "external_tail": {
+        "alias": "Ch21\u27e80110\u27e9",
+        "class": "external-symbolic-witness",
+        "local_path": null,
+        "reason": "no canonical local package surface currently exists for this Chapter 21 witness tail"
+      },
+      "referenced_by": [
+        "R03",
+        "R30",
+        "R33",
+        "Q03",
+        "Q30",
+        "Q33",
+        "T01",
+        "T02",
+        "T03",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T20",
+        "T21",
+        "T22",
+        "T23",
+        "T30",
+        "T31",
+        "T32",
+        "T33"
+      ]
+    }
+  }
+}

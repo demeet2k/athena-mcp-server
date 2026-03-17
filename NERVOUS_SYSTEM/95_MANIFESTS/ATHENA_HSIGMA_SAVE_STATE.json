@@ -1,0 +1,1812 @@
+{
+  "generated_at": "2026-03-13T12:51:54.110948-07:00",
+  "generated_at_utc": "2026-03-13T19:51:54Z",
+  "timezone": "America/Los_Angeles",
+  "docs_gate": "BLOCKED",
+  "symbolic_name": "HSigmaStar",
+  "visibility_mode": "class-exhaustive / instance-frontier",
+  "counts": {
+    "layers": 11,
+    "routes": 13,
+    "tunnels": 6,
+    "strata": 5,
+    "nexus_rows": 19,
+    "seated_rows": 16,
+    "frontier_rows": 2,
+    "inferred_rows": 1,
+    "timing_states": 256,
+    "mindsweeper_cells": 4864
+  },
+  "layers": [
+    "Metro",
+    "Mycelium",
+    "Neural",
+    "Zero",
+    "Liminal",
+    "Aether",
+    "Tunnel",
+    "BridgeReturn",
+    "Dimensional",
+    "ReplayWitnessProof",
+    "SeedRegeneration"
+  ],
+  "explicit_nexus_rows": [
+    "Z0",
+    "ZL",
+    "A0",
+    "L0",
+    "MT",
+    "MS",
+    "MY",
+    "NN",
+    "TE",
+    "TX",
+    "DB",
+    "DL",
+    "MC",
+    "RA",
+    "WA",
+    "SC"
+  ],
+  "frontier_nexus_rows": [
+    "MR",
+    "PA"
+  ],
+  "inferred_nexus_rows": [
+    "LP"
+  ],
+  "route_families": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13"
+  ],
+  "tunnel_classes": [
+    "T/ZC",
+    "T/AL",
+    "T/LS",
+    "T/DJ",
+    "T/RR",
+    "T/BC"
+  ],
+  "dimensional_strata": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4"
+  ],
+  "timing_engine": {
+    "space": "Z4^4",
+    "byte_formula": "B = q0 + 4q1 + 16q2 + 64q3",
+    "neighborhood": "toroidal axis-neighbors only",
+    "current_surrogate_formula": {
+      "q0": "floor(local_hour / 6)",
+      "q1": "weekday mod 4",
+      "q2": "floor(minute / 15)",
+      "q3": "day_of_year mod 4"
+    },
+    "current_byte": 50,
+    "current_coords": {
+      "q0": 2,
+      "q1": 0,
+      "q2": 3,
+      "q3": 0
+    },
+    "current_neighbors": [
+      2,
+      34,
+      49,
+      51,
+      54,
+      62,
+      114,
+      242
+    ]
+  },
+  "current_state": {
+    "byte": 50,
+    "coords": {
+      "q0": 2,
+      "q1": 0,
+      "q2": 3,
+      "q3": 0
+    },
+    "neighbors": [
+      2,
+      34,
+      49,
+      51,
+      54,
+      62,
+      114,
+      242
+    ],
+    "rows": {
+      "Z0": {
+        "row_id": "Z0",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.75,
+        "weight_base": 63.503,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R11",
+          "R4",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.727,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.667,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.5,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 68.503,
+        "visibility": "explicit",
+        "instability": 0.174,
+        "class": "promising"
+      },
+      "ZL": {
+        "row_id": "ZL",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.75,
+        "weight_base": 54.022,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R4",
+          "R7"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.636,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.667,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.5,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 59.022,
+        "visibility": "explicit",
+        "instability": 0.174,
+        "class": "promising"
+      },
+      "A0": {
+        "row_id": "A0",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 61.555,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.818,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.6,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 68.777,
+        "visibility": "explicit",
+        "instability": 0.557,
+        "class": "unstable"
+      },
+      "L0": {
+        "row_id": "L0",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.25,
+        "weight_base": 20.0,
+        "reachable_rows": [],
+        "active_routes": [
+          "R10",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [],
+        "active_tunnels": [],
+        "reached_layers": [],
+        "reached_strata": [],
+        "replay_component": 0.0,
+        "compression_value": 0.0,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.0,
+          "u_pole": 0.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 0,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.0,
+        "route_density": 0.714,
+        "exposed_nexus_count": 0,
+        "novel_nexus_exposure": 0.0,
+        "hidden_pressure": 0.0,
+        "contradiction": 0.0,
+        "weight": 20.0,
+        "visibility": "implied",
+        "instability": 0.575,
+        "class": "unstable"
+      },
+      "MT": {
+        "row_id": "MT",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 60.516,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R1",
+          "R11",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 1.0,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.75,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 67.738,
+        "visibility": "explicit",
+        "instability": 0.553,
+        "class": "unstable"
+      },
+      "MS": {
+        "row_id": "MS",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.75,
+        "weight_base": 68.178,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R1",
+          "R11",
+          "R3",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.909,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.571,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.5,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 73.178,
+        "visibility": "explicit",
+        "instability": 0.174,
+        "class": "degenerate"
+      },
+      "MY": {
+        "row_id": "MY",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.25,
+        "weight_base": 14.286,
+        "reachable_rows": [],
+        "active_routes": [
+          "R6",
+          "R7"
+        ],
+        "reached_routes": [],
+        "active_tunnels": [],
+        "reached_layers": [],
+        "reached_strata": [],
+        "replay_component": 0.0,
+        "compression_value": 0.0,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.0,
+          "u_pole": 0.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 0,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.0,
+        "route_density": 0.4,
+        "exposed_nexus_count": 0,
+        "novel_nexus_exposure": 0.0,
+        "hidden_pressure": 0.0,
+        "contradiction": 0.0,
+        "weight": 14.286,
+        "visibility": "implied",
+        "instability": 0.575,
+        "class": "unstable"
+      },
+      "NN": {
+        "row_id": "NN",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 65.321,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R10",
+          "R12",
+          "R3",
+          "R6",
+          "R7"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.909,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.833,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 72.543,
+        "visibility": "explicit",
+        "instability": 0.566,
+        "class": "unstable"
+      },
+      "TE": {
+        "row_id": "TE",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.25,
+        "weight_base": 11.429,
+        "reachable_rows": [],
+        "active_routes": [
+          "R4",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [],
+        "active_tunnels": [],
+        "reached_layers": [],
+        "reached_strata": [],
+        "replay_component": 0.0,
+        "compression_value": 0.0,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.0,
+          "u_pole": 0.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 0,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.0,
+        "route_density": 0.75,
+        "exposed_nexus_count": 0,
+        "novel_nexus_exposure": 0.0,
+        "hidden_pressure": 0.0,
+        "contradiction": 0.0,
+        "weight": 11.429,
+        "visibility": "implied",
+        "instability": 0.539,
+        "class": "unstable"
+      },
+      "TX": {
+        "row_id": "TX",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.25,
+        "weight_base": 11.429,
+        "reachable_rows": [],
+        "active_routes": [
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [],
+        "active_tunnels": [],
+        "reached_layers": [],
+        "reached_strata": [],
+        "replay_component": 0.0,
+        "compression_value": 0.0,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.0,
+          "u_pole": 0.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 0,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.0,
+        "route_density": 0.75,
+        "exposed_nexus_count": 0,
+        "novel_nexus_exposure": 0.0,
+        "hidden_pressure": 0.0,
+        "contradiction": 0.0,
+        "weight": 11.429,
+        "visibility": "implied",
+        "instability": 0.539,
+        "class": "unstable"
+      },
+      "DB": {
+        "row_id": "DB",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 62.464,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R10",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.909,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.6,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 69.686,
+        "visibility": "explicit",
+        "instability": 0.566,
+        "class": "unstable"
+      },
+      "DL": {
+        "row_id": "DL",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.25,
+        "weight_base": 11.429,
+        "reachable_rows": [],
+        "active_routes": [
+          "R10",
+          "R6",
+          "R7"
+        ],
+        "reached_routes": [],
+        "active_tunnels": [],
+        "reached_layers": [],
+        "reached_strata": [],
+        "replay_component": 0.0,
+        "compression_value": 0.0,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.0,
+          "u_pole": 0.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 0,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.0,
+        "route_density": 0.75,
+        "exposed_nexus_count": 0,
+        "novel_nexus_exposure": 0.0,
+        "hidden_pressure": 0.0,
+        "contradiction": 0.0,
+        "weight": 11.429,
+        "visibility": "implied",
+        "instability": 0.548,
+        "class": "unstable"
+      },
+      "MC": {
+        "row_id": "MC",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 59.737,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R10",
+          "R12",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.636,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.8,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 66.959,
+        "visibility": "explicit",
+        "instability": 0.539,
+        "class": "unstable"
+      },
+      "RA": {
+        "row_id": "RA",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.75,
+        "weight_base": 58.698,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R11",
+          "R12",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.818,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.75,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.5,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 63.698,
+        "visibility": "explicit",
+        "instability": 0.174,
+        "class": "promising"
+      },
+      "WA": {
+        "row_id": "WA",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 54.022,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R11",
+          "R12"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.636,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.667,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 61.244,
+        "visibility": "explicit",
+        "instability": 0.539,
+        "class": "unstable"
+      },
+      "SC": {
+        "row_id": "SC",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.25,
+        "weight_base": 11.429,
+        "reachable_rows": [],
+        "active_routes": [
+          "R11",
+          "R12",
+          "R6"
+        ],
+        "reached_routes": [],
+        "active_tunnels": [],
+        "reached_layers": [],
+        "reached_strata": [],
+        "replay_component": 0.0,
+        "compression_value": 0.0,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.0,
+          "u_pole": 0.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 0,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.0,
+        "route_density": 0.75,
+        "exposed_nexus_count": 0,
+        "novel_nexus_exposure": 0.0,
+        "hidden_pressure": 0.0,
+        "contradiction": 0.0,
+        "weight": 11.429,
+        "visibility": "implied",
+        "instability": 0.548,
+        "class": "unstable"
+      },
+      "MR": {
+        "row_id": "MR",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 56.88,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R11",
+          "R4",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.636,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 1.0,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 64.102,
+        "visibility": "explicit",
+        "instability": 0.539,
+        "class": "unstable"
+      },
+      "PA": {
+        "row_id": "PA",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 52.204,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R11",
+          "R12",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.455,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 1.0,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 59.426,
+        "visibility": "explicit",
+        "instability": 0.52,
+        "class": "unstable"
+      },
+      "LP": {
+        "row_id": "LP",
+        "byte": 50,
+        "coords": {
+          "q0": 2,
+          "q1": 0,
+          "q2": 3,
+          "q3": 0
+        },
+        "exposure": 0.5,
+        "weight_base": 62.464,
+        "reachable_rows": [
+          "A0",
+          "DB",
+          "LP",
+          "MC",
+          "MR",
+          "MS",
+          "MT",
+          "NN",
+          "PA",
+          "RA",
+          "WA",
+          "Z0",
+          "ZL"
+        ],
+        "active_routes": [
+          "R10",
+          "R7",
+          "R8"
+        ],
+        "reached_routes": [
+          "R1",
+          "R10",
+          "R11",
+          "R12",
+          "R3",
+          "R4",
+          "R6",
+          "R7",
+          "R8"
+        ],
+        "active_tunnels": [
+          "T/BC"
+        ],
+        "reached_layers": [
+          "Aether",
+          "BridgeReturn",
+          "Dimensional",
+          "Liminal",
+          "Metro",
+          "Mycelium",
+          "Neural",
+          "ReplayWitnessProof",
+          "SeedRegeneration",
+          "Tunnel",
+          "Zero"
+        ],
+        "reached_strata": [
+          "D0",
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "replay_component": 0.714,
+        "compression_value": 0.909,
+        "hidden_components": {
+          "u_cross": 0.0,
+          "u_tunnel": 0.5,
+          "u_pole": 1.0,
+          "u_replay": 0.0,
+          "u_transfer": 0.0
+        },
+        "contradiction_components": {
+          "v_pole": 0,
+          "v_tunnel": 1,
+          "v_dim": 0,
+          "v_replay": 0
+        },
+        "frontier_fraction": 0.231,
+        "route_density": 0.6,
+        "exposed_nexus_count": 13,
+        "novel_nexus_exposure": 0.722,
+        "hidden_pressure": 0.3,
+        "contradiction": 0.25,
+        "weight": 69.686,
+        "visibility": "implied",
+        "instability": 0.566,
+        "class": "unstable"
+      }
+    },
+    "top_master_keys": [
+      "MS",
+      "NN",
+      "DB",
+      "LP",
+      "A0"
+    ],
+    "frontier_rows": [],
+    "hidden_pressure_rows": []
+  },
+  "top_master_key_rows": [
+    "MS",
+    "NN",
+    "DB",
+    "LP",
+    "A0"
+  ],
+  "frontier_rows": [],
+  "hidden_candidates": [
+    {
+      "id": "C1",
+      "name": "Zero-Aether Mediating Lift Hub",
+      "support": {
+        "state_count": 5,
+        "route_family_count": 5,
+        "hidden_pressure_avg": 0.124,
+        "contradiction_avg": 0.0,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      },
+      "disposition": "frontier"
+    },
+    {
+      "id": "C2",
+      "name": "Metro-Mycelium-Neural Composite Transfer Node",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 6,
+        "hidden_pressure_avg": 0.147,
+        "contradiction_avg": 0.0,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      },
+      "disposition": "frontier"
+    },
+    {
+      "id": "C3",
+      "name": "Dimensional Midspan Bridge",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 4,
+        "hidden_pressure_avg": 0.1,
+        "contradiction_avg": 0.0,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      },
+      "disposition": "frontier"
+    },
+    {
+      "id": "C4",
+      "name": "Replay-Proof Closure Junction",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 3,
+        "hidden_pressure_avg": 0.2,
+        "contradiction_avg": 0.083,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      },
+      "disposition": "frontier"
+    },
+    {
+      "id": "C5",
+      "name": "Seed-Replay Regeneration Coupler",
+      "support": {
+        "state_count": 3,
+        "route_family_count": 3,
+        "hidden_pressure_avg": 0.192,
+        "contradiction_avg": 0.083,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      },
+      "disposition": "frontier"
+    },
+    {
+      "id": "C6",
+      "name": "Frontier Liminal Distributor",
+      "support": {
+        "state_count": 32,
+        "route_family_count": 5,
+        "hidden_pressure_avg": 0.114,
+        "contradiction_avg": 0.027,
+        "promotion_threshold_met": false,
+        "seated_threshold_met": false,
+        "fixed_point_passes": 2,
+        "promoted": false
+      },
+      "disposition": "frontier"
+    }
+  ],
+  "regeneration_seed": {
+    "mnemonic": "ATH-HSIGMA::11\u039b/16S+2F+1I/13R/6T/5D/256\u03a8/4864M/\u03bcFIX",
+    "operators": [
+      "layers",
+      "nexus_rows",
+      "incidence",
+      "dimensional_strata",
+      "timing_lattice",
+      "route_gate_book",
+      "nexus_exposure_book",
+      "weight_function",
+      "mindsweeper_schema",
+      "hidden_inference",
+      "fixed_point",
+      "frontier_policy"
+    ],
+    "frontier_policy": "never promote unsupported latent structure into explicit fact"
+  },
+  "artifact_paths": {
+    "manifest": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_HSIGMA_MAPPING_HOLOGRAM.json",
+    "mindsweeper": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_HSIGMA_MINDSWEEPER_19x256.json",
+    "save_state": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_HSIGMA_SAVE_STATE.json",
+    "witness": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_HSIGMA_RUNTIME_WITNESS.md"
+  },
+  "astro_lane_bundles": {
+    "western_solar12": [
+      "MT",
+      "L0",
+      "Z0",
+      "WA"
+    ],
+    "planetary_office": [
+      "MT",
+      "MS",
+      "RA",
+      "PA"
+    ],
+    "chinese_cycle": [
+      "MY",
+      "L0",
+      "ZL",
+      "SC"
+    ],
+    "vedic_lunar": [
+      "NN",
+      "RA",
+      "WA",
+      "PA"
+    ],
+    "mayan_calendar": [
+      "MY",
+      "SC",
+      "A0",
+      "RA"
+    ],
+    "decan_office": [
+      "TE",
+      "DB",
+      "TX",
+      "MR"
+    ],
+    "egyptian_kheper": [
+      "Z0",
+      "RA",
+      "MR",
+      "PA"
+    ],
+    "norse_rune_yggdrasil": [
+      "DB",
+      "DL",
+      "MC",
+      "LP"
+    ]
+  },
+  "ap6d_bridge_span_rows": {
+    "3D->4D": [
+      "TE",
+      "L0",
+      "ZL"
+    ],
+    "4D->5D": [
+      "Z0",
+      "DB",
+      "MR"
+    ],
+    "5D->6D": [
+      "MS",
+      "NN",
+      "MC"
+    ],
+    "6D->7D": [
+      "A0",
+      "SC",
+      "RA"
+    ]
+  }
+}

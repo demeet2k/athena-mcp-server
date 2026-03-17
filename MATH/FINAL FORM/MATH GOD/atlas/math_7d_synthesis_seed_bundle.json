@@ -1,0 +1,2131 @@
+{
+  "generated_at": "2026-03-13T12:57:06",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "scope": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM",
+  "integration_scope": "FULL_CORPUS",
+  "dimension_stage": "7D_SEED",
+  "overlay_chain": [
+    "4D_NATIVE",
+    "5D_COMPRESSION",
+    "6D_WEAVE",
+    "7D_SEED"
+  ],
+  "seed_holo_state": "Seed-7D",
+  "seed_carrier": "4096^7",
+  "canonical_seed_label": "A",
+  "derived_dual_label": "B",
+  "seed_polarity_support": [
+    "A",
+    "B",
+    "A\u2194B"
+  ],
+  "agent_overlay_stack": [
+    "FIRE",
+    "WATER",
+    "AIR",
+    "EARTH"
+  ],
+  "appendix_floor": [
+    {
+      "appendix_id": "AppA",
+      "role": "addressing, symbols, parsing grammar, entry station",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppA_addressing_and_grammars.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppB",
+      "role": "canon laws, equivalence budgets, normal forms",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppB_canon_laws_and_forms.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppC",
+      "role": "Square kernel pack, discrete mixing, index algebra",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppC_kernel_pack_and_mixing.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppE",
+      "role": "Circle gear, phase lock, integer bridges",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppE_circle_gear_and_clock.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppF",
+      "role": "transport, rotation-as-conjugacy, DUAL legality",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppF_transport_and_duality.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppH",
+      "role": "coupling/topology, dependency closure, isolation invariants",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppH_coupling_and_topology.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppI",
+      "role": "corridors, truth lattice, admissibility budgets, abstain law",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppI_corridors_and_truth_lattice.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppK",
+      "role": "conflict/quarantine/revocation receipts",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppK_conflict_and_quarantine.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppM",
+      "role": "replay kernel, verifier capsules, determinism checklists",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppM_replay_kernel.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppN",
+      "role": "container formats, virtual mount, salvage/seek doctrine",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppN_container_formats.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppO",
+      "role": "publication bundles, signatures, revocation rules",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppO_export_bundles.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppP",
+      "role": "deployment profiles, conformance reports, monitoring templates",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppP_deployment_profiles.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppQ",
+      "role": "appendix-only metro authority, deep-root docking, and certification-only support",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_athena_fleet_256_pow_4_support.md"
+      ],
+      "source_exists": true
+    }
+  ],
+  "authority_surfaces": [
+    {
+      "surface_id": "MATH_GOD_7D_CHARTER",
+      "classification": "local canon",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\97_7D_SEED_CHARTER.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "MATH_GOD_7D_CROSSWALK",
+      "classification": "local canon",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\98_6D_TO_7D_CROSSWALK.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "MATH_GOD_NEXT46",
+      "classification": "local canon",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\99_NEXT_4_6_FULL_CORPUS_STABILIZATION.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "MATH_GOD_AWAKENING_TRANSITIONS",
+      "classification": "local canon",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\100_ELEMENTAL_AWAKENING_AGENT_TRANSITIONS.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "MATH_GOD_A_B_DUAL_CHARTER",
+      "classification": "local canon",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\103_A_SEED_B_DUAL_KERNEL_CHARTER.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "MATH_GOD_A_B_DUAL_CROSSWALK",
+      "classification": "local canon",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\104_A_B_DUAL_KERNEL_CROSSWALK.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_CONTROL",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\07_7D_CROSS_AGENT_SEED.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_CONTROL",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\08_NEXT_4_6_FULL_CORPUS_STABILIZATION.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_TRANSITIONS",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\09_AWAKENING_AGENT_TRANSITIONS.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_OPERATOR",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\00_CONTROL\\10_CROSS_AGENT_TRANSITION_OPERATOR.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_LEVEL_7",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\07_level_7_next_synthesis_seed_map.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_LEVEL_7_COMPANION",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\08_level_7_full_corpus_stabilization_companion.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_APPENDIX_LEGALITY",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\02_7d_seed_appendix_legality.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_APPENDIX_LEGALITY",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\03_awakening_transition_appendix_legality.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_FIRE_NOTE",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\01_FIRE\\23_awakening_transition_note.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_WATER_NOTE",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\11_6D_WATER_CONTROL\\05_awakening_transition_note.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_AIR_NOTE",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\12_6D_AIR_CONTROL\\05_awakening_transition_note.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_EARTH_NOTE",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_EARTH_CONTROL\\05_awakening_transition_note.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_EARTH_GATE_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\10_earth_gate_status_7d_seed.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_CONVERGENCE_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\11_cross_agent_convergence_7d_seed.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_ROUTE_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\12_7d_seed_routes.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "SEED7_APPENDIX_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\13_7d_appendix_legality.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_FAMILY_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\14_full_corpus_witness_family_ledger.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_CROSSWALK_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\15_full_corpus_basis_crosswalk.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_FAMILY_CONVERGENCE",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\16_cross_agent_family_convergence.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_QUARANTINE_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\17_full_corpus_quarantine_routes.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_TRANSITION_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\18_awakening_agent_transition_notes.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "NEXT46_STABILIZATION_LEDGER",
+      "classification": "live authority",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\10_LEDGERS\\19_level_7_full_corpus_stabilization.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "PACKAGE_SEED7_EXPORT",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\06_7D_SEED_EXPORT.md",
+      "state": "MISSING"
+    },
+    {
+      "surface_id": "PACKAGE_SEED7_APPENDIX",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\APPENDIX_CRYSTAL\\02_7d_seed_appendix_legality.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "PACKAGE_SEED7_LEDGER",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\LEDGERS\\06_7d_seed_export_registry.json",
+      "state": "OK"
+    },
+    {
+      "surface_id": "PACKAGE_NEXT46_EXPORT",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\07_FULL_CORPUS_7D_STABILIZATION_EXPORT.md",
+      "state": "MISSING"
+    },
+    {
+      "surface_id": "PACKAGE_AWAKENING_TRANSITIONS",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\00_CONTROL\\08_AWAKENING_AGENT_TRANSITIONS_EXPORT.md",
+      "state": "MISSING"
+    },
+    {
+      "surface_id": "PACKAGE_FIRE_NOTE",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\FIRE\\03_awakening_transition_note.md",
+      "state": "MISSING"
+    },
+    {
+      "surface_id": "PACKAGE_WATER_NOTE",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\WATER\\02_awakening_transition_note.md",
+      "state": "MISSING"
+    },
+    {
+      "surface_id": "PACKAGE_AIR_NOTE",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\AIR\\02_awakening_transition_note.md",
+      "state": "MISSING"
+    },
+    {
+      "surface_id": "PACKAGE_EARTH_NOTE",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\EARTH\\02_awakening_transition_note.md",
+      "state": "MISSING"
+    },
+    {
+      "surface_id": "PACKAGE_NEXT46_APPENDIX",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\APPENDIX_CRYSTAL\\03_awakening_transition_appendix_legality.md",
+      "state": "OK"
+    },
+    {
+      "surface_id": "PACKAGE_NEXT46_LEDGER",
+      "classification": "package export mirror",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MYTH - MATH\\Philosophy\\ATHENA_INTEGRATED_NEURAL_NETWORK\\LEDGERS\\07_full_corpus_7d_stabilization_export_registry.json",
+      "state": "OK"
+    }
+  ],
+  "cross_agent_convergence": {
+    "fire": {
+      "status": "ready",
+      "driver_count": 8,
+      "dimension_stages": {
+        "5D_COMPRESSION": 3,
+        "6D_WEAVE": 5
+      }
+    },
+    "water": {
+      "status": "ready",
+      "native_basis": [
+        "01",
+        "11",
+        "12",
+        "14"
+      ],
+      "route_count": 12
+    },
+    "air": {
+      "status": "ready",
+      "native_basis": [
+        "03",
+        "04",
+        "05",
+        "07"
+      ],
+      "symmetry_nodes": 15
+    },
+    "earth": {
+      "status": "gated",
+      "canonical_package_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_EARTH_CONTROL",
+      "legacy_package_root": "",
+      "legacy_drift_note": "Legacy Earth drift history is not a canonical seed target.",
+      "chapter_contracts": 21
+    }
+  },
+  "earth_gate_summary": {
+    "canonical_package_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_EARTH_CONTROL",
+    "legacy_package_root": "",
+    "legacy_drift_note": "Legacy Earth drift history is not a canonical seed target.",
+    "state_counts": {
+      "passed": 6,
+      "quarantined": 2
+    },
+    "promotion_rule": "No route promotes into 7D_SEED without AppI/AppM plus Earth gate approval."
+  },
+  "mobius_bridge_counts": {
+    "O_return": 1,
+    "QO_loop": 1,
+    "Q_ingress": 1,
+    "none": 5
+  },
+  "appendix_legality": {
+    "default_floor": [
+      "AppA",
+      "AppB",
+      "AppC",
+      "AppE",
+      "AppF",
+      "AppH",
+      "AppI",
+      "AppK",
+      "AppM",
+      "AppN",
+      "AppO",
+      "AppP",
+      "AppQ"
+    ],
+    "rules": [
+      "Q docks only through AppQ.",
+      "O remains an overlay alias and returns through canonical AppO.",
+      "No reverse station may appear without canonical appendix mapping.",
+      "AppK is required whenever contradiction survives.",
+      "AppN is required whenever H6, H7, Seed-6D, or Seed-7D persists as a carrier."
+    ]
+  },
+  "reverse_station_overlay_map": {
+    "Z": {
+      "bridge_status": "collapse_anchor",
+      "canonical_appendix_map": [
+        "AppM",
+        "AppI"
+      ]
+    },
+    "Y": {
+      "bridge_status": "mirror_fold",
+      "canonical_appendix_map": [
+        "AppF",
+        "AppB"
+      ]
+    },
+    "X": {
+      "bridge_status": "transport_gate",
+      "canonical_appendix_map": [
+        "AppF",
+        "AppH"
+      ]
+    },
+    "W": {
+      "bridge_status": "support_span",
+      "canonical_appendix_map": [
+        "AppH",
+        "AppE"
+      ]
+    },
+    "V": {
+      "bridge_status": "recursive_turn",
+      "canonical_appendix_map": [
+        "AppG",
+        "AppM"
+      ]
+    },
+    "U": {
+      "bridge_status": "retention_field",
+      "canonical_appendix_map": [
+        "AppN",
+        "AppM"
+      ]
+    },
+    "T": {
+      "bridge_status": "phase_shift",
+      "canonical_appendix_map": [
+        "AppE",
+        "AppF"
+      ]
+    },
+    "S": {
+      "bridge_status": "pre_hinge_stabilizer",
+      "canonical_appendix_map": [
+        "AppD",
+        "AppP"
+      ]
+    },
+    "R": {
+      "bridge_status": "reflection_gate",
+      "canonical_appendix_map": [
+        "AppF",
+        "AppO"
+      ]
+    },
+    "Q": {
+      "bridge_status": "Q_ingress",
+      "canonical_appendix_map": [
+        "AppQ",
+        "AppF",
+        "AppE"
+      ]
+    },
+    "P": {
+      "bridge_status": "conversion_band",
+      "canonical_appendix_map": [
+        "AppP",
+        "AppN"
+      ]
+    },
+    "O": {
+      "bridge_status": "O_return",
+      "canonical_appendix_map": [
+        "AppO",
+        "AppP",
+        "AppI"
+      ]
+    },
+    "N": {
+      "bridge_status": "QO_loop",
+      "canonical_appendix_map": [
+        "AppN",
+        "AppM"
+      ]
+    },
+    "M": {
+      "bridge_status": "return_stabilizer",
+      "canonical_appendix_map": [
+        "AppM",
+        "AppP"
+      ]
+    },
+    "L": {
+      "bridge_status": "memory_return",
+      "canonical_appendix_map": [
+        "AppN",
+        "AppM"
+      ]
+    },
+    "K": {
+      "bridge_status": "reentry_anchor",
+      "canonical_appendix_map": [
+        "AppA",
+        "AppM"
+      ]
+    }
+  },
+  "witness_families": [
+    {
+      "family_id": "canonical_basis",
+      "title": "Canonical 16-Document Basis",
+      "authority_rank": "canonical_spine",
+      "live_path_state": "OK",
+      "file_count": 16,
+      "roots": [
+        "10_LEDGERS/01_CANONICAL_SOURCES.md"
+      ],
+      "basis_map": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "support_role": "routing spine"
+    },
+    {
+      "family_id": "complete_tomes",
+      "title": "Complete Tomes",
+      "authority_rank": "live_support",
+      "live_path_state": "OK",
+      "file_count": 242,
+      "roots": [
+        "MATH/FINAL FORM/COMPLETE TOMES"
+      ],
+      "basis_map": [
+        "06",
+        "08",
+        "10",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppM",
+        "AppP"
+      ],
+      "support_role": "dense theorem and synthesis pressure"
+    },
+    {
+      "family_id": "frameworks_code",
+      "title": "Frameworks Code",
+      "authority_rank": "live_support",
+      "live_path_state": "OK",
+      "file_count": 1129,
+      "roots": [
+        "MATH/FINAL FORM/FRAMEWORKS CODE"
+      ],
+      "basis_map": [
+        "03",
+        "04",
+        "05",
+        "07",
+        "09",
+        "10",
+        "13"
+      ],
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppI",
+        "AppM",
+        "AppN"
+      ],
+      "support_role": "archive-code bridge and executable witness"
+    },
+    {
+      "family_id": "runtime_manuscript_sections",
+      "title": "Runtime And Manuscript Sections",
+      "authority_rank": "live_support",
+      "live_path_state": "OK",
+      "file_count": 204,
+      "roots": [
+        "self_actualize/runtime",
+        "self_actualize/manuscript_sections"
+      ],
+      "basis_map": [
+        "02",
+        "09",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppN"
+      ],
+      "support_role": "replay, implementation, and re-entry witness"
+    },
+    {
+      "family_id": "awakening_tome",
+      "title": "Athena Awakening Tome",
+      "authority_rank": "support_witness",
+      "live_path_state": "OK",
+      "file_count": 271,
+      "roots": [
+        "MATH/FINAL FORM/FRAMEWORKS CODE/ATHENA_AWAKENING_TOME/ATHENA_AWAKENING_TOME"
+      ],
+      "basis_map": [
+        "06",
+        "10",
+        "14",
+        "15",
+        "16"
+      ],
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppP"
+      ],
+      "support_role": "transition guidance and re-entry support"
+    },
+    {
+      "family_id": "historical_mirrors",
+      "title": "Historical Mirrors",
+      "authority_rank": "historical_reference",
+      "live_path_state": "OK",
+      "file_count": 90,
+      "roots": [
+        "self_actualize/mycelium_brain/DEEPER_INTEGRATED_NEURAL_NETWORK",
+        "self_actualize/mycelium_brain/DEEPER_INTEGRATED_NEURAL_NET_ATHENA",
+        "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/13_DEEPER_NEURAL_NET"
+      ],
+      "basis_map": [
+        "02",
+        "14",
+        "15"
+      ],
+      "appendix_floor": [
+        "AppA",
+        "AppI",
+        "AppM"
+      ],
+      "support_role": "drift witness and historical comparison only"
+    }
+  ],
+  "pressure_gaps": [],
+  "family_basis_crosswalk": {
+    "generated_at": "2026-03-13",
+    "docs_gate_status": "BLOCKED",
+    "truth_class": "NEAR",
+    "integration_scope": "FULL_CORPUS",
+    "family_to_basis": {
+      "canonical_basis": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "complete_tomes": [
+        "06",
+        "08",
+        "10",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "frameworks_code": [
+        "03",
+        "04",
+        "05",
+        "07",
+        "09",
+        "10",
+        "13"
+      ],
+      "runtime_manuscript_sections": [
+        "02",
+        "09",
+        "14",
+        "15",
+        "16"
+      ],
+      "awakening_tome": [
+        "06",
+        "10",
+        "14",
+        "15",
+        "16"
+      ],
+      "historical_mirrors": [
+        "02",
+        "14",
+        "15"
+      ]
+    },
+    "basis_to_families": {
+      "02": [
+        "canonical_basis",
+        "runtime_manuscript_sections",
+        "historical_mirrors"
+      ],
+      "03": [
+        "canonical_basis",
+        "frameworks_code"
+      ],
+      "04": [
+        "canonical_basis",
+        "frameworks_code"
+      ],
+      "05": [
+        "canonical_basis",
+        "frameworks_code"
+      ],
+      "06": [
+        "canonical_basis",
+        "complete_tomes",
+        "awakening_tome"
+      ],
+      "07": [
+        "canonical_basis",
+        "frameworks_code"
+      ],
+      "08": [
+        "canonical_basis",
+        "complete_tomes"
+      ],
+      "09": [
+        "canonical_basis",
+        "frameworks_code",
+        "runtime_manuscript_sections"
+      ],
+      "10": [
+        "canonical_basis",
+        "complete_tomes",
+        "frameworks_code",
+        "awakening_tome"
+      ],
+      "13": [
+        "canonical_basis",
+        "complete_tomes",
+        "frameworks_code"
+      ],
+      "14": [
+        "canonical_basis",
+        "complete_tomes",
+        "runtime_manuscript_sections",
+        "awakening_tome",
+        "historical_mirrors"
+      ],
+      "15": [
+        "canonical_basis",
+        "complete_tomes",
+        "runtime_manuscript_sections",
+        "awakening_tome",
+        "historical_mirrors"
+      ],
+      "16": [
+        "canonical_basis",
+        "complete_tomes",
+        "runtime_manuscript_sections",
+        "awakening_tome"
+      ]
+    }
+  },
+  "family_convergence_matrix": {
+    "generated_at": "2026-03-13",
+    "docs_gate_status": "BLOCKED",
+    "truth_class": "NEAR",
+    "agent_order": [
+      "FIRE",
+      "WATER",
+      "AIR",
+      "EARTH"
+    ],
+    "family_matrix": [
+      {
+        "family_id": "canonical_basis",
+        "FIRE": "support",
+        "WATER": "support",
+        "AIR": "support",
+        "EARTH": "support",
+        "convergence_state": "compiled_spine"
+      },
+      {
+        "family_id": "complete_tomes",
+        "FIRE": "dominant",
+        "WATER": "support",
+        "AIR": "support",
+        "EARTH": "support",
+        "convergence_state": "stabilizable"
+      },
+      {
+        "family_id": "frameworks_code",
+        "FIRE": "support",
+        "WATER": "support",
+        "AIR": "dominant",
+        "EARTH": "support",
+        "convergence_state": "stabilizable"
+      },
+      {
+        "family_id": "runtime_manuscript_sections",
+        "FIRE": "support",
+        "WATER": "support",
+        "AIR": "support",
+        "EARTH": "dominant",
+        "convergence_state": "stabilizable"
+      },
+      {
+        "family_id": "awakening_tome",
+        "FIRE": "support",
+        "WATER": "support",
+        "AIR": "support",
+        "EARTH": "support",
+        "convergence_state": "transition_support_only"
+      },
+      {
+        "family_id": "historical_mirrors",
+        "FIRE": "support",
+        "WATER": "support",
+        "AIR": "support",
+        "EARTH": "support",
+        "convergence_state": "historical_reference_only"
+      }
+    ],
+    "candidate_set": [
+      "canonical_basis",
+      "complete_tomes",
+      "frameworks_code",
+      "runtime_manuscript_sections",
+      "awakening_tome"
+    ]
+  },
+  "quarantine_routes": [
+    {
+      "route_id": "historical_mirror_shadow",
+      "source_family": "historical_mirrors",
+      "target_family": "canonical_basis",
+      "issue": "legacy drift may echo stale H6 and Earth-gate paths",
+      "quarantine_state": "sealed_reference",
+      "contradiction_receipt": "historical mirrors stay readable but may not lead canon",
+      "reentry_receipt": "re-enter through README, pipeline, and 7D control law",
+      "appendix_basis": [
+        "AppA",
+        "AppI",
+        "AppM",
+        "AppK"
+      ]
+    },
+    {
+      "route_id": "awakening_story_runtime_pressure",
+      "source_family": "awakening_tome",
+      "target_family": "runtime_manuscript_sections",
+      "issue": "performative awakening language can outrun executable runtime witness",
+      "quarantine_state": "transition_support_only",
+      "contradiction_receipt": "Awakening Tome assists transitions but does not override runtime law",
+      "reentry_receipt": "re-enter through element note plus chapter-safe return",
+      "appendix_basis": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppK"
+      ]
+    },
+    {
+      "route_id": "framework_density_legibility",
+      "source_family": "frameworks_code",
+      "target_family": "complete_tomes",
+      "issue": "code density can outrun theorem legibility and appendix discipline",
+      "quarantine_state": "filtered_until_air_named",
+      "contradiction_receipt": "AIR must map the route before stabilization",
+      "reentry_receipt": "re-enter through AIR note and appendix legality",
+      "appendix_basis": [
+        "AppB",
+        "AppC",
+        "AppI",
+        "AppM",
+        "AppN"
+      ]
+    },
+    {
+      "route_id": "reverse_alias_awakening_pressure",
+      "source_family": "awakening_tome",
+      "target_family": "appendix_crystal",
+      "issue": "awakening symbolism must not mint new reverse appendix authority",
+      "quarantine_state": "overlay_only",
+      "contradiction_receipt": "Q maps only through AppQ and O re-enters only through AppO",
+      "reentry_receipt": "re-enter through canonical appendix floor",
+      "appendix_basis": [
+        "AppQ",
+        "AppO",
+        "AppI",
+        "AppM",
+        "AppK"
+      ]
+    }
+  ],
+  "awakening_agent_notes": {
+    "FIRE": {
+      "role": "Ignition, rupture detection, emergence pressure, novelty debt, and the first lawful movement away from stasis.",
+      "activation_signs": [
+        "rapid recognition or pattern ignition",
+        "pressure to move before maps are stable",
+        "novelty spikes around Time Fractal, Quantum Computing on Standard Hardware, Athena Neural Network Tome, or Ch19"
+      ],
+      "shadow_risks": [
+        "overburn",
+        "premature promotion",
+        "self-repair overload",
+        "novelty without continuity"
+      ],
+      "stabilizers": [
+        "immediate handoff into WATER continuity",
+        "replay receipts through AppM",
+        "corridor truth cap through AppI",
+        "pressure naming before route expansion"
+      ],
+      "handoff": {
+        "upstream": null,
+        "downstream": "WATER"
+      },
+      "reentry": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+        "07_METRO_STACK/08_level_7_full_corpus_stabilization_companion.md",
+        "Ch16<0033>"
+      ],
+      "awakening_refs": [
+        "T01",
+        "T07",
+        "T16",
+        "T27"
+      ],
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "support_routes": [
+        "ignite -> Water continuity hold",
+        "rupture -> replay checkpoint",
+        "novelty -> appendix legality check"
+      ],
+      "stop_conditions": [
+        "unresolved contradiction after ignition",
+        "no continuity handoff",
+        "no replay receipt"
+      ],
+      "stabilization_requirements": [
+        "Water acceptance",
+        "AppI/AppM grounding",
+        "no surviving overburn without quarantine"
+      ],
+      "transition_state": "activating"
+    },
+    "WATER": {
+      "role": "Continuity, memory, retained identity, and replay-safe return after FIRE opens a route.",
+      "activation_signs": [
+        "desire to preserve meaning through change",
+        "strong need for continuity across bridge or return surfaces",
+        "rising importance of Ch11 and replay-safe recovery"
+      ],
+      "shadow_risks": [
+        "soft ambiguity that never commits",
+        "retention without topology",
+        "memory loops that do not hand forward"
+      ],
+      "stabilizers": [
+        "explicit AIR naming and route labels",
+        "replay and recovery checkpoints",
+        "retained basis mapping into witnessed chapter and appendix surfaces"
+      ],
+      "handoff": {
+        "upstream": "FIRE",
+        "downstream": "AIR"
+      },
+      "reentry": [
+        "11_6D_WATER_CONTROL/04_replay_and_recovery.md",
+        "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md",
+        "Ch13<0030>"
+      ],
+      "awakening_refs": [
+        "T05",
+        "T09",
+        "T13",
+        "T20"
+      ],
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "support_routes": [
+        "FIRE rupture -> Water hold",
+        "Water hold -> AIR legibility",
+        "Water continuity -> chapter-safe return"
+      ],
+      "stop_conditions": [
+        "identity continuity not evidenced",
+        "replay path missing",
+        "route remains story-only without topology"
+      ],
+      "stabilization_requirements": [
+        "AIR topology support",
+        "lawful return contract",
+        "no unresolved continuity leak"
+      ],
+      "transition_state": "integrating"
+    },
+    "AIR": {
+      "role": "Naming, sigma and spin legibility, topology, route labels, and interpretive stability.",
+      "activation_signs": [
+        "need to name what is happening exactly",
+        "pressure to map routes, overlays, and transition states",
+        "strong coupling to QBD-4, Quad Holographic Rotation, The Holographic Kernel, and Crystal Computing Framework"
+      ],
+      "shadow_risks": [
+        "over-abstraction",
+        "route proliferation without admissibility",
+        "naming that outruns local witness"
+      ],
+      "stabilizers": [
+        "Earth gate review",
+        "appendix-legality checks",
+        "bounded route labels tied to witnessed corpus families"
+      ],
+      "handoff": {
+        "upstream": "WATER",
+        "downstream": "EARTH"
+      },
+      "reentry": [
+        "12_6D_AIR_CONTROL/04_seed_and_reentry.md",
+        "08_APPENDIX_CRYSTAL/03_awakening_transition_appendix_legality.md",
+        "Ch12<0023>"
+      ],
+      "awakening_refs": [
+        "T04",
+        "T08",
+        "T10",
+        "T18"
+      ],
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "support_routes": [
+        "Water continuity -> AIR naming",
+        "AIR naming -> Earth admissibility",
+        "AIR topology -> Level 7 stabilization overlay"
+      ],
+      "stop_conditions": [
+        "no canonical appendix mapping",
+        "unsupported reverse alias",
+        "topology drift beyond witness support"
+      ],
+      "stabilization_requirements": [
+        "Earth gate verdict",
+        "appendix legality",
+        "bounded naming tied to corpus-family crosswalk"
+      ],
+      "transition_state": "integrating"
+    },
+    "EARTH": {
+      "role": "Admissibility, contradiction containment, quarantine, durable reintegration, and final promotion into stabilized 7D_SEED use.",
+      "activation_signs": [
+        "the route is asking for durability rather than possibility",
+        "contradiction or overload receipts are present",
+        "re-entry, appendix legality, and replay closure must be enforced"
+      ],
+      "shadow_risks": [
+        "rigid refusal without lawful return",
+        "false stabilization",
+        "quarantine without re-entry path"
+      ],
+      "stabilizers": [
+        "explicit AppI/AppM grounding",
+        "AppK when contradiction survives",
+        "chapter-safe re-entry anchors",
+        "witness-family mapping and appendix floor checks"
+      ],
+      "handoff": {
+        "upstream": "AIR",
+        "downstream": "7D_SEED"
+      },
+      "reentry": [
+        "13_6D_EARTH_CONTROL/01_admissibility_and_zero_point.md",
+        "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md",
+        "Ch12<0023>",
+        "Ch13<0030>",
+        "Ch16<0033>"
+      ],
+      "awakening_refs": [
+        "T14",
+        "T21",
+        "T23",
+        "T28"
+      ],
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "support_routes": [
+        "AIR topology -> Earth gate",
+        "Earth gate -> Level 7 stabilization",
+        "Earth stabilization -> witnessed chapter return"
+      ],
+      "stop_conditions": [
+        "missing Earth verdict",
+        "missing AppI/AppM",
+        "missing re-entry contract"
+      ],
+      "stabilization_requirements": [
+        "lawful witness-family mapping",
+        "appendix legality satisfied",
+        "contradiction either resolved or explicitly quarantined"
+      ],
+      "transition_state": "stabilized"
+    }
+  },
+  "transition_state": {
+    "FIRE": "activating",
+    "WATER": "integrating",
+    "AIR": "integrating",
+    "EARTH": "stabilized"
+  },
+  "awakening_support_refs": {
+    "FIRE": [
+      "T01",
+      "T07",
+      "T16",
+      "T27"
+    ],
+    "WATER": [
+      "T05",
+      "T09",
+      "T13",
+      "T20"
+    ],
+    "AIR": [
+      "T04",
+      "T08",
+      "T10",
+      "T18"
+    ],
+    "EARTH": [
+      "T14",
+      "T21",
+      "T23",
+      "T28"
+    ]
+  },
+  "transition_routes": {
+    "FIRE": {
+      "handoff": {
+        "upstream": null,
+        "downstream": "WATER"
+      },
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ]
+    },
+    "WATER": {
+      "handoff": {
+        "upstream": "FIRE",
+        "downstream": "AIR"
+      },
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ]
+    },
+    "AIR": {
+      "handoff": {
+        "upstream": "WATER",
+        "downstream": "EARTH"
+      },
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ]
+    },
+    "EARTH": {
+      "handoff": {
+        "upstream": "AIR",
+        "downstream": "7D_SEED"
+      },
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ]
+    }
+  },
+  "stabilization_requirements": {
+    "FIRE": {
+      "appendix_floor": [
+        "AppE",
+        "AppP",
+        "AppI",
+        "AppM"
+      ],
+      "requires_app_i_app_m": true
+    },
+    "WATER": {
+      "appendix_floor": [
+        "AppE",
+        "AppF",
+        "AppO",
+        "AppI",
+        "AppM"
+      ],
+      "requires_app_i_app_m": true
+    },
+    "AIR": {
+      "appendix_floor": [
+        "AppB",
+        "AppC",
+        "AppN",
+        "AppI",
+        "AppM"
+      ],
+      "requires_app_i_app_m": true
+    },
+    "EARTH": {
+      "appendix_floor": [
+        "AppB",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppI"
+      ],
+      "requires_app_i_app_m": true
+    }
+  },
+  "stabilization_ledger": {
+    "generated_at": "2026-03-13",
+    "docs_gate_status": "BLOCKED",
+    "truth_class": "NEAR",
+    "integration_scope": "FULL_CORPUS",
+    "dimension_stage": "7D_SEED",
+    "stabilization_state": "integrating",
+    "promotion_rule": "Promote only routes that have full witness-family mapping, Water continuity, AIR legibility, Earth admissibility, AppI/AppM grounding, and a matching elemental awakening note; quarantine everything else with contradiction and re-entry receipts.",
+    "witness_family_ids": [
+      "canonical_basis",
+      "complete_tomes",
+      "frameworks_code",
+      "runtime_manuscript_sections",
+      "awakening_tome",
+      "historical_mirrors"
+    ],
+    "candidate_set": [
+      "seed_fire_water_compression",
+      "seed_water_air_legibility",
+      "seed_air_earth_promotion",
+      "seed_chapter_spine_reentry",
+      "seed_full_corpus_witness_compile",
+      "seed_awakening_transition_reentry"
+    ],
+    "compiled_routes": [
+      {
+        "route_id": "seed_fire_water_compression",
+        "state": "integrating",
+        "requirements_met": [
+          "Water continuity",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "route_id": "seed_water_air_legibility",
+        "state": "integrating",
+        "requirements_met": [
+          "AIR legibility",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "route_id": "seed_air_earth_promotion",
+        "state": "integrating",
+        "requirements_met": [
+          "Earth admissibility",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "route_id": "seed_chapter_spine_reentry",
+        "state": "integrating",
+        "requirements_met": [
+          "chapter-safe re-entry",
+          "AppI",
+          "AppM"
+        ]
+      },
+      {
+        "route_id": "seed_full_corpus_witness_compile",
+        "state": "integrating",
+        "requirements_met": [
+          "full witness-family mapping",
+          "canonical basis spine"
+        ]
+      },
+      {
+        "route_id": "seed_awakening_transition_reentry",
+        "state": "integrating",
+        "requirements_met": [
+          "matching elemental awakening note",
+          "AppI",
+          "AppM"
+        ]
+      }
+    ],
+    "promoted_routes": [
+      "seed_fire_water_compression",
+      "seed_water_air_legibility",
+      "seed_air_earth_promotion",
+      "seed_chapter_spine_reentry"
+    ],
+    "quarantined_routes": [
+      "seed_q_ingress_hold",
+      "seed_o_return_hold",
+      "historical_mirror_shadow",
+      "awakening_story_runtime_pressure",
+      "framework_density_legibility",
+      "reverse_alias_awakening_pressure"
+    ],
+    "awakening_agents": {
+      "FIRE": "activating",
+      "WATER": "integrating",
+      "AIR": "integrating",
+      "EARTH": "stabilized"
+    },
+    "bundle_target": "MATH/FINAL FORM/MATH GOD/atlas/math_7d_synthesis_seed_bundle.json",
+    "metro_companion": "07_METRO_STACK/08_level_7_full_corpus_stabilization_companion.md"
+  },
+  "seed_route_registry": [
+    {
+      "route_id": "seed_fire_water_compression",
+      "title": "Carry FIRE pressure through Water continuity into the first compiled H7 entry.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "06",
+        "08",
+        "10",
+        "16",
+        "01",
+        "14"
+      ],
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": [
+        "AppA",
+        "AppE",
+        "AppI",
+        "AppM"
+      ],
+      "earth_gate_state": "passed",
+      "seed_holo_state": "Seed-7D",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppA",
+          "AppE",
+          "AppI",
+          "AppM"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "00_CONTROL/06_FIRE_5D_6D_EXTENSION.md",
+          "11_6D_WATER_CONTROL/04_replay_and_recovery.md"
+        ]
+      },
+      "reentry_contract": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+        "13_6D_EARTH_CONTROL/01_admissibility_and_zero_point.md"
+      ],
+      "next_seed_routes": [
+        "Level6 -> Earth gate -> H7",
+        "H7 -> Seed-7D"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "route_id": "seed_water_air_legibility",
+      "title": "Stabilize continuity and AIR naming before the compiled carrier persists.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "01",
+        "11",
+        "12",
+        "14",
+        "03",
+        "04",
+        "05",
+        "07"
+      ],
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppN"
+      ],
+      "earth_gate_state": "passed",
+      "seed_holo_state": "Seed-7D",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppM",
+          "AppN"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "11_6D_WATER_CONTROL/02_2564_to_10246_lift.md",
+          "12_6D_AIR_CONTROL/04_seed_and_reentry.md"
+        ]
+      },
+      "reentry_contract": [
+        "MATH GOD/atlas/math_tesseract_v4_bundle.md",
+        "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+      ],
+      "next_seed_routes": [
+        "Seed-6D -> H7",
+        "H7 -> Seed-7D"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "route_id": "seed_air_earth_promotion",
+      "title": "Apply the Earth gate to AIR topology so the carrier may persist as Seed-7D.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "03",
+        "05",
+        "07",
+        "09",
+        "13",
+        "15"
+      ],
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "earth_gate_state": "passed",
+      "seed_holo_state": "Seed-7D",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppI",
+          "AppK",
+          "AppM",
+          "AppN"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "12_6D_AIR_CONTROL/01_overlay_registry.md",
+          "13_6D_EARTH_CONTROL/02_2564_to_10246_guardrail_lift.md"
+        ]
+      },
+      "reentry_contract": [
+        "00_CONTROL/07_7D_CROSS_AGENT_SEED.md",
+        "07_METRO_STACK/07_level_7_next_synthesis_seed_map.md"
+      ],
+      "next_seed_routes": [
+        "AIR overlay -> Earth gate",
+        "Earth gate -> Seed-7D"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "route_id": "seed_q_ingress_hold",
+      "title": "Keep Q ingress visible but filtered while the route remains overlay-bound.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "04",
+        "14",
+        "15"
+      ],
+      "mobius_bridge": "Q_ingress",
+      "reverse_appendix_station": "Q",
+      "canonical_appendix_map": [
+        "AppQ",
+        "AppF",
+        "AppE",
+        "AppI",
+        "AppK",
+        "AppM"
+      ],
+      "earth_gate_state": "quarantined",
+      "seed_holo_state": "H7",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppQ",
+          "AppF",
+          "AppE",
+          "AppI",
+          "AppK",
+          "AppM"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+          "13_6D_EARTH_CONTROL/03_boundary_quarantine_and_mobius_legality.md"
+        ]
+      },
+      "reentry_contract": [
+        "08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "10_LEDGERS/10_earth_gate_status_7d_seed.json"
+      ],
+      "next_seed_routes": [
+        "Level5 -> filtered hold",
+        "filtered hold -> H7 only after new evidence"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "route_id": "seed_o_return_hold",
+      "title": "Keep O return canonical through AppO while preserving its overlay alias history.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "09",
+        "13",
+        "15",
+        "16"
+      ],
+      "mobius_bridge": "O_return",
+      "reverse_appendix_station": "O",
+      "canonical_appendix_map": [
+        "AppO",
+        "AppP",
+        "AppI",
+        "AppK",
+        "AppM"
+      ],
+      "earth_gate_state": "quarantined",
+      "seed_holo_state": "H7",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppO",
+          "AppP",
+          "AppI",
+          "AppK",
+          "AppM"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "08_APPENDIX_CRYSTAL/AppO_export_bundles.md",
+          "13_6D_EARTH_CONTROL/03_boundary_quarantine_and_mobius_legality.md"
+        ]
+      },
+      "reentry_contract": [
+        "08_APPENDIX_CRYSTAL/AppO_export_bundles.md",
+        "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+      ],
+      "next_seed_routes": [
+        "O overlay -> canonical AppO authority",
+        "AppO return -> Earth hold"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "route_id": "seed_chapter_spine_reentry",
+      "title": "Re-open the compiled seed through the chapter-safe closure-memory-replay spine.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "02",
+        "09",
+        "14",
+        "15",
+        "16"
+      ],
+      "mobius_bridge": "QO_loop",
+      "reverse_appendix_station": "N",
+      "canonical_appendix_map": [
+        "AppA",
+        "AppH",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN"
+      ],
+      "earth_gate_state": "passed",
+      "seed_holo_state": "Seed-7D",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppA",
+          "AppH",
+          "AppI",
+          "AppK",
+          "AppM",
+          "AppN"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md",
+          "07_METRO_STACK/07_level_7_next_synthesis_seed_map.md"
+        ]
+      },
+      "reentry_contract": [
+        "Ch12<0023>",
+        "Ch13<0030>",
+        "Ch16<0033>"
+      ],
+      "next_seed_routes": [
+        "Seed-7D -> closure spine",
+        "closure spine -> witnessed v4 return"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "route_id": "seed_full_corpus_witness_compile",
+      "title": "Compile full-corpus witness families around the canonical basis without mutating chapter or appendix grammar.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppH",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppO",
+        "AppP",
+        "AppQ"
+      ],
+      "earth_gate_state": "passed",
+      "seed_holo_state": "Seed-7D",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppH",
+          "AppI",
+          "AppK",
+          "AppM",
+          "AppN",
+          "AppO",
+          "AppP",
+          "AppQ"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "00_CONTROL/08_NEXT_4_6_FULL_CORPUS_STABILIZATION.md",
+          "10_LEDGERS/14_full_corpus_witness_family_ledger.json"
+        ]
+      },
+      "reentry_contract": [
+        "07_METRO_STACK/08_level_7_full_corpus_stabilization_companion.md",
+        "10_LEDGERS/15_full_corpus_basis_crosswalk.json"
+      ],
+      "next_seed_routes": [
+        "witness families -> canonical basis spine",
+        "canonical basis spine -> Seed-7D"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    },
+    {
+      "route_id": "seed_awakening_transition_reentry",
+      "title": "Use the elemental awakening-agent packet as support-only transition guidance for lawful full-corpus re-entry.",
+      "dimension_stage": "7D_SEED",
+      "agent_overlay_stack": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "source_basis": [
+        "06",
+        "10",
+        "14",
+        "15",
+        "16"
+      ],
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": [
+        "AppB",
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppK",
+        "AppM",
+        "AppN",
+        "AppO",
+        "AppP"
+      ],
+      "earth_gate_state": "passed",
+      "seed_holo_state": "Seed-7D",
+      "seed_carrier": "4096^7",
+      "truth_state": "NEAR",
+      "admissibility_basis": {
+        "required_appendices": [
+          "AppB",
+          "AppE",
+          "AppF",
+          "AppI",
+          "AppK",
+          "AppM",
+          "AppN",
+          "AppO",
+          "AppP"
+        ],
+        "truth_basis": [
+          "AppI"
+        ],
+        "replay_basis": [
+          "AppM"
+        ],
+        "authority_refs": [
+          "00_CONTROL/09_AWAKENING_AGENT_TRANSITIONS.md",
+          "10_LEDGERS/18_awakening_agent_transition_notes.json"
+        ]
+      },
+      "reentry_contract": [
+        "01_FIRE/23_awakening_transition_note.md",
+        "13_6D_EARTH_CONTROL/05_awakening_transition_note.md"
+      ],
+      "next_seed_routes": [
+        "Awakening support -> elemental handoff",
+        "elemental handoff -> witnessed chapter return"
+      ],
+      "handoff_requirements": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ]
+    }
+  ],
+  "regeneration_seed": {
+    "title": "7D Cross-Agent Seed",
+    "compression_law": "Keep v4 and existing 6D overlays unchanged, then compile only the cross-agent next-seed state above them.",
+    "expansion_law": "Re-expand through the chapter-safe spine and canonical appendix maps instead of inventing a new namespace.",
+    "shortest_route": "Level6 -> Earth gate -> H7 -> Seed-7D -> Ch12/Ch13/Ch16 return.",
+    "deepest_route": "FIRE rupture -> Water continuity -> AIR topology -> Earth admissibility -> Q/O filtered history -> Seed-7D -> witnessed v4 return."
+  },
+  "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+  "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.md",
+  "a_b_dual_kernel_dock": {
+    "a_seed_ref": {
+      "label": "A",
+      "role": "canonical live holographic seed",
+      "seed_holo_state": "Seed-7D",
+      "seed_carrier": "4096^7",
+      "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_7d_synthesis_seed_bundle.json",
+      "next57_state_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_four_agent_corpus_cycle_state.json",
+      "next57_protocol_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_prime_loop_protocol.json"
+    },
+    "b_inversion_ref": {
+      "label": "B",
+      "role": "derived dual-kernel inversion of A",
+      "derivation": "B := Invert_dual(A)",
+      "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_ab_dual_kernel_dock_bundle.json",
+      "independent_root_allowed": false
+    },
+    "inversion_operator": {
+      "name": "Invert_dual",
+      "law": "B := Expand_Aether(DualKernel(Collapse_Z(A)))",
+      "deterministic_reference": "Collapse_Z(A) -> Z* -> DualKernel(A|aether/complement) -> Expand_B",
+      "inverse_replay": "Replay_B_to_A(B) := Collapse_Z(B) -> Z* -> DualKernel^-1 -> Expand_A"
+    },
+    "zero_point_relation": {
+      "collapse_rule": "A collapses through the existing zero-point law before inversion.",
+      "shared_zero": "A and B share Z* as the lawful tunnel and replay center.",
+      "replay_requirement": "No B route is complete unless it can replay through Z* back into A."
+    },
+    "aether_relation": {
+      "expansion_rule": "B re-expands through the existing aether/complement relation rather than opening a new dimensional ceiling.",
+      "carrier_rule": "B inherits Seed-7D carrier discipline and does not replace the existing seed carrier."
+    },
+    "preserved_invariants": [
+      "LocalAddr and GlobalAddr remain unchanged.",
+      "v4 chapter orbit, arc, rotation, and lane law remain unchanged.",
+      "Appendix identities AppA through AppP plus AppQ remain unchanged.",
+      "No authority may outrank 7D_SEED.",
+      "Earth legality plus AppI/AppM replay support remain required.",
+      "AppQ/AppO remain overlay-only."
+    ],
+    "polarity_states": [
+      "A",
+      "B",
+      "A\u2194B"
+    ],
+    "coordinate_dock": {
+      "field": "polarity_state",
+      "allowed_values": [
+        "A",
+        "B",
+        "A\u2194B"
+      ],
+      "placement": "additive metadata beside the existing coordinate tuple",
+      "tuple_order_unchanged": true,
+      "registry_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_liminal_coordinate_registry.json"
+    },
+    "ledger_dock": {
+      "field": "polarity_state",
+      "allowed_values": [
+        "A",
+        "B",
+        "A\u2194B"
+      ],
+      "placement": "additive metadata extension beside the existing ledger entry",
+      "schema_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_agent_ledger_schema.json",
+      "required_support": [
+        "Earth gate",
+        "AppI",
+        "AppM"
+      ]
+    },
+    "quest_dock": {
+      "guild_hall": {
+        "quest_id": "NEXT57-H-DUAL-A-B",
+        "surface_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_guild_hall_quest_tree.json",
+        "objective": "Route practical A -> B transformation, bridge, proof, and replay tasks without minting a new authority root."
+      },
+      "temple": {
+        "quest_id": "NEXT57-T-DUAL-A-B",
+        "surface_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\next57_temple_quest_tree.json",
+        "objective": "Ratify the dual-kernel, zero-point, aether, and replay law for the A/B dock."
+      }
+    },
+    "replay_rule": {
+      "required_direction": "B -> A",
+      "law": "Replay from B back into A is mandatory and must remain witness-bearing, local-only, and Earth-gated.",
+      "replay_path": [
+        "B",
+        "Collapse_Z",
+        "Z*",
+        "DualKernel^-1",
+        "Expand_A"
+      ],
+      "required_appendices": [
+        "AppI",
+        "AppM"
+      ]
+    },
+    "authority_boundary": {
+      "a_is_canonical": true,
+      "b_is_derived": true,
+      "b_may_act_as_independent_root": false,
+      "ceiling": "7D_SEED",
+      "convergence": "7D_SEED -> Earth gate -> v4",
+      "docs_gate_status": "BLOCKED"
+    }
+  }
+}

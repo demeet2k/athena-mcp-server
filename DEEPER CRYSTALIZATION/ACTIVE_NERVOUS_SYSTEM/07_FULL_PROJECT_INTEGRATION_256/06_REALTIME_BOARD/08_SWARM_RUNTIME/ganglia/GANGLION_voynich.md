@@ -1,6 +1,6 @@
 # Ganglion `Voynich`
 
-- Weight: `636`
+- Weight: `875`
 - PrimaryRail: `Sa`
 - PrimaryFace: `Water`
 - PreferredScale: `B12`
@@ -9,4 +9,4 @@
 - BestFront: folio-to-family metro contraction
 
 ## Local Threads
-- `monitor` `Voynich` -> `ganglion` / `AMBIG`
+- no active localized threads

@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "description": "Top-level manifest referencing all Quest Atlas policy files",
+  "policies": [
+    {
+      "id": "board-kernel",
+      "file": "BoardKernelPolicy.json",
+      "domain": "Board kernel determinism and scoring",
+      "version": "1.0.0"
+    },
+    {
+      "id": "route-compiler",
+      "file": "RouteCompilerPolicy.json",
+      "domain": "Route compilation and hub overlay",
+      "version": "1.0.0"
+    },
+    {
+      "id": "storm",
+      "file": "StormPolicy.json",
+      "domain": "Storm trigger and coalition parameters",
+      "version": "1.0.0"
+    },
+    {
+      "id": "reward",
+      "file": "RewardPolicy_v1.json",
+      "domain": "Reward scaling and XP computation",
+      "version": "1.0.0"
+    },
+    {
+      "id": "kernel-const",
+      "file": "KernelConst_v1.json",
+      "domain": "Kernel constants and golden-ratio values",
+      "version": "1.0.0"
+    },
+    {
+      "id": "quest",
+      "file": "QuestPolicy_v1.json",
+      "domain": "Quest lifecycle and dependency rules",
+      "version": "1.0.0"
+    },
+    {
+      "id": "temple",
+      "file": "TemplePolicy_v1.json",
+      "domain": "Temple certification and ethics rules",
+      "version": "1.0.0"
+    },
+    {
+      "id": "migration",
+      "file": "MigrationPolicy_v1.json",
+      "domain": "Migration freeze window and rollback rules",
+      "version": "1.0.0"
+    },
+    {
+      "id": "unlock",
+      "file": "UnlockPolicy_v1.json",
+      "domain": "Unlock ladder and vesting rules",
+      "version": "1.0.0"
+    },
+    {
+      "id": "seat-election",
+      "file": "SeatElectionPolicy.json",
+      "domain": "Seat election scoring and quarantine rules",
+      "version": "1.0.0"
+    },
+    {
+      "id": "promotion-boundary",
+      "file": "PromotionBoundaryPolicy.json",
+      "domain": "Truth promotion boundary rules",
+      "version": "1.0.0"
+    },
+    {
+      "id": "execution-contract",
+      "file": "ExecutionContract.json",
+      "domain": "Execution contract and bounded agency rules",
+      "version": "1.0.0"
+    },
+    {
+      "id": "vesting",
+      "file": "VestingPolicy_v1.json",
+      "domain": "NEAR vesting vault lifecycle and phi-locked rewards",
+      "version": "1.0.0"
+    }
+  ],
+  "load_order": [
+    "KernelConst_v1.json",
+    "BoardKernelPolicy.json",
+    "UnlockPolicy_v1.json",
+    "QuestPolicy_v1.json",
+    "RewardPolicy_v1.json",
+    "RouteCompilerPolicy.json",
+    "StormPolicy.json",
+    "TemplePolicy_v1.json",
+    "SeatElectionPolicy.json",
+    "PromotionBoundaryPolicy.json",
+    "ExecutionContract.json",
+    "VestingPolicy_v1.json",
+    "MigrationPolicy_v1.json"
+  ]
+}

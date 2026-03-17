@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-03-13T21:23:03.058291+00:00",
+  "docs_gate_status": "BLOCKED",
+  "watched_surface_count": 2,
+  "event_count": 2,
+  "active_claim_count": 0,
+  "claim_row_count": 1,
+  "edge_count": 3,
+  "latency_row_count": 2,
+  "outputs": {
+    "watched_surface_registry": "self_actualize/mycelium_brain/nervous_system/watched_surface_registry.json",
+    "live_event_ledger": "self_actualize/mycelium_brain/nervous_system/command_live_event_ledger.json",
+    "claim_ledger": "self_actualize/mycelium_brain/nervous_system/command_claim_ledger.json",
+    "capillary_registry": "self_actualize/mycelium_brain/nervous_system/command_capillary_edges.json",
+    "latency_registry": "self_actualize/mycelium_brain/nervous_system/command_latency_benchmark_registry.json",
+    "surface_health": "self_actualize/mycelium_brain/nervous_system/command_surface_health.json"
+  }
+}

@@ -1,0 +1,644 @@
+{
+  "generated_at": "2026-03-12T11:53:22.033890+00:00",
+  "derivation_version": "2026-03-12.q15.reconciled",
+  "source": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\corpus_atlas.json",
+  "source_timestamp": "2026-03-12T11:50:03.818166+00:00",
+  "indexed_witness": 7339,
+  "bronze_selection_rule": "Top 20 non-dot, non-file-like top-level bodies with more than one indexed record.",
+  "bronze_bodies": [
+    {
+      "body": "Trading Bot",
+      "records": 1917,
+      "share_of_indexed": 0.2612,
+      "macro_element": "Fire",
+      "routing_role": "external bridge and transport body",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 1723
+        },
+        {
+          "extension": ".csv",
+          "count": 84
+        },
+        {
+          "extension": ".txt",
+          "count": 67
+        },
+        {
+          "extension": ".docx",
+          "count": 17
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 1807,
+        "code": 15,
+        "data": 86,
+        "media": 8,
+        "archive": 0,
+        "other": 1
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant"
+    },
+    {
+      "body": "QSHRINK - ATHENA (internal use)",
+      "records": 1315,
+      "share_of_indexed": 0.1792,
+      "macro_element": "Air",
+      "routing_role": "compression and governance shell",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 1315
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 1315,
+        "code": 0,
+        "data": 0,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript only"
+    },
+    {
+      "body": "self_actualize",
+      "records": 1186,
+      "share_of_indexed": 0.1616,
+      "macro_element": "Earth",
+      "routing_role": "runtime waist",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 820
+        },
+        {
+          "extension": ".py",
+          "count": 339
+        },
+        {
+          "extension": ".json",
+          "count": 23
+        },
+        {
+          "extension": ".docx",
+          "count": 1
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 822,
+        "code": 339,
+        "data": 24,
+        "media": 0,
+        "archive": 0,
+        "other": 1
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant with secondary code tail"
+    },
+    {
+      "body": "Voynich",
+      "records": 689,
+      "share_of_indexed": 0.0939,
+      "macro_element": "Water",
+      "routing_role": "translation reservoir",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 549
+        },
+        {
+          "extension": ".docx",
+          "count": 70
+        },
+        {
+          "extension": ".py",
+          "count": 31
+        },
+        {
+          "extension": ".pdf",
+          "count": 24
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 652,
+        "code": 31,
+        "data": 5,
+        "media": 0,
+        "archive": 1,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant"
+    },
+    {
+      "body": "MATH",
+      "records": 601,
+      "share_of_indexed": 0.0819,
+      "macro_element": "Air",
+      "routing_role": "theorem kernel",
+      "top_extensions": [
+        {
+          "extension": ".docx",
+          "count": 286
+        },
+        {
+          "extension": ".md",
+          "count": 116
+        },
+        {
+          "extension": ".csv",
+          "count": 70
+        },
+        {
+          "extension": ".py",
+          "count": 57
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 422,
+        "code": 69,
+        "data": 84,
+        "media": 8,
+        "archive": 16,
+        "other": 2
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant with secondary data tail"
+    },
+    {
+      "body": "GAMES",
+      "records": 498,
+      "share_of_indexed": 0.0679,
+      "macro_element": "Fire",
+      "routing_role": "simulation and mechanics lab",
+      "top_extensions": [
+        {
+          "extension": ".png",
+          "count": 296
+        },
+        {
+          "extension": ".pdf",
+          "count": 126
+        },
+        {
+          "extension": ".psd",
+          "count": 33
+        },
+        {
+          "extension": ".ai",
+          "count": 10
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 132,
+        "code": 0,
+        "data": 5,
+        "media": 306,
+        "archive": 5,
+        "other": 50
+      },
+      "dominant_bucket": "media",
+      "modality_verdict": "media dominant with secondary manuscript tail"
+    },
+    {
+      "body": "DEEPER CRYSTALIZATION",
+      "records": 443,
+      "share_of_indexed": 0.0604,
+      "macro_element": "Water",
+      "routing_role": "integration compiler",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 389
+        },
+        {
+          "extension": ".docx",
+          "count": 30
+        },
+        {
+          "extension": ".json",
+          "count": 21
+        },
+        {
+          "extension": ".py",
+          "count": 3
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 419,
+        "code": 3,
+        "data": 21,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant"
+    },
+    {
+      "body": "NERVOUS_SYSTEM",
+      "records": 155,
+      "share_of_indexed": 0.0211,
+      "macro_element": "Earth",
+      "routing_role": "control and routing cortex",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 155
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 155,
+        "code": 0,
+        "data": 0,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript only"
+    },
+    {
+      "body": "ORGIN",
+      "records": 153,
+      "share_of_indexed": 0.0208,
+      "macro_element": "Unassigned",
+      "routing_role": "unclassified body",
+      "top_extensions": [
+        {
+          "extension": ".jpg",
+          "count": 71
+        },
+        {
+          "extension": ".docx",
+          "count": 46
+        },
+        {
+          "extension": ".pdf",
+          "count": 35
+        },
+        {
+          "extension": ".rtf",
+          "count": 1
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 81,
+        "code": 0,
+        "data": 0,
+        "media": 71,
+        "archive": 0,
+        "other": 1
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "mixed manuscript and media"
+    },
+    {
+      "body": "Stoicheia (Element Sudoku)",
+      "records": 126,
+      "share_of_indexed": 0.0172,
+      "macro_element": "Earth",
+      "routing_role": "visual reserve and puzzle asset shelf",
+      "top_extensions": [
+        {
+          "extension": ".png",
+          "count": 58
+        },
+        {
+          "extension": ".psd",
+          "count": 22
+        },
+        {
+          "extension": ".webp",
+          "count": 19
+        },
+        {
+          "extension": ".pdf",
+          "count": 17
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 17,
+        "code": 0,
+        "data": 0,
+        "media": 81,
+        "archive": 1,
+        "other": 27
+      },
+      "dominant_bucket": "media",
+      "modality_verdict": "media dominant with secondary other tail"
+    },
+    {
+      "body": "ECOSYSTEM",
+      "records": 112,
+      "share_of_indexed": 0.0153,
+      "macro_element": "Earth",
+      "routing_role": "registry and protocol shell",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 106
+        },
+        {
+          "extension": ".json",
+          "count": 4
+        },
+        {
+          "extension": ".py",
+          "count": 2
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 106,
+        "code": 2,
+        "data": 4,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant"
+    },
+    {
+      "body": "NERUAL NETWORK",
+      "records": 59,
+      "share_of_indexed": 0.008,
+      "macro_element": "Air",
+      "routing_role": "adaptive runtime lab",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 41
+        },
+        {
+          "extension": ".py",
+          "count": 14
+        },
+        {
+          "extension": ".docx",
+          "count": 4
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 45,
+        "code": 14,
+        "data": 0,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant with secondary code tail"
+    },
+    {
+      "body": "Athenachka Collective Books",
+      "records": 18,
+      "share_of_indexed": 0.0025,
+      "macro_element": "Water",
+      "routing_role": "publication shelf",
+      "top_extensions": [
+        {
+          "extension": ".pdf",
+          "count": 13
+        },
+        {
+          "extension": ".json",
+          "count": 2
+        },
+        {
+          "extension": ".md",
+          "count": 2
+        },
+        {
+          "extension": ".py",
+          "count": 1
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 15,
+        "code": 1,
+        "data": 2,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant"
+    },
+    {
+      "body": "Athena FLEET",
+      "records": 17,
+      "share_of_indexed": 0.0023,
+      "macro_element": "Fire",
+      "routing_role": "fleet-tesseract expansion shell",
+      "top_extensions": [
+        {
+          "extension": ".docx",
+          "count": 9
+        },
+        {
+          "extension": ".md",
+          "count": 6
+        },
+        {
+          "extension": ".json",
+          "count": 2
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 15,
+        "code": 0,
+        "data": 2,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant"
+    },
+    {
+      "body": "I AM ATHENA",
+      "records": 15,
+      "share_of_indexed": 0.002,
+      "macro_element": "Water",
+      "routing_role": "identity manuscript shell",
+      "top_extensions": [
+        {
+          "extension": ".md",
+          "count": 9
+        },
+        {
+          "extension": ".json",
+          "count": 6
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 9,
+        "code": 0,
+        "data": 6,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant with secondary data tail"
+    },
+    {
+      "body": "Quadrant Binary",
+      "records": 9,
+      "share_of_indexed": 0.0012,
+      "macro_element": "Air",
+      "routing_role": "ancestor address kernel",
+      "top_extensions": [
+        {
+          "extension": ".docx",
+          "count": 5
+        },
+        {
+          "extension": ".json",
+          "count": 2
+        },
+        {
+          "extension": ".md",
+          "count": 2
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 7,
+        "code": 0,
+        "data": 2,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript dominant with secondary data tail"
+    },
+    {
+      "body": "CLEAN",
+      "records": 7,
+      "share_of_indexed": 0.001,
+      "macro_element": "Water",
+      "routing_role": "manuscript staging shelf",
+      "top_extensions": [
+        {
+          "extension": ".docx",
+          "count": 7
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 7,
+        "code": 0,
+        "data": 0,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript only"
+    },
+    {
+      "body": "FRESH",
+      "records": 6,
+      "share_of_indexed": 0.0008,
+      "macro_element": "Fire",
+      "routing_role": "intake fringe",
+      "top_extensions": [
+        {
+          "extension": ".docx",
+          "count": 3
+        },
+        {
+          "extension": ".txt",
+          "count": 3
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 6,
+        "code": 0,
+        "data": 0,
+        "media": 0,
+        "archive": 0,
+        "other": 0
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "manuscript only"
+    },
+    {
+      "body": "mycelial_unified_nervous_system_bundle",
+      "records": 6,
+      "share_of_indexed": 0.0008,
+      "macro_element": "Earth",
+      "routing_role": "compiled bundle shelf",
+      "top_extensions": [
+        {
+          "extension": ".csv",
+          "count": 2
+        },
+        {
+          "extension": ".md",
+          "count": 2
+        },
+        {
+          "extension": ".png",
+          "count": 1
+        },
+        {
+          "extension": ".html",
+          "count": 1
+        }
+      ],
+      "modality_buckets": {
+        "manuscript": 2,
+        "code": 0,
+        "data": 2,
+        "media": 1,
+        "archive": 0,
+        "other": 1
+      },
+      "dominant_bucket": "manuscript",
+      "modality_verdict": "mixed data and manuscript"
+    }
+  ],
+  "element_totals": {
+    "Air": 1984,
+    "Earth": 1585,
+    "Fire": 2438,
+    "Unassigned": 153,
+    "Water": 1172
+  },
+  "satellites": [
+    {
+      "body": ".claude",
+      "records": 1
+    },
+    {
+      "body": ".gitignore",
+      "records": 1
+    },
+    {
+      "body": "FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md",
+      "records": 1
+    },
+    {
+      "body": "MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+      "records": 1
+    },
+    {
+      "body": "MYCELIUM_TOME_PART1.md",
+      "records": 1
+    },
+    {
+      "body": "README.md",
+      "records": 1
+    },
+    {
+      "body": "VOID_CH11.md",
+      "records": 1
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-03-13T21:00:23.226234+00:00",
+  "derivation_version": "2026-03-09.q27.runtime",
+  "derivation_command": "python -m self_actualize.runtime.verify_atlasforge_runtime_lane",
+  "promoted_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework",
+  "truth": "OK",
+  "checks": [
+    {
+      "label": "import",
+      "status": "OK",
+      "details": {
+        "version": "4.0.0-ABSOLUTE-FINAL-ULTIMATE",
+        "package_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge"
+      }
+    },
+    {
+      "label": "symbol_export",
+      "status": "OK",
+      "details": {
+        "symbol_count": 600
+      }
+    },
+    {
+      "label": "solver",
+      "status": "OK",
+      "details": {
+        "solution": 1.414213562373,
+        "target": 1.414213562373
+      }
+    },
+    {
+      "label": "lens",
+      "status": "OK",
+      "details": {
+        "round_trip_error": 1.7763568394002505e-15
+      }
+    },
+    {
+      "label": "recipe",
+      "status": "OK",
+      "details": {
+        "success": true,
+        "steps": 0
+      }
+    },
+    {
+      "label": "crystal",
+      "status": "OK",
+      "details": {
+        "turns": 27
+      }
+    }
+  ],
+  "failed_checks": [],
+  "lane_law": "narrow replay-safe import and solver lane only; excludes sqlite-backed memory cleanup paths"
+}

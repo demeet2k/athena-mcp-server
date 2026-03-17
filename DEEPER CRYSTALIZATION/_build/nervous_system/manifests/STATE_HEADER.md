@@ -4,6 +4,8 @@ kernel_version: NS-K1.4
 active_scale: bronze
 gate_state: BLOCKED
 live_atlas_records: 1818
+indexed_atlas_records: 5493
+raw_filesystem_records_excluding_git: 9489
 restart_law: active
 active_gate_system: 37
 deep_pass: 4
@@ -21,6 +23,7 @@ deep_pass: 4
 - explicit 37-gate manuscript lattice
 - 256^256 repair manifold
 - Chapter 11 256^256 crystal plan
+- explicit multi-regime witness drift (`1818 -> 5493 -> 9489`)
 
 ## Open Obligations
 
@@ -31,6 +34,7 @@ deep_pass: 4
 5. unlock Google Docs gate if OAuth credentials appear
 6. reconcile current family nodes with imported family synths from `ACTIVE_NERVOUS_SYSTEM`
 7. activate the next unopened banks for the Gate11 branch pair
+8. declare canonical precedence between raw filesystem witness, indexed atlas witness, and promoted nervous-system witness
 
 ## Current Runtime Interpretation
 

@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-03-13T00:04:54.673199+00:00",
+  "derivation_version": "2026-03-12.whole-crystal-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_whole_crystal_completion",
+  "packet_lifecycle": [
+    "trigger",
+    "witness_basis",
+    "route",
+    "expected_writeback",
+    "completion_proof"
+  ],
+  "agents": [
+    {
+      "agent_id": "AG-01",
+      "label": "overseer",
+      "body_id": "A02",
+      "responsibility": "ranking, gate law, quarantine, atlas freshness, restart"
+    },
+    {
+      "agent_id": "AG-02",
+      "label": "corridor-builder",
+      "body_id": "A16",
+      "responsibility": "route invention, bridge publication, inter-body coordination"
+    },
+    {
+      "agent_id": "AG-03",
+      "label": "proof-compiler",
+      "body_id": "A06",
+      "responsibility": "ambiguity preservation, machine grounding, hard-domain verification"
+    }
+  ]
+}

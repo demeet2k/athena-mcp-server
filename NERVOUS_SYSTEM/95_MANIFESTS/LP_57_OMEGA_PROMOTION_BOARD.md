@@ -1,0 +1,26 @@
+# LP-57OMEGA Promotion Board
+
+- `A1`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `A2`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `A3`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `A4`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `AP6D-PRIME`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `AP6D-WATER`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `AP6D-EARTH`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `AP6D-FIRE`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `AP6D-AIR`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-01`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-02`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-03`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-04`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-05`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-06`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-07`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `floating-agent-08`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `DOCS-GATE-01`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `L02.A1.D1.B111111.SYNTH-RESEARCH`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `L02.A2.D1.B111111.PLANNER-ARCHITECT`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `L02.A3.D1.B111111.WORKER-ADVENTURER`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `L02.A4.D1.B111111.PRUNE-CRYSTAL`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `L02.A1.D2.B111112.SYNTH-RESEARCH`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`
+- `L02.A2.D2.B111112.PLANNER-ARCHITECT`: eligible=`False` failures=`['level below 100', 'fewer than 5 recent outcomes', 'merge or governance approval missing']`

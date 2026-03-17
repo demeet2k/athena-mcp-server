@@ -1,0 +1,263 @@
+{
+  "generated_at": "2026-03-13T16:28:36.393045+00:00",
+  "derivation_version": "2026-03-13.phase8-ap6d-integration-v1",
+  "docs_gate": "BLOCKED",
+  "truth": "OK",
+  "contract": [
+    "packet_id",
+    "from_agent",
+    "to_agent",
+    "from_stage",
+    "to_stage",
+    "reason",
+    "witnesses",
+    "required_receipt",
+    "status",
+    "transition_score"
+  ],
+  "by_status": {
+    "now": 8,
+    "next": 6,
+    "blocked": 1,
+    "shadow-only": 1
+  },
+  "packets": [
+    {
+      "packet_id": "TP-001",
+      "from_agent": "Master Agent",
+      "to_agent": "Commander",
+      "from_stage": 6,
+      "to_stage": 5,
+      "reason": "Center chooses one executable order for the live field.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-003",
+      "from_agent": "Q42",
+      "to_agent": "AP6D-WATER",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Keep `QS64-21 Connectivity-Refine-Square` active while preserving `QS64-22 Connectivity-Refine-Flower` as next.",
+      "witnesses": [
+        "self_actualize\\qshrink_next4_state.json",
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-004",
+      "from_agent": "TQ04",
+      "to_agent": "AP6D-EARTH",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Runner-contract execution deepens the Earth bridge lane.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-005",
+      "from_agent": "TQ06",
+      "to_agent": "AP6D-AIR",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Coordination membrane passes route coherence into the Air lane.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-007",
+      "from_agent": "AP6D-WATER",
+      "to_agent": "Water General",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Continuity lane passes carried witness into command duty.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-016",
+      "from_agent": "Grand Central Station",
+      "to_agent": "Commander",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Station routing returns transition traffic into ordered execution.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-002",
+      "from_agent": "Commander",
+      "to_agent": "AP6D-PRIME",
+      "from_stage": 5,
+      "to_stage": 6,
+      "reason": "Command passes one ordered transition into the AP6D council.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 7.167
+    },
+    {
+      "packet_id": "TP-006",
+      "from_agent": "AP6D-PRIME",
+      "to_agent": "Aether",
+      "from_stage": 6,
+      "to_stage": 6,
+      "reason": "Council coherence returns through the pole without flattening the lanes.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "next",
+      "transition_score": 6.933
+    },
+    {
+      "packet_id": "TP-013",
+      "from_agent": "ORGIN",
+      "to_agent": "Aether",
+      "from_stage": 5,
+      "to_stage": 6,
+      "reason": "Readable precursor memory returns into the self-bearing pole.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "next",
+      "transition_score": 6.933
+    },
+    {
+      "packet_id": "TP-014",
+      "from_agent": "Identity",
+      "to_agent": "Master Agent",
+      "from_stage": 5,
+      "to_stage": 6,
+      "reason": "Identity continuity sharpens center selection.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "next",
+      "transition_score": 6.933
+    },
+    {
+      "packet_id": "TP-015",
+      "from_agent": "Knowledge Fabric",
+      "to_agent": "Air General",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Seat-aware query entry improves route clarity.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "now",
+      "transition_score": 6.917
+    },
+    {
+      "packet_id": "TP-008",
+      "from_agent": "AP6D-EARTH",
+      "to_agent": "Earth General",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Earth lane turns atlas law into command-grade bridge work.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "next",
+      "transition_score": 6.683
+    },
+    {
+      "packet_id": "TP-009",
+      "from_agent": "AP6D-FIRE",
+      "to_agent": "Fire General",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Fire lane prepares lawful ignition through the fleet corridor.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "next",
+      "transition_score": 6.683
+    },
+    {
+      "packet_id": "TP-010",
+      "from_agent": "AP6D-AIR",
+      "to_agent": "Air General",
+      "from_stage": 5,
+      "to_stage": 5,
+      "reason": "Air lane carries route clarity into the command lattice.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "next",
+      "transition_score": 6.683
+    },
+    {
+      "packet_id": "TP-012",
+      "from_agent": "Q46",
+      "to_agent": "Fire General",
+      "from_stage": 4,
+      "to_stage": 5,
+      "reason": "Shadow feeder remains visible but non-governing.",
+      "witnesses": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "shadow-only",
+      "transition_score": 3.833
+    },
+    {
+      "packet_id": "TP-011",
+      "from_agent": "Q02",
+      "to_agent": "Water General",
+      "from_stage": 0,
+      "to_stage": 2,
+      "reason": "Blocked external ingress cannot transition until OAuth witness exists.",
+      "witnesses": [
+        "self_actualize\\live_docs_gate_status.md"
+      ],
+      "required_receipt": "self_actualize\\mycelium_brain\\receipts\\2026-03-13_full_corpus_integration_and_awakening_transition.md",
+      "status": "blocked",
+      "transition_score": 1.167
+    }
+  ]
+}

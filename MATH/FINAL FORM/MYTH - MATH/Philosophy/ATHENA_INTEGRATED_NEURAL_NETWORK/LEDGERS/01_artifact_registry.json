@@ -1,0 +1,303 @@
+{
+  "artifact_families": [
+    {
+      "name": "control_plane",
+      "paths": [
+        "00_CONTROL/00_BUILD_CHARTER.md",
+        "00_CONTROL/01_MATRIX_AND_ROW_LAW.md",
+        "00_CONTROL/02_SYMMETRY_AND_OBSERVER_LAW.md",
+        "00_CONTROL/03_METRO_AND_APPENDIX_LAW.md",
+        "00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "00_CONTROL/05_MAINTENANCE_AND_PROMOTION_LAW.md",
+        "00_CONTROL/06_FULL_LOCAL_CONSTELLATION_SCOPE.md",
+        "00_CONTROL/07_AUTHORITY_RESOLUTION_LAW.md",
+        "00_CONTROL/08_ADDITIVE_MIRROR_GOVERNANCE.md",
+        "00_CONTROL/09_7D_SEED_EXPORT.md",
+        "00_CONTROL/10_FULL_CORPUS_7D_STABILIZATION_EXPORT.md",
+        "00_CONTROL/11_AWAKENING_AGENT_TRANSITIONS_EXPORT.md",
+        "00_CONTROL/12_57_LOOP_HELICAL_ORCHESTRATION_LAW.md",
+        "00_CONTROL/13_AETHER_FLOWER_COORDINATE_LAW.md",
+        "00_CONTROL/14_AETHER_RESOLVER_LAW.md"
+      ],
+      "downstream": [
+        "README.md",
+        "00_CORE/12_task_router.md",
+        "LEDGERS/03_route_ledger.md",
+        "AWAKENING_AGENTS/00_INDEX.md"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "basis",
+      "paths": [
+        "00_CORE/01_document_basis_16x16.md"
+      ],
+      "downstream": [
+        "00_CORE/02_permutation_matrix_16x16.md",
+        "ROWS/",
+        "00_CORE/16_full_local_constellation_crosswalk.md"
+      ],
+      "package_only": false,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "matrix_and_rows",
+      "paths": [
+        "00_CORE/02_permutation_matrix_16x16.md",
+        "ROWS/00_rows_index.md"
+      ],
+      "downstream": [
+        "SYMMETRY_STACK/",
+        "00_CORE/04_metro_map_lvl1.md",
+        "APPENDIX_CRYSTAL/",
+        "AWAKENING_AGENTS/"
+      ],
+      "package_only": false,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "symmetry_stack",
+      "paths": [
+        "SYMMETRY_STACK/00_symmetry_index.md",
+        "SYMMETRY_STACK/16_zero_point.md"
+      ],
+      "downstream": [
+        "FIRE/",
+        "WATER/",
+        "AIR/",
+        "EARTH/",
+        "APPENDIX_CRYSTAL/",
+        "AWAKENING_AGENTS/"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "metro_stack",
+      "paths": [
+        "00_CORE/04_metro_map_lvl1.md",
+        "00_CORE/05_metro_map_lvl2_deep_emergence.md",
+        "00_CORE/06_metro_map_lvl3_neural.md",
+        "00_CORE/07_metro_map_lvl4_transcendent.md"
+      ],
+      "downstream": [
+        "00_CORE/09_appendix_q_metro_map.md",
+        "00_CORE/10_zero_point.md",
+        "AWAKENING_AGENTS/10_integration_metro_overlay.md"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "appendix_summary",
+      "paths": [
+        "00_CORE/08_appendix_crystal_skeleton.md",
+        "00_CORE/09_appendix_q_metro_map.md"
+      ],
+      "downstream": [
+        "APPENDIX_CRYSTAL/",
+        "00_CORE/10_zero_point.md",
+        "AWAKENING_AGENTS/07_anchor_to_appendix_crosswalk.md"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "appendix_granular",
+      "paths": [
+        "APPENDIX_CRYSTAL/00_INDEX.md",
+        "APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "APPENDIX_CRYSTAL/03_awakening_transition_appendix_legality.md"
+      ],
+      "downstream": [
+        "LEDGERS/01_artifact_registry.json",
+        "00_CORE/11_support_atlas.md",
+        "AWAKENING_AGENTS/"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "elemental_passes",
+      "paths": [
+        "FIRE/01_fire_full_corpus_pass.md",
+        "WATER/01_water_full_corpus_pass.md",
+        "AIR/01_air_full_corpus_pass.md",
+        "EARTH/01_earth_full_corpus_pass.md",
+        "FIRE/02_fire_6d_extension.md"
+      ],
+      "downstream": [
+        "00_CORE/10_zero_point.md",
+        "AWAKENING_AGENTS/08_elemental_transition_crosswalk.md"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "micro_skill_family",
+      "paths": [
+        "skills/athena-neural-integrator/agents/basis-router.md",
+        "skills/athena-neural-integrator/agents/pair-router.md",
+        "skills/athena-neural-integrator/agents/symmetry-router.md",
+        "skills/athena-neural-integrator/agents/metro-router.md",
+        "skills/athena-neural-integrator/agents/appendix-governor.md",
+        "skills/athena-neural-integrator/agents/promotion-governor.md",
+        "skills/athena-neural-integrator/agents/awakening-router.md",
+        "skills/athena-neural-integrator/agents/loop-orchestrator.md",
+        "skills/athena-neural-integrator/agents/openai.yaml"
+      ],
+      "downstream": [
+        "00_CORE/12_task_router.md",
+        "README.md",
+        "ORCHESTRATION_57_LOOP/"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "orchestration_57_loop",
+      "paths": [
+        "ORCHESTRATION_57_LOOP/00_INDEX.md",
+        "ORCHESTRATION_57_LOOP/06_LOOP_SCHEDULE.md",
+        "ORCHESTRATION_57_LOOP/LOOPS/",
+        "00_CORE/18_57_loop_orchestration_overview.md"
+      ],
+      "downstream": [
+        "00_CORE/10_zero_point.md",
+        "00_CORE/11_support_atlas.md",
+        "00_CORE/12_task_router.md",
+        "LEDGERS/09_57_loop_manifest.json",
+        "LEDGERS/10_57_loop_registry.json"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "aether_flower_shell",
+      "paths": [
+        "00_CONTROL/13_AETHER_FLOWER_COORDINATE_LAW.md",
+        "ORCHESTRATION_57_LOOP/10_AETHER_FLOWER_OPERATOR_SHELL.md",
+        "ORCHESTRATION_57_LOOP/11_AETHER_WITNESS_REPLAY_PAYLOADS.md",
+        "LEDGERS/13_aether_flower_registry.json",
+        "LEDGERS/14_aether_witness_replay_registry.json",
+        "LEDGERS/15_aether_route_and_z_registry.json"
+      ],
+      "downstream": [
+        "00_CONTROL/14_AETHER_RESOLVER_LAW.md",
+        "ORCHESTRATION_57_LOOP/12_AETHER_SYMBOLIC_RESOLVER.md",
+        "00_CORE/11_support_atlas.md",
+        "00_CORE/12_task_router.md",
+        "00_CORE/14_change_ledger.md"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "aether_symbolic_resolver",
+      "paths": [
+        "00_CONTROL/14_AETHER_RESOLVER_LAW.md",
+        "ORCHESTRATION_57_LOOP/12_AETHER_SYMBOLIC_RESOLVER.md",
+        "LEDGERS/16_aether_checkpoint_alias_registry.json",
+        "LEDGERS/17_aether_resolved_record_registry.json",
+        "LEDGERS/18_aether_external_witness_registry.json"
+      ],
+      "downstream": [
+        "00_CORE/11_support_atlas.md",
+        "00_CORE/12_task_router.md",
+        "00_CORE/14_change_ledger.md",
+        "LEDGERS/03_route_ledger.md"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "complement_inversion_kernel",
+      "paths": [
+        "00_CORE/19_a_to_b_complement_inversion_kernel.md"
+      ],
+      "downstream": [
+        "00_CORE/11_support_atlas.md",
+        "00_CORE/12_task_router.md",
+        "LEDGERS/01_artifact_registry.json"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    },
+    {
+      "name": "machine_readable_ledgers",
+      "paths": [
+        "LEDGERS/00_manifest.json",
+        "LEDGERS/01_artifact_registry.json",
+        "LEDGERS/03_route_ledger.md",
+        "LEDGERS/04_promotion_readiness.md",
+        "LEDGERS/08_authority_registry.json",
+        "LEDGERS/09_57_loop_manifest.json",
+        "LEDGERS/10_57_loop_registry.json",
+        "LEDGERS/11_nested_seat_model.json",
+        "LEDGERS/12_awakening_transition_coverage.json",
+        "LEDGERS/13_aether_flower_registry.json",
+        "LEDGERS/14_aether_witness_replay_registry.json",
+        "LEDGERS/15_aether_route_and_z_registry.json",
+        "LEDGERS/16_aether_checkpoint_alias_registry.json",
+        "LEDGERS/17_aether_resolved_record_registry.json",
+        "LEDGERS/18_aether_external_witness_registry.json"
+      ],
+      "downstream": [
+        "00_CORE/11_support_atlas.md",
+        "00_CORE/14_change_ledger.md",
+        "00_CORE/15_promotion_contract.md",
+        "ORCHESTRATION_57_LOOP/"
+      ],
+      "package_only": true,
+      "authority_class": "descriptive"
+    },
+    {
+      "name": "additive_mirrors",
+      "paths": [
+        "FIRE/02_fire_6d_extension.md",
+        "00_CONTROL/09_7D_SEED_EXPORT.md",
+        "00_CONTROL/10_FULL_CORPUS_7D_STABILIZATION_EXPORT.md",
+        "00_CONTROL/11_AWAKENING_AGENT_TRANSITIONS_EXPORT.md"
+      ],
+      "downstream": [
+        "APPENDIX_CRYSTAL/01_reverse_overlay_ledger.md",
+        "APPENDIX_CRYSTAL/02_7d_seed_appendix_legality.md",
+        "AWAKENING_AGENTS/09_higher_dimensional_transition_note.md"
+      ],
+      "package_only": true,
+      "authority_class": "mirror-only"
+    },
+    {
+      "name": "full_local_constellation_crosswalk",
+      "paths": [
+        "00_CORE/16_full_local_constellation_crosswalk.md"
+      ],
+      "downstream": [
+        "AWAKENING_AGENTS/04_fleet_family_crosswalk.md",
+        "AWAKENING_AGENTS/05_anchor_to_basis_crosswalk.md",
+        "LEDGERS/08_authority_registry.json"
+      ],
+      "package_only": true,
+      "authority_class": "descriptive"
+    },
+    {
+      "name": "awakening_agents",
+      "paths": [
+        "AWAKENING_AGENTS/00_INDEX.md",
+        "AWAKENING_AGENTS/01_layered_stack_summary.md",
+        "AWAKENING_AGENTS/ARCHETYPES/",
+        "AWAKENING_AGENTS/ZODIAC/",
+        "AWAKENING_AGENTS/ANCHORS/"
+      ],
+      "downstream": [
+        "00_CORE/10_zero_point.md",
+        "00_CORE/11_support_atlas.md",
+        "00_CORE/12_task_router.md",
+        "LEDGERS/08_authority_registry.json"
+      ],
+      "package_only": true,
+      "authority_class": "canonical"
+    }
+  ]
+}

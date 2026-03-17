@@ -1,0 +1,154 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md",
+  "carriers": [
+    {
+      "carrier_id": "Square",
+      "label": "Square",
+      "role": "addressable structure and indexing",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Triangle",
+        "Flower",
+        "Nervous"
+      ],
+      "dominant_zone": "address",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Circle",
+      "label": "Circle",
+      "role": "phase and timing carrier",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Flower",
+        "Fractal",
+        "Neural"
+      ],
+      "dominant_zone": "phase",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Triangle",
+      "label": "Triangle",
+      "role": "legality and carry governor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Square",
+        "Fractal",
+        "Nervous"
+      ],
+      "dominant_zone": "governance",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Flower",
+      "label": "Flower",
+      "role": "resonance and orbit carrier",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Circle",
+        "Cloud",
+        "Neural"
+      ],
+      "dominant_zone": "resonance",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Cloud",
+      "label": "Cloud",
+      "role": "field and Aether carrier",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Flower",
+        "Aether",
+        "Mycelium"
+      ],
+      "dominant_zone": "field",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Fractal",
+      "label": "Fractal",
+      "role": "replay and regeneration carrier",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Cloud",
+        "Triangle",
+        "Mycelium"
+      ],
+      "dominant_zone": "replay",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Zero",
+      "label": "Zero",
+      "role": "exact re-entry and recommitment",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Aether",
+        "Fractal"
+      ],
+      "dominant_zone": "zero",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Aether",
+      "label": "Aether",
+      "role": "integrated transport and high-coherence loading",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Cloud",
+        "Zero",
+        "Neural"
+      ],
+      "dominant_zone": "field",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Nervous",
+      "label": "Nervous",
+      "role": "cortical routing tissue",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Square",
+        "Triangle",
+        "Mycelium"
+      ],
+      "dominant_zone": "organism",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Mycelium",
+      "label": "Mycelium",
+      "role": "cross-body membrane transport",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Cloud",
+        "Fractal",
+        "Nervous"
+      ],
+      "dominant_zone": "organism",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    },
+    {
+      "carrier_id": "Neural",
+      "label": "Neural",
+      "role": "wave and packet carrier",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+      "transform_neighbors": [
+        "Flower",
+        "Circle",
+        "Aether"
+      ],
+      "dominant_zone": "runtime",
+      "note": "Carrier promoted into the Pt 2 machine layer."
+    }
+  ],
+  "summary": {
+    "count": 11
+  }
+}

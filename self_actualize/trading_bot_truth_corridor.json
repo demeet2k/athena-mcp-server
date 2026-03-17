@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-03-13T00:02:25.425752+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_trading_bot_truth_corridor",
+  "truth": "NEAR",
+  "gate_state": "BLOCKED",
+  "gate_detail": "blocked-by-missing-credentials",
+  "gate_truth": "FAIL",
+  "fallback_mode": "local-first-truth-corridor",
+  "source_paths": {
+    "trading_bot_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot",
+    "live_docs_gate_status": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md",
+    "semantic_mass_ledger": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\semantic_mass_ledger.json",
+    "witness_hierarchy": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\witness_hierarchy.json"
+  },
+  "gate_files": {
+    "credentials_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\credentials.json",
+    "token_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\token.json",
+    "credentials_exists": false,
+    "token_exists": false,
+    "command_status": "BLOCKED",
+    "return_code": 1
+  },
+  "body_metrics": {
+    "records": 1917,
+    "source_records": 196,
+    "ledger_records": 267,
+    "protocol_records": 3,
+    "generated_records": 1451
+  },
+  "witness_metrics": {
+    "indexed": 7339,
+    "board": 9109,
+    "promoted": 1818
+  },
+  "corridor_legs": [
+    {
+      "id": "LEG-01",
+      "name": "local-governance-body",
+      "truth": "OK",
+      "meaning": "The Trading Bot body already exists locally as source, ledger, metro, swarm, and manuscript matter.",
+      "surfaces": [
+        "Trading Bot/README.md",
+        "Trading Bot/docs_search.py",
+        "Trading Bot/TRADING_BOT_ATHENA_256X4/00_CONTROL/00_SYSTEM_CHARTER.md",
+        "Trading Bot/TRADING_BOT_ATHENA_256X4/03_METRO/04_RISK_CORRIDORS.md",
+        "Trading Bot/TRADING_BOT_ATHENA_256X4/04_SWARM/04_37_GATE_EXECUTION_LOOP.md"
+      ]
+    },
+    {
+      "id": "LEG-02",
+      "name": "live-docs-ingress",
+      "truth": "FAIL",
+      "meaning": "Live Docs ingress must report an explicit blocked or open subtype instead of collapsing into generic gate language.",
+      "surfaces": [
+        "self_actualize/live_docs_gate_status.md",
+        "Trading Bot/TRADING_BOT_ATHENA_256X4/00_CONTROL/07_GOOGLE_DOCS_GATE.md"
+      ]
+    },
+    {
+      "id": "LEG-03",
+      "name": "nervous-system-bridge",
+      "truth": "NEAR",
+      "meaning": "The corpus already knows how Docs results should route into local witness packets, but the bridge needed a canonical family root.",
+      "surfaces": [
+        "self_actualize/mycelium_brain/nervous_system/ganglia/GANGLION_trading_bot.md",
+        "self_actualize/mycelium_brain/nervous_system/neurons/NEURON_google_docs_to_local_corpus.md"
+      ]
+    },
+    {
+      "id": "LEG-04",
+      "name": "truth-corridor-governance",
+      "truth": "NEAR",
+      "meaning": "Even while the live gate is blocked, Trading Bot can be routed honestly into Hall, queue, manifest, and receipt law as a governance organ.",
+      "surfaces": [
+        "self_actualize/mycelium_brain/nervous_system/families/FAMILY_trading_bot.md",
+        "self_actualize/mycelium_brain/nervous_system/families/FAMILY_trading_bot_route_map.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/DEEPER_ENHANCEMENT_ACTIVE_FRONT.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+      ]
+    }
+  ],
+  "main_route": "Trading Bot -> live_docs_gate_status.md -> FAMILY_trading_bot.md -> FAMILY_trading_bot_route_map.md -> DEEPER_ENHANCEMENT_ACTIVE_FRONT.md -> 06_active_queue.md -> Guild Hall boards -> receipt",
+  "mirror_target": "Trading Bot/LIVE_DOCS_MIRROR/",
+  "next_seed": "Q34"
+}

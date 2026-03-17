@@ -1,0 +1,194 @@
+{
+  "generated_at": "2026-03-13T00:48:09.818405+00:00",
+  "derivation_version": "2026-03-12.crystal-remaster-v2",
+  "docs_gate": "BLOCKED",
+  "agents": [
+    {
+      "agent_id": "AG-01",
+      "label": "overseer",
+      "body_id": "A02",
+      "responsibility": "ranking, gating, quarantine, restart"
+    },
+    {
+      "agent_id": "AG-02",
+      "label": "corridor-builder",
+      "body_id": "A16",
+      "responsibility": "branch routes, cluster logic, inter-body coordination"
+    },
+    {
+      "agent_id": "AG-03",
+      "label": "proof-compiler",
+      "body_id": "A06",
+      "responsibility": "ambiguity preservation, machine grounding, hard-domain verification"
+    }
+  ],
+  "packets": [
+    {
+      "packet_id": "SHP-001",
+      "source_agent": "overseer",
+      "target_agent": "corridor-builder",
+      "source_body_id": "A02",
+      "target_body_id": "A16",
+      "trigger": "admit remaster front",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "route": [
+        "A02",
+        "GCL+GCR",
+        "GCZ",
+        "A16"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md"
+      ],
+      "proof_state": "NEAR",
+      "bridge_family_id": "",
+      "phase": "",
+      "replay_surface": "",
+      "verification_surface": "",
+      "note": "Hand off the remaster pressure into the Fleet branch."
+    },
+    {
+      "packet_id": "SHP-002",
+      "source_agent": "corridor-builder",
+      "target_agent": "proof-compiler",
+      "source_body_id": "A16",
+      "target_body_id": "A06",
+      "trigger": "materialize fleet-to-proof bridge",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCZ",
+        "A06"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md"
+      ],
+      "proof_state": "NEAR",
+      "bridge_family_id": "",
+      "phase": "",
+      "replay_surface": "",
+      "verification_surface": "",
+      "note": "Move the strongest Fleet corridor into witnessed proof exchange."
+    },
+    {
+      "packet_id": "SHP-003",
+      "source_agent": "proof-compiler",
+      "target_agent": "corridor-builder",
+      "source_body_id": "A06",
+      "target_body_id": "A09",
+      "trigger": "bind proof-safe compression",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md"
+      ],
+      "route": [
+        "A06",
+        "GCR",
+        "GCW",
+        "A09"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md"
+      ],
+      "proof_state": "NEAR",
+      "bridge_family_id": "",
+      "phase": "",
+      "replay_surface": "",
+      "verification_surface": "",
+      "note": "Return proof pressure through compression without flattening ambiguity."
+    },
+    {
+      "packet_id": "SHP-004",
+      "source_agent": "corridor-builder",
+      "target_agent": "overseer",
+      "source_body_id": "A16",
+      "target_body_id": "A15",
+      "trigger": "inherit origin memory",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+        "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md"
+      ],
+      "route": [
+        "A16",
+        "GCL+GCR",
+        "GCP",
+        "A15",
+        "A02"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "proof_state": "NEAR",
+      "bridge_family_id": "",
+      "phase": "",
+      "replay_surface": "",
+      "verification_surface": "",
+      "note": "Close the Fleet-to-ORGIN inheritance route through the overseer."
+    },
+    {
+      "packet_id": "SHP-005",
+      "source_agent": "overseer",
+      "target_agent": "proof-compiler",
+      "source_body_id": "A02",
+      "target_body_id": "A06",
+      "trigger": "run verification closure",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "route": [
+        "A02",
+        "A06",
+        "A01"
+      ],
+      "expected_writeback": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_REMASTER_VERIFICATION.md"
+      ],
+      "proof_state": "NEAR",
+      "bridge_family_id": "",
+      "phase": "",
+      "replay_surface": "",
+      "verification_surface": "",
+      "note": "Ask the proof engine to confirm the remaster holds under verification."
+    },
+    {
+      "packet_id": "SHP-006",
+      "source_agent": "proof-compiler",
+      "target_agent": "overseer",
+      "source_body_id": "A06",
+      "target_body_id": "A02",
+      "trigger": "publish remaster return",
+      "witness_basis": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_self_actualize.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md"
+      ],
+      "route": [
+        "A06",
+        "A01",
+        "A02"
+      ],
+      "expected_writeback": [
+        "self_actualize\\mycelium_brain\\receipts\\2026-03-12_crystal_remaster_first_wave.md"
+      ],
+      "proof_state": "NEAR",
+      "bridge_family_id": "",
+      "phase": "",
+      "replay_surface": "",
+      "verification_surface": "",
+      "note": "Return the remaster wave to runtime after proof-bearing closure."
+    }
+  ]
+}

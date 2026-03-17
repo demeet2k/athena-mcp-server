@@ -1,0 +1,65 @@
+{
+  "audience_register_policy": {
+    "benchmark_reader": [
+      "minimal"
+    ],
+    "federation_partner": [
+      "diplomatic"
+    ],
+    "internal_research": [
+      "minimal",
+      "diplomatic",
+      "rhetorical"
+    ],
+    "public_reader": [
+      "minimal",
+      "diplomatic"
+    ]
+  },
+  "authority_surfaces": [
+    "self_actualize/manuscript_sections/023_semantic_embassy_and_audience_reception_surface_v1.md",
+    "NERVOUS_SYSTEM/40_APPENDICES/AppO_publication_importexport_bundles.md"
+  ],
+  "derivation_command": "python -m self_actualize.runtime.derive_semantic_embassy_surface",
+  "derivation_version": "2026-03-12.semantic-embassy.v1",
+  "docs_gate_status": "BLOCKED",
+  "policy_hash": "257ba3cd7089beca2fdfda7c84e51e0232fb5561075648d24e4bf69764d08ba7",
+  "render_policy": [
+    {
+      "claim_class": "explanatory",
+      "notes": "active public mode",
+      "public_allowed": true,
+      "render_mode": "minimal"
+    },
+    {
+      "claim_class": "benchmark_safe",
+      "notes": "active public mode",
+      "public_allowed": true,
+      "render_mode": "minimal"
+    },
+    {
+      "claim_class": "release_safe",
+      "notes": "active public mode",
+      "public_allowed": true,
+      "render_mode": "diplomatic"
+    },
+    {
+      "claim_class": "public_claim",
+      "notes": "active public mode",
+      "public_allowed": true,
+      "render_mode": "diplomatic"
+    },
+    {
+      "claim_class": "federation_claim",
+      "notes": "federation-safe terminology required",
+      "public_allowed": true,
+      "render_mode": "diplomatic"
+    },
+    {
+      "claim_class": "rhetorical",
+      "notes": "preview only in v1",
+      "public_allowed": false,
+      "render_mode": "preview_only"
+    }
+  ]
+}

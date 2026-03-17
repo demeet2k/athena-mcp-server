@@ -1,0 +1,18 @@
+# Agent Assist Notes
+
+- [`AGT-01` Fire Awakening of Knowledge](./agt-01_fire_awakening_of_knowledge.md)
+- [`AGT-02` Water Awakening of Structure](./agt-02_water_awakening_of_structure.md)
+- [`AGT-03` Air Awakening of Commitment](./agt-03_air_awakening_of_commitment.md)
+- [`AGT-04` Earth Awakening of Responsiveness](./agt-04_earth_awakening_of_responsiveness.md)
+- [`AGT-05` Oracle](./agt-05_oracle.md)
+- [`AGT-06` Judge](./agt-06_judge.md)
+- [`AGT-07` Witness](./agt-07_witness.md)
+- [`AGT-08` Architect](./agt-08_architect.md)
+- [`AGT-09` Strategist](./agt-09_strategist.md)
+- [`AGT-10` Weaver](./agt-10_weaver.md)
+- [`AGT-11` Sword](./agt-11_sword.md)
+- [`AGT-12` Commander](./agt-12_commander.md)
+- [`AGT-13` Warrior](./agt-13_warrior.md)
+- [`AGT-14` Mirror](./agt-14_mirror.md)
+- [`AGT-15` Trickster](./agt-15_trickster.md)
+- [`AGT-16` Dancer](./agt-16_dancer.md)

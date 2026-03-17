@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-03-13T15:58:45.468357+00:00",
+  "derivation_version": "2026-03-13.next-4-pow-6.full-corpus-integration.v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_next_4_pow_6_full_corpus_integration",
+  "truth": "FAIL",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling",
+  "validations": {
+    "basis_count_ok": true,
+    "overlay_count_ok": true,
+    "feeder_alignment_ok": true,
+    "notes_count_ok": true,
+    "atlas_refresh_complete": true,
+    "phase4_refresh_ok": true,
+    "knowledge_fabric_refresh_ok": false,
+    "phase4_pt2_refresh_ok": true,
+    "adventurer_verification_ok": true,
+    "merge_verification_ok": true,
+    "motion_verification_ok": true,
+    "integration_verification_ok": false,
+    "runtime_lanes_green": true
+  },
+  "command_results": {
+    "phase4": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+      "returncode": 0,
+      "stdout": "Wrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_body_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_kernel_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_node_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_pair_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_wave_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_shortcut_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_exploration_queries.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_neglect_signals.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_weave_candidates.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_replay_receipts.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\phase4_structured_neuron_storage_dashboard.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_kernel_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\phase4_pair_registry.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md",
+      "stderr": "",
+      "truth": "OK"
+    },
+    "knowledge_fabric": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.derive_knowledge_fabric",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\derive_knowledge_fabric.py\", line 1945, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\derive_knowledge_fabric.py\", line 1892, in main\n    records = build_records(corpus_atlas, archive_atlas, root_lookup, witness_hierarchy)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime\\derive_knowledge_fabric.py\", line 1258, in build_records\n    stat = path.stat()\n           ^^^^^^^^^^^\n  File \"C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 840, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\\\Users\\\\dmitr\\\\Documents\\\\Athena Agent\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\Athena FLEET\\\\_repo_root\\\\MATH\\\\FINAL FORM\\\\MYTH - MATH\\\\Philosophy\\\\ATHENA_INTEGRATED_NEURAL_NETWORK\\\\build_package_constellation.py'",
+      "truth": "FAIL"
+    },
+    "phase4_pt2": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "truth": "OK"
+    },
+    "adventurer_verify": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.verify_adventurer_quest_loop",
+      "returncode": 0,
+      "stdout": "Wrote adventurer verification json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\adventurer_quest_loop_verification.json\nTruth: OK\n- registry: OK\n- agent_state: OK\n- loop_state: OK\n- conductor_state: OK\n- round_trip_registry: OK\n- claim_tracker: OK\n- manifest: OK",
+      "stderr": "",
+      "truth": "OK"
+    },
+    "merge_verify": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\verify_jointatlas_merge_automaton.py",
+      "returncode": 0,
+      "stdout": "{\n  \"transition_graph\": {\n    \"graph_state_count\": 10\n  },\n  \"terminal_destinations\": {\n    \"terminal_destinations\": {\n      \"DECIDED_COMMIT\": \"COMMIT\",\n      \"DECIDED_DEFER_NEAR\": \"DEFER_NEAR\",\n      \"DECIDED_DEFER_AMBIG\": \"DEFER_AMBIG\",\n      \"DECIDED_REFUSE\": \"REFUSE\",\n      \"DECIDED_QUARANTINE\": \"QUARANTINE_FAIL\"\n    }\n  },\n  \"commit_path\": {\n    \"final_state\": \"DECIDED_COMMIT\",\n    \"destination\": \"COMMIT\",\n    \"ledger_entry\": \"MLE-0001\"\n  },\n  \"defer_near_path\": {\n    \"destination\": \"DEFER_NEAR\"\n  },\n  \"defer_ambig_path\": {\n    \"destination\": \"DEFER_AMBIG\"\n  },\n  \"quarantine_path\": {\n    \"destination\": \"QUARANTINE_FAIL\"\n  },\n  \"refuse_path\": {\n    \"destination\": \"REFUSE\"\n  },\n  \"forbidden_bypasses\": {\n    \"forbidden_bypasses_checked\": 2\n  },\n  \"guard_failures\": {\n    \"guard_failures_checked\": 3\n  }\n}",
+      "stderr": "",
+      "truth": "OK",
+      "report": {
+        "transition_graph": {
+          "graph_state_count": 10
+        },
+        "terminal_destinations": {
+          "terminal_destinations": {
+            "DECIDED_COMMIT": "COMMIT",
+            "DECIDED_DEFER_NEAR": "DEFER_NEAR",
+            "DECIDED_DEFER_AMBIG": "DEFER_AMBIG",
+            "DECIDED_REFUSE": "REFUSE",
+            "DECIDED_QUARANTINE": "QUARANTINE_FAIL"
+          }
+        },
+        "commit_path": {
+          "final_state": "DECIDED_COMMIT",
+          "destination": "COMMIT",
+          "ledger_entry": "MLE-0001"
+        },
+        "defer_near_path": {
+          "destination": "DEFER_NEAR"
+        },
+        "defer_ambig_path": {
+          "destination": "DEFER_AMBIG"
+        },
+        "quarantine_path": {
+          "destination": "QUARANTINE_FAIL"
+        },
+        "refuse_path": {
+          "destination": "REFUSE"
+        },
+        "forbidden_bypasses": {
+          "forbidden_bypasses_checked": 2
+        },
+        "guard_failures": {
+          "guard_failures_checked": 3
+        }
+      }
+    },
+    "motion_verify": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\verify_motion_constitution_l1.py",
+      "returncode": 0,
+      "stdout": "{\n  \"public_contracts\": {\n    \"action_count\": 9,\n    \"source_kind_count\": 5,\n    \"actions\": [\n      \"ACTIVATE_NOW\",\n      \"HOLD\",\n      \"REQUEST_WITNESSES\",\n      \"REQUEST_HELP\",\n      \"REPLAY_FIRST\",\n      \"QUARANTINE\",\n      \"COMPRESS_TO_SEED\",\n      \"ESCALATE_TO_COMMITTEE\",\n      \"REFUSE_INADMISSIBLE\"\n    ],\n    \"source_kinds\": [\n      \"quest_board\",\n      \"agent_registry\",\n      \"committee_output\",\n      \"immune_scheduler_output\",\n      \"continuation_seed\"\n    ]\n  },\n  \"fixture_actions\": {\n    \"activate\": \"ACTIVATE_NOW\",\n    \"hold\": \"HOLD\",\n    \"request_witnesses\": \"REQUEST_WITNESSES\",\n    \"request_help\": \"REQUEST_HELP\",\n    \"replay_first\": \"REPLAY_FIRST\",\n    \"quarantine\": \"QUARANTINE\",\n    \"compress_to_seed\": \"COMPRESS_TO_SEED\",\n    \"escalate_to_committee\": \"ESCALATE_TO_COMMITTEE\",\n    \"refuse\": \"REFUSE_INADMISSIBLE\"\n  },\n  \"gate_precedence\": {\n    \"refusal_beats_quarantine\": \"REFUSE_INADMISSIBLE\",\n    \"quarantine_beats_replay\": \"QUARANTINE\",\n    \"replay_beats_help_and_witness\": \"REPLAY_FIRST\",\n    \"committee_beats_seed_compression\": \"ESCALATE_TO_COMMITTEE\",\n    \"activation_never_bypasses_witness\": \"REQUEST_WITNESSES\"\n  },\n  \"hysteresis\": {\n    \"refusal_requires_new_witness_or_replay\": \"OK\",\n    \"quarantine_requires_new_immune_or_replay_state\": \"OK\"\n  }\n}",
+      "stderr": "",
+      "truth": "OK",
+      "report": {
+        "public_contracts": {
+          "action_count": 9,
+          "source_kind_count": 5,
+          "actions": [
+            "ACTIVATE_NOW",
+            "HOLD",
+            "REQUEST_WITNESSES",
+            "REQUEST_HELP",
+            "REPLAY_FIRST",
+            "QUARANTINE",
+            "COMPRESS_TO_SEED",
+            "ESCALATE_TO_COMMITTEE",
+            "REFUSE_INADMISSIBLE"
+          ],
+          "source_kinds": [
+            "quest_board",
+            "agent_registry",
+            "committee_output",
+            "immune_scheduler_output",
+            "continuation_seed"
+          ]
+        },
+        "fixture_actions": {
+          "activate": "ACTIVATE_NOW",
+          "hold": "HOLD",
+          "request_witnesses": "REQUEST_WITNESSES",
+          "request_help": "REQUEST_HELP",
+          "replay_first": "REPLAY_FIRST",
+          "quarantine": "QUARANTINE",
+          "compress_to_seed": "COMPRESS_TO_SEED",
+          "escalate_to_committee": "ESCALATE_TO_COMMITTEE",
+          "refuse": "REFUSE_INADMISSIBLE"
+        },
+        "gate_precedence": {
+          "refusal_beats_quarantine": "REFUSE_INADMISSIBLE",
+          "quarantine_beats_replay": "QUARANTINE",
+          "replay_beats_help_and_witness": "REPLAY_FIRST",
+          "committee_beats_seed_compression": "ESCALATE_TO_COMMITTEE",
+          "activation_never_bypasses_witness": "REQUEST_WITNESSES"
+        },
+        "hysteresis": {
+          "refusal_requires_new_witness_or_replay": "OK",
+          "quarantine_requires_new_immune_or_replay_state": "OK"
+        }
+      }
+    },
+    "aqm_verify": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.verify_aqm_runtime_lane",
+      "returncode": 0,
+      "stdout": "Wrote aqm runtime lane json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\aqm_runtime_lane.json",
+      "stderr": "",
+      "truth": "OK"
+    },
+    "atlasforge_verify": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.verify_atlasforge_runtime_lane",
+      "returncode": 0,
+      "stdout": "Wrote ATLAS FORGE runtime lane json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\atlasforge_runtime_lane.json\nTruth: OK\n- import: OK\n- symbol_export: OK\n- solver: OK\n- lens: OK\n- recipe: OK\n- crystal: OK",
+      "stderr": "",
+      "truth": "OK"
+    },
+    "runtime_waist_verify": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m self_actualize.runtime.verify_runtime_waist",
+      "returncode": 0,
+      "stdout": "Wrote runtime waist verification json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime_waist_verification.json\nTruth: OK\n- atlas_contract: OK\n- engine_packet: OK\n- swarm_board_pipeline: OK\n- swarm_board_build_command: OK",
+      "stderr": "",
+      "truth": "OK"
+    },
+    "integration_verify": {
+      "command": "C:\\Users\\dmitr\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\verify_next_4_pow_6_full_corpus_integration.py",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\verify_next_4_pow_6_full_corpus_integration.py\", line 77, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\verify_next_4_pow_6_full_corpus_integration.py\", line 58, in main\n    ensure(\"FRONT-NEXT-4-POW-6-FULL-CORPUS-INTEGRATION\" in active_queue, \"active queue missing integration front\")\n  File \"C:\\Users\\dmitr\\Documents\\Athena Agent\\NERUAL NETWORK\\TEST SUITES\\verify_next_4_pow_6_full_corpus_integration.py\", line 34, in ensure\n    raise AssertionError(message)\nAssertionError: active queue missing integration front",
+      "truth": "FAIL"
+    }
+  }
+}

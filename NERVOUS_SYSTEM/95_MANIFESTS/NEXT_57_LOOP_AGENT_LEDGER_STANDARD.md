@@ -1,0 +1,29 @@
+# NEXT57 Agent Ledger Standard
+
+- Fields:
+- `agent_id`
+- `loop_number`
+- `pass_type`
+- `family_code`
+- `parent_agent`
+- `coordinate_stamp`
+- `source_region`
+- `action_type`
+- `affected_nodes`
+- `summary_of_change`
+- `reason_for_change`
+- `integration_gain`
+- `compression_gain`
+- `formalization_delta`
+- `unresolved_followups`
+- `linked_quests`
+- `linked_agents`
+- `witness_class`
+- `artifact_ref`
+- `revision_confidence`
+- `truth_state`
+- `timestamp_internal`
+- `next_seed`
+- Continuity is append-only and Earth-gated.
+- Command packet bridge fields: `event_packet_id`, `command_ant_class`.
+- Additive metadata extension: `polarity_state = A | B | A↔B`.

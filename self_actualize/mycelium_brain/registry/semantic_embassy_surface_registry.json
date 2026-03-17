@@ -1,0 +1,314 @@
+{
+  "derivation_command": "python -m self_actualize.runtime.derive_semantic_embassy_surface",
+  "derivation_version": "2026-03-12.semantic-embassy.v1",
+  "docs_gate_status": "BLOCKED",
+  "frozen_dataflow": "RecertificationPack/ReleaseTrustPack -> ClaimSurface -> AudienceProfile + RegisterProfile -> SafeWordingBundle -> TranslationSurface -> SemanticExportValidatorResult -> AudienceFacingBundle",
+  "object_family": [
+    "SemanticEmbassySurface",
+    "ClaimSurface",
+    "AudienceProfile",
+    "RegisterProfile",
+    "InterfaceContract",
+    "MessageEnvelope",
+    "TranslationSurface",
+    "DomainPack",
+    "ReleaseBundle",
+    "SafeWordingBundle",
+    "KairosAssessment",
+    "RhetoricalPreview",
+    "SemanticExportValidatorResult"
+  ],
+  "object_shapes": {
+    "AudienceProfile": [
+      "audience_type",
+      "burden_tolerance",
+      "vocabulary_constraints",
+      "prior_context",
+      "trust_sensitivity",
+      "allowed_registers"
+    ],
+    "ClaimSurface": [
+      "attested_meaning",
+      "claim_class",
+      "claim_ceiling",
+      "burden_class",
+      "support_refs",
+      "forbidden_claims",
+      "replay_refs"
+    ],
+    "DomainPack": [
+      "domain_name",
+      "allowed_terms",
+      "blocked_terms",
+      "benchmark_safe_names",
+      "federation_safe_terms"
+    ],
+    "InterfaceContract": [
+      "contract_id",
+      "allowed_audience",
+      "allowed_register",
+      "required_support_refs",
+      "required_replay_refs",
+      "safe_wording_required"
+    ],
+    "KairosAssessment": [
+      "receptivity",
+      "attention",
+      "timing_window",
+      "recommended_action",
+      "rationale"
+    ],
+    "MessageEnvelope": [
+      "envelope_id",
+      "target_surface",
+      "audience_type",
+      "register",
+      "replay_surface"
+    ],
+    "RegisterProfile": [
+      "name",
+      "public_allowed",
+      "rhetorical_enabled",
+      "description"
+    ],
+    "ReleaseBundle": [
+      "bundle_id",
+      "recertification_pack_ref",
+      "release_trust_pack_ref",
+      "public_claim_ceiling",
+      "signed_by",
+      "allowed_claim_classes"
+    ],
+    "RhetoricalPreview": [
+      "ethos_gain",
+      "pathos_gain",
+      "logos_gain",
+      "catharsis_mode",
+      "style_register",
+      "preview_only"
+    ],
+    "SafeWordingBundle": [
+      "bundle_id",
+      "allowed_phrases",
+      "blocked_phrases",
+      "benchmark_safe_names",
+      "federation_safe_names",
+      "downgrade_replacements"
+    ],
+    "SemanticExportValidatorResult": [
+      "status",
+      "public_allowed",
+      "blocked_reasons",
+      "downgraded_phrases",
+      "replay_refs",
+      "claim_ceiling_proof",
+      "normalized_hash"
+    ],
+    "TranslationSurface": [
+      "surface_id",
+      "render_mode",
+      "wording",
+      "benchmark_names",
+      "federation_terms",
+      "export_refs"
+    ]
+  },
+  "semantic_embassy_surface": {
+    "audience_facing_bundle": {
+      "audience_type": "public_reader",
+      "bundle_id": "audience-public-diplomatic-v1",
+      "emitted": true,
+      "register": "diplomatic",
+      "target_surface": "public_release_note",
+      "validator_status": "PASS",
+      "wording": "This post-attestation surface is attested within the current witness stack for public release, but because the docs gate is blocked it is presented as a locally grounded, replay-linked diplomatic export."
+    },
+    "audience_profile": {
+      "allowed_registers": [
+        "minimal",
+        "diplomatic"
+      ],
+      "audience_type": "public_reader",
+      "burden_tolerance": "moderate",
+      "prior_context": "release-notary passed; docs gate blocked",
+      "trust_sensitivity": "high",
+      "vocabulary_constraints": [
+        "plain language",
+        "no hidden escalation",
+        "no federation overclaim"
+      ]
+    },
+    "authority_surfaces": [
+      "self_actualize/manuscript_sections/023_semantic_embassy_and_audience_reception_surface_v1.md",
+      "NERVOUS_SYSTEM/40_APPENDICES/AppO_publication_importexport_bundles.md"
+    ],
+    "claim_surface": {
+      "attested_meaning": "The Semantic Embassy translates an attested local claim into audience-safe public language without exceeding release trust.",
+      "burden_class": "release_safe_local",
+      "claim_ceiling": "public_claim",
+      "claim_class": "public_claim",
+      "forbidden_claims": [
+        "live-docs verified",
+        "fully proven across all shells",
+        "externally cleared rhetorical release"
+      ],
+      "replay_refs": [
+        "RecertificationPack:semantic-embassy-local-2026-03-12",
+        "ReleaseTrustPack:semantic-embassy-local-2026-03-12"
+      ],
+      "support_refs": [
+        "CLEAN/INFORMATION FROM THE VOID MANI.docx#Chapter14",
+        "CLEAN/INFORMATION FROM THE VOID MANI.docx#Chapter15",
+        "CLEAN/INFORMATION FROM THE VOID MANI.docx#Chapter20",
+        "MATH/FINAL FORM/MYTH - MATH/Philosophy/Philosophy/THE RHETORICAL-POETIC OUTPUT DRIVERS.docx",
+        "Athena FLEET/FLEET_MYCELIUM_NETWORK/MIRRORS/LOCAL/F05_neuraltransitmap.md"
+      ]
+    },
+    "docs_gate_status": "BLOCKED",
+    "domain_pack": {
+      "allowed_terms": [
+        "attested",
+        "replay-linked",
+        "locally grounded",
+        "diplomatic export",
+        "release trust",
+        "docs-gate blocked"
+      ],
+      "benchmark_safe_names": [
+        "semantic export validator",
+        "release trust pack",
+        "claim surface"
+      ],
+      "blocked_terms": [
+        "universally proven",
+        "live-docs verified",
+        "externally cleared rhetoric"
+      ],
+      "domain_name": "semantic_embassy_public_release",
+      "federation_safe_terms": [
+        "shared-law",
+        "attested bundle",
+        "verified replay"
+      ]
+    },
+    "interface_contract": {
+      "allowed_audience": "public_reader",
+      "allowed_register": "diplomatic",
+      "contract_id": "iface-semantic-embassy-v1",
+      "required_replay_refs": 2,
+      "required_support_refs": 3,
+      "safe_wording_required": true
+    },
+    "kairos_assessment": {
+      "attention": "stable",
+      "rationale": "The public audience can receive a bounded diplomatic claim that explicitly states the docs gate remains blocked.",
+      "receptivity": "ready",
+      "recommended_action": "emit_now",
+      "timing_window": "now"
+    },
+    "message_envelope": {
+      "audience_type": "public_reader",
+      "envelope_id": "env-public-diplomatic-v1",
+      "register": "diplomatic",
+      "replay_surface": "public_release_note.replay.json",
+      "target_surface": "public_release_note"
+    },
+    "public_mode": "diplomatic",
+    "register_profile": {
+      "description": "Audience-safe diplomatic export with claim ceilings preserved.",
+      "name": "diplomatic",
+      "public_allowed": true,
+      "rhetorical_enabled": false
+    },
+    "release_bundle": {
+      "allowed_claim_classes": [
+        "explanatory",
+        "benchmark_safe",
+        "release_safe",
+        "public_claim"
+      ],
+      "bundle_id": "release-bundle-semantic-embassy-v1",
+      "public_claim_ceiling": "public_claim",
+      "recertification_pack_ref": "RecertificationPack:semantic-embassy-local-2026-03-12",
+      "release_trust_pack_ref": "ReleaseTrustPack:semantic-embassy-local-2026-03-12",
+      "signed_by": "local-corpus-attestation"
+    },
+    "rhetorical_preview": {
+      "catharsis_mode": "none_public",
+      "ethos_gain": 0.4,
+      "logos_gain": 0.9,
+      "pathos_gain": 0.2,
+      "preview_only": true,
+      "style_register": "diplomatic_plain"
+    },
+    "safe_wording_bundle": {
+      "allowed_phrases": [
+        "attested within the current witness stack",
+        "locally grounded",
+        "replay-linked",
+        "release-safe",
+        "docs-gate blocked"
+      ],
+      "benchmark_safe_names": [
+        "semantic export validator",
+        "release trust pack",
+        "claim surface"
+      ],
+      "blocked_phrases": [
+        "fully proven",
+        "live-docs verified",
+        "rhetorically cleared for public release"
+      ],
+      "bundle_id": "safe-wording-semantic-embassy-v1",
+      "downgrade_replacements": {
+        "fully proven": "attested within the current witness stack",
+        "globally confirmed": "not yet globally replayed",
+        "rhetorically cleared for public release": "available only as internal rhetorical preview"
+      },
+      "federation_safe_names": [
+        "shared-law",
+        "attested bundle",
+        "verified replay"
+      ]
+    },
+    "surface_id": "semantic-embassy-surface-v1",
+    "translation_surface": {
+      "benchmark_names": [],
+      "export_refs": [
+        "023_semantic_embassy_and_audience_reception_surface_v1.md",
+        "AppO_publication_importexport_bundles.md"
+      ],
+      "federation_terms": [],
+      "render_mode": "diplomatic",
+      "surface_id": "translation-public-diplomatic-v1",
+      "wording": "This post-attestation surface is attested within the current witness stack for public release, but because the docs gate is blocked it is presented as a locally grounded, replay-linked diplomatic export."
+    },
+    "validator_result": {
+      "blocked_reasons": [],
+      "claim_ceiling_proof": "claim=public_claim; ceiling=public_claim; mode=diplomatic; audience=public_reader; register=diplomatic; replay_refs=2; support_refs=5",
+      "downgraded_phrases": [
+        "fully proven -> attested within the current witness stack"
+      ],
+      "normalized_hash": "41e5558554dac1e6f8dbe8b05ad92479876ef1645a1cf497fa14de11eb7ed2fe",
+      "public_allowed": true,
+      "replay_refs": [
+        "RecertificationPack:semantic-embassy-local-2026-03-12",
+        "ReleaseTrustPack:semantic-embassy-local-2026-03-12"
+      ],
+      "status": "PASS"
+    }
+  },
+  "source_hashes": {
+    "appo": "9ea8c97116b53de8f92ce4be6c5fbf46769ab0daeb97ecb58cb695e41d6b0183",
+    "current_packet": "3e514e129c0fbcb2a41f593b9b3866fcaf68422744e1b83323e70eed2f853b23",
+    "frontier_ledger": "147e519eb1db275327343327b90d29fca5de89b379efb58c5bb143b530e5c81c",
+    "manuscript": "a48479b7abc5e3a009f1ba02adff4359a0158efc941d3646118cc00d306cfb40"
+  },
+  "source_surfaces": {
+    "appo": "NERVOUS_SYSTEM/40_APPENDICES/AppO_publication_importexport_bundles.md",
+    "current_packet": "self_actualize/manuscript_sections/000_current_packet.md",
+    "frontier_ledger": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+    "manuscript": "self_actualize/manuscript_sections/023_semantic_embassy_and_audience_reception_surface_v1.md"
+  },
+  "surface_hash": "047a0745b21c77143dbc7a8f4f801295b3ef9122a3dfa690c1c3954deede83f8"
+}

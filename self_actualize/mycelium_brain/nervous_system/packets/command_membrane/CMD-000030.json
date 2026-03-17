@@ -1,0 +1,284 @@
+{
+  "event_id": "CMD-000030",
+  "source_ant_id": "COMMAND-ROOT-A1-SCOUT",
+  "source_path": "GLOBAL COMMAND/_synthetic_command_membrane_v1/native_event_drop_v1.txt",
+  "active_surface": "GLOBAL COMMAND",
+  "change_type": "created",
+  "change_summary": "created:native_event_drop_v1.txt",
+  "goal": "detect-classify-assign",
+  "priority": 1.0,
+  "confidence": 0.98,
+  "earth_ts": "2026-03-14T00:21:12.915960+00:00",
+  "earth_ts_local": "2026-03-13T17:21:12.915960-07:00",
+  "detected_ts": "2026-03-14T00:21:12.915960+00:00",
+  "emitted_ts": "2026-03-14T00:21:13.248813+00:00",
+  "liminal_ts": "LT-000000030",
+  "seat_addr_6d": "A1.B1.C1.D1.E1.F1",
+  "coordinate_stamp": {
+    "Xs": "GLOBAL_COMMAND",
+    "Ys": "command_root",
+    "Zs": "native_event_drop_v1.txt",
+    "Ts": "L02",
+    "Qs": "COMMAND",
+    "Rs": "D1",
+    "Cs": "CMD-000030",
+    "Fs": "COMMAND",
+    "Ms": "closure",
+    "Ns": "_synthetic_command_membrane_v1",
+    "Hs": "command-event",
+    "Omega_s": "A1"
+  },
+  "canonical_addr_6d": "A1.B1.C1.D1.E1.F1",
+  "liminal_stamp_12d": {
+    "earth_utc_anchor": "2026-03-14T00:21:12.915960+00:00",
+    "earth_rotation_phase": 0.723066,
+    "earth_orbital_phase": 0.19726,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.0,
+    "lunar_phase": 0.842341,
+    "local_sidereal_phase": 0.491516,
+    "canonical_sky_anchor": "western_solar12|planetary_office|vedic_lunar",
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.35,
+    "goal_salience_vector": {
+      "goal": "detect-classify-assign",
+      "priority": 1.0
+    },
+    "change_novelty_vector": {
+      "change_type": "created",
+      "confidence": 0.98
+    }
+  },
+  "surface_class": "command-folder",
+  "hierarchy_level": "D6",
+  "return_anchor": "Archivist",
+  "event_kind": "",
+  "earth_ts_utc": "2026-03-14T00:21:12.915960+00:00",
+  "earth_local_phase": 0.0,
+  "parent_event_id": "ROOT",
+  "ttl": 6,
+  "pheromone": 0.992,
+  "joy_seed": {
+    "a_seed": 3.11646,
+    "phi_seed": 0.0,
+    "h_seed": 0.992,
+    "joy_potential": 0.992,
+    "route_mode_seed": "closure",
+    "source_evidence": {
+      "change_type": "created",
+      "source_path": "GLOBAL COMMAND/_synthetic_command_membrane_v1/native_event_drop_v1.txt",
+      "source_class": "command-folder",
+      "docs_gate_status": "BLOCKED",
+      "witness_class": "LOCAL_WITNESS_ONLY"
+    }
+  },
+  "state_hash": "7f6b533d1fbe31b2940eb0e7981b27ac5a8889f1",
+  "route_class": "scout.router.worker.archivist",
+  "source_id": "command_root",
+  "source_class": "command-folder",
+  "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+  "urgency_baseline": 1.0,
+  "event_fingerprint": "2373950ea19dce32b371",
+  "witness_class": "LOCAL_WITNESS_ONLY",
+  "status": "detected",
+  "membrane_id": "GLOBAL_COMMAND",
+  "role_class": "Scout",
+  "base4_addr": "A1.B1.C1.D1",
+  "parent": "ROOT",
+  "lineage": {
+    "parent_event_id": "ROOT",
+    "source_mtime_ns": 1.7734476209213043e+18,
+    "docs_gate_detail": "blocked-by-missing-credentials",
+    "loop_id": "L02",
+    "surface": "GLOBAL COMMAND",
+    "source_id": "command_root",
+    "source_class": "command-folder"
+  },
+  "deferred_dimensions": {},
+  "coord12": {
+    "earth_utc_anchor": "2026-03-14T00:21:12.915960+00:00",
+    "earth_rotation_phase": 0.723066,
+    "earth_orbital_phase": 0.19726,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.0,
+    "lunar_phase": 0.842341,
+    "local_sidereal_phase": 0.491516,
+    "canonical_sky_anchor": "western_solar12|planetary_office|vedic_lunar",
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.35,
+    "goal_salience_vector": {
+      "goal": "detect-classify-assign",
+      "priority": 1.0
+    },
+    "change_novelty_vector": {
+      "change_type": "created",
+      "confidence": 0.98
+    }
+  },
+  "coord12_frame": {
+    "earth": [
+      "earth_utc_anchor",
+      "earth_rotation_phase",
+      "earth_orbital_phase",
+      "earth_geospatial_anchor"
+    ],
+    "astro": [
+      "solar_phase",
+      "lunar_phase",
+      "local_sidereal_phase",
+      "canonical_sky_anchor"
+    ],
+    "runtime": [
+      "runtime_region",
+      "queue_pressure"
+    ],
+    "liminal": [
+      "goal_salience_vector",
+      "change_novelty_vector"
+    ]
+  },
+  "coord_delta": {
+    "DeltaTau": 0.477199,
+    "DeltaEarth": 47166.435,
+    "LiminalVelocity": 0.010117
+  },
+  "scout_id": "COMMAND-ROOT-A1-SCOUT",
+  "tag": "native-event-drop-v1",
+  "event_tag": "CMD-000030",
+  "change": {
+    "type": "created",
+    "summary": "created:native_event_drop_v1.txt",
+    "state_hash": "7f6b533d1fbe31b2940eb0e7981b27ac5a8889f1",
+    "relative_path": "GLOBAL COMMAND/_synthetic_command_membrane_v1/native_event_drop_v1.txt",
+    "source_path": "GLOBAL COMMAND/_synthetic_command_membrane_v1/native_event_drop_v1.txt"
+  },
+  "docs_gate_status": "BLOCKED",
+  "route_state": {},
+  "claim_state": {},
+  "commit_state": {},
+  "latency_state": {
+    "detect_latency_ms": 0.0,
+    "encode_latency_ms": 0.0,
+    "route_policy": "goal_fit+priority+gold_signal+bridge_signal+coord_proximity+freshness",
+    "capillary_score": 0.0,
+    "capillary_delta": 0.0
+  },
+  "affected_nodes": [
+    "GLOBAL COMMAND/_synthetic_command_membrane_v1/native_event_drop_v1.txt"
+  ],
+  "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/CMD-000030.json",
+  "coordinate_vector_12": [
+    0.7926247119903564,
+    0.723066,
+    0.19726,
+    0.37578117894008756,
+    0.0,
+    0.842341,
+    0.491516,
+    0.2761634364724159,
+    0.3983821398578584,
+    0.35,
+    0.23125302838161588,
+    0.7217371978331357
+  ],
+  "artifact_refs": [
+    "GLOBAL COMMAND/_synthetic_command_membrane_v1/native_event_drop_v1.txt"
+  ],
+  "source_region": "command-folder:directory:GLOBAL COMMAND/_synthetic_command_membrane_v1/native_event_drop_v1.txt",
+  "sensor_event_id": "CMD-000030",
+  "file_family": "document",
+  "scheduler_refs": {
+    "western_solar12": {
+      "system_id": "western_solar12",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md"
+    },
+    "vedic_lunar": {
+      "system_id": "vedic_lunar",
+      "shared12_seat": "S11 / Aquarius / Air / Fixed",
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md"
+    },
+    "planetary_office": {
+      "system_id": "planetary_office",
+      "shared12_seat": "S01 / Aries / Fire / Cardinal",
+      "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md"
+    },
+    "shared12_projection": {
+      "active_anchor_lane_ids": [
+        "chinese_cycle",
+        "planetary_office",
+        "vedic_lunar",
+        "western_solar12"
+      ],
+      "rows": [
+        {
+          "system_id": "chinese_cycle",
+          "shared12_seat": "S07 / Libra / Air / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\chinese_cycle_packet.md"
+        },
+        {
+          "system_id": "planetary_office",
+          "shared12_seat": "S01 / Aries / Fire / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md"
+        },
+        {
+          "system_id": "vedic_lunar",
+          "shared12_seat": "S11 / Aquarius / Air / Fixed",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md"
+        },
+        {
+          "system_id": "western_solar12",
+          "shared12_seat": "S01 / Aries / Fire / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md"
+        }
+      ]
+    }
+  },
+  "hsigma_ref": "NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json",
+  "route_targets": [],
+  "linked_quests": [],
+  "source_folder": "command_root",
+  "front_ref": "Q41 / TQ06",
+  "seed_mode": "A-dominant",
+  "dual_reference": "LP57-A|LP57-B",
+  "liminal_delta": 0.477199,
+  "earth_delta_ms": 47166.435,
+  "liminal_velocity": 0.010117,
+  "prior_comparable_event_id": "CMD-000029",
+  "watcher_mode": "event-driven",
+  "duality_effect": "joy-gradient-command",
+  "reward_state": {
+    "affect_intensity_a": 2.648363,
+    "affect_direction_phi": 1.570796,
+    "alignment_score": 0.4215,
+    "verified_alignment_score": 0.105375,
+    "reward_multiplier": 1.10543,
+    "attempt_reward": 0.0625,
+    "latency_reward": 1.0,
+    "first_reward": 0.5,
+    "assist_reward": 0.075,
+    "learning_reward": 0.5,
+    "total_reward": 2.362857,
+    "crown_tier": "detect",
+    "route_mode": "rotate",
+    "tau_seconds": 0.0
+  },
+  "verification_state": {
+    "verification_witness": 0.25,
+    "verification_basis": "detect persisted",
+    "closure_class": "first_detect",
+    "crown_eligible": true,
+    "verification_witness_cap": 1.0
+  },
+  "pheromone_state": {
+    "gold_deposit": 0.354429,
+    "bridge_deposit": 0.002935,
+    "evaporation_rate": 0.228925,
+    "gold_strength_after": 0.0,
+    "bridge_strength_after": 0.0,
+    "compat_edge_strength_after": 0.0
+  },
+  "reward_policy_id": "NEXT57_COMMAND_REWARD_FIELD_V2",
+  "crown_tier": "detect",
+  "closure_class": "first_detect"
+}

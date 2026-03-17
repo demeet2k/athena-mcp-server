@@ -1,0 +1,29 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "fields": [
+    "agent_id",
+    "loop_number",
+    "parent_agent",
+    "seat_addr_6d",
+    "coordinate_stamp",
+    "source_region",
+    "action_type",
+    "affected_nodes",
+    "summary_of_change",
+    "reason_for_change",
+    "integration_gain",
+    "compression_gain",
+    "unresolved_followups",
+    "linked_quests",
+    "linked_agents",
+    "witness_refs",
+    "revision_confidence",
+    "timestamp_internal"
+  ],
+  "continuity": {
+    "cumulative": true,
+    "inherits_prior_observations": true,
+    "inherits_prior_blockers": true,
+    "requires_delta_per_loop": true
+  }
+}

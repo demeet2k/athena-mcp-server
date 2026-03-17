@@ -1,6 +1,6 @@
 # Ganglion `NERUAL NETWORK`
 
-- Weight: `22`
+- Weight: `131`
 - PrimaryRail: `Su`
 - PrimaryFace: `Fire`
 - PreferredScale: `G4`
@@ -9,4 +9,4 @@
 - BestFront: executable bridge study
 
 ## Local Threads
-- `monitor` `NERUAL NETWORK` -> `ganglion` / `AMBIG`
+- no active localized threads

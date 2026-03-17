@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-03-13T00:04:55.044326+00:00",
+  "derivation_version": "2026-03-12.whole-crystal-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_whole_crystal_completion",
+  "body_state_totals": {
+    "live": 15,
+    "historical-absorbed": 1,
+    "reserve": 2,
+    "dormant": 1
+  },
+  "live_family_count": 15,
+  "live_family_slice_coverage": {
+    "total_slices": 45,
+    "families_at_target": 15,
+    "slice_counts": {
+      "A01": 3,
+      "A02": 3,
+      "A03": 3,
+      "A05": 3,
+      "A06": 3,
+      "A07": 3,
+      "A08": 3,
+      "A09": 3,
+      "A10": 3,
+      "A11": 3,
+      "A12": 3,
+      "A13": 3,
+      "A14": 3,
+      "A15": 3,
+      "A16": 3
+    }
+  },
+  "bridge_totals": {
+    "direct": 3,
+    "inferred-ready": 3,
+    "quarantined": 3
+  },
+  "docs_gate": {
+    "status": "blocked-by-missing-credentials",
+    "resolution": "lawfully-isolated",
+    "fallback_mode": "local-first-truth-corridor"
+  },
+  "verifier_truth": {
+    "aqm": "OK",
+    "atlasforge": "OK",
+    "runtime_waist": "OK"
+  },
+  "truth": "OK",
+  "next_restart_seed": "admit -> classify -> interlock -> compile -> writeback -> restart"
+}

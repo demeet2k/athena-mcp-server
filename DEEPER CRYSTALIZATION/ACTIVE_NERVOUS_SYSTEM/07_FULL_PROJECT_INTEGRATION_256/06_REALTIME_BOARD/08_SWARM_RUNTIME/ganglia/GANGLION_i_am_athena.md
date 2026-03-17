@@ -9,4 +9,4 @@
 - BestFront: identity family intake and placement
 
 ## Local Threads
-- `monitor` `I AM ATHENA` -> `ganglion` / `AMBIG`
+- no active localized threads

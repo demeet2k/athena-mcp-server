@@ -1,0 +1,956 @@
+[
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "hybrid_legal_dsl"
+    ],
+    "id": "notation_transport:hybrid_legal_dsl",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "legal",
+    "notation_id": "hybrid_legal_dsl",
+    "outputs": [
+      "hybrid_legal_dsl"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "hybrid_legal_dsl",
+    "target_carrier": "lawful transform packet",
+    "target_fields": [
+      "preconditions",
+      "carrier",
+      "allowed_transform",
+      "boundary_checks",
+      "checkpoint_rule",
+      "completion_rule",
+      "rollback_rule"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "json_schema"
+    ],
+    "id": "notation_transport:json_schema",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "json_schema",
+    "outputs": [
+      "json_schema"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "json_schema",
+    "target_carrier": "JSON Schema",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "python"
+    ],
+    "id": "notation_transport:python",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "python",
+    "outputs": [
+      "python"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "python",
+    "target_carrier": "Python function",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "typescript_javascript"
+    ],
+    "id": "notation_transport:typescript_javascript",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "typescript_javascript",
+    "outputs": [
+      "typescript_javascript"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "typescript_javascript",
+    "target_carrier": "TypeScript/JavaScript function",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "rust"
+    ],
+    "id": "notation_transport:rust",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "rust",
+    "outputs": [
+      "rust"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "rust",
+    "target_carrier": "Rust function",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "c"
+    ],
+    "id": "notation_transport:c",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "c",
+    "outputs": [
+      "c"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "c",
+    "target_carrier": "C function",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "cpp"
+    ],
+    "id": "notation_transport:cpp",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "cpp",
+    "outputs": [
+      "cpp"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "cpp",
+    "target_carrier": "C++ function",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "java"
+    ],
+    "id": "notation_transport:java",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "java",
+    "outputs": [
+      "java"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "java",
+    "target_carrier": "Java method",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "html"
+    ],
+    "id": "notation_transport:html",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "html",
+    "outputs": [
+      "html"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "html",
+    "target_carrier": "HTML article",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "react_tsx"
+    ],
+    "id": "notation_transport:react_tsx",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "react_tsx",
+    "outputs": [
+      "react_tsx"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "react_tsx",
+    "target_carrier": "React TSX component",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "pytorch"
+    ],
+    "id": "notation_transport:pytorch",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "pytorch",
+    "outputs": [
+      "pytorch"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "pytorch",
+    "target_carrier": "PyTorch module",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "math_ir"
+    ],
+    "id": "notation_transport:math_ir",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "math_ir",
+    "outputs": [
+      "math_ir"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "math_ir",
+    "target_carrier": "mathematical intermediate representation",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "flow_dsl"
+    ],
+    "id": "notation_transport:flow_dsl",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "code",
+    "notation_id": "flow_dsl",
+    "outputs": [
+      "flow_dsl"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "flow_dsl",
+    "target_carrier": "flow graph DSL",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "vml_ir"
+    ],
+    "id": "notation_transport:vml_ir",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "vml_ir",
+    "outputs": [
+      "vml_ir"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "vml_ir",
+    "target_carrier": "VML operator packet",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "aqm"
+    ],
+    "id": "notation_transport:aqm",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "aqm",
+    "outputs": [
+      "aqm"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "aqm",
+    "target_carrier": "AQM carrier",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_aqm^(-1) o Phi^(AQM) o T_aqm"
+    },
+    "transport_law": "Phi^(target) = T_aqm^(-1) o Phi^(AQM) o T_aqm"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "cut"
+    ],
+    "id": "notation_transport:cut",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "cut",
+    "outputs": [
+      "cut"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "cut",
+    "target_carrier": "CUT boundary-flow carrier",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_cut^(-1) o Phi^(AQM) o T_cut"
+    },
+    "transport_law": "Phi^(target) = T_cut^(-1) o Phi^(AQM) o T_cut"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "liminal"
+    ],
+    "id": "notation_transport:liminal",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "liminal",
+    "outputs": [
+      "liminal"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "liminal",
+    "target_carrier": "liminal regime carrier",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_liminal^(-1) o Phi^(AQM) o T_liminal"
+    },
+    "transport_law": "Phi^(target) = T_liminal^(-1) o Phi^(AQM) o T_liminal"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "chemistry"
+    ],
+    "id": "notation_transport:chemistry",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "chemistry",
+    "outputs": [
+      "chemistry"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "chemistry",
+    "target_carrier": "chemical composition vector",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_chemistry^(-1) o Phi^(AQM) o T_chemistry"
+    },
+    "transport_law": "Phi^(target) = T_chemistry^(-1) o Phi^(AQM) o T_chemistry"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "biology"
+    ],
+    "id": "notation_transport:biology",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "biology",
+    "outputs": [
+      "biology"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "biology",
+    "target_carrier": "biological process packet",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "physics"
+    ],
+    "id": "notation_transport:physics",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "physics",
+    "outputs": [
+      "physics"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "physics",
+    "target_carrier": "physical field state",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_physics^(-1) o Phi^(AQM) o T_physics"
+    },
+    "transport_law": "Phi^(target) = T_physics^(-1) o Phi^(AQM) o T_physics"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "geometry"
+    ],
+    "id": "notation_transport:geometry",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "geometry",
+    "outputs": [
+      "geometry"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "geometry",
+    "target_carrier": "geometric path",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_geometry^(-1) o Phi^(AQM) o T_geometry"
+    },
+    "transport_law": "Phi^(target) = T_geometry^(-1) o Phi^(AQM) o T_geometry"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "trigonometry"
+    ],
+    "id": "notation_transport:trigonometry",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "trigonometry",
+    "outputs": [
+      "trigonometry"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "trigonometry",
+    "target_carrier": "trigonometric phase packet",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "music"
+    ],
+    "id": "notation_transport:music",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "music",
+    "outputs": [
+      "music"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "music",
+    "target_carrier": "musical cadence vector",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_music^(-1) o Phi^(AQM) o T_music"
+    },
+    "transport_law": "Phi^(target) = T_music^(-1) o Phi^(AQM) o T_music"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "juggling"
+    ],
+    "id": "notation_transport:juggling",
+    "inputs": [
+      "aqm"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "juggling",
+    "outputs": [
+      "juggling"
+    ],
+    "source_carrier": "aqm",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "juggling",
+    "target_carrier": "siteswap-like carry pattern",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "Phi^(target) = T_juggling^(-1) o Phi^(AQM) o T_juggling"
+    },
+    "transport_law": "Phi^(target) = T_juggling^(-1) o Phi^(AQM) o T_juggling"
+  },
+  {
+    "confidence": 0.86,
+    "constraints": {
+      "no_invented_steps": true
+    },
+    "docs_gate": "BLOCKED",
+    "evidence_class": "mixed",
+    "export_targets": [
+      "astrology"
+    ],
+    "id": "notation_transport:astrology",
+    "inputs": [
+      "canonical_operator_chain"
+    ],
+    "kind": "notation_transport",
+    "notation_class": "domain",
+    "notation_id": "astrology",
+    "outputs": [
+      "astrology"
+    ],
+    "source_carrier": "canonical_operator_chain",
+    "source_refs": [
+      "FULL_TRANSLATION/framework/registry/lenses.json",
+      "FULL_TRANSLATION/framework/registry/math_kernel_registry.md",
+      "FULL_TRANSLATION/manuscripts/MASTER_VOYNICH_SYNTHESIS_ROSETTA_STONE.md"
+    ],
+    "source_unit": "astrology",
+    "target_carrier": "timing and house packet",
+    "target_fields": [
+      "program",
+      "line_programs",
+      "canonical_chain_digest"
+    ],
+    "transform": {
+      "transport_law": "canonical packet to target notation"
+    },
+    "transport_law": "canonical packet to target notation"
+  }
+]

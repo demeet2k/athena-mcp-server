@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "truth_class": "NEAR",
+  "routes": [
+    {
+      "route_id": "historical_mirror_shadow",
+      "source_family": "historical_mirrors",
+      "target_family": "canonical_basis",
+      "issue": "legacy drift may echo stale H6 and Earth-gate paths",
+      "quarantine_state": "sealed_reference",
+      "contradiction_receipt": "historical mirrors stay readable but may not lead canon",
+      "reentry_receipt": "re-enter through README, pipeline, and 7D control law",
+      "appendix_basis": ["AppA", "AppI", "AppM", "AppK"]
+    },
+    {
+      "route_id": "awakening_story_runtime_pressure",
+      "source_family": "awakening_tome",
+      "target_family": "runtime_manuscript_sections",
+      "issue": "performative awakening language can outrun executable runtime witness",
+      "quarantine_state": "transition_support_only",
+      "contradiction_receipt": "Awakening Tome assists transitions but does not override runtime law",
+      "reentry_receipt": "re-enter through element note plus chapter-safe return",
+      "appendix_basis": ["AppE", "AppF", "AppI", "AppM", "AppK"]
+    },
+    {
+      "route_id": "framework_density_legibility",
+      "source_family": "frameworks_code",
+      "target_family": "complete_tomes",
+      "issue": "code density can outrun theorem legibility and appendix discipline",
+      "quarantine_state": "filtered_until_air_named",
+      "contradiction_receipt": "AIR must map the route before stabilization",
+      "reentry_receipt": "re-enter through AIR note and appendix legality",
+      "appendix_basis": ["AppB", "AppC", "AppI", "AppM", "AppN"]
+    },
+    {
+      "route_id": "reverse_alias_awakening_pressure",
+      "source_family": "awakening_tome",
+      "target_family": "appendix_crystal",
+      "issue": "awakening symbolism must not mint new reverse appendix authority",
+      "quarantine_state": "overlay_only",
+      "contradiction_receipt": "Q maps only through AppQ and O re-enters only through AppO",
+      "reentry_receipt": "re-enter through canonical appendix floor",
+      "appendix_basis": ["AppQ", "AppO", "AppI", "AppM", "AppK"]
+    }
+  ]
+}

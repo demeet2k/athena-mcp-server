@@ -1,0 +1,297 @@
+{
+  "generated_at": "2026-03-12T20:46:18.064573+00:00",
+  "derivation_version": "2026-03-12.phase3-v1",
+  "docs_gate": "BLOCKED",
+  "governing_equation": "SelfHostingKernel = SelfModel + SelfContract + SelfLineage + DualEngine + ReplayShell + RepairGate + PublicationReturn",
+  "coverage": {
+    "control_plane_surface_coverage": 1.0,
+    "represented_self_bearing_roots": 13,
+    "total_live_roots": 19,
+    "root_self_bearing_coverage": 0.684,
+    "unknown_slots": 3
+  },
+  "capability_map": [
+    {
+      "capability": "self_description",
+      "evidence": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\019_ch19_recursive_self_reference_and_self_repair.md",
+      "note": "typed self objects are already formalized in Chapter 19"
+    },
+    {
+      "capability": "witness_bound_measurement",
+      "evidence": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\witness_hierarchy.json",
+      "note": "the kernel can cite physical, indexed, board, archive, promoted, and generated witnesses"
+    },
+    {
+      "capability": "station_routed_self_return",
+      "evidence": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_dashboard.json",
+      "note": "Grand Central already gives the framework one lawful transfer hall"
+    },
+    {
+      "capability": "runtime_verification",
+      "evidence": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\atlasforge_runtime_lane.json",
+      "note": "the runtime can still prove green lanes under replay-safe scope"
+    },
+    {
+      "capability": "seed_based_regeneration",
+      "evidence": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+      "note": "the manuscript seed already defines expansion, compression, and generation"
+    },
+    {
+      "capability": "restart_continuity",
+      "evidence": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+      "note": "the restart kernel and z-point tunnel grammar are already present"
+    }
+  ],
+  "limitation_map": [
+    {
+      "limitation": "docs_gate_blocked",
+      "severity": "high",
+      "note": "external live memory remains unavailable until OAuth material exists"
+    },
+    {
+      "limitation": "indexed_shell_lag",
+      "severity": "medium",
+      "note": "board and generated surfaces still outrun the indexed atlas witness"
+    },
+    {
+      "limitation": "capsule_deepening_incomplete",
+      "severity": "medium",
+      "note": "major domains are seeded but not fully contracted into denser canonical capsules"
+    },
+    {
+      "limitation": "graph_tissue_still_sparse",
+      "severity": "medium",
+      "note": "the neuron and synapse layers are growing but not yet full self-bearing coverage"
+    }
+  ],
+  "burden_map": [
+    {
+      "burden": "generated_mass_pressure",
+      "weight": "0.482",
+      "note": "generated shell mass is large enough to demand stronger self-pruning and writeback discipline"
+    },
+    {
+      "burden": "publication_return_triple_writeback",
+      "weight": "high",
+      "note": "every self-transform must land in cortex, runtime mirror, and receipt surfaces together"
+    },
+    {
+      "burden": "identity_corridor_watch",
+      "weight": "medium",
+      "note": "self-change must remain inside an explicit drift corridor"
+    },
+    {
+      "burden": "queue_to_runtime_translation",
+      "weight": "medium",
+      "note": "build queue and runtime packet queues must stay synchronized"
+    }
+  ],
+  "permission_map": [
+    {
+      "permission": "policy_tuning",
+      "scope": "local",
+      "note": "change queue policy, thresholds, and prioritization with receipts"
+    },
+    {
+      "permission": "registry_strengthening",
+      "scope": "local",
+      "note": "add new self-bearing registry rows and clearer typed relations"
+    },
+    {
+      "permission": "contraction_and_pruning",
+      "scope": "local",
+      "note": "prune stale authority claims without deleting lineage"
+    },
+    {
+      "permission": "replay_hardening",
+      "scope": "local",
+      "note": "add checkpoints, restart tokens, and stronger replay closure"
+    },
+    {
+      "permission": "capsule_deepening",
+      "scope": "local",
+      "note": "regenerate manuscript and capsule surfaces from seed-backed evidence"
+    },
+    {
+      "permission": "runtime_derivation_writeback",
+      "scope": "local",
+      "note": "machine-derived kernel surfaces may write back into canonical dashboards and manifests"
+    }
+  ],
+  "environment_fit_map": [
+    {
+      "environment": "local_corpus_scope",
+      "fit": "good",
+      "note": "the kernel can operate because the local corpus is already indexed and witness-bearing"
+    },
+    {
+      "environment": "live_external_memory",
+      "fit": "blocked",
+      "note": "Docs ingress is blocked and must remain visibly blocked"
+    },
+    {
+      "environment": "runtime_green_lanes",
+      "fit": "good",
+      "note": "Atlasforge and AQM both returned OK on March 12, 2026"
+    },
+    {
+      "environment": "station_substrate",
+      "fit": "good",
+      "note": "Grand Central already holds 19 stationed roots"
+    }
+  ],
+  "unknowns": [
+    "live external memory state beyond the blocked Google Docs limb",
+    "full chapter-by-chapter publication return across all 21 manuscript chapters",
+    "full archive-backed regeneration after the next atlas refresh"
+  ],
+  "surface_links": [
+    {
+      "surface_id": "S01",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+      "surface_class": "canonical_index",
+      "witness_class": "indexed",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "permission",
+        "environment_fit"
+      ],
+      "note": "declares authority order and promoted public surfaces"
+    },
+    {
+      "surface_id": "S02",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+      "surface_class": "active_run",
+      "witness_class": "indexed",
+      "self_bearing": true,
+      "updates": [
+        "burden",
+        "capability",
+        "environment_fit"
+      ],
+      "note": "declares live fronts, phase status, and current operating objective"
+    },
+    {
+      "surface_id": "S03",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+      "surface_class": "build_queue",
+      "witness_class": "indexed",
+      "self_bearing": true,
+      "updates": [
+        "burden",
+        "permission"
+      ],
+      "note": "names the next executable fronts and queue discipline"
+    },
+    {
+      "surface_id": "S04",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+      "surface_class": "station_dashboard",
+      "witness_class": "indexed",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "environment_fit"
+      ],
+      "note": "proves the substrate transfer hall is live for local scope"
+    },
+    {
+      "surface_id": "S05",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md",
+      "surface_class": "gate_status",
+      "witness_class": "physical",
+      "self_bearing": true,
+      "updates": [
+        "limitation",
+        "environment_fit"
+      ],
+      "note": "keeps live external memory claims honest"
+    },
+    {
+      "surface_id": "S06",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\witness_hierarchy.json",
+      "surface_class": "witness_hierarchy",
+      "witness_class": "generated",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "environment_fit"
+      ],
+      "note": "grounds self-state claims in witness classes"
+    },
+    {
+      "surface_id": "S07",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\route_quality_ledger.json",
+      "surface_class": "route_quality",
+      "witness_class": "generated",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "burden"
+      ],
+      "note": "tracks route freshness, blockers, and improvement fronts"
+    },
+    {
+      "surface_id": "S08",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\atlasforge_runtime_lane.json",
+      "surface_class": "runtime_gate",
+      "witness_class": "generated",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "environment_fit"
+      ],
+      "note": "verifies one runtime lane remains green"
+    },
+    {
+      "surface_id": "S09",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\aqm_runtime_lane.json",
+      "surface_class": "runtime_gate",
+      "witness_class": "generated",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "environment_fit"
+      ],
+      "note": "verifies the second runtime lane remains green"
+    },
+    {
+      "surface_id": "S10",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\manuscript_sections\\019_ch19_recursive_self_reference_and_self_repair.md",
+      "surface_class": "chapter_kernel",
+      "witness_class": "indexed",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "permission",
+        "limitation"
+      ],
+      "note": "declares the typed self objects and safety constraints"
+    },
+    {
+      "surface_id": "S11",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+      "surface_class": "seed_protocol",
+      "witness_class": "indexed",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "permission"
+      ],
+      "note": "supplies the manuscript side of the dual engine"
+    },
+    {
+      "surface_id": "S12",
+      "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_dashboard.json",
+      "surface_class": "runtime_station_dashboard",
+      "witness_class": "generated",
+      "self_bearing": true,
+      "updates": [
+        "capability",
+        "environment_fit"
+      ],
+      "note": "binds the runtime mirror back to the station substrate"
+    }
+  ]
+}

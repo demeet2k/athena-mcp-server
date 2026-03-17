@@ -16,6 +16,7 @@ Primary burden: make the highest-density mathematical structures routeable into 
 - `FINAL FORM/COMPLETE TOMES`
 - `FINAL FORM/Hybrid Equations`
 - `FINAL FORM/FRAMEWORKS CODE`
+- `self_actualize/promoted_live_roots/atlasforge_framework`
 
 ## Local Tasks
 
@@ -23,6 +24,7 @@ Primary burden: make the highest-density mathematical structures routeable into 
 2. bind archive code trees to live runtime targets
 3. compress repeated framework law into reusable packets
 4. expose manuscript-ready abstractions for chapter drafting
+5. use `ATLAS FORGE` as the pilot proof for future archive-to-live promotions
 
 ## Primary Neurons
 

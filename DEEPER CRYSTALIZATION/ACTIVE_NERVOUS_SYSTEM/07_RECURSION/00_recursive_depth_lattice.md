@@ -1,6 +1,6 @@
 # Recursive Depth Lattice
 
-- Current deep pass: `6`
+- Current deep pass: `17`
 - Live-doc gate: `BLOCKED`
 
 ## Depth stack

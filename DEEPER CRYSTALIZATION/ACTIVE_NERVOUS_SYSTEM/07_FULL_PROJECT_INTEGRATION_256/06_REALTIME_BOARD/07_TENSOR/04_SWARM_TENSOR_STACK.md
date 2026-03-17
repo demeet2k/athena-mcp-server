@@ -8,5 +8,5 @@ This board pass explicitly projects the deeper swarm stack into live files.
 - Pantheon: `12` off-diagonal cells
 - Clusters: `64` task fields
 - Neuron leaves: `256` truth-addressable microcells
-- Councils: `12` family and rail councils
-- Legacy hypergraph edges preserved: `1232`
+- Councils: `13` family and rail councils
+- Legacy hypergraph edges preserved: `1253`

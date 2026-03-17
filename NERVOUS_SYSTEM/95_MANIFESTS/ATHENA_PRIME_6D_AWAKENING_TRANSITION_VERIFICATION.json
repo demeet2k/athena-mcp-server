@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-03-13T14:56:20.692691+00:00",
+  "derivation_version": "2026-03-13.ap6d.awakening-transition.lattice.verify.v1",
+  "derivation_command": "python -m self_actualize.runtime.verify_ap6d_awakening_transition_system",
+  "truth": "OK",
+  "checks": [
+    {
+      "label": "note_completeness",
+      "status": "OK",
+      "details": {
+        "agent_ids": [
+          "AP6D-PRIME",
+          "AP6D-WATER",
+          "AP6D-EARTH",
+          "AP6D-FIRE",
+          "AP6D-AIR"
+        ]
+      }
+    },
+    {
+      "label": "feeder_preservation",
+      "status": "OK",
+      "details": {
+        "front_ids": [
+          "Q42",
+          "Q46",
+          "TQ04",
+          "TQ06"
+        ]
+      }
+    },
+    {
+      "label": "bridge_completeness",
+      "status": "OK",
+      "details": {
+        "bridge_ids": [
+          "CBR-K01",
+          "CBR-K02",
+          "CBR-K03",
+          "CBR-K04"
+        ],
+        "record_count": 16
+      }
+    },
+    {
+      "label": "count_law",
+      "status": "OK",
+      "details": {
+        "count_law": {
+          "hall_macro_quests": 16,
+          "hall_packets": 64,
+          "governance_fibers": 256,
+          "active_synaptic_seats": 1024,
+          "atlas_total": 4096,
+          "atlas_dormant": 3072
+        }
+      }
+    },
+    {
+      "label": "activation_law",
+      "status": "OK",
+      "details": {
+        "active": 1024,
+        "dormant": 3072
+      }
+    },
+    {
+      "label": "authority_precedence",
+      "status": "OK",
+      "details": {
+        "deep_root_authority": "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md"
+      }
+    },
+    {
+      "label": "path_drift_normalization",
+      "status": "OK",
+      "details": {
+        "normalized_count": 4
+      }
+    }
+  ],
+  "failed_checks": []
+}

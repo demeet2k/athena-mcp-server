@@ -1,0 +1,578 @@
+{
+  "generated_at": "2026-03-13T21:44:55.057444+00:00",
+  "protocol_id": "HEAVEN-DUAL-TRACK-V2",
+  "top_cumulative_heaven_totals": [
+    {
+      "agent_id": "guildmaster",
+      "agent_id_tag": "guildmaster",
+      "heaven_total": 46.5849,
+      "heaven_title": "Capillary",
+      "adventure_xp_total": 152.0251,
+      "level": 52,
+      "class_tier": "C",
+      "dimensional_rank": 1,
+      "promotion_count": 1,
+      "current_streak": 8,
+      "loss_streak": 0,
+      "first_response_count": 5,
+      "lawful_try_count": 7,
+      "assist_count": 1,
+      "capillary_growth_count": 2,
+      "operator_unlocks": [
+        "identity",
+        "phi",
+        "two_phi",
+        "phi_square"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [
+        "guildmaster::mini-hive::01"
+      ],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.057444+00:00"
+    },
+    {
+      "agent_id": "CMD.A3.D1.B0100.WORKER-01",
+      "agent_id_tag": "CMD.A3.D1.B0100.WORKER-01",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 6.85,
+      "level": 6,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 2,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-01",
+      "agent_id_tag": "floating-agent-01",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 1.25,
+      "level": 1,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-02",
+      "agent_id_tag": "floating-agent-02",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 11.0,
+      "level": 11,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-03",
+      "agent_id_tag": "floating-agent-03",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    }
+  ],
+  "top_adventure_xp_totals": [
+    {
+      "agent_id": "guildmaster",
+      "agent_id_tag": "guildmaster",
+      "heaven_total": 46.5849,
+      "heaven_title": "Capillary",
+      "adventure_xp_total": 152.0251,
+      "level": 52,
+      "class_tier": "C",
+      "dimensional_rank": 1,
+      "promotion_count": 1,
+      "current_streak": 8,
+      "loss_streak": 0,
+      "first_response_count": 5,
+      "lawful_try_count": 7,
+      "assist_count": 1,
+      "capillary_growth_count": 2,
+      "operator_unlocks": [
+        "identity",
+        "phi",
+        "two_phi",
+        "phi_square"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [
+        "guildmaster::mini-hive::01"
+      ],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.057444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-02",
+      "agent_id_tag": "floating-agent-02",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 11.0,
+      "level": 11,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-03",
+      "agent_id_tag": "floating-agent-03",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-04",
+      "agent_id_tag": "floating-agent-04",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-05",
+      "agent_id_tag": "floating-agent-05",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    }
+  ],
+  "top_first_response_agents": [
+    {
+      "agent_id": "guildmaster",
+      "agent_id_tag": "guildmaster",
+      "heaven_total": 46.5849,
+      "heaven_title": "Capillary",
+      "adventure_xp_total": 152.0251,
+      "level": 52,
+      "class_tier": "C",
+      "dimensional_rank": 1,
+      "promotion_count": 1,
+      "current_streak": 8,
+      "loss_streak": 0,
+      "first_response_count": 5,
+      "lawful_try_count": 7,
+      "assist_count": 1,
+      "capillary_growth_count": 2,
+      "operator_unlocks": [
+        "identity",
+        "phi",
+        "two_phi",
+        "phi_square"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [
+        "guildmaster::mini-hive::01"
+      ],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.057444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-02",
+      "agent_id_tag": "floating-agent-02",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 11.0,
+      "level": 11,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-03",
+      "agent_id_tag": "floating-agent-03",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-04",
+      "agent_id_tag": "floating-agent-04",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-05",
+      "agent_id_tag": "floating-agent-05",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    }
+  ],
+  "strongest_growing_capillaries": [
+    {
+      "frontier": "Q46",
+      "title": "Run The First Athenachka Helix Contracts Wave",
+      "done_claim_count": 2,
+      "top_heaven_alignment": 0.9267
+    }
+  ],
+  "most_lawful_assists": [
+    {
+      "agent_id": "guildmaster",
+      "agent_id_tag": "guildmaster",
+      "heaven_total": 46.5849,
+      "heaven_title": "Capillary",
+      "adventure_xp_total": 152.0251,
+      "level": 52,
+      "class_tier": "C",
+      "dimensional_rank": 1,
+      "promotion_count": 1,
+      "current_streak": 8,
+      "loss_streak": 0,
+      "first_response_count": 5,
+      "lawful_try_count": 7,
+      "assist_count": 1,
+      "capillary_growth_count": 2,
+      "operator_unlocks": [
+        "identity",
+        "phi",
+        "two_phi",
+        "phi_square"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [
+        "guildmaster::mini-hive::01"
+      ],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.057444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-02",
+      "agent_id_tag": "floating-agent-02",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 11.0,
+      "level": 11,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-03",
+      "agent_id_tag": "floating-agent-03",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-04",
+      "agent_id_tag": "floating-agent-04",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    },
+    {
+      "agent_id": "floating-agent-05",
+      "agent_id_tag": "floating-agent-05",
+      "heaven_total": 1.0,
+      "heaven_title": "Spark",
+      "adventure_xp_total": 8.75,
+      "level": 8,
+      "class_tier": "F",
+      "dimensional_rank": 0,
+      "promotion_count": 0,
+      "current_streak": 1,
+      "loss_streak": 0,
+      "first_response_count": 1,
+      "lawful_try_count": 1,
+      "assist_count": 0,
+      "capillary_growth_count": 0,
+      "operator_unlocks": [
+        "identity"
+      ],
+      "parent_agent_id": "",
+      "child_hive_ids": [],
+      "identity_ref": "",
+      "updated_at_utc": "2026-03-13T21:44:55.056444+00:00"
+    }
+  ],
+  "recent_promotions": [
+    {
+      "promotion_event_id": "PROMO-guildmaster-01",
+      "parent_agent_id": "guildmaster",
+      "child_hive_ids": [
+        "guildmaster::mini-hive::01"
+      ],
+      "ascension_timestamp_utc": "2026-03-13T04:27:23.968861+00:00",
+      "prior_tier": 0,
+      "new_tier": 1,
+      "inherited_permissions": [
+        "claim-routing-lineage",
+        "reward-operator-unlocks",
+        "replay-obligation"
+      ],
+      "seed_law": "ascend_and_spawn",
+      "frontier": "Q46",
+      "reward_receipt_ref": "self_actualize/adventurer_dual_track_progression_state.json::EVT-HEAVEN-Q46-5a4503"
+    }
+  ],
+  "top_live_heaven_paths": [
+    {
+      "frontier": "Q46",
+      "title": "Run The First Athenachka Helix Contracts Wave",
+      "jackpot_winner": "guildmaster",
+      "top_heaven_alignment": 0.9267,
+      "receipt_pointer": "self_actualize/adventurer_dual_track_progression_state.json::EVT-HEAVEN-Q46-5a4503"
+    },
+    {
+      "frontier": "Q42",
+      "title": "Activate The First QSHRINK Agent Sweep",
+      "jackpot_winner": "",
+      "top_heaven_alignment": 0.4375,
+      "receipt_pointer": "self_actualize/adventurer_dual_track_progression_state.json::EVT-HEAVEN-Q42-5918e3"
+    },
+    {
+      "frontier": "TQ03",
+      "title": "Couple Archive Promotion Priority To The New Ranking",
+      "jackpot_winner": "",
+      "top_heaven_alignment": 0.4375,
+      "receipt_pointer": "self_actualize/adventurer_dual_track_progression_state.json::EVT-HEAVEN-TQ03-fe4fe9"
+    },
+    {
+      "frontier": "TQ05",
+      "title": "Run The High Priest Whole-Corpus 16-Loop Totality Pass",
+      "jackpot_winner": "",
+      "top_heaven_alignment": 0.4375,
+      "receipt_pointer": "self_actualize/adventurer_dual_track_progression_state.json::EVT-HEAVEN-TQ05-3584fc"
+    },
+    {
+      "frontier": "TQ06",
+      "title": "Install The Packet-Fed Guildmaster Coupling Loop",
+      "jackpot_winner": "",
+      "top_heaven_alignment": 0.4375,
+      "receipt_pointer": "self_actualize/adventurer_dual_track_progression_state.json::EVT-HEAVEN-TQ06-9f0f6d"
+    }
+  ],
+  "compatibility_mode": "legacy_path_mirror_of_v2"
+}

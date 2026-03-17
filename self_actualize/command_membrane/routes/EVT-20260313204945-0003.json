@@ -1,0 +1,108 @@
+{
+  "event_id": "EVT-20260313204945-0003",
+  "policy_id": "goal+salience+pheromone+coord",
+  "candidate_targets": [
+    {
+      "ant_id": "WORKER-HALL-01",
+      "role_class": "worker",
+      "owner_surface": "HALL",
+      "goal_affinity": 0.82,
+      "owner_surface_affinity": 0.88,
+      "capillary_strength": 0.817124,
+      "coordinate_proximity": 0.469454,
+      "load": 1,
+      "duplicate_risk": 0.95,
+      "score": 0.746093
+    },
+    {
+      "ant_id": "ARCHIVIST-COMMAND-01",
+      "role_class": "archivist",
+      "owner_surface": "LEDGER",
+      "goal_affinity": 0.94,
+      "owner_surface_affinity": 0.75,
+      "capillary_strength": 0.316623,
+      "coordinate_proximity": 0.819454,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.708243
+    },
+    {
+      "ant_id": "WORKER-TEMPLE-01",
+      "role_class": "worker",
+      "owner_surface": "TEMPLE",
+      "goal_affinity": 0.7,
+      "owner_surface_affinity": 0.7,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.669454,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.637918
+    },
+    {
+      "ant_id": "WORKER-RUNTIME-01",
+      "role_class": "worker",
+      "owner_surface": "RUNTIME",
+      "goal_affinity": 0.6,
+      "owner_surface_affinity": 0.45,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.919454,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.582918
+    },
+    {
+      "ant_id": "WORKER-COMPRESSION-01",
+      "role_class": "worker",
+      "owner_surface": "COMPRESSION",
+      "goal_affinity": 0.58,
+      "owner_surface_affinity": 0.4,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.880546,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.558582
+    },
+    {
+      "ant_id": "ROUTER-COMMAND-01",
+      "role_class": "router",
+      "owner_surface": "ROUTER",
+      "goal_affinity": 0.98,
+      "owner_surface_affinity": 0.1,
+      "capillary_strength": 0.5,
+      "coordinate_proximity": 0.319454,
+      "load": 0,
+      "duplicate_risk": 0.95,
+      "score": 0.519418
+    }
+  ],
+  "selected_targets": [
+    "WORKER-HALL-01",
+    "ARCHIVIST-COMMAND-01",
+    "WORKER-TEMPLE-01",
+    "WORKER-RUNTIME-01",
+    "WORKER-COMPRESSION-01"
+  ],
+  "topk": 5,
+  "claim_mode": "first-lease",
+  "quorum": 1,
+  "score_breakdown": {
+    "ordered_tuple": [
+      "goal_affinity",
+      "owner_surface_affinity",
+      "capillary_strength",
+      "coordinate_proximity",
+      "-load",
+      "-duplicate_risk"
+    ]
+  },
+  "duplicate_risk": 0.95,
+  "created_at": "2026-03-13T20:49:45.927231+00:00",
+  "expires_at": "2026-03-13T20:55:45.927231+00:00",
+  "route_status": "routed",
+  "ranked_routes": [],
+  "route_inputs": {},
+  "route_path": "",
+  "worker_choice": "",
+  "generated_at": "",
+  "quest_refs": []
+}

@@ -1,0 +1,66 @@
+# Neutral 64 Observations
+
+- `M01` in `kernel` mode neutrally observes Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M01` in `dynamics` mode neutrally observes Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M01` in `verification` mode neutrally observes Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M01` in `navigation` mode neutrally observes Defines the core shape grammar, holographic metro navigation, and higher-dimensional operator lattice.
+- `M02` in `kernel` mode neutrally observes Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M02` in `dynamics` mode neutrally observes Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M02` in `verification` mode neutrally observes Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M02` in `navigation` mode neutrally observes Restates the corpus as a self-similar octave hologram in which every scale repeats the whole.
+- `M03` in `kernel` mode neutrally observes Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M03` in `dynamics` mode neutrally observes Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M03` in `verification` mode neutrally observes Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M03` in `navigation` mode neutrally observes Builds a proof-carrying transport law so representations can move without semantic drift.
+- `M04` in `kernel` mode neutrally observes Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M04` in `dynamics` mode neutrally observes Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M04` in `verification` mode neutrally observes Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M04` in `navigation` mode neutrally observes Treats pi as a fast-converging arithmetic engine and symbolic seed for the larger holographic compiler.
+- `M05` in `kernel` mode neutrally observes Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M05` in `dynamics` mode neutrally observes Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M05` in `verification` mode neutrally observes Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M05` in `navigation` mode neutrally observes Compresses many projections into a single kernel-state machine governed by a fixed contract.
+- `M06` in `kernel` mode neutrally observes Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M06` in `dynamics` mode neutrally observes Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M06` in `verification` mode neutrally observes Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M06` in `navigation` mode neutrally observes Frames rotation as conjugacy inside a proof-carrying holographic transform calculus with a 256-operation crystal.
+- `M07` in `kernel` mode neutrally observes Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M07` in `dynamics` mode neutrally observes Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M07` in `verification` mode neutrally observes Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M07` in `navigation` mode neutrally observes Packages phi, pi, i, and e as a compact basis for a hologram compiler and 4x4 archetype grid.
+- `M08` in `kernel` mode neutrally observes Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M08` in `dynamics` mode neutrally observes Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M08` in `verification` mode neutrally observes Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M08` in `navigation` mode neutrally observes Provides a verified transform framework for constrained state spaces, admissible morphisms, and reproducible computation.
+- `M09` in `kernel` mode neutrally observes Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M09` in `dynamics` mode neutrally observes Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M09` in `verification` mode neutrally observes Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M09` in `navigation` mode neutrally observes Unifies civilizational time systems as interfaces over a deeper fractal archetypal clock.
+- `M10` in `kernel` mode neutrally observes Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M10` in `dynamics` mode neutrally observes Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M10` in `verification` mode neutrally observes Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M10` in `navigation` mode neutrally observes Expands the transform algebra beyond base-4 into a base-6 octahedral regime.
+- `M11` in `kernel` mode neutrally observes Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M11` in `dynamics` mode neutrally observes Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M11` in `verification` mode neutrally observes Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M11` in `navigation` mode neutrally observes Explains square roots, stacked cubes, and higher-dimensional projection as a single geometric-calculus story.
+- `M12` in `kernel` mode neutrally observes Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M12` in `dynamics` mode neutrally observes Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M12` in `verification` mode neutrally observes Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M12` in `navigation` mode neutrally observes Shows how higher dimension and higher phase resolution reveal tunnels hidden at coarse scale.
+- `M13` in `kernel` mode neutrally observes Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M13` in `dynamics` mode neutrally observes Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M13` in `verification` mode neutrally observes Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M13` in `navigation` mode neutrally observes Argues that time is a holographic phase object whose same weather repeats across scales.
+- `M14` in `kernel` mode neutrally observes Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M14` in `dynamics` mode neutrally observes Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M14` in `verification` mode neutrally observes Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M14` in `navigation` mode neutrally observes Provides a lawful transport framework for proof-carrying mathematics and obstruction-driven discovery.
+- `M15` in `kernel` mode neutrally observes Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M15` in `dynamics` mode neutrally observes Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M15` in `verification` mode neutrally observes Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M15` in `navigation` mode neutrally observes Links representation duality, corridor tunneling, hybrid generators, and certified cross-sandbox integration.
+- `M16` in `kernel` mode neutrally observes Constructs a commutation witness, verifier, and promotion protocol for certified constants.
+- `M16` in `dynamics` mode neutrally observes Constructs a commutation witness, verifier, and promotion protocol for certified constants.
+- `M16` in `verification` mode neutrally observes Constructs a commutation witness, verifier, and promotion protocol for certified constants.
+- `M16` in `navigation` mode neutrally observes Constructs a commutation witness, verifier, and promotion protocol for certified constants.

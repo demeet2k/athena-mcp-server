@@ -1,0 +1,46 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "title": "LP-57Omega AETHER Witness/Replay Pointer Schema",
+  "record_count": 45,
+  "concrete_pointer_count": 60,
+  "pointer_record_required": [
+    "record_id",
+    "record_type",
+    "bundle",
+    "source_set",
+    "z_alias",
+    "z_expanded",
+    "ck",
+    "rt",
+    "rt_path",
+    "pointers"
+  ],
+  "pointer_binding_required": [
+    "orientation_id",
+    "ae_coord",
+    "z_binding",
+    "check_key",
+    "route_key",
+    "witness_seed",
+    "replay_seed"
+  ],
+  "witness_seed_required": [
+    "seed_id",
+    "type",
+    "location",
+    "hash",
+    "scope",
+    "timestamp",
+    "collector",
+    "version_pins"
+  ],
+  "replay_seed_required": [
+    "seed_id",
+    "inputs",
+    "steps",
+    "expected_outputs",
+    "checks",
+    "env_pin",
+    "hash"
+  ]
+}

@@ -17,8 +17,8 @@
 - Regime: `classical`
 - Packet: `pod`
 - Truth: `AMBIG`
-- NSCoord: `(A-E-F, B12, Air, O07, Arc1, Me, AppB, MATH, classical, pod, AMBIG)`
-- NeuronAddr: `<MATH, first_archive_promotion_toolkit_surface, O07, C, 3, a, AEF, Arc1, Me, AppB, AMBIG, classical>`
+- NSCoord: `(A-E-F, B12, Air, O32, Arc1, Me, AppB, MATH, classical, pod, AMBIG)`
+- NeuronAddr: `<MATH, first_archive_promotion_toolkit_surface, O32, C, 3, a, AEF, Arc1, Me, AppB, AMBIG, classical>`
 - ContractionTarget: `cortex/first_archive_promotion_toolkit_surface.md`
 
 ## Claims

@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-03-13T04:17:37.187298+00:00",
+  "derivation_version": "2026-03-13.jointatlas-merge-automaton-v0",
+  "derivation_command": "python -m self_actualize.runtime.derive_jointatlas_merge_automaton",
+  "truth": "OK",
+  "docs_gate_status": "blocked-by-missing-credentials",
+  "id": "joint-atlas.merge-automaton@0.1.0",
+  "version": "0.1.0",
+  "status": "derived-local-first",
+  "merge_states": [
+    "PROPOSED",
+    "BUNDLED",
+    "DISSENT_SURFACED",
+    "VERIFY_PENDING",
+    "GOVERNANCE_PENDING",
+    "DECIDED_COMMIT",
+    "DECIDED_DEFER_NEAR",
+    "DECIDED_DEFER_AMBIG",
+    "DECIDED_REFUSE",
+    "DECIDED_QUARANTINE"
+  ],
+  "merge_destinations": [
+    "COMMIT",
+    "DEFER_NEAR",
+    "DEFER_AMBIG",
+    "REFUSE",
+    "QUARANTINE_FAIL"
+  ],
+  "terminal_destination_map": {
+    "DECIDED_COMMIT": "COMMIT",
+    "DECIDED_DEFER_NEAR": "DEFER_NEAR",
+    "DECIDED_DEFER_AMBIG": "DEFER_AMBIG",
+    "DECIDED_REFUSE": "REFUSE",
+    "DECIDED_QUARANTINE": "QUARANTINE_FAIL"
+  },
+  "transition_graph": [
+    {
+      "from": "PROPOSED",
+      "to": "BUNDLED",
+      "guard": "candidate_deltas_exist AND packet_ids_valid"
+    },
+    {
+      "from": "BUNDLED",
+      "to": "DISSENT_SURFACED",
+      "guard": "dissent_slots_materialized"
+    },
+    {
+      "from": "DISSENT_SURFACED",
+      "to": "VERIFY_PENDING",
+      "guard": "witness_refs_attached AND replay_refs_attached"
+    },
+    {
+      "from": "VERIFY_PENDING",
+      "to": "GOVERNANCE_PENDING",
+      "guard": "route_witness_sufficient AND replay_closure_sufficient"
+    },
+    {
+      "from": "VERIFY_PENDING",
+      "to": "DECIDED_DEFER_NEAR",
+      "guard": "bounded_residual AND continuation_seed_present"
+    },
+    {
+      "from": "VERIFY_PENDING",
+      "to": "DECIDED_DEFER_AMBIG",
+      "guard": "underdetermined_conflict AND continuation_seed_present"
+    },
+    {
+      "from": "VERIFY_PENDING",
+      "to": "DECIDED_QUARANTINE",
+      "guard": "hard_contradiction OR replay_divergence OR policy_breach"
+    },
+    {
+      "from": "GOVERNANCE_PENDING",
+      "to": "DECIDED_COMMIT",
+      "guard": "governance_approval_true AND ledger_appendable AND continuation_seed_present"
+    },
+    {
+      "from": "GOVERNANCE_PENDING",
+      "to": "DECIDED_REFUSE",
+      "guard": "governance_approval_false AND continuation_seed_present"
+    }
+  ],
+  "artifact_requirements": {
+    "PROPOSED": [
+      "CommitteePack"
+    ],
+    "BUNDLED": [
+      "CommitteePack"
+    ],
+    "DISSENT_SURFACED": [
+      "CommitteePack",
+      "DissentPacket"
+    ],
+    "VERIFY_PENDING": [
+      "CommitteePack",
+      "WitnessPack",
+      "ReplayPack"
+    ],
+    "GOVERNANCE_PENDING": [
+      "CommitteePack",
+      "GovernanceApproval"
+    ],
+    "DECIDED_COMMIT": [
+      "CommitteePack",
+      "DeltaPacket",
+      "MergeLedgerEntry",
+      "ContinuationSeed"
+    ],
+    "DECIDED_DEFER_NEAR": [
+      "CommitteePack",
+      "NearPack",
+      "MergeLedgerEntry",
+      "ContinuationSeed"
+    ],
+    "DECIDED_DEFER_AMBIG": [
+      "CommitteePack",
+      "AmbigPack",
+      "MergeLedgerEntry",
+      "ContinuationSeed"
+    ],
+    "DECIDED_REFUSE": [
+      "CommitteePack",
+      "FailPack",
+      "MergeLedgerEntry",
+      "ContinuationSeed"
+    ],
+    "DECIDED_QUARANTINE": [
+      "CommitteePack",
+      "FailPack",
+      "ConflictPacket",
+      "MergeLedgerEntry",
+      "ContinuationSeed"
+    ]
+  },
+  "witness_basis": [
+    "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\MIRRORS\\LOCAL\\F09_git_brain.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\22_control_plane_grammar.md",
+    "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\06_GUILD_PROMOTION_PROTOCOL.md",
+    "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\02_TEMPLE_GOVERNANCE_LAWS.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ledgers\\LEDGER_2026-03-13_q39_contradiction_packets.md",
+    "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\QUESTS\\TQ06_INSTALL_THE_PACKET_FED_GUILDMASTER_COUPLING_LOOP.md"
+  ],
+  "fixture_case_count": 5,
+  "next_seed": "MotionConstitution_L1",
+  "full_corpus_integration_alignment": {
+    "committee_feeder_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "TQ06"
+    ],
+    "state_path": "self_actualize\\next_4_pow_6_full_corpus_integration_state.json",
+    "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling"
+  },
+  "next_4_pow_6_57_cycle_swarm_alignment": {
+    "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+    "state_path": "self_actualize\\next_4_pow_6_57_cycle_swarm_state.json",
+    "committee_feeder_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling"
+  },
+  "lp_57_omega_protocol_alignment": {
+    "protocol_id": "LP-57OMEGA",
+    "state_path": "self_actualize\\next_4_pow_6_57_cycle_swarm_state.json",
+    "prime_cycle_path": "self_actualize\\lp_57_prime_loop_cycle_records.json",
+    "committee_feeder_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "adjudication_governance": "merge handles committee escalations only"
+  }
+}

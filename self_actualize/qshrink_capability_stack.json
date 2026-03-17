@@ -1,0 +1,444 @@
+{
+  "generated_at": "2026-03-13T00:27:13.587241+00:00",
+  "truth": "OK",
+  "docs_gate": "BLOCKED",
+  "corpus_metrics": {
+    "total_files": 11806,
+    "total_bytes": 3667805523,
+    "duplicate_groups_count": 670,
+    "duplicate_savings_bytes": 338943146
+  },
+  "runtime_verification": {
+    "generated_at": "2026-03-13T00:24:15.158080+00:00",
+    "entrypoint": "athena_os.qshrink",
+    "truth": "OK",
+    "checks": [
+      {
+        "name": "import_entrypoint",
+        "truth": "OK",
+        "detail": "Imported athena_os.qshrink without ad hoc package patching beyond root path insertion."
+      },
+      {
+        "name": "validate_qshrink",
+        "truth": "OK",
+        "detail": "validate_qshrink() returned a truthy result."
+      },
+      {
+        "name": "lossless_roundtrip",
+        "truth": "OK",
+        "detail": {
+          "compressed_bytes": 268,
+          "input_bytes": 360,
+          "restored_match": true
+        }
+      },
+      {
+        "name": "container_integrity",
+        "truth": "OK",
+        "detail": {
+          "n_domains": 1,
+          "n_chunks": 1,
+          "invalid_chunks": [],
+          "total_size": 268,
+          "is_valid": true
+        }
+      },
+      {
+        "name": "lossy_bound",
+        "truth": "OK",
+        "detail": {
+          "max_error": 0.0,
+          "declared_bound": 0.5
+        }
+      },
+      {
+        "name": "synchronized_container",
+        "truth": "OK",
+        "detail": {
+          "topology": "kronecker",
+          "access_mode": "SEEKABLE_INDEXED",
+          "domain_count": 2,
+          "chunk_count": 4,
+          "seek_entries": 4
+        }
+      },
+      {
+        "name": "factory_surface",
+        "truth": "OK",
+        "detail": {
+          "lossless_codec": "QShrinkCodec",
+          "lossy_codec": "QShrinkCodec",
+          "archive": "DirectSumContainer",
+          "synchronized_container": "KroneckerContainer"
+        }
+      }
+    ]
+  },
+  "front_map": [
+    {
+      "id": "FRONT-LEGACY",
+      "surface": "MATH/FINAL FORM/Q shrink",
+      "role": "legacy/public volume stack and SaaS-safe boundary",
+      "safety": "public-safe"
+    },
+    {
+      "id": "FRONT-INTERNAL",
+      "surface": "QSHRINK - ATHENA (internal use)",
+      "role": "maximum-capacity doctrine, swarm, metro, repair, Chapter 11",
+      "safety": "internal-only"
+    },
+    {
+      "id": "FRONT-RUNTIME",
+      "surface": "MATH/FINAL FORM/FRAMEWORKS CODE/Athena OS/athena_os/qshrink",
+      "role": "typed executable runtime package",
+      "safety": "hybrid-with-guardrails"
+    },
+    {
+      "id": "FRONT-FLEET-HALL",
+      "surface": "Athena FLEET/QSHRINK2_CORPUS_ECOSYSTEM + Guild Hall",
+      "role": "atlas, pruning, questing, family routing, agent orchestration",
+      "safety": "hybrid-with-guardrails"
+    }
+  ],
+  "invariants": [
+    "Legacy public QSHRINK remains read-only.",
+    "Authority surfaces are compacted by pointer and manifest before physical deletion.",
+    "Docs gate remains blocker-honest until OAuth exists.",
+    "Generated lattices are storage classes, not handwritten doctrine."
+  ],
+  "toolkit_sections": [
+    {
+      "id": "TK01",
+      "name": "Control",
+      "surface": "QSHRINK - ATHENA (internal use)/00_CONTROL/",
+      "role": "charter, address law, corpus bindings, framework law",
+      "owns": "public-private split, operating invariants, front map"
+    },
+    {
+      "id": "TK02",
+      "name": "Geometry",
+      "surface": "QSHRINK - ATHENA (internal use)/01_GEOMETRY/",
+      "role": "Square, Circle, Triangle, Torus movement grammar",
+      "owns": "addressing, recurrence, routing choice, toroidal return"
+    },
+    {
+      "id": "TK03",
+      "name": "Operators",
+      "surface": "QSHRINK - ATHENA (internal use)/02_OPERATORS/",
+      "role": "Partition, Quantize, Bucket, Code work grammar",
+      "owns": "decomposition, lawful loss, bulk/escape split, runnable carriers"
+    },
+    {
+      "id": "TK04",
+      "name": "Swarm",
+      "surface": "QSHRINK - ATHENA (internal use)/03_SWARM/",
+      "role": "agent roles, active runtime, topology, metallic scaling",
+      "owns": "parallelism, dissatisfaction escalation, pantheon coordination"
+    },
+    {
+      "id": "TK05",
+      "name": "Metro",
+      "surface": "QSHRINK - ATHENA (internal use)/04_METRO/",
+      "role": "transfer hubs, station registry, tensor coordinates",
+      "owns": "cross-body movement, handoff integrity, route preservation"
+    },
+    {
+      "id": "TK06",
+      "name": "Manuscript Space",
+      "surface": "QSHRINK - ATHENA (internal use)/05_MANUSCRIPT_SPACE/",
+      "role": "root-cell index, recursive expansion protocol",
+      "owns": "seed/skeleton/full artifact growth"
+    },
+    {
+      "id": "TK07",
+      "name": "Ledgers And Manuscripts",
+      "surface": "QSHRINK - ATHENA (internal use)/06_LEDGERS/ and 07_MANUSCRIPTS/",
+      "role": "bindings, frontier, next loop seed, title/abstract/review maps",
+      "owns": "witness memory, canonical narrative outputs"
+    },
+    {
+      "id": "TK08",
+      "name": "Loop Skill",
+      "surface": "QSHRINK - ATHENA (internal use)/08_LOOP_SKILL/",
+      "role": "37-gate restart law and dissatisfaction handling",
+      "owns": "improvement loops, escalation discipline, anti-stagnation"
+    },
+    {
+      "id": "TK09",
+      "name": "Repair Lattice",
+      "surface": "QSHRINK - ATHENA (internal use)/09_REPAIR_256X256/",
+      "role": "repair manifold and recursive dissatisfaction field",
+      "owns": "self-healing, corrective expansion, bounded repair planning"
+    },
+    {
+      "id": "TK10",
+      "name": "Chapter 11 Lattice",
+      "surface": "QSHRINK - ATHENA (internal use)/10_CH11_256X256/",
+      "role": "origin, void, zero-point, seed return",
+      "owns": "zero-point extraction, contradiction collapse, restart seeds"
+    },
+    {
+      "id": "TK11",
+      "name": "Runtime Package",
+      "surface": "MATH/FINAL FORM/FRAMEWORKS CODE/Athena OS/athena_os/qshrink/",
+      "role": "typed executable implementation of core, lenses, pipeline, container",
+      "owns": "programmatic compression, container legality, runtime verification"
+    }
+  ],
+  "maximum_capacity_use_cases": [
+    {
+      "id": "UC01",
+      "name": "Corpus Storage Compaction",
+      "front": "Athena FLEET + self_actualize",
+      "safety": "hybrid-with-guardrails",
+      "artifacts": "atlas, pruning ledger, compaction contract",
+      "skills": [
+        "q-shrink",
+        "manuscript-intake",
+        "corpus-status-synthesizer"
+      ]
+    },
+    {
+      "id": "UC02",
+      "name": "Holographic Manuscript Seeds",
+      "front": "QSHRINK internal doctrine",
+      "safety": "internal-only",
+      "artifacts": "Omega, Alpha+, Delta+, witness, restart seed",
+      "skills": [
+        "q-shrink",
+        "manuscript-final-drafter",
+        "manuscript-seed"
+      ]
+    },
+    {
+      "id": "UC03",
+      "name": "Deterministic Container Archives",
+      "front": "Athena OS runtime",
+      "safety": "public-safe",
+      "artifacts": "container bytes, manifest, chunk checksums",
+      "skills": [
+        "q-shrink"
+      ]
+    },
+    {
+      "id": "UC04",
+      "name": "Seekable Stream Transport",
+      "front": "Athena OS runtime",
+      "safety": "public-safe",
+      "artifacts": "seek lattice, synchronized container, legality checks",
+      "skills": [
+        "q-shrink",
+        "hybrid-bridger"
+      ]
+    },
+    {
+      "id": "UC05",
+      "name": "Repairable Bounded-Damage Carriers",
+      "front": "Athena OS runtime + Repair lattice",
+      "safety": "hybrid-with-guardrails",
+      "artifacts": "repair prefix, repair ledger, container diagnostics",
+      "skills": [
+        "q-shrink",
+        "improvement-gate-escalator"
+      ]
+    },
+    {
+      "id": "UC06",
+      "name": "Runtime Codec Verification",
+      "front": "Athena OS runtime",
+      "safety": "public-safe",
+      "artifacts": "verification JSON, smoke tests, debug ledger",
+      "skills": [
+        "q-shrink",
+        "shadow-analysis"
+      ]
+    },
+    {
+      "id": "UC07",
+      "name": "Atlas Reduction And Mirror Regeneration",
+      "front": "Athena FLEET + mirrors",
+      "safety": "hybrid-with-guardrails",
+      "artifacts": "mirror policy, regenerable zone rules, dedupe rubric",
+      "skills": [
+        "manuscript-intake",
+        "archive-atlas-ingestor",
+        "metro-cartography"
+      ]
+    },
+    {
+      "id": "UC08",
+      "name": "Skill And Agent Compression",
+      "front": "Guild Hall + skill registry",
+      "safety": "internal-only",
+      "artifacts": "skill routing matrix, handoff contracts, quest bindings",
+      "skills": [
+        "guild-hall-quest-loop",
+        "thirty-seven-gate-skillsmith"
+      ]
+    },
+    {
+      "id": "UC09",
+      "name": "Metro Corridor Preservation",
+      "front": "QSHRINK metro + deeper network",
+      "safety": "internal-only",
+      "artifacts": "corridor maps, tensor coordinates, transfer hubs",
+      "skills": [
+        "deeper-integrated-neural-network",
+        "metro-cartography"
+      ]
+    },
+    {
+      "id": "UC10",
+      "name": "Archive Promotion",
+      "front": "MATH archives + promoted live roots",
+      "safety": "hybrid-with-guardrails",
+      "artifacts": "archive manifest, promotion candidate scoring, live-root bridge",
+      "skills": [
+        "archive-atlas-ingestor",
+        "corpus-status-synthesizer"
+      ]
+    },
+    {
+      "id": "UC11",
+      "name": "Contradiction And Blocker Packets",
+      "front": "Guild Hall + Temple + queue",
+      "safety": "internal-only",
+      "artifacts": "contradiction packets, blocker ledgers, restart seeds",
+      "skills": [
+        "guild-hall-quest-loop",
+        "shadow-analysis",
+        "improvement-gate-escalator"
+      ]
+    },
+    {
+      "id": "UC12",
+      "name": "SaaS-Safe Public Productization",
+      "front": "Legacy public lane",
+      "safety": "public-safe",
+      "artifacts": "bounded API, public-safe profiles, legacy read-only guardrails",
+      "skills": [
+        "q-shrink",
+        "manuscript-final-drafter"
+      ]
+    }
+  ],
+  "minimum_viable_quartet": [
+    "q-shrink",
+    "manuscript-intake",
+    "shadow-analysis",
+    "guild-hall-quest-loop"
+  ],
+  "second_wave_skills": [
+    {
+      "skill": "manuscript-final-drafter",
+      "role": "promote compressed outputs into polished canonical markdown",
+      "quest": "QS64-53 Promotion-Refine-Square"
+    },
+    {
+      "skill": "manuscript-seed",
+      "role": "expand holographic seeds back into structured long-form doctrine",
+      "quest": "QS64-60 Promotion-Synthesize-Fractal"
+    },
+    {
+      "skill": "thirty-seven-gate-skillsmith",
+      "role": "turn repeated QSHRINK workflows into reusable local skills",
+      "quest": "QS64-63 Promotion-Scale-Cloud"
+    },
+    {
+      "skill": "origin-excavator",
+      "role": "extract Chapter 11 zero points and origin seeds for compression roots",
+      "quest": "QS64-12 QShrink-Synthesize-Fractal"
+    }
+  ],
+  "third_wave_skills": [
+    {
+      "skill": "holographic-rotation",
+      "role": "stress-test compressed artifacts across orthogonal viewpoints before promotion",
+      "quest": "QS64-10 QShrink-Synthesize-Flower"
+    },
+    {
+      "skill": "hybrid-bridger",
+      "role": "bridge discrete runtime codecs and continuous manuscript geometry",
+      "quest": "QS64-42 Runtime-Synthesize-Flower"
+    },
+    {
+      "skill": "void-expansion",
+      "role": "generate frontier use cases when compression moves beyond currently named lanes",
+      "quest": "QS64-48 Runtime-Scale-Fractal"
+    },
+    {
+      "skill": "systemic-solver",
+      "role": "project QSHRINK into civilizational-scale storage and routing problems",
+      "quest": "QS64-64 Promotion-Scale-Fractal"
+    }
+  ],
+  "handoff_contracts": [
+    "manuscript-intake -> q-shrink: intake delivers atlas-grounded pressure surfaces, not raw folder intuition",
+    "q-shrink -> shadow-analysis: every contraction candidate is audited before promotion or pruning",
+    "shadow-analysis -> guild-hall-quest-loop: blind spots become ownerable work, not suppressed doubt",
+    "q-shrink -> manuscript-final-drafter: compressed outputs can be promoted into readable canonical markdown",
+    "archive-atlas-ingestor -> q-shrink: promoted roots re-enter the same compaction grammar after extraction",
+    "improvement-gate-escalator -> q-shrink: weak passes automatically recurse deeper instead of polishing summaries"
+  ],
+  "artifact_schema": {
+    "schema_version": "qshrink-holographic-artifact/1.0",
+    "required_fields": [
+      "omega",
+      "four_elements",
+      "zero_point",
+      "delta_skeleton",
+      "witness",
+      "restart_seed"
+    ],
+    "optional_fields": [
+      "front_map",
+      "compression_level",
+      "source_surfaces",
+      "safety_class",
+      "quest_binding",
+      "notes"
+    ],
+    "compression_levels": {
+      "OMEGA+": "full expansion or source-preserving witness bundle",
+      "DELTA+": "section or node skeleton with route-preserving structure",
+      "ALPHA+": "seed plus developed zero point",
+      "Omega": "one sentence or equation generator"
+    }
+  },
+  "compaction_contract": {
+    "schema_version": "qshrink-compaction-contract/1.0",
+    "invariants": [
+      "legacy_public_is_read_only",
+      "authority_surfaces_are_not_physically_pruned_without_explicit_ledger",
+      "generated_zones_are_regenerated_not_side_copied",
+      "docs_gate_blockers_are_preserved_honestly"
+    ],
+    "action_classes": {
+      "retain": "keep live and compact only by view or reference",
+      "regenerate": "rebuild from index on demand",
+      "dedupe_by_reference": "replace identical siblings with manifest-backed references",
+      "archive": "keep packed until promotion threshold is met",
+      "promote_live": "extract into a routed live root with lineage witness"
+    },
+    "duplicate_priority_rubric": [
+      "raw_savings_bytes",
+      "authority_risk",
+      "regenerability",
+      "replay_cost",
+      "cross_body_connectivity"
+    ],
+    "compression_profiles": {
+      "legacy_public": "retain + publish-safe wrappers only",
+      "internal_doctrine": "retain doctrine + regenerate derived lattices",
+      "runtime_code": "retain code + verify behavior instead of lossy compression",
+      "witness_document": "preserve source witness + edit through mirrors or capsules",
+      "mirror_surface": "regenerate on demand from index",
+      "archive_bundle": "archive until promotion threshold is met"
+    },
+    "docs_gate_policy": {
+      "state_when_missing_oauth": "BLOCKED",
+      "allowed_behavior": "local-only synthesis and blocker-preserving writeback",
+      "disallowed_behavior": "claiming live docs sync without authenticated proof"
+    }
+  }
+}

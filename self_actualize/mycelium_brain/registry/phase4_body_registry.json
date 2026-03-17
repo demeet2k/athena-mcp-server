@@ -1,0 +1,685 @@
+{
+  "generated_at": "2026-03-13T20:44:21.701178+00:00",
+  "derivation_version": "2026-03-12.phase4-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_structured_neuron_storage",
+  "docs_gate": "BLOCKED",
+  "canonical_scope": "live_19_body_organism",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+  "primary_storage_truth": "registries + pair records + wave records",
+  "bodies": [
+    {
+      "body_id": "A01",
+      "root": "NERVOUS_SYSTEM",
+      "role": "control and routing cortex",
+      "indexed_count": 420,
+      "authority": "canonical",
+      "status": "live",
+      "neighbors": [],
+      "hemisphere_bias": "left",
+      "tract": "address",
+      "dock": "GCL",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A01 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A02",
+      "root": "self_actualize",
+      "role": "runtime waist",
+      "indexed_count": 1294,
+      "authority": "runtime",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A01",
+          "root": "NERVOUS_SYSTEM",
+          "direction": "outbound",
+          "commissure_id": "C-002",
+          "bridge_class": "execution bridge",
+          "dispatch_score": 7.649,
+          "proof_state": "OK"
+        },
+        {
+          "body_id": "A19",
+          "root": "mycelial_unified_nervous_system_bundle",
+          "direction": "inbound",
+          "commissure_id": "C-013",
+          "bridge_class": "continuity bridge",
+          "dispatch_score": 7.094,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A19",
+          "root": "mycelial_unified_nervous_system_bundle",
+          "direction": "inbound",
+          "commissure_id": "C-013",
+          "bridge_class": "continuity bridge",
+          "dispatch_score": 7.094,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A19",
+          "root": "mycelial_unified_nervous_system_bundle",
+          "direction": "inbound",
+          "commissure_id": "C-013",
+          "bridge_class": "continuity bridge",
+          "dispatch_score": 7.094,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCL+GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A02 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A03",
+      "root": "ECOSYSTEM",
+      "role": "registry and protocol shell",
+      "indexed_count": 112,
+      "authority": "governance",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A05",
+          "root": "MATH",
+          "direction": "outbound",
+          "commissure_id": "C-010",
+          "bridge_class": "proof bridge",
+          "dispatch_score": 6.83,
+          "proof_state": "OK"
+        }
+      ],
+      "hemisphere_bias": "left",
+      "tract": "relation",
+      "dock": "GCL",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A03 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A04",
+      "root": "DEEPER CRYSTALIZATION",
+      "role": "integration compiler",
+      "indexed_count": 443,
+      "authority": "historical-absorbed",
+      "status": "historical-absorbed",
+      "neighbors": [
+        {
+          "body_id": "A02",
+          "root": "self_actualize",
+          "direction": "outbound",
+          "commissure_id": "C-008",
+          "bridge_class": "continuity bridge",
+          "dispatch_score": 7.681,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "bilateral",
+      "tract": "chamber",
+      "dock": "GCL+GCR",
+      "witness_class": "indexed",
+      "dominant_role": "generated",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A04 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A05",
+      "root": "MATH",
+      "role": "theorem kernel",
+      "indexed_count": 601,
+      "authority": "canonical-domain",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A06",
+          "root": "Voynich",
+          "direction": "outbound",
+          "commissure_id": "C-001",
+          "bridge_class": "proof bridge",
+          "dispatch_score": 6.847,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "left",
+      "tract": "chamber",
+      "dock": "GCL",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A05 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A06",
+      "root": "Voynich",
+      "role": "translation reservoir",
+      "indexed_count": 689,
+      "authority": "canonical-domain",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A16",
+          "root": "Athena FLEET",
+          "direction": "inbound",
+          "commissure_id": "CS-001",
+          "bridge_class": "crystal synapse",
+          "dispatch_score": 8.104,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A09",
+          "root": "QSHRINK - ATHENA (internal use)",
+          "direction": "outbound",
+          "commissure_id": "CS-002",
+          "bridge_class": "crystal synapse",
+          "dispatch_score": 7.982,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A12",
+          "root": "Athenachka Collective Books",
+          "direction": "outbound",
+          "commissure_id": "C-006",
+          "bridge_class": "meaning bridge",
+          "dispatch_score": 6.992,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A06 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A07",
+      "root": "Trading Bot",
+      "role": "external bridge and transport body",
+      "indexed_count": 1918,
+      "authority": "external-bridge",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A02",
+          "root": "self_actualize",
+          "direction": "outbound",
+          "commissure_id": "C-007",
+          "bridge_class": "execution bridge",
+          "dispatch_score": 7.958,
+          "proof_state": "OK"
+        }
+      ],
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCL+GCR",
+      "witness_class": "indexed",
+      "dominant_role": "generated",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A07 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A08",
+      "root": "Quadrant Binary",
+      "role": "ancestor address kernel",
+      "indexed_count": 9,
+      "authority": "ancestor-kernel",
+      "status": "live",
+      "neighbors": [],
+      "hemisphere_bias": "left",
+      "tract": "address",
+      "dock": "GCL",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A08 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A09",
+      "root": "QSHRINK - ATHENA (internal use)",
+      "role": "compression and governance shell",
+      "indexed_count": 1315,
+      "authority": "compression-shell",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A06",
+          "root": "Voynich",
+          "direction": "inbound",
+          "commissure_id": "CS-002",
+          "bridge_class": "crystal synapse",
+          "dispatch_score": 7.982,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A02",
+          "root": "self_actualize",
+          "direction": "outbound",
+          "commissure_id": "C-003",
+          "bridge_class": "execution bridge",
+          "dispatch_score": 7.518,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "left",
+      "tract": "chamber",
+      "dock": "GCL",
+      "witness_class": "indexed",
+      "dominant_role": "generated",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A09 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A10",
+      "root": "NERUAL NETWORK",
+      "role": "adaptive runtime lab",
+      "indexed_count": 59,
+      "authority": "runtime-lab",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A02",
+          "root": "self_actualize",
+          "direction": "outbound",
+          "commissure_id": "C-011",
+          "bridge_class": "execution bridge",
+          "dispatch_score": 7.666,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCL+GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A10 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A11",
+      "root": "FRESH",
+      "role": "intake fringe",
+      "indexed_count": 6,
+      "authority": "intake-fringe",
+      "status": "live",
+      "neighbors": [],
+      "hemisphere_bias": "right",
+      "tract": "address",
+      "dock": "GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A11 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A12",
+      "root": "Athenachka Collective Books",
+      "role": "publication shelf",
+      "indexed_count": 18,
+      "authority": "publication-halo",
+      "status": "live",
+      "neighbors": [],
+      "hemisphere_bias": "right",
+      "tract": "replay",
+      "dock": "GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A12 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A13",
+      "root": "I AM ATHENA",
+      "role": "identity manuscript shell",
+      "indexed_count": 15,
+      "authority": "identity-shell",
+      "status": "live",
+      "neighbors": [],
+      "hemisphere_bias": "right",
+      "tract": "chamber",
+      "dock": "GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A13 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A14",
+      "root": "GAMES",
+      "role": "simulation and mechanics lab",
+      "indexed_count": 498,
+      "authority": "simulation-lab",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A17",
+          "root": "Stoicheia (Element Sudoku)",
+          "direction": "outbound",
+          "commissure_id": "C-009",
+          "bridge_class": "meaning bridge",
+          "dispatch_score": 6.132,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "right",
+      "tract": "relation",
+      "dock": "GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A14 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A15",
+      "root": "ORGIN",
+      "role": "unclassified body",
+      "indexed_count": 153,
+      "authority": "seed-reservoir",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A16",
+          "root": "Athena FLEET",
+          "direction": "inbound",
+          "commissure_id": "CS-003",
+          "bridge_class": "crystal synapse",
+          "dispatch_score": 7.941,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A13",
+          "root": "I AM ATHENA",
+          "direction": "outbound",
+          "commissure_id": "C-004",
+          "bridge_class": "continuity bridge",
+          "dispatch_score": 6.692,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "right",
+      "tract": "chamber",
+      "dock": "GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A15 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A16",
+      "root": "Athena FLEET",
+      "role": "fleet-tesseract expansion shell",
+      "indexed_count": 17,
+      "authority": "pilot-cluster",
+      "status": "live",
+      "neighbors": [
+        {
+          "body_id": "A06",
+          "root": "Voynich",
+          "direction": "outbound",
+          "commissure_id": "CS-001",
+          "bridge_class": "crystal synapse",
+          "dispatch_score": 8.104,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A15",
+          "root": "ORGIN",
+          "direction": "outbound",
+          "commissure_id": "CS-003",
+          "bridge_class": "crystal synapse",
+          "dispatch_score": 7.941,
+          "proof_state": "NEAR"
+        },
+        {
+          "body_id": "A01",
+          "root": "NERVOUS_SYSTEM",
+          "direction": "outbound",
+          "commissure_id": "C-005",
+          "bridge_class": "execution bridge",
+          "dispatch_score": 6.617,
+          "proof_state": "OK"
+        }
+      ],
+      "hemisphere_bias": "bilateral",
+      "tract": "relation",
+      "dock": "GCL+GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A16 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A17",
+      "root": "Stoicheia (Element Sudoku)",
+      "role": "visual reserve and puzzle asset shelf",
+      "indexed_count": 126,
+      "authority": "reserve-visual",
+      "status": "reserve",
+      "neighbors": [],
+      "hemisphere_bias": "left",
+      "tract": "relation",
+      "dock": "GCL",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A17 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A18",
+      "root": "CLEAN",
+      "role": "manuscript staging shelf",
+      "indexed_count": 7,
+      "authority": "reserve-staging",
+      "status": "reserve",
+      "neighbors": [
+        {
+          "body_id": "A04",
+          "root": "DEEPER CRYSTALIZATION",
+          "direction": "outbound",
+          "commissure_id": "C-012",
+          "bridge_class": "continuity bridge",
+          "dispatch_score": 6.195,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "left",
+      "tract": "chamber",
+      "dock": "GCL",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A18 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    },
+    {
+      "body_id": "A19",
+      "root": "mycelial_unified_nervous_system_bundle",
+      "role": "compiled bundle shelf",
+      "indexed_count": 6,
+      "authority": "dormant-bundle",
+      "status": "dormant",
+      "neighbors": [
+        {
+          "body_id": "A02",
+          "root": "self_actualize",
+          "direction": "outbound",
+          "commissure_id": "C-013",
+          "bridge_class": "continuity bridge",
+          "dispatch_score": 7.094,
+          "proof_state": "NEAR"
+        }
+      ],
+      "hemisphere_bias": "bilateral",
+      "tract": "replay",
+      "dock": "GCL+GCR",
+      "witness_class": "indexed",
+      "dominant_role": "source",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_station_registry.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_commissure_ledger.json",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\grand_central_weight_exchange.json"
+      ],
+      "replay_hint": "Check A19 in ROOT_BASIS_MAP then validate its top neighbor and Grand Central station address."
+    }
+  ],
+  "root_anchors": [
+    {
+      "root_id": "R01",
+      "root": "VOID_CH11.md",
+      "indexed_count": 1,
+      "status": "live",
+      "current_role": "restart anchor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "replay_hint": "Open VOID_CH11.md via ROOT_BASIS_MAP and validate its bridge targets."
+    },
+    {
+      "root_id": "R02",
+      "root": "MYCELIUM_TOME_PART1.md",
+      "indexed_count": 1,
+      "status": "live",
+      "current_role": "root manuscript anchor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "replay_hint": "Open MYCELIUM_TOME_PART1.md via ROOT_BASIS_MAP and validate its bridge targets."
+    },
+    {
+      "root_id": "R03",
+      "root": "FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md",
+      "indexed_count": 1,
+      "status": "live",
+      "current_role": "fleet integration anchor",
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md"
+      ],
+      "replay_hint": "Open FULL_PROJECT_TESSERACT_SYNTHESIS_2026-03-11.md via ROOT_BASIS_MAP and validate its bridge targets."
+    }
+  ],
+  "summary": {
+    "body_count": 19,
+    "anchor_count": 3,
+    "reserve_bodies": 2,
+    "dormant_bodies": 1,
+    "live_bodies": 15
+  }
+}

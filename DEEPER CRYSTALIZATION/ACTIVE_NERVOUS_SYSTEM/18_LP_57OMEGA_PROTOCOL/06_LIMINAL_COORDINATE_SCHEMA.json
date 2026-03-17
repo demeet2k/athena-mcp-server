@@ -1,0 +1,60 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "dimensions": [
+    "Xs",
+    "Ys",
+    "Zs",
+    "Ts",
+    "Qs",
+    "Rs",
+    "Cs",
+    "Fs",
+    "Ms",
+    "Ns",
+    "Hs",
+    "Omega_s"
+  ],
+  "entity_states": [
+    "active",
+    "blocked",
+    "reserve",
+    "compressed",
+    "quarantined"
+  ],
+  "target_axes": {
+    "hall": {
+      "resolution_index": 4,
+      "output_index": 1,
+      "manuscript_branch": "guild-hall",
+      "framework_lens": "square",
+      "neural_tag": "hall-front"
+    },
+    "temple": {
+      "resolution_index": 4,
+      "output_index": 2,
+      "manuscript_branch": "temple",
+      "framework_lens": "flower",
+      "neural_tag": "temple-front"
+    },
+    "runtime": {
+      "resolution_index": 4,
+      "output_index": 3,
+      "manuscript_branch": "runtime",
+      "framework_lens": "cloud",
+      "neural_tag": "runtime-front"
+    },
+    "compression": {
+      "resolution_index": 3,
+      "output_index": 4,
+      "manuscript_branch": "compression",
+      "framework_lens": "fractal",
+      "neural_tag": "compression-front"
+    }
+  },
+  "lookup_rules": {
+    "address_every_touched_object": true,
+    "address_every_promoted_bridge": true,
+    "address_every_unresolved_issue": true,
+    "compression_requires_back_references": true
+  }
+}

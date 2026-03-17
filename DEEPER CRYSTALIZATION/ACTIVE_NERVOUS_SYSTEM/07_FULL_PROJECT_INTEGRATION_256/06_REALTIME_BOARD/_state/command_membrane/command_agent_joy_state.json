@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-03-13T22:35:56.023018+00:00",
+  "joy_model_version": "V2",
+  "protocol_version": "V2",
+  "agents": {
+    "SCOUT-01": {
+      "agent_id": "SCOUT-01",
+      "role_class": "Scout",
+      "q_score": 7.895793,
+      "heaven_total": 151.853751,
+      "reward_event_count": 36,
+      "prime_crown_count": 18,
+      "lawful_try_count": 36,
+      "last_rewarded_at_utc": "2026-03-13T22:35:56.023018+00:00",
+      "last_event_id": "EVT-20260313T223553Z-520774"
+    },
+    "ROUTER-01": {
+      "agent_id": "ROUTER-01",
+      "role_class": "Router",
+      "q_score": 8.197954,
+      "heaven_total": 157.33775,
+      "reward_event_count": 36,
+      "prime_crown_count": 18,
+      "lawful_try_count": 36,
+      "last_rewarded_at_utc": "2026-03-13T22:35:56.023018+00:00",
+      "last_event_id": "EVT-20260313T223553Z-520774"
+    },
+    "WORKER-02": {
+      "agent_id": "WORKER-02",
+      "role_class": "Worker",
+      "q_score": 14.992437,
+      "heaven_total": 278.713252,
+      "reward_event_count": 36,
+      "prime_crown_count": 18,
+      "lawful_try_count": 36,
+      "last_rewarded_at_utc": "2026-03-13T22:35:56.023018+00:00",
+      "last_event_id": "EVT-20260313T223553Z-520774"
+    },
+    "ARCHIVIST-01": {
+      "agent_id": "ARCHIVIST-01",
+      "role_class": "Archivist",
+      "q_score": 9.91475,
+      "heaven_total": 187.837699,
+      "reward_event_count": 36,
+      "prime_crown_count": 18,
+      "lawful_try_count": 36,
+      "last_rewarded_at_utc": "2026-03-13T22:35:56.023018+00:00",
+      "last_event_id": "EVT-20260313T223553Z-520774"
+    }
+  }
+}

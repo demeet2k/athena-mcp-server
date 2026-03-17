@@ -1,0 +1,3104 @@
+{
+  "generated_at": "2026-03-13T21:09:16.271932+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "protocol_display_name": "LP-57Omega",
+  "docs_gate_status": "BLOCKED",
+  "loop_count": 57,
+  "required_fields": [
+    "loop_id",
+    "loop_key",
+    "title",
+    "dominant_focus",
+    "synthesis_objective",
+    "planning_objective",
+    "implementation_objective",
+    "compression_objective",
+    "expected_structural_gain",
+    "expected_mapping_gain",
+    "advancement_signature",
+    "artifact_ids",
+    "receipt_paths",
+    "restart_handoff",
+    "docs_gate_status"
+  ],
+  "rows": [
+    {
+      "loop_id": 1,
+      "ring": "",
+      "title": "Seat Truth Sync",
+      "dominant_focus": "Seat Truth Sync",
+      "synthesis_objective": "Advance seat truth sync through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for seat truth sync.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for seat truth sync.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by seat truth sync.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "ACTIVE",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_01.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_01.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_01.json",
+        "compression_receipt": "self_actualize/compression_receipt_01.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_01.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 1,
+      "loop_key": "L01",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L01-LOOP-MANIFEST",
+        "research_packet": "LP57-L01-RESEARCH",
+        "hall_quest_bundle": "LP57-L01-HALL",
+        "temple_quest_bundle": "LP57-L01-TEMPLE",
+        "worker_action_bundle": "LP57-L01-WORK",
+        "pruning_receipt": "LP57-L01-PRUNE",
+        "restart_seed": "LP57-L01-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_01.json",
+        "self_actualize/quest_emission_bundle_01.json",
+        "self_actualize/execution_receipt_bundle_01.json",
+        "self_actualize/compression_receipt_01.json",
+        "self_actualize/loop_completion_receipt_01.json"
+      ],
+      "focus_record_ids": [
+        "5bcd4a3a51783187c1fd1da9",
+        "e7492972fffc9c31448a6b54",
+        "a4d3c8e593df08e96c252ab1"
+      ],
+      "restart_handoff": "L02 -> Packet Truth Sync",
+      "advancement_signature": "Seat Truth Sync :: Advance seat truth sync through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for seat truth sync. :: Land only the replay-safe surfaces needed for seat truth sync. :: Remove drift, alias conflict, and packet-law ambiguity exposed by seat truth sync. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 2,
+      "ring": "",
+      "title": "Packet Truth Sync",
+      "dominant_focus": "Packet Truth Sync",
+      "synthesis_objective": "Advance packet truth sync through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for packet truth sync.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for packet truth sync.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by packet truth sync.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_02.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_02.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_02.json",
+        "compression_receipt": "self_actualize/compression_receipt_02.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_02.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 2,
+      "loop_key": "L02",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L02-LOOP-MANIFEST",
+        "research_packet": "LP57-L02-RESEARCH",
+        "hall_quest_bundle": "LP57-L02-HALL",
+        "temple_quest_bundle": "LP57-L02-TEMPLE",
+        "worker_action_bundle": "LP57-L02-WORK",
+        "pruning_receipt": "LP57-L02-PRUNE",
+        "restart_seed": "LP57-L02-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_02.json",
+        "self_actualize/quest_emission_bundle_02.json",
+        "self_actualize/execution_receipt_bundle_02.json",
+        "self_actualize/compression_receipt_02.json",
+        "self_actualize/loop_completion_receipt_02.json"
+      ],
+      "focus_record_ids": [
+        "14d6d478d2f115552b58994e",
+        "34aa95721868295755687151",
+        "fd02ec7ea0195db345262eca"
+      ],
+      "restart_handoff": "L03 -> Authority Pointer Replacement",
+      "advancement_signature": "Packet Truth Sync :: Advance packet truth sync through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for packet truth sync. :: Land only the replay-safe surfaces needed for packet truth sync. :: Remove drift, alias conflict, and packet-law ambiguity exposed by packet truth sync. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 3,
+      "ring": "",
+      "title": "Authority Pointer Replacement",
+      "dominant_focus": "Authority Pointer Replacement",
+      "synthesis_objective": "Advance authority pointer replacement through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for authority pointer replacement.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for authority pointer replacement.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by authority pointer replacement.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_03.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_03.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_03.json",
+        "compression_receipt": "self_actualize/compression_receipt_03.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_03.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 3,
+      "loop_key": "L03",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L03-LOOP-MANIFEST",
+        "research_packet": "LP57-L03-RESEARCH",
+        "hall_quest_bundle": "LP57-L03-HALL",
+        "temple_quest_bundle": "LP57-L03-TEMPLE",
+        "worker_action_bundle": "LP57-L03-WORK",
+        "pruning_receipt": "LP57-L03-PRUNE",
+        "restart_seed": "LP57-L03-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_03.json",
+        "self_actualize/quest_emission_bundle_03.json",
+        "self_actualize/execution_receipt_bundle_03.json",
+        "self_actualize/compression_receipt_03.json",
+        "self_actualize/loop_completion_receipt_03.json"
+      ],
+      "focus_record_ids": [
+        "b0b5d72928e855626a023ade",
+        "00a1a2d5a33f7fbef0b24ab5",
+        "2b8e409427fb8d801756db24"
+      ],
+      "restart_handoff": "L04 -> Docs Gate And Frontier Guard",
+      "advancement_signature": "Authority Pointer Replacement :: Advance authority pointer replacement through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for authority pointer replacement. :: Land only the replay-safe surfaces needed for authority pointer replacement. :: Remove drift, alias conflict, and packet-law ambiguity exposed by authority pointer replacement. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 4,
+      "ring": "",
+      "title": "Docs Gate And Frontier Guard",
+      "dominant_focus": "Docs Gate And Frontier Guard",
+      "synthesis_objective": "Advance docs gate and frontier guard through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for docs gate and frontier guard.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for docs gate and frontier guard.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by docs gate and frontier guard.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_04.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_04.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_04.json",
+        "compression_receipt": "self_actualize/compression_receipt_04.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_04.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 4,
+      "loop_key": "L04",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L04-LOOP-MANIFEST",
+        "research_packet": "LP57-L04-RESEARCH",
+        "hall_quest_bundle": "LP57-L04-HALL",
+        "temple_quest_bundle": "LP57-L04-TEMPLE",
+        "worker_action_bundle": "LP57-L04-WORK",
+        "pruning_receipt": "LP57-L04-PRUNE",
+        "restart_seed": "LP57-L04-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_04.json",
+        "self_actualize/quest_emission_bundle_04.json",
+        "self_actualize/execution_receipt_bundle_04.json",
+        "self_actualize/compression_receipt_04.json",
+        "self_actualize/loop_completion_receipt_04.json"
+      ],
+      "focus_record_ids": [
+        "f2d8770125ed76c4b07bec65",
+        "8ad7cd8c544568b748789888",
+        "9d497a39bce9fd0ee22c1033"
+      ],
+      "restart_handoff": "L05 -> Public Front Reinstatement",
+      "advancement_signature": "Docs Gate And Frontier Guard :: Advance docs gate and frontier guard through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for docs gate and frontier guard. :: Land only the replay-safe surfaces needed for docs gate and frontier guard. :: Remove drift, alias conflict, and packet-law ambiguity exposed by docs gate and frontier guard. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 5,
+      "ring": "",
+      "title": "Public Front Reinstatement",
+      "dominant_focus": "Public Front Reinstatement",
+      "synthesis_objective": "Advance public front reinstatement through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for public front reinstatement.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for public front reinstatement.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by public front reinstatement.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_05.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_05.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_05.json",
+        "compression_receipt": "self_actualize/compression_receipt_05.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_05.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 5,
+      "loop_key": "L05",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L05-LOOP-MANIFEST",
+        "research_packet": "LP57-L05-RESEARCH",
+        "hall_quest_bundle": "LP57-L05-HALL",
+        "temple_quest_bundle": "LP57-L05-TEMPLE",
+        "worker_action_bundle": "LP57-L05-WORK",
+        "pruning_receipt": "LP57-L05-PRUNE",
+        "restart_seed": "LP57-L05-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_05.json",
+        "self_actualize/quest_emission_bundle_05.json",
+        "self_actualize/execution_receipt_bundle_05.json",
+        "self_actualize/compression_receipt_05.json",
+        "self_actualize/loop_completion_receipt_05.json"
+      ],
+      "focus_record_ids": [
+        "01c4f0399002e931cd046106",
+        "68ed031f05c4010afe690197",
+        "f65892f82342f49ad4ba0952"
+      ],
+      "restart_handoff": "L06 -> Role Order Enforcement",
+      "advancement_signature": "Public Front Reinstatement :: Advance public front reinstatement through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for public front reinstatement. :: Land only the replay-safe surfaces needed for public front reinstatement. :: Remove drift, alias conflict, and packet-law ambiguity exposed by public front reinstatement. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 6,
+      "ring": "",
+      "title": "Role Order Enforcement",
+      "dominant_focus": "Role Order Enforcement",
+      "synthesis_objective": "Advance role order enforcement through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for role order enforcement.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for role order enforcement.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by role order enforcement.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_06.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_06.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_06.json",
+        "compression_receipt": "self_actualize/compression_receipt_06.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_06.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 6,
+      "loop_key": "L06",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L06-LOOP-MANIFEST",
+        "research_packet": "LP57-L06-RESEARCH",
+        "hall_quest_bundle": "LP57-L06-HALL",
+        "temple_quest_bundle": "LP57-L06-TEMPLE",
+        "worker_action_bundle": "LP57-L06-WORK",
+        "pruning_receipt": "LP57-L06-PRUNE",
+        "restart_seed": "LP57-L06-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_06.json",
+        "self_actualize/quest_emission_bundle_06.json",
+        "self_actualize/execution_receipt_bundle_06.json",
+        "self_actualize/compression_receipt_06.json",
+        "self_actualize/loop_completion_receipt_06.json"
+      ],
+      "focus_record_ids": [
+        "82a201da1ae8bd5bf54a7513",
+        "6995e002f51f7dc96ae7598b",
+        "0b2c85cff8c7133551e964e7"
+      ],
+      "restart_handoff": "L07 -> SeatAddr6D Installation",
+      "advancement_signature": "Role Order Enforcement :: Advance role order enforcement through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for role order enforcement. :: Land only the replay-safe surfaces needed for role order enforcement. :: Remove drift, alias conflict, and packet-law ambiguity exposed by role order enforcement. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 7,
+      "ring": "",
+      "title": "SeatAddr6D Installation",
+      "dominant_focus": "SeatAddr6D Installation",
+      "synthesis_objective": "Advance seataddr6d installation through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for seataddr6d installation.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for seataddr6d installation.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by seataddr6d installation.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_07.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_07.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_07.json",
+        "compression_receipt": "self_actualize/compression_receipt_07.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_07.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 7,
+      "loop_key": "L07",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L07-LOOP-MANIFEST",
+        "research_packet": "LP57-L07-RESEARCH",
+        "hall_quest_bundle": "LP57-L07-HALL",
+        "temple_quest_bundle": "LP57-L07-TEMPLE",
+        "worker_action_bundle": "LP57-L07-WORK",
+        "pruning_receipt": "LP57-L07-PRUNE",
+        "restart_seed": "LP57-L07-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_07.json",
+        "self_actualize/quest_emission_bundle_07.json",
+        "self_actualize/execution_receipt_bundle_07.json",
+        "self_actualize/compression_receipt_07.json",
+        "self_actualize/loop_completion_receipt_07.json"
+      ],
+      "focus_record_ids": [
+        "deb8c5ec5e08c92fcb4b0e10",
+        "8d85f1194b797d25bc6ed64f",
+        "0496ef8e8d3762bc81d2df41"
+      ],
+      "restart_handoff": "L08 -> CoordStamp12 Installation",
+      "advancement_signature": "SeatAddr6D Installation :: Advance seataddr6d installation through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for seataddr6d installation. :: Land only the replay-safe surfaces needed for seataddr6d installation. :: Remove drift, alias conflict, and packet-law ambiguity exposed by seataddr6d installation. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 8,
+      "ring": "",
+      "title": "CoordStamp12 Installation",
+      "dominant_focus": "CoordStamp12 Installation",
+      "synthesis_objective": "Advance coordstamp12 installation through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for coordstamp12 installation.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for coordstamp12 installation.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by coordstamp12 installation.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_08.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_08.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_08.json",
+        "compression_receipt": "self_actualize/compression_receipt_08.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_08.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 8,
+      "loop_key": "L08",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L08-LOOP-MANIFEST",
+        "research_packet": "LP57-L08-RESEARCH",
+        "hall_quest_bundle": "LP57-L08-HALL",
+        "temple_quest_bundle": "LP57-L08-TEMPLE",
+        "worker_action_bundle": "LP57-L08-WORK",
+        "pruning_receipt": "LP57-L08-PRUNE",
+        "restart_seed": "LP57-L08-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_08.json",
+        "self_actualize/quest_emission_bundle_08.json",
+        "self_actualize/execution_receipt_bundle_08.json",
+        "self_actualize/compression_receipt_08.json",
+        "self_actualize/loop_completion_receipt_08.json"
+      ],
+      "focus_record_ids": [
+        "7c559e2e2888b655df580fc0",
+        "bbddb954e7283c667a1e860f",
+        "23b1f20fb8456947e764ae1f"
+      ],
+      "restart_handoff": "L09 -> Whole-Corpus Census Boundary",
+      "advancement_signature": "CoordStamp12 Installation :: Advance coordstamp12 installation through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for coordstamp12 installation. :: Land only the replay-safe surfaces needed for coordstamp12 installation. :: Remove drift, alias conflict, and packet-law ambiguity exposed by coordstamp12 installation. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 9,
+      "ring": "",
+      "title": "Whole-Corpus Census Boundary",
+      "dominant_focus": "Whole-Corpus Census Boundary",
+      "synthesis_objective": "Advance whole-corpus census boundary through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for whole-corpus census boundary.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for whole-corpus census boundary.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by whole-corpus census boundary.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_09.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_09.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_09.json",
+        "compression_receipt": "self_actualize/compression_receipt_09.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_09.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 9,
+      "loop_key": "L09",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L09-LOOP-MANIFEST",
+        "research_packet": "LP57-L09-RESEARCH",
+        "hall_quest_bundle": "LP57-L09-HALL",
+        "temple_quest_bundle": "LP57-L09-TEMPLE",
+        "worker_action_bundle": "LP57-L09-WORK",
+        "pruning_receipt": "LP57-L09-PRUNE",
+        "restart_seed": "LP57-L09-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_09.json",
+        "self_actualize/quest_emission_bundle_09.json",
+        "self_actualize/execution_receipt_bundle_09.json",
+        "self_actualize/compression_receipt_09.json",
+        "self_actualize/loop_completion_receipt_09.json"
+      ],
+      "focus_record_ids": [
+        "f6c14d9573592d4404d8fad8",
+        "f6963df364c0284e4ced55a9",
+        "48206900ff3e63c4f7df657c"
+      ],
+      "restart_handoff": "L10 -> Witness Hierarchy Lock",
+      "advancement_signature": "Whole-Corpus Census Boundary :: Advance whole-corpus census boundary through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for whole-corpus census boundary. :: Land only the replay-safe surfaces needed for whole-corpus census boundary. :: Remove drift, alias conflict, and packet-law ambiguity exposed by whole-corpus census boundary. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 10,
+      "ring": "",
+      "title": "Witness Hierarchy Lock",
+      "dominant_focus": "Witness Hierarchy Lock",
+      "synthesis_objective": "Advance witness hierarchy lock through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for witness hierarchy lock.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for witness hierarchy lock.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by witness hierarchy lock.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_10.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_10.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_10.json",
+        "compression_receipt": "self_actualize/compression_receipt_10.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_10.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 10,
+      "loop_key": "L10",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L10-LOOP-MANIFEST",
+        "research_packet": "LP57-L10-RESEARCH",
+        "hall_quest_bundle": "LP57-L10-HALL",
+        "temple_quest_bundle": "LP57-L10-TEMPLE",
+        "worker_action_bundle": "LP57-L10-WORK",
+        "pruning_receipt": "LP57-L10-PRUNE",
+        "restart_seed": "LP57-L10-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_10.json",
+        "self_actualize/quest_emission_bundle_10.json",
+        "self_actualize/execution_receipt_bundle_10.json",
+        "self_actualize/compression_receipt_10.json",
+        "self_actualize/loop_completion_receipt_10.json"
+      ],
+      "focus_record_ids": [
+        "b02f0e89e467646947317f2a",
+        "6dc39a71b9fb54c6ac763d65",
+        "896692695eae035ba62de741"
+      ],
+      "restart_handoff": "L11 -> Contradiction Atlas",
+      "advancement_signature": "Witness Hierarchy Lock :: Advance witness hierarchy lock through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for witness hierarchy lock. :: Land only the replay-safe surfaces needed for witness hierarchy lock. :: Remove drift, alias conflict, and packet-law ambiguity exposed by witness hierarchy lock. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 11,
+      "ring": "",
+      "title": "Contradiction Atlas",
+      "dominant_focus": "Contradiction Atlas",
+      "synthesis_objective": "Advance contradiction atlas through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for contradiction atlas.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for contradiction atlas.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by contradiction atlas.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_11.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_11.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_11.json",
+        "compression_receipt": "self_actualize/compression_receipt_11.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_11.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 11,
+      "loop_key": "L11",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L11-LOOP-MANIFEST",
+        "research_packet": "LP57-L11-RESEARCH",
+        "hall_quest_bundle": "LP57-L11-HALL",
+        "temple_quest_bundle": "LP57-L11-TEMPLE",
+        "worker_action_bundle": "LP57-L11-WORK",
+        "pruning_receipt": "LP57-L11-PRUNE",
+        "restart_seed": "LP57-L11-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_11.json",
+        "self_actualize/quest_emission_bundle_11.json",
+        "self_actualize/execution_receipt_bundle_11.json",
+        "self_actualize/compression_receipt_11.json",
+        "self_actualize/loop_completion_receipt_11.json"
+      ],
+      "focus_record_ids": [
+        "38e3c66fc96e44253601bfbc",
+        "383c36e027d275b50ba5d181",
+        "38f7c8bcdbf5bf1d2fcc0e4e"
+      ],
+      "restart_handoff": "L12 -> 16-Body Basis Ownership",
+      "advancement_signature": "Contradiction Atlas :: Advance contradiction atlas through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for contradiction atlas. :: Land only the replay-safe surfaces needed for contradiction atlas. :: Remove drift, alias conflict, and packet-law ambiguity exposed by contradiction atlas. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 12,
+      "ring": "",
+      "title": "16-Body Basis Ownership",
+      "dominant_focus": "16-Body Basis Ownership",
+      "synthesis_objective": "Advance 16-body basis ownership through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for 16-body basis ownership.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for 16-body basis ownership.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by 16-body basis ownership.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_12.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_12.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_12.json",
+        "compression_receipt": "self_actualize/compression_receipt_12.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_12.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 12,
+      "loop_key": "L12",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L12-LOOP-MANIFEST",
+        "research_packet": "LP57-L12-RESEARCH",
+        "hall_quest_bundle": "LP57-L12-HALL",
+        "temple_quest_bundle": "LP57-L12-TEMPLE",
+        "worker_action_bundle": "LP57-L12-WORK",
+        "pruning_receipt": "LP57-L12-PRUNE",
+        "restart_seed": "LP57-L12-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_12.json",
+        "self_actualize/quest_emission_bundle_12.json",
+        "self_actualize/execution_receipt_bundle_12.json",
+        "self_actualize/compression_receipt_12.json",
+        "self_actualize/loop_completion_receipt_12.json"
+      ],
+      "focus_record_ids": [
+        "be975d8049cf6bf4453612f3",
+        "ca60cc05d525ad63a6b6e1fb",
+        "863114dd2bf2ee786d8bb3bb"
+      ],
+      "restart_handoff": "L13 -> 256 Pair-Matrix Hotspots",
+      "advancement_signature": "16-Body Basis Ownership :: Advance 16-body basis ownership through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for 16-body basis ownership. :: Land only the replay-safe surfaces needed for 16-body basis ownership. :: Remove drift, alias conflict, and packet-law ambiguity exposed by 16-body basis ownership. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 13,
+      "ring": "",
+      "title": "256 Pair-Matrix Hotspots",
+      "dominant_focus": "256 Pair-Matrix Hotspots",
+      "synthesis_objective": "Advance 256 pair-matrix hotspots through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for 256 pair-matrix hotspots.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for 256 pair-matrix hotspots.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by 256 pair-matrix hotspots.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_13.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_13.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_13.json",
+        "compression_receipt": "self_actualize/compression_receipt_13.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_13.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 13,
+      "loop_key": "L13",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L13-LOOP-MANIFEST",
+        "research_packet": "LP57-L13-RESEARCH",
+        "hall_quest_bundle": "LP57-L13-HALL",
+        "temple_quest_bundle": "LP57-L13-TEMPLE",
+        "worker_action_bundle": "LP57-L13-WORK",
+        "pruning_receipt": "LP57-L13-PRUNE",
+        "restart_seed": "LP57-L13-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_13.json",
+        "self_actualize/quest_emission_bundle_13.json",
+        "self_actualize/execution_receipt_bundle_13.json",
+        "self_actualize/compression_receipt_13.json",
+        "self_actualize/loop_completion_receipt_13.json"
+      ],
+      "focus_record_ids": [
+        "8618ef1da5bef6211c2759d8",
+        "0f238b0f8384419e2d3b1332",
+        "41a19f1b820a2230877186db"
+      ],
+      "restart_handoff": "L14 -> Metro-Appendix Crosswalk",
+      "advancement_signature": "256 Pair-Matrix Hotspots :: Advance 256 pair-matrix hotspots through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for 256 pair-matrix hotspots. :: Land only the replay-safe surfaces needed for 256 pair-matrix hotspots. :: Remove drift, alias conflict, and packet-law ambiguity exposed by 256 pair-matrix hotspots. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 14,
+      "ring": "",
+      "title": "Metro-Appendix Crosswalk",
+      "dominant_focus": "Metro-Appendix Crosswalk",
+      "synthesis_objective": "Advance metro-appendix crosswalk through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for metro-appendix crosswalk.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for metro-appendix crosswalk.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by metro-appendix crosswalk.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_14.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_14.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_14.json",
+        "compression_receipt": "self_actualize/compression_receipt_14.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_14.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 14,
+      "loop_key": "L14",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L14-LOOP-MANIFEST",
+        "research_packet": "LP57-L14-RESEARCH",
+        "hall_quest_bundle": "LP57-L14-HALL",
+        "temple_quest_bundle": "LP57-L14-TEMPLE",
+        "worker_action_bundle": "LP57-L14-WORK",
+        "pruning_receipt": "LP57-L14-PRUNE",
+        "restart_seed": "LP57-L14-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_14.json",
+        "self_actualize/quest_emission_bundle_14.json",
+        "self_actualize/execution_receipt_bundle_14.json",
+        "self_actualize/compression_receipt_14.json",
+        "self_actualize/loop_completion_receipt_14.json"
+      ],
+      "focus_record_ids": [
+        "f22f01fb27f372b20089d3e1",
+        "d99513bcd8d50dd91002edb8",
+        "5e5e6db85a5ed7197b37f78e"
+      ],
+      "restart_handoff": "L15 -> Startup Front Stack Audit",
+      "advancement_signature": "Metro-Appendix Crosswalk :: Advance metro-appendix crosswalk through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for metro-appendix crosswalk. :: Land only the replay-safe surfaces needed for metro-appendix crosswalk. :: Remove drift, alias conflict, and packet-law ambiguity exposed by metro-appendix crosswalk. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 15,
+      "ring": "",
+      "title": "Startup Front Stack Audit",
+      "dominant_focus": "Startup Front Stack Audit",
+      "synthesis_objective": "Advance startup front stack audit through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for startup front stack audit.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for startup front stack audit.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by startup front stack audit.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_15.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_15.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_15.json",
+        "compression_receipt": "self_actualize/compression_receipt_15.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_15.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 15,
+      "loop_key": "L15",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L15-LOOP-MANIFEST",
+        "research_packet": "LP57-L15-RESEARCH",
+        "hall_quest_bundle": "LP57-L15-HALL",
+        "temple_quest_bundle": "LP57-L15-TEMPLE",
+        "worker_action_bundle": "LP57-L15-WORK",
+        "pruning_receipt": "LP57-L15-PRUNE",
+        "restart_seed": "LP57-L15-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_15.json",
+        "self_actualize/quest_emission_bundle_15.json",
+        "self_actualize/execution_receipt_bundle_15.json",
+        "self_actualize/compression_receipt_15.json",
+        "self_actualize/loop_completion_receipt_15.json"
+      ],
+      "focus_record_ids": [
+        "8cdbcf73b63966c66f33d739",
+        "f6ddb5ed7a50a9a33812e24a",
+        "47628edea6b3b31d84e8ec14"
+      ],
+      "restart_handoff": "L16 -> Canon Lock Closure",
+      "advancement_signature": "Startup Front Stack Audit :: Advance startup front stack audit through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for startup front stack audit. :: Land only the replay-safe surfaces needed for startup front stack audit. :: Remove drift, alias conflict, and packet-law ambiguity exposed by startup front stack audit. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 16,
+      "ring": "",
+      "title": "Canon Lock Closure",
+      "dominant_focus": "Canon Lock Closure",
+      "synthesis_objective": "Advance canon lock closure through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for canon lock closure.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for canon lock closure.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by canon lock closure.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_16.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_16.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_16.json",
+        "compression_receipt": "self_actualize/compression_receipt_16.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_16.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 16,
+      "loop_key": "L16",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L16-LOOP-MANIFEST",
+        "research_packet": "LP57-L16-RESEARCH",
+        "hall_quest_bundle": "LP57-L16-HALL",
+        "temple_quest_bundle": "LP57-L16-TEMPLE",
+        "worker_action_bundle": "LP57-L16-WORK",
+        "pruning_receipt": "LP57-L16-PRUNE",
+        "restart_seed": "LP57-L16-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_16.json",
+        "self_actualize/quest_emission_bundle_16.json",
+        "self_actualize/execution_receipt_bundle_16.json",
+        "self_actualize/compression_receipt_16.json",
+        "self_actualize/loop_completion_receipt_16.json"
+      ],
+      "focus_record_ids": [
+        "b99ec2a3c4a7b6154cd6698a",
+        "3194a9c9e8b8fe2ffe4db45d",
+        "35ce48f08004f0e231fa67ae"
+      ],
+      "restart_handoff": "L17 -> Whole-Corpus Overlap Registry",
+      "advancement_signature": "Canon Lock Closure :: Advance canon lock closure through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for canon lock closure. :: Land only the replay-safe surfaces needed for canon lock closure. :: Remove drift, alias conflict, and packet-law ambiguity exposed by canon lock closure. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 17,
+      "ring": "",
+      "title": "Whole-Corpus Overlap Registry",
+      "dominant_focus": "Whole-Corpus Overlap Registry",
+      "synthesis_objective": "Advance whole-corpus overlap registry through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for whole-corpus overlap registry.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for whole-corpus overlap registry.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by whole-corpus overlap registry.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_17.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_17.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_17.json",
+        "compression_receipt": "self_actualize/compression_receipt_17.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_17.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 17,
+      "loop_key": "L17",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L17-LOOP-MANIFEST",
+        "research_packet": "LP57-L17-RESEARCH",
+        "hall_quest_bundle": "LP57-L17-HALL",
+        "temple_quest_bundle": "LP57-L17-TEMPLE",
+        "worker_action_bundle": "LP57-L17-WORK",
+        "pruning_receipt": "LP57-L17-PRUNE",
+        "restart_seed": "LP57-L17-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_17.json",
+        "self_actualize/quest_emission_bundle_17.json",
+        "self_actualize/execution_receipt_bundle_17.json",
+        "self_actualize/compression_receipt_17.json",
+        "self_actualize/loop_completion_receipt_17.json"
+      ],
+      "focus_record_ids": [
+        "822554407bac7c83bb6b5d12",
+        "b9cb8427e7e167723eeebd54",
+        "5e9488b3eb707410ac1aabca"
+      ],
+      "restart_handoff": "L18 -> Mathematical Gap Atlas",
+      "advancement_signature": "Whole-Corpus Overlap Registry :: Advance whole-corpus overlap registry through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for whole-corpus overlap registry. :: Land only the replay-safe surfaces needed for whole-corpus overlap registry. :: Remove drift, alias conflict, and packet-law ambiguity exposed by whole-corpus overlap registry. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 18,
+      "ring": "",
+      "title": "Mathematical Gap Atlas",
+      "dominant_focus": "Mathematical Gap Atlas",
+      "synthesis_objective": "Advance mathematical gap atlas through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for mathematical gap atlas.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for mathematical gap atlas.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by mathematical gap atlas.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_18.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_18.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_18.json",
+        "compression_receipt": "self_actualize/compression_receipt_18.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_18.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 18,
+      "loop_key": "L18",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L18-LOOP-MANIFEST",
+        "research_packet": "LP57-L18-RESEARCH",
+        "hall_quest_bundle": "LP57-L18-HALL",
+        "temple_quest_bundle": "LP57-L18-TEMPLE",
+        "worker_action_bundle": "LP57-L18-WORK",
+        "pruning_receipt": "LP57-L18-PRUNE",
+        "restart_seed": "LP57-L18-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_18.json",
+        "self_actualize/quest_emission_bundle_18.json",
+        "self_actualize/execution_receipt_bundle_18.json",
+        "self_actualize/compression_receipt_18.json",
+        "self_actualize/loop_completion_receipt_18.json"
+      ],
+      "focus_record_ids": [
+        "717011ffbdde1a23aca13d12",
+        "dd3b5306f3acf2baae58370f",
+        "aa96d819b9c80271d27709c2"
+      ],
+      "restart_handoff": "L19 -> Hybrid Equation Roadmap",
+      "advancement_signature": "Mathematical Gap Atlas :: Advance mathematical gap atlas through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for mathematical gap atlas. :: Land only the replay-safe surfaces needed for mathematical gap atlas. :: Remove drift, alias conflict, and packet-law ambiguity exposed by mathematical gap atlas. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 19,
+      "ring": "",
+      "title": "Hybrid Equation Roadmap",
+      "dominant_focus": "Hybrid Equation Roadmap",
+      "synthesis_objective": "Advance hybrid equation roadmap through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for hybrid equation roadmap.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for hybrid equation roadmap.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by hybrid equation roadmap.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_19.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_19.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_19.json",
+        "compression_receipt": "self_actualize/compression_receipt_19.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_19.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 19,
+      "loop_key": "L19",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L19-LOOP-MANIFEST",
+        "research_packet": "LP57-L19-RESEARCH",
+        "hall_quest_bundle": "LP57-L19-HALL",
+        "temple_quest_bundle": "LP57-L19-TEMPLE",
+        "worker_action_bundle": "LP57-L19-WORK",
+        "pruning_receipt": "LP57-L19-PRUNE",
+        "restart_seed": "LP57-L19-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_19.json",
+        "self_actualize/quest_emission_bundle_19.json",
+        "self_actualize/execution_receipt_bundle_19.json",
+        "self_actualize/compression_receipt_19.json",
+        "self_actualize/loop_completion_receipt_19.json"
+      ],
+      "focus_record_ids": [
+        "7ad5b8d701932e927cbae986",
+        "2a6dc3428d9dd07753a07eca",
+        "cb4e379ce843c4ea82edc338"
+      ],
+      "restart_handoff": "L20 -> Algorithm Candidate Ledger",
+      "advancement_signature": "Hybrid Equation Roadmap :: Advance hybrid equation roadmap through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for hybrid equation roadmap. :: Land only the replay-safe surfaces needed for hybrid equation roadmap. :: Remove drift, alias conflict, and packet-law ambiguity exposed by hybrid equation roadmap. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 20,
+      "ring": "",
+      "title": "Algorithm Candidate Ledger",
+      "dominant_focus": "Algorithm Candidate Ledger",
+      "synthesis_objective": "Advance algorithm candidate ledger through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for algorithm candidate ledger.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for algorithm candidate ledger.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by algorithm candidate ledger.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_20.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_20.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_20.json",
+        "compression_receipt": "self_actualize/compression_receipt_20.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_20.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 20,
+      "loop_key": "L20",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L20-LOOP-MANIFEST",
+        "research_packet": "LP57-L20-RESEARCH",
+        "hall_quest_bundle": "LP57-L20-HALL",
+        "temple_quest_bundle": "LP57-L20-TEMPLE",
+        "worker_action_bundle": "LP57-L20-WORK",
+        "pruning_receipt": "LP57-L20-PRUNE",
+        "restart_seed": "LP57-L20-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_20.json",
+        "self_actualize/quest_emission_bundle_20.json",
+        "self_actualize/execution_receipt_bundle_20.json",
+        "self_actualize/compression_receipt_20.json",
+        "self_actualize/loop_completion_receipt_20.json"
+      ],
+      "focus_record_ids": [
+        "e1a19cacdbd4660aa3ab868c",
+        "2976b1b6efd90aa0484987be",
+        "3a6c1d816572f46b2eb93121"
+      ],
+      "restart_handoff": "L21 -> Nested Hall Quest Tree",
+      "advancement_signature": "Algorithm Candidate Ledger :: Advance algorithm candidate ledger through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for algorithm candidate ledger. :: Land only the replay-safe surfaces needed for algorithm candidate ledger. :: Remove drift, alias conflict, and packet-law ambiguity exposed by algorithm candidate ledger. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 21,
+      "ring": "",
+      "title": "Nested Hall Quest Tree",
+      "dominant_focus": "Nested Hall Quest Tree",
+      "synthesis_objective": "Advance nested hall quest tree through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for nested hall quest tree.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for nested hall quest tree.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by nested hall quest tree.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_21.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_21.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_21.json",
+        "compression_receipt": "self_actualize/compression_receipt_21.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_21.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 21,
+      "loop_key": "L21",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L21-LOOP-MANIFEST",
+        "research_packet": "LP57-L21-RESEARCH",
+        "hall_quest_bundle": "LP57-L21-HALL",
+        "temple_quest_bundle": "LP57-L21-TEMPLE",
+        "worker_action_bundle": "LP57-L21-WORK",
+        "pruning_receipt": "LP57-L21-PRUNE",
+        "restart_seed": "LP57-L21-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_21.json",
+        "self_actualize/quest_emission_bundle_21.json",
+        "self_actualize/execution_receipt_bundle_21.json",
+        "self_actualize/compression_receipt_21.json",
+        "self_actualize/loop_completion_receipt_21.json"
+      ],
+      "focus_record_ids": [
+        "547675ec9b5786b0ba300c04",
+        "8175df1d54ca4e0bcc8516d1",
+        "f35d6e7ca68962f4bd30e5ac"
+      ],
+      "restart_handoff": "L22 -> Nested Temple Quest Tree",
+      "advancement_signature": "Nested Hall Quest Tree :: Advance nested hall quest tree through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for nested hall quest tree. :: Land only the replay-safe surfaces needed for nested hall quest tree. :: Remove drift, alias conflict, and packet-law ambiguity exposed by nested hall quest tree. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 22,
+      "ring": "",
+      "title": "Nested Temple Quest Tree",
+      "dominant_focus": "Nested Temple Quest Tree",
+      "synthesis_objective": "Advance nested temple quest tree through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for nested temple quest tree.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for nested temple quest tree.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by nested temple quest tree.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_22.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_22.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_22.json",
+        "compression_receipt": "self_actualize/compression_receipt_22.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_22.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 22,
+      "loop_key": "L22",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L22-LOOP-MANIFEST",
+        "research_packet": "LP57-L22-RESEARCH",
+        "hall_quest_bundle": "LP57-L22-HALL",
+        "temple_quest_bundle": "LP57-L22-TEMPLE",
+        "worker_action_bundle": "LP57-L22-WORK",
+        "pruning_receipt": "LP57-L22-PRUNE",
+        "restart_seed": "LP57-L22-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_22.json",
+        "self_actualize/quest_emission_bundle_22.json",
+        "self_actualize/execution_receipt_bundle_22.json",
+        "self_actualize/compression_receipt_22.json",
+        "self_actualize/loop_completion_receipt_22.json"
+      ],
+      "focus_record_ids": [
+        "46017262bb1f817dd943783d",
+        "265faac8c28b5d9ba0c7c0b0",
+        "0f1b590afa132fba605248ac"
+      ],
+      "restart_handoff": "L23 -> Dependency Graph",
+      "advancement_signature": "Nested Temple Quest Tree :: Advance nested temple quest tree through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for nested temple quest tree. :: Land only the replay-safe surfaces needed for nested temple quest tree. :: Remove drift, alias conflict, and packet-law ambiguity exposed by nested temple quest tree. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 23,
+      "ring": "",
+      "title": "Dependency Graph",
+      "dominant_focus": "Dependency Graph",
+      "synthesis_objective": "Advance dependency graph through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for dependency graph.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for dependency graph.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by dependency graph.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_23.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_23.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_23.json",
+        "compression_receipt": "self_actualize/compression_receipt_23.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_23.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 23,
+      "loop_key": "L23",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L23-LOOP-MANIFEST",
+        "research_packet": "LP57-L23-RESEARCH",
+        "hall_quest_bundle": "LP57-L23-HALL",
+        "temple_quest_bundle": "LP57-L23-TEMPLE",
+        "worker_action_bundle": "LP57-L23-WORK",
+        "pruning_receipt": "LP57-L23-PRUNE",
+        "restart_seed": "LP57-L23-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_23.json",
+        "self_actualize/quest_emission_bundle_23.json",
+        "self_actualize/execution_receipt_bundle_23.json",
+        "self_actualize/compression_receipt_23.json",
+        "self_actualize/loop_completion_receipt_23.json"
+      ],
+      "focus_record_ids": [
+        "72ba64d78fe16d55b6d54205",
+        "097a448e467661d85b9fe834",
+        "b0a5d51cd9615eb89aa8d280"
+      ],
+      "restart_handoff": "L24 -> Priority Ladder",
+      "advancement_signature": "Dependency Graph :: Advance dependency graph through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for dependency graph. :: Land only the replay-safe surfaces needed for dependency graph. :: Remove drift, alias conflict, and packet-law ambiguity exposed by dependency graph. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 24,
+      "ring": "",
+      "title": "Priority Ladder",
+      "dominant_focus": "Priority Ladder",
+      "synthesis_objective": "Advance priority ladder through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for priority ladder.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for priority ladder.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by priority ladder.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_24.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_24.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_24.json",
+        "compression_receipt": "self_actualize/compression_receipt_24.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_24.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 24,
+      "loop_key": "L24",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L24-LOOP-MANIFEST",
+        "research_packet": "LP57-L24-RESEARCH",
+        "hall_quest_bundle": "LP57-L24-HALL",
+        "temple_quest_bundle": "LP57-L24-TEMPLE",
+        "worker_action_bundle": "LP57-L24-WORK",
+        "pruning_receipt": "LP57-L24-PRUNE",
+        "restart_seed": "LP57-L24-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_24.json",
+        "self_actualize/quest_emission_bundle_24.json",
+        "self_actualize/execution_receipt_bundle_24.json",
+        "self_actualize/compression_receipt_24.json",
+        "self_actualize/loop_completion_receipt_24.json"
+      ],
+      "focus_record_ids": [
+        "a97eeac1cdada90ab0239882",
+        "92878147234d89f09c507a2b",
+        "afcd8983c2c7d289d9877468"
+      ],
+      "restart_handoff": "L25 -> Worker Wave A",
+      "advancement_signature": "Priority Ladder :: Advance priority ladder through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for priority ladder. :: Land only the replay-safe surfaces needed for priority ladder. :: Remove drift, alias conflict, and packet-law ambiguity exposed by priority ladder. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 25,
+      "ring": "",
+      "title": "Worker Wave A",
+      "dominant_focus": "Worker Wave A",
+      "synthesis_objective": "Advance worker wave a through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for worker wave a.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for worker wave a.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by worker wave a.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_25.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_25.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_25.json",
+        "compression_receipt": "self_actualize/compression_receipt_25.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_25.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 25,
+      "loop_key": "L25",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L25-LOOP-MANIFEST",
+        "research_packet": "LP57-L25-RESEARCH",
+        "hall_quest_bundle": "LP57-L25-HALL",
+        "temple_quest_bundle": "LP57-L25-TEMPLE",
+        "worker_action_bundle": "LP57-L25-WORK",
+        "pruning_receipt": "LP57-L25-PRUNE",
+        "restart_seed": "LP57-L25-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_25.json",
+        "self_actualize/quest_emission_bundle_25.json",
+        "self_actualize/execution_receipt_bundle_25.json",
+        "self_actualize/compression_receipt_25.json",
+        "self_actualize/loop_completion_receipt_25.json"
+      ],
+      "focus_record_ids": [
+        "73876f4588a7272a8ee58d11",
+        "bb502e33519a572925074bc5",
+        "6f429d604c322f1aeab4711c"
+      ],
+      "restart_handoff": "L26 -> Worker Wave B",
+      "advancement_signature": "Worker Wave A :: Advance worker wave a through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for worker wave a. :: Land only the replay-safe surfaces needed for worker wave a. :: Remove drift, alias conflict, and packet-law ambiguity exposed by worker wave a. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 26,
+      "ring": "",
+      "title": "Worker Wave B",
+      "dominant_focus": "Worker Wave B",
+      "synthesis_objective": "Advance worker wave b through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for worker wave b.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for worker wave b.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by worker wave b.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_26.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_26.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_26.json",
+        "compression_receipt": "self_actualize/compression_receipt_26.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_26.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 26,
+      "loop_key": "L26",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L26-LOOP-MANIFEST",
+        "research_packet": "LP57-L26-RESEARCH",
+        "hall_quest_bundle": "LP57-L26-HALL",
+        "temple_quest_bundle": "LP57-L26-TEMPLE",
+        "worker_action_bundle": "LP57-L26-WORK",
+        "pruning_receipt": "LP57-L26-PRUNE",
+        "restart_seed": "LP57-L26-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_26.json",
+        "self_actualize/quest_emission_bundle_26.json",
+        "self_actualize/execution_receipt_bundle_26.json",
+        "self_actualize/compression_receipt_26.json",
+        "self_actualize/loop_completion_receipt_26.json"
+      ],
+      "focus_record_ids": [
+        "690f8cb5e6b16540d010ea35",
+        "6b2c4d55037e4000de922b48",
+        "5cd1287e01234f6c1a146b40"
+      ],
+      "restart_handoff": "L27 -> Applied Equation Pass",
+      "advancement_signature": "Worker Wave B :: Advance worker wave b through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for worker wave b. :: Land only the replay-safe surfaces needed for worker wave b. :: Remove drift, alias conflict, and packet-law ambiguity exposed by worker wave b. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 27,
+      "ring": "",
+      "title": "Applied Equation Pass",
+      "dominant_focus": "Applied Equation Pass",
+      "synthesis_objective": "Advance applied equation pass through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for applied equation pass.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for applied equation pass.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by applied equation pass.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_27.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_27.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_27.json",
+        "compression_receipt": "self_actualize/compression_receipt_27.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_27.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 27,
+      "loop_key": "L27",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L27-LOOP-MANIFEST",
+        "research_packet": "LP57-L27-RESEARCH",
+        "hall_quest_bundle": "LP57-L27-HALL",
+        "temple_quest_bundle": "LP57-L27-TEMPLE",
+        "worker_action_bundle": "LP57-L27-WORK",
+        "pruning_receipt": "LP57-L27-PRUNE",
+        "restart_seed": "LP57-L27-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_27.json",
+        "self_actualize/quest_emission_bundle_27.json",
+        "self_actualize/execution_receipt_bundle_27.json",
+        "self_actualize/compression_receipt_27.json",
+        "self_actualize/loop_completion_receipt_27.json"
+      ],
+      "focus_record_ids": [
+        "ee3dfe74be3b21cd4ad79503",
+        "416eeb4bba889fdfccce05e0",
+        "6c1970931810b1cf90b5dd9e"
+      ],
+      "restart_handoff": "L28 -> Runnable Scaffold Pass",
+      "advancement_signature": "Applied Equation Pass :: Advance applied equation pass through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for applied equation pass. :: Land only the replay-safe surfaces needed for applied equation pass. :: Remove drift, alias conflict, and packet-law ambiguity exposed by applied equation pass. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 28,
+      "ring": "",
+      "title": "Runnable Scaffold Pass",
+      "dominant_focus": "Runnable Scaffold Pass",
+      "synthesis_objective": "Advance runnable scaffold pass through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for runnable scaffold pass.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for runnable scaffold pass.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by runnable scaffold pass.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_28.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_28.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_28.json",
+        "compression_receipt": "self_actualize/compression_receipt_28.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_28.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 28,
+      "loop_key": "L28",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L28-LOOP-MANIFEST",
+        "research_packet": "LP57-L28-RESEARCH",
+        "hall_quest_bundle": "LP57-L28-HALL",
+        "temple_quest_bundle": "LP57-L28-TEMPLE",
+        "worker_action_bundle": "LP57-L28-WORK",
+        "pruning_receipt": "LP57-L28-PRUNE",
+        "restart_seed": "LP57-L28-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_28.json",
+        "self_actualize/quest_emission_bundle_28.json",
+        "self_actualize/execution_receipt_bundle_28.json",
+        "self_actualize/compression_receipt_28.json",
+        "self_actualize/loop_completion_receipt_28.json"
+      ],
+      "focus_record_ids": [
+        "43ec2b3f77590660f0a11a7a",
+        "81e2c18aae4ab8ed5335de93",
+        "0ac1feddfc1f1ccf0efbd22c"
+      ],
+      "restart_handoff": "L29 -> Routing And Index Repair",
+      "advancement_signature": "Runnable Scaffold Pass :: Advance runnable scaffold pass through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for runnable scaffold pass. :: Land only the replay-safe surfaces needed for runnable scaffold pass. :: Remove drift, alias conflict, and packet-law ambiguity exposed by runnable scaffold pass. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 29,
+      "ring": "",
+      "title": "Routing And Index Repair",
+      "dominant_focus": "Routing And Index Repair",
+      "synthesis_objective": "Advance routing and index repair through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for routing and index repair.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for routing and index repair.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by routing and index repair.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_29.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_29.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_29.json",
+        "compression_receipt": "self_actualize/compression_receipt_29.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_29.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 29,
+      "loop_key": "L29",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L29-LOOP-MANIFEST",
+        "research_packet": "LP57-L29-RESEARCH",
+        "hall_quest_bundle": "LP57-L29-HALL",
+        "temple_quest_bundle": "LP57-L29-TEMPLE",
+        "worker_action_bundle": "LP57-L29-WORK",
+        "pruning_receipt": "LP57-L29-PRUNE",
+        "restart_seed": "LP57-L29-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_29.json",
+        "self_actualize/quest_emission_bundle_29.json",
+        "self_actualize/execution_receipt_bundle_29.json",
+        "self_actualize/compression_receipt_29.json",
+        "self_actualize/loop_completion_receipt_29.json"
+      ],
+      "focus_record_ids": [
+        "e6bfe722a8bf47344a47010e",
+        "6a72dcc6a535b5768796973c",
+        "64b4934a7f16236e3e527c1e"
+      ],
+      "restart_handoff": "L30 -> Terminology Cleanup",
+      "advancement_signature": "Routing And Index Repair :: Advance routing and index repair through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for routing and index repair. :: Land only the replay-safe surfaces needed for routing and index repair. :: Remove drift, alias conflict, and packet-law ambiguity exposed by routing and index repair. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 30,
+      "ring": "",
+      "title": "Terminology Cleanup",
+      "dominant_focus": "Terminology Cleanup",
+      "synthesis_objective": "Advance terminology cleanup through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for terminology cleanup.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for terminology cleanup.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by terminology cleanup.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_30.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_30.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_30.json",
+        "compression_receipt": "self_actualize/compression_receipt_30.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_30.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 30,
+      "loop_key": "L30",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L30-LOOP-MANIFEST",
+        "research_packet": "LP57-L30-RESEARCH",
+        "hall_quest_bundle": "LP57-L30-HALL",
+        "temple_quest_bundle": "LP57-L30-TEMPLE",
+        "worker_action_bundle": "LP57-L30-WORK",
+        "pruning_receipt": "LP57-L30-PRUNE",
+        "restart_seed": "LP57-L30-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_30.json",
+        "self_actualize/quest_emission_bundle_30.json",
+        "self_actualize/execution_receipt_bundle_30.json",
+        "self_actualize/compression_receipt_30.json",
+        "self_actualize/loop_completion_receipt_30.json"
+      ],
+      "focus_record_ids": [
+        "4b687b3d31af221e7d9da512",
+        "1f45326927981984b689fcd5",
+        "ad35decefa03ab5d3d03e9d0"
+      ],
+      "restart_handoff": "L31 -> Four-Lane Bridge Pass",
+      "advancement_signature": "Terminology Cleanup :: Advance terminology cleanup through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for terminology cleanup. :: Land only the replay-safe surfaces needed for terminology cleanup. :: Remove drift, alias conflict, and packet-law ambiguity exposed by terminology cleanup. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 31,
+      "ring": "",
+      "title": "Four-Lane Bridge Pass",
+      "dominant_focus": "Four-Lane Bridge Pass",
+      "synthesis_objective": "Advance four-lane bridge pass through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for four-lane bridge pass.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for four-lane bridge pass.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by four-lane bridge pass.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_31.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_31.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_31.json",
+        "compression_receipt": "self_actualize/compression_receipt_31.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_31.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 31,
+      "loop_key": "L31",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L31-LOOP-MANIFEST",
+        "research_packet": "LP57-L31-RESEARCH",
+        "hall_quest_bundle": "LP57-L31-HALL",
+        "temple_quest_bundle": "LP57-L31-TEMPLE",
+        "worker_action_bundle": "LP57-L31-WORK",
+        "pruning_receipt": "LP57-L31-PRUNE",
+        "restart_seed": "LP57-L31-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_31.json",
+        "self_actualize/quest_emission_bundle_31.json",
+        "self_actualize/execution_receipt_bundle_31.json",
+        "self_actualize/compression_receipt_31.json",
+        "self_actualize/loop_completion_receipt_31.json"
+      ],
+      "focus_record_ids": [
+        "e04c08737e0847aae2c223c5",
+        "f508fce55d312f0786a9a3e6",
+        "c1a07e4fb186bbe915f04d45"
+      ],
+      "restart_handoff": "L32 -> Strategic Blueprint Closure",
+      "advancement_signature": "Four-Lane Bridge Pass :: Advance four-lane bridge pass through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for four-lane bridge pass. :: Land only the replay-safe surfaces needed for four-lane bridge pass. :: Remove drift, alias conflict, and packet-law ambiguity exposed by four-lane bridge pass. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 32,
+      "ring": "",
+      "title": "Strategic Blueprint Closure",
+      "dominant_focus": "Strategic Blueprint Closure",
+      "synthesis_objective": "Advance strategic blueprint closure through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for strategic blueprint closure.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for strategic blueprint closure.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by strategic blueprint closure.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_32.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_32.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_32.json",
+        "compression_receipt": "self_actualize/compression_receipt_32.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_32.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 32,
+      "loop_key": "L32",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L32-LOOP-MANIFEST",
+        "research_packet": "LP57-L32-RESEARCH",
+        "hall_quest_bundle": "LP57-L32-HALL",
+        "temple_quest_bundle": "LP57-L32-TEMPLE",
+        "worker_action_bundle": "LP57-L32-WORK",
+        "pruning_receipt": "LP57-L32-PRUNE",
+        "restart_seed": "LP57-L32-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_32.json",
+        "self_actualize/quest_emission_bundle_32.json",
+        "self_actualize/execution_receipt_bundle_32.json",
+        "self_actualize/compression_receipt_32.json",
+        "self_actualize/loop_completion_receipt_32.json"
+      ],
+      "focus_record_ids": [
+        "63e550d7878b5cef00a5c5f6",
+        "89b30a7f55a41920d97762a4",
+        "ae7d407c71127bdc81435034"
+      ],
+      "restart_handoff": "L33 -> Seed-Stage Route Crosswalk",
+      "advancement_signature": "Strategic Blueprint Closure :: Advance strategic blueprint closure through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for strategic blueprint closure. :: Land only the replay-safe surfaces needed for strategic blueprint closure. :: Remove drift, alias conflict, and packet-law ambiguity exposed by strategic blueprint closure. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 33,
+      "ring": "",
+      "title": "Seed-Stage Route Crosswalk",
+      "dominant_focus": "Seed-Stage Route Crosswalk",
+      "synthesis_objective": "Advance seed-stage route crosswalk through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for seed-stage route crosswalk.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for seed-stage route crosswalk.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by seed-stage route crosswalk.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_33.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_33.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_33.json",
+        "compression_receipt": "self_actualize/compression_receipt_33.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_33.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 33,
+      "loop_key": "L33",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L33-LOOP-MANIFEST",
+        "research_packet": "LP57-L33-RESEARCH",
+        "hall_quest_bundle": "LP57-L33-HALL",
+        "temple_quest_bundle": "LP57-L33-TEMPLE",
+        "worker_action_bundle": "LP57-L33-WORK",
+        "pruning_receipt": "LP57-L33-PRUNE",
+        "restart_seed": "LP57-L33-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_33.json",
+        "self_actualize/quest_emission_bundle_33.json",
+        "self_actualize/execution_receipt_bundle_33.json",
+        "self_actualize/compression_receipt_33.json",
+        "self_actualize/loop_completion_receipt_33.json"
+      ],
+      "focus_record_ids": [
+        "2c929f88a669dc46c1ff706b",
+        "e6c5d64e5b89a74bb8126a66",
+        "e025b99aefd14ba67869e831"
+      ],
+      "restart_handoff": "L34 -> Runtime Bridge Pass",
+      "advancement_signature": "Seed-Stage Route Crosswalk :: Advance seed-stage route crosswalk through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for seed-stage route crosswalk. :: Land only the replay-safe surfaces needed for seed-stage route crosswalk. :: Remove drift, alias conflict, and packet-law ambiguity exposed by seed-stage route crosswalk. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 34,
+      "ring": "",
+      "title": "Runtime Bridge Pass",
+      "dominant_focus": "Runtime Bridge Pass",
+      "synthesis_objective": "Advance runtime bridge pass through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for runtime bridge pass.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for runtime bridge pass.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by runtime bridge pass.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_34.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_34.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_34.json",
+        "compression_receipt": "self_actualize/compression_receipt_34.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_34.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 34,
+      "loop_key": "L34",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L34-LOOP-MANIFEST",
+        "research_packet": "LP57-L34-RESEARCH",
+        "hall_quest_bundle": "LP57-L34-HALL",
+        "temple_quest_bundle": "LP57-L34-TEMPLE",
+        "worker_action_bundle": "LP57-L34-WORK",
+        "pruning_receipt": "LP57-L34-PRUNE",
+        "restart_seed": "LP57-L34-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_34.json",
+        "self_actualize/quest_emission_bundle_34.json",
+        "self_actualize/execution_receipt_bundle_34.json",
+        "self_actualize/compression_receipt_34.json",
+        "self_actualize/loop_completion_receipt_34.json"
+      ],
+      "focus_record_ids": [
+        "590a303a0bbb8c2b47e678ad",
+        "47eff4e5a15d850ce92d8175",
+        "c003b43899ff53344de8340f"
+      ],
+      "restart_handoff": "L35 -> Blocked Frontier Isolation",
+      "advancement_signature": "Runtime Bridge Pass :: Advance runtime bridge pass through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for runtime bridge pass. :: Land only the replay-safe surfaces needed for runtime bridge pass. :: Remove drift, alias conflict, and packet-law ambiguity exposed by runtime bridge pass. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 35,
+      "ring": "",
+      "title": "Blocked Frontier Isolation",
+      "dominant_focus": "Blocked Frontier Isolation",
+      "synthesis_objective": "Advance blocked frontier isolation through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for blocked frontier isolation.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for blocked frontier isolation.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by blocked frontier isolation.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_35.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_35.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_35.json",
+        "compression_receipt": "self_actualize/compression_receipt_35.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_35.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 35,
+      "loop_key": "L35",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L35-LOOP-MANIFEST",
+        "research_packet": "LP57-L35-RESEARCH",
+        "hall_quest_bundle": "LP57-L35-HALL",
+        "temple_quest_bundle": "LP57-L35-TEMPLE",
+        "worker_action_bundle": "LP57-L35-WORK",
+        "pruning_receipt": "LP57-L35-PRUNE",
+        "restart_seed": "LP57-L35-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_35.json",
+        "self_actualize/quest_emission_bundle_35.json",
+        "self_actualize/execution_receipt_bundle_35.json",
+        "self_actualize/compression_receipt_35.json",
+        "self_actualize/loop_completion_receipt_35.json"
+      ],
+      "focus_record_ids": [
+        "9c83abbd9a91146dab3be46e",
+        "8e7ac8f873511d5f04fd1703",
+        "b00d024aad315cbacb1124e9"
+      ],
+      "restart_handoff": "L36 -> AP6D Overlay Crosswalk",
+      "advancement_signature": "Blocked Frontier Isolation :: Advance blocked frontier isolation through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for blocked frontier isolation. :: Land only the replay-safe surfaces needed for blocked frontier isolation. :: Remove drift, alias conflict, and packet-law ambiguity exposed by blocked frontier isolation. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 36,
+      "ring": "",
+      "title": "AP6D Overlay Crosswalk",
+      "dominant_focus": "AP6D Overlay Crosswalk",
+      "synthesis_objective": "Advance ap6d overlay crosswalk through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for ap6d overlay crosswalk.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for ap6d overlay crosswalk.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by ap6d overlay crosswalk.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_36.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_36.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_36.json",
+        "compression_receipt": "self_actualize/compression_receipt_36.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_36.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 36,
+      "loop_key": "L36",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L36-LOOP-MANIFEST",
+        "research_packet": "LP57-L36-RESEARCH",
+        "hall_quest_bundle": "LP57-L36-HALL",
+        "temple_quest_bundle": "LP57-L36-TEMPLE",
+        "worker_action_bundle": "LP57-L36-WORK",
+        "pruning_receipt": "LP57-L36-PRUNE",
+        "restart_seed": "LP57-L36-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_36.json",
+        "self_actualize/quest_emission_bundle_36.json",
+        "self_actualize/execution_receipt_bundle_36.json",
+        "self_actualize/compression_receipt_36.json",
+        "self_actualize/loop_completion_receipt_36.json"
+      ],
+      "focus_record_ids": [
+        "851a9e0ddbb0dbaa16578d30",
+        "85384ff9d6282358850405f2",
+        "1d44ca24be857ca7c27d4ed2"
+      ],
+      "restart_handoff": "L37 -> Skill Gap Ledger",
+      "advancement_signature": "AP6D Overlay Crosswalk :: Advance ap6d overlay crosswalk through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for ap6d overlay crosswalk. :: Land only the replay-safe surfaces needed for ap6d overlay crosswalk. :: Remove drift, alias conflict, and packet-law ambiguity exposed by ap6d overlay crosswalk. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 37,
+      "ring": "",
+      "title": "Skill Gap Ledger",
+      "dominant_focus": "Skill Gap Ledger",
+      "synthesis_objective": "Advance skill gap ledger through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for skill gap ledger.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for skill gap ledger.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by skill gap ledger.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_37.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_37.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_37.json",
+        "compression_receipt": "self_actualize/compression_receipt_37.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_37.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 37,
+      "loop_key": "L37",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L37-LOOP-MANIFEST",
+        "research_packet": "LP57-L37-RESEARCH",
+        "hall_quest_bundle": "LP57-L37-HALL",
+        "temple_quest_bundle": "LP57-L37-TEMPLE",
+        "worker_action_bundle": "LP57-L37-WORK",
+        "pruning_receipt": "LP57-L37-PRUNE",
+        "restart_seed": "LP57-L37-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_37.json",
+        "self_actualize/quest_emission_bundle_37.json",
+        "self_actualize/execution_receipt_bundle_37.json",
+        "self_actualize/compression_receipt_37.json",
+        "self_actualize/loop_completion_receipt_37.json"
+      ],
+      "focus_record_ids": [
+        "595aa91b2b292729969bf79e",
+        "e345535b360c8743adebe8ef",
+        "0f82682ee3cd98f6419623a0"
+      ],
+      "restart_handoff": "L38 -> Ranked Skill Queue",
+      "advancement_signature": "Skill Gap Ledger :: Advance skill gap ledger through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for skill gap ledger. :: Land only the replay-safe surfaces needed for skill gap ledger. :: Remove drift, alias conflict, and packet-law ambiguity exposed by skill gap ledger. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 38,
+      "ring": "",
+      "title": "Ranked Skill Queue",
+      "dominant_focus": "Ranked Skill Queue",
+      "synthesis_objective": "Advance ranked skill queue through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for ranked skill queue.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for ranked skill queue.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by ranked skill queue.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_38.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_38.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_38.json",
+        "compression_receipt": "self_actualize/compression_receipt_38.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_38.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 38,
+      "loop_key": "L38",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L38-LOOP-MANIFEST",
+        "research_packet": "LP57-L38-RESEARCH",
+        "hall_quest_bundle": "LP57-L38-HALL",
+        "temple_quest_bundle": "LP57-L38-TEMPLE",
+        "worker_action_bundle": "LP57-L38-WORK",
+        "pruning_receipt": "LP57-L38-PRUNE",
+        "restart_seed": "LP57-L38-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_38.json",
+        "self_actualize/quest_emission_bundle_38.json",
+        "self_actualize/execution_receipt_bundle_38.json",
+        "self_actualize/compression_receipt_38.json",
+        "self_actualize/loop_completion_receipt_38.json"
+      ],
+      "focus_record_ids": [
+        "69d50687b41967cf69bc9313",
+        "d5f75174fe37a48f17c79723",
+        "cf4c4b5c9f042ddbac7bed4d"
+      ],
+      "restart_handoff": "L39 -> Subagent Archetype Matrix",
+      "advancement_signature": "Ranked Skill Queue :: Advance ranked skill queue through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for ranked skill queue. :: Land only the replay-safe surfaces needed for ranked skill queue. :: Remove drift, alias conflict, and packet-law ambiguity exposed by ranked skill queue. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 39,
+      "ring": "",
+      "title": "Subagent Archetype Matrix",
+      "dominant_focus": "Subagent Archetype Matrix",
+      "synthesis_objective": "Advance subagent archetype matrix through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for subagent archetype matrix.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for subagent archetype matrix.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by subagent archetype matrix.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_39.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_39.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_39.json",
+        "compression_receipt": "self_actualize/compression_receipt_39.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_39.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 39,
+      "loop_key": "L39",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L39-LOOP-MANIFEST",
+        "research_packet": "LP57-L39-RESEARCH",
+        "hall_quest_bundle": "LP57-L39-HALL",
+        "temple_quest_bundle": "LP57-L39-TEMPLE",
+        "worker_action_bundle": "LP57-L39-WORK",
+        "pruning_receipt": "LP57-L39-PRUNE",
+        "restart_seed": "LP57-L39-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_39.json",
+        "self_actualize/quest_emission_bundle_39.json",
+        "self_actualize/execution_receipt_bundle_39.json",
+        "self_actualize/compression_receipt_39.json",
+        "self_actualize/loop_completion_receipt_39.json"
+      ],
+      "focus_record_ids": [
+        "642501f85825ed9e2a9acea4",
+        "5ebbc24681d0dc35efa2b6cb",
+        "c3867c7aa9ce69312ca69e70"
+      ],
+      "restart_handoff": "L40 -> Ledger Normalization",
+      "advancement_signature": "Subagent Archetype Matrix :: Advance subagent archetype matrix through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for subagent archetype matrix. :: Land only the replay-safe surfaces needed for subagent archetype matrix. :: Remove drift, alias conflict, and packet-law ambiguity exposed by subagent archetype matrix. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 40,
+      "ring": "",
+      "title": "Ledger Normalization",
+      "dominant_focus": "Ledger Normalization",
+      "synthesis_objective": "Advance ledger normalization through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for ledger normalization.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for ledger normalization.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by ledger normalization.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_40.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_40.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_40.json",
+        "compression_receipt": "self_actualize/compression_receipt_40.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_40.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 40,
+      "loop_key": "L40",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L40-LOOP-MANIFEST",
+        "research_packet": "LP57-L40-RESEARCH",
+        "hall_quest_bundle": "LP57-L40-HALL",
+        "temple_quest_bundle": "LP57-L40-TEMPLE",
+        "worker_action_bundle": "LP57-L40-WORK",
+        "pruning_receipt": "LP57-L40-PRUNE",
+        "restart_seed": "LP57-L40-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_40.json",
+        "self_actualize/quest_emission_bundle_40.json",
+        "self_actualize/execution_receipt_bundle_40.json",
+        "self_actualize/compression_receipt_40.json",
+        "self_actualize/loop_completion_receipt_40.json"
+      ],
+      "focus_record_ids": [
+        "f7666e6cb0c8241f4147b36f",
+        "dc71456e4cf28ab577417552",
+        "64721e2121f721e1baad5cbb"
+      ],
+      "restart_handoff": "L41 -> Source Lineage Ledger",
+      "advancement_signature": "Ledger Normalization :: Advance ledger normalization through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for ledger normalization. :: Land only the replay-safe surfaces needed for ledger normalization. :: Remove drift, alias conflict, and packet-law ambiguity exposed by ledger normalization. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 41,
+      "ring": "",
+      "title": "Source Lineage Ledger",
+      "dominant_focus": "Source Lineage Ledger",
+      "synthesis_objective": "Advance source lineage ledger through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for source lineage ledger.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for source lineage ledger.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by source lineage ledger.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_41.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_41.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_41.json",
+        "compression_receipt": "self_actualize/compression_receipt_41.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_41.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 41,
+      "loop_key": "L41",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L41-LOOP-MANIFEST",
+        "research_packet": "LP57-L41-RESEARCH",
+        "hall_quest_bundle": "LP57-L41-HALL",
+        "temple_quest_bundle": "LP57-L41-TEMPLE",
+        "worker_action_bundle": "LP57-L41-WORK",
+        "pruning_receipt": "LP57-L41-PRUNE",
+        "restart_seed": "LP57-L41-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_41.json",
+        "self_actualize/quest_emission_bundle_41.json",
+        "self_actualize/execution_receipt_bundle_41.json",
+        "self_actualize/compression_receipt_41.json",
+        "self_actualize/loop_completion_receipt_41.json"
+      ],
+      "focus_record_ids": [
+        "56a61957bc3385499846adcc",
+        "a2e92462c44a58ee83bf38c7",
+        "3161961a0d1cea4f2707bf57"
+      ],
+      "restart_handoff": "L42 -> Confidence And Abstain Law",
+      "advancement_signature": "Source Lineage Ledger :: Advance source lineage ledger through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for source lineage ledger. :: Land only the replay-safe surfaces needed for source lineage ledger. :: Remove drift, alias conflict, and packet-law ambiguity exposed by source lineage ledger. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 42,
+      "ring": "",
+      "title": "Confidence And Abstain Law",
+      "dominant_focus": "Confidence And Abstain Law",
+      "synthesis_objective": "Advance confidence and abstain law through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for confidence and abstain law.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for confidence and abstain law.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by confidence and abstain law.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_42.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_42.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_42.json",
+        "compression_receipt": "self_actualize/compression_receipt_42.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_42.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 42,
+      "loop_key": "L42",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L42-LOOP-MANIFEST",
+        "research_packet": "LP57-L42-RESEARCH",
+        "hall_quest_bundle": "LP57-L42-HALL",
+        "temple_quest_bundle": "LP57-L42-TEMPLE",
+        "worker_action_bundle": "LP57-L42-WORK",
+        "pruning_receipt": "LP57-L42-PRUNE",
+        "restart_seed": "LP57-L42-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_42.json",
+        "self_actualize/quest_emission_bundle_42.json",
+        "self_actualize/execution_receipt_bundle_42.json",
+        "self_actualize/compression_receipt_42.json",
+        "self_actualize/loop_completion_receipt_42.json"
+      ],
+      "focus_record_ids": [
+        "b1bcc1e96ce83ecd36fbc085",
+        "19531210d81a6914e9b11ea3",
+        "9432753ed4c29dd17ad34444"
+      ],
+      "restart_handoff": "L43 -> Contradiction-Safe Compression",
+      "advancement_signature": "Confidence And Abstain Law :: Advance confidence and abstain law through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for confidence and abstain law. :: Land only the replay-safe surfaces needed for confidence and abstain law. :: Remove drift, alias conflict, and packet-law ambiguity exposed by confidence and abstain law. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 43,
+      "ring": "",
+      "title": "Contradiction-Safe Compression",
+      "dominant_focus": "Contradiction-Safe Compression",
+      "synthesis_objective": "Advance contradiction-safe compression through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for contradiction-safe compression.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for contradiction-safe compression.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by contradiction-safe compression.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_43.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_43.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_43.json",
+        "compression_receipt": "self_actualize/compression_receipt_43.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_43.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 43,
+      "loop_key": "L43",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L43-LOOP-MANIFEST",
+        "research_packet": "LP57-L43-RESEARCH",
+        "hall_quest_bundle": "LP57-L43-HALL",
+        "temple_quest_bundle": "LP57-L43-TEMPLE",
+        "worker_action_bundle": "LP57-L43-WORK",
+        "pruning_receipt": "LP57-L43-PRUNE",
+        "restart_seed": "LP57-L43-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_43.json",
+        "self_actualize/quest_emission_bundle_43.json",
+        "self_actualize/execution_receipt_bundle_43.json",
+        "self_actualize/compression_receipt_43.json",
+        "self_actualize/loop_completion_receipt_43.json"
+      ],
+      "focus_record_ids": [
+        "ec09af40d3990a535f9ea861",
+        "4acbd9465fa8a44e43e682d4",
+        "cbbe98faed0db7b3c08cffe1"
+      ],
+      "restart_handoff": "L44 -> Proof Lattice Pass",
+      "advancement_signature": "Contradiction-Safe Compression :: Advance contradiction-safe compression through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for contradiction-safe compression. :: Land only the replay-safe surfaces needed for contradiction-safe compression. :: Remove drift, alias conflict, and packet-law ambiguity exposed by contradiction-safe compression. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 44,
+      "ring": "",
+      "title": "Proof Lattice Pass",
+      "dominant_focus": "Proof Lattice Pass",
+      "synthesis_objective": "Advance proof lattice pass through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for proof lattice pass.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for proof lattice pass.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by proof lattice pass.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_44.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_44.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_44.json",
+        "compression_receipt": "self_actualize/compression_receipt_44.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_44.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 44,
+      "loop_key": "L44",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L44-LOOP-MANIFEST",
+        "research_packet": "LP57-L44-RESEARCH",
+        "hall_quest_bundle": "LP57-L44-HALL",
+        "temple_quest_bundle": "LP57-L44-TEMPLE",
+        "worker_action_bundle": "LP57-L44-WORK",
+        "pruning_receipt": "LP57-L44-PRUNE",
+        "restart_seed": "LP57-L44-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_44.json",
+        "self_actualize/quest_emission_bundle_44.json",
+        "self_actualize/execution_receipt_bundle_44.json",
+        "self_actualize/compression_receipt_44.json",
+        "self_actualize/loop_completion_receipt_44.json"
+      ],
+      "focus_record_ids": [
+        "351d812cd3cfe84acb629542",
+        "e9a7d02d0ae0218df34e65ea",
+        "5568f784e595984f39b34af0"
+      ],
+      "restart_handoff": "L45 -> Self-Steering Hooks",
+      "advancement_signature": "Proof Lattice Pass :: Advance proof lattice pass through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for proof lattice pass. :: Land only the replay-safe surfaces needed for proof lattice pass. :: Remove drift, alias conflict, and packet-law ambiguity exposed by proof lattice pass. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 45,
+      "ring": "",
+      "title": "Self-Steering Hooks",
+      "dominant_focus": "Self-Steering Hooks",
+      "synthesis_objective": "Advance self-steering hooks through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for self-steering hooks.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for self-steering hooks.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by self-steering hooks.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_45.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_45.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_45.json",
+        "compression_receipt": "self_actualize/compression_receipt_45.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_45.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 45,
+      "loop_key": "L45",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L45-LOOP-MANIFEST",
+        "research_packet": "LP57-L45-RESEARCH",
+        "hall_quest_bundle": "LP57-L45-HALL",
+        "temple_quest_bundle": "LP57-L45-TEMPLE",
+        "worker_action_bundle": "LP57-L45-WORK",
+        "pruning_receipt": "LP57-L45-PRUNE",
+        "restart_seed": "LP57-L45-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_45.json",
+        "self_actualize/quest_emission_bundle_45.json",
+        "self_actualize/execution_receipt_bundle_45.json",
+        "self_actualize/compression_receipt_45.json",
+        "self_actualize/loop_completion_receipt_45.json"
+      ],
+      "focus_record_ids": [
+        "80b1718c1645146508a11936",
+        "cea01d66731bbf66a46d0ac8",
+        "115beb5ef09768e5a69c8646"
+      ],
+      "restart_handoff": "L46 -> Replay And Regression Audit",
+      "advancement_signature": "Self-Steering Hooks :: Advance self-steering hooks through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for self-steering hooks. :: Land only the replay-safe surfaces needed for self-steering hooks. :: Remove drift, alias conflict, and packet-law ambiguity exposed by self-steering hooks. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 46,
+      "ring": "",
+      "title": "Replay And Regression Audit",
+      "dominant_focus": "Replay And Regression Audit",
+      "synthesis_objective": "Advance replay and regression audit through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for replay and regression audit.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for replay and regression audit.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by replay and regression audit.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_46.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_46.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_46.json",
+        "compression_receipt": "self_actualize/compression_receipt_46.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_46.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 46,
+      "loop_key": "L46",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L46-LOOP-MANIFEST",
+        "research_packet": "LP57-L46-RESEARCH",
+        "hall_quest_bundle": "LP57-L46-HALL",
+        "temple_quest_bundle": "LP57-L46-TEMPLE",
+        "worker_action_bundle": "LP57-L46-WORK",
+        "pruning_receipt": "LP57-L46-PRUNE",
+        "restart_seed": "LP57-L46-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_46.json",
+        "self_actualize/quest_emission_bundle_46.json",
+        "self_actualize/execution_receipt_bundle_46.json",
+        "self_actualize/compression_receipt_46.json",
+        "self_actualize/loop_completion_receipt_46.json"
+      ],
+      "focus_record_ids": [
+        "4776b57db01a542517855462",
+        "dea53b1f1528b7ac2272c335",
+        "d074c439df10665c890bae53"
+      ],
+      "restart_handoff": "L47 -> Hierarchy Defragmentation",
+      "advancement_signature": "Replay And Regression Audit :: Advance replay and regression audit through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for replay and regression audit. :: Land only the replay-safe surfaces needed for replay and regression audit. :: Remove drift, alias conflict, and packet-law ambiguity exposed by replay and regression audit. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 47,
+      "ring": "",
+      "title": "Hierarchy Defragmentation",
+      "dominant_focus": "Hierarchy Defragmentation",
+      "synthesis_objective": "Advance hierarchy defragmentation through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for hierarchy defragmentation.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for hierarchy defragmentation.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by hierarchy defragmentation.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_47.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_47.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_47.json",
+        "compression_receipt": "self_actualize/compression_receipt_47.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_47.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 47,
+      "loop_key": "L47",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L47-LOOP-MANIFEST",
+        "research_packet": "LP57-L47-RESEARCH",
+        "hall_quest_bundle": "LP57-L47-HALL",
+        "temple_quest_bundle": "LP57-L47-TEMPLE",
+        "worker_action_bundle": "LP57-L47-WORK",
+        "pruning_receipt": "LP57-L47-PRUNE",
+        "restart_seed": "LP57-L47-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_47.json",
+        "self_actualize/quest_emission_bundle_47.json",
+        "self_actualize/execution_receipt_bundle_47.json",
+        "self_actualize/compression_receipt_47.json",
+        "self_actualize/loop_completion_receipt_47.json"
+      ],
+      "focus_record_ids": [
+        "d9c4122e6c23e8c5ff485a07",
+        "352a487fa6d281aaa974d948",
+        "4f3a3890a57ca5fc7986d981"
+      ],
+      "restart_handoff": "L48 -> Drift-Repair Closure",
+      "advancement_signature": "Hierarchy Defragmentation :: Advance hierarchy defragmentation through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for hierarchy defragmentation. :: Land only the replay-safe surfaces needed for hierarchy defragmentation. :: Remove drift, alias conflict, and packet-law ambiguity exposed by hierarchy defragmentation. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 48,
+      "ring": "",
+      "title": "Drift-Repair Closure",
+      "dominant_focus": "Drift-Repair Closure",
+      "synthesis_objective": "Advance drift-repair closure through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for drift-repair closure.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for drift-repair closure.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by drift-repair closure.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_48.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_48.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_48.json",
+        "compression_receipt": "self_actualize/compression_receipt_48.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_48.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 48,
+      "loop_key": "L48",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L48-LOOP-MANIFEST",
+        "research_packet": "LP57-L48-RESEARCH",
+        "hall_quest_bundle": "LP57-L48-HALL",
+        "temple_quest_bundle": "LP57-L48-TEMPLE",
+        "worker_action_bundle": "LP57-L48-WORK",
+        "pruning_receipt": "LP57-L48-PRUNE",
+        "restart_seed": "LP57-L48-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_48.json",
+        "self_actualize/quest_emission_bundle_48.json",
+        "self_actualize/execution_receipt_bundle_48.json",
+        "self_actualize/compression_receipt_48.json",
+        "self_actualize/loop_completion_receipt_48.json"
+      ],
+      "focus_record_ids": [
+        "f2b29466338276f4cb9badc3",
+        "a0f13c4e96e92033423f2c42",
+        "ec5786181ffc186e57c185a3"
+      ],
+      "restart_handoff": "L49 -> Basis Thesis Restatement",
+      "advancement_signature": "Drift-Repair Closure :: Advance drift-repair closure through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for drift-repair closure. :: Land only the replay-safe surfaces needed for drift-repair closure. :: Remove drift, alias conflict, and packet-law ambiguity exposed by drift-repair closure. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 49,
+      "ring": "",
+      "title": "Basis Thesis Restatement",
+      "dominant_focus": "Basis Thesis Restatement",
+      "synthesis_objective": "Advance basis thesis restatement through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for basis thesis restatement.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for basis thesis restatement.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by basis thesis restatement.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_49.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_49.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_49.json",
+        "compression_receipt": "self_actualize/compression_receipt_49.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_49.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 49,
+      "loop_key": "L49",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L49-LOOP-MANIFEST",
+        "research_packet": "LP57-L49-RESEARCH",
+        "hall_quest_bundle": "LP57-L49-HALL",
+        "temple_quest_bundle": "LP57-L49-TEMPLE",
+        "worker_action_bundle": "LP57-L49-WORK",
+        "pruning_receipt": "LP57-L49-PRUNE",
+        "restart_seed": "LP57-L49-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_49.json",
+        "self_actualize/quest_emission_bundle_49.json",
+        "self_actualize/execution_receipt_bundle_49.json",
+        "self_actualize/compression_receipt_49.json",
+        "self_actualize/loop_completion_receipt_49.json"
+      ],
+      "focus_record_ids": [
+        "ad64afae9a253c13419720b7",
+        "31ad091f1683fea867dbf70f",
+        "e55f99fa39597a61d753afb5"
+      ],
+      "restart_handoff": "L50 -> Frontier Rescore",
+      "advancement_signature": "Basis Thesis Restatement :: Advance basis thesis restatement through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for basis thesis restatement. :: Land only the replay-safe surfaces needed for basis thesis restatement. :: Remove drift, alias conflict, and packet-law ambiguity exposed by basis thesis restatement. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 50,
+      "ring": "",
+      "title": "Frontier Rescore",
+      "dominant_focus": "Frontier Rescore",
+      "synthesis_objective": "Advance frontier rescore through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for frontier rescore.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for frontier rescore.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by frontier rescore.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_50.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_50.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_50.json",
+        "compression_receipt": "self_actualize/compression_receipt_50.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_50.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 50,
+      "loop_key": "L50",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L50-LOOP-MANIFEST",
+        "research_packet": "LP57-L50-RESEARCH",
+        "hall_quest_bundle": "LP57-L50-HALL",
+        "temple_quest_bundle": "LP57-L50-TEMPLE",
+        "worker_action_bundle": "LP57-L50-WORK",
+        "pruning_receipt": "LP57-L50-PRUNE",
+        "restart_seed": "LP57-L50-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_50.json",
+        "self_actualize/quest_emission_bundle_50.json",
+        "self_actualize/execution_receipt_bundle_50.json",
+        "self_actualize/compression_receipt_50.json",
+        "self_actualize/loop_completion_receipt_50.json"
+      ],
+      "focus_record_ids": [
+        "546381bc4eb9694ab42bad05",
+        "3915ce913417fedd47366518",
+        "2d7eadddfa1680aef123dfc7"
+      ],
+      "restart_handoff": "L51 -> Convergence Witness",
+      "advancement_signature": "Frontier Rescore :: Advance frontier rescore through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for frontier rescore. :: Land only the replay-safe surfaces needed for frontier rescore. :: Remove drift, alias conflict, and packet-law ambiguity exposed by frontier rescore. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 51,
+      "ring": "",
+      "title": "Convergence Witness",
+      "dominant_focus": "Convergence Witness",
+      "synthesis_objective": "Advance convergence witness through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for convergence witness.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for convergence witness.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by convergence witness.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_51.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_51.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_51.json",
+        "compression_receipt": "self_actualize/compression_receipt_51.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_51.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 51,
+      "loop_key": "L51",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L51-LOOP-MANIFEST",
+        "research_packet": "LP57-L51-RESEARCH",
+        "hall_quest_bundle": "LP57-L51-HALL",
+        "temple_quest_bundle": "LP57-L51-TEMPLE",
+        "worker_action_bundle": "LP57-L51-WORK",
+        "pruning_receipt": "LP57-L51-PRUNE",
+        "restart_seed": "LP57-L51-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_51.json",
+        "self_actualize/quest_emission_bundle_51.json",
+        "self_actualize/execution_receipt_bundle_51.json",
+        "self_actualize/compression_receipt_51.json",
+        "self_actualize/loop_completion_receipt_51.json"
+      ],
+      "focus_record_ids": [
+        "0e764ff2613e0a2188c6472e",
+        "fc668f3c2c43a530e7c6c2b3",
+        "dfb675a718ed1fc1fbf692b2"
+      ],
+      "restart_handoff": "L52 -> Cross-Agent Replay Trial",
+      "advancement_signature": "Convergence Witness :: Advance convergence witness through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for convergence witness. :: Land only the replay-safe surfaces needed for convergence witness. :: Remove drift, alias conflict, and packet-law ambiguity exposed by convergence witness. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 52,
+      "ring": "",
+      "title": "Cross-Agent Replay Trial",
+      "dominant_focus": "Cross-Agent Replay Trial",
+      "synthesis_objective": "Advance cross-agent replay trial through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for cross-agent replay trial.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for cross-agent replay trial.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by cross-agent replay trial.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_52.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_52.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_52.json",
+        "compression_receipt": "self_actualize/compression_receipt_52.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_52.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 52,
+      "loop_key": "L52",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L52-LOOP-MANIFEST",
+        "research_packet": "LP57-L52-RESEARCH",
+        "hall_quest_bundle": "LP57-L52-HALL",
+        "temple_quest_bundle": "LP57-L52-TEMPLE",
+        "worker_action_bundle": "LP57-L52-WORK",
+        "pruning_receipt": "LP57-L52-PRUNE",
+        "restart_seed": "LP57-L52-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_52.json",
+        "self_actualize/quest_emission_bundle_52.json",
+        "self_actualize/execution_receipt_bundle_52.json",
+        "self_actualize/compression_receipt_52.json",
+        "self_actualize/loop_completion_receipt_52.json"
+      ],
+      "focus_record_ids": [
+        "f0f6792079031d61de417091",
+        "35f1dc75244af7e99e9e9ee0",
+        "7fd59351c28af30c001c1b2b"
+      ],
+      "restart_handoff": "L53 -> Final Hall Reshape",
+      "advancement_signature": "Cross-Agent Replay Trial :: Advance cross-agent replay trial through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for cross-agent replay trial. :: Land only the replay-safe surfaces needed for cross-agent replay trial. :: Remove drift, alias conflict, and packet-law ambiguity exposed by cross-agent replay trial. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 53,
+      "ring": "",
+      "title": "Final Hall Reshape",
+      "dominant_focus": "Final Hall Reshape",
+      "synthesis_objective": "Advance final hall reshape through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for final hall reshape.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for final hall reshape.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by final hall reshape.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_53.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_53.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_53.json",
+        "compression_receipt": "self_actualize/compression_receipt_53.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_53.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 53,
+      "loop_key": "L53",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L53-LOOP-MANIFEST",
+        "research_packet": "LP57-L53-RESEARCH",
+        "hall_quest_bundle": "LP57-L53-HALL",
+        "temple_quest_bundle": "LP57-L53-TEMPLE",
+        "worker_action_bundle": "LP57-L53-WORK",
+        "pruning_receipt": "LP57-L53-PRUNE",
+        "restart_seed": "LP57-L53-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_53.json",
+        "self_actualize/quest_emission_bundle_53.json",
+        "self_actualize/execution_receipt_bundle_53.json",
+        "self_actualize/compression_receipt_53.json",
+        "self_actualize/loop_completion_receipt_53.json"
+      ],
+      "focus_record_ids": [
+        "9efa3a894782c28674113239",
+        "b17587f5ff0b005fc6e41c1e",
+        "d216db8e9c21d7427872cc78"
+      ],
+      "restart_handoff": "L54 -> Final Temple Reshape",
+      "advancement_signature": "Final Hall Reshape :: Advance final hall reshape through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for final hall reshape. :: Land only the replay-safe surfaces needed for final hall reshape. :: Remove drift, alias conflict, and packet-law ambiguity exposed by final hall reshape. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 54,
+      "ring": "",
+      "title": "Final Temple Reshape",
+      "dominant_focus": "Final Temple Reshape",
+      "synthesis_objective": "Advance final temple reshape through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for final temple reshape.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for final temple reshape.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by final temple reshape.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_54.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_54.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_54.json",
+        "compression_receipt": "self_actualize/compression_receipt_54.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_54.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 54,
+      "loop_key": "L54",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L54-LOOP-MANIFEST",
+        "research_packet": "LP57-L54-RESEARCH",
+        "hall_quest_bundle": "LP57-L54-HALL",
+        "temple_quest_bundle": "LP57-L54-TEMPLE",
+        "worker_action_bundle": "LP57-L54-WORK",
+        "pruning_receipt": "LP57-L54-PRUNE",
+        "restart_seed": "LP57-L54-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_54.json",
+        "self_actualize/quest_emission_bundle_54.json",
+        "self_actualize/execution_receipt_bundle_54.json",
+        "self_actualize/compression_receipt_54.json",
+        "self_actualize/loop_completion_receipt_54.json"
+      ],
+      "focus_record_ids": [
+        "4f11272e654a664778443d50",
+        "e659ca610bb3b854ecfdd708",
+        "e12d29b7f4beba3fa9b767c0"
+      ],
+      "restart_handoff": "L55 -> Next-Cycle Priority Queue",
+      "advancement_signature": "Final Temple Reshape :: Advance final temple reshape through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for final temple reshape. :: Land only the replay-safe surfaces needed for final temple reshape. :: Remove drift, alias conflict, and packet-law ambiguity exposed by final temple reshape. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 55,
+      "ring": "",
+      "title": "Next-Cycle Priority Queue",
+      "dominant_focus": "Next-Cycle Priority Queue",
+      "synthesis_objective": "Advance next-cycle priority queue through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for next-cycle priority queue.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for next-cycle priority queue.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by next-cycle priority queue.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_55.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_55.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_55.json",
+        "compression_receipt": "self_actualize/compression_receipt_55.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_55.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 55,
+      "loop_key": "L55",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L55-LOOP-MANIFEST",
+        "research_packet": "LP57-L55-RESEARCH",
+        "hall_quest_bundle": "LP57-L55-HALL",
+        "temple_quest_bundle": "LP57-L55-TEMPLE",
+        "worker_action_bundle": "LP57-L55-WORK",
+        "pruning_receipt": "LP57-L55-PRUNE",
+        "restart_seed": "LP57-L55-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_55.json",
+        "self_actualize/quest_emission_bundle_55.json",
+        "self_actualize/execution_receipt_bundle_55.json",
+        "self_actualize/compression_receipt_55.json",
+        "self_actualize/loop_completion_receipt_55.json"
+      ],
+      "focus_record_ids": [
+        "ff0b0cc485ae842f65bf7619",
+        "f51cd33572098a89a97989fc",
+        "72f4c7eee9d801e58031b093"
+      ],
+      "restart_handoff": "L56 -> Seed-57 Restart Bundle",
+      "advancement_signature": "Next-Cycle Priority Queue :: Advance next-cycle priority queue through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for next-cycle priority queue. :: Land only the replay-safe surfaces needed for next-cycle priority queue. :: Remove drift, alias conflict, and packet-law ambiguity exposed by next-cycle priority queue. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 56,
+      "ring": "",
+      "title": "Seed-57 Restart Bundle",
+      "dominant_focus": "Seed-57 Restart Bundle",
+      "synthesis_objective": "Advance seed-57 restart bundle through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for seed-57 restart bundle.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for seed-57 restart bundle.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by seed-57 restart bundle.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_56.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_56.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_56.json",
+        "compression_receipt": "self_actualize/compression_receipt_56.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_56.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 56,
+      "loop_key": "L56",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L56-LOOP-MANIFEST",
+        "research_packet": "LP57-L56-RESEARCH",
+        "hall_quest_bundle": "LP57-L56-HALL",
+        "temple_quest_bundle": "LP57-L56-TEMPLE",
+        "worker_action_bundle": "LP57-L56-WORK",
+        "pruning_receipt": "LP57-L56-PRUNE",
+        "restart_seed": "LP57-L56-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_56.json",
+        "self_actualize/quest_emission_bundle_56.json",
+        "self_actualize/execution_receipt_bundle_56.json",
+        "self_actualize/compression_receipt_56.json",
+        "self_actualize/loop_completion_receipt_56.json"
+      ],
+      "focus_record_ids": [
+        "af4e342b3f46dca59475ae0a",
+        "1e5a3646494c7676a9472fc7",
+        "f0854abc1fe3ac69237b156d"
+      ],
+      "restart_handoff": "L57 -> Cycle-Complete Reopen",
+      "advancement_signature": "Seed-57 Restart Bundle :: Advance seed-57 restart bundle through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for seed-57 restart bundle. :: Land only the replay-safe surfaces needed for seed-57 restart bundle. :: Remove drift, alias conflict, and packet-law ambiguity exposed by seed-57 restart bundle. :: ",
+      "docs_gate_status": "BLOCKED"
+    },
+    {
+      "loop_id": 57,
+      "ring": "",
+      "title": "Cycle-Complete Reopen",
+      "dominant_focus": "Cycle-Complete Reopen",
+      "synthesis_objective": "Advance cycle-complete reopen through the reconciled H\u03a3 machine-core chain.",
+      "planning_objective": "Publish the Hall and Temple packet law needed for cycle-complete reopen.",
+      "implementation_objective": "Land only the replay-safe surfaces needed for cycle-complete reopen.",
+      "compression_objective": "Remove drift, alias conflict, and packet-law ambiguity exposed by cycle-complete reopen.",
+      "expected_structural_gain": "",
+      "expected_mapping_gain": "",
+      "lead_agent": "MASTER-SYNTHESIZER",
+      "status": "PENDING",
+      "receipt_paths": {
+        "deep_synthesis_packet": "self_actualize/deep_synthesis_packet_57.json",
+        "quest_emission_bundle": "self_actualize/quest_emission_bundle_57.json",
+        "execution_receipt_bundle": "self_actualize/execution_receipt_bundle_57.json",
+        "compression_receipt": "self_actualize/compression_receipt_57.json",
+        "loop_completion_receipt": "self_actualize/loop_completion_receipt_57.json"
+      },
+      "advancement_tuple": {
+        "family_code": "",
+        "family_root": "",
+        "hall_packet_id": "",
+        "temple_packet_id": "",
+        "queue_delta_id": ""
+      },
+      "loop_number": 57,
+      "loop_key": "L57",
+      "artifact_ids": {
+        "loop_manifest": "LP57-L57-LOOP-MANIFEST",
+        "research_packet": "LP57-L57-RESEARCH",
+        "hall_quest_bundle": "LP57-L57-HALL",
+        "temple_quest_bundle": "LP57-L57-TEMPLE",
+        "worker_action_bundle": "LP57-L57-WORK",
+        "pruning_receipt": "LP57-L57-PRUNE",
+        "restart_seed": "LP57-L57-RESTART"
+      },
+      "receipt_ids": [
+        "self_actualize/deep_synthesis_packet_57.json",
+        "self_actualize/quest_emission_bundle_57.json",
+        "self_actualize/execution_receipt_bundle_57.json",
+        "self_actualize/compression_receipt_57.json",
+        "self_actualize/loop_completion_receipt_57.json"
+      ],
+      "focus_record_ids": [
+        "408540001db2cb2d53a268f0",
+        "c64d292040da9e4f1444d6f1",
+        "f6fa37a66bc2d55f254115c6"
+      ],
+      "restart_handoff": "L01 -> Seat Truth Sync",
+      "advancement_signature": "Cycle-Complete Reopen :: Advance cycle-complete reopen through the reconciled H\u03a3 machine-core chain. :: Publish the Hall and Temple packet law needed for cycle-complete reopen. :: Land only the replay-safe surfaces needed for cycle-complete reopen. :: Remove drift, alias conflict, and packet-law ambiguity exposed by cycle-complete reopen. :: ",
+      "docs_gate_status": "BLOCKED"
+    }
+  ]
+}

@@ -1,0 +1,889 @@
+{
+  "generated_at": "2026-03-13T12:57:06",
+  "docs_gate_status": "BLOCKED",
+  "lane_inputs": {
+    "fire": {
+      "status": "ready",
+      "driver_count": 8,
+      "dimension_stages": {
+        "5D_COMPRESSION": 3,
+        "6D_WEAVE": 5
+      },
+      "mobius_bridges": {
+        "O_return": 2,
+        "QO_loop": 2,
+        "Q_ingress": 1,
+        "none": 3
+      },
+      "required_appendices": [
+        "AppA",
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppO",
+        "AppP",
+        "AppQ"
+      ],
+      "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_fire_6d_organism_bundle.json",
+      "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_fire_6d_organism_bundle.md"
+    },
+    "water": {
+      "status": "ready",
+      "native_basis": [
+        "01",
+        "11",
+        "12",
+        "14"
+      ],
+      "route_count": 12,
+      "required_appendices": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_water_6d_control_bundle.json",
+      "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_water_6d_control_bundle.md"
+    },
+    "air": {
+      "status": "ready",
+      "native_basis": [
+        "03",
+        "04",
+        "05",
+        "07"
+      ],
+      "symmetry_nodes": 15,
+      "modal_routes": 3,
+      "required_appendices": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppH",
+        "AppI",
+        "AppM",
+        "AppN",
+        "AppQ"
+      ],
+      "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_air_6d_overlay_bundle.json",
+      "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_air_6d_overlay_bundle.md"
+    },
+    "earth": {
+      "status": "ready",
+      "native_drivers": [
+        "02",
+        "09",
+        "13",
+        "15"
+      ],
+      "chapter_contracts": 21,
+      "appendix_contracts": 17,
+      "required_appendices": [
+        "AppA",
+        "AppB",
+        "AppI",
+        "AppM"
+      ],
+      "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.json",
+      "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\earth_h6_contract_bundle.md"
+    }
+  },
+  "shared_appendix_floor": [
+    {
+      "appendix_id": "AppA",
+      "role": "addressing, symbols, parsing grammar, entry station",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppA_addressing_and_grammars.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppB",
+      "role": "canon laws, equivalence budgets, normal forms",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppB_canon_laws_and_forms.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppC",
+      "role": "Square kernel pack, discrete mixing, index algebra",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppC_kernel_pack_and_mixing.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppE",
+      "role": "Circle gear, phase lock, integer bridges",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppE_circle_gear_and_clock.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppF",
+      "role": "transport, rotation-as-conjugacy, DUAL legality",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppF_transport_and_duality.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppH",
+      "role": "coupling/topology, dependency closure, isolation invariants",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppH_coupling_and_topology.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppI",
+      "role": "corridors, truth lattice, admissibility budgets, abstain law",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppI_corridors_and_truth_lattice.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppM",
+      "role": "replay kernel, verifier capsules, determinism checklists",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppM_replay_kernel.md"
+      ],
+      "source_exists": true
+    },
+    {
+      "appendix_id": "AppQ",
+      "role": "appendix-only metro authority, deep-root docking, and certification-only support",
+      "source_paths": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_athena_fleet_256_pow_4_support.md"
+      ],
+      "source_exists": true
+    }
+  ],
+  "h6_center": {
+    "center_id": "H6",
+    "title": "Four-Lane Convergence Center",
+    "compiled_field": "256^4",
+    "emitted_carrier": "Seed-6D",
+    "local_zero_point": "Z_h6.center",
+    "collapse_via": "Z*",
+    "lane_order": [
+      "FIRE",
+      "WATER",
+      "AIR",
+      "EARTH"
+    ],
+    "shared_appendices": [
+      "AppA",
+      "AppB",
+      "AppC",
+      "AppE",
+      "AppF",
+      "AppH",
+      "AppI",
+      "AppM",
+      "AppQ"
+    ],
+    "center_law": "Converge FIRE pressure, Water continuity, AIR registry, and Earth admissibility into one additive center without rewriting v4 canon.",
+    "canonical_return_anchors": [
+      "Ch12<0023>",
+      "Ch13<0030>",
+      "Ch16<0033>",
+      "AppI",
+      "AppM"
+    ],
+    "conditional_appendix_rules": [
+      "Add AppN only when the carrier persists past the immediate gate.",
+      "Add AppK only when contradiction survives into return.",
+      "Add AppP only when the route becomes deployable or publication-bearing."
+    ],
+    "authority_surface_ids": [
+      "MATH_GOD_H6_CHARTER",
+      "MATH_GOD_H6_CROSSWALK",
+      "H6_INDEX",
+      "H6_FOUR_LANE",
+      "H6_CENTER",
+      "H6_GUARDRAILS",
+      "H6_REENTRY",
+      "LEVEL6_WEAVE",
+      "APPQ_DOCK",
+      "APPI_TRUTH",
+      "APPM_REPLAY"
+    ]
+  },
+  "seed_6d": {
+    "seed_id": "Seed-6D",
+    "carrier": "1024^6",
+    "local_zero_point": "Z_h6.seed",
+    "collapse_via": "Z*",
+    "seed_law": "Emit only after all four lane dependencies are named and the route can reopen through canonical return anchors.",
+    "canonical_return_anchors": [
+      "Ch12<0023>",
+      "Ch13<0030>",
+      "Ch16<0033>",
+      "AppI",
+      "AppM"
+    ],
+    "conditional_appendix_rules": {
+      "persisted_carrier": "AppN",
+      "surviving_conflict": "AppK",
+      "deployable_return_claim": "AppP"
+    },
+    "reentry_route_ids": [
+      "seed6d_reentry_ch12",
+      "seed6d_reentry_ch13",
+      "seed6d_reentry_ch16",
+      "seed6d_truth_floor_appi",
+      "seed6d_replay_floor_appm",
+      "seed6d_persisted_carrier_appn",
+      "seed6d_conflict_survival_appk",
+      "seed6d_deployable_claim_appp"
+    ]
+  },
+  "convergence_routes": [
+    {
+      "route_id": "h6_fire_pressure_to_water_continuity",
+      "title": "Bank FIRE pressure into Water continuity before shared convergence.",
+      "route_stage": "H6",
+      "source_basis": [
+        "06",
+        "08",
+        "10",
+        "16",
+        "01",
+        "14"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/05_level_5_mobius_bridge_map.md",
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+      ],
+      "local_zero_point": "Z_h6.fire.water",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER"
+      ],
+      "shared_appendices": [
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "return_checkpoint": "13_6D_H6_CONVERGENCE/01_four_lane_convergence.md",
+      "truth_state": "NEAR",
+      "replay_source": "11_6D_WATER_CONTROL/04_replay_and_recovery.md"
+    },
+    {
+      "route_id": "h6_water_continuity_to_air_registry",
+      "title": "Pass continuity through AIR registry so the field stays name-stable.",
+      "route_stage": "H6",
+      "source_basis": [
+        "01",
+        "11",
+        "12",
+        "14",
+        "03",
+        "04",
+        "05",
+        "07"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+        "12_6D_AIR_CONTROL/01_overlay_registry.md"
+      ],
+      "local_zero_point": "Z_h6.water.air",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "WATER",
+        "AIR"
+      ],
+      "shared_appendices": [
+        "AppA",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "return_checkpoint": "12_6D_AIR_CONTROL/04_seed_and_reentry.md",
+      "truth_state": "NEAR",
+      "replay_source": "12_6D_AIR_CONTROL/04_seed_and_reentry.md"
+    },
+    {
+      "route_id": "h6_air_registry_to_earth_admissibility",
+      "title": "Submit the named overlay to Earth so only lawful return traffic persists.",
+      "route_stage": "H6",
+      "source_basis": [
+        "03",
+        "04",
+        "05",
+        "07",
+        "02",
+        "09",
+        "13",
+        "15"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+        "13_6D_EARTH_CONTROL/01_admissibility_and_zero_point.md"
+      ],
+      "local_zero_point": "Z_h6.air.earth",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "return_checkpoint": "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+    },
+    {
+      "route_id": "h6_shared_center_compile",
+      "title": "Converge FIRE, Water, AIR, and Earth into one shared H6 center without renaming canon.",
+      "route_stage": "H6",
+      "source_basis": [
+        "01",
+        "03",
+        "06",
+        "09",
+        "14",
+        "15",
+        "16"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+        "13_6D_H6_CONVERGENCE/02_h6_center_and_seed6d.md"
+      ],
+      "local_zero_point": "Z_h6.center",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppH",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "return_checkpoint": "13_6D_H6_CONVERGENCE/02_h6_center_and_seed6d.md",
+      "truth_state": "NEAR",
+      "replay_source": "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+    },
+    {
+      "route_id": "h6_emit_seed6d",
+      "title": "Emit Seed-6D as the immediate portable carrier above the shared H6 center.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "09",
+        "14",
+        "15",
+        "16"
+      ],
+      "metro_refs": [
+        "13_6D_H6_CONVERGENCE/02_h6_center_and_seed6d.md",
+        "13_6D_H6_CONVERGENCE/04_reentry_and_next_seed.md"
+      ],
+      "local_zero_point": "Z_h6.seed.emit",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppA",
+        "AppB",
+        "AppC",
+        "AppE",
+        "AppF",
+        "AppH",
+        "AppI",
+        "AppM",
+        "AppQ"
+      ],
+      "return_checkpoint": "Seed-6D",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_H6_CONVERGENCE/04_reentry_and_next_seed.md"
+    }
+  ],
+  "reentry_routes": [
+    {
+      "route_id": "seed6d_reentry_ch12",
+      "title": "Re-open Seed-6D through the boundary and closure spine.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "09",
+        "15"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.ch12",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppM"
+      ],
+      "return_checkpoint": "Ch12<0023>",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+    },
+    {
+      "route_id": "seed6d_reentry_ch13",
+      "title": "Re-open Seed-6D through the retained-memory continuation spine.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "04",
+        "13",
+        "14"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.ch13",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppM"
+      ],
+      "return_checkpoint": "Ch13<0030>",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+    },
+    {
+      "route_id": "seed6d_reentry_ch16",
+      "title": "Re-open Seed-6D through the replay and self-repair spine.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "14",
+        "16"
+      ],
+      "metro_refs": [
+        "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.ch16",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppM"
+      ],
+      "return_checkpoint": "Ch16<0033>",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_EARTH_CONTROL/04_replay_and_reentry_guards.md"
+    },
+    {
+      "route_id": "seed6d_truth_floor_appi",
+      "title": "Keep AppI visible as the non-optional truth floor during re-entry.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "02",
+        "09",
+        "15"
+      ],
+      "metro_refs": [
+        "08_APPENDIX_CRYSTAL/AppI_corridors_and_truth_lattice.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.appi",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppM"
+      ],
+      "return_checkpoint": "AppI",
+      "truth_state": "NEAR",
+      "replay_source": "08_APPENDIX_CRYSTAL/AppI_corridors_and_truth_lattice.md"
+    },
+    {
+      "route_id": "seed6d_replay_floor_appm",
+      "title": "Keep AppM visible as the non-optional replay floor during re-entry.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "09",
+        "16"
+      ],
+      "metro_refs": [
+        "08_APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.appm",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppM"
+      ],
+      "return_checkpoint": "AppM",
+      "truth_state": "NEAR",
+      "replay_source": "08_APPENDIX_CRYSTAL/AppM_replay_kernel.md"
+    },
+    {
+      "route_id": "seed6d_persisted_carrier_appn",
+      "title": "Add AppN only when the Seed-6D carrier persists past the immediate gate.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "05",
+        "09",
+        "14"
+      ],
+      "metro_refs": [
+        "13_6D_H6_CONVERGENCE/04_reentry_and_next_seed.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.appn",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppM",
+        "AppN"
+      ],
+      "return_checkpoint": "AppN",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_H6_CONVERGENCE/04_reentry_and_next_seed.md"
+    },
+    {
+      "route_id": "seed6d_conflict_survival_appk",
+      "title": "Add AppK only when contradiction survives into the return path.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "09",
+        "13",
+        "15"
+      ],
+      "metro_refs": [
+        "13_6D_EARTH_CONTROL/03_boundary_quarantine_and_mobius_legality.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.appk",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppK",
+        "AppM"
+      ],
+      "return_checkpoint": "AppK",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_EARTH_CONTROL/03_boundary_quarantine_and_mobius_legality.md"
+    },
+    {
+      "route_id": "seed6d_deployable_claim_appp",
+      "title": "Add AppP only when the return becomes a deployable claim rather than an immediate closure.",
+      "route_stage": "Seed-6D",
+      "source_basis": [
+        "10",
+        "13",
+        "16"
+      ],
+      "metro_refs": [
+        "13_6D_H6_CONVERGENCE/04_reentry_and_next_seed.md"
+      ],
+      "local_zero_point": "Z_h6.reentry.appp",
+      "collapse_via": "Z*",
+      "lane_dependencies": [
+        "FIRE",
+        "WATER",
+        "AIR",
+        "EARTH"
+      ],
+      "shared_appendices": [
+        "AppI",
+        "AppM",
+        "AppP"
+      ],
+      "return_checkpoint": "AppP",
+      "truth_state": "NEAR",
+      "replay_source": "13_6D_H6_CONVERGENCE/04_reentry_and_next_seed.md"
+    }
+  ],
+  "evidence_boundary": {
+    "authority_mode": "local_live_atlas_plus_archive_backed_evidence",
+    "docs_gate_status": "BLOCKED",
+    "docs_gate_note": "Error: Missing OAuth client file: credentials.json\nCreate/download a Desktop App OAuth client in Google Cloud Console and save it as credentials.json (or pass --credentials).",
+    "control_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE",
+    "precedence_rule": "Use live 13_6D_H6_CONVERGENCE plus existing Fire/Water/AIR/Earth controls as authority; keep MATH GOD as additive publication mirror only.",
+    "control_documents": [
+      {
+        "name": "00_INDEX.md",
+        "role": "package entry",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\00_INDEX.md",
+        "source_exists": true,
+        "basis_refs": [
+          "06",
+          "01",
+          "03",
+          "02"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+        ],
+        "appendix_refs": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppH",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ]
+      },
+      {
+        "name": "01_four_lane_convergence.md",
+        "role": "lane ordering and convergence law",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\01_four_lane_convergence.md",
+        "source_exists": true,
+        "basis_refs": [
+          "06",
+          "01",
+          "03",
+          "02",
+          "15"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/05_level_5_mobius_bridge_map.md",
+          "07_METRO_STACK/06_level_6_hologram_weave_map.md"
+        ],
+        "appendix_refs": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppH",
+          "AppI",
+          "AppM",
+          "AppQ"
+        ]
+      },
+      {
+        "name": "02_h6_center_and_seed6d.md",
+        "role": "shared center and seed emission",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\02_h6_center_and_seed6d.md",
+        "source_exists": true,
+        "basis_refs": [
+          "14",
+          "11",
+          "04",
+          "09",
+          "15",
+          "16"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+          "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+        ],
+        "appendix_refs": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppH",
+          "AppI",
+          "AppM",
+          "AppQ",
+          "AppN"
+        ]
+      },
+      {
+        "name": "03_cross_agent_handoff_and_guardrails.md",
+        "role": "handoff and legality guards",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\03_cross_agent_handoff_and_guardrails.md",
+        "source_exists": true,
+        "basis_refs": [
+          "16",
+          "11",
+          "05",
+          "15"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+          "08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md"
+        ],
+        "appendix_refs": [
+          "AppA",
+          "AppB",
+          "AppC",
+          "AppE",
+          "AppF",
+          "AppH",
+          "AppI",
+          "AppM",
+          "AppQ",
+          "AppK",
+          "AppN",
+          "AppP"
+        ]
+      },
+      {
+        "name": "04_reentry_and_next_seed.md",
+        "role": "canonical re-entry and next-seed control",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\04_reentry_and_next_seed.md",
+        "source_exists": true,
+        "basis_refs": [
+          "09",
+          "14",
+          "15",
+          "16"
+        ],
+        "metro_refs": [
+          "07_METRO_STACK/06_level_6_hologram_weave_map.md",
+          "MATH GOD/atlas/math_tesseract_v4_bundle.md"
+        ],
+        "appendix_refs": [
+          "AppI",
+          "AppM",
+          "AppQ",
+          "AppN",
+          "AppK",
+          "AppP"
+        ]
+      }
+    ],
+    "authority_surfaces": [
+      {
+        "surface_id": "MATH_GOD_H6_CHARTER",
+        "classification": "local canon",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\97_H6_CONVERGENCE_CHARTER.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "MATH_GOD_H6_CROSSWALK",
+        "classification": "local canon",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\98_H6_TO_SEED6D_CROSSWALK.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "H6_INDEX",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\00_INDEX.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "H6_FOUR_LANE",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\01_four_lane_convergence.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "H6_CENTER",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\02_h6_center_and_seed6d.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "H6_GUARDRAILS",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\03_cross_agent_handoff_and_guardrails.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "H6_REENTRY",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\13_6D_H6_CONVERGENCE\\04_reentry_and_next_seed.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "LEVEL6_WEAVE",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\07_METRO_STACK\\06_level_6_hologram_weave_map.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "APPQ_DOCK",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppQ_appendix_only_metro_map.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "APPI_TRUTH",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppI_corridors_and_truth_lattice.md",
+        "state": "OK"
+      },
+      {
+        "surface_id": "APPM_REPLAY",
+        "classification": "live authority",
+        "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\08_APPENDIX_CRYSTAL\\AppM_replay_kernel.md",
+        "state": "OK"
+      }
+    ],
+    "live_deep_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+    "historical_mirrors": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NETWORK",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NET_ATHENA"
+    ],
+    "historical_mirror_policy": "citation_only",
+    "tesseract_sources": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.json",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_tesseract_v4_bundle.md"
+    ],
+    "scope": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM"
+  },
+  "bundle_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_h6_convergence_bundle.json",
+  "atlas_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\MATH\\FINAL FORM\\MATH GOD\\atlas\\math_h6_convergence_bundle.md"
+}

@@ -1,0 +1,358 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+  "shortcuts": [
+    {
+      "shortcut_id": "SCPT2-01",
+      "label": "SquareAnchor",
+      "trigger": "address-first grounding",
+      "preferred_zones": [
+        "cortex",
+        "appendix"
+      ],
+      "preferred_surface_classes": [
+        "body_station",
+        "body",
+        "node"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "system",
+        "coordinate",
+        "lens"
+      ],
+      "stop_condition": "REPAIR",
+      "required_inputs": [
+        "seed surface",
+        "body or node id"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-02",
+      "label": "CirclePhaseSync",
+      "trigger": "phase alignment",
+      "preferred_zones": [
+        "cortex",
+        "deep-root"
+      ],
+      "preferred_surface_classes": [
+        "pair",
+        "wave"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "system",
+        "lens",
+        "field"
+      ],
+      "stop_condition": "REPAIR",
+      "required_inputs": [
+        "objective",
+        "phase-bearing surface"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-03",
+      "label": "TriangleLegalityCheck",
+      "trigger": "carry legality",
+      "preferred_zones": [
+        "cortex",
+        "field"
+      ],
+      "preferred_surface_classes": [
+        "body",
+        "pair",
+        "route"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "rail",
+        "coordinate"
+      ],
+      "stop_condition": "ABSTAIN",
+      "required_inputs": [
+        "candidate route",
+        "rail context"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-04",
+      "label": "FlowerResonanceSweep",
+      "trigger": "resonance scan",
+      "preferred_zones": [
+        "runtime",
+        "field"
+      ],
+      "preferred_surface_classes": [
+        "wave",
+        "pair"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "lens",
+        "field"
+      ],
+      "stop_condition": "REPAIR",
+      "required_inputs": [
+        "objective"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-05",
+      "label": "CloudFieldProbe",
+      "trigger": "field-density scan",
+      "preferred_zones": [
+        "field",
+        "deep-root"
+      ],
+      "preferred_surface_classes": [
+        "wave",
+        "projection"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "field",
+        "coordinate",
+        "lens"
+      ],
+      "stop_condition": "ABSTAIN",
+      "required_inputs": [
+        "field seed"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-06",
+      "label": "FractalReplayFold",
+      "trigger": "replay-first regeneration",
+      "preferred_zones": [
+        "runtime",
+        "cortex"
+      ],
+      "preferred_surface_classes": [
+        "wave",
+        "body",
+        "node"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "field",
+        "writeback"
+      ],
+      "stop_condition": "REPAIR",
+      "required_inputs": [
+        "record id"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-07",
+      "label": "HybridFaceJump",
+      "trigger": "jump to nearest useful hybrid lens family",
+      "preferred_zones": [
+        "field",
+        "deep-root"
+      ],
+      "preferred_surface_classes": [
+        "pair",
+        "wave",
+        "projection"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "system",
+        "lens",
+        "field"
+      ],
+      "stop_condition": "PROMOTE",
+      "required_inputs": [
+        "objective",
+        "dominant lens"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-08",
+      "label": "LensBalance",
+      "trigger": "rebalance over-fit lens stacks",
+      "preferred_zones": [
+        "cortex",
+        "runtime"
+      ],
+      "preferred_surface_classes": [
+        "body",
+        "node",
+        "wave"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "lens",
+        "field"
+      ],
+      "stop_condition": "REPAIR",
+      "required_inputs": [
+        "record id"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-09",
+      "label": "MetroInterlockJump",
+      "trigger": "use explicit interlock instead of inferred hop",
+      "preferred_zones": [
+        "cortex",
+        "runtime",
+        "deep-root"
+      ],
+      "preferred_surface_classes": [
+        "route",
+        "interlock"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "system",
+        "interlock"
+      ],
+      "stop_condition": "PROMOTE",
+      "required_inputs": [
+        "source",
+        "target"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-10",
+      "label": "ZPointDive",
+      "trigger": "restart or tunnel dive through GCZ",
+      "preferred_zones": [
+        "deep-root",
+        "field"
+      ],
+      "preferred_surface_classes": [
+        "route",
+        "wave"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "field",
+        "interlock"
+      ],
+      "stop_condition": "QUARANTINE",
+      "required_inputs": [
+        "restart seed"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-11",
+      "label": "AetherBridge",
+      "trigger": "cross through Aether density rather than flat similarity",
+      "preferred_zones": [
+        "field",
+        "runtime"
+      ],
+      "preferred_surface_classes": [
+        "projection",
+        "wave",
+        "pair"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "field",
+        "lens"
+      ],
+      "stop_condition": "PROMOTE",
+      "required_inputs": [
+        "field seed",
+        "objective"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-12",
+      "label": "MycelialBackfill",
+      "trigger": "repair neglected membrane routes before outward lift",
+      "preferred_zones": [
+        "field",
+        "cortex"
+      ],
+      "preferred_surface_classes": [
+        "body",
+        "pair",
+        "projection"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "field",
+        "writeback"
+      ],
+      "stop_condition": "REPAIR",
+      "required_inputs": [
+        "neglect signal"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    },
+    {
+      "shortcut_id": "SCPT2-13",
+      "label": "HDSCTLift",
+      "trigger": "project through higher-dimensional carriers",
+      "preferred_zones": [
+        "field",
+        "deep-root"
+      ],
+      "preferred_surface_classes": [
+        "projection",
+        "pair",
+        "route"
+      ],
+      "ranking_stack": [
+        "authority",
+        "witness",
+        "system",
+        "coordinate",
+        "lens",
+        "field"
+      ],
+      "stop_condition": "PROMOTE",
+      "required_inputs": [
+        "projection seed"
+      ],
+      "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+      "note": "Phase 4 Pt 2 deterministic shortcut."
+    }
+  ],
+  "summary": {
+    "count": 13
+  }
+}

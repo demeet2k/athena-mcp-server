@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L25",
+  "status": "PENDING",
+  "lead_agent": "PLANNER",
+  "objective": "synthesize where records and seats remain disjoint",
+  "advancement_tuple": {
+    "focus_family": "knowledge-fabric",
+    "frontier_type": "knowledge-fabric-seat-binding",
+    "dominant_evidence_class": "binding-ledger",
+    "compression_target": "duplicate-seat-narratives"
+  },
+  "truth_state": "NEAR"
+}

@@ -1,0 +1,191 @@
+{
+  "nodes": [
+    "04_RUNTIME_FUSION",
+    "07_FULL_PROJECT_INTEGRATION_256",
+    "10_FRONTIERS",
+    "13_DEEPER_NEURAL_NET",
+    "15_MOTION_CONSTITUTION",
+    "AppQ",
+    "Ch03",
+    "Ch07",
+    "Ch08",
+    "Ch10",
+    "Ch11",
+    "Ch12",
+    "Ch14",
+    "Ch17",
+    "Ch18",
+    "Ch19",
+    "GLOBAL_EMERGENT_GUILD_HALL",
+    "Supp01",
+    "Supp02",
+    "Supp03",
+    "Supp04",
+    "Supp05",
+    "Supp06",
+    "Supp07",
+    "Supp08"
+  ],
+  "edges": [
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch03",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch03",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch07",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch07",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch08",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch08",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch10",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch10",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch11",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch11",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch12",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch12",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch14",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch14",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch17",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch17",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch18",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch18",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "Ch19",
+      "kind": "evidence"
+    },
+    {
+      "src": "10_FRONTIERS",
+      "dst": "Ch19",
+      "kind": "frontier"
+    },
+    {
+      "src": "13_DEEPER_NEURAL_NET",
+      "dst": "AppQ",
+      "kind": "appendix-network"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp01",
+      "kind": "support"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp02",
+      "kind": "support"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp03",
+      "kind": "support"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp04",
+      "kind": "support"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp05",
+      "kind": "support"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp06",
+      "kind": "support"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp07",
+      "kind": "support"
+    },
+    {
+      "src": "06_RUNTIME",
+      "dst": "Supp08",
+      "kind": "support"
+    },
+    {
+      "src": "15_MOTION_CONSTITUTION",
+      "dst": "04_RUNTIME_FUSION",
+      "kind": "governance"
+    },
+    {
+      "src": "07_FULL_PROJECT_INTEGRATION_256",
+      "dst": "04_RUNTIME_FUSION",
+      "kind": "board"
+    },
+    {
+      "src": "GLOBAL_EMERGENT_GUILD_HALL",
+      "dst": "04_RUNTIME_FUSION",
+      "kind": "hall"
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "id": "joint-atlas.organ-current-route-table@0.1.0",
+  "version": "0.1.0",
+  "status": "derived-near",
+  "truth": "NEAR-derived",
+  "organ_classes": [
+    {
+      "organ_id": "BrainstemChamber",
+      "kind": "governance-runtime organ",
+      "zone": "brainstem_internal",
+      "duty": "scores, gates, and routes candidate motion"
+    },
+    {
+      "organ_id": "QuestBoard",
+      "kind": "source queue",
+      "zone": "brainstem_internal",
+      "duty": "holds open quest packets awaiting lawful motion"
+    },
+    {
+      "organ_id": "AgentRegistry",
+      "kind": "source queue",
+      "zone": "brainstem_internal",
+      "duty": "advertises role families and help envelopes"
+    },
+    {
+      "organ_id": "CommitteeChamber",
+      "kind": "governance membrane",
+      "zone": "committee_internal",
+      "duty": "handles stewardship, merge, and branch-limit decisions"
+    },
+    {
+      "organ_id": "ImmuneScheduler",
+      "kind": "immune organ",
+      "zone": "immune_runtime",
+      "duty": "surfaces quarantine and unresolved-failure pressure"
+    },
+    {
+      "organ_id": "ReplayKernel",
+      "kind": "verification organ",
+      "zone": "replay_lab",
+      "duty": "executes replay-first obligations and receipt verification"
+    },
+    {
+      "organ_id": "QuarantineManifold",
+      "kind": "immune containment organ",
+      "zone": "quarantine_zone",
+      "duty": "contains contradiction and failure classes that cannot circulate"
+    },
+    {
+      "organ_id": "ContinuationSeedVault",
+      "kind": "memory organ",
+      "zone": "seed_store",
+      "duty": "stores lawful continuation seeds when circulation must pause"
+    },
+    {
+      "organ_id": "PublicCommitSurface",
+      "kind": "publication membrane",
+      "zone": "public_grade",
+      "duty": "receives only replay-cleared closure artifacts"
+    }
+  ],
+  "current_classes": [
+    {
+      "current_id": "governance",
+      "meaning": "committee, role, and stewardship traffic"
+    },
+    {
+      "current_id": "truth",
+      "meaning": "witness, admissibility, and legality traffic"
+    },
+    {
+      "current_id": "replay",
+      "meaning": "verification and deterministic rerun traffic"
+    },
+    {
+      "current_id": "immune",
+      "meaning": "quarantine, refusal, and failure-class traffic"
+    },
+    {
+      "current_id": "continuation",
+      "meaning": "seed emission and successor-seed return"
+    },
+    {
+      "current_id": "transport",
+      "meaning": "ordinary lawful movement between organs"
+    }
+  ],
+  "zone_classes": [
+    {
+      "zone_id": "brainstem_internal",
+      "law": "scoring and gating allowed; no public closure"
+    },
+    {
+      "zone_id": "committee_internal",
+      "law": "collective governance required before escalation resolves"
+    },
+    {
+      "zone_id": "replay_lab",
+      "law": "replay obligations may execute without public promotion"
+    },
+    {
+      "zone_id": "quarantine_zone",
+      "law": "contained contradiction may persist; export forbidden"
+    },
+    {
+      "zone_id": "seed_store",
+      "law": "continuation seeds may persist while forward motion is paused"
+    },
+    {
+      "zone_id": "public_grade",
+      "law": "only replay-cleared closure artifacts may enter"
+    }
+  ],
+  "packet_families": [
+    "quest_packet",
+    "witness_request",
+    "help_request",
+    "replay_job",
+    "committee_escalation",
+    "quarantine_packet",
+    "continuation_seed",
+    "action_receipt",
+    "refusal_receipt"
+  ],
+  "admissible_movement_rules": [
+    {
+      "route": "QuestBoard -> BrainstemChamber",
+      "current": "governance",
+      "packet_family": "quest_packet",
+      "law": "all candidate motion enters the brainstem through typed queues"
+    },
+    {
+      "route": "AgentRegistry -> BrainstemChamber",
+      "current": "governance",
+      "packet_family": "help_request",
+      "law": "role mismatch may be converted into lawful help requests"
+    },
+    {
+      "route": "ImmuneScheduler -> BrainstemChamber",
+      "current": "immune",
+      "packet_family": "quarantine_packet",
+      "law": "immune pressure may veto activation before execution"
+    },
+    {
+      "route": "BrainstemChamber -> ReplayKernel",
+      "current": "replay",
+      "packet_family": "replay_job",
+      "law": "replay-first obligations leave the brainstem through ReplayKernel"
+    },
+    {
+      "route": "BrainstemChamber -> CommitteeChamber",
+      "current": "governance",
+      "packet_family": "committee_escalation",
+      "law": "branch-limit and stewardship violations require committee routing"
+    },
+    {
+      "route": "BrainstemChamber -> QuarantineManifold",
+      "current": "immune",
+      "packet_family": "quarantine_packet",
+      "law": "forbidden contradiction classes are routed to containment instead of activation"
+    },
+    {
+      "route": "BrainstemChamber -> ContinuationSeedVault",
+      "current": "continuation",
+      "packet_family": "continuation_seed",
+      "law": "blocked motion with preserved continuation value emits a successor seed"
+    },
+    {
+      "route": "BrainstemChamber -> PublicCommitSurface",
+      "current": "transport",
+      "packet_family": "action_receipt",
+      "law": "public-grade closure is lawful only when replay obligations are already satisfied"
+    },
+    {
+      "route": "ReplayKernel -> ContinuationSeedVault",
+      "current": "continuation",
+      "packet_family": "continuation_seed",
+      "law": "verified replay may crystallize into a successor seed for the next lawful pass"
+    }
+  ],
+  "forbidden_routes": [
+    {
+      "route": "QuarantineManifold -> PublicCommitSurface",
+      "law": "quarantined contradiction cannot be promoted as public closure"
+    },
+    {
+      "route": "BrainstemChamber -> PublicCommitSurface",
+      "law": "forbidden when replay readiness is below threshold or Omega denies"
+    },
+    {
+      "route": "QuestBoard -> PublicCommitSurface",
+      "law": "no direct public promotion without brainstem scoring and replay"
+    },
+    {
+      "route": "QuarantineManifold -> BrainstemChamber",
+      "law": "recent quarantine may not reactivate until trust or replay improves"
+    },
+    {
+      "route": "BrainstemChamber -> parallel_conflicting_commit",
+      "law": "committee-pending items suppress parallel conflicting commits"
+    }
+  ],
+  "committee_required_routes": [
+    {
+      "route": "BrainstemChamber -> CommitteeChamber",
+      "trigger": "branch burden exceeds stewardship limit"
+    },
+    {
+      "route": "BrainstemChamber -> CommitteeChamber",
+      "trigger": "multi-agent merge or governance membrane required"
+    },
+    {
+      "route": "BrainstemChamber -> CommitteeChamber",
+      "trigger": "carrier envelope exceeded for current truth burden"
+    }
+  ],
+  "seed_fallback_routes": [
+    {
+      "route": "BrainstemChamber -> ContinuationSeedVault",
+      "trigger": "continuation value remains but lawful forward motion does not"
+    },
+    {
+      "route": "ReplayKernel -> ContinuationSeedVault",
+      "trigger": "replay clarifies the next lawful seed even if activation stays blocked"
+    }
+  ]
+}

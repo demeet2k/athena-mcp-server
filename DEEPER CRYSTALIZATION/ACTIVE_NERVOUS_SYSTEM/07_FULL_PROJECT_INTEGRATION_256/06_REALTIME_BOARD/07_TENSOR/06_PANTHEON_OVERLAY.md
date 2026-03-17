@@ -4,28 +4,23 @@ The twelve off-diagonal cells are the archetype pantheon. They are where mixed s
 
 ## Fire-Air
 - Role: Strategist that turns maps into build moves
-- Threads: `13`
-- Pods: `8`
+- Threads: `35`
+- Pods: `33`
 
 ## Air-Earth
 - Role: Mapper that lands abstractions in file coordinates
-- Threads: `4`
-- Pods: `2`
-
-## Earth-Water
-- Role: Root binder of folders to memory surfaces
 - Threads: `2`
-- Pods: `1`
+- Pods: `2`
 
 ## Water-Air
 - Role: Interpreter of meaning across folders and forms
 - Threads: `2`
-- Pods: `0`
+- Pods: `1`
 
-## Water-Fire
-- Role: Transmuter of raw notes into linked narrative motion
+## Earth-Water
+- Role: Root binder of folders to memory surfaces
 - Threads: `1`
-- Pods: `0`
+- Pods: `1`
 
 ## Air-Fire
 - Role: Signal spear for prioritization and high-yield compression
@@ -59,5 +54,10 @@ The twelve off-diagonal cells are the archetype pantheon. They are where mixed s
 
 ## Water-Earth
 - Role: Keeper of source lineage and replay continuity
+- Threads: `0`
+- Pods: `0`
+
+## Water-Fire
+- Role: Transmuter of raw notes into linked narrative motion
 - Threads: `0`
 - Pods: `0`

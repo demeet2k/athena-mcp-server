@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-03-13",
+  "protocol_id": "LP-57OMEGA",
+  "truth": "OK",
+  "loop_id": "C02",
+  "status": "SEEDED",
+  "pruner_law": "merge duplicates and stale mirrors, but never erase the only witness of any live or promoted front",
+  "compatibility_mirrors": [
+    "NEXT57",
+    "Q51",
+    "TQ07",
+    "FA57"
+  ],
+  "blocked_actions": [
+    "delete only witness",
+    "collapse Q50 into feeder tuple",
+    "fake live-doc evidence",
+    "promote beyond the 8 Hall / 8 Temple public caps"
+  ],
+  "restart_seed": "C02 -> Whole-Corpus Census -> C03 Witness Hierarchy Map -> C04 Feeder-Stack Crosswalk"
+}

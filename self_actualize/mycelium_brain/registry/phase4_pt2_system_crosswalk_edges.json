@@ -1,0 +1,636 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase4_pt2_inter_metro_lens_weight_superstructure",
+  "docs_gate": "BLOCKED",
+  "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md",
+  "edges": [
+    {
+      "edge_id": "XW-001",
+      "source_id": "CoreMetro",
+      "target_id": "EmergentSupermap",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "same_station",
+      "weight": 0.735,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Core metro hands off into the deeper supermap through the existing transfer lattice."
+    },
+    {
+      "edge_id": "XW-002",
+      "source_id": "EmergentSupermap",
+      "target_id": "L2DeepEmergence",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "rail_lift",
+      "weight": 0.748,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Emergent supermap lifts into Level 2 through the Su rail."
+    },
+    {
+      "edge_id": "XW-003",
+      "source_id": "L2DeepEmergence",
+      "target_id": "L3Neural",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "rail_lift",
+      "weight": 0.748,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Level 2 emergence hands off into Level 3 neural routing."
+    },
+    {
+      "edge_id": "XW-004",
+      "source_id": "L3Neural",
+      "target_id": "L4Transcendent",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "rail_lift",
+      "weight": 0.74,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Level 3 lifts into Level 4 only through the transcendent lift."
+    },
+    {
+      "edge_id": "XW-005",
+      "source_id": "CoreMetro",
+      "target_id": "GrandCentral",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "hub_transfer",
+      "weight": 0.775,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Grand Central is the default interlock yard for multi-system routing."
+    },
+    {
+      "edge_id": "XW-006",
+      "source_id": "GrandCentral",
+      "target_id": "BrainStem64",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "rail_lift",
+      "weight": 0.756,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Weight mezzanine dispatches into the brain stem yard."
+    },
+    {
+      "edge_id": "XW-007",
+      "source_id": "BrainStem64",
+      "target_id": "Plexus256",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "rail_lift",
+      "weight": 0.748,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Brain stem traffic expands into the 256x plexus."
+    },
+    {
+      "edge_id": "XW-008",
+      "source_id": "Plexus256",
+      "target_id": "Arbor1024",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "rail_lift",
+      "weight": 0.748,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Plexus traffic deepens into the synaptic arbor return ring."
+    },
+    {
+      "edge_id": "XW-009",
+      "source_id": "GrandCentral",
+      "target_id": "DeepRootMetroStack",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "tunnel_crossing",
+      "weight": 0.794,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "GCZ and Ch11 form the lawful tunnel crossing into the live deep root."
+    },
+    {
+      "edge_id": "XW-010",
+      "source_id": "DeepRootMetroStack",
+      "target_id": "AppendixOnlyMetro",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "appendix_dock",
+      "weight": 0.718,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Appendix-only certification docks into the deep-root appendix map."
+    },
+    {
+      "edge_id": "XW-011",
+      "source_id": "AppendixOnlyMetro",
+      "target_id": "HDSCTMetro",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "same_station",
+      "weight": 0.74,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "HD-SCT uses Appendix M as a deterministic certificate dock."
+    },
+    {
+      "edge_id": "XW-012",
+      "source_id": "CoreMetro",
+      "target_id": "Mycelial4D",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "body_projection",
+      "weight": 0.736,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "T9 projects cortical traffic into the 4D mycelial organism."
+    },
+    {
+      "edge_id": "XW-013",
+      "source_id": "Mycelial4D",
+      "target_id": "CrossCorpusMycelial",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "field_projection",
+      "weight": 0.691,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Mycelial field projection opens the cross-corpus departure lane."
+    },
+    {
+      "edge_id": "XW-014",
+      "source_id": "GrandCentral",
+      "target_id": "AthenaFleetMetro",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "body_projection",
+      "weight": 0.736,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Grand Central projects into the Athena FLEET cluster through the fleet hub."
+    },
+    {
+      "edge_id": "XW-015",
+      "source_id": "AthenaFleetMetro",
+      "target_id": "CrossCorpusMycelial",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "promotion_departure",
+      "weight": 0.696,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Fleet promotion moves into the cross-corpus lane without dissolving the local cluster."
+    },
+    {
+      "edge_id": "XW-016",
+      "source_id": "CrossCorpusMycelial",
+      "target_id": "GrandCentral",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "hub_transfer",
+      "weight": 0.745,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Cross-corpus traffic returns through Grand Central with blocked Trading Bot evidence kept visible."
+    },
+    {
+      "edge_id": "XW-017",
+      "source_id": "HDSCTMetro",
+      "target_id": "GrandCentral",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "field_projection",
+      "weight": 0.734,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "HD-SCT carrier projections re-enter the main hall through Grand Central."
+    },
+    {
+      "edge_id": "XW-018",
+      "source_id": "L3Neural",
+      "target_id": "DeepRootMetroStack",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "pair_projection",
+      "weight": 0.728,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Level 3 neural routes resolve into the live deep-root pair store."
+    },
+    {
+      "edge_id": "XW-019",
+      "source_id": "AppendixOnlyMetro",
+      "target_id": "CoreMetro",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "appendix_dock",
+      "weight": 0.718,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Appendix signatures can route back into the core metro when certification is complete."
+    },
+    {
+      "edge_id": "XW-020",
+      "source_id": "L4Transcendent",
+      "target_id": "HDSCTMetro",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "field_projection",
+      "weight": 0.718,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Transcendent lift hands off into HD-SCT carrier space."
+    },
+    {
+      "edge_id": "XW-021",
+      "source_id": "DeepRootMetroStack",
+      "target_id": "GrandCentral",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "tunnel_crossing",
+      "weight": 0.794,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Ch11 restarts close back through GCZ and Grand Central."
+    },
+    {
+      "edge_id": "XW-022",
+      "source_id": "GrandCentral",
+      "target_id": "Plexus256",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "hub_transfer",
+      "weight": 0.783,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Grand Central may jump straight to the plexus when the weight mezzanine is hot."
+    },
+    {
+      "edge_id": "XW-023",
+      "source_id": "GrandCentral",
+      "target_id": "Mycelial4D",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "field_projection",
+      "weight": 0.721,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "Replay concourse bridges into the mycelial chamber without bypassing return law."
+    },
+    {
+      "edge_id": "XW-024",
+      "source_id": "EmergentSupermap",
+      "target_id": "CrossCorpusMycelial",
+      "edge_kind": "inter-metro",
+      "bridge_reason": "promotion_departure",
+      "weight": 0.688,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\36_higher_d_square_circle_triangle.md",
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\MANUSCRIPT_ELEMENTAL_NET_4X4\\01_SOURCE_EXTRACTS\\m02_holographic-reality-structure.md"
+      ],
+      "note": "The deeper supermap can promote directly into the cross-corpus lane if Grand Central witness remains intact."
+    },
+    {
+      "edge_id": "XW-025",
+      "source_id": "S",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "address/structure",
+      "weight": 0.36,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-027",
+      "source_id": "F",
+      "target_id": "Flower",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "resonance/orbit",
+      "weight": 0.35,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-029",
+      "source_id": "SF",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "spectral projection",
+      "weight": 0.18,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-031",
+      "source_id": "C",
+      "target_id": "Cloud",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "field/Aether/ambiguity",
+      "weight": 0.3,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-033",
+      "source_id": "SC",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "address-to-field permeability",
+      "weight": 0.25,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-035",
+      "source_id": "FC",
+      "target_id": "Flower",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "resonance-induced field motion",
+      "weight": 0.285,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-037",
+      "source_id": "SFC",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "backbone spectral coherence",
+      "weight": 0.19,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-039",
+      "source_id": "R",
+      "target_id": "Fractal",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "memory/replay/regeneration",
+      "weight": 0.36,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-041",
+      "source_id": "SR",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "address-to-replay stabilization",
+      "weight": 0.305,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-043",
+      "source_id": "FR",
+      "target_id": "Flower",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "harmonic regeneration",
+      "weight": 0.235,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-045",
+      "source_id": "SFR",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "lift and defect-control gate",
+      "weight": 0.203,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-047",
+      "source_id": "CR",
+      "target_id": "Cloud",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "field-memory renormalization",
+      "weight": 0.18,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-049",
+      "source_id": "SCR",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "diffusion and coarse-grain corridor gate",
+      "weight": 0.237,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-051",
+      "source_id": "FCR",
+      "target_id": "Flower",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "heat-trace and global statistics gate",
+      "weight": 0.23,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "XW-053",
+      "source_id": "SFCR",
+      "target_id": "Square",
+      "edge_kind": "inter-lens",
+      "bridge_reason": "mature-object certificate and unified Aether witness",
+      "weight": 0.177,
+      "witness_basis": [
+        "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md"
+      ],
+      "note": "Lens profile resolves into its preferred carrier family."
+    },
+    {
+      "edge_id": "CS-001",
+      "source_id": "A16",
+      "target_id": "A06",
+      "edge_kind": "direct-bridge-family",
+      "bridge_reason": "BF-CS-001",
+      "weight": 0.96,
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\02_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_voynich.md"
+      ],
+      "note": "Athena FLEET routes directly into the Voynich proof engine."
+    },
+    {
+      "edge_id": "CS-002",
+      "source_id": "A06",
+      "target_id": "A09",
+      "edge_kind": "direct-bridge-family",
+      "bridge_reason": "BF-CS-002",
+      "weight": 0.93,
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_voynich.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\02_qshrink_shiva_corpus_ecosystem.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md"
+      ],
+      "note": "Voynich proof routes directly into QSHRINK compression law."
+    },
+    {
+      "edge_id": "CS-003",
+      "source_id": "A16",
+      "target_id": "A15",
+      "edge_kind": "direct-bridge-family",
+      "bridge_reason": "BF-CS-003",
+      "weight": 0.91,
+      "witness_basis": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+        "self_actualize\\phase4_weave_candidates.json",
+        "self_actualize\\knowledge_fabric_edges.json",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\02_orgin.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md"
+      ],
+      "note": "Fleet coordination inherits directly from the ORGIN seed reservoir."
+    }
+  ],
+  "summary": {
+    "count": 42
+  }
+}

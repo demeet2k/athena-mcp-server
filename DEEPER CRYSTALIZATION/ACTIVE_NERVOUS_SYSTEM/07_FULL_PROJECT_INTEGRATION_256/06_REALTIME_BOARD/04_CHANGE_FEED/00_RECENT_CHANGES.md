@@ -1,12 +1,88 @@
 # Change Feed
 
 ## Current Batch
-- `modified` `.claude/settings.local.json` at `2026-03-09T15:42:49.202242+00:00`
+- `modified` `NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_STATE.json` at `2026-03-13T22:35:53.091928+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/23_ap7d_delta_feed.ndjson` at `2026-03-13T22:35:53.079929+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/24_ap7d_handoff_feed.ndjson` at `2026-03-13T22:35:53.079929+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/35_command_cmt_feed.ndjson` at `2026-03-13T22:35:53.079929+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/36_command_rin_feed.ndjson` at `2026-03-13T22:35:53.079929+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/32_command_evt_feed.ndjson` at `2026-03-13T22:35:53.078929+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/33_command_rte_feed.ndjson` at `2026-03-13T22:35:53.078929+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/34_command_clm_feed.ndjson` at `2026-03-13T22:35:53.078929+00:00`
+- `modified` `self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/10_LEDGERS/37_command_capillary_edge_ledger.json` at `2026-03-13T22:35:53.054356+00:00`
+- `modified` `self_actualize/runtime/command_membrane/__init__.py` at `2026-03-13T22:35:46.230692+00:00`
+- `modified` `self_actualize/command_membrane_capillary_graph.json` at `2026-03-13T22:35:44.344287+00:00`
+- `modified` `self_actualize/command_membrane_runtime_state.json` at `2026-03-13T22:35:44.344287+00:00`
+- `modified` `self_actualize/mycelium_brain/ATHENA TEMPLE/11_COMMAND_MEMBRANE_DECREE.md` at `2026-03-13T22:35:44.343287+00:00`
+- `modified` `self_actualize/command_membrane_capillary_law.json` at `2026-03-13T22:35:44.342288+00:00`
+- `modified` `self_actualize/command_membrane_packet_schema.json` at `2026-03-13T22:35:44.342288+00:00`
+- `modified` `self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/20_COMMAND_MEMBRANE_PROTOCOL.md` at `2026-03-13T22:35:44.342288+00:00`
+- `modified` `self_actualize/command_membrane_protocol.json` at `2026-03-13T22:35:44.341287+00:00`
+- `modified` `self_actualize/mycelium_brain/registry/command_membrane_protocol_v2_verification.json` at `2026-03-13T22:35:30.439428+00:00`
+- `modified` `NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_PROTOCOL_V2.md` at `2026-03-13T22:35:30.436411+00:00`
+- `modified` `self_actualize/next57_command_capillary_law_v2.json` at `2026-03-13T22:35:30.435412+00:00`
+- `modified` `self_actualize/next57_command_event_packet_schema_v2.json` at `2026-03-13T22:35:30.435412+00:00`
+- `modified` `self_actualize/next57_command_latency_benchmarks_v2.json` at `2026-03-13T22:35:30.435412+00:00`
+- `modified` `self_actualize/next57_command_protocol_v2.json` at `2026-03-13T22:35:30.434410+00:00`
+- `modified` `self_actualize/mycelium_brain/registry/command_membrane_protocol_v2.json` at `2026-03-13T22:35:30.433410+00:00`
+- `modified` `self_actualize/runtime/command_membrane_v1.py` at `2026-03-13T22:35:22.544034+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/capillary_graph.json` at `2026-03-13T22:35:01.761907+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/state.json` at `2026-03-13T22:35:01.760908+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/hall.md` at `2026-03-13T22:35:01.759901+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/temple.md` at `2026-03-13T22:35:01.759901+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/capillary.json` at `2026-03-13T22:35:01.758395+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/protocol.json` at `2026-03-13T22:35:01.758395+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/_backend/schema.json` at `2026-03-13T22:35:01.758395+00:00`
+- `modified` `Quadrant Binary/__codex_edit_links/command_spine.py` at `2026-03-13T22:34:31.743860+00:00`
+- `modified` `self_actualize/runtime/command_spine.py` at `2026-03-13T22:34:31.743860+00:00`
+- `modified` `self_actualize/runtime/swarm_board.py` at `2026-03-13T22:34:16.433971+00:00`
+- `modified` `self_actualize/runtime/command_membrane_runtime_entrypoint_v2.py` at `2026-03-13T22:34:03.734085+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md` at `2026-03-13T22:32:29.401595+00:00`
+- `modified` `NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md` at `2026-03-13T22:32:29.400596+00:00`
+- `modified` `NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md` at `2026-03-13T22:32:29.399596+00:00`
+- `modified` `self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md` at `2026-03-13T22:32:29.399596+00:00`
+- `modified` `NERVOUS_SYSTEM/95_MANIFESTS/COMMAND_MEMBRANE_PROTOCOL_V1.md` at `2026-03-13T22:32:29.398595+00:00`
+- `modified` `self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md` at `2026-03-13T22:32:29.398595+00:00`
+- `modified` `self_actualize/mycelium_brain/registry/command_membrane_protocol_v1.json` at `2026-03-13T22:32:29.397596+00:00`
+- `modified` `self_actualize/next57_command_reward_field.json` at `2026-03-13T22:32:29.397596+00:00`
+- `modified` `self_actualize/next57_command_capillary_law.json` at `2026-03-13T22:32:29.396594+00:00`
+- `modified` `self_actualize/next57_command_latency_benchmarks.json` at `2026-03-13T22:32:29.396594+00:00`
+- `modified` `self_actualize/next57_command_event_packet_schema.json` at `2026-03-13T22:32:29.395593+00:00`
+- `modified` `self_actualize/next57_command_protocol.json` at `2026-03-13T22:32:29.395593+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/watched_surface_registry.json` at `2026-03-13T22:32:29.392593+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_live_manifest.json` at `2026-03-13T22:32:29.391593+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_surface_health.json` at `2026-03-13T22:32:29.391593+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_capillary_edges.json` at `2026-03-13T22:32:29.390585+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_latency_benchmark_registry.json` at `2026-03-13T22:32:29.390585+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_ledger.json` at `2026-03-13T22:32:29.389082+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_claim_leases.json` at `2026-03-13T22:32:29.388083+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_live_event_ledger.json` at `2026-03-13T22:32:29.387084+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_membrane_state.json` at `2026-03-13T22:32:29.386084+00:00`
+- `modified` `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_sensor_events.json` at `2026-03-13T22:32:29.386084+00:00`
+- `modified` `self_actualize/runtime/derive_command_membrane_protocol.py` at `2026-03-13T22:31:38.836774+00:00`
+- `modified` `self_actualize/runtime/verify_command_membrane_protocol_v2.py` at `2026-03-13T22:31:28.374521+00:00`
 
 ## Event History
-- `2026-03-09T15:42:56.901449+00:00` +0 ~1 -0
-- `2026-03-09T15:42:39.338767+00:00` +0 ~1 -1
-- `2026-03-09T15:41:58.415660+00:00` +1 ~0 -0
-- `2026-03-09T15:41:55.768449+00:00` +1 ~1 -0
-- `2026-03-09T15:41:12.795835+00:00` +1 ~2 -0
-- `2026-03-09T15:37:10.353322+00:00` +3543 ~0 -0
+- `2026-03-13T22:35:55.716919+00:00` +7 ~79 -0
+- `2026-03-13T22:25:40.777471+00:00` +7 ~42 -0
+- `2026-03-13T22:24:32.630550+00:00` +2 ~13 -0
+- `2026-03-13T22:24:02.530454+00:00` +1 ~28 -0
+- `2026-03-13T22:21:52.593737+00:00` +0 ~14 -1
+- `2026-03-13T22:21:44.783519+00:00` +2 ~28 -0
+- `2026-03-13T22:21:05.412686+00:00` +1 ~28 -1
+- `2026-03-13T22:20:31.467870+00:00` +0 ~30 -0
+- `2026-03-13T22:20:25.866121+00:00` +0 ~20 -1
+- `2026-03-13T22:20:20.647887+00:00` +1 ~30 -0
+- `2026-03-13T22:19:56.822351+00:00` +0 ~14 -0
+- `2026-03-13T22:19:51.367640+00:00` +0 ~33 -0
+
+## COMMAND Membrane
+- `EVT-20260313T223553Z-520774` `command.sugar.drop` `GLOBAL COMMAND/ATHENA/joy_v2_probe_final.txt` -> `1 added / 0 modified / 0 removed in GLOBAL COMMAND`
+- `EVT-20260313T222535Z-6FB6D9` `command.sugar.drop` `GLOBAL COMMAND/ATHENA/codex_command_membrane_test.txt` -> `0 added / 1 modified / 0 removed in GLOBAL COMMAND`
+- `EVT-20260313T222428Z-DF4DEF` `command.sugar.drop` `GLOBAL COMMAND/ATHENA/codex_command_membrane_test.txt` -> `0 added / 1 modified / 0 removed in GLOBAL COMMAND`
+- `EVT-20260313T222359Z-EBE7D1` `command.sugar.drop` `GLOBAL COMMAND/ATHENA/codex_command_membrane_test.txt` -> `0 added / 1 modified / 0 removed in GLOBAL COMMAND`
+- `EVT-20260313T221658Z-CA1A01` `command.sugar.drop` `GLOBAL COMMAND/ATHENA/codex_command_membrane_test.txt` -> `0 added / 1 modified / 0 removed in GLOBAL COMMAND`
+- `EVT-20260313T221135Z-93670B` `command.sugar.drop` `GLOBAL COMMAND/ATHENA/codex_command_membrane_test.txt` -> `0 added / 1 modified / 0 removed in GLOBAL COMMAND`
+- `T_sugar`: `33.205` ms
+- Active leases: `2`
+- Route win rate: `1.0`

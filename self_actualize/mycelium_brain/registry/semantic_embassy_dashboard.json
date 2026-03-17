@@ -1,0 +1,38 @@
+{
+  "authority_surfaces": [
+    "self_actualize/manuscript_sections/023_semantic_embassy_and_audience_reception_surface_v1.md",
+    "NERVOUS_SYSTEM/40_APPENDICES/AppO_publication_importexport_bundles.md"
+  ],
+  "derivation_version": "2026-03-12.semantic-embassy.v1",
+  "docs_gate_status": "BLOCKED",
+  "failure_summary": {
+    "case_labels": [
+      "rhetorical/public render requested in v1",
+      "public wording exceeds benchmark or release support",
+      "missing replay refs",
+      "missing downgrade replacements",
+      "benchmark-facing surface with non-benchmark-safe names",
+      "federation-facing surface with missing federation-safe terms"
+    ],
+    "total_cases": 6
+  },
+  "frontier_registration": {
+    "current_packet": "Semantic Embassy is registered after Release Notary / public-claim attestation.",
+    "frontier_ledger": "TF-010 records the surface as the post-attestation audience-reception frontier."
+  },
+  "object_count": 13,
+  "public_mode": "diplomatic",
+  "render_policy_hash": "257ba3cd7089beca2fdfda7c84e51e0232fb5561075648d24e4bf69764d08ba7",
+  "replay_example": {
+    "audience_emit": true,
+    "downgraded_phrases": [
+      "fully proven -> attested within the current witness stack"
+    ],
+    "final_wording": "This post-attestation surface is attested within the current witness stack for public release, but because the docs gate is blocked it is presented as a locally grounded, replay-linked diplomatic export.",
+    "input_flow": "RecertificationPack/ReleaseTrustPack -> ClaimSurface -> AudienceProfile + RegisterProfile -> SafeWordingBundle -> TranslationSurface -> SemanticExportValidatorResult -> AudienceFacingBundle",
+    "validator_status": "PASS"
+  },
+  "surface_hash": "047a0745b21c77143dbc7a8f4f801295b3ef9122a3dfa690c1c3954deede83f8",
+  "truth_class": "local-corpus grounded",
+  "validator_rule_count": 8
+}

@@ -1,0 +1,1013 @@
+{
+  "generated_at": "2026-03-13T05:05:27.353177+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_qshrink_connectivity_refine_fractal",
+  "truth": "OK",
+  "focus": "connectivity-refine-fractal",
+  "front_id": "Q42",
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+  "next_hall_seed": null,
+  "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "reserve_frontier": "Q46",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`\n\n## Stderr"
+  },
+  "control_plane_precedence": {
+    "canonical_state": "generated refine witnesses plus verification sidecars",
+    "historical_state": "change feed entries plus receipts",
+    "temple_contract_canon": "TQ04 manifest/json/verifier/receipt bundle"
+  },
+  "upstream_refine_cloud": {
+    "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_connectivity_refine_cloud.json",
+    "truth": "OK",
+    "active_local_subfront": "QS64-23 Connectivity-Refine-Cloud"
+  },
+  "loop_stack": [
+    {
+      "id": "F1",
+      "name": "external blocker loop",
+      "body": "Trading Bot / Docs gate",
+      "meaning": "keeps the blocked live-memory limb visible at every scale and never treats it as locally closed"
+    },
+    {
+      "id": "F2",
+      "name": "local refinement loop",
+      "body": "Q42 with QS64-21..24",
+      "meaning": "carries the Hall-local refine bundle as one replay-safe recursion stack"
+    },
+    {
+      "id": "F3",
+      "name": "deeper contract loop",
+      "body": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "meaning": "hands immediate deeper execution to the runner-contract frontier after the Hall-local bundle closes"
+    },
+    {
+      "id": "F4",
+      "name": "reserve execution loop",
+      "body": "Q46",
+      "meaning": "keeps the reserve wave visible without letting it pre-empt the Hall-local bundle or Temple handoff"
+    }
+  ],
+  "recursive_theorem": "The Hall-local NEXT^4 bundle is recursively stable when the carried diagnose witness stays visible, the blocker stays external, the Temple handoff stays separate, and no new Hall-local seed is emitted beyond QS64-24.",
+  "deep_metro_companion": {
+    "root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+    "resolution": "carry the bundle through the live 4-level metro stack without creating a fifth Hall-local refinement quest"
+  },
+  "hall_local_bundle_closed": true,
+  "control_fields": {
+    "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+    "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+    "next_hall_seed": null,
+    "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+    "reserve_frontier": "Q46",
+    "blocked_external_front": "Q02"
+  },
+  "writeback_targets": [
+    {
+      "body": "QSHRINK",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use_route_map.md"
+    },
+    {
+      "body": "Athena FLEET",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet_route_map.md"
+    },
+    {
+      "body": "ORGIN",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin_route_map.md"
+    },
+    {
+      "body": "Quest board",
+      "target": "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+    },
+    {
+      "body": "Active queue",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+    },
+    {
+      "body": "QSHRINK active front",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\QSHRINK_ACTIVE_FRONT.md"
+    },
+    {
+      "body": "Next self prompt",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+    },
+    {
+      "body": "Temple state",
+      "target": "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+    }
+  ],
+  "corpus_metrics": {
+    "total_files": 11806,
+    "total_bytes": 3667805523,
+    "extensions": [
+      {
+        "extension": ".md",
+        "file_count": 6139
+      },
+      {
+        "extension": ".py",
+        "file_count": 2539
+      },
+      {
+        "extension": ".json",
+        "file_count": 804
+      },
+      {
+        "extension": ".docx",
+        "file_count": 493
+      },
+      {
+        "extension": ".png",
+        "file_count": 380
+      },
+      {
+        "extension": ".js",
+        "file_count": 266
+      },
+      {
+        "extension": ".pdf",
+        "file_count": 232
+      },
+      {
+        "extension": ".csv",
+        "file_count": 165
+      },
+      {
+        "extension": "<none>",
+        "file_count": 135
+      },
+      {
+        "extension": ".txt",
+        "file_count": 118
+      },
+      {
+        "extension": ".pyi",
+        "file_count": 90
+      },
+      {
+        "extension": ".jpg",
+        "file_count": 85
+      },
+      {
+        "extension": ".ts",
+        "file_count": 79
+      },
+      {
+        "extension": ".proto",
+        "file_count": 63
+      },
+      {
+        "extension": ".psd",
+        "file_count": 55
+      },
+      {
+        "extension": ".typed",
+        "file_count": 25
+      },
+      {
+        "extension": ".zip",
+        "file_count": 24
+      },
+      {
+        "extension": ".webp",
+        "file_count": 19
+      },
+      {
+        "extension": ".exe",
+        "file_count": 19
+      },
+      {
+        "extension": ".ai",
+        "file_count": 13
+      }
+    ],
+    "surface_summary": [
+      {
+        "surface_id": "games",
+        "role": "games",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 498,
+        "size_bytes": 2107162920
+      },
+      {
+        "surface_id": "math",
+        "role": "mathematical foundation corpus",
+        "authority_class": "foundation",
+        "qshrink_body": "Foundation Body",
+        "file_count": 1370,
+        "size_bytes": 587277292
+      },
+      {
+        "surface_id": "trading_bot",
+        "role": "live docs and execution ingress",
+        "authority_class": "runtime",
+        "qshrink_body": "Runtime Body",
+        "file_count": 4498,
+        "size_bytes": 254208024
+      },
+      {
+        "surface_id": "stoicheia_(element_sudoku)",
+        "role": "stoicheia (element sudoku)",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 126,
+        "size_bytes": 166335571
+      },
+      {
+        "surface_id": "voynich",
+        "role": "voynich translation corpus",
+        "authority_class": "memory",
+        "qshrink_body": "Memory Body",
+        "file_count": 762,
+        "size_bytes": 159688218
+      },
+      {
+        "surface_id": "orgin",
+        "role": "orgin",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 153,
+        "size_bytes": 121236888
+      },
+      {
+        "surface_id": "runtime_hub",
+        "role": "zero-point runtime hub",
+        "authority_class": "runtime",
+        "qshrink_body": "Nervous Body",
+        "file_count": 1425,
+        "size_bytes": 75924222
+      },
+      {
+        "surface_id": "deeper_crystallization",
+        "role": "historical nervous shell",
+        "authority_class": "historical",
+        "qshrink_body": "Nervous Body",
+        "file_count": 617,
+        "size_bytes": 63045133
+      },
+      {
+        "surface_id": "collective_books",
+        "role": "auxiliary book corpus",
+        "authority_class": "memory",
+        "qshrink_body": "Memory Body",
+        "file_count": 18,
+        "size_bytes": 35777943
+      },
+      {
+        "surface_id": "qshrink_legacy",
+        "role": "legacy qshrink publication stack",
+        "authority_class": "legacy",
+        "qshrink_body": "Foundation Body",
+        "file_count": 17,
+        "size_bytes": 22071616
+      },
+      {
+        "surface_id": "clean",
+        "role": "curated branch corpus",
+        "authority_class": "memory",
+        "qshrink_body": "Memory Body",
+        "file_count": 7,
+        "size_bytes": 15752894
+      },
+      {
+        "surface_id": "neural_network",
+        "role": "neural execution family",
+        "authority_class": "runtime",
+        "qshrink_body": "Runtime Body",
+        "file_count": 65,
+        "size_bytes": 14476383
+      },
+      {
+        "surface_id": "fleet_cluster",
+        "role": "fleet cluster shell",
+        "authority_class": "workspace",
+        "qshrink_body": "Nervous Body",
+        "file_count": 79,
+        "size_bytes": 12361661
+      },
+      {
+        "surface_id": "fresh",
+        "role": "fresh branch corpus",
+        "authority_class": "memory",
+        "qshrink_body": "Memory Body",
+        "file_count": 6,
+        "size_bytes": 8924313
+      },
+      {
+        "surface_id": "quadrant_binary",
+        "role": "quadrant binary",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 9,
+        "size_bytes": 8544602
+      },
+      {
+        "surface_id": "athena_os_runtime",
+        "role": "runtime code substrate",
+        "authority_class": "runtime",
+        "qshrink_body": "Runtime Body",
+        "file_count": 436,
+        "size_bytes": 8382389
+      },
+      {
+        "surface_id": "qshrink2_internal",
+        "role": "internal qshrink2 operating system",
+        "authority_class": "internal",
+        "qshrink_body": "Foundation Body",
+        "file_count": 1315,
+        "size_bytes": 2168907
+      },
+      {
+        "surface_id": "mycelial_unified_nervous_system_bundle",
+        "role": "mycelial unified nervous system bundle",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 6,
+        "size_bytes": 1612667
+      },
+      {
+        "surface_id": "megalithic_tome_generator_\u2014_\u201clatent_tunneling___multi\u2011scale_math_stack_(macro_\u2194_pzpm_\u2194_cut)\u201d__skeleton_.docx",
+        "role": "megalithic tome generator \u2014 \u201clatent tunneling   multi\u2011scale math stack (macro \u2194 pzpm \u2194 cut)\u201d  skeleton .docx",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 1,
+        "size_bytes": 1602114
+      },
+      {
+        "surface_id": "cortex",
+        "role": "canonical cortex",
+        "authority_class": "canonical",
+        "qshrink_body": "Nervous Body",
+        "file_count": 263,
+        "size_bytes": 756204
+      },
+      {
+        "surface_id": "governance_mirror",
+        "role": "governance mirror",
+        "authority_class": "governance",
+        "qshrink_body": "Nervous Body",
+        "file_count": 114,
+        "size_bytes": 353266
+      },
+      {
+        "surface_id": "void_ch11.md",
+        "role": "void ch11.md",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 1,
+        "size_bytes": 53687
+      },
+      {
+        "surface_id": "i_am_athena",
+        "role": "identity corpus",
+        "authority_class": "memory",
+        "qshrink_body": "Memory Body",
+        "file_count": 15,
+        "size_bytes": 43831
+      },
+      {
+        "surface_id": "mycelium_tome_part1.md",
+        "role": "mycelium tome part1.md",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 1,
+        "size_bytes": 27050
+      },
+      {
+        "surface_id": "full_project_tesseract_synthesis_2026-03-11.md",
+        "role": "full project tesseract synthesis 2026-03-11.md",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 1,
+        "size_bytes": 12605
+      },
+      {
+        "surface_id": "readme.md",
+        "role": "readme.md",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 1,
+        "size_bytes": 3762
+      },
+      {
+        "surface_id": ".gitignore",
+        "role": ".gitignore",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 1,
+        "size_bytes": 891
+      },
+      {
+        "surface_id": ".claude",
+        "role": ".claude",
+        "authority_class": "auxiliary",
+        "qshrink_body": "Memory Body",
+        "file_count": 1,
+        "size_bytes": 470
+      }
+    ],
+    "body_summary": [
+      {
+        "qshrink_body": "Memory Body",
+        "file_count": 1607,
+        "size_bytes": 2626780426
+      },
+      {
+        "qshrink_body": "Foundation Body",
+        "file_count": 2702,
+        "size_bytes": 611517815
+      },
+      {
+        "qshrink_body": "Runtime Body",
+        "file_count": 4999,
+        "size_bytes": 277066796
+      },
+      {
+        "qshrink_body": "Nervous Body",
+        "file_count": 2498,
+        "size_bytes": 152440486
+      }
+    ],
+    "lane_summary": [
+      {
+        "compaction_lane": "live_corpus_surface",
+        "file_count": 2932,
+        "size_bytes": 1530426584
+      },
+      {
+        "compaction_lane": "witness_document",
+        "file_count": 684,
+        "size_bytes": 1259155848
+      },
+      {
+        "compaction_lane": "archive_bundle",
+        "file_count": 21,
+        "size_bytes": 494669899
+      },
+      {
+        "compaction_lane": "runtime_code",
+        "file_count": 4999,
+        "size_bytes": 277066796
+      },
+      {
+        "compaction_lane": "retain_authority_surface",
+        "file_count": 1802,
+        "size_bytes": 77033692
+      },
+      {
+        "compaction_lane": "retain_legacy_read_only",
+        "file_count": 17,
+        "size_bytes": 22071616
+      },
+      {
+        "compaction_lane": "mirror_surface",
+        "file_count": 18,
+        "size_bytes": 5180533
+      },
+      {
+        "compaction_lane": "generated_regenerable",
+        "file_count": 1026,
+        "size_bytes": 1896449
+      },
+      {
+        "compaction_lane": "retain_qshrink2_internal",
+        "file_count": 289,
+        "size_bytes": 272458
+      },
+      {
+        "compaction_lane": "capsule_surface",
+        "file_count": 18,
+        "size_bytes": 31648
+      }
+    ],
+    "root_cell_summary": [
+      {
+        "root_cell": "3021",
+        "file_count": 1345,
+        "size_bytes": 2564072629
+      },
+      {
+        "root_cell": "3001",
+        "file_count": 393,
+        "size_bytes": 474517156
+      },
+      {
+        "root_cell": "3031",
+        "file_count": 1819,
+        "size_bytes": 147146574
+      },
+      {
+        "root_cell": "3331",
+        "file_count": 2136,
+        "size_bytes": 111866497
+      },
+      {
+        "root_cell": "3011",
+        "file_count": 760,
+        "size_bytes": 43297035
+      },
+      {
+        "root_cell": "3301",
+        "file_count": 395,
+        "size_bytes": 40835238
+      },
+      {
+        "root_cell": "3311",
+        "file_count": 204,
+        "size_bytes": 38021469
+      },
+      {
+        "root_cell": "0011",
+        "file_count": 360,
+        "size_bytes": 28001911
+      },
+      {
+        "root_cell": "3321",
+        "file_count": 121,
+        "size_bytes": 27339966
+      },
+      {
+        "root_cell": "3101",
+        "file_count": 526,
+        "size_bytes": 24083247
+      },
+      {
+        "root_cell": "1001",
+        "file_count": 23,
+        "size_bytes": 22266955
+      },
+      {
+        "root_cell": "2211",
+        "file_count": 275,
+        "size_bytes": 20173934
+      },
+      {
+        "root_cell": "0001",
+        "file_count": 324,
+        "size_bytes": 18272960
+      },
+      {
+        "root_cell": "2021",
+        "file_count": 8,
+        "size_bytes": 13766920
+      },
+      {
+        "root_cell": "2001",
+        "file_count": 18,
+        "size_bytes": 11715591
+      },
+      {
+        "root_cell": "1021",
+        "file_count": 22,
+        "size_bytes": 9188977
+      },
+      {
+        "root_cell": "1211",
+        "file_count": 66,
+        "size_bytes": 7328232
+      },
+      {
+        "root_cell": "2011",
+        "file_count": 52,
+        "size_bytes": 6945613
+      },
+      {
+        "root_cell": "2201",
+        "file_count": 99,
+        "size_bytes": 6005570
+      },
+      {
+        "root_cell": "3121",
+        "file_count": 5,
+        "size_bytes": 5903755
+      },
+      {
+        "root_cell": "1031",
+        "file_count": 103,
+        "size_bytes": 5749143
+      },
+      {
+        "root_cell": "3000",
+        "file_count": 20,
+        "size_bytes": 4674371
+      },
+      {
+        "root_cell": "3003",
+        "file_count": 4,
+        "size_bytes": 3540942
+      },
+      {
+        "root_cell": "2332",
+        "file_count": 21,
+        "size_bytes": 3453948
+      }
+    ],
+    "top_storage_dirs": [
+      {
+        "top_level": "GAMES",
+        "file_count": 498,
+        "size_bytes": 2107162920
+      },
+      {
+        "top_level": "MATH",
+        "file_count": 1823,
+        "size_bytes": 617731297
+      },
+      {
+        "top_level": "Trading Bot",
+        "file_count": 4498,
+        "size_bytes": 254208024
+      },
+      {
+        "top_level": "Stoicheia (Element Sudoku)",
+        "file_count": 126,
+        "size_bytes": 166335571
+      },
+      {
+        "top_level": "Voynich",
+        "file_count": 762,
+        "size_bytes": 159688218
+      },
+      {
+        "top_level": "ORGIN",
+        "file_count": 153,
+        "size_bytes": 121236888
+      },
+      {
+        "top_level": "self_actualize",
+        "file_count": 1425,
+        "size_bytes": 75924222
+      },
+      {
+        "top_level": "DEEPER CRYSTALIZATION",
+        "file_count": 617,
+        "size_bytes": 63045133
+      },
+      {
+        "top_level": "Athenachka Collective Books",
+        "file_count": 18,
+        "size_bytes": 35777943
+      },
+      {
+        "top_level": "CLEAN",
+        "file_count": 7,
+        "size_bytes": 15752894
+      },
+      {
+        "top_level": "NERUAL NETWORK",
+        "file_count": 65,
+        "size_bytes": 14476383
+      },
+      {
+        "top_level": "Athena FLEET",
+        "file_count": 79,
+        "size_bytes": 12361661
+      },
+      {
+        "top_level": "FRESH",
+        "file_count": 6,
+        "size_bytes": 8924313
+      },
+      {
+        "top_level": "Quadrant Binary",
+        "file_count": 9,
+        "size_bytes": 8544602
+      },
+      {
+        "top_level": "QSHRINK - ATHENA (internal use)",
+        "file_count": 1315,
+        "size_bytes": 2168907
+      }
+    ],
+    "generated_zone_summary": [
+      {
+        "zone_prefix": "Athena FLEET/FLEET_MYCELIUM_NETWORK/MIRRORS",
+        "lane": "mirror_surface",
+        "file_count": 18,
+        "size_bytes": 5180533
+      },
+      {
+        "zone_prefix": "QSHRINK - ATHENA (internal use)/05_MANUSCRIPT_SPACE/root_cells",
+        "lane": "generated_regenerable",
+        "file_count": 256,
+        "size_bytes": 675904
+      },
+      {
+        "zone_prefix": "QSHRINK - ATHENA (internal use)/09_REPAIR_256X256/steps",
+        "lane": "generated_regenerable",
+        "file_count": 256,
+        "size_bytes": 659289
+      },
+      {
+        "zone_prefix": "QSHRINK - ATHENA (internal use)/10_CH11_256X256/cells",
+        "lane": "generated_regenerable",
+        "file_count": 256,
+        "size_bytes": 476373
+      },
+      {
+        "zone_prefix": "QSHRINK - ATHENA (internal use)/03_SWARM/output_atoms",
+        "lane": "generated_regenerable",
+        "file_count": 258,
+        "size_bytes": 84883
+      },
+      {
+        "zone_prefix": "Athena FLEET/FLEET_MYCELIUM_NETWORK/CAPSULES",
+        "lane": "capsule_surface",
+        "file_count": 18,
+        "size_bytes": 31648
+      }
+    ],
+    "duplicate_groups_count": 670,
+    "duplicate_savings_bytes": 338943146,
+    "duplicate_groups_top": [
+      {
+        "duplicate_group_id": "DUP-4263f3d22fef",
+        "sha256": "4263f3d22fefde4e4381650a56751af7eb5097d1a7085979eae0d990a54cbf42",
+        "count": 2,
+        "size_bytes_each": 67712968,
+        "potential_savings_bytes": 67712968,
+        "members": [
+          "GAMES/FINAL GAME PRINTS/FitChain Elite (NEW) print files.zip",
+          "GAMES/FITChain/FITChain Elite/PRINT FILES PDF/FitChain Elite (NEW) print files.zip"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-cef87bf2a280",
+        "sha256": "cef87bf2a28078ba3ccfa91a792f463feb5748392a1977961eae54081ef47d30",
+        "count": 2,
+        "size_bytes_each": 65333351,
+        "potential_savings_bytes": 65333351,
+        "members": [
+          "GAMES/FINAL GAME PRINTS/FitChain (NEW) Print Files.zip",
+          "GAMES/FITChain/FITChain/Print Shop Files/FitChain (NEW) Print Files.zip"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-b637318114e5",
+        "sha256": "b637318114e5f101f33192883a64e8c58a73e792b1caf3d598451cff981d2b37",
+        "count": 2,
+        "size_bytes_each": 9827941,
+        "potential_savings_bytes": 9827941,
+        "members": [
+          "GAMES/FINAL GAME PRINTS/Stoicheia (NEW) print files.zip",
+          "Stoicheia (Element Sudoku)/Stoicheia FINAL FOR PRINT/Stoicheia (NEW) print files.zip"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-f078be480b4a",
+        "sha256": "f078be480b4a645b8a0161fecb1ab63da228cd08b8f157098085551ba2aa8858",
+        "count": 4,
+        "size_bytes_each": 2408903,
+        "potential_savings_bytes": 7226709,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/AQM MASTER TOME.docx",
+          "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final/aqm_kernel_qphi_planet9/docs/source_material/AQM MASTER TOME.docx",
+          "MATH/LIVE_PROMOTED/aqm_kernel_qphi_planet9/docs/source_material/AQM MASTER TOME.docx",
+          "Voynich/FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM MASTER TOME.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-c0a3d46654e6",
+        "sha256": "c0a3d46654e670580f6f7a764f5acc1aef0e7ee9268a8ce6629236294ab2e522",
+        "count": 2,
+        "size_bytes_each": 6540193,
+        "potential_savings_bytes": 6540193,
+        "members": [
+          "Stoicheia (Element Sudoku)/Print Documents/Stoicheia (FRONT).pdf",
+          "Stoicheia (Element Sudoku)/Stoicheia FINAL FOR PRINT/Stoicheia (FRONT).pdf"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-3f6d11713a96",
+        "sha256": "3f6d11713a96d74e61faee542dc1f3b292f375ff0e19c9a3bfe69f70d85e59e0",
+        "count": 3,
+        "size_bytes_each": 3235300,
+        "potential_savings_bytes": 6470600,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/AQM Q-Algorithm Master Tome \u2014 Circle \u25cb within Square \u25a1 within Triangle \u25b3.docx",
+          "MATH/LIVE_PROMOTED/aqm_kernel_qphi_planet9/docs/source_material/AQM Q-Algorithm Master Tome \u0393\u00c7\u00f6 Circle \u0393\u00f9\u00ef within Square \u0393\u00fb\u00ed within Triangle \u0393\u00fb\u2502.docx",
+          "Voynich/FULL_TRANSLATION/MATH/AQM - LM - N+7/Q-Phi  Optimization/AQM Q-Algorithm Master Tome \u2014 Circle \u25cb within Square \u25a1 within Triangle \u25b3.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-481a0f92915f",
+        "sha256": "481a0f92915f9b558abe114845daf4ae77b181b22feb0870bbd5760315546718",
+        "count": 2,
+        "size_bytes_each": 5727349,
+        "potential_savings_bytes": 5727349,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip",
+          "Voynich/FULL_TRANSLATION/MATH/AQM - LM - N+7/Q-Phi  Optimization/aqm_kernel_qphi_planet9_v0.2.2_final.zip"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-409874c043e6",
+        "sha256": "409874c043e61fadf78c9e2f48b39f3dacdf70293d331386eb6913359e0a445e",
+        "count": 2,
+        "size_bytes_each": 4218002,
+        "potential_savings_bytes": 4218002,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/Aetheric Crystal Compute TOME.docx",
+          "Voynich/FULL_TRANSLATION/MATH/Aetheric Crystal Compute TOME.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-87973052b354",
+        "sha256": "87973052b35411d88373167f8eb89cc817a513c0091c0a95e3a0bbcf45447d11",
+        "count": 2,
+        "size_bytes_each": 3962081,
+        "potential_savings_bytes": 3962081,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/ATHENA/esoteric/AI DIVINATION.docx",
+          "MATH/FINAL FORM/MYTH - MATH/Nostradamos/AI DIVINATION.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-4ac7a1d44950",
+        "sha256": "4ac7a1d4495028d596ced0e8b8a5210202260e93e3cde9dd0f221382aea51279",
+        "count": 2,
+        "size_bytes_each": 3839864,
+        "potential_savings_bytes": 3839864,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/Rotation is Conjugacy TOME.docx",
+          "Voynich/FULL_TRANSLATION/MATH/Rotation is Conjugacy TOME.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-e8021309506a",
+        "sha256": "e8021309506a8c8aadf0030ca4da55c84af5f6bea61e4317e82d61d3b3cc00df",
+        "count": 2,
+        "size_bytes_each": 3555303,
+        "potential_savings_bytes": 3555303,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/CUT/CUT TOME IV \u2014 CUT-OPT.docx",
+          "Voynich/FULL_TRANSLATION/MATH/CUT/CUT TOME IV \u2014 CUT-OPT.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-8500194d8583",
+        "sha256": "8500194d858309ad4ed8993ea7da570a35b0d535d580f21fdf969ab08373712f",
+        "count": 2,
+        "size_bytes_each": 3400952,
+        "potential_savings_bytes": 3400952,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/LM MASTER TOME \u2014 LIMINAL MATHEMATICS (LM).docx",
+          "Voynich/FULL_TRANSLATION/MATH/AQM - LM - N+7/LM MASTER TOME \u2014 LIMINAL MATHEMATICS (LM).docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-8bb2683cb40a",
+        "sha256": "8bb2683cb40a37061a4d1a1c307eb51e9e13ce3520611ecf6b6de8429ac9132a",
+        "count": 2,
+        "size_bytes_each": 3340697,
+        "potential_savings_bytes": 3340697,
+        "members": [
+          "MATH/FINAL FORM/MYTH - MATH/Voynich/VOYNICH PROGRAM TOME.docx",
+          "Voynich/VOYNICH PROGRAM TOME.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-65311c9bdbeb",
+        "sha256": "65311c9bdbeb61c4faa390acde2a1cd417e7d92ee8289dc763c7d7a89881c480",
+        "count": 2,
+        "size_bytes_each": 3328870,
+        "potential_savings_bytes": 3328870,
+        "members": [
+          "FRESH/# THE MANUSCRIPT SEED \u2014 Self-Referential Crystalline Generation Protocol(1).docx",
+          "Voynich/FRESH/# THE MANUSCRIPT SEED \u2014 Self-Referential Crystalline Generation Protocol(1).docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-074f6808d70d",
+        "sha256": "074f6808d70d440c1b6e143bf55beb4458e73cdd38704a2554ba7465166f75f6",
+        "count": 2,
+        "size_bytes_each": 3247677,
+        "potential_savings_bytes": 3247677,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/MATH REALITY TOME.docx",
+          "Voynich/FULL_TRANSLATION/MATH/MATH REALITY TOME.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-7f5373ee844c",
+        "sha256": "7f5373ee844cfe2575a4f1732c602e2194ba07cebb99eb1597323725d63194a7",
+        "count": 3,
+        "size_bytes_each": 1602114,
+        "potential_savings_bytes": 3204228,
+        "members": [
+          "CLEAN/MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+          "MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+          "ORGIN/MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-beeba8c65c2b",
+        "sha256": "beeba8c65c2b804173c85f3928f5c51705257a87e1fb78287edeef2058379833",
+        "count": 2,
+        "size_bytes_each": 3195411,
+        "potential_savings_bytes": 3195411,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/AETHER SPEAR \u2014 MATH.docx",
+          "Voynich/FULL_TRANSLATION/MATH/AETHER SPEAR \u2014 MATH.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-905b1a26b5e8",
+        "sha256": "905b1a26b5e8e1abcacd6e5f9a1162e9dcab97405e3e3de6329e4765b13f7a3c",
+        "count": 2,
+        "size_bytes_each": 3192037,
+        "potential_savings_bytes": 3192037,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/CUT/CUT MASTER TOME \u2014 Circle \u25cb within Square \u25a1 within Triangle \u25b3.docx",
+          "Voynich/FULL_TRANSLATION/MATH/CUT/CUT MASTER TOME \u2014 Circle \u25cb within Square \u25a1 within Triangle \u25b3.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-640210af8380",
+        "sha256": "640210af83802d7cf02dcd58976defab3c6e57c301c800c8d81db10811622887",
+        "count": 2,
+        "size_bytes_each": 3132862,
+        "potential_savings_bytes": 3132862,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/MATH SYNTHESIS TOME.docx",
+          "Voynich/FULL_TRANSLATION/MATH/MATH SYNTHESIS TOME.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-55ebdabcff30",
+        "sha256": "55ebdabcff30a1ec56a3cc093bae212b320f1621e69ebffe9e51438871f054b8",
+        "count": 2,
+        "size_bytes_each": 3107422,
+        "potential_savings_bytes": 3107422,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/AQM - LM - N+7/AQM/AQM TOME IV \u2014 Kernel Closure at Infinite Resolution.docx",
+          "Voynich/FULL_TRANSLATION/MATH/AQM - LM - N+7/AQM/AQM TOME IV \u2014 Kernel Closure at Infinite Resolution.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-c868a93505c7",
+        "sha256": "c868a93505c7f12e4ba6affb863279d893902c7e4e19555fabe73173e5dfb72c",
+        "count": 2,
+        "size_bytes_each": 2938930,
+        "potential_savings_bytes": 2938930,
+        "members": [
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/00_STATUS/01_SYSTEM_SNAPSHOT.json",
+          "DEEPER CRYSTALIZATION/ACTIVE_NERVOUS_SYSTEM/07_FULL_PROJECT_INTEGRATION_256/06_REALTIME_BOARD/_state/last_snapshot.json"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-6de4d7b7115e",
+        "sha256": "6de4d7b7115e962cc32337427f7095ce8c0d4d88a94e4038a4f0e386a4e2c130",
+        "count": 2,
+        "size_bytes_each": 2932365,
+        "potential_savings_bytes": 2932365,
+        "members": [
+          "MATH/Newer/working/6 dimensional hologram(1).docx",
+          "Trading Bot/Memory Docs/working/6 dimensional hologram(1).docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-84cac1193d61",
+        "sha256": "84cac1193d6132f9762ec5a212de0c9ad3be45471b62bd76022b97032c7d6094",
+        "count": 2,
+        "size_bytes_each": 2778980,
+        "potential_savings_bytes": 2778980,
+        "members": [
+          "MATH/FINAL FORM/MYTH - MATH/Philosophy/ATHENA OPERATING SYSTEM .docx",
+          "MATH/FINAL FORM/The Crystal/ATHENA OPERATING SYSTEM .docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-342f1d3c1bad",
+        "sha256": "342f1d3c1bad936a45880263a2e9c3cfa6fcc190ac04dabc5a72a9e169ab4304",
+        "count": 2,
+        "size_bytes_each": 2575970,
+        "potential_savings_bytes": 2575970,
+        "members": [
+          "MATH/FINAL FORM/COMPLETE TOMES/ATHENA/Athena Tools/ATHENACHKA \u2014 INTELLIGENCE WARS \u2194 PLANETARY STEWARDSHIP \u2014 Ms\u27e8EF0E\u27e9.docx",
+          "MATH/FINAL FORM/MYTH - MATH/Nostradamos/ATHENACHKA \u2014 INTELLIGENCE WARS \u2194 PLANETARY STEWARDSHIP \u2014 Ms\u27e8EF0E\u27e9.docx"
+        ]
+      },
+      {
+        "duplicate_group_id": "DUP-3ec1acbefb42",
+        "sha256": "3ec1acbefb4229ff074c0dd785af4c4e264eb9e78bee6321bee1bb56427c0a7a",
+        "count": 2,
+        "size_bytes_each": 2551140,
+        "potential_savings_bytes": 2551140,
+        "members": [
+          "MATH/Newer/Constant FInder _working_.docx",
+          "Trading Bot/Memory Docs/Constant FInder _working_.docx"
+        ]
+      }
+    ]
+  }
+}

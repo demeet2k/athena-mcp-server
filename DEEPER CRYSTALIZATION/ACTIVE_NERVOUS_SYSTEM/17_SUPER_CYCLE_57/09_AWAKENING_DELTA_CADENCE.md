@@ -1,0 +1,64 @@
+# Awakening Delta Cadence
+
+- Board-agent deltas refresh every loop.
+- Full 24-note bundle refreshes every 3 loops.
+- Pass-boundary bundle emits every 9 loops.
+
+## Loop cadence
+- `L01` :: board_delta=True full_bundle=False pass_boundary=False
+- `L02` :: board_delta=True full_bundle=False pass_boundary=False
+- `L03` :: board_delta=True full_bundle=True pass_boundary=False
+- `L04` :: board_delta=True full_bundle=False pass_boundary=False
+- `L05` :: board_delta=True full_bundle=False pass_boundary=False
+- `L06` :: board_delta=True full_bundle=True pass_boundary=False
+- `L07` :: board_delta=True full_bundle=False pass_boundary=False
+- `L08` :: board_delta=True full_bundle=False pass_boundary=False
+- `L09` :: board_delta=True full_bundle=True pass_boundary=True
+- `L10` :: board_delta=True full_bundle=False pass_boundary=False
+- `L11` :: board_delta=True full_bundle=False pass_boundary=False
+- `L12` :: board_delta=True full_bundle=True pass_boundary=False
+- `L13` :: board_delta=True full_bundle=False pass_boundary=False
+- `L14` :: board_delta=True full_bundle=False pass_boundary=False
+- `L15` :: board_delta=True full_bundle=True pass_boundary=False
+- `L16` :: board_delta=True full_bundle=False pass_boundary=False
+- `L17` :: board_delta=True full_bundle=False pass_boundary=False
+- `L18` :: board_delta=True full_bundle=True pass_boundary=True
+- `L19` :: board_delta=True full_bundle=False pass_boundary=False
+- `L20` :: board_delta=True full_bundle=False pass_boundary=False
+- `L21` :: board_delta=True full_bundle=True pass_boundary=False
+- `L22` :: board_delta=True full_bundle=False pass_boundary=False
+- `L23` :: board_delta=True full_bundle=False pass_boundary=False
+- `L24` :: board_delta=True full_bundle=True pass_boundary=False
+- `L25` :: board_delta=True full_bundle=False pass_boundary=False
+- `L26` :: board_delta=True full_bundle=False pass_boundary=False
+- `L27` :: board_delta=True full_bundle=True pass_boundary=True
+- `L28` :: board_delta=True full_bundle=False pass_boundary=False
+- `L29` :: board_delta=True full_bundle=False pass_boundary=False
+- `L30` :: board_delta=True full_bundle=True pass_boundary=False
+- `L31` :: board_delta=True full_bundle=False pass_boundary=False
+- `L32` :: board_delta=True full_bundle=False pass_boundary=False
+- `L33` :: board_delta=True full_bundle=True pass_boundary=False
+- `L34` :: board_delta=True full_bundle=False pass_boundary=False
+- `L35` :: board_delta=True full_bundle=False pass_boundary=False
+- `L36` :: board_delta=True full_bundle=True pass_boundary=True
+- `L37` :: board_delta=True full_bundle=False pass_boundary=False
+- `L38` :: board_delta=True full_bundle=False pass_boundary=False
+- `L39` :: board_delta=True full_bundle=True pass_boundary=False
+- `L40` :: board_delta=True full_bundle=False pass_boundary=False
+- `L41` :: board_delta=True full_bundle=False pass_boundary=False
+- `L42` :: board_delta=True full_bundle=True pass_boundary=False
+- `L43` :: board_delta=True full_bundle=False pass_boundary=False
+- `L44` :: board_delta=True full_bundle=False pass_boundary=False
+- `L45` :: board_delta=True full_bundle=True pass_boundary=True
+- `L46` :: board_delta=True full_bundle=False pass_boundary=False
+- `L47` :: board_delta=True full_bundle=False pass_boundary=False
+- `L48` :: board_delta=True full_bundle=True pass_boundary=False
+- `L49` :: board_delta=True full_bundle=False pass_boundary=False
+- `L50` :: board_delta=True full_bundle=False pass_boundary=False
+- `L51` :: board_delta=True full_bundle=True pass_boundary=False
+- `L52` :: board_delta=True full_bundle=False pass_boundary=False
+- `L53` :: board_delta=True full_bundle=False pass_boundary=False
+- `L54` :: board_delta=True full_bundle=True pass_boundary=True
+- `L55` :: board_delta=True full_bundle=False pass_boundary=False
+- `L56` :: board_delta=True full_bundle=False pass_boundary=False
+- `L57` :: board_delta=True full_bundle=True pass_boundary=False

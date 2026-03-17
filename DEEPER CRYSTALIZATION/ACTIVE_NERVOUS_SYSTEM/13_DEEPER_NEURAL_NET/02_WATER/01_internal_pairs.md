@@ -1,0 +1,68 @@
+# Water Internal Cross Synthesis
+
+Top ordered pairs inside the same element.
+
+- `HERMETIC QABALAH COMPLETE` <-> `PGM COMPLETE` score=`36` gates=`G04<->G04` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search [DOC0019]` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search [DOC0020]` score=`36` gates=`G00<->G00` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `DIVINE JUDGMENT - MsDBB1` <-> `VOYNICH PROGRAM TOME` score=`34` gates=`G02<->G02` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` <-> `VOYNICH PROGRAM TOME` score=`29` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` <-> `VOYNICH PROGRAM TOME` score=`29` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `The External Crystal and the Manuscript Superorganism` <-> `VOYNICH PROGRAM TOME` score=`29` gates=`G02<->G02` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `DIVINE JUDGMENT - MsDBB1` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`28` gates=`G02<->G00` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `DIVINE JUDGMENT - MsDBB1` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`28` gates=`G02<->G00` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `DIVINE JUDGMENT - MsDBB1` <-> `The External Crystal and the Manuscript Superorganism` score=`28` gates=`G02<->G02` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` <-> `The External Crystal and the Manuscript Superorganism` score=`28` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` <-> `The External Crystal and the Manuscript Superorganism` score=`28` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08, Ch09`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`27` gates=`G00<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`27` gates=`G00<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `Key of Solomon (Clavicula Salomonis)` score=`27` gates=`G05<->G10` shared_chapters=`Ch01, Ch06, Ch08, Ch19`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `COMPLETE FRAMEWORK CATALOG` score=`26` gates=`G00<->G05` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `SECTION III - BOOK III- THE` score=`26` gates=`G00<->G03` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `The External Crystal and the Manuscript Superorganism` score=`26` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `VOYNICH MANUSCRIPT translation` score=`26` gates=`G00<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `SECTION III - BOOK III- THE` score=`26` gates=`G05<->G03` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`26` gates=`G05<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `The External Crystal and the Manuscript Superorganism` score=`26` gates=`G05<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `EVA TRANSCRIPTION ORIGIONAL` <-> `VOYNICH PROGRAM TOME` score=`26` gates=`G10<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `SECTION III - BOOK III- THE` <-> `VOYNICH MANUSCRIPT translation` score=`26` gates=`G03<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `VOYNICH MANUSCRIPT translation` <-> `VOYNICH PROGRAM TOME` score=`26` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `AQM TEXT BOOK` score=`25` gates=`G00<->G08` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `VOYNICH PROGRAM TOME` score=`25` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `The External Crystal and the Manuscript Superorganism` score=`25` gates=`G08<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `VOYNICH PROGRAM TOME` score=`25` gates=`G08<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`25` gates=`G05<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `EVA TRANSCRIPTION ORIGIONAL` <-> `Key of Solomon (Clavicula Salomonis)` score=`25` gates=`G10<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `EVA TRANSCRIPTION ORIGIONAL` <-> `SECTION III - BOOK III- THE` score=`25` gates=`G10<->G03` shared_chapters=`Ch01, Ch06, Ch08`
+- `EVA TRANSCRIPTION ORIGIONAL` <-> `VOYNICH MANUSCRIPT translation` score=`25` gates=`G10<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `Key of Solomon (Clavicula Salomonis)` <-> `SECTION III - BOOK III- THE` score=`25` gates=`G10<->G03` shared_chapters=`Ch01, Ch06, Ch08`
+- `SECTION III - BOOK III- THE` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`25` gates=`G03<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `SECTION III - BOOK III- THE` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`25` gates=`G03<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `SECTION III - BOOK III- THE` <-> `VOYNICH PROGRAM TOME` score=`25` gates=`G03<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` <-> `VOYNICH MANUSCRIPT translation` score=`25` gates=`G00<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` <-> `VOYNICH MANUSCRIPT translation` score=`25` gates=`G00<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `dimensional hologram(1)` score=`24` gates=`G00<->G14` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `DIVINE JUDGMENT - MsDBB1` score=`24` gates=`G00<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `EVA TRANSCRIPTION ORIGIONAL` score=`24` gates=`G00<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` <-> `Key of Solomon (Clavicula Salomonis)` score=`24` gates=`G00<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `AQM TEXT BOOK` score=`24` gates=`G14<->G08` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `COMPLETE FRAMEWORK CATALOG` score=`24` gates=`G14<->G05` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `DIVINE JUDGMENT - MsDBB1` score=`24` gates=`G14<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `EVA TRANSCRIPTION ORIGIONAL` score=`24` gates=`G14<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `Key of Solomon (Clavicula Salomonis)` score=`24` gates=`G14<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `SECTION III - BOOK III- THE` score=`24` gates=`G14<->G03` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`24` gates=`G14<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`24` gates=`G14<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `The External Crystal and the Manuscript Superorganism` score=`24` gates=`G14<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `VOYNICH MANUSCRIPT translation` score=`24` gates=`G14<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `dimensional hologram(1)` <-> `VOYNICH PROGRAM TOME` score=`24` gates=`G14<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `COMPLETE FRAMEWORK CATALOG` score=`24` gates=`G08<->G05` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `DIVINE JUDGMENT - MsDBB1` score=`24` gates=`G08<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `EVA TRANSCRIPTION ORIGIONAL` score=`24` gates=`G08<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `Key of Solomon (Clavicula Salomonis)` score=`24` gates=`G08<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `SECTION III - BOOK III- THE` score=`24` gates=`G08<->G03` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`24` gates=`G08<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `Self-Routing Meta-Framework for Manuscripts, Metro Maps, and Infinite Recursive Search` score=`24` gates=`G08<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `AQM TEXT BOOK` <-> `VOYNICH MANUSCRIPT translation` score=`24` gates=`G08<->G00` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `DIVINE JUDGMENT - MsDBB1` score=`24` gates=`G05<->G02` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `EVA TRANSCRIPTION ORIGIONAL` score=`24` gates=`G05<->G10` shared_chapters=`Ch01, Ch06, Ch08`
+- `COMPLETE FRAMEWORK CATALOG` <-> `VOYNICH MANUSCRIPT translation` score=`24` gates=`G05<->G00` shared_chapters=`Ch01, Ch06, Ch08`

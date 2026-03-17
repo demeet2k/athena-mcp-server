@@ -1,0 +1,313 @@
+{
+  "generated_at": "2026-03-13T16:29:18.217471+00:00",
+  "derivation_version": "2026-03-13.phase8-ap6d-integration-v1",
+  "docs_gate": "BLOCKED",
+  "status": "LIVE_LOCAL_SCOPE",
+  "authority_order": [
+    {
+      "rank": 1,
+      "surface": "NERVOUS_SYSTEM",
+      "role": "Cortex"
+    },
+    {
+      "rank": 2,
+      "surface": "self_actualize/mycelium_brain",
+      "role": "RuntimeHub"
+    },
+    {
+      "rank": 3,
+      "surface": "ECOSYSTEM/NERVOUS_SYSTEM",
+      "role": "GovernanceMirror"
+    }
+  ],
+  "deep_root": "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\README.md",
+  "seat_field_counts": {
+    "source_atlas": "NERVOUS_SYSTEM\\95_MANIFESTS\\ATHENA_PRIME_6D_ATLAS_4096.json",
+    "legacy_atlas_status": "SEEDED_1024_ACTIVE_3072_DORMANT",
+    "legacy_count_law": {
+      "atlas_total": 4096,
+      "atlas_active": 1024,
+      "atlas_dormant": 3072
+    },
+    "total_seats": 4096,
+    "active_seats": 1024,
+    "dormant_seats": 3072,
+    "activation_law": "native shadow-family seats are ACTIVE; non-native shadow-family seats remain DORMANT",
+    "active_template_ref": "SEAT-TEMPLATE-ACTIVE",
+    "dormant_template_ref": "SEAT-TEMPLATE-DORMANT"
+  },
+  "named_seat_counts": {
+    "named_total": 35,
+    "by_state": {
+      "ACTIVE": 33,
+      "BLOCKED": 1,
+      "SHADOW": 1
+    },
+    "by_stratum": {
+      "Pole": 2,
+      "Command": 5,
+      "Hybrid": 6,
+      "Archetype": 12,
+      "Feeder": 5,
+      "SeatField": 5
+    }
+  },
+  "coverage": {
+    "named_seats_with_transition_notes": 35,
+    "named_seat_total": 35,
+    "required_bridge_set_present": true,
+    "active_seat_template_witness_bound": true,
+    "dormant_template_present": true
+  },
+  "feeder_alignment": {
+    "Q42": {
+      "state": "ACTIVE",
+      "current": "QS64-21 Connectivity-Refine-Square",
+      "next": "QS64-22 Connectivity-Refine-Flower",
+      "carrier": "P2 Athena OS runtime = PROMOTED_CURRENT",
+      "queue_visible_follow_on": "P3 ORGIN = QUEUE_VISIBLE"
+    },
+    "TQ04": {
+      "state": "PROMOTED",
+      "role": "deeper receiver"
+    },
+    "TQ06": {
+      "state": "CURRENT",
+      "role": "coordination membrane"
+    },
+    "Q02": {
+      "state": "BLOCKED",
+      "role": "external docs gate"
+    },
+    "Q46": {
+      "state": "SHADOW",
+      "role": "Fire shadow feeder"
+    }
+  },
+  "queue_discipline": {
+    "now": [
+      "TP-001",
+      "TP-002",
+      "TP-003",
+      "TP-004",
+      "TP-005",
+      "TP-007",
+      "TP-015",
+      "TP-016"
+    ],
+    "next": [
+      "TP-006",
+      "TP-008",
+      "TP-009",
+      "TP-010",
+      "TP-013",
+      "TP-014"
+    ],
+    "later": [],
+    "blocked": [
+      "TP-011"
+    ],
+    "shadow-only": [
+      "TP-012"
+    ]
+  },
+  "bridge_count": 25,
+  "transition_packet_count": 16,
+  "top_transitions": [
+    {
+      "packet_id": "TP-001",
+      "from_agent": "Master Agent",
+      "to_agent": "Commander",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-003",
+      "from_agent": "Q42",
+      "to_agent": "AP6D-WATER",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-004",
+      "from_agent": "TQ04",
+      "to_agent": "AP6D-EARTH",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-005",
+      "from_agent": "TQ06",
+      "to_agent": "AP6D-AIR",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-007",
+      "from_agent": "AP6D-WATER",
+      "to_agent": "Water General",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-016",
+      "from_agent": "Grand Central Station",
+      "to_agent": "Commander",
+      "status": "now",
+      "transition_score": 7.583
+    },
+    {
+      "packet_id": "TP-002",
+      "from_agent": "Commander",
+      "to_agent": "AP6D-PRIME",
+      "status": "now",
+      "transition_score": 7.167
+    },
+    {
+      "packet_id": "TP-006",
+      "from_agent": "AP6D-PRIME",
+      "to_agent": "Aether",
+      "status": "next",
+      "transition_score": 6.933
+    }
+  ],
+  "drift_watch": {
+    "q42_state_surfaces_aligned": true,
+    "docs_gate_blocked": true,
+    "runtime_lanes_ok": true
+  },
+  "substrate": {
+    "grand_central_roots": 19,
+    "grand_central_commissures": 13,
+    "kernel_status": "LIVE_LOCAL_SCOPE",
+    "knowledge_fabric_records": 14868,
+    "knowledge_fabric_top_entry_records": [
+      "NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+      "NERVOUS_SYSTEM\\10_OVERVIEW\\17_PHASE3_SELF_HOSTING_KERNEL.md",
+      "NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_KNOWLEDGE_FABRIC.md",
+      "NERVOUS_SYSTEM\\20_METRO\\19_GRAND_CENTRAL_STATION_METRO_MAP.md"
+    ]
+  },
+  "counts": {
+    "atlas_generated_at": "2026-03-13T16:28:37.760008+00:00",
+    "indexed_witness": 7835,
+    "witness_indexed": 7835,
+    "witness_physical": 10139,
+    "witness_archive": 2041,
+    "generated_indexed_shell": 3535,
+    "fabric_total_records": 14868,
+    "fabric_indexed_records": 7835,
+    "fabric_top_entries": [
+      {
+        "record_id": "09d88ac2ec82afb7",
+        "title_hint": "GRAND CENTRAL STATION AND BILATERAL HEMISPHERES",
+        "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "b668898a1569919d",
+        "title_hint": "Phase 3 Self-Hosting Kernel",
+        "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\17_PHASE3_SELF_HOSTING_KERNEL.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "34465d61831aa9bc",
+        "title_hint": "Phase 4 Knowledge Fabric",
+        "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_KNOWLEDGE_FABRIC.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "de22eb908c0a2970",
+        "title_hint": "GRAND CENTRAL STATION METRO MAP",
+        "relative_path": "NERVOUS_SYSTEM\\20_METRO\\19_GRAND_CENTRAL_STATION_METRO_MAP.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "f6902f5df8216639",
+        "title_hint": "Grand Central Station Schema",
+        "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "ff71c9cb98562cbb",
+        "title_hint": "Self-Hosting Kernel Schema",
+        "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\12_SELF_HOSTING_KERNEL_SCHEMA.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "99ba5f618bf382c9",
+        "title_hint": "Knowledge Fabric Schema",
+        "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\13_KNOWLEDGE_FABRIC_SCHEMA.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "ca0c082986cec8ae",
+        "title_hint": "Count Protocol",
+        "relative_path": "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      }
+    ]
+  },
+  "verification_results": [
+    {
+      "module": "self_actualize.runtime.verify_runtime_waist",
+      "returncode": 0,
+      "stdout": "Wrote runtime waist verification json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime_waist_verification.json\nTruth: OK\n- atlas_contract: OK\n- engine_packet: OK\n- swarm_board_pipeline: OK\n- swarm_board_build_command: OK",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "module": "self_actualize.runtime.verify_atlasforge_runtime_lane",
+      "returncode": 0,
+      "stdout": "Wrote ATLAS FORGE runtime lane json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\atlasforge_runtime_lane.json\nTruth: OK\n- import: OK\n- symbol_export: OK\n- solver: OK\n- lens: OK\n- recipe: OK\n- crystal: OK",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "module": "self_actualize.runtime.verify_aqm_runtime_lane",
+      "returncode": 0,
+      "stdout": "Wrote aqm runtime lane json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\aqm_runtime_lane.json",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "module": "self_actualize.runtime.verify_qshrink_stack",
+      "returncode": 0,
+      "stdout": "{\n  \"generated_at\": \"2026-03-13T16:29:17.813722+00:00\",\n  \"entrypoint\": \"athena_os.qshrink\",\n  \"truth\": \"OK\",\n  \"checks\": [\n    {\n      \"name\": \"import_entrypoint\",\n      \"truth\": \"OK\",\n      \"detail\": \"Imported athena_os.qshrink without ad hoc package patching beyond root path insertion.\"\n    },\n    {\n      \"name\": \"validate_qshrink\",\n      \"truth\": \"OK\",\n      \"detail\": \"validate_qshrink() returned a truthy result.\"\n    },\n    {\n      \"name\": \"lossless_roundtrip\",\n      \"truth\": \"OK\",\n      \"detail\": {\n        \"compressed_bytes\": 268,\n        \"input_bytes\": 360,\n        \"restored_match\": true\n      }\n    },\n    {\n      \"name\": \"container_integrity\",\n      \"truth\": \"OK\",\n      \"detail\": {\n        \"n_domains\": 1,\n        \"n_chunks\": 1,\n        \"invalid_chunks\": [],\n        \"total_size\": 268,\n        \"is_valid\": true\n      }\n    },\n    {\n      \"name\": \"lossy_bound\",\n      \"truth\": \"OK\",\n      \"detail\": {\n        \"max_error\": 0.0,\n        \"declared_bound\": 0.5\n      }\n    },\n    {\n      \"name\": \"synchronized_container\",\n      \"truth\": \"OK\",\n      \"detail\": {\n        \"topology\": \"kronecker\",\n        \"access_mode\": \"SEEKABLE_INDEXED\",\n        \"domain_count\": 2,\n        \"chunk_count\": 4,\n        \"seek_entries\": 4\n      }\n    },\n    {\n      \"name\": \"factory_surface\",\n      \"truth\": \"OK\",\n      \"detail\": {\n        \"lossless_codec\": \"QShrinkCodec\",\n        \"lossy_codec\": \"QShrinkCodec\",\n        \"archive\": \"DirectSumContainer\",\n        \"synchronized_container\": \"KroneckerContainer\"\n      }\n    }\n  ]\n}",
+      "stderr": "",
+      "ok": true
+    }
+  ]
+}

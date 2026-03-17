@@ -1,0 +1,348 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "loop_id": "L01",
+  "hall_macro_quests": [
+    {
+      "quest_id": "LP57-HALL-L01-01",
+      "title": "Corpus Map / Q42",
+      "summary": "patch atlas and regional witness surfaces while preserving `Q42` continuity.",
+      "zone": "Guild Hall",
+      "status": "READY",
+      "feeder_binding": "Q42",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "quest_id": "LP57-HALL-L01-02",
+      "title": "Corpus Map / Q46",
+      "summary": "patch atlas and regional witness surfaces while preserving `Q46` continuity.",
+      "zone": "Guild Hall",
+      "status": "READY",
+      "feeder_binding": "Q46",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "quest_id": "LP57-HALL-L01-03",
+      "title": "Corpus Map / TQ04",
+      "summary": "patch atlas and regional witness surfaces while preserving `TQ04` continuity.",
+      "zone": "Guild Hall",
+      "status": "READY",
+      "feeder_binding": "TQ04",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "quest_id": "LP57-HALL-L01-04",
+      "title": "Corpus Map / TQ06",
+      "summary": "patch atlas and regional witness surfaces while preserving `TQ06` continuity.",
+      "zone": "Guild Hall",
+      "status": "READY",
+      "feeder_binding": "TQ06",
+      "restart_seed": "L02 -> Ontology Lattice"
+    }
+  ],
+  "temple_macro_quests": [
+    {
+      "quest_id": "LP57-TEMPLE-L01-01",
+      "title": "Corpus Map / Temple Axis 1",
+      "summary": "emit map quest bundles under `ontology / symbolic coherence`.",
+      "zone": "Temple",
+      "status": "READY",
+      "axis": "ontology / symbolic coherence",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "quest_id": "LP57-TEMPLE-L01-02",
+      "title": "Corpus Map / Temple Axis 2",
+      "summary": "emit map quest bundles under `structural purity / coordinate law`.",
+      "zone": "Temple",
+      "status": "READY",
+      "axis": "structural purity / coordinate law",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "quest_id": "LP57-TEMPLE-L01-03",
+      "title": "Corpus Map / Temple Axis 3",
+      "summary": "emit map quest bundles under `compression elegance / successor mapping`.",
+      "zone": "Temple",
+      "status": "READY",
+      "axis": "compression elegance / successor mapping",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "quest_id": "LP57-TEMPLE-L01-04",
+      "title": "Corpus Map / Temple Axis 4",
+      "summary": "emit map quest bundles under `emergence / identity / continuity`.",
+      "zone": "Temple",
+      "status": "READY",
+      "axis": "emergence / identity / continuity",
+      "restart_seed": "L02 -> Ontology Lattice"
+    }
+  ],
+  "planner_bundle_packets": [
+    {
+      "packet_id": "LP57-PLAN-L01-01",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-01",
+        "LP57-TEMPLE-L01-01"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "manuscript",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-02",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-02",
+        "LP57-TEMPLE-L01-02"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "chapter",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-03",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-03",
+        "LP57-TEMPLE-L01-03"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "section",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-04",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-04",
+        "LP57-TEMPLE-L01-04"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "concept",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-05",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-01",
+        "LP57-TEMPLE-L01-01"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "equation_algorithm",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-06",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-02",
+        "LP57-TEMPLE-L01-02"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "metadata_routing_indexing",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-07",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-03",
+        "LP57-TEMPLE-L01-03"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "manuscript",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-08",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-04",
+        "LP57-TEMPLE-L01-04"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "chapter",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-09",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-01",
+        "LP57-TEMPLE-L01-01"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "section",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-10",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-02",
+        "LP57-TEMPLE-L01-02"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "concept",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-11",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-03",
+        "LP57-TEMPLE-L01-03"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "equation_algorithm",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-12",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-04",
+        "LP57-TEMPLE-L01-04"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "metadata_routing_indexing",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-13",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-01",
+        "LP57-TEMPLE-L01-01"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "manuscript",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-14",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-02",
+        "LP57-TEMPLE-L01-02"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "chapter",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-15",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-03",
+        "LP57-TEMPLE-L01-03"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "section",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PLAN-L01-16",
+      "status": "READY",
+      "dependency_edges": [
+        "LP57-HALL-L01-04",
+        "LP57-TEMPLE-L01-04"
+      ],
+      "planning_objective": "emit map quest bundles",
+      "resolution_band": "concept",
+      "restart_seed": "L02 -> Ontology Lattice"
+    }
+  ],
+  "worker_execution_packets": [
+    {
+      "packet_id": "LP57-WORK-L01-01",
+      "status": "UNBLOCKED",
+      "source_hall_quest": "LP57-HALL-L01-01",
+      "source_temple_quest": "LP57-TEMPLE-L01-01",
+      "title": "Execute Corpus Map branch 1",
+      "implementation_target": "patch atlas and regional witness surfaces",
+      "feeder_binding": "Q42",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-WORK-L01-02",
+      "status": "UNBLOCKED",
+      "source_hall_quest": "LP57-HALL-L01-02",
+      "source_temple_quest": "LP57-TEMPLE-L01-02",
+      "title": "Execute Corpus Map branch 2",
+      "implementation_target": "patch atlas and regional witness surfaces",
+      "feeder_binding": "Q46",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-WORK-L01-03",
+      "status": "UNBLOCKED",
+      "source_hall_quest": "LP57-HALL-L01-03",
+      "source_temple_quest": "LP57-TEMPLE-L01-03",
+      "title": "Execute Corpus Map branch 3",
+      "implementation_target": "patch atlas and regional witness surfaces",
+      "feeder_binding": "TQ04",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-WORK-L01-04",
+      "status": "UNBLOCKED",
+      "source_hall_quest": "LP57-HALL-L01-04",
+      "source_temple_quest": "LP57-TEMPLE-L01-04",
+      "title": "Execute Corpus Map branch 4",
+      "implementation_target": "patch atlas and regional witness surfaces",
+      "feeder_binding": "TQ06",
+      "restart_seed": "L02 -> Ontology Lattice"
+    }
+  ],
+  "prune_packets": [
+    {
+      "packet_id": "LP57-PRUNE-L01-01",
+      "status": "READY",
+      "title": "Compress Corpus Map residue 1",
+      "compression_target": "prune stale map aliases",
+      "feeder_binding": "Q42",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PRUNE-L01-02",
+      "status": "READY",
+      "title": "Compress Corpus Map residue 2",
+      "compression_target": "prune stale map aliases",
+      "feeder_binding": "Q46",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PRUNE-L01-03",
+      "status": "READY",
+      "title": "Compress Corpus Map residue 3",
+      "compression_target": "prune stale map aliases",
+      "feeder_binding": "TQ04",
+      "restart_seed": "L02 -> Ontology Lattice"
+    },
+    {
+      "packet_id": "LP57-PRUNE-L01-04",
+      "status": "READY",
+      "title": "Compress Corpus Map residue 4",
+      "compression_target": "prune stale map aliases",
+      "feeder_binding": "TQ06",
+      "restart_seed": "L02 -> Ontology Lattice"
+    }
+  ],
+  "verification_bundle": {
+    "bundle_id": "L01-VERIFICATION",
+    "coordinate_stamp": "COORD-L01-VERIFY",
+    "checks": [
+      "57 loops",
+      "16/16/16/9 grouping",
+      "shared lattice 4096/1024/3072",
+      "feeder split exact",
+      "docs gate blocked honestly"
+    ],
+    "lookup_key": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM -> L01 -> A4 -> COORD-L01-VERIFY -> L01-VERIFICATION",
+    "truth": "NEAR"
+  },
+  "truth": "NEAR"
+}

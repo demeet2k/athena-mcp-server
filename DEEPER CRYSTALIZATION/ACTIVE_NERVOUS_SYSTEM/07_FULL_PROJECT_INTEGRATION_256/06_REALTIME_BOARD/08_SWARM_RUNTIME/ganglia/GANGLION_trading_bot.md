@@ -1,6 +1,6 @@
 # Ganglion `Trading Bot`
 
-- Weight: `193`
+- Weight: `2343`
 - PrimaryRail: `Su`
 - PrimaryFace: `Fire`
 - PreferredScale: `S8`
@@ -10,4 +10,3 @@
 
 ## Local Threads
 - `blocked` `Google Docs bootstrap gate` -> `pod` / `FAIL`
-- `monitor` `Trading Bot` -> `ganglion` / `AMBIG`

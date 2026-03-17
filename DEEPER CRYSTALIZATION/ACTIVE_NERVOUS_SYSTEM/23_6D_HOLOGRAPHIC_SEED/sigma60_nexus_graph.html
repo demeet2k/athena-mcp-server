@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Σ₆₀ Nexus Graph — Complete Tunneling Atlas</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--fg:#e8e4d9;--gold:#c9a84c;--gold2:#e8c55a;--silver:#8899aa;--red:#c44;--blue:#48c;--teal:#3ba;--green:#4a4;--dim:#333;--glass:rgba(200,168,76,0.08)}
+body{background:var(--bg);color:var(--fg);font-family:'Cormorant Garamond',serif;overflow-x:hidden;min-height:100vh}
+h1{font-size:1.4rem;font-weight:300;letter-spacing:0.15em;text-align:center;color:var(--gold);padding:0.8rem 0 0.2rem;text-transform:uppercase}
+.sub{text-align:center;font-size:0.75rem;color:var(--silver);letter-spacing:0.08em;margin-bottom:0.6rem;font-family:'JetBrains Mono',monospace;font-weight:300}
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;padding:0 0.8rem 1rem}
+.graph-wrap{position:relative;width:720px;height:720px;flex-shrink:0}
+canvas{position:absolute;top:0;left:0}
+.controls{width:260px;display:flex;flex-direction:column;gap:0.5rem}
+.panel{background:var(--glass);border:1px solid rgba(200,168,76,0.15);border-radius:8px;padding:0.6rem 0.8rem}
+.panel-title{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);margin-bottom:0.4rem;font-family:'JetBrains Mono',monospace}
+.btn{background:transparent;border:1px solid var(--dim);color:var(--fg);padding:2px 7px;border-radius:4px;font-size:0.65rem;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all 0.2s;margin:1px}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn.active{background:rgba(200,168,76,0.2);border-color:var(--gold);color:var(--gold2)}
+.info{font-size:0.68rem;color:var(--silver);line-height:1.5;font-family:'JetBrains Mono',monospace;font-weight:300}
+.info b{color:var(--gold);font-weight:400}
+.info .highlight{color:var(--gold2)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;font-size:0.62rem;font-family:'JetBrains Mono',monospace;color:var(--silver)}
+.stats .val{color:var(--gold2);text-align:right}
+</style>
+</head>
+<body>
+<h1>Σ₆₀ Nexus Graph — Tunneling Atlas</h1>
+<div class="sub">60 states · 270 tunnels · 16 nexus hubs · 4 quadrants × 15 lenses</div>
+
+<div class="container">
+<div class="graph-wrap">
+<canvas id="bgCanvas" width="720" height="720"></canvas>
+<canvas id="fgCanvas" width="720" height="720"></canvas>
+</div>
+
+<div class="controls">
+<div class="panel">
+<div class="panel-title">Show tunnel families</div>
+<div style="display:flex;flex-wrap:wrap;gap:2px">
+<button class="btn active" id="tAlpha" onclick="toggle('alpha',this)">α Aether</button>
+<button class="btn active" id="tBeta" onclick="toggle('beta',this)">β Structure</button>
+<button class="btn active" id="tGamma" onclick="toggle('gamma',this)">γ Flow</button>
+<button class="btn active" id="tChi" onclick="toggle('chi',this)">χ Inversion</button>
+<button class="btn" id="tQuarter" onclick="toggle('quarter',this)">¼ Turn</button>
+</div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Highlight quadrant</div>
+<div style="display:flex;gap:2px">
+<button class="btn active" onclick="highlightQ('all',this)">All</button>
+<button class="btn" onclick="highlightQ('A',this)" style="color:var(--red)">A Fire</button>
+<button class="btn" onclick="highlightQ('B',this)" style="color:var(--blue)">B Water</button>
+<button class="btn" onclick="highlightQ('C',this)" style="color:var(--green)">C Earth</button>
+<button class="btn" onclick="highlightQ('D',this)" style="color:var(--teal)">D Air</button>
+</div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Highlight lens</div>
+<div style="display:flex;flex-wrap:wrap;gap:2px">
+<button class="btn active" onclick="highlightL(-1,this)">All</button>
+<button class="btn" onclick="highlightL(0,this)">S</button>
+<button class="btn" onclick="highlightL(1,this)">F</button>
+<button class="btn" onclick="highlightL(3,this)">C</button>
+<button class="btn" onclick="highlightL(7,this)">R</button>
+<button class="btn" onclick="highlightL(14,this)">SFCR</button>
+</div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Selected state</div>
+<div class="info" id="stateInfo">Click a node to inspect</div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Graph statistics</div>
+<div class="stats">
+<span>Vertices</span><span class="val">60</span>
+<span>5-cycle edges</span><span class="val">60</span>
+<span>χ-inversion</span><span class="val">30</span>
+<span>¼-turn edges</span><span class="val">60</span>
+<span>Total edges</span><span class="val">150+</span>
+<span>Avg degree</span><span class="val">~9</span>
+<span>Diameter</span><span class="val">≤4</span>
+<span>Automorphisms</span><span class="val">24</span>
+<span>Nexus hubs</span><span class="val">16</span>
+<span>Aether points</span><span class="val">4</span>
+</div>
+</div>
+
+<div class="panel">
+<div class="panel-title">Sacred geometry overlays</div>
+<div style="display:flex;flex-wrap:wrap;gap:2px">
+<button class="btn" id="sgHub" onclick="toggleSG('hub',this)">Hub ring</button>
+<button class="btn" id="sgPent" onclick="toggleSG('pent',this)">☆ Pentagon</button>
+<button class="btn active" id="sgFam" onclick="toggleSG('fam',this)">5-cycles</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+const CX=360,CY=360,W=720;
+const bgCtx=document.getElementById('bgCanvas').getContext('2d');
+const fgCtx=document.getElementById('fgCanvas').getContext('2d');
+
+const QUADS=['A','B','C','D'];
+const QCOLORS={A:'#c44',B:'#48c',C:'#4a4',D:'#3ba'};
+const QCOLORS_DIM={A:'rgba(204,68,68,0.3)',B:'rgba(68,136,204,0.3)',C:'rgba(68,170,68,0.3)',D:'rgba(59,186,170,0.3)'};
+const LENS_NAMES=['S','F','SF','C','SC','FC','SFC','R','SR','FR','SFR','CR','SCR','FCR','SFCR'];
+const LENS_SHORT=['S','F','SF','C','SC','FC','SFC','R','SR','FR','SFR','CR','SCR','FCR','★'];
+
+const ALPHA_CYCLE=[0,9,3,12,6];
+const BETA_CYCLE=[1,10,4,13,7];
+const GAMMA_CYCLE=[2,11,5,14,8];
+
+const SAR60_NAMES = {
+  A:['Flame','Tide','Stone','Breath','Steam','Lava','Magma','Mist','Volcano','Ocean','Cosmos-R','Gust','Lightning','Eruption','COSMOS'],
+  B:['Quench','Fog','Silt','Blaze','Magma','Tremor','Deluge','Swamp','Glacier','Erupt-F','AntiCosmos','Depth','Eruption','VoidBreath','GRAVITY'],
+  C:['Sandstorm','Monsoon','Inferno','Delta','Furnace','Geyser','TidalFlat','Caldera','Cyclone','HotSpring','RotCosmos','Gust','Bedrock','Spring','SPARK'],
+  D:['Plateau','Crucible','Aquifer','Flash','Cumulus','Boil','Kiln','Estuary','Cauldron','Thunder','CtrCosmos','Pillar','Breeze','Ember','TIDE']
+};
+
+const vis={alpha:true,beta:true,gamma:true,chi:true,quarter:false,hub:false,pent:false,fam:true};
+let highlightQuad='all';
+let highlightLens=-1;
+let selectedNode=null;
+
+// Layout: 4 concentric rings of 15 nodes each
+function nodePos(q,s){
+  const qi=QUADS.indexOf(q);
+  const ringR=[120,170,220,270][qi];
+  const angle=-Math.PI/2+(2*Math.PI*s)/15;
+  return{x:CX+ringR*Math.cos(angle),y:CY+ringR*Math.sin(angle)};
+}
+
+function nodeId(q,s){return q+'.'+String(s).padStart(2,'0')}
+
+function draw(){
+  const ctx=bgCtx;
+  ctx.clearRect(0,0,W,W);
+
+  // Background circles
+  for(let r of[120,170,220,270]){
+    ctx.beginPath();ctx.arc(CX,CY,r,0,2*Math.PI);
+    ctx.strokeStyle='rgba(200,168,76,0.06)';ctx.lineWidth=0.5;ctx.stroke();
+  }
+
+  // Center point (Z*)
+  ctx.beginPath();ctx.arc(CX,CY,6,0,2*Math.PI);
+  ctx.fillStyle='rgba(200,168,76,0.6)';ctx.fill();
+  ctx.font='300 9px "JetBrains Mono"';ctx.fillStyle='rgba(200,168,76,0.8)';
+  ctx.textAlign='center';ctx.fillText('Z*',CX,CY-10);
+
+  // Hub ring
+  if(vis.hub){
+    for(let i=0;i<12;i++){
+      const a=-Math.PI/2+(2*Math.PI*i)/12;
+      const x=CX+290*Math.cos(a),y=CY+290*Math.sin(a);
+      ctx.beginPath();ctx.arc(x,y,3,0,2*Math.PI);
+      ctx.fillStyle='rgba(200,168,76,0.3)';ctx.fill();
+    }
+  }
+
+  // Pentagon overlay
+  if(vis.pent){
+    ctx.beginPath();
+    for(let i=0;i<=5;i++){
+      const a=-Math.PI/2+(2*Math.PI*i)/5;
+      const x=CX+145*Math.cos(a),y=CY+145*Math.sin(a);
+      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    }
+    ctx.closePath();ctx.strokeStyle='rgba(76,200,120,0.15)';ctx.lineWidth=1;ctx.stroke();
+  }
+
+  // Draw edges
+  drawEdges(ctx);
+
+  // Draw nodes
+  for(const q of QUADS){
+    for(let s=0;s<15;s++){
+      const p=nodePos(q,s);
+      const id=nodeId(q,s);
+      let alpha=1;
+      if(highlightQuad!=='all'&&q!==highlightQuad) alpha=0.15;
+      if(highlightLens>=0&&s!==highlightLens) alpha=Math.min(alpha,0.15);
+
+      const r=s===14?6:3.5;
+      const col=q==='A'?`rgba(204,68,68,${alpha})`:q==='B'?`rgba(68,136,204,${alpha})`:q==='C'?`rgba(68,170,68,${alpha})`:`rgba(59,186,170,${alpha})`;
+
+      ctx.beginPath();ctx.arc(p.x,p.y,r,0,2*Math.PI);
+      ctx.fillStyle=col;ctx.fill();
+
+      if(s===14){
+        ctx.beginPath();ctx.arc(p.x,p.y,r+3,0,2*Math.PI);
+        ctx.strokeStyle=col;ctx.lineWidth=1;ctx.stroke();
+      }
+
+      if(selectedNode===id){
+        ctx.beginPath();ctx.arc(p.x,p.y,r+5,0,2*Math.PI);
+        ctx.strokeStyle='rgba(200,168,76,0.8)';ctx.lineWidth=1.5;ctx.stroke();
+      }
+
+      // Labels for σ=14 and σ=0
+      if(s===14||s===0||(highlightLens>=0&&s===highlightLens)){
+        ctx.font='300 7px "JetBrains Mono"';
+        ctx.fillStyle=`rgba(200,168,76,${alpha*0.7})`;
+        ctx.textAlign='center';
+        const label=s===14?'Æ₀':LENS_SHORT[s];
+        ctx.fillText(q+'.'+label,p.x,p.y+r+9);
+      }
+    }
+  }
+}
+
+function drawEdges(ctx){
+  // 5-cycle edges
+  if(vis.fam){
+    const families=[
+      {cycle:ALPHA_CYCLE,color:'rgba(200,168,76,0.12)',name:'α'},
+      {cycle:BETA_CYCLE,color:'rgba(150,200,120,0.12)',name:'β'},
+      {cycle:GAMMA_CYCLE,color:'rgba(120,150,220,0.12)',name:'γ'}
+    ];
+    const activeF=[];
+    if(vis.alpha)activeF.push(families[0]);
+    if(vis.beta)activeF.push(families[1]);
+    if(vis.gamma)activeF.push(families[2]);
+
+    for(const fam of activeF){
+      for(const q of QUADS){
+        let qa=1;
+        if(highlightQuad!=='all'&&q!==highlightQuad) qa=0.15;
+        for(let i=0;i<5;i++){
+          const s1=fam.cycle[i];
+          const s2=fam.cycle[(i+1)%5];
+          const p1=nodePos(q,s1),p2=nodePos(q,s2);
+          ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);
+          ctx.strokeStyle=fam.color.replace(/[\d.]+\)/,`${0.12*qa})`);
+          ctx.lineWidth=0.8;ctx.stroke();
+        }
+      }
+    }
+  }
+
+  // χ-inversion edges (A↔B, C↔D)
+  if(vis.chi){
+    for(let s=0;s<15;s++){
+      let qa=1;
+      if(highlightLens>=0&&s!==highlightLens)qa=0.1;
+      // A↔B
+      const pA=nodePos('A',s),pB=nodePos('B',s);
+      ctx.beginPath();ctx.moveTo(pA.x,pA.y);ctx.lineTo(pB.x,pB.y);
+      ctx.strokeStyle=`rgba(180,120,200,${0.08*qa})`;ctx.lineWidth=0.5;ctx.stroke();
+      // C↔D
+      const pC=nodePos('C',s),pD=nodePos('D',s);
+      ctx.beginPath();ctx.moveTo(pC.x,pC.y);ctx.lineTo(pD.x,pD.y);
+      ctx.strokeStyle=`rgba(180,120,200,${0.08*qa})`;ctx.lineWidth=0.5;ctx.stroke();
+    }
+  }
+
+  // Quarter-turn edges (A↔C, A↔D, B↔C, B↔D)
+  if(vis.quarter){
+    const pairs=[['A','C'],['A','D'],['B','C'],['B','D']];
+    for(const[q1,q2]of pairs){
+      for(let s=0;s<15;s++){
+        let qa=1;
+        if(highlightLens>=0&&s!==highlightLens)qa=0.1;
+        const p1=nodePos(q1,s),p2=nodePos(q2,s);
+        ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);
+        ctx.strokeStyle=`rgba(200,200,100,${0.05*qa})`;ctx.lineWidth=0.3;ctx.stroke();
+      }
+    }
+  }
+}
+
+function toggle(key,btn){vis[key]=!vis[key];btn.classList.toggle('active');draw();}
+function toggleSG(key,btn){vis[key]=!vis[key];btn.classList.toggle('active');draw();}
+
+function highlightQ(q,btn){
+  highlightQuad=q;
+  btn.parentElement.querySelectorAll('.btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  draw();
+}
+
+function highlightL(s,btn){
+  highlightLens=s;
+  btn.parentElement.querySelectorAll('.btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  draw();
+}
+
+// Click detection
+document.getElementById('fgCanvas').addEventListener('click',function(e){
+  const rect=this.getBoundingClientRect();
+  const mx=e.clientX-rect.left,my=e.clientY-rect.top;
+  let closest=null,minD=Infinity;
+  for(const q of QUADS){
+    for(let s=0;s<15;s++){
+      const p=nodePos(q,s);
+      const d=Math.hypot(p.x-mx,p.y-my);
+      if(d<minD){minD=d;closest={q,s};}
+    }
+  }
+  if(minD<15&&closest){
+    selectedNode=nodeId(closest.q,closest.s);
+    showInfo(closest.q,closest.s);
+  }else{
+    selectedNode=null;
+    document.getElementById('stateInfo').innerHTML='Click a node to inspect';
+  }
+  draw();
+});
+
+function showInfo(q,s){
+  const id=nodeId(q,s);
+  const lens=LENS_NAMES[s];
+  const sarName=SAR60_NAMES[q][s];
+  const fam=ALPHA_CYCLE.includes(s)?'α Aether':BETA_CYCLE.includes(s)?'β Structure':'γ Flow';
+  const compS=s===14?'∅ (void)':LENS_NAMES[14-s]||'—';
+
+  // Complement lens calculation
+  const bits=[s&8?1:0,s&4?1:0,s&2?1:0,s&1?1:0];
+  const compBits=bits.map(b=>1-b);
+  const compIdx=compBits[0]*8+compBits[1]*4+compBits[2]*2+compBits[3];
+  const compLens=compIdx===0?'∅ (Z*)':LENS_NAMES[compIdx-1]||'—';
+
+  // Æ distance (steps in 5-cycle to reach σ=14)
+  let aeDist='—';
+  const cycle=ALPHA_CYCLE.includes(s)?ALPHA_CYCLE:BETA_CYCLE.includes(s)?BETA_CYCLE:GAMMA_CYCLE;
+  if(cycle.includes(14)){
+    const pos=cycle.indexOf(s);
+    const aePos=cycle.indexOf(14);
+    aeDist=Math.min((aePos-pos+5)%5,(pos-aePos+5)%5);
+  }
+
+  const chiPartner=q==='A'?'B':q==='B'?'A':q==='C'?'D':'C';
+
+  let html=`<b>${id}</b> — ${sarName}<br>`;
+  html+=`<b>Lens:</b> {${lens}} (σ=${s})<br>`;
+  html+=`<b>Quadrant:</b> ${q} (${q==='A'?'Fire':q==='B'?'Water':q==='C'?'Earth':'Air'})<br>`;
+  html+=`<b>5-cycle:</b> ${fam}<br>`;
+  html+=`<b>χ-partner:</b> ${chiPartner}.${String(s).padStart(2,'0')}<br>`;
+  html+=`<b>Steps to Æ₀:</b> ${aeDist}<br>`;
+  html+=`<b>ŠAR-60:</b> ${q==='A'?'S':q==='B'?'B':q==='C'?'C':'D'}${String(s+1).padStart(2,'0')}`;
+
+  document.getElementById('stateInfo').innerHTML=html;
+}
+
+draw();
+</script>
+</body>
+</html>

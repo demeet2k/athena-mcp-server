@@ -1,0 +1,2172 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "records": [
+    {
+      "bundle_id": "L01-HALL-BUNDLE",
+      "loop_id": "L01",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "patch atlas and regional witness surfaces",
+      "dependency_edges": [
+        "L01-SYNTH",
+        "L01-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L01-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L01-TEMPLE-BUNDLE",
+      "loop_id": "L01",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit map quest bundles",
+      "dependency_edges": [
+        "L01-PLAN",
+        "L01-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L01-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L02-HALL-BUNDLE",
+      "loop_id": "L02",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "repair definitions and concept links",
+      "dependency_edges": [
+        "L02-SYNTH",
+        "L02-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L02-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L02-TEMPLE-BUNDLE",
+      "loop_id": "L02",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit ontology bundle hierarchy",
+      "dependency_edges": [
+        "L02-PLAN",
+        "L02-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L02-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L03-HALL-BUNDLE",
+      "loop_id": "L03",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "packetize contradictions",
+      "dependency_edges": [
+        "L03-SYNTH",
+        "L03-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L03-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L03-TEMPLE-BUNDLE",
+      "loop_id": "L03",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "route to committee / quarantine bundles",
+      "dependency_edges": [
+        "L03-PLAN",
+        "L03-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L03-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L04-HALL-BUNDLE",
+      "loop_id": "L04",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land bridge writebacks and edge candidates",
+      "dependency_edges": [
+        "L04-SYNTH",
+        "L04-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L04-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L04-TEMPLE-BUNDLE",
+      "loop_id": "L04",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit bridge quest tree",
+      "dependency_edges": [
+        "L04-PLAN",
+        "L04-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L04-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L05-HALL-BUNDLE",
+      "loop_id": "L05",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "install operator shells",
+      "dependency_edges": [
+        "L05-SYNTH",
+        "L05-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L05-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L05-TEMPLE-BUNDLE",
+      "loop_id": "L05",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit theorem/equation tasks",
+      "dependency_edges": [
+        "L05-PLAN",
+        "L05-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L05-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L06-HALL-BUNDLE",
+      "loop_id": "L06",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "align representations",
+      "dependency_edges": [
+        "L06-SYNTH",
+        "L06-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L06-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L06-TEMPLE-BUNDLE",
+      "loop_id": "L06",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit parity / translation bundles",
+      "dependency_edges": [
+        "L06-PLAN",
+        "L06-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L06-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L07-HALL-BUNDLE",
+      "loop_id": "L07",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land contract/registry updates",
+      "dependency_edges": [
+        "L07-SYNTH",
+        "L07-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L07-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L07-TEMPLE-BUNDLE",
+      "loop_id": "L07",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit schema fill sequence",
+      "dependency_edges": [
+        "L07-PLAN",
+        "L07-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L07-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L08-HALL-BUNDLE",
+      "loop_id": "L08",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land replay/verifier repairs",
+      "dependency_edges": [
+        "L08-SYNTH",
+        "L08-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L08-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L08-TEMPLE-BUNDLE",
+      "loop_id": "L08",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit verifier worklists",
+      "dependency_edges": [
+        "L08-PLAN",
+        "L08-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L08-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L09-HALL-BUNDLE",
+      "loop_id": "L09",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land meta-process writebacks",
+      "dependency_edges": [
+        "L09-SYNTH",
+        "L09-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L09-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L09-TEMPLE-BUNDLE",
+      "loop_id": "L09",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit cadence bundles",
+      "dependency_edges": [
+        "L09-PLAN",
+        "L09-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L09-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L10-HALL-BUNDLE",
+      "loop_id": "L10",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land note/support updates",
+      "dependency_edges": [
+        "L10-SYNTH",
+        "L10-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L10-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L10-TEMPLE-BUNDLE",
+      "loop_id": "L10",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit support bundles",
+      "dependency_edges": [
+        "L10-PLAN",
+        "L10-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L10-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L11-HALL-BUNDLE",
+      "loop_id": "L11",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land blocker/repair packets",
+      "dependency_edges": [
+        "L11-SYNTH",
+        "L11-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L11-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L11-TEMPLE-BUNDLE",
+      "loop_id": "L11",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit immune quests",
+      "dependency_edges": [
+        "L11-PLAN",
+        "L11-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L11-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L12-HALL-BUNDLE",
+      "loop_id": "L12",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land defrag actions",
+      "dependency_edges": [
+        "L12-SYNTH",
+        "L12-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L12-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L12-TEMPLE-BUNDLE",
+      "loop_id": "L12",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit prune pack hierarchy",
+      "dependency_edges": [
+        "L12-PLAN",
+        "L12-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L12-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L13-HALL-BUNDLE",
+      "loop_id": "L13",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land lawful cross-domain links",
+      "dependency_edges": [
+        "L13-SYNTH",
+        "L13-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L13-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L13-TEMPLE-BUNDLE",
+      "loop_id": "L13",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit domain bridge bundles",
+      "dependency_edges": [
+        "L13-PLAN",
+        "L13-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L13-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L14-HALL-BUNDLE",
+      "loop_id": "L14",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land one safe extension layer",
+      "dependency_edges": [
+        "L14-SYNTH",
+        "L14-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L14-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L14-TEMPLE-BUNDLE",
+      "loop_id": "L14",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit bounded pilot plans",
+      "dependency_edges": [
+        "L14-PLAN",
+        "L14-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L14-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L15-HALL-BUNDLE",
+      "loop_id": "L15",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "install seed packets",
+      "dependency_edges": [
+        "L15-SYNTH",
+        "L15-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L15-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L15-TEMPLE-BUNDLE",
+      "loop_id": "L15",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit restart bundles",
+      "dependency_edges": [
+        "L15-PLAN",
+        "L15-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L15-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L16-HALL-BUNDLE",
+      "loop_id": "L16",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "install lift crosswalks",
+      "dependency_edges": [
+        "L16-SYNTH",
+        "L16-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L16-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L16-TEMPLE-BUNDLE",
+      "loop_id": "L16",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit lift sequencing",
+      "dependency_edges": [
+        "L16-PLAN",
+        "L16-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L16-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L17-HALL-BUNDLE",
+      "loop_id": "L17",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land first macro quest tree",
+      "dependency_edges": [
+        "L17-SYNTH",
+        "L17-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L17-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L17-TEMPLE-BUNDLE",
+      "loop_id": "L17",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit Hall/Temple macro sequence",
+      "dependency_edges": [
+        "L17-PLAN",
+        "L17-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L17-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L18-HALL-BUNDLE",
+      "loop_id": "L18",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land family bundles",
+      "dependency_edges": [
+        "L18-SYNTH",
+        "L18-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L18-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L18-TEMPLE-BUNDLE",
+      "loop_id": "L18",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit family/chapter/appendix packets",
+      "dependency_edges": [
+        "L18-PLAN",
+        "L18-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L18-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L19-HALL-BUNDLE",
+      "loop_id": "L19",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land committee-ready bundles",
+      "dependency_edges": [
+        "L19-SYNTH",
+        "L19-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L19-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L19-TEMPLE-BUNDLE",
+      "loop_id": "L19",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit merge pathway design",
+      "dependency_edges": [
+        "L19-PLAN",
+        "L19-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L19-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L20-HALL-BUNDLE",
+      "loop_id": "L20",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land edge/capsule bridge updates",
+      "dependency_edges": [
+        "L20-SYNTH",
+        "L20-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L20-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L20-TEMPLE-BUNDLE",
+      "loop_id": "L20",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit route-pack ordering",
+      "dependency_edges": [
+        "L20-PLAN",
+        "L20-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L20-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L21-HALL-BUNDLE",
+      "loop_id": "L21",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land first equation/operator shells",
+      "dependency_edges": [
+        "L21-SYNTH",
+        "L21-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L21-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L21-TEMPLE-BUNDLE",
+      "loop_id": "L21",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit theorem install plan",
+      "dependency_edges": [
+        "L21-PLAN",
+        "L21-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L21-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L22-HALL-BUNDLE",
+      "loop_id": "L22",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land translation/replay fixes",
+      "dependency_edges": [
+        "L22-SYNTH",
+        "L22-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L22-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L22-TEMPLE-BUNDLE",
+      "loop_id": "L22",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit parity bundle ordering",
+      "dependency_edges": [
+        "L22-PLAN",
+        "L22-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L22-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L23-HALL-BUNDLE",
+      "loop_id": "L23",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land grammar and registry improvements",
+      "dependency_edges": [
+        "L23-SYNTH",
+        "L23-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L23-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L23-TEMPLE-BUNDLE",
+      "loop_id": "L23",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit packet-law updates",
+      "dependency_edges": [
+        "L23-PLAN",
+        "L23-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L23-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L24-HALL-BUNDLE",
+      "loop_id": "L24",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land proof closure packets",
+      "dependency_edges": [
+        "L24-SYNTH",
+        "L24-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L24-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L24-TEMPLE-BUNDLE",
+      "loop_id": "L24",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit verification sequence",
+      "dependency_edges": [
+        "L24-PLAN",
+        "L24-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L24-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L25-HALL-BUNDLE",
+      "loop_id": "L25",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land cadence writebacks",
+      "dependency_edges": [
+        "L25-SYNTH",
+        "L25-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L25-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L25-TEMPLE-BUNDLE",
+      "loop_id": "L25",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit Hall/Temple cadence bundles",
+      "dependency_edges": [
+        "L25-PLAN",
+        "L25-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L25-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L26-HALL-BUNDLE",
+      "loop_id": "L26",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land agent-note/guide updates",
+      "dependency_edges": [
+        "L26-SYNTH",
+        "L26-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L26-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L26-TEMPLE-BUNDLE",
+      "loop_id": "L26",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit support bundle tree",
+      "dependency_edges": [
+        "L26-PLAN",
+        "L26-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L26-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L27-HALL-BUNDLE",
+      "loop_id": "L27",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land immune structures",
+      "dependency_edges": [
+        "L27-SYNTH",
+        "L27-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L27-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L27-TEMPLE-BUNDLE",
+      "loop_id": "L27",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit refusal/quarantine sequence",
+      "dependency_edges": [
+        "L27-PLAN",
+        "L27-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L27-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L28-HALL-BUNDLE",
+      "loop_id": "L28",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land dormancy/compression bundles",
+      "dependency_edges": [
+        "L28-SYNTH",
+        "L28-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L28-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L28-TEMPLE-BUNDLE",
+      "loop_id": "L28",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit reserve-thin and dormancy packs",
+      "dependency_edges": [
+        "L28-PLAN",
+        "L28-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L28-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L29-HALL-BUNDLE",
+      "loop_id": "L29",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land cross-domain corridor bundles",
+      "dependency_edges": [
+        "L29-SYNTH",
+        "L29-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L29-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L29-TEMPLE-BUNDLE",
+      "loop_id": "L29",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit lawful corridor sequence",
+      "dependency_edges": [
+        "L29-PLAN",
+        "L29-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L29-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L30-HALL-BUNDLE",
+      "loop_id": "L30",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land one controlled extension layer",
+      "dependency_edges": [
+        "L30-SYNTH",
+        "L30-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L30-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L30-TEMPLE-BUNDLE",
+      "loop_id": "L30",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit testable expansion sequence",
+      "dependency_edges": [
+        "L30-PLAN",
+        "L30-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L30-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L31-HALL-BUNDLE",
+      "loop_id": "L31",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land restart packet structure",
+      "dependency_edges": [
+        "L31-SYNTH",
+        "L31-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L31-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L31-TEMPLE-BUNDLE",
+      "loop_id": "L31",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit continuation lattice",
+      "dependency_edges": [
+        "L31-PLAN",
+        "L31-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L31-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L32-HALL-BUNDLE",
+      "loop_id": "L32",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "land lift bundles",
+      "dependency_edges": [
+        "L32-SYNTH",
+        "L32-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L32-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L32-TEMPLE-BUNDLE",
+      "loop_id": "L32",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit Hall/Temple/AP6D/runtime macro sequencing",
+      "dependency_edges": [
+        "L32-PLAN",
+        "L32-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L32-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L33-HALL-BUNDLE",
+      "loop_id": "L33",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute atlas/regional writebacks",
+      "dependency_edges": [
+        "L33-SYNTH",
+        "L33-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L33-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L33-TEMPLE-BUNDLE",
+      "loop_id": "L33",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan exact patch order",
+      "dependency_edges": [
+        "L33-PLAN",
+        "L33-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L33-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L34-HALL-BUNDLE",
+      "loop_id": "L34",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute family/chapter/appendix upgrades",
+      "dependency_edges": [
+        "L34-SYNTH",
+        "L34-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L34-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L34-TEMPLE-BUNDLE",
+      "loop_id": "L34",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan family/route edit order",
+      "dependency_edges": [
+        "L34-PLAN",
+        "L34-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L34-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L35-HALL-BUNDLE",
+      "loop_id": "L35",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute committee/quarantine/refusal packets",
+      "dependency_edges": [
+        "L35-SYNTH",
+        "L35-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L35-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L35-TEMPLE-BUNDLE",
+      "loop_id": "L35",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan Motion/merge routing",
+      "dependency_edges": [
+        "L35-PLAN",
+        "L35-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L35-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L36-HALL-BUNDLE",
+      "loop_id": "L36",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute edge and replay closures",
+      "dependency_edges": [
+        "L36-SYNTH",
+        "L36-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L36-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L36-TEMPLE-BUNDLE",
+      "loop_id": "L36",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan direct closure order",
+      "dependency_edges": [
+        "L36-PLAN",
+        "L36-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L36-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L37-HALL-BUNDLE",
+      "loop_id": "L37",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute operator/equation/kernel upgrades",
+      "dependency_edges": [
+        "L37-SYNTH",
+        "L37-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L37-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L37-TEMPLE-BUNDLE",
+      "loop_id": "L37",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan math/runtime insertion order",
+      "dependency_edges": [
+        "L37-PLAN",
+        "L37-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L37-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L38-HALL-BUNDLE",
+      "loop_id": "L38",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute parity and renderer fixes",
+      "dependency_edges": [
+        "L38-SYNTH",
+        "L38-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L38-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L38-TEMPLE-BUNDLE",
+      "loop_id": "L38",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan parity patch order",
+      "dependency_edges": [
+        "L38-PLAN",
+        "L38-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L38-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L39-HALL-BUNDLE",
+      "loop_id": "L39",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute contract/registry/grammar updates",
+      "dependency_edges": [
+        "L39-SYNTH",
+        "L39-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L39-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L39-TEMPLE-BUNDLE",
+      "loop_id": "L39",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan registry/grammar update order",
+      "dependency_edges": [
+        "L39-PLAN",
+        "L39-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L39-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L40-HALL-BUNDLE",
+      "loop_id": "L40",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute replay/proof/runtime fixes",
+      "dependency_edges": [
+        "L40-SYNTH",
+        "L40-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L40-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L40-TEMPLE-BUNDLE",
+      "loop_id": "L40",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan proof patch order",
+      "dependency_edges": [
+        "L40-PLAN",
+        "L40-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L40-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L41-HALL-BUNDLE",
+      "loop_id": "L41",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute Hall/Temple/queue/restart harmonization",
+      "dependency_edges": [
+        "L41-SYNTH",
+        "L41-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L41-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L41-TEMPLE-BUNDLE",
+      "loop_id": "L41",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan timing writeback order",
+      "dependency_edges": [
+        "L41-PLAN",
+        "L41-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L41-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L42-HALL-BUNDLE",
+      "loop_id": "L42",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute awakening-note writebacks",
+      "dependency_edges": [
+        "L42-SYNTH",
+        "L42-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L42-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L42-TEMPLE-BUNDLE",
+      "loop_id": "L42",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan assist update order",
+      "dependency_edges": [
+        "L42-PLAN",
+        "L42-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L42-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L43-HALL-BUNDLE",
+      "loop_id": "L43",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute anti-drift and blocker-honesty bundles",
+      "dependency_edges": [
+        "L43-SYNTH",
+        "L43-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L43-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L43-TEMPLE-BUNDLE",
+      "loop_id": "L43",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan honesty/repair sequence",
+      "dependency_edges": [
+        "L43-PLAN",
+        "L43-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L43-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L44-HALL-BUNDLE",
+      "loop_id": "L44",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute defragmentation and reserve-thin enforcement",
+      "dependency_edges": [
+        "L44-SYNTH",
+        "L44-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L44-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L44-TEMPLE-BUNDLE",
+      "loop_id": "L44",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan defrag sequence",
+      "dependency_edges": [
+        "L44-PLAN",
+        "L44-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L44-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L45-HALL-BUNDLE",
+      "loop_id": "L45",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute lawful cross-domain integrations",
+      "dependency_edges": [
+        "L45-SYNTH",
+        "L45-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L45-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L45-TEMPLE-BUNDLE",
+      "loop_id": "L45",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan corridor landing order",
+      "dependency_edges": [
+        "L45-PLAN",
+        "L45-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L45-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L46-HALL-BUNDLE",
+      "loop_id": "L46",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute one controlled capability increase",
+      "dependency_edges": [
+        "L46-SYNTH",
+        "L46-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L46-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L46-TEMPLE-BUNDLE",
+      "loop_id": "L46",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan pilot implementation sequence",
+      "dependency_edges": [
+        "L46-PLAN",
+        "L46-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L46-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L47-HALL-BUNDLE",
+      "loop_id": "L47",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute seed contraction and continuation writebacks",
+      "dependency_edges": [
+        "L47-SYNTH",
+        "L47-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L47-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L47-TEMPLE-BUNDLE",
+      "loop_id": "L47",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan continuation packet order",
+      "dependency_edges": [
+        "L47-PLAN",
+        "L47-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L47-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L48-HALL-BUNDLE",
+      "loop_id": "L48",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "execute seat-state updates with explicit reasons",
+      "dependency_edges": [
+        "L48-SYNTH",
+        "L48-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L48-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L48-TEMPLE-BUNDLE",
+      "loop_id": "L48",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "plan active/dormant rebalance",
+      "dependency_edges": [
+        "L48-PLAN",
+        "L48-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L48-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L49-HALL-BUNDLE",
+      "loop_id": "L49",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "remove stale mirrors and dead refs",
+      "dependency_edges": [
+        "L49-SYNTH",
+        "L49-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L49-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L49-TEMPLE-BUNDLE",
+      "loop_id": "L49",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit dedupe ordering",
+      "dependency_edges": [
+        "L49-PLAN",
+        "L49-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L49-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L50-HALL-BUNDLE",
+      "loop_id": "L50",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "rerank dormant seats",
+      "dependency_edges": [
+        "L50-SYNTH",
+        "L50-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L50-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L50-TEMPLE-BUNDLE",
+      "loop_id": "L50",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit dormant ordering ladder",
+      "dependency_edges": [
+        "L50-PLAN",
+        "L50-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L50-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L51-HALL-BUNDLE",
+      "loop_id": "L51",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "align Hall/Temple/queue/restart/active-run",
+      "dependency_edges": [
+        "L51-SYNTH",
+        "L51-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L51-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L51-TEMPLE-BUNDLE",
+      "loop_id": "L51",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit unified wording sequence",
+      "dependency_edges": [
+        "L51-PLAN",
+        "L51-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L51-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L52-HALL-BUNDLE",
+      "loop_id": "L52",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "reconcile committee-facing control law",
+      "dependency_edges": [
+        "L52-SYNTH",
+        "L52-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L52-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L52-TEMPLE-BUNDLE",
+      "loop_id": "L52",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit law alignment sequence",
+      "dependency_edges": [
+        "L52-PLAN",
+        "L52-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L52-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L53-HALL-BUNDLE",
+      "loop_id": "L53",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "promote best set and demote weaker variants",
+      "dependency_edges": [
+        "L53-SYNTH",
+        "L53-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L53-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L53-TEMPLE-BUNDLE",
+      "loop_id": "L53",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit canonical set selection",
+      "dependency_edges": [
+        "L53-PLAN",
+        "L53-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L53-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L54-HALL-BUNDLE",
+      "loop_id": "L54",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "compress to minimal lawful runtime/operator pack",
+      "dependency_edges": [
+        "L54-SYNTH",
+        "L54-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L54-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L54-TEMPLE-BUNDLE",
+      "loop_id": "L54",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit compression-pack order",
+      "dependency_edges": [
+        "L54-PLAN",
+        "L54-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L54-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L55-HALL-BUNDLE",
+      "loop_id": "L55",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "contract family/capsule/metro/appendix structures",
+      "dependency_edges": [
+        "L55-SYNTH",
+        "L55-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L55-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L55-TEMPLE-BUNDLE",
+      "loop_id": "L55",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit contraction bundle order",
+      "dependency_edges": [
+        "L55-PLAN",
+        "L55-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L55-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L56-HALL-BUNDLE",
+      "loop_id": "L56",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "refresh agent-assist and social-coupling layer",
+      "dependency_edges": [
+        "L56-SYNTH",
+        "L56-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L56-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L56-TEMPLE-BUNDLE",
+      "loop_id": "L56",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit note refresh sequence",
+      "dependency_edges": [
+        "L56-PLAN",
+        "L56-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L56-TEMPLE",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L57-HALL-BUNDLE",
+      "loop_id": "L57",
+      "zone": "Guild Hall",
+      "quest_count": 4,
+      "macro_objective": "publish crown receipt and sole next seed",
+      "dependency_edges": [
+        "L57-SYNTH",
+        "L57-PLAN"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "practical",
+      "coordinate_stamp": "COORD-L57-HALL",
+      "truth": "NEAR"
+    },
+    {
+      "bundle_id": "L57-TEMPLE-BUNDLE",
+      "loop_id": "L57",
+      "zone": "Temple",
+      "quest_count": 4,
+      "macro_objective": "emit crown release and baseline freeze",
+      "dependency_edges": [
+        "L57-PLAN",
+        "L57-PRUNE"
+      ],
+      "writeback_targets": [
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\BOARDS\\02_TEMPLE_QUEST_BOARD.md",
+        "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+      ],
+      "packet_type": "macro-quest-bundle",
+      "zone_kind": "deep",
+      "coordinate_stamp": "COORD-L57-TEMPLE",
+      "truth": "NEAR"
+    }
+  ],
+  "truth": "NEAR"
+}

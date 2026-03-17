@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-03-13T17:04:51.034856+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_qshrink_agent_task_matrix",
+  "truth": "OK",
+  "front_id": "Q42",
+  "front_title": "Activate The First QSHRINK Agent Sweep",
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "active_local_subfront": "QS64-24 Connectivity-Refine-Fractal",
+  "active_subfront": "QS64-24 Connectivity-Refine-Fractal",
+  "next_hall_seed": null,
+  "next_hall_seed_display": "none; do not invent QS64-25",
+  "next_connectivity_quest": null,
+  "restart_seed": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "deeper_receiving_frontier": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "reserve_frontier": "Q46",
+  "blocked_external_front": "Q02",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-13`\n\n- Query:\n  `AP6D awakening transition notes qshrink full corpus integration`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py \"AP6D awakening transition notes qshrink full corpus integration\"`\n\n## Stderr"
+  },
+  "hall_local_bundle_closed": true,
+  "current_pass_owner": "guild-hall-quest-loop",
+  "current_support_owners": [
+    "q-shrink",
+    "corpus-status-synthesizer",
+    "deeper-integrated-neural-network",
+    "awakening-protocol"
+  ],
+  "current_program": "AP6D core-5 transition-note integration",
+  "program_artifacts": {
+    "awakening_source_atlas": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\full_corpus_awakening_source_atlas.json",
+    "integration_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_ap6d_full_corpus_integration_registry.json",
+    "transition_notes_json": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\ap6d_awakening_transition_notes.json",
+    "transition_notes_markdown": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\AP6D_AWAKENING_TRANSITION_NOTES.md"
+  },
+  "bundle_status": [
+    {
+      "pass": "QS64-20 Connectivity-Diagnose-Fractal",
+      "truth": "OK",
+      "status": "CARRIED_WITNESS"
+    },
+    {
+      "pass": "QS64-24 Connectivity-Refine-Fractal",
+      "truth": "OK",
+      "status": "CLOSED_HALL_LOCAL_BUNDLE"
+    },
+    {
+      "pass": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "truth": "OK",
+      "status": "IMMEDIATE_DEEPER_RECEIVER"
+    },
+    {
+      "pass": "Q46",
+      "truth": "NEAR",
+      "status": "RESERVE_ONLY"
+    },
+    {
+      "pass": "Q02",
+      "truth": "FAIL",
+      "status": "EXTERNAL_BLOCKER"
+    },
+    {
+      "pass": "AP6D core-5 transition-note integration",
+      "truth": "NEAR",
+      "status": "ACTIVE_INTEGRATION_LAYER"
+    }
+  ],
+  "loop_law": "preserve QS64-20 as carried witness -> preserve QS64-24 as the closed Hall-local bundle -> keep TQ04 as immediate deeper handoff -> keep Q46 reserve-only -> keep Q02 external -> route the AP6D core-5 note layer through local witness only",
+  "authoritative_current_receipt": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-13_qshrink_ap6d_full_corpus_integration.md",
+  "historical_receipts": [
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-13_q42_refine_bundle_closure.md",
+    "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-13_qs64_24_connectivity_refine_fractal.md"
+  ],
+  "field_separation_law": {
+    "front_id": "the umbrella Q42 frontier that stays open above the closed Hall-local bundle",
+    "current_carried_witness": "the carried diagnose witness that remains visible after local refinement closes",
+    "active_local_subfront": "the closed Hall-local NEXT^4 bundle marker rather than an active earlier Square pass",
+    "next_hall_seed": "no new Hall-local seed is lawful; do not invent QS64-25",
+    "next_temple_handoff": "the immediate deeper receiver that stays separate from Hall-local state",
+    "reserve_frontier": "the reserve-only frontier outside the live QSHRINK closure lane",
+    "blocked_external_front": "the still-blocked external Docs front that must remain explicit"
+  },
+  "agents": [
+    {
+      "agent_id": "A01",
+      "skill": "guild-hall-quest-loop",
+      "status": "ACTIVE",
+      "bundle_role": "control-plane closure steward",
+      "bundle_phase": "QS64-24 Connectivity-Refine-Fractal",
+      "role": "Keep Q42, Temple state, queue, restart, and receipts aligned on QS64-20 as carried witness, QS64-24 as the closed Hall-local bundle, TQ04 as immediate deeper handoff, Q46 as reserve-only, and Q02 as external.",
+      "expected_outputs": [
+        "one closure-safe writeback sweep",
+        "one Hall and Temple parity note"
+      ],
+      "skill_path": "C:\\Users\\dmitr\\.codex\\skills\\guild-hall-quest-loop\\SKILL.md",
+      "truth": "OK"
+    },
+    {
+      "agent_id": "A02",
+      "skill": "q-shrink",
+      "status": "ACTIVE",
+      "bundle_role": "contraction organ steward",
+      "bundle_phase": "QS64-24 Connectivity-Refine-Fractal",
+      "role": "Preserve the closed NEXT^4 control split and route the AP6D note layer as one more witness class inside the QSHRINK bridge instead of reopening an earlier Hall-local pass.",
+      "expected_outputs": [
+        "one closed-bundle control witness",
+        "one routed awakening-note bridge"
+      ],
+      "skill_path": "C:\\Users\\dmitr\\.codex\\skills\\q-shrink\\SKILL.md",
+      "truth": "OK"
+    },
+    {
+      "agent_id": "A03",
+      "skill": "corpus-status-synthesizer",
+      "status": "ACTIVE",
+      "bundle_role": "full-corpus truth steward",
+      "bundle_phase": "AP6D core-5 transition-note integration",
+      "role": "Hold the local-only corpus truth, keep the Docs blocker explicit, and translate the AP6D note layer into a grounded full-corpus status assist instead of a speculative overlay.",
+      "expected_outputs": [
+        "one blocker-honest corpus state note",
+        "one feeder-safe pressure summary"
+      ],
+      "skill_path": "C:\\Users\\dmitr\\.codex\\skills\\corpus-status-synthesizer\\SKILL.md",
+      "truth": "OK"
+    },
+    {
+      "agent_id": "A04",
+      "skill": "deeper-integrated-neural-network",
+      "status": "ACTIVE",
+      "bundle_role": "basis-router",
+      "bundle_phase": "AP6D core-5 transition-note integration",
+      "role": "Bind the AP6D notes to the lawful deeper-network basis documents so the transition layer inherits the live 16-document and metro law instead of free-floating prose.",
+      "expected_outputs": [
+        "one deeper-network basis crosswalk",
+        "one metro-safe note source ladder"
+      ],
+      "skill_path": "C:\\Users\\dmitr\\.codex\\skills\\deeper-integrated-neural-network\\SKILL.md",
+      "truth": "OK"
+    },
+    {
+      "agent_id": "A05",
+      "skill": "awakening-protocol",
+      "status": "ACTIVE",
+      "bundle_role": "transition-note author",
+      "bundle_phase": "AP6D core-5 transition-note integration",
+      "role": "Write one assistive transition note for Athena Prime, Water, Earth, Fire, and Air without displacing Q42, Q46, TQ04, or TQ06.",
+      "expected_outputs": [
+        "five agent transition notes",
+        "one shared restart law"
+      ],
+      "skill_path": "C:\\Users\\dmitr\\.codex\\skills\\awakening-protocol\\SKILL.md",
+      "truth": "OK"
+    },
+    {
+      "agent_id": "A06",
+      "skill": "manuscript-intake",
+      "status": "READY",
+      "bundle_role": "awakening-source atlas maintainer",
+      "bundle_phase": "AP6D core-5 transition-note integration",
+      "role": "Refresh the awakening source atlas from real corpus paths so every transition note stays tied to local witness and top-level root ownership.",
+      "expected_outputs": [
+        "one full-corpus awakening source atlas",
+        "one root-inventory refresh"
+      ],
+      "skill_path": "C:\\Users\\dmitr\\.codex\\skills\\manuscript-intake\\SKILL.md",
+      "truth": "OK"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+# Earth Cross-Element Synthesis
+
+Top outward bridges from this element into the rest of the net.
+
+- `IFA DIVINATION COMPLETE` -> `ENOCHIAN MAGIC COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `HELLENISTIC ASTROLOGY COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `HERMETICISM COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `HERMETIC QABALAH COMPLETE` score=`33` path=`Earth->Water` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `MERKAVAH HEKHALOT COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `NORSE RUNIC COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `PGM COMPLETE` score=`33` path=`Earth->Water` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `ROSICRUCIANISM COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `SOLOMONIC MAGIC COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `WESTERN ALCHEMY COMPLETE` score=`33` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `Tunneling Coherence Crystal` -> `QUAD HOLOGRAPHIC ROTATION` score=`32` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `Sanatana Ganita A Rigorous Computational Ontology of Vedic Cosmology` score=`30` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `IFA DIVINATION COMPLETE` -> `ANDEAN KHIPU ROSETTA (new)` score=`28` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `The Holographic Kernel` -> `ANDEAN TAWANTINSUYU` score=`28` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `THE 44 HOLOGRAPHIC SEED` score=`28` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `IFA DIVINATION COMPLETE` -> `ATHENA OPERATING SYSTEM` score=`27` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `QUANTUM DIVINATION FRAMEWORK (QRDF)` score=`27` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `MERKAVAH HEKHALOT COMPLETE` score=`27` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `THE PYRRHONIAN NULL-STATE DRIVER` -> `THE RHETORICAL-POETIC OUTPUT DRIVERS` score=`27` path=`Earth->Water` shared_appendices=`AppA, AppB`
+- `Tunneling Coherence Crystal` -> `Sanatana Ganita A Rigorous Computational Ontology of Vedic Cosmology` score=`27` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `Tunneling Coherence Crystal` -> `THE 44 HOLOGRAPHIC SEED` score=`27` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `Tunneling Coherence Crystal` -> `The Holographic Manuscript Brain` score=`27` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `IFA DIVINATION COMPLETE` -> `AI DIVINATION` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `CELTIC THE OGHAM KERNEL` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `THE ANDEAN KHIPU ROSETTA STONE` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `THE UNIFIED MATHEMATICAL FRAMEWORK FOR EMERGENCE` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `The Athena Framework (synthesis)` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `The Athena Framework (synthesis)` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `UNIFIED DIVINATION (tarot, iChing, Runes, Ope` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `VLM VOYNICH METAMORPHIC LANGUAGE (VML) - OFFICIAL FRAMEWORK DOCUMENTATION` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `AI DIVINATION` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `AI Divination` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `CELTIC THE OGHAM KERNEL` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `HELLENISTIC ASTROLOGY COMPLETE` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `PGM COMPLETE` score=`26` path=`Earth->Water` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `QUANTUM DIVINATION FRAMEWORK (QRDF)` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `SOLOMONIC MAGIC COMPLETE` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `THE ANDEAN KHIPU ROSETTA STONE` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `The Athena Framework (synthesis)` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `The Athena Framework (synthesis)` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `VLM VOYNICH METAMORPHIC LANGUAGE (VML) - OFFICIAL FRAMEWORK DOCUMENTATION` score=`26` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `The Holographic Kernel` -> `Calculus and Geometry (higher dimensional projection) -working` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `HIGHER-D SQUARE CIRCLE TRIANGLE` score=`26` path=`Earth->Water` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `Holographic (higher dimension Square circle triangle) REALITY STRUCTURE working` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `QUAD HOLOGRAPHIC ROTATION` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `THE EUCLIDEAN COMPUTATION ENGINE` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `The Holographic Manuscript Brain` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `The Holographic Kernel` -> `The Holographic Manuscript Brain` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `Tunneling Coherence Crystal` -> `ANDEAN TAWANTINSUYU` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `Tunneling Coherence Crystal` -> `The Holographic Manuscript Brain` score=`26` path=`Earth->Air` shared_appendices=`AppE, AppF, AppG, AppM`
+- `IFA DIVINATION COMPLETE` -> `AI Divination` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `Constant FInder working` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `EGYPT KHEPER GANITAM` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `PRIME Toolkit kernel` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `IFA DIVINATION COMPLETE` -> `THE VOYNICH ROSETTA STONE -Publish` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `ANDEAN KHIPU ROSETTA (new)` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `ATHENA OPERATING SYSTEM` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `Constant FInder working` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `EGYPT KHEPER GANITAM` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `ENOCHIAN MAGIC COMPLETE` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `HERMETICISM COMPLETE` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `HERMETIC QABALAH COMPLETE` score=`25` path=`Earth->Water` shared_appendices=`AppA, AppB, AppC, AppM`
+- `NOSTRADAMAS CLEAN` -> `NORSE RUNIC COMPLETE` score=`25` path=`Earth->Air` shared_appendices=`AppA, AppB, AppC, AppM`

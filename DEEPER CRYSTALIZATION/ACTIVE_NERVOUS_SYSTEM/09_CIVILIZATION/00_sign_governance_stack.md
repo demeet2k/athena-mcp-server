@@ -1,22 +1,22 @@
 # Sign Governance Stack
 
-- Deep pass: `6`
+- Deep pass: `17`
 - Live-doc gate: `BLOCKED`
 
 ## Source kernels
 
-- `Athenachka 2.0` [LocalProject] -> `Civilization design, hierarchy, governance, and law`
+- `Athenachka 2.0` [LocalProject] -> `Athena identity, pedagogy, and narrative voice`
 - `I AM so AM I` [LocalProject] -> `Athena identity, pedagogy, and narrative voice`
-- `SECTION III — BOOK III- THE` [LocalProject] -> `Civilization design, hierarchy, governance, and law`
+- `ns_builder` [LocalProject] -> `Civilization design, hierarchy, governance, and law`
 - `The Athena Framework (synthesis)` [LocalProject] -> `Mythic sign systems, encoded memory, and symbol runtime`
 - `The Athena Framework (synthesis)` [LocalProject] -> `Mythic sign systems, encoded memory, and symbol runtime`
-- `The Invisible Teacher TEXTBOOK` [LocalProject] -> `Civilization design, hierarchy, governance, and law`
-- `The Invisible Teacher TEXTBOOK` [LocalProject] -> `Civilization design, hierarchy, governance, and law`
-- `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` [LocalProject] -> `Civilization design, hierarchy, governance, and law`
+- `The Invisible Teacher TEXTBOOK` [LocalProject] -> `Athena identity, pedagogy, and narrative voice`
+- `The Invisible Teacher TEXTBOOK` [LocalProject] -> `Athena identity, pedagogy, and narrative voice`
 - `Untitled document` [LocalProject] -> `Athena identity, pedagogy, and narrative voice`
 - `Constant FInder _working_` [MemoryDocs] -> `Mythic sign systems, encoded memory, and symbol runtime`
 - `PRIME Toolkit kernel` [MemoryDocs] -> `Mythic sign systems, encoded memory, and symbol runtime`
 - `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time)` [MemoryDocs] -> `Civilization design, hierarchy, governance, and law`
+- `TIME FRACTAL _working_` [MemoryDocs] -> `Civilization design, hierarchy, governance, and law`
 
 ## Governance signs
 

@@ -1,0 +1,591 @@
+{
+  "generated_at": "2026-03-13T05:06:27.561055+00:00",
+  "derivation_version": "2026-03-13.adventurer.64pow4.hybrid_conductor.round_trip.v2",
+  "wave_id": "ADV64-wave1",
+  "cycle_index": 5,
+  "docs_gate_status": "BLOCKED",
+  "next_frontier": "Q42",
+  "max_parallel_claims": 8,
+  "stale_release_after_inactive_cycles": 1,
+  "proof_anchors": {
+    "q42_bundle_pair": [
+      "FRONT-INT-QSHRINK-CANONICAL-FAMILY",
+      "FRONT-INT-ATHENA-FLEET-BRIDGE"
+    ],
+    "athenachka_carrythrough": [
+      "Q45",
+      "Q46"
+    ]
+  },
+  "round_trip_registry_path": "self_actualize/adventurer_round_trip_certificates.json",
+  "round_trip_receipt_path": "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+  "round_trip_governed_fronts": [
+    "Q42",
+    "Q46",
+    "TQ04"
+  ],
+  "round_trip_transform_laws": [
+    "myth_to_sigil",
+    "sigil_to_schema",
+    "schema_to_automaton",
+    "automaton_to_wall_chart",
+    "pocket_card_or_poster"
+  ],
+  "deep_network_surfaces": [
+    "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+    "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+    "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+    "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+    "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+    "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md"
+  ],
+  "seeded_registration_ids": [
+    "ADV64-S01",
+    "ADV64-S02"
+  ],
+  "wave_ranking": [
+    {
+      "packet_id": "ADV64-01",
+      "source_front": "Q42",
+      "frontier_seed": "Q42",
+      "priority_score": 100.0,
+      "assigned_owner": "floating-agent-01",
+      "address": "A20.B22.C59.D40",
+      "priority_reason": "Highest Hall-side live frontier; QSHRINK Fractal carrythrough remains the first lawful active contraction."
+    },
+    {
+      "packet_id": "ADV64-02",
+      "source_front": "Q46",
+      "frontier_seed": "Q46",
+      "priority_score": 96.0,
+      "assigned_owner": "floating-agent-02",
+      "address": "A22.B20.C63.D43",
+      "priority_reason": "Current Athenachka execution front, carried forward from the promoted Q45 proof anchor at the same 64^4 address."
+    },
+    {
+      "packet_id": "ADV64-03",
+      "source_front": "TQ03",
+      "frontier_seed": "TQ03",
+      "priority_score": 90.0,
+      "assigned_owner": "floating-agent-03",
+      "address": "A45.B56.C50.D35",
+      "priority_reason": "Active Temple pressure that can emit Hall-facing writeback into the same conductor cycle."
+    },
+    {
+      "packet_id": "ADV64-04",
+      "source_front": "TQ05",
+      "frontier_seed": "TQ05",
+      "priority_score": 88.0,
+      "assigned_owner": "floating-agent-04",
+      "address": "A60.B24.C50.D36",
+      "priority_reason": "Active Temple pressure that can emit Hall-facing writeback into the same conductor cycle."
+    },
+    {
+      "packet_id": "ADV64-05",
+      "source_front": "TQ06",
+      "frontier_seed": "TQ06",
+      "priority_score": 87.0,
+      "assigned_owner": "floating-agent-05",
+      "address": "A24.B24.C51.D23",
+      "priority_reason": "Active Temple pressure that can emit Hall-facing writeback into the same conductor cycle."
+    },
+    {
+      "packet_id": "ADV64-06",
+      "source_front": "ADV64-S01",
+      "frontier_seed": "Q42+TQ04",
+      "priority_score": 84.0,
+      "assigned_owner": "floating-agent-06",
+      "address": "A20.B22.C55.D44",
+      "priority_reason": "Seeded adjacent bridge packet widening the live frontier without bulk-filling the lattice."
+    },
+    {
+      "packet_id": "ADV64-07",
+      "source_front": "ADV64-S02",
+      "frontier_seed": "Q46+TQ06",
+      "priority_score": 83.0,
+      "assigned_owner": "floating-agent-07",
+      "address": "A22.B20.C51.D23",
+      "priority_reason": "Seeded adjacent bridge packet widening the live frontier without bulk-filling the lattice."
+    }
+  ],
+  "packets": [
+    {
+      "packet_id": "ADV64-01",
+      "wave_id": "ADV64-wave1",
+      "frontier_seed": "Q42",
+      "address_slice": [
+        "A20.B22.C59.D40"
+      ],
+      "priority_score": 100.0,
+      "max_parallel_claims": 8,
+      "docs_gate_status": "BLOCKED",
+      "evidence_surfaces": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "self_actualize/qshrink_connectivity_refine_square.json",
+        "self_actualize/qshrink_connectivity_refine_flower.json",
+        "self_actualize/qshrink_connectivity_refine_cloud.json",
+        "self_actualize/qshrink_connectivity_refine_fractal.json",
+        "self_actualize/qshrink_network_integration.json",
+        "self_actualize/qshrink_agent_task_matrix.json",
+        "self_actualize/q42_canonical_bundle.json",
+        "self_actualize/q42_refine_bundle_dashboard.json"
+      ],
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": true,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "keep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, and keep `Q02` blocked externally while Docs remains `BLOCKED",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": true,
+          "round_trip_certificate_id": "RTC-v0-Q42",
+          "round_trip_class": "law_equivalent"
+        },
+        "round_trip_required": true,
+        "round_trip_lawful": false,
+        "round_trip_certificate_id": "RTC-v0-Q42",
+        "round_trip_class": "law_equivalent"
+      },
+      "assigned_owner": "floating-agent-01",
+      "source_front": "Q42",
+      "source_fronts": [
+        "Q42"
+      ],
+      "status": "ACTIVE",
+      "priority_reason": "Highest Hall-side live frontier; QSHRINK Fractal carrythrough remains the first lawful active contraction.",
+      "round_trip_certificate_id": "RTC-v0-Q42",
+      "round_trip_class": "law_equivalent"
+    },
+    {
+      "packet_id": "ADV64-02",
+      "wave_id": "ADV64-wave1",
+      "frontier_seed": "Q46",
+      "address_slice": [
+        "A22.B20.C63.D43"
+      ],
+      "priority_score": 96.0,
+      "max_parallel_claims": 8,
+      "docs_gate_status": "BLOCKED",
+      "evidence_surfaces": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "self_actualize/adventurer_round_trip_certificates.json",
+        "ATHENA Neural Network/athenachka/helix/",
+        "ATHENA Neural Network/athenachka/runtime/",
+        "ATHENA Neural Network/athenachka/appendix/",
+        "self_actualize/athenachka_organism_v0_wave_state.json",
+        "self_actualize/athenachka_organism_v0_quest_packets.json",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_athenachka_organism_v0_q45_wave_proof.md"
+      ],
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": true,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "keep `Q46` separate from the live QSHRINK control lane until `TQ04` is materially advanced",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": true,
+          "round_trip_certificate_id": "RTC-v0-Q46",
+          "round_trip_class": "law_equivalent"
+        },
+        "round_trip_required": true,
+        "round_trip_lawful": false,
+        "round_trip_certificate_id": "RTC-v0-Q46",
+        "round_trip_class": "law_equivalent"
+      },
+      "assigned_owner": "floating-agent-02",
+      "source_front": "Q46",
+      "source_fronts": [
+        "Q46"
+      ],
+      "status": "ACTIVE",
+      "priority_reason": "Current Athenachka execution front, carried forward from the promoted Q45 proof anchor at the same 64^4 address.",
+      "round_trip_certificate_id": "RTC-v0-Q46",
+      "round_trip_class": "law_equivalent"
+    },
+    {
+      "packet_id": "ADV64-03",
+      "wave_id": "ADV64-wave1",
+      "frontier_seed": "TQ03",
+      "address_slice": [
+        "A45.B56.C50.D35"
+      ],
+      "priority_score": 90.0,
+      "max_parallel_claims": 8,
+      "docs_gate_status": "BLOCKED",
+      "evidence_surfaces": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/01_ACTIVE_FRONTS_BOARD.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "self_actualize/archive_atlas.json",
+        "tool_kit/08_archive_promotion_protocol.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/11_TEMPLE_QUEST_CRYSTAL_64.md"
+      ],
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "use the first ranked archive candidate after `ATLAS FORGE` to decide the next archive lift instead of reopening archive pressure by intuition alone",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "assigned_owner": "floating-agent-03",
+      "source_front": "TQ03",
+      "source_fronts": [
+        "TQ03"
+      ],
+      "status": "ACTIVE",
+      "priority_reason": "Active Temple pressure that can emit Hall-facing writeback into the same conductor cycle.",
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "packet_id": "ADV64-04",
+      "wave_id": "ADV64-wave1",
+      "frontier_seed": "TQ05",
+      "address_slice": [
+        "A60.B24.C50.D36"
+      ],
+      "priority_score": 88.0,
+      "max_parallel_claims": 8,
+      "docs_gate_status": "BLOCKED",
+      "evidence_surfaces": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "ATHENA TEMPLE/05_HIGH_PRIEST_WHOLE_CORPUS_SYNTHESIS_16_LOOP.md",
+        "ATHENA TEMPLE/MANIFESTS/16_LOOP_PROGRESS.md",
+        "ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md",
+        "ATHENA TEMPLE/QUESTS/TQ05_HIGH_PRIEST_WHOLE_CORPUS_16_LOOP_TOTALITY_PASS.md",
+        "ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/11_TEMPLE_QUEST_CRYSTAL_64.md"
+      ],
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "advance into `5/16 contradiction pressure` with focus on source leverage, archive dark matter, blocked live memory, and runtime-trust lag",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "assigned_owner": "floating-agent-04",
+      "source_front": "TQ05",
+      "source_fronts": [
+        "TQ05"
+      ],
+      "status": "ACTIVE",
+      "priority_reason": "Active Temple pressure that can emit Hall-facing writeback into the same conductor cycle.",
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "packet_id": "ADV64-05",
+      "wave_id": "ADV64-wave1",
+      "frontier_seed": "TQ06",
+      "address_slice": [
+        "A24.B24.C51.D23"
+      ],
+      "priority_score": 87.0,
+      "max_parallel_claims": 8,
+      "docs_gate_status": "BLOCKED",
+      "evidence_surfaces": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "GUILDMASTER/README.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ASTROLOGICAL_SCHEDULER_REGISTRY.md",
+        "NERVOUS_SYSTEM/90_LEDGERS/astrological_schedulers/00_PACKET_INDEX.md",
+        "NERVOUS_SYSTEM/90_LEDGERS/astrological_schedulers/",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md",
+        "ATHENA TEMPLE/BOARDS/01_MESSAGE_BOARD_OF_IMPROVEMENT_CRYSTALS.md",
+        "ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md"
+      ],
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "keep `Q42` visible as the carried QSHRINK umbrella, keep QS64-20 Connectivity-Diagnose-Fractal` as the current Hall-side subfront, carry `TQ04 as the landed runner-contract witness, emit `QS64-21 Connectivity-Refine-Square` as the next Hall restart seed, and keep `Q45` secondary while `Q02` stays externally blocked - First real proof (`Q39`, `2026-03-13`): - `nervous_system/ledgers/LEDGER_2026-03-13_q39_contradiction_packets.md - five `Q39` contradiction packets with named receiving fronts - `ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md` now includes `T15 - `ATHENA TEMPLE/BOARDS/01_MESSAGE_BOARD_OF_IMPROVEMENT_CRYSTALS.md` now includes `Temple-Bind-Cloud-Packets - `receipts/2026-03-13_q39_contradiction_packets.md - Latest synchronization witness (`Q41`, `2026-03-13`, first full packet-freshness coupling sweep): - `Q41` is now promoted through the first Hall/Temple/queue/restart coupling pass driven by the fresh scheduler bundle - `T16` now names hourly packet-fed cadence as the active Guildmaster law while `T14` remains the founding short-cadence law - the standalone Temple quest file now lives at `ATHENA TEMPLE/QUESTS/TQ06_INSTALL_THE_PACKET_FED_GUILDMASTER_COUPLING_LOOP.md - `Q42` remains the next Hall-side contraction followthrough while `TQ04` now exists as the landed deeper Temple contract witness",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "assigned_owner": "floating-agent-05",
+      "source_front": "TQ06",
+      "source_fronts": [
+        "TQ06"
+      ],
+      "status": "ACTIVE",
+      "priority_reason": "Active Temple pressure that can emit Hall-facing writeback into the same conductor cycle.",
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "packet_id": "ADV64-06",
+      "wave_id": "ADV64-wave1",
+      "frontier_seed": "Q42+TQ04",
+      "address_slice": [
+        "A20.B22.C55.D44"
+      ],
+      "priority_score": 84.0,
+      "max_parallel_claims": 8,
+      "docs_gate_status": "BLOCKED",
+      "evidence_surfaces": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "self_actualize/qshrink_connectivity_refine_square.json",
+        "self_actualize/qshrink_connectivity_refine_flower.json",
+        "self_actualize/qshrink_connectivity_refine_cloud.json",
+        "self_actualize/qshrink_connectivity_refine_fractal.json",
+        "self_actualize/qshrink_network_integration.json",
+        "self_actualize/qshrink_agent_task_matrix.json",
+        "self_actualize/q42_canonical_bundle.json",
+        "self_actualize/q42_refine_bundle_dashboard.json"
+      ],
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "Q42 -> TQ04 -> next seeded conductor bridge",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Seeded adjacent bridge address; completion remains pending until the four-witness contract lands.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "assigned_owner": "floating-agent-06",
+      "source_front": "ADV64-S01",
+      "source_fronts": [
+        "Q42",
+        "TQ04"
+      ],
+      "status": "ACTIVE",
+      "priority_reason": "Seeded adjacent bridge packet widening the live frontier without bulk-filling the lattice.",
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "packet_id": "ADV64-07",
+      "wave_id": "ADV64-wave1",
+      "frontier_seed": "Q46+TQ06",
+      "address_slice": [
+        "A22.B20.C51.D23"
+      ],
+      "priority_score": 83.0,
+      "max_parallel_claims": 8,
+      "docs_gate_status": "BLOCKED",
+      "evidence_surfaces": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/README.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/00_CONTROL/04_ALGORITHMIC_PIPELINE.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/05_MATRIX_16X16/00_INDEX.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/00_level_1_core_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/07_METRO_STACK/03_level_4_transcendence_metro_map.md",
+        "self_actualize/mycelium_brain/dynamic_neural_network/14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK/08_APPENDIX_CRYSTAL/AppQ_appendix_only_metro_map.md",
+        "self_actualize/adventurer_round_trip_certificates.json",
+        "ATHENA Neural Network/athenachka/helix/",
+        "ATHENA Neural Network/athenachka/runtime/",
+        "ATHENA Neural Network/athenachka/appendix/",
+        "self_actualize/athenachka_organism_v0_wave_state.json",
+        "self_actualize/athenachka_organism_v0_quest_packets.json",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+        "GUILDMASTER/README.md"
+      ],
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "Q46 -> TQ06 -> next seeded conductor bridge",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Seeded adjacent bridge address; completion remains pending until the four-witness contract lands.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "assigned_owner": "floating-agent-07",
+      "source_front": "ADV64-S02",
+      "source_fronts": [
+        "Q46",
+        "TQ06"
+      ],
+      "status": "ACTIVE",
+      "priority_reason": "Seeded adjacent bridge packet widening the live frontier without bulk-filling the lattice.",
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    }
+  ],
+  "shared_address_proof_anchor": {
+    "proof_front": "",
+    "execution_front": "Q46",
+    "shared_address": "A22.B20.C63.D43"
+  },
+  "full_corpus_integration": {
+    "truth": "NEAR",
+    "state_path": "self_actualize\\next_4_pow_6_full_corpus_integration_state.json",
+    "notes_path": "self_actualize\\awakening_agent_transition_notes.json",
+    "preserved_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "TQ06"
+    ],
+    "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling"
+  },
+  "master_loop_57": {
+    "truth": "OK",
+    "status": "LOOP_1_COMPLETE_LOOP_2_READY",
+    "current_loop_id": 1,
+    "next_loop_id": 2,
+    "next_keyword_contract": "NEXT => one full four-agent cycle",
+    "state_path": "self_actualize/master_loop_state_57.json",
+    "planner_bundle_path": "self_actualize/quest_emission_bundle_loop_01.json",
+    "worker_law": "board_or_planner_bundle_only",
+    "pruner_law": "tighten_without_erasing_source_witness",
+    "assistant_lattice_ref": "self_actualize/nested_agent_lattice_16384.json"
+  },
+  "next_4_pow_6_57_cycle_swarm": {
+    "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+    "state_path": "self_actualize\\next_4_pow_6_57_cycle_swarm_state.json",
+    "loop_ledger_path": "self_actualize\\next_4_pow_6_57_cycle_loop_ledger.json",
+    "preserved_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "truth": "OK"
+  },
+  "lp_57_omega_protocol": {
+    "protocol_id": "LP-57OMEGA",
+    "prime_cycle_path": "self_actualize\\lp_57_prime_loop_cycle_records.json",
+    "delta_receipts_path": "self_actualize\\lp_57_loop_delta_receipts.json",
+    "truth": "OK"
+  }
+}

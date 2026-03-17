@@ -1,6 +1,6 @@
 # Ganglion `Athenachka Collective Books`
 
-- Weight: `13`
+- Weight: `19`
 - PrimaryRail: `Sa`
 - PrimaryFace: `Earth`
 - PreferredScale: `G4`

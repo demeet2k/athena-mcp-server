@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-03-13T00:04:54.673199+00:00",
+  "derivation_version": "2026-03-12.whole-crystal-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_whole_crystal_completion",
+  "resolution": "lawfully-isolated",
+  "status": "blocked-by-missing-credentials",
+  "fallback_mode": "local-first-truth-corridor",
+  "mirror_path": "Trading Bot\\LIVE_DOCS_MIRROR",
+  "gate_surface": "self_actualize\\live_docs_gate_status.md",
+  "packets": [
+    {
+      "packet_id": "DIG-01",
+      "status": "blocked-by-missing-credentials",
+      "credentials_present": false,
+      "token_present": false,
+      "source_doc_id": "google-docs-corpus-search",
+      "mirror_path": "Trading Bot\\LIVE_DOCS_MIRROR",
+      "ingest_time": "2026-03-13T00:04:54.673199+00:00",
+      "fallback_mode": "local-first-truth-corridor",
+      "gate_surface": "self_actualize\\live_docs_gate_status.md",
+      "witness_basis": [
+        "self_actualize\\live_docs_gate_status.md",
+        "self_actualize\\trading_bot_truth_corridor.json"
+      ],
+      "note": "Whole-crystal Docs ingress packet."
+    }
+  ],
+  "open_state_flow": [
+    "docs search",
+    "LIVE_DOCS_MIRROR markdown writeback",
+    "corpus atlas refresh",
+    "witness citation",
+    "governed route into runtime"
+  ],
+  "blocked_state_flow": [
+    "gate verifier",
+    "local-first truth corridor",
+    "atlas-indexed local witnesses only",
+    "no live-doc authority claims"
+  ]
+}

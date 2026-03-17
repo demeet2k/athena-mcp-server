@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-03-13T20:50:13.705904+00:00",
+  "event_count": 3,
+  "averages_ms": {
+    "T_detect": 0.0,
+    "T_encode": 27.196,
+    "T_route": 13.668,
+    "T_claim": 20.666,
+    "T_commit": 8.0,
+    "T_sugar": 69.531
+  },
+  "edge_classes": {
+    "vein": 3,
+    "capillary": 0,
+    "candidate": 0,
+    "dormant": 1
+  },
+  "latest_event_id": "EVT-20260313204945-0003"
+}

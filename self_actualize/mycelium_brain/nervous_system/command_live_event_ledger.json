@@ -1,0 +1,892 @@
+{
+  "generated_at": "2026-03-13T21:23:03.031282+00:00",
+  "docs_gate_status": "BLOCKED",
+  "event_count": 2,
+  "source_counts": {
+    "command_root": 1,
+    "unregistered_local": 1
+  },
+  "rows": [
+    {
+      "event_id": "EVT-20260313-0002",
+      "source_ant_id": "SCOUT-01",
+      "source_path": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+      "active_surface": "GLOBAL COMMAND",
+      "change_type": "modified",
+      "change_summary": "modified docx at GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+      "goal": "detect-classify-assign",
+      "priority": 0.91,
+      "confidence": 0.98,
+      "earth_ts": "2026-03-13T21:22:31.444157+00:00",
+      "earth_ts_local": "2026-03-13T14:22:31.444157-07:00",
+      "detected_ts": "2026-03-13T21:22:31.444157+00:00",
+      "emitted_ts": "2026-03-13T21:22:32.944157+00:00",
+      "liminal_ts": "LT-000002.000",
+      "seat_addr_6d": "A1.B1.C1.D1.E1.F1",
+      "coordinate_stamp": {
+        "Xs": "GLOBAL_COMMAND",
+        "Ys": "ATHENA",
+        "Zs": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+        "Ts": "L02",
+        "Qs": "EVT-20260313-0002",
+        "Rs": "D3",
+        "Cs": "BLOCKED_LIVE_DOCS_DEPENDENCY",
+        "Fs": "MODIFIED",
+        "Ms": "M091",
+        "Ns": "GLOBAL COMMAND/ATHENA",
+        "Hs": "command-event",
+        "Ωs": "OMEGA-LOCAL-WITNESS"
+      },
+      "canonical_addr_6d": "A1.B1.C1.D1.E1.F1",
+      "liminal_stamp_12d": {
+        "utc_atomic": 1773436951.444157,
+        "earth_rotation_phase": 0.890642,
+        "earth_orbital_phase": 0.196961,
+        "node_anchor": "America/Los_Angeles::charlie-local-node",
+        "solar_phase": 0.0,
+        "lunar_phase": 0.909091,
+        "shared12_phase": 0.363637,
+        "planetary_slot": 0.0,
+        "runtime_region": "NEXT57::L02::A02 self_actualize",
+        "queue_pressure": 0.140625,
+        "goal_salience": 0.91,
+        "novelty_concentration": 0.91
+      },
+      "surface_class": "command-folder",
+      "hierarchy_level": "D6",
+      "return_anchor": "Archivist",
+      "event_kind": "",
+      "earth_ts_utc": "2026-03-13T21:22:31.444157+00:00",
+      "earth_local_phase": 0.0,
+      "parent_event_id": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.91,
+      "joy_seed": {
+        "priority": 0.91,
+        "confidence": 0.98,
+        "goal": "detect-classify-assign",
+        "routing_policy": "goal+salience+pheromone+coord"
+      },
+      "state_hash": "H:a5c3785116afabf305895fc05f29970c50722ae3e2a553c02d541985d9d177de",
+      "route_class": "scout.router.worker.archivist",
+      "source_id": "command_root",
+      "source_class": "command-folder",
+      "watch_root": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND",
+      "urgency_baseline": 1.0,
+      "event_fingerprint": "a6d6f4a32ac7e1b0",
+      "witness_class": "LOCAL_WITNESS_ONLY",
+      "status": "committed",
+      "membrane_id": "GLOBAL_COMMAND",
+      "role_class": "Scout",
+      "base4_addr": "A1.B1.C1.D1",
+      "parent": "ROOT",
+      "lineage": {
+        "parent_event_id": "ROOT",
+        "source_mtime_ns": 1768105588000000000,
+        "docs_gate_detail": "blocked-by-missing-credentials",
+        "loop_id": "L02",
+        "surface": "GLOBAL COMMAND",
+        "sensor_event_id": "SEN-EVT-20260313-0002",
+        "hsigma_ref": "NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json"
+      },
+      "deferred_dimensions": {
+        "astro_precision": "structural scheduler anchors only; no live ephemeris or sidereal precision claimed",
+        "docs_gate": "BLOCKED",
+        "pheromone": "0.910000"
+      },
+      "coord12": {
+        "utc_atomic": 1773436951.444157,
+        "earth_rotation_phase": 0.890642,
+        "earth_orbital_phase": 0.196961,
+        "node_anchor": "America/Los_Angeles::charlie-local-node",
+        "solar_phase": 0.0,
+        "lunar_phase": 0.909091,
+        "shared12_phase": 0.363637,
+        "planetary_slot": 0.0,
+        "runtime_region": "NEXT57::L02::A02 self_actualize",
+        "queue_pressure": 0.140625,
+        "goal_salience": 0.91,
+        "novelty_concentration": 0.91
+      },
+      "coord12_frame": {
+        "earth": {
+          "utc_atomic": 1773436951.444157,
+          "earth_rotation_phase": 0.890642,
+          "earth_orbital_phase": 0.196961,
+          "node_anchor": "America/Los_Angeles::charlie-local-node"
+        },
+        "scheduler": {
+          "solar_phase": 0.0,
+          "lunar_phase": 0.909091,
+          "shared12_phase": 0.363637,
+          "planetary_slot": 0.0
+        },
+        "runtime": {
+          "runtime_region": "NEXT57::L02::A02 self_actualize",
+          "queue_pressure": 0.140625
+        },
+        "liminal": {
+          "goal_salience": 0.91,
+          "novelty_concentration": 0.91
+        },
+        "coord12_labels": [
+          "utc_atomic",
+          "earth_rotation_phase",
+          "earth_orbital_phase",
+          "node_anchor",
+          "solar_phase",
+          "lunar_phase",
+          "shared12_phase",
+          "planetary_slot",
+          "runtime_region",
+          "queue_pressure",
+          "goal_salience",
+          "novelty_concentration"
+        ]
+      },
+      "coord_delta": {
+        "DeltaTau": 39.388129,
+        "DeltaEarth": 39388.129,
+        "LiminalVelocity": 1.0,
+        "ResolutionClass": "transitional"
+      },
+      "scout_id": "SCOUT-01",
+      "tag": "sugar.drop.modified",
+      "event_tag": "command-folder-change",
+      "change": {
+        "type": "modified",
+        "summary": "modified docx at GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+        "state_hash": "H:a5c3785116afabf305895fc05f29970c50722ae3e2a553c02d541985d9d177de",
+        "relative_path": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+        "source_path": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+      },
+      "docs_gate_status": "BLOCKED",
+      "route_state": {
+        "event_id": "EVT-20260313-0002",
+        "policy_id": "goal+salience+pheromone+coord",
+        "candidate_targets": [
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+            "role": "WORKER-ADVENTURER",
+            "score": 2.1375,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+            "role": "SYNTH-RESEARCH",
+            "score": 1.5375,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+            "role": "PLANNER-ARCHITECT",
+            "score": 1.3875,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+            "role": "PRUNE-CRYSTAL",
+            "score": 1.3875,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL",
+            "role": "PRUNE-CRYSTAL",
+            "score": 1.3875,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F1.WORKER-ADVENTURER",
+            "role": "WORKER-ADVENTURER",
+            "score": -7.8625,
+            "leased": false,
+            "blocked": true
+          },
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F2.WORKER-ADVENTURER",
+            "role": "WORKER-ADVENTURER",
+            "score": -7.8625,
+            "leased": false,
+            "blocked": true
+          }
+        ],
+        "selected_targets": [
+          "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+          "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+          "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+          "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+          "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL"
+        ],
+        "topk": 5,
+        "claim_mode": "first-lease",
+        "quorum": 1,
+        "score_breakdown": {
+          "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER": {
+            "goal": 0.7,
+            "salience": 0.2275,
+            "joy_potential": 0.91,
+            "coord_distance": 0.1,
+            "capability_match": 0.2,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH": {
+            "goal": 0.25,
+            "salience": 0.2275,
+            "joy_potential": 0.91,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT": {
+            "goal": 0.1,
+            "salience": 0.2275,
+            "joy_potential": 0.91,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL": {
+            "goal": 0.1,
+            "salience": 0.2275,
+            "joy_potential": 0.91,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL": {
+            "goal": 0.1,
+            "salience": 0.2275,
+            "joy_potential": 0.91,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          }
+        },
+        "duplicate_risk": 0.0,
+        "created_at": "2026-03-13T21:22:38.216070+00:00",
+        "expires_at": "2026-03-13T21:22:53.216070+00:00",
+        "route_status": "routed",
+        "ranked_routes": [
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+            "master_agent_id": "A3",
+            "score": 2.1375
+          },
+          {
+            "ant_id": "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+            "master_agent_id": "A1",
+            "score": 1.5375
+          },
+          {
+            "ant_id": "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+            "master_agent_id": "A2",
+            "score": 1.3875
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+            "master_agent_id": "A4",
+            "score": 1.3875
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL",
+            "master_agent_id": "A4",
+            "score": 1.3875
+          }
+        ],
+        "route_inputs": {
+          "goal": "detect-classify-assign",
+          "salience": 0.91,
+          "joy_potential": 0.91,
+          "pheromone": 0.91,
+          "pheromone_composite": 0.0,
+          "coord": {
+            "Xs": "GLOBAL_COMMAND",
+            "Ys": "ATHENA",
+            "Zs": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+            "Ts": "L02",
+            "Qs": "EVT-20260313-0002",
+            "Rs": "D3",
+            "Cs": "DETECTED",
+            "Fs": "MODIFIED",
+            "Ms": "M091",
+            "Ns": "GLOBAL COMMAND/ATHENA",
+            "Hs": "command-event",
+            "Ωs": "OMEGA-LOCAL-WITNESS"
+          }
+        },
+        "route_path": "SCOUT-01>ROUTER-01>L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER>ARCHIVIST-01",
+        "worker_choice": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+        "generated_at": "2026-03-13T21:22:38.216070+00:00",
+        "quest_refs": [
+          "NEXT57-H-COMMAND-MEMBRANE"
+        ]
+      },
+      "claim_state": {
+        "status": "active",
+        "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+        "claim_id": "CLM-20260313T212250Z-a6ab75",
+        "lease_ms": 1200,
+        "claimed_at": "2026-03-13T21:22:50.248399+00:00",
+        "expires_at": "2026-03-13T21:22:51.448399+00:00",
+        "board_claim_id": "CLM-20260313T212250Z-ac8ecb",
+        "lease_active": true
+      },
+      "commit_state": {
+        "result": "blocked_live_docs_dependency",
+        "summary": "Blocked because live Google Docs credentials are still unavailable.",
+        "artifact_paths": [
+          "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+        ],
+        "writeback_paths": [
+          "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_SENSORY_MEMBRANE.md",
+          "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_CAPILLARY_LAW.md",
+          "NERVOUS_SYSTEM/95_MANIFESTS/NEXT_57_COMMAND_LATENCY_BENCHMARKS.md",
+          "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+          "NERVOUS_SYSTEM/95_MANIFESTS/BUILD_QUEUE.md",
+          "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+          "self_actualize/mycelium_brain/ATHENA TEMPLE/BOARDS/02_TEMPLE_QUEST_BOARD.md",
+          "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+          "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md"
+        ],
+        "work_started_at": "2026-03-13T21:22:50.248399+00:00",
+        "committed_at": "2026-03-13T21:22:56.893781+00:00",
+        "restart_seed": "EVT-20260313-0002::blocked_live_docs_dependency::global-command-athena-athena-alignment-tome-docx",
+        "receipt_json": "self_actualize/mycelium_brain/nervous_system/receipts/EVT-20260313-0002.json",
+        "receipt_md": "self_actualize/mycelium_brain/nervous_system/receipts/EVT-20260313-0002.md",
+        "verification_witness": 0.6,
+        "verified_outcome_class": "unverified"
+      },
+      "latency_state": {
+        "DeltaTau": 39.388129,
+        "DeltaEarth": 39388.129,
+        "LiminalVelocity": 1.0,
+        "ResolutionClass": "transitional",
+        "awareness_latency_ms": 6771.913,
+        "claim_latency_ms": 12032.329,
+        "event_id": "EVT-20260313-0002",
+        "detection_latency_ms": 5331363444.157,
+        "resolution_latency_ms": 0.0,
+        "commit_latency_ms": 6645.382,
+        "t_sugar_ms": 5331388893.781,
+        "delta_tau": 39.388129,
+        "delta_earth_ms": 39388.129,
+        "liminal_velocity": 1.0,
+        "resolution_class": "transitional",
+        "recorded_at": "2026-03-13T21:22:56.893781+00:00",
+        "swarm_awareness_latency_ms": 6771.913,
+        "capillary_score": 0.0,
+        "liminal_delta": 0.0,
+        "commit_latency_alias_ms": 0.0,
+        "route_policy": "",
+        "heaven_score": 0.0,
+        "verified_heaven_score": 0.0,
+        "reward_multiplier": 0.990099,
+        "total_reward": 0.0,
+        "gold_deposit": 0.0,
+        "bridge_deposit": 0.0,
+        "crown": "none"
+      },
+      "affected_nodes": [
+        "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+      ],
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/events/EVT-20260313-0002.json",
+      "coordinate_vector_12": [
+        1773436951.444157,
+        0.890642,
+        0.196961,
+        0.9744349329266697,
+        0.0,
+        0.909091,
+        0.363637,
+        0.0,
+        0.4630980819929391,
+        0.140625,
+        0.91,
+        0.91
+      ],
+      "artifact_refs": [
+        "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+      ],
+      "source_region": "ATHENA",
+      "sensor_event_id": "SEN-EVT-20260313-0002",
+      "file_family": "document",
+      "scheduler_refs": {
+        "western_solar12": {
+          "system_id": "western_solar12",
+          "shared12_seat": "S01 / Aries / Fire / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md"
+        },
+        "vedic_lunar": {
+          "system_id": "vedic_lunar",
+          "shared12_seat": "S11 / Aquarius / Air / Fixed",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md"
+        },
+        "planetary_office": {
+          "system_id": "planetary_office",
+          "shared12_seat": "S01 / Aries / Fire / Cardinal",
+          "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md"
+        },
+        "shared12_projection": {
+          "active_anchor_lane_ids": [
+            "chinese_cycle",
+            "planetary_office",
+            "vedic_lunar",
+            "western_solar12"
+          ],
+          "rows": [
+            {
+              "system_id": "chinese_cycle",
+              "shared12_seat": "S07 / Libra / Air / Cardinal",
+              "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\chinese_cycle_packet.md"
+            },
+            {
+              "system_id": "planetary_office",
+              "shared12_seat": "S01 / Aries / Fire / Cardinal",
+              "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md"
+            },
+            {
+              "system_id": "vedic_lunar",
+              "shared12_seat": "S11 / Aquarius / Air / Fixed",
+              "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md"
+            },
+            {
+              "system_id": "western_solar12",
+              "shared12_seat": "S01 / Aries / Fire / Cardinal",
+              "packet_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md"
+            }
+          ]
+        }
+      },
+      "hsigma_ref": "NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json",
+      "route_targets": [
+        "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+        "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+        "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+        "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+        "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL"
+      ],
+      "linked_quests": [
+        "NEXT57-H-COMMAND-MEMBRANE"
+      ],
+      "source_folder": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND\\ATHENA",
+      "front_ref": "CMD::EVT-20260313-0002",
+      "seed_mode": "LOCAL_WITNESS_ONLY",
+      "dual_reference": "command-folder->archivist",
+      "liminal_delta": 39.388129,
+      "earth_delta_ms": 39388.129,
+      "liminal_velocity": 1.0,
+      "prior_comparable_event_id": "EVT-20260313-0001",
+      "watcher_mode": "event-driven",
+      "duality_effect": "latency-becomes-anatomy",
+      "reward_state": {},
+      "verification_state": {},
+      "pheromone_state": {},
+      "reward_policy_id": "",
+      "crown_tier": "none",
+      "closure_class": "",
+      "_path": "self_actualize/mycelium_brain/nervous_system/events/EVT-20260313-0002.json"
+    },
+    {
+      "event_id": "EVT-20260313-0001",
+      "source_ant_id": "SCOUT-01",
+      "source_path": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+      "active_surface": "GLOBAL COMMAND",
+      "change_type": "modified",
+      "change_summary": "modified docx at GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+      "goal": "detect-classify-assign",
+      "priority": 0.91,
+      "confidence": 0.98,
+      "earth_ts": "2026-03-13T21:21:52.056028+00:00",
+      "earth_ts_local": "2026-03-13T14:21:52.056028-07:00",
+      "detected_ts": "2026-03-13T21:21:52.056028+00:00",
+      "emitted_ts": "2026-03-13T21:21:59.054315+00:00",
+      "liminal_ts": "LT-000001.000",
+      "seat_addr_6d": "A1.B1.C1.D1.E1.F1",
+      "coordinate_stamp": {
+        "Xs": "GLOBAL_COMMAND",
+        "Ys": "ATHENA",
+        "Zs": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+        "Ts": "L02",
+        "Qs": "EVT-20260313-0001",
+        "Rs": "D3",
+        "Cs": "DETECTED",
+        "Fs": "MODIFIED",
+        "Ms": "M091",
+        "Ns": "GLOBAL COMMAND/ATHENA",
+        "Hs": "command-event",
+        "Ωs": "OMEGA-LOCAL-WITNESS"
+      },
+      "canonical_addr_6d": "A1.B1.C1.D1.E1.F1",
+      "liminal_stamp_12d": {
+        "utc_atomic": 1773436912.056028,
+        "earth_rotation_phase": 0.890186,
+        "earth_orbital_phase": 0.196959,
+        "node_anchor": "America/Los_Angeles::charlie-local-node",
+        "solar_phase": 0.0,
+        "lunar_phase": 0.909091,
+        "shared12_phase": 0.363637,
+        "planetary_slot": 0.0,
+        "runtime_region": "NEXT57::L02::A02 self_actualize",
+        "queue_pressure": 0.140625,
+        "goal_salience": 0.91,
+        "novelty_concentration": 0.91
+      },
+      "surface_class": "command-folder",
+      "hierarchy_level": "D6",
+      "return_anchor": "Archivist",
+      "event_kind": "",
+      "earth_ts_utc": "2026-03-13T21:21:52.056028+00:00",
+      "earth_local_phase": 0.0,
+      "parent_event_id": "ROOT",
+      "ttl": 6,
+      "pheromone": 0.938,
+      "joy_seed": {
+        "a_seed": 2.946814,
+        "phi_seed": 0.0,
+        "h_seed": 0.938,
+        "joy_potential": 0.938,
+        "route_mode_seed": "reinforce",
+        "source_evidence": {
+          "priority": 0.91,
+          "confidence": 0.98,
+          "change_type": "modified",
+          "docs_gate_status": "BLOCKED"
+        }
+      },
+      "state_hash": "H:a5c3785116afabf305895fc05f29970c50722ae3e2a553c02d541985d9d177de",
+      "route_class": "scout.router.worker.archivist",
+      "source_id": "",
+      "source_class": "",
+      "watch_root": "",
+      "urgency_baseline": 0.0,
+      "event_fingerprint": "",
+      "witness_class": "LOCAL_WITNESS_ONLY",
+      "status": "routed",
+      "membrane_id": "GLOBAL_COMMAND_ATHENA",
+      "role_class": "Scout",
+      "base4_addr": "A1.B1.C1.D1",
+      "parent": "ROOT",
+      "lineage": {
+        "parent_event_id": "ROOT",
+        "source_mtime_ns": 1768105588000000000,
+        "docs_gate_detail": "blocked-by-missing-credentials",
+        "loop_id": "L02",
+        "surface": "GLOBAL COMMAND"
+      },
+      "deferred_dimensions": {
+        "astro_precision": "structural scheduler anchors only; no live ephemeris or sidereal precision claimed",
+        "docs_gate": "BLOCKED",
+        "pheromone": "0.938000"
+      },
+      "coord12": {
+        "utc_atomic": 1773436912.056028,
+        "earth_rotation_phase": 0.890186,
+        "earth_orbital_phase": 0.196959,
+        "node_anchor": "America/Los_Angeles::charlie-local-node",
+        "solar_phase": 0.0,
+        "lunar_phase": 0.909091,
+        "shared12_phase": 0.363637,
+        "planetary_slot": 0.0,
+        "runtime_region": "NEXT57::L02::A02 self_actualize",
+        "queue_pressure": 0.140625,
+        "goal_salience": 0.91,
+        "novelty_concentration": 0.91
+      },
+      "coord12_frame": {
+        "earth": {
+          "utc_atomic": 1773436912.056028,
+          "earth_rotation_phase": 0.890186,
+          "earth_orbital_phase": 0.196959,
+          "node_anchor": "America/Los_Angeles::charlie-local-node"
+        },
+        "scheduler": {
+          "solar_phase": 0.0,
+          "lunar_phase": 0.909091,
+          "shared12_phase": 0.363637,
+          "planetary_slot": 0.0
+        },
+        "runtime": {
+          "runtime_region": "NEXT57::L02::A02 self_actualize",
+          "queue_pressure": 0.140625
+        },
+        "liminal": {
+          "goal_salience": 0.91,
+          "novelty_concentration": 0.91
+        },
+        "coord12_labels": [
+          "utc_atomic",
+          "earth_rotation_phase",
+          "earth_orbital_phase",
+          "node_anchor",
+          "solar_phase",
+          "lunar_phase",
+          "shared12_phase",
+          "planetary_slot",
+          "runtime_region",
+          "queue_pressure",
+          "goal_salience",
+          "novelty_concentration"
+        ]
+      },
+      "coord_delta": {
+        "DeltaTau": 1773436912.056028,
+        "DeltaEarth": 0.0,
+        "LiminalVelocity": 1773436912056028.0,
+        "ResolutionClass": "emergent"
+      },
+      "scout_id": "SCOUT-01",
+      "tag": "sugar.drop.modified",
+      "event_tag": "command-folder-change",
+      "change": {
+        "type": "modified",
+        "summary": "modified docx at GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+        "state_hash": "H:a5c3785116afabf305895fc05f29970c50722ae3e2a553c02d541985d9d177de",
+        "relative_path": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+        "source_path": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+      },
+      "docs_gate_status": "BLOCKED",
+      "route_state": {
+        "event_id": "EVT-20260313-0001",
+        "policy_id": "goal+salience+pheromone+coord",
+        "candidate_targets": [
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+            "role": "WORKER-ADVENTURER",
+            "score": 2.1655,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+            "role": "SYNTH-RESEARCH",
+            "score": 1.5655,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+            "role": "PLANNER-ARCHITECT",
+            "score": 1.4155,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+            "role": "PRUNE-CRYSTAL",
+            "score": 1.4155,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL",
+            "role": "PRUNE-CRYSTAL",
+            "score": 1.4155,
+            "leased": false,
+            "blocked": false
+          },
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F1.WORKER-ADVENTURER",
+            "role": "WORKER-ADVENTURER",
+            "score": -7.8345,
+            "leased": false,
+            "blocked": true
+          },
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F2.WORKER-ADVENTURER",
+            "role": "WORKER-ADVENTURER",
+            "score": -7.8345,
+            "leased": false,
+            "blocked": true
+          }
+        ],
+        "selected_targets": [
+          "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+          "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+          "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+          "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+          "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL"
+        ],
+        "topk": 5,
+        "claim_mode": "first-lease",
+        "quorum": 1,
+        "score_breakdown": {
+          "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER": {
+            "goal": 0.7,
+            "salience": 0.2275,
+            "joy_potential": 0.938,
+            "coord_distance": 0.1,
+            "capability_match": 0.2,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH": {
+            "goal": 0.25,
+            "salience": 0.2275,
+            "joy_potential": 0.938,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT": {
+            "goal": 0.1,
+            "salience": 0.2275,
+            "joy_potential": 0.938,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL": {
+            "goal": 0.1,
+            "salience": 0.2275,
+            "joy_potential": 0.938,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          },
+          "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL": {
+            "goal": 0.1,
+            "salience": 0.2275,
+            "joy_potential": 0.938,
+            "coord_distance": 0.1,
+            "capability_match": 0.05,
+            "pheromone_composite": 0.0,
+            "load_penalty": 0.0
+          }
+        },
+        "duplicate_risk": 0.0,
+        "created_at": "2026-03-13T21:21:59.224406+00:00",
+        "expires_at": "2026-03-13T21:22:14.224406+00:00",
+        "route_status": "routed",
+        "ranked_routes": [
+          {
+            "ant_id": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+            "master_agent_id": "A3",
+            "score": 2.1655
+          },
+          {
+            "ant_id": "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+            "master_agent_id": "A1",
+            "score": 1.5655
+          },
+          {
+            "ant_id": "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+            "master_agent_id": "A2",
+            "score": 1.4155
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+            "master_agent_id": "A4",
+            "score": 1.4155
+          },
+          {
+            "ant_id": "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL",
+            "master_agent_id": "A4",
+            "score": 1.4155
+          }
+        ],
+        "route_inputs": {
+          "goal": "detect-classify-assign",
+          "salience": 0.91,
+          "joy_potential": 0.938,
+          "pheromone": 0.938,
+          "pheromone_composite": 0.0,
+          "coord": {
+            "Xs": "GLOBAL_COMMAND",
+            "Ys": "ATHENA",
+            "Zs": "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx",
+            "Ts": "L02",
+            "Qs": "EVT-20260313-0001",
+            "Rs": "D3",
+            "Cs": "DETECTED",
+            "Fs": "MODIFIED",
+            "Ms": "M091",
+            "Ns": "GLOBAL COMMAND/ATHENA",
+            "Hs": "command-event",
+            "Ωs": "OMEGA-LOCAL-WITNESS"
+          }
+        },
+        "route_path": "SCOUT-01>ROUTER-01>L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER>ARCHIVIST-01",
+        "worker_choice": "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+        "generated_at": "2026-03-13T21:21:59.224406+00:00",
+        "quest_refs": [
+          "NEXT57-H-COMMAND-MEMBRANE"
+        ]
+      },
+      "claim_state": {},
+      "commit_state": {},
+      "latency_state": {
+        "DeltaTau": 1773436912.056028,
+        "DeltaEarth": 0.0,
+        "LiminalVelocity": 1773436912056028.0,
+        "ResolutionClass": "emergent",
+        "awareness_latency_ms": 7168.378
+      },
+      "affected_nodes": [
+        "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+      ],
+      "replay_ptr": "self_actualize/mycelium_brain/nervous_system/events/EVT-20260313-0001.json",
+      "coordinate_vector_12": [
+        1773436912.056028,
+        0.890186,
+        0.196959,
+        0.9744349329266697,
+        0.0,
+        0.909091,
+        0.363637,
+        0.0,
+        0.4630980819929391,
+        0.140625,
+        0.91,
+        0.91
+      ],
+      "artifact_refs": [
+        "GLOBAL COMMAND/ATHENA/ATHENA ALIGNMENT TOME .docx"
+      ],
+      "source_region": "ATHENA",
+      "sensor_event_id": "EVT-20260313-0001",
+      "file_family": "docx",
+      "scheduler_refs": {},
+      "hsigma_ref": "HSIGMA::COMMAND-FOLDER",
+      "route_targets": [
+        "L02.A3.D1.A1.B3.C1.D1.E1.F3.WORKER-ADVENTURER",
+        "L02.A1.D1.A1.B1.C1.D1.E1.F1.SYNTH-RESEARCH",
+        "L02.A2.D1.A1.B2.C1.D1.E1.F1.PLANNER-ARCHITECT",
+        "L02.A4.D1.A1.B4.C1.D1.E1.F1.PRUNE-CRYSTAL",
+        "L02.A4.D1.A1.B4.C1.D1.E1.F2.PRUNE-CRYSTAL"
+      ],
+      "linked_quests": [
+        "NEXT57-H-COMMAND-MEMBRANE"
+      ],
+      "source_folder": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND\\ATHENA",
+      "front_ref": "CMD::EVT-20260313-0001",
+      "seed_mode": "LOCAL_WITNESS_ONLY",
+      "dual_reference": "command-folder->archivist",
+      "liminal_delta": 1773436912.056028,
+      "earth_delta_ms": 0.0,
+      "liminal_velocity": 1773436912056028.0,
+      "prior_comparable_event_id": "",
+      "watcher_mode": "event-driven",
+      "duality_effect": "latency-becomes-anatomy",
+      "reward_state": {},
+      "verification_state": {},
+      "pheromone_state": {},
+      "reward_policy_id": "",
+      "crown_tier": "none",
+      "closure_class": "",
+      "_path": "self_actualize/mycelium_brain/nervous_system/events/EVT-20260313-0001.json"
+    }
+  ]
+}

@@ -8,11 +8,9 @@
 - Signs: `ROUTE, BIND, WITNESS, QUARANTINE, MERGE, RESTART, DEPLOY, GOVERN, MEASURE`
 
 ## Live Threads
+- `active` `TQ06` (NERVOUS_SYSTEM)
+- `hot` `NERVOUS_SYSTEM` (NERVOUS_SYSTEM)
 - `monitor` `37-gate looping skill and `256^256` corpus plus Chapter 11 hyperplans` (DEEPER CRYSTALIZATION)
-- `monitor` `DEEPER CRYSTALIZATION` (DEEPER CRYSTALIZATION)
-- `monitor` `I AM ATHENA` (I AM ATHENA)
-- `monitor` `NERVOUS_SYSTEM` (NERVOUS_SYSTEM)
-- `monitor` `Voynich` (Voynich)
 
 ## Frontier Gaps
 - `Ch03` Truth Corridors and Witness Discipline

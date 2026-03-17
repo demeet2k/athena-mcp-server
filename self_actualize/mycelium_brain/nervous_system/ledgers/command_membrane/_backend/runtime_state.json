@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-03-13T22:51:25.415993+00:00",
+  "command_root": "GLOBAL COMMAND",
+  "watch_mode": "event-driven",
+  "last_event_seq": 2,
+  "last_liminal_seq": 2,
+  "last_coord12": {
+    "earth_utc_anchor": "2026-03-13T22:55:11.058467+00:00",
+    "earth_rotation_phase": 0.663322,
+    "earth_orbital_phase": 0.194521,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.042398,
+    "lunar_phase": 0.319158,
+    "local_sidereal_phase": 0.431609,
+    "canonical_sky_anchor": {
+      "solar_phase": "S01 / Aries / Fire / Cardinal",
+      "lunar_phase": "S11 / Aquarius / Air / Fixed",
+      "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 0.0,
+    "goal_salience_vector": [
+      0.88,
+      0.834
+    ],
+    "change_novelty_vector": [
+      0.75,
+      0.66
+    ]
+  },
+  "last_earth_ts": "2026-03-13T22:55:11.058467+00:00",
+  "snapshot": {
+    "ATHENA/protocol.md": {
+      "path": "ATHENA/protocol.md",
+      "mtime": 1773442493.8502815,
+      "size": 7,
+      "state_hash": "H:4a31f8a329cdbbab944056fc992eeb5ab5c0b4a78c3bc34e6d7c4a59fd6cf3b6",
+      "file_family": "document"
+    }
+  },
+  "dedupe": {
+    "ATHENA/coord_test.md|created|H:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": 1773442511058
+  },
+  "active_routes": {},
+  "active_claims": {},
+  "recent_projection_ids": [],
+  "updated_at": "2026-03-13T22:55:53.389068+00:00"
+}

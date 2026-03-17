@@ -17,8 +17,8 @@
 - Regime: `restart-token`
 - Packet: `ganglion`
 - Truth: `AMBIG`
-- NSCoord: `(F-A-W, S8, Fire, O21, Arc0, Su, AppI, Trading Bot, restart-token, ganglion, AMBIG)`
-- NeuronAddr: `<Trading Bot, trading_bot, O21, C, 3, a, FAW, Arc0, Su, AppI, AMBIG, restart-token>`
+- NSCoord: `(F-A-W, S8, Fire, O40, Arc0, Su, AppI, Trading Bot, restart-token, ganglion, AMBIG)`
+- NeuronAddr: `<Trading Bot, trading_bot, O40, C, 3, a, FAW, Arc0, Su, AppI, AMBIG, restart-token>`
 - ContractionTarget: `cortex/trading_bot.md`
 
 ## Claims

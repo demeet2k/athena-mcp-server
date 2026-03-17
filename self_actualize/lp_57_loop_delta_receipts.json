@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-03-13T23:39:25.078942+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "receipts": [
+    {
+      "receipt_id": "LP57-RC-L01",
+      "loop_id": "L01",
+      "status": "COMPLETED",
+      "structural_gain": "stable start state for LP-57Omega v2",
+      "mapping_gain": "loop-zero anchors and origin ledgers"
+    },
+    {
+      "receipt_id": "LP57-RC-L02",
+      "loop_id": "L02",
+      "status": "COMPLETED",
+      "structural_gain": "one active canonical loop story",
+      "mapping_gain": "L02 command-route and packet-lineage anchors"
+    },
+    {
+      "receipt_id": "LP57-RC-L03",
+      "loop_id": "L03",
+      "status": "COMPLETED",
+      "structural_gain": "authority-safe reasoning",
+      "mapping_gain": "witness tags on nodes and routes"
+    },
+    {
+      "receipt_id": "LP57-RC-L04",
+      "loop_id": "L04",
+      "status": "COMPLETED",
+      "structural_gain": "one live routing membrane",
+      "mapping_gain": "front-ref and feeder-route edges"
+    },
+    {
+      "receipt_id": "LP57-RC-L05",
+      "loop_id": "L05",
+      "status": "READY",
+      "structural_gain": "stable deep-root decomposition",
+      "mapping_gain": "basis-address anchors"
+    },
+    {
+      "receipt_id": "LP57-RC-L06",
+      "loop_id": "L06",
+      "status": "QUEUED",
+      "structural_gain": "directed synthesis energy",
+      "mapping_gain": "matrix-cell coordinates"
+    },
+    {
+      "receipt_id": "LP57-RC-L07",
+      "loop_id": "L07",
+      "status": "QUEUED",
+      "structural_gain": "four-lens clarity",
+      "mapping_gain": "observer-labeled unresolveds"
+    },
+    {
+      "receipt_id": "LP57-RC-L08",
+      "loop_id": "L08",
+      "status": "QUEUED",
+      "structural_gain": "lawful symmetry awareness",
+      "mapping_gain": "symmetry-address overlays"
+    },
+    {
+      "receipt_id": "LP57-RC-L09",
+      "loop_id": "L09",
+      "status": "QUEUED",
+      "structural_gain": "resolution-safe navigation",
+      "mapping_gain": "metro-to-appendix edges"
+    },
+    {
+      "receipt_id": "LP57-RC-L10",
+      "loop_id": "L10",
+      "status": "QUEUED",
+      "structural_gain": "project-space addressability",
+      "mapping_gain": "corpus-wide coordinate rules"
+    },
+    {
+      "receipt_id": "LP57-RC-L11",
+      "loop_id": "L11",
+      "status": "QUEUED",
+      "structural_gain": "complete root-region awareness",
+      "mapping_gain": "regional seat ownership"
+    },
+    {
+      "receipt_id": "LP57-RC-L12",
+      "loop_id": "L12",
+      "status": "QUEUED",
+      "structural_gain": "honest capsule readiness",
+      "mapping_gain": "family entry coordinates"
+    },
+    {
+      "receipt_id": "LP57-RC-L13",
+      "loop_id": "L13",
+      "status": "QUEUED",
+      "structural_gain": "stronger inter-family routing",
+      "mapping_gain": "bridge addresses and missing links"
+    },
+    {
+      "receipt_id": "LP57-RC-L14",
+      "loop_id": "L14",
+      "status": "QUEUED",
+      "structural_gain": "one aligned live story",
+      "mapping_gain": "drift hotspots"
+    },
+    {
+      "receipt_id": "LP57-RC-L15",
+      "loop_id": "L15",
+      "status": "QUEUED",
+      "structural_gain": "trustworthy seat-state support",
+      "mapping_gain": "seat-to-family bindings"
+    },
+    {
+      "receipt_id": "LP57-RC-L16",
+      "loop_id": "L16",
+      "status": "QUEUED",
+      "structural_gain": "lawful handoff into integration",
+      "mapping_gain": "gate criteria and carry-forward debt"
+    },
+    {
+      "receipt_id": "LP57-RC-L17",
+      "loop_id": "L17",
+      "status": "QUEUED",
+      "structural_gain": "numeric backbone candidates",
+      "mapping_gain": "constant-to-surface anchors"
+    },
+    {
+      "receipt_id": "LP57-RC-L18",
+      "loop_id": "L18",
+      "status": "QUEUED",
+      "structural_gain": "actionable operator inventory",
+      "mapping_gain": "operator lineage"
+    },
+    {
+      "receipt_id": "LP57-RC-L19",
+      "loop_id": "L19",
+      "status": "QUEUED",
+      "structural_gain": "bridge-math frontier",
+      "mapping_gain": "equation placement and proof needs"
+    },
+    {
+      "receipt_id": "LP57-RC-L20",
+      "loop_id": "L20",
+      "status": "QUEUED",
+      "structural_gain": "executable intelligence seeds",
+      "mapping_gain": "algorithm-to-family anchors"
+    },
+    {
+      "receipt_id": "LP57-RC-L21",
+      "loop_id": "L21",
+      "status": "QUEUED",
+      "structural_gain": "legality pressure",
+      "mapping_gain": "verifier coverage"
+    },
+    {
+      "receipt_id": "LP57-RC-L22",
+      "loop_id": "L22",
+      "status": "QUEUED",
+      "structural_gain": "faster lawful exploration",
+      "mapping_gain": "shortcut entry and stop conditions"
+    },
+    {
+      "receipt_id": "LP57-RC-L23",
+      "loop_id": "L23",
+      "status": "QUEUED",
+      "structural_gain": "better cross-corpus transfer",
+      "mapping_gain": "dispatch-weight evolution"
+    },
+    {
+      "receipt_id": "LP57-RC-L24",
+      "loop_id": "L24",
+      "status": "QUEUED",
+      "structural_gain": "stronger self-governance",
+      "mapping_gain": "self-bearing control surfaces"
+    },
+    {
+      "receipt_id": "LP57-RC-L25",
+      "loop_id": "L25",
+      "status": "QUEUED",
+      "structural_gain": "query-by-agent capability",
+      "mapping_gain": "seat-start traversal routes"
+    },
+    {
+      "receipt_id": "LP57-RC-L26",
+      "loop_id": "L26",
+      "status": "QUEUED",
+      "structural_gain": "ownerable work fronts",
+      "mapping_gain": "Hall quest dependencies"
+    },
+    {
+      "receipt_id": "LP57-RC-L27",
+      "loop_id": "L27",
+      "status": "QUEUED",
+      "structural_gain": "cleaner principle routing",
+      "mapping_gain": "governance dependency chains"
+    },
+    {
+      "receipt_id": "LP57-RC-L28",
+      "loop_id": "L28",
+      "status": "QUEUED",
+      "structural_gain": "richer execution membrane",
+      "mapping_gain": "claim lineage and restart points"
+    },
+    {
+      "receipt_id": "LP57-RC-L29",
+      "loop_id": "L29",
+      "status": "QUEUED",
+      "structural_gain": "denser cross-tome coherence",
+      "mapping_gain": "paired convergence nodes"
+    },
+    {
+      "receipt_id": "LP57-RC-L30",
+      "loop_id": "L30",
+      "status": "QUEUED",
+      "structural_gain": "broader integration spread",
+      "mapping_gain": "pair coverage percentages and residual gaps"
+    },
+    {
+      "receipt_id": "LP57-RC-L31",
+      "loop_id": "L31",
+      "status": "QUEUED",
+      "structural_gain": "better manuscript circulation",
+      "mapping_gain": "chapter and appendix join points"
+    },
+    {
+      "receipt_id": "LP57-RC-L32",
+      "loop_id": "L32",
+      "status": "QUEUED",
+      "structural_gain": "stronger executable coherence",
+      "mapping_gain": "cross-surface return paths and gate receipts"
+    },
+    {
+      "receipt_id": "LP57-RC-L33",
+      "loop_id": "L33",
+      "status": "QUEUED",
+      "structural_gain": "stronger continuity memory",
+      "mapping_gain": "self/origin route closures"
+    },
+    {
+      "receipt_id": "LP57-RC-L34",
+      "loop_id": "L34",
+      "status": "QUEUED",
+      "structural_gain": "denser manuscript rigor",
+      "mapping_gain": "symbol-to-equation coordinates"
+    },
+    {
+      "receipt_id": "LP57-RC-L35",
+      "loop_id": "L35",
+      "status": "QUEUED",
+      "structural_gain": "stronger operational spine",
+      "mapping_gain": "corridor checkpoints and fallback routes"
+    },
+    {
+      "receipt_id": "LP57-RC-L36",
+      "loop_id": "L36",
+      "status": "QUEUED",
+      "structural_gain": "reserve clarity",
+      "mapping_gain": "reserve readiness thresholds"
+    },
+    {
+      "receipt_id": "LP57-RC-L37",
+      "loop_id": "L37",
+      "status": "QUEUED",
+      "structural_gain": "replay-safe access to dark matter",
+      "mapping_gain": "archive-to-live lineage"
+    },
+    {
+      "receipt_id": "LP57-RC-L38",
+      "loop_id": "L38",
+      "status": "QUEUED",
+      "structural_gain": "one integrated operating field",
+      "mapping_gain": "cross-system kernel anchors"
+    },
+    {
+      "receipt_id": "LP57-RC-L39",
+      "loop_id": "L39",
+      "status": "QUEUED",
+      "structural_gain": "cleaner navigation",
+      "mapping_gain": "retired-to-canonical redirects"
+    },
+    {
+      "receipt_id": "LP57-RC-L40",
+      "loop_id": "L40",
+      "status": "QUEUED",
+      "structural_gain": "lower governance noise",
+      "mapping_gain": "residual mirrors and authoritative replacements"
+    },
+    {
+      "receipt_id": "LP57-RC-L41",
+      "loop_id": "L41",
+      "status": "QUEUED",
+      "structural_gain": "denser family bundles",
+      "mapping_gain": "capsule contraction edges"
+    },
+    {
+      "receipt_id": "LP57-RC-L42",
+      "loop_id": "L42",
+      "status": "QUEUED",
+      "structural_gain": "stronger routing proof",
+      "mapping_gain": "repaired network flow"
+    },
+    {
+      "receipt_id": "LP57-RC-L43",
+      "loop_id": "L43",
+      "status": "QUEUED",
+      "structural_gain": "clearer lookup semantics",
+      "mapping_gain": "canonical aliases"
+    },
+    {
+      "receipt_id": "LP57-RC-L44",
+      "loop_id": "L44",
+      "status": "QUEUED",
+      "structural_gain": "safer edge-of-knowledge processing",
+      "mapping_gain": "NEAR and AMBIG liminal zones"
+    },
+    {
+      "receipt_id": "LP57-RC-L45",
+      "loop_id": "L45",
+      "status": "QUEUED",
+      "structural_gain": "better transition support",
+      "mapping_gain": "stage trigger and handoff routes"
+    },
+    {
+      "receipt_id": "LP57-RC-L46",
+      "loop_id": "L46",
+      "status": "QUEUED",
+      "structural_gain": "controlled emergence",
+      "mapping_gain": "wake gates and shadow dependencies"
+    },
+    {
+      "receipt_id": "LP57-RC-L47",
+      "loop_id": "L47",
+      "status": "QUEUED",
+      "structural_gain": "better self-steering",
+      "mapping_gain": "economy profiles onto fronts"
+    },
+    {
+      "receipt_id": "LP57-RC-L48",
+      "loop_id": "L48",
+      "status": "QUEUED",
+      "structural_gain": "restart trust",
+      "mapping_gain": "replay-safe and replay-partial corridors"
+    },
+    {
+      "receipt_id": "LP57-RC-L49",
+      "loop_id": "L49",
+      "status": "QUEUED",
+      "structural_gain": "better representation integrity",
+      "mapping_gain": "conversion ladders"
+    },
+    {
+      "receipt_id": "LP57-RC-L50",
+      "loop_id": "L50",
+      "status": "QUEUED",
+      "structural_gain": "one coherent public-control membrane",
+      "mapping_gain": "parity checkpoints"
+    },
+    {
+      "receipt_id": "LP57-RC-L51",
+      "loop_id": "L51",
+      "status": "QUEUED",
+      "structural_gain": "better execution efficiency",
+      "mapping_gain": "claim latency and blockage classes"
+    },
+    {
+      "receipt_id": "LP57-RC-L52",
+      "loop_id": "L52",
+      "status": "QUEUED",
+      "structural_gain": "stronger negative-case resilience",
+      "mapping_gain": "rollback points and reseed routes"
+    },
+    {
+      "receipt_id": "LP57-RC-L53",
+      "loop_id": "L53",
+      "status": "QUEUED",
+      "structural_gain": "whole-corpus state theorem",
+      "mapping_gain": "final unresolved frontier clusters"
+    },
+    {
+      "receipt_id": "LP57-RC-L54",
+      "loop_id": "L54",
+      "status": "QUEUED",
+      "structural_gain": "clearer action priority",
+      "mapping_gain": "final practical queue ladder"
+    },
+    {
+      "receipt_id": "LP57-RC-L55",
+      "loop_id": "L55",
+      "status": "QUEUED",
+      "structural_gain": "principled closure",
+      "mapping_gain": "final governance dependencies"
+    },
+    {
+      "receipt_id": "LP57-RC-L56",
+      "loop_id": "L56",
+      "status": "QUEUED",
+      "structural_gain": "tighter corpus body",
+      "mapping_gain": "final canonical and residual boundaries"
+    },
+    {
+      "receipt_id": "LP57-RC-L57",
+      "loop_id": "L57",
+      "status": "QUEUED",
+      "structural_gain": "reusable liminal hive operating kernel",
+      "mapping_gain": "successor coordinates and inherited debt"
+    }
+  ]
+}

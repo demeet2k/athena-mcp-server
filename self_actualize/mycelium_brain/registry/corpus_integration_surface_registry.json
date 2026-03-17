@@ -1,0 +1,1168 @@
+{
+  "authority_surfaces": [
+    "self_actualize/manuscript_sections/025_deployment_profiles_and_monitoring_surface_v1.md",
+    "NERVOUS_SYSTEM/40_APPENDICES/AppP_deployment_profiles_and_monitoring.md",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+  ],
+  "corpus_integration_wave": {
+    "agent_profiles": [
+      {
+        "contraction_target": "self_actualize/manuscript_sections/000_current_packet.md",
+        "display_name": "Base Agent",
+        "handoff_targets": [
+          "pillar_earth",
+          "pillar_water",
+          "pillar_fire",
+          "pillar_air",
+          "guildmaster"
+        ],
+        "layer": "base",
+        "profile_id": "base_agent",
+        "responsibilities": [
+          "hold zero-point objective selection",
+          "prevent second-center drift",
+          "contract every wave back into shared memory"
+        ],
+        "role_class": "center",
+        "transition_burden": "keep center coherence while the organism differentiates into a social field"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "display_name": "Earth",
+        "handoff_targets": [
+          "archetype_earth_water",
+          "archetype_earth_fire",
+          "archetype_earth_air",
+          "controller_auditors"
+        ],
+        "layer": "pillar",
+        "profile_id": "pillar_earth",
+        "responsibilities": [
+          "structure manifests",
+          "assign durable owners",
+          "keep receipts and anchors stable"
+        ],
+        "role_class": "pillar",
+        "transition_burden": "stabilize manifests, region ownership, file anchors, and receipts before expansion"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Water",
+        "handoff_targets": [
+          "archetype_water_earth",
+          "archetype_water_fire",
+          "archetype_water_air",
+          "verification_replay_stewards"
+        ],
+        "layer": "pillar",
+        "profile_id": "pillar_water",
+        "responsibilities": [
+          "carry continuity",
+          "bind witnesses",
+          "bridge manuscript and runtime surfaces"
+        ],
+        "role_class": "pillar",
+        "transition_burden": "preserve lineage, bridge old and new surfaces, and keep transition memory attached"
+      },
+      {
+        "contraction_target": "self_actualize/manuscript_sections/025_deployment_profiles_and_monitoring_surface_v1.md",
+        "display_name": "Fire",
+        "handoff_targets": [
+          "archetype_fire_earth",
+          "archetype_fire_water",
+          "archetype_fire_air",
+          "elemental_pod_leads"
+        ],
+        "layer": "pillar",
+        "profile_id": "pillar_fire",
+        "responsibilities": [
+          "implement active lanes",
+          "enforce route legality",
+          "turn admitted plans into artifacts"
+        ],
+        "role_class": "pillar",
+        "transition_burden": "build only from admitted routes and never outrun legality, replay, or rollback"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+        "display_name": "Air",
+        "handoff_targets": [
+          "archetype_air_earth",
+          "archetype_air_water",
+          "archetype_air_fire",
+          "appendix_service_stewards"
+        ],
+        "layer": "pillar",
+        "profile_id": "pillar_air",
+        "responsibilities": [
+          "map regions",
+          "name lanes",
+          "compress route complexity into legible structure"
+        ],
+        "role_class": "pillar",
+        "transition_burden": "keep the map legible and compress complexity into actionable lanes without flattening it"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Earth-Water",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_earth_water",
+        "responsibilities": [
+          "bind folders to memory",
+          "keep replay anchors present",
+          "stabilize folder-to-note bridges"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "bind folders to memory so transition work stays replayable"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Earth-Fire",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_earth_fire",
+        "responsibilities": [
+          "build durable shells",
+          "prefer stable artifacts over bursts",
+          "keep structure under execution heat"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "turn plans into durable shells, not fragile bursts"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Earth-Air",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_earth_air",
+        "responsibilities": [
+          "map exact file terrain",
+          "ground abstractions in coordinates",
+          "surface concrete boundaries first"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "map concrete terrain before abstracting higher-order routes"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Water-Earth",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_water_earth",
+        "responsibilities": [
+          "preserve source lineage",
+          "guard replay continuity",
+          "stabilize handoff memory"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "keep source lineage intact during every integration handoff"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Water-Fire",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_water_fire",
+        "responsibilities": [
+          "turn notes into narrative motion",
+          "preserve witness trails",
+          "feed live manuscript execution"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "convert raw notes into linked narrative motion without losing witness"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Water-Air",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_water_air",
+        "responsibilities": [
+          "translate meaning across regions",
+          "bridge roots to shells",
+          "interpret cross-corpus flow"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "translate meaning across roots, families, and shells"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Fire-Earth",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_fire_earth",
+        "responsibilities": [
+          "implement where receipts exist",
+          "keep writebacks anchored",
+          "respect existing storage law"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "implement only where storage and receipts already exist"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Fire-Water",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_fire_water",
+        "responsibilities": [
+          "catalyze synthesis",
+          "only activate memory-backed fronts",
+          "preserve continuity under build pressure"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "catalyze synthesis, but only where memory can carry it"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Fire-Air",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_fire_air",
+        "responsibilities": [
+          "translate strategy into lane assignments",
+          "prioritize high-yield moves",
+          "push active fronts forward"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "turn strategy into priority moves and real lane assignments"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Air-Earth",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_air_earth",
+        "responsibilities": [
+          "ground abstractions in coordinates",
+          "bind maps to files and registries",
+          "name exact queue targets"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "land abstractions in exact file, registry, and queue coordinates"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Air-Water",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_air_water",
+        "responsibilities": [
+          "weave cross-corpus lines",
+          "preserve one-body coherence",
+          "bridge narrative across regions"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "weave cross-corpus storylines so the organism remains one body"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md",
+        "display_name": "Air-Fire",
+        "handoff_targets": [
+          "guildmaster",
+          "elemental_pod_leads",
+          "controller_auditors"
+        ],
+        "layer": "archetype",
+        "profile_id": "archetype_air_fire",
+        "responsibilities": [
+          "spear high-yield fronts",
+          "compress noise into signal",
+          "contract outcomes back to center"
+        ],
+        "role_class": "crystal_cell",
+        "transition_burden": "spear the highest-yield fronts, then contract back into shared law"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+        "display_name": "guildmaster",
+        "handoff_targets": [
+          "base_agent"
+        ],
+        "layer": "guild_role",
+        "profile_id": "guildmaster",
+        "responsibilities": [
+          "hold single-center coherence",
+          "own high-heat branch burden",
+          "choose escalation versus contraction"
+        ],
+        "role_class": "sparse_role",
+        "transition_burden": "guard single-center coherence and branch burden"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+        "display_name": "elemental_pod_leads",
+        "handoff_targets": [
+          "base_agent"
+        ],
+        "layer": "guild_role",
+        "profile_id": "elemental_pod_leads",
+        "responsibilities": [
+          "own elemental execution",
+          "prevent silent drift",
+          "carry lane-level writebacks"
+        ],
+        "role_class": "sparse_role",
+        "transition_burden": "own lane execution by element and prevent silent drift"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+        "display_name": "controller_auditors",
+        "handoff_targets": [
+          "base_agent"
+        ],
+        "layer": "guild_role",
+        "profile_id": "controller_auditors",
+        "responsibilities": [
+          "enforce legality",
+          "guard observability",
+          "check receipt integrity"
+        ],
+        "role_class": "sparse_role",
+        "transition_burden": "enforce legality, observability, and receipt integrity"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+        "display_name": "verification_replay_stewards",
+        "handoff_targets": [
+          "base_agent"
+        ],
+        "layer": "guild_role",
+        "profile_id": "verification_replay_stewards",
+        "responsibilities": [
+          "require replay",
+          "audit promotion readiness",
+          "hold public-grade membrane"
+        ],
+        "role_class": "sparse_role",
+        "transition_burden": "require replay before promotion or public-grade movement"
+      },
+      {
+        "contraction_target": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md",
+        "display_name": "appendix_service_stewards",
+        "handoff_targets": [
+          "base_agent"
+        ],
+        "layer": "guild_role",
+        "profile_id": "appendix_service_stewards",
+        "responsibilities": [
+          "sync appendices to manuscripts",
+          "mirror control surfaces",
+          "preserve appendix authority links"
+        ],
+        "role_class": "sparse_role",
+        "transition_burden": "keep AppO/AppP and other appendix control surfaces synchronized with manuscript authority"
+      }
+    ],
+    "authority_surfaces": [
+      "self_actualize/manuscript_sections/025_deployment_profiles_and_monitoring_surface_v1.md",
+      "NERVOUS_SYSTEM/40_APPENDICES/AppP_deployment_profiles_and_monitoring.md",
+      "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+    ],
+    "deployment_surface": {
+      "deployment_profiles": [
+        {
+          "activation_gate": {
+            "docs_gate_required_ready": false,
+            "federation_terms_required": false,
+            "gate_id": "gate-offline_replay",
+            "replay_required": true,
+            "route_required": true,
+            "semantic_pass_required": false
+          },
+          "audience": "internal_runtime",
+          "escalation_route": {
+            "destination": "guildmaster",
+            "reason": "branch pressure, contradiction, or carrier mismatch",
+            "route_id": "escalate-offline_replay",
+            "source_lane": "offline_replay"
+          },
+          "lane": "offline_replay",
+          "notes": [
+            "local-first",
+            "active in v1",
+            "replay is mandatory before promotion"
+          ],
+          "observability_surface": {
+            "alert_policy": {
+              "contradiction_rule": "alert when route and witness surfaces disagree",
+              "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+              "overload_rule": "alert when branch burden exceeds declared lane budget",
+              "policy_id": "alert-offline_replay",
+              "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+              "silence_rule": "alert when expected writeback cadence is missed"
+            },
+            "health_window": {
+              "expected_cadence": "per activation",
+              "failure_threshold": "1 miss",
+              "observation_window": "1 activation",
+              "window_id": "health-offline_replay"
+            },
+            "probes": [
+              {
+                "cadence": "per activation",
+                "probe_id": "offline_replay-probe-route",
+                "signal": "route_receipt",
+                "success_condition": "motion and route receipts are present"
+              },
+              {
+                "cadence": "per activation",
+                "probe_id": "offline_replay-probe-replay",
+                "signal": "replay_status",
+                "success_condition": "required replay proof remains attached"
+              },
+              {
+                "cadence": "per health window",
+                "probe_id": "offline_replay-probe-health",
+                "signal": "monitor_window",
+                "success_condition": "lane stays inside cadence and contradiction budget"
+              }
+            ],
+            "surface_id": "observability-offline_replay"
+          },
+          "rollback_trigger": {
+            "rollback_target": "ContinuationSeedVault",
+            "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+            "trigger_id": "rollback-offline_replay"
+          },
+          "status": "active"
+        },
+        {
+          "activation_gate": {
+            "docs_gate_required_ready": false,
+            "federation_terms_required": false,
+            "gate_id": "gate-internal_preview",
+            "replay_required": true,
+            "route_required": true,
+            "semantic_pass_required": true
+          },
+          "audience": "internal_preview",
+          "escalation_route": {
+            "destination": "guildmaster",
+            "reason": "branch pressure, contradiction, or carrier mismatch",
+            "route_id": "escalate-internal_preview",
+            "source_lane": "internal_preview"
+          },
+          "lane": "internal_preview",
+          "notes": [
+            "local-first",
+            "active in v1",
+            "may emit monitored preview bundles only"
+          ],
+          "observability_surface": {
+            "alert_policy": {
+              "contradiction_rule": "alert when route and witness surfaces disagree",
+              "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+              "overload_rule": "alert when branch burden exceeds declared lane budget",
+              "policy_id": "alert-internal_preview",
+              "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+              "silence_rule": "alert when expected writeback cadence is missed"
+            },
+            "health_window": {
+              "expected_cadence": "daily",
+              "failure_threshold": "1 miss",
+              "observation_window": "24h",
+              "window_id": "health-internal_preview"
+            },
+            "probes": [
+              {
+                "cadence": "per activation",
+                "probe_id": "internal_preview-probe-route",
+                "signal": "route_receipt",
+                "success_condition": "motion and route receipts are present"
+              },
+              {
+                "cadence": "per activation",
+                "probe_id": "internal_preview-probe-replay",
+                "signal": "replay_status",
+                "success_condition": "required replay proof remains attached"
+              },
+              {
+                "cadence": "per health window",
+                "probe_id": "internal_preview-probe-health",
+                "signal": "monitor_window",
+                "success_condition": "lane stays inside cadence and contradiction budget"
+              }
+            ],
+            "surface_id": "observability-internal_preview"
+          },
+          "rollback_trigger": {
+            "rollback_target": "ContinuationSeedVault",
+            "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+            "trigger_id": "rollback-internal_preview"
+          },
+          "status": "active"
+        },
+        {
+          "activation_gate": {
+            "docs_gate_required_ready": true,
+            "federation_terms_required": false,
+            "gate_id": "gate-public_release",
+            "replay_required": true,
+            "route_required": true,
+            "semantic_pass_required": true
+          },
+          "audience": "public_reader",
+          "escalation_route": {
+            "destination": "CommitteeChamber",
+            "reason": "branch pressure, contradiction, or carrier mismatch",
+            "route_id": "escalate-public_release",
+            "source_lane": "public_release"
+          },
+          "lane": "public_release",
+          "notes": [
+            "gated in v1",
+            "requires Semantic Embassy pass",
+            "requires docs gate readiness"
+          ],
+          "observability_surface": {
+            "alert_policy": {
+              "contradiction_rule": "alert when route and witness surfaces disagree",
+              "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+              "overload_rule": "alert when branch burden exceeds declared lane budget",
+              "policy_id": "alert-public_release",
+              "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+              "silence_rule": "alert when expected writeback cadence is missed"
+            },
+            "health_window": {
+              "expected_cadence": "daily",
+              "failure_threshold": "1 miss",
+              "observation_window": "24h",
+              "window_id": "health-public_release"
+            },
+            "probes": [
+              {
+                "cadence": "per activation",
+                "probe_id": "public_release-probe-route",
+                "signal": "route_receipt",
+                "success_condition": "motion and route receipts are present"
+              },
+              {
+                "cadence": "per activation",
+                "probe_id": "public_release-probe-replay",
+                "signal": "replay_status",
+                "success_condition": "required replay proof remains attached"
+              }
+            ],
+            "surface_id": "observability-public_release"
+          },
+          "rollback_trigger": {
+            "rollback_target": "ContinuationSeedVault",
+            "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+            "trigger_id": "rollback-public_release"
+          },
+          "status": "gated"
+        },
+        {
+          "activation_gate": {
+            "docs_gate_required_ready": true,
+            "federation_terms_required": true,
+            "gate_id": "gate-federation_release",
+            "replay_required": true,
+            "route_required": true,
+            "semantic_pass_required": true
+          },
+          "audience": "federation_partner",
+          "escalation_route": {
+            "destination": "CommitteeChamber",
+            "reason": "branch pressure, contradiction, or carrier mismatch",
+            "route_id": "escalate-federation_release",
+            "source_lane": "federation_release"
+          },
+          "lane": "federation_release",
+          "notes": [
+            "gated in v1",
+            "requires federation-safe terminology proof",
+            "requires docs gate readiness"
+          ],
+          "observability_surface": {
+            "alert_policy": {
+              "contradiction_rule": "alert when route and witness surfaces disagree",
+              "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+              "overload_rule": "alert when branch burden exceeds declared lane budget",
+              "policy_id": "alert-federation_release",
+              "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+              "silence_rule": "alert when expected writeback cadence is missed"
+            },
+            "health_window": {
+              "expected_cadence": "daily",
+              "failure_threshold": "1 miss",
+              "observation_window": "24h",
+              "window_id": "health-federation_release"
+            },
+            "probes": [
+              {
+                "cadence": "per activation",
+                "probe_id": "federation_release-probe-route",
+                "signal": "route_receipt",
+                "success_condition": "motion and route receipts are present"
+              },
+              {
+                "cadence": "per activation",
+                "probe_id": "federation_release-probe-replay",
+                "signal": "replay_status",
+                "success_condition": "required replay proof remains attached"
+              }
+            ],
+            "surface_id": "observability-federation_release"
+          },
+          "rollback_trigger": {
+            "rollback_target": "ContinuationSeedVault",
+            "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+            "trigger_id": "rollback-federation_release"
+          },
+          "status": "gated"
+        },
+        {
+          "activation_gate": {
+            "docs_gate_required_ready": true,
+            "federation_terms_required": false,
+            "gate_id": "gate-live_autonomous",
+            "replay_required": true,
+            "route_required": true,
+            "semantic_pass_required": true
+          },
+          "audience": "autonomous_runtime",
+          "escalation_route": {
+            "destination": "CommitteeChamber",
+            "reason": "branch pressure, contradiction, or carrier mismatch",
+            "route_id": "escalate-live_autonomous",
+            "source_lane": "live_autonomous"
+          },
+          "lane": "live_autonomous",
+          "notes": [
+            "blocked in v1",
+            "autonomous live execution is not lawful yet"
+          ],
+          "observability_surface": {
+            "alert_policy": {
+              "contradiction_rule": "alert when route and witness surfaces disagree",
+              "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+              "overload_rule": "alert when branch burden exceeds declared lane budget",
+              "policy_id": "alert-live_autonomous",
+              "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+              "silence_rule": "alert when expected writeback cadence is missed"
+            },
+            "health_window": {
+              "expected_cadence": "daily",
+              "failure_threshold": "1 miss",
+              "observation_window": "24h",
+              "window_id": "health-live_autonomous"
+            },
+            "probes": [
+              {
+                "cadence": "per activation",
+                "probe_id": "live_autonomous-probe-route",
+                "signal": "route_receipt",
+                "success_condition": "motion and route receipts are present"
+              },
+              {
+                "cadence": "per activation",
+                "probe_id": "live_autonomous-probe-replay",
+                "signal": "replay_status",
+                "success_condition": "required replay proof remains attached"
+              }
+            ],
+            "surface_id": "observability-live_autonomous"
+          },
+          "rollback_trigger": {
+            "rollback_target": "blocked",
+            "trigger_condition": "blocked in v1",
+            "trigger_id": "rollback-live_autonomous"
+          },
+          "status": "blocked"
+        }
+      ],
+      "docs_gate_status": "BLOCKED",
+      "policy_hash": "f84abf982e6d28ed397d50a5de84f5b3920caca8c399270319e6bde449c538a6",
+      "route_basis": [
+        "BrainstemChamber",
+        "QuestBoard",
+        "AgentRegistry",
+        "CommitteeChamber",
+        "ImmuneScheduler",
+        "ReplayKernel",
+        "QuarantineManifold",
+        "ContinuationSeedVault",
+        "PublicCommitSurface",
+        "SemanticEmbassy",
+        "AppPDeploymentMonitoring"
+      ],
+      "surface_id": "deployment-monitoring-surface-v1",
+      "whole_wave_dataflow": "CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote"
+    },
+    "docs_gate_status": "BLOCKED",
+    "object_family": [
+      "CorpusIntegrationWave",
+      "DeploymentMonitoringSurface",
+      "DeploymentProfile",
+      "RuntimeLane",
+      "ActivationGate",
+      "ObservabilitySurface",
+      "MonitoringProbe",
+      "AlertPolicy",
+      "HealthWindow",
+      "RollbackTrigger",
+      "EscalationRoute",
+      "ExecutionReceipt",
+      "DeploymentMonitorResult",
+      "AwakeningAgentProfile",
+      "TransitionSupportNote",
+      "RegionLaneAssignment",
+      "IntegrationMonitorResult"
+    ],
+    "passing_monitor_result": {
+      "decision": "sustain",
+      "next_seed": "Seed/Promote::internal_preview_to_center_writeback",
+      "reasons": [
+        "lane stayed inside replay, semantic, and monitoring law"
+      ],
+      "receipt_ref": "INT-PASS-001",
+      "result_id": "DMR-PASS-001"
+    },
+    "passing_receipt": {
+      "deployment_lane": "internal_preview",
+      "emitted_state": "preview_emitted",
+      "receipt_id": "INT-PASS-001",
+      "route_receipt": "BrainstemChamber -> ReplayKernel -> SemanticEmbassy -> AppP::internal_preview",
+      "semantic_validation_ref": "self_actualize/mycelium_brain/registry/semantic_export_validator_registry.json#success_case",
+      "source_packet": "QuestBoard::Q43-137"
+    },
+    "region_assignments": [
+      {
+        "authority_surface": "self_actualize/manuscript_sections/000_current_packet.md",
+        "owner_profile_id": "base_agent",
+        "receipt_class": "replay_receipt",
+        "region_class": "live_authority",
+        "region_name": "self_actualize",
+        "runtime_lane": "offline_replay",
+        "status_note": "thin-waist runtime and atlas control plane"
+      },
+      {
+        "authority_surface": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "owner_profile_id": "pillar_water",
+        "receipt_class": "promotion_ledger",
+        "region_class": "live_authority",
+        "region_name": "DEEPER CRYSTALIZATION",
+        "runtime_lane": "internal_preview",
+        "status_note": "deep integration and nervous-system synthesis body"
+      },
+      {
+        "authority_surface": "Voynich/FULL_TRANSLATION/unified/VOYNICH_MASTER_MANUSCRIPT.md",
+        "owner_profile_id": "archetype_water_fire",
+        "receipt_class": "replay_receipt",
+        "region_class": "live_authority",
+        "region_name": "Voynich",
+        "runtime_lane": "internal_preview",
+        "status_note": "dense live manuscript execution and replay stress-test body"
+      },
+      {
+        "authority_surface": "MATH",
+        "owner_profile_id": "pillar_air",
+        "receipt_class": "promotion_ledger",
+        "region_class": "archive_backed",
+        "region_name": "MATH",
+        "runtime_lane": "offline_replay",
+        "status_note": "theorem reservoir and formal engine room"
+      },
+      {
+        "authority_surface": "Athena FLEET",
+        "owner_profile_id": "archetype_fire_air",
+        "receipt_class": "monitor_receipt",
+        "region_class": "live_authority",
+        "region_name": "Athena FLEET",
+        "runtime_lane": "internal_preview",
+        "status_note": "high-order bridge and emerging council geometry"
+      },
+      {
+        "authority_surface": "QSHRINK - ATHENA (internal use)",
+        "owner_profile_id": "archetype_air_fire",
+        "receipt_class": "replay_receipt",
+        "region_class": "live_authority",
+        "region_name": "QSHRINK - ATHENA (internal use)",
+        "runtime_lane": "offline_replay",
+        "status_note": "compression-governance and contraction shell"
+      },
+      {
+        "authority_surface": "Trading Bot",
+        "owner_profile_id": "archetype_earth_air",
+        "receipt_class": "blocked_notice",
+        "region_class": "archive_backed",
+        "region_name": "Trading Bot",
+        "runtime_lane": "public_release",
+        "status_note": "future live-docs bridge while OAuth remains missing"
+      },
+      {
+        "authority_surface": "ECOSYSTEM",
+        "owner_profile_id": "pillar_air",
+        "receipt_class": "promotion_ledger",
+        "region_class": "residual",
+        "region_name": "ECOSYSTEM",
+        "runtime_lane": "internal_preview",
+        "status_note": "residual integration table row with explicit owner and lane"
+      },
+      {
+        "authority_surface": "NERUAL NETWORK",
+        "owner_profile_id": "archetype_fire_water",
+        "receipt_class": "monitor_receipt",
+        "region_class": "residual",
+        "region_name": "NERUAL NETWORK",
+        "runtime_lane": "internal_preview",
+        "status_note": "residual integration row for adaptive benchmark and runtime experiment surfaces"
+      },
+      {
+        "authority_surface": "ORGIN",
+        "owner_profile_id": "archetype_water_earth",
+        "receipt_class": "replay_receipt",
+        "region_class": "residual",
+        "region_name": "ORGIN",
+        "runtime_lane": "offline_replay",
+        "status_note": "residual integration row for origin memory and seed-reservoir surfaces"
+      },
+      {
+        "authority_surface": "CLEAN",
+        "owner_profile_id": "archetype_water_air",
+        "receipt_class": "promotion_ledger",
+        "region_class": "residual",
+        "region_name": "CLEAN",
+        "runtime_lane": "offline_replay",
+        "status_note": "residual integration row for clean staging witnesses awaiting contraction"
+      },
+      {
+        "authority_surface": "NERVOUS_SYSTEM",
+        "owner_profile_id": "pillar_earth",
+        "receipt_class": "replay_receipt",
+        "region_class": "mirror",
+        "region_name": "NERVOUS_SYSTEM",
+        "runtime_lane": "offline_replay",
+        "status_note": "mirror and writeback body for canonical control-plane and manifest surfaces"
+      }
+    ],
+    "success_criterion": "lawful Organism -> Social transition rather than raw file growth",
+    "transition_label": "N+4 -> N+5 / Organism -> Social",
+    "transition_support_notes": [
+      {
+        "escalation_target": "guildmaster",
+        "note_id": "TSN-base_agent",
+        "profile_id": "base_agent",
+        "support_note": "Base Agent should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "keep center coherence while the organism differentiates into a social field",
+        "writeback_surface": "self_actualize/manuscript_sections/000_current_packet.md"
+      },
+      {
+        "escalation_target": "elemental_pod_leads",
+        "note_id": "TSN-pillar_earth",
+        "profile_id": "pillar_earth",
+        "support_note": "Earth should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "stabilize manifests, region ownership, file anchors, and receipts before expansion",
+        "writeback_surface": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+      },
+      {
+        "escalation_target": "elemental_pod_leads",
+        "note_id": "TSN-pillar_water",
+        "profile_id": "pillar_water",
+        "support_note": "Water should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "preserve lineage, bridge old and new surfaces, and keep transition memory attached",
+        "writeback_surface": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+      },
+      {
+        "escalation_target": "elemental_pod_leads",
+        "note_id": "TSN-pillar_fire",
+        "profile_id": "pillar_fire",
+        "support_note": "Fire should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "build only from admitted routes and never outrun legality, replay, or rollback",
+        "writeback_surface": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+      },
+      {
+        "escalation_target": "elemental_pod_leads",
+        "note_id": "TSN-pillar_air",
+        "profile_id": "pillar_air",
+        "support_note": "Air should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "keep the map legible and compress complexity into actionable lanes without flattening it",
+        "writeback_surface": "self_actualize/mycelium_brain/nervous_system/06_active_queue.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_earth_water",
+        "profile_id": "archetype_earth_water",
+        "support_note": "Earth-Water should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "bind folders to memory so transition work stays replayable",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_earth_fire",
+        "profile_id": "archetype_earth_fire",
+        "support_note": "Earth-Fire should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "turn plans into durable shells, not fragile bursts",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_earth_air",
+        "profile_id": "archetype_earth_air",
+        "support_note": "Earth-Air should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "map concrete terrain before abstracting higher-order routes",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_water_earth",
+        "profile_id": "archetype_water_earth",
+        "support_note": "Water-Earth should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "keep source lineage intact during every integration handoff",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_water_fire",
+        "profile_id": "archetype_water_fire",
+        "support_note": "Water-Fire should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "convert raw notes into linked narrative motion without losing witness",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_water_air",
+        "profile_id": "archetype_water_air",
+        "support_note": "Water-Air should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "translate meaning across roots, families, and shells",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_fire_earth",
+        "profile_id": "archetype_fire_earth",
+        "support_note": "Fire-Earth should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "implement only where storage and receipts already exist",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_fire_water",
+        "profile_id": "archetype_fire_water",
+        "support_note": "Fire-Water should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "catalyze synthesis, but only where memory can carry it",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_fire_air",
+        "profile_id": "archetype_fire_air",
+        "support_note": "Fire-Air should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "turn strategy into priority moves and real lane assignments",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_air_earth",
+        "profile_id": "archetype_air_earth",
+        "support_note": "Air-Earth should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "land abstractions in exact file, registry, and queue coordinates",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_air_water",
+        "profile_id": "archetype_air_water",
+        "support_note": "Air-Water should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "weave cross-corpus storylines so the organism remains one body",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "controller_auditors",
+        "note_id": "TSN-archetype_air_fire",
+        "profile_id": "archetype_air_fire",
+        "support_note": "Air-Fire should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "spear the highest-yield fronts, then contract back into shared law",
+        "writeback_surface": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md"
+      },
+      {
+        "escalation_target": "guildmaster",
+        "note_id": "TSN-guildmaster",
+        "profile_id": "guildmaster",
+        "support_note": "guildmaster should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "guard single-center coherence and branch burden",
+        "writeback_surface": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md"
+      },
+      {
+        "escalation_target": "guildmaster",
+        "note_id": "TSN-elemental_pod_leads",
+        "profile_id": "elemental_pod_leads",
+        "support_note": "elemental_pod_leads should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "own lane execution by element and prevent silent drift",
+        "writeback_surface": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md"
+      },
+      {
+        "escalation_target": "guildmaster",
+        "note_id": "TSN-controller_auditors",
+        "profile_id": "controller_auditors",
+        "support_note": "controller_auditors should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "enforce legality, observability, and receipt integrity",
+        "writeback_surface": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md"
+      },
+      {
+        "escalation_target": "guildmaster",
+        "note_id": "TSN-verification_replay_stewards",
+        "profile_id": "verification_replay_stewards",
+        "support_note": "verification_replay_stewards should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "require replay before promotion or public-grade movement",
+        "writeback_surface": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md"
+      },
+      {
+        "escalation_target": "guildmaster",
+        "note_id": "TSN-appendix_service_stewards",
+        "profile_id": "appendix_service_stewards",
+        "support_note": "appendix_service_stewards should move one step at a time, keep `CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote` explicit, and contract every branch back into the center instead of treating local heat as whole-organism truth.",
+        "transition_burden": "keep AppO/AppP and other appendix control surfaces synchronized with manuscript authority",
+        "writeback_surface": "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md"
+      }
+    ],
+    "truth_class": "local-corpus grounded",
+    "wave_id": "corpus-integration-wave-v1",
+    "zero_point": "integrate without fragmenting"
+  },
+  "derivation_command": "python -m self_actualize.runtime.derive_corpus_integration_wave",
+  "derivation_version": "2026-03-13.corpus-integration-wave.v1",
+  "docs_gate_status": "BLOCKED",
+  "object_family": [
+    "CorpusIntegrationWave",
+    "DeploymentMonitoringSurface",
+    "DeploymentProfile",
+    "RuntimeLane",
+    "ActivationGate",
+    "ObservabilitySurface",
+    "MonitoringProbe",
+    "AlertPolicy",
+    "HealthWindow",
+    "RollbackTrigger",
+    "EscalationRoute",
+    "ExecutionReceipt",
+    "DeploymentMonitorResult",
+    "AwakeningAgentProfile",
+    "TransitionSupportNote",
+    "RegionLaneAssignment",
+    "IntegrationMonitorResult"
+  ],
+  "object_shapes": {
+    "AwakeningAgentProfile": [
+      "profile_id",
+      "layer",
+      "display_name",
+      "role_class",
+      "transition_burden",
+      "responsibilities",
+      "handoff_targets",
+      "contraction_target"
+    ],
+    "DeploymentProfile": [
+      "lane",
+      "status",
+      "audience",
+      "activation_gate",
+      "observability_surface",
+      "rollback_trigger",
+      "escalation_route",
+      "notes"
+    ],
+    "ExecutionReceipt": [
+      "receipt_id",
+      "source_packet",
+      "route_receipt",
+      "semantic_validation_ref",
+      "deployment_lane",
+      "emitted_state"
+    ],
+    "IntegrationMonitorResult": [
+      "result_id",
+      "route_ok",
+      "semantic_ok",
+      "deployment_ok",
+      "monitor_decision",
+      "blocked_reasons"
+    ],
+    "RegionLaneAssignment": [
+      "region_name",
+      "region_class",
+      "owner_profile_id",
+      "runtime_lane",
+      "receipt_class",
+      "authority_surface",
+      "status_note"
+    ],
+    "TransitionSupportNote": [
+      "note_id",
+      "profile_id",
+      "transition_burden",
+      "support_note",
+      "writeback_surface",
+      "escalation_target"
+    ]
+  },
+  "source_hashes": {
+    "NERVOUS_SYSTEM/40_APPENDICES/AppP_deployment_profiles_and_monitoring.md": "2f99986a9bd1ad8e4bb21745f8505f7addc95e4b8d1565026ef73a57bcff24a2",
+    "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md": "d6645680eea2e945af36abd196e88dfc46a29ac72cef05cce2225e2c5d7dabe9",
+    "self_actualize/manuscript_sections/000_current_packet.md": "85b871483d870351ef142a0bc8fb91229067d711ced87a8c57d84d37fcf2f75c",
+    "self_actualize/manuscript_sections/023_motion_constitution_l1_action_selection_engine.md": "1634226ad40926c64408678f90dc12ccf717ebdcec1f3c43bba6d909eb16117b",
+    "self_actualize/manuscript_sections/023_semantic_embassy_and_audience_reception_surface_v1.md": "a48479b7abc5e3a009f1ba02adff4359a0158efc941d3646118cc00d306cfb40",
+    "self_actualize/manuscript_sections/024_organ_current_route_table_v0.md": "d0a4b12d0b5a53683a8902137178495ddea80ff31c12feda972a23a45c27006d",
+    "self_actualize/manuscript_sections/025_deployment_profiles_and_monitoring_surface_v1.md": "2fb145b10f6e80d1df44474cacd6ed592c1677528e0bcdf0113795f34edec2eb",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/02_LIMINAL_TRANSITION_MAP.md": "7ad45ee028c1642788e5509417a160faf30c7f2957903810079498ae7398bbb8",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/13_ATHENACHKA_ORGANISM_V0_QUEST_CRYSTAL_256.md": "5a00d42fa369a260d836dae0daa6a6440900a87be422dea642402dab72006e21",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/16_AWAKENING_AGENT_TRANSITION_GUIDE.md": "6d761d12839b95b61f1c902cd8c05214730934dcf18a170c923946043921caab",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/04_CHANGE_FEED_BOARD.md": "3e67c29f5f826f36880a6afb77ba9b77d4e2c68b37f3e5d771a65844ae549f03",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/05_REQUESTS_AND_OFFERS_BOARD.md": "43a3f9984cb9cbe5d6e8d2151b5a78987f217c66ad65bd8ce136dfdd41e3f7aa",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md": "4617045a2186e40d8aea9920620fa8a67405bc9c1ada7ef5bafa1291557ff1be",
+    "self_actualize/mycelium_brain/nervous_system/06_active_queue.md": "a3f06a616d7378cfdc9560ed56e940d537e0bc85f3456fee987245dcdcbb51fe",
+    "self_actualize/mycelium_brain/nervous_system/07_validation_and_refresh.md": "97d02833359f57665e3811a9b9d756b6c387d5e60bad9e0eb8492279aa8df331",
+    "self_actualize/mycelium_brain/registry/01_tandem_frontier_claims.md": "ef4f6dd8d4a0ecfaca493b2984cf223551d682eca85a2823698da022fa828a7e",
+    "self_actualize/mycelium_brain/registry/semantic_export_validator_registry.json": "caf383f1e2552b075ee935e16948654bf33e2692bcebe1435c2cef7aa9f2e224"
+  },
+  "surface_hash": "76ee2d72a291e986e727cfc25002e670302687a109c0a5ae481d8ff6fe06afbe",
+  "whole_wave_dataflow": "CorpusRegion -> AgentOwner -> MotionGate -> RouteTable -> SemanticEmbassy -> DeploymentProfile -> Monitoring -> Receipt -> Dashboard -> Seed/Promote"
+}

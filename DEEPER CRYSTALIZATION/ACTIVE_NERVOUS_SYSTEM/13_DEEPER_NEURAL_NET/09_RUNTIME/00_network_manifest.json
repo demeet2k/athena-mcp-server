@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-03-13T01:34:01.423466+00:00",
+  "deep_pass": 17,
+  "live_docs_blocked": true,
+  "document_count": 197,
+  "ordered_pair_count": 38809,
+  "nonself_pair_count": 38612,
+  "canonical_pair_count": 19306,
+  "element_counts": {
+    "Fire": 32,
+    "Water": 20,
+    "Earth": 93,
+    "Air": 52
+  },
+  "operator_gates": [
+    "G00",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15"
+  ],
+  "query_surface_ready": true,
+  "query_index_files": [
+    "13_DEEPER_NEURAL_NET/09_RUNTIME/03_query_index.json",
+    "13_DEEPER_NEURAL_NET/09_RUNTIME/04_facet_index.json",
+    "13_DEEPER_NEURAL_NET/09_RUNTIME/05_neighbor_index.json",
+    "13_DEEPER_NEURAL_NET/09_RUNTIME/06_zero_point_index.json"
+  ],
+  "default_query_output_mode": "markdown_stdout",
+  "chapter_frontier_compiler_ready": true,
+  "chapter_pack_targets": [
+    "Ch03",
+    "Ch10",
+    "Ch12",
+    "Ch14"
+  ],
+  "chapter_frontier_manifest": "06_RUNTIME/13_chapter_frontier_manifest.json"
+}

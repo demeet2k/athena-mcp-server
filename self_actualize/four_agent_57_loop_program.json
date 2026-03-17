@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-03-13T21:39:11.832377+00:00",
+  "protocol_id": "LP-57Ω",
+  "machine_core_symbol": "HΣ",
+  "docs_gate_state": {
+    "status": "BLOCKED",
+    "source_of_truth": "self_actualize/live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "note": "Local-only until OAuth exists and an authenticated live query succeeds."
+  },
+  "canonical_machine_core": "NERVOUS_SYSTEM/95_MANIFESTS/H_SIGMA_MACHINE_CORE.json",
+  "canonical_program": "NERVOUS_SYSTEM/95_MANIFESTS/FOUR_AGENT_57_LOOP_PROGRAM.json",
+  "canonical_cycle_registry": "NERVOUS_SYSTEM/95_MANIFESTS/FOUR_AGENT_57_LOOP_CYCLE_REGISTRY.json",
+  "canonical_quest_packets": "NERVOUS_SYSTEM/95_MANIFESTS/FOUR_AGENT_57_LOOP_QUEST_PACKETS.json",
+  "public_fronts": {
+    "hall": "NEXT57",
+    "temple": "TQ07"
+  },
+  "status": "HISTORICAL_WRAPPER_ONLY",
+  "compatibility_alias": "Q51",
+  "note": "Legacy public wrapper only; live authority is HΣ -> matrix -> cycle -> packets -> program."
+}

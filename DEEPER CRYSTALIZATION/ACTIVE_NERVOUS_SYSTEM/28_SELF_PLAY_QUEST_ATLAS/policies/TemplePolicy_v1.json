@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "temple",
+  "description": "Temple certification rules, ethics watchlist, and invariant validation",
+  "certification_rules": [
+    "TempleRite quests require ethical certification before evaluation",
+    "Certification is granted by a minimum quorum of 3 temple witnesses",
+    "All temple witnesses must have at least one SEALED quest at unlock_level >= 8",
+    "Certification expires after 13 epochs and must be renewed",
+    "A player with any active ethics watchlist entry cannot receive certification"
+  ],
+  "ethics_watchlist": {
+    "description": "Players or agents flagged for ethical review",
+    "entry_criteria": [
+      "3 or more DISPUTED quests within a 21-epoch window",
+      "Any quest where witness bundle contains majority DISPUTE attestations",
+      "Manual flag by a Policy Forum (S18) governance decision",
+      "Repeated submission of identical failed quests (3+ resubmissions)"
+    ],
+    "removal_criteria": [
+      "21 epochs with no new disputes",
+      "Successful completion of an ethics review quest at S08",
+      "Policy Forum (S18) governance decision to remove"
+    ],
+    "watchlist_effects": [
+      "Cannot submit TempleRite quests",
+      "Cannot serve as witness for any quest",
+      "Cannot participate in seat elections",
+      "Payout multiplier reduced to 0.382 (phi^-2) for all quest classes"
+    ]
+  },
+  "invariant_validation": {
+    "description": "Invariants that must hold for all temple-certified quests",
+    "invariants": [
+      {
+        "id": "INV-T01",
+        "name": "Element balance",
+        "rule": "Element vector sum must be within 0.01 of the station definition",
+        "severity": "HARD"
+      },
+      {
+        "id": "INV-T02",
+        "name": "Determinism check",
+        "rule": "Replay bundle must produce identical outcome_hash on re-execution",
+        "severity": "HARD"
+      },
+      {
+        "id": "INV-T03",
+        "name": "Witness quorum",
+        "rule": "Witness bundle must contain at least min_witness_quorum CONFIRMs",
+        "severity": "HARD"
+      },
+      {
+        "id": "INV-T04",
+        "name": "Ethics clearance",
+        "rule": "Submitting player must not be on ethics watchlist",
+        "severity": "HARD"
+      },
+      {
+        "id": "INV-T05",
+        "name": "Timestamp monotonicity",
+        "rule": "All timestamps in the quest chain must be strictly increasing",
+        "severity": "SOFT"
+      },
+      {
+        "id": "INV-T06",
+        "name": "Capsule reference validity",
+        "rule": "All referenced capsules must exist in the 198-226 range",
+        "severity": "SOFT"
+      }
+    ],
+    "severity_levels": {
+      "HARD": "Violation causes immediate quest rejection",
+      "SOFT": "Violation triggers warning and requires manual review"
+    }
+  }
+}

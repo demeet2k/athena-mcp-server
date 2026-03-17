@@ -1,0 +1,27 @@
+# Guided Tour Index
+
+Docs gate: `BLOCKED`
+
+## Counts
+
+- seed starters: `47`
+- page starters: `45`
+
+## Commands
+
+```powershell
+python -m self_actualize.runtime.guide_myth_math_hemisphere_atlas record --record-id <record_id>
+python -m self_actualize.runtime.guide_myth_math_hemisphere_atlas search --query <text> --system <system>
+python -m self_actualize.runtime.guide_myth_math_hemisphere_atlas facet --family <family>
+python -m self_actualize.runtime.guide_myth_math_hemisphere_atlas page --page-id <page_id>
+```
+
+## Starter Groups
+
+| Group | Count |
+| --- | --- |
+| anchor | 16 |
+| family | 10 |
+| hemisphere | 2 |
+| main_pages | 8 |
+| target_system | 11 |

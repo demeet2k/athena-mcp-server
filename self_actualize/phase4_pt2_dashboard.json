@@ -1,0 +1,238 @@
+{
+  "generated_at": "2026-03-13T20:44:38.853874+00:00",
+  "derivation_version": "2026-03-12.phase4-pt2-v1",
+  "docs_gate": "BLOCKED",
+  "canonical_scope": "live 19-body organism + 16-kernel inner compiler",
+  "metro_system_count": 15,
+  "station_count": 20,
+  "interlock_count": 24,
+  "coordinate_count": 419,
+  "carrier_count": 11,
+  "rail_count": 3,
+  "lens_count": 15,
+  "lens_state_count": 419,
+  "field_count": 6,
+  "zpoint_count": 6,
+  "aether_point_count": 419,
+  "projection_space_count": 5,
+  "projection_assignment_count": 419,
+  "shortcut_count": 13,
+  "query_count": 8,
+  "edge_count": 42,
+  "dense_kernel_overlay": {
+    "mode": "kernel_overlay",
+    "shell_registry": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\myth_math_dense_65_shell_registry.json",
+    "sigma_path": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "rotation_authority": "AppF",
+    "antispin_authority": "AppG"
+  },
+  "validation": {
+    "all_systems_have_interlocks": true,
+    "coordinates_cover_active_records": false,
+    "rails_are_su_me_sa": true,
+    "all_15_lenses_materialized": true,
+    "docs_gate_preserved_blocked": true
+  },
+  "top_interlocks": [
+    {
+      "interlock_id": "IX-09",
+      "source_system": "GrandCentral",
+      "target_system": "DeepRootMetroStack",
+      "dispatch_score": 7.94
+    },
+    {
+      "interlock_id": "IX-21",
+      "source_system": "DeepRootMetroStack",
+      "target_system": "GrandCentral",
+      "dispatch_score": 7.94
+    },
+    {
+      "interlock_id": "IX-22",
+      "source_system": "GrandCentral",
+      "target_system": "Plexus256",
+      "dispatch_score": 7.83
+    },
+    {
+      "interlock_id": "IX-05",
+      "source_system": "CoreMetro",
+      "target_system": "GrandCentral",
+      "dispatch_score": 7.75
+    },
+    {
+      "interlock_id": "IX-06",
+      "source_system": "GrandCentral",
+      "target_system": "BrainStem64",
+      "dispatch_score": 7.56
+    },
+    {
+      "interlock_id": "IX-02",
+      "source_system": "EmergentSupermap",
+      "target_system": "L2DeepEmergence",
+      "dispatch_score": 7.48
+    },
+    {
+      "interlock_id": "IX-03",
+      "source_system": "L2DeepEmergence",
+      "target_system": "L3Neural",
+      "dispatch_score": 7.48
+    },
+    {
+      "interlock_id": "IX-07",
+      "source_system": "BrainStem64",
+      "target_system": "Plexus256",
+      "dispatch_score": 7.48
+    },
+    {
+      "interlock_id": "IX-08",
+      "source_system": "Plexus256",
+      "target_system": "Arbor1024",
+      "dispatch_score": 7.48
+    },
+    {
+      "interlock_id": "IX-16",
+      "source_system": "CrossCorpusMycelial",
+      "target_system": "GrandCentral",
+      "dispatch_score": 7.45
+    }
+  ],
+  "top_lens_states": [
+    {
+      "record_id": "W-K01-K16-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K02-K14-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K02-K14-2",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K03-K14-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K03-K15-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K03-K16-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K04-K15-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K04-K16-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K05-K15-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    },
+    {
+      "record_id": "W-K05-K16-1",
+      "record_type": "wave",
+      "dominant_lens_system": "FCR",
+      "score": 0.93
+    }
+  ],
+  "top_aether_points": [
+    {
+      "point_id": "AP-0005",
+      "source_record_id": "A05",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0015",
+      "source_record_id": "A15",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0024",
+      "source_record_id": "N-2005",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0034",
+      "source_record_id": "N-2015",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0080",
+      "source_record_id": "P-K01-K05",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0085",
+      "source_record_id": "P-K01-K08",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0105",
+      "source_record_id": "P-K02-K05",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0107",
+      "source_record_id": "P-K02-K07",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0108",
+      "source_record_id": "P-K02-K08",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    },
+    {
+      "point_id": "AP-0155",
+      "source_record_id": "P-K05-K01",
+      "aether_density": 0.8,
+      "geodesic_mode": "aether geodesic"
+    }
+  ],
+  "next_frontier": [
+    "propagate lens and field weights into writeback-facing runtime receipts",
+    "bind more pair and wave cells to explicit HD-SCT operator witnesses",
+    "extend Phase 4 automation to emit interlock-aware neglected-area repairs",
+    "keep Trading Bot and other evidence reservoirs visible without letting them outrank live authority while the Docs gate is blocked"
+  ],
+  "phase4_dependency_counts": {
+    "body_count": 19,
+    "pair_count": 307,
+    "wave_count": 40,
+    "knowledge_fabric_records": 16708
+  }
+}

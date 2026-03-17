@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-03-13T21:53:16.108173+00:00",
+  "protocol_id": "LP-57OMEGA",
+  "loop_id": "L02",
+  "quest_id": "Q57-L02-02",
+  "title": "Witness Hierarchy Map",
+  "status": "LANDED",
+  "docs_gate": "BLOCKED",
+  "witness_counts": {
+    "physical": 15949,
+    "indexed": 7895,
+    "board": 14791,
+    "archive": 2041,
+    "promoted": 1818
+  },
+  "canonical_refs": [
+    "self_actualize/witness_hierarchy.json",
+    "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/07_CANONICAL_WITNESS_HIERARCHY.md",
+    "self_actualize/lp57_omega_v2_artifacts/L03/research_bundle.json"
+  ],
+  "structural_gain": "removed stale physical-count fallback and re-grounded witness precedence on live local scan results",
+  "mapping_gain": "restored physical/indexed/board/archive/promoted witness visibility for the next LP-57 routing pass",
+  "next_frontier": "Q57-L02-03",
+  "restart_seed": "L03 -> Authority Pointer Replacement"
+}

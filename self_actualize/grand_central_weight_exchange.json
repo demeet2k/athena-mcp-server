@@ -1,0 +1,283 @@
+{
+  "generated_at": "2026-03-12T19:09:36.577589+00:00",
+  "derivation_version": "2026-03-12.gc-v1",
+  "docs_gate": "BLOCKED",
+  "route_baseline": 0.81,
+  "thresholds": {
+    "promotion_threshold": 6.35,
+    "live_interchange_threshold": 7.0,
+    "soft_demotion_threshold": 5.4
+  },
+  "routes": [
+    {
+      "commissure_id": "C-007",
+      "source_family": "Trading Bot",
+      "target_family": "self_actualize",
+      "bridge_class": "execution bridge",
+      "weight": {
+        "salience": 1.0,
+        "proof": 0.917,
+        "freshness": 0.77,
+        "cost": 0.845,
+        "continuity": 0.86,
+        "confidence": 0.844,
+        "replay_value": 0.93
+      },
+      "dispatch_score": 7.958,
+      "witness_floor": 0.844,
+      "proof_state": "OK",
+      "replay_policy": "blocked gate state must be cited at every crossing"
+    },
+    {
+      "commissure_id": "C-008",
+      "source_family": "DEEPER CRYSTALIZATION",
+      "target_family": "self_actualize",
+      "bridge_class": "continuity bridge",
+      "weight": {
+        "salience": 0.619,
+        "proof": 0.937,
+        "freshness": 0.89,
+        "cost": 0.669,
+        "continuity": 0.93,
+        "confidence": 0.914,
+        "replay_value": 0.93
+      },
+      "dispatch_score": 7.681,
+      "witness_floor": 0.914,
+      "proof_state": "NEAR",
+      "replay_policy": "historical status must be preserved in any writeback"
+    },
+    {
+      "commissure_id": "C-011",
+      "source_family": "NERUAL NETWORK",
+      "target_family": "self_actualize",
+      "bridge_class": "execution bridge",
+      "weight": {
+        "salience": 0.619,
+        "proof": 0.917,
+        "freshness": 0.89,
+        "cost": 0.583,
+        "continuity": 0.86,
+        "confidence": 0.904,
+        "replay_value": 0.93
+      },
+      "dispatch_score": 7.666,
+      "witness_floor": 0.904,
+      "proof_state": "NEAR",
+      "replay_policy": "runtime harness or receipt required before promotion"
+    },
+    {
+      "commissure_id": "C-002",
+      "source_family": "self_actualize",
+      "target_family": "NERVOUS_SYSTEM",
+      "bridge_class": "execution bridge",
+      "weight": {
+        "salience": 0.619,
+        "proof": 0.917,
+        "freshness": 0.89,
+        "cost": 0.595,
+        "continuity": 0.86,
+        "confidence": 0.904,
+        "replay_value": 0.93
+      },
+      "dispatch_score": 7.649,
+      "witness_floor": 0.904,
+      "proof_state": "OK",
+      "replay_policy": "runtime receipt required before cortex claim"
+    },
+    {
+      "commissure_id": "C-003",
+      "source_family": "QSHRINK - ATHENA (internal use)",
+      "target_family": "self_actualize",
+      "bridge_class": "execution bridge",
+      "weight": {
+        "salience": 0.686,
+        "proof": 0.917,
+        "freshness": 0.89,
+        "cost": 0.794,
+        "continuity": 0.86,
+        "confidence": 0.904,
+        "replay_value": 0.93
+      },
+      "dispatch_score": 7.518,
+      "witness_floor": 0.904,
+      "proof_state": "NEAR",
+      "replay_policy": "weight exchange must emit a dispatch score and receipt"
+    },
+    {
+      "commissure_id": "C-013",
+      "source_family": "mycelial_unified_nervous_system_bundle",
+      "target_family": "self_actualize",
+      "bridge_class": "continuity bridge",
+      "weight": {
+        "salience": 0.619,
+        "proof": 0.717,
+        "freshness": 0.81,
+        "cost": 0.537,
+        "continuity": 0.93,
+        "confidence": 0.764,
+        "replay_value": 0.93
+      },
+      "dispatch_score": 7.094,
+      "witness_floor": 0.717,
+      "proof_state": "NEAR",
+      "replay_policy": "bundle state must remain dormant unless explicitly reactivated through replay"
+    },
+    {
+      "commissure_id": "C-006",
+      "source_family": "Voynich",
+      "target_family": "Athenachka Collective Books",
+      "bridge_class": "meaning bridge",
+      "weight": {
+        "salience": 0.359,
+        "proof": 0.907,
+        "freshness": 0.89,
+        "cost": 0.506,
+        "continuity": 0.9,
+        "confidence": 0.899,
+        "replay_value": 0.82
+      },
+      "dispatch_score": 6.992,
+      "witness_floor": 0.899,
+      "proof_state": "NEAR",
+      "replay_policy": "appendix and publication receipts required before export"
+    },
+    {
+      "commissure_id": "C-001",
+      "source_family": "MATH",
+      "target_family": "Voynich",
+      "bridge_class": "proof bridge",
+      "weight": {
+        "salience": 0.359,
+        "proof": 0.927,
+        "freshness": 0.89,
+        "cost": 0.589,
+        "continuity": 0.84,
+        "confidence": 0.909,
+        "replay_value": 0.82
+      },
+      "dispatch_score": 6.847,
+      "witness_floor": 0.909,
+      "proof_state": "NEAR",
+      "replay_policy": "close through GCP and AppM before promotion"
+    },
+    {
+      "commissure_id": "C-010",
+      "source_family": "ECOSYSTEM",
+      "target_family": "MATH",
+      "bridge_class": "proof bridge",
+      "weight": {
+        "salience": 0.314,
+        "proof": 0.927,
+        "freshness": 0.89,
+        "cost": 0.507,
+        "continuity": 0.82,
+        "confidence": 0.909,
+        "replay_value": 0.82
+      },
+      "dispatch_score": 6.83,
+      "witness_floor": 0.909,
+      "proof_state": "OK",
+      "replay_policy": "governance mirror cannot outrank the cortex at closure time"
+    },
+    {
+      "commissure_id": "C-004",
+      "source_family": "ORGIN",
+      "target_family": "I AM ATHENA",
+      "bridge_class": "continuity bridge",
+      "weight": {
+        "salience": 0.08,
+        "proof": 0.937,
+        "freshness": 0.89,
+        "cost": 0.345,
+        "continuity": 0.96,
+        "confidence": 0.914,
+        "replay_value": 0.82
+      },
+      "dispatch_score": 6.692,
+      "witness_floor": 0.914,
+      "proof_state": "NEAR",
+      "replay_policy": "restart token required for any promotion across identity states"
+    },
+    {
+      "commissure_id": "C-005",
+      "source_family": "Athena FLEET",
+      "target_family": "NERVOUS_SYSTEM",
+      "bridge_class": "execution bridge",
+      "weight": {
+        "salience": 0.081,
+        "proof": 0.917,
+        "freshness": 0.89,
+        "cost": 0.386,
+        "continuity": 0.86,
+        "confidence": 0.904,
+        "replay_value": 0.93
+      },
+      "dispatch_score": 6.617,
+      "witness_floor": 0.904,
+      "proof_state": "OK",
+      "replay_policy": "promotion must land through Grand Central then replay closure"
+    },
+    {
+      "commissure_id": "C-012",
+      "source_family": "CLEAN",
+      "target_family": "DEEPER CRYSTALIZATION",
+      "bridge_class": "continuity bridge",
+      "weight": {
+        "salience": 0.231,
+        "proof": 0.823,
+        "freshness": 0.76,
+        "cost": 0.498,
+        "continuity": 0.93,
+        "confidence": 0.791,
+        "replay_value": 0.82
+      },
+      "dispatch_score": 6.195,
+      "witness_floor": 0.791,
+      "proof_state": "NEAR",
+      "replay_policy": "promotion closes through pruning or staging receipt"
+    },
+    {
+      "commissure_id": "C-009",
+      "source_family": "GAMES",
+      "target_family": "Stoicheia (Element Sudoku)",
+      "bridge_class": "meaning bridge",
+      "weight": {
+        "salience": 0.26,
+        "proof": 0.793,
+        "freshness": 0.76,
+        "cost": 0.492,
+        "continuity": 0.88,
+        "confidence": 0.776,
+        "replay_value": 0.82
+      },
+      "dispatch_score": 6.132,
+      "witness_floor": 0.776,
+      "proof_state": "NEAR",
+      "replay_policy": "reserve status must remain visible at promotion time"
+    }
+  ],
+  "summary": {
+    "top_dispatch_routes": [
+      "C-007",
+      "C-008",
+      "C-011",
+      "C-002",
+      "C-003"
+    ],
+    "promotable_routes": [
+      "C-007",
+      "C-008",
+      "C-011",
+      "C-002",
+      "C-003",
+      "C-013",
+      "C-006",
+      "C-001",
+      "C-010",
+      "C-004",
+      "C-005"
+    ],
+    "watch_routes": []
+  }
+}

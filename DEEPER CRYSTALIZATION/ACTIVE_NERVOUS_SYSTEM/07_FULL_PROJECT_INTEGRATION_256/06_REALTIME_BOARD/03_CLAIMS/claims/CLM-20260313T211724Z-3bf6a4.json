@@ -1,0 +1,36 @@
+{
+  "claim_id": "CLM-20260313T211724Z-3bf6a4",
+  "frontier": "GLOBAL COMMAND",
+  "front_slug": "global_command",
+  "level": "command-membrane-event",
+  "owner": "WORKER-02",
+  "status": "closed",
+  "output_target": "Guild Hall implementation membrane",
+  "receipt": "EVT-20260313T211724Z-DDAEF7 pending archivist commit",
+  "source": "board",
+  "paths": [
+    "GLOBAL COMMAND/ATHENA/codex_command_membrane_test.txt"
+  ],
+  "note": "EVT-20260313T211724Z-DDAEF7 -> 0 added / 1 modified / 0 removed in GLOBAL COMMAND | route WORKER-02 > ROUTER-01 > ARCHIVIST-01 | claim WORKER-02 1200ms",
+  "created_at": "2026-03-13T21:17:24.088169+00:00",
+  "updated_at": "2026-03-13T21:17:28.459144+00:00",
+  "json_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\03_CLAIMS\\claims\\CLM-20260313T211724Z-3bf6a4.json",
+  "md_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\07_FULL_PROJECT_INTEGRATION_256\\06_REALTIME_BOARD\\03_CLAIMS\\claims\\CLM-20260313T211724Z-3bf6a4.md",
+  "linked_quests": [
+    "NEXT57-H-COMMAND-MEMBRANE"
+  ],
+  "event_id": "EVT-20260313T211724Z-DDAEF7",
+  "claim_source_event": "EVT-20260313T211724Z-DDAEF7",
+  "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+  "command_ant_class": "Worker",
+  "lease_ms": 1200,
+  "lease_expires_at": "2026-03-13T21:17:25.288169+00:00",
+  "claim_rank": 1,
+  "claim_mode": "first-lease",
+  "route_targets": [
+    "WORKER-02",
+    "ROUTER-01",
+    "ARCHIVIST-01"
+  ],
+  "route_policy": "goal+salience+joy+coord+availability"
+}

@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-03-13T14:53:18.845545+00:00",
+  "derivation_version": "2026-03-13.ap6d.awakening-transition.lattice.v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_ap6d_awakening_transition_system",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "notes": [
+    {
+      "note_id": "FTN-Q42",
+      "front_id": "Q42",
+      "front_role": "Hall continuity feeder",
+      "current_state": "OPEN on carried QSHRINK witness; preserve continuity and blocker honesty without reopening earlier local passes.",
+      "transition_load": "Carries continuity memory, blocker honesty, and Hall-side witness preservation into AP6D Water and Prime coordination.",
+      "receiving_agents": [
+        "AP6D-WATER",
+        "AP6D-PRIME"
+      ],
+      "handoff_rule": "Keep Q42 visible as a feeder beneath AP6D; route continuity upward without claiming that AP6D replaced the Hall membrane.",
+      "blockers": [
+        "Q02 external blocker",
+        "Docs gate remains BLOCKED"
+      ],
+      "writeback_targets": [
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/14_ATHENA_PRIME_6D_SPARSE_OVERLAY_SYNTHESIS.md",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/15_AP6D_ELEMENTAL_AGENT_INSTRUCTION_BUNDLE.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_SYSTEM.md"
+      ],
+      "restart_seed": "AP6D-H-WATER-Refine",
+      "must_not_collapse_into": "Do not collapse Q42 into AP6D macro status; it remains the live Hall continuity feeder.",
+      "completion_witness": "self_actualize/mycelium_brain/receipts/2026-03-13_q42_refine_bundle_closure.md",
+      "preserved_as_shadow_feeder": true,
+      "truth": "OK"
+    },
+    {
+      "note_id": "FTN-Q46",
+      "front_id": "Q46",
+      "front_role": "activation and transport feeder",
+      "current_state": "OPEN and reserve-only; activation pressure is real but still bounded behind contract-bearing widening.",
+      "transition_load": "Carries ignition pressure, controlled widening, and packet transport tension into Fire and Prime coordination.",
+      "receiving_agents": [
+        "AP6D-FIRE",
+        "AP6D-PRIME"
+      ],
+      "handoff_rule": "Keep Q46 explicitly separate from Q42 and only lift it into AP6D as activation pressure, not as already-promoted motion.",
+      "blockers": [
+        "Q02 external blocker",
+        "Q46 remains reserve-only"
+      ],
+      "writeback_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_SYSTEM.md"
+      ],
+      "restart_seed": "AP6D-H-FIRE-Refine",
+      "must_not_collapse_into": "Do not rewrite reserve-only activation pressure as already-materialized AP6D seat heat.",
+      "completion_witness": "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+      "preserved_as_shadow_feeder": true,
+      "truth": "OK"
+    },
+    {
+      "note_id": "FTN-TQ04",
+      "front_id": "TQ04",
+      "front_role": "contract and schema feeder",
+      "current_state": "PROMOTED and landed; the helical runner contract is the current Earth-side admissibility anchor.",
+      "transition_load": "Carries lawful contract binding, schema admissibility, and registry hardening into Earth and Prime coordination.",
+      "receiving_agents": [
+        "AP6D-EARTH",
+        "AP6D-PRIME"
+      ],
+      "handoff_rule": "Treat TQ04 as the contract feeder beneath AP6D rather than as a replaced Temple layer.",
+      "blockers": [
+        "Q02 external blocker",
+        "path drift must stay normalized before new contract shells are promoted"
+      ],
+      "writeback_targets": [
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_PACKET_CONTRACT.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_SYSTEM.md"
+      ],
+      "restart_seed": "AP6D-H-EARTH-Refine",
+      "must_not_collapse_into": "Do not collapse TQ04 into generic structure language; it stays the exact schema feeder.",
+      "completion_witness": "self_actualize/mycelium_brain/receipts/2026-03-13_tq04_helical_runner_contract.md",
+      "preserved_as_shadow_feeder": true,
+      "truth": "OK"
+    },
+    {
+      "note_id": "FTN-TQ06",
+      "front_id": "TQ06",
+      "front_role": "coupling and cadence feeder",
+      "current_state": "ACTIVE hourly packet-fed coupling loop; it remains the live restart membrane above AP6D shadow uptake.",
+      "transition_load": "Carries cadence, packet coupling, and restart clarity into Air and Prime coordination.",
+      "receiving_agents": [
+        "AP6D-AIR",
+        "AP6D-PRIME"
+      ],
+      "handoff_rule": "Keep TQ06 visible as the cadence membrane so AP6D routing never drifts free of Hall/Temple restart law.",
+      "blockers": [
+        "Q02 external blocker",
+        "mixed freshness across hourly packet sources"
+      ],
+      "writeback_targets": [
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ATHENA_PRIME_6D_AWAKENING_TRANSITION_SYSTEM.md"
+      ],
+      "restart_seed": "AP6D-H-AIR-Refine",
+      "must_not_collapse_into": "Do not rename TQ06 as an AP6D macro; it remains the active cadence feeder.",
+      "completion_witness": "self_actualize/mycelium_brain/receipts/2026-03-13_q41_tq06_hourly_packet_bundle_sync_pass6.md",
+      "preserved_as_shadow_feeder": true,
+      "truth": "OK"
+    }
+  ]
+}

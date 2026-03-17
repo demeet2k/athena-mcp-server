@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "dimension_stage": "7D_SEED",
+  "default_floor": [
+    "AppA",
+    "AppB",
+    "AppC",
+    "AppE",
+    "AppF",
+    "AppH",
+    "AppI",
+    "AppK",
+    "AppM",
+    "AppN",
+    "AppO",
+    "AppP",
+    "AppQ"
+  ],
+  "rules": [
+    "Q docks only through AppQ.",
+    "O remains an overlay alias and returns through canonical AppO.",
+    "No reverse station may appear without canonical appendix mapping.",
+    "AppK is required whenever contradiction survives.",
+    "AppN is required whenever H6, H7, Seed-6D, or Seed-7D persists as a carrier.",
+    "AppP is required whenever a route claims stable or deployable return."
+  ]
+}

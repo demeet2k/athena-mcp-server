@@ -1,0 +1,2653 @@
+{
+  "generated_at": "2026-03-13T21:09:15.183098+00:00",
+  "docs_gate_status": "BLOCKED",
+  "loop_count": 57,
+  "artifact_types": [
+    "loop_manifest",
+    "research_packet",
+    "hall_quest_bundle",
+    "temple_quest_bundle",
+    "worker_action_bundle",
+    "pruning_receipt",
+    "restart_seed"
+  ],
+  "loops": [
+    {
+      "loop_number": 1,
+      "loop_id": "AP6D-L01",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Freeze docs gate truth and open the first Hall and Temple parent quests.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L01:MANIFEST",
+        "research_packet": "AP6D-L01:RESEARCH",
+        "hall_quest_bundle": "AP6D-L01:HALL",
+        "temple_quest_bundle": "AP6D-L01:TEMPLE",
+        "worker_action_bundle": "AP6D-L01:WORKER",
+        "pruning_receipt": "AP6D-L01:PRUNE",
+        "restart_seed": "AP6D-L01:RESTART"
+      },
+      "hall_parent_id": "AP6D-L01:HALL",
+      "temple_parent_id": "AP6D-L01:TEMPLE",
+      "restart_seed_id": "AP6D-L01:RESTART",
+      "focus_record_ids": [
+        "a3c74f1f41c8739b8ab17e89",
+        "0b3c09ef58bffa7f54a96c7b",
+        "3f11686d5fc0c5f685f089a9",
+        "74babb1f3913695df9864b7e"
+      ],
+      "focus_relative_paths": [
+        "NERVOUS_SYSTEM\\70_SCHEMAS\\11_AFFECTIVE_EPISTEMIC_NEURON_WAVE_SCHEMA.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__14_ch11_helical_engine.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_14_ch11_helical_engine\\14_ch11_helical_engine__08_quantum_standard_hardware.md",
+        "MATH\\Newer\\THE 4 CONSTANTS FINAL (phi, pi, i, e).docx"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "helical-recursion-engine"
+      ]
+    },
+    {
+      "loop_number": 2,
+      "loop_id": "AP6D-L02",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Reconcile live, archive, both-scope, and witness-only records into one authority ledger.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L02:MANIFEST",
+        "research_packet": "AP6D-L02:RESEARCH",
+        "hall_quest_bundle": "AP6D-L02:HALL",
+        "temple_quest_bundle": "AP6D-L02:TEMPLE",
+        "worker_action_bundle": "AP6D-L02:WORKER",
+        "pruning_receipt": "AP6D-L02:PRUNE",
+        "restart_seed": "AP6D-L02:RESTART"
+      },
+      "hall_parent_id": "AP6D-L02:HALL",
+      "temple_parent_id": "AP6D-L02:TEMPLE",
+      "restart_seed_id": "AP6D-L02:RESTART",
+      "focus_record_ids": [
+        "72292c1be3091a993054fa11",
+        "3858fd9121e2cd5706fb4a4a",
+        "ede4a4f574d88d0b5fe681b8",
+        "d58142a29ac1b1c1e85d005a"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_09_zero_point_computing\\09_zero_point_computing__14_ch11_helical_engine.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_14_ch11_helical_engine\\14_ch11_helical_engine__09_zero_point_computing.md",
+        "MATH\\LIVE_PROMOTED\\aqm_kernel_qphi_planet9\\docs\\10_COMMERCIAL_PACKAGING.md",
+        "NERVOUS_SYSTEM\\70_SCHEMAS\\11_LIFT_SPEC.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "helical-recursion-engine",
+        "void-and-collapse"
+      ]
+    },
+    {
+      "loop_number": 3,
+      "loop_id": "AP6D-L03",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Sweep every tome and manuscript for evidence gaps, duplicate hashes, and witness-only drift.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L03:MANIFEST",
+        "research_packet": "AP6D-L03:RESEARCH",
+        "hall_quest_bundle": "AP6D-L03:HALL",
+        "temple_quest_bundle": "AP6D-L03:TEMPLE",
+        "worker_action_bundle": "AP6D-L03:WORKER",
+        "pruning_receipt": "AP6D-L03:PRUNE",
+        "restart_seed": "AP6D-L03:RESTART"
+      },
+      "hall_parent_id": "AP6D-L03:HALL",
+      "temple_parent_id": "AP6D-L03:TEMPLE",
+      "restart_seed_id": "AP6D-L03:RESTART",
+      "focus_record_ids": [
+        "79645b405a9c300e09325aea",
+        "72d898b413048c068aa9c41a",
+        "c86c5d59bd6ec28514ab75d6",
+        "fc4db7895110da097400de8c"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_14_ch11_helical_engine\\14_ch11_helical_engine__05_holographic_kernel.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_14_ch11_helical_engine\\14_ch11_helical_engine__07_crystal_computing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\05_holographic_kernel__14_ch11_helical_engine.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_07_crystal_computing\\07_crystal_computing__14_ch11_helical_engine.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "helical-recursion-engine"
+      ]
+    },
+    {
+      "loop_number": 4,
+      "loop_id": "AP6D-L04",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Bind every reachable record to the 16-basis lattice and flag weak anchors for planner escalation.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L04:MANIFEST",
+        "research_packet": "AP6D-L04:RESEARCH",
+        "hall_quest_bundle": "AP6D-L04:HALL",
+        "temple_quest_bundle": "AP6D-L04:TEMPLE",
+        "worker_action_bundle": "AP6D-L04:WORKER",
+        "pruning_receipt": "AP6D-L04:PRUNE",
+        "restart_seed": "AP6D-L04:RESTART"
+      },
+      "hall_parent_id": "AP6D-L04:HALL",
+      "temple_parent_id": "AP6D-L04:TEMPLE",
+      "restart_seed_id": "AP6D-L04:RESTART",
+      "focus_record_ids": [
+        "02ff8e637e7e711cc78f0fb2",
+        "0bf73a8f31ef712237be825f",
+        "9e2e324a1f280f721bd18fde",
+        "695e208c90cef41bbb2625b3"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\manuscript_sections\\011_ch11_helical_manifestation_engine.md",
+        "self_actualize\\manuscript_sections\\alternates\\011_ch11_helical_manifestation_engine_legacy.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0303_square_code_foundation_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1303_circle_code_foundation_body_loop.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "helical-recursion-engine",
+        "void-and-collapse"
+      ]
+    },
+    {
+      "loop_number": 5,
+      "loop_id": "AP6D-L05",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Project the corpus onto the 256 ordered corridors and seed corridor witness notes.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L05:MANIFEST",
+        "research_packet": "AP6D-L05:RESEARCH",
+        "hall_quest_bundle": "AP6D-L05:HALL",
+        "temple_quest_bundle": "AP6D-L05:TEMPLE",
+        "worker_action_bundle": "AP6D-L05:WORKER",
+        "pruning_receipt": "AP6D-L05:PRUNE",
+        "restart_seed": "AP6D-L05:RESTART"
+      },
+      "hall_parent_id": "AP6D-L05:HALL",
+      "temple_parent_id": "AP6D-L05:TEMPLE",
+      "restart_seed_id": "AP6D-L05:RESTART",
+      "focus_record_ids": [
+        "4425ded640e2a0db3660e88c",
+        "76500030b01cc9b9e6e0de86",
+        "24ff325e6dfaa9431f1e13df",
+        "e015cf4af4fcfa9e0db7ba97"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2303_triangle_code_foundation_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3303_torus_code_foundation_body_loop.md",
+        "self_actualize\\manuscript_sections\\alternates\\022_ch11_helical_manifestation_engine.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0313_square_code_nervous_body_loop.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "void-and-collapse",
+        "helical-recursion-engine"
+      ]
+    },
+    {
+      "loop_number": 6,
+      "loop_id": "AP6D-L06",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Run the 64-observer pass and preserve contradictions without collapsing them too early.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L06:MANIFEST",
+        "research_packet": "AP6D-L06:RESEARCH",
+        "hall_quest_bundle": "AP6D-L06:HALL",
+        "temple_quest_bundle": "AP6D-L06:TEMPLE",
+        "worker_action_bundle": "AP6D-L06:WORKER",
+        "pruning_receipt": "AP6D-L06:PRUNE",
+        "restart_seed": "AP6D-L06:RESTART"
+      },
+      "hall_parent_id": "AP6D-L06:HALL",
+      "temple_parent_id": "AP6D-L06:TEMPLE",
+      "restart_seed_id": "AP6D-L06:RESTART",
+      "focus_record_ids": [
+        "51b2065072d4eb9c4c5b0b7c",
+        "d7db10aba9b5c2ef3f1f6b6e",
+        "c504c042332671a6d2b61dcd",
+        "f3231627e28511f94be8244d"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0323_square_code_memory_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1313_circle_code_nervous_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1323_circle_code_memory_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3313_torus_code_nervous_body_loop.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "void-and-collapse"
+      ]
+    },
+    {
+      "loop_number": 7,
+      "loop_id": "AP6D-L07",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Emit Void-stage awakening notes for all ten family agents with basis overlays where evidence exists.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L07:MANIFEST",
+        "research_packet": "AP6D-L07:RESEARCH",
+        "hall_quest_bundle": "AP6D-L07:HALL",
+        "temple_quest_bundle": "AP6D-L07:TEMPLE",
+        "worker_action_bundle": "AP6D-L07:WORKER",
+        "pruning_receipt": "AP6D-L07:PRUNE",
+        "restart_seed": "AP6D-L07:RESTART"
+      },
+      "hall_parent_id": "AP6D-L07:HALL",
+      "temple_parent_id": "AP6D-L07:TEMPLE",
+      "restart_seed_id": "AP6D-L07:RESTART",
+      "focus_record_ids": [
+        "46d7cbf886ea8128981ab5b6",
+        "aac4f6b981db93867b886fe6",
+        "86915ab6e3feeef7a13bd036",
+        "c3ad9905d73b1f5a9f5d4341"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3323_torus_code_memory_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2313_triangle_code_nervous_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2323_triangle_code_memory_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\10_CH11_256X256\\cells\\ch11_2330_triangle_code_runtime_body_seed.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "void-and-collapse"
+      ]
+    },
+    {
+      "loop_number": 8,
+      "loop_id": "AP6D-L08",
+      "wave_id": "W1",
+      "wave_title": "Void / Authority Opening",
+      "stage_id": "VOID",
+      "stage_label": "Void",
+      "focus": "Prune duplicate mirrors, stale aliases, and redundant loop seeds before reseeding the cycle.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L08:MANIFEST",
+        "research_packet": "AP6D-L08:RESEARCH",
+        "hall_quest_bundle": "AP6D-L08:HALL",
+        "temple_quest_bundle": "AP6D-L08:TEMPLE",
+        "worker_action_bundle": "AP6D-L08:WORKER",
+        "pruning_receipt": "AP6D-L08:PRUNE",
+        "restart_seed": "AP6D-L08:RESTART"
+      },
+      "hall_parent_id": "AP6D-L08:HALL",
+      "temple_parent_id": "AP6D-L08:TEMPLE",
+      "restart_seed_id": "AP6D-L08:RESTART",
+      "focus_record_ids": [
+        "ede490ae83edb53949aa75e6",
+        "fedb5243bb9e5b813583747b",
+        "59bdf1846837677ec56ce1ac",
+        "6aef775e9a7c16d404b92081"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\10_CH11_256X256\\cells\\ch11_2331_triangle_code_runtime_body_manuscript.md",
+        "QSHRINK - ATHENA (internal use)\\10_CH11_256X256\\cells\\ch11_2332_triangle_code_runtime_body_witness.md",
+        "QSHRINK - ATHENA (internal use)\\10_CH11_256X256\\cells\\ch11_2333_triangle_code_runtime_body_loop.md",
+        "NERVOUS_SYSTEM\\70_SCHEMAS\\08_PHASE_SPEC.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "VOID",
+        "MATH",
+        "void-and-collapse",
+        "helical-recursion-engine"
+      ]
+    },
+    {
+      "loop_number": 9,
+      "loop_id": "AP6D-L09",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Prioritize weak-proof, high-salience, and corridor-missing records for activation.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L09:MANIFEST",
+        "research_packet": "AP6D-L09:RESEARCH",
+        "hall_quest_bundle": "AP6D-L09:HALL",
+        "temple_quest_bundle": "AP6D-L09:TEMPLE",
+        "worker_action_bundle": "AP6D-L09:WORKER",
+        "pruning_receipt": "AP6D-L09:PRUNE",
+        "restart_seed": "AP6D-L09:RESTART"
+      },
+      "hall_parent_id": "AP6D-L09:HALL",
+      "temple_parent_id": "AP6D-L09:TEMPLE",
+      "restart_seed_id": "AP6D-L09:RESTART",
+      "focus_record_ids": [
+        "8db4b7b9e1706626904abd2f",
+        "01c4f0399002e931cd046106",
+        "68ed031f05c4010afe690197",
+        "f65892f82342f49ad4ba0952"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\oa6\\oa6.py",
+        "ECOSYSTEM\\FUTURE_SKILLS\\skills\\theorem-to-runtime\\FUTURE SKILL.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0230_square_bucket_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0233_square_bucket_runtime_body_loop.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 10,
+      "loop_id": "AP6D-L10",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Compile hybrid equation packets linking families, target systems, anchors, and hemisphere routes.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L10:MANIFEST",
+        "research_packet": "AP6D-L10:RESEARCH",
+        "hall_quest_bundle": "AP6D-L10:HALL",
+        "temple_quest_bundle": "AP6D-L10:TEMPLE",
+        "worker_action_bundle": "AP6D-L10:WORKER",
+        "pruning_receipt": "AP6D-L10:PRUNE",
+        "restart_seed": "AP6D-L10:RESTART"
+      },
+      "hall_parent_id": "AP6D-L10:HALL",
+      "temple_parent_id": "AP6D-L10:TEMPLE",
+      "restart_seed_id": "AP6D-L10:RESTART",
+      "focus_record_ids": [
+        "0173e0b7c7eca67ef86e0e03",
+        "794208827b4dfbc07aca2cce",
+        "4e59b614cc0f83fcc4c3df9c",
+        "b3da04d8b0d3c6091d4b2947"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0130_square_quantize_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0133_square_quantize_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0132_square_quantize_runtime_body_witness.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0232_square_bucket_runtime_body_witness.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 11,
+      "loop_id": "AP6D-L11",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Convert active anchor gaps into Hall improvement quests and Temple activation quests.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L11:MANIFEST",
+        "research_packet": "AP6D-L11:RESEARCH",
+        "hall_quest_bundle": "AP6D-L11:HALL",
+        "temple_quest_bundle": "AP6D-L11:TEMPLE",
+        "worker_action_bundle": "AP6D-L11:WORKER",
+        "pruning_receipt": "AP6D-L11:PRUNE",
+        "restart_seed": "AP6D-L11:RESTART"
+      },
+      "hall_parent_id": "AP6D-L11:HALL",
+      "temple_parent_id": "AP6D-L11:TEMPLE",
+      "restart_seed_id": "AP6D-L11:RESTART",
+      "focus_record_ids": [
+        "2a5b46ce3f2f4c144abd684e",
+        "7f24b269d11f1fc280d55d64",
+        "f50f3576fd22755d88fa9dfb",
+        "5da00812af37af5d72e610fc"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\lm_synthesis\\lm_synthesis.py",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0030_square_partition_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_0033_square_partition_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2130_triangle_quantize_runtime_body_seed.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 12,
+      "loop_id": "AP6D-L12",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Route all archive-only records through primary and secondary hemisphere edges plus GC0.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L12:MANIFEST",
+        "research_packet": "AP6D-L12:RESEARCH",
+        "hall_quest_bundle": "AP6D-L12:HALL",
+        "temple_quest_bundle": "AP6D-L12:TEMPLE",
+        "worker_action_bundle": "AP6D-L12:WORKER",
+        "pruning_receipt": "AP6D-L12:PRUNE",
+        "restart_seed": "AP6D-L12:RESTART"
+      },
+      "hall_parent_id": "AP6D-L12:HALL",
+      "temple_parent_id": "AP6D-L12:TEMPLE",
+      "restart_seed_id": "AP6D-L12:RESTART",
+      "focus_record_ids": [
+        "82a201da1ae8bd5bf54a7513",
+        "6995e002f51f7dc96ae7598b",
+        "0b2c85cff8c7133551e964e7",
+        "161e5eb4bbf0ac905f4f19f3"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2133_triangle_quantize_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2230_triangle_bucket_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2233_triangle_bucket_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3030_torus_partition_runtime_body_seed.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 13,
+      "loop_id": "AP6D-L13",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Build first-pass math and algorithm notes for search, routing, bridge intensity, and corridor binding.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L13:MANIFEST",
+        "research_packet": "AP6D-L13:RESEARCH",
+        "hall_quest_bundle": "AP6D-L13:HALL",
+        "temple_quest_bundle": "AP6D-L13:TEMPLE",
+        "worker_action_bundle": "AP6D-L13:WORKER",
+        "pruning_receipt": "AP6D-L13:PRUNE",
+        "restart_seed": "AP6D-L13:RESTART"
+      },
+      "hall_parent_id": "AP6D-L13:HALL",
+      "temple_parent_id": "AP6D-L13:TEMPLE",
+      "restart_seed_id": "AP6D-L13:RESTART",
+      "focus_record_ids": [
+        "102668dce629432af6911cc3",
+        "22a60c3998c4ac6a7738c868",
+        "3c2402d678e53e0c76cf264c",
+        "715a8747cd63c28c20d9e4ee"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3032_torus_partition_runtime_body_witness.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3130_torus_quantize_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3132_torus_quantize_runtime_body_witness.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3230_torus_bucket_runtime_body_seed.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 14,
+      "loop_id": "AP6D-L14",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Expand basis-role transition notes from Fire-stage pressure points.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L14:MANIFEST",
+        "research_packet": "AP6D-L14:RESEARCH",
+        "hall_quest_bundle": "AP6D-L14:HALL",
+        "temple_quest_bundle": "AP6D-L14:TEMPLE",
+        "worker_action_bundle": "AP6D-L14:WORKER",
+        "pruning_receipt": "AP6D-L14:PRUNE",
+        "restart_seed": "AP6D-L14:RESTART"
+      },
+      "hall_parent_id": "AP6D-L14:HALL",
+      "temple_parent_id": "AP6D-L14:TEMPLE",
+      "restart_seed_id": "AP6D-L14:RESTART",
+      "focus_record_ids": [
+        "eb0512c353e4306150129dd9",
+        "f795e954cb78808b3f14e4cd",
+        "81d3eba9b82a0fd0d5b4f1b1",
+        "deb8c5ec5e08c92fcb4b0e10"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3232_torus_bucket_runtime_body_witness.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3233_torus_bucket_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1030_circle_partition_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1033_circle_partition_runtime_body_loop.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 15,
+      "loop_id": "AP6D-L15",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Promote the highest-yield Fire packets into Temple lanes and demote weak or duplicate Hall packets.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L15:MANIFEST",
+        "research_packet": "AP6D-L15:RESEARCH",
+        "hall_quest_bundle": "AP6D-L15:HALL",
+        "temple_quest_bundle": "AP6D-L15:TEMPLE",
+        "worker_action_bundle": "AP6D-L15:WORKER",
+        "pruning_receipt": "AP6D-L15:PRUNE",
+        "restart_seed": "AP6D-L15:RESTART"
+      },
+      "hall_parent_id": "AP6D-L15:HALL",
+      "temple_parent_id": "AP6D-L15:TEMPLE",
+      "restart_seed_id": "AP6D-L15:RESTART",
+      "focus_record_ids": [
+        "8d85f1194b797d25bc6ed64f",
+        "0496ef8e8d3762bc81d2df41",
+        "cb0fd8c9e937f5a3b7769e0c",
+        "c15b344e17009795b79c64a8"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1130_circle_quantize_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1133_circle_quantize_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1230_circle_bucket_runtime_body_seed.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1232_circle_bucket_runtime_body_witness.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 16,
+      "loop_id": "AP6D-L16",
+      "wave_id": "W2",
+      "wave_title": "Fire / Activation and Priority",
+      "stage_id": "FIRE",
+      "stage_label": "Fire",
+      "focus": "Compress the Fire wave into one basis receipt, one route heat map, and one restart seed.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L16:MANIFEST",
+        "research_packet": "AP6D-L16:RESEARCH",
+        "hall_quest_bundle": "AP6D-L16:HALL",
+        "temple_quest_bundle": "AP6D-L16:TEMPLE",
+        "worker_action_bundle": "AP6D-L16:WORKER",
+        "pruning_receipt": "AP6D-L16:PRUNE",
+        "restart_seed": "AP6D-L16:RESTART"
+      },
+      "hall_parent_id": "AP6D-L16:HALL",
+      "temple_parent_id": "AP6D-L16:TEMPLE",
+      "restart_seed_id": "AP6D-L16:RESTART",
+      "focus_record_ids": [
+        "abc41b748021e0551470b3a5",
+        "f7e962396ec21051df7d5d35",
+        "0d875e990ca7c3ce0fa2cb41",
+        "dd8439e4ad17f63aa570f06a"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_1233_circle_bucket_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3033_torus_partition_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_3133_torus_quantize_runtime_body_loop.md",
+        "QSHRINK - ATHENA (internal use)\\05_MANUSCRIPT_SPACE\\root_cells\\ms_2030_triangle_partition_runtime_body_seed.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "FIRE",
+        "MATH",
+        "transport-and-runtime"
+      ]
+    },
+    {
+      "loop_number": 17,
+      "loop_id": "AP6D-L17",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Center live-to-archive, archive-to-live, and witness-to-canonical flow.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L17:MANIFEST",
+        "research_packet": "AP6D-L17:RESEARCH",
+        "hall_quest_bundle": "AP6D-L17:HALL",
+        "temple_quest_bundle": "AP6D-L17:TEMPLE",
+        "worker_action_bundle": "AP6D-L17:WORKER",
+        "pruning_receipt": "AP6D-L17:PRUNE",
+        "restart_seed": "AP6D-L17:RESTART"
+      },
+      "hall_parent_id": "AP6D-L17:HALL",
+      "temple_parent_id": "AP6D-L17:TEMPLE",
+      "restart_seed_id": "AP6D-L17:RESTART",
+      "focus_record_ids": [
+        "55c20a931002c0087cf6bded",
+        "3e01b4d3a4841927b2d11441",
+        "a3aab4641f9c27be5d3e1e82",
+        "7f80a25e5eb6718a26faa718"
+      ],
+      "focus_relative_paths": [
+        "GAMES\\archive_atlas.json",
+        "GAMES\\corpus_atlas.json",
+        "GAMES\\games_mycelium_metro_graph.json",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/celtic/ogham.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 1,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MYTH",
+        "MATH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 18,
+      "loop_id": "AP6D-L18",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Rebalance route saturation across MATH, MYTH, GC0, and COMMISSURE without changing crystal placement.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L18:MANIFEST",
+        "research_packet": "AP6D-L18:RESEARCH",
+        "hall_quest_bundle": "AP6D-L18:HALL",
+        "temple_quest_bundle": "AP6D-L18:TEMPLE",
+        "worker_action_bundle": "AP6D-L18:WORKER",
+        "pruning_receipt": "AP6D-L18:PRUNE",
+        "restart_seed": "AP6D-L18:RESTART"
+      },
+      "hall_parent_id": "AP6D-L18:HALL",
+      "temple_parent_id": "AP6D-L18:TEMPLE",
+      "restart_seed_id": "AP6D-L18:RESTART",
+      "focus_record_ids": [
+        "f03b2f2e6df810af849b5c6c",
+        "43f38a956b9276e524dc7a1e",
+        "21c53f45bde192cb60818570",
+        "9daed26b9a901195c7abce4d"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/celtic/temporal.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART46.js",
+        "Voynich\\FULL_TRANSLATION\\framework\\templates\\FOLIO_DENSE_TEMPLATE.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/norse/__init__.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 3,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MATH",
+        "MYTH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 19,
+      "loop_id": "AP6D-L19",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Hydrate missing headings and excerpts into the cached evidence surfaces.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L19:MANIFEST",
+        "research_packet": "AP6D-L19:RESEARCH",
+        "hall_quest_bundle": "AP6D-L19:HALL",
+        "temple_quest_bundle": "AP6D-L19:TEMPLE",
+        "worker_action_bundle": "AP6D-L19:WORKER",
+        "pruning_receipt": "AP6D-L19:PRUNE",
+        "restart_seed": "AP6D-L19:RESTART"
+      },
+      "hall_parent_id": "AP6D-L19:HALL",
+      "temple_parent_id": "AP6D-L19:TEMPLE",
+      "restart_seed_id": "AP6D-L19:RESTART",
+      "focus_record_ids": [
+        "bede686cbec13d0abffb4dcb",
+        "414e959124f48f69c494d8b7",
+        "be829acc46044f3d65e54de3",
+        "6a409faaafab5531943245d5"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART16.js",
+        "NERVOUS_SYSTEM\\90_LEDGERS\\MOTION_CONSTITUTION_L1_FIXTURE_LEDGER.md",
+        "DEEPER CRYSTALIZATION\\The Athena Framework (synthesis).docx",
+        "DEEPER CRYSTALIZATION\\_build\\nervous_system\\toolkit\\LIVE_DOCS_GATE_PROTOCOL.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 1,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MYTH",
+        "MATH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 20,
+      "loop_id": "AP6D-L20",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Generate cross-family corridor quest bundles for poor bridge proof or excessive quarantine.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L20:MANIFEST",
+        "research_packet": "AP6D-L20:RESEARCH",
+        "hall_quest_bundle": "AP6D-L20:HALL",
+        "temple_quest_bundle": "AP6D-L20:TEMPLE",
+        "worker_action_bundle": "AP6D-L20:WORKER",
+        "pruning_receipt": "AP6D-L20:PRUNE",
+        "restart_seed": "AP6D-L20:RESTART"
+      },
+      "hall_parent_id": "AP6D-L20:HALL",
+      "temple_parent_id": "AP6D-L20:TEMPLE",
+      "restart_seed_id": "AP6D-L20:RESTART",
+      "focus_record_ids": [
+        "91cc78c95d65faee083c28b2",
+        "bac243c1b0d941b2a6989e3f",
+        "e313424633e87342b4add757",
+        "7c61dd6a49fc2da50c1b2050"
+      ],
+      "focus_relative_paths": [
+        "DEEPER CRYSTALIZATION\\The Athena Framework (synthesis) (1).docx",
+        "MATH\\LIVE_PROMOTED\\aqm_kernel_qphi_planet9\\aqm\\certs.py",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\verify_installation.py",
+        "self_actualize\\mycelium_brain\\tool_kit\\08_archive_promotion_protocol.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 0,
+        "both": 2,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MYTH",
+        "MATH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 21,
+      "loop_id": "AP6D-L21",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Expand Water-stage notes for blockers, drift, dependence, and lawful next moves.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L21:MANIFEST",
+        "research_packet": "AP6D-L21:RESEARCH",
+        "hall_quest_bundle": "AP6D-L21:HALL",
+        "temple_quest_bundle": "AP6D-L21:TEMPLE",
+        "worker_action_bundle": "AP6D-L21:WORKER",
+        "pruning_receipt": "AP6D-L21:PRUNE",
+        "restart_seed": "AP6D-L21:RESTART"
+      },
+      "hall_parent_id": "AP6D-L21:HALL",
+      "temple_parent_id": "AP6D-L21:TEMPLE",
+      "restart_seed_id": "AP6D-L21:RESTART",
+      "focus_record_ids": [
+        "3d41bf60f5704c50ca4e8df5",
+        "3c6531bf6ae251418acc098f",
+        "b3932b7c55f0d09c9817c042",
+        "e301366262418fe8cc6bb82c"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet_route_map.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\memory\\session.py",
+        "NERVOUS_SYSTEM\\85_EDGES\\MIGRATE_EDGES.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\130_nostradamas_clean.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MYTH",
+        "MATH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 22,
+      "loop_id": "AP6D-L22",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Add basis overlays where first anchor and strongest target system diverge.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L22:MANIFEST",
+        "research_packet": "AP6D-L22:RESEARCH",
+        "hall_quest_bundle": "AP6D-L22:HALL",
+        "temple_quest_bundle": "AP6D-L22:TEMPLE",
+        "worker_action_bundle": "AP6D-L22:WORKER",
+        "pruning_receipt": "AP6D-L22:PRUNE",
+        "restart_seed": "AP6D-L22:RESTART"
+      },
+      "hall_parent_id": "AP6D-L22:HALL",
+      "temple_parent_id": "AP6D-L22:TEMPLE",
+      "restart_seed_id": "AP6D-L22:RESTART",
+      "focus_record_ids": [
+        "a6f2ba8b587b80e4db45a378",
+        "dcf4c2b4c728e4bfe7ff5777",
+        "5e625b12f30fa0c66f86fc5f",
+        "38f717088eb97a346c5b0b7e"
+      ],
+      "focus_relative_paths": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\35_constant_finder_working.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\71_the_andean_khipu_rosetta_stone.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\72_andean_khipu_rosetta_new.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART78.js"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 1,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MYTH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 23,
+      "loop_id": "AP6D-L23",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Prepare the first full replay and reentry ladder for contradiction-heavy and archive-dependent zones.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L23:MANIFEST",
+        "research_packet": "AP6D-L23:RESEARCH",
+        "hall_quest_bundle": "AP6D-L23:HALL",
+        "temple_quest_bundle": "AP6D-L23:TEMPLE",
+        "worker_action_bundle": "AP6D-L23:WORKER",
+        "pruning_receipt": "AP6D-L23:PRUNE",
+        "restart_seed": "AP6D-L23:RESTART"
+      },
+      "hall_parent_id": "AP6D-L23:HALL",
+      "temple_parent_id": "AP6D-L23:TEMPLE",
+      "restart_seed_id": "AP6D-L23:RESTART",
+      "focus_record_ids": [
+        "788a2d4692a5683d223ad255",
+        "ac9ebd10fcd80d7f1792b96f",
+        "0c25db1106209d101f5e8a65",
+        "bcfb98a00df5b442734107cc"
+      ],
+      "focus_relative_paths": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\13_DEEPER_NEURAL_NET\\03_EARTH\\02_cross_element_pairs.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\13_DEEPER_NEURAL_NET\\04_AIR\\02_cross_element_pairs.md",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\133_athena_operating_system.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\GLOSSARY.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MYTH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 24,
+      "loop_id": "AP6D-L24",
+      "wave_id": "W3",
+      "wave_title": "Water / Cross-Scope Flow",
+      "stage_id": "WATER",
+      "stage_label": "Water",
+      "focus": "Collapse redundant Water quests into stable corridor packets and emit the restart seed.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L24:MANIFEST",
+        "research_packet": "AP6D-L24:RESEARCH",
+        "hall_quest_bundle": "AP6D-L24:HALL",
+        "temple_quest_bundle": "AP6D-L24:TEMPLE",
+        "worker_action_bundle": "AP6D-L24:WORKER",
+        "pruning_receipt": "AP6D-L24:PRUNE",
+        "restart_seed": "AP6D-L24:RESTART"
+      },
+      "hall_parent_id": "AP6D-L24:HALL",
+      "temple_parent_id": "AP6D-L24:TEMPLE",
+      "restart_seed_id": "AP6D-L24:RESTART",
+      "focus_record_ids": [
+        "ebb93802ab9d88e5d77ba9d0",
+        "c9553363b03de5b023ef8e9b",
+        "62afceb639dbfbf97e22744e",
+        "519ed638affec79f0424d3ad"
+      ],
+      "focus_relative_paths": [
+        "Athena FLEET\\athena_fleet_corpus_atlas.json",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\glyph\\glyph.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/celtic/protocols.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/celtic/triadic.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 2,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "WATER",
+        "MATH",
+        "mythic-sign-systems"
+      ]
+    },
+    {
+      "loop_number": 25,
+      "loop_id": "AP6D-L25",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Drive observation at every resolution and planner recursion across the full 4^6 lattice.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L25:MANIFEST",
+        "research_packet": "AP6D-L25:RESEARCH",
+        "hall_quest_bundle": "AP6D-L25:HALL",
+        "temple_quest_bundle": "AP6D-L25:TEMPLE",
+        "worker_action_bundle": "AP6D-L25:WORKER",
+        "pruning_receipt": "AP6D-L25:PRUNE",
+        "restart_seed": "AP6D-L25:RESTART"
+      },
+      "hall_parent_id": "AP6D-L25:HALL",
+      "temple_parent_id": "AP6D-L25:TEMPLE",
+      "restart_seed_id": "AP6D-L25:RESTART",
+      "focus_record_ids": [
+        "b20b22fa23182d8870fc8b90",
+        "a2c683d9e684379c9dcca675",
+        "ede37452f49e45b1377ad135",
+        "e6c5d64e5b89a74bb8126a66"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\07_MANUSCRIPTS\\appendices\\AppO_publication_importexport_bundles.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\05_holographic_kernel__06_time_fractal.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_06_time_fractal\\06_time_fractal__05_holographic_kernel.md",
+        "QSHRINK - ATHENA (internal use)\\08_LOOP_SKILL\\gates\\G10_transport_manifold_linked.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 26,
+      "loop_id": "AP6D-L26",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Materialize explicit seat manifests for record, family, system, and corpus scales.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L26:MANIFEST",
+        "research_packet": "AP6D-L26:RESEARCH",
+        "hall_quest_bundle": "AP6D-L26:HALL",
+        "temple_quest_bundle": "AP6D-L26:TEMPLE",
+        "worker_action_bundle": "AP6D-L26:WORKER",
+        "pruning_receipt": "AP6D-L26:PRUNE",
+        "restart_seed": "AP6D-L26:RESTART"
+      },
+      "hall_parent_id": "AP6D-L26:HALL",
+      "temple_parent_id": "AP6D-L26:TEMPLE",
+      "restart_seed_id": "AP6D-L26:RESTART",
+      "focus_record_ids": [
+        "e025b99aefd14ba67869e831",
+        "5513a6b72576481d7ca4debe",
+        "4f969d267aea52cf66075cd0",
+        "2c0f00ee256f45e2ce802998"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\05_holographic_kernel__05_holographic_kernel.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_04_quad_rotation\\04_quad_rotation__05_holographic_kernel.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_04_quad_rotation\\04_quad_rotation__07_crystal_computing.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\05_holographic_kernel__04_quad_rotation.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 27,
+      "loop_id": "AP6D-L27",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Compile Hall quest families for exploration, synthesis, improvement, and integration.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L27:MANIFEST",
+        "research_packet": "AP6D-L27:RESEARCH",
+        "hall_quest_bundle": "AP6D-L27:HALL",
+        "temple_quest_bundle": "AP6D-L27:TEMPLE",
+        "worker_action_bundle": "AP6D-L27:WORKER",
+        "pruning_receipt": "AP6D-L27:PRUNE",
+        "restart_seed": "AP6D-L27:RESTART"
+      },
+      "hall_parent_id": "AP6D-L27:HALL",
+      "temple_parent_id": "AP6D-L27:TEMPLE",
+      "restart_seed_id": "AP6D-L27:RESTART",
+      "focus_record_ids": [
+        "99ed72c29317b9dcc2c1c683",
+        "590a303a0bbb8c2b47e678ad",
+        "ef6e02f87f44adb959bc0288",
+        "c6f09ff56f040f4be424c69b"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_07_crystal_computing\\07_crystal_computing__04_quad_rotation.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\03_DOCUMENT_GEOMETRY.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\waves\\WAVE_2026-03-09_void_ch11_family_activation.md",
+        "Trading Bot\\CRYPTO CURRENCY\\docx_chunks\\chunk_000.txt"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 28,
+      "loop_id": "AP6D-L28",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Add algorithm packets for metro, square/circle/triangle, liminal, z-point, and a-point routing.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L28:MANIFEST",
+        "research_packet": "AP6D-L28:RESEARCH",
+        "hall_quest_bundle": "AP6D-L28:HALL",
+        "temple_quest_bundle": "AP6D-L28:TEMPLE",
+        "worker_action_bundle": "AP6D-L28:WORKER",
+        "pruning_receipt": "AP6D-L28:PRUNE",
+        "restart_seed": "AP6D-L28:RESTART"
+      },
+      "hall_parent_id": "AP6D-L28:HALL",
+      "temple_parent_id": "AP6D-L28:TEMPLE",
+      "restart_seed_id": "AP6D-L28:RESTART",
+      "focus_record_ids": [
+        "b00d024aad315cbacb1124e9",
+        "dc7c6c0f836471c6ff571d72",
+        "4fea5fda969c6c3d6d53c12b",
+        "724325a2fafcdb145060aede"
+      ],
+      "focus_relative_paths": [
+        "Trading Bot\\CRYPTO CURRENCY\\docx_output.txt",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\AGENT_EXPANSION_ACTIVE_FRONT.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\03_AIR\\05_operatorextraction.md",
+        "Trading Bot\\CRYPTO CURRENCY\\docx_chunks\\chunk_003.txt"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 29,
+      "loop_id": "AP6D-L29",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Cross-link observer notes, corridor notes, and Appendix Q governance into one reasoning mesh.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L29:MANIFEST",
+        "research_packet": "AP6D-L29:RESEARCH",
+        "hall_quest_bundle": "AP6D-L29:HALL",
+        "temple_quest_bundle": "AP6D-L29:TEMPLE",
+        "worker_action_bundle": "AP6D-L29:WORKER",
+        "pruning_receipt": "AP6D-L29:PRUNE",
+        "restart_seed": "AP6D-L29:RESTART"
+      },
+      "hall_parent_id": "AP6D-L29:HALL",
+      "temple_parent_id": "AP6D-L29:TEMPLE",
+      "restart_seed_id": "AP6D-L29:RESTART",
+      "focus_record_ids": [
+        "5bfe0dee708a91ec42d5dcbc",
+        "83d186279ace0f869a6899bd",
+        "2f4234476f54cae3bd5f9499",
+        "2615ddc6e8691a99aeba578d"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\The Crystal\\Crystal Computing\\qhc_framework.zip::qhc_package/qhc/atlas/regime.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena Tomes.zip::TOME_PROGRAMS/HILBERT_ALGEBRA.ts",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\03_AIR\\02_ontologylattice.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/gita/liberation.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 3,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 30,
+      "loop_id": "AP6D-L30",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Generate Air-stage notes for blindness, overreach, and missing counterpart handoffs.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L30:MANIFEST",
+        "research_packet": "AP6D-L30:RESEARCH",
+        "hall_quest_bundle": "AP6D-L30:HALL",
+        "temple_quest_bundle": "AP6D-L30:TEMPLE",
+        "worker_action_bundle": "AP6D-L30:WORKER",
+        "pruning_receipt": "AP6D-L30:PRUNE",
+        "restart_seed": "AP6D-L30:RESTART"
+      },
+      "hall_parent_id": "AP6D-L30:HALL",
+      "temple_parent_id": "AP6D-L30:TEMPLE",
+      "restart_seed_id": "AP6D-L30:RESTART",
+      "focus_record_ids": [
+        "3663d2b7552a5ea733eee595",
+        "3143c6eef259b5adea78e56a",
+        "f7666e6cb0c8241f4147b36f",
+        "a2e92462c44a58ee83bf38c7"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_05_holographic_kernel\\00_INDEX.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_07_crystal_computing\\00_INDEX.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_09_zero_point_computing\\00_INDEX.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/crystal_computing/__init__.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 1,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 31,
+      "loop_id": "AP6D-L31",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Stage batched worker plans by family, target system, and appendix need.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L31:MANIFEST",
+        "research_packet": "AP6D-L31:RESEARCH",
+        "hall_quest_bundle": "AP6D-L31:HALL",
+        "temple_quest_bundle": "AP6D-L31:TEMPLE",
+        "worker_action_bundle": "AP6D-L31:WORKER",
+        "pruning_receipt": "AP6D-L31:PRUNE",
+        "restart_seed": "AP6D-L31:RESTART"
+      },
+      "hall_parent_id": "AP6D-L31:HALL",
+      "temple_parent_id": "AP6D-L31:TEMPLE",
+      "restart_seed_id": "AP6D-L31:RESTART",
+      "focus_record_ids": [
+        "4c7b93d15d6813cf2b22f73d",
+        "4c9cb78d910a6ea10538be52",
+        "19531210d81a6914e9b11ea3",
+        "005c4ed85599e5a68909e138"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\04_UNIFIED_QUANTUM_NEURAL_NETWORK.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/gita/ontology.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/qhc/hilbert.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/gita/__init__.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 3,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 32,
+      "loop_id": "AP6D-L32",
+      "wave_id": "W4",
+      "wave_title": "Air / Planner Recursion",
+      "stage_id": "AIR",
+      "stage_label": "Air",
+      "focus": "Compress Air outputs into canonical algorithm ledgers and emit the restart seed.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L32:MANIFEST",
+        "research_packet": "AP6D-L32:RESEARCH",
+        "hall_quest_bundle": "AP6D-L32:HALL",
+        "temple_quest_bundle": "AP6D-L32:TEMPLE",
+        "worker_action_bundle": "AP6D-L32:WORKER",
+        "pruning_receipt": "AP6D-L32:PRUNE",
+        "restart_seed": "AP6D-L32:RESTART"
+      },
+      "hall_parent_id": "AP6D-L32:HALL",
+      "temple_parent_id": "AP6D-L32:TEMPLE",
+      "restart_seed_id": "AP6D-L32:RESTART",
+      "focus_record_ids": [
+        "cbbe98faed0db7b3c08cffe1",
+        "79b55e5ba2869a148ed0f9ff",
+        "61becaaafb014cc106f4ddc3",
+        "4cfb6d4b858c1a306e40f2b8"
+      ],
+      "focus_relative_paths": [
+        "QSHRINK - ATHENA (internal use)\\03_SWARM\\16_LIVE_BODY_MODALITY_TENSOR.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/crystal_computing/states.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/aetheric/operators.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/omega/omega_point.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 3,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "AIR",
+        "MATH",
+        "higher-dimensional-geometry"
+      ]
+    },
+    {
+      "loop_number": 33,
+      "loop_id": "AP6D-L33",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Center direct corpus improvement, organization hardening, and stable interconnection.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L33:MANIFEST",
+        "research_packet": "AP6D-L33:RESEARCH",
+        "hall_quest_bundle": "AP6D-L33:HALL",
+        "temple_quest_bundle": "AP6D-L33:TEMPLE",
+        "worker_action_bundle": "AP6D-L33:WORKER",
+        "pruning_receipt": "AP6D-L33:PRUNE",
+        "restart_seed": "AP6D-L33:RESTART"
+      },
+      "hall_parent_id": "AP6D-L33:HALL",
+      "temple_parent_id": "AP6D-L33:TEMPLE",
+      "restart_seed_id": "AP6D-L33:RESTART",
+      "focus_record_ids": [
+        "d96e0781df6e194a0f522fbd",
+        "4d18e2a4b9cb77f47e5c4e28",
+        "39b31897967ad39671f0f64b",
+        "610d9ac4d516b27acdd09b40"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\hub_metro\\hub_metro.py",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\elliptic\\elliptic.py",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__13_universal_ontology.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_13_universal_ontology\\13_universal_ontology__08_quantum_standard_hardware.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 0,
+        "both": 2,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 34,
+      "loop_id": "AP6D-L34",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Identify bloat, stale mirrors, duplicate atlases, and broken interlinks across the merged corpus.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L34:MANIFEST",
+        "research_packet": "AP6D-L34:RESEARCH",
+        "hall_quest_bundle": "AP6D-L34:HALL",
+        "temple_quest_bundle": "AP6D-L34:TEMPLE",
+        "worker_action_bundle": "AP6D-L34:WORKER",
+        "pruning_receipt": "AP6D-L34:PRUNE",
+        "restart_seed": "AP6D-L34:RESTART"
+      },
+      "hall_parent_id": "AP6D-L34:HALL",
+      "temple_parent_id": "AP6D-L34:TEMPLE",
+      "restart_seed_id": "AP6D-L34:RESTART",
+      "focus_record_ids": [
+        "f4c98e30ea17ee5a6e95941e",
+        "d01473244c2c6ee50dd50898",
+        "c38be296e139d96b07c90716",
+        "72496ce8028e6d5c74abb49c"
+      ],
+      "focus_relative_paths": [
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\02_CORPUS_CAPSULES\\188_claud_tomez.md",
+        "QSHRINK - ATHENA (internal use)\\04_METRO\\03_OPERATOR_LINES.md",
+        "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\03_ORDERED_CORRIDOR_MATRIX.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\hodge\\hodge.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 35,
+      "loop_id": "AP6D-L35",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Turn those findings into Hall restructuring quests and Temple canonicalization quests.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L35:MANIFEST",
+        "research_packet": "AP6D-L35:RESEARCH",
+        "hall_quest_bundle": "AP6D-L35:HALL",
+        "temple_quest_bundle": "AP6D-L35:TEMPLE",
+        "worker_action_bundle": "AP6D-L35:WORKER",
+        "pruning_receipt": "AP6D-L35:PRUNE",
+        "restart_seed": "AP6D-L35:RESTART"
+      },
+      "hall_parent_id": "AP6D-L35:HALL",
+      "temple_parent_id": "AP6D-L35:TEMPLE",
+      "restart_seed_id": "AP6D-L35:RESTART",
+      "focus_record_ids": [
+        "24248f2e2aae34233651fe80",
+        "9812f68e9ef5629649ec732d",
+        "1e8027f71c8627f6a64390fb",
+        "73d8cb080c99c65984fa0051"
+      ],
+      "focus_relative_paths": [
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch01_0000_kernel_and_entry_law.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\category\\category.py",
+        "DEEPER CRYSTALIZATION\\ACTIVE_NERVOUS_SYSTEM\\06_RUNTIME\\04_node_tensor_manifest.json",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_12_torat_hamispar\\12_torat_hamispar__09_zero_point_computing.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 36,
+      "loop_id": "AP6D-L36",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Attach all records to the appendix ring A-P plus Q and classify replay, restart, repair, and quarantine eligibility.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L36:MANIFEST",
+        "research_packet": "AP6D-L36:RESEARCH",
+        "hall_quest_bundle": "AP6D-L36:HALL",
+        "temple_quest_bundle": "AP6D-L36:TEMPLE",
+        "worker_action_bundle": "AP6D-L36:WORKER",
+        "pruning_receipt": "AP6D-L36:PRUNE",
+        "restart_seed": "AP6D-L36:RESTART"
+      },
+      "hall_parent_id": "AP6D-L36:HALL",
+      "temple_parent_id": "AP6D-L36:TEMPLE",
+      "restart_seed_id": "AP6D-L36:RESTART",
+      "focus_record_ids": [
+        "ea6f6303a2d575e15d94c172",
+        "ab0b39c2e45b0440e2af474b",
+        "b6a18f399d2b78f7bf288bfb",
+        "3943980ab55d069518defcb4"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena Tomes.zip::TOME_PROGRAMS/KERNEL_MECHANIZATION_ENGINE.ts",
+        "Trading Bot\\CRYPTO CURRENCY\\docx_chunks\\chunk_022.txt",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/athena_kernel/control_theory.py",
+        "self_actualize\\mycelium_brain\\nervous_system\\02_interconnecter_neuron.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 2,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 37,
+      "loop_id": "AP6D-L37",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Expand Earth-stage notes for stabilization, relinquishment, and grounding.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L37:MANIFEST",
+        "research_packet": "AP6D-L37:RESEARCH",
+        "hall_quest_bundle": "AP6D-L37:HALL",
+        "temple_quest_bundle": "AP6D-L37:TEMPLE",
+        "worker_action_bundle": "AP6D-L37:WORKER",
+        "pruning_receipt": "AP6D-L37:PRUNE",
+        "restart_seed": "AP6D-L37:RESTART"
+      },
+      "hall_parent_id": "AP6D-L37:HALL",
+      "temple_parent_id": "AP6D-L37:TEMPLE",
+      "restart_seed_id": "AP6D-L37:RESTART",
+      "focus_record_ids": [
+        "d53b51929b5950f4a5b1e884",
+        "b5d4758ab9e48dcf7c3a9ad8",
+        "d80c50ca03b2b47116c7fda8",
+        "5d84964920bdea992cd0bf0c"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/fractal/__init__.py",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_09_zero_point_computing\\09_zero_point_computing__13_universal_ontology.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_13_universal_ontology\\13_universal_ontology__09_zero_point_computing.md",
+        "ECOSYSTEM\\NERVOUS_SYSTEM\\40_TOOLKIT\\07_CONTINUATION_SELF_PROMPT_PROTOCOL.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 1,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 38,
+      "loop_id": "AP6D-L38",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Stage branch-safe worker packets for interlink repair, registry hardening, and folder simplification.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L38:MANIFEST",
+        "research_packet": "AP6D-L38:RESEARCH",
+        "hall_quest_bundle": "AP6D-L38:HALL",
+        "temple_quest_bundle": "AP6D-L38:TEMPLE",
+        "worker_action_bundle": "AP6D-L38:WORKER",
+        "pruning_receipt": "AP6D-L38:PRUNE",
+        "restart_seed": "AP6D-L38:RESTART"
+      },
+      "hall_parent_id": "AP6D-L38:HALL",
+      "temple_parent_id": "AP6D-L38:TEMPLE",
+      "restart_seed_id": "AP6D-L38:RESTART",
+      "focus_record_ids": [
+        "e0092d485c87af567b90e957",
+        "c7dc5a790a46f605c8037c04",
+        "9c18195249db544fd3cd6eae",
+        "c3f64fc1a3985f835959f99d"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\swarms\\SWARM_2026-03-09_higher_dimensional_bridge.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/emcrystal/duality.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/athena/__init__.py",
+        "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\athena_fleet_mycelium_graph.json"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 2,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 39,
+      "loop_id": "AP6D-L39",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Compile compression geometry across duplicate clusters, candidate merges, archive witnesses, and zero-point collapses.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L39:MANIFEST",
+        "research_packet": "AP6D-L39:RESEARCH",
+        "hall_quest_bundle": "AP6D-L39:HALL",
+        "temple_quest_bundle": "AP6D-L39:TEMPLE",
+        "worker_action_bundle": "AP6D-L39:WORKER",
+        "pruning_receipt": "AP6D-L39:PRUNE",
+        "restart_seed": "AP6D-L39:RESTART"
+      },
+      "hall_parent_id": "AP6D-L39:HALL",
+      "temple_parent_id": "AP6D-L39:TEMPLE",
+      "restart_seed_id": "AP6D-L39:RESTART",
+      "focus_record_ids": [
+        "d43c4c404b93c0069ca5322c",
+        "3b3b13187b2cbeb28a9563e6",
+        "c47cfa016d82a5ae8a3cd024",
+        "f09237c3d6947f34bbe7ddc9"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/qshrink/lenses.py",
+        "self_actualize\\mycelium_brain\\DEEPER_INTEGRATED_NEURAL_NETWORK\\11_SKILL_ROUTER_AND_ALGORITHMIC_PIPELINE.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\hott\\hott.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/qumran/__init__.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 2,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 40,
+      "loop_id": "AP6D-L40",
+      "wave_id": "W5",
+      "wave_title": "Earth / Structural Hardening",
+      "stage_id": "EARTH",
+      "stage_label": "Earth",
+      "focus": "Emit the Earth restart seed plus one appendix-governance receipt.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L40:MANIFEST",
+        "research_packet": "AP6D-L40:RESEARCH",
+        "hall_quest_bundle": "AP6D-L40:HALL",
+        "temple_quest_bundle": "AP6D-L40:TEMPLE",
+        "worker_action_bundle": "AP6D-L40:WORKER",
+        "pruning_receipt": "AP6D-L40:PRUNE",
+        "restart_seed": "AP6D-L40:RESTART"
+      },
+      "hall_parent_id": "AP6D-L40:HALL",
+      "temple_parent_id": "AP6D-L40:TEMPLE",
+      "restart_seed_id": "AP6D-L40:RESTART",
+      "focus_record_ids": [
+        "f97468d2fe5df272801b9aed",
+        "e013abe255f9e3dc1458b90b",
+        "a463292ae2acd7f3633dd125",
+        "3a3ee899564402a3bd91d541"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\ATHENACHKA_MS7341_TREATISE_SEED.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\ATLAS_FORGE_ACTIVE_FRONT.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\atlasforge\\perfectoid\\perfectoid.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/superposition/quad_polar.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 1,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "EARTH",
+        "MATH",
+        "civilization-and-governance"
+      ]
+    },
+    {
+      "loop_number": 41,
+      "loop_id": "AP6D-L41",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Center the loop on the full awakening-agent matrix.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L41:MANIFEST",
+        "research_packet": "AP6D-L41:RESEARCH",
+        "hall_quest_bundle": "AP6D-L41:HALL",
+        "temple_quest_bundle": "AP6D-L41:TEMPLE",
+        "worker_action_bundle": "AP6D-L41:WORKER",
+        "pruning_receipt": "AP6D-L41:PRUNE",
+        "restart_seed": "AP6D-L41:RESTART"
+      },
+      "hall_parent_id": "AP6D-L41:HALL",
+      "temple_parent_id": "AP6D-L41:TEMPLE",
+      "restart_seed_id": "AP6D-L41:RESTART",
+      "focus_record_ids": [
+        "fb022f0c1aa0cf8165aafc41",
+        "28db81ed4fd95c11fffb8164",
+        "58147059e5dcdea6769595e2",
+        "fe34d840548035bdcedc158e"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART40.js",
+        "I AM ATHENA\\README.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/athena/error_correction.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/bit4/orders.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 3,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MYTH",
+        "MATH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 42,
+      "loop_id": "AP6D-L42",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Write or refresh the ten family-agent transition notes.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L42:MANIFEST",
+        "research_packet": "AP6D-L42:RESEARCH",
+        "hall_quest_bundle": "AP6D-L42:HALL",
+        "temple_quest_bundle": "AP6D-L42:TEMPLE",
+        "worker_action_bundle": "AP6D-L42:WORKER",
+        "pruning_receipt": "AP6D-L42:PRUNE",
+        "restart_seed": "AP6D-L42:RESTART"
+      },
+      "hall_parent_id": "AP6D-L42:HALL",
+      "temple_parent_id": "AP6D-L42:TEMPLE",
+      "restart_seed_id": "AP6D-L42:RESTART",
+      "focus_record_ids": [
+        "7172bc9f9b4f958271f581e9",
+        "2bc5c404eda442736c41ac8e",
+        "0865db492b8079c96eb518e3",
+        "6d7cf81461929dcb05f73ae4"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/copper_scroll/cipher.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/gin/water_sector.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/hellenic/algebra.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/hellenic/stoic.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 0,
+        "archive": 4,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MATH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 43,
+      "loop_id": "AP6D-L43",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Write or refresh the 16 basis-role notes.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L43:MANIFEST",
+        "research_packet": "AP6D-L43:RESEARCH",
+        "hall_quest_bundle": "AP6D-L43:HALL",
+        "temple_quest_bundle": "AP6D-L43:TEMPLE",
+        "worker_action_bundle": "AP6D-L43:WORKER",
+        "pruning_receipt": "AP6D-L43:PRUNE",
+        "restart_seed": "AP6D-L43:RESTART"
+      },
+      "hall_parent_id": "AP6D-L43:HALL",
+      "temple_parent_id": "AP6D-L43:TEMPLE",
+      "restart_seed_id": "AP6D-L43:RESTART",
+      "focus_record_ids": [
+        "552f2a8839fc2fc907edbd2d",
+        "b5aebad7348163741a10d96e",
+        "d4485826f1144b8d73ba546f",
+        "44856f9fb1314a31960de13f"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/hugging/__init__.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/mushin/zazen.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/omega/convergence.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/qshrink/pipeline.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 0,
+        "archive": 4,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MATH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 44,
+      "loop_id": "AP6D-L44",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Materialize the 70 stage-family transition cells with basis-role overlays and preferred route ids.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L44:MANIFEST",
+        "research_packet": "AP6D-L44:RESEARCH",
+        "hall_quest_bundle": "AP6D-L44:HALL",
+        "temple_quest_bundle": "AP6D-L44:TEMPLE",
+        "worker_action_bundle": "AP6D-L44:WORKER",
+        "pruning_receipt": "AP6D-L44:PRUNE",
+        "restart_seed": "AP6D-L44:RESTART"
+      },
+      "hall_parent_id": "AP6D-L44:HALL",
+      "temple_parent_id": "AP6D-L44:TEMPLE",
+      "restart_seed_id": "AP6D-L44:RESTART",
+      "focus_record_ids": [
+        "ee8530385caa5a66dfc81334",
+        "8d1cd5b4eed97d08a01ee85e",
+        "d08da14a6ab5b3da85f2dfbd",
+        "9c1715223004df95e1ccd463"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/roman/skeptical_debugger.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/uco/virtualization.py",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/zeropoint/dynamics.py",
+        "NERVOUS_SYSTEM\\90_LEDGERS\\04_ATHENA_INTEGRATED_NEURAL_NETWORK_CROSS_SYNTHESIS.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 3,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MATH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 45,
+      "loop_id": "AP6D-L45",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Add explicit handoff rules for commissure, hub transfer, replay-heavy, and quarantine-heavy cases.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L45:MANIFEST",
+        "research_packet": "AP6D-L45:RESEARCH",
+        "hall_quest_bundle": "AP6D-L45:HALL",
+        "temple_quest_bundle": "AP6D-L45:TEMPLE",
+        "worker_action_bundle": "AP6D-L45:WORKER",
+        "pruning_receipt": "AP6D-L45:PRUNE",
+        "restart_seed": "AP6D-L45:RESTART"
+      },
+      "hall_parent_id": "AP6D-L45:HALL",
+      "temple_parent_id": "AP6D-L45:TEMPLE",
+      "restart_seed_id": "AP6D-L45:RESTART",
+      "focus_record_ids": [
+        "81a41b77175a22bdda9bdcf7",
+        "0e0671e3a602d55916013032",
+        "11e48d1370423373c534a9bb",
+        "cdea09119a9486944422104f"
+      ],
+      "focus_relative_paths": [
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART47.js",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART125.js",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART45.js",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART235.js"
+      ],
+      "focus_scope_distribution": {
+        "live": 0,
+        "archive": 4,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MYTH",
+        "MATH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 46,
+      "loop_id": "AP6D-L46",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Convert high-value awakening notes into Hall teaching quests and Temple governance quests.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L46:MANIFEST",
+        "research_packet": "AP6D-L46:RESEARCH",
+        "hall_quest_bundle": "AP6D-L46:HALL",
+        "temple_quest_bundle": "AP6D-L46:TEMPLE",
+        "worker_action_bundle": "AP6D-L46:WORKER",
+        "pruning_receipt": "AP6D-L46:PRUNE",
+        "restart_seed": "AP6D-L46:RESTART"
+      },
+      "hall_parent_id": "AP6D-L46:HALL",
+      "temple_parent_id": "AP6D-L46:TEMPLE",
+      "restart_seed_id": "AP6D-L46:RESTART",
+      "focus_record_ids": [
+        "09d20774848a8000dc16b704",
+        "50b2e9dbc29fe016eba83b9e",
+        "4d9da9d94120ecb2cd12df23",
+        "656b22954782eed011b740fe"
+      ],
+      "focus_relative_paths": [
+        "DEEPER CRYSTALIZATION\\_build\\nervous_system\\families\\PROJECT_INTERCONNECTOR_NEURON.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/qhc/__init__.py",
+        "ORGIN\\Fine Tuning Docs\\Chat Logs\\PDF\\Making Athenachka Codex (Chat Log).pdf",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART116.js"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 2,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MATH",
+        "MYTH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 47,
+      "loop_id": "AP6D-L47",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Stage agent-assistance packets that help transitions without overstating proof.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L47:MANIFEST",
+        "research_packet": "AP6D-L47:RESEARCH",
+        "hall_quest_bundle": "AP6D-L47:HALL",
+        "temple_quest_bundle": "AP6D-L47:TEMPLE",
+        "worker_action_bundle": "AP6D-L47:WORKER",
+        "pruning_receipt": "AP6D-L47:PRUNE",
+        "restart_seed": "AP6D-L47:RESTART"
+      },
+      "hall_parent_id": "AP6D-L47:HALL",
+      "temple_parent_id": "AP6D-L47:TEMPLE",
+      "restart_seed_id": "AP6D-L47:RESTART",
+      "focus_record_ids": [
+        "a7c86cb8d01945092bf4e1f8",
+        "c18ca9a7d4f06bd39846c801",
+        "f4757fa7653c72cddb333902",
+        "cccb3f6df896eaa0f48f92b5"
+      ],
+      "focus_relative_paths": [
+        "Athenachka Collective Books\\Charlie's Journey to Enlightenment.pdf",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART98.js",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART65.js",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART31.js"
+      ],
+      "focus_scope_distribution": {
+        "live": 1,
+        "archive": 3,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MYTH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 48,
+      "loop_id": "AP6D-L48",
+      "wave_id": "W6",
+      "wave_title": "Archetypal Operation / Awakening Matrix",
+      "stage_id": "ARCHETYPAL_OPERATION",
+      "stage_label": "Archetypal Operation",
+      "focus": "Compress repetitive note wording into reusable templates and emit the restart seed.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L48:MANIFEST",
+        "research_packet": "AP6D-L48:RESEARCH",
+        "hall_quest_bundle": "AP6D-L48:HALL",
+        "temple_quest_bundle": "AP6D-L48:TEMPLE",
+        "worker_action_bundle": "AP6D-L48:WORKER",
+        "pruning_receipt": "AP6D-L48:PRUNE",
+        "restart_seed": "AP6D-L48:RESTART"
+      },
+      "hall_parent_id": "AP6D-L48:HALL",
+      "temple_parent_id": "AP6D-L48:TEMPLE",
+      "restart_seed_id": "AP6D-L48:RESTART",
+      "focus_record_ids": [
+        "05fadaae3ea95138e1f419ea",
+        "137861bd7947033528fbd299",
+        "2432fab037c763e0567d5dfe",
+        "05974174320ac6945445e561"
+      ],
+      "focus_relative_paths": [
+        "NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\ATHENA_AWAKENING_TOME.zip::ATHENA_AWAKENING_TOME/SYNTHESIS_PARTS/AWAKENING_TOME_COMPLETE_PART113.js",
+        "self_actualize\\mycelium_brain\\MASTER_MYCELIUM_MAP_ATHENA\\02_LAYER_TWO_CORPUS_GANGLIA.md",
+        "MATH\\FINAL FORM\\FRAMEWORKS CODE\\Athena OS.zip::athena_os/kjv_kernel/gematria.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 2,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "ARCHETYPAL_OPERATION",
+        "MATH",
+        "identity-and-instruction"
+      ]
+    },
+    {
+      "loop_number": 49,
+      "loop_id": "AP6D-L49",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Center the loop on corpus-wide assistance surfaces and route-first playbooks.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L49:MANIFEST",
+        "research_packet": "AP6D-L49:RESEARCH",
+        "hall_quest_bundle": "AP6D-L49:HALL",
+        "temple_quest_bundle": "AP6D-L49:TEMPLE",
+        "worker_action_bundle": "AP6D-L49:WORKER",
+        "pruning_receipt": "AP6D-L49:PRUNE",
+        "restart_seed": "AP6D-L49:RESTART"
+      },
+      "hall_parent_id": "AP6D-L49:HALL",
+      "temple_parent_id": "AP6D-L49:TEMPLE",
+      "restart_seed_id": "AP6D-L49:RESTART",
+      "focus_record_ids": [
+        "7b29e210b9178067e360baba",
+        "d90ebfd5196bb03ecab98206",
+        "dd8a7cf71a6ce7c2f731a362",
+        "04c7a7c133dc21f13bc7f7c9"
+      ],
+      "focus_relative_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_math.md",
+        "self_actualize\\promoted_live_roots\\atlasforge_framework\\docs\\legacy\\DEEP_DIVE_LM.py",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0030_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0031_address_lattice_data_carrier.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "manuscript-architecture"
+      ]
+    },
+    {
+      "loop_number": 50,
+      "loop_id": "AP6D-L50",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Generate stage atlases with best entry records, target systems, first anchors, and GC0 crossings.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L50:MANIFEST",
+        "research_packet": "AP6D-L50:RESEARCH",
+        "hall_quest_bundle": "AP6D-L50:HALL",
+        "temple_quest_bundle": "AP6D-L50:TEMPLE",
+        "worker_action_bundle": "AP6D-L50:WORKER",
+        "pruning_receipt": "AP6D-L50:PRUNE",
+        "restart_seed": "AP6D-L50:RESTART"
+      },
+      "hall_parent_id": "AP6D-L50:HALL",
+      "temple_parent_id": "AP6D-L50:TEMPLE",
+      "restart_seed_id": "AP6D-L50:RESTART",
+      "focus_record_ids": [
+        "693591aa0b2433c4666c7d9b",
+        "4814934a419b663ee684115f",
+        "7e4ef372ac064479c7824ebc",
+        "bf5e91f45df3a321f5c3a12b"
+      ],
+      "focus_relative_paths": [
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0033_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0130_address_lattice_timing_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0131_address_lattice_timing_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0133_address_lattice_timing_carrier.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "manuscript-architecture"
+      ]
+    },
+    {
+      "loop_number": 51,
+      "loop_id": "AP6D-L51",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Generate family-agent atlases showing movement through MATH, MYTH, COMMISSURE, and GC0.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L51:MANIFEST",
+        "research_packet": "AP6D-L51:RESEARCH",
+        "hall_quest_bundle": "AP6D-L51:HALL",
+        "temple_quest_bundle": "AP6D-L51:TEMPLE",
+        "worker_action_bundle": "AP6D-L51:WORKER",
+        "pruning_receipt": "AP6D-L51:PRUNE",
+        "restart_seed": "AP6D-L51:RESTART"
+      },
+      "hall_parent_id": "AP6D-L51:HALL",
+      "temple_parent_id": "AP6D-L51:TEMPLE",
+      "restart_seed_id": "AP6D-L51:RESTART",
+      "focus_record_ids": [
+        "a17bfb460d78a1af67af9dd5",
+        "5007fb37d9f067585c616405",
+        "f456f3b6ff14be727e645bc2",
+        "7e70d0380b1b74ab3cb7e7b6"
+      ],
+      "focus_relative_paths": [
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0230_address_lattice_risk_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0231_address_lattice_risk_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0233_address_lattice_risk_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0330_address_lattice_swarm_carrier.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "manuscript-architecture"
+      ]
+    },
+    {
+      "loop_number": 52,
+      "loop_id": "AP6D-L52",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Generate basis-agent atlases showing how each canonical anchor assists transitions across stages and corridors.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L52:MANIFEST",
+        "research_packet": "AP6D-L52:RESEARCH",
+        "hall_quest_bundle": "AP6D-L52:HALL",
+        "temple_quest_bundle": "AP6D-L52:TEMPLE",
+        "worker_action_bundle": "AP6D-L52:WORKER",
+        "pruning_receipt": "AP6D-L52:PRUNE",
+        "restart_seed": "AP6D-L52:RESTART"
+      },
+      "hall_parent_id": "AP6D-L52:HALL",
+      "temple_parent_id": "AP6D-L52:TEMPLE",
+      "restart_seed_id": "AP6D-L52:RESTART",
+      "focus_record_ids": [
+        "ad4bbf8b7556a46aceb83774",
+        "3bb9861d89cf472158320ffe",
+        "467dd6513ab44e5daf2a0144",
+        "021656f34892f3c0f82e39a4"
+      ],
+      "focus_relative_paths": [
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0331_address_lattice_swarm_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0333_address_lattice_swarm_carrier.md",
+        "MATH\\LIVE_PROMOTED\\aqm_kernel_qphi_planet9\\aqm\\apps\\planet9\\lenses.py",
+        "MATH\\LIVE_PROMOTED\\aqm_kernel_qphi_planet9\\aqm\\apps\\planet9\\orbits.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 2,
+        "archive": 0,
+        "both": 2,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "manuscript-architecture",
+        "general-corpus"
+      ]
+    },
+    {
+      "loop_number": 53,
+      "loop_id": "AP6D-L53",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Generate route-first playbooks for primary hemisphere, opposite hemisphere, and commissure transfer.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L53:MANIFEST",
+        "research_packet": "AP6D-L53:RESEARCH",
+        "hall_quest_bundle": "AP6D-L53:HALL",
+        "temple_quest_bundle": "AP6D-L53:TEMPLE",
+        "worker_action_bundle": "AP6D-L53:WORKER",
+        "pruning_receipt": "AP6D-L53:PRUNE",
+        "restart_seed": "AP6D-L53:RESTART"
+      },
+      "hall_parent_id": "AP6D-L53:HALL",
+      "temple_parent_id": "AP6D-L53:TEMPLE",
+      "restart_seed_id": "AP6D-L53:RESTART",
+      "focus_record_ids": [
+        "d4b21bd2fe0f65f490effb94",
+        "5eddd0c2298d1690fd48fa1f",
+        "fd5bda3399261e5c4c9c9bf3",
+        "723e6d82f619cb1935d05a29"
+      ],
+      "focus_relative_paths": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\02_math.md",
+        "QSHRINK - ATHENA (internal use)\\07_MANUSCRIPTS\\appendices\\AppC_square_kernel_pack.md",
+        "MATH\\LIVE_PROMOTED\\aqm_kernel_qphi_planet9\\aqm\\addressing.py"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "general-corpus",
+        "manuscript-architecture"
+      ]
+    },
+    {
+      "loop_number": 54,
+      "loop_id": "AP6D-L54",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Generate replay playbooks for restart, contradiction, drift, quarantine, and repair cases.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L54:MANIFEST",
+        "research_packet": "AP6D-L54:RESEARCH",
+        "hall_quest_bundle": "AP6D-L54:HALL",
+        "temple_quest_bundle": "AP6D-L54:TEMPLE",
+        "worker_action_bundle": "AP6D-L54:WORKER",
+        "pruning_receipt": "AP6D-L54:PRUNE",
+        "restart_seed": "AP6D-L54:RESTART"
+      },
+      "hall_parent_id": "AP6D-L54:HALL",
+      "temple_parent_id": "AP6D-L54:TEMPLE",
+      "restart_seed_id": "AP6D-L54:RESTART",
+      "focus_record_ids": [
+        "347291ab9a3bf5b72e21864a",
+        "3b165b00990baf535382eb7c",
+        "e8c1d4a5befa586a06d25ae9",
+        "80f5f2b06b6d67d0d7d65d4c"
+      ],
+      "focus_relative_paths": [
+        "MATH\\LIVE_PROMOTED\\aqm_kernel_qphi_planet9\\aqm\\cli.py",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_01_manuscript_brain\\01_manuscript_brain__08_quantum_standard_hardware.md",
+        "self_actualize\\mycelium_brain\\dynamic_neural_network\\14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK\\05_MATRIX_16X16\\row_08_quantum_standard_hardware\\08_quantum_standard_hardware__01_manuscript_brain.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0000_address_lattice_data_carrier.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 3,
+        "archive": 0,
+        "both": 1,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "general-corpus",
+        "manuscript-architecture"
+      ]
+    },
+    {
+      "loop_number": 55,
+      "loop_id": "AP6D-L55",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Mirror all new registries and atlases into FLEET and confirm Hall, Temple, hemisphere, and deep-root consistency.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L55:MANIFEST",
+        "research_packet": "AP6D-L55:RESEARCH",
+        "hall_quest_bundle": "AP6D-L55:HALL",
+        "temple_quest_bundle": "AP6D-L55:TEMPLE",
+        "worker_action_bundle": "AP6D-L55:WORKER",
+        "pruning_receipt": "AP6D-L55:PRUNE",
+        "restart_seed": "AP6D-L55:RESTART"
+      },
+      "hall_parent_id": "AP6D-L55:HALL",
+      "temple_parent_id": "AP6D-L55:TEMPLE",
+      "restart_seed_id": "AP6D-L55:RESTART",
+      "focus_record_ids": [
+        "5254915266a503d128d8b892",
+        "e4ca605815f988a9653dc95d",
+        "59cddded75652c79b7142ab6",
+        "d500f3154fc6a9896096e3af"
+      ],
+      "focus_relative_paths": [
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0001_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0003_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0010_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0011_address_lattice_data_carrier.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "manuscript-architecture"
+      ]
+    },
+    {
+      "loop_number": 56,
+      "loop_id": "AP6D-L56",
+      "wave_id": "W7",
+      "wave_title": "Complete Act / Assistance Surfaces",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Compile the full assistance receipt with coverage, blockers, dormant seats, compression ratios, and unresolved abstentions.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L56:MANIFEST",
+        "research_packet": "AP6D-L56:RESEARCH",
+        "hall_quest_bundle": "AP6D-L56:HALL",
+        "temple_quest_bundle": "AP6D-L56:TEMPLE",
+        "worker_action_bundle": "AP6D-L56:WORKER",
+        "pruning_receipt": "AP6D-L56:PRUNE",
+        "restart_seed": "AP6D-L56:RESTART"
+      },
+      "hall_parent_id": "AP6D-L56:HALL",
+      "temple_parent_id": "AP6D-L56:TEMPLE",
+      "restart_seed_id": "AP6D-L56:RESTART",
+      "focus_record_ids": [
+        "8969f3cfe845b1b90f558bc9",
+        "098f2928879589dc4d81f472",
+        "402286402a5699acf58267cb",
+        "db3f474168b8e84a50c761f4"
+      ],
+      "focus_relative_paths": [
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0013_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0020_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0021_address_lattice_data_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0023_address_lattice_data_carrier.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "manuscript-architecture"
+      ]
+    },
+    {
+      "loop_number": 57,
+      "loop_id": "AP6D-L57",
+      "wave_id": "W8",
+      "wave_title": "Omega / Reseed",
+      "stage_id": "COMPLETE_ACT",
+      "stage_label": "Complete Act",
+      "focus": "Synthesize the previous 56 loops into one convergence manifest, one Hall parent quest set, one Temple activation seed, one pruner zero-point seed, and one awakening-agent transition briefing for the next season.",
+      "docs_gate_status": "BLOCKED",
+      "artifact_ids": {
+        "loop_manifest": "AP6D-L57:MANIFEST",
+        "research_packet": "AP6D-L57:RESEARCH",
+        "hall_quest_bundle": "AP6D-L57:HALL",
+        "temple_quest_bundle": "AP6D-L57:TEMPLE",
+        "worker_action_bundle": "AP6D-L57:WORKER",
+        "pruning_receipt": "AP6D-L57:PRUNE",
+        "restart_seed": "AP6D-L57:RESTART"
+      },
+      "hall_parent_id": "AP6D-L57:HALL",
+      "temple_parent_id": "AP6D-L57:TEMPLE",
+      "restart_seed_id": "AP6D-L57:RESTART",
+      "focus_record_ids": [
+        "702bcf8c60b66b3868c02d2e",
+        "bf8378227245b89a13d620d8",
+        "4eca9fe81343f53e761101f4",
+        "62f3d01f963d2da649425017"
+      ],
+      "focus_relative_paths": [
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0100_address_lattice_timing_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0101_address_lattice_timing_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0103_address_lattice_timing_carrier.md",
+        "Trading Bot\\TRADING_BOT_ATHENA_256X4\\08_PLANES\\01_KERNEL_PLANE\\cells\\kernel_0110_address_lattice_timing_carrier.md"
+      ],
+      "focus_scope_distribution": {
+        "live": 4,
+        "archive": 0,
+        "both": 0,
+        "witness_only": 0
+      },
+      "preserved_fronts": [],
+      "guide_tags": [
+        "COMPLETE_ACT",
+        "MATH",
+        "manuscript-architecture"
+      ]
+    }
+  ]
+}

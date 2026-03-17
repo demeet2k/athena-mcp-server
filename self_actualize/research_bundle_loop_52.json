@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L52",
+  "status": "PENDING",
+  "lead_agent": "PRUNER",
+  "objective": "synthesize failure-handling weaknesses",
+  "advancement_tuple": {
+    "focus_family": "recovery",
+    "frontier_type": "recovery-and-rollback-hardening",
+    "dominant_evidence_class": "rollback-ledger",
+    "compression_target": "brittle-recovery-language"
+  },
+  "truth_state": "NEAR"
+}

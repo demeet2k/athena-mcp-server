@@ -1,0 +1,2707 @@
+{
+  "generated_at": "2026-03-13",
+  "protocol_id": "LP-57OMEGA",
+  "truth": "OK",
+  "checks": [
+    {
+      "name": "transfer_record_count",
+      "result": true,
+      "detail": "count=45"
+    },
+    {
+      "name": "phase_binding_count",
+      "result": true,
+      "detail": "count=60"
+    },
+    {
+      "name": "pointer_registry_counts",
+      "result": true,
+      "detail": "records=45 pointers=60"
+    },
+    {
+      "name": "markdown_explicit_payloads",
+      "result": true,
+      "detail": "Markdown should render explicit AE / WitnessPtr / ReplayPtr payloads."
+    },
+    {
+      "name": "R01_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R01_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(A) z=ZA"
+    },
+    {
+      "name": "R01_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R01_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R01_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B01;Core)"
+    },
+    {
+      "name": "R01_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R01_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R01_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R01_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R01_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R01_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B01;Core)"
+    },
+    {
+      "name": "R01_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R01_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R01_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R01_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R01_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R01_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R02_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R02_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(B) z=ZB"
+    },
+    {
+      "name": "R02_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R02_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R02_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B02;Core)"
+    },
+    {
+      "name": "R02_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R02_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R02_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R02_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R02_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R02_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B02;Core)"
+    },
+    {
+      "name": "R02_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R02_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R02_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R02_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R02_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R02_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R03_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R03_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZA+ZB"
+    },
+    {
+      "name": "R03_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R03_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R03_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B03;Core)"
+    },
+    {
+      "name": "R03_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R03_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R03_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R03_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R03_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R03_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B03;Core)"
+    },
+    {
+      "name": "R03_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R03_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R03_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R03_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R03_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R03_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R10_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R10_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(C) z=ZC"
+    },
+    {
+      "name": "R10_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R10_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R10_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B10;Core)"
+    },
+    {
+      "name": "R10_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R10_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R10_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R10_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R10_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R10_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B10;Core)"
+    },
+    {
+      "name": "R10_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R10_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R10_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R10_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R10_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R10_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R11_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R11_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(A>C) z=ZA+ZC"
+    },
+    {
+      "name": "R11_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R11_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R11_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B11;Core)"
+    },
+    {
+      "name": "R11_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R11_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R11_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R11_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R11_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R11_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B11;Core)"
+    },
+    {
+      "name": "R11_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R11_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R11_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R11_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R11_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R11_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R12_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R12_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(C>B) z=ZB+ZC"
+    },
+    {
+      "name": "R12_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R12_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R12_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B12;Core)"
+    },
+    {
+      "name": "R12_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R12_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R12_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R12_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R12_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R12_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B12;Core)"
+    },
+    {
+      "name": "R12_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R12_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R12_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R12_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R12_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R12_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R13_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R13_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(A>C>B) z=ZA+ZB+ZC"
+    },
+    {
+      "name": "R13_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R13_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R13_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B13;Core)"
+    },
+    {
+      "name": "R13_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R13_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R13_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R13_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R13_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R13_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B13;Core)"
+    },
+    {
+      "name": "R13_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R13_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R13_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R13_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R13_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R13_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R20_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R20_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(D) z=ZD"
+    },
+    {
+      "name": "R20_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R20_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R20_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B20;Core)"
+    },
+    {
+      "name": "R20_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R20_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R20_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R20_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R20_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R20_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B20;Core)"
+    },
+    {
+      "name": "R20_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R20_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R20_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R20_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R20_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R20_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R21_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R21_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(D>A) z=ZA+ZD"
+    },
+    {
+      "name": "R21_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R21_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R21_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B21;Core)"
+    },
+    {
+      "name": "R21_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R21_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R21_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R21_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R21_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R21_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B21;Core)"
+    },
+    {
+      "name": "R21_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R21_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R21_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R21_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R21_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R21_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R22_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R22_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(B>D) z=ZB+ZD"
+    },
+    {
+      "name": "R22_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R22_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R22_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B22;Core)"
+    },
+    {
+      "name": "R22_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R22_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R22_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R22_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R22_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R22_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B22;Core)"
+    },
+    {
+      "name": "R22_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R22_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R22_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R22_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R22_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R22_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R23_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R23_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(B>D>A) z=ZA+ZB+ZD"
+    },
+    {
+      "name": "R23_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R23_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R23_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B23;Core)"
+    },
+    {
+      "name": "R23_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R23_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R23_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R23_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R23_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R23_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B23;Core)"
+    },
+    {
+      "name": "R23_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R23_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R23_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R23_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R23_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R23_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R30_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R30_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZC+ZD"
+    },
+    {
+      "name": "R30_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R30_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R30_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B30;Core)"
+    },
+    {
+      "name": "R30_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R30_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R30_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R30_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R30_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R30_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B30;Core)"
+    },
+    {
+      "name": "R30_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R30_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R30_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R30_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R30_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R30_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R31_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R31_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(D>A>C) z=ZA+ZC+ZD"
+    },
+    {
+      "name": "R31_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R31_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R31_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B31;Core)"
+    },
+    {
+      "name": "R31_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R31_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R31_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R31_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R31_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R31_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B31;Core)"
+    },
+    {
+      "name": "R31_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R31_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R31_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R31_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R31_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R31_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R32_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R32_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(C>B>D) z=ZB+ZC+ZD"
+    },
+    {
+      "name": "R32_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R32_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R32_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B32;Core)"
+    },
+    {
+      "name": "R32_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R32_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R32_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R32_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R32_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R32_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B32;Core)"
+    },
+    {
+      "name": "R32_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R32_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R32_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R32_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R32_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R32_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "R33_summary_fields",
+      "result": true
+    },
+    {
+      "name": "R33_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZA+ZB+ZC+ZD"
+    },
+    {
+      "name": "R33_binding_count",
+      "result": true,
+      "detail": "bindings=2"
+    },
+    {
+      "name": "R33_binding_keys",
+      "result": true,
+      "detail": "plus,minus"
+    },
+    {
+      "name": "R33_plus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R+,B33;Core)"
+    },
+    {
+      "name": "R33_plus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R33_plus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R33_plus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R33_plus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R33_plus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R33_minus_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,R-,B33;Core)"
+    },
+    {
+      "name": "R33_minus_slot_law",
+      "result": true
+    },
+    {
+      "name": "R33_minus_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "R33_minus_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "R33_minus_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "R33_minus_route_payload",
+      "result": true
+    },
+    {
+      "name": "R33_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q01_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q01_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(A) z=ZA"
+    },
+    {
+      "name": "Q01_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q01_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q01_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B01;Core)"
+    },
+    {
+      "name": "Q01_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q01_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q01_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q01_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q01_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q01_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q02_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q02_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(B) z=ZB"
+    },
+    {
+      "name": "Q02_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q02_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q02_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B02;Core)"
+    },
+    {
+      "name": "Q02_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q02_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q02_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q02_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q02_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q02_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q03_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q03_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZA+ZB"
+    },
+    {
+      "name": "Q03_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q03_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q03_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B03;Core)"
+    },
+    {
+      "name": "Q03_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q03_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q03_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q03_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q03_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q03_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q10_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q10_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(C) z=ZC"
+    },
+    {
+      "name": "Q10_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q10_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q10_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B10;Core)"
+    },
+    {
+      "name": "Q10_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q10_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q10_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q10_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q10_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q10_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q11_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q11_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(A>C) z=ZA+ZC"
+    },
+    {
+      "name": "Q11_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q11_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q11_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B11;Core)"
+    },
+    {
+      "name": "Q11_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q11_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q11_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q11_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q11_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q11_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q12_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q12_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(C>B) z=ZB+ZC"
+    },
+    {
+      "name": "Q12_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q12_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q12_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B12;Core)"
+    },
+    {
+      "name": "Q12_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q12_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q12_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q12_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q12_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q12_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q13_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q13_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(A>C>B) z=ZA+ZB+ZC"
+    },
+    {
+      "name": "Q13_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q13_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q13_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B13;Core)"
+    },
+    {
+      "name": "Q13_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q13_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q13_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q13_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q13_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q13_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q20_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q20_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(D) z=ZD"
+    },
+    {
+      "name": "Q20_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q20_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q20_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B20;Core)"
+    },
+    {
+      "name": "Q20_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q20_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q20_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q20_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q20_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q20_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q21_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q21_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(D>A) z=ZA+ZD"
+    },
+    {
+      "name": "Q21_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q21_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q21_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B21;Core)"
+    },
+    {
+      "name": "Q21_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q21_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q21_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q21_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q21_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q21_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q22_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q22_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(B>D) z=ZB+ZD"
+    },
+    {
+      "name": "Q22_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q22_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q22_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B22;Core)"
+    },
+    {
+      "name": "Q22_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q22_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q22_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q22_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q22_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q22_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q23_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q23_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(B>D>A) z=ZA+ZB+ZD"
+    },
+    {
+      "name": "Q23_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q23_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q23_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B23;Core)"
+    },
+    {
+      "name": "Q23_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q23_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q23_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q23_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q23_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q23_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q30_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q30_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZC+ZD"
+    },
+    {
+      "name": "Q30_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q30_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q30_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B30;Core)"
+    },
+    {
+      "name": "Q30_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q30_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q30_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q30_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q30_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q30_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q31_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q31_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(D>A>C) z=ZA+ZC+ZD"
+    },
+    {
+      "name": "Q31_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q31_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q31_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B31;Core)"
+    },
+    {
+      "name": "Q31_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q31_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q31_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q31_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q31_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q31_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q32_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q32_route_binding",
+      "result": true,
+      "detail": "route=rtL check=loc(C>B>D) z=ZB+ZC+ZD"
+    },
+    {
+      "name": "Q32_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q32_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q32_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B32;Core)"
+    },
+    {
+      "name": "Q32_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q32_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q32_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q32_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q32_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q32_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "Q33_summary_fields",
+      "result": true
+    },
+    {
+      "name": "Q33_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZA+ZB+ZC+ZD"
+    },
+    {
+      "name": "Q33_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "Q33_binding_keys",
+      "result": true,
+      "detail": "q4"
+    },
+    {
+      "name": "Q33_q4_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,Q4,B33;Core)"
+    },
+    {
+      "name": "Q33_q4_slot_law",
+      "result": true
+    },
+    {
+      "name": "Q33_q4_hidden_pole",
+      "result": true,
+      "detail": "None"
+    },
+    {
+      "name": "Q33_q4_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "Q33_q4_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "Q33_q4_route_payload",
+      "result": true
+    },
+    {
+      "name": "Q33_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T01_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T01_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(A) z=ZA"
+    },
+    {
+      "name": "T01_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T01_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T01_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B01:h=C;Residual)"
+    },
+    {
+      "name": "T01_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T01_t3_hidden_pole",
+      "result": true,
+      "detail": "C"
+    },
+    {
+      "name": "T01_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T01_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T01_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T01_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T02_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T02_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(B) z=ZB"
+    },
+    {
+      "name": "T02_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T02_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T02_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B02:h=A;Residual)"
+    },
+    {
+      "name": "T02_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T02_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T02_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T02_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T02_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T02_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T03_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T03_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZA+ZB"
+    },
+    {
+      "name": "T03_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T03_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T03_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B03:h=C;Residual)"
+    },
+    {
+      "name": "T03_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T03_t3_hidden_pole",
+      "result": true,
+      "detail": "C"
+    },
+    {
+      "name": "T03_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T03_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T03_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T03_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T10_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T10_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(C) z=ZC"
+    },
+    {
+      "name": "T10_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T10_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T10_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B10:h=A;Residual)"
+    },
+    {
+      "name": "T10_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T10_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T10_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T10_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T10_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T10_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T11_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T11_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(A>C) z=ZA+ZC"
+    },
+    {
+      "name": "T11_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T11_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T11_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B11:h=B;Residual)"
+    },
+    {
+      "name": "T11_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T11_t3_hidden_pole",
+      "result": true,
+      "detail": "B"
+    },
+    {
+      "name": "T11_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T11_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T11_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T11_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T12_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T12_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(C>B) z=ZB+ZC"
+    },
+    {
+      "name": "T12_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T12_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T12_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B12:h=A;Residual)"
+    },
+    {
+      "name": "T12_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T12_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T12_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T12_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T12_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T12_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T13_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T13_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(A>C>B) z=ZA+ZB+ZC"
+    },
+    {
+      "name": "T13_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T13_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T13_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B13:h=D;Residual)"
+    },
+    {
+      "name": "T13_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T13_t3_hidden_pole",
+      "result": true,
+      "detail": "D"
+    },
+    {
+      "name": "T13_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T13_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T13_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T13_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T20_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T20_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(D) z=ZD"
+    },
+    {
+      "name": "T20_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T20_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T20_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B20:h=A;Residual)"
+    },
+    {
+      "name": "T20_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T20_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T20_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T20_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T20_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T20_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T21_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T21_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(D>A) z=ZA+ZD"
+    },
+    {
+      "name": "T21_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T21_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T21_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B21:h=C;Residual)"
+    },
+    {
+      "name": "T21_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T21_t3_hidden_pole",
+      "result": true,
+      "detail": "C"
+    },
+    {
+      "name": "T21_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T21_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T21_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T21_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T22_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T22_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(B>D) z=ZB+ZD"
+    },
+    {
+      "name": "T22_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T22_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T22_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B22:h=A;Residual)"
+    },
+    {
+      "name": "T22_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T22_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T22_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T22_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T22_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T22_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T23_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T23_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(B>D>A) z=ZA+ZB+ZD"
+    },
+    {
+      "name": "T23_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T23_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T23_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B23:h=C;Residual)"
+    },
+    {
+      "name": "T23_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T23_t3_hidden_pole",
+      "result": true,
+      "detail": "C"
+    },
+    {
+      "name": "T23_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T23_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T23_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T23_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T30_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T30_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZC+ZD"
+    },
+    {
+      "name": "T30_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T30_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T30_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B30:h=A;Residual)"
+    },
+    {
+      "name": "T30_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T30_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T30_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T30_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T30_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T30_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T31_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T31_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(D>A>C) z=ZA+ZC+ZD"
+    },
+    {
+      "name": "T31_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T31_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T31_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B31:h=B;Residual)"
+    },
+    {
+      "name": "T31_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T31_t3_hidden_pole",
+      "result": true,
+      "detail": "B"
+    },
+    {
+      "name": "T31_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T31_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T31_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T31_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T32_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T32_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=loc(C>B>D) z=ZB+ZC+ZD"
+    },
+    {
+      "name": "T32_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T32_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T32_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B32:h=A;Residual)"
+    },
+    {
+      "name": "T32_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T32_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T32_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T32_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T32_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T32_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "T33_summary_fields",
+      "result": true
+    },
+    {
+      "name": "T33_route_binding",
+      "result": true,
+      "detail": "route=rtZ check=Z* z=ZA+ZB+ZC+ZD"
+    },
+    {
+      "name": "T33_binding_count",
+      "result": true,
+      "detail": "bindings=1"
+    },
+    {
+      "name": "T33_binding_keys",
+      "result": true,
+      "detail": "t3"
+    },
+    {
+      "name": "T33_t3_ae_round_trip",
+      "result": true,
+      "detail": "AE=(Flower,T3,B33:h=A;Residual)"
+    },
+    {
+      "name": "T33_t3_slot_law",
+      "result": true
+    },
+    {
+      "name": "T33_t3_hidden_pole",
+      "result": true,
+      "detail": "A"
+    },
+    {
+      "name": "T33_t3_ptr_fields",
+      "result": true
+    },
+    {
+      "name": "T33_t3_replay_checks",
+      "result": true,
+      "detail": "Sigma,Hub<=6,ZMatch"
+    },
+    {
+      "name": "T33_t3_route_payload",
+      "result": true
+    },
+    {
+      "name": "T33_pointer_registry_match",
+      "result": true
+    },
+    {
+      "name": "phase_binding_total_recomputed",
+      "result": true,
+      "detail": "total=60"
+    },
+    {
+      "name": "R01_representative",
+      "result": true,
+      "detail": "actual=[('plus', 'AE=(Flower,R+,B01;Core)'), ('minus', 'AE=(Flower,R-,B01;Core)')]"
+    },
+    {
+      "name": "Q03_representative",
+      "result": true,
+      "detail": "actual=[('q4', 'AE=(Flower,Q4,B03;Core)')]"
+    },
+    {
+      "name": "T11_representative",
+      "result": true,
+      "detail": "actual=[('t3', 'AE=(Flower,T3,B11:h=B;Residual)')]"
+    },
+    {
+      "name": "T33_representative",
+      "result": true,
+      "detail": "actual=[('t3', 'AE=(Flower,T3,B33:h=A;Residual)')]"
+    }
+  ]
+}

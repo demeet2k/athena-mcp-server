@@ -1,0 +1,21 @@
+{
+  "fields": [
+    "agent_id",
+    "loop_number",
+    "parent_agent",
+    "coordinate_stamp",
+    "source_region",
+    "action_type",
+    "affected_nodes",
+    "summary_of_change",
+    "reason_for_change",
+    "integration_gain",
+    "compression_gain",
+    "unresolved_followups",
+    "linked_quests",
+    "linked_agents",
+    "revision_confidence",
+    "timestamp_internal"
+  ],
+  "continuity_law": "append-only, quest-linked, coordinate-stamped"
+}

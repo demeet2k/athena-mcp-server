@@ -1,0 +1,15 @@
+{
+  "protocol_id": "LP-57OMEGA",
+  "bundle_type": "ResearchBundle",
+  "loop_id": "L22",
+  "status": "PENDING",
+  "lead_agent": "PLANNER",
+  "objective": "synthesize shortcut gaps in the Knowledge Fabric",
+  "advancement_tuple": {
+    "focus_family": "knowledge-fabric",
+    "frontier_type": "search-and-shortcut-upgrade",
+    "dominant_evidence_class": "shortcut-ledger",
+    "compression_target": "stale-query-paths"
+  },
+  "truth_state": "NEAR"
+}

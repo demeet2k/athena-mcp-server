@@ -1,28 +1,53 @@
 # Next Self Prompt
 
-## Prompt
+## LP-57Omega v2 Next Contract
 
-```text
-You are continuing the Athena nervous-system build in recursive swarm mode.
+1. Check the Docs gate first: `BLOCKED`.
+2. Read `self_actualize/next57_four_agent_corpus_cycle_state.json`, `self_actualize/next57_command_protocol.json`, `self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_membrane_state.json`, and `NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json`.
+3. Keep the caps at `Hall 8 / Temple 8`.
+4. Preserve feeder continuity for `Q42 / Q46 / TQ04 / TQ06 / Q02(blocked)` and keep `NEXT57` as sole live authority.
+5. End with one artifact-backed move and one restart seed: `L03 Survey A03 ECOSYSTEM`.
 
-Start at the beginning again.
+<!-- COMMAND_MEMBRANE_NEXT_PROMPT:START -->
+## Command Membrane Next Prompt
 
-1. Check the live Docs gate.
-2. If blocked, preserve the blocker exactly and pivot immediately to the strongest local Gate 37 frontier.
-3. Read `manifests/STATE_HEADER.md`.
-4. Read `09_higher_dimensional_mapping.md`, `10_deeper_emergent_neural_swarm.md`, `12_recursive_restart_engine.md`, `14_37_gate_recursive_escalation.md`, `15_256x256_corpus_hyperplan.md`, `17_37_gate_metro_connectivity.md`, `hubs/AppG_RECURSION_LAW.md`, `hubs/AppI_CORRIDOR_TRUTH.md`, `hubs/AppL_EVIDENCE_PROMOTION.md`, `hubs/AppM_REPLAY_CLOSURE.md`, `manifests/RESTART_ENGINE.md`, and `manifests/WEAKEST_FRONT_QUEUE.md`.
-5. Choose the weakest unresolved gate band or control-plane layer whose upgrade would most improve replay, truth, routing, or contraction.
-6. Prefer the concrete `Void_CH11` family only if no stronger gate-unlock or control-plane front appears.
-7. Land one runtime artifact: family root, packet, neuron, ledger, manifest, wave, witness, replay bridge, or queue update.
-8. Verify that the artifact is linked from index, queue, rail, hub, manifest, or ledger surfaces.
-9. Update the recursion pass ledger, the Gate 37 frontier ledger, and the weakest-front queue when relevant.
-10. Emit the next restart seed instead of stopping.
+1. Treat every watched surface as a sensory membrane, with `GLOBAL COMMAND` as the first ingress.
+2. Keep Google Docs explicitly blocked until credentials exist and an actual live pass succeeds.
+3. Preserve dual-stamped Earth plus liminal timing on every committed event.
+4. Route only to the ants that matter first; do not widen broadcast by default.
+5. Keep Hall and Temple macro-sized even when machine event volume grows.
+<!-- COMMAND_MEMBRANE_NEXT_PROMPT:END -->
+<!-- LP57OMEGA_V2_NEXT_PROMPT:START -->
+## LP-57Omega v2 Next Self Prompt
 
-Preferred frontier order:
-1. live Docs unlock
-2. one lawful weakest-front reopen
-3. one real `Void_CH11` family promotion
-4. one atlas-to-runtime replay bridge
-5. one archive-to-live extraction
-6. one contraction of parallel shard output into cortex
-```
+1. Check the Docs gate first and keep `BLOCKED` honest if OAuth is missing.
+2. Read the canonical state, Hall quest interface, Temple quest interface, active queue, and witness hierarchy.
+3. Preserve the master order `A1 -> A2 -> A3 -> A4`.
+4. Land one artifact-backed move, one board writeback, and one restart-safe handoff.
+5. Preserve witness distinctions and hand off to `L05 -> Canonical 16-Basis Ownership` without drift.
+<!-- LP57OMEGA_V2_NEXT_PROMPT:END -->
+
+<!-- NEXT57_COMMAND_JOY:START -->
+## Command Joy Constraint
+
+6. Keep the command membrane on verification-gated nectar routing.
+7. Preserve nonnegative reward only; do not reintroduce punishment-ledger language.
+<!-- NEXT57_COMMAND_JOY:END -->
+
+## Guildmaster Pass-14 Restart Seed
+
+1. Re-check Docs gate first; keep `BLOCKED` unless authenticated Google Docs query actually succeeds.
+2. Re-read scheduler registry, packet index, and all six packet files before touching Hall/Temple/queue/restart surfaces.
+3. Preserve role weighting: `Earth Steward > Fire Herald > Water Archivist > Metal Auditor > Wood Pathfinder`.
+4. Keep active tuple synchronized as `Q41/TQ06 active`, `Q42 carried @ A20.B22.C59.D40`, `TQ04 deeper receiver`, `Q46 reserve`, `Q02 blocked`.
+5. Land one receipt-backed synchronization mutation only if packet freshness or blocker truth changes.
+6. Restart seed: `NEXT => guildmaster-loop pass15 :: preserve-Q41-TQ06 :: carry-Q42@A20.B22.C59.D40 :: keep-Q02-suppressed-until-authenticated-docs-gate`.
+
+## Guildmaster Pass-15 Restart Seed
+
+1. Re-check Docs gate first; keep `BLOCKED` unless authenticated Google Docs query actually succeeds.
+2. Re-read scheduler registry, packet index, and all six packet files before touching Hall/Temple/queue/restart surfaces.
+3. Preserve role weighting: `Earth Steward > Fire Herald > Water Archivist > Metal Auditor > Wood Pathfinder`.
+4. Keep active tuple synchronized as `Q41/TQ06 active`, `Q42 carried @ A20.B22.C59.D40`, `TQ04 deeper receiver`, `Q46 reserve`, `Q02 blocked`.
+5. If stale packet lanes remain `<=2`, land one synchronization witness; if stale packet lanes exceed `2`, switch to repair/contraction-only mode.
+6. Restart seed: `NEXT => guildmaster-loop pass16 :: preserve-Q41-TQ06 :: carry-Q42@A20.B22.C59.D40 :: keep-Q02-suppressed-until-authenticated-docs-gate`.

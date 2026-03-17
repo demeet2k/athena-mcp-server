@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-03-13",
+  "version": "2026-03-13.lp57omega.prime-loop.v1",
+  "truth": "CANONICAL_RUNTIME",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ]
+  },
+  "protocol_id": "LP-57OMEGA",
+  "protocol_display_name": "LP-57Omega Prime Loop Liminal Hive",
+  "deep_root_authority": "14_DEEPER_INTEGRATED_CROSS_SYNTHESIS_NETWORK",
+  "current_loop": {
+    "loop_id": "L01",
+    "triad_id": "TRIAD-01",
+    "title": "Prime Lock",
+    "dominant_focus": "authority + docs gate + deep-root precedence",
+    "status": "READY"
+  },
+  "next_loop": {
+    "loop_id": "L02",
+    "triad_id": "TRIAD-01",
+    "title": "Whole-Corpus Census",
+    "dominant_focus": "all live bodies and mirrors"
+  },
+  "master_agent_order": [
+    "RESEARCHER",
+    "PLANNER",
+    "WORKER",
+    "PRUNER"
+  ],
+  "seat_law": {
+    "compiled": 4096,
+    "active": 1024,
+    "dormant": 3072,
+    "active_per_master": 256
+  },
+  "macro_quest_contract": {
+    "hall_macro_families_per_loop": 1,
+    "temple_macro_families_per_loop": 1,
+    "child_packets_per_loop_max": 16,
+    "worker_claim_law": "Worker may execute only owner-lane child packets with named targets, witness requirements, writeback destinations, and restart seeds."
+  },
+  "current_macro_families": {
+    "hall": "LP57-L01-HALL-PRIME-LOCK",
+    "temple": "LP57-L01-TEMPLE-PRIME-LOCK"
+  },
+  "closure_quorum_surfaces": [
+    "ACTIVE_RUN",
+    "BUILD_QUEUE",
+    "control_state_packet",
+    "Guild Hall board",
+    "Temple board",
+    "receipt"
+  ],
+  "historical_mirror_donors": [
+    "NEXT57",
+    "LP-57OMEGA",
+    "Q51",
+    "FA57",
+    "TQ07"
+  ],
+  "restart_seed": "L02 -> Whole-Corpus Census",
+  "notes": [
+    "The 4^6 field is a shared compiled lattice, not 4096 literal always-on child agents under each master.",
+    "Older LP-57OMEGA and NEXT57 artifacts are historical mirrors and coordinate-schema donors only."
+  ]
+}

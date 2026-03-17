@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-03-13T05:01:05.221536+00:00",
+  "derivation_version": "2026-03-13.q42.corpus-weave-ranking",
+  "derivation_command": "python -m self_actualize.runtime.derive_corpus_weave_ranking",
+  "source_paths": {
+    "live_docs_gate_status": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md",
+    "frontier_leverage_ranking": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\10_FRONTIER_LEVERAGE_RANKING.md",
+    "canonical_witness_hierarchy": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\07_CANONICAL_WITNESS_HIERARCHY.md",
+    "semantic_mass_ledger": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\semantic_mass_ledger.json",
+    "quest_board": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+    "active_queue": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+    "next_self_prompt": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md",
+    "recent_reports": [
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\automations\\corpus_weave_vishnu_2026-03-12_20.md",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\automations\\corpus_weave_vishnu_2026-03-12_21.md",
+      "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\90_LEDGERS\\automations\\corpus_weave_vishnu_2026-03-12_22.md"
+    ]
+  },
+  "docs_gate_status": {
+    "state": "BLOCKED",
+    "query": "full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework",
+    "detail": "Error: Missing OAuth client file: credentials.json\nCreate/download a Desktop App OAuth client in Google Cloud Console and save it as credentials.json (or pass --credentials).",
+    "source_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\live_docs_gate_status.md"
+  },
+  "selected_report_path": "NERVOUS_SYSTEM/90_LEDGERS/automations/corpus_weave_vishnu_2026-03-12_22.md",
+  "neglected_areas": [
+    {
+      "rank": 1,
+      "body": "self_actualize",
+      "records": 1294,
+      "representative_candidate_id": "FRONT-FULL-ATLAS-REGEN",
+      "representative_candidate_title": "Regenerate The Live Atlas After The New Runtime Shell Growth",
+      "state": "OPEN",
+      "final_score": 14,
+      "rationale": "self_actualize: archive or atlas darkness still outruns live indexing"
+    },
+    {
+      "rank": 2,
+      "body": "Stoicheia (Element Sudoku)",
+      "records": 126,
+      "representative_candidate_id": "Q10",
+      "representative_candidate_title": "Densify One Low-Mass Family",
+      "state": "OPEN",
+      "final_score": 12,
+      "rationale": "Stoicheia (Element Sudoku): route presence is still thin"
+    },
+    {
+      "rank": 3,
+      "body": "QSHRINK - ATHENA (internal use)",
+      "records": 1315,
+      "representative_candidate_id": "Q42",
+      "representative_candidate_title": "Activate The First QSHRINK Agent Sweep",
+      "state": "OPEN",
+      "final_score": 11,
+      "rationale": "QSHRINK - ATHENA (internal use): it improves whole-corpus coherence without reopening solved fronts"
+    }
+  ],
+  "missing_bridges": [
+    {
+      "rank": 1,
+      "id": "FRONT-FULL-ATLAS-REGEN",
+      "title": "Regenerate The Live Atlas After The New Runtime Shell Growth",
+      "anchor_body": "self_actualize",
+      "state": "OPEN",
+      "candidate_type": "frontier",
+      "docs_gate_dependent": false,
+      "final_score": 14,
+      "score_breakdown": {
+        "source_or_archive_lift": 4,
+        "cross_scale_writeback": 4,
+        "restart_gain": 3,
+        "execution_readiness": 2,
+        "blocker_penalty": 0,
+        "neglect_bonus": 1,
+        "repeat_penalty": 0,
+        "base_leverage": 13
+      },
+      "rationale": "self_actualize: archive or atlas darkness still outruns live indexing",
+      "allowed_touched_paths": [
+        "self_actualize/corpus_atlas.json",
+        "self_actualize/corpus_atlas_summary.md",
+        "self_actualize/mycelium_brain/receipts/corpus_weave_atlas_regen_receipt.md"
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "Q10",
+      "title": "Densify One Low-Mass Family",
+      "anchor_body": "Stoicheia (Element Sudoku)",
+      "state": "OPEN",
+      "candidate_type": "frontier",
+      "docs_gate_dependent": false,
+      "final_score": 12,
+      "score_breakdown": {
+        "source_or_archive_lift": 2,
+        "cross_scale_writeback": 2,
+        "restart_gain": 3,
+        "execution_readiness": 4,
+        "blocker_penalty": 0,
+        "neglect_bonus": 1,
+        "repeat_penalty": 0,
+        "base_leverage": 11
+      },
+      "rationale": "Stoicheia (Element Sudoku): route presence is still thin",
+      "allowed_touched_paths": []
+    },
+    {
+      "rank": 3,
+      "id": "Q42",
+      "title": "Activate The First QSHRINK Agent Sweep",
+      "anchor_body": "QSHRINK - ATHENA (internal use)",
+      "state": "OPEN",
+      "candidate_type": "quest",
+      "docs_gate_dependent": false,
+      "final_score": 11,
+      "score_breakdown": {
+        "source_or_archive_lift": 3,
+        "cross_scale_writeback": 4,
+        "restart_gain": 3,
+        "execution_readiness": 4,
+        "blocker_penalty": 0,
+        "neglect_bonus": 0,
+        "repeat_penalty": 3,
+        "base_leverage": 14
+      },
+      "rationale": "QSHRINK - ATHENA (internal use): it improves whole-corpus coherence without reopening solved fronts",
+      "allowed_touched_paths": [
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/ATHENA_OS_QSHRINK_CORRIDOR_MEMBRANE.md",
+        "self_actualize/mycelium_brain/nervous_system/families/FAMILY_athena_fleet_route_map.md",
+        "self_actualize/mycelium_brain/nervous_system/families/FAMILY_orgin_route_map.md",
+        "self_actualize/mycelium_brain/receipts/2026-03-12_q42_square_state_reconciliation.md"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "Q07",
+      "title": "Harden The Runtime Waist With Tests",
+      "anchor_body": "self_actualize",
+      "state": "OPEN",
+      "candidate_type": "frontier",
+      "docs_gate_dependent": false,
+      "final_score": 11,
+      "score_breakdown": {
+        "source_or_archive_lift": 2,
+        "cross_scale_writeback": 3,
+        "restart_gain": 3,
+        "execution_readiness": 4,
+        "blocker_penalty": 0,
+        "neglect_bonus": 2,
+        "repeat_penalty": 3,
+        "base_leverage": 12
+      },
+      "rationale": "self_actualize: archive or atlas darkness still outruns live indexing; route presence is still thin",
+      "allowed_touched_paths": []
+    },
+    {
+      "rank": 5,
+      "id": "FRONT-INT-QSHRINK-CANONICAL-FAMILY",
+      "title": "FRONT-INT-QSHRINK-CANONICAL-FAMILY",
+      "anchor_body": "QSHRINK - ATHENA (internal use)",
+      "state": "OPEN",
+      "candidate_type": "frontier",
+      "docs_gate_dependent": false,
+      "final_score": 10,
+      "score_breakdown": {
+        "source_or_archive_lift": 2,
+        "cross_scale_writeback": 4,
+        "restart_gain": 3,
+        "execution_readiness": 3,
+        "blocker_penalty": 0,
+        "neglect_bonus": 1,
+        "repeat_penalty": 3,
+        "base_leverage": 12
+      },
+      "rationale": "QSHRINK - ATHENA (internal use): route presence is still thin",
+      "allowed_touched_paths": []
+    }
+  ],
+  "winning_move": {
+    "rank": 0,
+    "id": "FRONT-FULL-ATLAS-REGEN",
+    "title": "Regenerate The Live Atlas After The New Runtime Shell Growth",
+    "anchor_body": "self_actualize",
+    "state": "OPEN",
+    "candidate_type": "frontier",
+    "docs_gate_dependent": false,
+    "final_score": 14,
+    "score_breakdown": {
+      "source_or_archive_lift": 4,
+      "cross_scale_writeback": 4,
+      "restart_gain": 3,
+      "execution_readiness": 2,
+      "blocker_penalty": 0,
+      "neglect_bonus": 1,
+      "repeat_penalty": 0,
+      "base_leverage": 13
+    },
+    "rationale": "self_actualize: archive or atlas darkness still outruns live indexing",
+    "allowed_touched_paths": [
+      "self_actualize/corpus_atlas.json",
+      "self_actualize/corpus_atlas_summary.md",
+      "self_actualize/mycelium_brain/receipts/corpus_weave_atlas_regen_receipt.md"
+    ],
+    "mode": "write_eligible",
+    "report_only": false,
+    "instruction": "self_actualize: archive or atlas darkness still outruns live indexing"
+  },
+  "touched_paths_allowed": [
+    "self_actualize/corpus_atlas.json",
+    "self_actualize/corpus_atlas_summary.md",
+    "self_actualize/mycelium_brain/receipts/corpus_weave_atlas_regen_receipt.md"
+  ],
+  "blockers": [
+    "Error: Missing OAuth client file: credentials.json\nCreate/download a Desktop App OAuth client in Google Cloud Console and save it as credentials.json (or pass --credentials)."
+  ],
+  "restart_seed": ""
+}

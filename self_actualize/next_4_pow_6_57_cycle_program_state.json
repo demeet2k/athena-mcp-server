@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-03-13T18:40:00.512273+00:00",
+  "truth": "HISTORICAL_ONLY",
+  "status": "SUPERSEDED_BY_CANONICAL_FOUR_AGENT_COUNCIL",
+  "legacy_protocol_profile": "LP-57OMEGA",
+  "source_id": "manual-refresh",
+  "canonical_authority": [
+    "self_actualize/four_agent_57_loop_registry.json",
+    "self_actualize/four_agent_57_loop_state.json",
+    "self_actualize/four_agent_57_loop_quest_packets.json",
+    "self_actualize/four_agent_57_loop_verification.json"
+  ],
+  "historical_role": "reverse lookup and drift analysis only",
+  "feeder_truth_carried": [
+    "Q41 / TQ06",
+    "Q42",
+    "TQ04",
+    "Q46",
+    "Q50 -> Wave7/Helix.Runtime.Fire.Diagnose",
+    "Q02"
+  ],
+  "docs_gate_status": "BLOCKED",
+  "note": "NEXT57 / LP-57OMEGA remains preserved as prior orchestration lineage and may not act as present-tense Hall or Temple authority."
+}

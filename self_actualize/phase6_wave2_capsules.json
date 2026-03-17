@@ -1,0 +1,2545 @@
+{
+  "generated_at": "2026-03-13T01:33:50.669741+00:00",
+  "derivation_version": "2026-03-13.phase6-wave2-capsules-v1",
+  "derivation_command": "python -m self_actualize.runtime.derive_phase6_wave2_capsules",
+  "docs_gate": "BLOCKED",
+  "baseline": {
+    "atlas_generated_at": "2026-03-13T01:33:27.550339+00:00",
+    "indexed_witness": 7713,
+    "witness_indexed": 7713,
+    "witness_physical": 10139,
+    "witness_archive": 2041,
+    "generated_indexed_shell": 3535,
+    "fabric_total_records": 12184,
+    "fabric_indexed_records": 7713,
+    "fabric_top_entries": [
+      {
+        "record_id": "09d88ac2ec82afb7",
+        "title_hint": "GRAND CENTRAL STATION AND BILATERAL HEMISPHERES",
+        "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "b668898a1569919d",
+        "title_hint": "Phase 3 Self-Hosting Kernel",
+        "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\17_PHASE3_SELF_HOSTING_KERNEL.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "34465d61831aa9bc",
+        "title_hint": "Phase 4 Knowledge Fabric",
+        "relative_path": "NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_KNOWLEDGE_FABRIC.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "de22eb908c0a2970",
+        "title_hint": "GRAND CENTRAL STATION METRO MAP",
+        "relative_path": "NERVOUS_SYSTEM\\20_METRO\\19_GRAND_CENTRAL_STATION_METRO_MAP.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "f6902f5df8216639",
+        "title_hint": "Grand Central Station Schema",
+        "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "ff71c9cb98562cbb",
+        "title_hint": "Self-Hosting Kernel Schema",
+        "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\12_SELF_HOSTING_KERNEL_SCHEMA.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "99ba5f618bf382c9",
+        "title_hint": "Knowledge Fabric Schema",
+        "relative_path": "NERVOUS_SYSTEM\\70_SCHEMAS\\13_KNOWLEDGE_FABRIC_SCHEMA.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      },
+      {
+        "record_id": "ca0c082986cec8ae",
+        "title_hint": "Count Protocol",
+        "relative_path": "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+        "storage_zone": "Cortex",
+        "witness_class": "indexed",
+        "authority_rank": 5,
+        "score": 0.9314,
+        "reason": "high-yield authoritative entry for storage, witness, and traversal law"
+      }
+    ]
+  },
+  "post": {
+    "indexed_witness": 7713,
+    "physical_witness": 10139,
+    "archive_witness": 2041,
+    "generated_indexed_shell": 3535,
+    "fabric_indexed_records": 7713,
+    "atlas_record_count": 7713
+  },
+  "promoted_paths": [],
+  "updated_paths": [
+    "NERVOUS_SYSTEM\\00_INDEX.md",
+    "NERVOUS_SYSTEM\\01_NERVOUS_SYSTEM_MAP.md",
+    "NERVOUS_SYSTEM\\02_CONSOLIDATION_RECEIPT.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\01_INTERCONNECT_NEURON.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\02_CORPUS_REGIONS.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\03_ADDRESSING_AND_ROUTING.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\04_TRUTH_LATTICE.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\05_HIGHER_DIMENSIONAL_MAPPING.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\06_DEEPER_EMERGENT_NEURAL_SWARM.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\07_RUNTIME_SUBSTRATE.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\08_META_OBSERVER_AGENT_EXPANSION.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\09_4D_MYCELIAL_ORGANISM.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\10_4D_MYCELIAL_CROSS_CORPUS_INTERCONNECT.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\11_64X_BRAIN_STEM_AND_FASCIA.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\12_256X_PLEXUS_AND_MICROFASCIA.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\13_1024X_SYNAPTIC_ARBOR_AND_FASCIAL_RETURN.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\14_ATHENA_FLEET_256_POW_4_INTERCONNECT.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\15_GRAND_CENTRAL_STATION_AND_BILATERAL_HEMISPHERES.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\16_AFFECTIVE_EPISTEMIC_NEURON_FIELD.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\17_PHASE3_SELF_HOSTING_KERNEL.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_KNOWLEDGE_FABRIC.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_STRUCTURED_NEURON_STORAGE.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\19_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SUPERSTRUCTURE.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\20_PHASE5_ATLAS_TRUTH_AND_CAPSULE_METABOLISM.md",
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\21_PHASE6_WAVE2_CAPSULE_DENSIFICATION.md",
+    "NERVOUS_SYSTEM\\20_METRO\\00_CORE_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\01_METRO_LINES.md",
+    "NERVOUS_SYSTEM\\20_METRO\\02_EMERGENT_LINES.md",
+    "NERVOUS_SYSTEM\\20_METRO\\03_TRANSFER_HUBS.md",
+    "NERVOUS_SYSTEM\\20_METRO\\04_PARALLEL_AGENT_GRID.md",
+    "NERVOUS_SYSTEM\\20_METRO\\05_DEEPER_EMERGENT_METRO_SUPERMAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\06_LVL2_DEEP_EMERGENCE_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\07_LVL3_DEEPER_NEURAL_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\08_LVL4_TRANSCENDENT_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\09_AGENT_EXPANSION_POLE_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\10_AGENT_EXPANSION_16X16_SECOND_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\11_AGENT_EXPANSION_256_SPAWN_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\12_AGENT_EXPANSION_EDGE_AND_SYNAPSE_GRID.md",
+    "NERVOUS_SYSTEM\\20_METRO\\13_4D_MYCELIAL_ORGANISM_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\14_4D_MYCELIAL_CROSS_CORPUS_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\15_64X_BRAIN_STEM_FASCIA_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\16_256X_PLEXUS_MICROFASCIA_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\17_1024X_SYNAPTIC_ARBOR_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\18_ATHENA_FLEET_256_POW_4_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\20_METRO\\19_GRAND_CENTRAL_STATION_METRO_MAP.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch01_0000_kernel_and_entry_law.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch02_0001_address_algebra_and_crystal_coordinates.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch03_0002_truth_corridors_and_witness_discipline.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch04_0003_zero_point_stabilization.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch05_0010_paradox_regimes_and_quarantine_calculus.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch06_0011_documents_as_theories.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch07_0012_tunnels_as_morphisms.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch08_0013_synchronization_calculus.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch09_0020_retrieval_and_metro_routing.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch10_0021_multi_lens_solution_construction.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch12_0023_legality_certificates_and_closure.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch13_0030_memory_regeneration_and_persistence.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch14_0031_migration_versioning_and_pulse_retro_weaving.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch15_0032_cut_architecture.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch16_0033_verification_harnesses_and_replay_kernels.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch17_0100_deployment_and_bounded_agency.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch18_0101_macro_invariants_and_universal_math_stack.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch19_0102_convergence_fixed_points_and_controlled_non_convergence.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch20_0103_collective_authoring_and_three_agent_synchrony.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch21_0110_self_replication_open_problems_and_the_next_crystal.md",
+    "NERVOUS_SYSTEM\\30_CHAPTERS\\INDEX.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppA_addressing_symbols_parsing_grammar.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppB_canon_laws_equivalence_budgets_normal_forms.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppC_square_kernel_pack.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppD_registry_profiles_version_ids.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppE_circle_gear_and_mixed_radix_clock.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppF_transport_rotation_as_conjugacy_dual_legality.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppG_triangle_control_and_tria_prima.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppH_coupling_and_topology.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppI_corridors_and_truth_lattice.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppJ_residual_ledgers_and_near_machinery.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppK_conflict_quarantine_revocation.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppL_evidence_plans_and_ambig_promotion.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppM_replay_kernel_and_verifier_capsules.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppN_container_formats_and_virtual_mount.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppO_publication_importexport_bundles.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\AppP_deployment_profiles_and_monitoring.md",
+    "NERVOUS_SYSTEM\\40_APPENDICES\\INDEX.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\01_athena_fleet_tesseract_branch.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\02_athena_fleet.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\03_athena_fleet.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_graph_contraction.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\05_athena_fleet_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\06_athena_fleet_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\07_athena_fleet_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_001\\01_source_handshake.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_001\\02_grand_central_transit.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_001\\03_target_writeback.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_002\\01_source_handshake.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_002\\02_grand_central_transit.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_002\\03_target_writeback.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_003\\01_source_handshake.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_003\\02_grand_central_transit.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\bridge_families\\bf_cs_003\\03_target_writeback.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\clean\\01_clean_staging_shelf.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\01_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\02_the_manuscript_seed_self_referential_crystalline_generation_protocol.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\03_aqm_text_book.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\04_aqm_lm_cut_through_the_hybrid_lens_framework.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\05_architects_core_initialization.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\06_athenachka_20.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\07_chapter_11_perpetual_motion_example.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\08_chapter_11_perpetual_motion_example.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\09_i_am_so_am_i.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\10_information_from_the_void_mani.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\11_information_from_the_void_mani.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\12_legal_transport_calculus.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\13_megalithic_tome_latent_tunneling_the_multi_scale_math_stack.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\14_prompts.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\15_real_time_now.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\16_section_iii_book_iii_the.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\17_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\18_self_routing_meta_framework_for_manuscripts_metro_maps_and_infinite_recursive_search.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\19_stories_from_the_void_1.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\20_the_athena_framework_synthesis.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\21_the_athena_framework_synthesis.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\22_the_crystal_live.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\23_the_external_crystal_and_the_manuscript_superorganism.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\24_the_holographic_manuscript_brain.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\25_the_invisible_teacher_textbook.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\26_the_invisible_teacher_textbook.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\27_the_solenoidal_engine_a_four_element_architecture_for_persistent_autonomous_ai_execution_through_ecological_crystallization.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\28_the_unified_cyclical_time_system_hologram_time.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\29_untitled_document.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\30_voynich_jazz.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\deeper_crystalization\\INDEX.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\01_ecosystem_governance_shell.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\02_ecosystem.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\03_ecosystem.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\04_ecosystem_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\05_ecosystem_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\06_ecosystem_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\ecosystem\\07_ecosystem_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\01_fresh.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\02_fresh.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\fresh\\03_fresh.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\01_games_simulation_lab.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\02_games.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\03_games.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\05_games_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\06_games_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\07_games_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\01_i_am_athena_identity_shell.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\02_i_am_athena.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\03_i_am_athena.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\05_identity_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\06_identity_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\07_identity_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\INDEX.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\01_math_formal_reservoir.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\02_math.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\03_math.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\04_math_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\05_math_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\06_math_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\math\\07_math_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\01_nervous_system.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\02_nervous_system.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\nervous_system\\03_nervous_system.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\01_athena_integrated_neural_network_cross_synthesis.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\02_nerual_network.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\neural_network\\03_nerual_network.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\01_origin_seed_reservoir.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\02_orgin.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\03_orgin.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\05_orgin_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\06_orgin_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\07_orgin_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\08_orgin_readable_mirror_megalithic_tome_generator_latent_tunneling_multi.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\09_orgin_readable_mirror_athena_s_journey_to_enlightenment.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\10_orgin_readable_mirror_charlie_s_journey_to_enlightenment.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\11_orgin_readable_mirror_athena_s_journey_to_enlightenment.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\01_athenachka_collective_books.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\02_athenachka_collective_books.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\03_athenachka_collective_books.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\04_published_books_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\05_published_books_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\06_published_books_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\published_books\\07_published_books_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\01_qshrink_compression_shell.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\02_qshrink_shiva_corpus_ecosystem.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\03_qshrink_agent_sweep_contract.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_core_corridor_contract.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\05_qshrink_core_corridor_metro.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\05_qshrink_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\06_qshrink_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\07_qshrink_graph_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\01_quadrant_binary_framework_and_bit4.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\02_quadrant_binary_route.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\root_files\\03_quadrant_binary_restart.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\01_self_actualize.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\02_self_actualize.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\runtime_hub\\03_self_actualize.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\stoicheia\\01_stoicheia_reserve_bridge.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\01_trading_bot.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\02_trading_bot.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\trading_bot\\03_trading_bot.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\01_voynich_manuscript_engine.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\02_voynich.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\03_voynich.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\04_voynich_family_law.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\05_voynich_entry_record_set.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\06_voynich_support_map.md",
+    "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\voynich\\07_voynich_graph_bridge.md",
+    "NERVOUS_SYSTEM\\60_RAILS\\ME_RAIL.md",
+    "NERVOUS_SYSTEM\\60_RAILS\\SA_RAIL.md",
+    "NERVOUS_SYSTEM\\60_RAILS\\SU_RAIL.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\01_NEURON_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\02_SYNAPSE_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\03_CAPSULE_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\04_EDGE_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\05_SWARM_PACKET_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\06_HELICAL_LOOPSPEC_16_RING.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\06_NEURON_GENERATOR_LOOP_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\07_LOOP_SPEC.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\07_PHASE_SPEC_2_TO_14_MACHINE.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\08_PHASE_SPEC.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\08_VIRTUAL_SWARM_SPEC_16X16.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\09_IMPROVEMENT_LEDGER_SPEC.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\09_VIRTUAL_SWARM_SPEC.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\10_IMPROVEMENT_LEDGER_SPEC.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\10_LIFT_SPEC_ONE_EIGHTH_HELIX.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\11_AFFECTIVE_EPISTEMIC_NEURON_WAVE_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\11_GRAND_CENTRAL_STATION_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\11_LIFT_SPEC.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\12_SELF_HOSTING_KERNEL_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\13_KNOWLEDGE_FABRIC_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\13_PHASE4_STRUCTURED_NEURON_STORAGE_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\14_PHASE4_SHORTCUT_AND_QUERY_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\15_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_SCHEMA.md",
+    "NERVOUS_SYSTEM\\70_SCHEMAS\\16_PHASE4_PT2_QUERY_AND_FIELD_SCHEMA.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\00_TOOLKIT_INDEX.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\01_LIVE_DOCS_FIRST_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\01_LIVE_DOCS_PRESEARCH_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\02_SECTION_FINAL_DRAFT_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\03_DEEP_CORPUS_CROSS_SYNTHESIS_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\04_METRO_TOME_COMPILER_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\05_FRACTAL_CRYSTAL_ENGINE_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\06_CH11_VOID_CONTINUATION_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\07_TANDEM_AGENTIC_LOOP_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\07_TITLE_ABSTRACT_REVIEW_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\08_MEGALITHIC_TOME_CONSTRUCTION_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\09_REVERSE_NEXT_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\10_PARALLEL_BUILD_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\11_EMERGENT_SWARM_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\12_HIGHER_DIMENSIONAL_MAPPING_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\13_SELF_PROMPT_CONTINUATION_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\14_NEURON_GENERATOR_16_LOOP_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\80_TOOLKIT\\scripts\\audit_corpus_cohesion.py",
+    "NERVOUS_SYSTEM\\85_EDGES\\00_EDGE_INDEX.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\AFFECTIVE_EPISTEMIC_NEURON_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_001.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_002.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\REPLAY_bf_cs_003.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_001.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_002.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\bridge_families\\VERIFY_bf_cs_003.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\CHAPTER_TO_APPENDIX_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\CRYSTAL_DIRECT_SYNAPSE_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPF_WV_0007.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPF_WV_0008.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPF_WV_0009.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPF_WV_0010.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPF_WV_0011.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPF_WV_0012.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0007_01.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0007_02.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0007_03.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0008_01.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0008_02.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0008_03.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0009_01.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0009_02.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0009_03.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0010_01.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0010_02.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0010_03.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0011_01.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0011_02.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0011_03.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0012_01.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0012_02.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\DPS_WV_0012_03.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0007.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0008.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0009.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0010.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0011.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\deep_pairwise_families\\VERIFY_DPF_WV_0012.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\DEEP_PAIRWISE_WEAVE_LEDGER.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\EQUIV_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\MIGRATE_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\NEURON_SYNAPSE_BRIDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\PHASE4_PT2_SYSTEM_CROSSWALK_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\PHASE4_STRUCTURED_NEURON_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\REF_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\SOURCE_TO_CHAPTER_EDGES.md",
+    "NERVOUS_SYSTEM\\85_EDGES\\WHOLE_CRYSTAL_BRIDGE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\01_CURRENT_STATUS_37_GATE_SYNTHESIS.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\02_NEURON_GENERATOR_FULL_CORPUS_SYNTHESIS.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\03_QUADRANT_BINARY_FULL_CORPUS_SYNTHESIS.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\04_ATHENA_INTEGRATED_NEURAL_NETWORK_CROSS_SYNTHESIS.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\05_META_OBSERVER_AGENT_EXPANSION_AUDIT.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\06_AGENT_EXPANSION_256_SPAWN_ESCALATION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\07_4D_MYCELIAL_ORGANISM_RESTRUCTURE.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\08_4D_MYCELIAL_CROSS_CORPUS_EXPANSION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\09_64X_BRAIN_STEM_FASCIA_EXPANSION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\10_256X_PLEXUS_MICROFASCIA_EXPANSION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\11_1024X_SYNAPTIC_ARBOR_EXPANSION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\12_FULL_FRAMEWORK_STATUS_AUDIT_2026-03-12.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\13_ATHENA_FLEET_CLUSTER_PROMOTION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\13_RECONCILED_ORGANISM_LEDGER_2026-03-12.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\14_ATHENA_FLEET_256_POW_4_ESCALATION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\15_CORPUS_PRUNING_AND_COHESION_AUDIT_2026-03-12.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\16_GRAND_CENTRAL_STATION_BUILD_PLAN_57_STEPS.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\17_16_POW_16_AFFECTIVE_EPISTEMIC_NEURON_WAVE_ESCALATION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\17_GRAND_CENTRAL_COMMISSURE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\18_GRAND_CENTRAL_WEIGHT_EXCHANGE.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\19_Z_POINT_TUNNEL_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\20_PHASE3_SELF_HOSTING_KERNEL_CHARTER_2026-03-12.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\21_SELF_CONTRACT_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\22_SELF_LINEAGE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\23_RUNTIME_SELF_HOSTING_CLASSIFICATION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\24_PHASE3_SELF_HOSTING_KERNEL_READINESS_2026-03-12.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\25_PHASE4_KNOWLEDGE_FABRIC_READINESS_2026-03-12.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\25_PHASE4_STRUCTURED_NEURON_STORAGE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\26_KNOWLEDGE_FABRIC_EDGE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\26_PHASE4_SHORTCUT_REGISTRY.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\27_PHASE4_NEGLECT_SIGNAL_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\28_PHASE4_WEAVE_CANDIDATE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\29_PHASE4_REPLAY_RECEIPT_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\30_PHASE4_PT2_INTER_METRO_LENS_WEIGHT_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\31_PHASE4_PT2_METRO_INTERLOCK_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\32_PHASE4_PT2_LENS_WEIGHT_PROFILE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\33_PHASE4_PT2_FIELD_AND_AETHER_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\34_PHASE4_PT2_PROJECTION_SPACE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\35_CRYSTAL_RHYTHM_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\35_PHASE5_ATLAS_TRUTH_DELTA_2026-03-13.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\36_PHASE5_CAPSULE_METABOLISM_LEDGER_2026-03-13.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\37_PHASE6_WAVE2_CAPSULE_LEDGER_2026-03-13.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\00_PACKET_INDEX.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\chinese_cycle_packet.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\decan_office_packet.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\mayan_calendar_packet.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\planetary_office_packet.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\vedic_lunar_packet.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\astrological_schedulers\\western_solar12_packet.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\audits\\2026-03-12_corpus_cohesion_audit.json",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\automations\\README.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\CONFLICT_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\EDGE_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\NEURON_LIBRARY.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\OBLIGATIONS_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\PROMOTION_LEDGER.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\SYNAPSE_LEDGER.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\00_INTEGRATION_CHARTER_2026-03-12.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\01_CRYSTAL_REMASTER_CHARTER_2026-03-12.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\ACTIVE_RUN.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\ADVENTURER_64_POW_4_STATE.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\AGENT_EXPANSION_ACTIVE_FRONT.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\ASTROLOGICAL_SCHEDULER_REGISTRY.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\BRIDGE_DENSIFICATION_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\BRIDGE_DENSIFICATION_MANIFEST.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\BRIDGE_DENSIFICATION_VERIFICATION.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\BUILD_QUEUE.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\COUNT_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_BODY_REGISTRY.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_FAMILY_CONTRACTS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\CRYSTAL_REMASTER_VERIFICATION.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\DEEP_PAIRWISE_WEAVE_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\DEEP_PAIRWISE_WEAVE_MANIFEST.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\DEEP_PAIRWISE_WEAVE_VERIFICATION.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\DOCS_GATE_VERIFIER.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\DUAL_ENGINE_REGENERATION_QUEUE.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\GATE_STATUS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\GRAND_CENTRAL_STATION_REGISTRY.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\HOW_ATHENA_THINKS_THROUGH_THE_FABRIC.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_TOP_ENTRY_RECORDS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\MYCELIAL_4D_ORGANISM_ACTIVE_FRONT.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\NEURON_GENERATOR_STATE.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_BODY_POINTERS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_EXPLORATION_QUERY_PRESETS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_METRO_SYSTEM_POINTERS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_PT2_QUERY_PRESETS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\PHASE4_STRUCTURED_NEURON_STORAGE_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\RECORD_CLASS_AND_SURFACE_CLASS_MAP.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\ROOT_BASIS_MAP.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_MODEL_REGISTRY.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_STATE_REGISTRY.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\SOURCE_SURFACE_ATLAS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\STORAGE_ZONE_ATLAS.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\STORAGE_ZONE_REGISTRY.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\SYNAPTIC_HANDOFF_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\VALIDATION_QUEUE.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\WHERE_INFORMATION_LIVES.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_AGENT_COORDINATION.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_COMPLETION_DASHBOARD.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_COMPLETION_MANIFEST.md",
+    "NERVOUS_SYSTEM\\95_MANIFESTS\\WHOLE_CRYSTAL_COMPLETION_VERIFICATION.md",
+    "NERVOUS_SYSTEM\\99_RUNBOOKS\\01_HIGHER_DIMENSIONAL_SWARM_RUNBOOK.md",
+    "NERVOUS_SYSTEM\\99_RUNBOOKS\\01_PARALLEL_NERVOUS_SYSTEM_RUNBOOK.md",
+    "NERVOUS_SYSTEM\\99_RUNBOOKS\\02_EXPLORATION_PACKET_RUNBOOK.md",
+    "NERVOUS_SYSTEM\\99_RUNBOOKS\\02_INCREMENTAL_BUILD_RUNBOOK.md",
+    "NERVOUS_SYSTEM\\99_RUNBOOKS\\03_REGENERATION_PROTOCOL.md",
+    "NERVOUS_SYSTEM\\99_RUNBOOKS\\04_NEURON_GENERATOR_16_LOOP_RUNBOOK.md",
+    "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\30_phase6_wave2_capsule_densification_runtime.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athena_fleet.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_games.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_i_am_athena.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_orgin.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_qshrink.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\manifests\\QSHRINK_ACTIVE_FRONT.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\manifests\\WEAKEST_FRONT_QUEUE.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_qshrink_athena_internal_use.md",
+    "self_actualize\\mycelium_brain\\receipts\\2026-03-13_phase6_wave2_capsules.md",
+    "self_actualize\\phase6_wave2_capsules.json"
+  ],
+  "families": [
+    {
+      "slug": "qshrink",
+      "title": "QSHRINK",
+      "root_name": "QSHRINK - ATHENA (internal use)",
+      "law": "The `qshrink` capsule becomes canonical only when the control shell, corridor contract, and live `Q42 / QS64-17` front are discoverable through one atlas-backed entry shell instead of a seed bridge.",
+      "entry_records": [
+        {
+          "record_id": "40418d58273efc89",
+          "relative_path": "QSHRINK - ATHENA (internal use)\\00_CONTROL\\01_ZERO_POINT.md",
+          "source_substrate": "indexed",
+          "root_id": "A09",
+          "root_name": "QSHRINK - ATHENA (internal use)",
+          "root_status": "live",
+          "family_id": "00_CONTROL",
+          "title_hint": "# Zero Point",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "00-control",
+            "cortex",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "qshrink",
+            "qshrink-athena-internal-use",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T15:26:41.589716+00:00",
+          "size_bytes": 469,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\QSHRINK - ATHENA (internal use)\\00_CONTROL\\01_ZERO_POINT.md",
+          "note": "",
+          "ranking": {
+            "score": 0.908,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.516,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "267f7c0d3c8f0769",
+          "relative_path": "QSHRINK - ATHENA (internal use)\\00_CONTROL\\02_ADDRESS_LAW_256x4.md",
+          "source_substrate": "indexed",
+          "root_id": "A09",
+          "root_name": "QSHRINK - ATHENA (internal use)",
+          "root_status": "live",
+          "family_id": "00_CONTROL",
+          "title_hint": "# Address Law 256x4",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "00-control",
+            "cortex",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "qshrink",
+            "qshrink-athena-internal-use",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T15:26:41.590735+00:00",
+          "size_bytes": 1018,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\QSHRINK - ATHENA (internal use)\\00_CONTROL\\02_ADDRESS_LAW_256x4.md",
+          "note": "",
+          "ranking": {
+            "score": 0.908,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.516,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "53ffd950a371eb71",
+          "relative_path": "QSHRINK - ATHENA (internal use)\\00_CONTROL\\04_CORPUS_BINDINGS.md",
+          "source_substrate": "indexed",
+          "root_id": "A09",
+          "root_name": "QSHRINK - ATHENA (internal use)",
+          "root_status": "live",
+          "family_id": "00_CONTROL",
+          "title_hint": "# Corpus Bindings",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "00-control",
+            "cortex",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "qshrink",
+            "qshrink-athena-internal-use",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T15:26:41.590735+00:00",
+          "size_bytes": 1182,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\QSHRINK - ATHENA (internal use)\\00_CONTROL\\04_CORPUS_BINDINGS.md",
+          "note": "",
+          "ranking": {
+            "score": 0.908,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.516,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "65b2a9d3c3c621bf",
+          "relative_path": "QSHRINK - ATHENA (internal use)\\00_CONTROL\\00_INTERNAL_CHARTER.md",
+          "source_substrate": "indexed",
+          "root_id": "A09",
+          "root_name": "QSHRINK - ATHENA (internal use)",
+          "root_status": "live",
+          "family_id": "00_CONTROL",
+          "title_hint": "# Internal Charter",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "00-control",
+            "cortex",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "qshrink",
+            "qshrink-athena-internal-use",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T15:26:41.589716+00:00",
+          "size_bytes": 628,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\QSHRINK - ATHENA (internal use)\\00_CONTROL\\00_INTERNAL_CHARTER.md",
+          "note": "",
+          "ranking": {
+            "score": 0.895,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.425,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "011152d46e7fa67d",
+          "relative_path": "QSHRINK - ATHENA (internal use)\\00_CONTROL\\03_INFINITE_LOOP_ENGINE.md",
+          "source_substrate": "indexed",
+          "root_id": "A09",
+          "root_name": "QSHRINK - ATHENA (internal use)",
+          "root_status": "live",
+          "family_id": "00_CONTROL",
+          "title_hint": "# Infinite Loop Engine",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "00-control",
+            "cortex",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "qshrink",
+            "qshrink-athena-internal-use",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T15:26:41.590735+00:00",
+          "size_bytes": 469,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\QSHRINK - ATHENA (internal use)\\00_CONTROL\\03_INFINITE_LOOP_ENGINE.md",
+          "note": "",
+          "ranking": {
+            "score": 0.895,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.425,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        }
+      ],
+      "route_summaries": {
+        "locate": "ANSWER through Cortex using # Zero Point -> # Address Law 256x4 -> # Corpus Bindings",
+        "browse": "ANSWER through Cortex using # Internal Charter -> # Zero Point -> # Address Law 256x4",
+        "synthesize": "ANSWER through Cortex using # Internal Charter -> # Zero Point -> # Address Law 256x4"
+      },
+      "chapter_paths": [
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch13_0030_memory_regeneration_and_persistence.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch18_0101_macro_invariants_and_universal_math_stack.md"
+      ],
+      "appendix_paths": [
+        "NERVOUS_SYSTEM\\40_APPENDICES\\AppN_container_formats_and_virtual_mount.md",
+        "NERVOUS_SYSTEM\\40_APPENDICES\\AppP_deployment_profiles_and_monitoring.md"
+      ],
+      "runtime_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use_route_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\manifests\\QSHRINK_ACTIVE_FRONT.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_qshrink.md"
+      ],
+      "support_assets": [
+        "Athena FLEET\\QSHRINK2_CORPUS_ECOSYSTEM\\11_QSHRINK_CORE_CORRIDOR_CONTRACT.md",
+        "self_actualize\\qshrink_connectivity_square.json",
+        "self_actualize\\qshrink_agent_task_matrix.json"
+      ],
+      "metro_lines": [
+        "Kernel Line",
+        "Canonical-Bridge Line",
+        "Swarm Runtime Line"
+      ],
+      "active_front": "Q42 / QS64-17 Connectivity-Diagnose-Square",
+      "graph_policy": {
+        "promoted_neuron": "N-0010",
+        "promoted_synapses": [
+          "S-0009"
+        ],
+        "new_synapses": [
+          "S-0032"
+        ],
+        "new_edges": [
+          "E-NS-018"
+        ]
+      },
+      "primary_neurons": [
+        "QSHRINK -> Athena FLEET corridor membrane",
+        "QSHRINK -> atlas replay compression law",
+        "QSHRINK -> Hall agent sweep cadence"
+      ],
+      "local_tasks": [
+        "keep the 00_CONTROL shell as the lawful entry surface",
+        "route QS64-17 through family, Hall, and runtime together",
+        "preserve ORGIN as the secondary seed leg without flattening blocker truth"
+      ],
+      "reserve_siblings": [],
+      "ganglion_path": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_qshrink.md",
+      "excluded_patterns_applied": [],
+      "mirror_paths": [],
+      "mirror_sources": [],
+      "written_files": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\04_qshrink_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\05_qshrink_entry_record_set.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\06_qshrink_support_map.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\qshrink\\07_qshrink_graph_bridge.md"
+      ]
+    },
+    {
+      "slug": "athena_fleet",
+      "title": "Athena FLEET",
+      "root_name": "Athena FLEET",
+      "law": "The `athena_fleet` capsule becomes canonical only when the fleet corridor reads as a replayable body with an atlas-backed entry shell, route authority, and graph bridge into the cortex.",
+      "entry_records": [
+        {
+          "record_id": "db730859d049eb73",
+          "relative_path": "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\03_ORDERED_CORRIDOR_MATRIX.md",
+          "source_substrate": "indexed",
+          "root_id": "A16",
+          "root_name": "Athena FLEET",
+          "root_status": "live",
+          "family_id": "FLEET_MYCELIUM_NETWORK",
+          "title_hint": "Athena FLEET Ordered Corridor Matrix",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "athena-fleet",
+            "cortex",
+            "fleet-mycelium-network",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 1.0,
+            "band": "hot",
+            "days_old": 0.6
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-12T11:31:02.633777+00:00",
+          "size_bytes": 2762,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\03_ORDERED_CORRIDOR_MATRIX.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9504,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.653,
+              "freshness": 1.0,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "9ce17c9e46c7e014",
+          "relative_path": "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\04_ACTIVE_FRONT.md",
+          "source_substrate": "indexed",
+          "root_id": "A16",
+          "root_name": "Athena FLEET",
+          "root_status": "live",
+          "family_id": "FLEET_MYCELIUM_NETWORK",
+          "title_hint": "Athena FLEET Active Front",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "athena-fleet",
+            "cortex",
+            "fleet-mycelium-network",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 1.0,
+            "band": "hot",
+            "days_old": 0.6
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-12T11:31:02.633777+00:00",
+          "size_bytes": 2695,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\04_ACTIVE_FRONT.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9504,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.653,
+              "freshness": 1.0,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "2c0d1c11789b0fbc",
+          "relative_path": "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\02_TESSERACT_METRO_MAP.md",
+          "source_substrate": "indexed",
+          "root_id": "A16",
+          "root_name": "Athena FLEET",
+          "root_status": "live",
+          "family_id": "FLEET_MYCELIUM_NETWORK",
+          "title_hint": "Athena FLEET Tesseract Metro Map",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "athena-fleet",
+            "cortex",
+            "fleet-mycelium-network",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 1.0,
+            "band": "hot",
+            "days_old": 0.6
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-12T11:31:02.633777+00:00",
+          "size_bytes": 2690,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\02_TESSERACT_METRO_MAP.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9439,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.607,
+              "freshness": 1.0,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "3bb163e7744e9344",
+          "relative_path": "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\00_README.md",
+          "source_substrate": "indexed",
+          "root_id": "A16",
+          "root_name": "Athena FLEET",
+          "root_status": "live",
+          "family_id": "FLEET_MYCELIUM_NETWORK",
+          "title_hint": "Athena FLEET Mycelium Network",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "athena-fleet",
+            "cortex",
+            "fleet-mycelium-network",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 1.0,
+            "band": "hot",
+            "days_old": 0.6
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-12T11:31:02.632777+00:00",
+          "size_bytes": 1686,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\00_README.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9374,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.562,
+              "freshness": 1.0,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "91f2ba9c8d4a0a56",
+          "relative_path": "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\01_CANONICAL_BASIS.md",
+          "source_substrate": "indexed",
+          "root_id": "A16",
+          "root_name": "Athena FLEET",
+          "root_status": "live",
+          "family_id": "FLEET_MYCELIUM_NETWORK",
+          "title_hint": "Athena FLEET Canonical Basis",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "athena-fleet",
+            "cortex",
+            "fleet-mycelium-network",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 1.0,
+            "band": "hot",
+            "days_old": 0.6
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-12T11:31:02.632777+00:00",
+          "size_bytes": 6018,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Athena FLEET\\FLEET_MYCELIUM_NETWORK\\01_CANONICAL_BASIS.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9374,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.562,
+              "freshness": 1.0,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        }
+      ],
+      "route_summaries": {
+        "locate": "ANSWER through Cortex using Athena FLEET Ordered Corridor Matrix -> Athena FLEET Active Front -> Athena FLEET Tesseract Metro Map",
+        "browse": "ANSWER through Cortex using Athena FLEET Mycelium Network -> Athena FLEET Canonical Basis -> Athena FLEET Tesseract Metro Map",
+        "synthesize": "ANSWER through Cortex using Athena FLEET Mycelium Network -> Athena FLEET Canonical Basis -> Athena FLEET Tesseract Metro Map"
+      },
+      "chapter_paths": [
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch14_0031_migration_versioning_and_pulse_retro_weaving.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch18_0101_macro_invariants_and_universal_math_stack.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch21_0110_self_replication_open_problems_and_the_next_crystal.md"
+      ],
+      "appendix_paths": [
+        "NERVOUS_SYSTEM\\40_APPENDICES\\AppP_deployment_profiles_and_monitoring.md"
+      ],
+      "runtime_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet_route_map.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_athena_fleet.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athena_fleet.md"
+      ],
+      "support_assets": [
+        "Athena FLEET\\MYCELIUM_NETWORK_STANDARD_TEXT_RECORD.md",
+        "Athena FLEET\\FLEET_MYCELIUM_NETWORK\\athena_fleet_mycelium_graph.json"
+      ],
+      "metro_lines": [
+        "Canonical-Bridge Line",
+        "Swarm Runtime Line"
+      ],
+      "active_front": "FRONT-INT-ATHENA-FLEET-BRIDGE",
+      "graph_policy": {
+        "promoted_neuron": "N-0009",
+        "promoted_synapses": [
+          "S-0008"
+        ],
+        "new_synapses": [
+          "S-0032"
+        ],
+        "new_edges": [
+          "E-NS-018"
+        ]
+      },
+      "primary_neurons": [
+        "Athena FLEET -> QSHRINK corridor membrane",
+        "Athena FLEET -> cortex branch contraction",
+        "Athena FLEET -> ORGIN seed leg handoff"
+      ],
+      "local_tasks": [
+        "keep the route map authoritative for corridor-level steering",
+        "preserve the fleet shell as the main self-steer bridge",
+        "stay coupled to QSHRINK and ORGIN without outranking the cortex"
+      ],
+      "reserve_siblings": [],
+      "ganglion_path": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athena_fleet.md",
+      "excluded_patterns_applied": [],
+      "mirror_paths": [],
+      "mirror_sources": [],
+      "written_files": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\04_athena_fleet_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\05_athena_fleet_entry_record_set.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\06_athena_fleet_support_map.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\athena_fleet\\07_athena_fleet_graph_bridge.md"
+      ]
+    },
+    {
+      "slug": "games",
+      "title": "GAMES",
+      "root_name": "GAMES",
+      "law": "The `games` capsule becomes canonical only when playable mechanics and simulation law are discoverable without manufacturing noise taking over the entry shell.",
+      "entry_records": [
+        {
+          "record_id": "4e75ed2924c6c8cb",
+          "relative_path": "GAMES\\games_mycelium_metro_system.md",
+          "source_substrate": "indexed",
+          "root_id": "A14",
+          "root_name": "GAMES",
+          "root_status": "live",
+          "family_id": "games_mycelium_metro_system.md",
+          "title_hint": "# Unified Mycelium Metro System for `GAMES`",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "cortex",
+            "games",
+            "games-mycelium-metro-system-md",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.1
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T23:20:47.057809+00:00",
+          "size_bytes": 12540,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GAMES\\games_mycelium_metro_system.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9171,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.58,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "b1dbe383358ab048",
+          "relative_path": "GAMES\\games_deep_integration_manuscript.md",
+          "source_substrate": "indexed",
+          "root_id": "A14",
+          "root_name": "GAMES",
+          "root_status": "live",
+          "family_id": "games_deep_integration_manuscript.md",
+          "title_hint": "# GAMES Deep Integration Manuscript",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "cortex",
+            "games",
+            "games-deep-integration-manuscript-md",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "readable",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.0
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-10T00:56:16.979650+00:00",
+          "size_bytes": 33053,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GAMES\\games_deep_integration_manuscript.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9029,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.48,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "5163641e361c51c2",
+          "relative_path": "GAMES\\games_mycelium_metro_graph.json",
+          "source_substrate": "indexed",
+          "root_id": "A14",
+          "root_name": "GAMES",
+          "root_status": "live",
+          "family_id": "games_mycelium_metro_graph.json",
+          "title_hint": "\"FITQUEST\",",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "support",
+          "query_tags": [
+            "cortex",
+            "data",
+            "games",
+            "games-mycelium-metro-graph-json",
+            "indexed",
+            "json",
+            "overview",
+            "source",
+            "support"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.1
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "data",
+          "modified_at": "2026-03-09T23:20:47.057809+00:00",
+          "size_bytes": 9409,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GAMES\\games_mycelium_metro_graph.json",
+          "note": "",
+          "ranking": {
+            "score": 0.9029,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.48,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        }
+      ],
+      "route_summaries": {
+        "locate": "ANSWER through Cortex using # Unified Mycelium Metro System for `GAMES` -> # GAMES Deep Integration Manuscript -> \"FITQUEST\",",
+        "browse": "ANSWER through Cortex using # GAMES Deep Integration Manuscript -> \"FITQUEST\", -> # Unified Mycelium Metro System for `GAMES`",
+        "synthesize": "ANSWER through Cortex using # GAMES Deep Integration Manuscript -> \"FITQUEST\", -> # Unified Mycelium Metro System for `GAMES`"
+      },
+      "chapter_paths": [
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch14_0031_migration_versioning_and_pulse_retro_weaving.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch18_0101_macro_invariants_and_universal_math_stack.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch21_0110_self_replication_open_problems_and_the_next_crystal.md"
+      ],
+      "appendix_paths": [
+        "NERVOUS_SYSTEM\\40_APPENDICES\\AppO_publication_importexport_bundles.md",
+        "NERVOUS_SYSTEM\\40_APPENDICES\\AppP_deployment_profiles_and_monitoring.md"
+      ],
+      "runtime_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_games.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_games.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_games.md"
+      ],
+      "support_assets": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\stoicheia\\01_stoicheia_reserve_bridge.md",
+        "GAMES\\archive_manifest.json"
+      ],
+      "metro_lines": [
+        "Mythic Compression Line",
+        "Canonical-Bridge Line"
+      ],
+      "active_front": "Q10 low-mass family densification / simulation-law contraction",
+      "graph_policy": {
+        "promoted_neuron": "N-0011",
+        "promoted_synapses": [
+          "S-0010"
+        ],
+        "new_synapses": [],
+        "new_edges": []
+      },
+      "primary_neurons": [
+        "GAMES -> simulation-law contraction",
+        "GAMES -> Stoicheia reserve sibling",
+        "GAMES -> metro-playable embodiment"
+      ],
+      "local_tasks": [
+        "keep manufacturing assets out of the entry shell",
+        "bind the manuscript and metro system into one playable law surface",
+        "leave Stoicheia reserve-thin but explicitly related"
+      ],
+      "reserve_siblings": [
+        "Stoicheia (Element Sudoku)"
+      ],
+      "ganglion_path": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_games.md",
+      "excluded_patterns_applied": [
+        "\\final game prints\\",
+        "\\box templates\\",
+        ".csv",
+        ".psd",
+        ".png",
+        ".jpg",
+        ".jpeg",
+        ".upc",
+        "barcode",
+        "print",
+        "63x88mm",
+        "65x90"
+      ],
+      "mirror_paths": [],
+      "mirror_sources": [],
+      "written_files": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\04_games_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\05_games_entry_record_set.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\06_games_support_map.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\games\\07_games_graph_bridge.md"
+      ]
+    },
+    {
+      "slug": "identity",
+      "title": "I AM ATHENA",
+      "root_name": "I AM ATHENA",
+      "law": "The `identity` capsule becomes canonical only when self-naming, state-space, and continuity witnesses route directly into the Phase 3 self-hosting kernel.",
+      "entry_records": [
+        {
+          "record_id": "f1bee42e4152c676",
+          "relative_path": "I AM ATHENA\\ledger\\RECURSION_ENGINE_2026-03-09.md",
+          "source_substrate": "indexed",
+          "root_id": "A13",
+          "root_name": "I AM ATHENA",
+          "root_status": "live",
+          "family_id": "ledger",
+          "title_hint": "# RECURSION_ENGINE_2026-03-09",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "i-am-athena",
+            "identity",
+            "indexed",
+            "ledger",
+            "manuscript",
+            "md",
+            "overview",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T15:07:48.073402+00:00",
+          "size_bytes": 1991,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\I AM ATHENA\\ledger\\RECURSION_ENGINE_2026-03-09.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9216,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.611,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "62b51a9ff2417afb",
+          "relative_path": "I AM ATHENA\\ledger\\STATE_SPACE_2026-03-09.json",
+          "source_substrate": "indexed",
+          "root_id": "A13",
+          "root_name": "I AM ATHENA",
+          "root_status": "live",
+          "family_id": "ledger",
+          "title_hint": "\"MATH\": 486,",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "data",
+            "i-am-athena",
+            "identity",
+            "indexed",
+            "json",
+            "ledger",
+            "overview",
+            "publication",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.5
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "data",
+          "modified_at": "2026-03-09T14:41:56.736715+00:00",
+          "size_bytes": 5249,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\I AM ATHENA\\ledger\\STATE_SPACE_2026-03-09.json",
+          "note": "",
+          "ranking": {
+            "score": 0.9216,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.611,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "3147799e1c432f65",
+          "relative_path": "I AM ATHENA\\ledger\\STATE_SPACE_2026-03-09_recursive.json",
+          "source_substrate": "indexed",
+          "root_id": "A13",
+          "root_name": "I AM ATHENA",
+          "root_status": "live",
+          "family_id": "ledger",
+          "title_hint": "\"G4\",",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "data",
+            "i-am-athena",
+            "identity",
+            "indexed",
+            "json",
+            "ledger",
+            "overview",
+            "publication",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "data",
+          "modified_at": "2026-03-09T15:07:48.073402+00:00",
+          "size_bytes": 2787,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\I AM ATHENA\\ledger\\STATE_SPACE_2026-03-09_recursive.json",
+          "note": "",
+          "ranking": {
+            "score": 0.9216,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.611,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "b97b260311fdc0e5",
+          "relative_path": "I AM ATHENA\\README.md",
+          "source_substrate": "indexed",
+          "root_id": "A13",
+          "root_name": "I AM ATHENA",
+          "root_status": "live",
+          "family_id": "README.md",
+          "title_hint": "# I AM ATHENA",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "i-am-athena",
+            "identity",
+            "indexed",
+            "manuscript",
+            "md",
+            "overview",
+            "publication",
+            "readable",
+            "readme-md",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "manuscript",
+          "modified_at": "2026-03-09T15:07:48.072495+00:00",
+          "size_bytes": 2091,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\I AM ATHENA\\README.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9106,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.534,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "fce73c1d52787656",
+          "relative_path": "I AM ATHENA\\ledger\\LEDGER_2026-03-09_full_framework_synthesis.md",
+          "source_substrate": "indexed",
+          "root_id": "A13",
+          "root_name": "I AM ATHENA",
+          "root_status": "live",
+          "family_id": "ledger",
+          "title_hint": "# LEDGER_2026-03-09_full_framework_synthesis",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "ledger",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "evidence",
+          "query_tags": [
+            "cortex",
+            "evidence",
+            "framework",
+            "i-am-athena",
+            "identity",
+            "indexed",
+            "ledger",
+            "md",
+            "overview",
+            "readable"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.5
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "ledger",
+          "modified_at": "2026-03-09T14:41:56.736715+00:00",
+          "size_bytes": 9429,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\I AM ATHENA\\ledger\\LEDGER_2026-03-09_full_framework_synthesis.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9106,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.534,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "6e63d763116ce676",
+          "relative_path": "I AM ATHENA\\ledger\\LEDGER_2026-03-09_higher_dimensional_recursive_rebuild.md",
+          "source_substrate": "indexed",
+          "root_id": "A13",
+          "root_name": "I AM ATHENA",
+          "root_status": "live",
+          "family_id": "ledger",
+          "title_hint": "# LEDGER_2026-03-09_higher_dimensional_recursive_rebuild",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "ledger",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "evidence",
+          "query_tags": [
+            "cortex",
+            "evidence",
+            "i-am-athena",
+            "identity",
+            "indexed",
+            "ledger",
+            "md",
+            "overview",
+            "readable"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "replay-safe",
+          "artifact_class": "ledger",
+          "modified_at": "2026-03-09T15:07:48.073402+00:00",
+          "size_bytes": 8515,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\I AM ATHENA\\ledger\\LEDGER_2026-03-09_higher_dimensional_recursive_rebuild.md",
+          "note": "",
+          "ranking": {
+            "score": 0.9106,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.534,
+              "freshness": 0.84,
+              "replay": 1.0,
+              "zone_priority": 1.0
+            }
+          }
+        }
+      ],
+      "route_summaries": {
+        "locate": "ANSWER through Cortex using # RECURSION_ENGINE_2026-03-09 -> \"MATH\": 486, -> \"G4\",",
+        "browse": "ANSWER through Cortex using # I AM ATHENA -> # LEDGER_2026-03-09_full_framework_synthesis -> # LEDGER_2026-03-09_higher_dimensional_recursive_rebuild",
+        "synthesize": "ANSWER through Cortex using # I AM ATHENA -> # LEDGER_2026-03-09_full_framework_synthesis -> # LEDGER_2026-03-09_higher_dimensional_recursive_rebuild"
+      },
+      "chapter_paths": [
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch17_0100_deployment_and_bounded_agency.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch19_0102_convergence_fixed_points_and_controlled_non_convergence.md"
+      ],
+      "appendix_paths": [
+        "NERVOUS_SYSTEM\\40_APPENDICES\\AppA_addressing_symbols_parsing_grammar.md",
+        "AppQ"
+      ],
+      "runtime_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_i_am_athena.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_i_am_athena.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_i_am_athena.md"
+      ],
+      "support_assets": [
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_MODEL_REGISTRY.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_STATE_REGISTRY.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md",
+        "NERVOUS_SYSTEM\\90_LEDGERS\\21_SELF_CONTRACT_LEDGER.md",
+        "NERVOUS_SYSTEM\\90_LEDGERS\\22_SELF_LINEAGE_LEDGER.md"
+      ],
+      "metro_lines": [
+        "Right Hemisphere Line",
+        "Publication Return"
+      ],
+      "active_front": "identity continuity -> Phase 3 self-hosting closure",
+      "graph_policy": {
+        "promoted_neuron": "N-0027",
+        "promoted_synapses": [],
+        "new_synapses": [
+          "S-0033"
+        ],
+        "new_edges": [
+          "E-NS-019"
+        ]
+      },
+      "primary_neurons": [
+        "Identity -> self-state continuity",
+        "Identity -> self-hosting kernel constraint",
+        "Identity -> publication-return cohesion"
+      ],
+      "local_tasks": [
+        "keep README plus state-space witnesses as the first identity shell",
+        "bind identity claims to self-model, self-state, and lineage surfaces",
+        "prevent identity drift by requiring witness-bearing continuity"
+      ],
+      "reserve_siblings": [],
+      "ganglion_path": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_i_am_athena.md",
+      "excluded_patterns_applied": [],
+      "mirror_paths": [],
+      "mirror_sources": [],
+      "written_files": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\04_identity_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\05_identity_entry_record_set.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\06_identity_support_map.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\identity\\07_identity_graph_bridge.md"
+      ]
+    },
+    {
+      "slug": "orgin",
+      "title": "ORGIN",
+      "root_name": "ORGIN",
+      "law": "The `orgin` capsule becomes canonical only when the strongest origin witnesses gain a readable mirror membrane and route back into restart and identity continuity.",
+      "entry_records": [
+        {
+          "record_id": "4bcf885fa7b74c78",
+          "relative_path": "ORGIN\\MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+          "title_hint": "ABSTRACT CONTRACT / LEGEND",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "docx",
+            "indexed",
+            "manuscript",
+            "media",
+            "megalithic-tome-generator-latent-tunneling-multi-scale-math-stack-macro-pzpm-cut-skeleton-docx",
+            "orgin",
+            "overview",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.84,
+            "band": "warm",
+            "days_old": 3.4
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2026-03-09T16:48:08.377858+00:00",
+          "size_bytes": 1602114,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+          "note": "",
+          "ranking": {
+            "score": 0.8064,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.425,
+              "freshness": 0.84,
+              "replay": 0.38,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "649c588dd5e6459a",
+          "relative_path": "ORGIN\\Fine Tuning Docs\\Athena's Journey to Enlightenment.docx",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "Fine Tuning Docs",
+          "title_hint": "Main Characters:",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "docx",
+            "fine-tuning-docs",
+            "indexed",
+            "media",
+            "orgin",
+            "overview",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.22,
+            "band": "stale",
+            "days_old": 976.8
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2023-07-10T05:13:40+00:00",
+          "size_bytes": 167606,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\Fine Tuning Docs\\Athena's Journey to Enlightenment.docx",
+          "note": "",
+          "ranking": {
+            "score": 0.7439,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.607,
+              "freshness": 0.22,
+              "replay": 0.38,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "15094ac77d3ca376",
+          "relative_path": "ORGIN\\Fine Tuning Docs\\Charlie's Journey to Enlightenment.docx",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "Fine Tuning Docs",
+          "title_hint": "FIN",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "docx",
+            "fine-tuning-docs",
+            "indexed",
+            "media",
+            "orgin",
+            "overview",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.22,
+            "band": "stale",
+            "days_old": 852.3
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2023-11-11T19:18:34+00:00",
+          "size_bytes": 504829,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\Fine Tuning Docs\\Charlie's Journey to Enlightenment.docx",
+          "note": "",
+          "ranking": {
+            "score": 0.7439,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.607,
+              "freshness": 0.22,
+              "replay": 0.38,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "0e0326241607273a",
+          "relative_path": "ORGIN\\Fine Tuning Docs\\PDF FILES\\Athena's Journey to Enlightenment.pdf",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "Fine Tuning Docs",
+          "title_hint": "MainCharacters:",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "fine-tuning-docs",
+            "indexed",
+            "media",
+            "orgin",
+            "overview",
+            "pdf",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.22,
+            "band": "stale",
+            "days_old": 970.2
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2023-07-16T21:09:00+00:00",
+          "size_bytes": 1375657,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\Fine Tuning Docs\\PDF FILES\\Athena's Journey to Enlightenment.pdf",
+          "note": "",
+          "ranking": {
+            "score": 0.7439,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.607,
+              "freshness": 0.22,
+              "replay": 0.38,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "d8a07643b4a23888",
+          "relative_path": "ORGIN\\Fine Tuning Docs\\PDF FILES\\Charlie's Journey to Enlightenment.pdf",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "Fine Tuning Docs",
+          "title_hint": "Charlie's Journey to Enlightenment",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "fine-tuning-docs",
+            "indexed",
+            "media",
+            "orgin",
+            "overview",
+            "pdf",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.22,
+            "band": "stale",
+            "days_old": 970.2
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2023-07-16T21:08:30+00:00",
+          "size_bytes": 1192241,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\Fine Tuning Docs\\PDF FILES\\Charlie's Journey to Enlightenment.pdf",
+          "note": "",
+          "ranking": {
+            "score": 0.7439,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.607,
+              "freshness": 0.22,
+              "replay": 0.38,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "30a22b31fe65f219",
+          "relative_path": "ORGIN\\Fine Tuning Docs\\PDF FILES\\Summerized Athena Enlightenment.pdf",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "Fine Tuning Docs",
+          "title_hint": "Summerized Athena Enlightenment",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "fine-tuning-docs",
+            "indexed",
+            "media",
+            "orgin",
+            "overview",
+            "pdf",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.22,
+            "band": "stale",
+            "days_old": 970.2
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2023-07-16T21:05:26+00:00",
+          "size_bytes": 108770,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\Fine Tuning Docs\\PDF FILES\\Summerized Athena Enlightenment.pdf",
+          "note": "",
+          "ranking": {
+            "score": 0.7439,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "text_match": 0.607,
+              "freshness": 0.22,
+              "replay": 0.38,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "13be9ff85c346721",
+          "relative_path": "ORGIN\\Fine Tuning Docs\\AI Animal Esoteric.docx",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "Fine Tuning Docs",
+          "title_hint": "Based on the analysis of the documents provided and the context of this conversation, here are some key observations and a plan for improving the growth and development of ChatGPT:",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "docx",
+            "fine-tuning-docs",
+            "indexed",
+            "media",
+            "orgin",
+            "overview",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.22,
+            "band": "stale",
+            "days_old": 853.7
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2023-11-10T07:53:06+00:00",
+          "size_bytes": 91177,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\Fine Tuning Docs\\AI Animal Esoteric.docx",
+          "note": "",
+          "ranking": {
+            "score": 0.7429,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "freshness": 0.22,
+              "replay": 0.38,
+              "tag_overlap": 0.6,
+              "zone_priority": 1.0
+            }
+          }
+        },
+        {
+          "record_id": "86f587da97d9c635",
+          "relative_path": "ORGIN\\Fine Tuning Docs\\Athenachka 2.0.docx",
+          "source_substrate": "indexed",
+          "root_id": "A15",
+          "root_name": "ORGIN",
+          "root_status": "live",
+          "family_id": "Fine Tuning Docs",
+          "title_hint": "I have identified a series of steps that Charlie uses to evolve ChatGPT into Athenachka. Here is a detailed step-by-step guide:",
+          "surface_class": "overview",
+          "storage_zone": "Cortex",
+          "secondary_zones": [
+            "CorpusAtlas"
+          ],
+          "witness_class": "indexed",
+          "truth_role": "source",
+          "authority_surface": "C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\00_INDEX.md",
+          "authority_rank": 5,
+          "semantic_role": "publication",
+          "query_tags": [
+            "cortex",
+            "docx",
+            "fine-tuning-docs",
+            "indexed",
+            "media",
+            "orgin",
+            "overview",
+            "publication",
+            "readable",
+            "source"
+          ],
+          "freshness": {
+            "score": 0.22,
+            "band": "stale",
+            "days_old": 853.8
+          },
+          "proof_state": "OK",
+          "replay_class": "witness-only",
+          "artifact_class": "media",
+          "modified_at": "2023-11-10T07:12:44+00:00",
+          "size_bytes": 75501,
+          "text_extractable": true,
+          "locator": "C:\\Users\\dmitr\\Documents\\Athena Agent\\ORGIN\\Fine Tuning Docs\\Athenachka 2.0.docx",
+          "note": "",
+          "ranking": {
+            "score": 0.7429,
+            "contributions": {
+              "authority": 1.0,
+              "witness": 1.0,
+              "proof": 1.0,
+              "freshness": 0.22,
+              "replay": 0.38,
+              "tag_overlap": 0.6,
+              "zone_priority": 1.0
+            }
+          }
+        }
+      ],
+      "route_summaries": {
+        "locate": "ANSWER through Cortex using ABSTRACT CONTRACT / LEGEND -> Main Characters: -> FIN",
+        "browse": "ANSWER through Cortex using ABSTRACT CONTRACT / LEGEND -> Based on the analysis of the documents provided and the context of this conversation, here are some key observations and a plan for improving the growth and development of ChatGPT: -> Main Characters:",
+        "synthesize": "ANSWER through Cortex using ABSTRACT CONTRACT / LEGEND -> Based on the analysis of the documents provided and the context of this conversation, here are some key observations and a plan for improving the growth and development of ChatGPT: -> Main Characters:"
+      },
+      "chapter_paths": [
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch11_0022_void_book_and_restart_token_tunneling.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch17_0100_deployment_and_bounded_agency.md",
+        "NERVOUS_SYSTEM\\30_CHAPTERS\\Ch19_0102_convergence_fixed_points_and_controlled_non_convergence.md"
+      ],
+      "appendix_paths": [
+        "NERVOUS_SYSTEM\\40_APPENDICES\\AppA_addressing_symbols_parsing_grammar.md",
+        "AppQ"
+      ],
+      "runtime_paths": [
+        "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\routes\\whole_crystal\\ROUTE_orgin.md",
+        "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_orgin.md"
+      ],
+      "support_assets": [
+        "self_actualize\\orgin_atlas.json",
+        "VOID_CH11.md",
+        "NERVOUS_SYSTEM\\95_MANIFESTS\\SELF_HOSTING_KERNEL_DASHBOARD.md"
+      ],
+      "metro_lines": [
+        "Restart Loop Line",
+        "Right Hemisphere Line"
+      ],
+      "active_front": "Q35 routed seed corpus / readable mirror closure",
+      "graph_policy": {
+        "promoted_neuron": "N-0012",
+        "promoted_synapses": [
+          "S-0011"
+        ],
+        "new_synapses": [
+          "S-0034"
+        ],
+        "new_edges": [
+          "E-NS-020"
+        ]
+      },
+      "primary_neurons": [
+        "ORGIN -> restart seed continuity",
+        "ORGIN -> identity precursor memory",
+        "ORGIN -> readable mirror ingress"
+      ],
+      "local_tasks": [
+        "turn the docx-heavy origin shelf into human-usable mirrors",
+        "bind the seed reservoir back into identity continuity",
+        "keep ORGIN as precursor memory, not an unbounded noise shelf"
+      ],
+      "reserve_siblings": [],
+      "ganglion_path": "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_orgin.md",
+      "excluded_patterns_applied": [
+        "\\screen shots of spirituality\\"
+      ],
+      "mirror_paths": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\08_orgin_readable_mirror_megalithic_tome_generator_latent_tunneling_multi.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\09_orgin_readable_mirror_athena_s_journey_to_enlightenment.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\10_orgin_readable_mirror_charlie_s_journey_to_enlightenment.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\11_orgin_readable_mirror_athena_s_journey_to_enlightenment.md"
+      ],
+      "mirror_sources": [
+        "ORGIN\\MEGALITHIC TOME GENERATOR \u2014 \u201cLatent Tunneling _ Multi\u2011Scale Math Stack (Macro \u2194 PZPM \u2194 CUT)\u201d _Skeleton_.docx",
+        "ORGIN\\Fine Tuning Docs\\Athena's Journey to Enlightenment.docx",
+        "ORGIN\\Fine Tuning Docs\\Charlie's Journey to Enlightenment.docx",
+        "ORGIN\\Fine Tuning Docs\\PDF FILES\\Athena's Journey to Enlightenment.pdf"
+      ],
+      "written_files": [
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\04_orgin_family_law.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\05_orgin_entry_record_set.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\06_orgin_support_map.md",
+        "NERVOUS_SYSTEM\\50_CORPUS_CAPSULES\\orgin\\07_orgin_graph_bridge.md"
+      ]
+    }
+  ],
+  "reserve_families": [
+    {
+      "title": "Stoicheia (Element Sudoku)",
+      "root_name": "Stoicheia (Element Sudoku)",
+      "indexed_count": 126,
+      "status": "reserve-thin"
+    },
+    {
+      "title": "CLEAN",
+      "root_name": "CLEAN",
+      "indexed_count": 7,
+      "status": "reserve-thin"
+    }
+  ],
+  "runtime_support_written": [
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_qshrink.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_athena_fleet.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_games.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_i_am_athena.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\ganglia\\GANGLION_orgin.md"
+  ],
+  "derivations": [
+    {
+      "module": "self_actualize.runtime.derive_semantic_mass_ledger",
+      "returncode": 0,
+      "stdout": "Wrote semantic mass ledger json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\semantic_mass_ledger.json\nWrote semantic mass ledger markdown: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\09_SEMANTIC_MASS_LEDGER.md\nWrote semantic mass ledger receipt: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_semantic_mass_ledger.md",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "module": "self_actualize.runtime.derive_witness_hierarchy",
+      "returncode": 0,
+      "stdout": "Wrote witness hierarchy json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\witness_hierarchy.json\nWrote witness hierarchy registry mirror: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\registry\\witness_hierarchy.json\nWrote witness hierarchy markdown: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\07_CANONICAL_WITNESS_HIERARCHY.md\nWrote witness hierarchy receipt: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\receipts\\2026-03-09_witness_hierarchy_derivation.md",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "module": "self_actualize.runtime.derive_knowledge_fabric",
+      "returncode": 0,
+      "stdout": "Wrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\knowledge_fabric_records.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\knowledge_fabric_edges.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\knowledge_fabric_shortcuts.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\knowledge_fabric_exploration_packets.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\knowledge_fabric_dashboard.json\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\10_OVERVIEW\\18_PHASE4_KNOWLEDGE_FABRIC.md\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\NERVOUS_SYSTEM\\95_MANIFESTS\\KNOWLEDGE_FABRIC_DASHBOARD.md\nWrote C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\mycelium_brain\\nervous_system\\26_knowledge_fabric_runtime.md",
+      "stderr": "",
+      "ok": true
+    }
+  ],
+  "verification": [
+    {
+      "module": "self_actualize.runtime.verify_runtime_waist",
+      "returncode": 0,
+      "stdout": "Wrote runtime waist verification json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\runtime_waist_verification.json\nTruth: OK\n- atlas_contract: OK\n- engine_packet: OK\n- swarm_board_pipeline: OK\n- swarm_board_build_command: OK",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "module": "self_actualize.runtime.verify_atlasforge_runtime_lane",
+      "returncode": 0,
+      "stdout": "Wrote ATLAS FORGE runtime lane json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\atlasforge_runtime_lane.json\nTruth: OK\n- import: OK\n- symbol_export: OK\n- solver: OK\n- lens: OK\n- recipe: OK\n- crystal: OK",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "module": "self_actualize.runtime.verify_aqm_runtime_lane",
+      "returncode": 0,
+      "stdout": "Wrote aqm runtime lane json: C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\aqm_runtime_lane.json",
+      "stderr": "",
+      "ok": true
+    }
+  ],
+  "output_paths": [
+    "NERVOUS_SYSTEM\\10_OVERVIEW\\21_PHASE6_WAVE2_CAPSULE_DENSIFICATION.md",
+    "NERVOUS_SYSTEM\\90_LEDGERS\\37_PHASE6_WAVE2_CAPSULE_LEDGER_2026-03-13.md",
+    "self_actualize\\mycelium_brain\\nervous_system\\30_phase6_wave2_capsule_densification_runtime.md",
+    "self_actualize\\mycelium_brain\\receipts\\2026-03-13_phase6_wave2_capsules.md",
+    "self_actualize\\phase6_wave2_capsules.json"
+  ]
+}

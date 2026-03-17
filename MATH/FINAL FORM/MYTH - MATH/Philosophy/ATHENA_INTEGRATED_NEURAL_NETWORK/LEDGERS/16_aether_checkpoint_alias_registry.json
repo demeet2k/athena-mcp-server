@@ -1,0 +1,182 @@
+{
+  "build_date": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "authority_class": "canonical",
+  "source_basis": [
+    "00_CONTROL/14_AETHER_RESOLVER_LAW.md",
+    "ORCHESTRATION_57_LOOP/10_AETHER_FLOWER_OPERATOR_SHELL.md"
+  ],
+  "atom_targets": {
+    "A": "FIRE/01_fire_full_corpus_pass.md",
+    "B": "WATER/01_water_full_corpus_pass.md",
+    "C": "AIR/01_air_full_corpus_pass.md",
+    "D": "EARTH/01_earth_full_corpus_pass.md"
+  },
+  "checkpoint_aliases": [
+    {
+      "expression": "Z*",
+      "atoms": [],
+      "class": "wildcard_checkpoint",
+      "local_targets": [],
+      "unresolved_atoms": [
+        "*"
+      ]
+    },
+    {
+      "expression": "loc(A)",
+      "atoms": [
+        "A"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "FIRE/01_fire_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(A>C)",
+      "atoms": [
+        "A",
+        "C"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "FIRE/01_fire_full_corpus_pass.md",
+        "AIR/01_air_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(A>C>B)",
+      "atoms": [
+        "A",
+        "C",
+        "B"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "FIRE/01_fire_full_corpus_pass.md",
+        "AIR/01_air_full_corpus_pass.md",
+        "WATER/01_water_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(B)",
+      "atoms": [
+        "B"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "WATER/01_water_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(B>D)",
+      "atoms": [
+        "B",
+        "D"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "WATER/01_water_full_corpus_pass.md",
+        "EARTH/01_earth_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(B>D>A)",
+      "atoms": [
+        "B",
+        "D",
+        "A"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "WATER/01_water_full_corpus_pass.md",
+        "EARTH/01_earth_full_corpus_pass.md",
+        "FIRE/01_fire_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(C)",
+      "atoms": [
+        "C"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "AIR/01_air_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(C>B)",
+      "atoms": [
+        "C",
+        "B"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "AIR/01_air_full_corpus_pass.md",
+        "WATER/01_water_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(C>B>D)",
+      "atoms": [
+        "C",
+        "B",
+        "D"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "AIR/01_air_full_corpus_pass.md",
+        "WATER/01_water_full_corpus_pass.md",
+        "EARTH/01_earth_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(D)",
+      "atoms": [
+        "D"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "EARTH/01_earth_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(D>A)",
+      "atoms": [
+        "D",
+        "A"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "EARTH/01_earth_full_corpus_pass.md",
+        "FIRE/01_fire_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    },
+    {
+      "expression": "loc(D>A>C)",
+      "atoms": [
+        "D",
+        "A",
+        "C"
+      ],
+      "class": "ordered_checkpoint_chain",
+      "local_targets": [
+        "EARTH/01_earth_full_corpus_pass.md",
+        "FIRE/01_fire_full_corpus_pass.md",
+        "AIR/01_air_full_corpus_pass.md"
+      ],
+      "unresolved_atoms": []
+    }
+  ]
+}

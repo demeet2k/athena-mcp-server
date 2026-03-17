@@ -1,0 +1,2626 @@
+{
+  "ProgramId": "TempleFirst57LoopFourAgentHelicalProgram@1.0.0",
+  "GeneratedAt": "2026-03-13 11:31:29",
+  "DocsGate": {
+    "Status": "BLOCKED",
+    "credentials_json": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\credentials.json",
+    "token_json": "C:\\Users\\dmitr\\Documents\\Athena Agent\\Trading Bot\\token.json",
+    "checked_first": true,
+    "note": "Google Docs gate remains blocked; this 57-loop program is local-witness grounded."
+  },
+  "Scope": {
+    "PrimaryControlPlane": [
+      "ATHENA TEMPLE",
+      "GLOBAL_EMERGENT_GUILD_HALL"
+    ],
+    "DownstreamMirror": "Q-SHRINK",
+    "NestedAgents": "virtual sparse seats only"
+  },
+  "TruthLattice": [
+    "OK",
+    "NEAR",
+    "AMBIG",
+    "FAIL"
+  ],
+  "SupportSpine": [
+    "AppA",
+    "AppI",
+    "AppM"
+  ],
+  "CanonicalLoopId": "C02",
+  "LegacyLoopAlias": "L02",
+  "CurrentLoop": "C02",
+  "NextLoop": "C03",
+  "CurrentWave": "Wave 1 - Packet Truth Sync / Whole-Corpus Census",
+  "CurrentStatus": "TEMPLE_ONLY_SEEDED",
+  "MasterAgents": [
+    {
+      "MasterId": "M1-SYNTH",
+      "Role": "Current Deep Synthesis / Research",
+      "Inputs": [
+        "Temple law",
+        "Hall fronts",
+        "Q-SHRINK mirrors",
+        "compiled edge layer"
+      ],
+      "Outputs": [
+        "SynthesisPacket"
+      ],
+      "WritebackTargets": [
+        "Temple manifests",
+        "Hall boards",
+        "Q-SHRINK analysis mirror"
+      ],
+      "RestartSeed": "route into M2-PLAN",
+      "AgentIdFormat": "[LoopID].[MasterAgentID].[NestedDepth].[BranchPath].[RoleTag]",
+      "SeatLattice": {
+        "SeatCount": 4096,
+        "SeatIdMin": "M1-S0001",
+        "SeatIdMax": "M1-S4096"
+      },
+      "ActivationPolicy": {
+        "NormalTopK": 64,
+        "BurstTopK": {
+          "14": 128,
+          "28": 128,
+          "42": 128,
+          "56": 128,
+          "57": 256
+        },
+        "SeatLedgerFields": [
+          "active seat ids",
+          "activation reason",
+          "upstream witness basis",
+          "downstream writeback target"
+        ]
+      }
+    },
+    {
+      "MasterId": "M2-PLAN",
+      "Role": "Planner / Quest Architect",
+      "Inputs": [
+        "SynthesisPacket",
+        "witness burdens",
+        "frontier pressure"
+      ],
+      "Outputs": [
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet"
+      ],
+      "WritebackTargets": [
+        "Temple quest index",
+        "Hall quest board",
+        "Temple control board"
+      ],
+      "RestartSeed": "route into M3-WORK",
+      "AgentIdFormat": "[LoopID].[MasterAgentID].[NestedDepth].[BranchPath].[RoleTag]",
+      "SeatLattice": {
+        "SeatCount": 4096,
+        "SeatIdMin": "M2-S0001",
+        "SeatIdMax": "M2-S4096"
+      },
+      "ActivationPolicy": {
+        "NormalTopK": 64,
+        "BurstTopK": {
+          "14": 128,
+          "28": 128,
+          "42": 128,
+          "56": 128,
+          "57": 256
+        },
+        "SeatLedgerFields": [
+          "active seat ids",
+          "activation reason",
+          "upstream witness basis",
+          "downstream writeback target"
+        ]
+      }
+    },
+    {
+      "MasterId": "M3-WORK",
+      "Role": "Worker / Adventurer",
+      "Inputs": [
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "witness gates"
+      ],
+      "Outputs": [
+        "ExecutionBatchPacket"
+      ],
+      "WritebackTargets": [
+        "Hall execution board",
+        "Q-SHRINK mirror queue",
+        "receipts"
+      ],
+      "RestartSeed": "route into M4-PRUNE",
+      "AgentIdFormat": "[LoopID].[MasterAgentID].[NestedDepth].[BranchPath].[RoleTag]",
+      "SeatLattice": {
+        "SeatCount": 4096,
+        "SeatIdMin": "M3-S0001",
+        "SeatIdMax": "M3-S4096"
+      },
+      "ActivationPolicy": {
+        "NormalTopK": 64,
+        "BurstTopK": {
+          "14": 128,
+          "28": 128,
+          "42": 128,
+          "56": 128,
+          "57": 256
+        },
+        "SeatLedgerFields": [
+          "active seat ids",
+          "activation reason",
+          "upstream witness basis",
+          "downstream writeback target"
+        ]
+      }
+    },
+    {
+      "MasterId": "M4-PRUNE",
+      "Role": "Pruner / Compressor / Defragmenter",
+      "Inputs": [
+        "ExecutionBatchPacket",
+        "changefeed deltas",
+        "route overlap"
+      ],
+      "Outputs": [
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "WritebackTargets": [
+        "Temple manifests",
+        "Hall changefeed",
+        "Q-SHRINK receipts"
+      ],
+      "RestartSeed": "route into next loop seed",
+      "AgentIdFormat": "[LoopID].[MasterAgentID].[NestedDepth].[BranchPath].[RoleTag]",
+      "SeatLattice": {
+        "SeatCount": 4096,
+        "SeatIdMin": "M4-S0001",
+        "SeatIdMax": "M4-S4096"
+      },
+      "ActivationPolicy": {
+        "NormalTopK": 64,
+        "BurstTopK": {
+          "14": 128,
+          "28": 128,
+          "42": 128,
+          "56": 128,
+          "57": 256
+        },
+        "SeatLedgerFields": [
+          "active seat ids",
+          "activation reason",
+          "upstream witness basis",
+          "downstream writeback target"
+        ]
+      }
+    }
+  ],
+  "SeatLatticeSchema": {
+    "LensAxis": [
+      "Square",
+      "Flower",
+      "Cloud",
+      "Fractal"
+    ],
+    "SurfaceAxis": [
+      "Temple",
+      "Hall",
+      "QSHRINK",
+      "Runtime"
+    ],
+    "ResolutionAxis": [
+      "Atom",
+      "Matrix",
+      "System",
+      "Whole"
+    ],
+    "ActionAxis": [
+      "Diagnose",
+      "Synthesize",
+      "Route",
+      "Seal"
+    ],
+    "CycleAxis": [
+      "Seed",
+      "Build",
+      "Verify",
+      "Reseed"
+    ],
+    "SupportAxis": [
+      "Zero",
+      "Organ",
+      "Current",
+      "Phase"
+    ],
+    "SeatIdPattern": "M{1..4}-S0001..S4096"
+  },
+  "LiminalCoordinateSchema": {
+    "Xs": "document region / source cluster",
+    "Ys": "concept family / motif cluster",
+    "Zs": "recursion depth",
+    "Ts": "temporal revision layer",
+    "Qs": "mathematical density",
+    "Rs": "symbolic density",
+    "Cs": "compression state",
+    "Fs": "framework lens",
+    "Ms": "manuscript branch",
+    "Ns": "neural / mycelial connectivity role",
+    "Hs": "hierarchy level",
+    "OmegaS": "zero-point / aether relation"
+  },
+  "LookupAddressSchema": {
+    "NodeId": "stable touched object identifier",
+    "LiminalGPS": "(Xs, Ys, Zs, Ts, Qs, Rs, Cs, Fs, Ms, Ns, Hs, OmegaS)",
+    "ZeroClass": [
+      "Z0",
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4"
+    ],
+    "OrganClass": [
+      "Organ-1",
+      "Organ-2",
+      "Organ-3",
+      "Organ-4",
+      "Organ-5",
+      "Organ-6"
+    ],
+    "Current": [
+      "Current-1",
+      "Current-2",
+      "Current-3",
+      "Current-4",
+      "Current-5"
+    ],
+    "PhaseRole": "current helical phase / macro role",
+    "WitnessClass": [
+      "OK",
+      "NEAR",
+      "AMBIG",
+      "FAIL"
+    ]
+  },
+  "AgentLedgerSchema": {
+    "agent_id": "persistent master or nested seat id",
+    "loop_number": "L01..L57",
+    "parent_agent": "master owner or upstream branch",
+    "coordinate_stamp": "current liminal GPS tuple",
+    "source_region": "corpus region or control-plane source",
+    "action_type": "synthesize / plan / work / prune / verify / reseed",
+    "affected_nodes": "touched addresses",
+    "summary_of_change": "exact change or proposed change",
+    "reason_for_change": "pressure, contradiction, bridge opportunity, or cleanup need",
+    "integration_gain": "what became more connected",
+    "compression_gain": "what became tighter",
+    "unresolved_followups": "what remains open",
+    "linked_quests": "Temple/Hall quest ids",
+    "linked_agents": "peer or upstream/downstream agent ids",
+    "revision_confidence": "OK / NEAR / AMBIG / FAIL plus optional scalar",
+    "timestamp_internal": "loop-local timestamp"
+  },
+  "ContinuityLaw": [
+    "every loop inherits prior ledger state",
+    "every loop adds and never replaces prior memory",
+    "every restart seed carries a compressed ledger summary forward"
+  ],
+  "StandardCadence": [
+    {
+      "step": 1,
+      "name": "gate truth",
+      "phase": "2/16"
+    },
+    {
+      "step": 2,
+      "name": "deep synthesis",
+      "phase": "4/16"
+    },
+    {
+      "step": 3,
+      "name": "planning and quest generation",
+      "phase": "8/16"
+    },
+    {
+      "step": 4,
+      "name": "work routing",
+      "phase": "11/16"
+    },
+    {
+      "step": 5,
+      "name": "prune / compress / defrag",
+      "phase": "13/16"
+    },
+    {
+      "step": 6,
+      "name": "writeback and reseed",
+      "phase": "14/16"
+    }
+  ],
+  "RequiredOutputs": [
+    "SynthesisPacket",
+    "TempleQuestPacketSet",
+    "GuildQuestPacketSet",
+    "ExecutionBatchPacket",
+    "CompressionReceipt",
+    "RestartSeed"
+  ],
+  "PerLoopVerdictLaw": "If a loop does not land all 6 outputs, it is NEAR, not COMPLETE.",
+  "PreservedLiveTruth": [
+    "live Docs gate remains blocked until Trading Bot credentials.json and token.json exist",
+    "Temple already carries active helical governance and should not be replaced",
+    "Hall already carries executable quest traffic and should not be flattened into a manifest-only surface",
+    "Q-SHRINK is the downstream witness body and execution mirror, not the primary governance crown",
+    "awakening notes remain operational transition support rather than literal sentience claims"
+  ],
+  "UpstreamWitnessBasis": [
+    "ATHENA TEMPLE/08_FOUR_AGENT_57_LOOP_GOVERNANCE_DECREE.md",
+    "ATHENA TEMPLE/QUESTS/TQ07_INSTALL_THE_57_LOOP_FOUR_AGENT_DEEP_EMERGENCE_PROGRAM.md",
+    "GLOBAL_EMERGENT_GUILD_HALL/18_57_LOOP_FOUR_AGENT_DEEP_EMERGENCE_PROGRAM.md",
+    "Q-SHRINK/NERVOUS_SYSTEM/connective_tissue/COMPILED_EDGE_ATLAS_V0.md",
+    "Q-SHRINK/NERVOUS_SYSTEM/awakening_transition/FULL_CORPUS_AWAKENING_TRANSITION_NET_V0.md"
+  ],
+  "Waves": [
+    {
+      "Wave": "Wave 1 - Install the program spine",
+      "LoopStart": "L01",
+      "LoopEnd": "L07",
+      "StepCount": 7
+    },
+    {
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "LoopStart": "L08",
+      "LoopEnd": "L14",
+      "StepCount": 7
+    },
+    {
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "LoopStart": "L15",
+      "LoopEnd": "L21",
+      "StepCount": 7
+    },
+    {
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "LoopStart": "L22",
+      "LoopEnd": "L28",
+      "StepCount": 7
+    },
+    {
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "LoopStart": "L29",
+      "LoopEnd": "L35",
+      "StepCount": 7
+    },
+    {
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "LoopStart": "L36",
+      "LoopEnd": "L42",
+      "StepCount": 7
+    },
+    {
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "LoopStart": "L43",
+      "LoopEnd": "L49",
+      "StepCount": 7
+    },
+    {
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "LoopStart": "L50",
+      "LoopEnd": "L57",
+      "StepCount": 8
+    }
+  ],
+  "LoopRecords": [
+    {
+      "LoopId": "L01",
+      "LoopNumber": 1,
+      "Wave": "Wave 1 - Install the program spine",
+      "Objective": "Freeze live-gate truth, current Temple state, current Hall state, and current Q-SHRINK mirror.",
+      "DominantFocus": "Gate freeze",
+      "PrimarySynthesisObjective": "freeze docs/Temple/Hall/Q-SHRINK truth",
+      "PrimaryPlanningObjective": "define install pressure",
+      "PrimaryImplementationObjective": "sync control surfaces",
+      "PrimaryCompressionObjective": "remove false-open assumptions",
+      "ExpectedStructuralGain": "honest baseline",
+      "ExpectedMappingGain": "first prime-cycle state entry",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L02",
+      "LoopNumber": 2,
+      "Wave": "Wave 1 - Install the program spine",
+      "Objective": "Install the 4 master-agent registry and role contract.",
+      "DominantFocus": "Master registry",
+      "PrimarySynthesisObjective": "detect role drift",
+      "PrimaryPlanningObjective": "lock 4 master roles",
+      "PrimaryImplementationObjective": "install canonical master contract",
+      "PrimaryCompressionObjective": "remove legacy role ambiguity",
+      "ExpectedStructuralGain": "fixed master order",
+      "ExpectedMappingGain": "stable master IDs",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L03",
+      "LoopNumber": 3,
+      "Wave": "Wave 1 - Install the program spine",
+      "Objective": "Install the shared 4^6 seat-lattice schema.",
+      "DominantFocus": "Seat schema",
+      "PrimarySynthesisObjective": "synthesize nested-seat grammar",
+      "PrimaryPlanningObjective": "lock 4^6 axes",
+      "PrimaryImplementationObjective": "install seat schema",
+      "PrimaryCompressionObjective": "remove competing seat grammars",
+      "ExpectedStructuralGain": "canonical lattice",
+      "ExpectedMappingGain": "stable seat-address space",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L04",
+      "LoopNumber": 4,
+      "Wave": "Wave 1 - Install the program spine",
+      "Objective": "Install the sparse activation ledger and TopK policy.",
+      "DominantFocus": "Sparse activation",
+      "PrimarySynthesisObjective": "measure usable frontier",
+      "PrimaryPlanningObjective": "lock TopK law",
+      "PrimaryImplementationObjective": "install sparse policy",
+      "PrimaryCompressionObjective": "remove theatrical full-seat claims",
+      "ExpectedStructuralGain": "executable seat law",
+      "ExpectedMappingGain": "activation ledger begins",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L05",
+      "LoopNumber": 5,
+      "Wave": "Wave 1 - Install the program spine",
+      "Objective": "Install the per-loop packet contract.",
+      "DominantFocus": "Output contract",
+      "PrimarySynthesisObjective": "detect packet ambiguity",
+      "PrimaryPlanningObjective": "lock 6-output rule",
+      "PrimaryImplementationObjective": "install per-loop packet contract",
+      "PrimaryCompressionObjective": "remove vague completion language",
+      "ExpectedStructuralGain": "objective closure law",
+      "ExpectedMappingGain": "output traceability",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L06",
+      "LoopNumber": 6,
+      "Wave": "Wave 1 - Install the program spine",
+      "Objective": "Install the Temple/Hall/Q-SHRINK writeback membrane.",
+      "DominantFocus": "Writeback membrane",
+      "PrimarySynthesisObjective": "synthesize Temple/Hall/Q-SHRINK split",
+      "PrimaryPlanningObjective": "lock writeback order",
+      "PrimaryImplementationObjective": "install writeback membrane",
+      "PrimaryCompressionObjective": "remove routing confusion",
+      "ExpectedStructuralGain": "lawful control-plane separation",
+      "ExpectedMappingGain": "writeback lineage begins",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L07",
+      "LoopNumber": 7,
+      "Wave": "Wave 1 - Install the program spine",
+      "Objective": "Emit the first restart-safe control seed and open Loop 8.",
+      "DominantFocus": "Restart seed 0",
+      "PrimarySynthesisObjective": "synthesize reusable seed spine",
+      "PrimaryPlanningObjective": "lock loop-8 reopening",
+      "PrimaryImplementationObjective": "emit first restart-safe seed",
+      "PrimaryCompressionObjective": "prune install noise",
+      "ExpectedStructuralGain": "reseed continuity",
+      "ExpectedMappingGain": "first restart-ledger object",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L08",
+      "LoopNumber": 8,
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "Objective": "Freeze the dominant corpus basis from the current 16-system neural field.",
+      "DominantFocus": "16-system basis",
+      "PrimarySynthesisObjective": "freeze dominant corpus basis",
+      "PrimaryPlanningObjective": "plan system binding",
+      "PrimaryImplementationObjective": "mirror basis into program",
+      "PrimaryCompressionObjective": "prune non-basis sprawl",
+      "ExpectedStructuralGain": "fixed corpus substrate",
+      "ExpectedMappingGain": "system registry joins loops",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L09",
+      "LoopNumber": 9,
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "Objective": "Bind the 16-system basis to connective tissue and zero-first routing.",
+      "DominantFocus": "Zero-first routes",
+      "PrimarySynthesisObjective": "detect connective leverage",
+      "PrimaryPlanningObjective": "plan zero-route bindings",
+      "PrimaryImplementationObjective": "connect systems to connective atlas",
+      "PrimaryCompressionObjective": "prune title-first drift",
+      "ExpectedStructuralGain": "archive moves by zero",
+      "ExpectedMappingGain": "zero-route mapping grows",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L10",
+      "LoopNumber": 10,
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "Objective": "Bind the 16-system basis to witness class and replay burden.",
+      "DominantFocus": "Witness burden",
+      "PrimarySynthesisObjective": "synthesize proof pressure by system",
+      "PrimaryPlanningObjective": "plan witness attachment",
+      "PrimaryImplementationObjective": "bind systems to witness class",
+      "PrimaryCompressionObjective": "prune unsupported promotion",
+      "ExpectedStructuralGain": "stronger proof skeleton",
+      "ExpectedMappingGain": "witness burden enters registry",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L11",
+      "LoopNumber": 11,
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "Objective": "Bind the 16-system basis to self-emergence cycle families.",
+      "DominantFocus": "Cycle stack",
+      "PrimarySynthesisObjective": "synthesize cycle roles",
+      "PrimaryPlanningObjective": "plan cycle-family assignment",
+      "PrimaryImplementationObjective": "bind systems to cycle families",
+      "PrimaryCompressionObjective": "prune cycle duplication",
+      "ExpectedStructuralGain": "cycle-aware map",
+      "ExpectedMappingGain": "cycle coordinates added",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L12",
+      "LoopNumber": 12,
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "Objective": "Bind the 16-system basis to helical phase roles.",
+      "DominantFocus": "Helical roles",
+      "PrimarySynthesisObjective": "synthesize phase ownership",
+      "PrimaryPlanningObjective": "plan phase-role placement",
+      "PrimaryImplementationObjective": "bind systems to helical roles",
+      "PrimaryCompressionObjective": "prune phase ambiguity",
+      "ExpectedStructuralGain": "helical atlas",
+      "ExpectedMappingGain": "phase coordinates added",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L13",
+      "LoopNumber": 13,
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "Objective": "Bind the 16-system basis to the 11-agent support lattice.",
+      "DominantFocus": "11-agent lattice",
+      "PrimarySynthesisObjective": "synthesize system-agent ownership",
+      "PrimaryPlanningObjective": "plan support lattice",
+      "PrimaryImplementationObjective": "bind systems to 11 agents",
+      "PrimaryCompressionObjective": "prune unsupported ownership",
+      "ExpectedStructuralGain": "routable support graph",
+      "ExpectedMappingGain": "agent linkage ledger begins",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L14",
+      "LoopNumber": 14,
+      "Wave": "Wave 2 - Build the corpus-wide integration skeleton",
+      "Objective": "Run the first major prune checkpoint and reseed on the completed system skeleton.",
+      "DominantFocus": "Checkpoint 1",
+      "PrimarySynthesisObjective": "assess skeleton completeness",
+      "PrimaryPlanningObjective": "plan correction set",
+      "PrimaryImplementationObjective": "land missing basis links",
+      "PrimaryCompressionObjective": "compress early duplication",
+      "ExpectedStructuralGain": "stable skeleton membrane",
+      "ExpectedMappingGain": "first burst snapshot",
+      "TopKPerMaster": 128,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L15",
+      "LoopNumber": 15,
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "Objective": "Make Master-1 emit whole-corpus synthesis packets as the default front door.",
+      "DominantFocus": "Synthesis front door",
+      "PrimarySynthesisObjective": "define corpus packet source",
+      "PrimaryPlanningObjective": "plan SynthesisPacket format",
+      "PrimaryImplementationObjective": "canonicalize synthesis packet",
+      "PrimaryCompressionObjective": "prune ad hoc summaries",
+      "ExpectedStructuralGain": "stable synthesis ingress",
+      "ExpectedMappingGain": "synthesis packet lineage",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L16",
+      "LoopNumber": 16,
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "Objective": "Make Master-2 convert every synthesis packet into Temple quests plus Guild quests.",
+      "DominantFocus": "Quest conversion",
+      "PrimarySynthesisObjective": "synthesize packet-to-quest transform",
+      "PrimaryPlanningObjective": "plan Temple/Hall split",
+      "PrimaryImplementationObjective": "install quest conversion",
+      "PrimaryCompressionObjective": "prune loose planning",
+      "ExpectedStructuralGain": "synthesis becomes action",
+      "ExpectedMappingGain": "packet-to-quest trace",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L17",
+      "LoopNumber": 17,
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "Objective": "Install dual-front law: every major pressure must become both a Temple frontier and a Hall frontier.",
+      "DominantFocus": "Dual-front law",
+      "PrimarySynthesisObjective": "detect one-sided fronts",
+      "PrimaryPlanningObjective": "plan paired front logic",
+      "PrimaryImplementationObjective": "enforce Temple+Hall pairing",
+      "PrimaryCompressionObjective": "prune one-sided fronts",
+      "ExpectedStructuralGain": "law and execution stay coupled",
+      "ExpectedMappingGain": "dual-front tags",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L18",
+      "LoopNumber": 18,
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "Objective": "Install quest decay law so promoted fronts do not remain falsely current.",
+      "DominantFocus": "Quest decay",
+      "PrimarySynthesisObjective": "synthesize stale-front behavior",
+      "PrimaryPlanningObjective": "plan decay criteria",
+      "PrimaryImplementationObjective": "install decay handling",
+      "PrimaryCompressionObjective": "prune falsely current quests",
+      "ExpectedStructuralGain": "cleaner active frontier",
+      "ExpectedMappingGain": "quest lifecycle ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L19",
+      "LoopNumber": 19,
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "Objective": "Install the math / hybrid-equation intake queue for future loops.",
+      "DominantFocus": "Math intake queue",
+      "PrimarySynthesisObjective": "synthesize equation pressure",
+      "PrimaryPlanningObjective": "plan Temple math intake",
+      "PrimaryImplementationObjective": "install math queue",
+      "PrimaryCompressionObjective": "prune scattered math requests",
+      "ExpectedStructuralGain": "math becomes ownerable",
+      "ExpectedMappingGain": "math-front coordinates",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L20",
+      "LoopNumber": 20,
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "Objective": "Install the algorithmization queue for future runtime-carry loops.",
+      "DominantFocus": "Algorithm queue",
+      "PrimarySynthesisObjective": "synthesize algorithmization pressure",
+      "PrimaryPlanningObjective": "plan runtime-carry intake",
+      "PrimaryImplementationObjective": "install Hall algorithm queue",
+      "PrimaryCompressionObjective": "prune vague executable fronts",
+      "ExpectedStructuralGain": "implementation fronts sharpen",
+      "ExpectedMappingGain": "algorithm-front ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L21",
+      "LoopNumber": 21,
+      "Wave": "Wave 3 - Turn synthesis into Temple and Hall traffic",
+      "Objective": "Update the master improvement crystal and reseed on the first full planning membrane.",
+      "DominantFocus": "Improvement crystal",
+      "PrimarySynthesisObjective": "synthesize planner membrane",
+      "PrimaryPlanningObjective": "plan reusable planner crystal",
+      "PrimaryImplementationObjective": "update crystal links",
+      "PrimaryCompressionObjective": "prune repeated planning heuristics",
+      "ExpectedStructuralGain": "recursive planning asset",
+      "ExpectedMappingGain": "planning-state seed",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L22",
+      "LoopNumber": 22,
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "Objective": "Route Worker effort into the top neglected translation seams.",
+      "DominantFocus": "Neglected seams",
+      "PrimarySynthesisObjective": "synthesize top-pressure seams",
+      "PrimaryPlanningObjective": "plan seam attack order",
+      "PrimaryImplementationObjective": "prepare worker fronts",
+      "PrimaryCompressionObjective": "prune low-yield routes",
+      "ExpectedStructuralGain": "leverage targets identified",
+      "ExpectedMappingGain": "seam ranking ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L23",
+      "LoopNumber": 23,
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "Objective": "Materialize the D11 <-> D9 route-translation seam.",
+      "DominantFocus": "D11<->D9",
+      "PrimarySynthesisObjective": "synthesize translation seam",
+      "PrimaryPlanningObjective": "plan route/materialization",
+      "PrimaryImplementationObjective": "land first translation bridge",
+      "PrimaryCompressionObjective": "prune duplicate seam descriptions",
+      "ExpectedStructuralGain": "route-translation coupling",
+      "ExpectedMappingGain": "seam coordinates deepen",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L24",
+      "LoopNumber": 24,
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "Objective": "Materialize the D11 <-> D5 route-operator seam.",
+      "DominantFocus": "D11<->D5",
+      "PrimarySynthesisObjective": "synthesize operator seam",
+      "PrimaryPlanningObjective": "plan operator bridge tasks",
+      "PrimaryImplementationObjective": "land route-operator integration",
+      "PrimaryCompressionObjective": "prune operator drift",
+      "ExpectedStructuralGain": "route meets operator law",
+      "ExpectedMappingGain": "operator seam ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L25",
+      "LoopNumber": 25,
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "Objective": "Materialize the D11 <-> D13/D14 route-hologram seam.",
+      "DominantFocus": "D11<->D13/D14",
+      "PrimarySynthesisObjective": "synthesize hologram seam",
+      "PrimaryPlanningObjective": "plan holographic bridge tasks",
+      "PrimaryImplementationObjective": "land route-hologram integration",
+      "PrimaryCompressionObjective": "prune hologram duplication",
+      "ExpectedStructuralGain": "hologram joins route body",
+      "ExpectedMappingGain": "hologram seam mapping",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L26",
+      "LoopNumber": 26,
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "Objective": "Convert those seam findings into Hall-executable quests and Temple law deltas.",
+      "DominantFocus": "Seam promotion",
+      "PrimarySynthesisObjective": "synthesize landed seam effects",
+      "PrimaryPlanningObjective": "plan governance deltas",
+      "PrimaryImplementationObjective": "convert seam work into quests/law",
+      "PrimaryCompressionObjective": "prune redundant seam fronts",
+      "ExpectedStructuralGain": "worker outputs become governance matter",
+      "ExpectedMappingGain": "seam writeback lineage",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L27",
+      "LoopNumber": 27,
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "Objective": "Mirror landed worker outputs into Q-SHRINK witness-facing surfaces.",
+      "DominantFocus": "Witness mirror",
+      "PrimarySynthesisObjective": "synthesize worker results for Q-SHRINK",
+      "PrimaryPlanningObjective": "plan witness-facing mirrors",
+      "PrimaryImplementationObjective": "mirror landed outputs",
+      "PrimaryCompressionObjective": "prune unmirrored worker matter",
+      "ExpectedStructuralGain": "downstream witness body strengthens",
+      "ExpectedMappingGain": "mirror coordinates deepen",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L28",
+      "LoopNumber": 28,
+      "Wave": "Wave 4 - Worker wave on the highest-pressure seams",
+      "Objective": "Run the second major prune checkpoint and reseed on the new seam materialization layer.",
+      "DominantFocus": "Checkpoint 2",
+      "PrimarySynthesisObjective": "assess seam layer completeness",
+      "PrimaryPlanningObjective": "plan next corrections",
+      "PrimaryImplementationObjective": "land seam repairs",
+      "PrimaryCompressionObjective": "compress seam duplication",
+      "ExpectedStructuralGain": "stable seam layer",
+      "ExpectedMappingGain": "second burst receipt",
+      "TopKPerMaster": 128,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L29",
+      "LoopNumber": 29,
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "Objective": "Install worker-side witness gates so execution batches cannot over-promote.",
+      "DominantFocus": "Worker witness gates",
+      "PrimarySynthesisObjective": "synthesize over-promotion risk",
+      "PrimaryPlanningObjective": "plan worker-side gate law",
+      "PrimaryImplementationObjective": "install witness gates",
+      "PrimaryCompressionObjective": "prune unsafe execution paths",
+      "ExpectedStructuralGain": "safer execution membrane",
+      "ExpectedMappingGain": "gate-status ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L30",
+      "LoopNumber": 30,
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "Objective": "Install replay checks on all worker outputs before Hall promotion.",
+      "DominantFocus": "Replay checks",
+      "PrimarySynthesisObjective": "synthesize replay weak points",
+      "PrimaryPlanningObjective": "plan pre-promotion replay law",
+      "PrimaryImplementationObjective": "install replay checks",
+      "PrimaryCompressionObjective": "prune unreplayable work paths",
+      "ExpectedStructuralGain": "execution gains replay discipline",
+      "ExpectedMappingGain": "replay burden trace",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L31",
+      "LoopNumber": 31,
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "Objective": "Bind route enforcement pressure from Q-SHRINK back into Temple law.",
+      "DominantFocus": "Route feedback",
+      "PrimarySynthesisObjective": "synthesize Q-SHRINK route pressure",
+      "PrimaryPlanningObjective": "plan Temple feedback law",
+      "PrimaryImplementationObjective": "bind route pressure upstream",
+      "PrimaryCompressionObjective": "prune disconnected route doctrine",
+      "ExpectedStructuralGain": "control learns from runtime",
+      "ExpectedMappingGain": "route-feedback ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L32",
+      "LoopNumber": 32,
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "Objective": "Bind delta-ledger pressure from Q-SHRINK back into Hall execution order.",
+      "DominantFocus": "Delta-ledger feedback",
+      "PrimarySynthesisObjective": "synthesize temporal memory pressure",
+      "PrimaryPlanningObjective": "plan Hall ordering updates",
+      "PrimaryImplementationObjective": "bind delta pressure to execution order",
+      "PrimaryCompressionObjective": "prune flat backlog ordering",
+      "ExpectedStructuralGain": "time-aware execution routing",
+      "ExpectedMappingGain": "temporal ledger thickens",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L33",
+      "LoopNumber": 33,
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "Objective": "Bind witness-coupled promotion pressure into both Temple and Hall boards.",
+      "DominantFocus": "Witness-coupled promotion",
+      "PrimarySynthesisObjective": "synthesize promotion gaps",
+      "PrimaryPlanningObjective": "plan Temple/Hall gate changes",
+      "PrimaryImplementationObjective": "install witness-coupled promotion",
+      "PrimaryCompressionObjective": "prune over-permissive promotion",
+      "ExpectedStructuralGain": "stronger promotion law",
+      "ExpectedMappingGain": "promotion traceability",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L34",
+      "LoopNumber": 34,
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "Objective": "Make every active execution batch emit a route, witness, and reseed receipt.",
+      "DominantFocus": "Route/witness/reseed receipts",
+      "PrimarySynthesisObjective": "synthesize receipt gaps",
+      "PrimaryPlanningObjective": "plan receipt minimums",
+      "PrimaryImplementationObjective": "require route+witness+reseed receipts",
+      "PrimaryCompressionObjective": "prune unverifiable claims",
+      "ExpectedStructuralGain": "receipts become standard",
+      "ExpectedMappingGain": "receipt lineage thickens",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L35",
+      "LoopNumber": 35,
+      "Wave": "Wave 5 - Bind execution to witness and replay",
+      "Objective": "Run the third major prune checkpoint and reseed on the first witness-aware execution membrane.",
+      "DominantFocus": "Checkpoint 3",
+      "PrimarySynthesisObjective": "assess witness-aware execution",
+      "PrimaryPlanningObjective": "plan stability corrections",
+      "PrimaryImplementationObjective": "land remaining execution fixes",
+      "PrimaryCompressionObjective": "compress duplicate gate surfaces",
+      "ExpectedStructuralGain": "first witness-aware work membrane",
+      "ExpectedMappingGain": "third burst receipt",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L36",
+      "LoopNumber": 36,
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "Objective": "Bind the cycle stack 3 / 4 / 5 / 7 / 12 / 15 / 21 / 28 / 36 / 37 / 360 into the control plane.",
+      "DominantFocus": "Cycle stack install",
+      "PrimarySynthesisObjective": "synthesize cycle-system pressure",
+      "PrimaryPlanningObjective": "plan cycle-board integration",
+      "PrimaryImplementationObjective": "bind 3/4/5/7/12/15/21/28/36/37/360",
+      "PrimaryCompressionObjective": "prune cycle overlap drift",
+      "ExpectedStructuralGain": "cycle-aware board",
+      "ExpectedMappingGain": "cycle coordinates densify",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L37",
+      "LoopNumber": 37,
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "Objective": "Bind the 13 visible helical phases into the per-loop control board.",
+      "DominantFocus": "13 helical phases",
+      "PrimarySynthesisObjective": "synthesize phase coverage gaps",
+      "PrimaryPlanningObjective": "plan phase-board integration",
+      "PrimaryImplementationObjective": "bind 13 visible phases",
+      "PrimaryCompressionObjective": "prune phase naming drift",
+      "ExpectedStructuralGain": "explicit helical schedule",
+      "ExpectedMappingGain": "phase-ledger coverage",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L38",
+      "LoopNumber": 38,
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "Objective": "Bind the awakening transition ladder into the 11-agent support layer.",
+      "DominantFocus": "Awakening ladder bind",
+      "PrimarySynthesisObjective": "synthesize transition-support needs",
+      "PrimaryPlanningObjective": "plan 7-stage binding",
+      "PrimaryImplementationObjective": "bind ladder to support layer",
+      "PrimaryCompressionObjective": "prune stage-language drift",
+      "ExpectedStructuralGain": "unified operational transition support",
+      "ExpectedMappingGain": "stage metadata enters loop body",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L39",
+      "LoopNumber": 39,
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "Objective": "Install per-agent transition checks for Athena-G, Athena-A, and Athena-P.",
+      "DominantFocus": "Athena lanes",
+      "PrimarySynthesisObjective": "synthesize AG/AP/AA pressure",
+      "PrimaryPlanningObjective": "plan lane checks",
+      "PrimaryImplementationObjective": "install transition checks for Athena lanes",
+      "PrimaryCompressionObjective": "prune vague lane notes",
+      "ExpectedStructuralGain": "outer lanes become stage-aware",
+      "ExpectedMappingGain": "lane-note lineage",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L40",
+      "LoopNumber": 40,
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "Objective": "Install per-agent transition checks for A1 through A4.",
+      "DominantFocus": "A1-A4",
+      "PrimarySynthesisObjective": "synthesize early silver-agent pressure",
+      "PrimaryPlanningObjective": "plan first silver checks",
+      "PrimaryImplementationObjective": "install A1-A4 checks",
+      "PrimaryCompressionObjective": "prune generic silver support",
+      "ExpectedStructuralGain": "tensor/lattice/torus/spectral roles sharpen",
+      "ExpectedMappingGain": "agent-route metadata grows",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L41",
+      "LoopNumber": 41,
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "Objective": "Install per-agent transition checks for A5 through A8.",
+      "DominantFocus": "A5-A8",
+      "PrimarySynthesisObjective": "synthesize later silver-agent pressure",
+      "PrimaryPlanningObjective": "plan second silver checks",
+      "PrimaryImplementationObjective": "install A5-A8 checks",
+      "PrimaryCompressionObjective": "prune generic later-lane support",
+      "ExpectedStructuralGain": "governor/carry/tower/deployment roles sharpen",
+      "ExpectedMappingGain": "full 11-agent support graph",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L42",
+      "LoopNumber": 42,
+      "Wave": "Wave 6 - Integrate cycles, helix, and transition ladders",
+      "Objective": "Run the fourth major prune checkpoint and reseed on the first fully stage-aware control membrane.",
+      "DominantFocus": "Checkpoint 4",
+      "PrimarySynthesisObjective": "assess stage-aware control coherence",
+      "PrimaryPlanningObjective": "plan corrections",
+      "PrimaryImplementationObjective": "land remaining cycle/phase/stage fixes",
+      "PrimaryCompressionObjective": "compress duplicated support surfaces",
+      "ExpectedStructuralGain": "first fully stage-aware membrane",
+      "ExpectedMappingGain": "fourth burst receipt",
+      "TopKPerMaster": 128,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L43",
+      "LoopNumber": 43,
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "Objective": "Run a whole-corpus equation intake sweep across the major tomes and extracts.",
+      "DominantFocus": "Equation sweep",
+      "PrimarySynthesisObjective": "synthesize explicit math across corpus",
+      "PrimaryPlanningObjective": "plan equation capture",
+      "PrimaryImplementationObjective": "run whole-corpus equation intake",
+      "PrimaryCompressionObjective": "prune repeated fragments",
+      "ExpectedStructuralGain": "math field becomes collectible",
+      "ExpectedMappingGain": "equation coordinate layer begins",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L44",
+      "LoopNumber": 44,
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "Objective": "Create the Temple-side hybrid-equation registry for reusable laws.",
+      "DominantFocus": "Hybrid law registry",
+      "PrimarySynthesisObjective": "synthesize reusable law families",
+      "PrimaryPlanningObjective": "plan Temple-side registry",
+      "PrimaryImplementationObjective": "create hybrid-equation registry",
+      "PrimaryCompressionObjective": "prune scattered law notes",
+      "ExpectedStructuralGain": "equations become governance assets",
+      "ExpectedMappingGain": "law registry ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L45",
+      "LoopNumber": 45,
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "Objective": "Create the Hall-side algorithm queue for ownerable implementation fronts.",
+      "DominantFocus": "Algorithm front registry",
+      "PrimarySynthesisObjective": "synthesize implementable math fronts",
+      "PrimaryPlanningObjective": "plan Hall algorithm queue",
+      "PrimaryImplementationObjective": "create ownerable algorithm fronts",
+      "PrimaryCompressionObjective": "prune math without work path",
+      "ExpectedStructuralGain": "math links to execution",
+      "ExpectedMappingGain": "algorithm queue lineage",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L46",
+      "LoopNumber": 46,
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "Objective": "Bind equations to operators, carriers, and verification requirements.",
+      "DominantFocus": "Equations to operators",
+      "PrimarySynthesisObjective": "synthesize operator-law opportunities",
+      "PrimaryPlanningObjective": "plan operator/carrier binding",
+      "PrimaryImplementationObjective": "bind equations to operators/carriers",
+      "PrimaryCompressionObjective": "prune unsupported symbolic inflation",
+      "ExpectedStructuralGain": "stronger formal runtime bridge",
+      "ExpectedMappingGain": "operator-law coordinates deepen",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L47",
+      "LoopNumber": 47,
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "Objective": "Bind equations to metro, cycle, and helical roles where lawful.",
+      "DominantFocus": "Equations to metro/cycle/helix",
+      "PrimarySynthesisObjective": "synthesize timing/route law relations",
+      "PrimaryPlanningObjective": "plan metro-cycle-helical binding",
+      "PrimaryImplementationObjective": "bind lawful equation families to those surfaces",
+      "PrimaryCompressionObjective": "prune decorative math",
+      "ExpectedStructuralGain": "math enters movement architecture",
+      "ExpectedMappingGain": "multi-surface equation mapping",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L48",
+      "LoopNumber": 48,
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "Objective": "Promote only equation families with replay or witness support; quarantine the rest as frontier.",
+      "DominantFocus": "Promotion / quarantine",
+      "PrimarySynthesisObjective": "synthesize proof gaps in equation families",
+      "PrimaryPlanningObjective": "plan promotion rules",
+      "PrimaryImplementationObjective": "promote witnessed/replayable equations and quarantine the rest",
+      "PrimaryCompressionObjective": "prune unsafe formal claims",
+      "ExpectedStructuralGain": "formal layer stays honest",
+      "ExpectedMappingGain": "equation truth tags stabilize",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L49",
+      "LoopNumber": 49,
+      "Wave": "Wave 7 - Pull mathematics and hybrid equations into the loop",
+      "Objective": "Run the fifth major prune checkpoint and reseed on the math-bearing control layer.",
+      "DominantFocus": "Checkpoint 5",
+      "PrimarySynthesisObjective": "assess math-bearing completeness",
+      "PrimaryPlanningObjective": "plan corrections",
+      "PrimaryImplementationObjective": "land remaining formal integration",
+      "PrimaryCompressionObjective": "compress law duplication",
+      "ExpectedStructuralGain": "stable math-bearing membrane",
+      "ExpectedMappingGain": "fifth burst receipt",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L50",
+      "LoopNumber": 50,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Deduplicate overlapping quest fronts across Temple and Hall.",
+      "DominantFocus": "Quest dedupe",
+      "PrimarySynthesisObjective": "synthesize overlap across Temple/Hall",
+      "PrimaryPlanningObjective": "plan dedupe merge sets",
+      "PrimaryImplementationObjective": "merge overlapping fronts",
+      "PrimaryCompressionObjective": "prune duplicate quests",
+      "ExpectedStructuralGain": "cleaner macro backlog",
+      "ExpectedMappingGain": "canonical quest lineage",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L51",
+      "LoopNumber": 51,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Defragment registry, metro, and mirror surfaces so the same pressure appears in one canonical place.",
+      "DominantFocus": "Registry defrag",
+      "PrimarySynthesisObjective": "synthesize fragmentation across mirrors/metro",
+      "PrimaryPlanningObjective": "plan canonical placements",
+      "PrimaryImplementationObjective": "defragment registry and mirror surfaces",
+      "PrimaryCompressionObjective": "prune duplicated state carriers",
+      "ExpectedStructuralGain": "single-source pressure improves",
+      "ExpectedMappingGain": "canonical-node mapping",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L52",
+      "LoopNumber": 52,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Compress stale summaries into restart seeds and receipts.",
+      "DominantFocus": "Seed compression",
+      "PrimarySynthesisObjective": "synthesize stale summary mass",
+      "PrimaryPlanningObjective": "plan seed-collapse rules",
+      "PrimaryImplementationObjective": "compress stale matter into seeds/receipts",
+      "PrimaryCompressionObjective": "prune low-value residue",
+      "ExpectedStructuralGain": "lighter restart burden",
+      "ExpectedMappingGain": "seed lineage expands",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L53",
+      "LoopNumber": 53,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Tighten cross-links between Temple law, Hall quests, Q-SHRINK mirrors, and runtime-carry surfaces.",
+      "DominantFocus": "Cross-link tightening",
+      "PrimarySynthesisObjective": "synthesize loose control links",
+      "PrimaryPlanningObjective": "plan stronger cross-link mesh",
+      "PrimaryImplementationObjective": "tighten Temple/Hall/Q-SHRINK/runtime links",
+      "PrimaryCompressionObjective": "prune orphan references",
+      "ExpectedStructuralGain": "denser interconnection",
+      "ExpectedMappingGain": "route density ledger",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L54",
+      "LoopNumber": 54,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Re-rank all active fronts by leverage, witness, and restart value.",
+      "DominantFocus": "Frontier reranking",
+      "PrimarySynthesisObjective": "synthesize leverage changes",
+      "PrimaryPlanningObjective": "plan new ordering",
+      "PrimaryImplementationObjective": "rerank active fronts",
+      "PrimaryCompressionObjective": "prune low-leverage positions",
+      "ExpectedStructuralGain": "self-steering priority field",
+      "ExpectedMappingGain": "leverage metadata refresh",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L55",
+      "LoopNumber": 55,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Decay any front that is no longer live after writeback.",
+      "DominantFocus": "Front decay",
+      "PrimarySynthesisObjective": "synthesize dead-front residue",
+      "PrimaryPlanningObjective": "plan formal decay",
+      "PrimaryImplementationObjective": "decay non-live fronts",
+      "PrimaryCompressionObjective": "prune stale active claims",
+      "ExpectedStructuralGain": "cleaner current-state truth",
+      "ExpectedMappingGain": "active/frontier split sharpens",
+      "TopKPerMaster": 64,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L56",
+      "LoopNumber": 56,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Run the sixth major prune checkpoint and prepare pre-closure.",
+      "DominantFocus": "Pre-closure checkpoint",
+      "PrimarySynthesisObjective": "synthesize final structural tensions",
+      "PrimaryPlanningObjective": "plan final closure tasks",
+      "PrimaryImplementationObjective": "land remaining tightening work",
+      "PrimaryCompressionObjective": "compress residual duplication",
+      "ExpectedStructuralGain": "ready for whole-program audit",
+      "ExpectedMappingGain": "sixth burst receipt",
+      "TopKPerMaster": 128,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    },
+    {
+      "LoopId": "L57",
+      "LoopNumber": 57,
+      "Wave": "Wave 8 - Compression, defrag, and structural tightening",
+      "Objective": "Run one full-program audit across Temple, Hall, Q-SHRINK, witness, route, cycle, and transition layers.",
+      "DominantFocus": "Prime audit / lift seed",
+      "PrimarySynthesisObjective": "synthesize whole-program state",
+      "PrimaryPlanningObjective": "plan next-57 restart seed",
+      "PrimaryImplementationObjective": "emit final packet sets and execution queue",
+      "PrimaryCompressionObjective": "emit final compression receipt and reseed",
+      "ExpectedStructuralGain": "restart-safe macro program",
+      "ExpectedMappingGain": "complete 57-loop ledger and 57->next57 seed",
+      "TopKPerMaster": 256,
+      "ActiveMasters": [
+        "M1-SYNTH",
+        "M2-PLAN",
+        "M3-WORK",
+        "M4-PRUNE"
+      ],
+      "RequiredOutputs": [
+        "SynthesisPacket",
+        "TempleQuestPacketSet",
+        "GuildQuestPacketSet",
+        "ExecutionBatchPacket",
+        "CompressionReceipt",
+        "RestartSeed"
+      ],
+      "VerdictLaw": "NEAR unless all 6 outputs land; COMPLETE only when all 6 land with writeback.",
+      "SeatLedgerRequired": true,
+      "PrimaryWritebackTargets": [
+        "Temple manifest",
+        "Temple control board",
+        "Hall execution board",
+        "Hall changefeed",
+        "Q-SHRINK mirror"
+      ],
+      "Status": "planned"
+    }
+  ],
+  "TempleOfAlchemyWriteback": {
+    "status": "TEMPLE_ONLY_SEEDED",
+    "canonical_loop_id": "C02",
+    "legacy_loop_alias": "L02",
+    "source_artifact": "self_actualize/mycelium_brain/ATHENA TEMPLE/09_TEMPLE_OF_ALCHEMY_CH11_MANUFACTURING_PASS.md",
+    "packet_family": [
+      "TQ57-C02-SYNTHESIZER-TEMPLE",
+      "TQ57-C02-PLANNER-TEMPLE",
+      "TQ57-C02-WORKER-TEMPLE",
+      "TQ57-C02-PRUNER-TEMPLE"
+    ],
+    "counts": {
+      "concepts": 64,
+      "workers": 9,
+      "appendix_ap": 16,
+      "emergent": 9,
+      "reverse_appendix": 16,
+      "quantum": 64
+    },
+    "law_delta": "T17 - Manufacturing Passes Must Land As Observer-Bound Packet Families",
+    "crystal_delta": "Stack-Synthesize-Fractal-Writeback",
+    "hall_mirror_status": "PENDING",
+    "qshrink_mirror_status": "PENDING",
+    "restart_seed": "derive worker packet plan from the four C02 Temple packets"
+  },
+  "WritebackTargets": {
+    "Temple": [
+      "MANIFESTS/57_LOOP_STATE.md",
+      "MANIFESTS/57_LOOP_STATE.json",
+      "BOARDS/03_57_LOOP_CONTROL_BOARD.md",
+      "QUESTS/57_LOOP_QUEST_INDEX.md",
+      "receipts/57_loop/"
+    ],
+    "Hall": [
+      "BOARDS/07_57_LOOP_EXECUTION_BOARD.md",
+      "BOARDS/08_57_LOOP_CHANGEFEED.md"
+    ],
+    "QSHRINK": [
+      "NERVOUS_SYSTEM/analysis/57_LOOP_MIRROR.md",
+      "NERVOUS_SYSTEM/analysis/57_LOOP_RECEIPTS.md",
+      "NERVOUS_SYSTEM/guild_hall/57_LOOP_MIRROR_QUEUE.md"
+    ]
+  }
+}

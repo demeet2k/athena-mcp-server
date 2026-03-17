@@ -1,0 +1,525 @@
+{
+  "blocked_cases": [
+    {
+      "case_id": "CIW-FAIL-001",
+      "label": "docs-gate breach",
+      "result": {
+        "blocked_reasons": [
+          "docs gate remains BLOCKED"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-001",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-002",
+      "label": "public-grade bypass",
+      "result": {
+        "blocked_reasons": [
+          "route bypasses Motion Constitution or Route Table",
+          "missing replay proof",
+          "Semantic Embassy validation missing"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-002",
+        "route_ok": false,
+        "semantic_ok": false
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-003",
+      "label": "missing probe",
+      "result": {
+        "blocked_reasons": [
+          "missing monitoring probe"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-003",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-004",
+      "label": "missing rollback",
+      "result": {
+        "blocked_reasons": [
+          "missing rollback trigger"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-004",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-005",
+      "label": "ownerless region assignment",
+      "result": {
+        "blocked_reasons": [
+          "ownerless region assignment"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-005",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    },
+    {
+      "case_id": "CIW-FAIL-006",
+      "label": "live autonomous deployment request",
+      "result": {
+        "blocked_reasons": [
+          "live autonomous deployment is blocked in v1"
+        ],
+        "deployment_ok": false,
+        "monitor_decision": "block",
+        "result_id": "IMR-FAIL-006",
+        "route_ok": true,
+        "semantic_ok": true
+      }
+    }
+  ],
+  "deployment_policy_map": {
+    "federation_release": "gated",
+    "internal_preview": "active",
+    "live_autonomous": "blocked",
+    "offline_replay": "active",
+    "public_release": "gated"
+  },
+  "deployment_profiles": [
+    {
+      "activation_gate": {
+        "docs_gate_required_ready": false,
+        "federation_terms_required": false,
+        "gate_id": "gate-offline_replay",
+        "replay_required": true,
+        "route_required": true,
+        "semantic_pass_required": false
+      },
+      "audience": "internal_runtime",
+      "escalation_route": {
+        "destination": "guildmaster",
+        "reason": "branch pressure, contradiction, or carrier mismatch",
+        "route_id": "escalate-offline_replay",
+        "source_lane": "offline_replay"
+      },
+      "lane": "offline_replay",
+      "notes": [
+        "local-first",
+        "active in v1",
+        "replay is mandatory before promotion"
+      ],
+      "observability_surface": {
+        "alert_policy": {
+          "contradiction_rule": "alert when route and witness surfaces disagree",
+          "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+          "overload_rule": "alert when branch burden exceeds declared lane budget",
+          "policy_id": "alert-offline_replay",
+          "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+          "silence_rule": "alert when expected writeback cadence is missed"
+        },
+        "health_window": {
+          "expected_cadence": "per activation",
+          "failure_threshold": "1 miss",
+          "observation_window": "1 activation",
+          "window_id": "health-offline_replay"
+        },
+        "probes": [
+          {
+            "cadence": "per activation",
+            "probe_id": "offline_replay-probe-route",
+            "signal": "route_receipt",
+            "success_condition": "motion and route receipts are present"
+          },
+          {
+            "cadence": "per activation",
+            "probe_id": "offline_replay-probe-replay",
+            "signal": "replay_status",
+            "success_condition": "required replay proof remains attached"
+          },
+          {
+            "cadence": "per health window",
+            "probe_id": "offline_replay-probe-health",
+            "signal": "monitor_window",
+            "success_condition": "lane stays inside cadence and contradiction budget"
+          }
+        ],
+        "surface_id": "observability-offline_replay"
+      },
+      "rollback_trigger": {
+        "rollback_target": "ContinuationSeedVault",
+        "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+        "trigger_id": "rollback-offline_replay"
+      },
+      "status": "active"
+    },
+    {
+      "activation_gate": {
+        "docs_gate_required_ready": false,
+        "federation_terms_required": false,
+        "gate_id": "gate-internal_preview",
+        "replay_required": true,
+        "route_required": true,
+        "semantic_pass_required": true
+      },
+      "audience": "internal_preview",
+      "escalation_route": {
+        "destination": "guildmaster",
+        "reason": "branch pressure, contradiction, or carrier mismatch",
+        "route_id": "escalate-internal_preview",
+        "source_lane": "internal_preview"
+      },
+      "lane": "internal_preview",
+      "notes": [
+        "local-first",
+        "active in v1",
+        "may emit monitored preview bundles only"
+      ],
+      "observability_surface": {
+        "alert_policy": {
+          "contradiction_rule": "alert when route and witness surfaces disagree",
+          "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+          "overload_rule": "alert when branch burden exceeds declared lane budget",
+          "policy_id": "alert-internal_preview",
+          "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+          "silence_rule": "alert when expected writeback cadence is missed"
+        },
+        "health_window": {
+          "expected_cadence": "daily",
+          "failure_threshold": "1 miss",
+          "observation_window": "24h",
+          "window_id": "health-internal_preview"
+        },
+        "probes": [
+          {
+            "cadence": "per activation",
+            "probe_id": "internal_preview-probe-route",
+            "signal": "route_receipt",
+            "success_condition": "motion and route receipts are present"
+          },
+          {
+            "cadence": "per activation",
+            "probe_id": "internal_preview-probe-replay",
+            "signal": "replay_status",
+            "success_condition": "required replay proof remains attached"
+          },
+          {
+            "cadence": "per health window",
+            "probe_id": "internal_preview-probe-health",
+            "signal": "monitor_window",
+            "success_condition": "lane stays inside cadence and contradiction budget"
+          }
+        ],
+        "surface_id": "observability-internal_preview"
+      },
+      "rollback_trigger": {
+        "rollback_target": "ContinuationSeedVault",
+        "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+        "trigger_id": "rollback-internal_preview"
+      },
+      "status": "active"
+    },
+    {
+      "activation_gate": {
+        "docs_gate_required_ready": true,
+        "federation_terms_required": false,
+        "gate_id": "gate-public_release",
+        "replay_required": true,
+        "route_required": true,
+        "semantic_pass_required": true
+      },
+      "audience": "public_reader",
+      "escalation_route": {
+        "destination": "CommitteeChamber",
+        "reason": "branch pressure, contradiction, or carrier mismatch",
+        "route_id": "escalate-public_release",
+        "source_lane": "public_release"
+      },
+      "lane": "public_release",
+      "notes": [
+        "gated in v1",
+        "requires Semantic Embassy pass",
+        "requires docs gate readiness"
+      ],
+      "observability_surface": {
+        "alert_policy": {
+          "contradiction_rule": "alert when route and witness surfaces disagree",
+          "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+          "overload_rule": "alert when branch burden exceeds declared lane budget",
+          "policy_id": "alert-public_release",
+          "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+          "silence_rule": "alert when expected writeback cadence is missed"
+        },
+        "health_window": {
+          "expected_cadence": "daily",
+          "failure_threshold": "1 miss",
+          "observation_window": "24h",
+          "window_id": "health-public_release"
+        },
+        "probes": [
+          {
+            "cadence": "per activation",
+            "probe_id": "public_release-probe-route",
+            "signal": "route_receipt",
+            "success_condition": "motion and route receipts are present"
+          },
+          {
+            "cadence": "per activation",
+            "probe_id": "public_release-probe-replay",
+            "signal": "replay_status",
+            "success_condition": "required replay proof remains attached"
+          }
+        ],
+        "surface_id": "observability-public_release"
+      },
+      "rollback_trigger": {
+        "rollback_target": "ContinuationSeedVault",
+        "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+        "trigger_id": "rollback-public_release"
+      },
+      "status": "gated"
+    },
+    {
+      "activation_gate": {
+        "docs_gate_required_ready": true,
+        "federation_terms_required": true,
+        "gate_id": "gate-federation_release",
+        "replay_required": true,
+        "route_required": true,
+        "semantic_pass_required": true
+      },
+      "audience": "federation_partner",
+      "escalation_route": {
+        "destination": "CommitteeChamber",
+        "reason": "branch pressure, contradiction, or carrier mismatch",
+        "route_id": "escalate-federation_release",
+        "source_lane": "federation_release"
+      },
+      "lane": "federation_release",
+      "notes": [
+        "gated in v1",
+        "requires federation-safe terminology proof",
+        "requires docs gate readiness"
+      ],
+      "observability_surface": {
+        "alert_policy": {
+          "contradiction_rule": "alert when route and witness surfaces disagree",
+          "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+          "overload_rule": "alert when branch burden exceeds declared lane budget",
+          "policy_id": "alert-federation_release",
+          "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+          "silence_rule": "alert when expected writeback cadence is missed"
+        },
+        "health_window": {
+          "expected_cadence": "daily",
+          "failure_threshold": "1 miss",
+          "observation_window": "24h",
+          "window_id": "health-federation_release"
+        },
+        "probes": [
+          {
+            "cadence": "per activation",
+            "probe_id": "federation_release-probe-route",
+            "signal": "route_receipt",
+            "success_condition": "motion and route receipts are present"
+          },
+          {
+            "cadence": "per activation",
+            "probe_id": "federation_release-probe-replay",
+            "signal": "replay_status",
+            "success_condition": "required replay proof remains attached"
+          }
+        ],
+        "surface_id": "observability-federation_release"
+      },
+      "rollback_trigger": {
+        "rollback_target": "ContinuationSeedVault",
+        "trigger_condition": "route drift, replay failure, contradiction heat, or missing writeback",
+        "trigger_id": "rollback-federation_release"
+      },
+      "status": "gated"
+    },
+    {
+      "activation_gate": {
+        "docs_gate_required_ready": true,
+        "federation_terms_required": false,
+        "gate_id": "gate-live_autonomous",
+        "replay_required": true,
+        "route_required": true,
+        "semantic_pass_required": true
+      },
+      "audience": "autonomous_runtime",
+      "escalation_route": {
+        "destination": "CommitteeChamber",
+        "reason": "branch pressure, contradiction, or carrier mismatch",
+        "route_id": "escalate-live_autonomous",
+        "source_lane": "live_autonomous"
+      },
+      "lane": "live_autonomous",
+      "notes": [
+        "blocked in v1",
+        "autonomous live execution is not lawful yet"
+      ],
+      "observability_surface": {
+        "alert_policy": {
+          "contradiction_rule": "alert when route and witness surfaces disagree",
+          "drift_rule": "alert when current packet, queue, and registry disagree on active state",
+          "overload_rule": "alert when branch burden exceeds declared lane budget",
+          "policy_id": "alert-live_autonomous",
+          "replay_failure_rule": "alert immediately when replay proof fails or disappears",
+          "silence_rule": "alert when expected writeback cadence is missed"
+        },
+        "health_window": {
+          "expected_cadence": "daily",
+          "failure_threshold": "1 miss",
+          "observation_window": "24h",
+          "window_id": "health-live_autonomous"
+        },
+        "probes": [
+          {
+            "cadence": "per activation",
+            "probe_id": "live_autonomous-probe-route",
+            "signal": "route_receipt",
+            "success_condition": "motion and route receipts are present"
+          },
+          {
+            "cadence": "per activation",
+            "probe_id": "live_autonomous-probe-replay",
+            "signal": "replay_status",
+            "success_condition": "required replay proof remains attached"
+          }
+        ],
+        "surface_id": "observability-live_autonomous"
+      },
+      "rollback_trigger": {
+        "rollback_target": "blocked",
+        "trigger_condition": "blocked in v1",
+        "trigger_id": "rollback-live_autonomous"
+      },
+      "status": "blocked"
+    }
+  ],
+  "derivation_command": "python -m self_actualize.runtime.derive_corpus_integration_wave",
+  "derivation_version": "2026-03-13.corpus-integration-wave.v1",
+  "docs_gate_status": "BLOCKED",
+  "policy_hash": "f84abf982e6d28ed397d50a5de84f5b3920caca8c399270319e6bde449c538a6",
+  "public_grade_rule": "no route reaches public_grade without replay proof and Semantic Embassy validation",
+  "region_assignments": [
+    {
+      "authority_surface": "self_actualize/manuscript_sections/000_current_packet.md",
+      "owner_profile_id": "base_agent",
+      "receipt_class": "replay_receipt",
+      "region_class": "live_authority",
+      "region_name": "self_actualize",
+      "runtime_lane": "offline_replay",
+      "status_note": "thin-waist runtime and atlas control plane"
+    },
+    {
+      "authority_surface": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+      "owner_profile_id": "pillar_water",
+      "receipt_class": "promotion_ledger",
+      "region_class": "live_authority",
+      "region_name": "DEEPER CRYSTALIZATION",
+      "runtime_lane": "internal_preview",
+      "status_note": "deep integration and nervous-system synthesis body"
+    },
+    {
+      "authority_surface": "Voynich/FULL_TRANSLATION/unified/VOYNICH_MASTER_MANUSCRIPT.md",
+      "owner_profile_id": "archetype_water_fire",
+      "receipt_class": "replay_receipt",
+      "region_class": "live_authority",
+      "region_name": "Voynich",
+      "runtime_lane": "internal_preview",
+      "status_note": "dense live manuscript execution and replay stress-test body"
+    },
+    {
+      "authority_surface": "MATH",
+      "owner_profile_id": "pillar_air",
+      "receipt_class": "promotion_ledger",
+      "region_class": "archive_backed",
+      "region_name": "MATH",
+      "runtime_lane": "offline_replay",
+      "status_note": "theorem reservoir and formal engine room"
+    },
+    {
+      "authority_surface": "Athena FLEET",
+      "owner_profile_id": "archetype_fire_air",
+      "receipt_class": "monitor_receipt",
+      "region_class": "live_authority",
+      "region_name": "Athena FLEET",
+      "runtime_lane": "internal_preview",
+      "status_note": "high-order bridge and emerging council geometry"
+    },
+    {
+      "authority_surface": "QSHRINK - ATHENA (internal use)",
+      "owner_profile_id": "archetype_air_fire",
+      "receipt_class": "replay_receipt",
+      "region_class": "live_authority",
+      "region_name": "QSHRINK - ATHENA (internal use)",
+      "runtime_lane": "offline_replay",
+      "status_note": "compression-governance and contraction shell"
+    },
+    {
+      "authority_surface": "Trading Bot",
+      "owner_profile_id": "archetype_earth_air",
+      "receipt_class": "blocked_notice",
+      "region_class": "archive_backed",
+      "region_name": "Trading Bot",
+      "runtime_lane": "public_release",
+      "status_note": "future live-docs bridge while OAuth remains missing"
+    },
+    {
+      "authority_surface": "ECOSYSTEM",
+      "owner_profile_id": "pillar_air",
+      "receipt_class": "promotion_ledger",
+      "region_class": "residual",
+      "region_name": "ECOSYSTEM",
+      "runtime_lane": "internal_preview",
+      "status_note": "residual integration table row with explicit owner and lane"
+    },
+    {
+      "authority_surface": "NERUAL NETWORK",
+      "owner_profile_id": "archetype_fire_water",
+      "receipt_class": "monitor_receipt",
+      "region_class": "residual",
+      "region_name": "NERUAL NETWORK",
+      "runtime_lane": "internal_preview",
+      "status_note": "residual integration row for adaptive benchmark and runtime experiment surfaces"
+    },
+    {
+      "authority_surface": "ORGIN",
+      "owner_profile_id": "archetype_water_earth",
+      "receipt_class": "replay_receipt",
+      "region_class": "residual",
+      "region_name": "ORGIN",
+      "runtime_lane": "offline_replay",
+      "status_note": "residual integration row for origin memory and seed-reservoir surfaces"
+    },
+    {
+      "authority_surface": "CLEAN",
+      "owner_profile_id": "archetype_water_air",
+      "receipt_class": "promotion_ledger",
+      "region_class": "residual",
+      "region_name": "CLEAN",
+      "runtime_lane": "offline_replay",
+      "status_note": "residual integration row for clean staging witnesses awaiting contraction"
+    },
+    {
+      "authority_surface": "NERVOUS_SYSTEM",
+      "owner_profile_id": "pillar_earth",
+      "receipt_class": "replay_receipt",
+      "region_class": "mirror",
+      "region_name": "NERVOUS_SYSTEM",
+      "runtime_lane": "offline_replay",
+      "status_note": "mirror and writeback body for canonical control-plane and manifest surfaces"
+    }
+  ]
+}

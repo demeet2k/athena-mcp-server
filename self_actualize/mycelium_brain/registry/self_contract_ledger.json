@@ -1,0 +1,173 @@
+{
+  "generated_at": "2026-03-12T20:46:18.064573+00:00",
+  "derivation_version": "2026-03-12.phase3-v1",
+  "docs_gate": "BLOCKED",
+  "identity_kernel": [
+    {
+      "invariant": "authority_order",
+      "note": "cortex first, runtime second, governance mirror third"
+    },
+    {
+      "invariant": "witness_discipline",
+      "note": "ABSTAIN is legal, fake witness is not"
+    },
+    {
+      "invariant": "lineage_preservation",
+      "note": "nontrivial self-transforms extend lineage instead of replacing it"
+    },
+    {
+      "invariant": "replay_obligation",
+      "note": "self-change must remain replayable through checkpoint and receipt surfaces"
+    },
+    {
+      "invariant": "local_scope_honesty",
+      "note": "the blocked Docs gate may not be laundered into a false live-memory claim"
+    }
+  ],
+  "permitted_transform_classes": [
+    {
+      "transform_class": "policy_tuning",
+      "review_class": "witness_review",
+      "note": "allowed when route evidence and receipts stay visible"
+    },
+    {
+      "transform_class": "registry_strengthening",
+      "review_class": "structural_review",
+      "note": "allowed when typed interfaces become clearer without erasing lineage"
+    },
+    {
+      "transform_class": "contraction_and_pruning",
+      "review_class": "repair_review",
+      "note": "allowed when stale authority is demoted rather than deleted"
+    },
+    {
+      "transform_class": "replay_hardening",
+      "review_class": "rollback_review",
+      "note": "allowed when checkpoints, restart tokens, or receipts are strengthened"
+    },
+    {
+      "transform_class": "capsule_deepening",
+      "review_class": "generation_review",
+      "note": "allowed when manuscript regeneration cites seed, witnesses, and writeback targets"
+    },
+    {
+      "transform_class": "runtime_derivation_writeback",
+      "review_class": "publication_review",
+      "note": "allowed when runtime output lands in cortex, runtime, and receipt surfaces"
+    }
+  ],
+  "forbidden_transform_classes": [
+    {
+      "transform_class": "silent_identity_kernel_rewrite",
+      "note": "identity kernel may not be changed without declared successor-class transition"
+    },
+    {
+      "transform_class": "silent_lineage_deletion",
+      "note": "lineage history may not be erased to simplify the present"
+    },
+    {
+      "transform_class": "unsupported_memory_deletion",
+      "note": "memory may not be removed without archive or receipt support"
+    },
+    {
+      "transform_class": "permission_self_inflation",
+      "note": "the kernel may not widen its own permissions without higher-order review"
+    },
+    {
+      "transform_class": "non_replayable_publication",
+      "note": "publication without replay target and receipt is forbidden"
+    }
+  ],
+  "required_review_classes": [
+    {
+      "review_class": "witness_review",
+      "required_for": "observe and measure packets",
+      "rule": "claim must cite witness class and current scope"
+    },
+    {
+      "review_class": "structural_review",
+      "required_for": "edit packets",
+      "rule": "typed surfaces and invariants must remain explicit"
+    },
+    {
+      "review_class": "repair_review",
+      "required_for": "repair packets",
+      "rule": "typed defect and repair trace must remain visible"
+    },
+    {
+      "review_class": "generation_review",
+      "required_for": "regeneration packets",
+      "rule": "seed, witnesses, and writeback targets must be named"
+    },
+    {
+      "review_class": "rollback_review",
+      "required_for": "rollback packets",
+      "rule": "rollback must name predecessor checkpoint and lineage head"
+    },
+    {
+      "review_class": "publication_review",
+      "required_for": "publish packets",
+      "rule": "cortex, runtime mirror, and receipt must all land together"
+    }
+  ],
+  "transform_classifier": [
+    {
+      "mode": "observe",
+      "contract_status": "PERMITTED",
+      "review_class": "witness_review",
+      "evidence": "witness hierarchy plus runtime lanes"
+    },
+    {
+      "mode": "edit",
+      "contract_status": "REQUIRES_REVIEW",
+      "review_class": "structural_review",
+      "evidence": "checkpoint plus surface diff"
+    },
+    {
+      "mode": "repair",
+      "contract_status": "PERMITTED",
+      "review_class": "repair_review",
+      "evidence": "typed defect plus repair trace"
+    },
+    {
+      "mode": "regenerate",
+      "contract_status": "REQUIRES_REVIEW",
+      "review_class": "generation_review",
+      "evidence": "seed citation plus publication-return target"
+    },
+    {
+      "mode": "rollback",
+      "contract_status": "PERMITTED",
+      "review_class": "rollback_review",
+      "evidence": "checkpoint hash plus lineage head"
+    },
+    {
+      "mode": "publish",
+      "contract_status": "REQUIRES_REVIEW",
+      "review_class": "publication_review",
+      "evidence": "triple writeback receipt"
+    }
+  ],
+  "unsafe_rewrite_gate": {
+    "threshold": 0.45,
+    "factors": {
+      "kernel_drift": 0.3,
+      "lineage_loss": 0.3,
+      "support_damage": 0.2,
+      "permission_violation": 0.2
+    },
+    "law": "block any transform that weakens lineage, support, or permissions faster than it improves lawful function"
+  },
+  "identity_drift_corridor": {
+    "declared_threshold": 0.18,
+    "current_drift": 0.083,
+    "status": "WITHIN_CORRIDOR",
+    "law": "measurable drift is legal inside the corridor and triggers successor-class review outside it"
+  },
+  "rollback_corridor": {
+    "rollback_threshold": 0.24,
+    "preferred_checkpoint_prefix": "CHK-2026-03-12-PH3-",
+    "restore_command": "python -m self_actualize.runtime.derive_self_hosting_kernel",
+    "law": "rollback returns to the last lawful checkpoint before identity or support loss compounds"
+  }
+}

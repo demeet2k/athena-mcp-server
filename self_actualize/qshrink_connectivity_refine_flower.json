@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-03-13T05:05:27.112767+00:00",
+  "derivation_command": "python -m self_actualize.runtime.derive_qshrink_connectivity_refine_flower",
+  "truth": "OK",
+  "focus": "connectivity-refine-flower",
+  "front_id": "Q42",
+  "current_carried_witness": "QS64-20 Connectivity-Diagnose-Fractal",
+  "active_local_subfront": "QS64-22 Connectivity-Refine-Flower",
+  "next_hall_seed": "QS64-23 Connectivity-Refine-Cloud",
+  "next_temple_handoff": "TQ04: Bind The Helical Schema Pack To A Runner Contract",
+  "reserve_frontier": "Q46",
+  "docs_gate": {
+    "status": "BLOCKED",
+    "truth": "FAIL",
+    "detail": "blocked-by-missing-credentials",
+    "confirmed_by": "self_actualize\\live_docs_gate_status.md",
+    "missing_files": [
+      "Trading Bot/credentials.json",
+      "Trading Bot/token.json"
+    ],
+    "surface_excerpt": "# Live Docs Gate Status\n\nDate: `2026-03-12`\n\n- Query:\n  `full corpus cross synthesis neural network metro map appendix Q helical manifestation engine quadrant binary framework`\n- Command status: `BLOCKED`\n- Return code: `1`\n- Confirmed by:\n  `python Trading Bot/docs_search.py ...`\n\n## Stderr"
+  },
+  "upstream_refine_square": {
+    "path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\self_actualize\\qshrink_connectivity_refine_square.json",
+    "truth": "OK",
+    "active_local_subfront": "QS64-21 Connectivity-Refine-Square"
+  },
+  "cadence_rails": [
+    {
+      "id": "R1",
+      "name": "local-refinement rail",
+      "route": "Q42 -> QS64-21 Connectivity-Refine-Square -> QS64-22 Connectivity-Refine-Flower -> QS64-23 Connectivity-Refine-Cloud -> QS64-24 Connectivity-Refine-Fractal",
+      "cadence_class": "hall-local-refine-loop",
+      "meaning": "keeps the four-pass NEXT^4 bundle ordered as one Hall-local refinement rail"
+    },
+    {
+      "id": "R2",
+      "name": "deeper-handoff rail",
+      "route": "Q42 writeback -> TQ04: Bind The Helical Schema Pack To A Runner Contract",
+      "cadence_class": "temple-receiver",
+      "meaning": "hands deeper execution to TQ04 without letting Temple pressure overwrite the Hall-local seed"
+    },
+    {
+      "id": "R3",
+      "name": "reserve-growth rail",
+      "route": "Q42 / TQ04 stable -> Q46",
+      "cadence_class": "reserve-only",
+      "meaning": "keeps Q46 visible as a reserve frontier without promoting it into the NEXT^4 bundle"
+    },
+    {
+      "id": "R4",
+      "name": "blocker-overlay rail",
+      "route": "Trading Bot -> live_docs_gate_status -> Hall truth",
+      "cadence_class": "external-blocker-overlay",
+      "meaning": "pins the blocked Docs limb as an external truth overlay across every local refinement pass"
+    }
+  ],
+  "writeback_targets": [
+    {
+      "body": "QSHRINK",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_qshrink_athena_internal_use_route_map.md"
+    },
+    {
+      "body": "Athena FLEET",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_athena_fleet_route_map.md"
+    },
+    {
+      "body": "ORGIN",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\families\\FAMILY_orgin_route_map.md"
+    },
+    {
+      "body": "Quest board",
+      "target": "self_actualize\\mycelium_brain\\GLOBAL_EMERGENT_GUILD_HALL\\BOARDS\\06_QUEST_BOARD.md"
+    },
+    {
+      "body": "Active queue",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\06_active_queue.md"
+    },
+    {
+      "body": "QSHRINK active front",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\QSHRINK_ACTIVE_FRONT.md"
+    },
+    {
+      "body": "Next self prompt",
+      "target": "self_actualize\\mycelium_brain\\nervous_system\\manifests\\NEXT_SELF_PROMPT.md"
+    },
+    {
+      "body": "Temple state",
+      "target": "self_actualize\\mycelium_brain\\ATHENA TEMPLE\\MANIFESTS\\TEMPLE_STATE.md"
+    }
+  ]
+}

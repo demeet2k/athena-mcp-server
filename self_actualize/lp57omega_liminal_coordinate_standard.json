@@ -1,0 +1,60 @@
+{
+  "tuple": [
+    "Xs",
+    "Ys",
+    "Zs",
+    "Ts",
+    "Qs",
+    "Rs",
+    "Cs",
+    "Fs",
+    "Ms",
+    "Ns",
+    "Hs",
+    "Ωs"
+  ],
+  "meanings": {
+    "Xs": "document region",
+    "Ys": "corpus sector",
+    "Zs": "recursion depth",
+    "Ts": "temporal revision layer",
+    "Qs": "quest state",
+    "Rs": "routing rail",
+    "Cs": "compression state",
+    "Fs": "framework lens",
+    "Ms": "mathematical density",
+    "Ns": "neural / mycelial connectivity",
+    "Hs": "hierarchy level",
+    "Ωs": "zero-point / aether relation"
+  },
+  "defaults": {
+    "Qs": [
+      "OBS",
+      "PLN",
+      "ACT",
+      "CMP",
+      "BLK",
+      "RET"
+    ],
+    "Cs": [
+      "RAW",
+      "WIP",
+      "TIGHT",
+      "SEED"
+    ],
+    "Fs": [
+      "FIRE",
+      "WATER",
+      "EARTH",
+      "AIR",
+      "NEUTRAL"
+    ],
+    "Ωs": [
+      "SURFACE",
+      "LOCAL_ZERO",
+      "BRIDGE",
+      "Z_STAR",
+      "AETHER"
+    ]
+  }
+}

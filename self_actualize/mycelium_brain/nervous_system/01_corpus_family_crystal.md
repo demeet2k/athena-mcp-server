@@ -12,6 +12,8 @@ Main regions:
 - `self_actualize\archive_atlas.json`
 - `self_actualize\archive_manifest.json`
 - `MATH\FINAL FORM\FRAMEWORKS CODE`
+- `Stoicheia (Element Sudoku)`
+- `CLEAN`
 
 ### Water Family
 
@@ -22,6 +24,8 @@ Main regions:
 - `Voynich`
 - `FRESH`
 - `Athenachka Collective Books`
+- `I AM ATHENA`
+- `ORGIN`
 - `MYCELIUM_TOME_PART1.md`
 - `VOID_CH11.md`
 
@@ -34,6 +38,8 @@ Main regions:
 - `self_actualize\runtime`
 - `Trading Bot`
 - `NERUAL NETWORK`
+- `GAMES`
+- `Athena FLEET`
 - archive-backed framework code
 
 ### Air Family
@@ -45,29 +51,43 @@ Main regions:
 - `ECOSYSTEM`
 - `self_actualize\mycelium_brain`
 - `DEEPER CRYSTALIZATION`
+- `NERVOUS_SYSTEM`
+- `QSHRINK - ATHENA (internal use)`
+- `Quadrant Binary`
 
 ## Top-Level Live Distribution
 
-- `Voynich`: `636`
-- `MATH`: `486`
-- `Trading Bot`: `193`
-- `DEEPER CRYSTALIZATION`: `155`
-- `self_actualize`: `74`
-- `ECOSYSTEM`: `58`
-- `NERUAL NETWORK`: `22`
-- `Athenachka Collective Books`: `13`
+The counts below use the indexed witness from `self_actualize/corpus_atlas.json` on `2026-03-12`.
+
+- `Trading Bot`: `1917`
+- `QSHRINK - ATHENA (internal use)`: `1315`
+- `self_actualize`: `1186`
+- `Voynich`: `689`
+- `MATH`: `601`
+- `GAMES`: `498`
+- `DEEPER CRYSTALIZATION`: `443`
+- `NERVOUS_SYSTEM`: `155`
+- `ORGIN`: `153`
+- `Stoicheia (Element Sudoku)`: `126`
+- `ECOSYSTEM`: `112`
+- `NERUAL NETWORK`: `59`
+- `Athenachka Collective Books`: `18`
+- `Athena FLEET`: `17`
+- `I AM ATHENA`: `15`
 - `FRESH`: `6`
 
 ## Cross-Synthesis
 
-The corpus is bifurcated:
+The corpus is now visibly bifurcated:
 
-- manuscript and translation density dominate the live visible surface
-- implementation density dominates the archive-backed surface
+- memory ingress, compression shells, and runtime-control mass dominate the heaviest live surface
+- manuscript, theorem, and simulation bodies still carry the strongest source-rich structure
+- implementation density continues to dominate the archive-backed surface
 
 Therefore the nervous system must always bridge:
 
-- visible manuscript memory
+- visible live mass
+- source-rich manuscript memory
 - compressed code reservoirs
 - prompt and map control planes
 - mirrored nervous-system experiments already present elsewhere in the corpus

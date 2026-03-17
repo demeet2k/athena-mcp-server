@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-03-13T15:02:10.258056+00:00",
+  "truth": "OK",
+  "checks": [
+    {
+      "agent_id": "AP6D-PRIME",
+      "note_exists": true,
+      "has_support_surfaces": true,
+      "has_handoff_target": true,
+      "has_restart_seed": true,
+      "has_reassessment_window": true
+    },
+    {
+      "agent_id": "AP6D-WATER",
+      "note_exists": true,
+      "has_support_surfaces": true,
+      "has_handoff_target": true,
+      "has_restart_seed": true,
+      "has_reassessment_window": true
+    },
+    {
+      "agent_id": "AP6D-EARTH",
+      "note_exists": true,
+      "has_support_surfaces": true,
+      "has_handoff_target": true,
+      "has_restart_seed": true,
+      "has_reassessment_window": true
+    },
+    {
+      "agent_id": "AP6D-FIRE",
+      "note_exists": true,
+      "has_support_surfaces": true,
+      "has_handoff_target": true,
+      "has_restart_seed": true,
+      "has_reassessment_window": true
+    },
+    {
+      "agent_id": "AP6D-AIR",
+      "note_exists": true,
+      "has_support_surfaces": true,
+      "has_handoff_target": true,
+      "has_restart_seed": true,
+      "has_reassessment_window": true
+    }
+  ]
+}

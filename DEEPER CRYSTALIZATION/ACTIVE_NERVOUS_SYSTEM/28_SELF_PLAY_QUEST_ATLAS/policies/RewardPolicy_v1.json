@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "protocol": "LP-57Omega",
+  "policy_id": "reward",
+  "description": "Reward parameters governing XP computation, truth-state discounts, and mint rates",
+  "gamma": {
+    "OK": 1.0,
+    "NEAR": 0.382,
+    "AMBIG": 0.0,
+    "VOID": 0.0
+  },
+  "gamma_description": "Truth-state discount factors. OK claims receive full reward; NEAR claims receive phi^-2; AMBIG and VOID receive nothing.",
+  "base_xp": 64,
+  "base_xp_description": "Base experience points awarded per quest completion before modifiers",
+  "capsule_clamp": 16,
+  "capsule_clamp_description": "Maximum number of capsule references a single quest can claim credit for",
+  "epoch_clamp": 64,
+  "epoch_clamp_description": "Maximum number of epochs a quest can remain active before forced closure",
+  "resonance_ratio": 0.618,
+  "resonance_ratio_description": "Golden-ratio scaling factor for resonance-class quest rewards (phi^-1)",
+  "mint_rates": {
+    "Solo": {
+      "base_mint": 1.0,
+      "description": "Standard mint rate for solo quest completions"
+    },
+    "Guild": {
+      "base_mint": 1.618,
+      "description": "Enhanced mint rate for guild quests (phi multiplier)"
+    },
+    "Community": {
+      "base_mint": 2.618,
+      "description": "Higher mint rate for community quests (phi^2 multiplier)"
+    },
+    "Storm": {
+      "base_mint": 4.236,
+      "description": "Storm mint rate (phi^3 multiplier)"
+    },
+    "Crown": {
+      "base_mint": 6.854,
+      "description": "Crown mint rate (phi^4 multiplier)"
+    },
+    "Migration": {
+      "base_mint": 11.09,
+      "description": "Migration mint rate (phi^5 multiplier)"
+    }
+  },
+  "reward_rules": [
+    "Final XP = base_xp * gamma[truth_state] * difficulty_multiplier * phi^(-(pass-1))",
+    "Capsule references beyond capsule_clamp are ignored in reward calculation",
+    "Quests exceeding epoch_clamp epochs have their reward halved",
+    "Resonance quests multiply final XP by resonance_ratio for harmonic propagation",
+    "Mint rate determines the token emission per XP point earned",
+    "Storm and Crown mint rates stack with coalition_bonus from StormPolicy"
+  ]
+}

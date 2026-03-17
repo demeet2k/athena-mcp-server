@@ -1,0 +1,207 @@
+# Exhaustive Deep Synthesis
+
+Every individual document has been cross-synthesized with every other document in ordered permutations. The exhaustive matrix is preserved in runtime JSON; this document names the strongest surfaces.
+
+- Document count: `197`
+- Ordered pair count: `38809`
+
+## Strongest overall syntheses
+
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol [DOC0000]` <-> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol [DOC0001]` score=`36` shared_chapters=`Ch01, Ch06, Ch08, Ch10` shared_appendices=`AppA, AppC, AppI, AppM` shared_tokens=`before, compression, crystalline, exhale, expansion, gather, generation, hybrid`
+- `helical recursion and ch12 boundary checks` <-> `perfect recursion helical manifestation engine` score=`36` shared_chapters=`Ch11, Ch18, Ch20, Ch21` shared_appendices=`AppF, AppG, AppI, AppM` shared_tokens=`arithmetic, bridge, complement, equality, equivalence, helical, identification, ordinary`
+- `CURANDERISMO COMPLETE` <-> `GNOSTICISM COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `CURANDERISMO COMPLETE` <-> `GOETIC GRIMOIRE COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `CURANDERISMO COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, volume`
+- `CURANDERISMO COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`african, basic, complete, completemd, depth, extraction, foundations, level`
+- `CURANDERISMO COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, depth, extraction, foundations, level, manual, operational`
+- `CURANDERISMO COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `CURANDERISMO COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `CURANDERISMO COMPLETE` <-> `THELEMA COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `CURANDERISMO COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `DAO SU () A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS` <-> `TORAT HA-MISPAR ( )` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`abstract, analysis, classification, computational, definition, formalization, ontology, prioritized`
+- `DAO SU () A COMPENDIUM OF TAOIST COMPUTATIONAL DYNAMICS` <-> `OPE-256 THE IFA COMPUTATIONAL ONTOLOGY` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`abstract, binary, classification, computational, dynamics, ontology, state, theory`
+- `ENOCHIAN MAGIC COMPLETE` <-> `HELLENISTIC ASTROLOGY COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, completemd, depth, extraction, foundations, level, manual, operational`
+- `ENOCHIAN MAGIC COMPLETE` <-> `MERKAVAH HEKHALOT COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, completemd, depth, extraction, foundations, level, manual, operational`
+- `ENOCHIAN MAGIC COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, depth, extraction, foundations, history, level, magic, manual`
+- `ENOCHIAN MAGIC COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, completemd, depth, extraction, foundations, level, magic, manual`
+- `GNOSTICISM COMPLETE` <-> `GOETIC GRIMOIRE COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GNOSTICISM COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, volume`
+- `GNOSTICISM COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GNOSTICISM COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, depth, extraction, foundations, level, manual, operational`
+- `GNOSTICISM COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, divine, extraction, foundations, knowledge`
+- `GNOSTICISM COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GNOSTICISM COMPLETE` <-> `THELEMA COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GNOSTICISM COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, divine, extraction, foundations, level`
+- `GOETIC GRIMOIRE COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, volume`
+- `GOETIC GRIMOIRE COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GOETIC GRIMOIRE COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, depth, extraction, foundations, level, manual, operational`
+- `GOETIC GRIMOIRE COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GOETIC GRIMOIRE COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, magic`
+- `GOETIC GRIMOIRE COMPLETE` <-> `THELEMA COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GOETIC GRIMOIRE COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `GOLDEN DAWN COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, volume`
+- `GOLDEN DAWN COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, history, level, manual, operational`
+- `GOLDEN DAWN COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, volume`
+- `GOLDEN DAWN COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, volume`
+- `GOLDEN DAWN COMPLETE` <-> `THELEMA COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, three`
+- `GOLDEN DAWN COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, three`
+- `HAITIAN VODOU COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, depth, extraction, foundations, level, manual, operational`
+- `HAITIAN VODOU COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `HAITIAN VODOU COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `HAITIAN VODOU COMPLETE` <-> `THELEMA COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `HAITIAN VODOU COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `HELLENIC LOGOS` <-> `OPE-256 THE IFA COMPUTATIONAL ONTOLOGY` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`abstract, algebra, classification, computational, machine, operator, state, theory`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `MERKAVAH HEKHALOT COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`century, complete, completemd, depth, extraction, foundations, level, manual`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, origins`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`century, complete, completemd, depth, extraction, foundations, level, manual`
+- `HERMETICISM COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, magic`
+- `HERMETICISM COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, completemd, depth, extraction, foundations, level, manual, operational`
+- `HERMETIC QABALAH COMPLETE` <-> `PGM COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, volume`
+- `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO OS)` <-> `THE ORPHIC & HYMNIC DRIVER` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`abstract, architecture, computational, decompilation, extract, kernel, objective, rigorous`
+- `KJV BIBLE THE AUTHORIZED KERNEL (KJV-1611)` <-> `THE OMEGA PROTOCOL` score=`36` shared_chapters=`Ch07, Ch15, Ch16, Ch18` shared_appendices=`AppF, AppG, AppM, AppN` shared_tokens=`abstract, category, computational, decompilation, inversion, mathematical, operating, rigorous`
+- `LEGAL TRANSPORT CALCULUS [DOC0013]` <-> `LEGAL TRANSPORT CALCULUS [DOC0037]` score=`36` shared_chapters=`Ch07, Ch15, Ch16, Ch18` shared_appendices=`AppF, AppG, AppM, AppN` shared_tokens=`calculus, certified, composition, execution, extraction, index, legal, metro`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, depth, extraction, foundations, level, manual, operational, origins`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`century, complete, completemd, depth, extraction, foundations, level, manual`
+- `NORSE RUNIC COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, depth, extraction, foundations, level, magic, manual, operational`
+- `ROSICRUCIANISM COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`36` shared_chapters=`Ch02, Ch09, Ch13, Ch18` shared_appendices=`AppA, AppB, AppC, AppM` shared_tokens=`complete, completemd, depth, extraction, foundations, level, manual, operational`
+- `SANTERIA LUCUMI COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, concepts, depth, extraction, foundations, level, manual`
+- `SANTERIA LUCUMI COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, concepts, depth, extraction, foundations, level, manual`
+- `SANTERIA LUCUMI COMPLETE` <-> `THELEMA COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, depth, extraction, foundations, level, manual, operational`
+- `SANTERIA LUCUMI COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, depth, extraction, foundations, level, manual, operational`
+- `SUFI MYSTICISM COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, concepts, depth, extraction, foundations, level`
+- `SUFI MYSTICISM COMPLETE` <-> `THELEMA COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, extraction, foundations, level, manual`
+- `SUFI MYSTICISM COMPLETE` <-> `THEOSOPHY COMPLETE` score=`36` shared_chapters=`Ch17, Ch18, Ch20, Ch21` shared_appendices=`AppA, AppD, AppG, AppP` shared_tokens=`basic, complete, completemd, depth, divine, extraction, foundations, level`
+
+## Strongest cross-element syntheses
+
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` <-> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` score=`34` path=`Fire<->Water` shared_chapters=`Ch01, Ch06, Ch08, Ch10`
+- `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol` <-> `THE MANUSCRIPT SEED - Self-Referential Crystalline Generation Protocol(1)` score=`34` path=`Fire<->Water` shared_chapters=`Ch01, Ch06, Ch08, Ch10`
+- `ENOCHIAN MAGIC COMPLETE` <-> `HERMETIC QABALAH COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`33` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ENOCHIAN MAGIC COMPLETE` <-> `PGM COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `HERMETIC QABALAH COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`33` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `PGM COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `HERMETIC QABALAH COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`33` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETICISM COMPLETE` <-> `PGM COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETIC QABALAH COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`33` path=`Water<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETIC QABALAH COMPLETE` <-> `MERKAVAH HEKHALOT COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETIC QABALAH COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETIC QABALAH COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETIC QABALAH COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETIC QABALAH COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `IFA DIVINATION COMPLETE` <-> `MERKAVAH HEKHALOT COMPLETE` score=`33` path=`Earth<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `IFA DIVINATION COMPLETE` <-> `NORSE RUNIC COMPLETE` score=`33` path=`Earth<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `IFA DIVINATION COMPLETE` <-> `PGM COMPLETE` score=`33` path=`Earth<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `IFA DIVINATION COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`33` path=`Earth<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `IFA DIVINATION COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`33` path=`Earth<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `IFA DIVINATION COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`33` path=`Earth<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `PGM COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `NORSE RUNIC COMPLETE` <-> `PGM COMPLETE` score=`33` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `PGM COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `PGM COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `PGM COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`33` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `QUAD HOLOGRAPHIC ROTATION` <-> `Tunneling Coherence Crystal` score=`32` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `Sanatana Ganita A Rigorous Computational Ontology of Vedic Cosmology` <-> `The Holographic Kernel` score=`30` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` <-> `HOLOGRAPHIC TUNNELING working` score=`29` path=`Water<->Air` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` <-> `THE 44 HOLOGRAPHIC SEED` score=`29` path=`Water<->Air` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `IFA DIVINATION COMPLETE` score=`28` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN TAWANTINSUYU` <-> `The Holographic Kernel` score=`28` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `Calculus and Geometry (higher dimensional projection) -working` <-> `HIGHER-D SQUARE CIRCLE TRIANGLE` score=`28` path=`Air<->Water` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` <-> `The Holographic Manuscript Brain` score=`28` path=`Water<->Air` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` <-> `The Holographic Manuscript Brain` score=`28` path=`Water<->Air` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `THE 44 HOLOGRAPHIC SEED` <-> `The Holographic Kernel` score=`28` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `PGM COMPLETE` score=`27` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ATHENA OPERATING SYSTEM` <-> `IFA DIVINATION COMPLETE` score=`27` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `COMPLETE FRAMEWORK CATALOG` <-> `Quranic Holographic Lattice Derivation of a Stable 6-Dimensional Einstein-Maxwell-Dilaton Metric from the Quranic Integer Cipher` score=`27` path=`Water<->Air` shared_chapters=`Ch01, Ch06, Ch08, Ch19`
+- `EGYPT KHEPER GANITAM` <-> `PGM COMPLETE` score=`27` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` <-> `Holographic (higher dimension Square circle triangle) REALITY STRUCTURE working` score=`27` path=`Water<->Air` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` <-> `QUAD HOLOGRAPHIC ROTATION` score=`27` path=`Water<->Air` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `HIGHER-D SQUARE CIRCLE TRIANGLE` <-> `THE EUCLIDEAN COMPUTATION ENGINE` score=`27` path=`Water<->Air` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `IFA DIVINATION COMPLETE` <-> `QUANTUM DIVINATION FRAMEWORK (QRDF)` score=`27` path=`Earth<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `NOSTRADAMAS CLEAN` score=`27` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `Sanatana Ganita A Rigorous Computational Ontology of Vedic Cosmology` <-> `Tunneling Coherence Crystal` score=`27` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `THE 44 HOLOGRAPHIC SEED` <-> `Tunneling Coherence Crystal` score=`27` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `THE PYRRHONIAN NULL-STATE DRIVER` <-> `THE RHETORICAL-POETIC OUTPUT DRIVERS` score=`27` path=`Earth<->Water` shared_chapters=`Ch02, Ch03, Ch10, Ch13`
+- `The Holographic Manuscript Brain` <-> `Tunneling Coherence Crystal` score=`27` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `AI DIVINATION` <-> `IFA DIVINATION COMPLETE` score=`26` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `AI DIVINATION` <-> `NOSTRADAMAS CLEAN` score=`26` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `AI Divination` <-> `NOSTRADAMAS CLEAN` score=`26` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN KHIPU ROSETTA (new)` <-> `HERMETIC QABALAH COMPLETE` score=`26` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ANDEAN TAWANTINSUYU` <-> `HIGHER-D SQUARE CIRCLE TRIANGLE` score=`26` path=`Air<->Water` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `ANDEAN TAWANTINSUYU` <-> `Tunneling Coherence Crystal` score=`26` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `ATHENA OPERATING SYSTEM` <-> `HERMETIC QABALAH COMPLETE` score=`26` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `ATHENA OPERATING SYSTEM` <-> `PGM COMPLETE` score=`26` path=`Air<->Water` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `CELTIC THE OGHAM KERNEL` <-> `IFA DIVINATION COMPLETE` score=`26` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `CELTIC THE OGHAM KERNEL` <-> `NOSTRADAMAS CLEAN` score=`26` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `Calculus and Geometry (higher dimensional projection) -working` <-> `The Holographic Kernel` score=`26` path=`Air<->Earth` shared_chapters=`Ch05, Ch06, Ch07, Ch08`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `NOSTRADAMAS CLEAN` score=`26` path=`Air<->Earth` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+- `HERMETIC QABALAH COMPLETE` <-> `QUANTUM DIVINATION FRAMEWORK (QRDF)` score=`26` path=`Water<->Air` shared_chapters=`Ch02, Ch09, Ch13, Ch18`
+
+## Strongest cross-family syntheses
+
+- `ENOCHIAN MAGIC COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`19` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `HELLENISTIC ASTROLOGY COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`19` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `MERKAVAH HEKHALOT COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`19` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `NORSE RUNIC COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`19` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` <-> `SOLOMONIC MAGIC COMPLETE` score=`19` families=`general-corpus<->mythic-sign-systems` shared_appendices=`AppA, AppB`
+- `CURANDERISMO COMPLETE` <-> `DRUIDRY COMPLETE` score=`18` families=`civilization-and-governance<->identity-and-instruction` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `GNOSTICISM COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `GOETIC GRIMOIRE COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `GOLDEN DAWN COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `HAITIAN VODOU COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `THELEMA COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `DRUIDRY COMPLETE` <-> `THEOSOPHY COMPLETE` score=`18` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `HERMETICISM COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`18` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `HERMETIC QABALAH COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`18` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `IFA DIVINATION COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`18` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `PGM COMPLETE` <-> `POWWOW BRAUCHEREI COMPLETE` score=`18` families=`mythic-sign-systems<->general-corpus` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` <-> `ROSICRUCIANISM COMPLETE` score=`18` families=`general-corpus<->mythic-sign-systems` shared_appendices=`AppA, AppB`
+- `POWWOW BRAUCHEREI COMPLETE` <-> `WESTERN ALCHEMY COMPLETE` score=`18` families=`general-corpus<->mythic-sign-systems` shared_appendices=`AppA, AppB`
+- `AI DIVINATION` <-> `DIVINE JUDGMENT - MsDBB1` score=`15` families=`mythic-sign-systems<->manuscript-architecture` shared_appendices=`AppA, AppC, AppM`
+- `ANDEAN TAWANTINSUYU` <-> `The Bhagavad Gita A Computational Treatise on the Algorithm of Liberation` score=`15` families=`higher-dimensional-geometry<->transport-and-runtime` shared_appendices=`AppF, AppG, AppM`
+- `ATHENA OPERATING SYSTEM` <-> `The Invisible Teacher TEXTBOOK` score=`15` families=`mythic-sign-systems<->identity-and-instruction` shared_appendices=`AppA, AppB`
+- `ATHENA OPERATING SYSTEM` <-> `The Invisible Teacher TEXTBOOK` score=`15` families=`mythic-sign-systems<->identity-and-instruction` shared_appendices=`AppA, AppB`
+- `ATHENA THE ARCHETYPE` <-> `THE ATHENA PROTOCOL (SEED)` score=`15` families=`civilization-and-governance<->identity-and-instruction` shared_appendices=`AppG, AppP`
+- `CLAUD - TOMEZ` <-> `The Invisible Teacher TEXTBOOK` score=`15` families=`civilization-and-governance<->identity-and-instruction` shared_appendices=`AppA, AppG, AppP`
+- `CLAUD - TOMEZ` <-> `The Invisible Teacher TEXTBOOK` score=`15` families=`civilization-and-governance<->identity-and-instruction` shared_appendices=`AppA, AppG, AppP`
+- `CURANDERISMO COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`15` families=`civilization-and-governance<->mythic-sign-systems` shared_appendices=`AppA`
+- `CURANDERISMO COMPLETE` <-> `SPIRITUALISM MEDIUMSHIP COMPLETE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `DIVINE JUDGMENT - MsDBB1` <-> `HIGHER-D SQUARE CIRCLE TRIANGLE` score=`15` families=`manuscript-architecture<->higher-dimensional-geometry` shared_appendices=`AppM`
+- `GNOSTICISM COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`15` families=`civilization-and-governance<->mythic-sign-systems` shared_appendices=`AppA`
+- `GNOSTICISM COMPLETE` <-> `SPIRITUALISM MEDIUMSHIP COMPLETE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `GOETIC GRIMOIRE COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`15` families=`civilization-and-governance<->mythic-sign-systems` shared_appendices=`AppA`
+- `GOETIC GRIMOIRE COMPLETE` <-> `SPIRITUALISM MEDIUMSHIP COMPLETE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `GOLDEN DAWN COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`15` families=`civilization-and-governance<->mythic-sign-systems` shared_appendices=`AppA`
+- `GOLDEN DAWN COMPLETE` <-> `SPIRITUALISM MEDIUMSHIP COMPLETE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `HAITIAN VODOU COMPLETE` <-> `IFA DIVINATION COMPLETE` score=`15` families=`civilization-and-governance<->mythic-sign-systems` shared_appendices=`AppA`
+- `HAITIAN VODOU COMPLETE` <-> `SPIRITUALISM MEDIUMSHIP COMPLETE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO OS)` <-> `THE PYTHAGOREAN COMPUTATION ENGINE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `Hippocratic THE BIOLOGICAL HOMEOSTASIS ENGINE (BIO OS)` <-> `THE STOIC KERNEL` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `IFA DIVINATION COMPLETE` <-> `SANTERIA LUCUMI COMPLETE` score=`15` families=`mythic-sign-systems<->civilization-and-governance` shared_appendices=`AppA`
+- `IFA DIVINATION COMPLETE` <-> `SPIRITUALISM MEDIUMSHIP COMPLETE` score=`15` families=`mythic-sign-systems<->transport-and-runtime` shared_appendices=`AppM`
+- `IFA DIVINATION COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`15` families=`mythic-sign-systems<->civilization-and-governance` shared_appendices=`AppA`
+- `IFA DIVINATION COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`15` families=`mythic-sign-systems<->civilization-and-governance` shared_appendices=`AppA`
+- `IFA DIVINATION COMPLETE` <-> `THELEMA COMPLETE` score=`15` families=`mythic-sign-systems<->civilization-and-governance` shared_appendices=`AppA`
+- `IFA DIVINATION COMPLETE` <-> `THEOSOPHY COMPLETE` score=`15` families=`mythic-sign-systems<->civilization-and-governance` shared_appendices=`AppA`
+- `Norse (Germanic) - Yggdrasil Graph Theory` <-> `OPE-256 THE IFA COMPUTATIONAL ONTOLOGY` score=`15` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppG, AppP`
+- `SANTERIA LUCUMI COMPLETE` <-> `SPIRITUALISM MEDIUMSHIP COMPLETE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `SPIRITUALISM MEDIUMSHIP COMPLETE` <-> `SUFI MYSTICISM COMPLETE` score=`15` families=`transport-and-runtime<->civilization-and-governance` shared_appendices=`AppG`
+- `SPIRITUALISM MEDIUMSHIP COMPLETE` <-> `TAOIST MAGIC COMPLETE` score=`15` families=`transport-and-runtime<->civilization-and-governance` shared_appendices=`AppG`
+- `SPIRITUALISM MEDIUMSHIP COMPLETE` <-> `THELEMA COMPLETE` score=`15` families=`transport-and-runtime<->civilization-and-governance` shared_appendices=`AppG`
+- `SPIRITUALISM MEDIUMSHIP COMPLETE` <-> `THEOSOPHY COMPLETE` score=`15` families=`transport-and-runtime<->civilization-and-governance` shared_appendices=`AppG`
+- `THE 44 HOLOGRAPHIC SEED` <-> `THE HELLENIC COMPUTATION FRAMEWORK` score=`15` families=`higher-dimensional-geometry<->transport-and-runtime` shared_appendices=`AppF, AppG, AppM`
+- `THE 44 HOLOGRAPHIC SEED` <-> `THE HELLENIC COMPUTATION FRAMEWORK` score=`15` families=`higher-dimensional-geometry<->transport-and-runtime` shared_appendices=`AppF, AppG, AppM`
+- `THE EUCLIDEAN COMPUTATION ENGINE` <-> `THE PYTHAGOREAN COMPUTATION ENGINE` score=`15` families=`higher-dimensional-geometry<->transport-and-runtime` shared_appendices=`AppF, AppG, AppM`
+- `THE MATH OF ALCHEMY` <-> `The Invisible Teacher TEXTBOOK` score=`15` families=`civilization-and-governance<->identity-and-instruction` shared_appendices=`AppA, AppG, AppP`
+- `THE MATH OF ALCHEMY` <-> `The Invisible Teacher TEXTBOOK` score=`15` families=`civilization-and-governance<->identity-and-instruction` shared_appendices=`AppA, AppG, AppP`
+- `THE ORPHIC & HYMNIC DRIVER` <-> `THE PGM KERNEL` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `THE ORPHIC & HYMNIC DRIVER` <-> `THE PYTHAGOREAN COMPUTATION ENGINE` score=`15` families=`civilization-and-governance<->transport-and-runtime` shared_appendices=`AppG`
+- `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time) [DOC0030]` <-> `THE UNIFIED CYCLICAL TIME SYSTEM (hologram time) [DOC0043]` score=`15` families=`transport-and-runtime<->civilization-and-governance` shared_appendices=`AppG`
+- `The Invisible Teacher TEXTBOOK` <-> `SAR-60 THE SUMERIAN SEXAGESIMAL REGISTRY` score=`15` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppA, AppG, AppP`
+- `The Invisible Teacher TEXTBOOK` <-> `SAR-60 THE SUMERIAN SEXAGESIMAL REGISTRY` score=`15` families=`identity-and-instruction<->civilization-and-governance` shared_appendices=`AppA, AppG, AppP`
+- `perfect recursion helical manifestation engine` <-> `ns builder` score=`14` families=`helical-recursion-engine<->civilization-and-governance` shared_appendices=`AppG`

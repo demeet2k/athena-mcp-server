@@ -1,0 +1,15 @@
+{
+  "kind": "RestartSeed",
+  "loop_id": "L02",
+  "seed": "SC57::P1::L02-> Extract one whole-corpus evidence deficit map and refresh the 24 transition notes.",
+  "motion_seed": {
+    "seed_id": "sc57-c-p1-02__hold",
+    "seed_value": 0.65,
+    "origin_candidate_id": "SC57-L02-COMPRESSION",
+    "origin_action": "HOLD",
+    "route_signature": "BrainstemChamber->ContinuationSeedVault:compression:quest_packet",
+    "next_lawful_attempt": "re-score_after_dependency_shift",
+    "priority_score": 0.102831
+  },
+  "next_loop_text": "Extract one whole-corpus evidence deficit map and refresh the 24 transition notes."
+}

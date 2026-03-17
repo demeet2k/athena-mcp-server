@@ -1,0 +1,147 @@
+{
+  "HSigmaTiming256": {
+    "generated_at": "2026-03-13T23:00:00-07:00",
+    "docs_gate_status": "BLOCKED",
+    "state_space": "Z4^4",
+    "axes": {
+      "q0": {
+        "0": "SEAT",
+        "1": "ADVANCE",
+        "2": "CROSS",
+        "3": "RETURN"
+      },
+      "q1": {
+        "0": "TOG_SAME",
+        "1": "TOG_OPP",
+        "2": "SPLIT_SAME",
+        "3": "SPLIT_OPP"
+      },
+      "q2": {
+        "0": "IN_IN",
+        "1": "IN_ANTI",
+        "2": "ANTI_IN",
+        "3": "ANTI_ANTI"
+      },
+      "q3": {
+        "0": "WALL",
+        "1": "WHEEL",
+        "2": "FLOOR",
+        "3": "MIX"
+      }
+    },
+    "encode_law": "B = q0 + 4q1 + 16q2 + 64q3",
+    "decode_law": {
+      "q0": "B mod 4",
+      "q1": "floor(B/4) mod 4",
+      "q2": "floor(B/16) mod 4",
+      "q3": "floor(B/64) mod 4"
+    },
+    "adjacency_law": "toroidal axis-neighbor",
+    "adjacency_detail": "Each state has exactly 8 neighbors defined by one-coordinate plus/minus 1 mod 4 movement.",
+    "key_states": {
+      "K0": {
+        "byte": 0,
+        "coords": [0, 0, 0, 0],
+        "meaning": "SEAT / TOG-SAME / IN-IN / WALL"
+      },
+      "K1": {
+        "byte": 212,
+        "coords": [0, 1, 1, 3],
+        "meaning": "SEAT / TOG-OPP / IN-ANTI / MIX"
+      },
+      "K2": {
+        "byte": 81,
+        "coords": [1, 0, 1, 1],
+        "meaning": "ADVANCE / TOG-SAME / IN-ANTI / WHEEL"
+      },
+      "K3": {
+        "byte": 217,
+        "coords": [1, 2, 1, 3],
+        "meaning": "ADVANCE / SPLIT-SAME / IN-ANTI / MIX"
+      },
+      "K4": {
+        "byte": 166,
+        "coords": [2, 1, 2, 2],
+        "meaning": "CROSS / TOG-OPP / ANTI-IN / FLOOR"
+      },
+      "K5": {
+        "byte": 222,
+        "coords": [2, 3, 1, 3],
+        "meaning": "CROSS / SPLIT-OPP / IN-ANTI / MIX"
+      },
+      "K6": {
+        "byte": 51,
+        "coords": [3, 0, 3, 0],
+        "meaning": "RETURN / TOG-SAME / ANTI-ANTI / WALL"
+      },
+      "K7": {
+        "byte": 247,
+        "coords": [3, 1, 3, 3],
+        "meaning": "RETURN / TOG-OPP / ANTI-ANTI / MIX"
+      },
+      "K8": {
+        "byte": 235,
+        "coords": [3, 2, 2, 3],
+        "meaning": "RETURN / SPLIT-SAME / ANTI-IN / MIX"
+      },
+      "K9": {
+        "byte": 255,
+        "coords": [3, 3, 3, 3],
+        "meaning": "RETURN / SPLIT-OPP / ANTI-ANTI / MIX"
+      }
+    },
+    "phrase_macros": {
+      "Phi_hidden": [0, 212, 217, 222, 255, 247, 51],
+      "Phi_regen": [0, 81, 235, 247, 51],
+      "Phi_transfer": [0, 166, 217, 212]
+    },
+    "route_gate_book": {
+      "R1": {"q0": [0, 1], "q1": [0, 1], "q2": [0, 1], "q3": [0, 1]},
+      "R2": {"q0": [1, 2], "q1": [2, 3], "q2": [1, 2], "q3": [2, 3]},
+      "R3": {"q0": [1, 2, 3], "q1": [1, 3], "q2": [1, 2, 3], "q3": [1, 3]},
+      "R4": {"q0": [0, 2], "q1": [0, 1], "q2": [0, 1, 2], "q3": [0, 2]},
+      "R5": {"q0": [0, 1, 2, 3], "q1": [1, 2, 3], "q2": [1, 2], "q3": [3]},
+      "R6": {"q0": [1, 3], "q1": [0, 2], "q2": [1, 2, 3], "q3": [1, 3]},
+      "R7": {"q0": [0, 1, 2, 3], "q1": [1, 3], "q2": [1, 2, 3], "q3": [3]},
+      "R8": {"q0": [0, 1, 3], "q1": [0, 1, 3], "q2": [0, 1, 2, 3], "q3": [0, 1, 3]},
+      "R9": {"q0": [1, 3], "q1": [1, 2, 3], "q2": [1, 2, 3], "q3": [1, 3]},
+      "R10": {"q0": [2, 3], "q1": [3], "q2": [1, 2, 3], "q3": [3]},
+      "R11": {"q0": [3], "q1": [0, 1, 3], "q2": [1, 2, 3], "q3": [0, 3]},
+      "R12": {
+        "q0": [0, 3],
+        "q1": [0, 2],
+        "q2": [0, 1, 2],
+        "q3": [0, 2, 3],
+        "additional_invariant": "replay support required"
+      },
+      "R13": {
+        "q0": [1, 3],
+        "q1": [2, 3],
+        "q2": [1, 2, 3],
+        "q3": [2, 3],
+        "additional_invariant": "aether or replay support required"
+      }
+    },
+    "nexus_exposure_book": {
+      "Z0": {"q0": [0, 2], "q1": [0, 1], "q2": [0, 1, 2], "q3": [0, 2, 3]},
+      "ZL": {"q0": [0, 2], "q1": [0, 2], "q2": [0, 1, 2], "q3": [0, 2]},
+      "A0": {"q0": [1, 3], "q1": [0, 2], "q2": [1, 2, 3], "q3": [1, 3]},
+      "L0": {"q0": [0, 1, 2, 3], "q1": [1, 2, 3], "q2": [1, 2], "q3": [3]},
+      "MT": {"q0": [0, 1, 3], "q1": [0, 1], "q2": [0, 1], "q3": [0, 1]},
+      "MS": {"q0": [0, 1, 2, 3], "q1": [0, 1, 2], "q2": [0, 1, 2], "q3": [0, 3]},
+      "MY": {"q0": [1, 2], "q1": [2, 3], "q2": [1, 2], "q3": [2, 3]},
+      "NN": {"q0": [1, 2, 3], "q1": [1, 3], "q2": [1, 2, 3], "q3": [1, 3]},
+      "TE": {"q0": [0, 2], "q1": [1, 3], "q2": [0, 1, 2], "q3": [3]},
+      "TX": {"q0": [1, 3], "q1": [1, 3], "q2": [1, 2, 3], "q3": [3]},
+      "DB": {"q0": [1, 2, 3], "q1": [1, 3], "q2": [1, 2, 3], "q3": [1, 3]},
+      "DL": {"q0": [1, 3], "q1": [1, 2, 3], "q2": [1, 2, 3], "q3": [1, 3]},
+      "MC": {"q0": [2, 3], "q1": [3], "q2": [1, 2, 3], "q3": [3]},
+      "RA": {"q0": [3], "q1": [0, 1, 3], "q2": [1, 2, 3], "q3": [0, 3]},
+      "WA": {"q0": [0, 3], "q1": [0, 2], "q2": [0, 1, 2], "q3": [0, 2, 3]},
+      "SC": {"q0": [1, 3], "q1": [2, 3], "q2": [1, 2, 3], "q3": [2, 3]},
+      "MR": {"q0": [3], "q1": [1, 3], "q2": [1, 2, 3], "q3": [0, 3]},
+      "PA": {"q0": [3], "q1": [0, 2], "q2": [0, 1, 2], "q3": [0, 3]},
+      "LP": {"q0": [1, 2, 3], "q1": [2, 3], "q2": [1, 2, 3], "q3": [3]}
+    }
+  }
+}

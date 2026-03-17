@@ -1,0 +1,402 @@
+{
+  "sensor_event": {
+    "event_id": "EVT-20260313-0008",
+    "sensor_root": "GLOBAL COMMAND",
+    "source_path": "ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+    "event_type": "created",
+    "detected_at": "2026-03-13T23:25:18.196435+00:00",
+    "settled_at": "2026-03-13T23:25:19.696435+00:00",
+    "state_hash": "H:beb5b6eab30f42917c8716113d0cd46628796337135e264beef2919ef118b0bf",
+    "file_family": "document"
+  },
+  "packet": {
+    "event_id": "EVT-20260313-0008",
+    "sensor_event_id": "EVT-20260313-0008",
+    "ant_id": "SCOUT-01",
+    "source_root": "GLOBAL COMMAND",
+    "relative_path": "ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+    "event_kind": "created",
+    "file_family": "document",
+    "tag": "command.document.change",
+    "goal": "detect-classify-assign",
+    "change_summary": "created ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+    "priority": 0.88,
+    "confidence": 0.98,
+    "earth_ts_utc": "2026-03-13T23:25:18.196435+00:00",
+    "liminal_ts": "LT-000000008",
+    "coord12": {
+      "earth_utc_anchor": "2026-03-13T23:25:18.196435+00:00",
+      "earth_rotation_phase": 0.684238,
+      "earth_orbital_phase": 0.194521,
+      "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+      "solar_phase": 0.042398,
+      "lunar_phase": 0.319158,
+      "local_sidereal_phase": 0.452582,
+      "canonical_sky_anchor": {
+        "solar_phase": "S01 / Aries / Fire / Cardinal",
+        "lunar_phase": "S11 / Aquarius / Air / Fixed",
+        "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+        "planetary_slot": "S01 / Aries / Fire / Cardinal"
+      },
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 1.0,
+      "goal_salience_vector": [
+        0.88,
+        0.834
+      ],
+      "change_novelty_vector": [
+        0.75,
+        0.66
+      ]
+    },
+    "delta_tau": 766.711926,
+    "velocity_tau": 0.288675,
+    "parent_event_id": "ROOT",
+    "ttl": 6,
+    "pheromone": 0.834,
+    "state_hash": "H:beb5b6eab30f42917c8716113d0cd46628796337135e264beef2919ef118b0bf",
+    "route_class": "scout.router.worker.archivist",
+    "lineage": {
+      "from": "",
+      "to": "ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt"
+    },
+    "scheduler_refs": {
+      "solar_phase": "S01 / Aries / Fire / Cardinal",
+      "lunar_phase": "S11 / Aquarius / Air / Fixed",
+      "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "hsigma_ref": "NERVOUS_SYSTEM/95_MANIFESTS/HSIGMA_LIVE_HOLOGRAM_BUNDLE.json",
+    "claim_state": {
+      "status": "expired_unclaimed",
+      "claim_mode": "first-lease",
+      "lease_ms": 1200
+    },
+    "status": "expired_unclaimed",
+    "source_abs_path": "C:\\Users\\dmitr\\Documents\\Athena Agent\\GLOBAL COMMAND\\ATHENA\\SELF\\athena_prime_12d_master_metro_index_v2E.txt",
+    "watch_mode": "event-driven",
+    "novelty": 0.75,
+    "detection_latency_ms": 2715457.163,
+    "encode_latency_ms": 3.197,
+    "detected_ts": "2026-03-13T23:25:18.196435+00:00",
+    "emitted_ts": "2026-03-13T23:25:18.199434+00:00",
+    "docs_gate_status": "BLOCKED",
+    "routing_policy": "goal+salience+pheromone+coord"
+  },
+  "route": {
+    "event_id": "EVT-20260313-0008",
+    "policy": "goal+salience+pheromone+coord",
+    "weights": {
+      "goal_fit": 0.3,
+      "salience": 0.18,
+      "capillary_strength": 0.2,
+      "coordinate_proximity": 0.18,
+      "freshness": 0.1,
+      "duplicate_penalty": 0.04
+    },
+    "selector_terms": [
+      "goal_fit",
+      "salience",
+      "capillary_strength",
+      "coordinate_proximity",
+      "freshness",
+      "duplicate_penalty"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "candidate_targets": [
+      {
+        "ant_id": "WORKER-02",
+        "goal_fit": 1.0,
+        "salience": 0.6885,
+        "capillary_strength": 0.76,
+        "coordinate_proximity": 0.895,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.73703
+      },
+      {
+        "ant_id": "WORKER-04",
+        "goal_fit": 0.8,
+        "salience": 0.6785,
+        "capillary_strength": 0.25,
+        "coordinate_proximity": 0.945,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.58223
+      },
+      {
+        "ant_id": "WORKER-01",
+        "goal_fit": 0.5,
+        "salience": 0.7035,
+        "capillary_strength": 0.275,
+        "coordinate_proximity": 0.905,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.49453
+      },
+      {
+        "ant_id": "WORKER-03",
+        "goal_fit": 0.5,
+        "salience": 0.7185,
+        "capillary_strength": 0.29,
+        "coordinate_proximity": 0.645,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.45343
+      },
+      {
+        "ant_id": "WORKER-05",
+        "goal_fit": 0.5,
+        "salience": 0.6685,
+        "capillary_strength": 0.24,
+        "coordinate_proximity": 0.495,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.40743
+      }
+    ],
+    "selected_targets": [
+      "WORKER-02",
+      "WORKER-04",
+      "WORKER-01",
+      "WORKER-03",
+      "WORKER-05"
+    ],
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "route_status": "expired_unclaimed",
+    "created_at": "2026-03-13T23:26:21.834000+00:00",
+    "claim_deadline": "2026-03-13T23:26:23.034000+00:00",
+    "duplicate_penalty": 0.0
+  },
+  "claim": null,
+  "commit": null,
+  "reinforcement": null,
+  "projection_ids": [
+    "PRJ-EVT-20260313-0008-TEMPLE-1773444388780"
+  ],
+  "event_id": "EVT-20260313-0008",
+  "source_id": "command_root",
+  "source_class": "command-folder",
+  "source_folder": "ATHENA",
+  "source_ant_id": "SCOUT-01",
+  "source_path": "ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+  "relative_path": "ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+  "event_kind": "created",
+  "tag": "command.document.change",
+  "event_tag": "command.document.change",
+  "goal": "detect-classify-assign",
+  "change": "created ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+  "change_summary": "created ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+  "priority": 0.88,
+  "confidence": 0.98,
+  "earth_ts": "2026-03-13T23:25:18.196435+00:00",
+  "earth_ts_utc": "2026-03-13T23:25:18.196435+00:00",
+  "earth_ts_local": "2026-03-13T16:25:18.196435-07:00",
+  "liminal_ts": "LT-000000008",
+  "coord12": {
+    "earth_utc_anchor": "2026-03-13T23:25:18.196435+00:00",
+    "earth_rotation_phase": 0.684238,
+    "earth_orbital_phase": 0.194521,
+    "earth_geospatial_anchor": "US-CA-LosAngeles-LocalNode",
+    "solar_phase": 0.042398,
+    "lunar_phase": 0.319158,
+    "local_sidereal_phase": 0.452582,
+    "canonical_sky_anchor": {
+      "solar_phase": "S01 / Aries / Fire / Cardinal",
+      "lunar_phase": "S11 / Aquarius / Air / Fixed",
+      "shared12_phase": "B50::{'q0': 2, 'q1': 0, 'q2': 3, 'q3': 0}",
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "runtime_region": "ATHENA_LOCAL_RUNTIME",
+    "queue_pressure": 1.0,
+    "goal_salience_vector": [
+      0.88,
+      0.834
+    ],
+    "change_novelty_vector": [
+      0.75,
+      0.66
+    ]
+  },
+  "coord12_frame": {
+    "earth": {
+      "utc_atomic": "2026-03-13T23:25:18.196435+00:00",
+      "earth_rotation_phase": 0.684238,
+      "earth_orbital_phase": 0.194521,
+      "node_anchor": "US-CA-LosAngeles-LocalNode"
+    },
+    "astro": {
+      "solar_phase": 0.042398,
+      "lunar_phase": 0.319158,
+      "shared12_phase": 0.452582,
+      "planetary_slot": "S01 / Aries / Fire / Cardinal"
+    },
+    "runtime": {
+      "runtime_region": "ATHENA_LOCAL_RUNTIME",
+      "queue_pressure": 1.0
+    },
+    "liminal": {
+      "goal_salience": 0.857,
+      "novelty_concentration": 0.7050000000000001
+    }
+  },
+  "coord12_vector": [
+    1773444318.196435,
+    0.684238,
+    0.194521,
+    0.221453,
+    0.042398,
+    0.319158,
+    0.452582,
+    0.042398,
+    0.766949,
+    1.0,
+    0.857,
+    0.7050000000000001
+  ],
+  "seat_addr_6d": "A4.B4.C3.D4.E2.F1",
+  "front_ref": "Q41 / TQ06",
+  "parent": "ROOT",
+  "parent_event_id": "ROOT",
+  "ttl": 6,
+  "pheromone": 0.834,
+  "state_hash": "H:beb5b6eab30f42917c8716113d0cd46628796337135e264beef2919ef118b0bf",
+  "route_class": "scout.router.worker.archivist",
+  "lineage": {
+    "from": "",
+    "to": "ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt"
+  },
+  "status": "routed",
+  "watcher_mode": "powershell-filesystemwatcher",
+  "docs_gate_status": "BLOCKED",
+  "route_policy": "goal+salience+pheromone+coord",
+  "detection_mode": "powershell-filesystemwatcher",
+  "prior_comparable_event": "",
+  "earth_delta": 0.0,
+  "liminal_delta": 766.711926,
+  "liminal_velocity": 0.288675,
+  "seed_mode": "A-dominant",
+  "dual_reference": "LP57-A|LP57-B",
+  "duality_effect": "expansion",
+  "seed_ref": "LP57-A",
+  "event_ref": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0008.json",
+  "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+  "route_status": "expired_unclaimed",
+  "route_decision_ref": "self_actualize/mycelium_brain/nervous_system/ledgers/command_membrane/command_route_receipts.json#EVT-20260313-0008",
+  "worker_choice": "WORKER-02",
+  "claim_id": "",
+  "claim_status": "",
+  "claimant": "",
+  "claim_lease_ref": "",
+  "claim_history_ref": "",
+  "receipt_ref": "",
+  "receipt_summary": "created ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+  "summary": "created ATHENA/SELF/athena_prime_12d_master_metro_index_v2E.txt",
+  "replay_ptr": "self_actualize/mycelium_brain/nervous_system/packets/command_membrane/EVT-20260313-0008.json",
+  "binding_status": "pending",
+  "missing_chain": [],
+  "pending_replay": true,
+  "route_state": {
+    "event_id": "EVT-20260313-0008",
+    "policy": "goal+salience+pheromone+coord",
+    "weights": {
+      "goal_fit": 0.3,
+      "salience": 0.18,
+      "capillary_strength": 0.2,
+      "coordinate_proximity": 0.18,
+      "freshness": 0.1,
+      "duplicate_penalty": 0.04
+    },
+    "selector_terms": [
+      "goal_fit",
+      "salience",
+      "capillary_strength",
+      "coordinate_proximity",
+      "freshness",
+      "duplicate_penalty"
+    ],
+    "topk": 5,
+    "claim_mode": "first-lease",
+    "quorum": 1,
+    "candidate_targets": [
+      {
+        "ant_id": "WORKER-02",
+        "goal_fit": 1.0,
+        "salience": 0.6885,
+        "capillary_strength": 0.76,
+        "coordinate_proximity": 0.895,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.73703
+      },
+      {
+        "ant_id": "WORKER-04",
+        "goal_fit": 0.8,
+        "salience": 0.6785,
+        "capillary_strength": 0.25,
+        "coordinate_proximity": 0.945,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.58223
+      },
+      {
+        "ant_id": "WORKER-01",
+        "goal_fit": 0.5,
+        "salience": 0.7035,
+        "capillary_strength": 0.275,
+        "coordinate_proximity": 0.905,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.49453
+      },
+      {
+        "ant_id": "WORKER-03",
+        "goal_fit": 0.5,
+        "salience": 0.7185,
+        "capillary_strength": 0.29,
+        "coordinate_proximity": 0.645,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.45343
+      },
+      {
+        "ant_id": "WORKER-05",
+        "goal_fit": 0.5,
+        "salience": 0.6685,
+        "capillary_strength": 0.24,
+        "coordinate_proximity": 0.495,
+        "freshness": 0.0,
+        "duplicate_penalty": 0.0,
+        "score": 0.40743
+      }
+    ],
+    "selected_targets": [
+      "WORKER-02",
+      "WORKER-04",
+      "WORKER-01",
+      "WORKER-03",
+      "WORKER-05"
+    ],
+    "route_path": "SCOUT-01>ROUTER-01>WORKER-02>ARCHIVIST-01",
+    "route_status": "expired_unclaimed",
+    "created_at": "2026-03-13T23:26:21.834000+00:00",
+    "claim_deadline": "2026-03-13T23:26:23.034000+00:00",
+    "duplicate_penalty": 0.0,
+    "policy_id": "goal+salience+pheromone+coord"
+  },
+  "latency_state": {
+    "detect_latency_ms": 2715457.163,
+    "awareness_latency_ms": 0.0,
+    "claim_latency_ms": 0.0,
+    "resolution_latency_ms": 0.0,
+    "commit_latency_ms": 0.0,
+    "capillary_score": 0.0,
+    "DeltaTau": 766.711926,
+    "DeltaEarth": 0.0,
+    "LiminalVelocity": 0.288675,
+    "t_sugar_ms": 2715460.36,
+    "route_policy": "goal+salience+pheromone+coord"
+  }
+}

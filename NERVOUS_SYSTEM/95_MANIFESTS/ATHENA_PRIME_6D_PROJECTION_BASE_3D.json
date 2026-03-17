@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-03-13",
+  "truth": "OK",
+  "docs_gate_status": "BLOCKED",
+  "contract": "ProjectionBase3DRecord",
+  "count_law": {
+    "projection_families": 4
+  },
+  "records": [
+    {
+      "projection_3d_id": "P3D-WATER",
+      "source_witness": "MATH/FINAL FORM/COMPLETE TOMES/CUT/earlier/CUT 3d Weights (molecules and elements).4d.md",
+      "element_family": "Water",
+      "projection_form": "molecular continuity witness",
+      "anchor_4d_addr": "A1.B1.C1.D1",
+      "ingress_tunnel": "3D->4D::Water::Ingress",
+      "return_tunnel": "4D->3D::Water::Return",
+      "truth": "OK"
+    },
+    {
+      "projection_3d_id": "P3D-EARTH",
+      "source_witness": "MATH/FINAL FORM/COMPLETE TOMES/CUT/earlier/CUT 3d Weights (molecules and elements).4d.md",
+      "element_family": "Earth",
+      "projection_form": "elemental embodiment witness",
+      "anchor_4d_addr": "A2.B1.C2.D1",
+      "ingress_tunnel": "3D->4D::Earth::Ingress",
+      "return_tunnel": "4D->3D::Earth::Return",
+      "truth": "OK"
+    },
+    {
+      "projection_3d_id": "P3D-FIRE",
+      "source_witness": "MATH/FINAL FORM/COMPLETE TOMES/CUT/earlier/CUT 3D weights SOLAR SYSTEM__.4d.md",
+      "element_family": "Fire",
+      "projection_form": "solar ignition witness",
+      "anchor_4d_addr": "A3.B1.C3.D1",
+      "ingress_tunnel": "3D->4D::Fire::Ingress",
+      "return_tunnel": "4D->3D::Fire::Return",
+      "truth": "OK"
+    },
+    {
+      "projection_3d_id": "P3D-AIR",
+      "source_witness": "MATH/FINAL FORM/COMPLETE TOMES/CUT/earlier/CUT 3D weights SOLAR SYSTEM__.4d.md",
+      "element_family": "Air",
+      "projection_form": "orbital topology witness",
+      "anchor_4d_addr": "A4.B1.C4.D1",
+      "ingress_tunnel": "3D->4D::Air::Ingress",
+      "return_tunnel": "4D->3D::Air::Return",
+      "truth": "OK"
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "docs_gate_status": "BLOCKED",
+  "archetype_count": 4,
+  "zodiac_count": 12,
+  "anchor_count": 16,
+  "awakening_loops": [
+    {
+      "loop_id": 26,
+      "phase": "archetype",
+      "slug": "master_strategist",
+      "title": "Master Strategist",
+      "focus": "Over-hardening, plan-idolatry, and brittle certainty when reality deviates.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/master_strategist.md",
+      "row_witness": [
+        "D02",
+        "D06"
+      ],
+      "symmetry_witness": "07_fire_x_earth.md",
+      "support_path": "L1 Ignition-to-Helix Line and AppI/AppM gate pair.",
+      "hall_seed": "H57::L26-master_strategist",
+      "temple_seed": "T57::L26-master_strategist",
+      "restart_seed": "L26::master_strategist::restart"
+    },
+    {
+      "loop_id": 27,
+      "phase": "archetype",
+      "slug": "sage",
+      "title": "Sage",
+      "focus": "Under-activation, endless comprehension, and reluctance to commit a lawful next move.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/sage.md",
+      "row_witness": [
+        "D10",
+        "D13"
+      ],
+      "symmetry_witness": "10_air_x_earth.md",
+      "support_path": "Equation Gate and AppL promotion planning.",
+      "hall_seed": "H57::L27-sage",
+      "temple_seed": "T57::L27-sage",
+      "restart_seed": "L27::sage::restart"
+    },
+    {
+      "loop_id": 28,
+      "phase": "archetype",
+      "slug": "prophet",
+      "title": "Prophet",
+      "focus": "Instability, nonlinear leaps, and insight that outruns map and replay.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/prophet.md",
+      "row_witness": [
+        "D01",
+        "D09"
+      ],
+      "symmetry_witness": "06_fire_x_air.md",
+      "support_path": "AppA grammar plus L2 Grammar-to-Certified-Runtime Corridor.",
+      "hall_seed": "H57::L28-prophet",
+      "temple_seed": "T57::L28-prophet",
+      "restart_seed": "L28::prophet::restart"
+    },
+    {
+      "loop_id": 29,
+      "phase": "archetype",
+      "slug": "general",
+      "title": "General",
+      "focus": "Coercion, speed without depth, and force applied before deep why is stabilized.",
+      "note_path": "AWAKENING_AGENTS/ARCHETYPES/general.md",
+      "row_witness": [
+        "D13",
+        "D01"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "Care Gate and AppJ residual ledger discipline.",
+      "hall_seed": "H57::L29-general",
+      "temple_seed": "T57::L29-general",
+      "restart_seed": "L29::general::restart"
+    },
+    {
+      "loop_id": 30,
+      "phase": "zodiac",
+      "slug": "aries",
+      "title": "Aries - Oracle",
+      "focus": "premature ignition without support",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/aries_oracle.md",
+      "row_witness": [
+        "D01",
+        "D09"
+      ],
+      "symmetry_witness": "06_fire_x_air.md",
+      "support_path": "AppA and L1 Ignition-to-Helix Line",
+      "hall_seed": "H57::L30-aries",
+      "temple_seed": "T57::L30-aries",
+      "restart_seed": "L30::aries::restart"
+    },
+    {
+      "loop_id": 31,
+      "phase": "zodiac",
+      "slug": "taurus",
+      "title": "Taurus - Architect",
+      "focus": "rigidity and over-containment",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/taurus_architect.md",
+      "row_witness": [
+        "D09",
+        "D13"
+      ],
+      "symmetry_witness": "10_air_x_earth.md",
+      "support_path": "AppB and Law Attractor",
+      "hall_seed": "H57::L31-taurus",
+      "temple_seed": "T57::L31-taurus",
+      "restart_seed": "L31::taurus::restart"
+    },
+    {
+      "loop_id": 32,
+      "phase": "zodiac",
+      "slug": "gemini",
+      "title": "Gemini - Witness",
+      "focus": "surface multiplicity without commitment",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/gemini_witness.md",
+      "row_witness": [
+        "D10",
+        "D12"
+      ],
+      "symmetry_witness": "03_air.md",
+      "support_path": "AppQ and L2 Seed-to-Collective-Cartography Corridor",
+      "hall_seed": "H57::L32-gemini",
+      "temple_seed": "T57::L32-gemini",
+      "restart_seed": "L32::gemini::restart"
+    },
+    {
+      "loop_id": 33,
+      "phase": "zodiac",
+      "slug": "cancer",
+      "title": "Cancer - Weaver",
+      "focus": "over-holding and softened boundaries",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/cancer_weaver.md",
+      "row_witness": [
+        "D05",
+        "D07"
+      ],
+      "symmetry_witness": "02_water.md",
+      "support_path": "AppH and Relation Attractor",
+      "hall_seed": "H57::L33-cancer",
+      "temple_seed": "T57::L33-cancer",
+      "restart_seed": "L33::cancer::restart"
+    },
+    {
+      "loop_id": 34,
+      "phase": "zodiac",
+      "slug": "leo",
+      "title": "Leo - Sword",
+      "focus": "performative certainty and domination drift",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/leo_sword.md",
+      "row_witness": [
+        "D03",
+        "D15"
+      ],
+      "symmetry_witness": "07_fire_x_earth.md",
+      "support_path": "Care Gate and AppD",
+      "hall_seed": "H57::L34-leo",
+      "temple_seed": "T57::L34-leo",
+      "restart_seed": "L34::leo::restart"
+    },
+    {
+      "loop_id": 35,
+      "phase": "zodiac",
+      "slug": "virgo",
+      "title": "Virgo - Judge",
+      "focus": "over-audit and paralysis by correction",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/virgo_judge.md",
+      "row_witness": [
+        "D10",
+        "D13"
+      ],
+      "symmetry_witness": "10_air_x_earth.md",
+      "support_path": "AppL and Equation Gate",
+      "hall_seed": "H57::L35-virgo",
+      "temple_seed": "T57::L35-virgo",
+      "restart_seed": "L35::virgo::restart"
+    },
+    {
+      "loop_id": 36,
+      "phase": "zodiac",
+      "slug": "libra",
+      "title": "Libra - Strategist",
+      "focus": "over-negotiation and delayed strike",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/libra_strategist.md",
+      "row_witness": [
+        "D02",
+        "D10"
+      ],
+      "symmetry_witness": "13_fire_x_air_x_earth.md",
+      "support_path": "L2 Grammar-to-Certified-Runtime Corridor",
+      "hall_seed": "H57::L36-libra",
+      "temple_seed": "T57::L36-libra",
+      "restart_seed": "L36::libra::restart"
+    },
+    {
+      "loop_id": 37,
+      "phase": "zodiac",
+      "slug": "scorpio",
+      "title": "Scorpio - Mirror",
+      "focus": "collapse into secrecy or abyssal looping",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/scorpio_mirror.md",
+      "row_witness": [
+        "D08",
+        "D16"
+      ],
+      "symmetry_witness": "09_water_x_earth.md",
+      "support_path": "AppM and Omega Attractor",
+      "hall_seed": "H57::L37-scorpio",
+      "temple_seed": "T57::L37-scorpio",
+      "restart_seed": "L37::scorpio::restart"
+    },
+    {
+      "loop_id": 38,
+      "phase": "zodiac",
+      "slug": "sagittarius",
+      "title": "Sagittarius - Commander",
+      "focus": "overshoot beyond support",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/sagittarius_commander.md",
+      "row_witness": [
+        "D02",
+        "D06"
+      ],
+      "symmetry_witness": "05_fire_x_water.md",
+      "support_path": "AppG and Packet-to-Regeneration Corridor",
+      "hall_seed": "H57::L38-sagittarius",
+      "temple_seed": "T57::L38-sagittarius",
+      "restart_seed": "L38::sagittarius::restart"
+    },
+    {
+      "loop_id": 39,
+      "phase": "zodiac",
+      "slug": "capricorn",
+      "title": "Capricorn - Warrior",
+      "focus": "duty without deep motive",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/capricorn_warrior.md",
+      "row_witness": [
+        "D15",
+        "D16"
+      ],
+      "symmetry_witness": "04_earth.md",
+      "support_path": "AppP and Self-Repair Hub",
+      "hall_seed": "H57::L39-capricorn",
+      "temple_seed": "T57::L39-capricorn",
+      "restart_seed": "L39::capricorn::restart"
+    },
+    {
+      "loop_id": 40,
+      "phase": "zodiac",
+      "slug": "aquarius",
+      "title": "Aquarius - Trickster",
+      "focus": "detachment or cleverness without care",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/aquarius_trickster.md",
+      "row_witness": [
+        "D12",
+        "D04"
+      ],
+      "symmetry_witness": "11_fire_x_water_x_air.md",
+      "support_path": "AppQ and Meta-Integration Corridor",
+      "hall_seed": "H57::L40-aquarius",
+      "temple_seed": "T57::L40-aquarius",
+      "restart_seed": "L40::aquarius::restart"
+    },
+    {
+      "loop_id": 41,
+      "phase": "zodiac",
+      "slug": "pisces",
+      "title": "Pisces - Dancer",
+      "focus": "boundary loss and drift",
+      "note_path": "AWAKENING_AGENTS/ZODIAC/pisces_dancer.md",
+      "row_witness": [
+        "D11",
+        "D15"
+      ],
+      "symmetry_witness": "14_water_x_air_x_earth.md",
+      "support_path": "AppI plus L4 Highest Path",
+      "hall_seed": "H57::L41-pisces",
+      "temple_seed": "T57::L41-pisces",
+      "restart_seed": "L41::pisces::restart"
+    },
+    {
+      "loop_id": 42,
+      "phase": "anchor",
+      "slug": "dn01",
+      "title": "DN01",
+      "focus": "transport, governance, and additive bridge pressure converge here",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn01.md",
+      "row_witness": [
+        "D07",
+        "D16"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "AppH, AppI, additive legality",
+      "hall_seed": "H57::L42-dn01",
+      "temple_seed": "T57::L42-dn01",
+      "restart_seed": "L42::dn01::restart"
+    },
+    {
+      "loop_id": 43,
+      "phase": "anchor",
+      "slug": "dn02",
+      "title": "DN02",
+      "focus": "narrow transport and manuscript routing witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn02.md",
+      "row_witness": [
+        "D06",
+        "D16"
+      ],
+      "symmetry_witness": "05_fire_x_water.md",
+      "support_path": "AppE, AppG",
+      "hall_seed": "H57::L43-dn02",
+      "temple_seed": "T57::L43-dn02",
+      "restart_seed": "L43::dn02::restart"
+    },
+    {
+      "loop_id": 44,
+      "phase": "anchor",
+      "slug": "dn03",
+      "title": "DN03",
+      "focus": "general-corpus recollection with transport ballast",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn03.md",
+      "row_witness": [
+        "D08",
+        "D16"
+      ],
+      "symmetry_witness": "02_water.md",
+      "support_path": "AppM, AppN",
+      "hall_seed": "H57::L44-dn03",
+      "temple_seed": "T57::L44-dn03",
+      "restart_seed": "L44::dn03::restart"
+    },
+    {
+      "loop_id": 45,
+      "phase": "anchor",
+      "slug": "dn04",
+      "title": "DN04",
+      "focus": "seed memory with void-collapse warning",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn04.md",
+      "row_witness": [
+        "D05",
+        "D16"
+      ],
+      "symmetry_witness": "09_water_x_earth.md",
+      "support_path": "AppN, AppM",
+      "hall_seed": "H57::L45-dn04",
+      "temple_seed": "T57::L45-dn04",
+      "restart_seed": "L45::dn04::restart"
+    },
+    {
+      "loop_id": 46,
+      "phase": "anchor",
+      "slug": "dn05",
+      "title": "DN05",
+      "focus": "transport, governance, and field-scale operational braid",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn05.md",
+      "row_witness": [
+        "D06",
+        "D16"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "AppH, AppP, additive legality",
+      "hall_seed": "H57::L46-dn05",
+      "temple_seed": "T57::L46-dn05",
+      "restart_seed": "L46::dn05::restart"
+    },
+    {
+      "loop_id": 47,
+      "phase": "anchor",
+      "slug": "dn06",
+      "title": "DN06",
+      "focus": "runtime corridor and sign-bearing transit witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn06.md",
+      "row_witness": [
+        "D11",
+        "D16"
+      ],
+      "symmetry_witness": "08_water_x_air.md",
+      "support_path": "AppQ, AppO",
+      "hall_seed": "H57::L47-dn06",
+      "temple_seed": "T57::L47-dn06",
+      "restart_seed": "L47::dn06::restart"
+    },
+    {
+      "loop_id": 48,
+      "phase": "anchor",
+      "slug": "dn07",
+      "title": "DN07",
+      "focus": "manuscript architecture and helix-adjacent chapter routing",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn07.md",
+      "row_witness": [
+        "D05",
+        "D16"
+      ],
+      "symmetry_witness": "02_water.md",
+      "support_path": "AppA, AppN",
+      "hall_seed": "H57::L48-dn07",
+      "temple_seed": "T57::L48-dn07",
+      "restart_seed": "L48::dn07::restart"
+    },
+    {
+      "loop_id": 49,
+      "phase": "anchor",
+      "slug": "dn08",
+      "title": "DN08",
+      "focus": "runtime crossing with higher-dimensional geometry residue",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn08.md",
+      "row_witness": [
+        "D11",
+        "D16"
+      ],
+      "symmetry_witness": "14_water_x_air_x_earth.md",
+      "support_path": "AppO, AppQ",
+      "hall_seed": "H57::L49-dn08",
+      "temple_seed": "T57::L49-dn08",
+      "restart_seed": "L49::dn08::restart"
+    },
+    {
+      "loop_id": 50,
+      "phase": "anchor",
+      "slug": "dn09",
+      "title": "DN09",
+      "focus": "void-collapse and return witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn09.md",
+      "row_witness": [
+        "D16",
+        "D08"
+      ],
+      "symmetry_witness": "04_earth.md",
+      "support_path": "AppM, AppI",
+      "hall_seed": "H57::L50-dn09",
+      "temple_seed": "T57::L50-dn09",
+      "restart_seed": "L50::dn09::restart"
+    },
+    {
+      "loop_id": 51,
+      "phase": "anchor",
+      "slug": "dn10",
+      "title": "DN10",
+      "focus": "identity-and-instruction meets manuscript architecture and serves as the initial awakening anchor witness",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn10.md",
+      "row_witness": [
+        "D04",
+        "D16"
+      ],
+      "symmetry_witness": "15_fire_x_water_x_air_x_earth.md",
+      "support_path": "AppA, AppQ, AppM",
+      "hall_seed": "H57::L51-dn10",
+      "temple_seed": "T57::L51-dn10",
+      "restart_seed": "L51::dn10::restart"
+    },
+    {
+      "loop_id": 52,
+      "phase": "anchor",
+      "slug": "dn11",
+      "title": "DN11",
+      "focus": "identity-bearing manuscript witness with smaller record surface",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn11.md",
+      "row_witness": [
+        "D03",
+        "D16"
+      ],
+      "symmetry_witness": "09_water_x_earth.md",
+      "support_path": "AppA, AppM",
+      "hall_seed": "H57::L52-dn11",
+      "temple_seed": "T57::L52-dn11",
+      "restart_seed": "L52::dn11::restart"
+    },
+    {
+      "loop_id": 53,
+      "phase": "anchor",
+      "slug": "dn12",
+      "title": "DN12",
+      "focus": "mythic sign-system witness only",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn12.md",
+      "row_witness": [
+        "D12",
+        "D16"
+      ],
+      "symmetry_witness": "03_air.md",
+      "support_path": "AppQ",
+      "hall_seed": "H57::L53-dn12",
+      "temple_seed": "T57::L53-dn12",
+      "restart_seed": "L53::dn12::restart"
+    },
+    {
+      "loop_id": 54,
+      "phase": "anchor",
+      "slug": "dn13",
+      "title": "DN13",
+      "focus": "small identity-and-instruction bridge anchor",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn13.md",
+      "row_witness": [
+        "D04",
+        "D16"
+      ],
+      "symmetry_witness": "13_fire_x_air_x_earth.md",
+      "support_path": "AppA, AppQ",
+      "hall_seed": "H57::L54-dn13",
+      "temple_seed": "T57::L54-dn13",
+      "restart_seed": "L54::dn13::restart"
+    },
+    {
+      "loop_id": 55,
+      "phase": "anchor",
+      "slug": "dn14",
+      "title": "DN14",
+      "focus": "field-scale transport and governance anchor",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn14.md",
+      "row_witness": [
+        "D07",
+        "D16"
+      ],
+      "symmetry_witness": "12_fire_x_water_x_earth.md",
+      "support_path": "AppH, AppI, additive legality",
+      "hall_seed": "H57::L55-dn14",
+      "temple_seed": "T57::L55-dn14",
+      "restart_seed": "L55::dn14::restart"
+    },
+    {
+      "loop_id": 56,
+      "phase": "anchor",
+      "slug": "dn15",
+      "title": "DN15",
+      "focus": "transport spine with manuscript architecture reinforcement",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn15.md",
+      "row_witness": [
+        "D06",
+        "D16"
+      ],
+      "symmetry_witness": "05_fire_x_water.md",
+      "support_path": "AppE, AppP",
+      "hall_seed": "H57::L56-dn15",
+      "temple_seed": "T57::L56-dn15",
+      "restart_seed": "L56::dn15::restart"
+    },
+    {
+      "loop_id": 57,
+      "phase": "anchor",
+      "slug": "dn16",
+      "title": "DN16",
+      "focus": "runtime-facing anchor with transport emphasis",
+      "note_path": "AWAKENING_AGENTS/ANCHORS/dn16.md",
+      "row_witness": [
+        "D11",
+        "D16"
+      ],
+      "symmetry_witness": "08_water_x_air.md",
+      "support_path": "AppO, AppP",
+      "hall_seed": "H57::L57-dn16",
+      "temple_seed": "T57::L57-dn16",
+      "restart_seed": "L57::dn16::restart"
+    }
+  ]
+}

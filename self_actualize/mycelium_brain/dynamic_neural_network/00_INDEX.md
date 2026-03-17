@@ -4,33 +4,33 @@ document_role: "index"
 scale: 13
 membership_mask: "1111111111111"
 coverage_ratio: 1.0
-entropy: 0.815505
+entropy: 0.80862
 centroid:
-  x: -0.3261
-  y: 0.701717
-  theta_deg: 117.389733
+  x: -0.244769
+  y: 0.555659
+  theta_deg: 122.403329
 macro_barycentric:
-  earth: 0.14515
-  water: 0.323868
-  fire: 0.162883
-  air: 0.3681
+  earth: 0.228565
+  water: 0.198351
+  fire: 0.280073
+  air: 0.293011
 crystal_gate:
   dominant_macro: "Air"
   address: [3, 3, 3, 3]
 source_weights:
-  "self_actualize": 0.061289
-  "NERVOUS_SYSTEM": 0.060241
-  "ECOSYSTEM": 0.05186
-  "MATH": 0.254584
-  "NERUAL NETWORK": 0.011524
-  "DEEPER CRYSTALIZATION": 0.113672
-  "Voynich": 0.333159
-  "Trading Bot": 0.1011
-  "FRESH": 0.003143
-  "VOID_CH11.md": 0.000524
-  "MYCELIUM_TOME_PART1.md": 0.000524
-  "Athenachka Collective Books": 0.00681
-  "I AM ATHENA": 0.001572
+  "self_actualize": 0.238901
+  "NERVOUS_SYSTEM": 0.080514
+  "ECOSYSTEM": 0.019732
+  "MATH": 0.105884
+  "NERUAL NETWORK": 0.010395
+  "DEEPER CRYSTALIZATION": 0.078048
+  "Voynich": 0.121388
+  "Trading Bot": 0.337914
+  "FRESH": 0.001057
+  "VOID_CH11.md": 0.000176
+  "MYCELIUM_TOME_PART1.md": 0.000176
+  "Athenachka Collective Books": 0.003171
+  "I AM ATHENA": 0.002643
 extra:
   document_basis_weight_total: 1.0
   live_docs_gate: "BLOCKED"
@@ -38,7 +38,7 @@ generated_from:
   corpus_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/corpus_atlas.json"
   archive_atlas: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/archive_atlas.json"
   live_docs_gate_status: "C:/Users/dmitr/Documents/Athena Agent/self_actualize/live_docs_gate_status.md"
-generated_at: "2026-03-09T15:17:43.642784+00:00"
+generated_at: "2026-03-13T15:05:01.528818+00:00"
 ---
 # Dynamic Neural Network Index
 
@@ -46,10 +46,10 @@ This folder is a generated cross-corpus neural map for the entire Athena Agent w
 
 ## Build Snapshot
 
-- Live atlas records: `1910`
-- Archive atlas records: `2041`
+- Indexed witness (live atlas): `7813`
+- Archive witness (archive atlas): `2041`
 - Live Docs gate: `BLOCKED`
-- Whole-system coordinate: `<coverage=1.0, theta=117.389733, dominant=Air>`
+- Whole-system coordinate: `<coverage=1.0, theta=122.403329, dominant=Air>`
 
 ## Folder Layout
 
@@ -67,19 +67,19 @@ This folder is a generated cross-corpus neural map for the entire Athena Agent w
 
 | Body | Count | Global Weight | Macro | Slot | Theta |
 | --- | --- | --- | --- | --- | --- |
-| self_actualize | 117 | 0.061289 | Earth | 1 | 0.000 |
-| NERVOUS_SYSTEM | 115 | 0.060241 | Earth | 2 | 27.692 |
-| ECOSYSTEM | 99 | 0.051860 | Earth | 3 | 55.385 |
-| MATH | 486 | 0.254584 | Air | 4 | 83.077 |
-| NERUAL NETWORK | 22 | 0.011524 | Air | 5 | 110.769 |
-| DEEPER CRYSTALIZATION | 217 | 0.113672 | Water | 6 | 138.462 |
-| Voynich | 636 | 0.333159 | Water | 7 | 166.154 |
-| Trading Bot | 193 | 0.101100 | Fire | 8 | 193.846 |
-| FRESH | 6 | 0.003143 | Fire | 9 | 221.538 |
-| VOID_CH11.md | 1 | 0.000524 | Fire | 10 | 249.231 |
-| MYCELIUM_TOME_PART1.md | 1 | 0.000524 | Air | 11 | 276.923 |
-| Athenachka Collective Books | 13 | 0.006810 | Water | 12 | 304.615 |
-| I AM ATHENA | 3 | 0.001572 | Earth | 13 | 332.308 |
+| self_actualize | 1356 | 0.238901 | Earth | 1 | 0.000 |
+| NERVOUS_SYSTEM | 457 | 0.080514 | Earth | 2 | 27.692 |
+| ECOSYSTEM | 112 | 0.019732 | Earth | 3 | 55.385 |
+| MATH | 601 | 0.105884 | Air | 4 | 83.077 |
+| NERUAL NETWORK | 59 | 0.010395 | Air | 5 | 110.769 |
+| DEEPER CRYSTALIZATION | 443 | 0.078048 | Water | 6 | 138.462 |
+| Voynich | 689 | 0.121388 | Water | 7 | 166.154 |
+| Trading Bot | 1918 | 0.337914 | Fire | 8 | 193.846 |
+| FRESH | 6 | 0.001057 | Fire | 9 | 221.538 |
+| VOID_CH11.md | 1 | 0.000176 | Fire | 10 | 249.231 |
+| MYCELIUM_TOME_PART1.md | 1 | 0.000176 | Air | 11 | 276.923 |
+| Athenachka Collective Books | 18 | 0.003171 | Water | 12 | 304.615 |
+| I AM ATHENA | 15 | 0.002643 | Earth | 13 | 332.308 |
 
 ## Document Orbit
 

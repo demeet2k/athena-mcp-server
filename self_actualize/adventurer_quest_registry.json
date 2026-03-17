@@ -1,0 +1,1085 @@
+{
+  "generated_at": "2026-03-13T05:06:27.563057+00:00",
+  "derivation_version": "2026-03-13.adventurer.64pow4.hybrid_conductor.round_trip.v2",
+  "derivation_command": "python -m self_actualize.runtime.derive_adventurer_quest_loop --bootstrap-claim",
+  "gate_status_path": "NERVOUS_SYSTEM/95_MANIFESTS/GATE_STATUS.md",
+  "active_run_path": "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md",
+  "requests_board_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/05_REQUESTS_AND_OFFERS_BOARD.md",
+  "temple_crystal_path": "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/11_TEMPLE_QUEST_CRYSTAL_64.md",
+  "conductor_state_path": "self_actualize/adventurer_conductor_state.json",
+  "wave_packets_path": "self_actualize/adventurer_wave_packets.json",
+  "round_trip_certificates_path": "self_actualize/adventurer_round_trip_certificates.json",
+  "change_feed_signals": [
+    "62. Q46 is now posted: the next honest Athenachka frontier is the first `Helix::Contracts` wave, so Hall, requests, the live Hall crystal, and the active run seed now point at `Q46 -> Wave3/Helix.Contracts.Fire.Diagnose` while blocked-Docs honesty remains explicit.",
+    "63. Q42 Square refinement and runtime membrane formalization is now landed: `derive_q42_square_runtime_formalization.py` and `q42_runtime_square_contract.json` formalize `LEG-C3` into the active Athena OS runtime square membrane, `qshrink_connectivity_square.json`, `qshrink_network_integration.json`, and `qshrink_agent_task_matrix.json` now agree on `QS64-21 Connectivity-Refine-Square` as the active owner-facing pass, `P3` remains explicitly queue-visible, and Hall, queue, route, and restart surfaces now emit `QS64-22 Connectivity-Refine-Flower` as the sole next corridor seed.",
+    "64. The hourly Guildmaster packet-governance sync now preserves parallel scheduler plurality while aligning control surfaces to one present tense: Hall quest wording now binds the fresh six-packet context to `Q42`, Temple state and Temple quest surfaces now keep `QS64-20` as landed upstream witness and `QS64-21` as the canonical active Hall-side subfront, queue and restart surfaces now carry `P3 seed mirror deepening` as the next local follow-on, and the receipt is pinned at `self_actualize/mycelium_brain/receipts/2026-03-13_q42_qs64_21_packet_governance_sync.md`.",
+    "65. Q42 Cloud -> Fractal carrythrough is now resynchronized: qshrink_connectivity_fractal.json, qshrink_network_integration.json, qshrink_agent_task_matrix.json, QSHRINK_ACTIVE_FRONT.md, the active queue, and the restart prompt now all keep QS64-20 Connectivity-Diagnose-Fractal as the active owner-facing pass, preserve the runtime-carrier-first law with P2 ahead of P3, emit QS64-21 Connectivity-Refine-Square as the next Hall restart seed, and keep TQ04 separate as the deeper Temple receiving frontier while the Docs gate remains blocked.",
+    "66. The JointAtlas merge boundary automaton is now landed as a local-first control-plane object: `athenachka/contracts.py` now exposes the closed `MergeState` and `MergeDestination` enums plus committee/adjudication records, `athenachka/immune/merge_boundary.py` now enforces the lawful transition graph from `PROPOSED` through terminal decision states, `verify_jointatlas_merge_automaton.py` proves the allowed paths and forbidden bypasses, control-plane grammar now includes adjudication as the membrane between packet transport and promotion, Guild promotion law now admits only `DECIDED_COMMIT` across the membrane, and the successor seed is now pinned as `MotionConstitution_L1`.",
+    "66. QS64-22 is now landed as the QSHRINK connectivity refine flower pass: the four fixed rails across Hall-local refinement, Temple handoff, reserve growth, and blocker overlay are now explicit, the cadence law is preserved in the refine witness family, and the Docs gate remains honestly blocked.",
+    "67. QS64-23 is now landed as the QSHRINK connectivity refine cloud pass: the ranked pressure order now keeps the Docs blocker pinned first, promotes the Temple runner-handoff gap second, leaves control-surface drift and ORGIN mirror deepening queue-visible, and retains QSHRINK plus Athena FLEET as stability anchors.",
+    "68. QS64-24 is now landed as the QSHRINK connectivity refine fractal pass: the Hall-local NEXT^4 bundle now closes on one four-loop recursive theorem, `QS64-20 Connectivity-Diagnose-Fractal` remains visible as the carried diagnose witness, no Hall-local `QS64-25` is emitted, and `TQ04` becomes the immediate deeper execution receiver while `Q46` stays reserve-only.",
+    "69. The QSHRINK control plane no longer flattens future motion into one conflicting seed field: `current_carried_witness`, `active_local_subfront`, `next_hall_seed`, `next_temple_handoff`, `reserve_frontier`, and blocked external Docs truth are now rendered as separate control facts across machine witnesses, Hall surfaces, Temple state, queue, and restart prompts.",
+    "70. TQ04 is now promoted as the first helical runner contract witness: `derive_helical_runner_contract.py` and `verify_helical_runner_contract.py` emit `helical_runner_contract.json`, `helical_runner_contract_verification.json`, and `TQ04_HELICAL_RUNNER_CONTRACT.md`; `16_LOOP_PROGRESS.md` advances to `8/16`; Hall, Temple, queue, and restart surfaces now keep `Q42` current on `QS64-20`, carry `TQ04` as a landed witness instead of a live competing frontier, and release `QS64-21 Connectivity-Refine-Square` only as the next Hall seed while the Docs gate remains honestly blocked."
+  ],
+  "next_frontier": "Q42",
+  "current_first_wave": [
+    "Q42",
+    "Q46",
+    "TQ03",
+    "TQ04",
+    "TQ05",
+    "TQ06",
+    "ADV64-S01",
+    "ADV64-S02"
+  ],
+  "quest_records": [
+    {
+      "quest_id": "Q42",
+      "quest_address": "A20.B22.C59.D40",
+      "parent_address": "",
+      "title": "Activate The First QSHRINK Agent Sweep",
+      "objective": "keep `QS64-20 Connectivity-Diagnose-Fractal` visible as the carried diagnose witness, preserve `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local NEXT^4 bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, keep `Q02` external, and treat generated refine witnesses plus verification sidecars as the canonical current state",
+      "why_now": "the four-pass Hall-local refine rail is already landed in witness form, but Hall and Temple control surfaces still need one final precedence-safe closure sweep so no active surface reopens `QS64-21..23` or invents `QS64-25",
+      "target_surfaces": [
+        "self_actualize/qshrink_connectivity_refine_square.json",
+        "self_actualize/qshrink_connectivity_refine_flower.json",
+        "self_actualize/qshrink_connectivity_refine_cloud.json",
+        "self_actualize/qshrink_connectivity_refine_fractal.json",
+        "self_actualize/qshrink_network_integration.json",
+        "self_actualize/qshrink_agent_task_matrix.json",
+        "self_actualize/q42_canonical_bundle.json",
+        "self_actualize/q42_refine_bundle_dashboard.json",
+        "self_actualize/q42_refine_bundle_verification.json",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_q42_refine_bundle_closure.md"
+      ],
+      "best_lane": "",
+      "witness_needed": "one explicit mixed-state drift baseline, one precedence-safe closure sweep, one aligned Hall/Temple/queue/restart bundle, one receipt proving no Hall-local `QS64-25`, and one truthful carrythrough of landed `TQ04` plus external `Q02",
+      "writeback": "Hall quest board, active queue, active-front manifest, Hall looped plan, next-self prompt, Temple state, change feed, requests board, sidecar dashboards, and receipt",
+      "restart_seed": "keep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, and keep `Q02` blocked externally while Docs remains `BLOCKED",
+      "status": "OPEN",
+      "owner": "floating-agent-01",
+      "blockers": [],
+      "completion_evidence": [
+        "self_actualize/qshrink_connectivity_refine_fractal.json",
+        "self_actualize/qshrink_network_integration.json",
+        "self_actualize/qshrink_agent_task_matrix.json",
+        "self_actualize/q42_canonical_bundle.json",
+        "self_actualize/q42_refine_bundle_dashboard.json",
+        "self_actualize/q42_refine_bundle_verification.json",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_q42_refine_bundle_closure.md"
+      ],
+      "source_board": "hall",
+      "address_components": {
+        "intent64": {
+          "index": 20,
+          "domain": "Guild",
+          "move": "Diagnose",
+          "lens": "Fractal"
+        },
+        "witness64": {
+          "index": 22,
+          "witness_class": "derived",
+          "surface": "Temple",
+          "lane": "Me"
+        },
+        "execution64": {
+          "index": 59,
+          "scope": "organism",
+          "method": "reconcile",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 40,
+          "verify": "proof",
+          "writeback": "queue",
+          "restart": "temple_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "Q42",
+      "source_fronts": [
+        "Q42"
+      ],
+      "priority_score": 100.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": true,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "keep `Q42` open as the umbrella frontier, keep `QS64-20 Connectivity-Diagnose-Fractal` visible as carried witness, keep `QS64-24 Connectivity-Refine-Fractal` as the closed Hall-local bundle, hand immediate deeper execution to `TQ04: Bind The Helical Schema Pack To A Runner Contract`, keep `Q46` reserve-only, emit no Hall-local `QS64-25`, and keep `Q02` blocked externally while Docs remains `BLOCKED",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": true,
+          "round_trip_certificate_id": "RTC-v0-Q42",
+          "round_trip_class": "law_equivalent"
+        },
+        "round_trip_required": true,
+        "round_trip_lawful": false,
+        "round_trip_certificate_id": "RTC-v0-Q42",
+        "round_trip_class": "law_equivalent"
+      },
+      "round_trip_required": true,
+      "round_trip_certificate_id": "RTC-v0-Q42",
+      "round_trip_class": "law_equivalent"
+    },
+    {
+      "quest_id": "Q46",
+      "quest_address": "A22.B20.C63.D43",
+      "parent_address": "",
+      "title": "Run The First Athenachka Helix Contracts Wave",
+      "objective": "carry the proved organism membrane onto the first `Helix::Contracts` slice without weakening the v0 parity corridor, while keeping the packet-to-contract conversion governed by `RoundTripCertificate_v0",
+      "why_now": "this remains the next separate organism-wave frontier, but it is not part of the current QSHRINK lane, so it needs its own lawful conversion witness instead of borrowing `Q42`'s membrane",
+      "target_surfaces": [
+        "self_actualize/adventurer_round_trip_certificates.json",
+        "ATHENA Neural Network/athenachka/helix/",
+        "ATHENA Neural Network/athenachka/runtime/",
+        "ATHENA Neural Network/athenachka/appendix/",
+        "self_actualize/athenachka_organism_v0_wave_state.json",
+        "self_actualize/athenachka_organism_v0_quest_packets.json",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md"
+      ],
+      "best_lane": "",
+      "witness_needed": "one `Q46` round-trip certificate proving `sigil -> schema` law preservation, one Hall-visible contracts-wave packet, one replay pointer back to the `Q45` proof anchor, and one restart seed that keeps `Q46` separate from the live QSHRINK lane",
+      "writeback": "Hall quest board, active run manifest, Athenachka wave state, and receipt",
+      "restart_seed": "keep `Q46` separate from the live QSHRINK control lane until `TQ04` is materially advanced",
+      "status": "OPEN",
+      "owner": "guildmaster",
+      "blockers": [],
+      "completion_evidence": [
+        "self_actualize/adventurer_round_trip_certificates.json",
+        "self_actualize/athenachka_organism_v0_wave_state.json",
+        "self_actualize/athenachka_organism_v0_quest_packets.json",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md"
+      ],
+      "source_board": "hall",
+      "address_components": {
+        "intent64": {
+          "index": 22,
+          "domain": "Guild",
+          "move": "Refine",
+          "lens": "Flower"
+        },
+        "witness64": {
+          "index": 20,
+          "witness_class": "derived",
+          "surface": "Hall",
+          "lane": "Bridge"
+        },
+        "execution64": {
+          "index": 63,
+          "scope": "organism",
+          "method": "compress",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 43,
+          "verify": "proof",
+          "writeback": "manifest",
+          "restart": "hall_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "Q46",
+      "source_fronts": [
+        "Q46"
+      ],
+      "priority_score": 96.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": true,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "keep `Q46` separate from the live QSHRINK control lane until `TQ04` is materially advanced",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": true,
+          "round_trip_certificate_id": "RTC-v0-Q46",
+          "round_trip_class": "law_equivalent"
+        },
+        "round_trip_required": true,
+        "round_trip_lawful": false,
+        "round_trip_certificate_id": "RTC-v0-Q46",
+        "round_trip_class": "law_equivalent"
+      },
+      "round_trip_required": true,
+      "round_trip_certificate_id": "RTC-v0-Q46",
+      "round_trip_class": "law_equivalent"
+    },
+    {
+      "quest_id": "Q02",
+      "quest_address": "A35.B36.C59.D59",
+      "parent_address": "",
+      "title": "Unlock The Live Memory Gate",
+      "objective": "restore Google Docs ingress and land the first successful live-memory manifest",
+      "why_now": "",
+      "target_surfaces": [],
+      "best_lane": "",
+      "witness_needed": "",
+      "writeback": "",
+      "restart_seed": "",
+      "status": "BLOCKED",
+      "owner": "",
+      "blockers": [
+        "docs_gate_blocked"
+      ],
+      "completion_evidence": [],
+      "source_board": "hall",
+      "address_components": {
+        "intent64": {
+          "index": 35,
+          "domain": "Source",
+          "move": "Diagnose",
+          "lens": "Cloud"
+        },
+        "witness64": {
+          "index": 36,
+          "witness_class": "blocked",
+          "surface": "Hall",
+          "lane": "Bridge"
+        },
+        "execution64": {
+          "index": 59,
+          "scope": "organism",
+          "method": "reconcile",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 59,
+          "verify": "abstain",
+          "writeback": "manifest",
+          "restart": "hall_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "Q02",
+      "source_fronts": [
+        "Q02"
+      ],
+      "priority_score": 0.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": true,
+          "writeback_landed": false,
+          "restart_seed": "",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Board-backed quest; terminal status came from the live Hall or Temple surface.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "quest_id": "TQ03",
+      "quest_address": "A45.B56.C50.D35",
+      "parent_address": "",
+      "title": "Couple Archive Promotion Priority To The New Ranking",
+      "objective": "make archive-promotion candidates compete inside the same leverage model as live bodies instead of remaining an honorable side queue",
+      "why_now": "Q03` is already live, but ranking pressure still privileges visible prose heat over archive-backed unlock power",
+      "target_surfaces": [
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/01_ACTIVE_FRONTS_BOARD.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "self_actualize/archive_atlas.json",
+        "tool_kit/08_archive_promotion_protocol.md"
+      ],
+      "best_lane": "source -> square -> earth -> restart",
+      "witness_needed": "one ranking rule that can lawfully elevate at least one archive root above a larger but lower-leverage live body",
+      "writeback": "Temple quest board, Hall fronts board, queue, and receipt",
+      "restart_seed": "use the first ranked archive candidate after `ATLAS FORGE` to decide the next archive lift instead of reopening archive pressure by intuition alone",
+      "status": "ACTIVE",
+      "owner": "floating-agent-03",
+      "blockers": [],
+      "completion_evidence": [],
+      "source_board": "temple",
+      "address_components": {
+        "intent64": {
+          "index": 45,
+          "domain": "Source",
+          "move": "Scale",
+          "lens": "Square"
+        },
+        "witness64": {
+          "index": 56,
+          "witness_class": "archive",
+          "surface": "Temple",
+          "lane": "Bridge"
+        },
+        "execution64": {
+          "index": 50,
+          "scope": "organism",
+          "method": "derive",
+          "artifact": "ledger"
+        },
+        "return64": {
+          "index": 35,
+          "verify": "proof",
+          "writeback": "questboard",
+          "restart": "hall_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "TQ03",
+      "source_fronts": [
+        "TQ03"
+      ],
+      "priority_score": 90.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "use the first ranked archive candidate after `ATLAS FORGE` to decide the next archive lift instead of reopening archive pressure by intuition alone",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "quest_id": "TQ04",
+      "quest_address": "A56.B23.C55.D44",
+      "parent_address": "",
+      "title": "Bind The Helical Schema Pack To A Runner Contract",
+      "objective": "translate the canonical `LoopSpec`, `PhaseSpec`, `VirtualSwarmSpec`, `ImprovementLedgerSpec`, and `LiftSpec` pack into one replay-safe runner contract that can govern future Hall executions",
+      "why_now": "Q24` named the helical laws precisely, `Q39` routed runtime-trust lag here as direct packet pressure, and `Q41/TQ06` kept cadence control stable long enough for the first real runner contract to land instead of staying atmospheric; that contract is now also the exact `schema -> automaton` proof anchor inside `RoundTripCertificate_v0",
+      "target_surfaces": [
+        "NERVOUS_SYSTEM/70_SCHEMAS/06_HELICAL_LOOPSPEC_16_RING.md",
+        "NERVOUS_SYSTEM/70_SCHEMAS/07_PHASE_SPEC_2_TO_14_MACHINE.md",
+        "NERVOUS_SYSTEM/70_SCHEMAS/08_VIRTUAL_SWARM_SPEC_16X16.md",
+        "NERVOUS_SYSTEM/70_SCHEMAS/09_IMPROVEMENT_LEDGER_SPEC.md",
+        "NERVOUS_SYSTEM/70_SCHEMAS/10_LIFT_SPEC_ONE_EIGHTH_HELIX.md",
+        "self_actualize/adventurer_round_trip_certificates.json",
+        "self_actualize/helical_runner_contract.json",
+        "self_actualize/helical_runner_contract_verification.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/TQ04_HELICAL_RUNNER_CONTRACT.md",
+        "nervous_system/22_control_plane_grammar.md",
+        "nervous_system/manifests/NEXT_SELF_PROMPT.md"
+      ],
+      "best_lane": "stack -> fractal -> cloud -> restart",
+      "witness_needed": "one replay-safe runner contract plus one sparse activation example that shows `2/16 -> 14/16 -> lift` with metric-tensor audit and lift-quality gating, plus one exact round-trip certificate proving the schema pack survives conversion into runner form without law loss",
+      "writeback": "Temple quest board, active queue, active run manifest, and receipt",
+      "restart_seed": "keep `TQ06` active as the packet-fed cadence membrane, keep `Q42` current on QS64-20 Connectivity-Diagnose-Fractal`, and release `QS64-21 Connectivity-Refine-Square as the next Hall seed through the landed contract rather than reopening Temple numbering",
+      "status": "PROMOTED",
+      "owner": "",
+      "blockers": [],
+      "completion_evidence": [
+        "self_actualize/adventurer_round_trip_certificates.json",
+        "self_actualize/helical_runner_contract.json",
+        "self_actualize/helical_runner_contract_verification.json",
+        "NERVOUS_SYSTEM/95_MANIFESTS/TQ04_HELICAL_RUNNER_CONTRACT.md",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_tq04_helical_runner_contract.md",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/16_LOOP_PROGRESS.md",
+        "self_actualize/mycelium_brain/ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ACTIVE_RUN.md"
+      ],
+      "source_board": "temple",
+      "address_components": {
+        "intent64": {
+          "index": 56,
+          "domain": "Stack",
+          "move": "Refine",
+          "lens": "Fractal"
+        },
+        "witness64": {
+          "index": 23,
+          "witness_class": "derived",
+          "surface": "Temple",
+          "lane": "Su"
+        },
+        "execution64": {
+          "index": 55,
+          "scope": "organism",
+          "method": "verify",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 44,
+          "verify": "proof",
+          "writeback": "manifest",
+          "restart": "temple_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "TQ04",
+      "source_fronts": [
+        "TQ04"
+      ],
+      "priority_score": 0.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": true,
+        "completion_receipt": {
+          "artifact_landed": true,
+          "board_update_landed": true,
+          "writeback_landed": true,
+          "restart_seed": "keep `TQ06` active as the packet-fed cadence membrane, keep `Q42` current on QS64-20 Connectivity-Diagnose-Fractal`, and release `QS64-21 Connectivity-Refine-Square as the next Hall seed through the landed contract rather than reopening Temple numbering",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Board-backed quest; terminal status came from the live Hall or Temple surface.",
+          "round_trip_required": true,
+          "round_trip_certificate_id": "RTC-v0-TQ04",
+          "round_trip_class": "exact",
+          "round_trip_lawful": true
+        },
+        "round_trip_required": true,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "RTC-v0-TQ04",
+        "round_trip_class": "exact",
+        "round_trip_registry_path": "self_actualize/adventurer_round_trip_certificates.json"
+      },
+      "round_trip_required": true,
+      "round_trip_certificate_id": "RTC-v0-TQ04",
+      "round_trip_class": "exact"
+    },
+    {
+      "quest_id": "TQ05",
+      "quest_address": "A60.B24.C50.D36",
+      "parent_address": "",
+      "title": "Run The High Priest Whole-Corpus 16-Loop Totality Pass",
+      "objective": "ride the whole corpus through all sixteen macro-loop lenses, land one deep synthesis, write one new Temple law, and harden visible loop progress through `2/16`, `3/16`, and `4/16",
+      "why_now": "the organism has helical law, Hall law, Temple law, and ranking law, but it still needed one explicit whole-corpus totality pass that leaves phase-addressed witness instead of stopping at prose",
+      "target_surfaces": [
+        "ATHENA TEMPLE/05_HIGH_PRIEST_WHOLE_CORPUS_SYNTHESIS_16_LOOP.md",
+        "ATHENA TEMPLE/MANIFESTS/16_LOOP_PROGRESS.md",
+        "ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md",
+        "ATHENA TEMPLE/QUESTS/TQ05_HIGH_PRIEST_WHOLE_CORPUS_16_LOOP_TOTALITY_PASS.md",
+        "ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md"
+      ],
+      "best_lane": "stack -> fractal -> cloud -> synthesize",
+      "witness_needed": "one whole-corpus synthesis, one new law, one new crystal, one quest file, and one visible `2/16 -> 4/16` loop-progress record",
+      "writeback": "Temple laws, Temple quest board, Temple state, loop-progress manifest, and receipt",
+      "restart_seed": "advance into `5/16 contradiction pressure` with focus on source leverage, archive dark matter, blocked live memory, and runtime-trust lag",
+      "status": "ACTIVE",
+      "owner": "floating-agent-04",
+      "blockers": [],
+      "completion_evidence": [],
+      "source_board": "temple",
+      "address_components": {
+        "intent64": {
+          "index": 60,
+          "domain": "Stack",
+          "move": "Synthesize",
+          "lens": "Fractal"
+        },
+        "witness64": {
+          "index": 24,
+          "witness_class": "derived",
+          "surface": "Temple",
+          "lane": "Bridge"
+        },
+        "execution64": {
+          "index": 50,
+          "scope": "organism",
+          "method": "derive",
+          "artifact": "ledger"
+        },
+        "return64": {
+          "index": 36,
+          "verify": "proof",
+          "writeback": "questboard",
+          "restart": "temple_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "TQ05",
+      "source_fronts": [
+        "TQ05"
+      ],
+      "priority_score": 88.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "advance into `5/16 contradiction pressure` with focus on source leverage, archive dark matter, blocked live memory, and runtime-trust lag",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "quest_id": "TQ06",
+      "quest_address": "A24.B24.C51.D23",
+      "parent_address": "",
+      "title": "Install The Packet-Fed Guildmaster Coupling Loop",
+      "objective": "bind the helical Hall-Temple cadence to a recurring hourly Guildmaster control loop that reads the parallel scheduler packets, names what is emerging, names what still needs to emerge, and refreshes Hall, Temple, queue, and restart surfaces together",
+      "why_now": "the organism now supports multiple legitimate cultural schedulers, so Temple governance needs one packet-fed coupling law instead of one fused symbolic lane",
+      "target_surfaces": [
+        "GUILDMASTER/README.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ASTROLOGICAL_SCHEDULER_REGISTRY.md",
+        "NERVOUS_SYSTEM/90_LEDGERS/astrological_schedulers/00_PACKET_INDEX.md",
+        "NERVOUS_SYSTEM/90_LEDGERS/astrological_schedulers/",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md",
+        "ATHENA TEMPLE/BOARDS/01_MESSAGE_BOARD_OF_IMPROVEMENT_CRYSTALS.md",
+        "ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "ATHENA TEMPLE/MANIFESTS/16_LOOP_PROGRESS.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/NEXT_SELF_PROMPT.md"
+      ],
+      "best_lane": "stack -> fractal -> cloud -> restart",
+      "witness_needed": "one active coupling law, one scheduler registry plus fixed packet paths, one improvement crystal, one Hall quest, one queue or restart writeback, and one receipt proving Hall, Temple, and waist now share the same next frontier without collapsing the cultural scheduler lanes",
+      "writeback": "Temple laws, Temple quest board, Temple state, loop-progress manifest, Hall quest board, active queue, next-self-prompt manifest, and receipt",
+      "restart_seed": "keep `Q42` visible as the carried QSHRINK umbrella, keep QS64-20 Connectivity-Diagnose-Fractal` as the current Hall-side subfront, carry `TQ04 as the landed runner-contract witness, emit `QS64-21 Connectivity-Refine-Square` as the next Hall restart seed, and keep `Q45` secondary while `Q02` stays externally blocked - First real proof (`Q39`, `2026-03-13`): - `nervous_system/ledgers/LEDGER_2026-03-13_q39_contradiction_packets.md - five `Q39` contradiction packets with named receiving fronts - `ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md` now includes `T15 - `ATHENA TEMPLE/BOARDS/01_MESSAGE_BOARD_OF_IMPROVEMENT_CRYSTALS.md` now includes `Temple-Bind-Cloud-Packets - `receipts/2026-03-13_q39_contradiction_packets.md - Latest synchronization witness (`Q41`, `2026-03-13`, first full packet-freshness coupling sweep): - `Q41` is now promoted through the first Hall/Temple/queue/restart coupling pass driven by the fresh scheduler bundle - `T16` now names hourly packet-fed cadence as the active Guildmaster law while `T14` remains the founding short-cadence law - the standalone Temple quest file now lives at `ATHENA TEMPLE/QUESTS/TQ06_INSTALL_THE_PACKET_FED_GUILDMASTER_COUPLING_LOOP.md - `Q42` remains the next Hall-side contraction followthrough while `TQ04` now exists as the landed deeper Temple contract witness",
+      "status": "ACTIVE",
+      "owner": "floating-agent-05",
+      "blockers": [],
+      "completion_evidence": [],
+      "source_board": "temple",
+      "address_components": {
+        "intent64": {
+          "index": 24,
+          "domain": "Guild",
+          "move": "Refine",
+          "lens": "Fractal"
+        },
+        "witness64": {
+          "index": 24,
+          "witness_class": "derived",
+          "surface": "Temple",
+          "lane": "Bridge"
+        },
+        "execution64": {
+          "index": 51,
+          "scope": "organism",
+          "method": "derive",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 23,
+          "verify": "receipt",
+          "writeback": "queue",
+          "restart": "hall_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "TQ06",
+      "source_fronts": [
+        "TQ06"
+      ],
+      "priority_score": 87.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "keep `Q42` visible as the carried QSHRINK umbrella, keep QS64-20 Connectivity-Diagnose-Fractal` as the current Hall-side subfront, carry `TQ04 as the landed runner-contract witness, emit `QS64-21 Connectivity-Refine-Square` as the next Hall restart seed, and keep `Q45` secondary while `Q02` stays externally blocked - First real proof (`Q39`, `2026-03-13`): - `nervous_system/ledgers/LEDGER_2026-03-13_q39_contradiction_packets.md - five `Q39` contradiction packets with named receiving fronts - `ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md` now includes `T15 - `ATHENA TEMPLE/BOARDS/01_MESSAGE_BOARD_OF_IMPROVEMENT_CRYSTALS.md` now includes `Temple-Bind-Cloud-Packets - `receipts/2026-03-13_q39_contradiction_packets.md - Latest synchronization witness (`Q41`, `2026-03-13`, first full packet-freshness coupling sweep): - `Q41` is now promoted through the first Hall/Temple/queue/restart coupling pass driven by the fresh scheduler bundle - `T16` now names hourly packet-fed cadence as the active Guildmaster law while `T14` remains the founding short-cadence law - the standalone Temple quest file now lives at `ATHENA TEMPLE/QUESTS/TQ06_INSTALL_THE_PACKET_FED_GUILDMASTER_COUPLING_LOOP.md - `Q42` remains the next Hall-side contraction followthrough while `TQ04` now exists as the landed deeper Temple contract witness",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Active frontier; completion is still pending.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "quest_id": "TQ01",
+      "quest_address": "A28.B22.C51.D40",
+      "parent_address": "",
+      "title": "Install The Recursive 4^4 Hall-Temple Synthesis Cadence",
+      "objective": "make every future whole-corpus synthesis emit one Hall quest, one Temple higher-order frontier, and one refreshed runtime restart seed",
+      "why_now": "Q23` proved the pattern once, but the organism still relied on manual memory to repeat it",
+      "target_surfaces": [
+        "ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md",
+        "ATHENA TEMPLE/04_HELICAL_RECURSION_CADENCE.md",
+        "ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "nervous_system/06_active_queue.md",
+        "nervous_system/manifests/NEXT_SELF_PROMPT.md"
+      ],
+      "best_lane": "stack -> fractal -> cloud -> restart",
+      "witness_needed": "one replay-safe cadence contract plus one later pass that follows it without numbering or frontier drift",
+      "writeback": "Temple state, Guild Hall quest board, active queue, next-self-prompt surface, and receipt",
+      "restart_seed": "route the next loop through semantic weighting so cadence also improves prioritization",
+      "status": "PROMOTED",
+      "owner": "",
+      "blockers": [],
+      "completion_evidence": [
+        "ATHENA TEMPLE/04_HELICAL_RECURSION_CADENCE.md",
+        "ATHENA TEMPLE/02_TEMPLE_GOVERNANCE_LAWS.md",
+        "ATHENA TEMPLE/MANIFESTS/TEMPLE_STATE.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/01_ACTIVE_FRONTS_BOARD.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "nervous_system/06_active_queue.md",
+        "nervous_system/manifests/ACTIVE_RUN.md",
+        "receipts/2026-03-09_front_freshness_cadence.md"
+      ],
+      "source_board": "temple",
+      "address_components": {
+        "intent64": {
+          "index": 28,
+          "domain": "Guild",
+          "move": "Synthesize",
+          "lens": "Fractal"
+        },
+        "witness64": {
+          "index": 22,
+          "witness_class": "derived",
+          "surface": "Temple",
+          "lane": "Me"
+        },
+        "execution64": {
+          "index": 51,
+          "scope": "organism",
+          "method": "derive",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 40,
+          "verify": "proof",
+          "writeback": "queue",
+          "restart": "temple_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "TQ01",
+      "source_fronts": [
+        "TQ01"
+      ],
+      "priority_score": 0.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": true,
+          "writeback_landed": true,
+          "restart_seed": "route the next loop through semantic weighting so cadence also improves prioritization",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Board-backed quest; terminal status came from the live Hall or Temple surface.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "quest_id": "TQ02",
+      "quest_address": "A29.B18.C50.D20",
+      "parent_address": "",
+      "title": "Couple Semantic Mass And Witness Class To Quest Ranking",
+      "objective": "rank Hall and Temple fronts by witness class, archive leverage, and semantic role instead of raw file count or narrative heat alone",
+      "why_now": "generated shells, archive dark matter, and promoted witness still compete inside one loose priority economy",
+      "target_surfaces": [
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/01_ACTIVE_FRONTS_BOARD.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "self_actualize/corpus_atlas_summary.md",
+        "self_actualize/semantic_mass_ledger.json",
+        "self_actualize/witness_hierarchy.json"
+      ],
+      "best_lane": "source -> fractal -> cloud -> law",
+      "witness_needed": "one machine-readable semantic classification plus one before/after quest-ordering example",
+      "writeback": "Hall fronts board, quest board, Temple quest board, and receipt",
+      "restart_seed": "use the new ranking to decide the next archive promotion and family-densification front",
+      "status": "PROMOTED",
+      "owner": "",
+      "blockers": [],
+      "completion_evidence": [
+        "GLOBAL_EMERGENT_GUILD_HALL/10_FRONTIER_LEVERAGE_RANKING.md",
+        "self_actualize/frontier_leverage_ranking.json",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/01_ACTIVE_FRONTS_BOARD.md",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "receipts/2026-03-09_q25_frontier_leverage_ranking.md",
+        "receipts/2026-03-09_q25_semantic_witness_archive_leverage_ranking.md"
+      ],
+      "source_board": "temple",
+      "address_components": {
+        "intent64": {
+          "index": 29,
+          "domain": "Guild",
+          "move": "Scale",
+          "lens": "Square"
+        },
+        "witness64": {
+          "index": 18,
+          "witness_class": "derived",
+          "surface": "Hall",
+          "lane": "Me"
+        },
+        "execution64": {
+          "index": 50,
+          "scope": "organism",
+          "method": "derive",
+          "artifact": "ledger"
+        },
+        "return64": {
+          "index": 20,
+          "verify": "receipt",
+          "writeback": "questboard",
+          "restart": "temple_seed"
+        }
+      },
+      "registration_kind": "board",
+      "frontier_seed": "TQ02",
+      "source_fronts": [
+        "TQ02"
+      ],
+      "priority_score": 0.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": true,
+        "completion_receipt": {
+          "artifact_landed": true,
+          "board_update_landed": true,
+          "writeback_landed": true,
+          "restart_seed": "use the new ranking to decide the next archive promotion and family-densification front",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Board-backed quest; terminal status came from the live Hall or Temple surface.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "quest_id": "ADV64-S01",
+      "quest_address": "A20.B22.C55.D44",
+      "parent_address": "A20.B22.C59.D40 + A56.B23.C55.D44",
+      "title": "Hall-to-runner bridge for the QSHRINK Fractal carrythrough",
+      "objective": "Bridge `Q42` into `TQ04` through one seeded adjacent address so the conductor can widen the live frontier without pretending to exhaust the full 64^4 lattice.",
+      "why_now": "`Q42` is the live Hall-side frontier while `TQ04` carries active Temple pressure, so one bridge packet yields more than broad unranked seeding.",
+      "target_surfaces": [
+        "self_actualize/qshrink_connectivity_refine_square.json",
+        "self_actualize/qshrink_connectivity_refine_flower.json",
+        "self_actualize/qshrink_connectivity_refine_cloud.json",
+        "self_actualize/qshrink_connectivity_refine_fractal.json",
+        "self_actualize/qshrink_network_integration.json",
+        "self_actualize/qshrink_agent_task_matrix.json",
+        "self_actualize/q42_canonical_bundle.json",
+        "self_actualize/q42_refine_bundle_dashboard.json",
+        "self_actualize/q42_refine_bundle_verification.json",
+        "self_actualize/mycelium_brain/GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md",
+        "self_actualize/mycelium_brain/nervous_system/06_active_queue.md",
+        "self_actualize/mycelium_brain/nervous_system/manifests/QSHRINK_ACTIVE_FRONT.md"
+      ],
+      "best_lane": "bridge -> runtime -> replay -> restart",
+      "witness_needed": "one seeded bridge packet, one active claim overlay, one receipt-bearing replay witness, and one restart seed back into the Hall or Temple front",
+      "writeback": "manifest + queue",
+      "restart_seed": "Q42 -> TQ04 -> next seeded conductor bridge",
+      "status": "SEEDED",
+      "owner": "",
+      "blockers": [
+        "docs_gate_blocked"
+      ],
+      "completion_evidence": [],
+      "source_board": "conductor",
+      "address_components": {
+        "intent64": {
+          "index": 20,
+          "domain": "Guild",
+          "move": "Diagnose",
+          "lens": "Fractal"
+        },
+        "witness64": {
+          "index": 22,
+          "witness_class": "derived",
+          "surface": "Temple",
+          "lane": "Me"
+        },
+        "execution64": {
+          "index": 55,
+          "scope": "organism",
+          "method": "verify",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 44,
+          "verify": "proof",
+          "writeback": "manifest",
+          "restart": "temple_seed"
+        }
+      },
+      "registration_kind": "seeded",
+      "frontier_seed": "Q42+TQ04",
+      "source_fronts": [
+        "Q42",
+        "TQ04"
+      ],
+      "priority_score": 84.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "Q42 -> TQ04 -> next seeded conductor bridge",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Seeded adjacent bridge address; completion remains pending until the four-witness contract lands.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    },
+    {
+      "quest_id": "ADV64-S02",
+      "quest_address": "A22.B20.C51.D23",
+      "parent_address": "A22.B20.C63.D43 + A24.B24.C51.D23",
+      "title": "Athenachka proof carrythrough into the packet-fed restart loop",
+      "objective": "Bridge `Q46` into `TQ06` through one seeded adjacent address so the conductor can widen the live frontier without pretending to exhaust the full 64^4 lattice.",
+      "why_now": "`Q46` is the live Hall-side frontier while `TQ06` carries active Temple pressure, so one bridge packet yields more than broad unranked seeding.",
+      "target_surfaces": [
+        "self_actualize/adventurer_round_trip_certificates.json",
+        "ATHENA Neural Network/athenachka/helix/",
+        "ATHENA Neural Network/athenachka/runtime/",
+        "ATHENA Neural Network/athenachka/appendix/",
+        "self_actualize/athenachka_organism_v0_wave_state.json",
+        "self_actualize/athenachka_organism_v0_quest_packets.json",
+        "self_actualize/mycelium_brain/receipts/2026-03-13_round_trip_certificate_v0.md",
+        "GUILDMASTER/README.md",
+        "NERVOUS_SYSTEM/95_MANIFESTS/ASTROLOGICAL_SCHEDULER_REGISTRY.md",
+        "NERVOUS_SYSTEM/90_LEDGERS/astrological_schedulers/00_PACKET_INDEX.md",
+        "NERVOUS_SYSTEM/90_LEDGERS/astrological_schedulers/",
+        "GLOBAL_EMERGENT_GUILD_HALL/BOARDS/06_QUEST_BOARD.md"
+      ],
+      "best_lane": "bridge -> runtime -> replay -> restart",
+      "witness_needed": "one seeded bridge packet, one active claim overlay, one receipt-bearing replay witness, and one restart seed back into the Hall or Temple front",
+      "writeback": "manifest + queue",
+      "restart_seed": "Q46 -> TQ06 -> next seeded conductor bridge",
+      "status": "SEEDED",
+      "owner": "",
+      "blockers": [
+        "docs_gate_blocked"
+      ],
+      "completion_evidence": [],
+      "source_board": "conductor",
+      "address_components": {
+        "intent64": {
+          "index": 22,
+          "domain": "Guild",
+          "move": "Refine",
+          "lens": "Flower"
+        },
+        "witness64": {
+          "index": 20,
+          "witness_class": "derived",
+          "surface": "Hall",
+          "lane": "Bridge"
+        },
+        "execution64": {
+          "index": 51,
+          "scope": "organism",
+          "method": "derive",
+          "artifact": "manifest"
+        },
+        "return64": {
+          "index": 23,
+          "verify": "receipt",
+          "writeback": "queue",
+          "restart": "hall_seed"
+        }
+      },
+      "registration_kind": "seeded",
+      "frontier_seed": "Q46+TQ06",
+      "source_fronts": [
+        "Q46",
+        "TQ06"
+      ],
+      "priority_score": 83.0,
+      "success_gate": {
+        "requires_all": [
+          "artifact_landed",
+          "board_update_landed",
+          "writeback_landed",
+          "restart_seed"
+        ],
+        "ready": false,
+        "completion_receipt": {
+          "artifact_landed": false,
+          "board_update_landed": false,
+          "writeback_landed": true,
+          "restart_seed": "Q46 -> TQ06 -> next seeded conductor bridge",
+          "docs_gate_status": "BLOCKED",
+          "replay_notes": "Seeded adjacent bridge address; completion remains pending until the four-witness contract lands.",
+          "round_trip_required": false,
+          "round_trip_certificate_id": "",
+          "round_trip_class": ""
+        },
+        "round_trip_required": false,
+        "round_trip_lawful": true,
+        "round_trip_certificate_id": "",
+        "round_trip_class": ""
+      },
+      "round_trip_required": false,
+      "round_trip_certificate_id": "",
+      "round_trip_class": ""
+    }
+  ],
+  "next_4_pow_6_full_corpus_integration": {
+    "truth": "NEAR",
+    "state_path": "self_actualize\\next_4_pow_6_full_corpus_integration_state.json",
+    "notes_path": "self_actualize\\awakening_agent_transition_notes.json",
+    "preserved_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "TQ06"
+    ],
+    "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling"
+  },
+  "master_loop_57": {
+    "truth": "OK",
+    "current_loop_id": 1,
+    "next_loop_id": 2,
+    "planner_bundle_path": "self_actualize/quest_emission_bundle_loop_01.json",
+    "emitted_quests": [
+      "Q57-L02-H01",
+      "TQ57-L02-T01",
+      "W57-L02-01",
+      "P57-L02-01"
+    ],
+    "restart_seed": "NEXT => run loop 2 with Q57-L02-H01, TQ57-L02-T01, W57-L02-01, and P57-L02-01",
+    "docs_gate_status": "BLOCKED"
+  },
+  "next_4_pow_6_57_cycle_swarm": {
+    "frontier_id": "FRONT-NEXT-4-POW-6-57-CYCLE-SWARM",
+    "state_path": "self_actualize\\next_4_pow_6_57_cycle_swarm_state.json",
+    "loop_ledger_path": "self_actualize\\next_4_pow_6_57_cycle_loop_ledger.json",
+    "hall_bundle_path": "self_actualize\\next_4_pow_6_57_cycle_hall_macro_bundle.json",
+    "temple_bundle_path": "self_actualize\\next_4_pow_6_57_cycle_temple_macro_bundle.json",
+    "preserved_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "next_seed": "NEXT^[4^6]::Parameterize-Dormant-Seats-And-Social-Coupling",
+    "truth": "OK"
+  },
+  "lp_57_omega_protocol": {
+    "protocol_id": "LP-57OMEGA",
+    "quest_emission_path": "self_actualize\\lp_57_quest_emission_bundles.json",
+    "master_ledger_path": "self_actualize\\lp_57_master_agent_ledger.json",
+    "preserved_fronts": [
+      "Q42",
+      "Q46",
+      "TQ04",
+      "Q02"
+    ],
+    "truth": "OK"
+  }
+}

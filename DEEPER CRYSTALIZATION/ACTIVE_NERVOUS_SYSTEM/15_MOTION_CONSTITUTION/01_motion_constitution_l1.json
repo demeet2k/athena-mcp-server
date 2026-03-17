@@ -1,0 +1,123 @@
+{
+  "id": "joint-atlas.motion-constitution@0.1.0",
+  "version": "0.1.0",
+  "status": "derived-near",
+  "truth": "NEAR-derived",
+  "role": "lawful action-selection layer between governance and execution",
+  "constitutional_spine": {
+    "sigma": [
+      "AppA",
+      "AppI",
+      "AppM"
+    ],
+    "laws": [
+      "no motion outside Sigma-preserving routes",
+      "no activation without typed state",
+      "no sharp move without witness burden known",
+      "no public-grade closure without replay",
+      "no contradiction deletion; only type, scope, quarantine, repair",
+      "every terminal motion emits next lawful artifact or continuation seed"
+    ]
+  },
+  "brainstem_state": {
+    "formula": "O = (G, Pi, Omega, I, R)",
+    "fields": {
+      "G": "route graph / mycelium structure / addressable memory",
+      "Pi": "pressure field / salience gradients / unfinished-work vectors",
+      "Omega": "legality projector",
+      "I": "immune state",
+      "R": "replay/witness memory"
+    }
+  },
+  "candidate_world": {
+    "source_queues": [
+      "QuestBoard",
+      "AgentRegistry",
+      "Committee outputs",
+      "Immune scheduler outputs",
+      "Continuation seeds"
+    ],
+    "candidate_unit": {
+      "fields": [
+        "id",
+        "title",
+        "source_queue",
+        "role_family",
+        "source_organ",
+        "target_organ",
+        "current_family",
+        "truth_burden",
+        "packet_type_expected",
+        "continuation_seed",
+        "dependencies",
+        "blockers",
+        "axes",
+        "flags"
+      ]
+    }
+  },
+  "score_axes": [
+    "truth_readiness",
+    "integration_yield",
+    "replay_cost",
+    "contradiction_heat",
+    "pressure_gradient",
+    "organ_adjacency",
+    "branch_burden",
+    "seed_value",
+    "closure_gain",
+    "heart_need",
+    "replay_readiness",
+    "failure_debt",
+    "risk",
+    "cost"
+  ],
+  "action_alphabet": [
+    "ACTIVATE_NOW",
+    "HOLD",
+    "REQUEST_WITNESSES",
+    "REQUEST_HELP",
+    "REPLAY_FIRST",
+    "QUARANTINE",
+    "COMPRESS_TO_SEED",
+    "ESCALATE_TO_COMMITTEE",
+    "REFUSE_INADMISSIBLE"
+  ],
+  "hard_overrides": [
+    "if blockers intersect quarantine or unresolved-failure classes, ACTIVATE_NOW forbidden",
+    "if Omega denies, ACTIVATE_NOW forbidden",
+    "if replay requirement exceeds available replay capability, ACTIVATE_NOW forbidden",
+    "if truth burden exceeds carrier/agent envelope, ACTIVATE_NOW forbidden",
+    "if branch burden exceeds stewardship limit, SPLIT/BRANCH forbidden unless committee-approved"
+  ],
+  "default_parameters": {
+    "weights": {
+      "truth_readiness": 1.0,
+      "integration_yield": 1.0,
+      "replay_cost": 1.0,
+      "contradiction_heat": 1.0,
+      "pressure_gradient": 1.0,
+      "organ_adjacency": 1.0,
+      "branch_burden": 1.0,
+      "seed_value": 1.0,
+      "closure_gain": 1.0,
+      "heart_need": 1.0,
+      "replay_readiness": 1.0,
+      "failure_debt": 1.0,
+      "risk": 1.0,
+      "cost": 1.0
+    },
+    "beta": 0.5,
+    "activate_threshold": 0.12,
+    "truth_threshold": 0.55,
+    "replay_threshold": 0.55,
+    "branch_limit": 0.75
+  },
+  "outputs": [
+    "ActionClass",
+    "Receipt",
+    "NextSeed",
+    "UpdatedPressure",
+    "QueueMutation"
+  ]
+}

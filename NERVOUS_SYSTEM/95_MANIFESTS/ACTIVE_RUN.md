@@ -1,32 +1,25 @@
 # ACTIVE RUN
 
-run_id: NS-2026-03-09-02
-mode: unified-nervous-system-build
-verdict: IN PROGRESS
+- Protocol: `LP-57Omega v2`
+- Canonical authority: `self_actualize/master_loop_state_57.json`
+- Current state: `L04 complete / L05 ready`
+- Completed loop: `L04 Feeder-Stack Crosswalk`
+- Next ready loop: `L05 Canonical 16-Basis Ownership`
+- Docs gate: `BLOCKED`
+- Active membrane: `Q41 / TQ06`
+- Hall carrier: `Q42`
+- Landed receiver: `TQ04`
+- Reserve feeder: `Q46`
+- Blocked external frontier: `Q02`
+- Witness-only fronts: `Q50`, `ECOSYSTEM/NERVOUS_SYSTEM`
+- Restart seed: `L05 -> Canonical 16-Basis Ownership`
 
-## Objective
+<!-- COMMAND_MEMBRANE_ACTIVE_RUN:START -->
+## COMMAND Membrane Active Run
 
-Build the canonical unified NERVOUS_SYSTEM/ at project root by consolidating four partial systems and indexing the full corpus.
-
-## Phase Status
-
-| Phase | Description | Status |
-|-------|-------------|--------|
-| 0 | Foundation -- directory tree, root files, overview, metro, chapters, appendices, rails, schemas | COMPLETE |
-| 1 | Toolkit consolidation | IN PROGRESS |
-| 2 | Ledgers, manifests, runbooks | IN PROGRESS |
-| 3 | DEEPER CRYSTALIZATION capsule migration | COMPLETE |
-| 4 | MATH domain capsules | PENDING |
-| 5 | Voynich domain capsules | PENDING |
-| 6 | Remaining domain capsules | PENDING |
-| 7 | Edge graph construction | PENDING |
-| 8 | Crystal tile population | PENDING |
-| 9 | Deprecation markers | PENDING |
-
-## Gate State
-
-Live Docs gate is **BLOCKED** due to missing OAuth files.
-
-## Next Output
-
-Complete Phases 1-2, then begin Phase 4 (MATH domain capsules).
+- Canonical authority: `LP57OMEGA / NEXT57`
+- Active surface: `LOCAL SWARM MESH`
+- Watch scope: `first-wave local swarm mesh`
+- Watcher mode: `event-driven`
+- Docs gate: `BLOCKED`
+<!-- COMMAND_MEMBRANE_ACTIVE_RUN:END -->

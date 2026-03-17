@@ -6,7 +6,7 @@
 
 ## Current Weight
 
-`155`
+`443`
 
 ## Best Front
 

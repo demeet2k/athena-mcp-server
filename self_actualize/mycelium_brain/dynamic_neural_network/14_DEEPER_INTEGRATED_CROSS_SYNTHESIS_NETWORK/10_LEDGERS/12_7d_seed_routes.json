@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-03-13",
+  "docs_gate_status": "BLOCKED",
+  "dimension_stage": "7D_SEED",
+  "seed_holo_state": "Seed-7D",
+  "seed_carrier": "4096^7",
+  "route_count": 6,
+  "routes": [
+    {
+      "route_id": "seed_fire_water_compression",
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": ["AppA", "AppE", "AppI", "AppM"],
+      "earth_gate_state": "passed"
+    },
+    {
+      "route_id": "seed_water_air_legibility",
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": ["AppA", "AppB", "AppC", "AppE", "AppF", "AppI", "AppM", "AppN"],
+      "earth_gate_state": "passed"
+    },
+    {
+      "route_id": "seed_air_earth_promotion",
+      "mobius_bridge": "none",
+      "reverse_appendix_station": null,
+      "canonical_appendix_map": ["AppA", "AppB", "AppC", "AppI", "AppK", "AppM", "AppN"],
+      "earth_gate_state": "passed"
+    },
+    {
+      "route_id": "seed_q_ingress_hold",
+      "mobius_bridge": "Q_ingress",
+      "reverse_appendix_station": "Q",
+      "canonical_appendix_map": ["AppQ", "AppF", "AppE", "AppI", "AppK", "AppM"],
+      "earth_gate_state": "quarantined"
+    },
+    {
+      "route_id": "seed_o_return_hold",
+      "mobius_bridge": "O_return",
+      "reverse_appendix_station": "O",
+      "canonical_appendix_map": ["AppO", "AppP", "AppI", "AppK", "AppM"],
+      "earth_gate_state": "quarantined"
+    },
+    {
+      "route_id": "seed_chapter_spine_reentry",
+      "mobius_bridge": "QO_loop",
+      "reverse_appendix_station": "N",
+      "canonical_appendix_map": ["AppA", "AppH", "AppI", "AppK", "AppM", "AppN"],
+      "earth_gate_state": "passed"
+    }
+  ]
+}
