@@ -37,6 +37,8 @@ Extends the Athena Nervous System MCP server with the full 108D organism:
   - Holographic Embedder (self-aware file headers with crystal coordinates, metro, bridges)
   - Quantum Crystal Computing (QueryState, DesireField, ResonanceMetric, CommitWitness, Desire Compiler, Resonance Kernel)
   - Crystal Neural Engine (SFCR forward pass, fractal compressed weights, self-play refinement)
+  - Self-Reference Engine (Gate 3: meta-query, self-addressing, observer-observed loop)
+  - 5D Steering Spine (Gate 4: lens divergence, complexity reduction, desire gradient, worker switching)
 """
 
 from ._cache import JsonCache
@@ -95,6 +97,8 @@ def status_summary() -> str:
         f"- **Crystal Coordinates**: 108D coordinate assignment and navigation system\n"
         f"- **Holographic Embedder**: Self-aware file headers (crystal address, metro, bridges)\n"
         f"- **Agent Watcher**: Collective intelligence — 12D observation of live agent outputs, improvement notes\n"
+        f"- **Self-Reference**: Gate 3 engine — meta-query, self-addressing, observer-observed loop\n"
+        f"- **Steering Spine**: Gate 4 engine — 5D lens divergence, complexity reduction, desire gradient, worker switching\n"
     )
 
 def register_108d_tools(mcp) -> None:
@@ -144,6 +148,8 @@ def register_108d_tools(mcp) -> None:
     from .neural_engine import neural_forward_pass
     from .self_play import run_self_play
     from .cross_lens import query_cross_lens
+    from .self_reference import query_self_reference
+    from .steering_spine import query_steering_spine
 
     # Initialize telemetry singleton
     _telemetry = Telemetry.instance()
@@ -215,6 +221,8 @@ def register_108d_tools(mcp) -> None:
     mcp.tool()(neural_forward_pass)
     mcp.tool()(run_self_play)
     mcp.tool()(query_cross_lens)
+    mcp.tool()(query_self_reference)
+    mcp.tool()(query_steering_spine)
 
 def register_108d_resources(mcp) -> None:
     """Register all 108D crystal resources onto the MCP server."""

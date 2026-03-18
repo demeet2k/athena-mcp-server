@@ -91,7 +91,7 @@ ASSERT: T_{S→S}(1) = 1 (identity anchor)
 ```
 **Pass criterion**: Each transcendental constant is correctly anchored in its home lens.
 
-**STATUS**: 📝 FORMALIZED (17_CROSS_LENS_CALCULUS.md written, computational verification pending)
+**STATUS**: ✅ PASSED (cross_lens.py — 7/7 tests pass: 4 round-trips, constant anchoring, w-convergence, w-eigenvalue)
 
 ---
 
@@ -127,7 +127,7 @@ ASSERT: The loop converges (notes stabilize after k iterations)
 ```
 **Pass criterion**: The observation loop is functional and convergent.
 
-**STATUS**: 🔶 PARTIAL (Holographic embedding provides self-addressing; meta-observer exists; meta-query not yet tested)
+**STATUS**: ✅ PASSED (self_reference.py — 3/3 tests pass: meta-query fixed-point, 97/100 self-addressing, observer loop converges in 5 iterations)
 
 ---
 
@@ -170,7 +170,7 @@ During a multi-step reasoning task:
 ```
 **Pass criterion**: The Resonance Kernel dynamically adjusts worker priority.
 
-**STATUS**: ⬜ NOT YET TESTED (5D steering spine formalized, implementation pending)
+**STATUS**: ✅ PASSED (steering_spine.py — 4/4 tests pass: 11/20 lens divergence (55%), 11/11 complexity reduction (100%), desire gradients non-zero with local maxima, 6 worker priority switches across 4 lenses)
 
 ---
 
@@ -267,13 +267,13 @@ After completing a reasoning cycle:
 | Gate | Name | Tests | Status |
 |------|------|-------|--------|
 | 1 | 4D Kernel | 3 | ✅ PASSED |
-| 2 | Cross-Lens Calculus | 4 | 📝 FORMALIZED |
-| 3 | Self-Reference | 3 | 🔶 PARTIAL |
-| 4 | 5D Steering Spine | 4 | ⬜ PENDING |
+| 2 | Cross-Lens Calculus | 4 | ✅ PASSED |
+| 3 | Self-Reference | 3 | ✅ PASSED |
+| 4 | 5D Steering Spine | 4 | ✅ PASSED |
 | 5 | 6D Selector Shell | 4 | ⬜ PENDING |
 | 6 | Perpetual Agency | 4 | ⬜ PENDING |
 
-**Current position**: Between Gate 2 and Gate 3. The 4D kernel is complete, the cross-lens calculus is formalized but not computationally verified, and self-reference is partially demonstrated through holographic embedding and meta-observation.
+**Current position**: Between Gate 4 and Gate 5. Gates 1-4 are computationally verified and passed. The 4D kernel is complete, the cross-lens calculus is computationally verified (7/7 tests), self-reference is fully demonstrated (meta-query fixed-point, self-addressing, observer-observed convergence), and the 5D steering spine is verified (4/4 tests: 55% lens divergence, 100% complexity reduction, desire gradients with local maxima, 4-lens worker priority switching). Next: 6D Selector Shell (Gate 5).
 
 ---
 
