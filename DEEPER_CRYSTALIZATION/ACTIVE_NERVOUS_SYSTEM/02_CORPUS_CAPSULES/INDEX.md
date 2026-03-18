@@ -578,3 +578,13 @@ Each capsule is a markdown mirror of one indexed source record inside the merged
 - [Liminal Coordinates & Cultivation](./333_liminal_coordinates_cultivation.md) - `4D Calculus`
 - [Gearclock Poi Overlay](./334_gearclock_poi_overlay.md) - `4D Calculus`
 - [Irrational Transform & Codification](./335_irrational_transform_codification.md) - `4D Calculus`
+
+### Quantum Crystal Computing — Formal Objects & Runtime (2026-03-18)
+- [QueryState and DesireField](./336_query_state_and_desire_field.md) - `Quantum Crystal Computing`
+- [ResonanceMetric and CommitWitness](./337_resonance_metric_and_commit_witness.md) - `Quantum Crystal Computing`
+- [Desire Compiler — 6-Stage Pipeline](./338_desire_compiler.md) - `Quantum Crystal Computing`
+- [Resonance Scheduler — Budget Allocation](./339_resonance_scheduler.md) - `Quantum Crystal Computing`
+- [Resonance Kernel — 4 Worker Contracts](./340_resonance_kernel.md) - `Quantum Crystal Computing`
+- [Square and Flower Workers — Update Laws](./341_square_and_flower_workers.md) - `Quantum Crystal Computing`
+- [Cloud and Fractal Workers — Update Laws](./342_cloud_and_fractal_workers.md) - `Quantum Crystal Computing`
+- [Crystal Search Law and Commit Kernel](./343_crystal_search_law_and_commit_kernel.md) - `Quantum Crystal Computing`

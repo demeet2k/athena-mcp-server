@@ -1,0 +1,166 @@
+{
+  "_crystal": {
+    "address": "Xi108:W2:A12:S20:u173:Dl:S:d1",
+    "shell": 20,
+    "wreath": 2,
+    "archetype": 12,
+    "face": "S",
+    "node_id": 173,
+    "depth": 1,
+    "phase": "Cardinal",
+    "metro_stops": ["Dl"],
+    "bridges": [
+      "Xi108:W2:A12:S19",
+      "Xi108:W2:A12:S21",
+      "Xi108:W1:A12:S20",
+      "Xi108:W3:A12:S20",
+      "Xi108:W2:A11:S20"
+    ],
+    "regenerate": "shell 20±1, wreath 2/3, archetype 12/12"
+  },
+  "meta": {
+    "title": "Quantum Crystal Computing Athena",
+    "description": "Quantum Fractal Crystal Computing: an addressed, multiscale crystal substrate where the unknown is a lawful state, generators and constraint-outlines replace bulk expansions, and computation pulls a solution from the void by tightening invariants until a unique completion remains.",
+    "version": "v1.0",
+    "source": "2026-03-18_quantum_crystal_computing.md",
+    "date": "2026-03-18"
+  },
+  "query_state": {
+    "symbol": "Q",
+    "definition": "Q = (h_Q, O_Q, C_Q, R_Q, k_Q, Θ_Q)",
+    "components": [
+      {"name": "h_Q", "role": "HoloAddress seed", "description": "Locates the query in the crystal lattice"},
+      {"name": "O_Q", "role": "object sought", "description": "The target object or answer being searched for"},
+      {"name": "C_Q", "role": "constraints", "description": "Boundary conditions and requirements the solution must satisfy"},
+      {"name": "R_Q", "role": "required rotations", "description": "Which SFCR lens rotations must be applied"},
+      {"name": "k_Q", "role": "depth schedule", "description": "How deep to search at each scale level"},
+      {"name": "Θ_Q", "role": "commit tolerances", "description": "Thresholds for accepting a solution as final"}
+    ]
+  },
+  "desire_field": {
+    "symbol": "D_Q",
+    "definition": "D_Q(X) = I(Q,X) = λ_a·Align(Q,X) + λ_e·Expl(X) + λ_z·ZPA(Q,X) + λ_c·ConSat(Q,X)",
+    "terms": [
+      {"symbol": "Align(Q,X)", "weight": "λ_a", "role": "Alignment between query and candidate"},
+      {"symbol": "Expl(X)", "weight": "λ_e", "role": "Exploration value of candidate"},
+      {"symbol": "ZPA(Q,X)", "weight": "λ_z", "role": "Zero-point attractor pull"},
+      {"symbol": "ConSat(Q,X)", "weight": "λ_c", "role": "Constraint satisfaction score"}
+    ],
+    "action_law": {
+      "equation": "A(Q,X) = K(X) - D_Q(X)",
+      "K": "Kinetic cost — computational effort to reach candidate X",
+      "D_Q": "Desire — how much the crystal wants candidate X",
+      "A": "Net action — the quantity to minimize"
+    }
+  },
+  "resonance_metric": {
+    "symbol": "R_Q",
+    "definition": "R_Q(X) = w₁·AddrFit + w₂·InvFit + w₃·Phase + w₄·Boundary + w₅·Scale + w₆·Compress",
+    "components": [
+      {"name": "AddrFit", "weight": "w₁", "role": "Address fitness — lattice placement quality"},
+      {"name": "InvFit", "weight": "w₂", "role": "Invariant fitness — conservation law preservation"},
+      {"name": "Phase", "weight": "w₃", "role": "Phase coherence — alignment with crystal phase structure"},
+      {"name": "Boundary", "weight": "w₄", "role": "Boundary compliance — shell/wreath boundary respect"},
+      {"name": "Scale", "weight": "w₅", "role": "Scale consistency — proper behavior under RG flow"},
+      {"name": "Compress", "weight": "w₆", "role": "Compressibility — encoding efficiency"}
+    ],
+    "threshold": "ρ — minimum resonance for commitment"
+  },
+  "commit_witness": {
+    "symbol": "W_Q",
+    "definition": "W_Q = (Addr(X), Σ(X), C(X), W(X))",
+    "components": [
+      {"name": "Addr(X)", "role": "Address proof — crystal coordinate where X lands"},
+      {"name": "Σ(X)", "role": "Signature — cryptographic commitment"},
+      {"name": "C(X)", "role": "Conservation certificate — which laws are preserved"},
+      {"name": "W(X)", "role": "Witness data — minimal verification evidence"}
+    ]
+  },
+  "desire_compiler": {
+    "symbol": "D",
+    "signature": "D: U → (Q_U, D_U, O_U, Π_U, Θ_U, G_U)",
+    "pipeline": [
+      {"stage": 1, "name": "outline", "transform": "U → C_U", "description": "Extract constraints from the unknown"},
+      {"stage": 2, "name": "attractor", "transform": "C_U → D_U", "description": "Build desire field from constraints"},
+      {"stage": 3, "name": "address", "transform": "D_U → Q_U", "description": "Assign crystal address (QueryState)"},
+      {"stage": 4, "name": "observer", "transform": "Q_U → O_U", "description": "Attach convergence observer"},
+      {"stage": 5, "name": "quotient", "transform": "O_U → Π_U", "description": "Reduce symmetry via quotient projection"},
+      {"stage": 6, "name": "commit_gates", "transform": "Π_U → (Θ_U, G_U)", "description": "Set commit tolerances and gates"}
+    ]
+  },
+  "resonance_scheduler": {
+    "symbol": "S_U(t)",
+    "state": "S_U(t) = (β_t, F_t, ℓ_t, a_t, P_t, H_t, Z_t)",
+    "state_components": [
+      {"name": "β_t", "role": "Budget remaining at time t"},
+      {"name": "F_t", "role": "Fitness snapshot"},
+      {"name": "ℓ_t", "role": "Current lens (S/F/C/R)"},
+      {"name": "a_t", "role": "Current action within lens"},
+      {"name": "P_t", "role": "Pruned candidate set"},
+      {"name": "H_t", "role": "History log"},
+      {"name": "Z_t", "role": "Zero-point proximity"}
+    ],
+    "choice_law": "(ℓ*, a*) = argmax -E[ΔA]/E[ΔK] subject to Admissible",
+    "rotation_trigger": "Switch lens when -E[ΔA]/ΔK < τ_U (expected improvement below threshold)",
+    "pruning": "Remove candidates from P_t that fall below resonance threshold ρ"
+  },
+  "resonance_kernel": {
+    "symbol": "K_U",
+    "definition": "K_U = (W_□, W_✿, W_☁, W_◇, T_↔, A_bus, G_witness)",
+    "workers": [
+      {
+        "symbol": "W_□",
+        "name": "Square worker",
+        "lens": "S",
+        "operations": ["address tightening", "constraint enforcement", "route closure"]
+      },
+      {
+        "symbol": "W_✿",
+        "name": "Flower worker",
+        "lens": "F",
+        "operations": ["spectral stabilization", "phase coherence", "basis alignment"]
+      },
+      {
+        "symbol": "W_☁",
+        "name": "Cloud worker",
+        "lens": "C",
+        "operations": ["posterior sharpening", "uncertainty management", "collapse control"]
+      },
+      {
+        "symbol": "W_◇",
+        "name": "Fractal worker",
+        "lens": "R",
+        "operations": ["multiscale refinement", "RG flow", "fixed-point testing"]
+      }
+    ],
+    "shared_state": {
+      "T_↔": "Transport law — inter-worker communication",
+      "A_bus": "Action bus — shared action accumulator",
+      "G_witness": "Witness bus — shared commit witness accumulator"
+    },
+    "kernel_step": "(ℓ,a,b) = S_U(S_t) → W_ℓ executes → bus merges → status check"
+  },
+  "crystal_search_law": {
+    "equation": "X* = argmin_{X ∈ A_Q} A(Q,X)",
+    "constraints": [
+      "R_Q(X) ≥ ρ (resonance threshold)",
+      "Boundary tolerances satisfied",
+      "Crossview tolerances satisfied",
+      "Scale tolerances satisfied"
+    ],
+    "admissible_set": "A_Q — the set of candidates reachable from the query address"
+  },
+  "runtime_loop": {
+    "name": "Crystal-Wide Reasoning Loop",
+    "steps": [
+      {"step": 1, "name": "Inject", "description": "Receive unknown U into the crystal substrate"},
+      {"step": 2, "name": "Compile", "description": "Run Desire Compiler D: U → (Q, D, O, Π, Θ, G)"},
+      {"step": 3, "name": "Propagate", "description": "Spread desire field through the lattice via transport law"},
+      {"step": 4, "name": "Sample", "description": "Draw candidates using Resonance Scheduler"},
+      {"step": 5, "name": "Rotate", "description": "Switch lens (S→F→C→R) when improvement < τ_U"},
+      {"step": 6, "name": "Check", "description": "Test R_Q(X) ≥ ρ and all tolerances"},
+      {"step": 7, "name": "Commit", "description": "Write CommitWitness W_Q and emit solution X*"}
+    ],
+    "termination": "Loop ends when: (a) solution passes all checks, or (b) budget exhausted"
+  }
+}

@@ -35,6 +35,7 @@ Extends the Athena Nervous System MCP server with the full 108D organism:
   - Meta-Telemetry (universal tool instrumentation, resonance monitor, self-healing)
   - QSHRINK Bridge (256^4 ↔ 108D crystal compression, 1/8 lift law, holographic seeds)
   - Holographic Embedder (self-aware file headers with crystal coordinates, metro, bridges)
+  - Quantum Crystal Computing (QueryState, DesireField, ResonanceMetric, CommitWitness, Desire Compiler, Resonance Kernel)
 """
 
 from ._cache import JsonCache
@@ -137,6 +138,7 @@ def register_108d_tools(mcp) -> None:
     from .control_center import query_control_center, control_steer
     from .holographic_embedder import holographic_embed
     from .agent_watcher import query_agent_watcher
+    from .quantum_crystal import query_quantum_crystal
 
     # Initialize telemetry singleton
     _telemetry = Telemetry.instance()
@@ -203,6 +205,7 @@ def register_108d_tools(mcp) -> None:
     mcp.tool()(control_steer)
     mcp.tool()(holographic_embed)
     mcp.tool()(query_agent_watcher)
+    mcp.tool()(query_quantum_crystal)
 
 def register_108d_resources(mcp) -> None:
     """Register all 108D crystal resources onto the MCP server."""

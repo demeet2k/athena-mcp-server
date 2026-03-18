@@ -52,6 +52,7 @@ _ALL_JSON_FILES = [
     "program_rosetta.json",
     "calculus_4d.json",
     "crystal_coordinates.json",
+    "quantum_crystal.json",
 ]
 
 class JsonCache:
