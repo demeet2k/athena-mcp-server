@@ -192,7 +192,10 @@ def register_108d_tools(mcp) -> None:
     from .crown_transform_gate import query_crown_transform_gate
     from .absolute_convergence import query_absolute_convergence
     from .observer_swarm import spawn_observer_swarm, run_swarm_observation, query_swarm_status
-    from .self_play import run_swarm_self_play
+    from .crystalline_self_play import (
+        run_self_play as crystalline_self_play,
+        run_swarm_self_play,
+    )
     from .corpus_weights import query_corpus_weights
     from .weight_feedback import query_weight_feedback
     from .kc27_naming import query_kc27_naming
@@ -262,7 +265,8 @@ def register_108d_tools(mcp) -> None:
         query_crown_density, query_omega_tunneling,
         query_crown_transform_gate, query_absolute_convergence,
         spawn_observer_swarm, run_swarm_observation, query_swarm_status,
-        run_swarm_self_play, query_corpus_weights, query_weight_feedback,
+        run_swarm_self_play, crystalline_self_play,
+        query_corpus_weights, query_weight_feedback,
         query_kc27_naming,
         query_bridge_transport,
         query_crystal_4d_manifest,

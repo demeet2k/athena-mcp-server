@@ -1,0 +1,65 @@
+{
+  "genome_id": "ab508bae0362",
+  "generation": 3,
+  "score": 0.841379914850656,
+  "emergence_score": 0.048250582481407234,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "crystal_lattice",
+      "params": {
+        "cx": 91,
+        "cy": 130,
+        "rows": 8,
+        "cols": 6,
+        "spacing": 40
+      },
+      "transform": "",
+      "opacity": 0.8208838977942334
+    },
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 415,
+        "cy": 465,
+        "R": 168,
+        "angle_x": 0.4475399924947417,
+        "angle_z": 0.622001184999867
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 436,
+        "height": 558,
+        "divisions": 3
+      },
+      "transform": "rotate(174.3,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 457,
+        "cy": 370,
+        "size": 109
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 386,
+        "cy": 597,
+        "size": 112
+      },
+      "transform": "rotate(-74.2,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T10:33:53.327263+00:00"
+}

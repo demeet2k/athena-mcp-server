@@ -1,0 +1,48 @@
+{
+  "genome_id": "19f616007089",
+  "generation": 2,
+  "score": 0.7760306962312307,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 521,
+        "cy": 310,
+        "R": 162,
+        "angle_x": 0.24468449803978232,
+        "angle_z": 0.11010216830356878
+      },
+      "transform": "rotate(-77.8,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dodecahedron",
+      "params": {
+        "cx": 493,
+        "cy": 379,
+        "size": 133,
+        "angle_x": 0.4353430449884156,
+        "angle_z": 0.5112335699269293
+      },
+      "transform": "",
+      "opacity": 0.7238307599439253
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 439,
+        "cy": 351,
+        "r": 51,
+        "rings": 1,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(-36.3,400,400)",
+      "opacity": 0.5180966521294783
+    }
+  ],
+  "crystallized_at": "2026-03-19T10:33:53.144212+00:00"
+}

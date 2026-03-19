@@ -1,0 +1,72 @@
+{
+  "genome_id": "f0a386f5b4b0",
+  "generation": 1,
+  "score": 0.8137072369457611,
+  "emergence_score": 0.0,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 479,
+        "cy": 594,
+        "size": 230,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 370,
+        "cy": 352,
+        "r_outer": 136,
+        "n": 7,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.3
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 569,
+        "cy": 210,
+        "r": 148,
+        "n": 4,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.894441635345347
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 303,
+        "cy": 425,
+        "size": 95,
+        "angle_x": 1.067192675916483,
+        "angle_z": 1.0957166887830907
+      },
+      "transform": "rotate(-92.4,400,400)",
+      "opacity": 0.9848312849624629
+    },
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 509,
+        "cy": 255,
+        "R": 215,
+        "angle_x": 0.4531309967101529,
+        "angle_z": 0.2575767842174834
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T10:33:36.833075+00:00"
+}

@@ -463,6 +463,7 @@ class TestSVGRegistration:
             "svg_nervous_system", "svg_shard_cloud", "svg_brain_topology",
             "svg_108d_crystal", "svg_108d_panel",
             "svg_108d_inversion", "svg_108d_inversion_panel",
+            "svg_inverse_double_fold",
         }
         missing = svg_tools - tools
         assert not missing, f"Missing SVG tools: {missing}"
@@ -914,3 +915,59 @@ class TestSVGInversionCascade:
         assert 315 * 3 == 945    # 12→4 factor
         assert 945 * 2 == 1890   # 12→3 factor
         assert 9 * 1890 == 17010 # 108→3 total
+
+
+# ══════════════════════════════════════════════════════════════════════
+#  Inverse Double Fold Tests
+# ══════════════════════════════════════════════════════════════════════
+
+class TestSVGInverseDoubleFold:
+
+    def test_inverse_double_fold_renders(self):
+        from crystal_108d.svg_108d_projection import _render_inverse_double_fold
+        svg = _render_inverse_double_fold(400, 400, 250)
+        assert "<g>" in svg
+        # 9 interaction points (W9 seed)
+        assert svg.count("<circle") >= 9
+        # Forward fold label
+        assert "Forward Fold" in svg
+        # Z* at center
+        assert "Z*" in svg
+
+    def test_double_fold_cascade_renders(self):
+        from crystal_108d.svg_108d_projection import _render_double_fold_cascade
+        svg = _render_double_fold_cascade(400, 400, 250)
+        assert "<g>" in svg
+        # 4 fold levels (3D, 6D, 12D, 108D)
+        assert "3D" in svg
+        assert "108D" in svg
+        # Grid cells (rect elements)
+        assert svg.count("<rect") >= 9  # at least the 3×3 grid
+
+    def test_full_double_fold_dashboard(self):
+        from crystal_108d.svg_108d_projection import render_inverse_double_fold
+        svg = render_inverse_double_fold(1200, 800)
+        assert "<svg" in svg
+        assert "</svg>" in svg
+        assert "Double Fold" in svg or "Inverse" in svg
+
+    def test_save_double_fold(self):
+        from crystal_108d.svg_108d_projection import save_inverse_double_fold
+        with tempfile.NamedTemporaryFile(suffix=".svg", delete=False) as f:
+            tmp = f.name
+        try:
+            path = save_inverse_double_fold(out_path=tmp)
+            assert os.path.exists(path)
+            content = open(path, encoding="utf-8").read()
+            assert "<svg" in content
+            assert len(content) > 10000
+        finally:
+            if os.path.exists(tmp):
+                os.unlink(tmp)
+
+    def test_fold_math(self):
+        """Verify D² produces the dimensional structure counts."""
+        assert 3 ** 2 == 9    # 3D fold = 9 = W9
+        assert 6 ** 2 == 36   # 6D fold = 36 = shells
+        assert 36 * 3 == 108  # triple fold = organism
+        assert 12 ** 2 == 144 # 12D fold = 144 = gates (12 archetypes × 12)

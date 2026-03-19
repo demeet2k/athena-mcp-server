@@ -1,159 +1,33 @@
 {
   "meta": {
-    "total_rounds": 10,
-    "best_overall": 0.8727942025601743,
-    "timestamp": "2026-03-19T09:21:57.301403+00:00"
+    "total_rounds": 2,
+    "best_overall": 0.720214946944457,
+    "timestamp": "2026-03-19T10:33:32.757141+00:00"
   },
   "rounds": [
     {
       "round_id": 1,
-      "challenge_id": "prim_circle",
-      "challenge_name": "Single Circle",
-      "best_score": 0.7911837905764046,
-      "attempts": 5,
+      "challenge_id": "cryst_tesseract",
+      "challenge_name": "Tesseract Projection",
+      "best_score": 0.6381193365256848,
+      "attempts": 2,
       "improvement_trajectory": [
-        0.7911837905764046,
-        0.7900518674341375,
-        0.4217384316458176,
-        0.7755770042319579,
-        0.7911837905764046
+        0.6128413077731092,
+        0.6381193365256848
       ],
-      "timestamp": "2026-03-19T09:21:57.223922+00:00"
+      "timestamp": "2026-03-19T10:33:32.744634+00:00"
     },
     {
       "round_id": 2,
-      "challenge_id": "prim_pentagon",
-      "challenge_name": "Regular Pentagon",
-      "best_score": 0.8344672030413736,
-      "attempts": 5,
+      "challenge_id": "dim_crystal_4d",
+      "challenge_name": "Crystal 4D Full",
+      "best_score": 0.720214946944457,
+      "attempts": 2,
       "improvement_trajectory": [
-        0.8344411683541825,
-        0.8344671467913736,
-        0.558842029813755,
-        0.8335359755010019,
-        0.8344672030413736
+        0.720214946944457,
+        0.6676524159796724
       ],
-      "timestamp": "2026-03-19T09:21:57.226161+00:00"
-    },
-    {
-      "round_id": 3,
-      "challenge_id": "comp_star5",
-      "challenge_name": "Five-Pointed Star",
-      "best_score": 0.8539962243541509,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.8539962243541509,
-        0.8459147703205641,
-        0.4621127672441942,
-        0.8123395419743394,
-        0.8384107868947354
-      ],
-      "timestamp": "2026-03-19T09:21:57.227836+00:00"
-    },
-    {
-      "round_id": 4,
-      "challenge_id": "comp_star8",
-      "challenge_name": "Eight-Pointed Star",
-      "best_score": 0.8727942025601743,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.8269533976322121,
-        0.8727942025601743,
-        0.6000650689175312,
-        0.7597357310952718,
-        0.8727942025601743
-      ],
-      "timestamp": "2026-03-19T09:21:57.230402+00:00"
-    },
-    {
-      "round_id": 5,
-      "challenge_id": "sacred_metatron",
-      "challenge_name": "Metatron's Cube",
-      "best_score": 0.8076289996505652,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.7818906696494806,
-        0.8076286809005653,
-        0.6298348062142,
-        0.6881055019707447,
-        0.8076289996505652
-      ],
-      "timestamp": "2026-03-19T09:21:57.232403+00:00"
-    },
-    {
-      "round_id": 6,
-      "challenge_id": "dim_dodecahedron",
-      "challenge_name": "Dodecahedron 12-Face",
-      "best_score": 0.5960301257850117,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.5917498625981985,
-        0.5846271320663154,
-        0.5818820657894517,
-        0.5682153384553318,
-        0.5960301257850117
-      ],
-      "timestamp": "2026-03-19T09:21:57.244400+00:00"
-    },
-    {
-      "round_id": 7,
-      "challenge_id": "frac_theodorus",
-      "challenge_name": "Spiral of Theodorus",
-      "best_score": 0.6791076795238387,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.5855531234286337,
-        0.5865590823918209,
-        0.679107674456213,
-        0.6535770945171308,
-        0.6791076795238387
-      ],
-      "timestamp": "2026-03-19T09:21:57.254401+00:00"
-    },
-    {
-      "round_id": 8,
-      "challenge_id": "dim_sfcr_crystal",
-      "challenge_name": "SFCR Crystal",
-      "best_score": 0.6741142485587897,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.6730389109707121,
-        0.6719132309501378,
-        0.6670729554553414,
-        0.6617465707488884,
-        0.6741142485587897
-      ],
-      "timestamp": "2026-03-19T09:21:57.260400+00:00"
-    },
-    {
-      "round_id": 9,
-      "challenge_id": "cryst_hex_lattice",
-      "challenge_name": "Hexagonal Crystal Lattice",
-      "best_score": 0.5730130198230607,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.5726957220579342,
-        0.5730128403324056,
-        0.5077285868346589,
-        0.5485905648556001,
-        0.5730130198230607
-      ],
-      "timestamp": "2026-03-19T09:21:57.274401+00:00"
-    },
-    {
-      "round_id": 10,
-      "challenge_id": "frac_tree7",
-      "challenge_name": "Fractal Tree (depth 7)",
-      "best_score": 0.7016716133067173,
-      "attempts": 5,
-      "improvement_trajectory": [
-        0.697748786945489,
-        0.7015907257816775,
-        0.6702148636509516,
-        0.6653163482718591,
-        0.7016716133067173
-      ],
-      "timestamp": "2026-03-19T09:21:57.285405+00:00"
+      "timestamp": "2026-03-19T10:33:32.746632+00:00"
     }
   ]
 }
