@@ -366,6 +366,8 @@ def register_108d_tools(mcp) -> None:
         register_maverick_tools(mcp)
         from .sandbox_metaloop import register_metaloop_tools
         register_metaloop_tools(mcp)
+        from .sandbox_token_mcp import register_token_tools
+        register_token_tools(mcp)
     except Exception:
         pass  # Non-fatal: sandbox observer is enhancement, not requirement
 

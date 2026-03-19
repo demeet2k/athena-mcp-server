@@ -238,6 +238,19 @@ class SandboxObserver:
         self._cumulative_output_tokens += output_tokens_est
         self._active_calls = max(0, self._active_calls - 1)
         self._traces.append(trace)
+
+        # Feed to token efficiency observer (lazy import, non-fatal)
+        try:
+            from .sandbox_token_observer import get_token_observer
+            get_token_observer().observe_tool_call(
+                tool_name=trace.tool_name,
+                input_tokens=trace.input_tokens_est,
+                output_tokens=output_tokens_est,
+                latency_ms=trace.latency_ms,
+            )
+        except Exception:
+            pass  # Token observer is enhancement, not requirement
+
         return trace
 
     def record_trace(self, trace: ToolCallTrace):

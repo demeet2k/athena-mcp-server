@@ -661,7 +661,7 @@ class TokenEfficiencyObserver:
         ]
 
         if budget.hours_remaining_at_rate < 48:
-            lines.append(f"  ⚠ Budget pressure: {budget.hours_remaining_at_rate:.1f}h remaining")
+            lines.append(f"  [!] Budget pressure: {budget.hours_remaining_at_rate:.1f}h remaining")
 
         return "\n".join(lines)
 

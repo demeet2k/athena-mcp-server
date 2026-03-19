@@ -49,6 +49,15 @@ def register_sandbox_tools(mcp) -> None:
             "",
             efficiency.status(),
         ]
+
+        # Token efficiency observer (non-fatal)
+        try:
+            from .sandbox_token_observer import get_token_observer
+            sections.append("")
+            sections.append(get_token_observer().status())
+        except Exception:
+            pass
+
         return "\n".join(sections)
 
     @mcp.tool()

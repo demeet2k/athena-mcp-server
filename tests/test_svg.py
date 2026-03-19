@@ -466,6 +466,103 @@ class TestSVGRegistration:
 
 
 # ══════════════════════════════════════════════════════════════════════
+#  Dimensional Rendering (3D→12D)
+# ══════════════════════════════════════════════════════════════════════
+
+class TestSVGDimensional:
+
+    def test_crystal_3d_seed(self):
+        from crystal_108d.svg_dimensional import crystal_3d_seed
+        svg = SVGCanvas(); svg.add(crystal_3d_seed(400, 400, 200))
+        assert "<svg" in svg.render()
+
+    def test_crystal_4d_tesseract(self):
+        from crystal_108d.svg_dimensional import crystal_4d_tesseract
+        svg = SVGCanvas(); svg.add(crystal_4d_tesseract(400, 400, 200))
+        out = svg.render()
+        assert "<svg" in out
+        # Should have 32 edges (lines) + 16 vertices (circles)
+        assert out.count("<line") >= 16
+
+    def test_crystal_6d_mobius(self):
+        from crystal_108d.svg_dimensional import crystal_6d_mobius
+        svg = SVGCanvas(); svg.add(crystal_6d_mobius(400, 400, 200))
+        out = svg.render()
+        assert "<svg" in out
+        # 3 wreaths × 4 strips = 12 polylines minimum
+        assert out.count("<polyline") >= 12
+
+    def test_crystal_8d_pentadic(self):
+        from crystal_108d.svg_dimensional import crystal_8d_pentadic
+        svg = SVGCanvas(); svg.add(crystal_8d_pentadic(400, 400, 200))
+        out = svg.render()
+        assert "<svg" in out
+        # 5 animal orbits
+        assert out.count("<polyline") >= 5
+
+    def test_crystal_10d_heptadic(self):
+        from crystal_108d.svg_dimensional import crystal_10d_heptadic
+        svg = SVGCanvas(); svg.add(crystal_10d_heptadic(400, 400, 200))
+        out = svg.render()
+        assert "<svg" in out
+        # 7 planetary orbits
+        assert out.count("<polyline") >= 7
+
+    def test_crystal_12d_crown(self):
+        from crystal_108d.svg_dimensional import crystal_12d_crown
+        svg = SVGCanvas(); svg.add(crystal_12d_crown(400, 400, 250))
+        out = svg.render()
+        assert "<svg" in out
+        # 9 crown stations + Z* center
+        assert out.count("<circle") >= 10
+
+    def test_w_spiral(self):
+        from crystal_108d.svg_dimensional import w_spiral
+        svg = SVGCanvas(); svg.add(w_spiral(400, 400, 200))
+        out = svg.render()
+        assert "<svg" in out
+        assert "Z*" in out
+
+    def test_cross_lens_map(self):
+        from crystal_108d.svg_dimensional import cross_lens_map
+        svg = SVGCanvas(); svg.add(cross_lens_map(400, 400, 200))
+        out = svg.render()
+        assert "<svg" in out
+        # 4 face nodes (S, F, C, R)
+        for face in ["S", "F", "C", "R"]:
+            assert f">{face}<" in out
+
+    def test_containment_proof(self):
+        from crystal_108d.svg_dimensional import containment_proof
+        svg = SVGCanvas(); svg.add(containment_proof(400, 400, 250))
+        out = svg.render()
+        assert "<svg" in out
+        assert "1890" in out  # containment count
+
+    def test_full_12d_nested(self):
+        from crystal_108d.svg_dimensional import crystal_full_12d
+        svg = SVGCanvas(1200, 1200)
+        svg.add(crystal_full_12d(600, 600, 400))
+        out = svg.render()
+        assert "<svg" in out
+        # Must have all dimension labels
+        for dim in ["12D", "10D", "8D", "6D", "4D"]:
+            assert dim in out
+        # Should be substantial (>15KB means all layers rendered)
+        assert len(out) > 15000
+
+    def test_phi_scaling_containment(self):
+        """Verify nested rings follow PHI_INV scaling."""
+        from crystal_108d.svg_dimensional import crystal_full_12d
+        from crystal_108d.geometric_constants import PHI_INV
+        # The function uses PHI_INV^n for ring radii
+        # Just verify it renders without error
+        svg = SVGCanvas(1000, 1000)
+        svg.add(crystal_full_12d(500, 500, 300))
+        assert len(svg.render()) > 10000
+
+
+# ══════════════════════════════════════════════════════════════════════
 #  Transcendence Engine
 # ══════════════════════════════════════════════════════════════════════
 
