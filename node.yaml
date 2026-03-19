@@ -60,6 +60,42 @@ mirrors:
     type: google_doc
     doc_id: "1Bn9Doo_NCPJ6FAjPzSVTB62_b0Zoz2lBC_eNU8wvOxM"
     description: "BRAIN STEM — Brain stem architecture"
+  - id: kc27-tome-gdoc
+    type: google_doc
+    doc_id: "1-4J0YZ_zzqh5NQyyDn09xBA33bDiwas_mxBjQWvB524"
+    description: "KC27 :: 1 — Admissibility extraction tome"
+  - id: scheduling-agents-gdoc
+    type: google_doc
+    doc_id: "1_yPaNIZS0dHYL2cVizxqo91iKeivyjxa1wOQTgINWLY"
+    description: "SCHEDULING AGENTS FRAMEWORK — Agent scheduling law"
+  - id: quantum-crystal-computing-gdoc
+    type: google_doc
+    doc_id: "1cP9Zegy67sVebF9fmZoJ3NN7uhM37r5jlHQcAUUPpEY"
+    description: "QUANTUM CRYSTAL COMPUTING — Desire/action crystal computing spec"
+  - id: temple-alchemy-gdoc
+    type: google_doc
+    doc_id: "1omuitb6GTdwoKSo8tu4l7rCco4deCooU8tTO_yf8H_k"
+    description: "TEMPLE OF ALCHEMY — Alchemical transformation framework"
+  - id: crystal-weaving-gdoc
+    type: google_doc
+    doc_id: "1__Ee9gFoGU1FIP6mqZqGujjxl4nRFb0AlkHT5rHIClI"
+    description: "CRYSTAL WEAVING NAVIGATION — Braid theory & permutation navigation"
+  - id: khipu-braiding-gdoc
+    type: google_doc
+    doc_id: "1hsapY578bnOe5LBLH9fxaAmLZ39FkXBx352KjOQWHos"
+    description: "KHIPU BRAIDING/WEAVING — Khipu braid group topology corpus"
+  - id: living-word-gdoc
+    type: google_doc
+    doc_id: "1SMTOwiVEozRPE_YoO5Ipg9j4WMhCl264jH9TBJr1jlg"
+    description: "LIVING WORD — Living word consciousness corpus"
+  - id: sfcr-projections-gdoc
+    type: google_doc
+    doc_id: "19VVqLHf1nsCU8rwbGXdMMc0g-pZi83yav25-gX1BbiM"
+    description: "CLOUD, FRACTAL, FLOWER PROJECTIONS — SFCR projection renderers"
+  - id: meta-journey-gdoc
+    type: google_doc
+    doc_id: "1UekSnGvsxGWVDLrWnLvhg7gTnNseGIUefhHDYbNKWBU"
+    description: "META JOURNEY — Infinite reseeding law"
 
 bridges:
   - type: docs_to_github
@@ -70,6 +106,10 @@ bridges:
     description: "4 element servers import from crystal_108d package in unified repo"
   - type: nervous_system_to_data
     description: "ACTIVE_NERVOUS_SYSTEM markdown files → JSON data via agent synthesis"
+  - type: hebbian_feedback
+    description: "Neural engine scores → Hebbian weight updates → mycelium edge refinement"
+  - type: cross_medium_mirror
+    description: "Google Docs ↔ GitHub repos ↔ local shards via MIRROR edges"
 
 cert_capabilities:
   - STRUCTURAL
@@ -95,5 +135,9 @@ sync_sources:
 
 github_repo: "https://github.com/demeet2k/athena-mcp-server"
 
-tool_count: 77
+tool_count: 80
 resource_count: 21
+mirror_count: 16
+shard_count: 14819
+edge_count: 49384
+cross_medium_edges: 471

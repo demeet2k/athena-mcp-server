@@ -37,38 +37,181 @@ from ._cache import JsonCache, DATA_DIR
 OUTPUT_FILE = DATA_DIR / "corpus_weights_field.json"
 
 LENS_DOMAINS = {
-    "S": {"structure", "address", "grid", "boundary", "constraint", "lattice",
-          "coordinate", "location", "position", "select", "choose", "optimal",
-          "minimize", "complexity", "lens", "proof", "algebra", "group", "shell",
-          "archetype", "registry", "index", "map", "navigate", "route", "legal",
-          "move", "conservation", "law", "invariant", "dimension", "ladder",
-          "organ", "atlas", "node", "brain", "network", "weight", "matrix",
-          "gate", "transition", "operator", "kernel", "embed", "product",
-          "wreath", "semidirect", "normal", "order", "element", "square",
-          "earth", "formal", "define", "schema", "protocol", "specification"},
-    "F": {"growth", "pattern", "spiral", "golden", "phi", "symmetry", "harmony",
-          "resonance", "flower", "fire", "cycle", "rotation", "phase", "clock",
-          "beat", "rhythm", "oscillation", "wave", "frequency", "period",
-          "transform", "transport", "bridge", "cross", "lens", "translation",
-          "angel", "geometry", "curvature", "manifold", "metric", "sheaf",
-          "emergence", "hologram", "seed", "rosetta", "projection", "overlay",
-          "metro", "line", "convergence", "orbit", "quartet", "calculus"},
-    "C": {"probability", "belief", "uncertainty", "entropy", "distribution",
-          "cloud", "water", "observation", "measure", "estimate", "bayesian",
-          "prior", "posterior", "evidence", "witness", "certification", "proof",
-          "truth", "status", "promotion", "state", "machine", "live", "cell",
-          "constitution", "runtime", "execution", "query", "desire", "field",
-          "gradient", "steering", "selection", "intelligence", "autonomous",
-          "agency", "self", "reference", "observer", "meta", "telemetry",
-          "monitor", "heal", "correct", "detect", "synthesize", "novel"},
-    "R": {"scale", "self-similar", "fractal", "recursive", "compression",
-          "air", "seed", "emit", "shrink", "compact", "encode", "decode",
-          "codec", "qshrink", "lift", "law", "octave", "stage", "crown",
-          "inverse", "crystal", "holographic", "complete", "weave", "stack",
-          "projection", "shard", "mycelium", "graph", "edge", "node",
-          "family", "tag", "summary", "medium", "repo", "mirror", "guild",
-          "quest", "promotion", "membrane", "civilization", "frontier",
-          "manuscript", "being", "organism", "swarm", "collective"},
+    # ── S = Square / Earth ──────────────────────────────────────────
+    # Structure, form, boundary, constraint, rigidity, foundation,
+    # containment, address, grid, definition, law, skeleton.
+    # NOTE: words shared with other lenses removed to reduce S-bias.
+    "S": {
+        # Core earth/structure concepts
+        "structure", "square", "earth", "foundation", "ground", "stone",
+        "solid", "rigid", "stable", "fixed", "anchor", "base", "bedrock",
+        "pillar", "column", "wall", "frame", "scaffold", "skeleton",
+        # Boundary & containment
+        "boundary", "border", "edge", "limit", "constraint", "contain",
+        "containment", "enclosure", "perimeter", "fence", "barrier",
+        # Grid & address
+        "grid", "lattice", "coordinate", "address", "location", "position",
+        "atlas", "index", "registry", "catalog", "inventory",
+        # Form & definition
+        "formal", "define", "definition", "schema", "protocol",
+        "specification", "template", "blueprint", "plan", "layout",
+        # Law & invariant
+        "conservation", "law", "invariant", "constant", "immutable",
+        "permanent", "preserve", "protect", "guard",
+        # Math: algebra & group theory
+        "algebra", "group", "wreath", "semidirect", "normal", "order",
+        "product", "kernel", "embed", "coset", "subgroup", "quotient",
+        # Navigation & route (structural aspect)
+        "navigate", "route", "legal", "move", "select", "choose", "optimal",
+        "minimize",
+        # Shell & organ (structural anatomy)
+        "shell", "organ", "ladder", "archetype",
+    },
+
+    # ── F = Flower / Fire ───────────────────────────────────────────
+    # Growth, transformation, energy, combustion, radiance, cycle,
+    # rhythm, harmonic motion, blooming, creative force.
+    # NOTE: removed overlap words that were pulling too many shards.
+    "F": {
+        # Core fire/flower concepts
+        "flower", "fire", "flame", "burn", "ignite", "spark", "blaze",
+        "radiance", "radiant", "luminous", "light", "heat", "warmth",
+        "energy", "power", "force", "intensity", "passion", "desire",
+        # Growth & bloom
+        "growth", "grow", "bloom", "blossom", "flourish", "expand",
+        "unfold", "develop", "mature", "ripen", "fertile", "potency",
+        # Cycle & rhythm
+        "cycle", "rotation", "phase", "clock", "beat", "rhythm",
+        "oscillation", "period", "pulse", "heartbeat", "tempo",
+        # Symmetry & harmony
+        "symmetry", "harmony", "golden", "phi", "spiral", "fibonacci",
+        # Transform & transport
+        "transform", "transport", "bridge", "cross", "translation",
+        "convergence", "orbit",
+        # Geometry & curvature
+        "angel", "geometry", "curvature", "metric", "sheaf",
+        "rosetta", "overlay", "calculus",
+        # Metro & line (dynamic motion aspect)
+        "metro", "line", "quartet",
+    },
+
+    # ── C = Cloud / Water ───────────────────────────────────────────
+    # Flow, emotion, intuition, consciousness, depth, dissolution,
+    # memory, adaptive fluidity, quantum/probabilistic, observation,
+    # healing, reflection, resonance, field.
+    "C": {
+        # Core water/cloud concepts
+        "cloud", "water", "rain", "ocean", "sea", "river", "stream",
+        "lake", "pool", "tide", "wave", "current", "flow", "fluid",
+        "liquid", "mist", "fog", "vapor", "dew", "ice", "frost",
+        "dissolve", "dissolution", "melt", "merge", "blend", "mix",
+        "diffuse", "diffusion", "osmosis", "absorb", "absorption",
+        "saturate", "soak", "permeate", "permeability", "gradient",
+        "pour", "flood", "cascade", "ripple", "splash", "drip", "drop",
+        # Emotion & intuition
+        "emotion", "feeling", "intuition", "empathy", "compassion",
+        "healing", "heal", "purify", "purification", "cleanse", "baptism",
+        "tears", "surrender", "acceptance", "receptive", "nurture",
+        "care", "tender", "gentle", "soft", "yielding",
+        # Consciousness & depth
+        "consciousness", "awareness", "depth", "deep", "subconscious",
+        "dream", "vision", "imagine", "imagination", "inner",
+        "soul", "psyche", "mood", "atmosphere", "ambient",
+        # Reflection & mirror
+        "mirror", "reflection", "reflect", "echo", "shadow",
+        "resonance", "vibration", "frequency", "attune", "attunement",
+        # Memory & connection
+        "memory", "remember", "recall", "nostalgia", "trace",
+        "connection", "connect", "bond", "link", "relate", "relation",
+        "relationship", "kinship", "affinity", "sympathy", "rapport",
+        # Adaptive & fluid intelligence
+        "adaptive", "adapt", "flexible", "fluid", "dynamic",
+        "responsive", "sensitive",
+        # Quantum / probabilistic (water = superposition)
+        "quantum", "probability", "uncertainty", "superposition",
+        "entanglement", "coherence", "decoherence", "collapse",
+        "measure", "observation", "observer", "bayesian", "estimate",
+        "prior", "posterior", "evidence", "belief", "distribution",
+        "entropy", "stochastic", "random", "noise", "signal",
+        # Agency & self-reference (the observer)
+        "agency", "autonomous", "intelligence", "self", "reference",
+        "meta", "telemetry", "monitor", "detect", "witness",
+        # Live systems (water = living medium)
+        "live", "cell", "constitution", "runtime", "execution",
+        "query", "status", "state", "machine", "promotion",
+        "synthesize", "novel", "correct",
+        # Field theory (continuous)
+        "field", "potential", "steering", "selection",
+        # Neural / biological (water = the living substrate)
+        "neural", "neuron", "synapse", "cortex", "limbic",
+        "biology", "biological", "organic", "life", "alive",
+        "evolution", "evolve", "mutate", "mutation", "generation",
+        "birth", "death", "renewal", "regenerate", "metabolism",
+        "digest", "nourish", "sustain", "ecosystem",
+        # Synthesis & alchemy (water as solvent / medium of transformation)
+        "synthesis", "alchemy", "alchemical", "transmute", "catalyst",
+        "reaction", "solution", "solvent", "precipitate", "distill",
+        # Weight & matrix (continuous field mathematics)
+        "weight", "matrix", "tensor", "optimize",
+        "loss", "train", "learning", "training",
+    },
+
+    # ── R = Fractal / Air ───────────────────────────────────────────
+    # Pattern, self-similarity, iteration, recursion, breath, spirit,
+    # thought, abstraction, meta-structure, holographic encoding,
+    # compression, communication, network topology, emergence.
+    "R": {
+        # Core air/fractal concepts
+        "fractal", "air", "breath", "wind", "breeze", "gust",
+        "turbulence", "vortex", "tornado", "cyclone", "storm",
+        "spirit", "thought", "intellect", "mind", "mental",
+        "idea", "concept", "notion", "insight",
+        # Self-similarity & recursion
+        "self-similar", "recursive", "recursion", "iteration", "iterate",
+        "repeat", "loop", "feedback", "nest", "nested", "fracture",
+        "scale", "scaling", "scale-free", "power-law", "zoom",
+        # Abstraction & meta
+        "abstract", "abstraction", "meta", "higher-order", "transcend",
+        "transcendence", "beyond", "above", "ascend", "elevation",
+        # Compression & encoding (air = information carrier)
+        "compression", "compress", "encode", "decode", "codec",
+        "qshrink", "shrink", "compact", "emit", "signal",
+        "information", "data", "bit", "byte", "code",
+        # Communication & language
+        "communication", "message", "language", "grammar", "syntax",
+        "semantics", "word", "symbol", "sign", "glyph", "cipher",
+        "letter", "alphabet", "vocabulary", "lexicon",
+        # Logic & proof
+        "logic", "proof", "theorem", "axiom", "deduction", "inference",
+        "reason", "reasoning", "conclude", "derive", "derivation",
+        # Category theory & topology
+        "category", "functor", "morphism", "isomorphism", "topology",
+        "manifold", "dimension", "projection", "hologram", "holographic",
+        # Tree & network (branching = fractal)
+        "tree", "branch", "leaf", "root", "hierarchy", "network",
+        "node", "graph", "edge", "distribute", "distributed",
+        # Complexity & emergence
+        "complexity", "emergence", "emergent", "chaos", "order",
+        "pattern", "structure",
+        # Holographic systems (R = the holographic lens)
+        "crystal", "inverse", "octave", "stage", "crown", "lift",
+        "seed", "complete", "weave", "stack",
+        # Organism & collective (swarm = distributed air)
+        "shard", "mycelium", "family", "tag", "summary", "medium",
+        "repo", "mirror", "guild", "quest", "membrane",
+        "civilization", "frontier", "manuscript", "being",
+        "organism", "swarm", "collective", "brain",
+        # Mapping & traversal (fractal navigation)
+        "map", "mapping", "lookup", "resolve", "traverse", "walk",
+        # Infrastructure & system (the invisible carrier)
+        "server", "agent", "config", "infrastructure", "pipeline",
+        "module", "package", "library", "framework", "tool",
+        "system", "platform", "compiler", "interpreter",
+        # Document & text (air carries the word)
+        "document", "chapter", "section", "page", "text",
+        "read", "write", "parse", "format", "render",
+        "appendix", "table", "list", "entry",
+    },
 }
 
 # Flatten all domain keywords for quick tokenization
@@ -247,9 +390,16 @@ def _save_to_disk(field_obj: CorpusWeightField) -> None:
             for line, vec in field_obj.metro_centroids.items()
         },
     }
-    tmp = OUTPUT_FILE.with_suffix(".tmp")
-    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-    tmp.replace(OUTPUT_FILE)
+    # Write via centralized JsonCache (locking + pheromone + auto-qshrink)
+    from ._cache import JsonCache
+    cache = JsonCache(OUTPUT_FILE.name)
+    cache.save(
+        data,
+        agent_id="corpus-weight-builder",
+        task_summary="rebuild corpus weight field",
+        element="S",
+        auto_compress=True,
+    )
 
 
 def compute_corpus_weights() -> CorpusWeightField:

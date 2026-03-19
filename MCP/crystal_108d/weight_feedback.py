@@ -512,18 +512,103 @@ def _generate_random_query(shards: list[dict]) -> str:
     return " ".join(sources) if sources else shard.get("family", "athena")
 
 
-def _forward_result_to_feedback_input(result) -> dict:
+# ── Engine↔Graph ID Bridge ────────────────────────────────────────────
+
+_doc_to_shards: dict[str, list[str]] = {}  # engine doc_id → graph shard_ids
+_bridge_built = False
+
+
+def _build_id_bridge(graph_data: dict = None, engine=None) -> dict[str, list[str]]:
+    """Build a mapping from neural engine doc_id → graph shard_ids.
+
+    The engine uses DOC0041-style IDs with display_name,
+    the graph uses hash:medium:name-style shard_ids.
+    We bridge via text similarity on display_name ↔ shard summary/tags.
+    Also uses path_contributions SFCR scores to match element-compatible shards.
+    """
+    global _doc_to_shards, _bridge_built
+
+    if _bridge_built:
+        return _doc_to_shards
+
+    if graph_data is None:
+        graph_data = _load_graph()
+    shards = graph_data.get("shards", [])
+
+    # Build shard lookup indices
+    shard_by_tag: dict[str, list[str]] = defaultdict(list)
+    shard_by_word: dict[str, list[str]] = defaultdict(list)
+    for s in shards:
+        sid = s.get("shard_id", "")
+        tags = s.get("tags", [])
+        if isinstance(tags, str):
+            import ast
+            try:
+                tags = ast.literal_eval(tags)
+            except Exception:
+                tags = [t.strip() for t in tags.strip("[]").split(",") if t.strip()]
+        for t in tags:
+            shard_by_tag[str(t).strip().lower()].append(sid)
+        summary = s.get("summary", "")
+        for w in summary.lower().split():
+            w = w.strip(".,;:!?()[]{}\"'_-")
+            if len(w) > 2:
+                shard_by_word[w].append(sid)
+
+    # Get engine docs
+    if engine is None:
+        from .neural_engine import get_engine
+        try:
+            engine = get_engine()
+        except Exception:
+            _bridge_built = True
+            return _doc_to_shards
+
+    docs = engine.store.doc_registry if hasattr(engine, "store") else []
+
+    for doc in docs:
+        doc_id = doc.get("id", "")
+        display = doc.get("display_name", "")
+        element = doc.get("element", "").lower()
+
+        # Extract meaningful words from display_name
+        query_words = set()
+        for w in display.lower().split():
+            w = w.strip(".,;:!?()[]{}\"'#_-")
+            if len(w) > 2 and w not in {"the", "and", "for", "with", "from"}:
+                query_words.add(w)
+
+        # Score each shard by word overlap
+        shard_scores: dict[str, float] = defaultdict(float)
+        for w in query_words:
+            for sid in shard_by_word.get(w, []):
+                shard_scores[sid] += 1.0
+            for sid in shard_by_tag.get(w, []):
+                shard_scores[sid] += 2.0  # tag matches worth more
+
+        if shard_scores:
+            # Take top 5 shards by score (a single engine doc maps to multiple graph shards)
+            top = sorted(shard_scores.items(), key=lambda x: -x[1])[:5]
+            _doc_to_shards[doc_id] = [sid for sid, _ in top if _ > 1.0]
+
+    _bridge_built = True
+    return _doc_to_shards
+
+
+def _forward_result_to_feedback_input(result, graph_data: dict = None) -> dict:
     """Convert a ForwardResult into the dict format expected by update_edge_weights.
 
-    Extracts ranked shard IDs and their scores (using merged_score normalized
-    to [0, 1] range). The neural engine's ForwardResult has candidates
-    as RankedCandidate objects with merged_score, action, resonance, etc.
+    Bridges from engine doc_ids (DOC0041) to graph shard_ids (hash:medium:name)
+    using the ID bridge mapping built from text similarity.
     """
     ranked_shells = []
 
     if hasattr(result, "candidates"):
         candidates = result.candidates
         if candidates:
+            # Build ID bridge if not yet done
+            bridge = _build_id_bridge(graph_data)
+
             # Find score range for normalization
             scores = [c.merged_score for c in candidates]
             max_score = max(scores) if scores else 1.0
@@ -531,9 +616,17 @@ def _forward_result_to_feedback_input(result) -> dict:
             score_range = max_score - min_score if max_score != min_score else 1.0
 
             for c in candidates:
-                # Normalize merged_score to [0, 1]
                 norm_score = (c.merged_score - min_score) / score_range
-                ranked_shells.append((c.doc_id, norm_score))
+                doc_id = c.doc_id
+
+                # Map engine doc_id → graph shard_ids
+                mapped_shards = bridge.get(doc_id, [])
+                if mapped_shards:
+                    for sid in mapped_shards:
+                        ranked_shells.append((sid, norm_score))
+                else:
+                    # Fallback: use doc_id directly (won't match but keeps data flow)
+                    ranked_shells.append((doc_id, norm_score))
 
     query_state = {}
     if hasattr(result, "query"):
@@ -616,8 +709,8 @@ def run_feedback_cycle(n_queries: int = 20) -> dict:
         except Exception:
             continue
 
-        # 3. Convert to feedback input format
-        feedback_input = _forward_result_to_feedback_input(forward_result)
+        # 3. Convert to feedback input format (pass graph_data for ID bridge)
+        feedback_input = _forward_result_to_feedback_input(forward_result, graph_data)
 
         if not feedback_input["ranked_shells"]:
             continue
