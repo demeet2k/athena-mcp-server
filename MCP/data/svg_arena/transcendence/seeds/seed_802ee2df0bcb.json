@@ -1,0 +1,61 @@
+{
+  "genome_id": "802ee2df0bcb",
+  "generation": 2,
+  "score": 0.7951894913851035,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 4,
+  "layers": [
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 351,
+        "cy": 493,
+        "r": 41,
+        "rings": 2,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sfcr_crystal",
+      "params": {
+        "cx": 434,
+        "cy": 314,
+        "size": 105,
+        "angle_x": 0.5756359842975849,
+        "angle_z": 0.47472544468999833
+      },
+      "transform": "",
+      "opacity": 0.7336486742074566
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 351,
+        "cy": 481,
+        "r": 44,
+        "rings": 2,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sfcr_crystal",
+      "params": {
+        "cx": 432,
+        "cy": 314,
+        "size": 105,
+        "angle_x": 0.5756359842975849,
+        "angle_z": 0.47472544468999833
+      },
+      "transform": "",
+      "opacity": 0.7336486742074566
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:18:47.110416+00:00"
+}

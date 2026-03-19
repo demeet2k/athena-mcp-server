@@ -1,0 +1,46 @@
+{
+  "genome_id": "57080acbd425",
+  "generation": 0,
+  "score": 0.7463009020693863,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 324,
+        "cy": 413,
+        "size": 348
+      },
+      "transform": "rotate(-101.1,400,400)",
+      "opacity": 0.9396854019098481
+    },
+    {
+      "primitive": "radial_burst",
+      "params": {
+        "cx": 572,
+        "cy": 475,
+        "r_inner": 25,
+        "r_outer": 238,
+        "n": 10
+      },
+      "transform": "rotate(40.6,400,400)",
+      "opacity": 0.6318799589872599
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 500,
+        "cy": 363,
+        "r_outer": 193,
+        "n": 5,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(18.7,400,400)",
+      "opacity": 0.3
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:44:11.318191+00:00"
+}

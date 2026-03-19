@@ -1,0 +1,64 @@
+{
+  "genome_id": "145e43d70f63",
+  "generation": 3,
+  "score": 0.7461679103130757,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 342,
+        "cy": 391,
+        "r": 41,
+        "rings": 1,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.7689853828307028
+    },
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 310,
+        "cy": 469,
+        "r": 95
+      },
+      "transform": "rotate(170.7,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 384,
+        "cy": 417,
+        "size": 230
+      },
+      "transform": "rotate(99.2,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 310,
+        "cy": 466,
+        "r": 87
+      },
+      "transform": "rotate(170.7,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 452,
+        "cy": 431,
+        "r": 145
+      },
+      "transform": "",
+      "opacity": 0.6045558168346025
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:10:11.121944+00:00"
+}

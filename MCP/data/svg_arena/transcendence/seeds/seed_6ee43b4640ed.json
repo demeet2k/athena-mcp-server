@@ -1,0 +1,69 @@
+{
+  "genome_id": "6ee43b4640ed",
+  "generation": 3,
+  "score": 0.8189845232798634,
+  "emergence_score": 0.0,
+  "lineage_depth": 3,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 496,
+        "y": 637,
+        "length": 223,
+        "angle": -1.7893979379426301,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 517,
+        "y": 659,
+        "length": 223,
+        "angle": -1.7893979379426301,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 334,
+        "cy": 304,
+        "size": 188,
+        "angle_x": 0.925929878962675,
+        "angle_z": 0.8162995012125484
+      },
+      "transform": "rotate(80.2,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 250,
+        "cy": 383,
+        "size": 177
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 334,
+        "cy": 278,
+        "size": 188,
+        "angle_x": 0.9444465383305207,
+        "angle_z": 0.6722356781449867
+      },
+      "transform": "rotate(80.2,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:20:28.416678+00:00"
+}

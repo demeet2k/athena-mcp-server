@@ -1,0 +1,67 @@
+{
+  "genome_id": "80d064eba4ec",
+  "generation": 1,
+  "score": 0.7537173802328369,
+  "emergence_score": 0.12640394441308267,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "radial_burst",
+      "params": {
+        "cx": 290,
+        "cy": 339,
+        "r_inner": 69,
+        "r_outer": 288,
+        "n": 8
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sfcr_crystal",
+      "params": {
+        "cx": 238,
+        "cy": 450,
+        "size": 225,
+        "angle_x": 0.6816729766396645,
+        "angle_z": 0.25800242212160096
+      },
+      "transform": "",
+      "opacity": 0.8807873283090726
+    },
+    {
+      "primitive": "radial_burst",
+      "params": {
+        "cx": 253,
+        "cy": 321,
+        "r_inner": 69,
+        "r_outer": 288,
+        "n": 10
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 485,
+        "cy": 345,
+        "size": 145
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 465,
+        "cy": 361,
+        "size": 145
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:10:24.197324+00:00"
+}

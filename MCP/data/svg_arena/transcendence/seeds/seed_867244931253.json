@@ -1,0 +1,64 @@
+{
+  "genome_id": "867244931253",
+  "generation": 3,
+  "score": 0.7294993979706038,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 287,
+        "cy": 200,
+        "size": 192
+      },
+      "transform": "rotate(39.0,400,400)",
+      "opacity": 0.7266800337932642
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 202,
+        "cy": 432,
+        "r": 73,
+        "rings": 1,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.4840267378192731
+    },
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 230,
+        "cy": 205,
+        "r": 165
+      },
+      "transform": "rotate(80.0,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 268,
+        "cy": 392,
+        "r": 140
+      },
+      "transform": "",
+      "opacity": 0.6706155097402187
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 306,
+        "cy": 444,
+        "r": 157
+      },
+      "transform": "rotate(138.5,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:44:06.550484+00:00"
+}

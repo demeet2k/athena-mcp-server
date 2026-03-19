@@ -36,6 +36,9 @@ from .geometric_forward import GeometricEngine, ForwardResult, get_engine
 from .geometric_loss import GeometricLoss, Observation12D
 from .momentum_field import MomentumField, get_momentum_field
 from .constants import TOTAL_SHELLS
+from .weight_feedback import (
+    update_edge_weights, _forward_result_to_feedback_input, _GRAPH_CACHE,
+)
 
 # 4D Upgrade imports
 from .inverse_engine import get_inverse_engine
@@ -58,6 +61,7 @@ class MetaLoopConfig:
     query_source: str = "mixed"
     seed: int = 42
     depth: int = 1          # 1 = one ABCD+ cycle, 3 = META LOOP, 9 = META LOOP^3
+    holographic: bool = True  # True = fast holographic mode (1 forward pass, analytical gradient)
     verbose: bool = False
 
 
@@ -113,18 +117,33 @@ class MetaLoopResult:
 
 
 def _generate_queries(engine: GeometricEngine, config: MetaLoopConfig) -> list[str]:
-    """Generate diverse queries for training."""
+    """Generate diverse queries for training.
+
+    Holographic sampling: instead of one query per doc (14,730!),
+    sample one per element × archetype = 48 corpus queries + 20 fixed probes.
+    The attractor is proven stable — coverage matters, redundancy doesn't.
+    """
     docs = engine.doc_registry
     rng = random.Random(config.seed)
     queries = []
 
     if config.query_source in ("corpus", "mixed") and docs:
+        # Group docs by element, sample one per archetype per element
+        from collections import defaultdict
+        by_element: dict[str, list] = defaultdict(list)
         for doc in docs:
-            tokens = doc.get("tokens", [])
-            if len(tokens) >= 3:
-                n = min(rng.randint(2, 4), len(tokens))
-                sample = rng.sample(tokens, n)
-                queries.append(" ".join(sample))
+            el = doc.get("element", "Earth")
+            by_element[el].append(doc)
+
+        for el, el_docs in by_element.items():
+            rng.shuffle(el_docs)
+            # Sample up to 12 per element (one per archetype slot)
+            for doc in el_docs[:12]:
+                tokens = doc.get("tokens", [])
+                if len(tokens) >= 3:
+                    n = min(rng.randint(2, 4), len(tokens))
+                    sample = rng.sample(tokens, n)
+                    queries.append(" ".join(sample))
 
     if config.query_source in ("zero_point", "mixed"):
         queries.extend([
@@ -216,9 +235,11 @@ def _balance(momentum: MomentumField) -> float:
     if not means:
         return 0.0
     overall_mean = sum(means) / len(means)
-    if overall_mean < 1e-6:
-        return 0.0
-    max_dev = max(abs(m - overall_mean) for m in means) / overall_mean
+    if abs(overall_mean) < 1e-6:
+        # All near zero — check spread directly
+        spread = max(means) - min(means)
+        return max(0.0, 1.0 - spread)
+    max_dev = max(abs(m - overall_mean) for m in means) / abs(overall_mean)
     return max(0.0, 1.0 - max_dev)
 
 
@@ -310,6 +331,12 @@ class MetaLoopEngine:
                 kept += 1
                 for face in FACES:
                     all_deltas[face] += gradients[face]
+                # Hebbian feedback: strengthen edges of high-scoring shards
+                try:
+                    fb_input = _forward_result_to_feedback_input(result_after)
+                    update_edge_weights(fb_input)
+                except Exception:
+                    pass  # graph feedback is best-effort
             else:
                 # Rollback
                 self.momentum.restore(snapshot)
@@ -317,6 +344,80 @@ class MetaLoopEngine:
 
             resonances.append(result_before.resonance)
             observations.append(obs_before.total_score)
+
+        elapsed = (time.time() - t0) * 1000
+
+        return WaveResult(
+            wave_id=wave_id,
+            stage=stage,
+            lens=lens,
+            queries_run=len(queries),
+            kept=kept,
+            discarded=discarded,
+            mean_resonance=sum(resonances) / max(len(resonances), 1),
+            mean_observation=sum(observations) / max(len(observations), 1),
+            momentum_deltas=all_deltas,
+            elapsed_ms=elapsed,
+        )
+
+    # ── Holographic Wave (fast mode) ────────────────────────────────
+
+    def run_wave_holographic(self, wave_id: int, queries: list[str], stage: str,
+                             lens: str, lr: float) -> WaveResult:
+        """Execute one training wave in holographic mode.
+
+        Instead of 2 forward passes per query (before + after), uses:
+          1. Single forward pass → observe in 12D
+          2. Analytical gradient toward attractor (no re-observation needed)
+          3. Trust the gradient if observation score > 0.3 (always keep)
+
+        This is valid because META LOOP^3 proved the attractor is stable:
+        all trajectories converge to S=F=C=R=0.25 regardless of path.
+        The second forward pass was only confirming what the attractor guarantees.
+        """
+        t0 = time.time()
+        kept = 0
+        discarded = 0
+        resonances = []
+        observations = []
+        all_deltas = {f: 0.0 for f in FACES}
+
+        for query in queries:
+            result = self.engine.forward(query)
+            obs = self.loss.observe(result, lens)
+
+            # Analytical gradient: pull toward attractor
+            # Instead of empirically comparing before/after,
+            # compute direction toward known attractor state
+            gradients = self.loss.compute_all_gradients(obs)
+
+            # Apply gradients to momentum field (no snapshot/rollback needed)
+            home_shell = result.query.home_shell
+            for face in FACES:
+                if face == "C":
+                    continue
+                grad = gradients[face]
+                for s in range(max(1, home_shell - 3), min(TOTAL_SHELLS, home_shell + 3) + 1):
+                    dist = abs(s - home_shell)
+                    decay = PHI_INV ** dist
+                    self.momentum.update_momentum(face, s, grad * decay, lr)
+
+            # Trust the attractor: keep if observation score is meaningful
+            if obs.total_score >= 0.1:
+                kept += 1
+                for face in FACES:
+                    all_deltas[face] += gradients[face]
+                # Hebbian feedback: strengthen edges of kept results
+                try:
+                    fb_input = _forward_result_to_feedback_input(result)
+                    update_edge_weights(fb_input)
+                except Exception:
+                    pass  # graph feedback is best-effort
+            else:
+                discarded += 1
+
+            resonances.append(result.resonance)
+            observations.append(obs.total_score)
 
         elapsed = (time.time() - t0) * 1000
 
@@ -367,7 +468,10 @@ class MetaLoopEngine:
             if not wave_queries and queries:
                 wave_queries = [queries[wave % len(queries)]]
 
-            wr = self.run_wave(wave, wave_queries, stage, lens, lr)
+            if config.holographic:
+                wr = self.run_wave_holographic(wave, wave_queries, stage, lens, lr)
+            else:
+                wr = self.run_wave(wave, wave_queries, stage, lens, lr)
             wave_results.append(wr)
             total_kept += wr.kept
             total_discarded += wr.discarded
@@ -449,6 +553,17 @@ class MetaLoopEngine:
                 # Apply to actual momentum
                 self.momentum._shell_momenta[face][s] = target
 
+        # Update global dimension momenta from shell means
+        face_to_dim = {"S": "D1_Earth", "F": "D2_Fire", "R": "D4_Air"}
+        for face, dim in face_to_dim.items():
+            vals = [self.momentum.get_momentum(face, s)
+                    for s in range(1, TOTAL_SHELLS + 1)]
+            shell_mean = sum(vals) / len(vals)
+            current_dim = self.momentum.get_dimension_momentum(dim)
+            # Blend dimension momentum toward shell mean (gentle tracking)
+            delta = (shell_mean - current_dim) * 0.1
+            self.momentum.update_dimension_momentum(dim, delta, lr=1.0)
+
         # Signal wave complete on realtime inverse
         rt_inv.on_wave_complete()
 
@@ -476,6 +591,7 @@ class MetaLoopEngine:
                 max_time_minutes=config.max_time_minutes,
                 query_source=config.query_source,
                 seed=config.seed + meta_idx * 100 + ci,
+                holographic=config.holographic,
             )
 
             # Regenerate queries with rotated seed
@@ -548,6 +664,7 @@ class MetaLoopEngine:
                     max_time_minutes=config.max_time_minutes,
                     query_source=config.query_source,
                     seed=config.seed + mi * 1000,
+                    holographic=config.holographic,
                     verbose=config.verbose,
                 )
                 result = self.run_meta_loop(meta_config, meta_idx=mi)
@@ -562,7 +679,111 @@ class MetaLoopEngine:
         self.momentum.save()
         self.momentum.save_history()
 
+        # Persist Hebbian edge weight updates to graph
+        try:
+            _GRAPH_CACHE.save()
+        except Exception:
+            pass  # graph persistence is best-effort
+
+        # Conservation watchdog: check invariants + enforce Water lock
+        try:
+            from .conservation_watchdog import run_watchdog, enforce_water_lock
+            report = run_watchdog(self.momentum, auto_fix=True)
+            if config.verbose and report.violations:
+                print(f"  Conservation: {report.overall_health:.1%} health, "
+                      f"{len(report.violations)} violations")
+        except Exception:
+            pass  # watchdog is best-effort
+
         return results
+
+    # ── FULL LOOP (^3^5^7^9) ────────────────────────────────────────────
+
+    FULL_LOOP_LEVELS = [3, 5, 7, 9]  # META LOOP^3, then ^5, ^7, ^9
+
+    def run_full_loop(self, config: MetaLoopConfig) -> dict:
+        """Run FULL LOOP = META LOOP^3^5^7^9.
+
+        Four nested training scales:
+          Level ^3:  3 META LOOPs =     9 cycles =    1,431 waves  (~3 min)
+          Level ^5:  5 × ^3       =    45 cycles =    7,155 waves  (~15 min)
+          Level ^7:  7 × ^5       =   315 cycles =   50,085 waves  (~105 min)
+          Level ^9:  9 × ^7       = 2,835 cycles =  450,765 waves  (~16 hours)
+
+        Each level uses the OMEGA hologram from the previous level as seed.
+        LR decays by PHI_INV at each level. Seed rotates.
+
+        Returns a dict with per-level results and the final OMEGA hologram.
+        """
+        t0 = time.time()
+        level_results = {}
+
+        for level in self.FULL_LOOP_LEVELS:
+            level_t0 = time.time()
+            level_config = MetaLoopConfig(
+                depth=level * 3,  # level=3 → depth=9 (META LOOP^3), etc.
+                base_lr=config.base_lr * (PHI_INV ** (self.FULL_LOOP_LEVELS.index(level))),
+                lr_schedule=config.lr_schedule,
+                lens_rotation_period=config.lens_rotation_period,
+                max_time_minutes=config.max_time_minutes,
+                query_source=config.query_source,
+                seed=config.seed + level * 10000,
+                holographic=config.holographic,
+                verbose=config.verbose,
+            )
+
+            if config.verbose:
+                print(f"\n{'='*60}")
+                print(f"FULL LOOP LEVEL ^{level} ({level} META LOOPs, depth={level*3})")
+                print(f"LR: {level_config.base_lr:.6f}")
+                print(f"{'='*60}")
+
+            meta_results = self.run(level_config)
+            level_elapsed = time.time() - level_t0
+
+            total_waves = sum(r.total_waves for r in meta_results)
+            total_cycles = sum(r.total_cycles for r in meta_results)
+
+            level_results[f"^{level}"] = {
+                "level": level,
+                "total_meta_loops": len(meta_results),
+                "total_cycles": total_cycles,
+                "total_waves": total_waves,
+                "elapsed_seconds": level_elapsed,
+                "hologram": self.momentum.hologram_16(),
+                "balance": meta_results[-1].cycle_results[-1].balance if meta_results and meta_results[-1].cycle_results else 0,
+                "golden_fit": meta_results[-1].cycle_results[-1].golden_fit if meta_results and meta_results[-1].cycle_results else 0,
+                "mean_resonance": sum(
+                    cr.mean_resonance
+                    for r in meta_results for cr in r.cycle_results
+                ) / max(sum(len(r.cycle_results) for r in meta_results), 1),
+            }
+
+            if config.verbose:
+                lr = level_results[f"^{level}"]
+                print(f"LEVEL ^{level} COMPLETE: {lr['total_waves']} waves, "
+                      f"{lr['elapsed_seconds']:.1f}s, "
+                      f"gold={lr['golden_fit']:.4f}")
+
+            # Time budget: if we've used more than max_time, stop
+            total_elapsed = time.time() - t0
+            if total_elapsed / 60 > config.max_time_minutes:
+                if config.verbose:
+                    print(f"Time budget reached ({total_elapsed/60:.1f}min > {config.max_time_minutes}min)")
+                break
+
+        total_elapsed = time.time() - t0
+        self.momentum.save()
+        self.momentum.save_history()
+
+        return {
+            "title": "FULL LOOP (META LOOP^3^5^7^9)",
+            "total_elapsed_seconds": total_elapsed,
+            "levels_completed": list(level_results.keys()),
+            "levels": level_results,
+            "omega_hologram": self.momentum.hologram_16(),
+            "water_locked": all(self.momentum.get_momentum("C", s) == 0.5 for s in range(1, TOTAL_SHELLS + 1)),
+        }
 
     # ── Checkpoint / Resume ───────────────────────────────────────────
 

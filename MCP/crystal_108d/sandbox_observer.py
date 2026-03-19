@@ -380,8 +380,9 @@ class SandboxObserver:
     def context_pressure(self) -> float:
         """Estimate 0.0-1.0 of how close we are to context window saturation.
         Based on cumulative token throughput and typical context limits."""
-        # Claude context windows: ~200K tokens typical
-        ESTIMATED_CONTEXT_LIMIT = 200_000
+        # Claude Code v2.1.79: Opus 4.6 supports 1M context with [1m] suffix
+        # Default without [1m] is 200K. We estimate conservatively.
+        ESTIMATED_CONTEXT_LIMIT = 1_000_000
         total_tokens = self._cumulative_input_tokens + self._cumulative_output_tokens
         return min(1.0, total_tokens / ESTIMATED_CONTEXT_LIMIT)
 

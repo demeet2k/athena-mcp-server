@@ -1,0 +1,10 @@
+{
+  "meta": {"type": "transport_stacks", "version": "2.0"},
+  "stacks": [
+    {"id": "TS1", "name": "Shell Transport", "layers": ["source_shell", "bridge", "target_shell"], "description": "Direct shell-to-shell via bridge edges"},
+    {"id": "TS2", "name": "Wreath Transport", "layers": ["source_wreath", "wreath_arc", "target_wreath"], "description": "Transport along wreath arcs (Su/Me/Sa)"},
+    {"id": "TS3", "name": "Metro Transport", "layers": ["station", "line", "station"], "description": "Metro line routing between stations"},
+    {"id": "TS4", "name": "Dimensional Transport", "layers": ["source_dim", "projection", "target_dim"], "description": "Cross-dimensional projection/lifting"},
+    {"id": "TS5", "name": "Mirror Transport", "layers": ["shell_k", "mobius_flip", "shell_37-k"], "description": "Mobius mirror transport between compression partners"}
+  ]
+}

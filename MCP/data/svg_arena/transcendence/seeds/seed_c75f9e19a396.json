@@ -1,0 +1,71 @@
+{
+  "genome_id": "c75f9e19a396",
+  "generation": 15,
+  "score": 0.9585914999780744,
+  "emergence_score": 0.0,
+  "lineage_depth": 14,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 453,
+        "cy": 252,
+        "size": 128,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 290,
+        "cy": 530,
+        "r": 106,
+        "n": 9,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(-49.8,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 325,
+        "cy": 600,
+        "r": 114,
+        "n": 7,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(-56.7,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 455,
+        "y": 522,
+        "length": 80,
+        "angle": -1.5747550816458264,
+        "depth": 6
+      },
+      "transform": "rotate(30.6,400,400)",
+      "opacity": 0.4424831227205709
+    },
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 422,
+        "cy": 383,
+        "size": 163,
+        "depth": 2
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:42:47.476420+00:00"
+}

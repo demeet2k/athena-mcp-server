@@ -1,0 +1,65 @@
+{
+  "genome_id": "02f451d60bb2",
+  "generation": 30,
+  "score": 0.9521698332609309,
+  "emergence_score": 0.0,
+  "lineage_depth": 14,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 462,
+        "cy": 365,
+        "r": 141
+      },
+      "transform": "rotate(-15.2,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 402,
+        "cy": 525,
+        "size": 202
+      },
+      "transform": "",
+      "opacity": 0.7204036770289071
+    },
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 348,
+        "cy": 374,
+        "R": 100,
+        "angle_x": 0.5787849444264054,
+        "angle_z": 0.1
+      },
+      "transform": "rotate(-75.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 385,
+        "cy": 446,
+        "size": 217
+      },
+      "transform": "rotate(-87.0,400,400)",
+      "opacity": 0.7204036770289071
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 320,
+        "y": 623,
+        "length": 114,
+        "angle": -1.7798371487083413,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:30:05.438884+00:00"
+}

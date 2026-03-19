@@ -1,0 +1,19 @@
+{
+  "meta": {"type": "athenachka_720", "version": "2.0"},
+  "description": "Athenachka 720-element wheel circuit specification",
+  "total_elements": 720,
+  "generation": "12 archetypes x 60 sigma rotations = 720",
+  "wheel_circuit": "W1 -> W3 -> W5 -> W7 -> W9 -> W1 (cyclic)",
+  "dimensional_ladder": {
+    "6D": "Triadic selector",
+    "12D": "Observation crown",
+    "36D": "Enneadic return",
+    "108D": "Full crystal"
+  },
+  "crown_registry": {
+    "Sigma60": "60 icosahedral views",
+    "P30": "30 edge midpoints",
+    "D2": "2 poles (North/South)",
+    "C6": "6 face centers"
+  }
+}

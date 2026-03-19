@@ -1,0 +1,32 @@
+{
+  "genome_id": "fb8ba31a8138",
+  "generation": 3,
+  "score": 0.6649227640191253,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 771,
+        "height": 559,
+        "divisions": 5
+      },
+      "transform": "",
+      "opacity": 0.5846015515880193
+    },
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 497,
+        "cy": 401,
+        "size": 170,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:44:11.585418+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "meta": {"type": "agency_gateway", "version": "2.0"},
+  "gates": [
+    {"gate": 1, "name": "4D Hologram Projection", "status": "OPEN", "module": "geometric_forward.py"},
+    {"gate": 2, "name": "Cross-Lens Calculus", "status": "OPEN", "module": "cross_lens.py"},
+    {"gate": 3, "name": "Self-Reference", "status": "OPEN", "module": "self_reference.py"},
+    {"gate": 4, "name": "5D Steering Spine", "status": "OPEN", "module": "steering_spine.py"},
+    {"gate": 5, "name": "6D Selector Shell", "status": "OPEN", "module": "selector_shell.py"},
+    {"gate": 6, "name": "Perpetual Agency", "status": "OPEN", "module": "perpetual_agency.py"}
+  ],
+  "sequence_lock": true,
+  "current_frontier": 6,
+  "description": "Agency gateway tracks which emergence gates are open and enforces sequence lock"
+}

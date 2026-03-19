@@ -1,0 +1,14 @@
+{
+  "meta": {"type": "live_cell_constitution", "version": "1.0", "source": "ATHENA CORE 2"},
+  "description": "What makes a cell 'alive' in the Athena organism",
+  "requirements": [
+    {"id": "LC1", "name": "Addressed", "description": "Cell has a valid Xi108 crystal coordinate"},
+    {"id": "LC2", "name": "Connected", "description": "Cell has at least one edge in the mycelium graph"},
+    {"id": "LC3", "name": "Weighted", "description": "Cell has crystal weights in the weight store"},
+    {"id": "LC4", "name": "Observable", "description": "Cell can be scored by the 12D meta-observer"},
+    {"id": "LC5", "name": "Mutable", "description": "Cell's momentum can be updated by training"},
+    {"id": "LC6", "name": "Compressible", "description": "Cell can be compressed to 1/8 seed representation"},
+    {"id": "LC7", "name": "Recoverable", "description": "Cell can be regenerated from its seed"}
+  ],
+  "alive_threshold": "All 7 requirements must be met"
+}

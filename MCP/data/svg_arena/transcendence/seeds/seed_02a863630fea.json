@@ -1,0 +1,68 @@
+{
+  "genome_id": "02a863630fea",
+  "generation": 12,
+  "score": 0.9213088561253077,
+  "emergence_score": 0.11969711064052102,
+  "lineage_depth": 9,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 331,
+        "cy": 478,
+        "r": 87
+      },
+      "transform": "",
+      "opacity": 0.5030765268781046
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 200,
+        "cy": 492,
+        "r": 30,
+        "rings": 1,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 422,
+        "cy": 310,
+        "n": 18,
+        "unit": 30
+      },
+      "transform": "rotate(-56.1,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "tesseract_projection",
+      "params": {
+        "cx": 270,
+        "cy": 563,
+        "size": 78
+      },
+      "transform": "rotate(-155.0,400,400)",
+      "opacity": 0.7946348329291064
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 519,
+        "cy": 596,
+        "r_outer": 125,
+        "n": 6,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:42:43.979282+00:00"
+}

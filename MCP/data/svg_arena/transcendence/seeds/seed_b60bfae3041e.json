@@ -1,0 +1,44 @@
+{
+  "genome_id": "b60bfae3041e",
+  "generation": 2,
+  "score": 0.8232705126483114,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 304,
+        "cy": 422,
+        "size": 216,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 0.6091511850600844
+    },
+    {
+      "primitive": "circle",
+      "params": {
+        "cx": 334,
+        "cy": 683,
+        "r": 268,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 513,
+        "height": 486,
+        "divisions": 4
+      },
+      "transform": "",
+      "opacity": 0.3
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:44:11.931638+00:00"
+}

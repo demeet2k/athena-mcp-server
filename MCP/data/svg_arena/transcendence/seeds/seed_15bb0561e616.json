@@ -1,0 +1,42 @@
+{
+  "genome_id": "15bb0561e616",
+  "generation": 1,
+  "score": 0.7620466372484626,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 239,
+        "cy": 507,
+        "size": 201,
+        "depth": 3
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 505,
+        "cy": 478,
+        "r": 146
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 577,
+        "cy": 553,
+        "r": 137
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:05:59.815559+00:00"
+}

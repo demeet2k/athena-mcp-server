@@ -1,0 +1,70 @@
+{
+  "genome_id": "030d59141431",
+  "generation": 2,
+  "score": 0.8386184480121595,
+  "emergence_score": 0.06742409317874809,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 343,
+        "cy": 561,
+        "size": 222,
+        "depth": 5
+      },
+      "transform": "rotate(-149.8,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 364,
+        "cy": 530,
+        "size": 235,
+        "depth": 4
+      },
+      "transform": "rotate(-149.8,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 267,
+        "cy": 467,
+        "r_outer": 177,
+        "n": 4,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 541,
+        "cy": 578,
+        "turns": 6,
+        "scale_factor": 350
+      },
+      "transform": "rotate(-113.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 245,
+        "cy": 467,
+        "r_outer": 170,
+        "n": 4,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:48:47.543833+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "meta": {"type": "angel_conservation", "version": "2.0"},
+  "conservation_rules": [
+    {"rule": "Total observation energy is conserved", "formula": "sum(x_i^2 for i in 1..12) = E_total"},
+    {"rule": "Element balance is conserved", "formula": "mean(S_dims) = mean(F_dims) = mean(C_dims) = mean(R_dims) at equilibrium"},
+    {"rule": "Coupling matrix is symmetric", "formula": "C(i,j) = C(j,i)"},
+    {"rule": "Metric tensor preserves distances", "formula": "d(a,b)^2 = sum(g_ii * (a_i - b_i)^2)"}
+  ]
+}

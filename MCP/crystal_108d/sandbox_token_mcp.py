@@ -23,36 +23,41 @@ def register_token_tools(mcp) -> None:
     def token_efficiency_status() -> str:
         """Get token budget status: burn rate, waste %, efficiency score, hours remaining.
 
+        Shows BOTH observable tokens (what we can measure) and dark tokens
+        (estimated invisible cost: Claude's thinking, context re-read,
+        protocol overhead). Real cost = observable + dark + envelope.
+
         Use this to check whether the organism is spending tokens wisely
-        and how much runway remains in the weekly budget. Returns compact
-        structured output (this tool practices what it preaches).
+        and how much runway remains in the weekly budget.
         """
         from .sandbox_token_observer import get_token_observer
 
         obs = get_token_observer()
         budget = obs.analyze_budget()
 
-        waste_pct = (budget.waste_detected / max(budget.tokens_used, 1)) * 100
+        waste_pct = (budget.waste_detected / max(budget.real_cost_est, 1)) * 100
+        dark_pct = (budget.dark_tokens_est / max(budget.real_cost_est, 1)) * 100
 
-        # Compressed output — no prose, just signal
         lines = [
-            "TOKEN BUDGET",
-            f"  used:       {budget.tokens_used:>12,}",
+            "TOKEN BUDGET (observable + dark)",
+            f"  observable: {budget.tokens_used:>12,}  (what we can measure)",
+            f"  dark (est): {budget.dark_tokens_est:>12,}  ({dark_pct:.0f}% invisible: thinking + context)",
+            f"  real cost:  {budget.real_cost_est:>12,}  (observable + dark + envelope)",
             f"  remaining:  {budget.tokens_remaining:>12,}",
-            f"  burn/hr:    {budget.burn_rate_per_hour:>12,.0f}",
+            f"  burn/hr:    {budget.real_burn_rate_per_hour:>12,.0f}  (real cost rate)",
             f"  hours_left: {budget.hours_remaining_at_rate:>12.1f}",
             f"  efficiency: {budget.efficiency_score:>12.0%}",
             f"  waste:      {budget.waste_detected:>12,} ({waste_pct:.1f}%)",
-            f"  savings:    {budget.compression_savings:>12,} (available)",
+            f"  ctx_weight: {budget.context_inflation_total:>12,.0f}  (cumulative inflation)",
+            f"  savings:    {budget.compression_savings:>12,} (available, incl. dark savings)",
         ]
 
-        # Pressure indicator
         if budget.hours_remaining_at_rate < 12:
-            lines.append("  PRESSURE:   CRITICAL — compress everything")
+            lines.append("  PRESSURE:   CRITICAL -- compress everything")
         elif budget.hours_remaining_at_rate < 48:
-            lines.append("  PRESSURE:   HIGH — batch and truncate")
+            lines.append("  PRESSURE:   HIGH -- batch and truncate")
         elif budget.efficiency_score < 0.7:
-            lines.append("  PRESSURE:   MODERATE — reduce verbose tools")
+            lines.append("  PRESSURE:   MODERATE -- reduce verbose tools")
 
         obs.save_state()
         return "\n".join(lines)

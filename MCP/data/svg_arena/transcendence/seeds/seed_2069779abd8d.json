@@ -1,0 +1,70 @@
+{
+  "genome_id": "2069779abd8d",
+  "generation": 2,
+  "score": 0.7692386837262718,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "star_polygon",
+      "params": {
+        "cx": 284,
+        "cy": 323,
+        "r_outer": 207,
+        "r_inner": 50,
+        "n": 10,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.4464370293806661
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 588,
+        "cy": 388,
+        "size": 231,
+        "angle_x": 0.9842630075280924,
+        "angle_z": 0.5475508414436474
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 535,
+        "cy": 512,
+        "size": 239,
+        "angle_x": 0.681196615897788,
+        "angle_z": 0.6048148373925646
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 440,
+        "cy": 446,
+        "size": 308
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 397,
+        "cy": 495,
+        "n": 20,
+        "unit": 21
+      },
+      "transform": "rotate(179.8,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:38.143271+00:00"
+}

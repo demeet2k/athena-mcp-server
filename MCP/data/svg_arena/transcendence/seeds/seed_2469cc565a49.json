@@ -1,0 +1,35 @@
+{
+  "genome_id": "2469cc565a49",
+  "generation": 1,
+  "score": 0.8556393561674424,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 395,
+        "cy": 206,
+        "size": 143,
+        "depth": 3
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 245,
+        "cy": 436,
+        "r_outer": 215,
+        "n": 3,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(-75.7,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:20:29.850830+00:00"
+}

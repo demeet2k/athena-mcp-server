@@ -1,0 +1,71 @@
+{
+  "genome_id": "2b4c92862d73",
+  "generation": 2,
+  "score": 0.738688067383004,
+  "emergence_score": 0.0,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 495,
+        "cy": 283,
+        "size": 174,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 0.8554067831211065
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 471,
+        "cy": 565,
+        "r": 300,
+        "n": 7,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(-3.0,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "circle",
+      "params": {
+        "cx": 367,
+        "cy": 402,
+        "r": 207,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(15.3,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 395,
+        "cy": 539,
+        "n": 12,
+        "unit": 37
+      },
+      "transform": "",
+      "opacity": 0.8681270566826785
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 493,
+        "cy": 359,
+        "r": 112,
+        "rings": 2,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.7806320897359759
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:44:13.132217+00:00"
+}

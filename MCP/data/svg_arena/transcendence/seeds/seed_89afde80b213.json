@@ -1,0 +1,69 @@
+{
+  "genome_id": "89afde80b213",
+  "generation": 3,
+  "score": 0.8051952718898743,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 549,
+        "cy": 267,
+        "size": 117
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 560,
+        "y": 533,
+        "length": 215,
+        "angle": -1.3476515252042829,
+        "depth": 5
+      },
+      "transform": "rotate(-66.7,400,400)",
+      "opacity": 0.674979691593917
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 407,
+        "cy": 271,
+        "r": 90
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dodecahedron",
+      "params": {
+        "cx": 422,
+        "cy": 224,
+        "size": 125,
+        "angle_x": 0.1377192338603746,
+        "angle_z": 0.8279444360632675
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "star_polygon",
+      "params": {
+        "cx": 499,
+        "cy": 310,
+        "r_outer": 331,
+        "r_inner": 96,
+        "n": 6,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:53:39.928860+00:00"
+}

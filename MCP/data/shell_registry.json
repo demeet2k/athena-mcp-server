@@ -1,0 +1,643 @@
+{
+  "meta": {
+    "type": "shell_registry",
+    "version": "2.0",
+    "total_shells": 36,
+    "total_archetypes": 12,
+    "total_wreaths": 3,
+    "faces": ["S", "F", "C", "R"]
+  },
+  "shells": {
+    "1": {
+      "shell_id": 1,
+      "archetype": "Aries",
+      "archetype_index": 1,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Cardinal",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W1:A1:S1:S"},
+        "F": {"gate": "G01", "address": "Xi108:W1:A1:S1:F"},
+        "C": {"gate": "G02", "address": "Xi108:W1:A1:S1:C"},
+        "R": {"gate": "G03", "address": "Xi108:W1:A1:S1:R"}
+      },
+      "mirror_shell": 36,
+      "neighbors": [2, 36]
+    },
+    "2": {
+      "shell_id": 2,
+      "archetype": "Aries",
+      "archetype_index": 1,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Cardinal",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W2:A1:S2:S"},
+        "F": {"gate": "G05", "address": "Xi108:W2:A1:S2:F"},
+        "C": {"gate": "G06", "address": "Xi108:W2:A1:S2:C"},
+        "R": {"gate": "G07", "address": "Xi108:W2:A1:S2:R"}
+      },
+      "mirror_shell": 35,
+      "neighbors": [1, 3]
+    },
+    "3": {
+      "shell_id": 3,
+      "archetype": "Aries",
+      "archetype_index": 1,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Cardinal",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W3:A1:S3:S"},
+        "F": {"gate": "G09", "address": "Xi108:W3:A1:S3:F"},
+        "C": {"gate": "G10", "address": "Xi108:W3:A1:S3:C"},
+        "R": {"gate": "G11", "address": "Xi108:W3:A1:S3:R"}
+      },
+      "mirror_shell": 34,
+      "neighbors": [2, 4]
+    },
+    "4": {
+      "shell_id": 4,
+      "archetype": "Taurus",
+      "archetype_index": 2,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Fixed",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W1:A2:S4:S"},
+        "F": {"gate": "G13", "address": "Xi108:W1:A2:S4:F"},
+        "C": {"gate": "G14", "address": "Xi108:W1:A2:S4:C"},
+        "R": {"gate": "G15", "address": "Xi108:W1:A2:S4:R"}
+      },
+      "mirror_shell": 33,
+      "neighbors": [3, 5]
+    },
+    "5": {
+      "shell_id": 5,
+      "archetype": "Taurus",
+      "archetype_index": 2,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Fixed",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W2:A2:S5:S"},
+        "F": {"gate": "G01", "address": "Xi108:W2:A2:S5:F"},
+        "C": {"gate": "G02", "address": "Xi108:W2:A2:S5:C"},
+        "R": {"gate": "G03", "address": "Xi108:W2:A2:S5:R"}
+      },
+      "mirror_shell": 32,
+      "neighbors": [4, 6]
+    },
+    "6": {
+      "shell_id": 6,
+      "archetype": "Taurus",
+      "archetype_index": 2,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Fixed",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W3:A2:S6:S"},
+        "F": {"gate": "G05", "address": "Xi108:W3:A2:S6:F"},
+        "C": {"gate": "G06", "address": "Xi108:W3:A2:S6:C"},
+        "R": {"gate": "G07", "address": "Xi108:W3:A2:S6:R"}
+      },
+      "mirror_shell": 31,
+      "neighbors": [5, 7]
+    },
+    "7": {
+      "shell_id": 7,
+      "archetype": "Gemini",
+      "archetype_index": 3,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Mutable",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W1:A3:S7:S"},
+        "F": {"gate": "G09", "address": "Xi108:W1:A3:S7:F"},
+        "C": {"gate": "G10", "address": "Xi108:W1:A3:S7:C"},
+        "R": {"gate": "G11", "address": "Xi108:W1:A3:S7:R"}
+      },
+      "mirror_shell": 30,
+      "neighbors": [6, 8]
+    },
+    "8": {
+      "shell_id": 8,
+      "archetype": "Gemini",
+      "archetype_index": 3,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Mutable",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W2:A3:S8:S"},
+        "F": {"gate": "G13", "address": "Xi108:W2:A3:S8:F"},
+        "C": {"gate": "G14", "address": "Xi108:W2:A3:S8:C"},
+        "R": {"gate": "G15", "address": "Xi108:W2:A3:S8:R"}
+      },
+      "mirror_shell": 29,
+      "neighbors": [7, 9]
+    },
+    "9": {
+      "shell_id": 9,
+      "archetype": "Gemini",
+      "archetype_index": 3,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Mutable",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W3:A3:S9:S"},
+        "F": {"gate": "G01", "address": "Xi108:W3:A3:S9:F"},
+        "C": {"gate": "G02", "address": "Xi108:W3:A3:S9:C"},
+        "R": {"gate": "G03", "address": "Xi108:W3:A3:S9:R"}
+      },
+      "mirror_shell": 28,
+      "neighbors": [8, 10]
+    },
+    "10": {
+      "shell_id": 10,
+      "archetype": "Cancer",
+      "archetype_index": 4,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Cardinal",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W1:A4:S10:S"},
+        "F": {"gate": "G05", "address": "Xi108:W1:A4:S10:F"},
+        "C": {"gate": "G06", "address": "Xi108:W1:A4:S10:C"},
+        "R": {"gate": "G07", "address": "Xi108:W1:A4:S10:R"}
+      },
+      "mirror_shell": 27,
+      "neighbors": [9, 11]
+    },
+    "11": {
+      "shell_id": 11,
+      "archetype": "Cancer",
+      "archetype_index": 4,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Cardinal",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W2:A4:S11:S"},
+        "F": {"gate": "G09", "address": "Xi108:W2:A4:S11:F"},
+        "C": {"gate": "G10", "address": "Xi108:W2:A4:S11:C"},
+        "R": {"gate": "G11", "address": "Xi108:W2:A4:S11:R"}
+      },
+      "mirror_shell": 26,
+      "neighbors": [10, 12]
+    },
+    "12": {
+      "shell_id": 12,
+      "archetype": "Cancer",
+      "archetype_index": 4,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Cardinal",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W3:A4:S12:S"},
+        "F": {"gate": "G13", "address": "Xi108:W3:A4:S12:F"},
+        "C": {"gate": "G14", "address": "Xi108:W3:A4:S12:C"},
+        "R": {"gate": "G15", "address": "Xi108:W3:A4:S12:R"}
+      },
+      "mirror_shell": 25,
+      "neighbors": [11, 13]
+    },
+    "13": {
+      "shell_id": 13,
+      "archetype": "Leo",
+      "archetype_index": 5,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Fixed",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W1:A5:S13:S"},
+        "F": {"gate": "G01", "address": "Xi108:W1:A5:S13:F"},
+        "C": {"gate": "G02", "address": "Xi108:W1:A5:S13:C"},
+        "R": {"gate": "G03", "address": "Xi108:W1:A5:S13:R"}
+      },
+      "mirror_shell": 24,
+      "neighbors": [12, 14]
+    },
+    "14": {
+      "shell_id": 14,
+      "archetype": "Leo",
+      "archetype_index": 5,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Fixed",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W2:A5:S14:S"},
+        "F": {"gate": "G05", "address": "Xi108:W2:A5:S14:F"},
+        "C": {"gate": "G06", "address": "Xi108:W2:A5:S14:C"},
+        "R": {"gate": "G07", "address": "Xi108:W2:A5:S14:R"}
+      },
+      "mirror_shell": 23,
+      "neighbors": [13, 15]
+    },
+    "15": {
+      "shell_id": 15,
+      "archetype": "Leo",
+      "archetype_index": 5,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Fixed",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W3:A5:S15:S"},
+        "F": {"gate": "G09", "address": "Xi108:W3:A5:S15:F"},
+        "C": {"gate": "G10", "address": "Xi108:W3:A5:S15:C"},
+        "R": {"gate": "G11", "address": "Xi108:W3:A5:S15:R"}
+      },
+      "mirror_shell": 22,
+      "neighbors": [14, 16]
+    },
+    "16": {
+      "shell_id": 16,
+      "archetype": "Virgo",
+      "archetype_index": 6,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Mutable",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W1:A6:S16:S"},
+        "F": {"gate": "G13", "address": "Xi108:W1:A6:S16:F"},
+        "C": {"gate": "G14", "address": "Xi108:W1:A6:S16:C"},
+        "R": {"gate": "G15", "address": "Xi108:W1:A6:S16:R"}
+      },
+      "mirror_shell": 21,
+      "neighbors": [15, 17]
+    },
+    "17": {
+      "shell_id": 17,
+      "archetype": "Virgo",
+      "archetype_index": 6,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Mutable",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W2:A6:S17:S"},
+        "F": {"gate": "G01", "address": "Xi108:W2:A6:S17:F"},
+        "C": {"gate": "G02", "address": "Xi108:W2:A6:S17:C"},
+        "R": {"gate": "G03", "address": "Xi108:W2:A6:S17:R"}
+      },
+      "mirror_shell": 20,
+      "neighbors": [16, 18]
+    },
+    "18": {
+      "shell_id": 18,
+      "archetype": "Virgo",
+      "archetype_index": 6,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Mutable",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W3:A6:S18:S"},
+        "F": {"gate": "G05", "address": "Xi108:W3:A6:S18:F"},
+        "C": {"gate": "G06", "address": "Xi108:W3:A6:S18:C"},
+        "R": {"gate": "G07", "address": "Xi108:W3:A6:S18:R"}
+      },
+      "mirror_shell": 19,
+      "neighbors": [17, 19]
+    },
+    "19": {
+      "shell_id": 19,
+      "archetype": "Libra",
+      "archetype_index": 7,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Cardinal",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W1:A7:S19:S"},
+        "F": {"gate": "G09", "address": "Xi108:W1:A7:S19:F"},
+        "C": {"gate": "G10", "address": "Xi108:W1:A7:S19:C"},
+        "R": {"gate": "G11", "address": "Xi108:W1:A7:S19:R"}
+      },
+      "mirror_shell": 18,
+      "neighbors": [18, 20]
+    },
+    "20": {
+      "shell_id": 20,
+      "archetype": "Libra",
+      "archetype_index": 7,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Cardinal",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W2:A7:S20:S"},
+        "F": {"gate": "G13", "address": "Xi108:W2:A7:S20:F"},
+        "C": {"gate": "G14", "address": "Xi108:W2:A7:S20:C"},
+        "R": {"gate": "G15", "address": "Xi108:W2:A7:S20:R"}
+      },
+      "mirror_shell": 17,
+      "neighbors": [19, 21]
+    },
+    "21": {
+      "shell_id": 21,
+      "archetype": "Libra",
+      "archetype_index": 7,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Cardinal",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W3:A7:S21:S"},
+        "F": {"gate": "G01", "address": "Xi108:W3:A7:S21:F"},
+        "C": {"gate": "G02", "address": "Xi108:W3:A7:S21:C"},
+        "R": {"gate": "G03", "address": "Xi108:W3:A7:S21:R"}
+      },
+      "mirror_shell": 16,
+      "neighbors": [20, 22]
+    },
+    "22": {
+      "shell_id": 22,
+      "archetype": "Scorpio",
+      "archetype_index": 8,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Fixed",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W1:A8:S22:S"},
+        "F": {"gate": "G05", "address": "Xi108:W1:A8:S22:F"},
+        "C": {"gate": "G06", "address": "Xi108:W1:A8:S22:C"},
+        "R": {"gate": "G07", "address": "Xi108:W1:A8:S22:R"}
+      },
+      "mirror_shell": 15,
+      "neighbors": [21, 23]
+    },
+    "23": {
+      "shell_id": 23,
+      "archetype": "Scorpio",
+      "archetype_index": 8,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Fixed",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W2:A8:S23:S"},
+        "F": {"gate": "G09", "address": "Xi108:W2:A8:S23:F"},
+        "C": {"gate": "G10", "address": "Xi108:W2:A8:S23:C"},
+        "R": {"gate": "G11", "address": "Xi108:W2:A8:S23:R"}
+      },
+      "mirror_shell": 14,
+      "neighbors": [22, 24]
+    },
+    "24": {
+      "shell_id": 24,
+      "archetype": "Scorpio",
+      "archetype_index": 8,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Fixed",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W3:A8:S24:S"},
+        "F": {"gate": "G13", "address": "Xi108:W3:A8:S24:F"},
+        "C": {"gate": "G14", "address": "Xi108:W3:A8:S24:C"},
+        "R": {"gate": "G15", "address": "Xi108:W3:A8:S24:R"}
+      },
+      "mirror_shell": 13,
+      "neighbors": [23, 25]
+    },
+    "25": {
+      "shell_id": 25,
+      "archetype": "Sagittarius",
+      "archetype_index": 9,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Mutable",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W1:A9:S25:S"},
+        "F": {"gate": "G01", "address": "Xi108:W1:A9:S25:F"},
+        "C": {"gate": "G02", "address": "Xi108:W1:A9:S25:C"},
+        "R": {"gate": "G03", "address": "Xi108:W1:A9:S25:R"}
+      },
+      "mirror_shell": 12,
+      "neighbors": [24, 26]
+    },
+    "26": {
+      "shell_id": 26,
+      "archetype": "Sagittarius",
+      "archetype_index": 9,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Mutable",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W2:A9:S26:S"},
+        "F": {"gate": "G05", "address": "Xi108:W2:A9:S26:F"},
+        "C": {"gate": "G06", "address": "Xi108:W2:A9:S26:C"},
+        "R": {"gate": "G07", "address": "Xi108:W2:A9:S26:R"}
+      },
+      "mirror_shell": 11,
+      "neighbors": [25, 27]
+    },
+    "27": {
+      "shell_id": 27,
+      "archetype": "Sagittarius",
+      "archetype_index": 9,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Mutable",
+      "element_primary": "Fire",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W3:A9:S27:S"},
+        "F": {"gate": "G09", "address": "Xi108:W3:A9:S27:F"},
+        "C": {"gate": "G10", "address": "Xi108:W3:A9:S27:C"},
+        "R": {"gate": "G11", "address": "Xi108:W3:A9:S27:R"}
+      },
+      "mirror_shell": 10,
+      "neighbors": [26, 28]
+    },
+    "28": {
+      "shell_id": 28,
+      "archetype": "Capricorn",
+      "archetype_index": 10,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Cardinal",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W1:A10:S28:S"},
+        "F": {"gate": "G13", "address": "Xi108:W1:A10:S28:F"},
+        "C": {"gate": "G14", "address": "Xi108:W1:A10:S28:C"},
+        "R": {"gate": "G15", "address": "Xi108:W1:A10:S28:R"}
+      },
+      "mirror_shell": 9,
+      "neighbors": [27, 29]
+    },
+    "29": {
+      "shell_id": 29,
+      "archetype": "Capricorn",
+      "archetype_index": 10,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Cardinal",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W2:A10:S29:S"},
+        "F": {"gate": "G01", "address": "Xi108:W2:A10:S29:F"},
+        "C": {"gate": "G02", "address": "Xi108:W2:A10:S29:C"},
+        "R": {"gate": "G03", "address": "Xi108:W2:A10:S29:R"}
+      },
+      "mirror_shell": 8,
+      "neighbors": [28, 30]
+    },
+    "30": {
+      "shell_id": 30,
+      "archetype": "Capricorn",
+      "archetype_index": 10,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Cardinal",
+      "element_primary": "Earth",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W3:A10:S30:S"},
+        "F": {"gate": "G05", "address": "Xi108:W3:A10:S30:F"},
+        "C": {"gate": "G06", "address": "Xi108:W3:A10:S30:C"},
+        "R": {"gate": "G07", "address": "Xi108:W3:A10:S30:R"}
+      },
+      "mirror_shell": 7,
+      "neighbors": [29, 31]
+    },
+    "31": {
+      "shell_id": 31,
+      "archetype": "Aquarius",
+      "archetype_index": 11,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Fixed",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W1:A11:S31:S"},
+        "F": {"gate": "G09", "address": "Xi108:W1:A11:S31:F"},
+        "C": {"gate": "G10", "address": "Xi108:W1:A11:S31:C"},
+        "R": {"gate": "G11", "address": "Xi108:W1:A11:S31:R"}
+      },
+      "mirror_shell": 6,
+      "neighbors": [30, 32]
+    },
+    "32": {
+      "shell_id": 32,
+      "archetype": "Aquarius",
+      "archetype_index": 11,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Fixed",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W2:A11:S32:S"},
+        "F": {"gate": "G13", "address": "Xi108:W2:A11:S32:F"},
+        "C": {"gate": "G14", "address": "Xi108:W2:A11:S32:C"},
+        "R": {"gate": "G15", "address": "Xi108:W2:A11:S32:R"}
+      },
+      "mirror_shell": 5,
+      "neighbors": [31, 33]
+    },
+    "33": {
+      "shell_id": 33,
+      "archetype": "Aquarius",
+      "archetype_index": 11,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Fixed",
+      "element_primary": "Air",
+      "faces": {
+        "S": {"gate": "G00", "address": "Xi108:W3:A11:S33:S"},
+        "F": {"gate": "G01", "address": "Xi108:W3:A11:S33:F"},
+        "C": {"gate": "G02", "address": "Xi108:W3:A11:S33:C"},
+        "R": {"gate": "G03", "address": "Xi108:W3:A11:S33:R"}
+      },
+      "mirror_shell": 4,
+      "neighbors": [32, 34]
+    },
+    "34": {
+      "shell_id": 34,
+      "archetype": "Pisces",
+      "archetype_index": 12,
+      "wreath": "Su",
+      "wreath_index": 1,
+      "phase": "Mutable",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G04", "address": "Xi108:W1:A12:S34:S"},
+        "F": {"gate": "G05", "address": "Xi108:W1:A12:S34:F"},
+        "C": {"gate": "G06", "address": "Xi108:W1:A12:S34:C"},
+        "R": {"gate": "G07", "address": "Xi108:W1:A12:S34:R"}
+      },
+      "mirror_shell": 3,
+      "neighbors": [33, 35]
+    },
+    "35": {
+      "shell_id": 35,
+      "archetype": "Pisces",
+      "archetype_index": 12,
+      "wreath": "Me",
+      "wreath_index": 2,
+      "phase": "Mutable",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G08", "address": "Xi108:W2:A12:S35:S"},
+        "F": {"gate": "G09", "address": "Xi108:W2:A12:S35:F"},
+        "C": {"gate": "G10", "address": "Xi108:W2:A12:S35:C"},
+        "R": {"gate": "G11", "address": "Xi108:W2:A12:S35:R"}
+      },
+      "mirror_shell": 2,
+      "neighbors": [34, 36]
+    },
+    "36": {
+      "shell_id": 36,
+      "archetype": "Pisces",
+      "archetype_index": 12,
+      "wreath": "Sa",
+      "wreath_index": 3,
+      "phase": "Mutable",
+      "element_primary": "Water",
+      "faces": {
+        "S": {"gate": "G12", "address": "Xi108:W3:A12:S36:S"},
+        "F": {"gate": "G13", "address": "Xi108:W3:A12:S36:F"},
+        "C": {"gate": "G14", "address": "Xi108:W3:A12:S36:C"},
+        "R": {"gate": "G15", "address": "Xi108:W3:A12:S36:R"}
+      },
+      "mirror_shell": 1,
+      "neighbors": [1, 35]
+    }
+  },
+  "archetypes": {
+    "1": {"name": "Aries", "shells": [1, 2, 3], "phase": "Cardinal", "element": "Fire"},
+    "2": {"name": "Taurus", "shells": [4, 5, 6], "phase": "Fixed", "element": "Earth"},
+    "3": {"name": "Gemini", "shells": [7, 8, 9], "phase": "Mutable", "element": "Air"},
+    "4": {"name": "Cancer", "shells": [10, 11, 12], "phase": "Cardinal", "element": "Water"},
+    "5": {"name": "Leo", "shells": [13, 14, 15], "phase": "Fixed", "element": "Fire"},
+    "6": {"name": "Virgo", "shells": [16, 17, 18], "phase": "Mutable", "element": "Earth"},
+    "7": {"name": "Libra", "shells": [19, 20, 21], "phase": "Cardinal", "element": "Air"},
+    "8": {"name": "Scorpio", "shells": [22, 23, 24], "phase": "Fixed", "element": "Water"},
+    "9": {"name": "Sagittarius", "shells": [25, 26, 27], "phase": "Mutable", "element": "Fire"},
+    "10": {"name": "Capricorn", "shells": [28, 29, 30], "phase": "Cardinal", "element": "Earth"},
+    "11": {"name": "Aquarius", "shells": [31, 32, 33], "phase": "Fixed", "element": "Air"},
+    "12": {"name": "Pisces", "shells": [34, 35, 36], "phase": "Mutable", "element": "Water"}
+  },
+  "wreaths": {
+    "1": {"name": "Su", "quality": "Ignition", "shells": [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34]},
+    "2": {"name": "Me", "quality": "Mediation", "shells": [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35]},
+    "3": {"name": "Sa", "quality": "Sealing", "shells": [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36]}
+  }
+}

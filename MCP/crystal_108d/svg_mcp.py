@@ -4,7 +4,7 @@
 """
 SVG MCP Tools — Agent-Facing SVG Generation Interface
 ======================================================
-9 MCP tools for SVG self-play + transcendence:
+16 MCP tools for SVG self-play + transcendence + nervous system + 108D:
 
   1. svg_challenge(category, difficulty)  — list/generate challenges
   2. svg_generate(challenge_id, primitive, params)  — generate SVG
@@ -15,6 +15,13 @@ SVG MCP Tools — Agent-Facing SVG Generation Interface
   7. svg_evolve(generations, population)  — run evolutionary tournament
   8. svg_transcend(cycles, generations)   — META LOOP^N aggressive evolution
   9. svg_seeds()                          — view crystallized seed library
+ 10. svg_nervous_system()                 — full nervous system dashboard
+ 11. svg_shard_cloud(max_shards)          — 4D shard cloud projection
+ 12. svg_brain_topology()                 — 8-node brain topology
+ 13. svg_108d_crystal()                   — full 108D crystal projection
+ 14. svg_108d_panel(panel)                — individual 108D panel
+ 15. svg_108d_inversion()                 — 108D inversion cascade (3D→108D)
+ 16. svg_108d_inversion_panel(panel)      — individual inversion panel
 """
 
 from typing import Optional
@@ -322,3 +329,197 @@ def register_svg_tools(mcp) -> None:
                 f"layers=[{', '.join(prims)}]"
             )
         return "\n".join(lines)
+
+    # ------------------------------------------------------------------
+    # Nervous System Visualization — Real Data
+    # ------------------------------------------------------------------
+
+    @mcp.tool()
+    def svg_nervous_system() -> str:
+        """Generate full nervous system dashboard SVG from live data.
+
+        Renders 4 panels: brain topology (8 nodes), momentum field (148
+        params), 4D shard cloud (14,750 shards), and dimensional sector
+        distribution with QShrink 1/8 lift cascade.
+
+        Returns the SVG and saves to MCP/data/svg_arena/outputs/.
+        """
+        from .svg_nervous_system import save_nervous_system_dashboard
+        path = save_nervous_system_dashboard()
+        return f"Dashboard saved to: {path}"
+
+    @mcp.tool()
+    def svg_shard_cloud(max_shards: int = 2000) -> str:
+        """Render the 4D shard cloud — actual corpus seed vectors projected to 2D.
+
+        Each of 14,750 shards has a [S,F,C,R] seed vector. Projects via
+        x = S-R (earth-air axis), y = F-C (fire-water axis). Color by
+        dominant element.
+
+        Args:
+            max_shards: Maximum shards to render (default 2000).
+
+        Returns SVG string of the shard cloud.
+        """
+        from .svg_primitives import SVGCanvas
+        from .svg_nervous_system import render_shard_cloud_4d
+        canvas = SVGCanvas(800, 800)
+        canvas.add(render_shard_cloud_4d(400, 400, 300, max_shards=max_shards))
+        return canvas.render()
+
+    @mcp.tool()
+    def svg_brain_topology() -> str:
+        """Render the 8-node distributed brain topology with SFCR bridges.
+
+        Shows: athena-mcp-server (center), 4 SFCR lobes, 3 support nodes.
+        Bridge weights: golden (SF/FC/CR = phi^-1), neutral (SC/FR = 0.5),
+        distant (SR = phi^-2).
+
+        Returns SVG string.
+        """
+        from .svg_primitives import SVGCanvas
+        from .svg_nervous_system import render_brain_topology
+        canvas = SVGCanvas(800, 800)
+        canvas.add(render_brain_topology(400, 400, 300))
+        return canvas.render()
+
+    # ------------------------------------------------------------------
+    # 108D Crystal Projection — Full Organism
+    # ------------------------------------------------------------------
+
+    @mcp.tool()
+    def svg_108d_crystal() -> str:
+        """Generate full 108D crystal projection dashboard.
+
+        9-panel layout showing: shell cascade (36 shells golden spiral),
+        wreath trefoil (3 interlocked rings), archetype wheel (12 zodiacal),
+        Sigma-60 icosahedral field, E8-240 root star, shard density heatmap,
+        momentum shells, 12D observation radar, and Flower of Life overlay.
+
+        36 shells x 3 wreaths = 108D. x4 faces = 432 gates.
+        x60 sigma = 25,920. x4 E8 = 103,680 roots.
+
+        Saves to MCP/data/svg_arena/outputs/ and returns confirmation.
+        """
+        from .svg_108d_projection import save_108d_crystal
+        path = save_108d_crystal()
+        return f"108D crystal projection saved to: {path}"
+
+    @mcp.tool()
+    def svg_108d_panel(panel: str = "shell_cascade") -> str:
+        """Render a single panel from the 108D crystal projection.
+
+        Available panels:
+          shell_cascade   — 36 shells on golden spiral
+          wreath_trefoil  — 3 interlocked wreath rings
+          archetype_wheel — 12 archetypes with SFCR faces
+          sigma60         — 60 icosahedral viewpoints
+          e8_240          — 240 E8 roots projected to 2D
+          shard_density   — shards per shell heatmap
+          momentum_shells — training gradients per shell
+          observation_12d — 12D observation radar chart
+          flower_overlay  — Flower of Life PHI-decay rings
+
+        Args:
+            panel: Panel name (default: shell_cascade).
+
+        Returns SVG string for the requested panel.
+        """
+        from .svg_primitives import SVGCanvas
+        from .svg_108d_projection import (
+            render_shell_cascade, render_wreath_trefoil,
+            render_archetype_wheel, render_sigma60_field,
+            render_e8_240, render_shard_density,
+            render_momentum_shells, render_12d_observation,
+            render_flower_overlay,
+        )
+
+        dispatch = {
+            "shell_cascade": render_shell_cascade,
+            "wreath_trefoil": render_wreath_trefoil,
+            "archetype_wheel": render_archetype_wheel,
+            "sigma60": render_sigma60_field,
+            "e8_240": render_e8_240,
+            "shard_density": render_shard_density,
+            "momentum_shells": render_momentum_shells,
+            "observation_12d": render_12d_observation,
+            "flower_overlay": render_flower_overlay,
+        }
+
+        fn = dispatch.get(panel)
+        if fn is None:
+            available = ", ".join(sorted(dispatch.keys()))
+            return f"Unknown panel '{panel}'. Available: {available}"
+
+        canvas = SVGCanvas(800, 800)
+        canvas.add(fn(400, 400, 300))
+        return canvas.render()
+
+    # ------------------------------------------------------------------
+    # 108D Inversion Cascade — The Generative Principle
+    # ------------------------------------------------------------------
+
+    @mcp.tool()
+    def svg_108d_inversion() -> str:
+        """Generate the full 108D inversion cascade SVG.
+
+        Shows how each dimension is born from the previous one fused with
+        its own mirror: D_{n+1} = D_n ∪ D_n⁻¹.
+
+        8-panel layout:
+          3D∪3D⁻¹ hexagram, 4D→6D Möbius twist, 6D→8D Wu Xing fusion,
+          8D→10D planetary opposition, 10D→12D matrix transpose,
+          12D→36D→108D triple crown, w-operator spiral, containment counting.
+
+        Saves to MCP/data/svg_arena/outputs/ and returns confirmation.
+        """
+        from .svg_108d_projection import save_inversion_cascade
+        path = save_inversion_cascade()
+        return f"108D inversion cascade saved to: {path}"
+
+    @mcp.tool()
+    def svg_108d_inversion_panel(panel: str = "3d_pair") -> str:
+        """Render a single panel from the inversion cascade.
+
+        Available panels:
+          3d_pair          — 3D seed + 3D⁻¹ anti-seed = hexagram
+          mobius_inversion — 4D→6D Möbius half-twist chirality
+          wuxing_inversion — 6D→8D Wu Xing generative+destructive
+          planetary_inv    — 8D→10D exaltation/detriment opposition
+          matrix_inversion — 10D→12D 3×3 matrix + transpose
+          triple_crown     — 12D→36D→108D crown expansion
+          w_cascade        — w-operator emergence spiral
+          containment      — containment counting (bodies inside bodies)
+
+        Args:
+            panel: Panel name (default: 3d_pair).
+
+        Returns SVG string for the requested panel.
+        """
+        from .svg_primitives import SVGCanvas
+        from .svg_108d_projection import (
+            _render_3d_pair, _render_mobius_inversion,
+            _render_wuxing_inversion, _render_planetary_inversion,
+            _render_matrix_inversion, _render_triple_crown_expansion,
+            _render_w_cascade, _render_containment_count,
+        )
+
+        dispatch = {
+            "3d_pair": _render_3d_pair,
+            "mobius_inversion": _render_mobius_inversion,
+            "wuxing_inversion": _render_wuxing_inversion,
+            "planetary_inv": _render_planetary_inversion,
+            "matrix_inversion": _render_matrix_inversion,
+            "triple_crown": _render_triple_crown_expansion,
+            "w_cascade": _render_w_cascade,
+            "containment": _render_containment_count,
+        }
+
+        fn = dispatch.get(panel)
+        if fn is None:
+            available = ", ".join(sorted(dispatch.keys()))
+            return f"Unknown panel '{panel}'. Available: {available}"
+
+        canvas = SVGCanvas(800, 800)
+        canvas.add(fn(400, 400, 300))
+        return canvas.render()

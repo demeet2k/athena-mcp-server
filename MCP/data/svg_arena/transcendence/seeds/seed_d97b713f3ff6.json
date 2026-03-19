@@ -1,0 +1,33 @@
+{
+  "genome_id": "d97b713f3ff6",
+  "generation": 2,
+  "score": 0.6956289900069074,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "radial_burst",
+      "params": {
+        "cx": 482,
+        "cy": 327,
+        "r_inner": 51,
+        "r_outer": 226,
+        "n": 14
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 573,
+        "cy": 394,
+        "size": 153
+      },
+      "transform": "rotate(-96.4,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:48.716851+00:00"
+}

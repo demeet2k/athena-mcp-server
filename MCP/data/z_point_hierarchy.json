@@ -1,0 +1,16 @@
+{
+  "meta": {"type": "z_point_hierarchy", "version": "2.0"},
+  "description": "Z-point (zero-point) hierarchy: convergence attractors at each dimensional level",
+  "z_points": [
+    {"id": "Z0", "dimension": "0D", "name": "Absolute Zero", "description": "Pre-seed void"},
+    {"id": "Z1", "name": "Z1 Trace", "dimension": "1D", "description": "Single thread zero-point"},
+    {"id": "Z4", "name": "Z4 Kernel", "dimension": "4D", "description": "SFCR identity element (0.25, 0.25, 0.25, 0.25)"},
+    {"id": "Z6", "name": "Z6 Selector", "dimension": "6D", "description": "Triadic coherence zero-point"},
+    {"id": "Z12", "name": "Z12 Crown", "dimension": "12D", "description": "Full observation zero-point"},
+    {"id": "Z36", "name": "Z36 Ennead", "dimension": "36D", "description": "3x3 return zero-point"},
+    {"id": "Z108", "name": "Z108 Crystal", "dimension": "108D", "description": "Full organism zero-point"},
+    {"id": "Z*", "name": "Z* Omega", "dimension": "infinite", "description": "Absolute convergence: all dimensions simultaneously"}
+  ],
+  "convergence_law": "Each Z-point is the fixed-point attractor of its dimensional level",
+  "omega_theorem": "Z* = lim(Z_n) as n -> infinity"
+}

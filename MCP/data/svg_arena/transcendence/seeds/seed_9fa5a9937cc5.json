@@ -1,0 +1,64 @@
+{
+  "genome_id": "9fa5a9937cc5",
+  "generation": 1,
+  "score": 0.8190389373959905,
+  "emergence_score": 0.14343690987505897,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 490,
+        "cy": 546,
+        "r": 197
+      },
+      "transform": "",
+      "opacity": 0.8878841819975731
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 490,
+        "cy": 564,
+        "r": 192
+      },
+      "transform": "",
+      "opacity": 0.8878841819975731
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 332,
+        "cy": 385,
+        "size": 103,
+        "order": 9
+      },
+      "transform": "rotate(-2.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 332,
+        "cy": 385,
+        "size": 103,
+        "order": 9
+      },
+      "transform": "rotate(-2.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 403,
+        "cy": 379,
+        "n": 12,
+        "unit": 29
+      },
+      "transform": "rotate(-71.0,400,400)",
+      "opacity": 0.6441728552456822
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:48.551792+00:00"
+}

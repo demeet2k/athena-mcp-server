@@ -1,0 +1,73 @@
+{
+  "genome_id": "571ce2732018",
+  "generation": 2,
+  "score": 0.6214410070175845,
+  "emergence_score": 0.0,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "star_polygon",
+      "params": {
+        "cx": 561,
+        "cy": 386,
+        "r_outer": 217,
+        "r_inner": 63,
+        "n": 10,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 498,
+        "cy": 472,
+        "R": 271,
+        "angle_x": 0.7266140353491672,
+        "angle_z": 0.5551238485761095
+      },
+      "transform": "rotate(105.0,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "radial_burst",
+      "params": {
+        "cx": 529,
+        "cy": 469,
+        "r_inner": 74,
+        "r_outer": 326,
+        "n": 8
+      },
+      "transform": "",
+      "opacity": 0.7186980640402991
+    },
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 547,
+        "cy": 588,
+        "size": 187,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 499,
+        "cy": 213,
+        "r": 175,
+        "n": 4,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:10:25.907514+00:00"
+}

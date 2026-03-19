@@ -1,0 +1,72 @@
+{
+  "genome_id": "b54de86a49d0",
+  "generation": 2,
+  "score": 0.8683662804625992,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 405,
+        "cy": 363,
+        "size": 214,
+        "depth": 5
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 450,
+        "cy": 281,
+        "r": 186,
+        "n": 6,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.7484495105583853
+    },
+    {
+      "primitive": "circle",
+      "params": {
+        "cx": 132,
+        "cy": 594,
+        "r": 63,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(165.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 442,
+        "cy": 317,
+        "r": 190,
+        "n": 5,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.7484495105583853
+    },
+    {
+      "primitive": "circle",
+      "params": {
+        "cx": 100,
+        "cy": 573,
+        "r": 67,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(165.4,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:32:36.412283+00:00"
+}

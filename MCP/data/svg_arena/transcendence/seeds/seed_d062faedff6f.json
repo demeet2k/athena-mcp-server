@@ -1,0 +1,59 @@
+{
+  "genome_id": "d062faedff6f",
+  "generation": 3,
+  "score": 0.7292755941770614,
+  "emergence_score": 0.0,
+  "lineage_depth": 1,
+  "n_layers": 4,
+  "layers": [
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 530,
+        "y": 659,
+        "length": 206,
+        "angle": -1.7893979379426301,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 567,
+        "y": 659,
+        "length": 223,
+        "angle": -1.7893979379426301,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 302,
+        "cy": 304,
+        "size": 197,
+        "angle_x": 0.9444465383305207,
+        "angle_z": 0.7774536036015625
+      },
+      "transform": "rotate(80.2,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 334,
+        "cy": 304,
+        "size": 208,
+        "angle_x": 0.9444465383305207,
+        "angle_z": 0.7774536036015625
+      },
+      "transform": "rotate(80.2,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:20:28.748751+00:00"
+}

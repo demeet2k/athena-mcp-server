@@ -1,0 +1,7 @@
+{
+  "meta": {"type": "inverse_crystal_seed", "version": "2.0"},
+  "description": "Seed for inverse crystal operations: compress 108D to minimal seed",
+  "seed_equation": "Seed(S_k) = phi^{-1} * Compress(S_k) + (1-phi^{-1}) * Template(Archetype(S_k))",
+  "compression_ratio": "1/8 per level (108D -> 36D -> 12D -> 4D -> 1D)",
+  "seeds": {}
+}

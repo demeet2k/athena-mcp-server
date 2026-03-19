@@ -1,0 +1,15 @@
+{
+  "meta": {"type": "move_primitives", "version": "2.0"},
+  "primitives": [
+    {"id": "MP1", "name": "Shell Step", "notation": "S(k, k+1)", "description": "Move to adjacent shell"},
+    {"id": "MP2", "name": "Wreath Hop", "notation": "W(w1, w2)", "description": "Jump between wreaths within same archetype"},
+    {"id": "MP3", "name": "Archetype Leap", "notation": "A(a1, a2)", "description": "Jump between archetypes"},
+    {"id": "MP4", "name": "Face Turn", "notation": "F(f1, f2)", "description": "Rotate between faces S/F/C/R"},
+    {"id": "MP5", "name": "Bridge Cross", "notation": "B(e1, e2)", "description": "Cross element bridge"},
+    {"id": "MP6", "name": "Mirror Flip", "notation": "M(k)", "description": "Mobius mirror: k -> 37-k"},
+    {"id": "MP7", "name": "Dimensional Lift", "notation": "D(d, d+1)", "description": "Ascend one dimension"},
+    {"id": "MP8", "name": "Metro Ride", "notation": "L(s1, s2, line)", "description": "Travel along metro line"},
+    {"id": "MP9", "name": "Seed Compress", "notation": "Q(data)", "description": "Compress to 1/8 seed"},
+    {"id": "MP10", "name": "Crown Emit", "notation": "C(hologram)", "description": "Emit 16-value hologram checkpoint"}
+  ]
+}

@@ -1,0 +1,506 @@
+{
+  "meta": {
+    "total_challenges": 25,
+    "categories": 5
+  },
+  "challenges": [
+    {
+      "challenge_id": "prim_circle",
+      "name": "Single Circle",
+      "description": "A single circle centered on the canvas",
+      "category": "primitive",
+      "difficulty": 0.1,
+      "target_elements": 1,
+      "target_symmetry": 0,
+      "target_golden": false,
+      "reference_fn": "circle",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r": 200,
+        "fill": "none",
+        "stroke": "#333",
+        "stroke_width": "2"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "prim_rect",
+      "name": "Centered Rectangle",
+      "description": "A rectangle centered on canvas with golden ratio proportions",
+      "category": "primitive",
+      "difficulty": 0.15,
+      "target_elements": 1,
+      "target_symmetry": 2,
+      "target_golden": true,
+      "reference_fn": "rect",
+      "reference_params": {
+        "x": 152,
+        "y": 248,
+        "w": 496,
+        "h": 304,
+        "fill": "none",
+        "stroke": "#333",
+        "stroke_width": "2"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "prim_hexagon",
+      "name": "Regular Hexagon",
+      "description": "A regular hexagon centered on the canvas",
+      "category": "primitive",
+      "difficulty": 0.2,
+      "target_elements": 1,
+      "target_symmetry": 6,
+      "target_golden": false,
+      "reference_fn": "regular_polygon",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r": 250,
+        "n": 6,
+        "fill": "none",
+        "stroke": "#333",
+        "stroke_width": "2"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "prim_line_grid",
+      "name": "Line Grid",
+      "description": "A regular grid of horizontal and vertical lines",
+      "category": "primitive",
+      "difficulty": 0.25,
+      "target_elements": 40,
+      "target_symmetry": 4,
+      "target_golden": false,
+      "reference_fn": "line_grid",
+      "reference_params": {
+        "x": 50,
+        "y": 50,
+        "width": 700,
+        "height": 700,
+        "spacing": 35
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "prim_pentagon",
+      "name": "Regular Pentagon",
+      "description": "A regular pentagon \u2014 the golden ratio polygon",
+      "category": "primitive",
+      "difficulty": 0.2,
+      "target_elements": 1,
+      "target_symmetry": 5,
+      "target_golden": true,
+      "reference_fn": "regular_polygon",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r": 250,
+        "n": 5,
+        "fill": "none",
+        "stroke": "#333",
+        "stroke_width": "2"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "comp_concentric",
+      "name": "Concentric Circles",
+      "description": "5 concentric circles with phi-decaying radii",
+      "category": "composite",
+      "difficulty": 0.3,
+      "target_elements": 5,
+      "target_symmetry": 0,
+      "target_golden": true,
+      "reference_fn": "concentric_circles",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r_outer": 300,
+        "n": 5,
+        "fill": "none",
+        "stroke": "#333",
+        "stroke_width": "1.5"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "comp_star5",
+      "name": "Five-Pointed Star",
+      "description": "A classic 5-pointed star with golden ratio inner/outer radii",
+      "category": "composite",
+      "difficulty": 0.35,
+      "target_elements": 1,
+      "target_symmetry": 5,
+      "target_golden": true,
+      "reference_fn": "star_polygon",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r_outer": 300,
+        "r_inner": 115,
+        "n": 5,
+        "fill": "none",
+        "stroke": "#333",
+        "stroke_width": "2"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "comp_radial",
+      "name": "Radial Burst",
+      "description": "12 lines radiating from center (clock-like)",
+      "category": "composite",
+      "difficulty": 0.35,
+      "target_elements": 12,
+      "target_symmetry": 12,
+      "target_golden": false,
+      "reference_fn": "radial_burst",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r_inner": 50,
+        "r_outer": 350,
+        "n": 12
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "comp_checker",
+      "name": "Checkered Grid",
+      "description": "An 8x8 checkered pattern like a chess board",
+      "category": "composite",
+      "difficulty": 0.4,
+      "target_elements": 64,
+      "target_symmetry": 4,
+      "target_golden": false,
+      "reference_fn": "checkered_grid",
+      "reference_params": {
+        "x": 100,
+        "y": 100,
+        "rows": 8,
+        "cols": 8,
+        "cell_size": 75
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "comp_star8",
+      "name": "Eight-Pointed Star",
+      "description": "An 8-pointed star with octagonal symmetry",
+      "category": "composite",
+      "difficulty": 0.45,
+      "target_elements": 1,
+      "target_symmetry": 8,
+      "target_golden": false,
+      "reference_fn": "star_polygon",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r_outer": 300,
+        "r_inner": 140,
+        "n": 8,
+        "fill": "none",
+        "stroke": "#333",
+        "stroke_width": "2"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "sacred_vesica",
+      "name": "Vesica Piscis",
+      "description": "Two overlapping circles forming the vesica piscis",
+      "category": "sacred",
+      "difficulty": 0.5,
+      "target_elements": 2,
+      "target_symmetry": 2,
+      "target_golden": false,
+      "reference_fn": "vesica_piscis",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r": 200
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "sacred_flower2",
+      "name": "Flower of Life (2 rings)",
+      "description": "Flower of life with 2 rings of overlapping circles",
+      "category": "sacred",
+      "difficulty": 0.55,
+      "target_elements": 19,
+      "target_symmetry": 6,
+      "target_golden": false,
+      "reference_fn": "flower_of_life",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r": 80,
+        "rings": 2
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "sacred_flower3",
+      "name": "Flower of Life (3 rings)",
+      "description": "Flower of life with 3 rings \u2014 the classic sacred geometry pattern",
+      "category": "sacred",
+      "difficulty": 0.6,
+      "target_elements": 37,
+      "target_symmetry": 6,
+      "target_golden": false,
+      "reference_fn": "flower_of_life",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r": 60,
+        "rings": 3
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "sacred_metatron",
+      "name": "Metatron's Cube",
+      "description": "13 circles with all connecting lines \u2014 the template of creation",
+      "category": "sacred",
+      "difficulty": 0.65,
+      "target_elements": 91,
+      "target_symmetry": 6,
+      "target_golden": false,
+      "reference_fn": "metatron_cube",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "r": 150
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "sacred_sri",
+      "name": "Sri Yantra",
+      "description": "9 interlocking triangles (4 up, 5 down)",
+      "category": "sacred",
+      "difficulty": 0.7,
+      "target_elements": 9,
+      "target_symmetry": 3,
+      "target_golden": false,
+      "reference_fn": "sri_yantra",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "size": 300
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "frac_tree5",
+      "name": "Fractal Tree (depth 5)",
+      "description": "Recursive branching tree with golden ratio decay",
+      "category": "fractal",
+      "difficulty": 0.7,
+      "target_elements": 63,
+      "target_symmetry": 2,
+      "target_golden": true,
+      "reference_fn": "fractal_tree",
+      "reference_params": {
+        "x": 400,
+        "y": 750,
+        "length": 200,
+        "angle": -1.5708,
+        "depth": 5
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "frac_theodorus",
+      "name": "Spiral of Theodorus",
+      "description": "Square root spiral from right triangles",
+      "category": "fractal",
+      "difficulty": 0.75,
+      "target_elements": 17,
+      "target_symmetry": 0,
+      "target_golden": false,
+      "reference_fn": "spiral_of_theodorus",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "n": 17,
+        "unit": 25
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "frac_koch3",
+      "name": "Koch Snowflake (depth 3)",
+      "description": "Fractal snowflake with 3 levels of recursion",
+      "category": "fractal",
+      "difficulty": 0.8,
+      "target_elements": 1,
+      "target_symmetry": 3,
+      "target_golden": false,
+      "reference_fn": "koch_snowflake",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "size": 300,
+        "depth": 3
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "frac_sierpinski4",
+      "name": "Sierpinski Triangle (depth 4)",
+      "description": "Fractal triangle subdivision, 4 levels deep",
+      "category": "fractal",
+      "difficulty": 0.85,
+      "target_elements": 81,
+      "target_symmetry": 3,
+      "target_golden": false,
+      "reference_fn": "sierpinski_triangle",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "size": 350,
+        "depth": 4
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "frac_tree7",
+      "name": "Fractal Tree (depth 7)",
+      "description": "Deep fractal tree with 7 levels of golden ratio branching",
+      "category": "fractal",
+      "difficulty": 0.9,
+      "target_elements": 255,
+      "target_symmetry": 2,
+      "target_golden": true,
+      "reference_fn": "fractal_tree",
+      "reference_params": {
+        "x": 400,
+        "y": 750,
+        "length": 180,
+        "angle": -1.5708,
+        "depth": 7
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "cryst_tesseract",
+      "name": "Tesseract Projection",
+      "description": "4D hypercube projected to 2D \u2014 16 vertices, 32 edges",
+      "category": "crystal",
+      "difficulty": 0.8,
+      "target_elements": 32,
+      "target_symmetry": 4,
+      "target_golden": true,
+      "reference_fn": "tesseract_projection",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "size": 150
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "cryst_hex_lattice",
+      "name": "Hexagonal Crystal Lattice",
+      "description": "7x7 hexagonal lattice \u2014 the structure of graphene",
+      "category": "crystal",
+      "difficulty": 0.85,
+      "target_elements": 49,
+      "target_symmetry": 6,
+      "target_golden": false,
+      "reference_fn": "crystal_lattice",
+      "reference_params": {
+        "cx": 150,
+        "cy": 100,
+        "rows": 7,
+        "cols": 7,
+        "spacing": 80,
+        "lattice_type": "hex"
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "cryst_phi_grid",
+      "name": "Golden Ratio Grid",
+      "description": "Recursive golden ratio subdivision of the canvas",
+      "category": "crystal",
+      "difficulty": 0.85,
+      "target_elements": 10,
+      "target_symmetry": 0,
+      "target_golden": true,
+      "reference_fn": "phi_grid",
+      "reference_params": {
+        "width": 800,
+        "height": 800,
+        "divisions": 5
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "cryst_golden_spiral",
+      "name": "Golden Spiral",
+      "description": "Fibonacci spiral via quarter-circle arcs",
+      "category": "crystal",
+      "difficulty": 0.9,
+      "target_elements": 1,
+      "target_symmetry": 0,
+      "target_golden": true,
+      "reference_fn": "golden_spiral",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "turns": 5,
+        "scale_factor": 300
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    },
+    {
+      "challenge_id": "cryst_full_mandala",
+      "name": "Crystal Mandala",
+      "description": "Flower of life + phi grid + concentric circles overlay",
+      "category": "crystal",
+      "difficulty": 1.0,
+      "target_elements": 50,
+      "target_symmetry": 6,
+      "target_golden": true,
+      "reference_fn": "_crystal_mandala",
+      "reference_params": {
+        "cx": 400,
+        "cy": 400,
+        "size": 300
+      },
+      "canvas_width": 800,
+      "canvas_height": 800
+    }
+  ]
+}

@@ -205,6 +205,7 @@ def register_108d_tools(mcp) -> None:
         hive_ledger_broadcasts, hive_ledger_ack, hive_ledger_status,
     )
     from .time_fractal import query_time_fractal
+    from .conservation_watchdog import query_conservation_watchdog
 
     # 4D Upgrade modules (Octave Loop)
     from .inverse_engine import get_inverse_engine
@@ -268,6 +269,7 @@ def register_108d_tools(mcp) -> None:
         query_crystal_weaving,
         query_kc27_runtime_closure,
         query_time_fractal,
+        query_conservation_watchdog,
         hive_ledger_write, hive_ledger_read,
         hive_ledger_broadcasts, hive_ledger_ack, hive_ledger_status,
     ]

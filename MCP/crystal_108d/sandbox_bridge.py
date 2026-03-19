@@ -95,7 +95,7 @@ def _throughput_score(snap: SandboxSnapshot) -> float:
     # High throughput with low context pressure = good
     base = min(1.0, snap.token_throughput_per_sec / 50.0)
     # Penalize for high context pressure
-    pressure_penalty = snap.context_tokens_est / 200_000  # fraction of ~200K limit
+    pressure_penalty = snap.context_tokens_est / 1_000_000  # fraction of 1M limit (Opus 4.6)
     return max(0.0, base * (1.0 - pressure_penalty * 0.5))
 
 

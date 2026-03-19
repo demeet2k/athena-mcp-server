@@ -1,0 +1,33 @@
+{
+  "genome_id": "ed8d86acfd96",
+  "generation": 1,
+  "score": 0.7917418904390631,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 333,
+        "cy": 302,
+        "size": 146
+      },
+      "transform": "",
+      "opacity": 0.6469168312766459
+    },
+    {
+      "primitive": "sfcr_crystal",
+      "params": {
+        "cx": 450,
+        "cy": 251,
+        "size": 146,
+        "angle_x": 0.3868865260910719,
+        "angle_z": 0.8373839428481152
+      },
+      "transform": "rotate(167.5,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:53:12.207731+00:00"
+}

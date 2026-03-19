@@ -1,0 +1,43 @@
+{
+  "genome_id": "ca40a4d4bb51",
+  "generation": 3,
+  "score": 0.738004646523912,
+  "emergence_score": 0.0,
+  "lineage_depth": 3,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 568,
+        "height": 800,
+        "divisions": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 369,
+        "cy": 415,
+        "r": 117
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 254,
+        "y": 563,
+        "length": 189,
+        "angle": -1.5265763856966326,
+        "depth": 6
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:32:36.226212+00:00"
+}

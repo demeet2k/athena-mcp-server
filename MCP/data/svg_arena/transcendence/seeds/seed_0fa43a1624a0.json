@@ -1,0 +1,72 @@
+{
+  "genome_id": "0fa43a1624a0",
+  "generation": 1,
+  "score": 0.7974902081706323,
+  "emergence_score": 0.06504306100345181,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 268,
+        "cy": 484,
+        "r": 103,
+        "rings": 2,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 450,
+        "cy": 437,
+        "r_outer": 185,
+        "n": 8,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.3
+    },
+    {
+      "primitive": "sfcr_crystal",
+      "params": {
+        "cx": 308,
+        "cy": 439,
+        "size": 223,
+        "angle_x": 0.6520280428321408,
+        "angle_z": 0.28673762841977
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 228,
+        "y": 500,
+        "length": 209,
+        "angle": -1.5726899632277522,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 314,
+        "cy": 209,
+        "size": 165,
+        "order": 3
+      },
+      "transform": "",
+      "opacity": 0.5869970967669165
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:48:47.484833+00:00"
+}

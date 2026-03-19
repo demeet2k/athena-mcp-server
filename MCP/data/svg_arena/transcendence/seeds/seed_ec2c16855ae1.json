@@ -1,0 +1,71 @@
+{
+  "genome_id": "ec2c16855ae1",
+  "generation": 3,
+  "score": 0.8266922697758173,
+  "emergence_score": 0.03716110802610251,
+  "lineage_depth": 3,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 360,
+        "y": 657,
+        "length": 221,
+        "angle": -1.5649925653544943,
+        "depth": 7
+      },
+      "transform": "rotate(68.7,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 522,
+        "cy": 426,
+        "r_outer": 278,
+        "n": 3,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.3
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 299,
+        "cy": 478,
+        "r": 56,
+        "rings": 3,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(23.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 566,
+        "cy": 550,
+        "size": 100
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 360,
+        "y": 657,
+        "length": 232,
+        "angle": -1.458006144615007,
+        "depth": 7
+      },
+      "transform": "rotate(68.7,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:04:50.228057+00:00"
+}

@@ -1,0 +1,64 @@
+{
+  "genome_id": "ecad913ef0ea",
+  "generation": 2,
+  "score": 0.6623742996242297,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 457,
+        "cy": 260,
+        "turns": 4,
+        "scale_factor": 168
+      },
+      "transform": "rotate(172.2,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 235,
+        "cy": 512,
+        "n": 20,
+        "unit": 35
+      },
+      "transform": "",
+      "opacity": 0.9968704621668067
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 477,
+        "cy": 260,
+        "turns": 4,
+        "scale_factor": 164
+      },
+      "transform": "rotate(172.2,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 454,
+        "height": 577,
+        "divisions": 5
+      },
+      "transform": "rotate(-105.5,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 454,
+        "height": 633,
+        "divisions": 5
+      },
+      "transform": "rotate(-105.5,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:05:51.205466+00:00"
+}

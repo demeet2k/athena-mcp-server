@@ -1,0 +1,67 @@
+{
+  "genome_id": "79ca03640e42",
+  "generation": 2,
+  "score": 0.8083707768178746,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 490,
+        "cy": 564,
+        "r": 192
+      },
+      "transform": "",
+      "opacity": 0.8878841819975731
+    },
+    {
+      "primitive": "star_polygon",
+      "params": {
+        "cx": 415,
+        "cy": 554,
+        "r_outer": 201,
+        "r_inner": 131,
+        "n": 3,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.8021591410063975
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 332,
+        "cy": 376,
+        "size": 103,
+        "order": 8
+      },
+      "transform": "rotate(-2.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 490,
+        "cy": 546,
+        "r": 197
+      },
+      "transform": "",
+      "opacity": 0.8878841819975731
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 318,
+        "cy": 409,
+        "size": 103,
+        "order": 9
+      },
+      "transform": "rotate(-2.4,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:48.591319+00:00"
+}

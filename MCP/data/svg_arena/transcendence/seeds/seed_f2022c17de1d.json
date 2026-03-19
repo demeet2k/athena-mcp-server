@@ -1,0 +1,35 @@
+{
+  "genome_id": "f2022c17de1d",
+  "generation": 3,
+  "score": 0.5882627976451257,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "circle",
+      "params": {
+        "cx": 260,
+        "cy": 486,
+        "r": 99,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 491,
+        "y": 509,
+        "length": 172,
+        "angle": -1.5417419744092944,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:04:43.347818+00:00"
+}

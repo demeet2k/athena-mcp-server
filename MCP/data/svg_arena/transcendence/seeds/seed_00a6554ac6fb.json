@@ -1,0 +1,66 @@
+{
+  "genome_id": "00a6554ac6fb",
+  "generation": 2,
+  "score": 0.7967759374969212,
+  "emergence_score": 0.040054916573065036,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 535,
+        "cy": 512,
+        "size": 239,
+        "angle_x": 0.6173185144499236,
+        "angle_z": 0.7401999246153707
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 488,
+        "cy": 468,
+        "size": 117
+      },
+      "transform": "rotate(128.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 435,
+        "cy": 431,
+        "size": 328
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 397,
+        "cy": 495,
+        "n": 20,
+        "unit": 22
+      },
+      "transform": "rotate(179.8,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "icosahedron",
+      "params": {
+        "cx": 588,
+        "cy": 388,
+        "size": 237,
+        "angle_x": 0.9842630075280924,
+        "angle_z": 0.5475508414436474
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:38.018721+00:00"
+}

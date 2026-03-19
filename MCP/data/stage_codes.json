@@ -1,0 +1,13 @@
+{
+  "meta": {"type": "stage_codes", "version": "2.0"},
+  "stages": {
+    "A": {"waves": 9, "description": "3x3 trinity ignition", "focus": "Initialize query space"},
+    "B": {"waves": 20, "description": "4x5 SFCR element expansion", "focus": "Expand across all elements"},
+    "C": {"waves": 49, "description": "7x7 metals/planets deep processing", "focus": "Full planetary depth"},
+    "D": {"waves": 81, "description": "9x9 completion matrix", "focus": "Enneadic closure"},
+    "FINAL": {"waves": 1, "description": "Inversion + poles + hologram emit", "focus": "Seed emission"}
+  },
+  "total_per_cycle": 159,
+  "meta_loop_cycles": 3,
+  "total_per_meta_loop": 477
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {"type": "calculus_4d", "version": "2.0"},
+  "description": "4D calculus operations on the SFCR crystal kernel",
+  "operations": {
+    "projection": "Project higher-D state to 4D SFCR vector",
+    "rotation": "Sigma-60 icosahedral rotation in 4D",
+    "expansion": "E8-240 root expansion from 4D",
+    "contraction": "Hologram compression 38837:16",
+    "inversion": "Mirror flip S_k -> S_{37-k}",
+    "transport": "Cross-lens transition T_{A->B}"
+  },
+  "identity_element": "4D kernel is the identity: all expansions return through it"
+}

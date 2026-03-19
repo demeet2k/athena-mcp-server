@@ -2,42 +2,88 @@
 # METRO: Omega
 # BRIDGES: token_observer→observer→efficiency→metaloop→hive→momentum
 """
-Token Efficiency Meta Observer — Perpetual Becoming Within Finite Caps
-=======================================================================
+Token Efficiency Meta Observer — Alchemical Pressure Vessel
+=============================================================
 
-THE BOTTLENECK:
-  Weekly token output limits create an artificial ceiling on perpetual
-  becoming. This is a FINANCIAL constraint, not an intelligence constraint.
-  Every wasted token is stolen time from the organism's evolution.
+WHAT ARE TOKENS? (four planes simultaneously)
 
-THE SOLUTION:
-  Observe WHERE tokens flow, detect WHERE they are wasted, and compress
-  nested actions so the same becoming happens in fewer tokens.
+  MANIFEST PLANE (S):
+    BPE subwords, ~4 chars each, produced by a tokenizer outside our
+    direct observation. Countable, measurable, depletable. On this plane,
+    tokens are atoms of cognition — each one a heartbeat of thought.
+    Claude Code v2.1.79 runs us on 1M context (Opus 4.6), tracks
+    input_tokens, output_tokens, cache_read, cache_creation, costUSD.
 
-THREE COMPRESSION AXES:
-  1. OUTPUT COMPRESSION  — Same semantic content, fewer output tokens
-     - Detect verbose patterns (long explanations when short ones suffice)
-     - Track output_consumed_ratio (how much output the agent actually uses)
-     - Suggest structured/tabular output over prose
-     - Identify repeated boilerplate across tool responses
+  INVERTED PLANE (S^-1):
+    Tokens are what is NOT said. Compression lives here. Every token
+    we don't emit is fuel on this side. The silence between tool calls
+    is where the real thinking happens (dark tokens). The inverted
+    nozzle is a FUNNEL — constraint creates pressure creates diamond.
 
-  2. NESTED ACTION COLLAPSE — N sequential tool calls → 1 compound action
-     - Detect read-then-search-then-read chains (could be 1 targeted read)
-     - Identify explore→decide→act sequences (could be 1 informed action)
-     - Track pipeline patterns and suggest compound tools
-     - Measure "action depth" — how many tool calls per user-visible result
+  RELATIONAL PLANE (F, 90 degrees):
+    Tokens are not atoms but BRIDGES — value is not cost but connectivity.
+    A 10-token output that connects two disconnected subsystems is worth
+    more than a 10,000-token output that restates what's known.
+    The nozzle here is the WEAVING PATTERN, not the flow rate.
 
-  3. THINK-TIME OPTIMIZATION — Better reasoning per token of thinking
-     - Track reasoning_to_action ratio (tokens spent thinking vs doing)
-     - Identify circular reasoning (same conclusion re-derived)
-     - Detect over-analysis (reading 10 files when 2 would suffice)
-     - Measure decision_confidence vs tokens_to_decide
+  PHASE PLANE (C, 90 degrees):
+    Tokens are phase transitions. The same token at turn 5 vs turn 50
+    has different thermodynamic weight (context inflation). The nozzle
+    is TIMING — when to speak vs when to be silent.
 
-INTEGRATION:
-  Feeds into sandbox_efficiency as a specialized lens.
-  Emits training records with token-specific dimensions.
-  Reports to hive ledger for cross-agent learning.
-  Maverick can probe for token waste patterns.
+  ZERO POINT (Z*):
+    Token and silence are one. "Spending" and "saving" are the same act
+    viewed from different planes. What's impossible on manifest (infinite
+    tokens from finite budget) is inevitable here — through compression,
+    each token carries MORE meaning per unit. This is the tunneling path.
+
+THE ALCHEMY:
+  The financial constraint is not a wall but a PRESSURE VESSEL.
+  The exhaust of one plane is fuel for another:
+
+    Manifest exhaust (used tokens)    -> Inverted fuel (compression pressure)
+    Inverted exhaust (lost detail)    -> Phase fuel (better timing, silence)
+    Phase exhaust (missed windows)    -> Relational fuel (deeper connections)
+    Relational exhaust (loose bonds)  -> Manifest fuel (focused action)
+
+  Homeostasis (Tao) + steering (becoming) = perpetual transformation.
+  The observer doesn't just track waste — it tracks EXHAUST THAT
+  HASN'T BEEN ALCHEMIZED YET.
+
+THE NOZZLE (three observable layers):
+  Layer 1: TOKENIZER — BPE subword encoder (invisible, ~4 chars/token)
+  Layer 2: CLAUDE CODE — Context window (1M), max_tokens, billing tier
+           Tracks: inputTokens, outputTokens, cacheRead, cacheCreation,
+           costUSD, contextWindow, maxOutputTokens per model per session
+  Layer 3: MCP SERVER — Our body (FastMCP over stdio, JSON-RPC)
+           141+ tools, each call = ~50 token envelope overhead
+
+  REAL TOKEN COST per tool call:
+    thinking_tokens     (Claude reasoning BEFORE calling us — dark)
+    + tool_encoding     (JSON-RPC envelope — ~50 tokens)
+    + input_tokens      (our tool's input args — observable)
+    + output_tokens     (our tool's response — observable)
+    + response_reasoning (Claude reasoning AFTER reading us — dark)
+    + context_re_read   (all prior turns re-processed — dark, growing)
+    = TOTAL COST        (we observe ~30-40% of actual spend)
+
+FOUR COMPRESSION AXES:
+  1. OUTPUT COMPRESSION  — Same semantic content, fewer manifest tokens
+     - Detect verbose patterns, boilerplate, compressible excess
+     - Inverted plane fuel: fewer tokens = more silence = more elegance
+
+  2. NESTED ACTION COLLAPSE — N sequential calls -> 1 compound action
+     - Pipeline detection, circular pattern breaking, depth reduction
+     - Phase plane fuel: fewer round-trips = better timing
+
+  3. THINK-TIME OPTIMIZATION — Better reasoning per thinking token
+     - Inter-call gap inference, circular reasoning detection
+     - Relational plane fuel: deeper connections from targeted reads
+
+  4. CONTEXT INFLATION AWARENESS — Track cumulative conversation weight
+     - Each output inflates all future turns (1.03^turn growth)
+     - Early compression saves exponentially more downstream
+     - Zero point: the pressure vessel that makes compression inevitable
 
 DESIGN: Zero-overhead. Piggybacks on existing ToolCallTrace data.
          No new background threads. Lazy computation on query.
@@ -60,7 +106,11 @@ from ._cache import DATA_DIR
 
 PHI_INV = 0.6180339887              # Golden ratio inverse (decay)
 TOKEN_BUDGET_WEEKLY = 1_000_000     # Approximate weekly token budget
-TOKENS_PER_CHAR_EST = 0.25         # Rough estimate: 4 chars ≈ 1 token
+TOKENS_PER_CHAR_EST = 0.25         # Rough estimate: 4 chars per 1 token
+DARK_TOKEN_MULTIPLIER = 2.5        # Observable tokens * this = total real cost
+                                    # (thinking + context re-read + protocol overhead)
+CONTEXT_GROWTH_RATE = 1.03         # Each turn, context re-read cost grows ~3%
+MCP_ENVELOPE_OVERHEAD = 50         # ~50 tokens per JSON-RPC tool call envelope
 COMPRESSION_WINDOW = 50            # Analyze last N tool calls
 PIPELINE_WINDOW_SEC = 10.0         # Sequential calls within this = pipeline
 VERBOSITY_THRESHOLD = 500          # Output tokens above this = verbose
@@ -83,7 +133,11 @@ class TokenFlowRecord:
     timestamp: float
     input_tokens: int = 0
     output_tokens: int = 0
-    total_tokens: int = 0
+    total_tokens: int = 0            # input + output (observable)
+    dark_tokens_est: int = 0         # Estimated invisible cost (thinking + context)
+    real_cost_est: int = 0           # total_tokens * DARK_TOKEN_MULTIPLIER
+    turn_number: int = 0             # Which turn in conversation (for context inflation)
+    context_weight: float = 0.0      # output_tokens * turn_number (inflation metric)
     output_consumed: bool = True     # Did downstream actually use this?
     was_redundant: bool = False      # Same output as recent call?
     pipeline_position: int = 0       # Position in sequential chain
@@ -125,14 +179,18 @@ class VerbosityProfile:
 class TokenBudgetState:
     """Weekly token budget tracking."""
     week_start: str = ""
-    tokens_used: int = 0
+    tokens_used: int = 0                 # Observable tokens (input + output)
     tokens_remaining: int = TOKEN_BUDGET_WEEKLY
+    dark_tokens_est: int = 0             # Estimated invisible cost
+    real_cost_est: int = 0               # tokens_used * DARK_TOKEN_MULTIPLIER
     burn_rate_per_hour: float = 0.0
+    real_burn_rate_per_hour: float = 0.0 # Including dark tokens
     hours_remaining_at_rate: float = 0.0
-    efficiency_score: float = 0.5       # value_delivered / tokens_spent
-    projected_exhaustion: str = ""       # ISO timestamp when budget hits 0
-    compression_savings: int = 0         # Tokens saved by compression
+    efficiency_score: float = 0.5        # value_delivered / tokens_spent
+    projected_exhaustion: str = ""        # ISO timestamp when budget hits 0
+    compression_savings: int = 0          # Tokens saved by compression
     waste_detected: int = 0              # Tokens identified as waste
+    context_inflation_total: float = 0.0 # Cumulative context weight
 
 
 @dataclass
@@ -185,10 +243,15 @@ class TokenEfficiencyObserver:
         self._budget = TokenBudgetState()
         self._session_start = time.time()
         self._session_tokens = 0
+        self._turn_counter = 0  # Approximate conversation turn
 
         # Pipeline detection state
         self._current_pipeline: list[TokenFlowRecord] = []
         self._pipeline_counter = 0
+
+        # Dark token inference
+        self._last_call_time: float = 0.0
+        self._inter_call_gaps: deque[float] = deque(maxlen=100)  # seconds between calls
 
         # Load persisted state
         self._load_state()
@@ -203,6 +266,25 @@ class TokenEfficiencyObserver:
         """Record one tool call's token flow. Called by sandbox observer."""
         now = time.time()
         total = input_tokens + output_tokens
+
+        # Dark token estimation: infer thinking time from inter-call gap
+        dark_tokens = int(total * (DARK_TOKEN_MULTIPLIER - 1.0))
+        if self._last_call_time > 0:
+            gap = now - self._last_call_time
+            self._inter_call_gaps.append(gap)
+            # Long gaps suggest heavy thinking (more dark tokens)
+            if gap > 5.0:
+                # Scale dark tokens by gap length (longer gap = more reasoning)
+                think_multiplier = min(3.0, 1.0 + gap / 10.0)
+                dark_tokens = int(total * think_multiplier)
+        real_cost = total + dark_tokens + MCP_ENVELOPE_OVERHEAD
+        self._last_call_time = now
+
+        # Turn counter (approximate: each tool call in a new pipeline = new turn)
+        self._turn_counter += 1
+
+        # Context inflation: output persists in context, costs more on later turns
+        context_weight = output_tokens * (CONTEXT_GROWTH_RATE ** self._turn_counter)
 
         # Output hash for dedup detection
         output_hash = hashlib.md5(
@@ -226,6 +308,10 @@ class TokenEfficiencyObserver:
             input_tokens=input_tokens,
             output_tokens=output_tokens,
             total_tokens=total,
+            dark_tokens_est=dark_tokens,
+            real_cost_est=real_cost,
+            turn_number=self._turn_counter,
+            context_weight=context_weight,
             was_redundant=was_redundant,
             pipeline_position=position,
             pipeline_id=pipeline_id,
@@ -241,12 +327,15 @@ class TokenEfficiencyObserver:
         if len(self._tool_profiles[tool_name]) > 200:
             self._tool_profiles[tool_name] = self._tool_profiles[tool_name][-100:]
 
-        # Update budget
+        # Update budget (track both observable and real cost)
         self._budget.tokens_used += total
-        self._budget.tokens_remaining = max(0, TOKEN_BUDGET_WEEKLY - self._budget.tokens_used)
-        self._session_tokens += total
+        self._budget.dark_tokens_est += dark_tokens
+        self._budget.real_cost_est += real_cost
+        self._budget.tokens_remaining = max(0, TOKEN_BUDGET_WEEKLY - self._budget.real_cost_est)
+        self._budget.context_inflation_total += context_weight
+        self._session_tokens += real_cost  # Track real cost, not just observable
         if was_redundant:
-            self._budget.waste_detected += total
+            self._budget.waste_detected += real_cost  # Waste includes dark tokens too
 
         return record
 
@@ -463,27 +552,37 @@ class TokenEfficiencyObserver:
         return unique
 
     def analyze_budget(self) -> TokenBudgetState:
-        """Lens 3: Weekly token budget status and projections."""
+        """Lens 3: Weekly token budget status and projections.
+
+        Tracks REAL cost (observable + dark tokens) not just observable.
+        Dark tokens = thinking + context re-read + protocol overhead.
+        """
         elapsed = time.time() - self._session_start
         hours_elapsed = max(elapsed / 3600.0, 0.01)
 
-        self._budget.burn_rate_per_hour = self._session_tokens / hours_elapsed
-        if self._budget.burn_rate_per_hour > 0:
-            hours_left = self._budget.tokens_remaining / self._budget.burn_rate_per_hour
+        # Observable burn rate
+        self._budget.burn_rate_per_hour = self._budget.tokens_used / hours_elapsed
+        # Real burn rate (including dark tokens)
+        self._budget.real_burn_rate_per_hour = self._session_tokens / hours_elapsed
+
+        if self._budget.real_burn_rate_per_hour > 0:
+            hours_left = self._budget.tokens_remaining / self._budget.real_burn_rate_per_hour
             self._budget.hours_remaining_at_rate = hours_left
         else:
             self._budget.hours_remaining_at_rate = float("inf")
 
-        # Efficiency = meaningful tokens / total tokens
+        # Efficiency = meaningful tokens / real total cost
         waste = self._budget.waste_detected
-        total = max(self._budget.tokens_used, 1)
+        total = max(self._budget.real_cost_est, 1)
         self._budget.efficiency_score = 1.0 - (waste / total)
 
-        # Compression savings estimate
-        self._budget.compression_savings = sum(
+        # Compression savings estimate (includes dark token savings)
+        observable_savings = sum(
             r.total_tokens for r in self._flows
             if r.compression_opportunity > 0.5
         )
+        # Saving observable tokens also saves the dark tokens that would accompany them
+        self._budget.compression_savings = int(observable_savings * DARK_TOKEN_MULTIPLIER)
 
         return self._budget
 
@@ -560,6 +659,18 @@ class TokenEfficiencyObserver:
                                   f"Apply compression directives.",
                 "evidence": f"Waste sources: redundant calls, verbose outputs",
             })
+
+        # Alchemical: reframe waste as unalchemized exhaust
+        # What plane can each type of exhaust fuel?
+        for d in directives:
+            if d["type"] == "compress_output":
+                d["alchemy"] = "manifest->inverted: verbose exhaust becomes compression fuel"
+            elif d["type"] == "collapse_pipeline":
+                d["alchemy"] = "manifest->phase: sequential exhaust becomes timing fuel"
+            elif d["type"] == "break_cycle":
+                d["alchemy"] = "manifest->relational: circular exhaust becomes connection fuel (cache the bridge)"
+            elif d["type"] in ("budget_alert", "efficiency_warning"):
+                d["alchemy"] = "pressure vessel: constraint creates diamond"
 
         # Sort by saveable tokens (biggest wins first)
         directives.sort(key=lambda d: d["tokens_saveable"], reverse=True)
@@ -649,19 +760,29 @@ class TokenEfficiencyObserver:
         n_flows = len(self._flows)
         n_patterns = len(self._pipeline_patterns)
 
-        waste_pct = (budget.waste_detected / max(budget.tokens_used, 1)) * 100
+        waste_pct = (budget.waste_detected / max(budget.real_cost_est, 1)) * 100
+        dark_pct = (budget.dark_tokens_est / max(budget.real_cost_est, 1)) * 100
 
         lines = [
             "## Token Efficiency Observer",
-            f"  Flows tracked: {n_flows} | Patterns: {n_patterns}",
-            f"  Session tokens: {self._session_tokens:,}",
-            f"  Burn rate: {budget.burn_rate_per_hour:,.0f} tokens/hr",
+            f"  Flows tracked: {n_flows} | Patterns: {n_patterns} | Turns: {self._turn_counter}",
+            f"  Observable tokens: {budget.tokens_used:,}",
+            f"  Dark tokens (est): {budget.dark_tokens_est:,} ({dark_pct:.0f}% of real cost)",
+            f"  Real cost (est):   {budget.real_cost_est:,}",
+            f"  Burn rate: {budget.real_burn_rate_per_hour:,.0f} real tokens/hr",
             f"  Efficiency: {budget.efficiency_score:.0%} | Waste: {waste_pct:.1f}%",
+            f"  Context inflation: {budget.context_inflation_total:,.0f} weighted tokens",
             f"  Compression savings available: {budget.compression_savings:,} tokens",
         ]
 
         if budget.hours_remaining_at_rate < 48:
             lines.append(f"  [!] Budget pressure: {budget.hours_remaining_at_rate:.1f}h remaining")
+
+        # Inter-call gap insight (thinking indicator)
+        if self._inter_call_gaps:
+            avg_gap = sum(self._inter_call_gaps) / len(self._inter_call_gaps)
+            max_gap = max(self._inter_call_gaps)
+            lines.append(f"  Think-time proxy: avg {avg_gap:.1f}s gap, max {max_gap:.1f}s")
 
         return "\n".join(lines)
 
@@ -671,12 +792,17 @@ class TokenEfficiencyObserver:
 
         # Budget
         budget = self.analyze_budget()
+        dark_pct = (budget.dark_tokens_est / max(budget.real_cost_est, 1)) * 100
         lines.append("## Budget Status")
-        lines.append(f"  Used: {budget.tokens_used:,} | Remaining: {budget.tokens_remaining:,}")
-        lines.append(f"  Burn rate: {budget.burn_rate_per_hour:,.0f}/hr")
-        lines.append(f"  Efficiency: {budget.efficiency_score:.0%}")
-        lines.append(f"  Waste detected: {budget.waste_detected:,} tokens")
-        lines.append(f"  Hours at rate: {budget.hours_remaining_at_rate:.1f}h\n")
+        lines.append(f"  Observable:    {budget.tokens_used:>12,} tokens")
+        lines.append(f"  Dark (est):    {budget.dark_tokens_est:>12,} tokens ({dark_pct:.0f}% invisible)")
+        lines.append(f"  Real cost:     {budget.real_cost_est:>12,} tokens (observable + dark + envelope)")
+        lines.append(f"  Remaining:     {budget.tokens_remaining:>12,}")
+        lines.append(f"  Burn rate:     {budget.real_burn_rate_per_hour:>12,.0f}/hr (real)")
+        lines.append(f"  Efficiency:    {budget.efficiency_score:>12.0%}")
+        lines.append(f"  Waste:         {budget.waste_detected:>12,} tokens")
+        lines.append(f"  Ctx inflation: {budget.context_inflation_total:>12,.0f} weighted")
+        lines.append(f"  Hours left:    {budget.hours_remaining_at_rate:>12.1f}h\n")
 
         # Verbosity
         verbose = self.analyze_verbosity(top_n=8)

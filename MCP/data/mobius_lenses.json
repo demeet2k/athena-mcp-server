@@ -1,0 +1,26 @@
+{
+  "meta": {"type": "mobius_lenses", "version": "2.0"},
+  "mirror_law": "mu(k) = 37 - k",
+  "fixed_point": null,
+  "pairs": [
+    {"shell_a": 1, "shell_b": 36, "archetype_a": "Aries", "archetype_b": "Pisces"},
+    {"shell_a": 2, "shell_b": 35, "archetype_a": "Aries", "archetype_b": "Pisces"},
+    {"shell_a": 3, "shell_b": 34, "archetype_a": "Aries", "archetype_b": "Pisces"},
+    {"shell_a": 4, "shell_b": 33, "archetype_a": "Taurus", "archetype_b": "Aquarius"},
+    {"shell_a": 5, "shell_b": 32, "archetype_a": "Taurus", "archetype_b": "Aquarius"},
+    {"shell_a": 6, "shell_b": 31, "archetype_a": "Taurus", "archetype_b": "Aquarius"},
+    {"shell_a": 7, "shell_b": 30, "archetype_a": "Gemini", "archetype_b": "Capricorn"},
+    {"shell_a": 8, "shell_b": 29, "archetype_a": "Gemini", "archetype_b": "Capricorn"},
+    {"shell_a": 9, "shell_b": 28, "archetype_a": "Gemini", "archetype_b": "Capricorn"},
+    {"shell_a": 10, "shell_b": 27, "archetype_a": "Cancer", "archetype_b": "Sagittarius"},
+    {"shell_a": 11, "shell_b": 26, "archetype_a": "Cancer", "archetype_b": "Sagittarius"},
+    {"shell_a": 12, "shell_b": 25, "archetype_a": "Cancer", "archetype_b": "Sagittarius"},
+    {"shell_a": 13, "shell_b": 24, "archetype_a": "Leo", "archetype_b": "Scorpio"},
+    {"shell_a": 14, "shell_b": 23, "archetype_a": "Leo", "archetype_b": "Scorpio"},
+    {"shell_a": 15, "shell_b": 22, "archetype_a": "Leo", "archetype_b": "Scorpio"},
+    {"shell_a": 16, "shell_b": 21, "archetype_a": "Virgo", "archetype_b": "Libra"},
+    {"shell_a": 17, "shell_b": 20, "archetype_a": "Virgo", "archetype_b": "Libra"},
+    {"shell_a": 18, "shell_b": 19, "archetype_a": "Virgo", "archetype_b": "Libra"}
+  ],
+  "description": "Mobius mirror pairs: S_k and S_{37-k} are compression partners"
+}

@@ -1,0 +1,46 @@
+{
+  "genome_id": "9e43933e38e8",
+  "generation": 1,
+  "score": 0.8186757067448407,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 308,
+        "cy": 383,
+        "r": 141
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_lattice",
+      "params": {
+        "cx": 98,
+        "cy": 144,
+        "rows": 5,
+        "cols": 5,
+        "spacing": 68
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 216,
+        "cy": 309,
+        "r": 296,
+        "n": 12,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T05:44:07.286380+00:00"
+}

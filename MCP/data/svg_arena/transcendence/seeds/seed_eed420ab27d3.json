@@ -1,0 +1,33 @@
+{
+  "genome_id": "eed420ab27d3",
+  "generation": 3,
+  "score": 0.6985735116119434,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "tesseract_projection",
+      "params": {
+        "cx": 249,
+        "cy": 441,
+        "size": 93
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 580,
+        "y": 600,
+        "length": 80,
+        "angle": -1.5961035245477568,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:05:50.645217+00:00"
+}

@@ -1,0 +1,81 @@
+{
+  "total_waves": 477,
+  "elapsed_seconds": 88.24267148971558,
+  "hologram_16": {
+    "dimensions": {
+      "D1_Earth": {
+        "value": 0.25,
+        "gradient": 0.3333333333333333,
+        "momentum": 10.39442294090831,
+        "curvature": 0.25
+      },
+      "D2_Fire": {
+        "value": 0.25,
+        "gradient": 0.3333333333333333,
+        "momentum": -0.26880384454403694,
+        "curvature": 0.25
+      },
+      "D3_Water": {
+        "value": 0.25,
+        "gradient": 0.3333333333333333,
+        "momentum": 0.5,
+        "curvature": 0.25
+      },
+      "D4_Air": {
+        "value": 0.25,
+        "gradient": 0.5,
+        "momentum": -1.9493264695363328,
+        "curvature": 0.25
+      }
+    },
+    "interconnections": {
+      "D1_Earth_D2_Fire": 0.04176581728511113,
+      "D1_Earth_D3_Water": 0.03402950716903385,
+      "D1_Earth_D4_Air": 0.025411505572689126,
+      "D2_Fire_D3_Water": 0.03794388623726862,
+      "D2_Fire_D4_Air": 0.029931834276849884,
+      "D3_Water_D4_Air": 0.03729474867407585
+    },
+    "total_values": 16,
+    "compression_ratio": "38837:16 = 2427:1",
+    "hash": "9a57d94da1dc0ce3"
+  },
+  "meta_a_plus": {
+    "total_params": 148,
+    "training_cycles": 47,
+    "meta_loops": 5,
+    "per_element": {
+      "S": {
+        "mean": 10.39442294090831,
+        "min": 10.190442208747692,
+        "max": 12.973655290613374,
+        "std": 0.5744393788362574
+      },
+      "F": {
+        "mean": -0.26880384454403694,
+        "min": -0.33068803736607244,
+        "max": -0.017880384454403694,
+        "std": 0.09049796420088393
+      },
+      "C": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5,
+        "std": 0.0
+      },
+      "R": {
+        "mean": -1.9493264695363328,
+        "min": -2.175195608668101,
+        "max": -0.1859326469536333,
+        "std": 0.6234771037426763
+      }
+    },
+    "dimension_momenta": {
+      "D1_Earth": 10.11708300035587,
+      "D2_Fire": 0.01,
+      "D3_Water": 0.5,
+      "D4_Air": 0.01
+    },
+    "water_locked": true
+  }
+}

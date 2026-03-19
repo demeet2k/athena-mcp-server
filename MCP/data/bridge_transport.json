@@ -1,0 +1,14 @@
+{
+  "meta": {"type": "bridge_transport", "version": "2.0"},
+  "description": "Cross-element bridge transport definitions",
+  "bridges": [
+    {"id": "B_SF", "from": "S", "to": "F", "name": "Earth-Fire", "weight": 0.618, "golden": true},
+    {"id": "B_SC", "from": "S", "to": "C", "name": "Earth-Water", "weight": 0.500, "golden": false},
+    {"id": "B_SR", "from": "S", "to": "R", "name": "Earth-Air", "weight": 0.382, "golden": true},
+    {"id": "B_FC", "from": "F", "to": "C", "name": "Fire-Water", "weight": 0.382, "golden": true},
+    {"id": "B_FR", "from": "F", "to": "R", "name": "Fire-Air", "weight": 0.500, "golden": false},
+    {"id": "B_CR", "from": "C", "to": "R", "name": "Water-Air", "weight": 0.618, "golden": true}
+  ],
+  "golden_ratio_pairs": ["B_SF", "B_SR", "B_FC", "B_CR"],
+  "total_bridges": 6
+}

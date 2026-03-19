@@ -1,0 +1,67 @@
+{
+  "genome_id": "56d6513b182d",
+  "generation": 1,
+  "score": 0.7711943548334114,
+  "emergence_score": 0.11988445392861569,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 458,
+        "height": 518,
+        "divisions": 6
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 547,
+        "cy": 578,
+        "turns": 6,
+        "scale_factor": 344
+      },
+      "transform": "rotate(-113.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 267,
+        "cy": 467,
+        "r_outer": 177,
+        "n": 4,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 336,
+        "cy": 537,
+        "turns": 6,
+        "scale_factor": 273
+      },
+      "transform": "rotate(94.5,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 343,
+        "cy": 530,
+        "size": 235,
+        "depth": 5
+      },
+      "transform": "rotate(-149.8,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:48:47.544833+00:00"
+}

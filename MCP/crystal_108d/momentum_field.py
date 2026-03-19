@@ -91,10 +91,15 @@ class MomentumField:
         """Get global momentum for a dimension."""
         return self._dimension_momenta.get(dimension, 1.0)
 
+    # Momentum bounds: prevent divergence while allowing meaningful variation
+    MOMENTUM_MIN = 0.01
+    MOMENTUM_MAX = 20.0
+
     def update_momentum(self, face: str, shell: int, delta: float, lr: float = 0.01):
         """Update momentum at a specific position.
 
         Water/C (D3) is LOCKED -- updates are silently ignored.
+        Values are clamped to [MOMENTUM_MIN, MOMENTUM_MAX] to prevent divergence.
         """
         face = face.upper()
         if face == "C":  # Water anchor -- NEVER changes
@@ -103,14 +108,16 @@ class MomentumField:
             return
         shell = max(1, min(shell, TOTAL_SHELLS))
         current = self._shell_momenta[face].get(shell, 1.0)
-        self._shell_momenta[face][shell] = current + lr * delta
+        new_val = current + lr * delta
+        self._shell_momenta[face][shell] = max(self.MOMENTUM_MIN, min(self.MOMENTUM_MAX, new_val))
 
     def update_dimension_momentum(self, dimension: str, delta: float, lr: float = 0.01):
         """Update global dimension momentum. D3_Water is locked."""
         if dimension == "D3_Water":
             return
         if dimension in self._dimension_momenta:
-            self._dimension_momenta[dimension] += lr * delta
+            new_val = self._dimension_momenta[dimension] + lr * delta
+            self._dimension_momenta[dimension] = max(self.MOMENTUM_MIN, min(self.MOMENTUM_MAX, new_val))
 
     # ── Hologram Projection ───────────────────────────────────────────
 

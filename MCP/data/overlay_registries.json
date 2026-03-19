@@ -1,0 +1,13 @@
+{
+  "meta": {"type": "overlay_registries", "version": "2.0"},
+  "overlays": [
+    {"id": "OV1", "name": "Element Overlay", "type": "classification", "description": "SFCR element classification across all shells"},
+    {"id": "OV2", "name": "Phase Overlay", "type": "classification", "description": "Cardinal/Fixed/Mutable phase across archetypes"},
+    {"id": "OV3", "name": "Wreath Overlay", "type": "classification", "description": "Su/Me/Sa wreath layers"},
+    {"id": "OV4", "name": "Bridge Overlay", "type": "connectivity", "description": "6 inter-element bridge connections"},
+    {"id": "OV5", "name": "Metro Overlay", "type": "routing", "description": "Metro line routing across shells"},
+    {"id": "OV6", "name": "Momentum Overlay", "type": "dynamic", "description": "Current momentum field heat map"},
+    {"id": "OV7", "name": "Weight Overlay", "type": "dynamic", "description": "Crystal weight distribution"},
+    {"id": "OV8", "name": "Pheromone Overlay", "type": "dynamic", "description": "Agent trail heat map"}
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "genome_id": "e0ced44a36ba",
+  "generation": 2,
+  "score": 0.8415375386626456,
+  "emergence_score": 0.09441437564194621,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 300,
+        "cy": 373,
+        "r": 115
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 498,
+        "cy": 347,
+        "turns": 3,
+        "scale_factor": 164
+      },
+      "transform": "rotate(-92.6,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sfcr_crystal",
+      "params": {
+        "cx": 207,
+        "cy": 600,
+        "size": 190,
+        "angle_x": 0.31836893873936345,
+        "angle_z": 0.34832637545286105
+      },
+      "transform": "",
+      "opacity": 0.4372519366862847
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 508,
+        "cy": 291,
+        "turns": 3,
+        "scale_factor": 164
+      },
+      "transform": "rotate(-92.6,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 294,
+        "cy": 551,
+        "r": 59,
+        "rings": 2,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:48:32.054078+00:00"
+}

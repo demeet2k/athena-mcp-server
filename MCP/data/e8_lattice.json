@@ -1,0 +1,9 @@
+{
+  "meta": {"type": "e8_lattice", "version": "2.0"},
+  "description": "E8 lattice expansion: 60 sigma views x 4 SFCR faces = 240 roots",
+  "sigma_count": 60,
+  "face_count": 4,
+  "total_roots": 240,
+  "root_generation": "Each sigma-60 rotation (from icosahedral symmetry) is amplified by 4 SFCR face boosts",
+  "usage": "Layer 3 of geometric forward pass: E8-240 expansion for doc scoring"
+}

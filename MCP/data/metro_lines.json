@@ -1,0 +1,15 @@
+{
+  "meta": {"type": "metro_lines", "version": "2.0", "total_lines": 10},
+  "lines": [
+    {"id": "ML1", "name": "Su Arc", "type": "wreath", "stations": [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34], "color": "gold", "description": "Ignition wreath connecting all 12 Su shells"},
+    {"id": "ML2", "name": "Me Arc", "type": "wreath", "stations": [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35], "color": "silver", "description": "Mediation wreath connecting all 12 Me shells"},
+    {"id": "ML3", "name": "Sa Arc", "type": "wreath", "stations": [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36], "color": "copper", "description": "Sealing wreath connecting all 12 Sa shells"},
+    {"id": "ML4", "name": "Cardinal Cross", "type": "phase", "stations": [1, 2, 3, 10, 11, 12, 19, 20, 21, 28, 29, 30], "color": "red", "description": "Cardinal phase shells: Aries, Cancer, Libra, Capricorn"},
+    {"id": "ML5", "name": "Fixed Cross", "type": "phase", "stations": [4, 5, 6, 13, 14, 15, 22, 23, 24, 31, 32, 33], "color": "blue", "description": "Fixed phase shells: Taurus, Leo, Scorpio, Aquarius"},
+    {"id": "ML6", "name": "Mutable Cross", "type": "phase", "stations": [7, 8, 9, 16, 17, 18, 25, 26, 27, 34, 35, 36], "color": "green", "description": "Mutable phase shells: Gemini, Virgo, Sagittarius, Pisces"},
+    {"id": "ML7", "name": "Fire Line", "type": "element", "stations": [1, 2, 3, 13, 14, 15, 25, 26, 27], "color": "orange", "description": "Fire element: Aries, Leo, Sagittarius"},
+    {"id": "ML8", "name": "Earth Line", "type": "element", "stations": [4, 5, 6, 16, 17, 18, 28, 29, 30], "color": "brown", "description": "Earth element: Taurus, Virgo, Capricorn"},
+    {"id": "ML9", "name": "Air Line", "type": "element", "stations": [7, 8, 9, 19, 20, 21, 31, 32, 33], "color": "cyan", "description": "Air element: Gemini, Libra, Aquarius"},
+    {"id": "ML10", "name": "Water Line", "type": "element", "stations": [10, 11, 12, 22, 23, 24, 34, 35, 36], "color": "navy", "description": "Water element: Cancer, Scorpio, Pisces"}
+  ]
+}

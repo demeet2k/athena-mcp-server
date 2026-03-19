@@ -1,0 +1,65 @@
+{
+  "genome_id": "0402d75cf716",
+  "generation": 2,
+  "score": 0.8229858852158602,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 406,
+        "cy": 462,
+        "size": 191,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 387,
+        "cy": 316,
+        "size": 250
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 436,
+        "cy": 263,
+        "r": 98
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 278,
+        "cy": 455,
+        "turns": 4,
+        "scale_factor": 125
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dodecahedron",
+      "params": {
+        "cx": 454,
+        "cy": 224,
+        "size": 125,
+        "angle_x": 0.21840176023061514,
+        "angle_z": 0.7585970836270058
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:53:39.801943+00:00"
+}

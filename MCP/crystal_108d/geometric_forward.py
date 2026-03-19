@@ -97,18 +97,22 @@ class ForwardResult:
 
 
 class _IdfTable:
-    """Inverse document frequency table built once per forward pass."""
+    """Inverse document frequency table with inverted index for fast lookup."""
 
-    __slots__ = ("_idf", "_max_idf")
+    __slots__ = ("_idf", "_max_idf", "_inverted_index")
 
     def __init__(self, docs: list[dict]):
         n = max(len(docs), 1)
         doc_freq: dict[str, int] = defaultdict(int)
-        for doc in docs:
+        # Build inverted index: token -> list of (doc_index, doc)
+        inv_idx: dict[str, list[int]] = defaultdict(list)
+        for i, doc in enumerate(docs):
             for tok in set(doc.get("tokens", [])):
                 doc_freq[tok] += 1
+                inv_idx[tok].append(i)
         self._idf = {tok: math.log(n / df) for tok, df in doc_freq.items()}
         self._max_idf = max(self._idf.values()) if self._idf else 1.0
+        self._inverted_index = dict(inv_idx)
 
     def tfidf_score(self, query_tokens: list[str], doc_tokens: list[str]) -> float:
         if not query_tokens or not doc_tokens:
@@ -122,6 +126,19 @@ class _IdfTable:
             if tok in d_set:
                 score += w * w
         return score / norm_q if norm_q > 0 else 0.0
+
+    def candidate_doc_indices(self, query_tokens: list[str]) -> set[int]:
+        """Return set of doc indices that share at least one token with the query.
+
+        Uses the inverted index for O(query_tokens × avg_postings) lookup
+        instead of scanning all docs.
+        """
+        indices = set()
+        for tok in query_tokens:
+            postings = self._inverted_index.get(tok)
+            if postings:
+                indices.update(postings)
+        return indices
 
 
 # ── Geometric Neural Engine ──────────────────────────────────────────
@@ -141,6 +158,7 @@ class GeometricEngine:
         self.momentum = momentum or get_momentum_field()
         self._doc_registry = doc_registry
         self._docs_loaded = False
+        self._idf_cache: Optional[_IdfTable] = None  # cached across forward passes
 
     @property
     def doc_registry(self) -> list[dict]:
@@ -232,13 +250,25 @@ class GeometricEngine:
         tokens = self._tokenize(raw_query)
         docs = self.doc_registry
 
-        # Find best-matching docs by token overlap
-        doc_scores = []
-        for doc in docs:
-            d_tokens = set(doc.get("tokens", []))
-            overlap = len(set(tokens) & d_tokens)
-            if overlap > 0:
-                doc_scores.append((doc, overlap))
+        # Use inverted index if IDF cache exists, otherwise linear scan
+        if self._idf_cache is not None:
+            candidate_indices = self._idf_cache.candidate_doc_indices(tokens)
+            doc_scores = []
+            token_set = set(tokens)
+            for idx in candidate_indices:
+                if idx < len(docs):
+                    doc = docs[idx]
+                    d_tokens = set(doc.get("tokens", []))
+                    overlap = len(token_set & d_tokens)
+                    if overlap > 0:
+                        doc_scores.append((doc, overlap))
+        else:
+            doc_scores = []
+            for doc in docs:
+                d_tokens = set(doc.get("tokens", []))
+                overlap = len(set(tokens) & d_tokens)
+                if overlap > 0:
+                    doc_scores.append((doc, overlap))
         doc_scores.sort(key=lambda x: x[1], reverse=True)
         top_docs = doc_scores[:5]
 
@@ -606,15 +636,19 @@ class GeometricEngine:
                          query: QueryState) -> list[dict]:
         """Pre-filter docs by TF-IDF token relevance before expensive E8 scoring.
 
-        Returns the top E8_CANDIDATE_LIMIT docs by token overlap, ensuring
-        the E8-240 layer processes ~200 docs instead of ~15,000.
+        Uses the inverted index for O(query_tokens × avg_postings) lookup
+        instead of scanning all 14,730+ docs linearly.
         """
+        # Get candidate indices via inverted index (fast)
+        candidate_indices = idf.candidate_doc_indices(query.tokens)
+        if not candidate_indices:
+            return []
+
+        # Score only the candidates
         scored = []
-        q_tokens = set(query.tokens)
-        for doc in docs:
-            d_tokens = set(doc.get("tokens", []))
-            overlap = len(q_tokens & d_tokens)
-            if overlap > 0:
+        for idx in candidate_indices:
+            if idx < len(docs):
+                doc = docs[idx]
                 tfidf = idf.tfidf_score(query.tokens, doc.get("tokens", []))
                 scored.append((doc, tfidf))
 
@@ -635,7 +669,10 @@ class GeometricEngine:
         if not docs:
             return ForwardResult(query=qs, elapsed_ms=0)
 
-        idf = _IdfTable(docs)
+        # Cache IDF table — docs don't change during training
+        if self._idf_cache is None:
+            self._idf_cache = _IdfTable(docs)
+        idf = self._idf_cache
 
         # Pre-filter: narrow to top candidates by token relevance
         candidate_docs = self._tfidf_prefilter(docs, idf, qs)

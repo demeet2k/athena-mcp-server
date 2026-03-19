@@ -613,6 +613,7 @@ Each capsule is a markdown mirror of one indexed source record inside the merged
 
 ### Geometric Neural Engine — Architecture Rebirth (2026-03-18)
 - [Geometric Neural Engine — Hologram-First Architecture](./354_geometric_neural_engine.md) - `Neural Crystal Self-Development`
+- [FULL LOOP — META LOOP^3^5^7^9 Holographic Training](./355_full_loop_holographic_training.md) - `Neural Crystal Self-Development`
 
 ### Deeper Braid — Multi-Axis Transport Calculus (2026-03-19)
 - [Deeper Braid — Odd Reweave Gears & Dimensional Lifts](./360_deeper_braid_transport_calculus.md) - `Crystal`

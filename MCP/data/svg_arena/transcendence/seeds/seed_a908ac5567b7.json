@@ -1,0 +1,67 @@
+{
+  "genome_id": "a908ac5567b7",
+  "generation": 1,
+  "score": 0.782319984881492,
+  "emergence_score": 0.0,
+  "lineage_depth": 1,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 310,
+        "cy": 394,
+        "R": 124,
+        "angle_x": 0.9153593827193298,
+        "angle_z": 0.7179167330560527
+      },
+      "transform": "",
+      "opacity": 0.4196212963579169
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 265,
+        "cy": 417,
+        "size": 141
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 332,
+        "cy": 361,
+        "R": 134,
+        "angle_x": 0.9938146590356302,
+        "angle_z": 0.6575177664218903
+      },
+      "transform": "",
+      "opacity": 0.4196212963579169
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 492,
+        "cy": 362,
+        "r": 130
+      },
+      "transform": "",
+      "opacity": 0.42034642230321895
+    },
+    {
+      "primitive": "crystal_lattice",
+      "params": {
+        "cx": 120,
+        "cy": 50,
+        "rows": 3,
+        "cols": 8,
+        "spacing": 47
+      },
+      "transform": "rotate(-97.4,400,400)",
+      "opacity": 0.9313561640935982
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:48:47.306794+00:00"
+}

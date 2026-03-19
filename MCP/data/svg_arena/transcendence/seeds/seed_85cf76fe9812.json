@@ -1,0 +1,34 @@
+{
+  "genome_id": "85cf76fe9812",
+  "generation": 0,
+  "score": 0.7472878707091539,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "crystal_lattice",
+      "params": {
+        "cx": 111,
+        "cy": 160,
+        "rows": 3,
+        "cols": 5,
+        "spacing": 74
+      },
+      "transform": "rotate(-33.3,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 365,
+        "cy": 579,
+        "size": 273,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:06:00.157144+00:00"
+}

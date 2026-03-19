@@ -1,0 +1,45 @@
+{
+  "genome_id": "c1152964545e",
+  "generation": 3,
+  "score": 0.7786093381094377,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 352,
+        "cy": 362,
+        "n": 15,
+        "unit": 38
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 287,
+        "cy": 260,
+        "size": 236
+      },
+      "transform": "",
+      "opacity": 0.740542887981231
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 513,
+        "cy": 352,
+        "r_outer": 263,
+        "n": 8,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.3
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:38.081392+00:00"
+}

@@ -1,0 +1,35 @@
+{
+  "genome_id": "c22038b45c45",
+  "generation": 2,
+  "score": 0.6961555725416878,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "x": 468,
+        "y": 703,
+        "length": 213,
+        "angle": -1.5313160350711814,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "radial_burst",
+      "params": {
+        "cx": 336,
+        "cy": 363,
+        "r_inner": 74,
+        "r_outer": 214,
+        "n": 10
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:04:42.615400+00:00"
+}

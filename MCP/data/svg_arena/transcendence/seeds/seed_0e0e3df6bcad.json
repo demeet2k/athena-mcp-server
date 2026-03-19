@@ -1,0 +1,65 @@
+{
+  "genome_id": "0e0e3df6bcad",
+  "generation": 2,
+  "score": 0.7630528906026881,
+  "emergence_score": 0.036498236133755024,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 430,
+        "height": 712,
+        "divisions": 3
+      },
+      "transform": "",
+      "opacity": 0.3
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 565,
+        "cy": 476,
+        "n": 18,
+        "unit": 34
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "flower_of_life",
+      "params": {
+        "cx": 240,
+        "cy": 256,
+        "r": 74,
+        "rings": 1,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 0.4238375062653559
+    },
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 800,
+        "height": 717,
+        "divisions": 6
+      },
+      "transform": "rotate(-54.0,400,400)",
+      "opacity": 0.3
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 435,
+        "cy": 428,
+        "size": 122
+      },
+      "transform": "rotate(21.8,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:05:53.434770+00:00"
+}

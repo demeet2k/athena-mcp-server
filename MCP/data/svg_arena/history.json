@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "total_rounds": 2,
+    "best_overall": 0.5726957220579342,
+    "timestamp": "2026-03-19T08:48:26.902277+00:00"
+  },
+  "rounds": [
+    {
+      "round_id": 1,
+      "challenge_id": "cryst_hex_lattice",
+      "challenge_name": "Hexagonal Crystal Lattice",
+      "best_score": 0.5726957220579342,
+      "attempts": 2,
+      "improvement_trajectory": [
+        0.5726957220579342,
+        0.5724040629011944
+      ],
+      "timestamp": "2026-03-19T08:48:26.890278+00:00"
+    },
+    {
+      "round_id": 2,
+      "challenge_id": "dim_containment",
+      "challenge_name": "Dimensional Containment",
+      "best_score": 0.5387098410228102,
+      "attempts": 2,
+      "improvement_trajectory": [
+        0.5387098410228102,
+        0.5370452614510226
+      ],
+      "timestamp": "2026-03-19T08:48:26.895278+00:00"
+    }
+  ]
+}

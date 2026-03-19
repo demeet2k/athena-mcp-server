@@ -1,0 +1,65 @@
+{
+  "genome_id": "944bf17d5117",
+  "generation": 3,
+  "score": 0.833789633175888,
+  "emergence_score": 0.05549011989326236,
+  "lineage_depth": 3,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 472,
+        "height": 512,
+        "divisions": 5
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 310,
+        "cy": 578,
+        "size": 127,
+        "depth": 3
+      },
+      "transform": "rotate(27.1,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 379,
+        "cy": 578,
+        "size": 73,
+        "order": 6
+      },
+      "transform": "",
+      "opacity": 0.9729465659279488
+    },
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 378,
+        "cy": 289,
+        "R": 189,
+        "angle_x": 0.9376351376469738,
+        "angle_z": 0.37037819258956783
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 472,
+        "height": 502,
+        "divisions": 5
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:20:29.425114+00:00"
+}

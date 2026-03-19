@@ -1,0 +1,35 @@
+{
+  "genome_id": "afc4c45bfab0",
+  "generation": 1,
+  "score": 0.8280356277478508,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 330,
+        "cy": 407,
+        "size": 168,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "concentric_circles",
+      "params": {
+        "cx": 477,
+        "cy": 283,
+        "r_outer": 325,
+        "n": 3,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:10:24.057801+00:00"
+}

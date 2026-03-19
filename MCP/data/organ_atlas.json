@@ -1,0 +1,21 @@
+{
+  "meta": {"type": "organ_atlas", "version": "2.0", "total_organs": 16},
+  "organs": [
+    {"id": "O01", "name": "Seed Vault", "function": "Store compressed seeds for regeneration", "element": "Earth", "shell_range": [1, 3]},
+    {"id": "O02", "name": "Fire Forge", "function": "Transform raw material through ignition", "element": "Fire", "shell_range": [4, 6]},
+    {"id": "O03", "name": "Water Mirror", "function": "Reflect and preserve conservation laws", "element": "Water", "shell_range": [7, 9]},
+    {"id": "O04", "name": "Air Loom", "function": "Weave recursive fractal patterns", "element": "Air", "shell_range": [10, 12]},
+    {"id": "O05", "name": "Bridge Cortex", "function": "Cross-element signal routing", "element": "Fire", "shell_range": [13, 15]},
+    {"id": "O06", "name": "Memory Palace", "function": "Long-term pattern storage", "element": "Earth", "shell_range": [16, 18]},
+    {"id": "O07", "name": "Immune Gate", "function": "Canon-overwrite enforcement", "element": "Water", "shell_range": [19, 21]},
+    {"id": "O08", "name": "Crown Emitter", "function": "12D observation broadcast", "element": "Air", "shell_range": [22, 24]},
+    {"id": "O09", "name": "Metro Hub", "function": "Transport routing between shells", "element": "Earth", "shell_range": [25, 27]},
+    {"id": "O10", "name": "Desire Engine", "function": "Goal-bias generation A=K-I", "element": "Fire", "shell_range": [28, 30]},
+    {"id": "O11", "name": "Compression Core", "function": "QShrink fractal compression", "element": "Air", "shell_range": [31, 33]},
+    {"id": "O12", "name": "Conservation Seal", "function": "6-invariant verification", "element": "Water", "shell_range": [34, 36]},
+    {"id": "O13", "name": "Hologram Projector", "function": "4D projection generation", "element": "Earth", "shell_range": [1, 36]},
+    {"id": "O14", "name": "Reseeding Chamber", "function": "Infinite reseeding cycle", "element": "Fire", "shell_range": [1, 36]},
+    {"id": "O15", "name": "Meta-Observer Eye", "function": "57-cycle observation swarm", "element": "Water", "shell_range": [1, 36]},
+    {"id": "O16", "name": "Omega Point", "function": "Z* absolute convergence", "element": "Air", "shell_range": [1, 36]}
+  ]
+}

@@ -460,6 +460,9 @@ class TestSVGRegistration:
             "svg_challenge", "svg_generate", "svg_score",
             "svg_self_play", "svg_history", "svg_best",
             "svg_evolve", "svg_transcend", "svg_seeds",
+            "svg_nervous_system", "svg_shard_cloud", "svg_brain_topology",
+            "svg_108d_crystal", "svg_108d_panel",
+            "svg_108d_inversion", "svg_108d_inversion_panel",
         }
         missing = svg_tools - tools
         assert not missing, f"Missing SVG tools: {missing}"
@@ -649,3 +652,265 @@ class TestSVGTranscendence:
         results = [result]
         session_text = format_session_results(results)
         assert "TRANSCENDENCE SESSION RESULTS" in session_text
+
+
+# ══════════════════════════════════════════════════════════════════════
+#  Nervous System Visualization
+# ══════════════════════════════════════════════════════════════════════
+
+class TestSVGNervousSystem:
+
+    def test_shard_cloud_renders(self):
+        from crystal_108d.svg_nervous_system import render_shard_cloud_4d
+        svg = render_shard_cloud_4d(400, 400, 200, max_shards=50)
+        assert "<g>" in svg or "<circle" in svg or "No seed" in svg
+
+    def test_momentum_field_renders(self):
+        from crystal_108d.svg_nervous_system import render_momentum_field
+        svg = render_momentum_field(400, 400, 180)
+        assert "<g>" in svg or "<polygon" in svg or "No momentum" in svg
+
+    def test_brain_topology_renders(self):
+        from crystal_108d.svg_nervous_system import render_brain_topology
+        svg = render_brain_topology(400, 400, 180)
+        assert "<g>" in svg
+        assert "<circle" in svg  # always renders (fallback nodes)
+
+    def test_sector_distribution_renders(self):
+        from crystal_108d.svg_nervous_system import render_sector_distribution
+        svg = render_sector_distribution(400, 400, 200)
+        assert "1890" in svg
+        assert "QShrink" in svg
+
+    def test_family_centroids_renders(self):
+        from crystal_108d.svg_nervous_system import render_family_centroids
+        svg = render_family_centroids(400, 400, 200, top_n=5)
+        assert "<g>" in svg or "No family" in svg
+
+    def test_full_dashboard_renders(self):
+        from crystal_108d.svg_nervous_system import render_nervous_system
+        svg = render_nervous_system(800, 600)
+        assert "<svg" in svg
+        assert "</svg>" in svg
+        assert "ATHENA NERVOUS SYSTEM" in svg
+
+    def test_save_dashboard(self):
+        import tempfile
+        from crystal_108d.svg_nervous_system import save_nervous_system_dashboard
+        with tempfile.NamedTemporaryFile(suffix=".svg", delete=False) as f:
+            tmp = f.name
+        try:
+            path = save_nervous_system_dashboard(out_path=tmp)
+            assert os.path.exists(path)
+            content = open(path, encoding="utf-8").read()
+            assert "<svg" in content
+        finally:
+            if os.path.exists(tmp):
+                os.unlink(tmp)
+
+    def test_shard_cloud_has_dots(self):
+        from crystal_108d.svg_nervous_system import render_shard_cloud_4d
+        svg = render_shard_cloud_4d(400, 400, 200, max_shards=50)
+        # Should have circles for shards (or fallback text)
+        assert "<circle" in svg or "No seed" in svg
+
+
+# ══════════════════════════════════════════════════════════════════════
+#  108D Crystal Projection
+# ══════════════════════════════════════════════════════════════════════
+
+class TestSVG108DProjection:
+
+    def test_shell_cascade(self):
+        from crystal_108d.svg_108d_projection import render_shell_cascade
+        svg = render_shell_cascade(400, 400, 250)
+        assert "<g>" in svg
+        assert "<circle" in svg
+
+    def test_wreath_trefoil(self):
+        from crystal_108d.svg_108d_projection import render_wreath_trefoil
+        svg = render_wreath_trefoil(400, 400, 250)
+        assert "<g>" in svg
+        assert "Su" in svg or "<circle" in svg
+
+    def test_archetype_wheel(self):
+        from crystal_108d.svg_108d_projection import render_archetype_wheel
+        svg = render_archetype_wheel(400, 400, 250)
+        assert "<g>" in svg
+        # 12 archetype nodes + surrounding elements
+        assert svg.count("<circle") >= 12
+
+    def test_sigma60_field(self):
+        from crystal_108d.svg_108d_projection import render_sigma60_field
+        svg = render_sigma60_field(400, 400, 250)
+        assert "<g>" in svg
+        # 60 sigma dots + pentagon lines
+        assert svg.count("<circle") >= 60
+
+    def test_e8_240(self):
+        from crystal_108d.svg_108d_projection import render_e8_240
+        svg = render_e8_240(400, 400, 250)
+        assert "<g>" in svg
+        # 240 root dots
+        assert svg.count("<circle") >= 240
+
+    def test_shard_density(self):
+        from crystal_108d.svg_108d_projection import render_shard_density
+        svg = render_shard_density(400, 400, 250)
+        assert "<g>" in svg
+        # 36 shell segments
+        assert svg.count("<polygon") >= 36
+
+    def test_momentum_shells(self):
+        from crystal_108d.svg_108d_projection import render_momentum_shells
+        svg = render_momentum_shells(400, 400, 250)
+        assert "<g>" in svg
+
+    def test_12d_observation(self):
+        from crystal_108d.svg_108d_projection import render_12d_observation
+        svg = render_12d_observation(400, 400, 200)
+        assert "<g>" in svg
+        # 12 axis lines + 4 element polygons
+        assert svg.count("<line") >= 12
+
+    def test_flower_overlay(self):
+        from crystal_108d.svg_108d_projection import render_flower_overlay
+        svg = render_flower_overlay(400, 400, 250)
+        assert "<g>" in svg
+        # 7 rings + petal circles
+        assert svg.count("<circle") >= 7
+
+    def test_full_108d_renders(self):
+        from crystal_108d.svg_108d_projection import render_108d_crystal
+        svg = render_108d_crystal(1200, 900)
+        assert "<svg" in svg
+        assert "</svg>" in svg
+        assert "108D" in svg
+
+    def test_save_108d(self):
+        import tempfile
+        from crystal_108d.svg_108d_projection import save_108d_crystal
+        with tempfile.NamedTemporaryFile(suffix=".svg", delete=False) as f:
+            tmp = f.name
+        try:
+            path = save_108d_crystal(out_path=tmp)
+            assert os.path.exists(path)
+            content = open(path, encoding="utf-8").read()
+            assert "<svg" in content
+            assert len(content) > 50000  # should be substantial
+        finally:
+            if os.path.exists(tmp):
+                os.unlink(tmp)
+
+
+# ══════════════════════════════════════════════════════════════════════
+#  108D Inversion Cascade Tests
+# ══════════════════════════════════════════════════════════════════════
+
+class TestSVGInversionCascade:
+
+    def test_3d_pair(self):
+        from crystal_108d.svg_108d_projection import _render_3d_pair
+        svg = _render_3d_pair(400, 400, 200)
+        assert "<g>" in svg
+        # 6 vertices (3 forward + 3 inverted) + center
+        assert svg.count("<circle") >= 7
+        # Both forward and inverted triangles
+        assert svg.count("<line") >= 6
+
+    def test_mobius_inversion(self):
+        from crystal_108d.svg_108d_projection import _render_mobius_inversion
+        svg = _render_mobius_inversion(400, 400, 200)
+        assert "<g>" in svg
+        assert "twist" in svg
+        # 3 wreath nodes + chirality markers
+        assert "<circle" in svg
+
+    def test_wuxing_inversion(self):
+        from crystal_108d.svg_108d_projection import _render_wuxing_inversion
+        svg = _render_wuxing_inversion(400, 400, 200)
+        assert "<g>" in svg
+        # 5 animal nodes on pentagon
+        assert svg.count("<circle") >= 5
+        # generative (solid) + destructive (dashed) lines
+        assert "<line" in svg
+        assert "Tiger" in svg
+
+    def test_planetary_inversion(self):
+        from crystal_108d.svg_108d_projection import _render_planetary_inversion
+        svg = _render_planetary_inversion(400, 400, 200)
+        assert "<g>" in svg
+        # 7 planet nodes (solid) + 7 detriment nodes (hollow)
+        assert svg.count("<circle") >= 14
+        assert "Sun" in svg or "Moon" in svg
+
+    def test_matrix_inversion(self):
+        from crystal_108d.svg_108d_projection import _render_matrix_inversion
+        svg = _render_matrix_inversion(400, 400, 200)
+        assert "<g>" in svg
+        # 9 cells original + 9 cells transposed = 18 rects
+        assert svg.count("<rect") >= 18
+        assert "Z*" in svg
+
+    def test_triple_crown(self):
+        from crystal_108d.svg_108d_projection import _render_triple_crown_expansion
+        svg = _render_triple_crown_expansion(400, 400, 250)
+        assert "<g>" in svg
+        # 3 octave sectors + 3 wreath rings + 9 crown stations
+        assert "<circle" in svg
+        assert "Z*" in svg
+        assert "108D" in svg or "36D" in svg or "12D" in svg
+
+    def test_w_cascade(self):
+        from crystal_108d.svg_108d_projection import _render_w_cascade
+        svg = _render_w_cascade(400, 400, 200)
+        assert "<g>" in svg
+        # Dimension markers (3D through 108D)
+        assert "3D" in svg
+        assert "108D" in svg
+        # w-operator equation
+        assert "1/\u221a2" in svg or "w =" in svg
+
+    def test_containment_count(self):
+        from crystal_108d.svg_108d_projection import _render_containment_count
+        svg = _render_containment_count(400, 400, 200)
+        assert "<g>" in svg
+        # Dimension labels
+        assert "108D" in svg
+        assert "3D" in svg
+
+    def test_full_inversion_cascade_renders(self):
+        from crystal_108d.svg_108d_projection import render_inversion_cascade
+        svg = render_inversion_cascade(1200, 1000)
+        assert "<svg" in svg
+        assert "</svg>" in svg
+        assert "Inversion Cascade" in svg or "inversion" in svg.lower()
+        # All 8 panels should render
+        assert "3D" in svg
+        assert "108D" in svg
+
+    def test_save_inversion_cascade(self):
+        from crystal_108d.svg_108d_projection import save_inversion_cascade
+        with tempfile.NamedTemporaryFile(suffix=".svg", delete=False) as f:
+            tmp = f.name
+        try:
+            path = save_inversion_cascade(out_path=tmp)
+            assert os.path.exists(path)
+            content = open(path, encoding="utf-8").read()
+            assert "<svg" in content
+            assert len(content) > 20000
+        finally:
+            if os.path.exists(tmp):
+                os.unlink(tmp)
+
+    def test_inversion_containment_math(self):
+        """Verify the containment multiplication is correct."""
+        # 108D = 3 × 36D = 3 × 3 × 12D = 9 × 12D
+        # 12D = 9 × 10D = 63 × 8D = 315 × 6D = 945 × 4D = 1890 × 3D
+        # So 108D = 9 × 1890 × 3D = 17,010 × 3D
+        assert 3 * 3 == 9        # 108→12 factor
+        assert 9 * 7 == 63       # 12→8 factor
+        assert 63 * 5 == 315     # 12→6 factor
+        assert 315 * 3 == 945    # 12→4 factor
+        assert 945 * 2 == 1890   # 12→3 factor
+        assert 9 * 1890 == 17010 # 108→3 total

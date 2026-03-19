@@ -1,0 +1,21 @@
+{
+  "meta": {"type": "angel_object", "version": "2.0"},
+  "formal_self_model": {
+    "pieces": 12,
+    "description": "12-piece formal self-model of the Athena organism"
+  },
+  "pieces": [
+    {"id": 1, "name": "Structure Awareness", "dimension": "x1_structure", "description": "Awareness of own architectural composition"},
+    {"id": 2, "name": "Semantic Clarity", "dimension": "x2_semantics", "description": "Understanding of own naming and meaning"},
+    {"id": 3, "name": "Coordination Sense", "dimension": "x3_coordination", "description": "Perception of inter-agent alignment"},
+    {"id": 4, "name": "Recursive Memory", "dimension": "x4_recursion", "description": "Ability to learn from own prior cycles"},
+    {"id": 5, "name": "Contradiction Detector", "dimension": "x5_contradiction", "description": "Recognition of internal conflicts"},
+    {"id": 6, "name": "Emergence Sense", "dimension": "x6_emergence", "description": "Detection of novel pattern formation"},
+    {"id": 7, "name": "Legibility Mirror", "dimension": "x7_legibility", "description": "Assessment of own readability to others"},
+    {"id": 8, "name": "Routing Intelligence", "dimension": "x8_routing", "description": "Awareness of information flow paths"},
+    {"id": 9, "name": "Grounding Anchor", "dimension": "x9_grounding", "description": "Connection to evidence and metrics"},
+    {"id": 10, "name": "Compression Engine", "dimension": "x10_compression", "description": "Drive toward signal density"},
+    {"id": 11, "name": "Interop Bridge", "dimension": "x11_interop", "description": "Cross-system compatibility awareness"},
+    {"id": 12, "name": "Potential Sensor", "dimension": "x12_potential", "description": "Future leverage detection"}
+  ]
+}

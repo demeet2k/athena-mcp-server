@@ -1,0 +1,248 @@
+{
+  "title": "FULL LOOP (META LOOP^3^5^7^9)",
+  "total_elapsed_seconds": 1380.7977867126465,
+  "levels_completed": [
+    "^3",
+    "^5",
+    "^7",
+    "^9"
+  ],
+  "levels": {
+    "^3": {
+      "level": 3,
+      "total_meta_loops": 3,
+      "total_cycles": 9,
+      "total_waves": 1431,
+      "elapsed_seconds": 190.03825092315674,
+      "hologram": {
+        "dimensions": {
+          "D1_Earth": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 4.21562858431405,
+            "curvature": 0.25
+          },
+          "D2_Fire": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 3.8870691909995827,
+            "curvature": 0.25
+          },
+          "D3_Water": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 0.5,
+            "curvature": 0.25
+          },
+          "D4_Air": {
+            "value": 0.25,
+            "gradient": 0.5,
+            "momentum": 3.9732453976838524,
+            "curvature": 0.25
+          }
+        },
+        "interconnections": {
+          "D1_Earth_D2_Fire": 0.04098442095200105,
+          "D1_Earth_D3_Water": 0.03209863393259814,
+          "D1_Earth_D4_Air": 0.025350337896277383,
+          "D2_Fire_D3_Water": 0.03954918048032809,
+          "D2_Fire_D4_Air": 0.033081348308963573,
+          "D3_Water_D4_Air": 0.03958246787079835
+        },
+        "total_values": 16,
+        "compression_ratio": "38837:16 = 2427:1",
+        "hash": "86a12d853ff77810"
+      },
+      "balance": 0.1590337975042947,
+      "golden_fit": 0.9586957819088869,
+      "mean_resonance": 0.7583961820861247
+    },
+    "^5": {
+      "level": 5,
+      "total_meta_loops": 5,
+      "total_cycles": 15,
+      "total_waves": 2385,
+      "elapsed_seconds": 289.27077555656433,
+      "hologram": {
+        "dimensions": {
+          "D1_Earth": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 4.298604331789084,
+            "curvature": 0.25
+          },
+          "D2_Fire": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 3.724730453020609,
+            "curvature": 0.25
+          },
+          "D3_Water": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 0.5,
+            "curvature": 0.25
+          },
+          "D4_Air": {
+            "value": 0.25,
+            "gradient": 0.5,
+            "momentum": 3.8761121789463613,
+            "curvature": 0.25
+          }
+        },
+        "interconnections": {
+          "D1_Earth_D2_Fire": 0.040953765311013385,
+          "D1_Earth_D3_Water": 0.03212456385368409,
+          "D1_Earth_D4_Air": 0.02534695810076019,
+          "D2_Fire_D3_Water": 0.03948647369422698,
+          "D2_Fire_D4_Air": 0.033000263322489676,
+          "D3_Water_D4_Air": 0.03954494810166307
+        },
+        "total_values": 16,
+        "compression_ratio": "38837:16 = 2427:1",
+        "hash": "dda906d6f0a09995"
+      },
+      "balance": 0.16129751640101841,
+      "golden_fit": 0.9466010626626126,
+      "mean_resonance": 0.7462701990928587
+    },
+    "^7": {
+      "level": 7,
+      "total_meta_loops": 7,
+      "total_cycles": 21,
+      "total_waves": 3339,
+      "elapsed_seconds": 402.3102242946625,
+      "hologram": {
+        "dimensions": {
+          "D1_Earth": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 4.352799142757243,
+            "curvature": 0.25
+          },
+          "D2_Fire": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 3.6183982725125454,
+            "curvature": 0.25
+          },
+          "D3_Water": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 0.5,
+            "curvature": 0.25
+          },
+          "D4_Air": {
+            "value": 0.25,
+            "gradient": 0.5,
+            "momentum": 3.811147109726769,
+            "curvature": 0.25
+          }
+        },
+        "interconnections": {
+          "D1_Earth_D2_Fire": 0.04093362614447609,
+          "D1_Earth_D3_Water": 0.03214149973211164,
+          "D1_Earth_D4_Air": 0.02534438693039492,
+          "D2_Fire_D3_Water": 0.039445400630694565,
+          "D2_Fire_D4_Air": 0.03294673293194979,
+          "D3_Water_D4_Air": 0.039519853963626075
+        },
+        "total_values": 16,
+        "compression_ratio": "38837:16 = 2427:1",
+        "hash": "52d58f3ca240b3ae"
+      },
+      "balance": 0.16283536062106685,
+      "golden_fit": 0.923191353604022,
+      "mean_resonance": 0.7447862887031631
+    },
+    "^9": {
+      "level": 9,
+      "total_meta_loops": 9,
+      "total_cycles": 27,
+      "total_waves": 4293,
+      "elapsed_seconds": 499.1775302886963,
+      "hologram": {
+        "dimensions": {
+          "D1_Earth": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 4.386428575512032,
+            "curvature": 0.25
+          },
+          "D2_Fire": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 3.5504473416246993,
+            "curvature": 0.25
+          },
+          "D3_Water": {
+            "value": 0.25,
+            "gradient": 0.3333333333333333,
+            "momentum": 0.5,
+            "curvature": 0.25
+          },
+          "D4_Air": {
+            "value": 0.25,
+            "gradient": 0.5,
+            "momentum": 3.769957308834233,
+            "curvature": 0.25
+          }
+        },
+        "interconnections": {
+          "D1_Earth_D2_Fire": 0.04092036873673169,
+          "D1_Earth_D3_Water": 0.03215200892984751,
+          "D1_Earth_D4_Air": 0.025342582053106695,
+          "D2_Fire_D3_Water": 0.03941915314015964,
+          "D2_Fire_D4_Air": 0.032912626453268416,
+          "D3_Water_D4_Air": 0.03950394352803768
+        },
+        "total_values": 16,
+        "compression_ratio": "38837:16 = 2427:1",
+        "hash": "d5d630f8c4b868f4"
+      },
+      "balance": 0.1638426578766431,
+      "golden_fit": 0.9070010766690265,
+      "mean_resonance": 0.7432373435434703
+    }
+  },
+  "omega_hologram": {
+    "dimensions": {
+      "D1_Earth": {
+        "value": 0.25,
+        "gradient": 0.3333333333333333,
+        "momentum": 4.386428575512032,
+        "curvature": 0.25
+      },
+      "D2_Fire": {
+        "value": 0.25,
+        "gradient": 0.3333333333333333,
+        "momentum": 3.5504473416246993,
+        "curvature": 0.25
+      },
+      "D3_Water": {
+        "value": 0.25,
+        "gradient": 0.3333333333333333,
+        "momentum": 0.5,
+        "curvature": 0.25
+      },
+      "D4_Air": {
+        "value": 0.25,
+        "gradient": 0.5,
+        "momentum": 3.769957308834233,
+        "curvature": 0.25
+      }
+    },
+    "interconnections": {
+      "D1_Earth_D2_Fire": 0.04092036873673169,
+      "D1_Earth_D3_Water": 0.03215200892984751,
+      "D1_Earth_D4_Air": 0.025342582053106695,
+      "D2_Fire_D3_Water": 0.03941915314015964,
+      "D2_Fire_D4_Air": 0.032912626453268416,
+      "D3_Water_D4_Air": 0.03950394352803768
+    },
+    "total_values": 16,
+    "compression_ratio": "38837:16 = 2427:1",
+    "hash": "d5d630f8c4b868f4"
+  },
+  "water_locked": true
+}

@@ -1,0 +1,43 @@
+{
+  "genome_id": "e638c4e01d1a",
+  "generation": 1,
+  "score": 0.6338771916333785,
+  "emergence_score": 0.0,
+  "lineage_depth": 1,
+  "n_layers": 3,
+  "layers": [
+    {
+      "primitive": "phi_grid",
+      "params": {
+        "width": 454,
+        "height": 577,
+        "divisions": 5
+      },
+      "transform": "rotate(-105.5,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 449,
+        "cy": 260,
+        "turns": 4,
+        "scale_factor": 168
+      },
+      "transform": "rotate(172.2,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 235,
+        "cy": 507,
+        "n": 20,
+        "unit": 35
+      },
+      "transform": "",
+      "opacity": 0.9968704621668067
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:05:51.394545+00:00"
+}

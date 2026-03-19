@@ -1,0 +1,33 @@
+{
+  "genome_id": "da38020cc377",
+  "generation": 2,
+  "score": 0.7682618018162432,
+  "emergence_score": 0.03480172594506914,
+  "lineage_depth": 2,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 369,
+        "cy": 443,
+        "r": 118
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 225,
+        "y": 563,
+        "length": 195,
+        "angle": -1.5265763856966326,
+        "depth": 6
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:32:36.222212+00:00"
+}

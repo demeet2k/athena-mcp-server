@@ -1,0 +1,68 @@
+{
+  "genome_id": "ca0671cac13e",
+  "generation": 3,
+  "score": 0.7916308718018608,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 241,
+        "cy": 442,
+        "turns": 5,
+        "scale_factor": 140
+      },
+      "transform": "",
+      "opacity": 0.8516989416977594
+    },
+    {
+      "primitive": "regular_polygon",
+      "params": {
+        "cx": 400,
+        "cy": 587,
+        "r": 91,
+        "n": 6,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "koch_snowflake",
+      "params": {
+        "cx": 410,
+        "cy": 472,
+        "size": 191,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dodecahedron",
+      "params": {
+        "cx": 454,
+        "cy": 224,
+        "size": 135,
+        "angle_x": 0.21840176023061514,
+        "angle_z": 0.7585970836270058
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 480,
+        "cy": 437,
+        "size": 145
+      },
+      "transform": "",
+      "opacity": 0.6728888657486874
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:53:39.991871+00:00"
+}

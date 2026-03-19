@@ -1,0 +1,64 @@
+{
+  "genome_id": "2de7428e3586",
+  "generation": 2,
+  "score": 0.7831932773276129,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 403,
+        "cy": 379,
+        "n": 12,
+        "unit": 29
+      },
+      "transform": "rotate(-71.0,400,400)",
+      "opacity": 0.6441728552456822
+    },
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 267,
+        "cy": 551,
+        "size": 154
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 490,
+        "cy": 546,
+        "r": 210
+      },
+      "transform": "",
+      "opacity": 0.8878841819975731
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 359,
+        "cy": 385,
+        "size": 103,
+        "order": 9
+      },
+      "transform": "rotate(-2.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 332,
+        "cy": 385,
+        "size": 105,
+        "order": 8
+      },
+      "transform": "rotate(-2.4,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:48.653323+00:00"
+}

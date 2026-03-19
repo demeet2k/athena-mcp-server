@@ -1,0 +1,63 @@
+{
+  "genome_id": "dcdcb7c31951",
+  "generation": 2,
+  "score": 0.8173475787846015,
+  "emergence_score": 0.14870704583380312,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 273,
+        "cy": 304,
+        "n": 20,
+        "unit": 29
+      },
+      "transform": "rotate(-127.6,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 273,
+        "cy": 309,
+        "n": 20,
+        "unit": 31
+      },
+      "transform": "rotate(-127.6,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 269,
+        "cy": 250,
+        "size": 128
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 253,
+        "cy": 250,
+        "size": 127
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 269,
+        "cy": 250,
+        "size": 135
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:37.078869+00:00"
+}

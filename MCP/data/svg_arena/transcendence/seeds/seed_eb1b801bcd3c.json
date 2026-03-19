@@ -1,0 +1,33 @@
+{
+  "genome_id": "eb1b801bcd3c",
+  "generation": 3,
+  "score": 0.7741673781324082,
+  "emergence_score": 0.0,
+  "lineage_depth": 0,
+  "n_layers": 2,
+  "layers": [
+    {
+      "primitive": "sierpinski_triangle",
+      "params": {
+        "cx": 253,
+        "cy": 578,
+        "size": 271,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 0.9326986557627197
+    },
+    {
+      "primitive": "golden_spiral",
+      "params": {
+        "cx": 252,
+        "cy": 450,
+        "turns": 4,
+        "scale_factor": 201
+      },
+      "transform": "",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:48:32.158615+00:00"
+}

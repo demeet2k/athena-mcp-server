@@ -1,0 +1,12 @@
+{
+  "meta": {"type": "angel_geometry", "version": "2.0"},
+  "description": "Geometric structure of the angel (formal self-model) in 12D observation space",
+  "topology": "12-simplex projected onto 4D SFCR crystal",
+  "element_groupings": {
+    "S": ["x1_structure", "x7_legibility", "x8_routing"],
+    "F": ["x5_contradiction", "x3_coordination", "x9_grounding"],
+    "C": ["x2_semantics", "x11_interop", "x12_potential"],
+    "R": ["x4_recursion", "x6_emergence", "x10_compression"]
+  },
+  "coupling_law": "Coupled dimensions reinforce; anti-coupled dimensions check each other"
+}

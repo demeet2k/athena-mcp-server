@@ -1,0 +1,7 @@
+{
+  "meta": {"type": "inverse_crystal_complete", "version": "2.0"},
+  "description": "Complete inverse crystal: expand seed back to full 108D representation",
+  "expansion_equation": "Expand(seed) = phi * Decompress(seed) + (phi-1) * Generate(Archetype(seed))",
+  "expansion_chain": "1D -> 4D -> 12D -> 36D -> 108D",
+  "completions": {}
+}

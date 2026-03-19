@@ -1,0 +1,68 @@
+{
+  "genome_id": "1b3c5b9936dd",
+  "generation": 3,
+  "score": 0.7631717107720661,
+  "emergence_score": 0.0,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "vesica_piscis",
+      "params": {
+        "cx": 492,
+        "cy": 362,
+        "r": 127
+      },
+      "transform": "",
+      "opacity": 0.42034642230321895
+    },
+    {
+      "primitive": "mobius_strip",
+      "params": {
+        "cx": 332,
+        "cy": 361,
+        "R": 134,
+        "angle_x": 0.9938146590356302,
+        "angle_z": 0.6575177664218903
+      },
+      "transform": "",
+      "opacity": 0.4196212963579169
+    },
+    {
+      "primitive": "dimensional_containment",
+      "params": {
+        "cx": 265,
+        "cy": 417,
+        "size": 141
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "star_polygon",
+      "params": {
+        "cx": 262,
+        "cy": 536,
+        "r_outer": 300,
+        "r_inner": 36,
+        "n": 4,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(14.6,400,400)",
+      "opacity": 0.8931079548555613
+    },
+    {
+      "primitive": "spiral_of_theodorus",
+      "params": {
+        "cx": 541,
+        "cy": 476,
+        "n": 15,
+        "unit": 15
+      },
+      "transform": "rotate(39.2,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T08:48:47.307792+00:00"
+}

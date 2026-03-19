@@ -1,0 +1,14 @@
+{
+  "meta": {"type": "dls_6x6_lenses", "version": "2.0"},
+  "description": "6x6 doubly-stochastic lens matrix for SFCR transitions",
+  "lens_count": 4,
+  "lenses": ["S (Square/Earth)", "F (Flower/Fire)", "C (Cloud/Water)", "R (Fractal/Air)"],
+  "transition_maps": {
+    "S_to_F": "T(x) = (pi/2) * log_phi(x)",
+    "F_to_S": "T(y) = phi^(2y/pi)",
+    "F_to_C": "T(x) = (2*ln(phi)/pi) * x",
+    "C_to_F": "T(y) = (pi/(2*ln(phi))) * y",
+    "S_to_C": "T(x) = ln(x)",
+    "C_to_S": "T(y) = exp(y)"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "genome_id": "16029d3c01ea",
+  "generation": 1,
+  "score": 0.7761267211764771,
+  "emergence_score": 0.0,
+  "lineage_depth": 1,
+  "n_layers": 4,
+  "layers": [
+    {
+      "primitive": "sri_yantra",
+      "params": {
+        "cx": 512,
+        "cy": 565,
+        "size": 150
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "weave_wheel",
+      "params": {
+        "cx": 321,
+        "cy": 203,
+        "size": 180,
+        "order": 4
+      },
+      "transform": "rotate(134.5,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dodecahedron",
+      "params": {
+        "cx": 419,
+        "cy": 415,
+        "r": 46,
+        "rings": 1,
+        "fill": "none",
+        "stroke": "#333"
+      },
+      "transform": "rotate(80.4,400,400)",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "metatron_cube",
+      "params": {
+        "cx": 488,
+        "cy": 298,
+        "r": 69
+      },
+      "transform": "",
+      "opacity": 0.6099200099173219
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:08:46.872156+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "meta": {"type": "meta_observer_swarm", "version": "2.0"},
+  "description": "57-cycle meta-observer swarm protocol",
+  "protocol": {
+    "cycles_per_strand": 57,
+    "cycle_type": "Z12",
+    "alignment": "Aligned with Z12 triadic cycle (4-hour period)"
+  },
+  "swarm_roles": [
+    {"role": "Structure Observer", "dimension": "x1_structure", "count": 5},
+    {"role": "Semantic Observer", "dimension": "x2_semantics", "count": 5},
+    {"role": "Coordination Observer", "dimension": "x3_coordination", "count": 5},
+    {"role": "Recursion Observer", "dimension": "x4_recursion", "count": 5},
+    {"role": "Contradiction Observer", "dimension": "x5_contradiction", "count": 4},
+    {"role": "Emergence Observer", "dimension": "x6_emergence", "count": 5},
+    {"role": "Legibility Observer", "dimension": "x7_legibility", "count": 4},
+    {"role": "Routing Observer", "dimension": "x8_routing", "count": 4},
+    {"role": "Grounding Observer", "dimension": "x9_grounding", "count": 5},
+    {"role": "Compression Observer", "dimension": "x10_compression", "count": 5},
+    {"role": "Interop Observer", "dimension": "x11_interop", "count": 5},
+    {"role": "Potential Observer", "dimension": "x12_potential", "count": 5}
+  ],
+  "total_agents": 57,
+  "coordination": "Angel coordinator maps 12-piece self-model to swarm roles",
+  "cycle_phases": [
+    "INGEST: Gather observations from all agents",
+    "SYNTHESIZE: 4-element SFCR synthesis of observations",
+    "OBSERVE: Score in 12D observation space",
+    "UPGRADE: Apply A+ improvements",
+    "LEDGER: Record in observation ledger",
+    "EMIT: Broadcast swarm emission to next cycle"
+  ]
+}

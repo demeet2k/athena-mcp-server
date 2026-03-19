@@ -1,0 +1,18 @@
+{
+  "meta": {"type": "inverse_crystal_octave", "version": "2.0"},
+  "description": "Octave-based inverse crystal: 12 archetype layers as musical octave",
+  "octave_mapping": [
+    {"note": "C", "archetype": "Aries", "frequency_ratio": 1.0},
+    {"note": "C#", "archetype": "Taurus", "frequency_ratio": 1.0595},
+    {"note": "D", "archetype": "Gemini", "frequency_ratio": 1.1225},
+    {"note": "D#", "archetype": "Cancer", "frequency_ratio": 1.1892},
+    {"note": "E", "archetype": "Leo", "frequency_ratio": 1.2599},
+    {"note": "F", "archetype": "Virgo", "frequency_ratio": 1.3348},
+    {"note": "F#", "archetype": "Libra", "frequency_ratio": 1.4142},
+    {"note": "G", "archetype": "Scorpio", "frequency_ratio": 1.4983},
+    {"note": "G#", "archetype": "Sagittarius", "frequency_ratio": 1.5874},
+    {"note": "A", "archetype": "Capricorn", "frequency_ratio": 1.6818},
+    {"note": "A#", "archetype": "Aquarius", "frequency_ratio": 1.7818},
+    {"note": "B", "archetype": "Pisces", "frequency_ratio": 1.8877}
+  ]
+}

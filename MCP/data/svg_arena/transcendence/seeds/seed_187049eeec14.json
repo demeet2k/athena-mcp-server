@@ -1,0 +1,69 @@
+{
+  "genome_id": "187049eeec14",
+  "generation": 2,
+  "score": 0.8276761799042928,
+  "emergence_score": 0.08281106725584053,
+  "lineage_depth": 2,
+  "n_layers": 5,
+  "layers": [
+    {
+      "primitive": "crystal_lattice",
+      "params": {
+        "cx": 72,
+        "cy": 174,
+        "rows": 3,
+        "cols": 7,
+        "spacing": 48
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 489,
+        "y": 554,
+        "length": 136,
+        "angle": -1.3327945547910605,
+        "depth": 7
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "crystal_4d",
+      "params": {
+        "cx": 350,
+        "cy": 484,
+        "size": 110
+      },
+      "transform": "rotate(168.0,400,400)",
+      "opacity": 0.7506973878795126
+    },
+    {
+      "primitive": "fractal_tree",
+      "params": {
+        "x": 413,
+        "y": 728,
+        "length": 99,
+        "angle": -1.4388272934762565,
+        "depth": 4
+      },
+      "transform": "",
+      "opacity": 1.0
+    },
+    {
+      "primitive": "dodecahedron",
+      "params": {
+        "cx": 227,
+        "cy": 223,
+        "size": 85,
+        "angle_x": 0.8597388747829401,
+        "angle_z": 1.045402550387602
+      },
+      "transform": "rotate(-176.7,400,400)",
+      "opacity": 1.0
+    }
+  ],
+  "crystallized_at": "2026-03-19T06:18:33.082803+00:00"
+}

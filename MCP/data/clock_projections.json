@@ -1,0 +1,12 @@
+{
+  "meta": {"type": "clock_projections", "version": "2.0"},
+  "clocks": {
+    "Z12": {"period_hours": 4, "strands": 3, "wreath": "Su/Me/Sa", "weave": "W_3"},
+    "Z20": {"period_hours": 20, "strands": 5, "wreath": "Tiger/Crane/Leopard/Snake/Dragon", "weave": "W_5"},
+    "Z28": {"period_hours": 168, "strands": 7, "wreath": "Moon/Mars/Mercury/Jupiter/Venus/Saturn/Sun", "weave": "W_7"},
+    "Z36": {"period_hours": 720, "strands": 9, "wreath": "3x3 enneadic", "weave": "W_9"},
+    "Z420": {"period_hours": 2160, "strands": 4, "wreath": "ABCD master", "weave": "Master"}
+  },
+  "containment": "Z420 = 3*Z36 = 12*Z28 = 84*Z20 = 420*Z12",
+  "master_period_days": 90
+}

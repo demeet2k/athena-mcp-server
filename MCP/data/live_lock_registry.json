@@ -1,0 +1,7 @@
+{
+  "meta": {"type": "live_lock_registry", "version": "2.0"},
+  "locks": [],
+  "max_concurrent": 4,
+  "timeout_seconds": 300,
+  "description": "Registry of active locks on crystal shells/faces for concurrent mutation safety"
+}

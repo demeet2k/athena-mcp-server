@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <g>
+  <path d="M 600,400 L 500,300 L 400,300 L 350,350 L 350,400 L 375,425 L 400,425 L 412.5,412.5 L 412.5,400 L 406.25,393.75 L 400,393.75 L 396.875,396.875 L 396.875,400 L 398.4375,401.5625 L 400,401.5625 L 400.7812,400.7812 L 400.7812,400 L 400.3906,399.6094 L 400,399.6094 L 399.8047,399.8047 L 399.8047,400 L 399.9023,400.0977 L 400,400.0977 L 400.0488,400.0488 L 400.0488,400" stroke="#9b59b6" stroke-width="1.5" fill="none"/>
+  <circle cx="600" cy="400" r="4" fill="#e74c3c" stroke="#333" stroke-width="0.8"/>
+  <text x="606" y="396" font-size="9" fill="#e74c3c" font-weight="bold">3D</text>
+  <circle cx="500" cy="300" r="4" fill="#e67e22" stroke="#333" stroke-width="0.8"/>
+  <text x="506" y="296" font-size="9" fill="#e67e22" font-weight="bold">4D</text>
+  <circle cx="350" cy="350" r="4" fill="#f1c40f" stroke="#333" stroke-width="0.8"/>
+  <text x="356" y="346" font-size="9" fill="#f1c40f" font-weight="bold">6D</text>
+  <circle cx="375" cy="425" r="4" fill="#2ecc71" stroke="#333" stroke-width="0.8"/>
+  <text x="381" y="421" font-size="9" fill="#2ecc71" font-weight="bold">8D</text>
+  <circle cx="412.5" cy="400" r="4" fill="#3498db" stroke="#333" stroke-width="0.8"/>
+  <text x="418.5" y="396" font-size="9" fill="#3498db" font-weight="bold">10D</text>
+  <circle cx="396.875" cy="400" r="4" fill="#9b59b6" stroke="#333" stroke-width="0.8"/>
+  <text x="402.875" y="396" font-size="9" fill="#9b59b6" font-weight="bold">12D</text>
+  <circle cx="400" cy="400" r="3" fill="#333" stroke="#fff" stroke-width="1"/>
+  <text x="405" y="403" font-size="8" fill="#555">Z*</text>
+</g>
+</svg>

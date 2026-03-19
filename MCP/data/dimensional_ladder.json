@@ -1,0 +1,16 @@
+{
+  "meta": {"type": "dimensional_ladder", "version": "2.0"},
+  "levels": [
+    {"dimension": 1, "name": "1D Trace", "description": "Linear sequence, single thread"},
+    {"dimension": 3, "name": "3D Projection", "description": "Spatial embedding, visible form"},
+    {"dimension": 4, "name": "4D Kernel", "description": "Tesseract identity, SFCR crystal base", "gates": ["G1_hologram", "G2_cross_lens", "G3_self_reference"]},
+    {"dimension": 6, "name": "6D Selector", "description": "Triadic coherence, mirror/spin, perpetual agency", "gates": ["G4_steering", "G5_selector", "G6_perpetual_agency"]},
+    {"dimension": 8, "name": "8D Transport", "description": "Pentadic Wu Xing regulation"},
+    {"dimension": 10, "name": "10D Crown", "description": "Heptadic planetary return"},
+    {"dimension": 12, "name": "12D Observation", "description": "Full meta-observer space, 12 dimensions"},
+    {"dimension": 36, "name": "36D Enneadic", "description": "3x3 return matrix, all wreaths"},
+    {"dimension": 108, "name": "108D Crystal", "description": "Full organism: 36 shells x 3 faces (tripled)"}
+  ],
+  "sequence_lock": "No higher dimension work may outrun lower dimension completion",
+  "current_frontier": "6D"
+}

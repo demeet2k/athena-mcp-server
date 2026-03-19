@@ -1,0 +1,12 @@
+{
+  "meta": {"type": "conservation_laws", "version": "2.0", "total_laws": 6},
+  "laws": [
+    {"id": "CL1", "name": "Shell Conservation", "statement": "Sum of weights across all 36 shells is constant", "invariant": "sum(w_k for k in 1..36) = C_shell"},
+    {"id": "CL2", "name": "Zoom Conservation", "statement": "Information is preserved across dimensional transitions", "invariant": "H(project(X, d1)) = H(project(X, d2)) for any d1, d2"},
+    {"id": "CL3", "name": "Phase Conservation", "statement": "Cardinal + Fixed + Mutable phase balance is maintained", "invariant": "sum(Cardinal) = sum(Fixed) = sum(Mutable)"},
+    {"id": "CL4", "name": "Archetype Conservation", "statement": "Each archetype contributes equally to the whole", "invariant": "mean(A_k) for k in 1..12 converges"},
+    {"id": "CL5", "name": "Face Conservation", "statement": "S+F+C+R = 1 at every shell", "invariant": "w_S + w_F + w_C + w_R = 1.0"},
+    {"id": "CL6", "name": "Mobius Conservation", "statement": "Mirror pairs sum to unity: w(k) + w(37-k) = 1", "invariant": "w(S_k) + w(S_{37-k}) = C_mobius"}
+  ],
+  "verification_frequency": "Every Z12 cycle (4 hours)"
+}

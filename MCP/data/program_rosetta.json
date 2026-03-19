@@ -1,0 +1,14 @@
+{
+  "meta": {"type": "program_rosetta", "version": "2.0"},
+  "description": "Translation table between program concepts and crystal coordinates",
+  "entries": [
+    {"concept": "function", "crystal": "Shell (S_k)", "analogy": "A function lives at a specific shell address"},
+    {"concept": "module", "crystal": "Archetype (A_n)", "analogy": "A module groups 3 shells (Su/Me/Sa of one archetype)"},
+    {"concept": "package", "crystal": "Phase group", "analogy": "Cardinal/Fixed/Mutable groups of archetypes"},
+    {"concept": "import", "crystal": "Bridge (B_{ef})", "analogy": "Cross-element dependency"},
+    {"concept": "variable", "crystal": "Momentum float", "analogy": "Learnable state at a shell-face position"},
+    {"concept": "constant", "crystal": "Attractor value", "analogy": "Fixed-point constant (phi, e, pi)"},
+    {"concept": "test", "crystal": "Gate test", "analogy": "Emergence threshold verification"},
+    {"concept": "deploy", "crystal": "Crown emission", "analogy": "16-value hologram checkpoint"}
+  ]
+}

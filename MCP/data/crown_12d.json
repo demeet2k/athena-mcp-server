@@ -1,0 +1,8 @@
+{
+  "meta": {"type": "crown_12d", "version": "2.0"},
+  "description": "12D crown architecture: the observation manifold",
+  "dimensions": 12,
+  "dimension_names": ["x1_structure", "x2_semantics", "x3_coordination", "x4_recursion", "x5_contradiction", "x6_emergence", "x7_legibility", "x8_routing", "x9_grounding", "x10_compression", "x11_interop", "x12_potential"],
+  "metric_tensor": "Riemannian with diagonal elements [1.0, 1.0, 0.8, 1.2, 0.9, 1.5, 0.7, 0.8, 1.0, 1.3, 0.6, 1.1]",
+  "projection_chain": "12D → 4D hologram (16 values, 2427:1 compression)"
+}
