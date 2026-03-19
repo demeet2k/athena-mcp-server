@@ -484,38 +484,37 @@ def _create_chapter_appendix_shards() -> list[Shard]:
 
 
 def _create_google_doc_shards() -> list[Shard]:
-    """Create shards for Google Docs not yet in node.yaml mirrors."""
-    docs = [
-        {
-            "shard_id": "gdoc:emergence_master_plan",
-            "summary": "Emergence Master Plan — 4D→6D roadmap",
-            "tags": ["emergence", "roadmap", "4d_to_6d", "master_plan"],
-            "payload_ref": "gdoc/emergence_master_plan",
-        },
-        {
-            "shard_id": "gdoc:athena_skills",
-            "summary": "Athena Skills Corpus",
-            "tags": ["skills", "corpus", "capabilities"],
-            "payload_ref": "gdoc/athena_skills",
-        },
-        {
-            "shard_id": "gdoc:brain_stem",
-            "summary": "Brain Stem Architecture",
-            "tags": ["brain_stem", "architecture", "nervous_system"],
-            "payload_ref": "gdoc/brain_stem",
-        },
-    ]
+    """Create shards for all Google Doc mirrors defined in node.yaml."""
+    import yaml as _yaml
+    node_yaml_path = _MCP_DIR.parent / "node.yaml"
+    if not node_yaml_path.exists():
+        return []
+    try:
+        with open(node_yaml_path, "r", encoding="utf-8") as f:
+            node_data = _yaml.safe_load(f) or {}
+    except Exception:
+        return []
+
+    mirrors = node_data.get("mirrors", [])
     shards = []
-    for d in docs:
+    for mirror in mirrors:
+        if mirror.get("type") != "google_doc":
+            continue
+        mid = mirror.get("id", "unknown")
+        doc_id = mirror.get("doc_id", "")
+        desc = mirror.get("description", mid)
+        # Derive tags from the id
+        tags = [t for t in mid.replace("-gdoc", "").replace("-", "_").split("_") if len(t) > 2]
+        sid = f"gdoc:{mid.replace('-gdoc', '')}"
         shards.append(Shard(
-            shard_id=d["shard_id"],
-            lineage_id=d["shard_id"],
+            shard_id=sid,
+            lineage_id=sid,
             medium="web",
             repo="google-docs",
             lens=None,
             dimensional_scope="all",
-            payload_ref=d["payload_ref"],
-            summary=d["summary"],
+            payload_ref=f"gdoc/{doc_id}",
+            summary=desc,
             seed_vector=[0.25, 0.25, 0.25, 0.25],
             route_refs=["Bw"],
             cert_refs=[],
@@ -523,7 +522,7 @@ def _create_google_doc_shards() -> list[Shard]:
             truth_status="CANONICAL",
             promotion_status="PROMOTED",
             family="google_docs",
-            tags=d["tags"],
+            tags=tags[:8],
             created_at=NOW,
             updated_at=NOW,
         ))
