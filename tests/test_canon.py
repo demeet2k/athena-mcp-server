@@ -5,16 +5,20 @@
 """Validate canon schemas and generated graph integrity."""
 
 import json
+import sys
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "MCP" / "data"
 CANON_DIR = DATA_DIR / "canon"
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "MCP"))
+from crystal_108d._cache import JsonCache
 
 def _load_canon(filename: str) -> dict:
     return json.loads((CANON_DIR / filename).read_text(encoding="utf-8"))
 
 def _load(filename: str) -> dict:
-    return json.loads((DATA_DIR / filename).read_text(encoding="utf-8"))
+    cache = JsonCache(filename)
+    return cache.load()
 
 class TestCanonSchemas:
     """All 5 canon schema files must load and contain expected structure."""

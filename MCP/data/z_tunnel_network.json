@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "module": "z_tunnel_network",
+    "metaloop": "SALT.1",
+    "purpose": "60-node graph connecting liminal coordinates through Z*",
+    "crystal": "Xi108:W1:A7:S5 | face=S | node=12",
+    "tunnel_law": "X → Z* → Y: any two points connected through zero-point",
+    "conservation_laws": 6
+  },
+  "topology": {
+    "total_coordinates": 60,
+    "mask_groups": {
+      "singles": {"coords": "L01-L16", "count": 16},
+      "pairs": {"coords": "L17-L40", "count": 24},
+      "triples": {"coords": "L41-L56", "count": 16},
+      "full": {"coords": "L57-L60", "count": 4}
+    },
+    "orbits": ["SR", "SL", "AL", "AR"],
+    "neighbor_types": ["inclusion", "orbit_rotation", "cross"]
+  },
+  "state": {
+    "total_tunnels": 0,
+    "healthy_tunnels": 0,
+    "z_star_transports": 0,
+    "z_star_violations": 0,
+    "connectivity": 1.0
+  }
+}

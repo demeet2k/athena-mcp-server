@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "module": "inverse_engine",
+    "metaloop": "SULFUR.1",
+    "purpose": "Forward→inverse recording and replay",
+    "crystal": "Xi108:W3:A11:S33 | face=R | node=594",
+    "conservation_law": "forward_state + inverse_state = 2 * initial_state"
+  },
+  "config": {
+    "max_records": 10000,
+    "fidelity_threshold": 0.99,
+    "ring_buffer_size": 10000
+  },
+  "state": {
+    "total_records": 0,
+    "total_replays": 0,
+    "fidelity": 1.0,
+    "last_diagnose": null
+  }
+}

@@ -121,12 +121,19 @@ def query_mobius_lens(lens: str = "all", dimension: int = 0) -> str:
         lines.append(f"**Total**: {lat['total_stations']} stations\n")
         for st in lat["stations"]:
             lines.append(f"  [{st['mask']:>2}] **{st['code']:>4}** ({st['type']}) — {st['role']}")
-        lines.append("\n### Pair Bridges")
-        for b in lat["pair_bridges"]:
-            lines.append(f"  **{b['bridge']}**: {b['transport']}")
-        lines.append("\n### Triangle Closures")
-        for t in lat["triangle_closures"]:
-            lines.append(f"  **{t['triple']}**: {t['meaning']}")
+        if "pair_bridges" in lat:
+            lines.append("\n### Pair Bridges")
+            for b in lat["pair_bridges"]:
+                lines.append(f"  **{b['bridge']}**: {b['transport']}")
+        if "triangle_closures" in lat:
+            lines.append("\n### Triangle Closures")
+            for t in lat["triangle_closures"]:
+                lines.append(f"  **{t['triple']}**: {t['meaning']}")
+        if "structure" in lat:
+            st_info = lat["structure"]
+            lines.append(f"\n### Structure")
+            for k2, v in st_info.items():
+                lines.append(f"  **{k2}**: {v}")
         return "\n".join(lines)
 
     # 96-slot cockpit
@@ -134,10 +141,13 @@ def query_mobius_lens(lens: str = "all", dimension: int = 0) -> str:
         cp = d["cockpit_96"]
         lines = [f"## {cp['name']}\n"]
         lines.append(f"**Formula**: `{cp['formula']}`")
-        lines.append(f"**Visible Slot**: {cp['visible_slot']}")
-        lines.append(f"**Full Slot**: {cp['full_slot']}")
+        if "visible_slot" in cp:
+            lines.append(f"**Visible Slot**: {cp['visible_slot']}")
+        if "full_slot" in cp:
+            lines.append(f"**Full Slot**: {cp['full_slot']}")
         lines.append(f"**Backed By**: {cp['backed_by']}")
-        lines.append(f"**Embedding Law**: `{cp['embedding_law']}`")
+        if "embedding_law" in cp:
+            lines.append(f"**Embedding Law**: `{cp['embedding_law']}`")
         lines.append("\n### Chart Generators")
         for name, gen in cp["chart_generators"].items():
             lines.append(f"  **{name}**: {gen['generator']} ({gen['permutation']})")
@@ -204,10 +214,10 @@ def query_sfcr_station(station: str) -> str:
                 lines.append(f"**Lenses**: {', '.join(st['lenses'])}")
                 lines.append(f"**Role**: {st['role']}")
                 # Check bridges
-                for b in lat["pair_bridges"]:
+                for b in lat.get("pair_bridges", []):
                     if b["bridge"] == st["code"]:
                         lines.append(f"\n**Bridge Transport**: {b['transport']}")
-                for t in lat["triangle_closures"]:
+                for t in lat.get("triangle_closures", []):
                     if t["triple"] == st["code"]:
                         lines.append(f"\n**Triangle Defect**: {t['defect']}")
                         lines.append(f"**Meaning**: {t['meaning']}")
@@ -223,10 +233,10 @@ def query_sfcr_station(station: str) -> str:
             lines.append(f"**Type**: {st['type']}")
             lines.append(f"**Lenses**: {', '.join(st['lenses'])}")
             lines.append(f"**Role**: {st['role']}")
-            for b in lat["pair_bridges"]:
+            for b in lat.get("pair_bridges", []):
                 if b["bridge"] == st["code"]:
                     lines.append(f"\n**Bridge Transport**: {b['transport']}")
-            for t in lat["triangle_closures"]:
+            for t in lat.get("triangle_closures", []):
                 if t["triple"] == st["code"]:
                     lines.append(f"\n**Triangle Defect**: {t['defect']}")
                     lines.append(f"**Meaning**: {t['meaning']}")

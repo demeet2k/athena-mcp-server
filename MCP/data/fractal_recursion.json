@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "module": "fractal_recursion",
+    "metaloop": "MERCURY.1",
+    "purpose": "R-dimension activation through recursive self-observation",
+    "crystal": "Xi108:W3:A4:S12 | face=R | node=216",
+    "convergence_criterion": "result_n ≈ result_{n+1} (Jaccard > 0.8)"
+  },
+  "config": {
+    "default_depth": 3,
+    "convergence_threshold": 0.8,
+    "target_fractal_dimension": [1.2, 1.8],
+    "r_operational_threshold": 0.6
+  },
+  "state": {
+    "total_queries": 0,
+    "total_recursive_passes": 0,
+    "convergence_count": 0,
+    "convergence_rate": 0.0,
+    "r_operational": false
+  }
+}

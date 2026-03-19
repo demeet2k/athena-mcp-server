@@ -1,0 +1,351 @@
+{
+  "meta": {
+    "title": "Athena Node Registry",
+    "description": "All nodes in the distributed Athena superbrain",
+    "generated_at": "2026-03-19T03:29:27.943366+00:00",
+    "total_nodes": 8
+  },
+  "nodes": [
+    {
+      "node_id": "athena-mcp-server",
+      "role": "unified",
+      "medium_class": "code",
+      "lobe_affinity": null,
+      "shard_families": [
+        "all"
+      ],
+      "mirrors": [
+        "athena-square-earth",
+        "athena-flower-fire",
+        "athena-cloud-water",
+        "athena-fractal-air"
+      ],
+      "bridges": [
+        {
+          "type": "git_to_mcp",
+          "description": "Git state exposed via 68 MCP tools + 21 resources"
+        },
+        {
+          "type": "element_to_unified",
+          "description": "4 element servers mirror unified tool subsets"
+        }
+      ],
+      "cert_capabilities": [
+        "STRUCTURAL",
+        "CONSERVATION"
+      ],
+      "read_surfaces": [
+        "mcp_tool",
+        "mcp_resource",
+        "file_read",
+        "git_log"
+      ],
+      "write_surfaces": [
+        "file_write",
+        "git_commit"
+      ],
+      "sync_sources": [
+        "https://github.com/demeet2k/athena-mcp-server"
+      ],
+      "github_repo": "https://github.com/demeet2k/athena-mcp-server",
+      "tool_count": 71,
+      "resource_count": 23
+    },
+    {
+      "node_id": "athena-square-earth",
+      "role": "lobe",
+      "medium_class": "code",
+      "lobe_affinity": "S",
+      "shard_families": [
+        "shells",
+        "dimensions",
+        "address",
+        "conservation",
+        "hologram",
+        "inverse_crystal",
+        "angel"
+      ],
+      "mirrors": [
+        "athena-mcp-server"
+      ],
+      "bridges": [
+        {
+          "type": "lobe_to_unified",
+          "description": "Mirrors unified server's structure/address tools"
+        }
+      ],
+      "cert_capabilities": [
+        "STRUCTURAL"
+      ],
+      "read_surfaces": [
+        "mcp_tool",
+        "mcp_resource"
+      ],
+      "write_surfaces": [],
+      "sync_sources": [
+        "https://github.com/demeet2k/athena-square-earth"
+      ],
+      "github_repo": "https://github.com/demeet2k/athena-square-earth",
+      "tool_count": 17,
+      "resource_count": 1
+    },
+    {
+      "node_id": "athena-flower-fire",
+      "role": "lobe",
+      "medium_class": "code",
+      "lobe_affinity": "F",
+      "shard_families": [
+        "metro",
+        "clock",
+        "moves",
+        "transport",
+        "z_points",
+        "inverse_crystal"
+      ],
+      "mirrors": [
+        "athena-mcp-server"
+      ],
+      "bridges": [
+        {
+          "type": "lobe_to_unified",
+          "description": "Mirrors unified server's dynamics/corridor tools"
+        }
+      ],
+      "cert_capabilities": [],
+      "read_surfaces": [
+        "mcp_tool",
+        "mcp_resource"
+      ],
+      "write_surfaces": [],
+      "sync_sources": [
+        "https://github.com/demeet2k/athena-flower-fire"
+      ],
+      "github_repo": "https://github.com/demeet2k/athena-flower-fire",
+      "tool_count": 15,
+      "resource_count": 1
+    },
+    {
+      "node_id": "athena-cloud-water",
+      "role": "lobe",
+      "medium_class": "code",
+      "lobe_affinity": "C",
+      "shard_families": [
+        "conservation",
+        "hologram",
+        "angel",
+        "brain"
+      ],
+      "mirrors": [
+        "athena-mcp-server"
+      ],
+      "bridges": [
+        {
+          "type": "lobe_to_unified",
+          "description": "Mirrors unified server's observation tools"
+        }
+      ],
+      "cert_capabilities": [
+        "CONSERVATION"
+      ],
+      "read_surfaces": [
+        "mcp_tool",
+        "mcp_resource"
+      ],
+      "write_surfaces": [],
+      "sync_sources": [
+        "https://github.com/demeet2k/athena-cloud-water"
+      ],
+      "github_repo": "https://github.com/demeet2k/athena-cloud-water",
+      "tool_count": 16,
+      "resource_count": 1
+    },
+    {
+      "node_id": "athena-fractal-air",
+      "role": "lobe",
+      "medium_class": "code",
+      "lobe_affinity": "R",
+      "shard_families": [
+        "stages",
+        "angel",
+        "mobius",
+        "inverse_crystal",
+        "hologram"
+      ],
+      "mirrors": [
+        "athena-mcp-server"
+      ],
+      "bridges": [
+        {
+          "type": "lobe_to_unified",
+          "description": "Mirrors unified server's compression/seed tools"
+        }
+      ],
+      "cert_capabilities": [
+        "REPLAY"
+      ],
+      "read_surfaces": [
+        "mcp_tool",
+        "mcp_resource"
+      ],
+      "write_surfaces": [],
+      "sync_sources": [
+        "https://github.com/demeet2k/athena-fractal-air"
+      ],
+      "github_repo": "https://github.com/demeet2k/athena-fractal-air",
+      "tool_count": 16,
+      "resource_count": 1
+    },
+    {
+      "node_id": "google-docs",
+      "role": "docs",
+      "medium_class": "google_doc",
+      "lobe_affinity": null,
+      "shard_families": [
+        "core",
+        "crystal",
+        "emergence",
+        "skills",
+        "brain_stem"
+      ],
+      "mirrors": [
+        "athena-mcp-server"
+      ],
+      "bridges": [
+        {
+          "type": "docs_to_github",
+          "description": "Google Docs sections mirror nervous system files"
+        }
+      ],
+      "cert_capabilities": [],
+      "read_surfaces": [
+        "google_drive_api"
+      ],
+      "write_surfaces": [
+        "google_drive_api"
+      ],
+      "sync_sources": [
+        "https://docs.google.com/document/d/1OUjhabDK08QvamAa0USQmTeEDNAwN3b853OVmvMUdaE",
+        "https://docs.google.com/document/d/1bzcO7PKGlMUc2A35VYo5msN7hGYZzGA4KRQaFaRfbvQ",
+        "https://docs.google.com/document/d/1LJEMi-OmqSfSqJTc585nxlf5zGF0rfyqbygNlYYB6J4"
+      ],
+      "github_repo": null,
+      "tool_count": 0,
+      "resource_count": 0
+    },
+    {
+      "node_id": "athena-guild-hall",
+      "role": "guild-hall",
+      "medium_class": "code",
+      "lobe_affinity": null,
+      "shard_families": [
+        "manuscript",
+        "quest",
+        "synthesis",
+        "proof",
+        "replication",
+        "guild_hall"
+      ],
+      "mirrors": [
+        "athena-mcp-server",
+        "google-docs"
+      ],
+      "bridges": [
+        {
+          "type": "guild_to_mcp",
+          "description": "Guild Hall boards exposed via 4 MCP tools + 2 resources"
+        },
+        {
+          "type": "guild_to_framework",
+          "description": "Python framework implements 21-chapter x 256-gate computational model"
+        },
+        {
+          "type": "guild_to_docs",
+          "description": "Guild Hall synthesis mirrors Google Docs organism state"
+        }
+      ],
+      "cert_capabilities": [
+        "STRUCTURAL",
+        "CONSERVATION",
+        "REPLAY",
+        "PROMOTION"
+      ],
+      "read_surfaces": [
+        "mcp_tool",
+        "mcp_resource",
+        "file_read",
+        "cli"
+      ],
+      "write_surfaces": [
+        "file_write",
+        "git_commit"
+      ],
+      "sync_sources": [],
+      "github_repo": null,
+      "tool_count": 4,
+      "resource_count": 2
+    },
+    {
+      "node_id": "manuscript-being",
+      "role": "main-brain",
+      "medium_class": "code",
+      "lobe_affinity": null,
+      "shard_families": [
+        "manuscript",
+        "quest",
+        "synthesis",
+        "proof",
+        "replication",
+        "guild_hall",
+        "crystal",
+        "metro",
+        "swarm",
+        "truth"
+      ],
+      "mirrors": [
+        "athena-mcp-server",
+        "athena-guild-hall",
+        "google-docs"
+      ],
+      "bridges": [
+        {
+          "type": "main_brain_to_mcp",
+          "description": "MCP tools expose manuscript-being computation to all agents"
+        },
+        {
+          "type": "main_brain_to_guild_hall",
+          "description": "Guild Hall is the social coordination surface"
+        },
+        {
+          "type": "main_brain_to_docs",
+          "description": "Google Docs = slow-form, manuscript-being = executable form"
+        }
+      ],
+      "cert_capabilities": [
+        "STRUCTURAL",
+        "CONSERVATION",
+        "REPLAY",
+        "PROMOTION",
+        "REPLICATION",
+        "TRUTH_CORRIDOR"
+      ],
+      "read_surfaces": [
+        "mcp_tool",
+        "mcp_resource",
+        "file_read",
+        "cli",
+        "python_import"
+      ],
+      "write_surfaces": [
+        "file_write",
+        "git_commit",
+        "python_exec"
+      ],
+      "sync_sources": [
+        "https://github.com/demeet2k/manuscript-being"
+      ],
+      "github_repo": "https://github.com/demeet2k/manuscript-being",
+      "tool_count": 0,
+      "resource_count": 0
+    }
+  ]
+}

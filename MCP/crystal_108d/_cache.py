@@ -69,6 +69,9 @@ _ALL_JSON_FILES = [
     "crystal_coordinates.json",
     "quantum_crystal.json",
     "crystal_weights.json",
+    "momentum_field.json",
+    "kc27_naming.json",
+    "bridge_transport.json",
 ]
 
 class JsonCache:

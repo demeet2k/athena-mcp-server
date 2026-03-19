@@ -24,11 +24,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 71, f"Expected 71 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 123, f"Expected 123 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 23, f"Expected 23 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 24, f"Expected 24 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())

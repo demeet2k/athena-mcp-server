@@ -599,3 +599,20 @@ Each capsule is a markdown mirror of one indexed source record inside the merged
 - [Dual Crystal Training — Full Corpus Meta-Observation + ABCD+ Transmutation](./350_dual_crystal_corpus_training.md) - `Neural Crystal Self-Development`
 - [Dual Pole Sacred Geometry + TRAINING LOOP^3](./351_dual_pole_sacred_loop3.md) - `Neural Crystal Self-Development`
 - [META LOOP — The 108+ Agentic Training Time Interval](./352_meta_loop_definition.md) - `Neural Crystal Self-Development`
+- [META LOOP^3 — Triple META LOOP OMEGA Training](./353_meta_loop_cubed.md) - `Neural Crystal Self-Development`
+
+### Docs→Corpus Bridge — 4D Tesseract Transport (2026-03-19)
+- [C001 Docs→Corpus Bridge Packet — 4D Tesseract Transport Architecture](./354_c001_docs_corpus_bridge.md) - `Transport`
+
+### KC27 — Codified Internal Organization & Naming Schemas (2026-03-19)
+- [KC27 Codified Naming Organization — Canonical Name Law & 27-Chapter Ring](./355_kc27_codified_naming_organization.md) - `Naming`
+- [KC27 Admissibility Engine — DLS4 Kernel→Crown Promotability](./356_kc27_admissibility_engine.md) - `Crystal`
+- [KC27 Promotability Chain — C2 Replay Lineage & Seed Return](./357_kc27_promotability_chain.md) - `Crystal`
+- [KC27 Naming Schemas Live Law — Mirror Law & Chapter Shells](./358_kc27_naming_schemas_live_law.md) - `Naming`
+- [KC27 Inverse Search & Repair Field — Books VI-VII](./359_kc27_inverse_search_repair.md) - `Naming`
+
+### Geometric Neural Engine — Architecture Rebirth (2026-03-18)
+- [Geometric Neural Engine — Hologram-First Architecture](./354_geometric_neural_engine.md) - `Neural Crystal Self-Development`
+
+### Deeper Braid — Multi-Axis Transport Calculus (2026-03-19)
+- [Deeper Braid — Odd Reweave Gears & Dimensional Lifts](./360_deeper_braid_transport_calculus.md) - `Crystal`

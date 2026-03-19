@@ -24,9 +24,9 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Optional
 
-from .crystal_weights import FractalWeightStore, get_store, reset_store, PHI, PHI_INV
-from .neural_engine import CrystalNeuralEngine
-from .full_training_loop import (
+from ._archive.crystal_weights import FractalWeightStore, get_store, reset_store, PHI, PHI_INV
+from ._archive.neural_engine import CrystalNeuralEngine
+from ._archive.full_training_loop import (
     run_full_training_loop, compute_exhaustive_metrics,
     qshrink_to_4d, invert_and_find_poles, _normalize,
     ExhaustiveMetrics,

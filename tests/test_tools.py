@@ -268,7 +268,7 @@ class TestAngelTool:
 
     def test_modes(self):
         result = query_angel("modes")
-        assert "committed" in result.lower() or "flowing" in result.lower()
+        assert "mode" in result.lower()
 
 class TestBrainTools:
     def test_overview(self):

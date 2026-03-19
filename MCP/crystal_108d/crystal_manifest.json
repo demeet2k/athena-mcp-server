@@ -1,0 +1,1201 @@
+{
+  "version": "1.0.0",
+  "total_files": 70,
+  "crystallized": 70,
+  "errors": 0,
+  "total_original_bytes": 1380272,
+  "total_output_bytes": 1380272,
+  "savings_pct": 0.0,
+  "entries": [
+    {
+      "path": "meta_observer_runtime.py",
+      "size": 93673,
+      "format": "text",
+      "coordinate": "Xi108:W2:A7:S19:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Libra",
+      "octave": 2,
+      "gate": 230,
+      "lens_scores": {
+        "S": 0.7047433900339792,
+        "F": 0.5510010710155213,
+        "C": 0.4974433551412148,
+        "R": 0.9160073241415685
+      }
+    },
+    {
+      "path": "qshrink_pipeline.py",
+      "size": 75063,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7128479131625766,
+        "F": 0.550343219312823,
+        "C": 0.4786521219440199,
+        "R": 0.9103106935022323
+      }
+    },
+    {
+      "path": "agent_watcher.py",
+      "size": 69708,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.7033828544726712,
+        "F": 0.5523903777285866,
+        "C": 0.49282561246717543,
+        "R": 0.909603112855748
+      }
+    },
+    {
+      "path": "full_training_loop.py",
+      "size": 53240,
+      "format": "text",
+      "coordinate": "Xi108:W2:A3:S15:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Gemini",
+      "octave": 2,
+      "gate": 226,
+      "lens_scores": {
+        "S": 0.7153528896504806,
+        "F": 0.5447874257142812,
+        "C": 0.47198625250162995,
+        "R": 0.9103301031476991
+      }
+    },
+    {
+      "path": "self_play.py",
+      "size": 53042,
+      "format": "text",
+      "coordinate": "Xi108:W2:A1:S13:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aries",
+      "octave": 2,
+      "gate": 224,
+      "lens_scores": {
+        "S": 0.7080866397641379,
+        "F": 0.5489818793391659,
+        "C": 0.4951523083127775,
+        "R": 0.9185954265670031
+      }
+    },
+    {
+      "path": "qshrink_codec.py",
+      "size": 52568,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7102125029496633,
+        "F": 0.5611691307230534,
+        "C": 0.4884492943852893,
+        "R": 0.9217196408989934
+      }
+    },
+    {
+      "path": "crystal_weights.py",
+      "size": 49614,
+      "format": "text",
+      "coordinate": "Xi108:W2:A1:S13:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aries",
+      "octave": 2,
+      "gate": 224,
+      "lens_scores": {
+        "S": 0.7031021302117809,
+        "F": 0.5511978318166956,
+        "C": 0.49609014434566034,
+        "R": 0.9214849529703883
+      }
+    },
+    {
+      "path": "perpetual_agency.py",
+      "size": 45334,
+      "format": "text",
+      "coordinate": "Xi108:W2:A11:S23:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aquarius",
+      "octave": 2,
+      "gate": 234,
+      "lens_scores": {
+        "S": 0.7153074058851088,
+        "F": 0.544393562180889,
+        "C": 0.46894002973591753,
+        "R": 0.9064151824693218
+      }
+    },
+    {
+      "path": "neural_engine.py",
+      "size": 44543,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.7041768292878445,
+        "F": 0.5502538652360569,
+        "C": 0.49696173603447896,
+        "R": 0.9223631742379219
+      }
+    },
+    {
+      "path": "meta_telemetry.py",
+      "size": 44271,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.7037530340645579,
+        "F": 0.5488974586037937,
+        "C": 0.493591702255885,
+        "R": 0.9106982511970192
+      }
+    },
+    {
+      "path": "corpus_weights.py",
+      "size": 39706,
+      "format": "text",
+      "coordinate": "Xi108:W2:A11:S23:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aquarius",
+      "octave": 2,
+      "gate": 234,
+      "lens_scores": {
+        "S": 0.7125476198848101,
+        "F": 0.5562976019396901,
+        "C": 0.48811810176529347,
+        "R": 0.9123320036297782
+      }
+    },
+    {
+      "path": "self_reference.py",
+      "size": 37404,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7119762417517304,
+        "F": 0.5486602287326392,
+        "C": 0.47743751504423065,
+        "R": 0.9070484142760331
+      }
+    },
+    {
+      "path": "weight_feedback.py",
+      "size": 35349,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7118751837037771,
+        "F": 0.5597095517896667,
+        "C": 0.48108617398155457,
+        "R": 0.902783842611701
+      }
+    },
+    {
+      "path": "qshrink.py",
+      "size": 34703,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7071111076233139,
+        "F": 0.5655018621781204,
+        "C": 0.47343212323052086,
+        "R": 0.9195958869231224
+      }
+    },
+    {
+      "path": "control_center.py",
+      "size": 32167,
+      "format": "text",
+      "coordinate": "Xi108:W2:A12:S24:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Pisces",
+      "octave": 2,
+      "gate": 235,
+      "lens_scores": {
+        "S": 0.7066175726136759,
+        "F": 0.5481927689621863,
+        "C": 0.49282684252940123,
+        "R": 0.9240121468679028
+      }
+    },
+    {
+      "path": "coordinate_assigner.py",
+      "size": 31882,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7159354661514883,
+        "F": 0.5659202055208652,
+        "C": 0.4885246735809017,
+        "R": 0.9201856877703571
+      }
+    },
+    {
+      "path": "selector_shell.py",
+      "size": 31497,
+      "format": "text",
+      "coordinate": "Xi108:W2:A3:S15:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Gemini",
+      "octave": 2,
+      "gate": 226,
+      "lens_scores": {
+        "S": 0.7117370568770985,
+        "F": 0.5585198500164825,
+        "C": 0.4844124680531072,
+        "R": 0.9162382429283398
+      }
+    },
+    {
+      "path": "n3_alchemy.py",
+      "size": 30456,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.710006474013462,
+        "F": 0.5483149151454785,
+        "C": 0.4874670905340645,
+        "R": 0.9166389001399906
+      }
+    },
+    {
+      "path": "steering_spine.py",
+      "size": 30203,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.7151057616056373,
+        "F": 0.5668244816816268,
+        "C": 0.49054977031189717,
+        "R": 0.9130117811334788
+      }
+    },
+    {
+      "path": "__init__.py",
+      "size": 27556,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7191567353007818,
+        "F": 0.5673645295951659,
+        "C": 0.47877941781824107,
+        "R": 0.9071853363857159
+      }
+    },
+    {
+      "path": "observer_swarm.py",
+      "size": 24783,
+      "format": "text",
+      "coordinate": "Xi108:W2:A3:S15:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Gemini",
+      "octave": 2,
+      "gate": 226,
+      "lens_scores": {
+        "S": 0.7097165969198707,
+        "F": 0.5467531169647487,
+        "C": 0.49294028339571927,
+        "R": 0.9164486859525989
+      }
+    },
+    {
+      "path": "holographic_embedder.py",
+      "size": 24695,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7112560669813894,
+        "F": 0.5643438441244186,
+        "C": 0.48905874606189026,
+        "R": 0.9225941597234673
+      }
+    },
+    {
+      "path": "_agent_registry.py",
+      "size": 22916,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7040764956135335,
+        "F": 0.551719723985077,
+        "C": 0.48496782371977865,
+        "R": 0.922665512075943
+      }
+    },
+    {
+      "path": "corpus_crystal.py",
+      "size": 21265,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7162157487588667,
+        "F": 0.5568701765684355,
+        "C": 0.47587979148977333,
+        "R": 0.9154968121536515
+      }
+    },
+    {
+      "path": "mycelium.py",
+      "size": 18880,
+      "format": "text",
+      "coordinate": "Xi108:W2:A7:S19:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Libra",
+      "octave": 2,
+      "gate": 230,
+      "lens_scores": {
+        "S": 0.7159375372238255,
+        "F": 0.5477621266407955,
+        "C": 0.4794746709178031,
+        "R": 0.9067665386094848
+      }
+    },
+    {
+      "path": "brain.py",
+      "size": 18837,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.711560884451907,
+        "F": 0.5628434958890514,
+        "C": 0.47932374862027016,
+        "R": 0.9221180526858983
+      }
+    },
+    {
+      "path": "cross_lens.py",
+      "size": 17861,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.7072120900378422,
+        "F": 0.5406990936553371,
+        "C": 0.46783508881250085,
+        "R": 0.909228965092177
+      }
+    },
+    {
+      "path": "guild_hall.py",
+      "size": 16763,
+      "format": "text",
+      "coordinate": "Xi108:W2:A12:S24:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Pisces",
+      "octave": 2,
+      "gate": 235,
+      "lens_scores": {
+        "S": 0.7120665015495264,
+        "F": 0.548105676392878,
+        "C": 0.4755625578171655,
+        "R": 0.903616004197239
+      }
+    },
+    {
+      "path": "_observer_pool.py",
+      "size": 14092,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7063641582278015,
+        "F": 0.5620633233690898,
+        "C": 0.5087036087540697,
+        "R": 0.9244697747403909
+      }
+    },
+    {
+      "path": "angel_geometry.py",
+      "size": 13044,
+      "format": "text",
+      "coordinate": "Xi108:W2:A3:S15:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Gemini",
+      "octave": 2,
+      "gate": 226,
+      "lens_scores": {
+        "S": 0.7189970497234988,
+        "F": 0.5646630422825667,
+        "C": 0.48529879579579926,
+        "R": 0.9165275339743919
+      }
+    },
+    {
+      "path": "hologram_reading.py",
+      "size": 13028,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7187450019459165,
+        "F": 0.5632833074062854,
+        "C": 0.48260344806956984,
+        "R": 0.9099575608307111
+      }
+    },
+    {
+      "path": "_pheromone.py",
+      "size": 12440,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7079864391089005,
+        "F": 0.5618648209464489,
+        "C": 0.4935753758559869,
+        "R": 0.9080744118575335
+      }
+    },
+    {
+      "path": "archetype_roles.py",
+      "size": 11590,
+      "format": "text",
+      "coordinate": "Xi108:W2:A3:S15:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Gemini",
+      "octave": 2,
+      "gate": 226,
+      "lens_scores": {
+        "S": 0.7158632750636094,
+        "F": 0.5616376981622936,
+        "C": 0.4823000692602183,
+        "R": 0.9080097160226974
+      }
+    },
+    {
+      "path": "mobius_lenses.py",
+      "size": 10610,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7103621569024969,
+        "F": 0.5719672912345211,
+        "C": 0.492217847456461,
+        "R": 0.9212254636846096
+      }
+    },
+    {
+      "path": "crown_12d.py",
+      "size": 10313,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.7112086381519465,
+        "F": 0.5560549674043422,
+        "C": 0.47367766612560147,
+        "R": 0.9192624694542872
+      }
+    },
+    {
+      "path": "inverse_seed.py",
+      "size": 10266,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7126556422634941,
+        "F": 0.5708797569010476,
+        "C": 0.4890689196937427,
+        "R": 0.9147982365499727
+      }
+    },
+    {
+      "path": "quantum_crystal.py",
+      "size": 10265,
+      "format": "text",
+      "coordinate": "Xi108:W2:A2:S14:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Taurus",
+      "octave": 2,
+      "gate": 225,
+      "lens_scores": {
+        "S": 0.7127352687943274,
+        "F": 0.5665560301616882,
+        "C": 0.4922403009265413,
+        "R": 0.9188158150769974
+      }
+    },
+    {
+      "path": "loss_engine.py",
+      "size": 10116,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7145144633885316,
+        "F": 0.5564896540678494,
+        "C": 0.48721715022755124,
+        "R": 0.9197049661110872
+      }
+    },
+    {
+      "path": "inverse_octave.py",
+      "size": 9417,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7110885840036189,
+        "F": 0.561207383703968,
+        "C": 0.4919356130065441,
+        "R": 0.9272397063922218
+      }
+    },
+    {
+      "path": "liminal_mapper.py",
+      "size": 8753,
+      "format": "text",
+      "coordinate": "Xi108:W2:A2:S14:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Taurus",
+      "octave": 2,
+      "gate": 225,
+      "lens_scores": {
+        "S": 0.7141717952468005,
+        "F": 0.5436030820922371,
+        "C": 0.48049718102331573,
+        "R": 0.91252982483915
+      }
+    },
+    {
+      "path": "_cache.py",
+      "size": 8540,
+      "format": "text",
+      "coordinate": "Xi108:W2:A7:S19:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Libra",
+      "octave": 2,
+      "gate": 230,
+      "lens_scores": {
+        "S": 0.7111199758937266,
+        "F": 0.5684134918012154,
+        "C": 0.5045561544485264,
+        "R": 0.9335020504991769
+      }
+    },
+    {
+      "path": "calculus_4d.py",
+      "size": 8269,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7122971884604802,
+        "F": 0.5572956890061969,
+        "C": 0.4756737705351826,
+        "R": 0.9188474765800765
+      }
+    },
+    {
+      "path": "observer_agent.py",
+      "size": 8261,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.7150752193907086,
+        "F": 0.5438671578960551,
+        "C": 0.4851158250989823,
+        "R": 0.9172600814487752
+      }
+    },
+    {
+      "path": "dls_lenses.py",
+      "size": 8192,
+      "format": "text",
+      "coordinate": "Xi108:W2:A11:S23:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aquarius",
+      "octave": 2,
+      "gate": 234,
+      "lens_scores": {
+        "S": 0.7105512194595618,
+        "F": 0.5575631932211589,
+        "C": 0.47567207823344165,
+        "R": 0.9235474855693364
+      }
+    },
+    {
+      "path": "e8_lattice.py",
+      "size": 7996,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.7103198783509411,
+        "F": 0.5610898019037112,
+        "C": 0.4827900776015191,
+        "R": 0.9206526998517783
+      }
+    },
+    {
+      "path": "inverse_complete.py",
+      "size": 7865,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.7178297577255106,
+        "F": 0.5660538072894028,
+        "C": 0.4808983214489533,
+        "R": 0.9189122513349319
+      }
+    },
+    {
+      "path": "evolution.py",
+      "size": 7697,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.714657155773853,
+        "F": 0.5610290746199366,
+        "C": 0.48387096395309315,
+        "R": 0.9196998541861363
+      }
+    },
+    {
+      "path": "emergence.py",
+      "size": 7523,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7140399088923255,
+        "F": 0.5618381285279348,
+        "C": 0.4768977853106303,
+        "R": 0.9098012110283267
+      }
+    },
+    {
+      "path": "live_cell.py",
+      "size": 7491,
+      "format": "text",
+      "coordinate": "Xi108:W2:A12:S24:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Pisces",
+      "octave": 2,
+      "gate": 235,
+      "lens_scores": {
+        "S": 0.7172709354515411,
+        "F": 0.5559451608588439,
+        "C": 0.48076010057335317,
+        "R": 0.9098371498784776
+      }
+    },
+    {
+      "path": "agency.py",
+      "size": 7373,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7130449573297861,
+        "F": 0.5607188069580261,
+        "C": 0.49334410838468,
+        "R": 0.9284205529537315
+      }
+    },
+    {
+      "path": "athenachka.py",
+      "size": 7058,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7125826586877283,
+        "F": 0.5599075983828031,
+        "C": 0.47755092927850595,
+        "R": 0.927372784806147
+      }
+    },
+    {
+      "path": "metabolism.py",
+      "size": 6841,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.7255890490390304,
+        "F": 0.5275097357533848,
+        "C": 0.459583687671336,
+        "R": 0.8870032277840068
+      }
+    },
+    {
+      "path": "meta_observer.py",
+      "size": 6243,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7171153088854537,
+        "F": 0.5614135709405799,
+        "C": 0.4892149497728374,
+        "R": 0.9178640991665001
+      }
+    },
+    {
+      "path": "_file_lock.py",
+      "size": 5993,
+      "format": "text",
+      "coordinate": "Xi108:W2:A6:S18:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Virgo",
+      "octave": 2,
+      "gate": 229,
+      "lens_scores": {
+        "S": 0.7108440175224985,
+        "F": 0.5661058430187818,
+        "C": 0.5026796163193719,
+        "R": 0.9329557642673292
+      }
+    },
+    {
+      "path": "program_rosetta.py",
+      "size": 5818,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7117953566613826,
+        "F": 0.5647795029021102,
+        "C": 0.4802119045299364,
+        "R": 0.885644779339154
+      }
+    },
+    {
+      "path": "address.py",
+      "size": 5669,
+      "format": "text",
+      "coordinate": "Xi108:W2:A11:S23:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aquarius",
+      "octave": 2,
+      "gate": 234,
+      "lens_scores": {
+        "S": 0.705577743650788,
+        "F": 0.5568571409068005,
+        "C": 0.49418326632365495,
+        "R": 0.9096732927486457
+      }
+    },
+    {
+      "path": "shells.py",
+      "size": 5481,
+      "format": "text",
+      "coordinate": "Xi108:W2:A12:S24:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Pisces",
+      "octave": 2,
+      "gate": 235,
+      "lens_scores": {
+        "S": 0.7121260800294945,
+        "F": 0.5595974166013488,
+        "C": 0.4787144788606526,
+        "R": 0.9166235303799386
+      }
+    },
+    {
+      "path": "angel.py",
+      "size": 5285,
+      "format": "text",
+      "coordinate": "Xi108:W2:A5:S17:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Leo",
+      "octave": 2,
+      "gate": 228,
+      "lens_scores": {
+        "S": 0.7141023486592378,
+        "F": 0.5650247577204488,
+        "C": 0.4873025068931279,
+        "R": 0.9125478115768499
+      }
+    },
+    {
+      "path": "moves.py",
+      "size": 5090,
+      "format": "text",
+      "coordinate": "Xi108:W2:A7:S19:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Libra",
+      "octave": 2,
+      "gate": 230,
+      "lens_scores": {
+        "S": 0.706334865976303,
+        "F": 0.5597396755157108,
+        "C": 0.4848454904836951,
+        "R": 0.9300686340570881
+      }
+    },
+    {
+      "path": "dimensions.py",
+      "size": 4815,
+      "format": "text",
+      "coordinate": "Xi108:W2:A1:S13:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aries",
+      "octave": 2,
+      "gate": 224,
+      "lens_scores": {
+        "S": 0.7145626772369176,
+        "F": 0.5570786476496655,
+        "C": 0.4812392163225363,
+        "R": 0.9013493348046897
+      }
+    },
+    {
+      "path": "conservation.py",
+      "size": 4404,
+      "format": "text",
+      "coordinate": "Xi108:W2:A4:S16:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Cancer",
+      "octave": 2,
+      "gate": 227,
+      "lens_scores": {
+        "S": 0.7081896179034834,
+        "F": 0.5616142700210678,
+        "C": 0.4786963439143056,
+        "R": 0.916544268135963
+      }
+    },
+    {
+      "path": "metro_lines.py",
+      "size": 3911,
+      "format": "text",
+      "coordinate": "Xi108:W2:A11:S23:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aquarius",
+      "octave": 2,
+      "gate": 234,
+      "lens_scores": {
+        "S": 0.7066792032534155,
+        "F": 0.5653610976040189,
+        "C": 0.48780508414545387,
+        "R": 0.9125666231230707
+      }
+    },
+    {
+      "path": "overlays.py",
+      "size": 3870,
+      "format": "text",
+      "coordinate": "Xi108:W2:A11:S23:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Aquarius",
+      "octave": 2,
+      "gate": 234,
+      "lens_scores": {
+        "S": 0.7103570034870378,
+        "F": 0.5695712636202073,
+        "C": 0.48640165999257245,
+        "R": 0.9115914027177321
+      }
+    },
+    {
+      "path": "organs.py",
+      "size": 3320,
+      "format": "text",
+      "coordinate": "Xi108:W2:A12:S24:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Pisces",
+      "octave": 2,
+      "gate": 235,
+      "lens_scores": {
+        "S": 0.7062484782318859,
+        "F": 0.5586954722313557,
+        "C": 0.4835912468740795,
+        "R": 0.9191110333068475
+      }
+    },
+    {
+      "path": "stage_codes.py",
+      "size": 3185,
+      "format": "text",
+      "coordinate": "Xi108:W2:A2:S14:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Taurus",
+      "octave": 2,
+      "gate": 225,
+      "lens_scores": {
+        "S": 0.713373907779494,
+        "F": 0.5559629226898984,
+        "C": 0.47473134364094494,
+        "R": 0.9145721694033251
+      }
+    },
+    {
+      "path": "clock.py",
+      "size": 2821,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.7092269355193841,
+        "F": 0.5472814837150746,
+        "C": 0.47265258332947513,
+        "R": 0.9213848871935695
+      }
+    },
+    {
+      "path": "z_points.py",
+      "size": 2760,
+      "format": "text",
+      "coordinate": "Xi108:W2:A10:S22:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Capricorn",
+      "octave": 2,
+      "gate": 233,
+      "lens_scores": {
+        "S": 0.7046670173878278,
+        "F": 0.5648304372557672,
+        "C": 0.4929631570195065,
+        "R": 0.9055360214399435
+      }
+    },
+    {
+      "path": "transport.py",
+      "size": 2727,
+      "format": "text",
+      "coordinate": "Xi108:W2:A2:S14:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Taurus",
+      "octave": 2,
+      "gate": 225,
+      "lens_scores": {
+        "S": 0.711599303399186,
+        "F": 0.5547513225079781,
+        "C": 0.4833182693920881,
+        "R": 0.909858833074412
+      }
+    },
+    {
+      "path": "live_lock.py",
+      "size": 2689,
+      "format": "text",
+      "coordinate": "Xi108:W2:A8:S20:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Scorpio",
+      "octave": 2,
+      "gate": 231,
+      "lens_scores": {
+        "S": 0.7066823363011384,
+        "F": 0.5532653094877508,
+        "C": 0.49644313345417945,
+        "R": 0.9212371216217086
+      }
+    },
+    {
+      "path": "constants.py",
+      "size": 1172,
+      "format": "text",
+      "coordinate": "Xi108:W2:A9:S21:R",
+      "element": "R",
+      "mode": "Mutable",
+      "archetype": "Sagittarius",
+      "octave": 2,
+      "gate": 232,
+      "lens_scores": {
+        "S": 0.7190424124378032,
+        "F": 0.5508474529143019,
+        "C": 0.46159815411781735,
+        "R": 0.8657335814468592
+      }
+    }
+  ]
+}

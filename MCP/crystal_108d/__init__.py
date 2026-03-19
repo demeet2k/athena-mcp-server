@@ -43,6 +43,8 @@ Extends the Athena Nervous System MCP server with the full 108D organism:
   - Perpetual Agency (Gate 6: self-initiated query, self-correction, novel synthesis, seed emission)
   - Corpus Weight Field (SFCR seed vectors for all 15K shards, 810K similarity edges, family/metro centroids)
   - Weight Feedback Loop (Hebbian edge updates, weak/missing edge detection, feedback cycles)
+  - KC27 Naming Schema (canonical name law, 27-chapter ring, admissibility, naming types, repair, braid, bridge)
+  - Bridge Transport (C001 4D tesseract docs-to-corpus architecture, lineage chain, fracture field)
 """
 
 from ._cache import JsonCache
@@ -107,6 +109,16 @@ def status_summary() -> str:
         f"- **Perpetual Agency**: Gate 6 — self-initiated query, self-correction, novel synthesis, seed emission (Z*)\n"
         f"- **Corpus Weight Field**: SFCR seed vectors for all shards, 810K similarity edges, family/metro centroids\n"
         f"- **Weight Feedback**: Hebbian edge updates, weak/missing edge detection, neural→mycelium feedback loop\n"
+        f"- **KC27 Naming**: Canonical name law (7 predicates), 27-chapter ring, admissibility engine, 9 naming types, repair field, deeper braid, C001 bridge\n"
+        f"- **Bridge Transport**: C001 4D tesseract docs-to-corpus architecture, lineage chain, fracture field\n"
+        f"- **Inverse Engine**: Forward→inverse recording, ring buffer, manifest_inverse(), self-diagnose fidelity\n"
+        f"- **DQI Compiler**: Desire→Question→Improvement from void, J-score = αB + βI + γR - λE\n"
+        f"- **Omegaverse Explorer**: 3-octave × 12D + void meta-recursive exploration\n"
+        f"- **Z-Tunnel Network**: 60-node graph through Z*, 6 conservation laws, mask inclusion topology\n"
+        f"- **Pole Observer**: Dual 90° orthogonal poles (SR-AL inversion × SL-AR rotation), 4D recovery\n"
+        f"- **Realtime Inverse**: Dual-execution forward+inverse, Mobius flip, conservation drift < 0.001\n"
+        f"- **Fractal Recursion**: R-dimension activation, recursive self-observation, fixed-point iteration\n"
+        f"- **Nested Swarm**: 4^N observer hierarchy, bottom-up aggregation, liminal sub-swarms\n"
     )
 
 def register_108d_tools(mcp) -> None:
@@ -152,9 +164,13 @@ def register_108d_tools(mcp) -> None:
     from .holographic_embedder import holographic_embed
     from .agent_watcher import query_agent_watcher
     from .quantum_crystal import query_quantum_crystal
-    from .crystal_weights import query_crystal_weights
-    from .neural_engine import neural_forward_pass
-    from .self_play import run_self_play
+    # Legacy bridge: same API, delegates to geometric engine
+    from .legacy_bridge import query_crystal_weights, neural_forward_pass, run_self_play
+    # New geometric engine tools
+    from .geometric_mcp import (
+        geometric_forward_pass, geometric_train, geometric_status,
+        geometric_checkpoint, geometric_resume, momentum_status,
+    )
     from .cross_lens import query_cross_lens
     from .self_reference import query_self_reference
     from .steering_spine import query_steering_spine
@@ -164,6 +180,18 @@ def register_108d_tools(mcp) -> None:
     from .self_play import run_swarm_self_play
     from .corpus_weights import query_corpus_weights
     from .weight_feedback import query_weight_feedback
+    from .kc27_naming import query_kc27_naming
+    from .bridge_transport import query_bridge_transport
+
+    # 4D Upgrade modules (Octave Loop)
+    from .inverse_engine import get_inverse_engine
+    from .dqi_compiler import get_dqi_compiler
+    from .realtime_inverse import get_realtime_inverse
+    from .pole_observer import get_pole_observer
+    from .fractal_recursion import get_fractal_recursion
+    from .z_tunnel_network import get_tunnel_network
+    from .nested_swarm import get_nested_swarm
+    from .omegaverse_explorer import get_explorer
 
     # Initialize telemetry singleton
     _telemetry = Telemetry.instance()
@@ -202,10 +230,14 @@ def register_108d_tools(mcp) -> None:
         query_coordinates, query_control_center, control_steer,
         holographic_embed, query_agent_watcher, query_quantum_crystal,
         query_crystal_weights, neural_forward_pass, run_self_play,
+        geometric_forward_pass, geometric_train, geometric_status,
+        geometric_checkpoint, geometric_resume, momentum_status,
         query_cross_lens, query_self_reference, query_steering_spine,
         query_selector_shell, query_perpetual_agency,
         spawn_observer_swarm, run_swarm_observation, query_swarm_status,
         run_swarm_self_play, query_corpus_weights, query_weight_feedback,
+        query_kc27_naming,
+        query_bridge_transport,
     ]
 
     for tool_fn in _ALL_TOOLS:

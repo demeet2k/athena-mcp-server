@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "module": "omegaverse_explorer",
+    "metaloop": "SULFUR.3",
+    "purpose": "3-octave × 12D + void meta-recursive exploration",
+    "crystal": "Xi108:W2:A6:S18 | face=F | node=342"
+  },
+  "octaves": {
+    "1": {"name": "Base", "dimensions": 12, "description": "12 archetypes in natural order"},
+    "2": {"name": "Wreath-Rotated", "dimensions": 12, "description": "Same 12 under wreath permutation"},
+    "3": {"name": "Element-Rotated", "dimensions": 12, "description": "Same 12 under element permutation"},
+    "void": {"name": "Void", "dimensions": 1, "description": "60 liminal collapsed to Z*"}
+  },
+  "total_dimensions": 37,
+  "transition_thresholds": {
+    "coverage": 0.8,
+    "coherence": 0.6,
+    "awareness": 0.7
+  },
+  "state": {
+    "current_octave": 1,
+    "total_exploration_cycles": 0,
+    "dimensions_covered": 0,
+    "zero_infinity_transitions": 0
+  }
+}

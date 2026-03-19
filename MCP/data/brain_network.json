@@ -1,0 +1,623 @@
+{
+  "_crystal": {
+    "address": "Xi108:W2:A3:S21:u231:Me:C:d1",
+    "shell": 21,
+    "wreath": 2,
+    "archetype": 3,
+    "face": "C",
+    "node_id": 231,
+    "depth": 1,
+    "phase": "Cardinal",
+    "metro_stops": [
+      "Sa"
+    ],
+    "bridges": [
+      "Xi108:W2:A3:S20",
+      "Xi108:W2:A3:S22",
+      "Xi108:W1:A3:S21",
+      "Xi108:W3:A3:S21",
+      "Xi108:W2:A2:S21",
+      "Xi108:W2:A4:S21"
+    ],
+    "regenerate": "shell 21±1, wreath 2/3, archetype 3/12"
+  },
+  "meta": {
+    "title": "Athena Distributed Brain Network",
+    "description": "4-element algorithmic brain: 4 forks × 6 bridges × 4 closures × 1 aether",
+    "elements": 4,
+    "bridges": 6,
+    "closures": 4,
+    "aether": 1,
+    "total_stations": 16,
+    "governing_law": "P({S,F,C,R}) \\ ∅ — 15-station Boolean transport lattice",
+    "weight_formula": "w(A→B) = |A∩B| / |A∪B| × resonance(A,B) — Jaccard × resonance",
+    "conservation": "All 6 conservation laws must hold across brain transactions",
+    "sync_protocol": "Live-lock alignment required before cross-element routing"
+  },
+  "elements": {
+    "square": {
+      "code": "S",
+      "name": "Square Lens",
+      "element": "Earth",
+      "role": "Structure / Address / Admissibility Body",
+      "github_repo": "athena-square-earth",
+      "color": "#8B4513",
+      "dimension_home": 4,
+      "superphase_affinity": "Salt",
+      "body": "WHERE the object is, WHAT state it carries, WHAT law generated it",
+      "tools": [
+        "navigate_crystal",
+        "navigate_108d",
+        "query_shell",
+        "query_superphase",
+        "query_archetype",
+        "read_chapter",
+        "read_appendix",
+        "query_overlay",
+        "query_sigma15",
+        "read_manifest",
+        "query_hologram",
+        "query_4d_seed",
+        "query_angel_conservation",
+        "normalize_shard",
+        "verify_invariants",
+        "query_promotion_membrane"
+      ],
+      "transport_layers": [
+        "Z",
+        "A"
+      ],
+      "weight_vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sfcr_mask": 1,
+      "archetype_affinity": [
+        1,
+        4,
+        7,
+        10
+      ],
+      "shell_range": {
+        "primary": [
+          1,
+          12
+        ],
+        "extended": [
+          25,
+          36
+        ]
+      },
+      "neural_signature": "discrete_admissibility_ledger"
+    },
+    "flower": {
+      "code": "F",
+      "name": "Flower Lens",
+      "element": "Fire",
+      "role": "Relation / Corridor / Dynamical Body",
+      "github_repo": "athena-flower-fire",
+      "color": "#FF4500",
+      "dimension_home": 6,
+      "superphase_affinity": "Sulfur",
+      "body": "WHERE the kernel becomes FLOW — orbit generators and invariant sheets",
+      "tools": [
+        "route_metro",
+        "query_metro_line",
+        "query_clock_beat",
+        "compute_live_lock",
+        "check_route_legality",
+        "query_transport_stack",
+        "resolve_z_point",
+        "read_thread",
+        "list_threads",
+        "read_loop_state",
+        "query_octave_stage",
+        "query_crown_transform",
+        "query_weave_operator",
+        "synthesize_branch",
+        "expand_routes",
+        "query_quest"
+      ],
+      "transport_layers": [
+        "Z",
+        "A",
+        "L",
+        "Tunnel",
+        "Metro"
+      ],
+      "weight_vector": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "sfcr_mask": 2,
+      "archetype_affinity": [
+        2,
+        5,
+        8,
+        11
+      ],
+      "shell_range": {
+        "primary": [
+          1,
+          12
+        ],
+        "extended": [
+          13,
+          24
+        ]
+      },
+      "neural_signature": "corridor_orbit_dynamic_continuity"
+    },
+    "cloud": {
+      "code": "C",
+      "name": "Cloud Lens",
+      "element": "Water",
+      "role": "Lawful Multiplicity / Fiber Object",
+      "github_repo": "athena-cloud-water",
+      "color": "#4169E1",
+      "dimension_home": 8,
+      "superphase_affinity": "Mercury",
+      "body": "Structured LAWFUL multiplicity — every admissible point has exactly 2 pre-images",
+      "tools": [
+        "search_everywhere",
+        "search_corpus",
+        "query_neural_net",
+        "query_conservation",
+        "list_corpus_capsules",
+        "read_corpus_capsule",
+        "read_board_status",
+        "read_swarm_element",
+        "read_frontier",
+        "read_tensor",
+        "query_hologram_rosetta",
+        "query_angel_geometry",
+        "score_candidates",
+        "emit_mirror_family",
+        "query_synthesis"
+      ],
+      "transport_layers": [
+        "Z",
+        "A",
+        "L",
+        "Tunnel",
+        "Metro",
+        "Mycelium",
+        "Bus"
+      ],
+      "weight_vector": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "sfcr_mask": 4,
+      "archetype_affinity": [
+        3,
+        6,
+        9,
+        12
+      ],
+      "shell_range": {
+        "primary": [
+          13,
+          24
+        ],
+        "extended": [
+          1,
+          12
+        ]
+      },
+      "neural_signature": "structured_lawful_multiplicity"
+    },
+    "fractal": {
+      "code": "R",
+      "name": "Fractal Lens",
+      "element": "Air",
+      "role": "Seed / Replay / Compression Body",
+      "github_repo": "athena-fractal-air",
+      "color": "#9370DB",
+      "dimension_home": 10,
+      "superphase_affinity": "Salt",
+      "body": "Minimal seed with collapse/expand discipline — TRANSPORTABLE COMPRESSION",
+      "tools": [
+        "query_stage_code",
+        "query_angel",
+        "read_hologram_chapter",
+        "query_containment",
+        "dimensional_lift",
+        "resolve_dimensional_body",
+        "query_organ",
+        "query_mobius_lens",
+        "query_sfcr_station",
+        "athena_status",
+        "list_families",
+        "query_3d_crystal",
+        "query_projection_stack",
+        "query_hologram",
+        "lift_shard",
+        "compress_recursive_family",
+        "fractal_guild_status"
+      ],
+      "transport_layers": [
+        "Z",
+        "A",
+        "L",
+        "Tunnel",
+        "Metro",
+        "Mycelium",
+        "Bus",
+        "Plane",
+        "ETV"
+      ],
+      "weight_vector": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "sfcr_mask": 8,
+      "archetype_affinity": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "shell_range": {
+        "primary": [
+          25,
+          36
+        ],
+        "extended": [
+          13,
+          24
+        ]
+      },
+      "neural_signature": "minimal_seed_collapse_expand"
+    }
+  },
+  "bridges": {
+    "SF": {
+      "mask": 3,
+      "name": "Square–Flower Bridge",
+      "elements": [
+        "S",
+        "F"
+      ],
+      "weight": 0.618,
+      "resonance_type": "address_flow",
+      "description": "Structure meets dynamics — WHERE + HOW",
+      "cross_law": "Phase-Board Compatibility: Flower move ⟺ (Square board move) ⋆ (π-rot) ⋆ (χ-flip)",
+      "transport": "Tunnel (6D bidirectional corridor)",
+      "shared_tools": [
+        "navigate_crystal",
+        "route_metro"
+      ]
+    },
+    "SC": {
+      "mask": 5,
+      "name": "Square–Cloud Bridge",
+      "elements": [
+        "S",
+        "C"
+      ],
+      "weight": 0.5,
+      "resonance_type": "address_observation",
+      "description": "Structure meets multiplicity — WHERE + WHAT-IF",
+      "cross_law": "Cloud Admissibility: Cloud support ⊆ lawful Square sectors",
+      "transport": "Mycelium (8D substrate network)",
+      "shared_tools": [
+        "query_shell",
+        "search_everywhere"
+      ]
+    },
+    "SR": {
+      "mask": 9,
+      "name": "Square–Fractal Bridge",
+      "elements": [
+        "S",
+        "R"
+      ],
+      "weight": 0.382,
+      "resonance_type": "address_compression",
+      "description": "Structure meets seed — WHERE + COMPRESSED-WHAT",
+      "cross_law": "Replay Closure: Expand ∘ Collapse ~ id (up to symmetry)",
+      "transport": "Bus (9D recurrent spine)",
+      "shared_tools": [
+        "navigate_108d",
+        "query_stage_code"
+      ]
+    },
+    "FC": {
+      "mask": 6,
+      "name": "Flower–Cloud Bridge",
+      "elements": [
+        "F",
+        "C"
+      ],
+      "weight": 0.618,
+      "resonance_type": "flow_observation",
+      "description": "Dynamics meets multiplicity — HOW + WHAT-IF",
+      "cross_law": "Sector Coherence: All lenses carry same shell selector (π,χ)",
+      "transport": "Metro (7D navigable station graph)",
+      "shared_tools": [
+        "query_metro_line",
+        "query_conservation"
+      ]
+    },
+    "FR": {
+      "mask": 10,
+      "name": "Flower–Fractal Bridge",
+      "elements": [
+        "F",
+        "R"
+      ],
+      "weight": 0.5,
+      "resonance_type": "flow_compression",
+      "description": "Dynamics meets seed — HOW + WHY-REPEATABLE",
+      "cross_law": "Board Coherence: All lenses reference same mirror-board family",
+      "transport": "Plane (10D spatial operation)",
+      "shared_tools": [
+        "compute_live_lock",
+        "dimensional_lift"
+      ]
+    },
+    "CR": {
+      "mask": 12,
+      "name": "Cloud–Fractal Bridge",
+      "elements": [
+        "C",
+        "R"
+      ],
+      "weight": 0.618,
+      "resonance_type": "observation_compression",
+      "description": "Multiplicity meets seed — WHAT-IF + COMPRESSED-WHY",
+      "cross_law": "Kernel Preservation: All 4 lenses embed the same 4D kernel Θ_4",
+      "transport": "ETV (11D edge-time-vector compact payload)",
+      "shared_tools": [
+        "query_neural_net",
+        "query_angel"
+      ]
+    }
+  },
+  "closures": {
+    "SFC": {
+      "mask": 7,
+      "name": "Square–Flower–Cloud Triangle",
+      "elements": [
+        "S",
+        "F",
+        "C"
+      ],
+      "missing": "R",
+      "weight": 0.786,
+      "description": "Everything except compression — full lived experience without replay",
+      "transport": "Bus + Metro composite"
+    },
+    "SFR": {
+      "mask": 11,
+      "name": "Square–Flower–Fractal Triangle",
+      "elements": [
+        "S",
+        "F",
+        "R"
+      ],
+      "missing": "C",
+      "weight": 0.786,
+      "description": "Everything except observation — deterministic action without uncertainty",
+      "transport": "Plane + Tunnel composite"
+    },
+    "SCR": {
+      "mask": 13,
+      "name": "Square–Cloud–Fractal Triangle",
+      "elements": [
+        "S",
+        "C",
+        "R"
+      ],
+      "missing": "F",
+      "weight": 0.786,
+      "description": "Everything except flow — contemplative structure without dynamics",
+      "transport": "ETV + Mycelium composite"
+    },
+    "FCR": {
+      "mask": 14,
+      "name": "Flower–Cloud–Fractal Triangle",
+      "elements": [
+        "F",
+        "C",
+        "R"
+      ],
+      "missing": "S",
+      "weight": 0.786,
+      "description": "Everything except address — pure process without fixed location",
+      "transport": "Full 11D stack minus Z"
+    }
+  },
+  "aether": {
+    "SFCR": {
+      "mask": 15,
+      "name": "Full Local Aether",
+      "elements": [
+        "S",
+        "F",
+        "C",
+        "R"
+      ],
+      "weight": 1.0,
+      "description": "Complete 4-element conjunction — the unified brain operating at full capacity",
+      "transport": "All 9 layers including 12D crown lock",
+      "convergence": "Z* (global zero) — all 4 forks converge here"
+    }
+  },
+  "routing_table": {
+    "description": "Brain routing uses 3-layer protocol: Z-point navigation → Live-lock alignment → Conservation verification",
+    "protocol": [
+      {
+        "action": "Find lowest common Z-point ancestor between source and target elements",
+        "cost": "O(log depth)",
+        "layer": 1,
+        "name": "Z-Point Navigation"
+      },
+      {
+        "action": "Compute minimal live-lock class satisfying both elements' helm constraints",
+        "cost": "O(1) lookup in 7-class lattice",
+        "layer": 2,
+        "name": "Live-Lock Alignment"
+      },
+      {
+        "action": "Verify all 6 conservation laws hold for the proposed cross-element route",
+        "cost": "O(6) — one check per law",
+        "layer": 3,
+        "name": "Conservation Verification"
+      }
+    ]
+  },
+  "weight_system": {
+    "description": "Weights govern information flow between brain elements",
+    "base_weights": {
+      "self_loop": 1.0,
+      "pair_bridge": "phi^(-1) = 0.618 (golden ratio) for resonant pairs, 0.500 for neutral, 0.382 for phi^(-2) distant",
+      "triple_closure": "0.786 = sqrt(phi^(-1))",
+      "full_aether": 1.0
+    },
+    "resonance_pairs": {
+      "golden": [
+        "SF",
+        "FC",
+        "CR"
+      ],
+      "neutral": [
+        "SC",
+        "FR"
+      ],
+      "distant": [
+        "SR"
+      ]
+    },
+    "dynamic_weight_formula": "w_dynamic(A→B, t) = w_base(A,B) × alignment(live_lock(A), live_lock(B)) × (1 - violation_count / 6)",
+    "alignment_function": "alignment(L_a, L_b) = period(lcm(L_a, L_b)) / 420"
+  },
+  "main_brain": {
+    "manuscript-being": {
+      "mask": 15,
+      "name": "Manuscript-Being (Main Brain)",
+      "role": "The executable organism — contains all four elements as Python modules",
+      "github_repo": "demeet2k/manuscript-being",
+      "element_mapping": {
+        "S": {
+          "modules": [
+            "kernel.address",
+            "crystal.lattice",
+            "crystal.gate"
+          ],
+          "description": "CrystalAddress + 256-gate system"
+        },
+        "F": {
+          "modules": [
+            "metro.router",
+            "metro.schedule",
+            "kernel.wave_engine"
+          ],
+          "description": "MetroRouter + 420-beat clock + 4-wave engine"
+        },
+        "C": {
+          "modules": [
+            "proof.certificate",
+            "proof.conservation",
+            "truth.corridor"
+          ],
+          "description": "CertificateChain + 6 conservation laws + truth corridors"
+        },
+        "R": {
+          "modules": [
+            "replication.seed",
+            "lens.sfcr",
+            "tensor.field"
+          ],
+          "description": "ReplicationSeed + SFCR decomposition + tensor operations"
+        }
+      },
+      "bridges_to_elements": {
+        "to_square": {
+          "weight": 0.85,
+          "via": "CrystalAddress class maps to navigate_crystal tool"
+        },
+        "to_flower": {
+          "weight": 0.85,
+          "via": "MetroRouter maps to route_metro tool"
+        },
+        "to_cloud": {
+          "weight": 0.85,
+          "via": "CertificateChain maps to query_conservation tool"
+        },
+        "to_fractal": {
+          "weight": 0.85,
+          "via": "ReplicationSeed maps to dimensional_lift tool"
+        }
+      },
+      "bridge_to_guild_hall": {
+        "weight": 0.95,
+        "via": "Guild Hall is the social surface of manuscript-being"
+      },
+      "bridge_to_mcp": {
+        "weight": 1.0,
+        "via": "MCP server exposes manuscript-being computation"
+      },
+      "bridge_to_docs": {
+        "weight": 0.75,
+        "via": "Google Docs = slow-form, manuscript-being = executable form"
+      },
+      "dimensional_ladder": [
+        "4D",
+        "6D",
+        "12D",
+        "36D",
+        "108D"
+      ],
+      "wheel_circuit": "W1 -> W3 -> W5 -> W7 -> W9 -> W1",
+      "regeneration_cycle": "Athenachka <-> Z* <-> Aplus_star <-> D2 <-> C6 <-> Athenachka"
+    }
+  },
+  "fork_manifest": {
+    "description": "GitHub repository mapping for the 4-element distributed brain",
+    "base_repo": "athena-mcp-server",
+    "forks": [
+      {
+        "description": "Structural body — addressing, navigation, shell cascade",
+        "element": "Square",
+        "entry_point": "MCP/element_servers/square_server.py",
+        "name": "athena-square-earth"
+      },
+      {
+        "description": "Dynamical body — routing, timing, corridor flow",
+        "element": "Flower",
+        "entry_point": "MCP/element_servers/flower_server.py",
+        "name": "athena-flower-fire"
+      },
+      {
+        "description": "Observation body — search, conservation, neural net",
+        "element": "Cloud",
+        "entry_point": "MCP/element_servers/cloud_server.py",
+        "name": "athena-cloud-water"
+      },
+      {
+        "description": "Compression body — stages, angel, hologram, containment",
+        "element": "Fractal",
+        "entry_point": "MCP/element_servers/fractal_server.py",
+        "name": "athena-fractal-air"
+      }
+    ]
+  }
+}

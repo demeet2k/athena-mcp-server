@@ -4,13 +4,18 @@
 
 """Validate all JSON data files for structural integrity."""
 
-import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "MCP"))
+
+from crystal_108d._cache import JsonCache
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "MCP" / "data"
 
 def _load(filename: str) -> dict:
-    return json.loads((DATA_DIR / filename).read_text(encoding="utf-8"))
+    cache = JsonCache(DATA_DIR / filename)
+    return cache.load()
 
 class TestJsonFilesLoad:
     """Every JSON data file must parse without errors."""

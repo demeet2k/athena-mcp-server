@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "module": "dqi_compiler",
+    "metaloop": "SULFUR.2",
+    "purpose": "Desire→Question→Improvement from void",
+    "crystal": "Xi108:W2:A11:S22 | face=S | node=462",
+    "j_score_formula": "J = α*B_imm + β*I_global + γ*R_depth - λ*E_drift"
+  },
+  "coefficients": {
+    "alpha": 0.30,
+    "beta": 0.30,
+    "gamma": 0.25,
+    "lambda": 0.15
+  },
+  "stages": ["void", "desire", "question", "seed", "chapter", "atlas", "verified"],
+  "state": {
+    "total_compiled": 0,
+    "total_positive_j": 0,
+    "mean_j_score": 0.0,
+    "health": "EMPTY",
+    "stage_distribution": {}
+  }
+}

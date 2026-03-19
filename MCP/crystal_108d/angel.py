@@ -33,8 +33,14 @@ def query_angel(component: str = "all") -> str:
         for name, s in d["three_selves"].items():
             lines.append(f"  **{s['name']}**: {s['definition']}")
         lines.append(f"\n### Operational Modes")
-        for mode, desc in d["operational_modes"].items():
-            lines.append(f"  **{mode}**: {desc}")
+        fp = d.get("fixed_points_and_attractors", {})
+        op_modes = fp.get("operational_modes", [])
+        if isinstance(op_modes, list):
+            for mode in op_modes:
+                lines.append(f"  - {mode}")
+        else:
+            for mode, desc in op_modes.items():
+                lines.append(f"  **{mode}**: {desc}")
         lines.append(f"\n### Self-Reference")
         sr = d["self_reference"]
         lines.append(f"  {sr['theorem']}")
@@ -76,7 +82,9 @@ def query_angel(component: str = "all") -> str:
             lines.append(f"  **Probes**: {probe['probes']}")
             lines.append(f"  **Exposes**: {probe['exposes']}")
             lines.append(f"  **Gramian**: `{probe['gramian']}`")
-            lines.append(f"  **Kernel**: `{probe['kernel']}`\n")
+            if "kernel" in probe:
+                lines.append(f"  **Kernel**: `{probe['kernel']}`")
+            lines.append("")
         lines.append(f"**Combined**: `{obs['combined_observability']}`")
         lines.append(f"**Key Insight**: {obs['key_insight']}")
         return "\n".join(lines)
@@ -98,8 +106,14 @@ def query_angel(component: str = "all") -> str:
 
     if component == "modes":
         lines = ["## Operational Modes\n"]
-        for mode, desc in d["operational_modes"].items():
-            lines.append(f"  **{mode.title()}**: {desc}")
+        fp = d.get("fixed_points_and_attractors", {})
+        op_modes = fp.get("operational_modes", [])
+        if isinstance(op_modes, list):
+            for mode in op_modes:
+                lines.append(f"  - {mode}")
+        else:
+            for mode, desc in op_modes.items():
+                lines.append(f"  **{mode.title()}**: {desc}")
         return "\n".join(lines)
 
     if component in ("self_reference", "self", "reference", "angel"):

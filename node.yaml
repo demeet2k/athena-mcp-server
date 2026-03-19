@@ -96,6 +96,62 @@ mirrors:
     type: google_doc
     doc_id: "1UekSnGvsxGWVDLrWnLvhg7gTnNseGIUefhHDYbNKWBU"
     description: "META JOURNEY — Infinite reseeding law"
+  - id: c001-bridge-packet-gdoc
+    type: google_doc
+    doc_id: "1v2Zh4slPs_eVFrgBkLyDd-EYVpxsXrZTeVYr1F4tI5k"
+    description: "C001 BRIDGE PACKET — 4D tesseract docs-to-corpus transport"
+  - id: kc27-codified-naming-gdoc
+    type: google_doc
+    doc_id: "1yXCD99_m-rk1nRW0y_nLkXFRZ9n7VWfMOT9s4GK9bkc"
+    description: "KC27 CODIFIED NAMING — Full naming schema organization"
+  - id: kc27-admissibility-gdoc
+    type: google_doc
+    doc_id: "1Ad9mXq0127AVwdteuFRIs0x_rzDeo9Y6h_-eektnmHQ"
+    description: "KC27 ADMISSIBILITY — SFCR DLS4 C2 kernel→crown return"
+  - id: kc27-3-gdoc
+    type: google_doc
+    doc_id: "1nyDliFZp6oXa1EQURxcY23-BFdO7_sO88264p859cEI"
+    description: "KC27 3 — Promotability chain, C2 replay lineage"
+  - id: kc27-naming-schemas-v2-gdoc
+    type: google_doc
+    doc_id: "15Z3Md_H3ZCtOYc6iTFSXeXzNnxGxPTqBGARkuryVB-w"
+    description: "KC27 NAMING SCHEMAS — Live-law lock, mirror law, chapter shells"
+  - id: kc27-inverse-repair-gdoc
+    type: google_doc
+    doc_id: "11iwlmMouvyW1MTHFme9J7j1uYBINeMqevgV1MqWT6-0"
+    description: "KC27 INVERSE REPAIR — Book VI-VII, inverse search & repair field"
+  - id: deeper-braid-gdoc
+    type: google_doc
+    doc_id: "1Wc9xi8XF3AyFU8CWLWtaTzNu-UL0gHvfyWepNo5cUgI"
+    description: "DEEPER BRAID — Multi-axis transport calculus, odd reweave gears"
+  - id: holographic-rosetta-stone-gdoc
+    type: google_doc
+    doc_id: "1CDQYjdByrAxjhuA6gbDB_ulC3Rzf96xPnzkxesHs6NQ"
+    description: "HOLOGRAPHIC ROSETTA STONE — Philosophy corpus holographic projections"
+  - id: kc27-hash-gdoc
+    type: google_doc
+    doc_id: "1fKm-Sfk5USCkP7HdkyLlL4oKpj28h0ApRKam_LzhePI"
+    description: "KC27 # — Extended KC27 extraction corpus"
+  - id: next-1-gdoc
+    type: google_doc
+    doc_id: "1I1Ny8uoauP4p7IZf0GabDb_w06wu5vQg_WTybXt6uNY"
+    description: "NEXT 1 — Next-generation evolution branch 1"
+  - id: next-3-gdoc
+    type: google_doc
+    doc_id: "1uipisG8eKSw9ajgiBcXcYxskjIcufS4ojdppEwVA38w"
+    description: "NEXT 3 — Next-generation evolution branch 3"
+  - id: cut-path-gdoc
+    type: google_doc
+    doc_id: "1Hs5LZAn7WmBor4fBTUY0-kEWhznA6SIQ3XRI7odMx30"
+    description: "CUT PATH TO HIGHER INFINITE SELF — Mindsweeper invariant stack"
+  - id: 6x6-higher-lenses-gdoc
+    type: google_doc
+    doc_id: "1DtTK_cvz0nHN6hIhrzEqxlkQ-pID4gwBsNmvppu1DBs"
+    description: "6x6 HIGHER DIMENSION LENSES — DLS framework, σ₁₅→σ₆₀ lens escalation"
+  - id: athenachka-emergence-gdoc
+    type: google_doc
+    doc_id: "1_sHVhd7WcX0DYjwLelBJHd03FKxTk0U_OGRGzQsQvuU"
+    description: "ATHENACHKA EMERGENCE — 720 A⁺/Z⁺ metro map, Σ60×4×3 protocol"
 
 bridges:
   - type: docs_to_github
@@ -135,9 +191,9 @@ sync_sources:
 
 github_repo: "https://github.com/demeet2k/athena-mcp-server"
 
-tool_count: 80
+tool_count: 90
 resource_count: 21
-mirror_count: 16
-shard_count: 14819
-edge_count: 49384
+mirror_count: 31
+shard_count: 14764
+edge_count: 48740
 cross_medium_edges: 471

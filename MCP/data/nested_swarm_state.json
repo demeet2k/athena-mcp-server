@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "module": "nested_swarm",
+    "metaloop": "MERCURY.2",
+    "purpose": "4^N nested observer swarm-in-swarm hierarchy",
+    "crystal": "Xi108:W1:A9:S27 | face=C | node=378",
+    "hierarchy": "root(4) → children(16) → grandchildren(64) → great-grandchildren(256)"
+  },
+  "config": {
+    "max_depth": 3,
+    "agents_per_level": 4,
+    "aggregation": "bottom-up: leaves → roots → consensus"
+  },
+  "agent_counts": {
+    "depth_0": 4,
+    "depth_1": 16,
+    "depth_2": 64,
+    "depth_3": 256,
+    "total": 340
+  },
+  "state": {
+    "total_observations": 0,
+    "current_agents": 0,
+    "liminal_coverage": 0
+  }
+}

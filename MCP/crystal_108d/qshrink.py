@@ -450,7 +450,7 @@ def _compression_stats() -> str:
 def _get_weight_store() -> Any:
     """Lazily load the FractalWeightStore (may not have data yet)."""
     try:
-        from .crystal_weights import FractalWeightStore
+        from ._archive.crystal_weights import FractalWeightStore
         store = FractalWeightStore()
         store.load_from_json()
         return store
