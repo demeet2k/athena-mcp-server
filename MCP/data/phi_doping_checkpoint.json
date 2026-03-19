@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-03-19T03:19:28",
+  "pipeline": "phi_doping_deep_training",
+  "epochs": 80,
+  "refine_epochs": 40,
+  "meta_depth": 3,
+  "elapsed_seconds": 64.09399999992456,
+  "before": {
+    "balance": 0.27572041169113937,
+    "golden_fit": 0.5170748548510117,
+    "poles": {
+      "pole_a_health": 0.9226238825570872,
+      "pole_a_fidelity": 0.7678716476712615,
+      "pole_b_health": 0.8813184930354233,
+      "pole_b_fidelity": 0.6555596848575592,
+      "orthogonality": 0.8288732849401509,
+      "completeness": 1.0,
+      "is_4d": true,
+      "pole_a_degenerate": false,
+      "pole_b_degenerate": false
+    },
+    "ratios": {
+      "S/F": 2.528977427487776,
+      "S/R": 1.1479978350315378,
+      "F/R": 2.903260611599595
+    }
+  },
+  "after": {
+    "balance": 0.6460297016359134,
+    "golden_fit": 0.8483862830320709,
+    "poles": {
+      "pole_a_health": 0.838201057732784,
+      "pole_a_fidelity": 0.5284920620872408,
+      "pole_b_health": 0.8235125942648326,
+      "pole_b_fidelity": 0.4713680175888362,
+      "orthogonality": 0.6745115145657933,
+      "completeness": 1.0,
+      "is_4d": true,
+      "pole_a_degenerate": false,
+      "pole_b_degenerate": false
+    },
+    "ratios": {
+      "S/F": 1.4554474435716687,
+      "S/R": 1.29972070612676,
+      "F/R": 1.8916751790893567
+    }
+  },
+  "doping_summary": {
+    "total_forces": 38880,
+    "total_attractor": 42.805823150092415,
+    "total_detractor": 3.1466204739646866
+  }
+}

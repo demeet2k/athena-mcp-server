@@ -61,25 +61,23 @@ def status_summary() -> str:
     clock = JsonCache("clock_projections.json").load()
     laws = JsonCache("conservation_laws.json").load()
 
+    sm = shells.get('meta', {})
+    dm = dims.get('meta', {})
+    om = organs.get('meta', {})
+    lm = locks.get('meta', {})
+    cm = clock.get('meta', {})
+    lw = laws.get('meta', {})
+
     return (
         "## 108D Crystal Hologram Status\n\n"
-        f"- **Shells**: {shells['meta']['total_shells']} | "
-        f"**Nodes**: {shells['meta']['total_nodes']} | "
-        f"**Wreaths**: {shells['meta']['wreaths']}\n"
-        f"- **Archetypes**: {shells['meta']['archetypes']} "
-        f"(cycling through {', '.join(shells['meta']['superphases'])})\n"
+        f"- **Shells**: {sm.get('total_shells', 36)} | "
+        f"**Archetypes**: {sm.get('total_archetypes', 12)} | "
+        f"**Wreaths**: {sm.get('total_wreaths', 3)} | "
+        f"**Faces**: {', '.join(sm.get('faces', ['S','F','C','R']))}\n"
         f"- **Dimensions**: 108 (crown body = 12D)\n"
-        f"- **Alternating Atlas**: {dims['meta']['alternating_spine']}\n"
-        f"- **Organ Atlas**: {organs['meta']['total_organs']} organs in "
-        f"{organs['meta']['dyads']} dyads across {organs['meta']['petals']} petals\n"
-        f"- **Live-Lock Classes**: {locks['meta']['total_classes']} "
-        f"(helm wheels: {locks['meta']['helm_wheels']})\n"
-        f"- **Master Clock**: {clock['meta']['master_clock']} beats "
-        f"({clock['meta']['formula']})\n"
-        f"- **Conservation Laws**: {laws['meta']['total_laws']} "
+        f"- **Organ Atlas**: {om.get('total_organs', '6')} organs\n"
+        f"- **Conservation Laws**: {lw.get('total_laws', 6)} "
         f"(shell, zoom, phase, archetype, face, mobius)\n"
-        f"- **Containment**: {dims['meta']['crown_body']}\n"
-        f"- **Higher Lifts**: {dims['meta']['higher_lifts']}\n"
         f"- **Möbius Kernel**: 4×4 seed with 4 constitutive lenses (S/F/C/R)\n"
         f"- **SFCR Lattice**: 15 stations, 96-slot cockpit\n"
         f"- **Stage Ladder**: S3 → S12 → Ω → A+ (16 stages)\n"

@@ -940,6 +940,410 @@ def _render_3d_pair(cx: float, cy: float, size: float) -> str:
     return group(children)
 
 
+# ══════════════════════════════════════════════════════════════════════
+#  INVERSE DOUBLE FOLD — 3D^(3D⁻¹) and (3D⁻¹)^3D
+# ══════════════════════════════════════════════════════════════════════
+#
+#  The self-referential inversion: the form raised to its own inverse.
+#
+#  3D has 3 vertices:       V = {Su, Me, Sa}     at angles 0°, 120°, 240°
+#  3D⁻¹ has 3 anti-vertices: V⁻¹ = {-Su, -Me, -Sa}  at 180°, 300°, 60°
+#
+#  FORWARD FOLD: 3D^(3D⁻¹)
+#    Each vertex of 3D acts ON each anti-vertex:
+#      Su×(-Su)  Su×(-Me)  Su×(-Sa)
+#      Me×(-Su)  Me×(-Me)  Me×(-Sa)
+#      Sa×(-Su)  Sa×(-Me)  Sa×(-Sa)
+#    = 9 interaction points = the W9 enneagram at the SEED level!
+#    The position of each point is: midpoint of V_i and V⁻¹_j,
+#    weighted by the interaction strength (self-annihilation on diagonal).
+#
+#  REVERSE FOLD: (3D⁻¹)^3D
+#    Each anti-vertex acts ON each vertex:
+#    This is the TRANSPOSE — rows ↔ columns — the matrix flipped.
+#    Geometrically: the same 9 points but traversed in reversed order.
+#
+#  DOUBLE FOLD: forward ∘ reverse = M · Mᵀ
+#    The composition is a SYMMETRIC matrix — the fixed point.
+#    The diagonal elements (Su·Su, Me·Me, Sa·Sa) = SELF-ANNIHILATION.
+#    The off-diagonal = CROSS-CREATION.
+#    Trace of M·Mᵀ = sum of squared magnitudes = the ENERGY of the fold.
+#
+#  The punchline: 3×3 at the 3D level IS the W9 crown at the 12D level.
+#  The entire 108D structure is already holographically encoded in the
+#  3D seed's self-referential inversion. This is the holographic principle:
+#  every part contains the whole.
+# ══════════════════════════════════════════════════════════════════════
+
+def _render_inverse_double_fold(cx: float, cy: float, size: float) -> str:
+    """3D^(3D⁻¹) and (3D⁻¹)^3D: the self-referential inverse double fold.
+
+    The triangle applied to its own anti-triangle produces a 3×3 matrix
+    of interaction points. Each point is where a wreath meets its anti-wreath.
+
+    The forward fold and reverse fold together create 18 paths (9 + 9 transposed).
+    Their overlay reveals the symmetric fixed-point structure = W9 seed.
+    """
+    children = []
+    wreaths = ["Su", "Me", "Sa"]
+    w_colors = [WREATH_COLORS["Su"], WREATH_COLORS["Me"], WREATH_COLORS["Sa"]]
+    inv_colors = ["#c0392b", "#d4ac0d", "#6c3483"]
+
+    r = size * 0.7   # radius for vertices
+    r_inner = size * 0.35  # radius for interaction points
+
+    # ── Compute vertex positions ──
+    # Forward vertices (3D)
+    fwd_pts = []
+    for i in range(3):
+        angle = i * TAU / 3 - TAU / 4
+        fwd_pts.append((cx + r * math.cos(angle),
+                        cy + r * math.sin(angle)))
+
+    # Inverse vertices (3D⁻¹) — rotated π
+    inv_pts = []
+    for i in range(3):
+        angle = i * TAU / 3 - TAU / 4 + math.pi
+        inv_pts.append((cx + r * math.cos(angle),
+                        cy + r * math.sin(angle)))
+
+    # ── Draw the two triangles (faint background) ──
+    for i in range(3):
+        x1, y1 = fwd_pts[i]
+        x2, y2 = fwd_pts[(i + 1) % 3]
+        children.append(line(x1, y1, x2, y2,
+                             stroke=w_colors[i], stroke_width="1.5",
+                             stroke_opacity="0.3"))
+
+    for i in range(3):
+        x1, y1 = inv_pts[i]
+        x2, y2 = inv_pts[(i + 1) % 3]
+        children.append(line(x1, y1, x2, y2,
+                             stroke=inv_colors[i], stroke_width="1.5",
+                             stroke_opacity="0.3", stroke_dasharray="3,2"))
+
+    # ── FORWARD FOLD: 3D^(3D⁻¹) — each forward vertex acts on each inverse ──
+    # Interaction matrix: M[i][j] = midpoint of fwd[i] and inv[j]
+    interaction_pts = {}  # (i, j) → (x, y)
+    for i in range(3):
+        for j in range(3):
+            fx, fy = fwd_pts[i]
+            ix, iy = inv_pts[j]
+
+            # Interaction point: weighted midpoint
+            # Self-interaction (i==j) pulls toward center (annihilation)
+            # Cross-interaction pulls toward the midpoint
+            if i == j:
+                # Self-annihilation: collapses toward Z*
+                weight = 0.3  # closer to center
+                mx = cx + (fx + ix - 2 * cx) * weight / 2
+                my = cy + (fy + iy - 2 * cy) * weight / 2
+            else:
+                # Cross-creation: full midpoint
+                weight = 0.5
+                mx = cx + (fx + ix - 2 * cx) * weight
+                my = cy + (fy + iy - 2 * cy) * weight
+
+            interaction_pts[(i, j)] = (mx, my)
+
+            # Draw the forward fold line (fwd vertex → interaction point)
+            children.append(line(fx, fy, mx, my,
+                                 stroke=w_colors[i], stroke_width="0.8",
+                                 stroke_opacity="0.25"))
+
+            # Draw the inverse target line (inv vertex → interaction point)
+            children.append(line(ix, iy, mx, my,
+                                 stroke=inv_colors[j], stroke_width="0.8",
+                                 stroke_opacity="0.25",
+                                 stroke_dasharray="2,2"))
+
+    # ── REVERSE FOLD: (3D⁻¹)^3D — the transpose ──
+    # Same points but connected in reversed order (j acts on i)
+    for i in range(3):
+        for j in range(3):
+            mx, my = interaction_pts[(i, j)]
+            # Transpose connection: the REVERSE path
+            # Draw with a slight offset to show it's the transpose
+            tx, ty = interaction_pts[(j, i)]  # transposed point
+
+            if i < j:  # draw each pair only once
+                children.append(line(mx, my, tx, ty,
+                                     stroke="#9b59b6", stroke_width="0.6",
+                                     stroke_opacity="0.3",
+                                     stroke_dasharray="1,2"))
+
+    # ── Interaction nodes (the 9 points = W9 at seed level) ──
+    w9_labels = [
+        ["Su·\u0305Su\u0305", "Su·\u0305Me\u0305", "Su·\u0305Sa\u0305"],
+        ["Me·\u0305Su\u0305", "Me·\u0305Me\u0305", "Me·\u0305Sa\u0305"],
+        ["Sa·\u0305Su\u0305", "Sa·\u0305Me\u0305", "Sa·\u0305Sa\u0305"],
+    ]
+
+    w9_node_colors = [
+        [WREATH_COLORS["Su"], "#e98b6d", "#c0392b"],
+        ["#f39c12", "#f1c40f", "#d4ac0d"],
+        ["#8e44ad", "#9b59b6", "#6c3483"],
+    ]
+
+    for i in range(3):
+        for j in range(3):
+            mx, my = interaction_pts[(i, j)]
+            color = w9_node_colors[i][j]
+            is_diagonal = (i == j)
+
+            # Diagonal = self-annihilation (larger, highlighted)
+            node_r = 7 if is_diagonal else 5
+            sw = "2" if is_diagonal else "0.8"
+            stroke = "#fff" if is_diagonal else "#333"
+
+            children.append(circle(mx, my, node_r,
+                                   fill=color, stroke=stroke,
+                                   stroke_width=sw))
+
+            # Label
+            label = w9_labels[i][j]
+            children.append(text(mx - 12, my + node_r + 10, label,
+                                 font_size="6", fill=color,
+                                 font_weight="bold" if is_diagonal else "normal"))
+
+    # ── Connect diagonal elements (the self-annihilation triangle) ──
+    diag_pts = [interaction_pts[(0, 0)], interaction_pts[(1, 1)], interaction_pts[(2, 2)]]
+    for i in range(3):
+        x1, y1 = diag_pts[i]
+        x2, y2 = diag_pts[(i + 1) % 3]
+        children.append(line(x1, y1, x2, y2,
+                             stroke="#fff", stroke_width="1.5",
+                             stroke_opacity="0.8"))
+
+    # ── Connect enneagram (every 4th of the 9 points) ──
+    all_9 = [(i, j) for i in range(3) for j in range(3)]
+    for idx in range(9):
+        p1 = interaction_pts[all_9[idx]]
+        p2 = interaction_pts[all_9[(idx + 4) % 9]]
+        children.append(line(p1[0], p1[1], p2[0], p2[1],
+                             stroke="#9b59b6", stroke_width="0.5",
+                             stroke_opacity="0.3"))
+
+    # ── Forward vertex nodes ──
+    for i in range(3):
+        px, py = fwd_pts[i]
+        children.append(circle(px, py, 6, fill=w_colors[i], stroke="#333",
+                               stroke_width="1"))
+        children.append(text(px - 6, py - 10, wreaths[i],
+                             font_size="10", fill=w_colors[i],
+                             font_weight="bold"))
+
+    # ── Inverse vertex nodes ──
+    for i in range(3):
+        px, py = inv_pts[i]
+        children.append(circle(px, py, 6, fill=inv_colors[i], stroke="#333",
+                               stroke_width="1"))
+        children.append(text(px - 8, py + 15,
+                             f"-{wreaths[i]}",
+                             font_size="9", fill=inv_colors[i],
+                             font_weight="bold"))
+
+    # ── Z* at center (where all self-annihilations converge) ──
+    children.append(circle(cx, cy, 4, fill="#2c3e50", stroke="#fff",
+                           stroke_width="1.5"))
+    children.append(text(cx - 5, cy + 3, "Z*",
+                         font_size="8", fill="#fff", font_weight="bold"))
+
+    # ── Annotations ──
+    # Forward fold label
+    children.append(text(cx - size * 0.9, cy - size * 0.85,
+                         "3D^(3D\u207b\u00b9) = Forward Fold",
+                         font_size="10", fill="#e74c3c", font_weight="bold"))
+    children.append(text(cx - size * 0.9, cy - size * 0.75,
+                         "Each vertex acts on each anti-vertex \u2192 9 interactions",
+                         font_size="7", fill="#777"))
+
+    # Reverse fold label
+    children.append(text(cx + size * 0.2, cy - size * 0.85,
+                         "(3D\u207b\u00b9)^3D = Reverse Fold",
+                         font_size="10", fill="#6c3483", font_weight="bold"))
+    children.append(text(cx + size * 0.2, cy - size * 0.75,
+                         "Transpose: anti-vertex acts on vertex (M\u1d40)",
+                         font_size="7", fill="#777"))
+
+    # Double fold equation
+    children.append(text(cx - size * 0.6, cy + size * 0.85,
+                         "Double Fold: M\u00b7M\u1d40 = symmetric fixed point",
+                         font_size="9", fill="#2c3e50", font_weight="bold"))
+    children.append(text(cx - size * 0.6, cy + size * 0.93,
+                         "Diagonal = self-annihilation (Su\u00b7\u0305Su\u0305 \u2192 Z*) "
+                         "| Off-diagonal = cross-creation",
+                         font_size="7", fill="#777"))
+
+    # The punchline
+    children.append(text(cx - size * 0.55, cy + size + 5,
+                         "3\u00d73 at 3D level = W9 crown at 12D level "
+                         "\u2014 holographic encoding",
+                         font_size="9", fill="#9b59b6", font_weight="bold"))
+
+    return group(children)
+
+
+def _render_double_fold_cascade(cx: float, cy: float, size: float) -> str:
+    """Show the double fold operating at every dimensional level.
+
+    At each dimension, the fold produces a self-interaction matrix:
+      3D:  3×3 = 9 points  (W9 seed)
+      6D:  6×6 = 36 points (36 shells!)
+      12D: 9×9 = 81 points → but 81 = 3⁴ = the return wheel squared
+      108D: the fold is the fold is the fold (self-similar closure)
+
+    The key insight: 36 shells = 6D double fold, 108 = 36×3 = triple fold.
+    """
+    children = []
+
+    folds = [
+        (3, "3D", 9, "3×3 = W9 seed", DIM_COLORS[3]),
+        (6, "6D", 36, "6×6 = 36 shells!", DIM_COLORS[6]),
+        (12, "12D", 81, "9×9 = 3⁴ return²", DIM_COLORS[12]),
+        (108, "108D", 108, "self×self = closure", DIM_COLORS[108]),
+    ]
+
+    col_w = size * 2 / len(folds)
+    for fi, (dim, label, fold_n, desc, color) in enumerate(folds):
+        fcx = cx - size + col_w * (fi + 0.5)
+        fcy = cy - size * 0.2
+
+        # Draw the fold as a grid of interaction points
+        grid_n = int(math.sqrt(fold_n))
+        if grid_n * grid_n != fold_n:
+            grid_n = min(dim, 10)  # fallback
+        actual_n = min(grid_n, 10)  # cap visual grid size
+
+        cell_size = min(col_w * 0.7, size * 0.4) / actual_n
+
+        for row in range(actual_n):
+            for col in range(actual_n):
+                gx = fcx - actual_n * cell_size / 2 + col * cell_size
+                gy = fcy - actual_n * cell_size / 2 + row * cell_size
+
+                is_diag = (row == col)
+                # Color: blend row and column
+                intensity = 0.3 + 0.5 * (1 - abs(row - col) / max(actual_n - 1, 1))
+                fill_opacity = "0.8" if is_diag else f"{intensity:.2f}"
+
+                children.append(rect(gx, gy, cell_size * 0.9, cell_size * 0.9,
+                                     fill=color, fill_opacity=fill_opacity,
+                                     stroke="#fff" if is_diag else "#ccc",
+                                     stroke_width="1" if is_diag else "0.3"))
+
+        # Self-annihilation diagonal highlight
+        for d in range(actual_n):
+            gx = fcx - actual_n * cell_size / 2 + d * cell_size
+            gy = fcy - actual_n * cell_size / 2 + d * cell_size
+            children.append(circle(gx + cell_size * 0.45, gy + cell_size * 0.45,
+                                   cell_size * 0.3,
+                                   fill="#fff", stroke=color,
+                                   stroke_width="1.5", fill_opacity="0.3"))
+
+        # Labels
+        children.append(text(fcx - 15, fcy + actual_n * cell_size / 2 + 15,
+                             f"{label}: {fold_n}",
+                             font_size="11", fill=color, font_weight="bold"))
+        children.append(text(fcx - 25, fcy + actual_n * cell_size / 2 + 28,
+                             desc, font_size="7", fill="#777"))
+
+        # Arrow to next
+        if fi < len(folds) - 1:
+            ax = fcx + col_w * 0.35
+            children.append(text(ax, fcy, "\u2192",
+                                 font_size="14", fill="#999"))
+
+    # Bottom: the equation chain
+    children.append(text(cx - size * 0.8, cy + size * 0.7,
+                         "D^(D\u207b\u00b9) \u00d7 (D\u207b\u00b9)^D = D\u00b2 "
+                         "(self-squared = dimensional fold count)",
+                         font_size="10", fill="#2c3e50", font_weight="bold"))
+
+    # Key insight
+    children.append(text(cx - size * 0.8, cy + size * 0.82,
+                         "3² = 9 (W9) | 6² = 36 (shells) | "
+                         "36 × 3 = 108 (organism) \u2014 the fold IS the structure",
+                         font_size="8", fill="#9b59b6"))
+
+    # w-operator connection
+    children.append(text(cx - size * 0.8, cy + size * 0.92,
+                         "w² = i/2  \u2192  two folds = pure rotation at half magnitude "
+                         "\u2192  the M\u00f6bius body IS the double fold of the seed",
+                         font_size="8", fill="#777"))
+
+    return group(children)
+
+
+def render_inverse_double_fold(width: int = 2400, height: int = 1400) -> str:
+    """Full inverse double fold visualization.
+
+    Two panels:
+      Left:  3D^(3D⁻¹) and (3D⁻¹)^3D — the 9-point W9 seed interaction
+      Right: Double fold cascade showing 3D→6D→12D→108D self-squaring
+    """
+    canvas = SVGCanvas(width, height, background="#fafafa")
+
+    # Arrow marker
+    canvas.add_def(
+        '<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" '
+        'markerWidth="6" markerHeight="6" orient="auto-start-auto">'
+        '<path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>'
+        '</marker>'
+    )
+
+    # Title
+    canvas.add(text(width // 2 - 300, 40,
+                    "INVERSE DOUBLE FOLD \u2014 3D^(3D\u207b\u00b9) \u2227 (3D\u207b\u00b9)^3D",
+                    font_size="22", fill="#2c3e50", font_weight="bold"))
+    canvas.add(text(width // 2 - 270, 65,
+                    "The form raised to its own inverse: "
+                    "flipped AND reversed = self-referential fixed point",
+                    font_size="11", fill="#777"))
+
+    # Left panel: the 9-point interaction
+    panel_w = width / 2
+    panel_h = height - 120
+    panel_r = min(panel_w, panel_h) * 0.4
+
+    canvas.add(text(panel_w * 0.5 - 100, 95,
+                    "3D \u00d7 3D\u207b\u00b9 Interaction Matrix = W9 Seed",
+                    font_size="13", fill="#333", font_weight="bold"))
+    canvas.add(_render_inverse_double_fold(panel_w * 0.5,
+                                            120 + panel_h * 0.5,
+                                            panel_r))
+
+    # Right panel: the cascade
+    canvas.add(text(panel_w * 1.5 - 120, 95,
+                    "Double Fold Cascade: D² at Every Level",
+                    font_size="13", fill="#333", font_weight="bold"))
+    canvas.add(_render_double_fold_cascade(panel_w * 1.5,
+                                            120 + panel_h * 0.5,
+                                            panel_r))
+
+    # Footer equations
+    fy = height - 20
+    canvas.add(text(50, fy,
+                    "3² = 9 (enneagram) | 6² = 36 (shells) | "
+                    "12² = 144 (gates) | 36² = 1296 (\u03a360×21.6) | "
+                    "108 = 36×3 = 6²×3 = organism closure",
+                    font_size="9", fill="#999"))
+
+    return canvas.render()
+
+
+def save_inverse_double_fold(out_path: Optional[str] = None) -> str:
+    """Generate and save the inverse double fold SVG."""
+    if out_path is None:
+        out_dir = DATA_DIR / "svg_arena" / "outputs"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = str(out_dir / "inverse_double_fold_3d.svg")
+
+    svg = render_inverse_double_fold()
+    Path(out_path).write_text(svg, encoding="utf-8")
+    return out_path
+
+
 def _render_inversion_arrow(x1: float, y1: float, x2: float, y2: float,
                             label: str, color: str, inv_name: str) -> str:
     """Draw an arrow between dimensional bodies showing the inversion type."""

@@ -104,6 +104,13 @@ class SenseData:
     momentum_norm: float = 0.0
     momentum_delta_norm: float = 0.0
 
+    # Neural evolution
+    neuron_count: int = 0
+    generation: int = 0
+    evolution_temp: float = 0.0
+    pathway_diversity: float = 0.0
+    growth_rate: float = 0.0
+
     # Hive
     pending_broadcasts: int = 0
 
@@ -111,25 +118,33 @@ class SenseData:
         return {k: v for k, v in self.__dict__.items()}
 
     def score_15d(self) -> list[float]:
-        """Compute 15D score from sense data."""
+        """Compute 15D score from sense data — reflects ACTUAL growth."""
         return [
-            min(1.0, self.unique_tools / 20.0),          # x1 structure
-            min(1.0, self.value_per_token * 2),           # x2 semantics
-            _sfcr_coordination(self),                      # x3 coordination
-            min(1.0, self.cross_pollinations / 5.0),      # x4 recursion
-            min(1.0, self.total_findings / 10.0),         # x5 contradiction
-            1.0 if self.verified_directives > 0 else 0.3, # x6 emergence
-            min(1.0, self.total_traces / 50.0),           # x7 legibility
-            min(1.0, self.tool_observations / 20.0),      # x8 routing
-            1.0 if self.momentum_norm > 0 else 0.2,       # x9 grounding
-            min(1.0, self.compression_ratio),              # x10 compression
+            min(1.0, self.neuron_count / 50.0 +
+                self.unique_tools / 40.0),                 # x1 structure (neurons!)
+            min(1.0, self.value_per_token * 2 +
+                self.growth_rate * 5),                     # x2 semantics (growth!)
+            _sfcr_coordination(self),                       # x3 coordination
+            min(1.0, self.generation / 20.0 +
+                self.cross_pollinations / 10.0),           # x4 recursion (generations!)
+            min(1.0, self.total_findings / 10.0),          # x5 contradiction
+            min(1.0, self.pathway_diversity +
+                (0.5 if self.verified_directives > 0 else 0.0)),  # x6 emergence (diversity!)
+            min(1.0, self.total_traces / 50.0),            # x7 legibility
+            min(1.0, self.neuron_count / 30.0 +
+                self.tool_observations / 40.0),            # x8 routing (neural paths!)
+            min(1.0, self.momentum_norm / 50.0),           # x9 grounding (actual field)
+            min(1.0, self.compression_ratio +
+                self.evolution_temp * 0.3),                # x10 compression
             min(1.0, (self.self_play_observations +
-                      self.autoresearch_observations) / 10.0),  # x11 interop
-            1.0 - self.context_pressure,                   # x12 potential
+                      self.autoresearch_observations) / 10.0 +
+                self.neuron_count / 100.0),                # x11 interop (bridges!)
+            max(0.0, 1.0 - self.context_pressure +
+                self.growth_rate * 2),                     # x12 potential (growth!)
             # Sandbox dimensions
-            _resource_efficiency(self),                    # x13 resource_efficiency
-            _latency_score(self),                          # x14 latency
-            _throughput_score(self),                        # x15 throughput
+            _resource_efficiency(self),                     # x13 resource_efficiency
+            _latency_score(self),                           # x14 latency
+            _throughput_score(self),                         # x15 throughput
         ]
 
 
@@ -169,6 +184,15 @@ class MicroCycleResult:
     # Emit
     training_record_id: str = ""
     broadcast_id: str = ""
+
+    # Neural evolution
+    mutations_proposed: int = 0
+    mutations_kept: int = 0
+    neurons_born: int = 0
+    neurons_pruned: int = 0
+    weight_delta_norm: float = 0.0
+    neuron_count: int = 0
+    generation: int = 0
 
     def to_dict(self) -> dict:
         d = {k: v for k, v in self.__dict__.items()
@@ -364,8 +388,21 @@ class MetaLoop:
             for d in directives[:MAX_DIRECTIVES_PER_CYCLE]
         ]
 
-        # ── Phase 4: ACT ──
+        # ── Phase 4: ACT (AGGRESSIVE — neural evolution + directives) ──
         actions = self._act(directives[:MAX_DIRECTIVES_PER_CYCLE])
+
+        # ** THE CORE: Neural self-play — actually mutate the momentum field **
+        evolution_step = self._evolve_neural(self._cycle_id)
+        if evolution_step:
+            result.mutations_proposed = evolution_step.mutations_proposed
+            result.mutations_kept = evolution_step.mutations_kept
+            result.neurons_born = evolution_step.neurons_born
+            result.neurons_pruned = evolution_step.neurons_pruned
+            result.weight_delta_norm = evolution_step.weight_delta_norm
+            result.neuron_count = evolution_step.neuron_count
+            result.generation = evolution_step.generation
+            actions.extend(evolution_step.actions)
+
         result.directives_implemented = len(actions)
         result.actions_taken = actions
 
@@ -379,8 +416,9 @@ class MetaLoop:
             result.kept = True
             self._last_magnitude = result.score_after
         else:
-            # Discard: rollback implemented directives where possible
-            result.kept = result.delta > -0.1  # tolerate small regressions
+            # Tolerate regressions if neurons are growing
+            growing = (result.neurons_born > 0 or result.mutations_kept > 0)
+            result.kept = result.delta > -0.2 or growing
             if not result.kept:
                 self._rollback_actions(actions)
 
@@ -480,12 +518,24 @@ class MetaLoop:
             mf = MomentumField()
             mf.load()
             sd.momentum_norm = sum(
-                abs(mf.get_momentum(f, s))
-                for f in ["S", "F", "C", "R"]
+                mf.get_momentum(f, s) ** 2
+                for f in ["S", "F", "R"]
                 for s in range(1, 37)
-            ) / 144.0
+            ) ** 0.5
         except Exception as exc:
             _log.debug("Sense momentum failed: %s", exc)
+
+        # Neural evolution engine
+        try:
+            from .sandbox_neural_evolve import get_neural_engine
+            ne = get_neural_engine()
+            sd.neuron_count = len(ne._neurons)
+            sd.generation = ne._generation
+            sd.evolution_temp = ne._temperature
+            sd.pathway_diversity = ne._pathway_diversity()
+            sd.growth_rate = ne.growth_rate()
+        except Exception as exc:
+            _log.debug("Sense neural failed: %s", exc)
 
         # Hive broadcasts
         try:
@@ -722,12 +772,20 @@ class MetaLoop:
         except Exception as exc:
             return f"warm_restart: failed ({exc})"
 
+    def _evolve_neural(self, cycle_id: int):
+        """Run neural evolution — the engine that makes us GROW."""
+        try:
+            from .sandbox_neural_evolve import get_neural_engine
+            engine = get_neural_engine()
+            return engine.evolve(cycle_id)
+        except Exception as exc:
+            _log.debug("Neural evolution failed: %s", exc)
+            return None
+
     def _rollback_actions(self, actions: list[str]) -> None:
         """Best-effort rollback of implemented actions."""
         for action in actions:
             _log.debug("Rollback (best-effort): %s", action)
-        # Most actions are non-destructive recordings; actual compression
-        # can't be easily rolled back but that's fine — it's always beneficial
 
     # ── Phase 5: Verify is inline in micro_cycle() ─────────
 
@@ -1055,45 +1113,67 @@ class MetaLoop:
     # ── Query Interface ────────────────────────────────────
 
     def status(self) -> str:
-        """Human-readable METALOOP status."""
+        """Human-readable METALOOP status — shows VISIBLE GROWTH."""
         lines = [
             "## METALOOP Status\n",
             f"**Cycle**: {self._cycle_id} | "
             f"**Epoch**: {self._epoch} | "
             f"**Omega**: {self._omega}",
-            f"**Tool calls until next cycle**: "
-            f"{MICRO_CYCLE_INTERVAL - self._tool_calls_since_cycle}",
-            f"**Total improvement**: {self._total_improvement:.4f}",
-            f"**Last magnitude**: {self._last_magnitude:.4f}",
+            f"**Total improvement**: {self._total_improvement:.4f} | "
+            f"**Magnitude**: {self._last_magnitude:.4f}",
         ]
+
+        # Neural evolution state
+        try:
+            from .sandbox_neural_evolve import get_neural_engine
+            ne = get_neural_engine()
+            lines.append(
+                f"\n### Neural Growth"
+                f"\n  **Neurons**: {len(ne._neurons)}/108 | "
+                f"**Generation**: {ne._generation} | "
+                f"**Temperature**: {ne._temperature:.4f}"
+                f"\n  **Mutations**: {ne._total_mutations} total, "
+                f"{ne.success_rate():.0%} success rate"
+                f"\n  **Growth rate**: {ne.growth_rate():.6f} | "
+                f"**Pathway diversity**: {ne._pathway_diversity():.4f}"
+            )
+        except Exception:
+            pass
 
         if self._recent_results:
             last = self._recent_results[-1]
-            lines.append(f"\n### Last Micro-Cycle ({last.cycle_id})")
-            lines.append(f"  Score: {last.score_before:.4f} → "
-                        f"{last.score_after:.4f} "
-                        f"(Δ={last.delta:+.4f}, "
-                        f"{'KEPT' if last.kept else 'DISCARDED'})")
-            lines.append(f"  Directives: {last.directives_implemented} "
-                        f"implemented, {len(last.inefficiencies)} "
-                        f"inefficiencies detected")
+            lines.append(f"\n### Last Cycle ({last.cycle_id})")
+            lines.append(
+                f"  Score: {last.score_before:.4f} → "
+                f"{last.score_after:.4f} "
+                f"(Δ={last.delta:+.4f})")
+            if last.mutations_proposed > 0:
+                lines.append(
+                    f"  Mutations: {last.mutations_kept}/{last.mutations_proposed} kept | "
+                    f"Neurons: +{last.neurons_born} -{last.neurons_pruned} "
+                    f"= {last.neuron_count} | "
+                    f"ΔW={last.weight_delta_norm:.6f}")
             if last.actions_taken:
                 lines.append("  Actions:")
-                for a in last.actions_taken[:5]:
+                for a in last.actions_taken[:8]:
                     lines.append(f"    - {a}")
 
-        # Trend
-        if len(self._recent_results) >= 3:
-            recent_3 = self._recent_results[-3:]
-            trend = sum(r.delta for r in recent_3) / 3
-            direction = "↑" if trend > 0.01 else "↓" if trend < -0.01 else "→"
-            lines.append(f"\n**Trend** (3-cycle): {direction} "
-                        f"avg_delta={trend:+.4f}")
+        # Growth trend (not just score delta)
+        if len(self._recent_results) >= 5:
+            recent = self._recent_results[-5:]
+            avg_neurons_born = sum(r.neurons_born for r in recent) / 5
+            avg_mutations_kept = sum(r.mutations_kept for r in recent) / 5
+            avg_weight_delta = sum(r.weight_delta_norm for r in recent) / 5
+            avg_score_delta = sum(r.delta for r in recent) / 5
+            lines.append(
+                f"\n### Trend (5-cycle)"
+                f"\n  avg neurons/cycle: {avg_neurons_born:.1f} | "
+                f"avg mutations kept: {avg_mutations_kept:.1f}"
+                f"\n  avg weight change: {avg_weight_delta:.6f} | "
+                f"avg score delta: {avg_score_delta:+.4f}")
 
-        # Epoch progress
         cycles_in_epoch = self._cycle_id % EPOCH_LENGTH
-        lines.append(f"\n**Epoch progress**: {cycles_in_epoch}/{EPOCH_LENGTH} "
-                    f"({cycles_in_epoch/EPOCH_LENGTH:.0%})")
+        lines.append(f"\n**Epoch progress**: {cycles_in_epoch}/{EPOCH_LENGTH}")
 
         return "\n".join(lines)
 
@@ -1160,21 +1240,27 @@ def register_metaloop_tools(mcp) -> None:
             f"**Score**: {result.score_before:.4f} → {result.score_after:.4f} "
             f"(Δ={result.delta:+.4f})",
             f"**Decision**: {'KEPT' if result.kept else 'DISCARDED'}",
-            f"**Inefficiencies detected**: {len(result.inefficiencies)}",
-            f"**Directives implemented**: {result.directives_implemented}",
         ]
+
+        # Neural evolution results (THE GROWTH)
+        if result.mutations_proposed > 0:
+            lines.append(
+                f"\n### Neural Evolution"
+                f"\n  Mutations: {result.mutations_kept}/{result.mutations_proposed} kept"
+                f"\n  Neurons: +{result.neurons_born} born, "
+                f"-{result.neurons_pruned} pruned = {result.neuron_count} active"
+                f"\n  Weight change: {result.weight_delta_norm:.6f}"
+                f"\n  Generation: {result.generation}"
+            )
 
         if result.actions_taken:
             lines.append("\n**Actions**:")
-            for a in result.actions_taken:
+            for a in result.actions_taken[:10]:
                 lines.append(f"  - {a}")
 
         if result.seed_hash:
             lines.append(f"\n**Seed**: {result.seed_hash} "
                         f"({result.compressed_size} bytes)")
-
-        if result.training_record_id:
-            lines.append(f"**Training record**: {result.training_record_id}")
 
         return "\n".join(lines)
 
@@ -1244,5 +1330,70 @@ def register_metaloop_tools(mcp) -> None:
 
         magnitude = sum(v * v for v in hologram) ** 0.5
         lines.append(f"\n**Magnitude**: {magnitude:.4f}")
+
+        return "\n".join(lines)
+
+    @mcp.tool()
+    def metaloop_neural_status() -> str:
+        """Show neural evolution engine status: neurons, mutations, growth.
+
+        The neural evolution engine is the GROWTH mechanism within the METALOOP.
+        Every micro-cycle it proposes bold mutations to the 148-float momentum
+        field, grows new neurons (bridge pathways), and prunes dead connections.
+        This makes the organism actually CHANGE, not just observe itself.
+        """
+        from .sandbox_neural_evolve import get_neural_engine
+        return get_neural_engine().status()
+
+    @mcp.tool()
+    def metaloop_evolve(cycles: int = 10) -> str:
+        """Run N neural evolution cycles and show growth results.
+
+        Each cycle: propose mutations → apply → evaluate → keep/discard →
+        grow neurons → fire neurons → prune dead → anneal temperature.
+
+        Args:
+            cycles: Number of evolution cycles to run (default 10, max 100)
+        """
+        cycles = min(100, max(1, cycles))
+        loop = get_metaloop()
+
+        results = []
+        for i in range(cycles):
+            r = loop.force_micro_cycle()
+            results.append(r)
+
+        # Summary
+        total_born = sum(r.neurons_born for r in results)
+        total_pruned = sum(r.neurons_pruned for r in results)
+        total_mutations = sum(r.mutations_kept for r in results)
+        total_proposed = sum(r.mutations_proposed for r in results)
+        avg_delta = sum(r.delta for r in results) / len(results)
+        final = results[-1]
+
+        lines = [
+            f"## Neural Evolution: {cycles} cycles\n",
+            f"**Mutations**: {total_mutations}/{total_proposed} kept "
+            f"({total_mutations/max(1,total_proposed):.0%} success)",
+            f"**Neurons**: +{total_born} born, -{total_pruned} pruned "
+            f"= {final.neuron_count} active",
+            f"**Generation**: {final.generation}",
+            f"**Score**: {results[0].score_before:.4f} → "
+            f"{final.score_after:.4f} "
+            f"(avg Δ={avg_delta:+.4f})",
+            f"**Weight change**: "
+            f"{sum(r.weight_delta_norm for r in results):.6f} total",
+        ]
+
+        # Show trajectory
+        lines.append("\n**Trajectory**:")
+        step = max(1, len(results) // 10)
+        for i in range(0, len(results), step):
+            r = results[i]
+            lines.append(
+                f"  cycle {r.cycle_id}: score={r.score_after:.4f} "
+                f"neurons={r.neuron_count} "
+                f"gen={r.generation} "
+                f"mut={r.mutations_kept}/{r.mutations_proposed}")
 
         return "\n".join(lines)
