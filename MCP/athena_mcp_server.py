@@ -695,6 +695,31 @@ def athena_status() -> str:
     return "\n\n".join(parts) if parts else "Could not read Athena status."
 
 @mcp.tool()
+def reload_data() -> str:
+    """
+    Reload all cached JSON/QSHR data from disk.
+    Call after graph regeneration, bridge injection, or any data file update
+    so the MCP server reflects the latest state without restart.
+    """
+    try:
+        from crystal_108d._cache import JsonCache
+        count = JsonCache.reload_all()
+        # Verify the graph loaded correctly
+        from crystal_108d.mycelium import _GRAPH
+        graph = _GRAPH.load()
+        shards = len(graph.get("shards", []))
+        edges = len(graph.get("edges", []))
+        xm = sum(1 for e in graph.get("edges", []) if e.get("medium_cross", False))
+        return (
+            f"## Data Reloaded\n\n"
+            f"- **Caches invalidated**: {count}\n"
+            f"- **Mycelium graph**: {shards:,} shards, {edges:,} edges\n"
+            f"- **Cross-medium**: {xm:,} ({100*xm/edges:.1f}%)\n"
+        )
+    except Exception as e:
+        return f"Reload failed: {e}"
+
+@mcp.tool()
 def search_everywhere(query: str, max_results: int = 30) -> str:
     """
     Deep search across the entire Athena nervous system:

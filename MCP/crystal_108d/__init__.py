@@ -52,6 +52,21 @@ Extends the Athena Nervous System MCP server with the full 108D organism:
 
 from ._cache import JsonCache
 
+
+def _mycelium_stats() -> str:
+    """Live mycelium graph metrics."""
+    try:
+        graph = JsonCache("mycelium_graph.json").load()
+        shards = len(graph.get("shards", []))
+        edges = graph.get("edges", [])
+        total = len(edges)
+        xm = sum(1 for e in edges if e.get("medium_cross", False))
+        pct = f"{100*xm/total:.1f}%" if total else "0%"
+        return f"{shards:,} shards, {total:,} edges, {xm:,} cross-medium ({pct})"
+    except Exception:
+        return "Universal shard/edge/node schema, promotion state machine"
+
+
 def status_summary() -> str:
     """Return a compact 108D system status string."""
     shells = JsonCache("shell_registry.json").load()
@@ -88,7 +103,7 @@ def status_summary() -> str:
         f"- **Hologram**: 4-face protocol, seed w=(1+i)/2, process grammar W=Pi_s(Phi_p(X_r))\n"
         f"- **Angel Geometry**: 6-chart manifold, Fisher-Rao, curvature R!=0, 7 axioms\n"
         f"- **Inverse Crystal**: 14-stage octave lift (3D->108D->A+), 3D seed (14 components), 2D boundary\n"
-        f"- **Mycelium Graph**: Universal shard/edge/node schema, promotion state machine\n"
+        f"- **Mycelium Graph**: {_mycelium_stats()}\n"
         f"- **Guild Hall**: Social coordination organ, quest boards, promotion membrane\n"
         f"- **Meta Observer**: 57-cycle swarm synthesis protocol (4-element × 12D observation)\n"
         f"- **E₈ Lattice**: Crystalline hybrid mathematics (dual-body, 73 files, 402 pages)\n"
@@ -177,6 +192,7 @@ def register_108d_tools(mcp) -> None:
     from .geometric_mcp import (
         geometric_forward_pass, geometric_train, geometric_status,
         geometric_checkpoint, geometric_resume, momentum_status,
+        qphi_self_status, qphi_self_step,
     )
     from .cross_lens import query_cross_lens
     from .self_reference import query_self_reference
@@ -261,6 +277,7 @@ def register_108d_tools(mcp) -> None:
         query_crystal_weights, neural_forward_pass, run_self_play,
         geometric_forward_pass, geometric_train, geometric_status,
         geometric_checkpoint, geometric_resume, momentum_status,
+        qphi_self_status, qphi_self_step,
         query_cross_lens, query_self_reference, query_steering_spine,
         query_selector_shell, query_perpetual_agency,
         query_harmonic_resonance, query_mycelium_emergence,

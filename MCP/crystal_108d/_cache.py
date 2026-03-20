@@ -93,12 +93,15 @@ class JsonCache:
     When both exist, the .json file is preferred (transition safety).
     """
 
+    _instances: list["JsonCache"] = []   # track all caches for global reload
+
     __slots__ = ("_data", "_path", "_qshr_path")
 
     def __init__(self, filename: str) -> None:
         self._data: dict | list | None = None
         self._path: Path = DATA_DIR / filename
         self._qshr_path: Path = self._path.with_suffix(".qshr")
+        JsonCache._instances.append(self)
 
     def load(self) -> dict | list:
         """Return cached data, loading from disk on first call.
@@ -116,6 +119,19 @@ class JsonCache:
                 raise FileNotFoundError(
                     f"Neither {self._path.name} nor {self._qshr_path.name} found in {DATA_DIR}")
         return self._data
+
+    def invalidate(self) -> None:
+        """Clear cached data so next load() re-reads from disk."""
+        self._data = None
+
+    @classmethod
+    def reload_all(cls) -> int:
+        """Invalidate every JsonCache instance. Returns count invalidated."""
+        count = 0
+        for inst in cls._instances:
+            inst._data = None
+            count += 1
+        return count
 
     def _load_from_qshr(self) -> dict | list:
         """Decompress a .qshr file and return the JSON data."""
