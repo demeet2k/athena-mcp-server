@@ -45,7 +45,7 @@ for fam, mediums in by_family.items():
             for tgt in json_shards:
                 pair = (src['shard_id'], tgt['shard_id'])
                 if pair in existing: continue
-                cos = cosine(src.get('sfcr_seed',[]), tgt.get('sfcr_seed',[]))
+                cos = cosine(src.get('seed_vector',[]), tgt.get('seed_vector',[]))
                 base = 0.45 if med == 'code' else 0.35
                 scored.append((base + 0.30*cos, tgt, cos))
             scored.sort(key=lambda x: -x[0])
@@ -77,7 +77,7 @@ for gs in gdoc_shards:
         if pair in existing: continue
         s_tags = set(s.get('tags', []))
         overlap = len(tags & s_tags)
-        cos = cosine(gs.get('sfcr_seed',[]), s.get('sfcr_seed',[]))
+        cos = cosine(gs.get('seed_vector',[]), s.get('seed_vector',[]))
         xm = 0.15 if s.get('medium','') != 'web' else 0.0
         w = 0.30 + 0.10 * overlap + 0.20 * cos + xm
         candidates.append((w, s))
@@ -113,7 +113,7 @@ for fam_a in isolated:
         for sa in sample_a:
             for sb in sample_b:
                 if (sa['shard_id'], sb['shard_id']) in existing: continue
-                cos = cosine(sa.get('sfcr_seed',[]), sb.get('sfcr_seed',[]))
+                cos = cosine(sa.get('seed_vector',[]), sb.get('seed_vector',[]))
                 xm_bonus = 0.10 if sa.get('medium','') != sb.get('medium','') else 0.0
                 best.append((0.35 + 0.30*cos + xm_bonus, sa, sb))
         best.sort(key=lambda x: -x[0])
@@ -142,7 +142,7 @@ rescue = 0
 connected_list = [s for s in shards if s['shard_id'] in connected]
 for orph in orphans:
     sample = random.sample(connected_list, min(300, len(connected_list)))
-    scored = [(cosine(orph.get('sfcr_seed',[]), cs.get('sfcr_seed',[])) +
+    scored = [(cosine(orph.get('seed_vector',[]), cs.get('seed_vector',[])) +
                (0.1 if orph.get('medium','') != cs.get('medium','') else 0.0), cs) for cs in sample]
     scored.sort(key=lambda x: -x[0])
     for _, tgt in scored[:3]:
