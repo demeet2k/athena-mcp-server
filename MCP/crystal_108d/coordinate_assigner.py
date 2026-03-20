@@ -191,19 +191,27 @@ def _assign_wreath(shard: dict) -> int:
 # Archetype assignment (1-12)  keyword match against family/summary
 # ---------------------------------------------------------------------------
 
+# Enriched archetype keywords from ATHENA B lattice registry + Google Docs spec.
+# Each archetype has element (Fire/Earth/Air/Water) and modality (Cardinal/Fixed/Mutable).
 _ARCHETYPE_KEYWORDS: dict[int, tuple[str, ...]] = {
-    1:  ("seed", "kernel", "core", "apex", "origin"),
-    2:  ("mobius", "twist", "parity", "inversion", "mirror"),
-    3:  ("modal", "trefoil", "mode", "triad", "three"),
-    4:  ("crystal", "quartet", "square", "lattice", "grid"),
-    5:  ("observer", "meta", "swarm", "watch", "pentad"),
-    6:  ("hinge", "bridge", "dyad", "pair", "hexad"),
-    7:  ("change", "arc", "evolution", "path", "transform"),
-    8:  ("antispin", "octad", "reverse", "counter", "inverse"),
-    9:  ("emergent", "ennead", "emergence", "grow", "bloom"),
-    10: ("crown", "cascade", "deca", "govern", "command"),
-    11: ("odd", "orbit", "hendecad", "helm", "wheel"),
-    12: ("bundle", "dodecad", "complete", "total", "full"),
+    1:  ("seed", "kernel", "core", "apex", "origin", "ignition", "spark", "boot", "start", "init"),
+    2:  ("mobius", "twist", "parity", "inversion", "mirror", "accumulate", "store", "root", "memory", "preserve"),
+    3:  ("modal", "trefoil", "mode", "triad", "bifurcation", "branch", "fork", "split", "route", "decide"),
+    4:  ("enclosure", "vessel", "boundary", "contain", "seal", "shield", "chamber", "protect", "sanctuary"),
+    5:  ("amplify", "observer", "meta", "swarm", "watch", "pentad", "intensify", "scale", "force", "power"),
+    6:  ("hinge", "bridge", "dyad", "pair", "discriminat", "filter", "refine", "sort", "discern", "separate"),
+    7:  ("calibrat", "arc", "evolution", "path", "transform", "tune", "align", "witness", "measure", "correct"),
+    8:  ("dissolv", "octad", "reverse", "counter", "inverse", "release", "melt", "surrender", "soften", "unlayer"),
+    9:  ("expand", "emergent", "ennead", "emergence", "grow", "bloom", "radiate", "unfold", "outreach", "extend"),
+    10: ("crown", "cascade", "crystalliz", "govern", "command", "commit", "seal", "optimiz", "allocat", "durable"),
+    11: ("disrupt", "orbit", "rupture", "helm", "wheel", "break", "migrat", "dislodge", "threshold", "liberat"),
+    12: ("complet", "dodecad", "total", "full", "closure", "publish", "handoff", "return", "re-entry", "finish"),
+}
+# Element affinity per archetype (from ATHENA B: Fire/Earth/Air/Water cycles)
+_ARCHETYPE_ELEMENT: dict[int, str] = {
+    1: "R", 2: "S", 3: "C", 4: "F",   # Fire, Earth, Air, Water
+    5: "R", 6: "S", 7: "C", 8: "F",
+    9: "R", 10: "S", 11: "C", 12: "F",
 }
 
 def _assign_archetype(shard: dict) -> int:
@@ -227,18 +235,80 @@ def _assign_archetype(shard: dict) -> int:
 
 _FACE_INDEX = ("S", "F", "C", "R")
 
+# Family-to-face affinity from the SFCR directory map + Google Docs spec.
+# Gold/Square=structure, Scarlet/Flower=narrative, Flame/Cloud=exploration, Violet/Fractal=recursion.
+_FAMILY_FACE: dict[str, str] = {
+    # S (Square/Earth) — structural, definitional, data
+    "crystal": "S", "conservation": "S", "shells": "S", "address": "S",
+    "z_points": "S", "kernel": "S", "stages": "S", "overlays": "S",
+    "live_lock": "S", "transport": "S", "config": "S", "infra": "S",
+    "node-registry": "S",
+    # F (Flower/Water) — narrative, holographic, living, synthesis
+    "hologram": "F", "angel": "F", "synthesis": "F", "quest": "F",
+    "hologram-reading-v1": "F", "hologram-rosetta-v1": "F",
+    "angel-object-v1": "F", "accepted": "F", "ecosystem": "F",
+    "voynich_eva": "F", "memory": "F", "live_cell": "F",
+    "actualize": "F",
+    # C (Cloud/Air) — observational, liminal, meta, bridge
+    "meta_observer": "C", "meta-observer-swarm": "C", "swarm": "C",
+    "mobius": "C", "mobius-lenses-v1": "C", "lens": "C",
+    "dls_lenses": "C", "dls-6x6-lenses": "C", "emergence": "C",
+    "brain": "C", "mycelium_brain": "C", "metro": "C", "clock": "C",
+    # R (Fractal/Fire) — recursive, neural, evolutionary, compression
+    "neural_core": "R", "qshrink_control": "R", "e8_lattice": "R",
+    "e8-lattice": "R", "evolution": "R", "evolution-compiler": "R",
+    "calculus_4d": "R", "calculus-4d": "R", "crown_12d": "R",
+    "crown-12d": "R", "athenachka": "R", "athenachka-720": "R",
+    "program_rosetta": "R", "program-rosetta": "R", "tensor": "R",
+    "inverse_crystal": "R", "inverse-crystal-complete-v1": "R",
+    "runtime": "R", "server": "R", "agent": "R",
+}
+
+# Medium-to-face fallback (when no family match)
+_MEDIUM_FACE: dict[str, str] = {
+    "json": "S",    # data = structure
+    "config": "S",
+    "code": "R",    # code = recursive/procedural
+    "web": "C",     # web = exploratory
+    "doc": "F",     # documents = narrative
+}
+
 def _assign_face(shard: dict) -> str:
-    """Use explicit lens field when present; otherwise derive from seed_vector."""
+    """Assign SFCR face using multi-level fallback for balanced distribution.
+
+    Priority: explicit lens > family affinity > archetype element > medium > hash.
+    This replaces the old flat-hash fallback that produced S=64%, C=0.7%.
+    """
+    # 1. Explicit lens — ONLY trust non-S (S is 64% biased from historical embedder)
     lens = shard.get("lens")
-    if lens in _FACE_INDEX:
+    if lens in ("F", "C", "R"):
         return lens
 
-    # Pick dominant element from seed_vector [S, F, C, R]
-    sv = shard.get("seed_vector", [0.25, 0.25, 0.25, 0.25])
-    if sv and max(sv) > 0.25:
-        return _FACE_INDEX[sv.index(max(sv))]
+    # 3. Family-to-face affinity table
+    family = shard.get("family", "")
+    if family in _FAMILY_FACE:
+        return _FAMILY_FACE[family]
 
-    # Fall back to hash
+    # 4. Archetype element affinity (from ATHENA B element cycle)
+    # Use the archetype we'd assign to derive face
+    text = (family + " " + shard.get("summary", "")).lower()
+    for arch, keywords in _ARCHETYPE_KEYWORDS.items():
+        if any(kw in text for kw in keywords):
+            return _ARCHETYPE_ELEMENT.get(arch, "S")
+
+    # 5. Medium-based fallback (balanced: doc splits between F and C)
+    medium = shard.get("medium", "doc")
+    if medium == "doc":
+        # Split doc shards: use hash to distribute between F (60%) and C (40%)
+        # This addresses the C under-representation (was 0.7%, target ~25%)
+        h = _stable_hash(shard["shard_id"]) % 10
+        if h < 4:
+            return "C"  # 40% of docs → Cloud (observation, exploration)
+        return "F"       # 60% of docs → Flower (narrative, living)
+    if medium in _MEDIUM_FACE:
+        return _MEDIUM_FACE[medium]
+
+    # 6. Final: balanced hash (mod 4, not biased toward S)
     return _FACE_INDEX[_stable_hash(shard["shard_id"]) % 4]
 
 # ---------------------------------------------------------------------------

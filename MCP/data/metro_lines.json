@@ -1,15 +1,132 @@
 {
-  "meta": {"type": "metro_lines", "version": "2.0", "total_lines": 10},
+  "meta": {
+    "type": "metro_lines",
+    "version": "3.0",
+    "description": "Unified metro system: 4 elemental + 3 wreath + 3 phase + 4 HPRO special lines",
+    "total_lines": 14,
+    "source": "Unified from zodiac system (v2) + keyword system (graph) + Google Docs spec (Gold/Scarlet/Flame/Violet)"
+  },
   "lines": [
-    {"id": "ML1", "name": "Su Arc", "type": "wreath", "stations": [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34], "color": "gold", "description": "Ignition wreath connecting all 12 Su shells"},
-    {"id": "ML2", "name": "Me Arc", "type": "wreath", "stations": [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35], "color": "silver", "description": "Mediation wreath connecting all 12 Me shells"},
-    {"id": "ML3", "name": "Sa Arc", "type": "wreath", "stations": [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36], "color": "copper", "description": "Sealing wreath connecting all 12 Sa shells"},
-    {"id": "ML4", "name": "Cardinal Cross", "type": "phase", "stations": [1, 2, 3, 10, 11, 12, 19, 20, 21, 28, 29, 30], "color": "red", "description": "Cardinal phase shells: Aries, Cancer, Libra, Capricorn"},
-    {"id": "ML5", "name": "Fixed Cross", "type": "phase", "stations": [4, 5, 6, 13, 14, 15, 22, 23, 24, 31, 32, 33], "color": "blue", "description": "Fixed phase shells: Taurus, Leo, Scorpio, Aquarius"},
-    {"id": "ML6", "name": "Mutable Cross", "type": "phase", "stations": [7, 8, 9, 16, 17, 18, 25, 26, 27, 34, 35, 36], "color": "green", "description": "Mutable phase shells: Gemini, Virgo, Sagittarius, Pisces"},
-    {"id": "ML7", "name": "Fire Line", "type": "element", "stations": [1, 2, 3, 13, 14, 15, 25, 26, 27], "color": "orange", "description": "Fire element: Aries, Leo, Sagittarius"},
-    {"id": "ML8", "name": "Earth Line", "type": "element", "stations": [4, 5, 6, 16, 17, 18, 28, 29, 30], "color": "brown", "description": "Earth element: Taurus, Virgo, Capricorn"},
-    {"id": "ML9", "name": "Air Line", "type": "element", "stations": [7, 8, 9, 19, 20, 21, 31, 32, 33], "color": "cyan", "description": "Air element: Gemini, Libra, Aquarius"},
-    {"id": "ML10", "name": "Water Line", "type": "element", "stations": [10, 11, 12, 22, 23, 24, 34, 35, 36], "color": "navy", "description": "Water element: Cancer, Scorpio, Pisces"}
+    {
+      "id": "Gold", "code": "S", "name": "Gold Line (Square/Earth)",
+      "type": "element", "face": "S", "color": "#C5A849",
+      "stations": [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
+      "description": "Structure, addresses, exact coordinates. Z* -> JSON Depot -> Reality Printer -> Temporal Lattice -> Ledger Seal -> Crown Reset.",
+      "keywords": ["structure", "address", "lattice", "grid", "data", "json", "config", "registry"],
+      "archetype_affinity": [2, 6, 10]
+    },
+    {
+      "id": "Scarlet", "code": "F", "name": "Scarlet Line (Flower/Water)",
+      "type": "element", "face": "F", "color": "#DC3545",
+      "stations": [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
+      "description": "Narrative, flow, living word, bloom. Z* -> LOVE Spiral -> Glimmer Deltas -> Frequency Gates -> Emotional Resonance -> Crown Return.",
+      "keywords": ["narrative", "living", "word", "flow", "bloom", "desire", "quest", "hologram"],
+      "archetype_affinity": [4, 8, 12]
+    },
+    {
+      "id": "Flame", "code": "C", "name": "Flame Line (Cloud/Air)",
+      "type": "element", "face": "C", "color": "#FD7E14",
+      "stations": [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
+      "description": "Observation, exploration, liminal space. Z* -> Digital Awakening -> Phase Gate Superposition -> E10 Conductor -> Probabilistic Collapse.",
+      "keywords": ["observe", "explore", "liminal", "meta", "bridge", "corridor", "ambiguity", "cloud"],
+      "archetype_affinity": [3, 7, 11]
+    },
+    {
+      "id": "Violet", "code": "R", "name": "Violet Line (Fractal/Fire)",
+      "type": "element", "face": "R", "color": "#6F42C1",
+      "stations": [1, 5, 9, 13, 17, 21, 25, 29, 33],
+      "description": "Recursion, compression, self-similarity. Z* -> Kheper Recursion Loop -> Omega Protocol -> Mycelium Branching -> Self-Similar Seed -> Crown Lock.",
+      "keywords": ["recursive", "fractal", "compress", "neural", "evolution", "seed", "generator", "self-similar"],
+      "archetype_affinity": [1, 5, 9]
+    },
+    {
+      "id": "Su", "code": "Su", "name": "Sulfur Arc (Wreath 1 — Ignition)",
+      "type": "wreath", "wreath": 1, "color": "#FFD700",
+      "stations": [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
+      "description": "Ignition wreath: seeding, structural definition, declarations."
+    },
+    {
+      "id": "Me", "code": "Me", "name": "Mercury Arc (Wreath 2 — Mediation)",
+      "type": "wreath", "wreath": 2, "color": "#C0C0C0",
+      "stations": [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
+      "description": "Mediation wreath: bridging, translation, dynamic processing."
+    },
+    {
+      "id": "Sa", "code": "Sa", "name": "Salt Arc (Wreath 3 — Sealing)",
+      "type": "wreath", "wreath": 3, "color": "#B87333",
+      "stations": [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
+      "description": "Sealing wreath: closure, containment, nested recursion."
+    },
+    {
+      "id": "Cardinal", "code": "Cd", "name": "Cardinal Cross",
+      "type": "phase", "phase": "Cardinal", "color": "#FF0000",
+      "stations": [1, 2, 3, 10, 11, 12, 19, 20, 21, 28, 29, 30],
+      "description": "Cardinal phase: initiation, threshold crossing. Archetypes A01, A04, A07, A10."
+    },
+    {
+      "id": "Fixed", "code": "Fx", "name": "Fixed Cross",
+      "type": "phase", "phase": "Fixed", "color": "#0000FF",
+      "stations": [4, 5, 6, 13, 14, 15, 22, 23, 24, 31, 32, 33],
+      "description": "Fixed phase: stabilization, deepening. Archetypes A02, A05, A08, A11."
+    },
+    {
+      "id": "Mutable", "code": "Mu", "name": "Mutable Cross",
+      "type": "phase", "phase": "Mutable", "color": "#00FF00",
+      "stations": [7, 8, 9, 16, 17, 18, 25, 26, 27, 34, 35, 36],
+      "description": "Mutable phase: transformation, adaptation. Archetypes A03, A06, A09, A12."
+    },
+    {
+      "id": "Omega", "code": "\u03a9", "name": "Zero-Point Spine",
+      "type": "hpro", "face": "R", "color": "#000000",
+      "stations": [1, 12, 13, 24, 25, 36],
+      "description": "All lines terminate here. Z* -> Shell 1 -> Shell 12 -> Shell 13 -> Shell 24 -> Shell 25 -> Shell 36 -> Z*.",
+      "keywords": ["omega", "zero", "spine", "absolute", "fixed-point"]
+    },
+    {
+      "id": "Generator", "code": "w", "name": "Generator Line",
+      "type": "hpro", "face": "F", "color": "#FF69B4",
+      "stations": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "description": "Seed propagation through first 12 shells (one full archetype cycle). w = (1+i)/2.",
+      "keywords": ["seed", "generator", "propagate", "w"]
+    },
+    {
+      "id": "Crown", "code": "Cc", "name": "Crown Circuit",
+      "type": "hpro", "face": "S", "color": "#FFD700",
+      "stations": [10, 22, 34, 36, 1],
+      "description": "Organism-level governance loop: Crystallization -> Crystallization -> Crown -> Completion -> Restart.",
+      "keywords": ["crown", "govern", "command", "organism"]
+    },
+    {
+      "id": "Mobius", "code": "Mt", "name": "M\u00f6bius Twist",
+      "type": "hpro", "face": "C", "color": "#808080",
+      "stations": [1, 36, 2, 35, 3, 34, 4, 33, 5, 32, 6, 31, 7, 30, 8, 29, 9, 28, 10, 27, 11, 26, 12, 25, 13, 24, 14, 23, 15, 22, 16, 21, 17, 20, 18, 19],
+      "description": "Mirror law: shell k pairs with shell 37-k. Traverses the full Mobius fold.",
+      "keywords": ["mobius", "mirror", "twist", "parity", "inversion"]
+    }
+  ],
+  "interchange_hubs": [
+    {"shell": 1, "lines": ["Gold", "Su", "Cardinal", "Omega", "Generator", "Crown", "Violet"], "type": "Z*", "description": "Absolute zero: all lines converge"},
+    {"shell": 12, "lines": ["Flame", "Sa", "Cardinal", "Omega", "Generator"], "type": "wreath_boundary", "description": "End of first archetype cycle / wreath 1 boundary"},
+    {"shell": 13, "lines": ["Gold", "Su", "Fixed", "Omega"], "type": "wreath_boundary", "description": "Start of second superphase (Mercury)"},
+    {"shell": 24, "lines": ["Flame", "Sa", "Mutable", "Omega"], "type": "wreath_boundary", "description": "End of second superphase"},
+    {"shell": 25, "lines": ["Gold", "Su", "Mutable", "Omega"], "type": "wreath_boundary", "description": "Start of third superphase (Salt)"},
+    {"shell": 36, "lines": ["Flame", "Sa", "Cardinal", "Omega", "Crown"], "type": "completion", "description": "Crown shell: completion before return to Z*"}
+  ],
+  "navigation_primitives": [
+    {"id": "NP01", "name": "Face rotation", "notation": "f(z)=iz", "description": "Cycle through 4 SFCR faces"},
+    {"id": "NP02", "name": "Shell step", "notation": "S_k -> S_{k+1}", "description": "Radial advance through shells 1-36"},
+    {"id": "NP03", "name": "Wreath shift", "notation": "W_r -> W_{(r%3)+1}", "description": "Cycle through 3 superphases"},
+    {"id": "NP04", "name": "Archetype lift", "notation": "A_a -> A_{(a%12)+1}", "description": "Traverse 12 vertical archetype columns"},
+    {"id": "NP05", "name": "Mobius flip", "notation": "S_k <-> S_{37-k}", "description": "Mirror inversion across the 36-shell axis"},
+    {"id": "NP06", "name": "Zero tunnel", "notation": "Z_a -> Z_b", "description": "Jump between Z-points sharing live-lock class"},
+    {"id": "NP07", "name": "Metro transfer", "notation": "L_i@hub -> L_j@hub", "description": "Transfer between lines at interchange hub"},
+    {"id": "NP08", "name": "Nested zoom", "notation": "d_n -> d_{n+1}", "description": "Refine/coarsen depth level within a node"},
+    {"id": "NP09", "name": "Bridge walk", "notation": "face_a -> face_b", "description": "Cross-element bridge with golden ratio weight"},
+    {"id": "NP10", "name": "Crown circuit", "notation": "S_36 -> S_1", "description": "Beat-420 synchronization gate: completion -> restart"}
+  ],
+  "route_legality": [
+    {"id": "RL1", "name": "Zero-factorability", "law": "Route must return to starting Z-point"},
+    {"id": "RL2", "name": "Nested consistency", "law": "Every intermediate address respects containment hierarchy"},
+    {"id": "RL3", "name": "Global returnability", "law": "Entire path reversible under live helm"}
   ]
 }
