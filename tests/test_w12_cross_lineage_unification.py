@@ -12,7 +12,7 @@ def test_source_mount_and_activation_lineages_coexist():
     receipt = load(".athena/receipts/w12-cross-lineage-unification.json")
     assert len(mounts["mounts"]) == 2
     assert mounts["control"]["integration_candidate"]["commit"] == (
-        "473ea6d4e30f78a7147a9b453382637a244200fe"
+        "dfc3166b4bd7c1c4ce95ad3194f7e2b4cbc982c7"
     )
     assert packet["state"] == "UNRESOLVED"
     assert packet["authority"]["live_witness_authorized"] is False
