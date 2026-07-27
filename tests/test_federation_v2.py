@@ -53,7 +53,13 @@ class FederationV2ConsumerTests(unittest.TestCase):
         self.assertEqual(status["edges"], 26)
         self.assertEqual(
             status["control_commit"],
-            "1b177fa2e3a4860487497210dcfbc122a287d693",
+            "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+        )
+        self.assertEqual(
+            status["release_candidate"], "KC144.MYC.P05.RC1"
+        )
+        self.assertEqual(
+            status["selected_contract_lineage"], "git-brain-v2"
         )
         self.assertEqual(
             status["graph_digest"],
