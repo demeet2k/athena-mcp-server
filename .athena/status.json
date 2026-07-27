@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P06_RUNTIME_RC_CONSUMER_IMPLEMENTED",
+  "state": "P06_CUTOVER_RECEIPT_IMPLEMENTED_NOT_DEPLOYED",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -8,14 +8,19 @@
   "federation_release": "v2-proposal-0.1.0",
   "runtime_release": "federation-consumer-0.1.0",
   "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+  "release_candidate": "KC144.MYC.P05.RC1",
+  "cold_replay": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+  "cutover_receipt": ".athena/receipts/p06-runtime-cutover.json",
   "v1_fallback": true,
+  "deployment_witness": null,
   "promotion_ready": false,
   "open_defects": [
     "MCP host deployment of this branch is not yet witnessed.",
+    "The repository-wide hosted test suite contains legacy dependency and fixture-schema failures outside the P06 federation surface.",
     "Runtime route receipts remain witnesses until admitted by the control plane."
   ],
-  "next_gate": "Deploy this exact branch in an MCP host and capture v2 plus v1 fallback answer receipts; promotion remains control-plane-only.",
-  "release_candidate": "KC144.MYC.P05.RC1",
+  "next_gate": "Deploy this exact branch in an MCP host, capture live v2 plus v1 fallback receipts, and admit the witnessed runtime commit through the control plane.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
-  "selected_contract_lineage": "git-brain-v2"
+  "selected_contract_lineage": "git-brain-v2",
+  "successor_seed": "KC144.MYC.SKELETON.P07::HOSTED-RUNTIME-DEPLOYMENT-AND-CONTROL-PLANE-ADMISSION"
 }
