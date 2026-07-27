@@ -28,7 +28,7 @@ class TestRegistration:
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 28, f"Expected 28 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 29, f"Expected 29 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -86,6 +86,17 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing source-mount tools: {missing}"
 
+    def test_memory_digest_capsule_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_memory_digest_capsule_status",
+            "resolve_athena_memory_digest_capsule",
+            "verify_athena_memory_digest_capsule",
+            "athena_endpoint_binding_status",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W14 capsule tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -110,6 +121,7 @@ class TestRegistration:
             "athena://federation-v2/cutover",
             "athena://federation-v2/lock",
             "athena://source-mounts",
+            "athena://memory-digest-capsules",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
