@@ -1,0 +1,28 @@
+{
+  "schema": "athena.evidence-provenance-envelope/v1",
+  "state": "UNRESOLVED",
+  "activation_packet_digest": null,
+  "provider_evidence_digest": null,
+  "evidence_url": null,
+  "retrieval": {
+    "mode": "protected-live-fetch",
+    "maximum_bytes": 65536,
+    "required_content_type": "application/json",
+    "redirects_allowed": false
+  },
+  "workflow_binding": {
+    "repository": "demeet2k/athena-mcp-server",
+    "ref": null,
+    "sha": null,
+    "protected_environment": "p10-persistent-host"
+  },
+  "authority": {
+    "live_fetch_required": true,
+    "explicit_dispatch_required": true,
+    "runtime_can_promote": false,
+    "promotion_claimed": false,
+    "merge_claimed": false,
+    "ic10_required": true
+  },
+  "secret_material_recorded": false
+}
