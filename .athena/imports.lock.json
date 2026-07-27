@@ -9,6 +9,15 @@
       "source_version": "git:3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
       "federation_release": "v2-proposal-0.1.0",
       "availability": "available"
+    },
+    {
+      "rid": "athena.federation.v2.reference",
+      "vid": "git:1b177fa2e3a4860487497210dcfbc122a287d693",
+      "source": "github://demeet2k/Athena@1b177fa2e3a4860487497210dcfbc122a287d693/crystal/v2/repositories.lock.json",
+      "source_version": "git:1b177fa2e3a4860487497210dcfbc122a287d693",
+      "federation_release": "v2-proposal-0.1.0",
+      "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+      "availability": "vendored-and-verified"
     }
   ]
 }
