@@ -16,7 +16,8 @@
     "p07_http_package": ".athena/receipts/p07-host-package.json",
     "p08_reconciled_candidate": ".athena/receipts/p08-integration-candidate.json",
     "p09_oci_publication": ".athena/receipts/p09-oci-publication.json",
-    "p10_authorized_endpoint_readiness": ".athena/receipts/p10-authorized-endpoint-readiness.json"
+    "p10_authorized_endpoint_readiness": ".athena/receipts/p10-authorized-endpoint-readiness.json",
+    "p10_hosted_readiness_validation": ".athena/receipts/p10-hosted-readiness-validation.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -47,6 +48,7 @@
   "p10_preparation": {
     "branch": "agent/p10-authorized-endpoint-witness",
     "p09_predecessor_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+    "implementation_head": "fa5a5d5325779ec9e9a4825a7a7e084cd040c3c8",
     "host_contract": "deploy/p10/host-contract.json",
     "contract_digest": "sha256:f7d415d46dedcb9021bd4d37fdd635cc94afc7503eba31de03013bbdf8764f64",
     "deployment_preflight": "scripts/p10_preflight.py",
@@ -62,9 +64,21 @@
       "p08_federation_and_registration": "PASS[14/14]",
       "p07_live_stdio_checks": "PASS[10/10]",
       "compose_config": "PASS",
-      "exact_digest_pull_and_smoke": "PENDING_HOSTED_RUN_LOCAL_DOCKER_ENGINE_UNAVAILABLE"
+      "exact_digest_pull_and_smoke": "PASS_HOSTED"
     },
-    "prepared_receipt": "p10-preflight:sha256:b728f0d7b9d9a861cddcceb00c694c093ef90b4b9e4459bf22a6307cb7567106"
+    "prepared_receipt": "p10-preflight:sha256:b728f0d7b9d9a861cddcceb00c694c093ef90b4b9e4459bf22a6307cb7567106",
+    "hosted_validation": {
+      "verdict": "READY_AWAITING_AUTHORIZED_TARGET",
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378890",
+      "job_id": 89896153886,
+      "artifact_id": 8643044789,
+      "artifact_digest": "sha256:e069b7b087e5556a7d8159057ee5c8f4d36bb5d44d34f85b7fd0d83beb96514e",
+      "receipt_id": "p10-hosted-readiness:sha256:9e15732e76aabfefc41799b3c6d2dc80136b1c1ace6d4343c15b92d49c9318f7",
+      "p07_revalidation": "PASS:https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378874",
+      "p08_revalidation": "PASS:https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378894",
+      "persistent_witness_job": "SKIPPED_NO_AUTHORIZED_TARGET_OR_SECRET",
+      "publication_workflow_triggered": false
+    }
   },
   "deployment": {
     "persistent_artifact": true,

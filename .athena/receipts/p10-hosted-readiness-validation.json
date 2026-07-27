@@ -1,0 +1,74 @@
+{
+  "schema": "athena.p10-hosted-readiness-validation/v1",
+  "phase": "P10",
+  "verdict": "READY_AWAITING_AUTHORIZED_TARGET",
+  "runtime_repository": "demeet2k/athena-mcp-server",
+  "runtime_pull_request": "https://github.com/demeet2k/athena-mcp-server/pull/9",
+  "runtime_branch": "agent/p10-authorized-endpoint-witness",
+  "p09_predecessor_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+  "implementation_head": "fa5a5d5325779ec9e9a4825a7a7e084cd040c3c8",
+  "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+  "image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+  "prepared_contract": {
+    "path": "deploy/p10/host-contract.json",
+    "digest": "sha256:f7d415d46dedcb9021bd4d37fdd635cc94afc7503eba31de03013bbdf8764f64",
+    "preflight_receipt": "p10-preflight:sha256:b728f0d7b9d9a861cddcceb00c694c093ef90b4b9e4459bf22a6307cb7567106"
+  },
+  "hosted_evidence": {
+    "p10_capsule": {
+      "run_id": 30240378890,
+      "job_id": 89896153886,
+      "artifact_id": 8643044789,
+      "artifact_digest": "sha256:e069b7b087e5556a7d8159057ee5c8f4d36bb5d44d34f85b7fd0d83beb96514e",
+      "status": "PASS",
+      "p10_tests": "PASS[24/24]",
+      "p07_http_boundary": "PASS[9/9]",
+      "p08_federation_and_registration": "PASS[14/14]",
+      "p07_live_stdio_checks": "PASS[10/10]",
+      "exact_digest_pull_and_smoke": "PASS",
+      "source_commit_attestation": "PASS",
+      "non_root_uid": 10001,
+      "secret_scan": "PASS"
+    },
+    "p07_revalidation": {
+      "run_id": 30240378874,
+      "container_job_id": 89896153702,
+      "host_boundary_job_id": 89896153771,
+      "status": "PASS"
+    },
+    "p08_revalidation": {
+      "run_id": 30240378894,
+      "job_id": 89896153822,
+      "artifact_id": 8643046816,
+      "artifact_digest": "sha256:7785963f02f7a26c6abb5c6f2fee1ae31ef99eed0d8aba410700ee614ae0dfff",
+      "status": "PASS"
+    }
+  },
+  "target": {
+    "provider_id": null,
+    "provider_account_scope": null,
+    "deployment_id": null,
+    "authorized_https_endpoint": null,
+    "secret_store_ref": null,
+    "bearer_secret_provisioned": false,
+    "persistent_witness": null
+  },
+  "authority": {
+    "capsule_ready": true,
+    "capsule_readiness_is_deployment": false,
+    "authorized_target_selected": false,
+    "deployment_claimed": false,
+    "admission_claimed": false,
+    "promotion_ready": false,
+    "promotion_claimed": false,
+    "merge_claimed": false,
+    "ic10_promotion_required": true
+  },
+  "rollback": {
+    "class": "immutable-digest-selection",
+    "image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "v1_fallback": "athena-108d-v1"
+  },
+  "irreducible_blocker": "An already-authorized persistent host, exact HTTPS /mcp endpoint, non-secret authority metadata, and protected ATHENA_MCP_BEARER_TOKEN provisioning are required.",
+  "receipt_id": "p10-hosted-readiness:sha256:9e15732e76aabfefc41799b3c6d2dc80136b1c1ace6d4343c15b92d49c9318f7"
+}
