@@ -25,7 +25,8 @@
     "w14_memory_digest_capsule": ".athena/receipts/w14-memory-digest-capsule.json",
     "w14_control_return_closure": ".athena/receipts/w14-control-return-closure.json",
     "w14_memory_digest_capsule_endpoint_binding": ".athena/receipts/w14-memory-digest-capsule-endpoint-binding.json",
-    "w15_capsule_blind_replay_ingress": ".athena/receipts/w15-capsule-blind-replay-ingress.json"
+    "w15_capsule_blind_replay_ingress": ".athena/receipts/w15-capsule-blind-replay-ingress.json",
+    "w15_endpoint_binding_reconciliation": ".athena/receipts/w15-endpoint-binding-reconciliation.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -317,5 +318,16 @@
     "merged": false,
     "deployed": false,
     "promoted": false
+  },
+  "w15_endpoint_binding_reconciliation": {
+    "verdict": "PASS_BINDING_METADATA_RECONCILED__READY_AWAITING_AUTHORIZED_TARGET",
+    "historical_w14_receipt_blob": "0ad54a3a4f5f79c5ba8291e3d6a52f30315f6de3",
+    "live_data_blob": "7b4692297f65c861eb566b873ea3277391cd3a26",
+    "capsule_set_digest": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "activation_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "authority_inputs_unresolved": 13,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false
   }
 }
