@@ -23,6 +23,7 @@ permissions:
   packages: read
 
 env:
+  P09_HEAD: 9731b24c5963b75821b381b4562aa51baa55196c
   SOURCE_COMMIT: 52d0e2abf282aee5f8bf233521989bc2c8969989
   IMAGE: ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2
 
@@ -34,9 +35,14 @@ jobs:
     steps:
       - name: Check out exact capsule head
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
 
       - name: Validate contracts and tests
         run: |
+          test "$(git merge-base "$P09_HEAD" HEAD)" = "$P09_HEAD"
+          git merge-base --is-ancestor "$SOURCE_COMMIT" "$P09_HEAD"
           python -m json.tool deploy/p10/target.schema.json >/dev/null
           python -m json.tool deploy/p10/provider-evidence.example.json >/dev/null
           python -m json.tool deploy/p10/activation-packet.example.json >/dev/null
@@ -55,9 +61,19 @@ jobs:
             tests.test_p10_deployment_capsule \
             tests.test_p10_persistence_hardening \
             tests.test_p10_activation_packet \
+            tests.test_p10_deep_hardening \
             -v
           ATHENA_MCP_BEARER_TOKEN=0123456789abcdef0123456789abcdef \
             docker compose -f deploy/p10/compose.yaml config >/dev/null
+
+      - name: Check diff and secret boundary
+        run: |
+          git diff --check "$P09_HEAD"...HEAD
+          if git diff --unified=0 "$P09_HEAD"...HEAD |
+            grep -E 'ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|Bearer [A-Za-z0-9._~+/-]{32,}'; then
+            echo "possible secret material found in P10 diff" >&2
+            exit 1
+          fi
 
       - name: Authenticate for exact-digest pull
         env:
@@ -148,6 +164,7 @@ jobs:
           retention-days: 90
 
   persistent-witness:
+    needs: activation-preflight
     if: >-
       github.event_name == 'workflow_dispatch' &&
       inputs.execute_live_witness == true
@@ -163,6 +180,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install \
             "mcp[cli]==1.28.1" \
+            "httpx==0.28.1" \
             "starlette==0.48.0" \
             "uvicorn==0.35.0"
 
@@ -187,7 +205,7 @@ jobs:
 
       - name: Replay live persistent endpoint
         env:
-          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_P10_BEARER_TOKEN }}
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_MCP_BEARER_TOKEN }}
         run: |
           python -m scripts.p10_persistent_observation_window \
             p10-target.json \
@@ -196,6 +214,34 @@ jobs:
             --samples 3 \
             --interval 20 \
             --per-sample-timeout 180
+
+      - name: Verify legal secret-free witness
+        env:
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_MCP_BEARER_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          token = os.environ["ATHENA_MCP_BEARER_TOKEN"]
+          paths = (
+              Path("p10-target.json"),
+              Path("p10-provider-evidence.json"),
+              Path("p10-activation-handoff.json"),
+              Path("p10-persistent-witness.json"),
+          )
+          for path in paths:
+              content = path.read_text(encoding="utf-8")
+              assert token not in content
+              json.loads(content)
+          witness = json.loads(paths[-1].read_text(encoding="utf-8"))
+          assert witness["verdict"] == "PASS_PERSISTENT_HTTPS_WITNESS"
+          assert witness["authority"]["persistent_endpoint_witnessed"] is True
+          assert witness["promotion_ready"] is False
+          assert witness["promotion_claimed"] is False
+          assert witness["merge_claimed"] is False
+          PY
 
       - name: Upload non-secret handoff and witness
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

@@ -78,7 +78,7 @@
     "The environment-gated three-sample persistent witness has not run.",
     "Runtime promotion remains control-plane governed and is not claimed by this handoff."
   ],
-  "next_gate": "An authorized operator must complete one secret-free activation packet, pass the default non-networked preflight, explicitly set execute_live_witness=true through the protected p10-persistent-host GitHub Environment with ATHENA_P10_BEARER_TOKEN separately provisioned, then admit the resulting three-sample witness through the control plane before IC10 can consider promotion.",
+  "next_gate": "An authorized operator must complete one secret-free activation packet, pass the default non-networked preflight, explicitly set execute_live_witness=true through the protected p10-persistent-host GitHub Environment with ATHENA_MCP_BEARER_TOKEN separately provisioned, then admit the resulting three-sample witness through the control plane before IC10 can consider promotion.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
   "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-ACTIVATION-PACKET-AND-LIVE-WINDOW",
@@ -152,7 +152,7 @@
       "loose_dispatch_fields_removed": true,
       "execute_live_witness_default": false,
       "protected_environment": "p10-persistent-host",
-      "protected_secret_name": "ATHENA_P10_BEARER_TOKEN",
+      "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
       "witness_plan": {
         "sample_count": 3,
         "interval_seconds": 20,

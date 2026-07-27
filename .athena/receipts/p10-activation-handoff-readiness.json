@@ -28,7 +28,7 @@
     "preflight_receives_secret": false,
     "execute_live_witness_default": false,
     "protected_environment": "p10-persistent-host",
-    "protected_secret_name": "ATHENA_P10_BEARER_TOKEN",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
     "minimum_samples": 3,
     "minimum_interval_seconds": 20,
     "minimum_span_seconds": 40,

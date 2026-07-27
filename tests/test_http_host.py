@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -134,13 +135,13 @@ class HTTPBoundaryTests(unittest.TestCase):
         self.assertTrue(health["commit_attested"])
 
     def test_build_locked_commit_file_overrides_runtime_commit(self):
-        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as handle:
-            handle.write(COMMIT + "\n")
-            handle.flush()
+        with tempfile.TemporaryDirectory() as directory:
+            commit_file = Path(directory) / "deployed-commit"
+            commit_file.write_text(COMMIT + "\n", encoding="utf-8")
             environment = {
                 "ATHENA_MCP_BEARER_TOKEN": TOKEN,
                 "ATHENA_DEPLOYED_COMMIT": "b" * 40,
-                "ATHENA_DEPLOYED_COMMIT_FILE": handle.name,
+                "ATHENA_DEPLOYED_COMMIT_FILE": str(commit_file),
             }
             with patch.dict(os.environ, environment, clear=True):
                 status, health = deployment_health()

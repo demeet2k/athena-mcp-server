@@ -29,7 +29,7 @@ AUTHORIZED_STATE = "AUTHORIZED_FOR_LIVE_WITNESS"
 UNRESOLVED_STATE = "UNRESOLVED"
 CANONICAL_HARDENING_HEAD = "b4e24de38788ecdf30f43514ece279d1270b998b"
 WITNESS_ENVIRONMENT = "p10-persistent-host"
-WITNESS_SECRET_NAME = "ATHENA_P10_BEARER_TOKEN"
+WITNESS_SECRET_NAME = "ATHENA_MCP_BEARER_TOKEN"
 SAMPLE_COUNT = 3
 INTERVAL_SECONDS = 20
 MINIMUM_SPAN_SECONDS = 40
@@ -121,6 +121,11 @@ def _timestamp(value: Any, path: str) -> str:
     if parsed.tzinfo is None:
         raise ValueError(f"{path} must include a timezone")
     return candidate
+
+
+def _parsed_timestamp(value: str) -> datetime:
+    normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
+    return datetime.fromisoformat(normalized)
 
 
 def _validate_immutable_lineage(value: dict[str, Any]) -> None:
@@ -262,6 +267,12 @@ def validate_activation_packet(value: Any) -> dict[str, Any]:
     }
     if packet.get("secret_material_recorded") is not False:
         raise ValueError("activation packet must not record secret material")
+    if _parsed_timestamp(
+        normalized["authorization"]["authorized_at"]
+    ) > _parsed_timestamp(normalized["provider"]["deployment_observed_at"]):
+        raise ValueError(
+            "deployment observation cannot precede authorization"
+        )
     return normalized
 
 

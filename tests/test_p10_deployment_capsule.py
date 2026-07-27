@@ -23,7 +23,7 @@ def authorized_target() -> dict:
         "schema": "athena.persistent-host-target/v1",
         "state": "AUTHORIZED",
         "target_id": "athena-p10-primary",
-        "endpoint": "https://athena.example.test/mcp",
+        "endpoint": "https://athena.authorized.example.com/mcp",
         "image": IMAGE,
         "source_commit": SOURCE_COMMIT,
         "authorization": {
@@ -44,7 +44,7 @@ def authorized_target() -> dict:
             "environment": "ATHENA_MCP_BEARER_TOKEN",
             "provider_ref": (
                 "github-environment:p10-persistent-host/"
-                "ATHENA_P10_BEARER_TOKEN"
+                "ATHENA_MCP_BEARER_TOKEN"
             ),
             "minimum_length": 32,
             "record_value": False,
@@ -79,10 +79,27 @@ class TargetContractTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_target(target)
 
+    def test_target_rejects_unknown_fields_and_local_endpoints(self) -> None:
+        target = authorized_target()
+        target["token"] = "forbidden"
+        with self.assertRaises(ValueError):
+            validate_target(target)
+        for endpoint in (
+            "https://localhost/mcp",
+            "https://127.0.0.1/mcp",
+            "https://runner.local/mcp",
+            "https://athena.test/mcp",
+        ):
+            target = authorized_target()
+            target["endpoint"] = endpoint
+            with self.subTest(endpoint=endpoint):
+                with self.assertRaises(ValueError):
+                    validate_target(target)
+
     def test_endpoint_and_secret_fail_closed(self) -> None:
         self.assertEqual(
-            validate_endpoint("https://athena.example.test/mcp/"),
-            "https://athena.example.test/mcp",
+            validate_endpoint("https://athena.authorized.example.com/mcp/"),
+            "https://athena.authorized.example.com/mcp",
         )
         for endpoint in (
             "http://athena.example.test/mcp",
@@ -130,8 +147,21 @@ class CapsuleTests(unittest.TestCase):
         ).read_text()
         self.assertIn("reverse_proxy 127.0.0.1:", caddy)
         self.assertIn("environment: p10-persistent-host", workflow)
-        self.assertIn("secrets.ATHENA_P10_BEARER_TOKEN", workflow)
-        self.assertNotIn("ATHENA_P10_BEARER_TOKEN=", workflow)
+        self.assertIn("secrets.ATHENA_MCP_BEARER_TOKEN", workflow)
+        live = workflow.split("  persistent-witness:", 1)[1]
+        self.assertNotIn("ATHENA_P10_BEARER_TOKEN", live)
+        secret_assignments = re.findall(
+            r"^\s*ATHENA_MCP_BEARER_TOKEN:\s*(.+)$",
+            live,
+            re.MULTILINE,
+        )
+        self.assertTrue(secret_assignments)
+        self.assertTrue(
+            all(
+                value == "${{ secrets.ATHENA_MCP_BEARER_TOKEN }}"
+                for value in secret_assignments
+            )
+        )
         uses = re.findall(r"^\s*uses:\s*([^#\s]+)", workflow, re.MULTILINE)
         self.assertTrue(uses)
         for action in uses:

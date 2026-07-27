@@ -8,6 +8,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
+from scripts.p10_contract import validate_endpoint
+
 
 SCHEMA = "athena.provider-deployment-evidence/v1"
 SOURCE_COMMIT = "52d0e2abf282aee5f8bf233521989bc2c8969989"
@@ -38,8 +40,15 @@ ALLOWED_FIELDS = {
 
 def _required_text(value: dict[str, Any], key: str) -> str:
     candidate = value.get(key)
-    if not isinstance(candidate, str) or not candidate.strip():
-        raise ValueError(f"provider evidence requires non-empty {key}")
+    if (
+        not isinstance(candidate, str)
+        or not candidate.strip()
+        or len(candidate) > 512
+        or any(ord(character) < 32 for character in candidate)
+    ):
+        raise ValueError(
+            f"provider evidence requires bounded non-empty {key}"
+        )
     return candidate.strip()
 
 
@@ -90,8 +99,8 @@ def validate_provider_evidence(
     if value.get("schema") != SCHEMA:
         raise ValueError(f"provider evidence schema must be {SCHEMA}")
 
-    endpoint = _https_url(_required_text(value, "endpoint"), "endpoint", exact_mcp=True)
-    target_endpoint = _https_url(target.get("endpoint"), "target.endpoint", exact_mcp=True)
+    endpoint = validate_endpoint(_required_text(value, "endpoint"))
+    target_endpoint = validate_endpoint(target.get("endpoint"))
     if endpoint != target_endpoint:
         raise ValueError("provider endpoint must equal the authorized target endpoint")
     if _required_text(value, "target_id") != target.get("target_id"):

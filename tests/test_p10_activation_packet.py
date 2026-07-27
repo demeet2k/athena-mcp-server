@@ -45,7 +45,7 @@ def authorized_packet() -> dict:
         },
         "target": {
             "id": "athena-p10-production",
-            "endpoint": "https://athena.example/mcp",
+            "endpoint": "https://athena.authorized.example.com/mcp",
             "persistence_class": "managed-service",
             "secret_store_ref": "provider://secrets/athena-p10-bearer",
         },
@@ -142,6 +142,14 @@ class ActivationPacketTests(unittest.TestCase):
             with self.subTest(field=field):
                 with self.assertRaises(ValueError):
                     validate_activation_packet(packet)
+
+    def test_deployment_observation_cannot_precede_authorization(self) -> None:
+        packet = authorized_packet()
+        packet["provider"]["deployment_observed_at"] = (
+            "2026-07-27T05:54:59Z"
+        )
+        with self.assertRaises(ValueError):
+            validate_activation_packet(packet)
 
     def test_nonpromotion_boundary_cannot_be_crossed(self) -> None:
         for field, value in (

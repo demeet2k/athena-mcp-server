@@ -53,7 +53,7 @@ The target contract is generated only inside the
 - a stable target identifier and authorization reference;
 - persistence class `managed-service`, `orchestrated-service`, or
   `self-hosted-service`;
-- environment secret `ATHENA_P10_BEARER_TOKEN`.
+- environment secret `ATHENA_MCP_BEARER_TOKEN`.
 
 The witness crosses the real Streamable HTTP boundary and verifies:
 
@@ -120,7 +120,14 @@ Preflight does not contact the endpoint and emits
 `PASS_AUTHORIZED_WITNESS_HANDOFF_NOT_EXECUTED`. The separate
 `execute_live_witness` switch defaults to false. Setting it true still
 requires approval through the protected `p10-persistent-host` environment
-and the separately stored `ATHENA_P10_BEARER_TOKEN`.
+and the separately stored `ATHENA_MCP_BEARER_TOKEN`.
+
+The live job cannot run independently of preflight: it depends on a successful
+compilation of the exact activation packet. Before it emits an admissible
+receipt, every sample proves direct HTTPS with no redirect or downgrade,
+unauthenticated and invalid-token rejection, the exact 174-tool and
+27-resource inventories, and an observed (not merely configured) interval and
+span. The final legal live verdict is `PASS_PERSISTENT_HTTPS_WITNESS`.
 
 The packet cannot weaken the three-sample / 20-second / 40-second observation
 window, alter the exact source or image, record secret material, claim merge or

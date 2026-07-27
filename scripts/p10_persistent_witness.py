@@ -12,21 +12,24 @@ import os
 from pathlib import Path
 from typing import Any
 
+import httpx
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 
 try:
-    from scripts.host_attestation import fetch_host_attestation
     from scripts.p10_contract import (
+        SOURCE_COMMIT,
         canonical_bytes,
+        health_url,
         target_digest,
         validate_target,
         validate_token,
     )
 except ModuleNotFoundError:
-    from host_attestation import fetch_host_attestation
     from p10_contract import (
+        SOURCE_COMMIT,
         canonical_bytes,
+        health_url,
         target_digest,
         validate_target,
         validate_token,
@@ -51,6 +54,14 @@ EXPECTED_RESOURCES = {
     "athena://federation-v2/lock",
     "athena://federation-v2/cutover",
 }
+EXPECTED_TOOL_COUNT = 174
+EXPECTED_TOOL_INVENTORY_DIGEST = (
+    "sha256:230b41262dd77cc7e73f1acb3afcbc8de67bb52e680f35abfebb3465620fc34c"
+)
+EXPECTED_RESOURCE_COUNT = 27
+EXPECTED_RESOURCE_INVENTORY_DIGEST = (
+    "sha256:6e74961966019708425aa26ed6bddb0c665cfffacb1ef7e44494f8861deb9eea"
+)
 
 
 def _jsonable(value: Any) -> Any:
@@ -103,18 +114,161 @@ def _resource_payload(result: Any) -> dict[str, Any]:
     raise RuntimeError("MCP resource did not contain a JSON object")
 
 
+def inventory_digest(names: list[str]) -> str:
+    return f"sha256:{sha256(canonical_bytes(names)).hexdigest()}"
+
+
+def _strict_httpx_factory(
+    *,
+    headers: dict[str, str] | None = None,
+    timeout: httpx.Timeout | None = None,
+    auth: httpx.Auth | None = None,
+) -> httpx.AsyncClient:
+    return httpx.AsyncClient(
+        headers=headers,
+        timeout=timeout,
+        auth=auth,
+        follow_redirects=False,
+    )
+
+
+def _require_direct_response(
+    response: httpx.Response,
+    expected_url: str,
+    expected_status: int,
+    label: str,
+) -> None:
+    if response.history or response.is_redirect or "location" in response.headers:
+        raise RuntimeError(f"{label} unexpectedly redirected")
+    if str(response.url) != expected_url:
+        raise RuntimeError(f"{label} changed the exact endpoint")
+    if response.url.scheme != "https":
+        raise RuntimeError(f"{label} downgraded from HTTPS")
+    if response.status_code != expected_status:
+        raise RuntimeError(f"{label} returned an unexpected status")
+
+
+async def observe_http_boundary(
+    endpoint: str,
+    token: str,
+    *,
+    timeout: float = 20.0,
+    transport: httpx.AsyncBaseTransport | None = None,
+) -> dict[str, Any]:
+    """Verify direct health plus unauthenticated and invalid-token rejection."""
+    derived_health_url = health_url(endpoint)
+    invalid_token = "athena-p10-invalid-token-never-authorized"
+    if invalid_token == token:
+        invalid_token = "athena-p10-second-invalid-token-never-authorized"
+    request_body = {
+        "jsonrpc": "2.0",
+        "id": "p10-negative-auth-check",
+        "method": "initialize",
+        "params": {
+            "protocolVersion": "2025-03-26",
+            "capabilities": {},
+            "clientInfo": {"name": "athena-p10-witness", "version": "1"},
+        },
+    }
+    headers = {
+        "Accept": "application/json, text/event-stream",
+        "Content-Type": "application/json",
+    }
+    async with httpx.AsyncClient(
+        follow_redirects=False,
+        verify=True,
+        timeout=timeout,
+        transport=transport,
+    ) as client:
+        health_response = await client.get(
+            derived_health_url,
+            headers={"Accept": "application/json"},
+        )
+        _require_direct_response(
+            health_response,
+            derived_health_url,
+            200,
+            "health endpoint",
+        )
+        health = health_response.json()
+        if not isinstance(health, dict):
+            raise RuntimeError("health endpoint did not return a JSON object")
+
+        unauthenticated = await client.post(
+            endpoint,
+            headers=headers,
+            json=request_body,
+        )
+        _require_direct_response(
+            unauthenticated,
+            endpoint,
+            401,
+            "unauthenticated MCP request",
+        )
+
+        invalid = await client.post(
+            endpoint,
+            headers={
+                **headers,
+                "Authorization": f"Bearer {invalid_token}",
+            },
+            json=request_body,
+        )
+        _require_direct_response(
+            invalid,
+            endpoint,
+            401,
+            "invalid-token MCP request",
+        )
+
+    checks = {
+        "status_ready": health.get("status") == "ready",
+        "transport_streamable_http": (
+            health.get("transport") == "streamable-http"
+        ),
+        "endpoint_exact": health.get("endpoint") == "/mcp",
+        "authentication_bearer": health.get("authentication") == "bearer",
+        "source_commit_exact": health.get("deployed_commit") == SOURCE_COMMIT,
+        "build_locked_commit_attested": (
+            health.get("commit_attested") is True
+            and health.get("commit_source") == "build-locked-file"
+        ),
+        "promotion_ready_false": health.get("promotion_ready") is False,
+        "unauthenticated_rejected": unauthenticated.status_code == 401,
+        "invalid_token_rejected": invalid.status_code == 401,
+        "redirects_absent": True,
+        "https_not_downgraded": True,
+    }
+    failed = sorted(name for name, passed in checks.items() if not passed)
+    if failed:
+        raise RuntimeError("HTTP boundary failed: " + ", ".join(failed))
+    return {
+        "health": health,
+        "checks": checks,
+        "real_network_contact": transport is None,
+    }
+
+
 async def _observe(target: dict[str, Any], token: str) -> dict[str, Any]:
     endpoint = target["endpoint"]
-    host = fetch_host_attestation(endpoint, target["source_commit"], timeout=20)
+    boundary = await observe_http_boundary(endpoint, token, timeout=20)
     headers = {"Authorization": f"Bearer {token}"}
-    async with streamablehttp_client(endpoint, headers=headers) as streams:
+    async with streamablehttp_client(
+        endpoint,
+        headers=headers,
+        timeout=30,
+        sse_read_timeout=120,
+        httpx_client_factory=_strict_httpx_factory,
+    ) as streams:
         read_stream, write_stream, _ = streams
         async with ClientSession(read_stream, write_stream) as session:
             initialized = await session.initialize()
             tools = await session.list_tools()
             resources = await session.list_resources()
-            tool_names = {tool.name for tool in tools.tools}
-            resource_uris = {str(resource.uri) for resource in resources.resources}
+            tool_names = sorted(tool.name for tool in tools.tools)
+            resource_uris = sorted(
+                str(resource.uri) for resource in resources.resources
+            )
             status = _tool_payload(
                 await session.call_tool("athena_federation_status", arguments={})
             )
@@ -155,13 +309,20 @@ async def _observe(target: dict[str, Any], token: str) -> dict[str, Any]:
         "initialized": bool(_jsonable(initialized)),
         "catalog": {
             "tools_count": len(tool_names),
+            "tool_inventory_digest": inventory_digest(tool_names),
+            "tool_names": tool_names,
             "resources_count": len(resource_uris),
-            "required_tools_present": EXPECTED_TOOLS.issubset(tool_names),
+            "resource_inventory_digest": inventory_digest(resource_uris),
+            "resource_uris": resource_uris,
+            "required_tools_present": EXPECTED_TOOLS.issubset(
+                set(tool_names)
+            ),
             "required_resources_present": EXPECTED_RESOURCES.issubset(
-                resource_uris
+                set(resource_uris)
             ),
         },
-        "host": host,
+        "host": boundary["health"],
+        "http_boundary": boundary,
         "status": status,
         "v2_identity": v2_identity,
         "v2_route": v2_route,
@@ -180,6 +341,9 @@ def _build_receipt(
     status = observation["status"]
     checks = {
         "mcp_initialize": observation["initialized"],
+        "real_network_contact": (
+            observation["http_boundary"]["real_network_contact"] is True
+        ),
         "host_commit_attested": (
             observation["host"]["deployed_commit"] == target["source_commit"]
             and observation["host"]["commit_attested"] is True
@@ -188,8 +352,35 @@ def _build_receipt(
         "required_tools_present": observation["catalog"][
             "required_tools_present"
         ],
+        "actual_tool_count_exact": (
+            observation["catalog"]["tools_count"] == EXPECTED_TOOL_COUNT
+        ),
+        "actual_tool_inventory_exact": (
+            observation["catalog"]["tool_inventory_digest"]
+            == EXPECTED_TOOL_INVENTORY_DIGEST
+        ),
         "required_resources_present": observation["catalog"][
             "required_resources_present"
+        ],
+        "actual_resource_count_exact": (
+            observation["catalog"]["resources_count"]
+            == EXPECTED_RESOURCE_COUNT
+        ),
+        "actual_resource_inventory_exact": (
+            observation["catalog"]["resource_inventory_digest"]
+            == EXPECTED_RESOURCE_INVENTORY_DIGEST
+        ),
+        "unauthenticated_rejected": observation["http_boundary"]["checks"][
+            "unauthenticated_rejected"
+        ],
+        "invalid_token_rejected": observation["http_boundary"]["checks"][
+            "invalid_token_rejected"
+        ],
+        "redirects_absent": observation["http_boundary"]["checks"][
+            "redirects_absent"
+        ],
+        "https_not_downgraded": observation["http_boundary"]["checks"][
+            "https_not_downgraded"
         ],
         "frozen_graph_exact": (
             status.get("graph_digest") == EXPECTED_GRAPH_DIGEST
@@ -236,6 +427,7 @@ def _build_receipt(
         if run_id
         else None
     )
+    passed = all(checks.values())
     body = {
         "schema": "athena.persistent-mcp-witness/v1",
         "phase": "P10",
@@ -245,7 +437,7 @@ def _build_receipt(
         ),
         "verdict": (
             "PASS_LIVE_PERSISTENT_ENDPOINT_NOT_PROMOTED"
-            if all(checks.values())
+            if passed
             else "HOLD"
         ),
         "observed_at": now,
@@ -263,7 +455,7 @@ def _build_receipt(
             "source_commit_attestation": "host-health-build-locked-file",
             "transport": "streamable-http",
             "authentication": "bearer-present-value-not-recorded",
-            "persistent_endpoint": True,
+            "persistent_endpoint": passed,
         },
         "checks": checks,
         "catalog": observation["catalog"],
@@ -274,7 +466,7 @@ def _build_receipt(
         },
         "workflow_run": run_url,
         "secret_recorded": False,
-        "persistent_deployment_claimed": True,
+        "persistent_deployment_claimed": passed,
         "promotion_ready": False,
         "promotion_claimed": False,
         "merge_claimed": False,
@@ -299,11 +491,10 @@ def _build_receipt(
 async def _main(
     target_path: Path,
     output_path: Path,
-    token_environment: str,
     timeout: int,
 ) -> int:
     target = validate_target(json.loads(target_path.read_text(encoding="utf-8")))
-    token = validate_token(os.environ.get(token_environment))
+    token = validate_token(os.environ.get("ATHENA_MCP_BEARER_TOKEN"))
     async with asyncio.timeout(timeout):
         observation = await _observe(target, token)
     receipt = _build_receipt(target, observation)
@@ -319,17 +510,12 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("target", type=Path)
     parser.add_argument("--output", type=Path, default=Path("p10-witness.json"))
-    parser.add_argument(
-        "--token-env",
-        default="ATHENA_MCP_BEARER_TOKEN",
-    )
     parser.add_argument("--timeout", type=int, default=180)
     arguments = parser.parse_args()
     return asyncio.run(
         _main(
             arguments.target,
             arguments.output,
-            arguments.token_env,
             arguments.timeout,
         )
     )

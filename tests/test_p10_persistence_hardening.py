@@ -1,15 +1,21 @@
 from __future__ import annotations
 
-import copy
 import json
 from pathlib import Path
 import unittest
 
-from scripts.p10_contract import IMAGE, SOURCE_COMMIT
+from scripts.p10_contract import IMAGE, SOURCE_COMMIT, target_digest
 from scripts.p10_persistent_observation_window import (
+    LEGAL_PERSISTENT_VERDICT,
     MINIMUM_INTERVAL_SECONDS,
     REQUIRED_SAMPLE_CHECKS,
     build_window_receipt,
+)
+from scripts.p10_persistent_witness import (
+    EXPECTED_RESOURCE_COUNT,
+    EXPECTED_RESOURCE_INVENTORY_DIGEST,
+    EXPECTED_TOOL_COUNT,
+    EXPECTED_TOOL_INVENTORY_DIGEST,
 )
 from scripts.p10_provider_evidence import (
     IMAGE_DIGEST,
@@ -44,14 +50,17 @@ def provider_evidence(target: dict) -> dict:
     }
 
 
-def passing_sample(target: dict) -> dict:
+def passing_sample(
+    target: dict,
+    observed_at: str = "2026-07-27T05:00:00Z",
+) -> dict:
     return {
         "schema": "athena.persistent-mcp-witness/v1",
         "verdict": "PASS_LIVE_PERSISTENT_ENDPOINT_NOT_PROMOTED",
-        "observed_at": "2026-07-27T05:00:00Z",
+        "observed_at": observed_at,
         "target": {
             "target_id": target["target_id"],
-            "target_digest": "sha256:" + "1" * 64,
+            "target_digest": target_digest(target),
             "endpoint": target["endpoint"],
             "persistence_class": target["persistence"]["class"],
             "authorization_ref": target["authorization"]["ref"],
@@ -67,11 +76,21 @@ def passing_sample(target: dict) -> dict:
         },
         "checks": {key: True for key in REQUIRED_SAMPLE_CHECKS},
         "catalog": {
+            "tools_count": EXPECTED_TOOL_COUNT,
+            "tool_inventory_digest": EXPECTED_TOOL_INVENTORY_DIGEST,
+            "resources_count": EXPECTED_RESOURCE_COUNT,
+            "resource_inventory_digest": (
+                EXPECTED_RESOURCE_INVENTORY_DIGEST
+            ),
             "required_tools_present": True,
             "required_resources_present": True,
         },
         "answer_provenance": {
             "v2_route": {
+                "hops": [
+                    "edge.q-shrink-to-control",
+                    "edge.control-to-runtime",
+                ],
                 "return_plan": [
                     "edge.runtime-to-control",
                     "edge.control-to-q-shrink",
@@ -83,8 +102,11 @@ def passing_sample(target: dict) -> dict:
             },
         },
         "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/1",
+        "secret_recorded": False,
+        "persistent_deployment_claimed": True,
         "promotion_ready": False,
         "promotion_claimed": False,
+        "merge_claimed": False,
     }
 
 
@@ -145,13 +167,17 @@ class ObservationWindowTests(unittest.TestCase):
     def test_window_preserves_return_fallback_and_nonpromotion(self) -> None:
         target = authorized_target()
         evidence = validate_provider_evidence(provider_evidence(target), target)
-        samples = [copy.deepcopy(passing_sample(target)) for _ in range(3)]
+        samples = [
+            passing_sample(target, "2026-07-27T05:00:00Z"),
+            passing_sample(target, "2026-07-27T05:00:20Z"),
+            passing_sample(target, "2026-07-27T05:00:40Z"),
+        ]
         receipt = build_window_receipt(
             target, evidence, samples, MINIMUM_INTERVAL_SECONDS
         )
         self.assertEqual(
             receipt["verdict"],
-            "PASS_LIVE_PERSISTENT_ENDPOINT_WINDOW_NOT_PROMOTED",
+            LEGAL_PERSISTENT_VERDICT,
         )
         self.assertEqual(receipt["observation_window"]["sample_count"], 3)
         self.assertEqual(
@@ -166,11 +192,65 @@ class ObservationWindowTests(unittest.TestCase):
     def test_any_failed_sample_blocks_window_receipt(self) -> None:
         target = authorized_target()
         evidence = validate_provider_evidence(provider_evidence(target), target)
-        samples = [copy.deepcopy(passing_sample(target)) for _ in range(3)]
+        samples = [
+            passing_sample(target, "2026-07-27T05:00:00Z"),
+            passing_sample(target, "2026-07-27T05:00:20Z"),
+            passing_sample(target, "2026-07-27T05:00:40Z"),
+        ]
         samples[1]["checks"]["reciprocal_return_answered"] = False
         with self.assertRaises(ValueError):
+                build_window_receipt(
+                    target, evidence, samples, MINIMUM_INTERVAL_SECONDS
+                )
+
+    def test_configured_interval_cannot_fake_observed_span(self) -> None:
+        target = authorized_target()
+        evidence = validate_provider_evidence(provider_evidence(target), target)
+        samples = [
+            passing_sample(target, "2026-07-27T05:00:00Z"),
+            passing_sample(target, "2026-07-27T05:00:01Z"),
+            passing_sample(target, "2026-07-27T05:00:02Z"),
+        ]
+        with self.assertRaises(ValueError):
             build_window_receipt(
-                target, evidence, samples, MINIMUM_INTERVAL_SECONDS
+                target,
+                evidence,
+                samples,
+                MINIMUM_INTERVAL_SECONDS,
+            )
+
+    def test_sample_target_and_catalog_must_match_exactly(self) -> None:
+        target = authorized_target()
+        evidence = validate_provider_evidence(provider_evidence(target), target)
+        samples = [
+            passing_sample(target, "2026-07-27T05:00:00Z"),
+            passing_sample(target, "2026-07-27T05:00:20Z"),
+            passing_sample(target, "2026-07-27T05:00:40Z"),
+        ]
+        samples[1]["target"]["target_digest"] = "sha256:" + "0" * 64
+        with self.assertRaises(ValueError):
+            build_window_receipt(
+                target,
+                evidence,
+                samples,
+                MINIMUM_INTERVAL_SECONDS,
+            )
+
+    def test_witness_cannot_precede_provider_deployment(self) -> None:
+        target = authorized_target()
+        evidence = validate_provider_evidence(provider_evidence(target), target)
+        evidence["deployment_observed_at"] = "2026-07-27T05:00:01Z"
+        samples = [
+            passing_sample(target, "2026-07-27T05:00:00Z"),
+            passing_sample(target, "2026-07-27T05:00:20Z"),
+            passing_sample(target, "2026-07-27T05:00:40Z"),
+        ]
+        with self.assertRaises(ValueError):
+            build_window_receipt(
+                target,
+                evidence,
+                samples,
+                MINIMUM_INTERVAL_SECONDS,
             )
 
 
