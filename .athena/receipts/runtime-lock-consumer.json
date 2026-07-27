@@ -1,0 +1,43 @@
+{
+  "schema": "athena.runtime-lock-consumer-receipt/v2",
+  "repository": "demeet2k/athena-mcp-server",
+  "resource": "athena.repo.runtime-mcp@federation-consumer-0.1.0",
+  "verdict": "PASS_LOCAL_NOT_DEPLOYED",
+  "implementation_commit": "13ce0f18ed4e99c0aaf0a3f64c41c9d65e690bed",
+  "frozen_source": {
+    "repository": "demeet2k/Athena",
+    "commit": "1b177fa2e3a4860487497210dcfbc122a287d693",
+    "release": "v2-proposal-0.1.0",
+    "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1"
+  },
+  "checked": [
+    "MCP/crystal_108d/federation_v2.py",
+    "MCP/data/athena_federation_v2/snapshot.json",
+    "MCP/data/athena_federation_v2/federation.json",
+    "MCP/data/athena_federation_v2/repositories.lock.json",
+    "MCP/data/athena_federation_v2/edges.jsonl",
+    "MCP/athena_mcp_server.py",
+    "tests/test_federation_v2.py"
+  ],
+  "verification": {
+    "local_tests": {
+      "verdict": "PASS",
+      "tests": 7
+    },
+    "remote_source_equality": "PASS",
+    "frozen_data_equality": "PASS",
+    "registration_present": "PASS",
+    "resource_versions": 14,
+    "exact_identifiers": 56,
+    "active_edges": 26
+  },
+  "invariants": {
+    "existing_runtime_removed": false,
+    "fuzzy_identity_matching": false,
+    "v1_fallback_explicit": true,
+    "answer_provenance_emitted": true,
+    "return_plan_required_by_default": true,
+    "runtime_has_promotion_authority": false
+  },
+  "next": "Pin the completed runtime proposal head in the central repository lock, replay v1/v2 closure, and deploy only after review."
+}
