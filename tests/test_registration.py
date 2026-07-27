@@ -34,7 +34,7 @@ class TestRegistration:
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 34, f"Expected 34 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 35, f"Expected 35 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
