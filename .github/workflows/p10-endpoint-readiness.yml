@@ -1,0 +1,122 @@
+name: Validate P10 endpoint readiness
+
+on:
+  pull_request:
+    # Validate once when the draft opens. Receipt-only commits must not create
+    # a self-referential sequence of fresh readiness receipts.
+    types: [opened]
+    branches:
+      - agent/p09-published-mcp-image
+    paths:
+      - .github/workflows/p10-endpoint-readiness.yml
+      - deploy/p10/**
+      - scripts/p10_persistent_witness.py
+      - tests/test_p10_readiness.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SOURCE_COMMIT: 52d0e2abf282aee5f8bf233521989bc2c8969989
+  IMAGE_DIGEST: sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2
+
+jobs:
+  endpoint-readiness:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out readiness package
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Compile and test the fail-closed handoff
+        run: |
+          python3 -m py_compile scripts/p10_persistent_witness.py
+          python3 -m unittest discover -s tests -p 'test_p10_readiness.py'
+
+      - name: Validate unresolved authority boundary
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          contract = json.loads(
+              Path("deploy/p10/readiness.json").read_text(encoding="utf-8")
+          )
+          example = json.loads(
+              Path("deploy/p10/provider-evidence.example.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          assert contract["selected_image"]["source_commit"] == \
+              "52d0e2abf282aee5f8bf233521989bc2c8969989"
+          assert contract["selected_image"]["digest"] == \
+              "sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2"
+          assert contract["status"] == "READY_FOR_AUTHORIZED_INPUTS_NOT_DEPLOYED"
+          assert contract["activation_inputs"]["endpoint"] is None
+          assert contract["activation_inputs"]["provider_id"] is None
+          assert contract["activation_inputs"]["secret_store_ref"] is None
+          assert contract["activation_inputs"]["persistent_witness"] is None
+          assert contract["authority"]["persistent_deployment_claimed"] is False
+          assert contract["authority"]["promotion_claimed"] is False
+          assert example["secret_material_recorded"] is False
+          PY
+
+      - name: Assemble provider-neutral readiness receipt
+        env:
+          REPOSITORY: ${{ github.repository }}
+          HEAD_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          SERVER_URL: ${{ github.server_url }}
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          contract = json.loads(
+              Path("deploy/p10/readiness.json").read_text(encoding="utf-8")
+          )
+          observed = datetime.now(timezone.utc).replace(
+              microsecond=0
+          ).isoformat().replace("+00:00", "Z")
+          body = {
+              "schema": "athena.endpoint-readiness-receipt/v1",
+              "phase": "P10",
+              "verdict": "PASS_PROVIDER_NEUTRAL_READINESS_ENDPOINT_PENDING",
+              "observed_at": observed,
+              "repository": os.environ["REPOSITORY"],
+              "head_sha": os.environ["HEAD_SHA"],
+              "workflow_run": (
+                  f'{os.environ["SERVER_URL"]}/{os.environ["REPOSITORY"]}/'
+                  f'actions/runs/{os.environ["RUN_ID"]}'
+              ),
+              "selected_image": contract["selected_image"],
+              "activation_inputs": contract["activation_inputs"],
+              "authority": contract["authority"],
+              "rollback": contract["rollback"],
+              "successor_seed": contract["successor_seed"],
+          }
+          canonical = json.dumps(
+              body, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+          ).encode("utf-8")
+          receipt = {
+              "receipt_id": "endpoint-readiness:sha256:"
+              + hashlib.sha256(canonical).hexdigest(),
+              **body,
+          }
+          Path("p10-endpoint-readiness-receipt.json").write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload readiness receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: p10-endpoint-readiness-${{ github.sha }}
+          path: p10-endpoint-readiness-receipt.json
+          if-no-files-found: error
+          retention-days: 90
