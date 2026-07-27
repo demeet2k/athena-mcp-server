@@ -68,7 +68,7 @@ def _unresolved_packet() -> dict:
         },
         "witness": {
             "environment": "p10-persistent-host",
-            "secret_name": "ATHENA_P10_BEARER_TOKEN",
+            "secret_name": "ATHENA_MCP_BEARER_TOKEN",
             "sample_count": 3,
             "interval_seconds": 20,
             "minimum_span_seconds": 40,
