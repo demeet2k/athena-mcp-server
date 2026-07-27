@@ -3,16 +3,20 @@
   "repository": "demeet2k/athena-mcp-server",
   "resource": "athena.repo.runtime-mcp@federation-consumer-0.1.0",
   "verdict": "PASS_LOCAL_NOT_DEPLOYED",
-  "implementation_commit": "13ce0f18ed4e99c0aaf0a3f64c41c9d65e690bed",
+  "implementation_commit": "fcee64462306e35409eade9016bb3a4140ca57e3",
   "frozen_source": {
     "repository": "demeet2k/Athena",
-    "commit": "1b177fa2e3a4860487497210dcfbc122a287d693",
+    "commit": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
     "release": "v2-proposal-0.1.0",
-    "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1"
+    "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+    "release_candidate": "KC144.MYC.P05.RC1",
+    "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
+    "selected_contract_lineage": "git-brain-v2"
   },
   "checked": [
     "MCP/crystal_108d/federation_v2.py",
     "MCP/data/athena_federation_v2/snapshot.json",
+    "MCP/data/athena_federation_v2/release-candidate.json",
     "MCP/data/athena_federation_v2/federation.json",
     "MCP/data/athena_federation_v2/repositories.lock.json",
     "MCP/data/athena_federation_v2/edges.jsonl",
@@ -29,7 +33,9 @@
     "registration_present": "PASS",
     "resource_versions": 14,
     "exact_identifiers": 56,
-    "active_edges": 26
+    "active_edges": 26,
+    "p05_release_candidate": "PASS",
+    "p05_cold_replay": "PASS[10/10]"
   },
   "invariants": {
     "existing_runtime_removed": false,
@@ -39,5 +45,5 @@
     "return_plan_required_by_default": true,
     "runtime_has_promotion_authority": false
   },
-  "next": "Pin the completed runtime proposal head in the central repository lock, replay v1/v2 closure, and deploy only after review."
+  "next": "Pin the completed P06 runtime head in the central repository lock, replay v1/v2 closure, and deploy only after review."
 }
