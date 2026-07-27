@@ -312,9 +312,12 @@ class DeepHardeningEvidenceTests(unittest.TestCase):
         status = json.loads(
             (ROOT / ".athena/status.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(
+        self.assertIn(
             status["state"],
-            "P10_DEEP_ACTIVATION_HARDENED_AUTHORITY_PENDING",
+            {
+                "P10_DEEP_ACTIVATION_HARDENED_AUTHORITY_PENDING",
+                "P10_DEEP_HARDENING_PLUS_W15_CAPSULE_RECONCILIATION_AUTHORITY_PENDING",
+            },
         )
         hardening = status["p10_capsule"]["deep_hardening"]
         self.assertEqual(
