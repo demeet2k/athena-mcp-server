@@ -2,10 +2,28 @@ name: Validate P10 persistent host capsule
 
 on:
   pull_request:
+    # GitHub evaluates path filters against the cumulative PR diff. Restrict
+    # readiness to the opening event so receipt/status closure commits cannot
+    # retrigger P10. The real endpoint witness remains workflow_dispatch-only.
+    types: [opened]
     branches:
       - agent/p09-published-mcp-image
       - agent/p10-persistent-host-capsule
       - agent/p10-canonical-witness-hardening
+    paths:
+      - .github/workflows/p10-host-readiness.yml
+      - deploy/p10/**
+      - scripts/p10_activation_packet.py
+      - scripts/p10_contract.py
+      - scripts/p10_persistent_observation_window.py
+      - scripts/p10_persistent_witness.py
+      - scripts/p10_provider_evidence.py
+      - tests/test_http_host.py
+      - tests/test_p10_activation_packet.py
+      - tests/test_p10_deep_hardening.py
+      - tests/test_p10_deployment_capsule.py
+      - tests/test_p10_persistence_hardening.py
+      - tests/test_registration.py
   workflow_dispatch:
     inputs:
       activation_packet_json:

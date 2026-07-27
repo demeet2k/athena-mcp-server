@@ -233,6 +233,17 @@ class WorkflowBoundaryTests(unittest.TestCase):
         self.assertNotIn("ATHENA_P10_BEARER_TOKEN", workflow)
         self.assertIn("PASS_PERSISTENT_HTTPS_WITNESS", live)
 
+    def test_receipt_only_synchronization_cannot_retrigger_p10(self) -> None:
+        workflow = (
+            ROOT / ".github/workflows/p10-host-readiness.yml"
+        ).read_text(encoding="utf-8")
+        pull_request = workflow.split("  workflow_dispatch:", 1)[0]
+        self.assertIn("types: [opened]", pull_request)
+        self.assertNotIn("synchronize", pull_request)
+        self.assertIn("paths:", pull_request)
+        self.assertNotIn(".athena/receipts", pull_request)
+        self.assertNotIn(".athena/status", pull_request)
+
     def test_token_environment_cannot_be_selected_on_command_line(self) -> None:
         for path in (
             ROOT / "scripts/p10_persistent_witness.py",
