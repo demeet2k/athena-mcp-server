@@ -79,6 +79,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w16-capsule-index-repair-authorized-witness-ingress.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w17-evidence-provenance-protected-dispatch-gate.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m json.tool \
             MCP/data/w14_memory_digest_capsules.json >/dev/null
@@ -88,6 +90,8 @@ jobs:
             MCP/data/w15_blind_replay_ingress.json >/dev/null
           python -m json.tool \
             MCP/data/w16_replay_ledger.json >/dev/null
+          python -m json.tool \
+            MCP/data/w17_evidence_provenance_gate.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
             MCP/crystal_108d/source_mounts.py \
@@ -95,6 +99,7 @@ jobs:
             MCP/crystal_108d/replay_authority_ledger.py \
             MCP/crystal_108d/capsule_replay_ingress.py \
             MCP/crystal_108d/capsule_index_repair.py \
+            MCP/crystal_108d/evidence_provenance_gate.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
@@ -129,6 +134,7 @@ jobs:
               tests/test_w16_replay_authority_ledger.py \
               tests/test_w15_capsule_replay_ingress.py \
               tests/test_w16_capsule_index_repair.py \
+              tests/test_w17_evidence_provenance_gate.py \
               -q
 
       - name: Build immutable candidate image

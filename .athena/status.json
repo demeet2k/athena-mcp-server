@@ -372,5 +372,32 @@
     "merge_claimed": false,
     "promotion_claimed": false,
     "ic10_required": true
+  },
+  "w17_evidence_provenance_protected_dispatch_gate": {
+    "receipt": ".athena/receipts/w17-evidence-provenance-protected-dispatch-gate.json",
+    "implementation_parent": "97f7bdc917a29fe1f54192fdcd37e3704be736cd",
+    "contract_digest": "sha256:8b8476b7e2b29a2c9bc59f9e2d25f85d8d39c31c73a16f7c1adbc61648aaa274",
+    "w16_ledger_root": "sha256:4ae7fe2b2f390c876ca333cf5719b97797175d369997ce77f3329c47df0f316a",
+    "provenance_schema": "athena.provider-evidence-provenance/v1",
+    "structural_provenance_binding": "PASS_SCHEMA_AND_CONTENT_ADDRESS_BINDING",
+    "runtime_evidence_class": "STRUCTURALLY_BOUND_EXTERNAL_PROVENANCE_CLAIM",
+    "required_external_evidence_class": "EXTERNALLY_VERIFIED_PROVIDER_EVIDENCE",
+    "provider_specific_adapter_required": true,
+    "runtime_has_provider_adapter": false,
+    "runtime_fetches_provider_evidence": false,
+    "trust_anchor_verified": false,
+    "authorization_externally_verified": false,
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "dispatch_candidate_addressable": true,
+    "dispatch_allowed": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "ic10_required": true,
+    "cross_navigation_state": "SOURCE_REPLAY_LEDGER_AND_PROVENANCE_SCHEMA_CLOSED__TRUST_ANCHOR_AND_PERSISTENT_WITNESS_OPEN"
   }
 }
