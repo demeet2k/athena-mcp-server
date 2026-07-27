@@ -29,7 +29,8 @@
     "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
     "publication_branch": "agent/p09-published-mcp-image",
     "publication_workflow_head": "642c278962620aafc833987af8c42ac2671f4359",
-    "workflow_merge_commit": "642c278962620aafc833987af8c42ac2671f4359",
+    "publication_execution_commit": "642c278962620aafc833987af8c42ac2671f4359",
+    "one_shot_trigger_commit": "cea9c7acc62f20851d08e647226d4ebf7b32f4ac",
     "image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
     "digest": "sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
     "tags": [
@@ -43,6 +44,8 @@
     "artifact_digest": "sha256:a88b07c6c08cabcf46d8d8fdc12b1ecda5b1730d71e9a5a561a91eea55ea96b3",
     "source_commit_attested": true,
     "digest_pull_smoke_tested": true,
+    "non_root_uid_verified": 10001,
+    "actions_pinned_to_commits": true,
     "image_published": true
   },
   "hosted_verification": {
