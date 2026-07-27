@@ -3,6 +3,8 @@ from __future__ import annotations
 import asyncio
 from copy import deepcopy
 import importlib.util
+import hashlib
+import json
 import os
 from pathlib import Path
 import sys
@@ -253,6 +255,79 @@ class WorkflowBoundaryTests(unittest.TestCase):
                 "--token-env",
                 path.read_text(encoding="utf-8"),
             )
+
+
+class DeepHardeningEvidenceTests(unittest.TestCase):
+    def test_receipt_is_content_addressed_and_preserves_authority_boundary(
+        self,
+    ) -> None:
+        receipt = json.loads(
+            (
+                ROOT
+                / ".athena/receipts/p10-deep-activation-hardening-readiness.json"
+            ).read_text(encoding="utf-8")
+        )
+        embedded = receipt.pop("receipt_id")
+        digest = hashlib.sha256(
+            json.dumps(
+                receipt,
+                sort_keys=True,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest()
+        self.assertEqual(embedded, f"p10-deep-readiness:sha256:{digest}")
+        self.assertEqual(
+            receipt["verdict"],
+            "READY_AWAITING_AUTHORIZED_TARGET",
+        )
+        self.assertEqual(
+            receipt["heads"]["hosted_evidence"],
+            "4a7553b74d111817c9903c8eedb16c75349278e5",
+        )
+        self.assertEqual(
+            receipt["heads"]["one_shot_proof"],
+            "c16476edc5550861677e2904f04abe276bc845ad",
+        )
+        self.assertFalse(
+            receipt["hosted_verification"]["one_shot_head"][
+                "p10_workflow_present"
+            ]
+        )
+        self.assertIsNone(
+            receipt["unresolved_authority_inputs"]["endpoint"]
+        )
+        self.assertIsNone(
+            receipt["unresolved_authority_inputs"]["persistent_witness"]
+        )
+        self.assertFalse(
+            receipt["authority"]["deep_hardening_readiness_is_deployment"]
+        )
+        self.assertFalse(
+            receipt["authority"]["persistent_deployment_claimed"]
+        )
+        self.assertFalse(receipt["authority"]["promotion_claimed"])
+        self.assertFalse(receipt["authority"]["merge_claimed"])
+
+    def test_status_points_to_same_unresolved_evidence(self) -> None:
+        status = json.loads(
+            (ROOT / ".athena/status.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            status["state"],
+            "P10_DEEP_ACTIVATION_HARDENED_AUTHORITY_PENDING",
+        )
+        hardening = status["p10_capsule"]["deep_hardening"]
+        self.assertEqual(
+            hardening["receipt"],
+            status["receipts"]["p10_deep_activation_hardening"],
+        )
+        self.assertFalse(hardening["one_shot_p10_workflow_present"])
+        self.assertIsNone(hardening["endpoint"])
+        self.assertIsNone(hardening["persistent_witness"])
+        self.assertFalse(hardening["persistent_deployment_claimed"])
+        self.assertFalse(status["promotion_ready"])
+        self.assertFalse(status["promotion_claimed"])
+        self.assertFalse(status["merge_claimed"])
 
 
 if __name__ == "__main__":
