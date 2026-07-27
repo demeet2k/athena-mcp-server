@@ -23,6 +23,7 @@ jobs:
           python -m py_compile \
             MCP/http_security.py \
             MCP/athena_http_server.py \
+            scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
             tests/test_http_host.py
       - name: Validate deployment manifest
@@ -33,4 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build without publishing
-        run: docker build -f Dockerfile.mcp -t athena-mcp:p07 .
+        run: |
+          docker build -f Dockerfile.mcp \
+            --build-arg ATHENA_BUILD_COMMIT="${{ github.event.pull_request.head.sha || github.sha }}" \
+            -t athena-mcp:p07 .
