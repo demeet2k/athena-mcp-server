@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from hashlib import sha256
+import ipaddress
 import json
 import re
 from typing import Any
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urlunsplit
 
 
 SCHEMA = "athena.persistent-host-target/v1"
@@ -22,6 +24,40 @@ PERSISTENCE_CLASSES = {
     "orchestrated-service",
     "self-hosted-service",
 }
+TARGET_FIELDS = {
+    "schema",
+    "state",
+    "target_id",
+    "endpoint",
+    "image",
+    "source_commit",
+    "authorization",
+    "persistence",
+    "tls",
+    "secret",
+    "authority",
+}
+AUTHORIZATION_FIELDS = {"ref", "actor", "authorized_at"}
+PERSISTENCE_FIELDS = {"class", "restart_policy", "ephemeral"}
+TLS_FIELDS = {"required", "minimum_version"}
+SECRET_FIELDS = {
+    "environment",
+    "provider_ref",
+    "minimum_length",
+    "record_value",
+}
+AUTHORITY_FIELDS = {
+    "runtime_can_promote",
+    "promotion_claimed",
+    "ic10_required",
+}
+BLOCKED_HOSTS = {
+    "localhost",
+    "localhost.localdomain",
+    "host.docker.internal",
+    "gateway.docker.internal",
+}
+BLOCKED_SUFFIXES = (".localhost", ".local", ".test", ".invalid", ".example")
 
 
 def canonical_bytes(value: Any) -> bytes:
@@ -35,6 +71,67 @@ def canonical_bytes(value: Any) -> bytes:
 
 def target_digest(value: dict[str, Any]) -> str:
     return f"sha256:{sha256(canonical_bytes(value)).hexdigest()}"
+
+
+def _exact_object(
+    value: Any,
+    fields: set[str],
+    path: str,
+) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise ValueError(f"{path} must be an object")
+    unknown = set(value) - fields
+    missing = fields - set(value)
+    if unknown:
+        raise ValueError(
+            f"{path} contains forbidden or unknown fields: "
+            + ", ".join(sorted(unknown))
+        )
+    if missing:
+        raise ValueError(
+            f"{path} is missing required fields: "
+            + ", ".join(sorted(missing))
+        )
+    return value
+
+
+def _bounded_text(value: Any, path: str) -> str:
+    if (
+        not isinstance(value, str)
+        or not value.strip()
+        or len(value) > 512
+        or any(ord(character) < 32 for character in value)
+    ):
+        raise ValueError(f"{path} must be bounded non-empty text")
+    return value.strip()
+
+
+def _timestamp(value: Any, path: str) -> str:
+    candidate = _bounded_text(value, path)
+    normalized = candidate[:-1] + "+00:00" if candidate.endswith("Z") else candidate
+    try:
+        parsed = datetime.fromisoformat(normalized)
+    except ValueError as error:
+        raise ValueError(f"{path} must be ISO-8601") from error
+    if parsed.tzinfo is None:
+        raise ValueError(f"{path} must include a timezone")
+    return candidate
+
+
+def _host_is_ephemeral_or_local(hostname: str) -> bool:
+    lowered = hostname.rstrip(".").lower()
+    if lowered in BLOCKED_HOSTS or lowered.endswith(BLOCKED_SUFFIXES):
+        return True
+    try:
+        address = ipaddress.ip_address(lowered)
+    except ValueError:
+        return False
+    return (
+        address.is_loopback
+        or address.is_link_local
+        or address.is_unspecified
+        or address.is_multicast
+    )
 
 
 def validate_endpoint(value: Any) -> str:
@@ -53,12 +150,20 @@ def validate_endpoint(value: Any) -> str:
         raise ValueError(
             "endpoint must be an authority-only HTTPS URL ending exactly in /mcp"
         )
-    return value.rstrip("/")
+    if _host_is_ephemeral_or_local(parts.hostname):
+        raise ValueError(
+            "persistent endpoint cannot be localhost, test-only, or runner-local"
+        )
+    return urlunsplit((parts.scheme, parts.netloc, "/mcp", "", ""))
+
+
+def health_url(endpoint: str) -> str:
+    parts = urlsplit(validate_endpoint(endpoint))
+    return urlunsplit((parts.scheme, parts.netloc, "/healthz", "", ""))
 
 
 def validate_target(value: Any) -> dict[str, Any]:
-    if not isinstance(value, dict):
-        raise ValueError("target must be a JSON object")
+    value = _exact_object(value, TARGET_FIELDS, "target")
     if value.get("schema") != SCHEMA:
         raise ValueError(f"target schema must be {SCHEMA}")
     if value.get("state") != STATE:
@@ -67,23 +172,35 @@ def validate_target(value: Any) -> dict[str, Any]:
     target_id = value.get("target_id")
     if not isinstance(target_id, str) or not TARGET_ID.fullmatch(target_id):
         raise ValueError("target_id must be a bounded lowercase identifier")
-    validate_endpoint(value.get("endpoint"))
+    endpoint = validate_endpoint(value.get("endpoint"))
 
     if value.get("image") != IMAGE:
         raise ValueError("target image must equal the selected immutable P09 digest")
     if value.get("source_commit") != SOURCE_COMMIT:
         raise ValueError("target source_commit must equal the attested P08 source")
 
-    authorization = value.get("authorization")
-    if not isinstance(authorization, dict):
-        raise ValueError("authorization must be an object")
-    for field in ("ref", "actor", "authorized_at"):
-        if not isinstance(authorization.get(field), str) or not authorization[field]:
-            raise ValueError(f"authorization.{field} is required")
+    authorization = _exact_object(
+        value.get("authorization"),
+        AUTHORIZATION_FIELDS,
+        "authorization",
+    )
+    normalized_authorization = {
+        "ref": _bounded_text(authorization.get("ref"), "authorization.ref"),
+        "actor": _bounded_text(
+            authorization.get("actor"),
+            "authorization.actor",
+        ),
+        "authorized_at": _timestamp(
+            authorization.get("authorized_at"),
+            "authorization.authorized_at",
+        ),
+    }
 
-    persistence = value.get("persistence")
-    if not isinstance(persistence, dict):
-        raise ValueError("persistence must be an object")
+    persistence = _exact_object(
+        value.get("persistence"),
+        PERSISTENCE_FIELDS,
+        "persistence",
+    )
     if persistence.get("class") not in PERSISTENCE_CLASSES:
         raise ValueError("persistence.class is not an admitted persistent class")
     if persistence.get("restart_policy") != "unless-stopped":
@@ -91,34 +208,42 @@ def validate_target(value: Any) -> dict[str, Any]:
     if persistence.get("ephemeral") is not False:
         raise ValueError("persistent target cannot be marked ephemeral")
 
-    tls = value.get("tls")
-    if not isinstance(tls, dict):
-        raise ValueError("tls must be an object")
+    tls = _exact_object(value.get("tls"), TLS_FIELDS, "tls")
     if tls.get("required") is not True or tls.get("minimum_version") != "1.2":
         raise ValueError("TLS must be required with minimum version 1.2")
 
-    secret = value.get("secret")
-    if not isinstance(secret, dict):
-        raise ValueError("secret must be an object")
+    secret = _exact_object(value.get("secret"), SECRET_FIELDS, "secret")
     if secret.get("environment") != "ATHENA_MCP_BEARER_TOKEN":
         raise ValueError("secret environment is not the admitted bearer carrier")
     if secret.get("minimum_length") != 32:
         raise ValueError("bearer secret minimum length must be 32")
     if secret.get("record_value") is not False:
         raise ValueError("target must forbid recording bearer secret material")
-    if not isinstance(secret.get("provider_ref"), str) or not secret["provider_ref"]:
-        raise ValueError("secret.provider_ref is required")
+    provider_ref = _bounded_text(
+        secret.get("provider_ref"),
+        "secret.provider_ref",
+    )
 
-    authority = value.get("authority")
-    if not isinstance(authority, dict):
-        raise ValueError("authority must be an object")
+    authority = _exact_object(
+        value.get("authority"),
+        AUTHORITY_FIELDS,
+        "authority",
+    )
     if authority.get("runtime_can_promote") is not False:
         raise ValueError("runtime cannot promote")
     if authority.get("promotion_claimed") is not False:
         raise ValueError("target cannot claim promotion")
     if authority.get("ic10_required") is not True:
         raise ValueError("target must preserve IC10 authority")
-    return value
+    return {
+        **value,
+        "endpoint": endpoint,
+        "authorization": normalized_authorization,
+        "persistence": dict(persistence),
+        "tls": dict(tls),
+        "secret": {**secret, "provider_ref": provider_ref},
+        "authority": dict(authority),
+    }
 
 
 def validate_token(value: str | None) -> str:
