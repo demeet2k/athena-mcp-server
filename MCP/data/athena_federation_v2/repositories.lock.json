@@ -1,0 +1,203 @@
+{
+  "schema": "athena.repository-federation-lock/v2",
+  "release": "v2-proposal-0.1.0",
+  "control": {
+    "rid": "athena.repo.control",
+    "vid": "git:3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+    "github": "demeet2k/Athena",
+    "commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+    "contract_path": ".athena/repo.json"
+  },
+  "repositories": [
+    {
+      "rid": "athena.repo.runtime-mcp",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/athena-mcp-server",
+      "legacy_id": "repo-athena-mcp",
+      "legacy_addresses": [
+        "amc://github/runtime/repo-athena-mcp@1.0.0?lens=10#bridge"
+      ],
+      "commit": "84297571eb84057cdcad4453ddf1642e2dc0c1b8",
+      "base_commit": "0ee038011295873ba037a3cac25de18544439293",
+      "contract_path": ".athena/repo.json",
+      "role": "runtime",
+      "state": "BOUND_NOT_CUTOVER",
+      "authority_domain": "runtime-navigation",
+      "defects": [
+        "The deployed runtime does not yet consume a frozen v2 federation lock.",
+        "Runtime outputs are witnesses until admitted by the control plane."
+      ]
+    },
+    {
+      "rid": "athena.repo.q-shrink",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/q-shrink",
+      "legacy_id": "repo-q-shrink",
+      "legacy_addresses": [
+        "amc://github/compression/repo-q-shrink@0.1.0?lens=11#codec"
+      ],
+      "commit": "5c97c1ad0a5d0665185b5107a802f5d6b43e7d56",
+      "base_commit": "c6ad8224125500a81ae9820708fa2ca94e905507",
+      "contract_path": ".athena/repo.json",
+      "role": "domain",
+      "state": "KEEP_INDEPENDENT_ADD_CONTRACT",
+      "authority_domain": "qshrink",
+      "defects": [
+        "Domain exports are not federation authority until promoted by Athena.",
+        "Benchmark and codec receipts remain version-specific."
+      ]
+    },
+    {
+      "rid": "athena.repo.manuscript-being",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/manuscript-being",
+      "legacy_id": "repo-manuscript-being",
+      "legacy_addresses": [
+        "amc://github/narrative/repo-manuscript-being@1.0.0?lens=11#body"
+      ],
+      "commit": "646df884562a0b5f29d3c9b990bfae775373ac79",
+      "base_commit": "bb8e0db451134d8f3b91ec0f80f1da95685c58bb",
+      "contract_path": ".athena/repo.json",
+      "role": "domain",
+      "state": "CANONICAL_CANDIDATE",
+      "authority_domain": "manuscript-being",
+      "defects": [
+        "Canonical manuscript authority is proposed, not promoted.",
+        "The naming fork with manscript-being remains unresolved."
+      ]
+    },
+    {
+      "rid": "athena.repo.manscript-being",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/manscript-being",
+      "legacy_id": "repo-manscript-being",
+      "legacy_addresses": [
+        "amc://github/narrative/repo-manscript-being@0.1.0?lens=00#archive"
+      ],
+      "commit": "643024b6110d253e1b9c50c3d5faa175e3f2a4f4",
+      "base_commit": "5d4e03045001ede922af94fb7bd1ae326f6877ec",
+      "contract_path": ".athena/repo.json",
+      "role": "legacy",
+      "state": "IDENTITY_FORK_HOLD",
+      "authority_domain": "legacy-manuscript-fork",
+      "defects": [
+        "This repository is not silently equated with manuscript-being.",
+        "Fork lineage requires an adjudicated migration receipt."
+      ]
+    },
+    {
+      "rid": "athena.repo.view.square-earth",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/athena-square-earth",
+      "legacy_id": "repo-athena-square-earth",
+      "legacy_addresses": [
+        "amc://github/lenses/repo-athena-square-earth@1.0.0?lens=11#square"
+      ],
+      "commit": "446f447e081d356c9d844c06be36ce1a08351aea",
+      "base_commit": "dafd62e7af64eb2a58975ecef27b8ef4792868f9",
+      "contract_path": ".athena/repo.json",
+      "role": "view",
+      "state": "GENERATOR_LINEAGE_REQUIRED",
+      "authority_domain": "projection-square-earth",
+      "defects": [
+        "Shared organism snapshots require a generator and input tree receipt.",
+        "README similarity is not repository identity."
+      ]
+    },
+    {
+      "rid": "athena.repo.view.flower-fire",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/athena-flower-fire",
+      "legacy_id": "repo-athena-flower-fire",
+      "legacy_addresses": [
+        "amc://github/lenses/repo-athena-flower-fire@1.0.0?lens=10#flower"
+      ],
+      "commit": "daa995f3f353a01746414cfbdc1ec26a58b4ac6f",
+      "base_commit": "79aa18ea7c26d21dbbbb5dbfe8f26e8deff719f4",
+      "contract_path": ".athena/repo.json",
+      "role": "view",
+      "state": "GENERATOR_LINEAGE_REQUIRED",
+      "authority_domain": "projection-flower-fire",
+      "defects": [
+        "Shared organism snapshots require a generator and input tree receipt.",
+        "README similarity is not repository identity."
+      ]
+    },
+    {
+      "rid": "athena.repo.view.cloud-water",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/athena-cloud-water",
+      "legacy_id": "repo-athena-cloud-water",
+      "legacy_addresses": [
+        "amc://github/lenses/repo-athena-cloud-water@1.0.0?lens=00#cloud"
+      ],
+      "commit": "ac00c860b59ec2c9cd541f049343465aae19d82c",
+      "base_commit": "a7fcf26683c08f090cf94b14a8aa861db599c679",
+      "contract_path": ".athena/repo.json",
+      "role": "view",
+      "state": "GENERATOR_LINEAGE_REQUIRED",
+      "authority_domain": "projection-cloud-water",
+      "defects": [
+        "Shared organism snapshots require a generator and input tree receipt.",
+        "README similarity is not repository identity."
+      ]
+    },
+    {
+      "rid": "athena.repo.view.fractal-air",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/athena-fractal-air",
+      "legacy_id": "repo-athena-fractal-air",
+      "legacy_addresses": [
+        "amc://github/lenses/repo-athena-fractal-air@1.0.0?lens=01#fractal"
+      ],
+      "commit": "531bfdd8188e5b1ea55caaab515b168c2963c78a",
+      "base_commit": "3eecf5cab4a8b712705792ad72f44f5e7287c503",
+      "contract_path": ".athena/repo.json",
+      "role": "view",
+      "state": "GENERATOR_LINEAGE_REQUIRED",
+      "authority_domain": "projection-fractal-air",
+      "defects": [
+        "Shared organism snapshots require a generator and input tree receipt.",
+        "README similarity is not repository identity."
+      ]
+    },
+    {
+      "rid": "athena.repo.autoresearch",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/autoresearch",
+      "legacy_id": "repo-autoresearch",
+      "legacy_addresses": [
+        "amc://github/runtime/repo-autoresearch@1.0.0?lens=10#experiments"
+      ],
+      "commit": "ac2b4be3112177d432868e9bd6f68da44206437d",
+      "base_commit": "f032120010c570e56451023a8b28a26f401850d8",
+      "contract_path": ".athena/repo.json",
+      "role": "experiment",
+      "state": "WITNESS_ONLY_UNTIL_PROMOTED",
+      "authority_domain": "experimental-witness",
+      "defects": [
+        "Experiment outputs are evidence, not canonical memory.",
+        "Promotion requires preregistered receipts and control-plane admission."
+      ]
+    },
+    {
+      "rid": "athena.repo.guild-hall",
+      "vid": "contract-proposal-0.1.0",
+      "github": "demeet2k/guild-hall",
+      "legacy_id": "repo-guild-hall",
+      "legacy_addresses": [
+        "amc://github/coordination/repo-guild-hall@0.1.0?lens=01#coordination"
+      ],
+      "commit": "4e29559ec344eaf6a386be9b96a59fcc07a09547",
+      "base_commit": "742eaab8be2801575d1dd1895ce64b8d3d0237c6",
+      "contract_path": ".athena/repo.json",
+      "role": "coordination",
+      "state": "NO_CODE_AUTHORITY",
+      "authority_domain": "coordination-only",
+      "defects": [
+        "Coordination records do not authorize code or semantic promotion.",
+        "Quest status must resolve to an owning repository and witnessed result."
+      ]
+    }
+  ]
+}
