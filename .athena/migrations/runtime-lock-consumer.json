@@ -1,0 +1,29 @@
+{
+  "schema": "athena.repository-migration/v2",
+  "migration_id": "migration.athena.repo.runtime-mcp.lock-consumer",
+  "predecessor": {
+    "rid": "athena.repo.runtime-mcp",
+    "vid": "contract-proposal-0.1.0",
+    "commit": "84297571eb84057cdcad4453ddf1642e2dc0c1b8"
+  },
+  "successor": {
+    "rid": "athena.repo.runtime-mcp",
+    "vid": "federation-consumer-0.1.0",
+    "implementation_commit": "13ce0f18ed4e99c0aaf0a3f64c41c9d65e690bed",
+    "frozen_control_snapshot": "1b177fa2e3a4860487497210dcfbc122a287d693"
+  },
+  "method": "additive-runtime-bridge-with-explicit-v1-fallback",
+  "status": "IMPLEMENTED_NOT_DEPLOYED",
+  "receipt": ".athena/receipts/runtime-lock-consumer.json",
+  "rollback": "Select the predecessor commit; the existing 108D runtime remains intact.",
+  "preserves": [
+    "existing MCP tools and resources",
+    "repository history",
+    "control-plane authority boundary",
+    "legacy v1 resource availability"
+  ],
+  "defects": [
+    "MCP host deployment of this branch is not yet witnessed.",
+    "Runtime route receipts remain witnesses until admitted by the control plane."
+  ]
+}
