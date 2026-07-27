@@ -2,6 +2,9 @@ name: Validate P10 endpoint readiness
 
 on:
   pull_request:
+    # Validate once when the draft opens. Receipt-only commits must not create
+    # a self-referential sequence of fresh readiness receipts.
+    types: [opened]
     branches:
       - agent/p09-published-mcp-image
     paths:
