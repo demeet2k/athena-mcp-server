@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P09_IMMUTABLE_OCI_IMAGE_PUBLISHED_ENDPOINT_PENDING",
+  "state": "P10_DEPLOYMENT_CAPSULE_VERIFIED_TARGET_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -15,7 +15,8 @@
     "p07_ephemeral_host": ".athena/receipts/p07-mcp-host-witness.json",
     "p07_http_package": ".athena/receipts/p07-host-package.json",
     "p08_reconciled_candidate": ".athena/receipts/p08-integration-candidate.json",
-    "p09_oci_publication": ".athena/receipts/p09-oci-publication.json"
+    "p09_oci_publication": ".athena/receipts/p09-oci-publication.json",
+    "p10_host_readiness": ".athena/receipts/p10-host-readiness.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -52,7 +53,7 @@
     "p07_boundary_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238110711",
     "p07_boundary_status": "PASS",
     "p08_revalidation_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238110719",
-    "p08_revalidation_status": "IN_PROGRESS_AT_STATUS_WRITE"
+    "p08_revalidation_status": "PASS"
   },
   "deployment": {
     "persistent_artifact": true,
@@ -66,13 +67,39 @@
   "promotion_claimed": false,
   "merge_claimed": false,
   "open_defects": [
-    "No authorized persistent HTTPS /mcp endpoint exists for the published digest.",
+    "No authorized persistent HTTPS /mcp target has been bound to the P10 capsule.",
     "No endpoint bearer secret has been provisioned.",
-    "The repository-wide hosted suite retains legacy dependency and fixture-schema debt outside the P09 surface.",
-    "Runtime promotion remains control-plane governed and is not claimed by this publication."
+    "The environment-gated live persistent witness has not run.",
+    "Runtime promotion remains control-plane governed and is not claimed by this capsule."
   ],
-  "next_gate": "Deploy the exact published digest sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2 to an authorized HTTPS /mcp host, provision its bearer secret, replay the live HTTP probe, and admit the persistent witness through the control plane.",
+  "next_gate": "Bind an authorized persistent host to deploy/p10/target.schema.json, provision ATHENA_MCP_BEARER_TOKEN through the host and ATHENA_P10_BEARER_TOKEN through the p10-persistent-host GitHub Environment, then dispatch the live P10 witness and admit its receipt through the control plane.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HTTPS-ENDPOINT-AND-PERSISTENT-WITNESS"
+  "successor_seed": "KC144.MYC.SKELETON.P10::BIND-AUTHORIZED-HOST-AND-RUN-LIVE-WITNESS",
+  "p10_capsule": {
+    "implementation_head": "10b8c03e0d6fa6ebb2c27779a7bf8254dc5f7255",
+    "verdict": "PASS_DEPLOYMENT_CAPSULE_TARGET_PENDING",
+    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238981351",
+    "capsule_readiness_job_id": 89892119472,
+    "contract_tests": {
+      "passed": 7,
+      "failed": 0
+    },
+    "compose_config": "PASS",
+    "exact_digest_pull_and_smoke": "PASS",
+    "non_root_uid_verified": 10001,
+    "secret_safe": true,
+    "persistent_witness_environment": "p10-persistent-host",
+    "live_witness": "SKIPPED_TARGET_AND_SECRET_NOT_PROVISIONED",
+    "inherited_exact_head_runs": {
+      "p07": {
+        "run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238981321",
+        "status": "PASS"
+      },
+      "p08": {
+        "run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238981317",
+        "status": "PASS"
+      }
+    }
+  }
 }

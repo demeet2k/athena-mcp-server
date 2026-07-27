@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/demeet2k/athena-mcp-server/deploy/p10/target.schema.json",
+  "title": "Athena P10 authorized persistent host target",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "state",
+    "target_id",
+    "endpoint",
+    "image",
+    "source_commit",
+    "authorization",
+    "persistence",
+    "tls",
+    "secret",
+    "authority"
+  ],
+  "properties": {
+    "schema": {
+      "const": "athena.persistent-host-target/v1"
+    },
+    "state": {
+      "const": "AUTHORIZED"
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$"
+    },
+    "endpoint": {
+      "type": "string",
+      "pattern": "^https://[^/?#]+/mcp/?$"
+    },
+    "image": {
+      "const": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2"
+    },
+    "source_commit": {
+      "const": "52d0e2abf282aee5f8bf233521989bc2c8969989"
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "actor",
+        "authorized_at"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authorized_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "persistence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "class",
+        "restart_policy",
+        "ephemeral"
+      ],
+      "properties": {
+        "class": {
+          "enum": [
+            "managed-service",
+            "orchestrated-service",
+            "self-hosted-service"
+          ]
+        },
+        "restart_policy": {
+          "const": "unless-stopped"
+        },
+        "ephemeral": {
+          "const": false
+        }
+      }
+    },
+    "tls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "minimum_version"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "minimum_version": {
+          "const": "1.2"
+        }
+      }
+    },
+    "secret": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "environment",
+        "provider_ref",
+        "minimum_length",
+        "record_value"
+      ],
+      "properties": {
+        "environment": {
+          "const": "ATHENA_MCP_BEARER_TOKEN"
+        },
+        "provider_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minimum_length": {
+          "const": 32
+        },
+        "record_value": {
+          "const": false
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runtime_can_promote",
+        "promotion_claimed",
+        "ic10_required"
+      ],
+      "properties": {
+        "runtime_can_promote": {
+          "const": false
+        },
+        "promotion_claimed": {
+          "const": false
+        },
+        "ic10_required": {
+          "const": true
+        }
+      }
+    }
+  }
+}

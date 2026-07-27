@@ -1,0 +1,204 @@
+name: Validate P10 persistent host capsule
+
+on:
+  pull_request:
+    branches:
+      - agent/p09-published-mcp-image
+  workflow_dispatch:
+    inputs:
+      endpoint:
+        description: Authorized HTTPS MCP endpoint ending in /mcp
+        required: true
+        type: string
+      target_id:
+        description: Stable lowercase deployment target identifier
+        required: true
+        type: string
+      authorization_ref:
+        description: External authorization or change-control reference
+        required: true
+        type: string
+      persistence_class:
+        description: Persistent host class
+        required: true
+        type: choice
+        options:
+          - managed-service
+          - orchestrated-service
+          - self-hosted-service
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  SOURCE_COMMIT: 52d0e2abf282aee5f8bf233521989bc2c8969989
+  IMAGE: ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2
+
+jobs:
+  capsule-readiness:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact capsule head
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      - name: Validate contracts and tests
+        run: |
+          python -m json.tool deploy/p10/target.schema.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/p10-host-readiness.json >/dev/null
+          python -m py_compile \
+            scripts/p10_contract.py \
+            scripts/p10_persistent_witness.py
+          python -m unittest tests.test_p10_deployment_capsule -v
+          ATHENA_MCP_BEARER_TOKEN=0123456789abcdef0123456789abcdef \
+            docker compose -f deploy/p10/compose.yaml config >/dev/null
+
+      - name: Authenticate for exact-digest pull
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '%s' "$GHCR_TOKEN" |
+            docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+      - name: Smoke-test exact capsule image
+        run: |
+          docker pull "$IMAGE"
+          docker run --rm -d \
+            --name athena-p10-readiness \
+            --read-only \
+            --cap-drop ALL \
+            --security-opt no-new-privileges \
+            --tmpfs /tmp:size=64m,mode=1777 \
+            -e ATHENA_MCP_BEARER_TOKEN=0123456789abcdef0123456789abcdef \
+            -p 127.0.0.1:18082:8080 \
+            "$IMAGE"
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from urllib.request import urlopen
+
+          expected = os.environ["SOURCE_COMMIT"]
+          last_error = None
+          for _ in range(45):
+              try:
+                  with urlopen(
+                      "http://127.0.0.1:18082/healthz",
+                      timeout=2,
+                  ) as response:
+                      health = json.load(response)
+                  assert health["deployed_commit"] == expected
+                  assert health["commit_source"] == "build-locked-file"
+                  assert health["promotion_ready"] is False
+                  break
+              except Exception as error:
+                  last_error = error
+                  time.sleep(1)
+          else:
+              raise RuntimeError(f"capsule image was not ready: {last_error}")
+          PY
+          test "$(docker exec athena-p10-readiness id -u)" = "10001"
+
+      - name: Stop readiness container
+        if: always()
+        run: docker stop athena-p10-readiness 2>/dev/null || true
+
+  persistent-witness:
+    if: github.event_name == 'workflow_dispatch'
+    environment: p10-persistent-host
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out exact P10 capsule
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      - name: Install pinned runtime dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            "mcp[cli]==1.28.1" \
+            "starlette==0.48.0" \
+            "uvicorn==0.35.0"
+
+      - name: Build authorized target contract
+        env:
+          TARGET_ENDPOINT: ${{ inputs.endpoint }}
+          TARGET_ID: ${{ inputs.target_id }}
+          AUTHORIZATION_REF: ${{ inputs.authorization_ref }}
+          PERSISTENCE_CLASS: ${{ inputs.persistence_class }}
+          AUTHORIZATION_ACTOR: ${{ github.actor }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          target = {
+              "schema": "athena.persistent-host-target/v1",
+              "state": "AUTHORIZED",
+              "target_id": os.environ["TARGET_ID"],
+              "endpoint": os.environ["TARGET_ENDPOINT"],
+              "image": os.environ["IMAGE"],
+              "source_commit": os.environ["SOURCE_COMMIT"],
+              "authorization": {
+                  "ref": os.environ["AUTHORIZATION_REF"],
+                  "actor": os.environ["AUTHORIZATION_ACTOR"],
+                  "authorized_at": datetime.now(timezone.utc).isoformat(),
+              },
+              "persistence": {
+                  "class": os.environ["PERSISTENCE_CLASS"],
+                  "restart_policy": "unless-stopped",
+                  "ephemeral": False,
+              },
+              "tls": {
+                  "required": True,
+                  "minimum_version": "1.2",
+              },
+              "secret": {
+                  "environment": "ATHENA_MCP_BEARER_TOKEN",
+                  "provider_ref": (
+                      "github-environment:p10-persistent-host/"
+                      "ATHENA_P10_BEARER_TOKEN"
+                  ),
+                  "minimum_length": 32,
+                  "record_value": False,
+              },
+              "authority": {
+                  "runtime_can_promote": False,
+                  "promotion_claimed": False,
+                  "ic10_required": True,
+              },
+          }
+          Path("p10-target.json").write_text(
+              json.dumps(target, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+          python - <<'PY'
+          import json
+          from scripts.p10_contract import validate_target
+          validate_target(json.load(open("p10-target.json")))
+          PY
+
+      - name: Replay live persistent endpoint
+        env:
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_P10_BEARER_TOKEN }}
+        run: |
+          python scripts/p10_persistent_witness.py \
+            p10-target.json \
+            --output p10-persistent-witness.json \
+            --timeout 180
+
+      - name: Upload non-secret target and witness
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: p10-persistent-witness-${{ github.sha }}
+          path: |
+            p10-target.json
+            p10-persistent-witness.json
+          if-no-files-found: error
+          retention-days: 90
