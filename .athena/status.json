@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P10_ACTIVATION_HANDOFF_READY_AUTHORITY_PENDING",
+  "state": "P10_ACTIVATION_PLUS_W12_SOURCE_MOUNT_STACKED_CANDIDATE",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -18,7 +18,8 @@
     "p09_oci_publication": ".athena/receipts/p09-oci-publication.json",
     "p10_host_readiness": ".athena/receipts/p10-host-readiness.json",
     "p10_canonical_witness_hardening": ".athena/receipts/p10-canonical-witness-hardening.json",
-    "p10_activation_handoff_readiness": ".athena/receipts/p10-activation-handoff-readiness.json"
+    "p10_activation_handoff_readiness": ".athena/receipts/p10-activation-handoff-readiness.json",
+    "w12_cross_lineage_unification": ".athena/receipts/w12-cross-lineage-unification.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -78,10 +79,10 @@
     "The environment-gated three-sample persistent witness has not run.",
     "Runtime promotion remains control-plane governed and is not claimed by this handoff."
   ],
-  "next_gate": "An authorized operator must complete one secret-free activation packet, pass the default non-networked preflight, explicitly set execute_live_witness=true through the protected p10-persistent-host GitHub Environment with ATHENA_P10_BEARER_TOKEN separately provisioned, then admit the resulting three-sample witness through the control plane before IC10 can consider promotion.",
+  "next_gate": "Validate this exact stacked runtime head; then an authorized operator must supply the secret-free activation packet and protected bearer, explicitly enable the three-sample live window, and admit the endpoint witness through control. Blind cold recall must be repaired and rerun independently.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-ACTIVATION-PACKET-AND-LIVE-WINDOW",
+  "successor_seed": "KC144.XNAV.W13::STACKED-RUNTIME-VALIDATION-AUTHORIZED-LIVE-WINDOW-AND-COLD-RECALL-REPAIR",
   "p10_capsule": {
     "implementation_head": "10b8c03e0d6fa6ebb2c27779a7bf8254dc5f7255",
     "verdict": "PASS_DEPLOYMENT_CAPSULE_TARGET_PENDING",
@@ -177,5 +178,22 @@
       "promotion_claimed": false,
       "merge_claimed": false
     }
+  },
+  "w12_cross_lineage_unification": {
+    "branch": "agent/w12-unify-source-mount-p10-activation",
+    "base_head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+    "source_mount_consumer_head": "8c7c2bd7081cbc6b17ea8ab9c2b7520b54f06288",
+    "control_integration_head": "dfc3166b4bd7c1c4ce95ad3194f7e2b4cbc982c7",
+    "live_provider_return": "PASS_LIVE_PROVIDER_RETURN_NO_DRIFT",
+    "internal_blind_recall": "HOLD_COLD_RECALL_EXACT_TUPLES_NOT_RECOVERED",
+    "activation_packet": "UNRESOLVED",
+    "persistent_endpoint": "HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+    "merged": false,
+    "deployed": false,
+    "promoted": false,
+    "control_integration_branch": "agent/w12-unify-f07-m09-p12",
+    "control_integration_base": "ad3644e927c03c8caa88ded9a4a7560726941b6b",
+    "p12_claim_spans_preserved": 19,
+    "p12_active_alignments_preserved": 14
   }
 }
