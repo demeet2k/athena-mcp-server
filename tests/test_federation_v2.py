@@ -62,6 +62,11 @@ class FederationV2ConsumerTests(unittest.TestCase):
             status["selected_contract_lineage"], "git-brain-v2"
         )
         self.assertEqual(
+            status["cold_replay"],
+            "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+        )
+        self.assertFalse(status["promotion_ready"])
+        self.assertEqual(
             status["graph_digest"],
             "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
         )
@@ -91,6 +96,32 @@ class FederationV2ConsumerTests(unittest.TestCase):
             receipt["return_plan"],
             ["edge.runtime-to-control", "edge.control-to-q-shrink"],
         )
+
+    def test_cutover_receipt_witnesses_forward_return_fallback_and_rollback(
+        self,
+    ) -> None:
+        receipt = self.consumer.cutover_receipt(
+            observed_at="2026-07-27T04:00:00Z"
+        )
+        self.assertEqual(receipt["verdict"], "PASS_LOCAL_NOT_DEPLOYED")
+        self.assertEqual(
+            receipt["forward_return"]["hops"],
+            ["edge.q-shrink-to-control", "edge.control-to-runtime"],
+        )
+        self.assertEqual(
+            receipt["forward_return"]["return_plan"],
+            ["edge.runtime-to-control", "edge.control-to-q-shrink"],
+        )
+        self.assertEqual(
+            receipt["v1_fallback"]["answered_by"], "athena-108d-v1"
+        )
+        self.assertTrue(receipt["v1_fallback"]["fallback_used"])
+        self.assertEqual(
+            receipt["rollback"]["predecessor_commit"],
+            "0ee038011295873ba037a3cac25de18544439293",
+        )
+        self.assertFalse(receipt["promotion_claimed"])
+        self.assertIsNone(receipt["deployment_witness"])
 
     def test_registered_legacy_resource_uses_explicit_v1_fallback(self) -> None:
         result = self.consumer.resolve("athena://crystal-108d")
@@ -122,11 +153,16 @@ class FederationV2ConsumerTests(unittest.TestCase):
                 "athena_federation_status",
                 "resolve_athena_identity",
                 "route_athena_federation",
+                "athena_federation_cutover_receipt",
             },
         )
         self.assertEqual(
             set(fake.resources),
-            {"athena://federation-v2", "athena://federation-v2/lock"},
+            {
+                "athena://federation-v2",
+                "athena://federation-v2/cutover",
+                "athena://federation-v2/lock",
+            },
         )
 
 
