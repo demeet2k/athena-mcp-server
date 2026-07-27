@@ -63,6 +63,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w14-memory-digest-capsule.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w14-control-return-closure.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
@@ -93,6 +95,7 @@ jobs:
               tests/test_w12_live_provider_receipt.py \
               tests/test_w13_memory_endpoint_gate.py \
               tests/test_w14_memory_digest_capsule.py \
+              tests/test_w14_control_return_closure.py \
               -q
 
       - name: Build immutable candidate image
