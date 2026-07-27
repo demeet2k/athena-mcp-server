@@ -7,7 +7,9 @@ or claim a deployment.
 Required deployment locks:
 
 - `ATHENA_BUILD_COMMIT`: exact lowercase 40-hex source commit supplied while
-  building the image. The Dockerfile records it as `ATHENA_DEPLOYED_COMMIT`.
+  building the image. The Dockerfile seals it into
+  `/app/.athena-deployed-commit`; runtime environment variables cannot
+  override that file.
 - `ATHENA_MCP_BEARER_TOKEN`: secret bearer token of at least 32 characters.
   The MCP endpoint returns `503` when it is absent or too short.
 - `ATHENA_MCP_ALLOWED_ORIGINS`: comma-separated browser origins. Requests
@@ -27,8 +29,8 @@ docker run --rm -p 8080:8080 \
   athena-mcp:p07
 ```
 
-The public `/healthz` response is ready only when the token and exact deployed
-commit are configured. It exposes the commit but never the token.
+The public `/healthz` response is ready only when the token and immutable
+build-commit file are valid. It exposes the commit but never the token.
 
 After deployment, capture the witness without recording the token:
 
