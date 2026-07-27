@@ -136,6 +136,15 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W16 replay/authority tools: {missing}"
 
+    def test_w17_evidence_provenance_gate_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w17_evidence_provenance_gate_status",
+            "inspect_athena_w17_evidence_provenance",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W17 provenance gate tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -166,6 +175,7 @@ class TestRegistration:
             "athena://capsule-blind-replay",
             "athena://authority-packet-ingress",
             "athena://w16-replay-ledger",
+            "athena://w17/evidence-provenance-dispatch-gate",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
