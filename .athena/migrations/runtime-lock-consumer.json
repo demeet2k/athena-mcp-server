@@ -9,14 +9,15 @@
   "successor": {
     "rid": "athena.repo.runtime-mcp",
     "vid": "federation-consumer-0.1.0",
-    "implementation_commit": "fcee64462306e35409eade9016bb3a4140ca57e3",
+    "implementation_commit": "9316373a488267423a4a71ab146de47983745b16",
     "frozen_control_snapshot": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
-    "release_candidate": "KC144.MYC.P05.RC1"
+    "release_candidate": "KC144.MYC.P05.RC1",
+    "cutover_receipt": ".athena/receipts/p06-runtime-cutover.json"
   },
   "method": "additive-runtime-bridge-with-explicit-v1-fallback",
   "status": "P06_IMPLEMENTED_NOT_DEPLOYED",
   "receipt": ".athena/receipts/runtime-lock-consumer.json",
-  "rollback": "Select the predecessor commit; the existing 108D runtime remains intact.",
+  "rollback": "Select predecessor commit 0ee038011295873ba037a3cac25de18544439293; the existing 108D runtime remains intact.",
   "preserves": [
     "existing MCP tools and resources",
     "repository history",
@@ -25,6 +26,7 @@
   ],
   "defects": [
     "MCP host deployment of this branch is not yet witnessed.",
+    "The repository-wide hosted test suite contains legacy dependency and fixture-schema failures outside the P06 federation surface.",
     "Runtime route receipts remain witnesses until admitted by the control plane."
   ]
 }
