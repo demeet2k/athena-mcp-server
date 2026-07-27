@@ -11,16 +11,22 @@ from pathlib import Path
 def _load_server():
     """Load the MCP server module without calling mcp.run()."""
     server_path = Path(__file__).resolve().parent.parent / "MCP" / "athena_mcp_server.py"
+    momentum_path = server_path.parent / "data" / "momentum_field.json"
+    original_momentum = momentum_path.read_bytes()
     spec = importlib.util.spec_from_file_location("athena_mcp_server", server_path)
     mod = importlib.util.module_from_spec(spec)
     mod.__name__ = "athena_mcp_server"  # prevent if __name__ == "__main__"
-    spec.loader.exec_module(mod)
+    try:
+        spec.loader.exec_module(mod)
+    finally:
+        momentum_path.write_bytes(original_momentum)
     return mod
 
 class TestRegistration:
-    def setup_method(self):
-        self.mod = _load_server()
-        self.mcp = self.mod.mcp
+    @classmethod
+    def setup_class(cls):
+        cls.mod = _load_server()
+        cls.mcp = cls.mod.mcp
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools

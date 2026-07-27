@@ -1,0 +1,31 @@
+name: athena-p10
+
+services:
+  athena-mcp:
+    image: ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2
+    user: "10001:10001"
+    restart: unless-stopped
+    read_only: true
+    init: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    environment:
+      ATHENA_MCP_BEARER_TOKEN: "${ATHENA_MCP_BEARER_TOKEN:?resolve from the authorized host secret store}"
+      ATHENA_MCP_ALLOWED_ORIGINS: "${ATHENA_MCP_ALLOWED_ORIGINS:-}"
+      PORT: "8080"
+    ports:
+      - "127.0.0.1:${ATHENA_P10_LOCAL_PORT:-8080}:8080"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import json,urllib.request; h=json.load(urllib.request.urlopen('http://127.0.0.1:8080/healthz',timeout=3)); assert h['status']=='ready' and h['deployed_commit']=='52d0e2abf282aee5f8bf233521989bc2c8969989' and h['commit_source']=='build-locked-file' and h['promotion_ready'] is False"
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
