@@ -6,8 +6,8 @@
   "repository": "demeet2k/athena-mcp-server",
   "pull_request": "https://github.com/demeet2k/athena-mcp-server/pull/3",
   "predecessor_runtime_commit": "d27e47eb95c730838b46a5a59dcb474340d0e4ba",
-  "package_implementation_commit": "553c87d6e358356bc78bb9484c04f4a3e7eac18c",
-  "release": "athena-mcp-host-p07-rc2",
+  "package_implementation_commit": "ddd01e283bc9b3ae0fe46249f5c70b09e53ab826",
+  "release": "athena-mcp-host-p07-rc3",
   "surfaces": {
     "transport": "streamable-http",
     "mcp_path": "/mcp",
@@ -21,23 +21,25 @@
     "browser_origin_allowlist": true,
     "non_root_container": true,
     "exact_host_commit_attestation": true,
+    "immutable_build_commit_file": "/app/.athena-deployed-commit",
+    "runtime_commit_override_allowed": false,
     "token_recorded_in_receipt": false,
     "promotion_authority": false
   },
   "verification": {
-    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30236489344",
+    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30236644094",
     "host_boundary_job": {
-      "id": 89885157066,
+      "id": 89885589936,
       "verdict": "PASS",
-      "tests": 8
+      "tests": 9
     },
     "compile": "PASS",
     "manifest_json": "PASS",
     "container_job": {
-      "id": 89885157130,
+      "id": 89885589938,
       "verdict": "PASS"
     },
-    "workflow_local_image_id": "sha256:3431efd11e7d436fe9472026f1200ff561257a2a98d9efc2b42ea05faa375ddb"
+    "workflow_local_image_id": "sha256:9f2c1394647dbd9ed3ff890ed7ccc3b134106dae81b70f4a8770b46edcf7a63a"
   },
   "deployment": {
     "target": null,
