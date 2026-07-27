@@ -68,6 +68,10 @@ from crystal_108d import register_108d_tools, register_108d_resources
 register_108d_tools(mcp)
 register_108d_resources(mcp)
 
+# ── Frozen cross-repository federation bridge ─────────────────────
+from crystal_108d.federation_v2 import register_federation_v2
+register_federation_v2(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
