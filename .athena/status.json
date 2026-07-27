@@ -1,0 +1,14 @@
+{
+  "schema": "athena.repo-status/v2",
+  "state": "BOUND_NOT_CUTOVER",
+  "role": "runtime",
+  "base_commit": "0ee038011295873ba037a3cac25de18544439293",
+  "control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+  "contract_release": "contract-proposal-0.1.0",
+  "promotion_ready": false,
+  "open_defects": [
+    "The deployed runtime does not yet consume a frozen v2 federation lock.",
+    "Runtime outputs are witnesses until admitted by the control plane."
+  ],
+  "next_gate": "Admit this contract into a pinned Athena federation release."
+}
