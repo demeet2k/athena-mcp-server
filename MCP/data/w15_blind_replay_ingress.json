@@ -54,10 +54,12 @@
       "repository": "demeet2k/athena-mcp-server",
       "pull_request": 11,
       "branch": "agent/p10-activation-handoff",
-      "head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
-      "compiler_blob": "d909005110ce56e6f2810a323992d8f70c973cc5",
-      "template_blob": "478272aae5fcbb2563a36c3a61ed5eba199c1630",
-      "readiness_receipt_blob": "7b13c4a86a103c4452ce8d90b96563296462ca5e"
+      "head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+      "compiler_blob": "10fa34bd3a0f14dc9201ddcfbcdf6d2a5c57bbdd",
+      "template_blob": "409cf48b944b3cc5eabbb5d6b38806d3fd41afc9",
+      "readiness_receipt_blob": "2d5e368f8c1bded50a980c118b86a33f93111055",
+      "deep_hardening_receipt_blob": "8a1c60bb994c049978fde7e9db35a8f9096db57a",
+      "workflow_blob": "f65201299bf9bcb3648a0448206dde638950ba9a"
     },
     "allowed_states": [
       "UNRESOLVED",
@@ -71,7 +73,7 @@
     },
     "witness_plan": {
       "environment": "p10-persistent-host",
-      "secret_name": "ATHENA_P10_BEARER_TOKEN",
+      "secret_name": "ATHENA_MCP_BEARER_TOKEN",
       "sample_count": 3,
       "interval_seconds": 20,
       "minimum_span_seconds": 40
