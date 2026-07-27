@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 286, f"Expected 286 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 293, f"Expected 293 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 51, f"Expected 51 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 53, f"Expected 53 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -299,6 +299,20 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W27-W31 five-wave tools: {missing}"
 
+    def test_w32_next_octave_authority_quorum_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w32_next_octave_quorum_status",
+            "inspect_athena_w32_w31_custody",
+            "inspect_athena_w32_registry_contract",
+            "inspect_athena_w32_ic10_quorum_contract",
+            "compile_athena_w32_bundle_template",
+            "verify_athena_w32_next_octave_quorum_bundle",
+            "explain_athena_w32_separation_law",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W32 authority/quorum tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -345,6 +359,8 @@ class TestRegistration:
             "athena://w29-protocol",
             "athena://w30-protocol",
             "athena://w31-protocol",
+            "athena://w32-next-octave-authority-quorum",
+            "athena://w32-independent-ic10-quorum",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"

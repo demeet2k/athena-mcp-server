@@ -160,6 +160,12 @@ from crystal_108d.five_wave_review_closure import (
 )
 register_five_wave_review_closure(mcp)
 
+# ── W32 next-octave authority registry and independent IC10 quorum ──
+from crystal_108d.next_octave_authority_quorum import (
+    register_next_octave_authority_quorum,
+)
+register_next_octave_authority_quorum(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
