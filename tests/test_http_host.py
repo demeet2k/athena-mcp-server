@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -131,6 +132,21 @@ class HTTPBoundaryTests(unittest.TestCase):
         self.assertEqual(health["status"], "ready")
         self.assertEqual(health["deployed_commit"], COMMIT)
         self.assertTrue(health["commit_attested"])
+
+    def test_build_locked_commit_file_overrides_runtime_commit(self):
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as handle:
+            handle.write(COMMIT + "\n")
+            handle.flush()
+            environment = {
+                "ATHENA_MCP_BEARER_TOKEN": TOKEN,
+                "ATHENA_DEPLOYED_COMMIT": "b" * 40,
+                "ATHENA_DEPLOYED_COMMIT_FILE": handle.name,
+            }
+            with patch.dict(os.environ, environment, clear=True):
+                status, health = deployment_health()
+        self.assertEqual(status, 200)
+        self.assertEqual(health["deployed_commit"], COMMIT)
+        self.assertEqual(health["commit_source"], "build-locked-file")
 
     def test_health_url_is_derived_from_exact_mcp_endpoint(self):
         self.assertEqual(
