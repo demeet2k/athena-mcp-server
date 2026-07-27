@@ -1,7 +1,11 @@
 {
   "schema": "athena.runtime-federation-snapshot/v2",
   "source_repository": "demeet2k/Athena",
-  "source_commit": "1b177fa2e3a4860487497210dcfbc122a287d693",
+  "source_commit": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+  "release_candidate": "KC144.MYC.P05.RC1",
+  "release_candidate_path": "crystal/v2/release-candidate.json",
+  "canonical_parent_head": "1b177fa2e3a4860487497210dcfbc122a287d693",
+  "selected_contract_lineage": "git-brain-v2",
   "release": "v2-proposal-0.1.0",
   "resource_versions": 14,
   "identifiers": 56,
