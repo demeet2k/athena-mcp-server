@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) >= 150, f"Expected >= 150 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 213, f"Expected 213 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 37, f"Expected 37 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 38, f"Expected 38 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -171,6 +171,19 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W18 provider-trust tools: {missing}"
 
+    def test_w19_provider_admission_execution_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w19_provider_admission_status",
+            "build_athena_w19_provider_admission_template",
+            "inspect_athena_w19_provider_admission",
+            "inspect_athena_w19_admitted_provider_return",
+            "compile_athena_w19_execution_authorization_template",
+            "evaluate_athena_w19_protected_witness_execution",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W19 admission/execution tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -204,6 +217,7 @@ class TestRegistration:
             "athena://w17-evidence-provenance-gate",
             "athena://w18-provider-adapter-witness-return",
             "athena://w18-provider-trust-anchor",
+            "athena://w19-provider-admission-execution",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"

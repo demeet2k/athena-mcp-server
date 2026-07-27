@@ -1,0 +1,259 @@
+name: Execute W19 control-authorized provider witness
+
+on:
+  workflow_dispatch:
+    inputs:
+      activation_packet_json:
+        description: Secret-free P10 activation packet JSON
+        required: true
+        type: string
+      provider_evidence_json:
+        description: Secret-free provider deployment evidence JSON
+        required: true
+        type: string
+      provenance_witness_json:
+        description: Secret-free independently verified provenance JSON
+        required: true
+        type: string
+      provider_admission_json:
+        description: Control-signed W19 provider admission JSON
+        required: true
+        type: string
+      provider_return_json:
+        description: Admitted-provider-signed W18 return JSON
+        required: true
+        type: string
+      execution_authorization_json:
+        description: Separately control-signed W19 execution authorization JSON
+        required: true
+        type: string
+      execute_live_witness:
+        description: Enter the protected environment after signed preflight
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  W18_CANDIDATE_HEAD: 46f394bf4b99cbc1254da1d3250f418d42012be2
+
+jobs:
+  signed-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the dispatched W19 verifier
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Verify append-only ancestry and dependencies
+        run: |
+          git merge-base --is-ancestor "$W18_CANDIDATE_HEAD" HEAD
+          python -m pip install \
+            "cryptography==46.0.3"
+
+      - name: Materialize bounded secret-free inputs
+        env:
+          W19_ACTIVATION_PACKET_JSON: ${{ inputs.activation_packet_json }}
+          W19_PROVIDER_EVIDENCE_JSON: ${{ inputs.provider_evidence_json }}
+          W19_PROVENANCE_WITNESS_JSON: ${{ inputs.provenance_witness_json }}
+          W19_PROVIDER_ADMISSION_JSON: ${{ inputs.provider_admission_json }}
+          W19_PROVIDER_RETURN_JSON: ${{ inputs.provider_return_json }}
+          W19_EXECUTION_AUTHORIZATION_JSON: ${{ inputs.execution_authorization_json }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          inputs = {
+              "w19-activation-packet.json": "W19_ACTIVATION_PACKET_JSON",
+              "w19-provider-evidence.json": "W19_PROVIDER_EVIDENCE_JSON",
+              "w19-provenance-witness.json": "W19_PROVENANCE_WITNESS_JSON",
+              "w19-provider-admission.json": "W19_PROVIDER_ADMISSION_JSON",
+              "w19-provider-return.json": "W19_PROVIDER_RETURN_JSON",
+              "w19-execution-authorization.json": (
+                  "W19_EXECUTION_AUTHORIZATION_JSON"
+              ),
+          }
+          for filename, variable in inputs.items():
+              value = os.environ[variable]
+              if len(value.encode("utf-8")) > 65536:
+                  raise ValueError(f"{filename} exceeds the 64 KiB boundary")
+              decoded = json.loads(value)
+              if not isinstance(decoded, dict):
+                  raise ValueError(f"{filename} must contain an object")
+              Path(filename).write_text(
+                  json.dumps(decoded, indent=2, sort_keys=True) + "\n",
+                  encoding="utf-8",
+              )
+          PY
+
+      - name: Verify control admission, provider return, and execution signature
+        run: |
+          python scripts/w19_provider_admission.py \
+            --activation-packet w19-activation-packet.json \
+            --provider-evidence w19-provider-evidence.json \
+            --provenance-witness w19-provenance-witness.json \
+            --provider-admission w19-provider-admission.json \
+            --provider-return w19-provider-return.json \
+            --execution-authorization w19-execution-authorization.json \
+            --output w19-execution-preflight.json
+
+      - name: Upload secret-free preflight
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: w19-signed-preflight-${{ github.sha }}
+          path: w19-execution-preflight.json
+          if-no-files-found: error
+          retention-days: 90
+
+  protected-persistent-witness:
+    needs: signed-preflight
+    if: inputs.execute_live_witness == true
+    environment: p10-persistent-host
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out the dispatched W19 verifier
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Install pinned runtime dependencies
+        run: |
+          git merge-base --is-ancestor "$W18_CANDIDATE_HEAD" HEAD
+          python -m pip install \
+            "cryptography==46.0.3" \
+            "mcp[cli]==1.28.1" \
+            "httpx==0.28.1" \
+            "starlette==0.48.0" \
+            "uvicorn==0.35.0"
+
+      - name: Rematerialize secret-free inputs
+        env:
+          W19_ACTIVATION_PACKET_JSON: ${{ inputs.activation_packet_json }}
+          W19_PROVIDER_EVIDENCE_JSON: ${{ inputs.provider_evidence_json }}
+          W19_PROVENANCE_WITNESS_JSON: ${{ inputs.provenance_witness_json }}
+          W19_PROVIDER_ADMISSION_JSON: ${{ inputs.provider_admission_json }}
+          W19_PROVIDER_RETURN_JSON: ${{ inputs.provider_return_json }}
+          W19_EXECUTION_AUTHORIZATION_JSON: ${{ inputs.execution_authorization_json }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          inputs = {
+              "w19-activation-packet.json": "W19_ACTIVATION_PACKET_JSON",
+              "w19-provider-evidence.json": "W19_PROVIDER_EVIDENCE_JSON",
+              "w19-provenance-witness.json": "W19_PROVENANCE_WITNESS_JSON",
+              "w19-provider-admission.json": "W19_PROVIDER_ADMISSION_JSON",
+              "w19-provider-return.json": "W19_PROVIDER_RETURN_JSON",
+              "w19-execution-authorization.json": (
+                  "W19_EXECUTION_AUTHORIZATION_JSON"
+              ),
+          }
+          for filename, variable in inputs.items():
+              value = os.environ[variable]
+              if len(value.encode("utf-8")) > 65536:
+                  raise ValueError(f"{filename} exceeds the 64 KiB boundary")
+              decoded = json.loads(value)
+              if not isinstance(decoded, dict):
+                  raise ValueError(f"{filename} must contain an object")
+              Path(filename).write_text(
+                  json.dumps(decoded, indent=2, sort_keys=True) + "\n",
+                  encoding="utf-8",
+              )
+          PY
+
+      - name: Reverify exact signed authorization before secret use
+        run: |
+          python scripts/w19_provider_admission.py \
+            --activation-packet w19-activation-packet.json \
+            --provider-evidence w19-provider-evidence.json \
+            --provenance-witness w19-provenance-witness.json \
+            --provider-admission w19-provider-admission.json \
+            --provider-return w19-provider-return.json \
+            --execution-authorization w19-execution-authorization.json \
+            --output w19-protected-preflight.json
+          python -m scripts.p10_activation_packet \
+            w19-activation-packet.json \
+            --target-out p10-target.json \
+            --evidence-out p10-provider-evidence.json \
+            --receipt-out p10-activation-handoff.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          submitted = json.loads(
+              Path("w19-provider-evidence.json").read_text(encoding="utf-8")
+          )
+          compiled = json.loads(
+              Path("p10-provider-evidence.json").read_text(encoding="utf-8")
+          )
+          if submitted != compiled:
+              raise ValueError(
+                  "submitted evidence differs from activation-compiled evidence"
+              )
+          PY
+
+      - name: Execute exact three-sample persistent witness
+        env:
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_MCP_BEARER_TOKEN }}
+        run: |
+          python -m scripts.p10_persistent_observation_window \
+            p10-target.json \
+            --provider-evidence p10-provider-evidence.json \
+            --output p10-persistent-witness.json \
+            --samples 3 \
+            --interval 20 \
+            --per-sample-timeout 180
+
+      - name: Prove secret exclusion and nonpromotion boundary
+        env:
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_MCP_BEARER_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          token = os.environ["ATHENA_MCP_BEARER_TOKEN"]
+          paths = (
+              Path("w19-protected-preflight.json"),
+              Path("p10-target.json"),
+              Path("p10-provider-evidence.json"),
+              Path("p10-activation-handoff.json"),
+              Path("p10-persistent-witness.json"),
+          )
+          for path in paths:
+              content = path.read_text(encoding="utf-8")
+              if token in content:
+                  raise ValueError(f"secret leaked into {path}")
+              json.loads(content)
+          witness = json.loads(paths[-1].read_text(encoding="utf-8"))
+          assert witness["verdict"] == "PASS_PERSISTENT_HTTPS_WITNESS"
+          assert witness["promotion_ready"] is False
+          assert witness["promotion_claimed"] is False
+          assert witness["merge_claimed"] is False
+          PY
+
+      - name: Upload secret-free persistent witness return
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: w19-persistent-witness-${{ github.sha }}
+          path: |
+            w19-protected-preflight.json
+            p10-target.json
+            p10-provider-evidence.json
+            p10-activation-handoff.json
+            p10-persistent-witness.json
+          if-no-files-found: error
+          retention-days: 90

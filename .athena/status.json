@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P10_DEEP_HARDENING_PLUS_W18_CRYPTO_AND_RETURN_CONTRACTS_AUTHORITY_PENDING",
+  "state": "P10_DEEP_HARDENING_PLUS_W19_CONTROL_ADMISSION_EXECUTION_GATE_AUTHORITY_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -33,7 +33,8 @@
     "w17_evidence_provenance_dispatch_gate": ".athena/receipts/w17-evidence-provenance-protected-dispatch-gate.json",
     "w18_provider_adapter_persistent_witness_return": ".athena/receipts/w18-provider-adapter-persistent-witness-return.json",
     "w18_provider_adapter_trust_anchor": ".athena/receipts/w18-provider-adapter-trust-anchor.json",
-    "w18_provider_trust_convergence": ".athena/receipts/w18-provider-trust-convergence.json"
+    "w18_provider_trust_convergence": ".athena/receipts/w18-provider-trust-convergence.json",
+    "w19_provider_admission_execution_gate": ".athena/receipts/w19-provider-admission-execution-gate.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -98,12 +99,13 @@
     "W16 structural packet/evidence adjunction classifies submitted provider evidence only as an unverified external assertion.",
     "The protected persistent witness remains blocked until external authority evidence and bearer-secret provisioning exist outside Git.",
     "W18 closes the provider-adapter, trust-receipt, exact-head dispatch-envelope, and persistent-return schemas, but no provider profile has been selected or externally executed.",
-    "Submitted trust receipts and witness returns remain structurally auditable but cannot be elevated until their signatures and external persistence are independently verified."
+    "W19 closes the control-signed provider-admission and separately signed protected-execution protocol, but the production control-authority registry intentionally remains empty.",
+    "No control-signed production admission, admitted provider return, execution authorization, protected-environment approval, or persistent witness return has been supplied."
   ],
-  "next_gate": "Select one explicit provider adapter profile, execute it with externally held provider credentials, cryptographically verify the trust receipt, approve and dispatch the exact candidate head in p10-persistent-host, persist and verify the three-sample witness return, and record a nonpromotional control-plane admission.",
+  "next_gate": "Append a control-plane-approved Ed25519 authority to the immutable registry, obtain its signed provider-admission and exact W18 execution authorization, verify the admitted provider return, manually approve the protected p10-persistent-host job, persist the three-sample witness return, and record a nonpromotional IC10 control review.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-AND-PERSISTENT-WITNESS-EXECUTION",
+  "successor_seed": "KC144.XNAV.W20::CONTROL-ADMITTED-PERSISTENT-WITNESS-RETURN-AND-IC10-REVIEW",
   "p10_capsule": {
     "implementation_head": "10b8c03e0d6fa6ebb2c27779a7bf8254dc5f7255",
     "verdict": "PASS_DEPLOYMENT_CAPSULE_TARGET_PENDING",
@@ -492,5 +494,36 @@
     "promotion_claimed": false,
     "cross_navigation_state": "W18_STRUCTURAL_RETURN_AND_PINNED_CRYPTO_VERIFIER_CONVERGED__AUTHORIZED_PROVIDER_ADMISSION_AND_PERSISTENT_WITNESS_OPEN",
     "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-AND-PERSISTENT-WITNESS-EXECUTION"
+  },
+  "w19_provider_admission_execution_gate": {
+    "receipt": ".athena/receipts/w19-provider-admission-execution-gate.json",
+    "predecessor_head": "46f394bf4b99cbc1254da1d3250f418d42012be2",
+    "predecessor_tree": "db96274c1b4b0283542cce0bdadd05a3a7f505b8",
+    "contract_digest": "sha256:92d5fc0d5bb3d7068dc167b5fdef57e1803015d6dd9eba2e6604e0449fd7f309",
+    "receipt_id": "w19-admission-execution:sha256:32eeaf64585085658d1e71faf0e204b4aa7910f781d3cfddf240fbc9c1f1f9b0",
+    "control_registry_schema": "athena.control-admission-authority-registry/v1",
+    "provider_admission_schema": "athena.provider-adapter-control-admission/v1",
+    "execution_authorization_schema": "athena.protected-persistent-witness-execution-authorization/v1",
+    "workflow": ".github/workflows/w19-authorized-provider-witness.yml",
+    "workflow_trigger": "workflow_dispatch",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "production_control_authority_count": 0,
+    "control_authority_pinned": false,
+    "provider_adapter_control_admitted": false,
+    "provider_return_signature_verified": false,
+    "execution_authorization_verified": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "persistent_witness_return_persisted": false,
+    "control_plane_admission_recorded": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "registered_tools": 213,
+    "registered_resources": 38,
+    "cross_navigation_state": "W19_CONTROL_ADMISSION_AND_PROTECTED_EXECUTION_PROTOCOL_CLOSED__EXTERNAL_AUTHORITY_AND_PERSISTENT_WITNESS_OPEN",
+    "successor": "KC144.XNAV.W20::CONTROL-ADMITTED-PERSISTENT-WITNESS-RETURN-AND-IC10-REVIEW"
   }
 }

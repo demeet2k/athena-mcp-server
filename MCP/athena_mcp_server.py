@@ -106,6 +106,12 @@ register_provider_adapter_witness_return(mcp)
 from crystal_108d.provider_trust_anchor import register_provider_trust_anchor
 register_provider_trust_anchor(mcp)
 
+# ── W19 control-signed provider admission and execution gate ───────
+from crystal_108d.provider_admission_execution import (
+    register_provider_admission_execution,
+)
+register_provider_admission_execution(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
