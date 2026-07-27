@@ -539,6 +539,8 @@ class RepositorySurfaceTests(unittest.TestCase):
             ROOT / ".github/workflows/p10-persistent-witness.yml"
         ).read_text(encoding="utf-8")
         pull_request_trigger = text.split("workflow_dispatch:", 1)[0]
+        self.assertIn("types: [opened]", pull_request_trigger)
+        self.assertNotIn("synchronize", pull_request_trigger)
         self.assertIn("paths:", pull_request_trigger)
         self.assertNotIn(".athena/receipts", pull_request_trigger)
         self.assertNotIn(".athena/status", pull_request_trigger)

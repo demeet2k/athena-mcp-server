@@ -2,7 +2,11 @@ name: P10 authorized endpoint and persistent witness
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    # Validate the prepared capsule once when its draft PR opens. GitHub
+    # evaluates PR path filters against the cumulative PR diff, so restricting
+    # to `opened` is what prevents later receipt-only commits from retriggering
+    # this hosted readiness job. Real witnesses remain workflow_dispatch-only.
+    types: [opened]
     branches:
       - agent/p09-published-mcp-image
     paths:
