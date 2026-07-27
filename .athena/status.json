@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P07_EPHEMERAL_MCP_HOST_WITNESSED_NOT_PROMOTED",
+  "state": "P09_IMMUTABLE_OCI_IMAGE_PUBLISHED_ENDPOINT_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -10,37 +10,69 @@
   "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
   "release_candidate": "KC144.MYC.P05.RC1",
   "cold_replay": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
-  "p06_cutover_receipt": ".athena/receipts/p06-runtime-cutover.json",
-  "p07_host_witness": ".athena/receipts/p07-mcp-host-witness.json",
-  "witnessed_commit": "bb0950312024ef8b5c7856806c362ef020f73b3f",
-  "host_witness": {
-    "verdict": "PASS_LIVE_EPHEMERAL_MCP_HOST",
-    "class": "github-actions-ephemeral-stdio",
-    "transport": "stdio",
-    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30236620236",
-    "job_id": 89885523004,
-    "artifact_id": 8641830348,
-    "artifact_digest": "sha256:afa81e726da3bfabd876f21b42d3919caf15a2678d227009187f575d270551e5",
-    "receipt_id": "mcp-host:sha256:63f478e7dc3356322a43b8c77456c10e410a876e404655dd92be833f9c1a7d6c",
-    "persistent_endpoint": false
+  "receipts": {
+    "p06_cutover": ".athena/receipts/p06-runtime-cutover.json",
+    "p07_ephemeral_host": ".athena/receipts/p07-mcp-host-witness.json",
+    "p07_http_package": ".athena/receipts/p07-host-package.json",
+    "p08_reconciled_candidate": ".athena/receipts/p08-integration-candidate.json",
+    "p09_oci_publication": ".athena/receipts/p09-oci-publication.json"
   },
-  "hosted_regressions": {
-    "passed": 14,
-    "failed": 0,
-    "python": "3.12",
-    "mcp_sdk": "1.28.1"
+  "p08_candidate": {
+    "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+    "integration_merge_commit": "e705aaed854b3c17f0f5323a9f299d1a2257f8a7",
+    "both_p07_lineages_preserved": true,
+    "exact_head_verification_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30237259770",
+    "persistent_endpoint": null
+  },
+  "p09_publication": {
+    "verdict": "PASS_IMMUTABLE_IMAGE_PUBLISHED_ENDPOINT_PENDING",
+    "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+    "publication_branch": "agent/p09-published-mcp-image",
+    "publication_workflow_head": "642c278962620aafc833987af8c42ac2671f4359",
+    "publication_execution_commit": "642c278962620aafc833987af8c42ac2671f4359",
+    "one_shot_trigger_commit": "cea9c7acc62f20851d08e647226d4ebf7b32f4ac",
+    "image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "digest": "sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "tags": [
+      "p08-52d0e2ab",
+      "candidate-52d0e2abf282"
+    ],
+    "receipt_id": "oci-publication:sha256:65caf0c574b3981e8c499ff075dda5ffc1512517e413fcdb0bf424fe49432a0d",
+    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30237975939",
+    "job_id": 89889302645,
+    "artifact_id": 8642279572,
+    "artifact_digest": "sha256:a88b07c6c08cabcf46d8d8fdc12b1ecda5b1730d71e9a5a561a91eea55ea96b3",
+    "source_commit_attested": true,
+    "digest_pull_smoke_tested": true,
+    "non_root_uid_verified": 10001,
+    "actions_pinned_to_commits": true,
+    "image_published": true
+  },
+  "hosted_verification": {
+    "p07_boundary_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238110711",
+    "p07_boundary_status": "PASS",
+    "p08_revalidation_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238110719",
+    "p08_revalidation_status": "IN_PROGRESS_AT_STATUS_WRITE"
+  },
+  "deployment": {
+    "persistent_artifact": true,
+    "external_https_endpoint": null,
+    "bearer_secret_provisioned": false,
+    "persistent_live_witness": null
   },
   "v1_fallback": true,
-  "deployment_witness": "ephemeral-stdio",
   "persistent_deployment": false,
   "promotion_ready": false,
+  "promotion_claimed": false,
+  "merge_claimed": false,
   "open_defects": [
-    "No persistent externally addressable MCP endpoint has been deployed.",
-    "The repository-wide hosted test suite contains legacy dependency and fixture-schema failures outside the P07 federation surface.",
-    "Runtime promotion remains control-plane governed and is not claimed by this witness."
+    "No authorized persistent HTTPS /mcp endpoint exists for the published digest.",
+    "No endpoint bearer secret has been provisioned.",
+    "The repository-wide hosted suite retains legacy dependency and fixture-schema debt outside the P09 surface.",
+    "Runtime promotion remains control-plane governed and is not claimed by this publication."
   ],
-  "next_gate": "Deploy the witnessed runtime at a persistent MCP endpoint and replay the P07 tool/resource witness against that endpoint before promotion.",
+  "next_gate": "Deploy the exact published digest sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2 to an authorized HTTPS /mcp host, provision its bearer secret, replay the live HTTP probe, and admit the persistent witness through the control plane.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.MYC.SKELETON.P08::PERSISTENT-MCP-ENDPOINT-AND-PROMOTION-READINESS"
+  "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HTTPS-ENDPOINT-AND-PERSISTENT-WITNESS"
 }

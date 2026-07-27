@@ -1,0 +1,209 @@
+name: Publish P09 exact P08 MCP image
+
+on:
+  pull_request:
+    # Publish once when the draft opens. Later receipt-only commits must not
+    # republish the same source with fresh provenance and move candidate tags.
+    types: [opened]
+    branches:
+      - agent/p08-persistent-mcp-candidate
+    paths:
+      - .github/workflows/p09-publish-image.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  SOURCE_COMMIT: 52d0e2abf282aee5f8bf233521989bc2c8969989
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
+
+jobs:
+  publish-exact-image:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out frozen P08 source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ env.SOURCE_COMMIT }}
+          path: source
+          fetch-depth: 1
+
+      - name: Verify frozen source identity and authority boundary
+        run: |
+          test "$(git -C source rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test "$(python -c 'import json; print(json.load(open("source/.athena/receipts/p08-integration-candidate.json"))["verdict"])')" =             "PASS_RECONCILED_CANDIDATE_NOT_DEPLOYED"
+          test "$(python -c 'import json; print(str(json.load(open("source/.athena/receipts/p08-integration-candidate.json"))["authority"]["promotion_claimed"]).lower())')" =             "false"
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+
+      - name: Authenticate to GitHub Container Registry
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish frozen source
+        id: build
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        with:
+          context: ./source
+          file: ./source/Dockerfile.mcp
+          push: true
+          build-args: |
+            ATHENA_BUILD_COMMIT=${{ env.SOURCE_COMMIT }}
+          tags: |
+            ${{ env.IMAGE_NAME }}:p08-52d0e2ab
+            ${{ env.IMAGE_NAME }}:candidate-52d0e2abf282
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ env.SOURCE_COMMIT }}
+            org.opencontainers.image.version=p08-52d0e2ab
+            org.opencontainers.image.description=Athena P08 immutable MCP candidate; not promoted
+          provenance: mode=max
+          sbom: true
+
+      - name: Pull and smoke-test digest-addressed image
+        env:
+          IMAGE_DIGEST: ${{ steps.build.outputs.digest }}
+        run: |
+          test -n "$IMAGE_DIGEST"
+          docker pull "$IMAGE_NAME@$IMAGE_DIGEST"
+          docker run --rm -d             --name athena-p09             -e ATHENA_MCP_BEARER_TOKEN=0123456789abcdef0123456789abcdef             -p 18081:8080             "$IMAGE_NAME@$IMAGE_DIGEST"
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from pathlib import Path
+          from urllib.request import urlopen
+
+          expected = os.environ["SOURCE_COMMIT"]
+          last_error = None
+          for _ in range(45):
+              try:
+                  with urlopen("http://127.0.0.1:18081/healthz", timeout=2) as response:
+                      health = json.load(response)
+                  assert health["status"] == "ready"
+                  assert health["deployed_commit"] == expected
+                  assert health["commit_attested"] is True
+                  assert health["commit_source"] == "build-locked-file"
+                  assert health["promotion_ready"] is False
+                  Path("p09-health.json").write_text(
+                      json.dumps(health, indent=2, sort_keys=True) + "\n",
+                      encoding="utf-8",
+                  )
+                  break
+              except Exception as error:
+                  last_error = error
+                  time.sleep(1)
+          else:
+              raise RuntimeError(f"published image did not become ready: {last_error}")
+          PY
+          test "$(docker exec athena-p09 cat /app/.athena-deployed-commit)" =             "$SOURCE_COMMIT"
+          test "$(docker exec athena-p09 id -u)" = "10001"
+
+      - name: Stop published-image witness
+        if: always()
+        run: docker stop athena-p09 2>/dev/null || true
+
+      - name: Assemble publication receipt
+        env:
+          IMAGE_DIGEST: ${{ steps.build.outputs.digest }}
+          PUBLICATION_COMMIT: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          SERVER_URL: ${{ github.server_url }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+          if now.endswith("+00:00"):
+              now = now[:-6] + "Z"
+          image_ref = os.environ["IMAGE_NAME"] + "@" + os.environ["IMAGE_DIGEST"]
+          run_url = (
+              f'{os.environ["SERVER_URL"]}/{os.environ["REPOSITORY"]}/actions/runs/'
+              f'{os.environ["RUN_ID"]}'
+          )
+          health = json.loads(Path("p09-health.json").read_text())
+          body = {
+              "schema": "athena.oci-publication-receipt/v1",
+              "phase": "P09",
+              "seed": "KC144.MYC.SKELETON.P09::IMMUTABLE-OCI-PUBLICATION-AND-ENDPOINT-HANDOFF",
+              "verdict": "PASS_IMMUTABLE_IMAGE_PUBLISHED_ENDPOINT_PENDING",
+              "observed_at": now,
+              "repository": os.environ["REPOSITORY"],
+              "source_commit": os.environ["SOURCE_COMMIT"],
+              "publication_commit": os.environ["PUBLICATION_COMMIT"],
+              "workflow": ".github/workflows/p09-publish-image.yml",
+              "workflow_run": run_url,
+              "run_id": os.environ["RUN_ID"],
+              "run_attempt": os.environ["RUN_ATTEMPT"],
+              "image": {
+                  "reference": image_ref,
+                  "digest": os.environ["IMAGE_DIGEST"],
+                  "tags": ["p08-52d0e2ab", "candidate-52d0e2abf282"],
+                  "source_commit_attested": True,
+                  "health": health,
+              },
+              "authority": {
+                  "image_published": True,
+                  "persistent_endpoint": None,
+                  "bearer_secret_provisioned": False,
+                  "persistent_witness": None,
+                  "promotion_ready": False,
+                  "promotion_claimed": False,
+                  "merge_claimed": False,
+              },
+              "rollback": {
+                  "class": "immutable-digest-selection",
+                  "action": "Stop selecting this digest; retain the P08 source and publication receipt without rewriting history.",
+                  "source_predecessor": os.environ["SOURCE_COMMIT"],
+              },
+              "next_gate": "Deploy this exact digest to an authorized HTTPS /mcp host, provision its bearer secret, and replay the live probe before control-plane admission.",
+              "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HTTPS-ENDPOINT-AND-PERSISTENT-WITNESS",
+          }
+          canonical = json.dumps(
+              body, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+          ).encode("utf-8")
+          receipt = {
+              "receipt_id": "oci-publication:sha256:"
+              + hashlib.sha256(canonical).hexdigest(),
+              **body,
+          }
+          Path("p09-oci-publication.json").write_text(
+              json.dumps(receipt, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(receipt, indent=2, sort_keys=True))
+          PY
+
+      - name: Publish receipt summary
+        run: |
+          {
+            echo "## P09 immutable OCI publication"
+            echo
+            echo "- source commit: $SOURCE_COMMIT"
+            echo "- digest: ${{ steps.build.outputs.digest }}"
+            echo "- endpoint: **pending**"
+            echo "- promotion: **not claimed**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload immutable publication receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: p09-oci-publication-${{ github.sha }}
+          path: |
+            p09-oci-publication.json
+            p09-health.json
+          if-no-files-found: error
+          retention-days: 90
