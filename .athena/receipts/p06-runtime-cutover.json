@@ -1,0 +1,54 @@
+{
+  "schema": "athena.runtime-cutover-receipt/v2",
+  "phase": "P06",
+  "seed": "KC144.MYC.SKELETON.P06::RUNTIME-LOCK-CONSUMPTION-AND-DUAL-RUN-CUTOVER",
+  "repository": "demeet2k/athena-mcp-server",
+  "resource": "athena.repo.runtime-mcp@federation-consumer-0.1.0",
+  "verdict": "PASS_LOCAL_NOT_DEPLOYED",
+  "observed_at": "2026-07-27T04:00:00Z",
+  "implementation_commit": "9316373a488267423a4a71ab146de47983745b16",
+  "metadata_head": "63a0e013b29b3e6bdf3ef8363c21f37d6149994c",
+  "frozen_source": {
+    "repository": "demeet2k/Athena",
+    "commit": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+    "release_candidate": "KC144.MYC.P05.RC1",
+    "release_candidate_blob": "c52d8153c725f4b8d585746292958a0005fb2fe0",
+    "cold_replay_blob": "9ead2227dde84a4072194e134d5f4187f5f98735",
+    "cold_replay_verdict": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+    "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1"
+  },
+  "forward_return": {
+    "source": "athena.repo.q-shrink",
+    "target": "athena.runtime.route-compiler",
+    "hops": [
+      "edge.q-shrink-to-control",
+      "edge.control-to-runtime"
+    ],
+    "return_plan": [
+      "edge.runtime-to-control",
+      "edge.control-to-q-shrink"
+    ],
+    "answered_by": "athena-federation-v2",
+    "fallback_used": false
+  },
+  "v1_fallback": {
+    "address": "athena://crystal-108d",
+    "verdict": "FOUND_LEGACY",
+    "answered_by": "athena-108d-v1",
+    "fallback_used": true
+  },
+  "rollback": {
+    "predecessor_commit": "0ee038011295873ba037a3cac25de18544439293",
+    "action": "Select the predecessor commit; preserve both histories."
+  },
+  "verification": {
+    "targeted_p06_tests": "PENDING_HOSTED_CONFIRMATION",
+    "repository_wide_ci": "HOLD[LEGACY_DEPENDENCY_AND_FIXTURE_SCHEMA_DEBT]",
+    "frozen_source_equality": "PASS",
+    "p05_cold_replay": "PASS[10/10]"
+  },
+  "deployment_witness": null,
+  "promotion_claimed": false,
+  "merge_claimed": false,
+  "successor_seed": "KC144.MYC.SKELETON.P07::HOSTED-RUNTIME-DEPLOYMENT-AND-CONTROL-PLANE-ADMISSION"
+}
