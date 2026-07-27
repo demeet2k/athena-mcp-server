@@ -42,8 +42,22 @@
     "action": "Select the predecessor commit; preserve both histories."
   },
   "verification": {
-    "targeted_p06_tests": "PENDING_HOSTED_CONFIRMATION",
-    "repository_wide_ci": "HOLD[LEGACY_DEPENDENCY_AND_FIXTURE_SCHEMA_DEBT]",
+    "targeted_p06_tests": {
+      "verdict": "PASS",
+      "tests": 8,
+      "python": "3.12",
+      "verified_head": "8eb80a30302400f5ab5fc8b21b6ea790a256ce4a",
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30235825452",
+      "job_id": 89883343816
+    },
+    "registration_regression": "PASS",
+    "repository_wide_ci": {
+      "verdict": "HOLD[LEGACY_DEPENDENCY_AND_FIXTURE_SCHEMA_DEBT]",
+      "passed": 190,
+      "failed": 177,
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30235825452",
+      "note": "P06 federation tests passed; failures are in legacy dependency and fixture-schema surfaces."
+    },
     "frozen_source_equality": "PASS",
     "p05_cold_replay": "PASS[10/10]"
   },
