@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P10_DEEP_ACTIVATION_HARDENED_AUTHORITY_PENDING",
+  "state": "P10_DEEP_HARDENING_PLUS_W15_CAPSULE_RECONCILIATION_AUTHORITY_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -19,7 +19,13 @@
     "p10_host_readiness": ".athena/receipts/p10-host-readiness.json",
     "p10_canonical_witness_hardening": ".athena/receipts/p10-canonical-witness-hardening.json",
     "p10_activation_handoff_readiness": ".athena/receipts/p10-activation-handoff-readiness.json",
-    "p10_deep_activation_hardening": ".athena/receipts/p10-deep-activation-hardening-readiness.json"
+    "p10_deep_activation_hardening": ".athena/receipts/p10-deep-activation-hardening-readiness.json",
+    "w12_cross_lineage_unification": ".athena/receipts/w12-cross-lineage-unification.json",
+    "w13_memory_endpoint_gate": ".athena/receipts/w13-blind-memory-and-endpoint-gate.json",
+    "w14_memory_digest_capsule": ".athena/receipts/w14-memory-digest-capsule.json",
+    "w14_control_return_closure": ".athena/receipts/w14-control-return-closure.json",
+    "w14_memory_digest_capsule_endpoint_binding": ".athena/receipts/w14-memory-digest-capsule-endpoint-binding.json",
+    "w15_capsule_blind_replay_ingress": ".athena/receipts/w15-capsule-blind-replay-ingress.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -77,12 +83,16 @@
     "No secret-free provider evidence proves deployment of the exact P09 digest.",
     "The default non-networked activation preflight has no authorized packet to compile.",
     "The environment-gated three-sample persistent witness has not run.",
-    "Runtime promotion remains control-plane governed and is not claimed by this handoff."
+    "Runtime promotion remains control-plane governed and is not claimed by this handoff.",
+    "The explicit 14-field digest capsule is installed, but a genuinely uncued future full-packet return remains untested.",
+    "W15 uncued replay did not recover the complete 14-field packet: conversation memory returned 0 exact packet fields and persisted-file memory returned 10.",
+    "The reconciled W15 head still requires exact-head hosted validation.",
+    "No authorized provider target, deployment, endpoint, authorization record, secret-store reference, or protected bearer has been supplied."
   ],
-  "next_gate": "An authorized operator must complete one secret-free activation packet, pass the default non-networked preflight, explicitly set execute_live_witness=true through the protected p10-persistent-host GitHub Environment with ATHENA_MCP_BEARER_TOKEN separately provisioned, then admit the resulting three-sample witness through the control plane before IC10 can consider promotion.",
+  "next_gate": "Validate the exact reconciled W15 head. Repair the capsule reentry index so a future uncued probe can return all 14 fields without live Drive or GitHub lookup. Separately, ingest an authorized activation packet and protected bearer before any persistent witness.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-ACTIVATION-PACKET-AND-LIVE-WINDOW",
+  "successor_seed": "KC144.XNAV.W16::CAPSULE-INDEX-REPAIR-AND-AUTHORIZED-WITNESS-INGRESS",
   "p10_capsule": {
     "implementation_head": "10b8c03e0d6fa6ebb2c27779a7bf8254dc5f7255",
     "verdict": "PASS_DEPLOYMENT_CAPSULE_TARGET_PENDING",
@@ -217,5 +227,95 @@
       "promotion_claimed": false,
       "merge_claimed": false
     }
+  },
+  "w12_cross_lineage_unification": {
+    "branch": "agent/w12-unify-source-mount-p10-activation",
+    "base_head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+    "source_mount_consumer_head": "8c7c2bd7081cbc6b17ea8ab9c2b7520b54f06288",
+    "control_integration_head": "dfc3166b4bd7c1c4ce95ad3194f7e2b4cbc982c7",
+    "live_provider_return": "PASS_LIVE_PROVIDER_RETURN_NO_DRIFT",
+    "internal_blind_recall": "HOLD_COLD_RECALL_EXACT_TUPLES_NOT_RECOVERED",
+    "activation_packet": "UNRESOLVED",
+    "persistent_endpoint": "HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+    "merged": false,
+    "deployed": false,
+    "promoted": false,
+    "control_integration_branch": "agent/w12-unify-f07-m09-p12",
+    "control_integration_base": "ad3644e927c03c8caa88ded9a4a7560726941b6b",
+    "p12_claim_spans_preserved": 19,
+    "p12_active_alignments_preserved": 14
+  },
+  "w13_memory_endpoint_gate": {
+    "verdict": "PARTIAL_PASS_GLOBAL_MEMORY_RECALL__PASS_ENDPOINT_HANDOFF_READY_AUTHORITY_PENDING",
+    "conversation_memory_exact_fields": 10,
+    "persisted_file_join_exact_fields": 12,
+    "possible_fields": 14,
+    "exact_full_packet_reconstruction_demonstrated": false,
+    "activation_handoff_ready": true,
+    "authority_inputs_unresolved": 13
+  },
+  "w14_memory_digest_capsule": {
+    "verdict": "PASS_EXPLICIT_DIGEST_CAPSULE_MATERIALIZED__HOLD_UNCUED_FULL_PACKET_RETEST__HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+    "receipt": ".athena/receipts/w14-memory-digest-capsule.json",
+    "stations": [
+      "F07",
+      "M09"
+    ],
+    "exact_address_fields_materialized": 14,
+    "possible_address_fields": 14,
+    "explicit_packet_materialized": true,
+    "uncued_future_reentry": "UNTESTED",
+    "endpoint_binding": "HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+    "merged": false,
+    "deployed": false,
+    "promoted": false
+  },
+  "w14_control_return_closure": {
+    "closure_mode": "APPEND_ONLY_ASYMMETRIC_RETURN",
+    "runtime_content_head": "43d80149b16f9354ba295e09130a83aaeda85203",
+    "runtime_capsule_blob": "e69f789cb185305961ff845b6bbcedaabf936b6b",
+    "control_admission_head": "59176453d005e32888b399ce61048e3c44a1dd28",
+    "control_admission_receipt_blob": "f1a20a7c76d1b9985f56220d7ccf7145b0121a20",
+    "final_mutual_commit_fixed_point_claimed": false,
+    "runtime_exact_head_hosted_runs": "HOLD_NOT_OBSERVED",
+    "control_exact_head_hosted_runs": "HOLD_NOT_OBSERVED",
+    "uncued_future_reentry": "UNTESTED",
+    "endpoint_binding": "HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+    "merged": false,
+    "deployed": false,
+    "promoted": false
+  },
+  "w14_executable_digest_capsule": {
+    "source_pull_request": "https://github.com/demeet2k/athena-mcp-server/pull/10",
+    "source_head": "deab5f44f2942326b415a50daa722ce565210540",
+    "receipt": ".athena/receipts/w14-memory-digest-capsule-endpoint-binding.json",
+    "capsule_set_root": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "explicit_external_packet_fields": 14,
+    "possible_packet_fields": 14,
+    "runtime_tools": [
+      "athena_memory_digest_capsule_status",
+      "resolve_athena_memory_digest_capsule",
+      "verify_athena_memory_digest_capsule",
+      "athena_endpoint_binding_status"
+    ],
+    "internal_recall": false,
+    "live_provider_read": false,
+    "preserved": true
+  },
+  "w15_blind_replay": {
+    "receipt": ".athena/receipts/w15-capsule-blind-replay-ingress.json",
+    "conversation_memory_exact_packet_fields": 0,
+    "persisted_file_exact_packet_fields": 10,
+    "possible_packet_fields": 14,
+    "full_uncued_packet_recovered": false,
+    "verdict": "HOLD_UNCUED_FULL_PACKET_NOT_RECOVERED",
+    "activation_hardening_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "executable_capsule_head": "deab5f44f2942326b415a50daa722ce565210540",
+    "prior_return_closure_head": "9a36bf46600f64b519c24252ec32fa078211b614",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "endpoint_authority": "READY_AWAITING_AUTHORIZED_TARGET",
+    "merged": false,
+    "deployed": false,
+    "promoted": false
   }
 }
