@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 230, f"Expected 230 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 241, f"Expected 241 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 40, f"Expected 40 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 41, f"Expected 41 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -215,6 +215,24 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W21 commit/promotion tools: {missing}"
 
+    def test_w22_independent_authority_return_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w22_independent_authority_return_status",
+            "inspect_athena_w22_w21_custody_transition",
+            "inspect_athena_w22_authority_source_revision",
+            "inspect_athena_w22_ledger_commit_return",
+            "compile_athena_w22_ledger_return_admission_candidate",
+            "inspect_athena_w22_promotion_decision_return",
+            "compile_athena_w22_promotion_return_admission_candidate",
+            "inspect_athena_w22_correction_forward",
+            "resolve_athena_w22_effective_authority_returns",
+            "evaluate_athena_w22_independent_authority_return_closure",
+            "explain_athena_w22_coordinate_separation",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W22 independent-return tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -251,6 +269,7 @@ class TestRegistration:
             "athena://w19-provider-admission-execution",
             "athena://w20-persistent-return-ic10",
             "athena://w21-ledger-commit-promotion-handoff",
+            "athena://w22-independent-authority-return",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"

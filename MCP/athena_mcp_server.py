@@ -124,6 +124,12 @@ from crystal_108d.ledger_commit_promotion_handoff import (
 )
 register_ledger_commit_promotion_handoff(mcp)
 
+# ── W22 independent source/revision/occurrence authority returns ────
+from crystal_108d.independent_authority_return import (
+    register_independent_authority_return,
+)
+register_independent_authority_return(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
