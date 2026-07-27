@@ -142,6 +142,12 @@ from crystal_108d.execution_deployment_rollback_readback import (
 )
 register_execution_deployment_rollback_readback(mcp)
 
+# ── W25 persistent return and promotion-settlement verification ─────
+from crystal_108d.persistent_promotion_settlement import (
+    register_persistent_promotion_settlement,
+)
+register_persistent_promotion_settlement(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

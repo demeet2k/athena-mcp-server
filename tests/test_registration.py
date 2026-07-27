@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 265, f"Expected 265 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 272, f"Expected 272 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 43, f"Expected 43 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 44, f"Expected 44 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -271,6 +271,20 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W24 return-readback tools: {missing}"
 
+    def test_w25_persistent_promotion_settlement_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w25_persistent_promotion_settlement_status",
+            "inspect_athena_w25_w24_custody",
+            "inspect_athena_w25_authority_source_revision",
+            "inspect_athena_w25_return_persistence_contract",
+            "inspect_athena_w25_promotion_settlement_contract",
+            "evaluate_athena_w25_persistent_promotion_settlement",
+            "explain_athena_w25_persistent_settlement_separation_law",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W25 persistent-settlement tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -310,6 +324,7 @@ class TestRegistration:
             "athena://w22-independent-authority-return",
             "athena://w23-promotion-execution-handoff",
             "athena://w24-execution-deployment-rollback-readback",
+            "athena://w25-persistent-promotion-settlement",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
