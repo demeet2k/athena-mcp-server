@@ -2,16 +2,20 @@
 
 This repository is a `runtime` participant, not the federation root.
 
-1. Read `.athena/repo.json` and resolve `athena.repo.runtime-mcp@contract-proposal-0.1.0`.
-2. Preserve the repository occurrence witnessed by base commit `0ee038011295873ba037a3cac25de18544439293`.
+1. Read `.athena/repo.json` and resolve
+   `athena.repo.runtime-mcp@federation-consumer-0.1.0`.
+2. Verify `MCP/data/athena_federation_v2/snapshot.json` and require graph
+   digest `sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1`.
 3. Follow `edge.runtime-mcp-to-control` in `.athena/edges.jsonl`.
-4. Carry the local manifest, exact repository commit, control commit
-   `3d33fbcd6248fc2dc2991fbbab5e93a7eb184246`, and any route receipt.
-5. Resolve the control plane at
-   `github://demeet2k/Athena@3d33fbcd6248fc2dc2991fbbab5e93a7eb184246/.athena/repo.json`.
-6. If the manifest, carrier, generator lineage, witness, or reverse edge is
-   missing, stop with the defect recorded in `.athena/status.json`.
+4. Carry the local manifest, exact repository commit, route receipt, and frozen
+   source commit `1b177fa2e3a4860487497210dcfbc122a287d693`.
+5. Resolve the consumed control snapshot at
+   `github://demeet2k/Athena@1b177fa2e3a4860487497210dcfbc122a287d693/crystal/v2/repositories.lock.json`.
+6. If the exact identity, carrier, witness, or reverse edge is missing, stop
+   with the defect recorded in `.athena/status.json`.
+7. A response marked `athena-108d-v1` is a legacy fallback, not a v2 graph
+   traversal and not promotion evidence.
 
-This return is `compensated`: it preserves identity, role, provenance, and
-authority boundaries, but it does not claim that this repository reproduces the
-full Google Docs, conversation memory, manuscript corpus, or Athena runtime.
+This return is `compensated`: it preserves identity, role, provenance, runtime
+answer provenance, and authority boundaries. Runtime receipts are witnesses;
+only the Athena control plane can admit them into a promoted federation.
