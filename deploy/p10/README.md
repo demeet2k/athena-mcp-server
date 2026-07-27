@@ -133,4 +133,3 @@ The packet cannot weaken the three-sample / 20-second / 40-second observation
 window, alter the exact source or image, record secret material, claim merge or
 promotion, remove reciprocal return, remove the explicit
 `athena-108d-v1` fallback, or bypass IC10.
-
