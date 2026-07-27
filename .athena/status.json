@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P09_IMMUTABLE_OCI_IMAGE_PUBLISHED_ENDPOINT_PENDING",
+  "state": "READY_AWAITING_AUTHORIZED_TARGET",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -15,7 +15,9 @@
     "p07_ephemeral_host": ".athena/receipts/p07-mcp-host-witness.json",
     "p07_http_package": ".athena/receipts/p07-host-package.json",
     "p08_reconciled_candidate": ".athena/receipts/p08-integration-candidate.json",
-    "p09_oci_publication": ".athena/receipts/p09-oci-publication.json"
+    "p09_oci_publication": ".athena/receipts/p09-oci-publication.json",
+    "p10_authorized_endpoint_readiness": ".athena/receipts/p10-authorized-endpoint-readiness.json",
+    "p10_hosted_readiness_validation": ".athena/receipts/p10-hosted-readiness-validation.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -26,17 +28,12 @@
   },
   "p09_publication": {
     "verdict": "PASS_IMMUTABLE_IMAGE_PUBLISHED_ENDPOINT_PENDING",
+    "runtime_head": "9731b24c5963b75821b381b4562aa51baa55196c",
     "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
-    "publication_branch": "agent/p09-published-mcp-image",
-    "publication_workflow_head": "642c278962620aafc833987af8c42ac2671f4359",
     "publication_execution_commit": "642c278962620aafc833987af8c42ac2671f4359",
     "one_shot_trigger_commit": "cea9c7acc62f20851d08e647226d4ebf7b32f4ac",
     "image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
     "digest": "sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
-    "tags": [
-      "p08-52d0e2ab",
-      "candidate-52d0e2abf282"
-    ],
     "receipt_id": "oci-publication:sha256:65caf0c574b3981e8c499ff075dda5ffc1512517e413fcdb0bf424fe49432a0d",
     "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30237975939",
     "job_id": 89889302645,
@@ -48,17 +45,70 @@
     "actions_pinned_to_commits": true,
     "image_published": true
   },
-  "hosted_verification": {
-    "p07_boundary_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238110711",
-    "p07_boundary_status": "PASS",
-    "p08_revalidation_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238110719",
-    "p08_revalidation_status": "IN_PROGRESS_AT_STATUS_WRITE"
+  "p10_preparation": {
+    "branch": "agent/p10-authorized-endpoint-witness",
+    "p09_predecessor_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+    "implementation_head": "fa5a5d5325779ec9e9a4825a7a7e084cd040c3c8",
+    "host_contract": "deploy/p10/host-contract.json",
+    "contract_digest": "sha256:f7d415d46dedcb9021bd4d37fdd635cc94afc7503eba31de03013bbdf8764f64",
+    "deployment_preflight": "scripts/p10_preflight.py",
+    "persistent_probe": "scripts/p10_persistent_witness.py",
+    "workflow": ".github/workflows/p10-persistent-witness.yml",
+    "compose": "deploy/p10/compose.yaml",
+    "provider_neutral_runbook": "deploy/p10/README.md",
+    "local_validation": {
+      "json_yaml_parsing": "PASS",
+      "python_compilation": "PASS",
+      "p10_tests": "PASS[24/24]",
+      "p07_http_boundary": "PASS[9/9]",
+      "p08_federation_and_registration": "PASS[14/14]",
+      "p07_live_stdio_checks": "PASS[10/10]",
+      "compose_config": "PASS",
+      "exact_digest_pull_and_smoke": "PASS_HOSTED"
+    },
+    "prepared_receipt": "p10-preflight:sha256:b728f0d7b9d9a861cddcceb00c694c093ef90b4b9e4459bf22a6307cb7567106",
+    "hosted_validation": {
+      "verdict": "READY_AWAITING_AUTHORIZED_TARGET",
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378890",
+      "job_id": 89896153886,
+      "artifact_id": 8643044789,
+      "artifact_digest": "sha256:e069b7b087e5556a7d8159057ee5c8f4d36bb5d44d34f85b7fd0d83beb96514e",
+      "receipt_closure_revalidation": {
+        "head": "8c1771b196c63cbc581b56addab7f72ce9b5ba0c",
+        "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30240536401",
+        "job_id": 89896623599,
+        "artifact_id": 8643097152,
+        "artifact_digest": "sha256:0e6aa9c30dde1d90eff4ab270c046be52f595a9ca574807a4c9e6e94e1e4e323",
+        "status": "PASS"
+      },
+      "one_shot_trigger_hardening_commit": "15211fba8fba16ba3d440358c25a3e062e0a6dc1",
+      "receipt_id": "p10-hosted-readiness:sha256:43e8a3f96b77593271c4fd121b2b03ec43633ad43b856d7c4dfc29adfa6dbc03",
+      "p07_revalidation": "PASS:https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378874",
+      "p08_revalidation": "PASS:https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378894",
+      "persistent_witness_job": "SKIPPED_NO_AUTHORIZED_TARGET_OR_SECRET",
+      "publication_workflow_triggered": false
+    }
   },
   "deployment": {
     "persistent_artifact": true,
+    "provider_id": null,
+    "provider_account_scope": null,
+    "deployment_id": null,
+    "authorized_host_target": null,
     "external_https_endpoint": null,
+    "secret_store_ref": null,
     "bearer_secret_provisioned": false,
     "persistent_live_witness": null
+  },
+  "authority": {
+    "image_published": true,
+    "authorized_target_selected": false,
+    "deployment_claimed": false,
+    "admission_claimed": false,
+    "promotion_ready": false,
+    "promotion_claimed": false,
+    "merge_claimed": false,
+    "ic10_promotion_required": true
   },
   "v1_fallback": true,
   "persistent_deployment": false,
@@ -66,12 +116,13 @@
   "promotion_claimed": false,
   "merge_claimed": false,
   "open_defects": [
-    "No authorized persistent HTTPS /mcp endpoint exists for the published digest.",
-    "No endpoint bearer secret has been provisioned.",
-    "The repository-wide hosted suite retains legacy dependency and fixture-schema debt outside the P09 surface.",
-    "Runtime promotion remains control-plane governed and is not claimed by this publication."
+    "No existing authorized persistent host/account target was discoverable.",
+    "No authorized HTTPS /mcp endpoint or deployment identifier was discoverable.",
+    "No ATHENA_MCP_BEARER_TOKEN secret mechanism with a bound endpoint was discoverable.",
+    "A real persistent HTTPS witness cannot exist until those external authority inputs are supplied."
   ],
-  "next_gate": "Deploy the exact published digest sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2 to an authorized HTTPS /mcp host, provision its bearer secret, replay the live HTTP probe, and admit the persistent witness through the control plane.",
+  "irreducible_blocker": "An authorized persistent container host, its exact HTTPS /mcp endpoint and non-secret authority metadata, plus ATHENA_MCP_BEARER_TOKEN provisioned through the host and protected GitHub Environment are required.",
+  "next_gate": "Bind the exact digest to an already-authorized persistent host, provision ATHENA_MCP_BEARER_TOKEN through protected secret stores, and manually dispatch the P10 persistent witness workflow.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
   "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HTTPS-ENDPOINT-AND-PERSISTENT-WITNESS"

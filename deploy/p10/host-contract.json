@@ -1,0 +1,95 @@
+{
+  "schema": "athena.p10-host-contract/v1",
+  "phase": "P10",
+  "seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HTTPS-ENDPOINT-AND-PERSISTENT-WITNESS",
+  "outcome": "READY_AWAITING_AUTHORIZED_TARGET",
+  "deployment_state": "PREPARED_NOT_DEPLOYED",
+  "repository": "demeet2k/athena-mcp-server",
+  "p09_predecessor_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+  "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+  "image": {
+    "reference": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "digest": "sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "publication_receipt": "oci-publication:sha256:65caf0c574b3981e8c499ff075dda5ffc1512517e413fcdb0bf424fe49432a0d",
+    "mutable_tags_authoritative": false,
+    "container_port": 8080,
+    "non_root_uid": 10001
+  },
+  "network": {
+    "health_path": "/healthz",
+    "mcp_path": "/mcp",
+    "external_mcp_endpoint": null,
+    "external_health_endpoint": null,
+    "tls_termination": {
+      "required": true,
+      "minimum_version": "1.2",
+      "redirects_allowed": false,
+      "downgrade_allowed": false,
+      "certificate_validation_required": true
+    },
+    "forwarding": {
+      "upstream_scheme": "http",
+      "upstream_port": 8080,
+      "preserve_host": true,
+      "forwarded_proto": "https",
+      "forward_exact_paths": [
+        "/healthz",
+        "/mcp"
+      ],
+      "streaming_request_and_response_bodies": true
+    }
+  },
+  "authentication": {
+    "scheme": "bearer",
+    "environment": "ATHENA_MCP_BEARER_TOKEN",
+    "minimum_length": 32,
+    "environment_only": true,
+    "command_line_allowed": false,
+    "record_value": false,
+    "secret_store_ref": null,
+    "bearer_secret_provisioned": false
+  },
+  "target": {
+    "provider_id": null,
+    "provider_account_scope": null,
+    "deployment_id": null,
+    "persistence_class": null,
+    "authorization_ref": null,
+    "authorized_by": null,
+    "authorized_at": null,
+    "authorized": false,
+    "ephemeral": null
+  },
+  "persistent_witness": {
+    "receipt_id": null,
+    "verdict": null,
+    "endpoint": null,
+    "source_commit": null,
+    "image_reference": null,
+    "observed_at": null,
+    "promotion_ready": null,
+    "successful": false
+  },
+  "authority": {
+    "image_published": true,
+    "authorized_target_selected": false,
+    "deployment_claimed": false,
+    "admission_claimed": false,
+    "promotion_ready": false,
+    "promotion_claimed": false,
+    "merge_claimed": false,
+    "ic10_promotion_required": true
+  },
+  "rollback": {
+    "class": "immutable-digest-selection",
+    "selected_image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "action": "Stop routing to the endpoint and select an explicitly authorized immutable digest; do not move a tag or rewrite P09 history.",
+    "v1_fallback": "athena-108d-v1"
+  },
+  "separation": {
+    "preparation": "This committed capsule and its offline validation.",
+    "deployment": "An authorized host selecting the exact digest and provisioning its secret.",
+    "admission": "A control-plane receipt accepting a successful persistent witness.",
+    "promotion": "A separate IC10 decision; never granted by P10 runtime evidence."
+  }
+}

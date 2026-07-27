@@ -1,0 +1,14 @@
+{
+  "authorized_target_selected": false,
+  "bearer_secret_provisioned": false,
+  "contract_digest": "sha256:f7d415d46dedcb9021bd4d37fdd635cc94afc7503eba31de03013bbdf8764f64",
+  "deployment_claimed": false,
+  "endpoint": null,
+  "persistent_witness": null,
+  "phase": "P10",
+  "promotion_claimed": false,
+  "promotion_ready": false,
+  "receipt_id": "p10-preflight:sha256:b728f0d7b9d9a861cddcceb00c694c093ef90b4b9e4459bf22a6307cb7567106",
+  "schema": "athena.p10-deployment-preflight/v1",
+  "verdict": "READY_AWAITING_AUTHORIZED_TARGET"
+}
