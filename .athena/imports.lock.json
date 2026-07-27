@@ -25,7 +25,7 @@
     {
       "rid": "athena.federation.cold-replay",
       "vid": "KC144.MYC.P05.COLD-REPLAY",
-      "source": "github://demeet2k/Athena@13cda0bed07a881d42446e3a282eb1ba84ea9b45/crystal/v2/receipts/p05-cold-replay.json",
+      "source": "github://demeet2k/Athena@13cda0bed07a881d42446e3a282eb1ba84ea9b45/.athena/receipts/p05-cold-replay.json",
       "source_version": "git:13cda0bed07a881d42446e3a282eb1ba84ea9b45",
       "source_blob": "9ead2227dde84a4072194e134d5f4187f5f98735",
       "verdict": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
