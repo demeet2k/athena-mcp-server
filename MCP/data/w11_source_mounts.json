@@ -15,6 +15,16 @@
       "path": ".athena/receipts/w11-git-docs-return-replay.json",
       "blob_sha": "66cdac86bee16af57fe244204e575871b0d856a0",
       "verdict": "PASS_R3_SOURCE_RETURN_CURRENT_REVISION"
+    },
+    "integration_candidate": {
+      "repository": "demeet2k/Athena",
+      "branch": "agent/w12-unify-f07-m09-p11",
+      "commit": "473ea6d4e30f78a7147a9b453382637a244200fe",
+      "base_head": "a427729c58f1a8fd6026588d2a9aea9f6661fa70",
+      "source_mount_origin_head": "bb611ff94134dd630e3471a0eff29dd6d79b3288",
+      "p11_source_packets_preserved": 14,
+      "imports_lock_blob_preserved": "77073e6270f85f23a6f9f7bbd46cdb33b46852f0",
+      "relation": "STACKED_CANDIDATE_NOT_MERGED"
     }
   },
   "runtime_base": {
