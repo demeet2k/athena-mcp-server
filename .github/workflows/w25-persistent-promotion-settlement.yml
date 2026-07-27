@@ -18,6 +18,15 @@ jobs:
     steps:
       - name: Check out exact requested ref
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Require canonical verifier ref
+        env:
+          VERIFIER_REF: ${{ github.ref }}
+        run: |
+          test "$VERIFIER_REF" = \
+            "refs/heads/agent/w15-reconcile-capsule-deep-hardening"
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
@@ -50,9 +59,15 @@ jobs:
           PY
 
       - name: Verify coordinate-specific settlement closure
+        env:
+          VERIFIER_HEAD: ${{ github.sha }}
+          VERIFIER_REF: ${{ github.ref }}
         run: |
           python scripts/w25_persistent_promotion_settlement.py \
             --bundle w25-settlement-bundle.json \
+            --verifier-head "$VERIFIER_HEAD" \
+            --verifier-tree "$(git rev-parse HEAD^{tree})" \
+            --verifier-ref "$VERIFIER_REF" \
             --output w25-persistent-promotion-settlement-preflight.json
 
       - name: Upload non-secret validation receipt

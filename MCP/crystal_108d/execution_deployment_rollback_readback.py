@@ -29,6 +29,7 @@ from .independent_authority_return import (
     _timestamp,
 )
 from .promotion_execution_handoff import (
+    DATA_PATH as W23_DATA_PATH,
     FrozenPromotionExecutionHandoff,
     _target,
     _verify,
@@ -46,33 +47,71 @@ PHASE = "KC144.XNAV.W24"
 SOURCE_SCHEMA = "athena.w24-return-authority-source/v1"
 REVISION_SCHEMA = "athena.w24-return-authority-revision/v1"
 EXECUTION_SCHEMA = "athena.w24-execution-occurrence/v1"
+CONSUMPTION_SCHEMA = "athena.w24-execution-authorization-consumption/v1"
 PROMOTION_SCHEMA = "athena.w24-promotion-observation/v1"
 DEPLOYMENT_SCHEMA = "athena.w24-deployment-readback/v1"
 HEALTH_SCHEMA = "athena.w24-health-window/v1"
+PREVIOUS_SAFE_SCHEMA = "athena.w24-previous-safe-deployment-certificate/v1"
 ROLLBACK_AUTH_SCHEMA = "athena.w24-rollback-authorization/v1"
 ROLLBACK_OCCURRENCE_SCHEMA = "athena.w24-rollback-occurrence/v1"
 ROLLBACK_OBSERVATION_SCHEMA = "athena.w24-rollback-observation/v1"
 CLOSURE_SCHEMA = "athena.w24-execution-deployment-rollback-closure/v1"
 
-W23_HEAD = "3061598cd050aa6b8ad8b647e86c2295acb54228"
-W23_TREE = "61ae40f869da0fe4979cadb054e46e67007833ae"
-W23_PARENT = "aa8c382419fd093507f3059751a75dc14ffa8662"
-W23_CONTRACT = (
+W23_HISTORICAL_HEAD = "3061598cd050aa6b8ad8b647e86c2295acb54228"
+W23_HISTORICAL_TREE = "61ae40f869da0fe4979cadb054e46e67007833ae"
+W23_HISTORICAL_PARENT = "aa8c382419fd093507f3059751a75dc14ffa8662"
+W23_HISTORICAL_CONTRACT = (
     "sha256:1ec0f8749b47c68399ce6356db6523676f5c82a449f3420bb0cd9936871eabf4"
 )
-W23_RECEIPT = (
+W23_HISTORICAL_RECEIPT = (
     "w23-execution-handoff:sha256:"
     "c06878df07733ad8459e46fc1bca02bf844ad78b7a72a2703430e984a4479ae5"
+)
+W23_HARDENING_HEAD = "5ee30b98e4a6653fcbce65d733513b1e25529ddd"
+W23_HARDENING_TREE = "02808be32a3aa76f0c1556b1dd736512b1523485"
+W23_HARDENING_PARENT = "05d012f2e8cad0ea2d64e3b2fb8ae453b75350de"
+W23_HARDENED_CONTRACT = (
+    "sha256:3630dd1c67a19865c5c2e24b757f93e8c7a070439a329e70f22f281a72f53613"
+)
+W23_HARDENING_RECEIPT = (
+    "w23-execution-handoff-hardening:sha256:"
+    "b88d514648c1562177fd1697e1a5c93cb371c13f8418dc59ef6f1652399aa69e"
 )
 W23_LOCAL_IMAGE = (
     "sha256:8bca337faa3989f9ed94a2df0ceea29ea3b843e46e03359edfa3e9f36638f29a"
 )
+W24_HISTORICAL_HEAD = "6906afa2cab034f51ae7d86aae409bf0a6304a91"
+W24_HISTORICAL_TREE = "e571caf572a7ee4baa553016c0f9e7315551ecab"
+W24_HISTORICAL_PARENT = W23_HISTORICAL_HEAD
+W24_HISTORICAL_CONTRACT = (
+    "sha256:dc316ded97c885e0febe36b558d7bb17468f629988b20dd49723a1ed586b35b4"
+)
+W24_HISTORICAL_RECEIPT = (
+    "w24-return-readback:sha256:"
+    "4e013a8505042a23b373d2ab5ade474cb16a4a95d58fc9251ae62ac05963e539"
+)
+CANONICAL_GOVERNANCE_REPOSITORY = "demeet2k/Athena"
+CANONICAL_RUNTIME_REPOSITORY = "demeet2k/athena-mcp-server"
+CANONICAL_RUNTIME_BRANCH = "agent/w15-reconcile-capsule-deep-hardening"
+CANONICAL_RUNTIME_REF = "refs/heads/" + CANONICAL_RUNTIME_BRANCH
+CANONICAL_AUTHORITY_REF = "refs/heads/authority/w24"
+CANONICAL_REGISTRY_NAMESPACE = "ghcr.io/demeet2k/athena-mcp"
+WORKFLOW_PATH = ".github/workflows/w24-execution-deployment-rollback-readback.yml"
+
+# Filled from the correction-forward snapshot after its exact topology is
+# finalized.  Unlike the historical v1 contract, this value is pinned outside
+# the mutable JSON and therefore cannot be changed by merely re-addressing it.
+W24_HARDENED_CONTRACT = (
+    "sha256:ddb09f939d8b9d1662e34b1558f0ba596e7ac70aa0b1a99098b7723b7cd45f3f"
+)
 
 ROLES = {
     "EXECUTION_OPERATOR": "promotion.execute",
+    "EXECUTION_CONSUMPTION_OBSERVER": "promotion.execute.consume.observe",
     "PROMOTION_OBSERVER": "promotion.observe",
     "DEPLOYMENT_OBSERVER": "deployment.observe",
     "HEALTH_OBSERVER": "deployment.health.observe",
+    "PREVIOUS_SAFE_DEPLOYMENT_OBSERVER": "rollback.previous-safe.observe",
     "ROLLBACK_AUTHORIZER": "rollback.authorize",
     "ROLLBACK_OPERATOR": "rollback.execute",
     "ROLLBACK_OBSERVER": "rollback.observe",
@@ -129,6 +168,25 @@ EXECUTION_FIELDS = {
     "signature",
     "execution_digest",
 }
+CONSUMPTION_FIELDS = {
+    "schema",
+    "source_digest",
+    "revision_digest",
+    "occurrence_id",
+    "w23_authorization_digest",
+    "execution_digest",
+    "execution_occurrence_id",
+    "provider_execution_id",
+    "dispatch_digest",
+    "target",
+    "previous_ledger_root_digest",
+    "consumed_ledger_root_digest",
+    "prior_consumption_count",
+    "consumption_state",
+    "observed_at",
+    "signature",
+    "execution_consumption_digest",
+}
 PROMOTION_FIELDS = {
     "schema",
     "source_digest",
@@ -177,6 +235,26 @@ HEALTH_FIELDS = {
     "signature",
     "health_window_digest",
 }
+PREVIOUS_SAFE_FIELDS = {
+    "schema",
+    "source_digest",
+    "revision_digest",
+    "occurrence_id",
+    "target",
+    "safe_image_digest",
+    "immutable_reference",
+    "manifest_digest",
+    "deployment_id",
+    "provider_readback_digest",
+    "admission_digest",
+    "health_root_digest",
+    "health_state",
+    "deployed_at",
+    "last_healthy_at",
+    "observed_at",
+    "signature",
+    "previous_safe_certificate_digest",
+}
 ROLLBACK_AUTH_FIELDS = {
     "schema",
     "source_digest",
@@ -184,6 +262,7 @@ ROLLBACK_AUTH_FIELDS = {
     "occurrence_id",
     "deployment_readback_digest",
     "health_window_digest",
+    "previous_safe_certificate_digest",
     "target",
     "previous_safe_image_digest",
     "rollback_plan_digest",
@@ -217,6 +296,7 @@ ROLLBACK_OBSERVATION_FIELDS = {
     "occurrence_id",
     "rollback_occurrence_digest",
     "deployment_readback_digest",
+    "previous_safe_certificate_digest",
     "target",
     "observed_image_digest",
     "provider_state_digest",
@@ -255,6 +335,8 @@ def _source(value: Any) -> dict[str, Any]:
     }
     if normalized["schema"] != SOURCE_SCHEMA or normalized["role"] not in ROLES:
         raise ValueError("authority source schema/role mismatch")
+    if normalized["governance_repository"] != CANONICAL_GOVERNANCE_REPOSITORY:
+        raise ValueError("authority source governance repository mismatch")
     if normalized["source_digest"] != _digest(
         _addressed(normalized, "source_digest")
     ):
@@ -310,6 +392,15 @@ def _revision(value: Any) -> dict[str, Any]:
         raise ValueError("authority revision schema/role mismatch")
     if normalized["scope"]["operation"] != ROLES[normalized["role"]]:
         raise ValueError("authority revision capability mismatch")
+    expected_path = (
+        ".athena/authority/w24/" + normalized["role"].lower() + ".json"
+    )
+    if (
+        normalized["repository"] != CANONICAL_GOVERNANCE_REPOSITORY
+        or normalized["ref"] != CANONICAL_AUTHORITY_REF
+        or normalized["path"] != expected_path
+    ):
+        raise ValueError("authority revision governance coordinate mismatch")
     if _fingerprint(normalized["public_key_base64"]) != normalized["fingerprint"]:
         raise ValueError("authority revision fingerprint mismatch")
     if _timestamp(normalized["valid_from"], "revision.valid_from") >= _timestamp(
@@ -355,12 +446,153 @@ def _negative() -> dict[str, bool]:
         "endpoint_contacted": False,
         "w23_execution_authorization_verified": False,
         "execution_occurrence_verified": False,
+        "execution_consumption_verified": False,
+        "execution_authorization_consumed_once": False,
+        "fresh_execution_authority_issued": False,
+        "fresh_execution_claimed": False,
         "promotion_observed": False,
         "deployment_readback_verified": False,
         "health_window_verified": False,
+        "previous_safe_deployment_verified": False,
         "rollback_authorization_verified": False,
         "rollback_occurrence_verified": False,
         "rollback_observation_verified": False,
+        "merge_claimed": False,
+        "deployment_claimed": False,
+        "promotion_claimed": False,
+    }
+
+
+def _expected_predecessor() -> dict[str, Any]:
+    return {
+        "runtime_repository": CANONICAL_RUNTIME_REPOSITORY,
+        "runtime_pull_request": 13,
+        "branch": CANONICAL_RUNTIME_BRANCH,
+        "historical_w23_head": W23_HISTORICAL_HEAD,
+        "historical_w23_tree": W23_HISTORICAL_TREE,
+        "historical_w23_sole_parent": W23_HISTORICAL_PARENT,
+        "historical_w23_contract_digest": W23_HISTORICAL_CONTRACT,
+        "historical_w23_receipt_id": W23_HISTORICAL_RECEIPT,
+        "historical_w24_head": W24_HISTORICAL_HEAD,
+        "historical_w24_tree": W24_HISTORICAL_TREE,
+        "historical_w24_sole_parent": W24_HISTORICAL_PARENT,
+        "historical_w24_contract_digest": W24_HISTORICAL_CONTRACT,
+        "historical_w24_receipt_id": W24_HISTORICAL_RECEIPT,
+        "hardened_w23_head": W23_HARDENING_HEAD,
+        "hardened_w23_tree": W23_HARDENING_TREE,
+        "hardened_w23_sole_parent": W23_HARDENING_PARENT,
+        "hardened_w23_contract_digest": W23_HARDENED_CONTRACT,
+        "hardened_w23_receipt_id": W23_HARDENING_RECEIPT,
+        "hardened_w23_is_active_verifier": True,
+        "historical_w23_and_w24_preserved": True,
+    }
+
+
+def _expected_control_observation() -> dict[str, Any]:
+    return {
+        "repository": CANONICAL_GOVERNANCE_REPOSITORY,
+        "pull_request": 21,
+        "branch": "agent/w23-admit-promotion-execution-handoff",
+        "head": "7909f6fd5d9f58ecfde0f23e5f6fd41e9b731ce5",
+        "base": "b74bb6caea37569bc2c050c060bcc35641dd068e",
+        "receipt_id": (
+            "w23-control-admission:sha256:"
+            "92adfc99e9caa63052ee17bca5a32ff26aa0bde37adeaf664641c759b70f9be9"
+        ),
+        "admits_historical_w23_only": True,
+        "admits_hardened_w23": False,
+        "grants_production_authority": False,
+        "hosted_runner_status": "HOLD[PLATFORM_OBSTRUCTION_BEFORE_FIRST_STEP]",
+    }
+
+
+def _expected_return_contract() -> dict[str, Any]:
+    return {
+        "authority_source_schema": SOURCE_SCHEMA,
+        "authority_revision_schema": REVISION_SCHEMA,
+        "execution_occurrence_schema": EXECUTION_SCHEMA,
+        "execution_consumption_schema": CONSUMPTION_SCHEMA,
+        "promotion_observation_schema": PROMOTION_SCHEMA,
+        "deployment_readback_schema": DEPLOYMENT_SCHEMA,
+        "health_window_schema": HEALTH_SCHEMA,
+        "previous_safe_deployment_schema": PREVIOUS_SAFE_SCHEMA,
+        "rollback_authorization_schema": ROLLBACK_AUTH_SCHEMA,
+        "rollback_occurrence_schema": ROLLBACK_OCCURRENCE_SCHEMA,
+        "rollback_observation_schema": ROLLBACK_OBSERVATION_SCHEMA,
+        "closure_schema": CLOSURE_SCHEMA,
+        "roles": list(ROLES),
+        "w23_execution_authorization_required": True,
+        "one_shot_consumption_observation_required": True,
+        "exact_historical_replay_is_idempotent": True,
+        "historical_replay_grants_fresh_authority": False,
+        "execution_operator_must_differ_from_authorizer": True,
+        "promotion_observation_required": True,
+        "deployment_readback_required": True,
+        "canonical_registry_namespace": CANONICAL_REGISTRY_NAMESPACE,
+        "minimum_health_samples": 3,
+        "minimum_health_interval_seconds": 20,
+        "minimum_health_span_seconds": 40,
+        "previous_safe_deployment_certificate_required": True,
+        "rollback_authorization_required": True,
+        "rollback_occurrence_required": True,
+        "independent_rollback_observation_required": True,
+        "total_chronology_required": True,
+        "cross_wave_occurrence_overlap_allowed": False,
+        "self_supplied_sources_revisions_or_keys_allowed": False,
+        "cross_role_identity_or_key_overlap_allowed": False,
+        "runtime_can_dispatch": False,
+        "runtime_can_contact_endpoint": False,
+        "runtime_can_execute": False,
+        "runtime_can_deploy_or_promote": False,
+    }
+
+
+def _expected_verifier_coordinates() -> dict[str, Any]:
+    return {
+        "repository": CANONICAL_RUNTIME_REPOSITORY,
+        "ref": CANONICAL_RUNTIME_REF,
+        "workflow": WORKFLOW_PATH,
+        "required_parent_head": W23_HARDENING_HEAD,
+        "required_parent_tree": W23_HARDENING_TREE,
+        "hardened_w23_contract_digest": W23_HARDENED_CONTRACT,
+        "hardened_w23_receipt_id": W23_HARDENING_RECEIPT,
+        "runtime_head_bound_by_workflow_receipt": True,
+    }
+
+
+def _expected_registry_admission() -> dict[str, Any]:
+    return {
+        "repository": CANONICAL_GOVERNANCE_REPOSITORY,
+        "status": "NOT_ADMITTED",
+        "source_digests": [],
+        "revision_digests": [],
+        "grants_production_authority": False,
+    }
+
+
+def _expected_boundaries() -> dict[str, Any]:
+    return {
+        "historical_w23_and_w24_preserved": True,
+        "hardened_w23_verifier_pinned": True,
+        "hardened_w23_control_admitted": False,
+        "w23_image_published": False,
+        "production_authority_source_count": 0,
+        "production_authority_revision_count": 0,
+        "w23_execution_authorization_verified": False,
+        "execution_occurrence_verified": False,
+        "execution_consumption_verified": False,
+        "execution_authorization_consumed_once": False,
+        "fresh_execution_authority_issued": False,
+        "fresh_execution_claimed": False,
+        "promotion_observed": False,
+        "deployment_readback_verified": False,
+        "health_window_verified": False,
+        "previous_safe_deployment_verified": False,
+        "rollback_authorization_verified": False,
+        "rollback_occurrence_verified": False,
+        "rollback_observation_verified": False,
+        "workflow_dispatched": False,
+        "endpoint_contacted": False,
         "merge_claimed": False,
         "deployment_claimed": False,
         "promotion_claimed": False,
@@ -374,9 +606,12 @@ class FrozenExecutionDeploymentRollbackReadback:
         self,
         snapshot: dict[str, Any],
         w23_gate: FrozenPromotionExecutionHandoff | None = None,
+        *,
+        test_only_registry: bool = False,
     ):
         self.snapshot = deepcopy(snapshot)
         self.w23_gate = w23_gate or FrozenPromotionExecutionHandoff.load()
+        self.test_only_registry = test_only_registry
         try:
             self._validate_snapshot()
         except (KeyError, LookupError, TypeError, ValueError) as error:
@@ -394,31 +629,105 @@ class FrozenExecutionDeploymentRollbackReadback:
     ) -> "FrozenExecutionDeploymentRollbackReadback":
         return cls(snapshot, w23_gate=w23_gate)
 
+    @classmethod
+    def from_test_snapshot(
+        cls,
+        snapshot: dict[str, Any],
+        w23_gate: FrozenPromotionExecutionHandoff,
+    ) -> "FrozenExecutionDeploymentRollbackReadback":
+        """Build an explicitly non-production fixture with synthetic authorities."""
+        return cls(
+            snapshot,
+            w23_gate=w23_gate,
+            test_only_registry=True,
+        )
+
     def _validate_snapshot(self) -> None:
+        expected_top_level = {
+            "schema",
+            "phase",
+            "predecessor",
+            "control_predecessor_observation",
+            "return_contract",
+            "verifier_coordinates",
+            "authority_registry_admission",
+            "authority_registry",
+            "execution_occurrence_ledger",
+            "execution_consumption_ledger",
+            "deployment_readback_ledger",
+            "previous_safe_deployment_ledger",
+            "rollback_occurrence_ledger",
+            "boundaries",
+            "successor",
+            "contract_digest",
+        }
+        if set(self.snapshot) != expected_top_level:
+            raise ValueError("W24 top-level shape mismatch")
         if self.snapshot.get("schema") != SCHEMA or self.snapshot.get("phase") != PHASE:
             raise ValueError("W24 schema/phase mismatch")
-        predecessor = self.snapshot["predecessor"]
-        exact = {
-            "w23_head": W23_HEAD,
-            "w23_tree": W23_TREE,
-            "w23_sole_parent": W23_PARENT,
-            "w23_contract_digest": W23_CONTRACT,
-            "w23_receipt_id": W23_RECEIPT,
-        }
-        if {key: predecessor.get(key) for key in exact} != exact:
-            raise ValueError("W23 predecessor mismatch")
-        if predecessor.get("w23_image_published") is not False:
-            raise ValueError("W23 workflow-local image must remain unpublished")
-        control = self.snapshot["control_predecessor_observation"]
+        if self.snapshot["predecessor"] != _expected_predecessor():
+            raise ValueError("W23/W24 predecessor mismatch")
         if (
-            control.get("head")
-            != "7909f6fd5d9f58ecfde0f23e5f6fd41e9b731ce5"
-            or control.get("grants_production_authority") is not False
+            self.snapshot["control_predecessor_observation"]
+            != _expected_control_observation()
         ):
             raise ValueError("control predecessor mismatch")
+        if self.snapshot["return_contract"] != _expected_return_contract():
+            raise ValueError("W24 return contract drift")
+        if self.snapshot["verifier_coordinates"] != _expected_verifier_coordinates():
+            raise ValueError("W24 verifier coordinate drift")
+        admission = self.snapshot["authority_registry_admission"]
+        if self.test_only_registry:
+            if (
+                set(admission)
+                != {
+                    "repository",
+                    "status",
+                    "source_digests",
+                    "revision_digests",
+                    "grants_production_authority",
+                }
+                or admission["repository"] != CANONICAL_GOVERNANCE_REPOSITORY
+                or admission["status"] != "TEST_ONLY_UNTRUSTED_FIXTURE"
+                or admission["grants_production_authority"] is not False
+            ):
+                raise ValueError("test-only authority registry admission mismatch")
+        elif admission != _expected_registry_admission():
+            raise ValueError("production authority registry is not admitted")
+        if self.snapshot["boundaries"] != _expected_boundaries():
+            raise ValueError("W24 protected boundaries drift")
+        if (
+            self.snapshot["successor"]
+            != "KC144.XNAV.W25::ADMIT-EXECUTION-DEPLOYMENT-ROLLBACK-RETURNS-AND-ISSUE-PERSISTENT-PROMOTION-SETTLEMENT"
+        ):
+            raise ValueError("W24 successor drift")
+        if self.test_only_registry:
+            canonical_w23 = _strict_loads(
+                W23_DATA_PATH.read_text(encoding="utf-8")
+            )
+            for field in (
+                "schema",
+                "phase",
+                "predecessor",
+                "control_predecessor_observation",
+                "w22_control_protocol_observation",
+                "execution_contract",
+                "successor",
+            ):
+                if self.w23_gate.snapshot.get(field) != canonical_w23[field]:
+                    raise ValueError("test W23 gate diverges from hardened contract")
+        elif (
+            self.w23_gate.snapshot.get("contract_digest")
+            != W23_HARDENED_CONTRACT
+        ):
+            raise ValueError("active W23 hardened gate mismatch")
         registry = self.snapshot["authority_registry"]
         if set(registry) != {"sources", "revisions"}:
             raise ValueError("authority registry shape mismatch")
+        if not isinstance(registry["sources"], list) or not isinstance(
+            registry["revisions"], list
+        ):
+            raise ValueError("authority registry coordinates must be arrays")
         self.sources: dict[str, dict[str, Any]] = {}
         self.revisions: dict[str, dict[str, Any]] = {}
         identities: dict[str, str] = {
@@ -446,6 +755,8 @@ class FrozenExecutionDeploymentRollbackReadback:
             source = self.sources.get(revision["source_digest"])
             if source is None or source["role"] != revision["role"]:
                 raise ValueError("revision source unpinned or role-mismatched")
+            if revision["repository"] != source["governance_repository"]:
+                raise ValueError("revision repository differs from authority source")
             if revision["revision_digest"] in self.revisions:
                 raise ValueError("duplicate authority revision")
             if revision["parent_revision_digest"] != source_tips.get(
@@ -463,9 +774,21 @@ class FrozenExecutionDeploymentRollbackReadback:
                     raise ValueError(f"{label} overlaps W23/W24 roles")
                 aliases[alias] = revision["role"]
             self.revisions[revision["revision_digest"]] = revision
+        source_digests = sorted(self.sources)
+        revision_digests = sorted(self.revisions)
+        if self.test_only_registry:
+            if (
+                admission["source_digests"] != source_digests
+                or admission["revision_digests"] != revision_digests
+            ):
+                raise ValueError("test-only authority digest admission mismatch")
+        elif source_digests or revision_digests:
+            raise ValueError("production authorities remain unadmitted")
         for name in (
             "execution_occurrence_ledger",
+            "execution_consumption_ledger",
             "deployment_readback_ledger",
+            "previous_safe_deployment_ledger",
             "rollback_occurrence_ledger",
         ):
             if self.snapshot.get(name) != []:
@@ -479,6 +802,8 @@ class FrozenExecutionDeploymentRollbackReadback:
         )
         if self.snapshot.get("contract_digest") != expected:
             raise ValueError("W24 contract digest mismatch")
+        if not self.test_only_registry and expected != W24_HARDENED_CONTRACT:
+            raise ValueError("W24 contract is not pinned outside the snapshot")
 
     def _authority(
         self, source_digest: str, revision_digest: str, role: str
@@ -519,20 +844,24 @@ class FrozenExecutionDeploymentRollbackReadback:
         return _merge(
             {
                 "status": (
-                    "W24_W23_CUSTODY_PINNED__EXECUTION_DEPLOYMENT_HEALTH_"
-                    "AND_ROLLBACK_RETURNS_OPEN"
+                    "W24_HARDENED_W23_VERIFIER_PINNED__PRODUCTION_AUTHORITIES_"
+                    "AND_ALL_EXECUTION_DEPLOYMENT_ROLLBACK_RETURNS_OPEN"
                 ),
                 "phase": PHASE,
-                "w23_head": W23_HEAD,
-                "w23_tree": W23_TREE,
-                "w23_contract_digest": W23_CONTRACT,
-                "w23_receipt_id": W23_RECEIPT,
+                "historical_w23_head": W23_HISTORICAL_HEAD,
+                "hardened_w23_head": W23_HARDENING_HEAD,
+                "hardened_w23_tree": W23_HARDENING_TREE,
+                "hardened_w23_contract_digest": W23_HARDENED_CONTRACT,
+                "hardened_w23_receipt_id": W23_HARDENING_RECEIPT,
                 "w23_image_published": False,
                 "authority_source_count": len(self.sources),
                 "authority_revision_count": len(self.revisions),
                 "execution_occurrence_count": 0,
+                "execution_consumption_count": 0,
                 "deployment_readback_count": 0,
+                "previous_safe_deployment_count": 0,
                 "rollback_occurrence_count": 0,
+                "test_only_registry": self.test_only_registry,
                 "successor": self.snapshot["successor"],
             },
             _negative(),
@@ -580,6 +909,22 @@ class FrozenExecutionDeploymentRollbackReadback:
             )
         challenge = _strict_loads(challenge_json)
         authorization = _strict_loads(authorization_json)
+        upstream_records = [
+            _strict_loads(value)
+            for value in (
+                publication_json,
+                publication_observation_json,
+                policy_a_json,
+                policy_b_json,
+                authorization_json,
+            )
+        ]
+        upstream_occurrence_ids = {
+            _identifier(record["occurrence_id"], "W23 occurrence_id")
+            for record in upstream_records
+        }
+        if len(upstream_occurrence_ids) != len(upstream_records):
+            raise ValueError("W23 occurrence axes overlap")
         return {
             "target": closure["target"],
             "policy_digest": _sha(
@@ -590,6 +935,7 @@ class FrozenExecutionDeploymentRollbackReadback:
             ),
             "authorized_at": authorization["authorized_at"],
             "execution_expires_at": closure["execution_expires_at"],
+            "occurrence_ids": upstream_occurrence_ids,
         }
 
     def _execution(self, text: str, w23: dict[str, Any]) -> dict[str, Any]:
@@ -631,8 +977,92 @@ class FrozenExecutionDeploymentRollbackReadback:
         _verify(record, revision, "execution_digest", record["completed_at"])
         return record
 
+    def _execution_consumption(
+        self,
+        text: str,
+        w23: dict[str, Any],
+        execution: dict[str, Any],
+    ) -> dict[str, Any]:
+        record = _record(
+            text,
+            fields=CONSUMPTION_FIELDS,
+            schema=CONSUMPTION_SCHEMA,
+            digest_fields=(
+                "w23_authorization_digest",
+                "execution_digest",
+                "dispatch_digest",
+                "previous_ledger_root_digest",
+                "consumed_ledger_root_digest",
+                "execution_consumption_digest",
+            ),
+            id_fields=(
+                "occurrence_id",
+                "execution_occurrence_id",
+                "provider_execution_id",
+            ),
+            digest_field="execution_consumption_digest",
+        )
+        expected_root = _digest(
+            {
+                "schema": (
+                    "athena.w24-execution-authorization-consumption-ledger/v1"
+                ),
+                "previous_ledger_root_digest": record[
+                    "previous_ledger_root_digest"
+                ],
+                "w23_authorization_digest": w23["authorization_digest"],
+                "execution_digest": execution["execution_digest"],
+                "execution_occurrence_id": execution["occurrence_id"],
+                "provider_execution_id": execution["provider_execution_id"],
+                "dispatch_digest": execution["dispatch_digest"],
+            }
+        )
+        if (
+            record["w23_authorization_digest"] != w23["authorization_digest"]
+            or record["execution_digest"] != execution["execution_digest"]
+            or record["execution_occurrence_id"] != execution["occurrence_id"]
+            or record["provider_execution_id"]
+            != execution["provider_execution_id"]
+            or record["dispatch_digest"] != execution["dispatch_digest"]
+            or type(record["prior_consumption_count"]) is not int
+            or record["prior_consumption_count"] != 0
+            or record["consumption_state"] != "CONSUMED_ONCE"
+            or record["consumed_ledger_root_digest"] != expected_root
+        ):
+            raise ValueError("execution authorization consumption proof invalid")
+        observed = _timestamp(
+            record["observed_at"], "execution consumption observed_at"
+        )
+        if not (
+            _timestamp(execution["completed_at"], "execution.completed_at")
+            <= observed
+            <= _timestamp(w23["execution_expires_at"], "w23.expires_at")
+        ):
+            raise ValueError("execution consumption chronology invalid")
+        _, revision = self._authority(
+            record["source_digest"],
+            record["revision_digest"],
+            "EXECUTION_CONSUMPTION_OBSERVER",
+        )
+        self._scope(
+            revision, target=record["target"], policy_digest=w23["policy_digest"]
+        )
+        if record["target"] != w23["target"]:
+            raise ValueError("execution consumption target mismatch")
+        _verify(
+            record,
+            revision,
+            "execution_consumption_digest",
+            record["observed_at"],
+        )
+        return record
+
     def _promotion(
-        self, text: str, w23: dict[str, Any], execution: dict[str, Any]
+        self,
+        text: str,
+        w23: dict[str, Any],
+        execution: dict[str, Any],
+        consumption: dict[str, Any],
     ) -> dict[str, Any]:
         record = _record(
             text,
@@ -651,7 +1081,9 @@ class FrozenExecutionDeploymentRollbackReadback:
             or record["target"] != w23["target"]
             or record["observed_state"] != "PROMOTED"
             or _timestamp(record["observed_at"], "promotion.observed_at")
-            < _timestamp(execution["completed_at"], "execution.completed_at")
+            < _timestamp(
+                consumption["observed_at"], "execution consumption observed_at"
+            )
         ):
             raise ValueError("promotion observation does not bind execution")
         _, revision = self._authority(
@@ -693,19 +1125,20 @@ class FrozenExecutionDeploymentRollbackReadback:
             digest_field="deployment_readback_digest",
         )
         target_digest = w23["target"]["published_image_digest"]
+        expected_reference = CANONICAL_REGISTRY_NAMESPACE + "@" + target_digest
         if (
             record["execution_digest"] != execution["execution_digest"]
             or record["promotion_observation_digest"]
             != promotion["promotion_observation_digest"]
             or record["target"] != w23["target"]
             or record["manifest_digest"] != target_digest
-            or not record["immutable_reference"].endswith("@" + target_digest)
+            or record["immutable_reference"] != expected_reference
         ):
             raise ValueError("deployment readback does not bind immutable target")
         deployed = _timestamp(record["deployed_at"], "deployment.deployed_at")
         observed = _timestamp(record["observed_at"], "deployment.observed_at")
         if not (
-            _timestamp(execution["completed_at"], "execution.completed_at")
+            _timestamp(promotion["observed_at"], "promotion.observed_at")
             <= deployed
             <= observed
         ):
@@ -776,12 +1209,78 @@ class FrozenExecutionDeploymentRollbackReadback:
         _verify(record, revision, "health_window_digest", record["last_observed_at"])
         return record
 
+    def _previous_safe_deployment(
+        self,
+        text: str,
+        w23: dict[str, Any],
+        execution: dict[str, Any],
+    ) -> dict[str, Any]:
+        record = _record(
+            text,
+            fields=PREVIOUS_SAFE_FIELDS,
+            schema=PREVIOUS_SAFE_SCHEMA,
+            digest_fields=(
+                "safe_image_digest",
+                "manifest_digest",
+                "provider_readback_digest",
+                "admission_digest",
+                "health_root_digest",
+                "previous_safe_certificate_digest",
+            ),
+            id_fields=("occurrence_id", "deployment_id"),
+            digest_field="previous_safe_certificate_digest",
+        )
+        expected_reference = (
+            CANONICAL_REGISTRY_NAMESPACE + "@" + record["safe_image_digest"]
+        )
+        if (
+            record["target"] != w23["target"]
+            or record["safe_image_digest"]
+            == w23["target"]["published_image_digest"]
+            or record["manifest_digest"] != record["safe_image_digest"]
+            or record["immutable_reference"] != expected_reference
+            or record["health_state"] != "HEALTHY"
+        ):
+            raise ValueError("previous-safe deployment certificate invalid")
+        deployed = _timestamp(
+            record["deployed_at"], "previous-safe deployed_at"
+        )
+        healthy = _timestamp(
+            record["last_healthy_at"], "previous-safe last_healthy_at"
+        )
+        observed = _timestamp(
+            record["observed_at"], "previous-safe observed_at"
+        )
+        if not (
+            deployed
+            <= healthy
+            <= observed
+            <= _timestamp(execution["started_at"], "execution.started_at")
+        ):
+            raise ValueError("previous-safe deployment chronology invalid")
+        _, revision = self._authority(
+            record["source_digest"],
+            record["revision_digest"],
+            "PREVIOUS_SAFE_DEPLOYMENT_OBSERVER",
+        )
+        self._scope(
+            revision, target=record["target"], policy_digest=w23["policy_digest"]
+        )
+        _verify(
+            record,
+            revision,
+            "previous_safe_certificate_digest",
+            record["observed_at"],
+        )
+        return record
+
     def _rollback_authorization(
         self,
         text: str,
         w23: dict[str, Any],
         deployment: dict[str, Any],
         health: dict[str, Any],
+        previous_safe: dict[str, Any],
     ) -> dict[str, Any]:
         record = _record(
             text,
@@ -790,6 +1289,7 @@ class FrozenExecutionDeploymentRollbackReadback:
             digest_fields=(
                 "deployment_readback_digest",
                 "health_window_digest",
+                "previous_safe_certificate_digest",
                 "previous_safe_image_digest",
                 "rollback_plan_digest",
                 "rollback_authorization_digest",
@@ -801,9 +1301,11 @@ class FrozenExecutionDeploymentRollbackReadback:
             record["deployment_readback_digest"]
             != deployment["deployment_readback_digest"]
             or record["health_window_digest"] != health["health_window_digest"]
+            or record["previous_safe_certificate_digest"]
+            != previous_safe["previous_safe_certificate_digest"]
             or record["target"] != w23["target"]
             or record["previous_safe_image_digest"]
-            == w23["target"]["published_image_digest"]
+            != previous_safe["safe_image_digest"]
             or record["rollback_mode"] not in {"DRILL", "EMERGENCY"}
         ):
             raise ValueError("rollback authorization bindings invalid")
@@ -898,6 +1400,7 @@ class FrozenExecutionDeploymentRollbackReadback:
         deployment: dict[str, Any],
         authorization: dict[str, Any],
         occurrence: dict[str, Any],
+        previous_safe: dict[str, Any],
     ) -> dict[str, Any]:
         record = _record(
             text,
@@ -906,6 +1409,7 @@ class FrozenExecutionDeploymentRollbackReadback:
             digest_fields=(
                 "rollback_occurrence_digest",
                 "deployment_readback_digest",
+                "previous_safe_certificate_digest",
                 "observed_image_digest",
                 "provider_state_digest",
                 "rollback_observation_digest",
@@ -918,9 +1422,11 @@ class FrozenExecutionDeploymentRollbackReadback:
             != occurrence["rollback_occurrence_digest"]
             or record["deployment_readback_digest"]
             != deployment["deployment_readback_digest"]
+            or record["previous_safe_certificate_digest"]
+            != previous_safe["previous_safe_certificate_digest"]
             or record["target"] != w23["target"]
             or record["observed_image_digest"]
-            != authorization["previous_safe_image_digest"]
+            != previous_safe["safe_image_digest"]
             or record["observed_state"] != "ROLLED_BACK"
             or _timestamp(record["observed_at"], "rollback observation")
             < _timestamp(occurrence["completed_at"], "rollback completed")
@@ -951,9 +1457,11 @@ class FrozenExecutionDeploymentRollbackReadback:
         policy_b_json: str,
         execution_authorization_json: str,
         execution_json: str,
+        execution_consumption_json: str,
         promotion_json: str,
         deployment_json: str,
         health_json: str,
+        previous_safe_deployment_json: str,
         rollback_authorization_json: str,
         rollback_occurrence_json: str,
         rollback_observation_json: str,
@@ -967,13 +1475,25 @@ class FrozenExecutionDeploymentRollbackReadback:
             execution_authorization_json,
         )
         execution = self._execution(execution_json, w23)
-        promotion = self._promotion(promotion_json, w23, execution)
+        consumption = self._execution_consumption(
+            execution_consumption_json, w23, execution
+        )
+        promotion = self._promotion(
+            promotion_json, w23, execution, consumption
+        )
         deployment = self._deployment(
             deployment_json, w23, execution, promotion
         )
         health = self._health(health_json, w23, deployment)
+        previous_safe = self._previous_safe_deployment(
+            previous_safe_deployment_json, w23, execution
+        )
         rollback_authorization = self._rollback_authorization(
-            rollback_authorization_json, w23, deployment, health
+            rollback_authorization_json,
+            w23,
+            deployment,
+            health,
+            previous_safe,
         )
         rollback_occurrence = self._rollback_occurrence(
             rollback_occurrence_json,
@@ -987,13 +1507,39 @@ class FrozenExecutionDeploymentRollbackReadback:
             deployment,
             rollback_authorization,
             rollback_occurrence,
+            previous_safe,
         )
-        return (
-            w23,
+        w24_records = (
             execution,
+            consumption,
             promotion,
             deployment,
             health,
+            previous_safe,
+            rollback_authorization,
+            rollback_occurrence,
+            rollback_observation,
+        )
+        w24_occurrence_ids = {
+            record["occurrence_id"] for record in w24_records
+        }
+        if len(w24_occurrence_ids) != len(w24_records):
+            raise ValueError("W24 occurrence axes overlap")
+        if w24_occurrence_ids.intersection(w23["occurrence_ids"]):
+            raise ValueError("W23/W24 occurrence axes overlap")
+        if (
+            execution["provider_execution_id"]
+            == rollback_occurrence["provider_execution_id"]
+        ):
+            raise ValueError("execution and rollback provider axes overlap")
+        return (
+            w23,
+            execution,
+            consumption,
+            promotion,
+            deployment,
+            health,
+            previous_safe,
             rollback_authorization,
             rollback_occurrence,
             rollback_observation,
@@ -1045,9 +1591,11 @@ class FrozenExecutionDeploymentRollbackReadback:
         policy_b_json: str,
         execution_authorization_json: str,
         execution_json: str,
+        execution_consumption_json: str,
         promotion_json: str,
         deployment_json: str,
         health_json: str,
+        previous_safe_deployment_json: str,
         rollback_authorization_json: str,
         rollback_occurrence_json: str,
         rollback_observation_json: str,
@@ -1056,9 +1604,11 @@ class FrozenExecutionDeploymentRollbackReadback:
             (
                 w23,
                 execution,
+                consumption,
                 promotion,
                 deployment,
                 health,
+                previous_safe,
                 rollback_authorization,
                 rollback_occurrence,
                 rollback_observation,
@@ -1070,9 +1620,11 @@ class FrozenExecutionDeploymentRollbackReadback:
                 policy_b_json,
                 execution_authorization_json,
                 execution_json,
+                execution_consumption_json,
                 promotion_json,
                 deployment_json,
                 health_json,
+                previous_safe_deployment_json,
                 rollback_authorization_json,
                 rollback_occurrence_json,
                 rollback_observation_json,
@@ -1081,6 +1633,9 @@ class FrozenExecutionDeploymentRollbackReadback:
                 "schema": CLOSURE_SCHEMA,
                 "w23_authorization_digest": w23["authorization_digest"],
                 "execution_digest": execution["execution_digest"],
+                "execution_consumption_digest": consumption[
+                    "execution_consumption_digest"
+                ],
                 "promotion_observation_digest": promotion[
                     "promotion_observation_digest"
                 ],
@@ -1088,6 +1643,9 @@ class FrozenExecutionDeploymentRollbackReadback:
                     "deployment_readback_digest"
                 ],
                 "health_window_digest": health["health_window_digest"],
+                "previous_safe_certificate_digest": previous_safe[
+                    "previous_safe_certificate_digest"
+                ],
                 "rollback_authorization_digest": rollback_authorization[
                     "rollback_authorization_digest"
                 ],
@@ -1099,21 +1657,32 @@ class FrozenExecutionDeploymentRollbackReadback:
                 ],
                 "target": w23["target"],
                 "settlement_state": "ROLLED_BACK_TO_PREVIOUS_SAFE_IMAGE",
+                "historical_return_only": True,
+                "exact_replay_is_idempotent": True,
+                "fresh_execution_authority_issued": False,
+                "fresh_execution_claimed": False,
+                "verifier_coordinates": self.snapshot["verifier_coordinates"],
             }
             certificate["certificate_digest"] = _digest(certificate)
             return _merge(
                 {
                     "status": (
-                        "PASS_W24_EXECUTION_DEPLOYMENT_HEALTH_AND_ROLLBACK_"
-                        "READBACK_VERIFIED__PERSISTENT_SETTLEMENT_OPEN"
+                        "PASS_W24_HISTORICAL_EXECUTION_CONSUMPTION_DEPLOYMENT_"
+                        "HEALTH_AND_ROLLBACK_READBACK_VERIFIED__NO_FRESH_"
+                        "AUTHORITY_OR_EXECUTION_CLAIMED__PERSISTENT_SETTLEMENT_OPEN"
                     ),
                     "closure_certificate": certificate,
                     "target": w23["target"],
                     "w23_execution_authorization_verified": True,
                     "execution_occurrence_verified": True,
+                    "execution_consumption_verified": True,
+                    "execution_authorization_consumed_once": True,
+                    "fresh_execution_authority_issued": False,
+                    "fresh_execution_claimed": False,
                     "promotion_observed": True,
                     "deployment_readback_verified": True,
                     "health_window_verified": True,
+                    "previous_safe_deployment_verified": True,
                     "rollback_authorization_verified": True,
                     "rollback_occurrence_verified": True,
                     "rollback_observation_verified": True,
@@ -1142,15 +1711,19 @@ class FrozenExecutionDeploymentRollbackReadback:
             {
                 "status": "PASS_W24_RETURN_SEPARATION_LAW_EXPLAINED",
                 "law": (
-                    "AUTHORIZATION != EXECUTION; EXECUTION != INDEPENDENT "
-                    "PROMOTION OBSERVATION; PROMOTION OBSERVATION != DEPLOYMENT "
-                    "READBACK; DEPLOYMENT != HEALTH WINDOW; ROLLBACK AUTHORIZATION "
-                    "!= ROLLBACK OCCURRENCE; OCCURRENCE != INDEPENDENT READBACK"
+                    "AUTHORIZATION != EXECUTION != ONE-SHOT CONSUMPTION "
+                    "OBSERVATION; EXECUTION != INDEPENDENT PROMOTION OBSERVATION; "
+                    "PROMOTION OBSERVATION != DEPLOYMENT READBACK; DEPLOYMENT != "
+                    "HEALTH WINDOW; ARBITRARY DIGEST != PREVIOUS-SAFE DEPLOYMENT; "
+                    "ROLLBACK AUTHORIZATION != ROLLBACK OCCURRENCE; OCCURRENCE != "
+                    "INDEPENDENT READBACK; HISTORICAL REPLAY != FRESH AUTHORITY"
                 ),
                 "required_roles": list(ROLES),
                 "runtime_is_verifier_only": True,
                 "runtime_dispatches": False,
                 "runtime_contacts_endpoint": False,
+                "exact_historical_replay_is_idempotent": True,
+                "historical_replay_grants_fresh_authority": False,
             },
             _negative(),
         )
@@ -1227,6 +1800,9 @@ def register_execution_deployment_rollback_readback(mcp: Any) -> None:
                 "schema": DEPLOYMENT_SCHEMA,
                 "required_role": "DEPLOYMENT_OBSERVER",
                 "immutable_manifest_binding_required": True,
+                "canonical_registry_namespace": CANONICAL_REGISTRY_NAMESPACE,
+                "previous_safe_schema": PREVIOUS_SAFE_SCHEMA,
+                "previous_safe_role": "PREVIOUS_SAFE_DEPLOYMENT_OBSERVER",
                 "raw_endpoint_recorded": False,
                 **_negative(),
             }
@@ -1292,9 +1868,11 @@ def register_execution_deployment_rollback_readback(mcp: Any) -> None:
         policy_b_json: str,
         execution_authorization_json: str,
         execution_json: str,
+        execution_consumption_json: str,
         promotion_json: str,
         deployment_json: str,
         health_json: str,
+        previous_safe_deployment_json: str,
         rollback_authorization_json: str,
         rollback_occurrence_json: str,
         rollback_observation_json: str,
@@ -1309,9 +1887,11 @@ def register_execution_deployment_rollback_readback(mcp: Any) -> None:
                 policy_b_json,
                 execution_authorization_json,
                 execution_json,
+                execution_consumption_json,
                 promotion_json,
                 deployment_json,
                 health_json,
+                previous_safe_deployment_json,
                 rollback_authorization_json,
                 rollback_occurrence_json,
                 rollback_observation_json,

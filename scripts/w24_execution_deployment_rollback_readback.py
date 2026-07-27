@@ -14,7 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "MCP"))
 
 from crystal_108d.execution_deployment_rollback_readback import (  # noqa: E402
+    CANONICAL_RUNTIME_REF,
+    CANONICAL_RUNTIME_REPOSITORY,
     FrozenExecutionDeploymentRollbackReadback,
+    W23_HARDENING_HEAD,
+    W24_HARDENED_CONTRACT,
+    WORKFLOW_PATH,
+)
+from crystal_108d.independent_authority_return import (  # noqa: E402
+    _commit,
+    _strict_loads,
 )
 
 
@@ -27,9 +36,11 @@ BUNDLE_FIELDS = (
     "policy_b",
     "execution_authorization",
     "execution",
+    "execution_consumption",
     "promotion",
     "deployment",
     "health",
+    "previous_safe_deployment",
     "rollback_authorization",
     "rollback_occurrence",
     "rollback_observation",
@@ -47,6 +58,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check-snapshot", action="store_true")
     parser.add_argument("--bundle", type=Path)
+    parser.add_argument("--verifier-repository")
+    parser.add_argument("--verifier-ref")
+    parser.add_argument("--verifier-head")
+    parser.add_argument("--verifier-parent-head")
+    parser.add_argument("--verifier-workflow")
     parser.add_argument(
         "--output",
         type=Path,
@@ -61,14 +77,21 @@ def main() -> int:
             "authority_source_count": 0,
             "authority_revision_count": 0,
             "execution_occurrence_count": 0,
+            "execution_consumption_count": 0,
             "deployment_readback_count": 0,
+            "previous_safe_deployment_count": 0,
             "rollback_occurrence_count": 0,
             "w23_image_published": False,
             "w23_execution_authorization_verified": False,
             "execution_occurrence_verified": False,
+            "execution_consumption_verified": False,
+            "execution_authorization_consumed_once": False,
+            "fresh_execution_authority_issued": False,
+            "fresh_execution_claimed": False,
             "promotion_observed": False,
             "deployment_readback_verified": False,
             "health_window_verified": False,
+            "previous_safe_deployment_verified": False,
             "rollback_authorization_verified": False,
             "rollback_occurrence_verified": False,
             "rollback_observation_verified": False,
@@ -92,14 +115,46 @@ def main() -> int:
     data = arguments.bundle.read_bytes()
     if len(data) > MAX_BUNDLE_BYTES:
         raise ValueError(f"bundle exceeds {MAX_BUNDLE_BYTES} bytes")
-    bundle = json.loads(data.decode("utf-8"))
+    bundle = _strict_loads(data.decode("utf-8"))
     if set(bundle) != set(BUNDLE_FIELDS):
         raise ValueError("bundle fields must exactly match W24 return topology")
+    verifier_values = {
+        "--verifier-repository": arguments.verifier_repository,
+        "--verifier-ref": arguments.verifier_ref,
+        "--verifier-head": arguments.verifier_head,
+        "--verifier-parent-head": arguments.verifier_parent_head,
+        "--verifier-workflow": arguments.verifier_workflow,
+    }
+    missing = [name for name, value in verifier_values.items() if value is None]
+    if missing:
+        raise ValueError(
+            "bundle validation requires verifier coordinates: "
+            + ", ".join(missing)
+        )
+    verifier_head = _commit(arguments.verifier_head, "verifier.head")
+    verifier_parent_head = _commit(
+        arguments.verifier_parent_head, "verifier.parent_head"
+    )
+    if (
+        arguments.verifier_repository != CANONICAL_RUNTIME_REPOSITORY
+        or arguments.verifier_ref != CANONICAL_RUNTIME_REF
+        or arguments.verifier_workflow != WORKFLOW_PATH
+        or verifier_parent_head != W23_HARDENING_HEAD
+    ):
+        raise ValueError("verifier runtime coordinate mismatch")
     records = [
         json.dumps(bundle[field], ensure_ascii=False, separators=(",", ":"))
         for field in BUNDLE_FIELDS
     ]
     result = gate.evaluate_closure(*records)
+    result["verification_run"] = {
+        "repository": arguments.verifier_repository,
+        "ref": arguments.verifier_ref,
+        "head": verifier_head,
+        "parent_head": verifier_parent_head,
+        "workflow": arguments.verifier_workflow,
+        "contract_digest": W24_HARDENED_CONTRACT,
+    }
     _write(arguments.output, result)
     print(json.dumps(result, indent=2, sort_keys=True))
     verified = bool(result.get("rollback_observation_verified"))

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import base64
 from copy import deepcopy
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -16,6 +17,7 @@ from typing import Any
 
 from .independent_authority_return import (
     _addressed,
+    _canonical_bytes,
     _commit,
     _digest,
     _exact,
@@ -29,6 +31,8 @@ from .independent_authority_return import (
 )
 from .promotion_execution_handoff import _target, _verify
 from .execution_deployment_rollback_readback import (
+    DEPLOYMENT_SCHEMA as W24_DEPLOYMENT_SCHEMA,
+    ROLLBACK_OBSERVATION_SCHEMA as W24_ROLLBACK_OBSERVATION_SCHEMA,
     FrozenExecutionDeploymentRollbackReadback,
 )
 
@@ -38,21 +42,34 @@ DATA_PATH = (
     / "data"
     / "w25_persistent_promotion_settlement.json"
 )
-SCHEMA = "athena.xnav-w25-persistent-promotion-settlement/v1"
+SCHEMA = "athena.xnav-w25-persistent-promotion-settlement-hardening/v1"
 PHASE = "KC144.XNAV.W25"
 
-SOURCE_SCHEMA = "athena.w25-settlement-authority-source/v1"
-REVISION_SCHEMA = "athena.w25-settlement-authority-revision/v1"
-PERSISTENCE_PROOF_SCHEMA = "athena.w25-return-persistence-proof/v1"
+SOURCE_SCHEMA = "athena.w25-settlement-authority-source/v2"
+REVISION_SCHEMA = "athena.w25-settlement-authority-revision/v2"
+PERSISTENCE_PROOF_SCHEMA = "athena.w25-return-persistence-proof/v2"
 PERSISTENCE_OBSERVATION_SCHEMA = (
-    "athena.w25-return-persistence-observation/v1"
+    "athena.w25-return-persistence-observation/v2"
 )
-SETTLEMENT_SCHEMA = "athena.w25-promotion-settlement/v1"
+SETTLEMENT_SCHEMA = "athena.w25-promotion-settlement/v2"
 SETTLEMENT_OBSERVATION_SCHEMA = (
-    "athena.w25-promotion-settlement-observation/v1"
+    "athena.w25-promotion-settlement-observation/v2"
 )
-CLOSURE_SCHEMA = "athena.w25-persistent-promotion-settlement-closure/v1"
-BUNDLE_SCHEMA = "athena.w25-w24-return-bundle/v1"
+CLOSURE_SCHEMA = "athena.w25-persistent-promotion-settlement-closure/v2"
+BUNDLE_SCHEMA = "athena.w25-w24-return-bundle/v2"
+LOCATOR_SCHEMA = "athena.w25-immutable-locator-commitment/v1"
+REPLAY_GUARD_SCHEMA = "athena.w25-settlement-replay-guard/v1"
+EXTERNAL_LEDGER_SCHEMA = "athena.w25-external-settlement-ledger-entry/v1"
+
+CANONICAL_GOVERNANCE_REPOSITORY = "demeet2k/Athena"
+CANONICAL_AUTHORITY_REF_PREFIX = "refs/heads/authority/w25/"
+CANONICAL_AUTHORITY_PATH_PREFIX = ".athena/authorities/w25/"
+CANONICAL_REGISTRY_NAMESPACE = "ghcr.io/demeet2k/athena-mcp"
+CANONICAL_PERSISTENCE_PROVIDER = "athena.control.object-store"
+CANONICAL_PERSISTENCE_NAMESPACE = "demeet2k/Athena/w24-return-bundles"
+MAXIMUM_STAGE_LAG_SECONDS = 900
+MAXIMUM_SETTLEMENT_AGE_SECONDS = 3600
+MAXIMUM_VERIFICATION_LAG_SECONDS = 900
 
 W24_HEAD = "6906afa2cab034f51ae7d86aae409bf0a6304a91"
 W24_TREE = "e571caf572a7ee4baa553016c0f9e7315551ecab"
@@ -66,6 +83,29 @@ W24_RECEIPT = (
 )
 W24_LOCAL_IMAGE = (
     "sha256:dad2c2dbcaa8a62d24cf196791a897f359e772526d17ad35b3fd65ed69481f3f"
+)
+W23_HARDENED_CONTRACT = (
+    "sha256:3630dd1c67a19865c5c2e24b757f93e8c7a070439a329e70f22f281a72f53613"
+)
+W23_HARDENING_HEAD = "5ee30b98e4a6653fcbce65d733513b1e25529ddd"
+W23_HARDENING_TREE = "02808be32a3aa76f0c1556b1dd736512b1523485"
+W23_HARDENING_PARENT = "05d012f2e8cad0ea2d64e3b2fb8ae453b75350de"
+W23_HARDENING_RECEIPT = (
+    "w23-execution-handoff-hardening:sha256:"
+    "b88d514648c1562177fd1697e1a5c93cb371c13f8418dc59ef6f1652399aa69e"
+)
+# Replaced with the exact published W24 hardening coordinates before handoff.
+W24_HARDENED_CONTRACT = (
+    "sha256:ddb09f939d8b9d1662e34b1558f0ba596e7ac70aa0b1a99098b7723b7cd45f3f"
+)
+W24_HARDENING_RECEIPT = (
+    "w24-return-readback-hardening:sha256:"
+    "8c7a51b23c6214b785a37ecbfea8d972460cab499acb0ada4e0ad6f7d1bc8320"
+)
+# Externally pins the checked-in production-empty W25 contract. Recomputed only
+# when this append-only hardening snapshot is finalized.
+W25_CONTRACT = (
+    "sha256:0812a9359091359ca383172335d533e1a3c2f4666802a3c1ac529d1fb55394f7"
 )
 
 ROLES = {
@@ -111,6 +151,16 @@ SCOPE_FIELDS = {
     "environment",
     "policy_digest",
 }
+LOCATOR_FIELDS = {
+    "schema",
+    "storage_provider",
+    "namespace",
+    "object_key",
+    "version_id",
+    "retention_mode",
+    "retention_until",
+    "locator_commitment_digest",
+}
 PERSISTENCE_PROOF_FIELDS = {
     "schema",
     "source_digest",
@@ -123,7 +173,7 @@ PERSISTENCE_PROOF_FIELDS = {
     "object_digest",
     "object_size_bytes",
     "storage_class",
-    "immutable_locator_hash",
+    "locator_commitment",
     "persisted_at",
     "retention_until",
     "signature",
@@ -136,7 +186,7 @@ PERSISTENCE_OBSERVATION_FIELDS = {
     "occurrence_id",
     "persistence_proof_digest",
     "object_digest",
-    "immutable_locator_hash",
+    "locator_commitment_digest",
     "readback_digest",
     "target",
     "observed_state",
@@ -170,6 +220,9 @@ SETTLEMENT_OBSERVATION_FIELDS = {
     "terminal_image_digest",
     "observed_disposition",
     "external_ledger_digest",
+    "w24_return_bundle_digest",
+    "prior_settlement_count",
+    "replay_guard_digest",
     "observed_at",
     "signature",
     "settlement_observation_digest",
@@ -204,6 +257,11 @@ def _source(value: Any) -> dict[str, Any]:
     }
     if normalized["schema"] != SOURCE_SCHEMA or normalized["role"] not in ROLES:
         raise ValueError("authority source schema/role mismatch")
+    if (
+        normalized["governance_repository"]
+        != CANONICAL_GOVERNANCE_REPOSITORY
+    ):
+        raise ValueError("authority source governance repository mismatch")
     if normalized["source_digest"] != _digest(
         _addressed(normalized, "source_digest")
     ):
@@ -257,6 +315,14 @@ def _revision(value: Any) -> dict[str, Any]:
     }
     if normalized["schema"] != REVISION_SCHEMA or normalized["role"] not in ROLES:
         raise ValueError("authority revision schema/role mismatch")
+    if (
+        normalized["repository"] != CANONICAL_GOVERNANCE_REPOSITORY
+        or not normalized["ref"].startswith(CANONICAL_AUTHORITY_REF_PREFIX)
+        or not normalized["path"].startswith(CANONICAL_AUTHORITY_PATH_PREFIX)
+        or ".." in normalized["path"]
+        or "//" in normalized["path"]
+    ):
+        raise ValueError("authority revision governance coordinates mismatch")
     if normalized["scope"]["operation"] != ROLES[normalized["role"]]:
         raise ValueError("authority revision capability mismatch")
     if _fingerprint(normalized["public_key_base64"]) != normalized["fingerprint"]:
@@ -269,6 +335,55 @@ def _revision(value: Any) -> dict[str, Any]:
         _addressed(normalized, "revision_digest")
     ):
         raise ValueError("authority revision digest mismatch")
+    expected_blob = _digest(
+        {
+            "schema": "athena.w25-authority-blob-provenance/v1",
+            "repository": normalized["repository"],
+            "ref": normalized["ref"],
+            "commit": normalized["commit"],
+            "tree": normalized["tree"],
+            "path": normalized["path"],
+            "content_digest": normalized["content_digest"],
+        }
+    )
+    if normalized["blob_digest"] != expected_blob:
+        raise ValueError("authority revision blob provenance mismatch")
+    return normalized
+
+
+def _locator(value: Any) -> dict[str, Any]:
+    raw = _exact(value, LOCATOR_FIELDS, "locator commitment")
+    normalized = {
+        "schema": _text(raw["schema"], "locator.schema"),
+        "storage_provider": _identifier(
+            raw["storage_provider"], "locator.storage_provider"
+        ),
+        "namespace": _text(raw["namespace"], "locator.namespace"),
+        "object_key": _sha(raw["object_key"], "locator.object_key"),
+        "version_id": _identifier(raw["version_id"], "locator.version_id"),
+        "retention_mode": _text(
+            raw["retention_mode"], "locator.retention_mode"
+        ),
+        "retention_until": _text(
+            raw["retention_until"], "locator.retention_until", limit=32
+        ),
+        "locator_commitment_digest": _sha(
+            raw["locator_commitment_digest"],
+            "locator.locator_commitment_digest",
+        ),
+    }
+    if (
+        normalized["schema"] != LOCATOR_SCHEMA
+        or normalized["storage_provider"] != CANONICAL_PERSISTENCE_PROVIDER
+        or normalized["namespace"] != CANONICAL_PERSISTENCE_NAMESPACE
+        or normalized["retention_mode"] != "COMPLIANCE_LOCKED"
+    ):
+        raise ValueError("immutable locator policy mismatch")
+    _timestamp(normalized["retention_until"], "locator.retention_until")
+    if normalized["locator_commitment_digest"] != _digest(
+        _addressed(normalized, "locator_commitment_digest")
+    ):
+        raise ValueError("immutable locator commitment digest mismatch")
     return normalized
 
 
@@ -309,6 +424,9 @@ def _negative() -> dict[str, bool | None]:
         "return_persistence_observed": False,
         "promotion_settlement_verified": False,
         "settlement_observation_verified": False,
+        "settlement_replay_guard_verified": False,
+        "settlement_closure_is_idempotent": False,
+        "verification_time": None,
         "settlement_disposition": None,
         "merge_claimed": False,
         "deployment_claimed": False,
@@ -323,11 +441,23 @@ class FrozenPersistentPromotionSettlement:
         self,
         snapshot: dict[str, Any],
         w24_gate: FrozenExecutionDeploymentRollbackReadback | None = None,
+        *,
+        verification_time: datetime | None = None,
+        allow_test_contract: bool = False,
     ):
         self.snapshot = deepcopy(snapshot)
         self.w24_gate = (
             w24_gate or FrozenExecutionDeploymentRollbackReadback.load()
         )
+        self._verification_time_override = verification_time
+        if (
+            verification_time is not None
+            and verification_time.tzinfo != timezone.utc
+        ):
+            raise PersistentPromotionSettlementError(
+                "verification time must use UTC"
+            )
+        self.allow_test_contract = allow_test_contract
         try:
             self._validate_snapshot()
         except (KeyError, LookupError, TypeError, ValueError) as error:
@@ -342,49 +472,144 @@ class FrozenPersistentPromotionSettlement:
         cls,
         snapshot: dict[str, Any],
         w24_gate: FrozenExecutionDeploymentRollbackReadback | None = None,
+        *,
+        verification_time: datetime | None = None,
+        allow_test_contract: bool = False,
     ) -> "FrozenPersistentPromotionSettlement":
-        return cls(snapshot, w24_gate=w24_gate)
+        return cls(
+            snapshot,
+            w24_gate=w24_gate,
+            verification_time=verification_time,
+            allow_test_contract=allow_test_contract,
+        )
 
     def _validate_snapshot(self) -> None:
+        expected_top_level = {
+            "schema",
+            "phase",
+            "predecessor",
+            "control_predecessor_observation",
+            "verifier_dependencies",
+            "settlement_contract",
+            "authority_registry",
+            "persistence_proof_ledger",
+            "persistence_observation_ledger",
+            "promotion_settlement_ledger",
+            "settlement_observation_ledger",
+            "boundaries",
+            "successor",
+            "contract_digest",
+        }
+        if set(self.snapshot) != expected_top_level:
+            raise ValueError("W25 top-level shape mismatch")
         if self.snapshot.get("schema") != SCHEMA or self.snapshot.get("phase") != PHASE:
             raise ValueError("W25 schema/phase mismatch")
-        predecessor = self.snapshot["predecessor"]
-        exact = {
+        predecessor = {
+            "runtime_repository": "demeet2k/athena-mcp-server",
+            "runtime_pull_request": 13,
+            "branch": "agent/w15-reconcile-capsule-deep-hardening",
             "w24_head": W24_HEAD,
             "w24_tree": W24_TREE,
             "w24_sole_parent": W24_PARENT,
             "w24_contract_digest": W24_CONTRACT,
             "w24_receipt_id": W24_RECEIPT,
+            "w24_p07_run_id": 30303718623,
+            "w24_p08_run_id": 30303718379,
+            "w24_stdio_receipt_id": (
+                "mcp-host:sha256:"
+                "8eba240a61375a770d3fd0c052e7a98991e9408e0b028be6779f0e6d8b893f87"
+            ),
+            "w24_candidate_receipt_id": (
+                "p08-candidate:sha256:"
+                "8a2e56a11480bcac9b77630403c76ab94ecb998754d4f3765a375ec3daad4ad2"
+            ),
+            "w24_workflow_local_image_id": W24_LOCAL_IMAGE,
+            "w24_image_published": False,
+            "w24_artifact_id": 8667624604,
+            "w24_artifact_digest": (
+                "sha256:"
+                "12cf2704867c883bc9491a19f0e91e10397a126167ef00d77dc7cb1fcddc5ede"
+            ),
         }
-        if {key: predecessor.get(key) for key in exact} != exact:
+        if self.snapshot["predecessor"] != predecessor:
             raise ValueError("W24 predecessor mismatch")
-        if predecessor.get("w24_image_published") is not False:
-            raise ValueError("W24 workflow-local image must remain unpublished")
-        control = self.snapshot["control_predecessor_observation"]
-        if (
-            control.get("head")
-            != "b02329d006622ff6e524b197f3a87c033abd8c3b"
-            or control.get("receipt_id")
-            != (
+        if self.snapshot["control_predecessor_observation"] != {
+            "repository": "demeet2k/Athena",
+            "pull_request": 22,
+            "branch": "agent/w24-admit-execution-deployment-rollback-readback",
+            "head": "b02329d006622ff6e524b197f3a87c033abd8c3b",
+            "base": "7909f6fd5d9f58ecfde0f23e5f6fd41e9b731ce5",
+            "receipt_id": (
                 "w24-control-admission:sha256:"
                 "a73dbc1aaf7e87ccefaf3e40f107301e14d1d1ff88439990e919ad2537a8f41d"
-            )
-            or control.get("grants_production_authority") is not False
-        ):
+            ),
+            "grants_production_authority": False,
+            "hosted_runner_status": "HOLD[PLATFORM_OBSTRUCTION_BEFORE_FIRST_STEP]",
+        }:
             raise ValueError("control predecessor mismatch")
-        contract = self.snapshot["settlement_contract"]
-        if (
-            contract.get("total_cross_wave_roles") != 17
-            or contract.get("rollback_terminal_state_must_settle_as")
-            != "REJECTED_ROLLED_BACK"
-            or contract.get("rollback_may_be_reclassified_as_promotion")
-            is not False
-            or contract.get("minimum_retention_seconds") != 31536000
-        ):
-            raise ValueError("settlement contract boundary mismatch")
+        dependencies = self.snapshot["verifier_dependencies"]
+        if dependencies != {
+            "active_w24_contract_digest": W24_HARDENED_CONTRACT,
+            "active_w24_hardening_receipt_id": W24_HARDENING_RECEIPT,
+            "active_w23_hardened_head": W23_HARDENING_HEAD,
+            "active_w23_hardened_tree": W23_HARDENING_TREE,
+            "active_w23_hardened_sole_parent": W23_HARDENING_PARENT,
+            "active_w23_hardened_contract_digest": W23_HARDENED_CONTRACT,
+            "active_w23_hardened_receipt_id": W23_HARDENING_RECEIPT,
+            "w24_hardening_is_correction_forward": True,
+            "w24_historical_predecessor_preserved": True,
+        }:
+            raise ValueError("W25 verifier dependency mismatch")
+        if self.snapshot["settlement_contract"] != {
+            "authority_source_schema": SOURCE_SCHEMA,
+            "authority_revision_schema": REVISION_SCHEMA,
+            "persistence_proof_schema": PERSISTENCE_PROOF_SCHEMA,
+            "persistence_observation_schema": PERSISTENCE_OBSERVATION_SCHEMA,
+            "promotion_settlement_schema": SETTLEMENT_SCHEMA,
+            "settlement_observation_schema": SETTLEMENT_OBSERVATION_SCHEMA,
+            "closure_schema": CLOSURE_SCHEMA,
+            "locator_commitment_schema": LOCATOR_SCHEMA,
+            "replay_guard_schema": REPLAY_GUARD_SCHEMA,
+            "external_ledger_schema": EXTERNAL_LEDGER_SCHEMA,
+            "roles": list(ROLES),
+            "total_cross_wave_roles": 19,
+            "w24_complete_return_bundle_required": True,
+            "w24_hardened_verifier_required": True,
+            "w23_hardened_verifier_required": True,
+            "content_addressed_persistence_required": True,
+            "structured_immutable_locator_required": True,
+            "canonical_object_size_required": True,
+            "canonical_deployment_reference_required": True,
+            "minimum_retention_seconds": 31536000,
+            "maximum_stage_lag_seconds": MAXIMUM_STAGE_LAG_SECONDS,
+            "maximum_settlement_age_seconds": MAXIMUM_SETTLEMENT_AGE_SECONDS,
+            "maximum_verification_lag_seconds": (
+                MAXIMUM_VERIFICATION_LAG_SECONDS
+            ),
+            "independent_persistence_observation_required": True,
+            "independent_settlement_observation_required": True,
+            "pairwise_disjoint_occurrence_axes_required": True,
+            "signed_no_prior_settlement_observation_required": True,
+            "rollback_terminal_state_must_settle_as": "REJECTED_ROLLED_BACK",
+            "rollback_may_be_reclassified_as_promotion": False,
+            "raw_storage_locator_recorded": False,
+            "self_supplied_sources_revisions_or_keys_allowed": False,
+            "cross_wave_identity_or_key_overlap_allowed": False,
+            "runtime_can_persist": False,
+            "runtime_can_issue_settlement": False,
+            "runtime_can_dispatch": False,
+            "runtime_can_contact_endpoint": False,
+            "runtime_can_execute": False,
+            "runtime_can_deploy_or_promote": False,
+        }:
+            raise ValueError("W25 settlement contract drift")
         registry = self.snapshot["authority_registry"]
         if set(registry) != {"sources", "revisions"}:
             raise ValueError("authority registry shape mismatch")
+        if not isinstance(registry["sources"], list) or not isinstance(
+            registry["revisions"], list
+        ):
+            raise ValueError("authority registry coordinates must be arrays")
         self.sources: dict[str, dict[str, Any]] = {}
         self.revisions: dict[str, dict[str, Any]] = {}
         earlier_sources = list(self.w24_gate.w23_gate.sources.values()) + list(
@@ -417,6 +642,10 @@ class FrozenPersistentPromotionSettlement:
             source = self.sources.get(revision["source_digest"])
             if source is None or source["role"] != revision["role"]:
                 raise ValueError("revision source unpinned or role-mismatched")
+            if revision["repository"] != source["governance_repository"]:
+                raise ValueError(
+                    "revision governance repository does not bind source"
+                )
             if revision["revision_digest"] in self.revisions:
                 raise ValueError("duplicate authority revision")
             if revision["parent_revision_digest"] != source_tips.get(
@@ -442,6 +671,34 @@ class FrozenPersistentPromotionSettlement:
         ):
             if self.snapshot.get(name) != []:
                 raise ValueError(f"checked-in production {name} must remain empty")
+        expected_boundaries = {
+            "w24_custody_pinned": True,
+            "w24_image_published": False,
+            "w24_hardened_verifier_pinned": True,
+            "w23_hardened_verifier_pinned": True,
+            "production_authority_source_count": len(self.sources),
+            "production_authority_revision_count": len(self.revisions),
+            "w24_return_bundle_verified": False,
+            "return_persistence_proved": False,
+            "return_persistence_observed": False,
+            "promotion_settlement_verified": False,
+            "settlement_observation_verified": False,
+            "settlement_replay_guard_verified": False,
+            "settlement_closure_is_idempotent": False,
+            "settlement_disposition": None,
+            "workflow_dispatched": False,
+            "endpoint_contacted": False,
+            "merge_claimed": False,
+            "deployment_claimed": False,
+            "promotion_claimed": False,
+        }
+        if self.snapshot["boundaries"] != expected_boundaries:
+            raise ValueError("W25 boundary drift")
+        if self.snapshot["successor"] != (
+            "KC144.XNAV.W26::RETURN-PERSISTENT-SETTLEMENT-TO-CONTROL-"
+            "LEDGER-AND-OPEN-INDEPENDENT-IC10-REVIEW"
+        ):
+            raise ValueError("W25 successor drift")
         expected = _digest(
             {
                 key: value
@@ -451,6 +708,18 @@ class FrozenPersistentPromotionSettlement:
         )
         if self.snapshot.get("contract_digest") != expected:
             raise ValueError("W25 contract digest mismatch")
+        if (
+            not self.allow_test_contract
+            and self.snapshot["contract_digest"] != W25_CONTRACT
+        ):
+            raise ValueError("W25 contract is not externally pinned")
+        active_w24 = self.w24_gate.snapshot.get("contract_digest")
+        active_w23 = self.w24_gate.w23_gate.snapshot.get("contract_digest")
+        if active_w24 != W24_HARDENED_CONTRACT:
+            if not self.allow_test_contract:
+                raise ValueError("active W24 verifier contract mismatch")
+        if active_w23 != W23_HARDENED_CONTRACT and not self.allow_test_contract:
+            raise ValueError("active W23 hardened verifier contract mismatch")
 
     def _authority(
         self, source_digest: str, revision_digest: str, role: str
@@ -466,6 +735,9 @@ class FrozenPersistentPromotionSettlement:
         ):
             raise ValueError("authority role mismatch")
         return source, revision
+
+    def _verification_time(self) -> datetime:
+        return self._verification_time_override or datetime.now(timezone.utc)
 
     def _scope(
         self,
@@ -531,8 +803,8 @@ class FrozenPersistentPromotionSettlement:
             return self._hold("HOLD_W25_AUTHORITY_COORDINATE_UNPINNED", error)
 
     def _w24(self, record_jsons: tuple[str, ...]) -> dict[str, Any]:
-        if len(record_jsons) != 13:
-            raise ValueError("W24 return topology requires exactly 13 records")
+        if len(record_jsons) != 15:
+            raise ValueError("W24 hardened return topology requires exactly 15 records")
         closure = self.w24_gate.evaluate_closure(*record_jsons)
         if (
             closure.get("rollback_observation_verified") is not True
@@ -541,21 +813,47 @@ class FrozenPersistentPromotionSettlement:
             != "ROLLED_BACK_TO_PREVIOUS_SAFE_IMAGE"
         ):
             raise ValueError("complete W24 rollback-terminal closure not verified")
-        (
-            w23,
-            _execution,
-            _promotion,
-            _deployment,
-            _health,
-            _rollback_authorization,
-            _rollback_occurrence,
-            rollback_observation,
-        ) = self.w24_gate._all(*record_jsons)
+        verified = self.w24_gate._all(*record_jsons)
+        w23 = verified[0]
         certificate = closure["closure_certificate"]
+        parsed = [_strict_loads(text) for text in record_jsons]
+        deployment_records = [
+            item for item in parsed if item.get("schema") == W24_DEPLOYMENT_SCHEMA
+        ]
+        rollback_records = [
+            item
+            for item in parsed
+            if item.get("schema") == W24_ROLLBACK_OBSERVATION_SCHEMA
+        ]
+        if len(deployment_records) != 1 or len(rollback_records) != 1:
+            raise ValueError("W24 deployment/rollback topology mismatch")
+        deployment = deployment_records[0]
+        rollback_observation = rollback_records[0]
+        expected_reference = (
+            CANONICAL_REGISTRY_NAMESPACE
+            + "@"
+            + w23["target"]["published_image_digest"]
+        )
+        if deployment.get("immutable_reference") != expected_reference:
+            raise ValueError(
+                "W24 deployment reference is not canonical publication target"
+            )
         bundle = {
             "schema": BUNDLE_SCHEMA,
-            "records": [_strict_loads(text) for text in record_jsons],
+            "records": parsed,
         }
+        upstream_axes: set[str] = set()
+        for record in parsed:
+            for field in (
+                "nonce",
+                "occurrence_id",
+                "provider_execution_id",
+                "deployment_id",
+            ):
+                if field in record:
+                    upstream_axes.add(
+                        _identifier(record[field], f"w24.{field}")
+                    )
         return {
             "target": w23["target"],
             "policy_digest": w23["policy_digest"],
@@ -564,6 +862,8 @@ class FrozenPersistentPromotionSettlement:
                 "w24.closure_certificate_digest",
             ),
             "return_bundle_digest": _digest(bundle),
+            "return_bundle_size_bytes": len(_canonical_bytes(bundle)),
+            "upstream_occurrence_axes": upstream_axes,
             "rollback_observation_digest": rollback_observation[
                 "rollback_observation_digest"
             ],
@@ -585,12 +885,13 @@ class FrozenPersistentPromotionSettlement:
                 "w24_closure_certificate_digest",
                 "w24_rollback_observation_digest",
                 "object_digest",
-                "immutable_locator_hash",
                 "persistence_proof_digest",
             ),
             id_fields=("occurrence_id",),
             digest_field="persistence_proof_digest",
         )
+        record["locator_commitment"] = _locator(record["locator_commitment"])
+        locator = record["locator_commitment"]
         if (
             record["w24_return_bundle_digest"] != w24["return_bundle_digest"]
             or record["w24_closure_certificate_digest"]
@@ -598,10 +899,11 @@ class FrozenPersistentPromotionSettlement:
             or record["w24_rollback_observation_digest"]
             != w24["rollback_observation_digest"]
             or record["object_digest"] != w24["return_bundle_digest"]
+            or record["object_size_bytes"] != w24["return_bundle_size_bytes"]
             or record["target"] != w24["target"]
             or record["storage_class"] != "CONTENT_ADDRESSED_IMMUTABLE"
-            or type(record["object_size_bytes"]) is not int
-            or not 1 <= record["object_size_bytes"] <= 1073741824
+            or locator["object_key"] != record["object_digest"]
+            or locator["retention_until"] != record["retention_until"]
         ):
             raise ValueError("persistence proof bindings invalid")
         persisted = _timestamp(record["persisted_at"], "persistence.persisted_at")
@@ -612,6 +914,8 @@ class FrozenPersistentPromotionSettlement:
             persisted
             < _timestamp(w24["terminal_observed_at"], "w24.terminal_observed_at")
             or (retention - persisted).total_seconds() < 31536000
+            or self._verification_time() < persisted
+            or self._verification_time() > retention
         ):
             raise ValueError("persistence chronology/retention invalid")
         _, revision = self._authority(
@@ -645,7 +949,7 @@ class FrozenPersistentPromotionSettlement:
             digest_fields=(
                 "persistence_proof_digest",
                 "object_digest",
-                "immutable_locator_hash",
+                "locator_commitment_digest",
                 "readback_digest",
                 "persistence_observation_digest",
             ),
@@ -656,13 +960,22 @@ class FrozenPersistentPromotionSettlement:
             record["persistence_proof_digest"]
             != proof["persistence_proof_digest"]
             or record["object_digest"] != proof["object_digest"]
-            or record["immutable_locator_hash"]
-            != proof["immutable_locator_hash"]
+            or record["locator_commitment_digest"]
+            != proof["locator_commitment"]["locator_commitment_digest"]
             or record["readback_digest"] != proof["object_digest"]
             or record["target"] != w24["target"]
             or record["observed_state"] != "PERSISTED"
             or _timestamp(record["observed_at"], "persistence.observed_at")
             < _timestamp(proof["persisted_at"], "persistence.persisted_at")
+            or _timestamp(record["observed_at"], "persistence.observed_at")
+            > _timestamp(proof["retention_until"], "persistence.retention_until")
+            or (
+                _timestamp(record["observed_at"], "persistence.observed_at")
+                - _timestamp(proof["persisted_at"], "persistence.persisted_at")
+            ).total_seconds()
+            > MAXIMUM_STAGE_LAG_SECONDS
+            or _timestamp(record["observed_at"], "persistence.observed_at")
+            > self._verification_time()
         ):
             raise ValueError("persistence observation bindings invalid")
         _, revision = self._authority(
@@ -715,6 +1028,15 @@ class FrozenPersistentPromotionSettlement:
             or record["promotion_disposition"] != "REJECTED_ROLLED_BACK"
             or _timestamp(record["issued_at"], "settlement.issued_at")
             < _timestamp(observation["observed_at"], "persistence.observed_at")
+            or (
+                _timestamp(record["issued_at"], "settlement.issued_at")
+                - _timestamp(
+                    observation["observed_at"], "persistence.observed_at"
+                )
+            ).total_seconds()
+            > MAXIMUM_STAGE_LAG_SECONDS
+            or _timestamp(record["issued_at"], "settlement.issued_at")
+            > self._verification_time()
         ):
             raise ValueError(
                 "rollback-terminal promotion settlement bindings invalid"
@@ -753,10 +1075,37 @@ class FrozenPersistentPromotionSettlement:
                 "persistence_observation_digest",
                 "terminal_image_digest",
                 "external_ledger_digest",
+                "w24_return_bundle_digest",
+                "replay_guard_digest",
                 "settlement_observation_digest",
             ),
             id_fields=("occurrence_id",),
             digest_field="settlement_observation_digest",
+        )
+        expected_ledger = _digest(
+            {
+                "schema": EXTERNAL_LEDGER_SCHEMA,
+                "promotion_settlement_digest": settlement[
+                    "promotion_settlement_digest"
+                ],
+                "persistence_observation_digest": persistence[
+                    "persistence_observation_digest"
+                ],
+                "target": w24["target"],
+                "terminal_image_digest": settlement["terminal_image_digest"],
+                "observed_disposition": "REJECTED_ROLLED_BACK",
+            }
+        )
+        expected_replay_guard = _digest(
+            {
+                "schema": REPLAY_GUARD_SCHEMA,
+                "w24_return_bundle_digest": w24["return_bundle_digest"],
+                "promotion_settlement_digest": settlement[
+                    "promotion_settlement_digest"
+                ],
+                "settlement_observation_occurrence_id": record["occurrence_id"],
+                "prior_settlement_count": 0,
+            }
         )
         if (
             record["promotion_settlement_digest"]
@@ -767,8 +1116,26 @@ class FrozenPersistentPromotionSettlement:
             or record["terminal_image_digest"]
             != settlement["terminal_image_digest"]
             or record["observed_disposition"] != "REJECTED_ROLLED_BACK"
+            or record["external_ledger_digest"] != expected_ledger
+            or record["w24_return_bundle_digest"]
+            != w24["return_bundle_digest"]
+            or type(record["prior_settlement_count"]) is not int
+            or record["prior_settlement_count"] != 0
+            or record["replay_guard_digest"] != expected_replay_guard
             or _timestamp(record["observed_at"], "settlement.observed_at")
             < _timestamp(settlement["issued_at"], "settlement.issued_at")
+            or (
+                _timestamp(record["observed_at"], "settlement.observed_at")
+                - _timestamp(settlement["issued_at"], "settlement.issued_at")
+            ).total_seconds()
+            > MAXIMUM_STAGE_LAG_SECONDS
+            or _timestamp(record["observed_at"], "settlement.observed_at")
+            > self._verification_time()
+            or (
+                self._verification_time()
+                - _timestamp(record["observed_at"], "settlement.observed_at")
+            ).total_seconds()
+            > MAXIMUM_VERIFICATION_LAG_SECONDS
         ):
             raise ValueError("settlement observation bindings invalid")
         _, revision = self._authority(
@@ -798,9 +1165,11 @@ class FrozenPersistentPromotionSettlement:
         policy_b_json: str,
         execution_authorization_json: str,
         execution_json: str,
+        execution_consumption_json: str,
         promotion_json: str,
         deployment_json: str,
         health_json: str,
+        previous_safe_deployment_json: str,
         rollback_authorization_json: str,
         rollback_occurrence_json: str,
         rollback_observation_json: str,
@@ -819,9 +1188,11 @@ class FrozenPersistentPromotionSettlement:
                     policy_b_json,
                     execution_authorization_json,
                     execution_json,
+                    execution_consumption_json,
                     promotion_json,
                     deployment_json,
                     health_json,
+                    previous_safe_deployment_json,
                     rollback_authorization_json,
                     rollback_occurrence_json,
                     rollback_observation_json,
@@ -838,11 +1209,34 @@ class FrozenPersistentPromotionSettlement:
                 persistence,
                 settlement,
             )
+            w25_axes = {
+                proof["occurrence_id"],
+                persistence["occurrence_id"],
+                settlement["settlement_id"],
+                observation["occurrence_id"],
+            }
+            if len(w25_axes) != 4:
+                raise ValueError("W25 occurrence axes must be pairwise disjoint")
+            if w25_axes & w24["upstream_occurrence_axes"]:
+                raise ValueError("W25 occurrence axis overlaps W23/W24 evidence")
+            if (
+                _timestamp(observation["observed_at"], "settlement.observed_at")
+                - _timestamp(proof["persisted_at"], "persistence.persisted_at")
+            ).total_seconds() > MAXIMUM_SETTLEMENT_AGE_SECONDS:
+                raise ValueError("W25 settlement chronology exceeds freshness window")
             certificate = {
                 "schema": CLOSURE_SCHEMA,
+                "active_w24_contract_digest": W24_HARDENED_CONTRACT,
+                "active_w23_hardened_contract_digest": W23_HARDENED_CONTRACT,
                 "w24_return_bundle_digest": w24["return_bundle_digest"],
+                "w24_return_bundle_size_bytes": w24[
+                    "return_bundle_size_bytes"
+                ],
                 "w24_closure_certificate_digest": w24[
                     "closure_certificate_digest"
+                ],
+                "locator_commitment_digest": proof["locator_commitment"][
+                    "locator_commitment_digest"
                 ],
                 "persistence_proof_digest": proof[
                     "persistence_proof_digest"
@@ -855,6 +1249,10 @@ class FrozenPersistentPromotionSettlement:
                 ],
                 "settlement_observation_digest": observation[
                     "settlement_observation_digest"
+                ],
+                "replay_guard_digest": observation["replay_guard_digest"],
+                "external_ledger_digest": observation[
+                    "external_ledger_digest"
                 ],
                 "target": w24["target"],
                 "terminal_image_digest": w24["terminal_image_digest"],
@@ -874,6 +1272,11 @@ class FrozenPersistentPromotionSettlement:
                     "return_persistence_observed": True,
                     "promotion_settlement_verified": True,
                     "settlement_observation_verified": True,
+                    "settlement_replay_guard_verified": True,
+                    "settlement_closure_is_idempotent": True,
+                    "verification_time": self._verification_time().isoformat().replace(
+                        "+00:00", "Z"
+                    ),
                     "settlement_disposition": "REJECTED_ROLLED_BACK",
                     "workflow_dispatched": False,
                     "endpoint_contacted": False,
@@ -908,7 +1311,7 @@ class FrozenPersistentPromotionSettlement:
                     "RECLASSIFIED AS SUCCESSFUL PROMOTION"
                 ),
                 "required_roles": list(ROLES),
-                "total_cross_wave_roles": 17,
+                "total_cross_wave_roles": 19,
                 "rollback_disposition": "REJECTED_ROLLED_BACK",
                 "runtime_is_verifier_only": True,
                 "runtime_persists": False,
@@ -984,9 +1387,11 @@ def register_persistent_promotion_settlement(mcp: Any) -> None:
         policy_b_json: str,
         execution_authorization_json: str,
         execution_json: str,
+        execution_consumption_json: str,
         promotion_json: str,
         deployment_json: str,
         health_json: str,
+        previous_safe_deployment_json: str,
         rollback_authorization_json: str,
         rollback_occurrence_json: str,
         rollback_observation_json: str,
@@ -1005,9 +1410,11 @@ def register_persistent_promotion_settlement(mcp: Any) -> None:
                 policy_b_json,
                 execution_authorization_json,
                 execution_json,
+                execution_consumption_json,
                 promotion_json,
                 deployment_json,
                 health_json,
+                previous_safe_deployment_json,
                 rollback_authorization_json,
                 rollback_occurrence_json,
                 rollback_observation_json,

@@ -102,7 +102,11 @@ jobs:
           python -m json.tool \
             .athena/receipts/w24-execution-deployment-rollback-readback.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w24-execution-deployment-rollback-readback-hardening.json >/dev/null
+          python -m json.tool \
             .athena/receipts/w25-persistent-promotion-settlement.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w25-persistent-promotion-settlement-hardening.json >/dev/null
           python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m json.tool \
