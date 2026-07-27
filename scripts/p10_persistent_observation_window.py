@@ -13,7 +13,6 @@ from pathlib import Path
 from typing import Any
 
 from scripts.p10_contract import canonical_bytes, validate_target, validate_token
-from scripts.p10_persistent_witness import _build_receipt, _observe
 from scripts.p10_provider_evidence import load_provider_evidence
 
 
@@ -156,6 +155,8 @@ async def observe_window(
     interval_seconds: float,
     per_sample_timeout: int,
 ) -> dict[str, Any]:
+    from scripts.p10_persistent_witness import _build_receipt, _observe
+
     if samples < MINIMUM_SAMPLES:
         raise ValueError(f"at least {MINIMUM_SAMPLES} samples are required")
     if interval_seconds < MINIMUM_INTERVAL_SECONDS:
