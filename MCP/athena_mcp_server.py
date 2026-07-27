@@ -80,6 +80,10 @@ register_source_mounts(mcp)
 from crystal_108d.memory_digest_capsules import register_memory_digest_capsules
 register_memory_digest_capsules(mcp)
 
+# ── W16 replay ledger and authority-evidence adjunction ────────────
+from crystal_108d.replay_authority_ledger import register_replay_authority_ledger
+register_replay_authority_ledger(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
