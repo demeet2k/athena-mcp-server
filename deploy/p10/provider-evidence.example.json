@@ -1,0 +1,16 @@
+{
+  "schema": "athena.provider-deployment-evidence/v1",
+  "provider_id": null,
+  "provider_account_scope": null,
+  "deployment_id": null,
+  "deployed_image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+  "image_digest": "sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+  "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+  "runtime_p09_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+  "endpoint": null,
+  "persistent_service": true,
+  "deployment_observed_at": null,
+  "secret_store_ref": null,
+  "secret_material_recorded": false,
+  "evidence_url": null
+}
