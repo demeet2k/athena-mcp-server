@@ -96,6 +96,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w22-independent-authority-return.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w23-promotion-execution-handoff.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m json.tool \
             MCP/data/w14_memory_digest_capsules.json >/dev/null
@@ -120,6 +122,8 @@ jobs:
           python -m json.tool \
             MCP/data/w22_independent_authority_return.json >/dev/null
           python -m json.tool \
+            MCP/data/w23_promotion_execution_handoff.json >/dev/null
+          python -m json.tool \
             tests/fixtures/w20_control_protocol_admission.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
@@ -135,6 +139,7 @@ jobs:
             MCP/crystal_108d/persistent_return_ic10.py \
             MCP/crystal_108d/ledger_commit_promotion_handoff.py \
             MCP/crystal_108d/independent_authority_return.py \
+            MCP/crystal_108d/promotion_execution_handoff.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
@@ -142,11 +147,13 @@ jobs:
             scripts/w19_provider_admission.py \
             scripts/w20_persistent_return_ic10.py \
             scripts/w21_ledger_commit_promotion_handoff.py \
-            scripts/w22_independent_authority_return.py
+            scripts/w22_independent_authority_return.py \
+            scripts/w23_promotion_execution_handoff.py
           python scripts/w19_provider_admission.py --check-snapshot
           python scripts/w20_persistent_return_ic10.py --check-snapshot
           python scripts/w21_ledger_commit_promotion_handoff.py --check-snapshot
           python scripts/w22_independent_authority_return.py --check-snapshot
+          python scripts/w23_promotion_execution_handoff.py --check-snapshot
 
       - name: Run fail-closed HTTP boundary tests
         run: python -m unittest tests.test_http_host -v
@@ -185,6 +192,7 @@ jobs:
               tests/test_w20_persistent_return_ic10.py \
               tests/test_w21_ledger_commit_promotion_handoff.py \
               tests/test_w22_independent_authority_return.py \
+              tests/test_w23_promotion_execution_handoff.py \
               -q
 
       - name: Build immutable candidate image

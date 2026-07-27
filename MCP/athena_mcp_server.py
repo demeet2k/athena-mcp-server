@@ -130,6 +130,12 @@ from crystal_108d.independent_authority_return import (
 )
 register_independent_authority_return(mcp)
 
+# ── W23 publication quorum and execution-authority handoff ─────────
+from crystal_108d.promotion_execution_handoff import (
+    register_promotion_execution_handoff,
+)
+register_promotion_execution_handoff(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

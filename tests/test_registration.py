@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 241, f"Expected 241 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 253, f"Expected 253 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 41, f"Expected 41 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 42, f"Expected 42 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -233,6 +233,25 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W22 independent-return tools: {missing}"
 
+    def test_w23_promotion_execution_handoff_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w23_promotion_execution_handoff_status",
+            "inspect_athena_w23_w22_custody",
+            "inspect_athena_w23_authority_source_revision",
+            "inspect_athena_w23_freshness_challenge",
+            "inspect_athena_w23_artifact_publication_proof",
+            "inspect_athena_w23_artifact_publication_observation",
+            "inspect_athena_w23_promotion_policy_decision",
+            "evaluate_athena_w23_two_policy_quorum",
+            "compile_athena_w23_execution_handoff",
+            "inspect_athena_w23_execution_authorization",
+            "evaluate_athena_w23_execution_handoff_closure",
+            "explain_athena_w23_execution_separation_law",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W23 promotion/execution tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -270,6 +289,7 @@ class TestRegistration:
             "athena://w20-persistent-return-ic10",
             "athena://w21-ledger-commit-promotion-handoff",
             "athena://w22-independent-authority-return",
+            "athena://w23-promotion-execution-handoff",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
