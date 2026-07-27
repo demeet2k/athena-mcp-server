@@ -72,6 +72,18 @@ register_108d_resources(mcp)
 from crystal_108d.federation_v2 import register_federation_v2
 register_federation_v2(mcp)
 
+# ── Frozen KC144 Docs-source coordinate mounts ─────────────────────
+from crystal_108d.source_mounts import register_source_mounts
+register_source_mounts(mcp)
+
+# ── W14 content-addressed memory capsules and endpoint gate ────────
+from crystal_108d.memory_digest_capsules import register_memory_digest_capsules
+register_memory_digest_capsules(mcp)
+
+# ── W15 opaque capsule replay and authority-packet ingress ─────────
+from crystal_108d.capsule_replay_ingress import register_capsule_replay_ingress
+register_capsule_replay_ingress(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
