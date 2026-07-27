@@ -1,0 +1,55 @@
+{
+  "schema": "athena.xnav-runtime-lineage-unification/v1",
+  "wave": "KC144.XNAV.W12",
+  "verdict": "PASS_STACKED_RUNTIME_SOURCE_MOUNT_PLUS_ACTIVATION_CANDIDATE_AUTHORITY_PENDING",
+  "observed_at": "2026-07-26 America/Los_Angeles",
+  "runtime": {
+    "base_head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+    "source_mount_consumer_head": "8c7c2bd7081cbc6b17ea8ab9c2b7520b54f06288",
+    "integration_branch": "agent/w12-unify-source-mount-p10-activation",
+    "control_integration_head": "473ea6d4e30f78a7147a9b453382637a244200fe",
+    "immutable_image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "image_rebuilt": false,
+    "relation": "STACKED_CANDIDATE_NOT_MERGED"
+  },
+  "capabilities": {
+    "source_mount_tools": [
+      "athena_source_mount_status",
+      "resolve_athena_source_mount",
+      "return_athena_source_mount"
+    ],
+    "source_mount_resource": "athena://source-mounts",
+    "activation_schema": "athena.persistent-host-activation-packet/v1",
+    "activation_preflight_networked": false,
+    "execute_live_witness_default": false,
+    "witness_plan": {
+      "sample_count": 3,
+      "interval_seconds": 20,
+      "minimum_span_seconds": 40
+    }
+  },
+  "evidence": {
+    "live_provider_return": "PASS_LIVE_PROVIDER_RETURN_NO_DRIFT",
+    "f07_drive_revision": "34",
+    "m09_drive_revision": "92",
+    "source_mount_consumer_prior_suite": "PASS[26]",
+    "activation_handoff_prior_suite": "PASS[21/21]",
+    "internal_blind_recall": "HOLD_COLD_RECALL_EXACT_TUPLES_NOT_RECOVERED"
+  },
+  "open_obligations": [
+    "Run hosted validation at this exact stacked runtime head.",
+    "Supply an authorized, secret-free activation packet.",
+    "Provision the bearer only through the protected environment.",
+    "Run the protected three-sample persistent endpoint witness.",
+    "Repair and rerun blind internal recall without target cues.",
+    "Submit evidence to control and IC10; do not self-promote."
+  ],
+  "authority": {
+    "endpoint_claimed": false,
+    "secret_recorded": false,
+    "merge_claimed": false,
+    "deployment_claimed": false,
+    "promotion_claimed": false,
+    "ic10_required": true
+  }
+}
