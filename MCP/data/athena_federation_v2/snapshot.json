@@ -12,5 +12,16 @@
   "edges": 26,
   "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
   "promotion_authority": false,
-  "fallback": "athena-108d-v1"
+  "fallback": "athena-108d-v1",
+  "release_candidate_blob": "c52d8153c725f4b8d585746292958a0005fb2fe0",
+  "cold_replay": {
+    "path": ".athena/receipts/p05-cold-replay.json",
+    "vendored_path": "MCP/data/athena_federation_v2/p05-cold-replay.json",
+    "blob": "9ead2227dde84a4072194e134d5f4187f5f98735",
+    "phase_verdict": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+    "canonical_passed": 10,
+    "alternate_passed": 0,
+    "alternate_checked": 11
+  },
+  "promotion_ready": false
 }
