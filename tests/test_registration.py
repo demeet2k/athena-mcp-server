@@ -34,7 +34,7 @@ class TestRegistration:
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 35, f"Expected 35 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 36, f"Expected 36 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -147,6 +147,17 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W17 provenance/dispatch tools: {missing}"
 
+    def test_w18_provider_trust_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w18_provider_trust_status",
+            "build_athena_w18_provider_return_template",
+            "inspect_athena_w18_provider_signed_return",
+            "evaluate_athena_w18_persistent_witness_return",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W18 provider-trust tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -178,6 +189,7 @@ class TestRegistration:
             "athena://authority-packet-ingress",
             "athena://w16-replay-ledger",
             "athena://w17-evidence-provenance-gate",
+            "athena://w18-provider-trust-anchor",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"

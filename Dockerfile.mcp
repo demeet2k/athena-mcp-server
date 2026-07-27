@@ -10,6 +10,7 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir \
     "mcp[cli]>=1.28.0,<2" \
+    "cryptography>=44,<48" \
     "starlette>=0.48,<2" \
     "uvicorn>=0.35,<1"
 

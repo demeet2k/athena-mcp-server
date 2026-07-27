@@ -96,6 +96,10 @@ register_replay_authority_ledger(mcp)
 from crystal_108d.evidence_provenance_gate import register_evidence_provenance_gate
 register_evidence_provenance_gate(mcp)
 
+# ── W18 provider trust-anchor and persistent-witness return gate ────
+from crystal_108d.provider_trust_anchor import register_provider_trust_anchor
+register_provider_trust_anchor(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
