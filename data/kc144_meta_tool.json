@@ -1,0 +1,12 @@
+{
+  "schema": "ATHENA-MYCELIUM-TOOL-1.0",
+  "tool_id": "KC144.META.COMPILER",
+  "version": "1.1.0",
+  "canonical_address": "amc://github/kc144/kc144-meta-compiler@1.1.0?lens=11#root",
+  "aliases": ["kc144", "meta compiler", "mental compiler", "navigation compiler", "mycelium compiler", "map of maps", "holographic framework"],
+  "capabilities": ["locate", "compile", "map", "station", "route", "status", "validate", "return-receipt"],
+  "entrypoint": "MCP/athena_mcp_server_kc144.py",
+  "registered_tools": ["locate_kc144", "use_kc144", "kc144_station", "kc144_route", "kc144_map", "kc144_status", "kc144_validate"],
+  "activation_route": ["MYCELIUM.LOCATE", "KC144.H06.COMPILE", "KC144.KC27.ADMIT", "KC144.MAP.SELECT", "KC144.ROUTE.EXECUTE", "KC144.SSN12.RETURN"],
+  "authority": {"production_evidence": [0, 86, 0, 1, 0], "truth_effect_of_navigation": "NONE", "i10_receipt": null, "m12": "HOLD", "qshrink": "NOT_REACHED"}
+}
