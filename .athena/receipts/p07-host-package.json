@@ -1,0 +1,58 @@
+{
+  "schema": "athena.mcp-host-package-receipt/v1",
+  "phase": "P07",
+  "seed": "KC144.MYC.SKELETON.P07::HOSTED-RUNTIME-DEPLOYMENT-AND-CONTROL-PLANE-ADMISSION",
+  "verdict": "PASS_PACKAGE_NOT_DEPLOYED",
+  "repository": "demeet2k/athena-mcp-server",
+  "pull_request": "https://github.com/demeet2k/athena-mcp-server/pull/3",
+  "predecessor_runtime_commit": "d27e47eb95c730838b46a5a59dcb474340d0e4ba",
+  "package_implementation_commit": "ddd01e283bc9b3ae0fe46249f5c70b09e53ab826",
+  "release": "athena-mcp-host-p07-rc3",
+  "surfaces": {
+    "transport": "streamable-http",
+    "mcp_path": "/mcp",
+    "health_path": "/healthz",
+    "container": "Dockerfile.mcp",
+    "probe": "scripts/probe_mcp_host.py"
+  },
+  "security": {
+    "bearer_token_required": true,
+    "minimum_token_length": 32,
+    "browser_origin_allowlist": true,
+    "non_root_container": true,
+    "exact_host_commit_attestation": true,
+    "immutable_build_commit_file": "/app/.athena-deployed-commit",
+    "runtime_commit_override_allowed": false,
+    "token_recorded_in_receipt": false,
+    "promotion_authority": false
+  },
+  "verification": {
+    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30236644094",
+    "host_boundary_job": {
+      "id": 89885589936,
+      "verdict": "PASS",
+      "tests": 9
+    },
+    "compile": "PASS",
+    "manifest_json": "PASS",
+    "container_job": {
+      "id": 89885589938,
+      "verdict": "PASS"
+    },
+    "workflow_local_image_id": "sha256:9f2c1394647dbd9ed3ff890ed7ccc3b134106dae81b70f4a8770b46edcf7a63a"
+  },
+  "deployment": {
+    "target": null,
+    "endpoint": null,
+    "secret_provisioned": false,
+    "witness": null,
+    "verdict": "HOLD[NO_HOST_TARGET_OR_LIVE_ENDPOINT]"
+  },
+  "rollback": {
+    "commit": "d27e47eb95c730838b46a5a59dcb474340d0e4ba",
+    "action": "Select the admitted P06 runtime; preserve P07 proposal history."
+  },
+  "merge_claimed": false,
+  "promotion_claimed": false,
+  "successor_seed": "KC144.MYC.SKELETON.P07::LIVE-V2-V1-ANSWER-WITNESS"
+}
