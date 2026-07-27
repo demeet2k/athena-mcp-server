@@ -28,7 +28,10 @@ jobs:
       - name: Install MCP runtime
         run: |
           python -m pip install --upgrade pip
-          python -m pip install "mcp[cli]>=1.0.0" "pytest>=8.0"
+          python -m pip install \
+            "mcp[cli]>=1.0.0" \
+            "cryptography>=44,<48" \
+            "pytest>=8.0"
 
       - name: Launch live stdio host and capture P07 witness
         env:

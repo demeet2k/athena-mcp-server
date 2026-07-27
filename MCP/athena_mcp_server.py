@@ -102,6 +102,10 @@ from crystal_108d.provider_adapter_witness_return import (
 )
 register_provider_adapter_witness_return(mcp)
 
+# ── W18 provider trust-anchor and persistent-witness return gate ────
+from crystal_108d.provider_trust_anchor import register_provider_trust_anchor
+register_provider_trust_anchor(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
