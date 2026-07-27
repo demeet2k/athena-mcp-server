@@ -1,0 +1,133 @@
+{
+  "schema": "athena.xnav-w16-capsule-index-repair/v1",
+  "phase": "KC144.XNAV.W16",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "verdict": "PASS_CAPSULE_INDEX_REPAIRED__PASS_REPLAY_LANES_TYPED__READY_STRUCTURAL_INGRESS_AUTHORITY_UNVERIFIED",
+  "runtime": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": null,
+    "branch": "agent/w16-capsule-index-authority-ingress",
+    "predecessor_pull_request": 13,
+    "predecessor_head": "6f29ceb87838f03aa65cf25bf82a8e99ec955d6f",
+    "alternate_replay_pull_request": 10,
+    "alternate_replay_head": "44d3d8c7675302ff9679cda0fdaca2144de57dae",
+    "deep_activation_pull_request": 11,
+    "deep_activation_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c"
+  },
+  "components": {
+    "repaired_w15_data": {
+      "path": "MCP/data/w15_blind_replay_ingress.json",
+      "blob_sha": "eaf9174b912b351fb7cbec812e64aa661032bbea"
+    },
+    "w15_runtime": {
+      "path": "MCP/crystal_108d/capsule_replay_ingress.py",
+      "blob_sha": "dcd067d58fa4324eb129f3996c1a151dda9b39af"
+    },
+    "w15_test": {
+      "path": "tests/test_w15_capsule_replay_ingress.py",
+      "blob_sha": "c22d2ebb0773ccd886ca4390e296951a7d361a79"
+    },
+    "replay_ledger": {
+      "path": "MCP/data/w16_replay_ledger.json",
+      "blob_sha": "856224e7466f3b3bfbefeb2ec13919b60b6423a6",
+      "ledger_digest": "sha256:5e95cfc3abc537b7108451c38c90cf9a4d99e39068e72c818343a4224fac2a35"
+    },
+    "index_runtime": {
+      "path": "MCP/crystal_108d/capsule_index_repair.py",
+      "blob_sha": "451b5cf6046cd9a0cdfa448e7bfcbad87fb1a518"
+    },
+    "w16_test": {
+      "path": "tests/test_w16_capsule_index_repair.py",
+      "blob_sha": "bf94c23c66416346ea3ce0af05958c0e554ea9d6"
+    }
+  },
+  "measurements": {
+    "w14_historical": {
+      "conversation_memory_exact_fields": 10,
+      "persisted_file_memory_exact_fields": 12,
+      "external_capsule_exact_fields": 14,
+      "rewritten": false
+    },
+    "w15_uncued": {
+      "conversation_memory_exact_fields": 0,
+      "persisted_file_memory_exact_fields": 10,
+      "external_capsule_exact_fields": 14
+    },
+    "measurement_channels_collapsed": false
+  },
+  "capsule_index": {
+    "capsule_set_root": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "entries": 2,
+    "exact_identifier_classes": [
+      "capsule_id",
+      "station",
+      "RID",
+      "AID"
+    ],
+    "missing_w15_file_replay_fields_repaired": [
+      "F07.rid",
+      "F07.tab_id",
+      "M09.rid",
+      "M09.tab_id"
+    ],
+    "repaired_packet_fields": 14,
+    "repair_is_internal_recall": false,
+    "repair_is_live_provider_read": false
+  },
+  "opaque_replay": {
+    "source_pull_request": 10,
+    "source_head": "44d3d8c7675302ff9679cda0fdaca2144de57dae",
+    "input_fields": [
+      "capsule_id"
+    ],
+    "challenge_count": 2,
+    "passed": 2,
+    "failed": 0,
+    "fuzzy_substitution_used": false,
+    "current_conversation_used": false,
+    "live_google_drive_used": false,
+    "internal_recall_claimed": false
+  },
+  "authority_ingress": {
+    "canonical_activation_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "authority_inputs_unresolved": 13,
+    "structural_packet_inspection_ready": true,
+    "external_authority_verified": false,
+    "provider_evidence_fetched": false,
+    "secret_value_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "dispatch_allowed": false,
+    "persistent_witness_executed": false,
+    "runtime_can_promote": false
+  },
+  "control_navigation": {
+    "prior_w15_control_pull_request": 11,
+    "prior_w15_control_head": "5073ebd7a45a783d1d0a004e1efc0434bb28729b",
+    "live_p14_head_observed": "1df31a619dac25694352cc4346b4bab711e4c7de",
+    "live_p14_state": "P14_PROVIDER_REFETCH_VERIFIED_SOURCE_COVERAGE_13_OF_14_REVISION_DRIFT_HELD",
+    "source_coverage": "13/14",
+    "retained_defect": "source.gdoc.athena-core-v7.r4",
+    "p14_rewritten": false
+  },
+  "boundaries": {
+    "no_measurement_collapse": true,
+    "no_internal_recall_claim": true,
+    "no_live_provider_read_claim": true,
+    "no_external_authority_claim": true,
+    "no_secret_material_recorded": true,
+    "no_endpoint_contact": true,
+    "no_persistent_witness": true,
+    "no_control_p14_rewrite": true,
+    "no_old_w14_rewrite": true,
+    "no_merge": true,
+    "no_deployment": true,
+    "no_promotion": true
+  },
+  "successors": {
+    "control": "KC144.MYC.SKELETON.P15::RETAINED-R4-BYTE-RECOVERY-OR-EXPLICIT-REMOUNT-AND-COVERAGE-CLOSURE",
+    "xnav": "KC144.XNAV.W17::EXTERNAL-AUTHORITY-EVIDENCE-AND-PROTECTED-PERSISTENT-WITNESS"
+  }
+}
