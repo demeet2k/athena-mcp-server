@@ -96,6 +96,12 @@ register_replay_authority_ledger(mcp)
 from crystal_108d.evidence_provenance_gate import register_evidence_provenance_gate
 register_evidence_provenance_gate(mcp)
 
+# ── W18 provider-adapter and persistent-witness return contract ────
+from crystal_108d.provider_adapter_witness_return import (
+    register_provider_adapter_witness_return,
+)
+register_provider_adapter_witness_return(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

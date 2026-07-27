@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P10_DEEP_HARDENING_PLUS_W16_REPLAY_SYSTEMS_RECONCILED_AUTHORITY_PENDING",
+  "state": "P10_DEEP_HARDENING_PLUS_W18_ADAPTER_RETURN_CONTRACT_AUTHORITY_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -29,7 +29,9 @@
     "w15_endpoint_binding_reconciliation": ".athena/receipts/w15-endpoint-binding-reconciliation.json",
     "w15_capsule_replay_authority_ingress": ".athena/receipts/w15-capsule-blind-replay-authority-ingress.json",
     "w16_capsule_index_repair": ".athena/receipts/w16-capsule-index-repair-authorized-witness-ingress.json",
-    "w16_replay_authority_evidence_adjunction": ".athena/receipts/w16-replay-ledger-authority-evidence-adjunction.json"
+    "w16_replay_authority_evidence_adjunction": ".athena/receipts/w16-replay-ledger-authority-evidence-adjunction.json",
+    "w17_evidence_provenance_dispatch_gate": ".athena/receipts/w17-evidence-provenance-protected-dispatch-gate.json",
+    "w18_provider_adapter_persistent_witness_return": ".athena/receipts/w18-provider-adapter-persistent-witness-return.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -92,12 +94,14 @@
     "W15 uncued replay did not recover the complete 14-field packet: conversation memory returned 0 exact packet fields and persisted-file memory returned 10.",
     "No authorized provider target, deployment, endpoint, authorization record, secret-store reference, or protected bearer has been supplied.",
     "W16 structural packet/evidence adjunction classifies submitted provider evidence only as an unverified external assertion.",
-    "The protected persistent witness remains blocked until external authority evidence and bearer-secret provisioning exist outside Git."
+    "The protected persistent witness remains blocked until external authority evidence and bearer-secret provisioning exist outside Git.",
+    "W18 closes the provider-adapter, trust-receipt, exact-head dispatch-envelope, and persistent-return schemas, but no provider profile has been selected or externally executed.",
+    "Submitted trust receipts and witness returns remain structurally auditable but cannot be elevated until their signatures and external persistence are independently verified."
   ],
-  "next_gate": "Obtain independently verifiable provider, target, deployment, and authorization evidence; bind it to the structurally admitted packet/evidence digests; provision ATHENA_MCP_BEARER_TOKEN only in the protected p10-persistent-host environment; then execute the exact three-sample witness without granting runtime promotion authority.",
+  "next_gate": "Select one explicit provider adapter profile, execute it with externally held provider credentials, cryptographically verify the trust receipt, approve and dispatch the exact candidate head in p10-persistent-host, persist and verify the three-sample witness return, and record a nonpromotional control-plane admission.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.XNAV.W17::EVIDENCE-PROVENANCE-WITNESS-AND-PROTECTED-DISPATCH-GATE",
+  "successor_seed": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-EXECUTION-AND-PERSISTENT-WITNESS-ADMISSION",
   "p10_capsule": {
     "implementation_head": "10b8c03e0d6fa6ebb2c27779a7bf8254dc5f7255",
     "verdict": "PASS_DEPLOYMENT_CAPSULE_TARGET_PENDING",
@@ -399,5 +403,37 @@
     "promotion_claimed": false,
     "ic10_required": true,
     "cross_navigation_state": "SOURCE_REPLAY_LEDGER_AND_PROVENANCE_SCHEMA_CLOSED__TRUST_ANCHOR_AND_PERSISTENT_WITNESS_OPEN"
+  },
+  "w18_provider_adapter_persistent_witness_return": {
+    "receipt": ".athena/receipts/w18-provider-adapter-persistent-witness-return.json",
+    "implementation_parent": "9ac6f97f1065280d027d13a43d8c9d68770184bd",
+    "implementation_parent_tree": "86ba629b62a2f91b42b0f035638ff82d80b05699",
+    "contract_digest": "sha256:0f251936a6e466f5afc8d074670260cc9748b6a6099f36862f6e23bda842ec9a",
+    "provider_adapter_profile_schema": "athena.provider-adapter-profile/v1",
+    "provider_trust_receipt_schema": "athena.provider-trust-verification-receipt/v1",
+    "dispatch_envelope_schema": "athena.protected-witness-dispatch-envelope/v1",
+    "persistent_witness_return_schema": "athena.persistent-mcp-witness-return/v1",
+    "admission_schema": "athena.persistent-witness-return-admission/v1",
+    "provider_profiles_committed": 0,
+    "provider_selected": false,
+    "runtime_has_network_adapter": false,
+    "runtime_has_provider_credentials": false,
+    "runtime_verifies_external_signatures": false,
+    "runtime_has_persistence_adapter": false,
+    "adapter_profile_binding": "PASS_STRUCTURAL_PROFILE_BINDING",
+    "persistent_return_binding": "PASS_STRUCTURAL_RETURN_BINDING",
+    "required_external_class": "PROVIDER_ADAPTER_TRUST_ANCHOR_EXTERNALLY_VERIFIED",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "persistent_witness_return_persisted": false,
+    "control_plane_admitted": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "ic10_required": true,
+    "cross_navigation_state": "PROVIDER_ADAPTER_AND_PERSISTENT_RETURN_SCHEMAS_CLOSED__AUTHORIZED_ADAPTER_EXECUTION_AND_CONTROL_ADMISSION_OPEN"
   }
 }

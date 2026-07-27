@@ -1,0 +1,106 @@
+{
+  "schema": "athena.xnav-w18-provider-adapter-persistent-witness-return-receipt/v1",
+  "receipt_id": "w18-adapter-return:sha256:2a5e13c926b385ef71d492843f88864708b58d1b1514b4b97ba0cc90fff77cd2",
+  "phase": "KC144.XNAV.W18",
+  "title": "PROVIDER-ADAPTER-TRUST-ANCHOR-AND-PERSISTENT-WITNESS-RETURN",
+  "authored_at": "2026-07-27T09:20:00Z",
+  "verdict": "PASS_ADAPTER_AND_RETURN_CONTRACT__HOLD_EXTERNAL_EXECUTION_SIGNATURES_AND_CONTROL_ADMISSION",
+  "lineage": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 13,
+    "implementation_parent": "9ac6f97f1065280d027d13a43d8c9d68770184bd",
+    "implementation_parent_tree": "86ba629b62a2f91b42b0f035638ff82d80b05699",
+    "w17_contract_digest": "sha256:8b8476b7e2b29a2c9bc59f9e2d25f85d8d39c31c73a16f7c1adbc61648aaa274",
+    "w17_receipt_id": "w17-provenance-gate:sha256:615fed4366cd2e06bc7773df8aa632f7a005c8ba25dda8728def9a59a0b95913",
+    "w16_ledger_root": "sha256:4ae7fe2b2f390c876ca333cf5719b97797175d369997ce77f3329c47df0f316a",
+    "activation_handoff_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "canonical_hardening_head": "b4e24de38788ecdf30f43514ece279d1270b998b"
+  },
+  "contract": {
+    "contract_digest": "sha256:0f251936a6e466f5afc8d074670260cc9748b6a6099f36862f6e23bda842ec9a",
+    "provider_adapter_profile_schema": "athena.provider-adapter-profile/v1",
+    "provider_trust_receipt_schema": "athena.provider-trust-verification-receipt/v1",
+    "dispatch_envelope_schema": "athena.protected-witness-dispatch-envelope/v1",
+    "persistent_witness_return_schema": "athena.persistent-mcp-witness-return/v1",
+    "admission_schema": "athena.persistent-witness-return-admission/v1",
+    "structural_return_class": "STRUCTURALLY_BOUND_PERSISTENT_WITNESS_RETURN",
+    "required_external_class": "PROVIDER_ADAPTER_TRUST_ANCHOR_EXTERNALLY_VERIFIED",
+    "committed_provider_profiles": [],
+    "provider_selected": false,
+    "runtime_has_network_adapter": false,
+    "runtime_has_provider_credentials": false,
+    "runtime_verifies_external_signatures": false,
+    "runtime_has_persistence_adapter": false
+  },
+  "navigation": {
+    "route": "capsule_id -> packet_digest -> ledger_root -> provider_evidence_digest -> provenance_attestation_digest -> provider_adapter_profile_digest -> provider_trust_receipt_digest -> dispatch_envelope_digest -> persistent_witness_return_digest -> admission_candidate_digest",
+    "law": "structural return binding != external signature verification != control-plane admission != promotion",
+    "exact_head_required": true,
+    "external_return_persistence_required": true
+  },
+  "admission": {
+    "status": "HOLD_PERSISTENT_WITNESS_ADMISSION__AUTHORIZED_EXTERNAL_EXECUTION_AND_SIGNATURE_VERIFICATION_OPEN",
+    "structurally_closed_gates": 5,
+    "externally_open_gates": 5,
+    "open_gates": [
+      "provider_adapter_execution_externally_witnessed",
+      "trust_receipt_signature_cryptographically_verified",
+      "witness_return_signature_cryptographically_verified",
+      "external_return_persistence_verified",
+      "control_plane_admission_recorded"
+    ],
+    "provider_selected_by_repository": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "persistent_witness_return_persisted": false,
+    "control_plane_admitted": false
+  },
+  "runtime_surfaces": {
+    "tools": [
+      "athena_w18_provider_adapter_return_status",
+      "build_athena_w18_provider_adapter_return_template",
+      "inspect_athena_w18_provider_adapter_profile",
+      "compile_athena_w18_protected_dispatch_envelope",
+      "inspect_athena_w18_persistent_witness_return",
+      "evaluate_athena_w18_persistent_witness_admission"
+    ],
+    "resources": [
+      "athena://w18-provider-adapter-witness-return"
+    ]
+  },
+  "validation": {
+    "python_compile": "PASS",
+    "direct_contract_result": "PASS_W18_AND_W17_TARGETS_18_OF_18",
+    "expanded_p08_regression_result": "PASS_108_OF_108",
+    "legacy_full_suite_diagnostic": "HOLD_326_PASSED_179_PREEXISTING_SCHEMA_AND_OPTIONAL_DEPENDENCY_FAILURES",
+    "registration_result": "PASS",
+    "registered_tools": 203,
+    "tool_inventory_digest": "sha256:983c68e014f3edd6697ba8fbfa93b1686660257bf8d3e753a7dbde8ed2df0a00",
+    "registered_resources": 36,
+    "resource_inventory_digest": "sha256:d660ec72775cd4d997f33189d88d119aa57dd9431011ca8be9104b745b87f9c9",
+    "hosted_exact_head": "PENDING_AT_RECEIPT_CREATION"
+  },
+  "boundaries": {
+    "provider_selected": false,
+    "provider_adapter_executed": false,
+    "live_provider_fetch_executed": false,
+    "trust_anchor_verified": false,
+    "authorization_externally_verified": false,
+    "submitted_inputs_persisted": false,
+    "secret_material_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "workflow_dispatched": false,
+    "persistent_witness_executed": false,
+    "persistent_witness_return_persisted": false,
+    "control_plane_admitted": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "runtime_can_promote": false,
+    "ic10_required": true
+  },
+  "cross_navigation_state": "PROVIDER_ADAPTER_AND_PERSISTENT_RETURN_SCHEMAS_CLOSED__AUTHORIZED_ADAPTER_EXECUTION_AND_CONTROL_ADMISSION_OPEN",
+  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-EXECUTION-AND-PERSISTENT-WITNESS-ADMISSION"
+}
