@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 279, f"Expected 279 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 286, f"Expected 286 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 45, f"Expected 45 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 51, f"Expected 51 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -285,6 +285,20 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W25 persistent-settlement tools: {missing}"
 
+    def test_w27_w31_five_wave_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w27_w31_five_wave_status",
+            "list_athena_w27_w31_waves",
+            "inspect_athena_w27_w31_wave",
+            "inspect_athena_w27_w31_predecessor_custody",
+            "compile_athena_w27_w31_bundle_template",
+            "verify_athena_w27_w31_five_wave_bundle",
+            "explain_athena_w27_w31_separation_law",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W27-W31 five-wave tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -325,6 +339,12 @@ class TestRegistration:
             "athena://w23-promotion-execution-handoff",
             "athena://w24-execution-deployment-rollback-readback",
             "athena://w25-persistent-promotion-settlement",
+            "athena://w27-w31-five-wave-closure",
+            "athena://w27-protocol",
+            "athena://w28-protocol",
+            "athena://w29-protocol",
+            "athena://w30-protocol",
+            "athena://w31-protocol",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"

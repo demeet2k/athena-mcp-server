@@ -1,0 +1,75 @@
+name: Validate W27-W31 five-wave closure
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      five_wave_bundle_b64:
+        description: Base64 exact non-secret W27-W31 signed bundle JSON
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-five-wave-closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verifier dependencies
+        run: python -m pip install --disable-pip-version-check cryptography pytest
+
+      - name: Verify frozen production-empty five-wave snapshot
+        run: python scripts/w27_w31_five_wave_closure.py --check-snapshot
+
+      - name: Run W27-W31 direct tests
+        run: python -m pytest tests/test_w27_w31_five_wave_closure.py -q
+
+      - name: Decode bounded non-secret five-wave bundle
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.five_wave_bundle_b64 != '' }}
+        env:
+          FIVE_WAVE_BUNDLE_B64: ${{ inputs.five_wave_bundle_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          decoded = base64.b64decode(
+              os.environ["FIVE_WAVE_BUNDLE_B64"], validate=True
+          )
+          if len(decoded) > 1572864:
+              raise ValueError("W27-W31 bundle exceeds bounded input size")
+          Path("w27-w31-five-wave-bundle.json").write_bytes(decoded)
+          PY
+
+      - name: Verify complete signed five-wave evidence
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.five_wave_bundle_b64 != '' }}
+        env:
+          VERIFIER_HEAD: ${{ github.sha }}
+        run: |
+          tree="$(git rev-parse HEAD^{tree})"
+          python scripts/w27_w31_five_wave_closure.py \
+            --bundle w27-w31-five-wave-bundle.json \
+            --verifier-head "$VERIFIER_HEAD" \
+            --verifier-tree "$tree" \
+            --verifier-ref refs/heads/agent/w15-reconcile-capsule-deep-hardening \
+            --output w27-w31-five-wave-preflight.json
+
+      - name: Upload bounded five-wave preflight
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.five_wave_bundle_b64 != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: w27-w31-five-wave-${{ github.sha }}
+          path: w27-w31-five-wave-preflight.json
+          if-no-files-found: error
+          retention-days: 14

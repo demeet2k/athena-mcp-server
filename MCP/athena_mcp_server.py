@@ -154,6 +154,12 @@ from crystal_108d.control_ledger_ic10_review import (
 )
 register_control_ledger_ic10_review(mcp)
 
+# ── W27-W31 dependency-closed five-wave review/settlement lattice ───
+from crystal_108d.five_wave_review_closure import (
+    register_five_wave_review_closure,
+)
+register_five_wave_review_closure(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
