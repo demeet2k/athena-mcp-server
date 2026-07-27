@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P10_DEPLOYMENT_CAPSULE_VERIFIED_TARGET_PENDING",
+  "state": "P10_CANONICAL_CAPSULE_HARDENED_TARGET_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -16,7 +16,8 @@
     "p07_http_package": ".athena/receipts/p07-host-package.json",
     "p08_reconciled_candidate": ".athena/receipts/p08-integration-candidate.json",
     "p09_oci_publication": ".athena/receipts/p09-oci-publication.json",
-    "p10_host_readiness": ".athena/receipts/p10-host-readiness.json"
+    "p10_host_readiness": ".athena/receipts/p10-host-readiness.json",
+    "p10_canonical_witness_hardening": ".athena/receipts/p10-canonical-witness-hardening.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -67,12 +68,14 @@
   "promotion_claimed": false,
   "merge_claimed": false,
   "open_defects": [
-    "No authorized persistent HTTPS /mcp target has been bound to the P10 capsule.",
-    "No endpoint bearer secret has been provisioned.",
-    "The environment-gated live persistent witness has not run.",
-    "Runtime promotion remains control-plane governed and is not claimed by this capsule."
+    "No authorized hosting provider or logical account scope has been bound to the P10 capsule.",
+    "No persistent deployment ID or external HTTPS /mcp endpoint exists.",
+    "No protected provider secret-store reference or endpoint bearer secret has been provisioned.",
+    "No secret-free provider evidence proves deployment of the exact P09 digest.",
+    "The environment-gated three-sample persistent witness has not run.",
+    "Runtime promotion remains control-plane governed and is not claimed by this hardening."
   ],
-  "next_gate": "Bind an authorized persistent host to deploy/p10/target.schema.json, provision ATHENA_MCP_BEARER_TOKEN through the host and ATHENA_P10_BEARER_TOKEN through the p10-persistent-host GitHub Environment, then dispatch the live P10 witness and admit its receipt through the control plane.",
+  "next_gate": "Bind an authorized provider/account/deployment and HTTPS /mcp endpoint to the exact capsule, provision the bearer value through the host secret store and ATHENA_P10_BEARER_TOKEN through the p10-persistent-host GitHub Environment without recording it, then dispatch the three-sample witness and admit its receipt through the control plane.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
   "successor_seed": "KC144.MYC.SKELETON.P10::BIND-AUTHORIZED-HOST-AND-RUN-LIVE-WITNESS",
@@ -100,6 +103,36 @@
         "run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238981317",
         "status": "PASS"
       }
+    },
+    "witness_hardening": {
+      "verdict": "PASS_CANONICAL_CAPSULE_HARDENED_TARGET_PENDING",
+      "canonical_capsule_head": "639d495315b6fb2d0b1bf5002790a49e3d55059b",
+      "verified_implementation_head": "ec8bc9e1d6243d4810885c8953fa94f655d23200",
+      "pull_request": "https://github.com/demeet2k/athena-mcp-server/pull/8",
+      "provider_evidence_schema": "athena.provider-deployment-evidence/v1",
+      "provider_evidence_validator": "scripts/p10_provider_evidence.py",
+      "provider_evidence_template": "deploy/p10/provider-evidence.example.json",
+      "repeated_witness": "scripts/p10_persistent_observation_window.py",
+      "minimum_samples": 3,
+      "minimum_interval_seconds": 20,
+      "minimum_elapsed_seconds": 40,
+      "contract_tests": "PASS[14/14]",
+      "p10_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30240186756",
+      "p10_job_id": 89895572861,
+      "p07_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30240186754",
+      "p08_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30240186757",
+      "authorized_target": null,
+      "provider_id": null,
+      "provider_account_scope": null,
+      "deployment_id": null,
+      "endpoint": null,
+      "secret_store_ref": null,
+      "bearer_secret_provisioned": false,
+      "provider_evidence": null,
+      "persistent_witness": null,
+      "persistent_deployment_claimed": false,
+      "promotion_claimed": false,
+      "merge_claimed": false
     }
   }
 }

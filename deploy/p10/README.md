@@ -70,3 +70,30 @@ The witness crosses the real Streamable HTTP boundary and verifies:
 The emitted target and witness artifacts contain no secret value. A successful
 P10 witness proves the endpoint boundary but still cannot promote the runtime;
 control-plane admission and IC10 remain separate gates.
+
+## Provider evidence and persistence window
+
+A live witness is not admitted from an endpoint response alone. The dispatch
+must also supply a secret-free provider record containing the provider ID,
+logical account or project scope, deployment ID, authorization reference,
+exact digest and source pins, deployment timestamp, protected secret-store
+reference, and an HTTPS provider evidence URL. Unknown fields fail closed so
+tokens, passwords, client secrets, and free-form notes cannot enter receipts.
+
+`deploy/p10/provider-evidence.example.json` is intentionally unresolved. Its
+null fields are activation inputs, not defaults and not claims.
+
+The environment-gated workflow now runs at least three complete MCP samples
+at least 20 seconds apart. Every sample must independently preserve:
+
+- exact image and build-locked source attestation;
+- required tools and resources plus the frozen graph;
+- v2 identity and the two-hop forward route;
+- the reciprocal two-hop return plan;
+- explicit `athena-108d-v1` fallback;
+- equal tool/resource cutover receipts; and
+- the non-promotion boundary.
+
+The resulting receipt spans at least 40 seconds and records no bearer value.
+Provider evidence and repeated observations prove a persistent boundary only;
+they do not authorize merge or IC10 promotion.

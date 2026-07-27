@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - agent/p09-published-mcp-image
+      - agent/p10-persistent-host-capsule
   workflow_dispatch:
     inputs:
       endpoint:
@@ -26,6 +27,26 @@ on:
           - managed-service
           - orchestrated-service
           - self-hosted-service
+      provider_id:
+        description: Authorized hosting provider identifier
+        required: true
+        type: string
+      provider_account_scope:
+        description: Logical provider account or project scope
+        required: true
+        type: string
+      deployment_id:
+        description: Provider deployment or service identifier
+        required: true
+        type: string
+      secret_store_ref:
+        description: Non-secret provider reference to the deployed bearer secret
+        required: true
+        type: string
+      evidence_url:
+        description: Secret-free HTTPS provider deployment evidence URL
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -47,12 +68,18 @@ jobs:
       - name: Validate contracts and tests
         run: |
           python -m json.tool deploy/p10/target.schema.json >/dev/null
+          python -m json.tool deploy/p10/provider-evidence.example.json >/dev/null
           python -m json.tool \
             .athena/receipts/p10-host-readiness.json >/dev/null
           python -m py_compile \
             scripts/p10_contract.py \
-            scripts/p10_persistent_witness.py
-          python -m unittest tests.test_p10_deployment_capsule -v
+            scripts/p10_persistent_witness.py \
+            scripts/p10_provider_evidence.py \
+            scripts/p10_persistent_observation_window.py
+          python -m unittest \
+            tests.test_p10_deployment_capsule \
+            tests.test_p10_persistence_hardening \
+            -v
           ATHENA_MCP_BEARER_TOKEN=0123456789abcdef0123456789abcdef \
             docker compose -f deploy/p10/compose.yaml config >/dev/null
 
@@ -110,7 +137,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     environment: p10-persistent-host
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Check out exact P10 capsule
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -130,6 +157,11 @@ jobs:
           AUTHORIZATION_REF: ${{ inputs.authorization_ref }}
           PERSISTENCE_CLASS: ${{ inputs.persistence_class }}
           AUTHORIZATION_ACTOR: ${{ github.actor }}
+          PROVIDER_ID: ${{ inputs.provider_id }}
+          PROVIDER_ACCOUNT_SCOPE: ${{ inputs.provider_account_scope }}
+          DEPLOYMENT_ID: ${{ inputs.deployment_id }}
+          SECRET_STORE_REF: ${{ inputs.secret_store_ref }}
+          EVIDENCE_URL: ${{ inputs.evidence_url }}
         run: |
           python - <<'PY'
           import json
@@ -137,6 +169,7 @@ jobs:
           from datetime import datetime, timezone
           from pathlib import Path
 
+          observed_at = datetime.now(timezone.utc).isoformat()
           target = {
               "schema": "athena.persistent-host-target/v1",
               "state": "AUTHORIZED",
@@ -147,7 +180,7 @@ jobs:
               "authorization": {
                   "ref": os.environ["AUTHORIZATION_REF"],
                   "actor": os.environ["AUTHORIZATION_ACTOR"],
-                  "authorized_at": datetime.now(timezone.utc).isoformat(),
+                  "authorized_at": observed_at,
               },
               "persistence": {
                   "class": os.environ["PERSISTENCE_CLASS"],
@@ -160,10 +193,7 @@ jobs:
               },
               "secret": {
                   "environment": "ATHENA_MCP_BEARER_TOKEN",
-                  "provider_ref": (
-                      "github-environment:p10-persistent-host/"
-                      "ATHENA_P10_BEARER_TOKEN"
-                  ),
+                  "provider_ref": os.environ["SECRET_STORE_REF"],
                   "minimum_length": 32,
                   "record_value": False,
               },
@@ -173,25 +203,53 @@ jobs:
                   "ic10_required": True,
               },
           }
+          evidence = {
+              "schema": "athena.provider-deployment-evidence/v1",
+              "provider_id": os.environ["PROVIDER_ID"],
+              "provider_account_scope": os.environ["PROVIDER_ACCOUNT_SCOPE"],
+              "deployment_id": os.environ["DEPLOYMENT_ID"],
+              "target_id": os.environ["TARGET_ID"],
+              "authorization_ref": os.environ["AUTHORIZATION_REF"],
+              "deployed_image": os.environ["IMAGE"],
+              "image_digest": os.environ["IMAGE"].rsplit("@", 1)[1],
+              "source_commit": os.environ["SOURCE_COMMIT"],
+              "runtime_p09_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+              "endpoint": os.environ["TARGET_ENDPOINT"],
+              "persistent_service": True,
+              "deployment_observed_at": observed_at,
+              "secret_store_ref": os.environ["SECRET_STORE_REF"],
+              "secret_material_recorded": False,
+              "evidence_url": os.environ["EVIDENCE_URL"],
+          }
           Path("p10-target.json").write_text(
               json.dumps(target, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          Path("p10-provider-evidence.json").write_text(
+              json.dumps(evidence, indent=2, sort_keys=True) + "\n",
               encoding="utf-8",
           )
           PY
           python - <<'PY'
           import json
           from scripts.p10_contract import validate_target
-          validate_target(json.load(open("p10-target.json")))
+          from scripts.p10_provider_evidence import validate_provider_evidence
+          target = validate_target(json.load(open("p10-target.json")))
+          evidence = json.load(open("p10-provider-evidence.json"))
+          validate_provider_evidence(evidence, target)
           PY
 
       - name: Replay live persistent endpoint
         env:
           ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_P10_BEARER_TOKEN }}
         run: |
-          python scripts/p10_persistent_witness.py \
+          python scripts/p10_persistent_observation_window.py \
             p10-target.json \
+            --provider-evidence p10-provider-evidence.json \
             --output p10-persistent-witness.json \
-            --timeout 180
+            --samples 3 \
+            --interval 20 \
+            --per-sample-timeout 180
 
       - name: Upload non-secret target and witness
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -199,6 +257,7 @@ jobs:
           name: p10-persistent-witness-${{ github.sha }}
           path: |
             p10-target.json
+            p10-provider-evidence.json
             p10-persistent-witness.json
           if-no-files-found: error
           retention-days: 90
