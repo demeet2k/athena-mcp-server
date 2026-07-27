@@ -34,7 +34,7 @@ class TestRegistration:
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 29, f"Expected 29 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 31, f"Expected 31 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -103,6 +103,18 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W14 capsule tools: {missing}"
 
+    def test_replay_authority_ledger_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_replay_authority_ledger_status",
+            "read_athena_replay_ledger_row",
+            "verify_athena_replay_authority_ledger",
+            "replay_athena_capsule_from_ledger",
+            "inspect_athena_authority_evidence_adjunction",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W16 replay/authority tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -128,6 +140,8 @@ class TestRegistration:
             "athena://federation-v2/lock",
             "athena://source-mounts",
             "athena://memory-digest-capsules",
+            "athena://replay-authority-ledger",
+            "athena://authority-evidence-adjunction",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
