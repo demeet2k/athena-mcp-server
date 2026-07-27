@@ -54,8 +54,13 @@ jobs:
             .athena/receipts/p07-host-package.json >/dev/null
           python -m json.tool \
             .athena/receipts/p08-integration-candidate.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w11-source-mount-consumer.json >/dev/null
+          python -m json.tool \
+            MCP/data/w11_source_mounts.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
+            MCP/crystal_108d/source_mounts.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
@@ -78,6 +83,7 @@ jobs:
             python -m pytest \
               tests/test_federation_v2.py \
               tests/test_registration.py \
+              tests/test_w11_source_mounts.py \
               -q
 
       - name: Build immutable candidate image
