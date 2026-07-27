@@ -1,13 +1,15 @@
 # P07 hosted MCP package
 
 This package exposes the existing Athena MCP server through Streamable HTTP at
-`/mcp`. It does not change the stdio entry point, grant promotion authority, or
-claim a deployment.
+`/mcp`. It does not change the stdio entry point, grant promotion authority,
+or claim a deployment.
 
-Required runtime configuration:
+Required deployment locks:
 
-- `ATHENA_MCP_BEARER_TOKEN`: a secret bearer token; the MCP endpoint returns
-  `503` when it is absent.
+- `ATHENA_BUILD_COMMIT`: exact lowercase 40-hex source commit supplied while
+  building the image. The Dockerfile records it as `ATHENA_DEPLOYED_COMMIT`.
+- `ATHENA_MCP_BEARER_TOKEN`: secret bearer token of at least 32 characters.
+  The MCP endpoint returns `503` when it is absent or too short.
 - `ATHENA_MCP_ALLOWED_ORIGINS`: comma-separated browser origins. Requests
   without an `Origin` header are treated as non-browser clients and still
   require the bearer token.
@@ -16,22 +18,30 @@ Required runtime configuration:
 Build and run locally:
 
 ```bash
-docker build -f Dockerfile.mcp -t athena-mcp:p07 .
+DEPLOYED_COMMIT="$(git rev-parse HEAD)"
+docker build -f Dockerfile.mcp \
+  --build-arg ATHENA_BUILD_COMMIT="$DEPLOYED_COMMIT" \
+  -t athena-mcp:p07 .
 docker run --rm -p 8080:8080 \
-  -e ATHENA_MCP_BEARER_TOKEN='replace-me' \
+  -e ATHENA_MCP_BEARER_TOKEN='replace-with-at-least-32-characters' \
   athena-mcp:p07
 ```
+
+The public `/healthz` response is ready only when the token and exact deployed
+commit are configured. It exposes the commit but never the token.
 
 After deployment, capture the witness without recording the token:
 
 ```bash
-export ATHENA_MCP_BEARER_TOKEN='host-secret'
+export ATHENA_MCP_BEARER_TOKEN='host-secret-at-least-32-characters'
 python scripts/probe_mcp_host.py \
   https://example.invalid/mcp \
-  <exact-deployed-commit> \
+  <exact-expected-commit> \
   --output p07-deployment-witness.json
 ```
 
-The witness is necessary but not sufficient for promotion. It must be admitted
-by the control plane and retain the P06 forward/return, v1 fallback, rollback,
-and authority boundaries.
+The probe derives `/healthz` from the MCP URL and rejects the witness unless
+the host itself attests the expected commit, `/mcp` path, ready state, and
+non-promotional boundary. The witness is necessary but not sufficient for
+promotion. Control-plane admission must preserve the P06 forward/return, v1
+fallback, rollback, and authority boundaries.
