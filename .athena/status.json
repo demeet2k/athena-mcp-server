@@ -73,7 +73,16 @@
       "job_id": 89896153886,
       "artifact_id": 8643044789,
       "artifact_digest": "sha256:e069b7b087e5556a7d8159057ee5c8f4d36bb5d44d34f85b7fd0d83beb96514e",
-      "receipt_id": "p10-hosted-readiness:sha256:9e15732e76aabfefc41799b3c6d2dc80136b1c1ace6d4343c15b92d49c9318f7",
+      "receipt_closure_revalidation": {
+        "head": "8c1771b196c63cbc581b56addab7f72ce9b5ba0c",
+        "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30240536401",
+        "job_id": 89896623599,
+        "artifact_id": 8643097152,
+        "artifact_digest": "sha256:0e6aa9c30dde1d90eff4ab270c046be52f595a9ca574807a4c9e6e94e1e4e323",
+        "status": "PASS"
+      },
+      "one_shot_trigger_hardening_commit": "15211fba8fba16ba3d440358c25a3e062e0a6dc1",
+      "receipt_id": "p10-hosted-readiness:sha256:43e8a3f96b77593271c4fd121b2b03ec43633ad43b856d7c4dfc29adfa6dbc03",
       "p07_revalidation": "PASS:https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378874",
       "p08_revalidation": "PASS:https://github.com/demeet2k/athena-mcp-server/actions/runs/30240378894",
       "persistent_witness_job": "SKIPPED_NO_AUTHORIZED_TARGET_OR_SECRET",
