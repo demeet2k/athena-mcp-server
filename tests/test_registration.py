@@ -28,7 +28,7 @@ class TestRegistration:
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 24, f"Expected 24 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 27, f"Expected 27 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -96,6 +96,9 @@ class TestRegistration:
             "athena://node-registry",
             "athena://guild-hall",
             "athena://quest-board",
+            "athena://federation-v2",
+            "athena://federation-v2/cutover",
+            "athena://federation-v2/lock",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
