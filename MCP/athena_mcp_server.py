@@ -118,6 +118,12 @@ from crystal_108d.persistent_return_ic10 import (
 )
 register_persistent_return_ic10(mcp)
 
+# ── W21 ledger commit and promotion-authority handoff ───────────────
+from crystal_108d.ledger_commit_promotion_handoff import (
+    register_ledger_commit_promotion_handoff,
+)
+register_ledger_commit_promotion_handoff(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

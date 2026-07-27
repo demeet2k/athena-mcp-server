@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 221, f"Expected 221 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 230, f"Expected 230 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 39, f"Expected 39 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 40, f"Expected 40 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -199,6 +199,22 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W20 return/IC10 tools: {missing}"
 
+    def test_w21_ledger_commit_promotion_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w21_ledger_commit_promotion_status",
+            "inspect_athena_w21_control_protocol_admission",
+            "compile_athena_w21_ledger_commit_transaction",
+            "inspect_athena_w21_ledger_commit_authorization",
+            "build_athena_w21_commit_occurrence_template",
+            "inspect_athena_w21_commit_occurrence",
+            "build_athena_w21_promotion_handoff",
+            "inspect_athena_w21_promotion_authority_decision",
+            "evaluate_athena_w21_commit_promotion_closure",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W21 commit/promotion tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -234,6 +250,7 @@ class TestRegistration:
             "athena://w18-provider-trust-anchor",
             "athena://w19-provider-admission-execution",
             "athena://w20-persistent-return-ic10",
+            "athena://w21-ledger-commit-promotion-handoff",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
