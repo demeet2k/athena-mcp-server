@@ -11,11 +11,13 @@
       "availability": "available"
     },
     {
-      "rid": "athena.federation.v2.reference",
-      "vid": "git:1b177fa2e3a4860487497210dcfbc122a287d693",
-      "source": "github://demeet2k/Athena@1b177fa2e3a4860487497210dcfbc122a287d693/crystal/v2/repositories.lock.json",
-      "source_version": "git:1b177fa2e3a4860487497210dcfbc122a287d693",
+      "rid": "athena.federation.release-candidate",
+      "vid": "KC144.MYC.P05.RC1",
+      "source": "github://demeet2k/Athena@13cda0bed07a881d42446e3a282eb1ba84ea9b45/crystal/v2/release-candidate.json",
+      "source_version": "git:13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+      "canonical_lock_parent": "git:1b177fa2e3a4860487497210dcfbc122a287d693",
       "federation_release": "v2-proposal-0.1.0",
+      "selected_contract_lineage": "git-brain-v2",
       "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
       "availability": "vendored-and-verified"
     }
