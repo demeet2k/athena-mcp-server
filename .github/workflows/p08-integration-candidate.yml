@@ -59,6 +59,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w12-live-provider-return.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w13-blind-memory-and-endpoint-gate.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
@@ -87,6 +89,7 @@ jobs:
               tests/test_registration.py \
               tests/test_w11_source_mounts.py \
               tests/test_w12_live_provider_receipt.py \
+              tests/test_w13_memory_endpoint_gate.py \
               -q
 
       - name: Build immutable candidate image
