@@ -207,6 +207,7 @@ class FrozenFederation:
 
     snapshot: dict[str, Any]
     release_candidate: dict[str, Any]
+    cold_replay: dict[str, Any]
     federation: dict[str, Any]
     lock: dict[str, Any]
     resources: tuple[dict[str, Any], ...]
@@ -219,6 +220,7 @@ class FrozenFederation:
     def load(cls, data_root: Path = SNAPSHOT_DIRECTORY) -> "FrozenFederation":
         snapshot = _load_json(data_root / "snapshot.json")
         release_candidate = _load_json(data_root / "release-candidate.json")
+        cold_replay = _load_json(data_root / "p05-cold-replay.json")
         federation = _load_json(data_root / "federation.json")
         lock = _load_json(data_root / "repositories.lock.json")
         base_edges = _load_jsonl(data_root / "edges.jsonl")
@@ -291,6 +293,21 @@ class FrozenFederation:
                 "P05 release-candidate identity or selected lineage mismatch"
             )
 
+        expected_cold_replay = snapshot.get("cold_replay", {})
+        if (
+            cold_replay.get("phase_verdict")
+            != expected_cold_replay.get("phase_verdict")
+            or cold_replay.get("canonical_replay", {}).get("passed")
+            != expected_cold_replay.get("canonical_passed")
+            or cold_replay.get("alternate_replay", {}).get("passed")
+            != expected_cold_replay.get("alternate_passed")
+            or release_candidate.get("promotion_ready") is not False
+            or snapshot.get("promotion_ready") is not False
+        ):
+            raise FederationSnapshotError(
+                "P05 cold-replay or promotion boundary mismatch"
+            )
+
         edge_by_id = {edge["eid"]: edge for edge in edges}
         if len(edge_by_id) != len(edges):
             raise FederationSnapshotError("duplicate edge identity")
@@ -310,6 +327,7 @@ class FrozenFederation:
         return cls(
             snapshot=snapshot,
             release_candidate=release_candidate,
+            cold_replay=cold_replay,
             federation=federation,
             lock=lock,
             resources=resources,
@@ -330,6 +348,8 @@ class FrozenFederation:
             "selected_contract_lineage": self.snapshot[
                 "selected_contract_lineage"
             ],
+            "cold_replay": self.snapshot["cold_replay"]["phase_verdict"],
+            "promotion_ready": False,
             "fallback_enabled": True,
         }
 
@@ -342,6 +362,63 @@ class FrozenFederation:
             "edges": len(self.edges),
             "legacy_resources": len(LEGACY_RESOURCE_URIS),
             "promotion_authority": False,
+        }
+
+    def cutover_receipt(
+        self,
+        *,
+        observed_at: str = "2026-07-27T04:00:00Z",
+    ) -> dict[str, Any]:
+        """Emit deterministic v2, fallback, return, and rollback evidence."""
+        forward = self.route(
+            "athena.repo.q-shrink",
+            "athena.runtime.route-compiler",
+            query_id="p06-runtime-forward-return",
+            created_at=observed_at,
+        )
+        fallback = self.resolve("athena://crystal-108d")
+        rollback = {
+            "class": "exact-predecessor-selection",
+            "runtime": V1_RUNTIME,
+            "repository": "demeet2k/athena-mcp-server",
+            "predecessor_commit": "0ee038011295873ba037a3cac25de18544439293",
+            "trigger": [
+                "snapshot verification failure",
+                "v2 identity resolution regression",
+                "missing exact return plan",
+                "host deployment rejection",
+            ],
+            "action": (
+                "Select the predecessor runtime; preserve this proposal and "
+                "its receipts without rewriting history."
+            ),
+        }
+        checks = {
+            "v2_forward": forward.get("verdict") == "FOUND",
+            "v2_return": bool(forward.get("return_plan")),
+            "v1_fallback": (
+                fallback.get("verdict") == "FOUND_LEGACY"
+                and fallback.get("fallback_used") is True
+            ),
+            "promotion_boundary": self.snapshot.get("promotion_ready") is False,
+        }
+        body = {
+            "schema": "athena.runtime-cutover-receipt/v2",
+            "observed_at": observed_at,
+            "verdict": "PASS_LOCAL_NOT_DEPLOYED"
+            if all(checks.values())
+            else "HOLD",
+            "checks": checks,
+            "forward_return": forward,
+            "v1_fallback": fallback,
+            "rollback": rollback,
+            "deployment_witness": None,
+            "promotion_claimed": False,
+            **self.provenance(),
+        }
+        return {
+            "receipt_id": f"runtime-cutover:sha256:{_digest(body)}",
+            **body,
         }
 
     def resolve(
@@ -549,10 +626,24 @@ def register_federation_v2(mcp: Any) -> None:
             allow_v1_fallback=allow_v1_fallback,
         )
 
+    @mcp.tool()
+    def athena_federation_cutover_receipt() -> dict[str, Any]:
+        """Emit deterministic forward, return, fallback, and rollback evidence."""
+        return get_federation().cutover_receipt()
+
     @mcp.resource("athena://federation-v2")
     def resource_federation_v2() -> str:
         """Verified v2 runtime status and immutable source receipt."""
         return json.dumps(get_federation().status(), indent=2, sort_keys=True)
+
+    @mcp.resource("athena://federation-v2/cutover")
+    def resource_federation_v2_cutover() -> str:
+        """Deterministic P06 runtime cutover evidence; never promotion."""
+        return json.dumps(
+            get_federation().cutover_receipt(),
+            indent=2,
+            sort_keys=True,
+        )
 
     @mcp.resource("athena://federation-v2/lock")
     def resource_federation_v2_lock() -> str:
