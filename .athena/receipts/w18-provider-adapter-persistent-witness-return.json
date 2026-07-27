@@ -1,6 +1,6 @@
 {
   "schema": "athena.xnav-w18-provider-adapter-persistent-witness-return-receipt/v1",
-  "receipt_id": "w18-adapter-return:sha256:2a5e13c926b385ef71d492843f88864708b58d1b1514b4b97ba0cc90fff77cd2",
+  "receipt_id": "w18-adapter-return:sha256:91c918cbc21cdacb31b8c3420f4c5c3fb59e41a8cfb6deff32bb544527cb95fb",
   "phase": "KC144.XNAV.W18",
   "title": "PROVIDER-ADAPTER-TRUST-ANCHOR-AND-PERSISTENT-WITNESS-RETURN",
   "authored_at": "2026-07-27T09:20:00Z",
@@ -17,7 +17,7 @@
     "canonical_hardening_head": "b4e24de38788ecdf30f43514ece279d1270b998b"
   },
   "contract": {
-    "contract_digest": "sha256:0f251936a6e466f5afc8d074670260cc9748b6a6099f36862f6e23bda842ec9a",
+    "contract_digest": "sha256:fd00f6463d512004e0900c9d01a5735f6ba77de27849a9e7c094852fa1474a23",
     "provider_adapter_profile_schema": "athena.provider-adapter-profile/v1",
     "provider_trust_receipt_schema": "athena.provider-trust-verification-receipt/v1",
     "dispatch_envelope_schema": "athena.protected-witness-dispatch-envelope/v1",
@@ -26,6 +26,11 @@
     "structural_return_class": "STRUCTURALLY_BOUND_PERSISTENT_WITNESS_RETURN",
     "required_external_class": "PROVIDER_ADAPTER_TRUST_ANCHOR_EXTERNALLY_VERIFIED",
     "committed_provider_profiles": [],
+    "cryptographic_registry_schema": "athena.provider-trust-registry/v1",
+    "cryptographic_registry_contract_digest": "sha256:0f7f62e6e0ea83d6ee89d961ca880254cd1535ff40c794b81a1f46a1f3bfb571",
+    "crypto_verifier": "READY_ED25519_DETACHED_CANONICAL_JSON",
+    "runtime_has_crypto_verifier": true,
+    "trust_receipt_requires_pinned_provider_return": true,
     "provider_selected": false,
     "runtime_has_network_adapter": false,
     "runtime_has_provider_credentials": false,
@@ -71,14 +76,14 @@
   },
   "validation": {
     "python_compile": "PASS",
-    "direct_contract_result": "PASS_W18_AND_W17_TARGETS_18_OF_18",
-    "expanded_p08_regression_result": "PASS_108_OF_108",
+    "direct_contract_result": "PASS_W17_AND_DUAL_W18_TARGETS_29_OF_29",
+    "expanded_p08_regression_result": "PASS_120_OF_120",
     "legacy_full_suite_diagnostic": "HOLD_326_PASSED_179_PREEXISTING_SCHEMA_AND_OPTIONAL_DEPENDENCY_FAILURES",
     "registration_result": "PASS",
-    "registered_tools": 203,
-    "tool_inventory_digest": "sha256:983c68e014f3edd6697ba8fbfa93b1686660257bf8d3e753a7dbde8ed2df0a00",
-    "registered_resources": 36,
-    "resource_inventory_digest": "sha256:d660ec72775cd4d997f33189d88d119aa57dd9431011ca8be9104b745b87f9c9",
+    "registered_tools": 207,
+    "tool_inventory_digest": "sha256:93405cce42ba83ac981b8c5afb2964ef3966f8ae886bcce42148238892c15133",
+    "registered_resources": 37,
+    "resource_inventory_digest": "sha256:3c4f9392d7b795c486119a8ebb8a7d224549b3da99c790cd59e17ce500106688",
     "hosted_exact_head": "PENDING_AT_RECEIPT_CREATION"
   },
   "boundaries": {
@@ -101,6 +106,6 @@
     "runtime_can_promote": false,
     "ic10_required": true
   },
-  "cross_navigation_state": "PROVIDER_ADAPTER_AND_PERSISTENT_RETURN_SCHEMAS_CLOSED__AUTHORIZED_ADAPTER_EXECUTION_AND_CONTROL_ADMISSION_OPEN",
-  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-EXECUTION-AND-PERSISTENT-WITNESS-ADMISSION"
+  "cross_navigation_state": "W18_CRYPTO_VERIFIER_AND_PERSISTENT_RETURN_SCHEMAS_CLOSED__PROVIDER_ADMISSION_EXECUTION_AND_CONTROL_RETURN_OPEN",
+  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-AND-PERSISTENT-WITNESS-EXECUTION"
 }

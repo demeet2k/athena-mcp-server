@@ -32,6 +32,11 @@
     ],
     "provider_registry_mode": "EXPLICIT_PROFILE_REQUIRED",
     "committed_provider_profiles": [],
+    "cryptographic_registry_schema": "athena.provider-trust-registry/v1",
+    "cryptographic_registry_contract_digest": "sha256:0f7f62e6e0ea83d6ee89d961ca880254cd1535ff40c794b81a1f46a1f3bfb571",
+    "crypto_verifier": "READY_ED25519_DETACHED_CANONICAL_JSON",
+    "runtime_has_crypto_verifier": true,
+    "trust_receipt_requires_pinned_provider_return": true,
     "provider_selected": false,
     "runtime_has_network_adapter": false,
     "runtime_has_provider_credentials": false,
@@ -79,6 +84,6 @@
     "merge_claimed": false,
     "promotion_claimed": false
   },
-  "contract_digest": "sha256:0f251936a6e466f5afc8d074670260cc9748b6a6099f36862f6e23bda842ec9a",
-  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-EXECUTION-AND-PERSISTENT-WITNESS-ADMISSION"
+  "contract_digest": "sha256:fd00f6463d512004e0900c9d01a5735f6ba77de27849a9e7c094852fa1474a23",
+  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-AND-PERSISTENT-WITNESS-EXECUTION"
 }

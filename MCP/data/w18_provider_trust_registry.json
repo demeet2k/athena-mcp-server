@@ -1,0 +1,68 @@
+{
+  "schema": "athena.xnav-w18-provider-adapter-trust-anchor/v1",
+  "phase": "KC144.XNAV.W18",
+  "predecessor": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 13,
+    "branch": "agent/w15-reconcile-capsule-deep-hardening",
+    "w17_head": "9ac6f97f1065280d027d13a43d8c9d68770184bd",
+    "w17_schema": "athena.xnav-w17-evidence-provenance-dispatch-gate/v1",
+    "w17_contract_digest": "sha256:8b8476b7e2b29a2c9bc59f9e2d25f85d8d39c31c73a16f7c1adbc61648aaa274",
+    "w17_receipt_id": "w17-provenance-gate:sha256:615fed4366cd2e06bc7773df8aa632f7a005c8ba25dda8728def9a59a0b95913"
+  },
+  "trust_registry": {
+    "schema": "athena.provider-trust-registry/v1",
+    "adapter_protocol": "athena.provider-adapter/ed25519-detached/v1",
+    "provider_return_schema": "athena.provider-signed-return/v1",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "signature_algorithm": "ed25519",
+    "signature_encoding": "base64",
+    "trust_anchor_kind": "ed25519-public-key",
+    "adapters": []
+  },
+  "admission_contract": {
+    "registry_is_authoritative": true,
+    "self_supplied_trust_anchors_allowed": false,
+    "provider_specific_adapter_required": true,
+    "exact_provider_id_required": true,
+    "exact_account_scope_required": true,
+    "exact_environment_required": true,
+    "exact_evidence_origin_required": true,
+    "exact_key_id_required": true,
+    "authorization_binding_required": true,
+    "production_adapter_count": 0,
+    "runtime_can_mutate_registry": false
+  },
+  "persistent_witness_return": {
+    "workflow_path": ".github/workflows/p10-host-readiness.yml",
+    "workflow_ref_policy": "EXACT_CANDIDATE_HEAD_REQUIRED",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "sample_count": 3,
+    "interval_seconds": 20,
+    "minimum_span_seconds": 40,
+    "execute_live_witness_default": false,
+    "provider_return_must_precede_dispatch": true,
+    "runtime_dispatch_capability": "NONE",
+    "runtime_can_promote": false,
+    "ic10_required": true
+  },
+  "boundaries": {
+    "production_provider_adapter_admitted": false,
+    "production_trust_anchor_pinned": false,
+    "provider_return_signature_verified": false,
+    "authorization_externally_verified": false,
+    "live_provider_fetch_executed": false,
+    "submitted_inputs_persisted": false,
+    "secret_material_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "workflow_dispatched": false,
+    "persistent_witness_executed": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false
+  },
+  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-AND-PERSISTENT-WITNESS-EXECUTION",
+  "contract_digest": "sha256:0f7f62e6e0ea83d6ee89d961ca880254cd1535ff40c794b81a1f46a1f3bfb571"
+}

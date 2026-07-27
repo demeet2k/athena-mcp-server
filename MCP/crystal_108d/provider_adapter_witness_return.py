@@ -352,6 +352,18 @@ class FrozenProviderAdapterWitnessReturn:
             ],
             "provider_registry_mode": "EXPLICIT_PROFILE_REQUIRED",
             "committed_provider_profiles": [],
+            "cryptographic_registry_schema": (
+                "athena.provider-trust-registry/v1"
+            ),
+            "cryptographic_registry_contract_digest": (
+                "sha256:0f7f62e6e0ea83d6ee89d961ca880254"
+                "cd1535ff40c794b81a1f46a1f3bfb571"
+            ),
+            "crypto_verifier": (
+                "READY_ED25519_DETACHED_CANONICAL_JSON"
+            ),
+            "runtime_has_crypto_verifier": True,
+            "trust_receipt_requires_pinned_provider_return": True,
             "provider_selected": False,
             "runtime_has_network_adapter": False,
             "runtime_has_provider_credentials": False,
@@ -414,8 +426,8 @@ class FrozenProviderAdapterWitnessReturn:
                 "W18 repository boundaries must remain false"
             )
         if snapshot.get("successor") != (
-            "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-EXECUTION-"
-            "AND-PERSISTENT-WITNESS-ADMISSION"
+            "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-"
+            "AND-PERSISTENT-WITNESS-EXECUTION"
         ):
             raise ProviderAdapterWitnessReturnError("W18 successor drift")
         material = {
@@ -464,8 +476,8 @@ class FrozenProviderAdapterWitnessReturn:
                 "VERIFICATION_NEQ_CONTROL_ADMISSION"
             ),
             "cross_navigation_state": (
-                "PROVIDER_ADAPTER_AND_PERSISTENT_RETURN_SCHEMAS_CLOSED__"
-                "AUTHORIZED_ADAPTER_EXECUTION_AND_CONTROL_ADMISSION_OPEN"
+                "W18_CRYPTO_VERIFIER_AND_PERSISTENT_RETURN_SCHEMAS_CLOSED__"
+                "PROVIDER_ADMISSION_EXECUTION_AND_CONTROL_RETURN_OPEN"
             ),
             "boundaries": deepcopy(self.snapshot["boundaries"]),
             "successor": self.snapshot["successor"],
