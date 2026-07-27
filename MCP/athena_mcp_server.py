@@ -92,6 +92,10 @@ register_capsule_index_repair(mcp)
 from crystal_108d.replay_authority_ledger import register_replay_authority_ledger
 register_replay_authority_ledger(mcp)
 
+# ── W17 evidence-provenance witness and protected dispatch gate ────
+from crystal_108d.evidence_provenance_gate import register_evidence_provenance_gate
+register_evidence_provenance_gate(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
