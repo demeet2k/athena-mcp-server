@@ -1,6 +1,11 @@
 name: Publish P09 exact P08 MCP image
 
 on:
+  pull_request:
+    branches:
+      - agent/p08-persistent-mcp-candidate
+    paths:
+      - .github/workflows/p09-publish-image.yml
   push:
     branches:
       - agent/p09-published-mcp-image
@@ -189,8 +194,8 @@ jobs:
           {
             echo "## P09 immutable OCI publication"
             echo
-            echo "- source commit: `$SOURCE_COMMIT`"
-            echo "- digest: `${{ steps.build.outputs.digest }}`"
+            echo "- source commit: $SOURCE_COMMIT"
+            echo "- digest: ${{ steps.build.outputs.digest }}"
             echo "- endpoint: **pending**"
             echo "- promotion: **not claimed**"
           } >> "$GITHUB_STEP_SUMMARY"
