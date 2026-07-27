@@ -1,0 +1,117 @@
+{
+  "schema": "athena.xnav-memory-digest-capsule/v1",
+  "phase": "KC144.XNAV.W14",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "verdict": "PASS_EXPLICIT_DIGEST_CAPSULE_MATERIALIZED__HOLD_UNCUED_FULL_PACKET_RETEST__HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+  "lineage": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 12,
+    "prior_stacked_head": "0478a63f4be507db184fe5fbbcfba1bf6619f608",
+    "w13_source_head": "99d898b048b2014840b449bb353a7e0f00cb3513",
+    "control_pull_request": 10,
+    "control_head": "dfc3166b4bd7c1c4ce95ad3194f7e2b4cbc982c7",
+    "activation_head": "7e7df38602834e88150450ed5bdbe24b8822c2ac"
+  },
+  "memory_digest_capsule": {
+    "surface": "explicit-git-reentry-capsule",
+    "field_universe": [
+      "rid",
+      "file_id",
+      "drive_revision_id",
+      "tab_id",
+      "half_open_range",
+      "literal",
+      "full_sha256"
+    ],
+    "objects": [
+      {
+        "station": "F07",
+        "rid": "rid:kc144:gid050:f07:analytic-branch-cover",
+        "file_id": "1fWBHqWuFXHucyHxnTobngr3vmaWkRmlP-zyn7jOm3_w",
+        "drive_revision_id": "34",
+        "tab_id": "t.0",
+        "half_open_range": "[48973,48998)",
+        "literal": "FORWARD_ADDR::⟨0,s₂,[β₁]⟩",
+        "full_sha256": "9ff39e3f43c43e077fff00ef05fb40da64440a4af49eeb83f63011cd10b15939",
+        "return_locator": "gdoc://1fWBHqWuFXHucyHxnTobngr3vmaWkRmlP-zyn7jOm3_w@34/t.0/[48973,48998)"
+      },
+      {
+        "station": "M09",
+        "rid": "rid:kc144:gid141:m09:path-signature",
+        "file_id": "1Ct84ETWyBLa9uBXkmsJBBrLSQ6nzVIz_NSBDlph_kA4",
+        "drive_revision_id": "92",
+        "tab_id": "t.0",
+        "half_open_range": "[366356,366385)",
+        "literal": "A hidden hash is insufficient",
+        "full_sha256": "b2dbee4215f51bcf76d251a49bbf150bfd6125f52b3e49c41303d7fb41e73b80",
+        "return_locator": "gdoc://1Ct84ETWyBLa9uBXkmsJBBrLSQ6nzVIz_NSBDlph_kA4@92/t.0/[366356,366385)"
+      }
+    ],
+    "object_count": 2,
+    "exact_fields_per_object": 7,
+    "exact_address_fields_materialized": 14,
+    "possible_address_fields": 14,
+    "explicit_address_coverage": 1,
+    "assertion": "PASS_EXPLICIT_PACKET_MATERIALIZED_NOT_RECALLED"
+  },
+  "prior_memory_measurement": {
+    "source_receipt": ".athena/receipts/w13-blind-memory-and-endpoint-gate.json",
+    "conversation_memory_exact_fields": 10,
+    "persisted_file_join_exact_fields": 12,
+    "possible_fields": 14,
+    "missing_before_capsule": [
+      "F07.full_sha256",
+      "M09.full_sha256"
+    ],
+    "exact_full_packet_reconstruction_demonstrated": false
+  },
+  "future_uncued_reentry_gate": {
+    "state": "UNTESTED",
+    "same_turn_retest_forbidden": true,
+    "current_github_lookup_forbidden": true,
+    "current_google_drive_lookup_forbidden": true,
+    "target_coordinates_must_not_be_supplied": true,
+    "exact_required_fields": 14,
+    "pass_requires_exact_full_packet": true,
+    "explicit_capsule_presence_does_not_imply_recall": true
+  },
+  "endpoint_binding": {
+    "state": "HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+    "activation_packet": "UNRESOLVED",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_P10_BEARER_TOKEN",
+    "witness_plan": {
+      "samples": 3,
+      "interval_seconds": 20,
+      "minimum_span_seconds": 40,
+      "execute_live_witness_default": false
+    },
+    "unresolved_authority_inputs": [
+      "provider.id",
+      "provider.account_scope",
+      "provider.deployment_id",
+      "provider.deployment_observed_at",
+      "provider.evidence_url",
+      "target.id",
+      "target.endpoint",
+      "target.persistence_class",
+      "target.secret_store_ref",
+      "authorization.ref",
+      "authorization.actor",
+      "authorization.authorized_at",
+      "protected bearer secret provisioning"
+    ],
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false
+  },
+  "boundaries": {
+    "no_hidden_weight_claim": true,
+    "no_recall_laundering": true,
+    "no_secret_material_recorded": true,
+    "no_external_endpoint_contact": true,
+    "no_merge": true,
+    "no_deployment": true,
+    "no_promotion": true
+  },
+  "successor": "KC144.XNAV.W15::UNCUED-CAPSULE-RETURN-AND-AUTHORIZED-PERSISTENT-WITNESS"
+}
