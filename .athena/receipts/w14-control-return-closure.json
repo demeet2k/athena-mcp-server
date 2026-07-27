@@ -1,0 +1,59 @@
+{
+  "schema": "athena.xnav-cross-repository-return-closure/v1",
+  "phase": "KC144.XNAV.W14.R3",
+  "verdict": "PASS_APPEND_ONLY_CONTROL_RUNTIME_RETURN_CLOSURE__HOLD_HOSTED_VALIDATION__HOLD_UNCUED_RECALL__HOLD_ENDPOINT_AUTHORITY",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "closure_mode": "APPEND_ONLY_ASYMMETRIC_RETURN",
+  "runtime_content_occurrence": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 12,
+    "content_head": "43d80149b16f9354ba295e09130a83aaeda85203",
+    "capsule_path": ".athena/receipts/w14-memory-digest-capsule.json",
+    "capsule_blob_sha": "e69f789cb185305961ff845b6bbcedaabf936b6b",
+    "status_blob_sha": "af53637659a6be8f75d5c097e3c68f9bdce29433"
+  },
+  "control_admission_occurrence": {
+    "repository": "demeet2k/Athena",
+    "pull_request": 10,
+    "branch": "agent/w12-unify-f07-m09-p12",
+    "head": "59176453d005e32888b399ce61048e3c44a1dd28",
+    "receipt_path": ".athena/receipts/w14-runtime-memory-capsule-admission.json",
+    "receipt_blob_sha": "f1a20a7c76d1b9985f56220d7ccf7145b0121a20",
+    "status_blob_sha": "53016b29ff1c1b5390a55805d333af3de15ff2f1",
+    "test_blob_sha": "1240755645939a59e6a6ead56ebca5d4978e4cc8"
+  },
+  "route": {
+    "forward": "runtime-content-occurrence -> control-admission-occurrence",
+    "return": "control-admission-occurrence -> runtime-return-receipt",
+    "runtime_content_rewritten": false,
+    "control_admission_rewritten": false,
+    "final_mutual_commit_fixed_point_claimed": false,
+    "no_self_referential_commit_claim": true
+  },
+  "preserved_measurements": {
+    "conversation_memory_exact_fields": 10,
+    "persisted_file_join_exact_fields": 12,
+    "explicit_capsule_address_fields": 14,
+    "future_uncued_full_packet_return": "UNTESTED",
+    "p12_claim_spans": 19,
+    "p12_active_alignments": 14,
+    "certified_equivalences": 0,
+    "independent_corroborations": 0
+  },
+  "unresolved": {
+    "runtime_exact_head_hosted_runs_observed": false,
+    "control_exact_head_hosted_runs_observed": false,
+    "endpoint_authority_inputs_unresolved": 13,
+    "activation_packet": "UNRESOLVED",
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false
+  },
+  "authority": {
+    "secret_recorded": false,
+    "merge_claimed": false,
+    "deployment_claimed": false,
+    "promotion_claimed": false,
+    "ic10_required": true
+  },
+  "successor": "KC144.XNAV.W15::UNCUED-CAPSULE-RETURN-AND-AUTHORIZED-PERSISTENT-WITNESS"
+}
