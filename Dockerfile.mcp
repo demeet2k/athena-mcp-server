@@ -4,7 +4,7 @@ ARG ATHENA_BUILD_COMMIT=""
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PORT=8080 \
-    ATHENA_DEPLOYED_COMMIT=${ATHENA_BUILD_COMMIT}
+    ATHENA_DEPLOYED_COMMIT_FILE=/app/.athena-deployed-commit
 
 WORKDIR /app
 
@@ -15,7 +15,10 @@ RUN pip install --no-cache-dir \
 
 COPY . /app
 
-RUN useradd --create-home --uid 10001 athena \
+RUN test "${#ATHENA_BUILD_COMMIT}" -eq 40 \
+    && case "$ATHENA_BUILD_COMMIT" in *[!0-9a-f]*) exit 1;; esac \
+    && printf '%s\n' "$ATHENA_BUILD_COMMIT" > "$ATHENA_DEPLOYED_COMMIT_FILE" \
+    && useradd --create-home --uid 10001 athena \
     && chown -R athena:athena /app
 
 USER athena
