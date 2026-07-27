@@ -1,0 +1,71 @@
+name: Validate W26 control-ledger return and IC10 review-open
+
+on:
+  workflow_dispatch:
+    inputs:
+      return_bundle_b64:
+        description: Base64 exact non-secret W26 return/review bundle JSON
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-control-return:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verifier dependencies
+        run: python -m pip install --disable-pip-version-check cryptography
+
+      - name: Verify frozen production-empty snapshot
+        run: python scripts/w26_control_ledger_ic10_review.py --check-snapshot
+
+      - name: Decode bounded non-secret return bundle
+        if: ${{ inputs.return_bundle_b64 != '' }}
+        env:
+          RETURN_BUNDLE_B64: ${{ inputs.return_bundle_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          encoded = os.environ["RETURN_BUNDLE_B64"]
+          decoded = base64.b64decode(encoded, validate=True)
+          if len(decoded) > 1572864:
+              raise ValueError("W26 bundle exceeds bounded input size")
+          Path("w26-return-bundle.json").write_bytes(decoded)
+          PY
+
+      - name: Verify settlement return and review-open evidence
+        if: ${{ inputs.return_bundle_b64 != '' }}
+        env:
+          VERIFIER_HEAD: ${{ github.sha }}
+          VERIFIER_TREE: ${{ github.event.repository.default_branch }}
+        run: |
+          tree="$(git rev-parse HEAD^{tree})"
+          python scripts/w26_control_ledger_ic10_review.py \
+            --bundle w26-return-bundle.json \
+            --verifier-head "$VERIFIER_HEAD" \
+            --verifier-tree "$tree" \
+            --verifier-ref refs/heads/agent/w15-reconcile-capsule-deep-hardening \
+            --output w26-control-ledger-ic10-review-preflight.json
+
+      - name: Upload bounded preflight
+        if: ${{ inputs.return_bundle_b64 != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: w26-control-ledger-ic10-review-${{ github.sha }}
+          path: w26-control-ledger-ic10-review-preflight.json
+          if-no-files-found: error
+          retention-days: 14

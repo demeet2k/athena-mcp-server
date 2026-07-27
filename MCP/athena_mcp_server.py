@@ -148,6 +148,12 @@ from crystal_108d.persistent_promotion_settlement import (
 )
 register_persistent_promotion_settlement(mcp)
 
+# ── W26 control-ledger settlement return and independent IC10 review ─
+from crystal_108d.control_ledger_ic10_review import (
+    register_control_ledger_ic10_review,
+)
+register_control_ledger_ic10_review(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

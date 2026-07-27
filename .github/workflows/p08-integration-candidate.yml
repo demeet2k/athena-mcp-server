@@ -108,6 +108,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w25-persistent-promotion-settlement-hardening.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w26-control-ledger-ic10-review.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m json.tool \
             MCP/data/w14_memory_digest_capsules.json >/dev/null
@@ -138,6 +140,8 @@ jobs:
           python -m json.tool \
             MCP/data/w25_persistent_promotion_settlement.json >/dev/null
           python -m json.tool \
+            MCP/data/w26_control_ledger_ic10_review.json >/dev/null
+          python -m json.tool \
             tests/fixtures/w20_control_protocol_admission.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
@@ -156,6 +160,7 @@ jobs:
             MCP/crystal_108d/promotion_execution_handoff.py \
             MCP/crystal_108d/execution_deployment_rollback_readback.py \
             MCP/crystal_108d/persistent_promotion_settlement.py \
+            MCP/crystal_108d/control_ledger_ic10_review.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
@@ -166,7 +171,8 @@ jobs:
             scripts/w22_independent_authority_return.py \
             scripts/w23_promotion_execution_handoff.py \
             scripts/w24_execution_deployment_rollback_readback.py \
-            scripts/w25_persistent_promotion_settlement.py
+            scripts/w25_persistent_promotion_settlement.py \
+            scripts/w26_control_ledger_ic10_review.py
           python scripts/w19_provider_admission.py --check-snapshot
           python scripts/w20_persistent_return_ic10.py --check-snapshot
           python scripts/w21_ledger_commit_promotion_handoff.py --check-snapshot
@@ -174,6 +180,7 @@ jobs:
           python scripts/w23_promotion_execution_handoff.py --check-snapshot
           python scripts/w24_execution_deployment_rollback_readback.py --check-snapshot
           python scripts/w25_persistent_promotion_settlement.py --check-snapshot
+          python scripts/w26_control_ledger_ic10_review.py --check-snapshot
 
       - name: Run fail-closed HTTP boundary tests
         run: python -m unittest tests.test_http_host -v
@@ -215,6 +222,7 @@ jobs:
               tests/test_w23_promotion_execution_handoff.py \
               tests/test_w24_execution_deployment_rollback_readback.py \
               tests/test_w25_persistent_promotion_settlement.py \
+              tests/test_w26_control_ledger_ic10_review.py \
               -q
 
       - name: Build immutable candidate image
