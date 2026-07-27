@@ -206,6 +206,7 @@ class FrozenFederation:
     """Loaded and verified federation graph."""
 
     snapshot: dict[str, Any]
+    release_candidate: dict[str, Any]
     federation: dict[str, Any]
     lock: dict[str, Any]
     resources: tuple[dict[str, Any], ...]
@@ -217,6 +218,7 @@ class FrozenFederation:
     @classmethod
     def load(cls, data_root: Path = SNAPSHOT_DIRECTORY) -> "FrozenFederation":
         snapshot = _load_json(data_root / "snapshot.json")
+        release_candidate = _load_json(data_root / "release-candidate.json")
         federation = _load_json(data_root / "federation.json")
         lock = _load_json(data_root / "repositories.lock.json")
         base_edges = _load_jsonl(data_root / "edges.jsonl")
@@ -269,6 +271,25 @@ class FrozenFederation:
             raise FederationSnapshotError(
                 f"snapshot receipt mismatch: expected={expected!r} observed={observed!r}"
             )
+        if (
+            release_candidate.get("release_id")
+            != snapshot.get("release_candidate")
+            or release_candidate.get("control_plane", {}).get(
+                "canonical_parent_head"
+            )
+            != snapshot.get("canonical_parent_head")
+            or release_candidate.get("selected_contract_lineage", {}).get(
+                "name"
+            )
+            != snapshot.get("selected_contract_lineage")
+            or release_candidate.get("selected_contract_lineage", {}).get(
+                "release"
+            )
+            != federation["release"]
+        ):
+            raise FederationSnapshotError(
+                "P05 release-candidate identity or selected lineage mismatch"
+            )
 
         edge_by_id = {edge["eid"]: edge for edge in edges}
         if len(edge_by_id) != len(edges):
@@ -288,6 +309,7 @@ class FrozenFederation:
 
         return cls(
             snapshot=snapshot,
+            release_candidate=release_candidate,
             federation=federation,
             lock=lock,
             resources=resources,
@@ -304,6 +326,10 @@ class FrozenFederation:
             "graph_digest": self.graph_digest,
             "control_repository": self.snapshot["source_repository"],
             "control_commit": self.snapshot["source_commit"],
+            "release_candidate": self.snapshot["release_candidate"],
+            "selected_contract_lineage": self.snapshot[
+                "selected_contract_lineage"
+            ],
             "fallback_enabled": True,
         }
 
@@ -535,6 +561,15 @@ def register_federation_v2(mcp: Any) -> None:
         return json.dumps(
             {
                 "snapshot": consumer.snapshot,
+                "release_candidate": {
+                    "release_id": consumer.release_candidate["release_id"],
+                    "selected_contract_lineage": consumer.release_candidate[
+                        "selected_contract_lineage"
+                    ],
+                    "promotion_ready": consumer.release_candidate[
+                        "promotion_ready"
+                    ],
+                },
                 "control": consumer.lock["control"],
                 "repositories": consumer.lock["repositories"],
             },
