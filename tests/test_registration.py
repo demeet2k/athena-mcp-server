@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 213, f"Expected 213 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 221, f"Expected 221 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 38, f"Expected 38 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 39, f"Expected 39 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -184,6 +184,21 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W19 admission/execution tools: {missing}"
 
+    def test_w20_persistent_return_ic10_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w20_persistent_return_ic10_status",
+            "inspect_athena_w20_persistent_witness",
+            "build_athena_w20_control_admission_template",
+            "inspect_athena_w20_control_admission",
+            "compile_athena_w20_ledger_entry",
+            "compile_athena_w20_ic10_review_template",
+            "inspect_athena_w20_ic10_review",
+            "evaluate_athena_w20_return_ic10_closure",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W20 return/IC10 tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -218,6 +233,7 @@ class TestRegistration:
             "athena://w18-provider-adapter-witness-return",
             "athena://w18-provider-trust-anchor",
             "athena://w19-provider-admission-execution",
+            "athena://w20-persistent-return-ic10",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"

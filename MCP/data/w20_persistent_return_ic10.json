@@ -1,0 +1,78 @@
+{
+  "schema": "athena.xnav-w20-persistent-return-ic10-gate/v1",
+  "phase": "KC144.XNAV.W20",
+  "predecessor": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 13,
+    "branch": "agent/w15-reconcile-capsule-deep-hardening",
+    "w19_head": "7863692262529d7e1effbd73eb8abfc3126ac484",
+    "w19_tree": "0d816c975ba23f608a7c75b8f53a78e9ff7a82f2",
+    "w19_contract_digest": "sha256:92d5fc0d5bb3d7068dc167b5fdef57e1803015d6dd9eba2e6604e0449fd7f309",
+    "w19_receipt_id": "w19-admission-execution:sha256:32eeaf64585085658d1e71faf0e204b4aa7910f781d3cfddf240fbc9c1f1f9b0",
+    "w19_p07_run_id": 30256053622,
+    "w19_p08_run_id": 30256053580,
+    "w19_stdio_receipt_id": "mcp-host:sha256:c4bc082a5579901c2582e35766697ab62b26330ca3c1a3692949dcf8f84c1615",
+    "w19_candidate_receipt_id": "p08-candidate:sha256:68844edb96722337497f422bf97d4725a73f40d7cc46d11c3716d01219c5c2bc"
+  },
+  "persistent_return_contract": {
+    "witness_schema": "athena.persistent-mcp-witness/v2",
+    "control_admission_schema": "athena.persistent-witness-control-admission/v1",
+    "required_witness_verdict": "PASS_PERSISTENT_HTTPS_WITNESS",
+    "sample_count": 3,
+    "interval_seconds": 20,
+    "minimum_span_seconds": 40,
+    "exact_p09_tool_count": 174,
+    "exact_p09_tool_inventory_digest": "sha256:230b41262dd77cc7e73f1acb3afcbc8de67bb52e680f35abfebb3465620fc34c",
+    "exact_p09_resource_count": 27,
+    "exact_p09_resource_inventory_digest": "sha256:6e74961966019708425aa26ed6bddb0c665cfffacb1ef7e44494f8861deb9eea",
+    "control_signature_required": true,
+    "content_addressed_external_persistence_required": true,
+    "runtime_fetches_external_persistence": false,
+    "runtime_persists_submitted_returns": false
+  },
+  "ledger_contract": {
+    "schema": "athena.persistent-witness-return-ledger/v1",
+    "entry_schema": "athena.persistent-witness-return-ledger-entry/v1",
+    "append_only": true,
+    "hash_chained": true,
+    "runtime_can_mutate_ledger": false,
+    "entries": []
+  },
+  "ic10_registry": {
+    "schema": "athena.ic10-reviewer-registry/v1",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "signature_algorithm": "ed25519",
+    "signature_encoding": "base64",
+    "reviewers": []
+  },
+  "ic10_contract": {
+    "review_packet_schema": "athena.ic10-review-packet/v1",
+    "review_decision_schema": "athena.ic10-nonpromotional-review/v1",
+    "allowed_decisions": [
+      "ADMIT_WITNESS_EVIDENCE",
+      "REJECT_WITNESS_EVIDENCE"
+    ],
+    "separate_reviewer_signature_required": true,
+    "self_supplied_reviewer_keys_allowed": false,
+    "runtime_can_mutate_reviewer_registry": false,
+    "runtime_can_promote": false,
+    "promotion_authorized_must_be_false": true
+  },
+  "boundaries": {
+    "production_control_authority_pinned": false,
+    "production_ic10_reviewer_pinned": false,
+    "provider_adapter_control_admitted": false,
+    "provider_return_signature_verified": false,
+    "execution_authorization_verified": false,
+    "persistent_witness_validated": false,
+    "external_persistence_attestation_verified": false,
+    "control_plane_witness_admitted": false,
+    "ledger_entry_committed": false,
+    "ic10_review_recorded": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false
+  },
+  "contract_digest": "sha256:c896d030fd8ac2d5392e1d47e53bebcb24f244c2fdd8a9851cfc210a4a0002a7",
+  "successor": "KC144.XNAV.W21::COMMIT-ADMITTED-WITNESS-LEDGER-ENTRY-AND-PROMOTION-AUTHORITY-HANDOFF"
+}

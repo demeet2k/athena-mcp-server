@@ -112,6 +112,12 @@ from crystal_108d.provider_admission_execution import (
 )
 register_provider_admission_execution(mcp)
 
+# ── W20 persistent-return ledger candidate and IC10 review gate ─────
+from crystal_108d.persistent_return_ic10 import (
+    register_persistent_return_ic10,
+)
+register_persistent_return_ic10(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
