@@ -9,11 +9,6 @@ on:
       - agent/p08-persistent-mcp-candidate
     paths:
       - .github/workflows/p09-publish-image.yml
-  push:
-    branches:
-      - agent/p09-published-mcp-image
-    paths:
-      - .github/workflows/p09-publish-image.yml
   workflow_dispatch:
 
 permissions:
