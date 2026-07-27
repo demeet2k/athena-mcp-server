@@ -48,7 +48,7 @@ jobs:
             scripts/p10_provider_evidence.py \
             scripts/p10_persistent_observation_window.py \
             scripts/p10_activation_packet.py
-          python scripts/p10_activation_packet.py \
+          python -m scripts.p10_activation_packet \
             deploy/p10/activation-packet.example.json \
             --check-template
           python -m unittest \
@@ -130,7 +130,7 @@ jobs:
               encoding="utf-8",
           )
           PY
-          python scripts/p10_activation_packet.py \
+          python -m scripts.p10_activation_packet \
             p10-activation-packet.json \
             --target-out p10-target.json \
             --evidence-out p10-provider-evidence.json \
@@ -179,7 +179,7 @@ jobs:
               encoding="utf-8",
           )
           PY
-          python scripts/p10_activation_packet.py \
+          python -m scripts.p10_activation_packet \
             p10-activation-packet.json \
             --target-out p10-target.json \
             --evidence-out p10-provider-evidence.json \
@@ -189,7 +189,7 @@ jobs:
         env:
           ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_P10_BEARER_TOKEN }}
         run: |
-          python scripts/p10_persistent_observation_window.py \
+          python -m scripts.p10_persistent_observation_window \
             p10-target.json \
             --provider-evidence p10-provider-evidence.json \
             --output p10-persistent-witness.json \
