@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P09_IMMUTABLE_OCI_IMAGE_PUBLISHED_ENDPOINT_PENDING",
+  "state": "P10_PROVIDER_NEUTRAL_ENDPOINT_READINESS_INPUTS_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -15,7 +15,8 @@
     "p07_ephemeral_host": ".athena/receipts/p07-mcp-host-witness.json",
     "p07_http_package": ".athena/receipts/p07-host-package.json",
     "p08_reconciled_candidate": ".athena/receipts/p08-integration-candidate.json",
-    "p09_oci_publication": ".athena/receipts/p09-oci-publication.json"
+    "p09_oci_publication": ".athena/receipts/p09-oci-publication.json",
+    "p10_endpoint_readiness": null
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -56,8 +57,10 @@
   },
   "deployment": {
     "persistent_artifact": true,
+    "authorized_host_target": null,
     "external_https_endpoint": null,
     "bearer_secret_provisioned": false,
+    "provider_evidence": null,
     "persistent_live_witness": null
   },
   "v1_fallback": true,
@@ -66,13 +69,35 @@
   "promotion_claimed": false,
   "merge_claimed": false,
   "open_defects": [
-    "No authorized persistent HTTPS /mcp endpoint exists for the published digest.",
-    "No endpoint bearer secret has been provisioned.",
-    "The repository-wide hosted suite retains legacy dependency and fixture-schema debt outside the P09 surface.",
-    "Runtime promotion remains control-plane governed and is not claimed by this publication."
+    "No authorized hosting provider or logical account scope has been selected.",
+    "No persistent deployment ID or external HTTPS /mcp endpoint exists.",
+    "No protected secret-store reference or endpoint bearer secret has been provisioned.",
+    "No provider evidence proves selection of the exact P09 digest.",
+    "No repeated persistent live witness exists.",
+    "The repository-wide hosted suite retains legacy dependency and fixture-schema debt outside the P10 readiness surface.",
+    "Runtime promotion remains control-plane governed and is not claimed by this readiness package."
   ],
-  "next_gate": "Deploy the exact published digest sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2 to an authorized HTTPS /mcp host, provision its bearer secret, replay the live HTTP probe, and admit the persistent witness through the control plane.",
+  "next_gate": "Supply authorized provider/account scope, deployment ID, persistent HTTPS /mcp endpoint, protected secret-store reference, and provider evidence for the exact selected digest; then run scripts/p10_persistent_witness.py and admit the non-promotional witness through the control plane.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HTTPS-ENDPOINT-AND-PERSISTENT-WITNESS"
+  "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HOST-ACTIVATION-AND-LIVE-WITNESS",
+  "p10_endpoint_readiness": {
+    "base_p09_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+    "selected_image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "selected_digest": "sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+    "readiness_contract": "deploy/p10/readiness.json",
+    "provider_evidence_template": "deploy/p10/provider-evidence.example.json",
+    "persistent_witness_probe": "scripts/p10_persistent_witness.py",
+    "validation_workflow": ".github/workflows/p10-endpoint-readiness.yml",
+    "authorized_target_selected": false,
+    "provider_id": null,
+    "provider_account_scope": null,
+    "deployment_id": null,
+    "endpoint": null,
+    "secret_store_ref": null,
+    "bearer_secret_provisioned": false,
+    "provider_evidence": null,
+    "persistent_witness": null
+  }
 }
