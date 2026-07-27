@@ -136,6 +136,12 @@ from crystal_108d.promotion_execution_handoff import (
 )
 register_promotion_execution_handoff(mcp)
 
+# ── W24 execution/deployment/rollback return readback ───────────────
+from crystal_108d.execution_deployment_rollback_readback import (
+    register_execution_deployment_rollback_readback,
+)
+register_execution_deployment_rollback_readback(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

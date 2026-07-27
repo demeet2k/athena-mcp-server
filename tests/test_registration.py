@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 253, f"Expected 253 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 265, f"Expected 265 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 42, f"Expected 42 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 43, f"Expected 43 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -252,6 +252,25 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W23 promotion/execution tools: {missing}"
 
+    def test_w24_execution_deployment_rollback_readback_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w24_execution_deployment_rollback_status",
+            "inspect_athena_w24_w23_custody",
+            "inspect_athena_w24_authority_source_revision",
+            "inspect_athena_w24_execution_occurrence",
+            "inspect_athena_w24_promotion_observation_contract",
+            "inspect_athena_w24_deployment_readback_contract",
+            "inspect_athena_w24_health_window_contract",
+            "inspect_athena_w24_rollback_authorization_contract",
+            "inspect_athena_w24_rollback_occurrence_contract",
+            "inspect_athena_w24_rollback_observation_contract",
+            "evaluate_athena_w24_execution_deployment_rollback_closure",
+            "explain_athena_w24_return_separation_law",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W24 return-readback tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -290,6 +309,7 @@ class TestRegistration:
             "athena://w21-ledger-commit-promotion-handoff",
             "athena://w22-independent-authority-return",
             "athena://w23-promotion-execution-handoff",
+            "athena://w24-execution-deployment-rollback-readback",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"

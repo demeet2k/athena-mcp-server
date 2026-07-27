@@ -1,0 +1,64 @@
+name: Validate W24 execution deployment rollback returns
+
+on:
+  workflow_dispatch:
+    inputs:
+      return_bundle_b64:
+        description: Base64 exact non-secret W24 return-bundle JSON
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-return-bundle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact requested ref
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verification dependencies
+        run: python -m pip install "cryptography>=44,<48"
+
+      - name: Validate frozen production-empty snapshot
+        run: |
+          python scripts/w24_execution_deployment_rollback_readback.py \
+            --check-snapshot
+
+      - name: Decode bounded non-secret return bundle
+        env:
+          RETURN_BUNDLE_B64: ${{ inputs.return_bundle_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          decoded = base64.b64decode(
+              os.environ["RETURN_BUNDLE_B64"], validate=True
+          )
+          if len(decoded) > 1048576:
+              raise ValueError("W24 bundle exceeds bounded input size")
+          Path("w24-return-bundle.json").write_bytes(decoded)
+          PY
+
+      - name: Verify coordinate-specific return closure
+        run: |
+          python scripts/w24_execution_deployment_rollback_readback.py \
+            --bundle w24-return-bundle.json \
+            --output w24-execution-deployment-rollback-preflight.json
+
+      - name: Upload non-secret validation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: w24-return-preflight-${{ github.sha }}
+          path: w24-execution-deployment-rollback-preflight.json
+          if-no-files-found: error
+          retention-days: 30
