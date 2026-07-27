@@ -1,0 +1,24 @@
+{
+  "schema": "athena.mcp-host-deployment-package/v1",
+  "phase": "P07",
+  "release": "athena-mcp-host-p07-rc1",
+  "predecessor_runtime_commit": "d27e47eb95c730838b46a5a59dcb474340d0e4ba",
+  "container": {
+    "dockerfile": "Dockerfile.mcp",
+    "port_environment": "PORT",
+    "default_port": 8080,
+    "health_path": "/healthz",
+    "mcp_path": "/mcp",
+    "transport": "streamable-http"
+  },
+  "security": {
+    "bearer_token_environment": "ATHENA_MCP_BEARER_TOKEN",
+    "allowed_origins_environment": "ATHENA_MCP_ALLOWED_ORIGINS",
+    "token_recorded_in_receipt": false,
+    "promotion_authority": false
+  },
+  "probe": "scripts/probe_mcp_host.py",
+  "deployment_witness": null,
+  "status": "READY_TO_DEPLOY_NOT_DEPLOYED",
+  "successor_seed": "KC144.MYC.SKELETON.P07::LIVE-V2-V1-ANSWER-WITNESS"
+}

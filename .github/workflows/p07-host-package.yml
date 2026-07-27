@@ -1,0 +1,36 @@
+name: Validate P07 MCP host package
+
+on:
+  pull_request:
+  push:
+    branches: [master, main]
+
+permissions:
+  contents: read
+
+jobs:
+  host-boundary:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test the fail-closed HTTP boundary
+        run: python -m unittest tests.test_http_host -v
+      - name: Compile deployment surfaces
+        run: |
+          python -m py_compile \
+            MCP/http_security.py \
+            MCP/athena_http_server.py \
+            scripts/probe_mcp_host.py \
+            tests/test_http_host.py
+      - name: Validate deployment manifest
+        run: python -m json.tool deploy/mcp-host.json >/dev/null
+
+  container:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build without publishing
+        run: docker build -f Dockerfile.mcp -t athena-mcp:p07 .

@@ -1,0 +1,25 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PORT=8080
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir \
+    "mcp[cli]>=1.28.0,<2" \
+    "starlette>=0.48,<2" \
+    "uvicorn>=0.35,<1"
+
+COPY . /app
+
+RUN useradd --create-home --uid 10001 athena \
+    && chown -R athena:athena /app
+
+USER athena
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.environ.get('PORT','8080')+'/healthz',timeout=3)"
+
+CMD ["sh", "-c", "uvicorn --app-dir MCP athena_http_server:app --host 0.0.0.0 --port ${PORT:-8080}"]
