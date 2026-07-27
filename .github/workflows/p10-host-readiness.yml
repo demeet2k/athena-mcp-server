@@ -39,6 +39,14 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
+      - name: Install exact verification dependencies
+        run: |
+          python -m pip install \
+            "mcp[cli]==1.28.1" \
+            "httpx==0.28.1" \
+            "starlette==0.48.0" \
+            "uvicorn==0.35.0"
+
       - name: Validate contracts and tests
         run: |
           test "$(git merge-base "$P09_HEAD" HEAD)" = "$P09_HEAD"

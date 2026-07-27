@@ -225,6 +225,8 @@ class WorkflowBoundaryTests(unittest.TestCase):
         self.assertIn("github.event.pull_request.head.sha", readiness)
         self.assertIn('git merge-base "$P09_HEAD" HEAD', readiness)
         self.assertIn("possible secret material found in P10 diff", readiness)
+        self.assertIn('"httpx==0.28.1"', readiness)
+        self.assertIn('"mcp[cli]==1.28.1"', readiness)
         live = workflow.split("  persistent-witness:", 1)[1]
         self.assertIn("needs: activation-preflight", live)
         self.assertIn("secrets.ATHENA_MCP_BEARER_TOKEN", live)
