@@ -1,12 +1,14 @@
 {
   "schema": "athena.mcp-host-deployment-package/v1",
   "phase": "P07",
-  "release": "athena-mcp-host-p07-rc2",
+  "release": "athena-mcp-host-p07-rc3",
   "predecessor_runtime_commit": "d27e47eb95c730838b46a5a59dcb474340d0e4ba",
   "container": {
     "dockerfile": "Dockerfile.mcp",
     "build_commit_argument": "ATHENA_BUILD_COMMIT",
-    "deployed_commit_environment": "ATHENA_DEPLOYED_COMMIT",
+    "deployed_commit_file": "/app/.athena-deployed-commit",
+    "deployed_commit_file_environment": "ATHENA_DEPLOYED_COMMIT_FILE",
+    "runtime_commit_override_allowed": false,
     "default_port": 8080,
     "health_path": "/healthz",
     "mcp_path": "/mcp",
