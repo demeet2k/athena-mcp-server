@@ -34,7 +34,7 @@ class TestRegistration:
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 31, f"Expected 31 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 34, f"Expected 34 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -103,6 +103,27 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W14 capsule tools: {missing}"
 
+    def test_capsule_replay_and_authority_ingress_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_capsule_blind_replay_status",
+            "replay_athena_capsule_blind",
+            "inspect_athena_authority_packet",
+            "athena_authority_packet_ingress_status",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W15 replay/ingress tools: {missing}"
+
+    def test_w16_capsule_index_repair_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_w16_replay_ledger_status",
+            "resolve_athena_w16_capsule_index",
+            "athena_w16_authorized_witness_ingress_status",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing W16 capsule-index tools: {missing}"
+
     def test_replay_authority_ledger_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
         expected = {
@@ -142,6 +163,9 @@ class TestRegistration:
             "athena://memory-digest-capsules",
             "athena://replay-authority-ledger",
             "athena://authority-evidence-adjunction",
+            "athena://capsule-blind-replay",
+            "athena://authority-packet-ingress",
+            "athena://w16-replay-ledger",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
