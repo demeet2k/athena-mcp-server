@@ -1,0 +1,47 @@
+{
+  "schema": "athena.persistent-mcp-candidate/v1",
+  "phase": "P08",
+  "seed": "KC144.MYC.SKELETON.P08::PERSISTENT-MCP-ENDPOINT-AND-PROMOTION-READINESS",
+  "verdict": "PASS_RECONCILED_CANDIDATE_NOT_DEPLOYED",
+  "repository": "demeet2k/athena-mcp-server",
+  "branch": "agent/p08-persistent-mcp-candidate",
+  "integration_merge_commit": "e705aaed854b3c17f0f5323a9f299d1a2257f8a7",
+  "parents": {
+    "hosted_runtime_receipt_head": "3b32a648e41edc75f7a8d048e84a35948cff3a4c",
+    "persistent_http_package_head": "2f79ddf0f513777b121290c44bd53e1d63d27d7f",
+    "common_predecessor": "d27e47eb95c730838b46a5a59dcb474340d0e4ba"
+  },
+  "included_evidence": {
+    "ephemeral_host_receipt": ".athena/receipts/p07-mcp-host-witness.json",
+    "http_package_receipt": ".athena/receipts/p07-host-package.json",
+    "http_package_release": "athena-mcp-host-p07-rc3"
+  },
+  "verification": {
+    "workflow": ".github/workflows/p08-integration-candidate.yml",
+    "verified_candidate_commit": "dd41dc328f843cbdd84c42ca97d5e2fb976c5760",
+    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30237149977",
+    "job_id": 89887014467,
+    "status": "PASS",
+    "candidate_witness_receipt_id": "p08-candidate:sha256:60eb7358479c4fcbbdb7d84aab9eb872e250b7e17798592664ce038eec085345",
+    "stdio_witness_receipt_id": "mcp-host:sha256:a705f3a2ff9c2d02bf04d639ade3dbfa5c5e7dc6e41ced0186b2fcb47b9a1eb0",
+    "artifact_id": 8642015313,
+    "artifact_digest": "sha256:7a25abf61cbba31fbcddf89c67a7fb3f47b35298976fe7b9d5f0b456edf8f4bf",
+    "image_id": "sha256:916607cfa527b2dfe5508dd0d018db38421060b0431bfd5e09e7c6871ecae681",
+    "mcp_checks_passed": 10,
+    "http_boundary_tests_passed": 9,
+    "targeted_regressions_passed": 14
+  },
+  "deployment": {
+    "persistent_endpoint": null,
+    "secret_provisioned": false,
+    "persistent_witness": null
+  },
+  "authority": {
+    "runtime_can_promote": false,
+    "control_plane_admission_required": true,
+    "promotion_claimed": false,
+    "merge_claimed": false
+  },
+  "next_gate": "Verify the exact combined head, then deploy that immutable image to an authorized persistent HTTPS MCP host and replay the live probe.",
+  "successor_seed": "KC144.MYC.SKELETON.P08::AUTHORIZED-HTTPS-HOST-AND-PERSISTENT-WITNESS"
+}
