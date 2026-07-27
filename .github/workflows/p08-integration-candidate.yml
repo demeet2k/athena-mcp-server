@@ -63,13 +63,18 @@ jobs:
           python -m json.tool \
             .athena/receipts/w14-memory-digest-capsule-endpoint-binding.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w15-capsule-blind-replay-authority-ingress.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m json.tool \
             MCP/data/w14_memory_digest_capsules.json >/dev/null
+          python -m json.tool \
+            MCP/data/w15_blind_replay_ingress.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
             MCP/crystal_108d/source_mounts.py \
             MCP/crystal_108d/memory_digest_capsules.py \
+            MCP/crystal_108d/capsule_replay_ingress.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
@@ -96,6 +101,7 @@ jobs:
               tests/test_w12_live_provider_receipt.py \
               tests/test_w13_memory_endpoint_gate.py \
               tests/test_w14_memory_digest_capsules.py \
+              tests/test_w15_capsule_replay_ingress.py \
               -q
 
       - name: Build immutable candidate image
