@@ -1,0 +1,152 @@
+{
+  "schema": "athena.memory-digest-capsules/v1",
+  "phase": "KC144.XNAV.W14",
+  "frozen_at": "2026-07-27T07:21:10Z",
+  "capsule_set_digest": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+  "predecessor": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 10,
+    "runtime_head": "99d898b048b2014840b449bb353a7e0f00cb3513",
+    "w13_receipt": {
+      "path": ".athena/receipts/w13-blind-memory-and-endpoint-gate.json",
+      "blob_sha": "3de3f6d18fdd3ff7d35b12babbbbf766c08c2cc8",
+      "verdict": "PARTIAL_PASS_GLOBAL_MEMORY_RECALL__PASS_ENDPOINT_HANDOFF_READY_AUTHORITY_PENDING"
+    },
+    "w12_receipt": {
+      "path": ".athena/receipts/w12-live-provider-return.json",
+      "blob_sha": "1c1b2d2e8c4dec397d4982cd87a37cfc3626c51c",
+      "verdict": "PASS_LIVE_PROVIDER_RETURN_NO_DRIFT"
+    }
+  },
+  "memory_measurement": {
+    "strict_fields_per_object": [
+      "rid",
+      "file_id",
+      "drive_revision_id",
+      "tab_id",
+      "half_open_range",
+      "literal",
+      "full_sha256"
+    ],
+    "object_count": 2,
+    "possible_field_count": 14,
+    "conversation_memory_exact_field_count": 10,
+    "persisted_file_memory_exact_field_count": 12,
+    "capsule_assisted_exact_field_count": 14,
+    "capsule_assisted_exact_recovery_ratio": 1.0,
+    "capsule_assisted_is_internal_recall": false,
+    "capsule_assisted_is_live_provider_read": false,
+    "classification": "EXTERNAL_CONTENT_ADDRESSED_MEMORY_COMPLETION"
+  },
+  "capsules": [
+    {
+      "capsule_id": "mcap:sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+      "station": "F07",
+      "rid": "rid:kc144:gid050:f07:analytic-branch-cover",
+      "aid": "KC144.V1::GID050::F07::ANALYTIC_BRANCH_COVER",
+      "source": {
+        "provider": "google-drive",
+        "file_id": "1fWBHqWuFXHucyHxnTobngr3vmaWkRmlP-zyn7jOm3_w",
+        "revision_id": "34",
+        "tab_id": "t.0",
+        "range": {
+          "start": 48973,
+          "end": 48998,
+          "interval": "half-open"
+        },
+        "literal": "FORWARD_ADDR::⟨0,s₂,[β₁]⟩",
+        "literal_sha256": "9ff39e3f43c43e077fff00ef05fb40da64440a4af49eeb83f63011cd10b15939"
+      },
+      "provenance": {
+        "kind": "external-persisted-memory",
+        "ground_truth": "W12 exact live-provider return witness",
+        "internal_recall_claimed": false,
+        "live_provider_read_by_runtime": false
+      }
+    },
+    {
+      "capsule_id": "mcap:sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+      "station": "M09",
+      "rid": "rid:kc144:gid141:m09:path-signature",
+      "aid": "KC144.V1::GID141::M09::PATH_SIGNATURE",
+      "source": {
+        "provider": "google-drive",
+        "file_id": "1Ct84ETWyBLa9uBXkmsJBBrLSQ6nzVIz_NSBDlph_kA4",
+        "revision_id": "92",
+        "tab_id": "t.0",
+        "range": {
+          "start": 366356,
+          "end": 366385,
+          "interval": "half-open"
+        },
+        "literal": "A hidden hash is insufficient",
+        "literal_sha256": "b2dbee4215f51bcf76d251a49bbf150bfd6125f52b3e49c41303d7fb41e73b80"
+      },
+      "provenance": {
+        "kind": "external-persisted-memory",
+        "ground_truth": "W12 exact live-provider return witness",
+        "internal_recall_claimed": false,
+        "live_provider_read_by_runtime": false
+      }
+    }
+  ],
+  "endpoint_binding": {
+    "schema": "athena.authorized-endpoint-binding-link/v1",
+    "state": "AUTHORITY_PENDING",
+    "canonical_activation_handoff": {
+      "repository": "demeet2k/athena-mcp-server",
+      "pull_request": 11,
+      "branch": "agent/p10-activation-handoff",
+      "head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+      "activation_packet_schema": "athena.persistent-host-activation-packet/v1",
+      "activation_template_blob": "478272aae5fcbb2563a36c3a61ed5eba199c1630",
+      "readiness_receipt_blob": "7b13c4a86a103c4452ce8d90b96563296462ca5e",
+      "workflow_blob": "68b41f9cdd0aa539517e5a97f0628cb57c9fb09e",
+      "activation_tests_blob": "64da43ef472026a604d98f2405f347c6b53c4a04"
+    },
+    "authority_packet_digest": null,
+    "authorized_endpoint": null,
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_P10_BEARER_TOKEN",
+    "witness_plan": {
+      "samples": 3,
+      "interval_seconds": 20,
+      "minimum_span_seconds": 40,
+      "execute_live_witness_default": false
+    },
+    "unresolved_authority_inputs": [
+      "provider.id",
+      "provider.account_scope",
+      "provider.deployment_id",
+      "provider.deployment_observed_at",
+      "provider.evidence_url",
+      "target.id",
+      "target.endpoint",
+      "target.persistence_class",
+      "target.secret_store_ref",
+      "authorization.ref",
+      "authorization.actor",
+      "authorization.authorized_at",
+      "protected bearer secret provisioning"
+    ],
+    "activation_packet_compilable_now": false,
+    "dispatch_allowed": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "secret_material_embedded": false,
+    "persistent_deployment_claimed": false,
+    "promotion_claimed": false
+  },
+  "boundaries": {
+    "raw_docs_body_committed": false,
+    "external_capsule_is_internal_memory": false,
+    "hidden_weight_recall_claimed": false,
+    "live_provider_checked_by_runtime": false,
+    "endpoint_authority_invented": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "merge_claimed": false,
+    "persistent_deployment_claimed": false,
+    "promotion_claimed": false
+  }
+}
