@@ -33,6 +33,7 @@ plane instead of inferring repository relationships from README links or names.
   with their reverse return plan.
 - Existing 108D resources remain available through an explicit
   `athena-108d-v1` fallback. Every response says which runtime answered.
+- `KC144.MYC.P05.RC1` is verified as the selected `git-brain-v2` release candidate before the graph is loaded.
 - The vendored lock is verified at load time against 14 resource versions,
   56 exact identifiers, 26 typed edges, and graph digest
   `sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1`.
