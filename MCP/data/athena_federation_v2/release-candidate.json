@@ -1,0 +1,117 @@
+{
+  "schema": "athena.federation-release-candidate/v2",
+  "release_id": "KC144.MYC.P05.RC1",
+  "observed_at": "2026-07-27T03:39:56Z",
+  "control_plane": {
+    "repository": "demeet2k/Athena",
+    "canonical_branch": "agent/athena-git-brain-v2",
+    "canonical_parent_head": "1b177fa2e3a4860487497210dcfbc122a287d693",
+    "canonical_pull_request": "https://github.com/demeet2k/Athena/pull/2",
+    "alternate_branch": "agent/federated-repository-contract-rollout",
+    "alternate_head": "fec70c9064960af11f46eab1965c90afc108a0f4",
+    "alternate_pull_request": "https://github.com/demeet2k/Athena/pull/3"
+  },
+  "inventory_reconciliation": {
+    "observed_repositories": 12,
+    "control_planes": 1,
+    "computational_satellites": 10,
+    "excluded_profiles": 1,
+    "equation": "12 = 1 control + 10 computational satellites + 1 excluded profile",
+    "verdict": "PASS[COUNT_SEMANTICS_RECONCILED]"
+  },
+  "selected_contract_lineage": {
+    "name": "git-brain-v2",
+    "release": "v2-proposal-0.1.0",
+    "control_foundation_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+    "selection_basis": [
+      "stable rid and vid identities",
+      "exact immutable control-plane import",
+      "explicit reciprocal forward and return edges",
+      "repository-local status boundary",
+      "migration and proposal receipts",
+      "legacy address crosswalk",
+      "deterministic v1-v2 dual-run closure"
+    ],
+    "cold_replay": "PASS[10/10]"
+  },
+  "contracts": [
+    {
+      "repository": "demeet2k/athena-mcp-server",
+      "resource": "athena.repo.runtime-mcp",
+      "canonical_commit": "84297571eb84057cdcad4453ddf1642e2dc0c1b8",
+      "alternate_commit": "eb0a145bd665226420df5a143f6cc8ec9856530e"
+    },
+    {
+      "repository": "demeet2k/q-shrink",
+      "resource": "athena.repo.q-shrink",
+      "canonical_commit": "5c97c1ad0a5d0665185b5107a802f5d6b43e7d56",
+      "alternate_commit": "d78f35f46f445bb666ad480aea63a4eee832e6a5"
+    },
+    {
+      "repository": "demeet2k/manuscript-being",
+      "resource": "athena.repo.manuscript-being",
+      "canonical_commit": "646df884562a0b5f29d3c9b990bfae775373ac79",
+      "alternate_commit": "3d764727b1f3de0979dff8449a49a146f9104b47"
+    },
+    {
+      "repository": "demeet2k/manscript-being",
+      "resource": "athena.repo.manscript-being",
+      "canonical_commit": "643024b6110d253e1b9c50c3d5faa175e3f2a4f4",
+      "alternate_commit": "44d801c35ac46b2a424d74104c3d08a5b3cb168c"
+    },
+    {
+      "repository": "demeet2k/athena-square-earth",
+      "resource": "athena.repo.view.square-earth",
+      "canonical_commit": "446f447e081d356c9d844c06be36ce1a08351aea",
+      "alternate_commit": "7949d1e53622d8153acf83e1c919583ad810e8ae"
+    },
+    {
+      "repository": "demeet2k/athena-flower-fire",
+      "resource": "athena.repo.view.flower-fire",
+      "canonical_commit": "daa995f3f353a01746414cfbdc1ec26a58b4ac6f",
+      "alternate_commit": "f57facee720edbd9ed300aa15996bf54350cd682"
+    },
+    {
+      "repository": "demeet2k/athena-cloud-water",
+      "resource": "athena.repo.view.cloud-water",
+      "canonical_commit": "ac00c860b59ec2c9cd541f049343465aae19d82c",
+      "alternate_commit": "2a0aa0f05a2815af23a53902911e2da3c07a3b67"
+    },
+    {
+      "repository": "demeet2k/athena-fractal-air",
+      "resource": "athena.repo.view.fractal-air",
+      "canonical_commit": "531bfdd8188e5b1ea55caaab515b168c2963c78a",
+      "alternate_commit": "9bf1d9d38277b1d8681efeeadabcf5666361ee03"
+    },
+    {
+      "repository": "demeet2k/autoresearch",
+      "resource": "athena.repo.autoresearch",
+      "canonical_commit": "ac2b4be3112177d432868e9bd6f68da44206437d",
+      "alternate_commit": "fa1830acb93dc1878b65935b0c3e1d8324500064"
+    },
+    {
+      "repository": "demeet2k/guild-hall",
+      "resource": "athena.repo.guild-hall",
+      "canonical_commit": "4e29559ec344eaf6a386be9b96a59fcc07a09547",
+      "alternate_commit": "4341a31a98b47ec62923252293aa64a0d8d607e1"
+    }
+  ],
+  "excluded_repository": {
+    "repository": "demeet2k/demeet2k",
+    "alternate_commit": "8245dadca775e3152be86cf4016382045cebe40e",
+    "role": "profile",
+    "verdict": "EXCLUDED[NONCOMPUTATIONAL]"
+  },
+  "alternate_lineage": {
+    "name": "p04-portal-overlay",
+    "registry_commit": "43479f458079ce52ce9323c46566b7f9982323fd",
+    "merkle_root": "319efcd8484a6c41c127da4f9df74c7a7b74a504b6f733299fc6100b97b3bf9d",
+    "cold_replay": "FAIL[0/11_EXACT_RETURN_CLOSURES]",
+    "disposition": "QUARANTINE_AS_WITNESSED_ALTERNATE_LINEAGE",
+    "repair": "Rebind portal resource identities to canonical rids, emit exact reciprocal edge ids, restore the missing Guild Hall return surface, and repin before reconsideration."
+  },
+  "cold_replay_receipt": ".athena/receipts/p05-cold-replay.json",
+  "promotion_ready": false,
+  "promotion_verdict": "HOLD[SATELLITE_PRS_UNMERGED,RUNTIME_LOCK_CONSUMPTION_UNWITNESSED,HOSTED_RUNNER_ADMISSION_OBSTRUCTED,FULL_SOURCE_SPAN_LINEAGE_INCOMPLETE]",
+  "successor_seed": "KC144.MYC.SKELETON.P06::RUNTIME-LOCK-CONSUMPTION-AND-DUAL-RUN-CUTOVER"
+}
