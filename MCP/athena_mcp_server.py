@@ -80,6 +80,10 @@ register_source_mounts(mcp)
 from crystal_108d.memory_digest_capsules import register_memory_digest_capsules
 register_memory_digest_capsules(mcp)
 
+# ── W15 opaque capsule replay and authority-packet ingress ─────────
+from crystal_108d.capsule_replay_ingress import register_capsule_replay_ingress
+register_capsule_replay_ingress(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════
