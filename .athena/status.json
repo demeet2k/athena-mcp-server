@@ -1,14 +1,18 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "BOUND_NOT_CUTOVER",
+  "state": "V2_LOCK_CONSUMER_IMPLEMENTED",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
-  "control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
-  "contract_release": "contract-proposal-0.1.0",
+  "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+  "frozen_snapshot_commit": "1b177fa2e3a4860487497210dcfbc122a287d693",
+  "federation_release": "v2-proposal-0.1.0",
+  "runtime_release": "federation-consumer-0.1.0",
+  "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+  "v1_fallback": true,
   "promotion_ready": false,
   "open_defects": [
-    "The deployed runtime does not yet consume a frozen v2 federation lock.",
-    "Runtime outputs are witnesses until admitted by the control plane."
+    "MCP host deployment of this branch is not yet witnessed.",
+    "Runtime route receipts remain witnesses until admitted by the control plane."
   ],
-  "next_gate": "Admit this contract into a pinned Athena federation release."
+  "next_gate": "Deploy this branch in an MCP host, verify v2 and v1 answers, then admit the witnessed runtime commit into the control-plane lock."
 }
