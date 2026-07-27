@@ -33,7 +33,7 @@
     "conversation_memory_exact_field_count": 10,
     "persisted_file_memory_exact_field_count": 12,
     "capsule_assisted_exact_field_count": 14,
-    "capsule_assisted_exact_recovery_ratio": 1.0,
+    "capsule_assisted_exact_recovery_ratio": 1,
     "capsule_assisted_is_internal_recall": false,
     "capsule_assisted_is_live_provider_read": false,
     "classification": "EXTERNAL_CONTENT_ADDRESSED_MEMORY_COMPLETION"
@@ -97,17 +97,18 @@
       "repository": "demeet2k/athena-mcp-server",
       "pull_request": 11,
       "branch": "agent/p10-activation-handoff",
-      "head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+      "head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
       "activation_packet_schema": "athena.persistent-host-activation-packet/v1",
-      "activation_template_blob": "478272aae5fcbb2563a36c3a61ed5eba199c1630",
-      "readiness_receipt_blob": "7b13c4a86a103c4452ce8d90b96563296462ca5e",
-      "workflow_blob": "68b41f9cdd0aa539517e5a97f0628cb57c9fb09e",
-      "activation_tests_blob": "64da43ef472026a604d98f2405f347c6b53c4a04"
+      "activation_template_blob": "409cf48b944b3cc5eabbb5d6b38806d3fd41afc9",
+      "readiness_receipt_blob": "2d5e368f8c1bded50a980c118b86a33f93111055",
+      "workflow_blob": "f65201299bf9bcb3648a0448206dde638950ba9a",
+      "activation_tests_blob": "b941ffd12655e6d78e7cbb9844f5e70ad48b8270",
+      "deep_hardening_receipt_blob": "8a1c60bb994c049978fde7e9db35a8f9096db57a"
     },
     "authority_packet_digest": null,
     "authorized_endpoint": null,
     "protected_environment": "p10-persistent-host",
-    "protected_secret_name": "ATHENA_P10_BEARER_TOKEN",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
     "witness_plan": {
       "samples": 3,
       "interval_seconds": 20,
@@ -135,7 +136,8 @@
     "persistent_witness_executed": false,
     "secret_material_embedded": false,
     "persistent_deployment_claimed": false,
-    "promotion_claimed": false
+    "promotion_claimed": false,
+    "deep_hardening_verdict": "READY_AWAITING_AUTHORIZED_TARGET"
   },
   "boundaries": {
     "raw_docs_body_committed": false,
