@@ -2,7 +2,7 @@
   "schema": "athena.persistent-mcp-candidate/v1",
   "phase": "P08",
   "seed": "KC144.MYC.SKELETON.P08::PERSISTENT-MCP-ENDPOINT-AND-PROMOTION-READINESS",
-  "verdict": "CANDIDATE_RECONCILED_VERIFICATION_PENDING",
+  "verdict": "PASS_RECONCILED_CANDIDATE_NOT_DEPLOYED",
   "repository": "demeet2k/athena-mcp-server",
   "branch": "agent/p08-persistent-mcp-candidate",
   "integration_merge_commit": "e705aaed854b3c17f0f5323a9f299d1a2257f8a7",
@@ -18,9 +18,18 @@
   },
   "verification": {
     "workflow": ".github/workflows/p08-integration-candidate.yml",
-    "exact_candidate_head": "resolved_by_workflow",
-    "status": "PENDING",
-    "artifact": null
+    "verified_candidate_commit": "dd41dc328f843cbdd84c42ca97d5e2fb976c5760",
+    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30237149977",
+    "job_id": 89887014467,
+    "status": "PASS",
+    "candidate_witness_receipt_id": "p08-candidate:sha256:60eb7358479c4fcbbdb7d84aab9eb872e250b7e17798592664ce038eec085345",
+    "stdio_witness_receipt_id": "mcp-host:sha256:a705f3a2ff9c2d02bf04d639ade3dbfa5c5e7dc6e41ced0186b2fcb47b9a1eb0",
+    "artifact_id": 8642015313,
+    "artifact_digest": "sha256:7a25abf61cbba31fbcddf89c67a7fb3f47b35298976fe7b9d5f0b456edf8f4bf",
+    "image_id": "sha256:916607cfa527b2dfe5508dd0d018db38421060b0431bfd5e09e7c6871ecae681",
+    "mcp_checks_passed": 10,
+    "http_boundary_tests_passed": 9,
+    "targeted_regressions_passed": 14
   },
   "deployment": {
     "persistent_endpoint": null,
