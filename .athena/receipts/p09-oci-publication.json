@@ -1,0 +1,50 @@
+{
+  "authority": {
+    "bearer_secret_provisioned": false,
+    "image_published": true,
+    "merge_claimed": false,
+    "persistent_endpoint": null,
+    "persistent_witness": null,
+    "promotion_claimed": false,
+    "promotion_ready": false
+  },
+  "image": {
+    "digest": "sha256:b100035349af85f9d29a7f8ad5dfd6d99f5103a73a6fa97ac6959b078e483963",
+    "health": {
+      "authentication": "bearer",
+      "commit_attested": true,
+      "commit_source": "build-locked-file",
+      "deployed_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+      "endpoint": "/mcp",
+      "promotion_ready": false,
+      "status": "ready",
+      "transport": "streamable-http"
+    },
+    "reference": "ghcr.io/demeet2k/athena-mcp-server@sha256:b100035349af85f9d29a7f8ad5dfd6d99f5103a73a6fa97ac6959b078e483963",
+    "source_commit_attested": true,
+    "tags": [
+      "p08-52d0e2ab",
+      "candidate-52d0e2abf282"
+    ]
+  },
+  "next_gate": "Deploy this exact digest to an authorized HTTPS /mcp host, provision its bearer secret, and replay the live probe before control-plane admission.",
+  "observed_at": "2026-07-27T04:41:49Z",
+  "phase": "P09",
+  "publication_commit": "eeeae7de050b44c3b15ef8741fc9f705b7e72b41",
+  "receipt_id": "oci-publication:sha256:a224a0c7cfa987a931f4642165795ff8de21e1b650866ec1cee247e32ad94bd8",
+  "repository": "demeet2k/athena-mcp-server",
+  "rollback": {
+    "action": "Stop selecting this digest; retain the P08 source and publication receipt without rewriting history.",
+    "class": "immutable-digest-selection",
+    "source_predecessor": "52d0e2abf282aee5f8bf233521989bc2c8969989"
+  },
+  "run_attempt": "1",
+  "run_id": "30237723308",
+  "schema": "athena.oci-publication-receipt/v1",
+  "seed": "KC144.MYC.SKELETON.P09::IMMUTABLE-OCI-PUBLICATION-AND-ENDPOINT-HANDOFF",
+  "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+  "successor_seed": "KC144.MYC.SKELETON.P10::AUTHORIZED-HTTPS-ENDPOINT-AND-PERSISTENT-WITNESS",
+  "verdict": "PASS_IMMUTABLE_IMAGE_PUBLISHED_ENDPOINT_PENDING",
+  "workflow": ".github/workflows/p09-publish-image.yml",
+  "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30237723308"
+}
