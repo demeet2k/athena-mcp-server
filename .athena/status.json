@@ -1,6 +1,6 @@
 {
   "schema": "athena.repo-status/v2",
-  "state": "P10_DEEP_HARDENING_PLUS_W15_CAPSULE_RECONCILIATION_AUTHORITY_PENDING",
+  "state": "P10_DEEP_HARDENING_PLUS_W16_TYPED_REPLAY_INDEX_AUTHORITY_PENDING",
   "role": "runtime",
   "base_commit": "0ee038011295873ba037a3cac25de18544439293",
   "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
@@ -26,7 +26,9 @@
     "w14_control_return_closure": ".athena/receipts/w14-control-return-closure.json",
     "w14_memory_digest_capsule_endpoint_binding": ".athena/receipts/w14-memory-digest-capsule-endpoint-binding.json",
     "w15_capsule_blind_replay_ingress": ".athena/receipts/w15-capsule-blind-replay-ingress.json",
-    "w15_endpoint_binding_reconciliation": ".athena/receipts/w15-endpoint-binding-reconciliation.json"
+    "w15_endpoint_binding_reconciliation": ".athena/receipts/w15-endpoint-binding-reconciliation.json",
+    "w15_capsule_replay_authority_ingress": ".athena/receipts/w15-capsule-blind-replay-authority-ingress.json",
+    "w16_capsule_index_repair": ".athena/receipts/w16-capsule-index-repair-authorized-witness-ingress.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -88,12 +90,16 @@
     "The explicit 14-field digest capsule is installed, but a genuinely uncued future full-packet return remains untested.",
     "W15 uncued replay did not recover the complete 14-field packet: conversation memory returned 0 exact packet fields and persisted-file memory returned 10.",
     "The reconciled W15 head still requires exact-head hosted validation.",
-    "No authorized provider target, deployment, endpoint, authorization record, secret-store reference, or protected bearer has been supplied."
+    "No authorized provider target, deployment, endpoint, authorization record, secret-store reference, or protected bearer has been supplied.",
+    "W16 keeps the W14 historical 10/14→12/14→14/14 measurement distinct from the new W15 uncued 0/14→10/14→14/14 observation.",
+    "Opaque capsule replay and capsule-index repair reconstruct external packets; neither is relabeled as internal memory or a live provider read.",
+    "Structural authority-packet ingress is ready, but 13 provider, target, authorization, and protected-secret inputs remain externally unresolved.",
+    "The control P14 13/14 source-coverage lineage and its retained revision-4 defect are referenced but not rewritten."
   ],
-  "next_gate": "Validate the exact reconciled W15 head. Repair the capsule reentry index so a future uncued probe can return all 14 fields without live Drive or GitHub lookup. Separately, ingest an authorized activation packet and protected bearer before any persistent witness.",
+  "next_gate": "Obtain independently verifiable provider, target, and authorization evidence; provision ATHENA_MCP_BEARER_TOKEN only in the protected p10-persistent-host environment; then execute the exact three-sample persistent witness. Separately preserve the control P15 revision-4 recovery/remount lineage.",
   "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
   "selected_contract_lineage": "git-brain-v2",
-  "successor_seed": "KC144.XNAV.W16::CAPSULE-INDEX-REPAIR-AND-AUTHORIZED-WITNESS-INGRESS",
+  "successor_seed": "KC144.XNAV.W17::EXTERNAL-AUTHORITY-EVIDENCE-AND-PROTECTED-PERSISTENT-WITNESS",
   "p10_capsule": {
     "implementation_head": "10b8c03e0d6fa6ebb2c27779a7bf8254dc5f7255",
     "verdict": "PASS_DEPLOYMENT_CAPSULE_TARGET_PENDING",
@@ -329,5 +335,22 @@
     "authority_inputs_unresolved": 13,
     "endpoint_contacted": false,
     "persistent_witness_executed": false
+  },
+  "w16_capsule_index_repair": {
+    "branch": "agent/w16-capsule-index-authority-ingress",
+    "predecessor_head": "6f29ceb87838f03aa65cf25bf82a8e99ec955d6f",
+    "alternate_replay_head": "44d3d8c7675302ff9679cda0fdaca2144de57dae",
+    "replay_ledger_digest": "sha256:5e95cfc3abc537b7108451c38c90cf9a4d99e39068e72c818343a4224fac2a35",
+    "capsule_set_root": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "historical_w14_measurement": "10/14_CONVERSATION__12/14_PERSISTED__14/14_EXTERNAL",
+    "w15_uncued_measurement": "0/14_CONVERSATION__10/14_PERSISTED__14/14_EXTERNAL",
+    "opaque_capsule_replay": "PASS[2/2_EXTERNAL_CAPSULE_ID_ONLY]",
+    "index_repair": "PASS[4_MISSING_FILE_REPLAY_FIELDS_ROUTED_TO_14/14_EXTERNAL_PACKET]",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "authority_inputs_unresolved": 13,
+    "authority_state": "READY_STRUCTURAL_INGRESS_AUTHORITY_UNVERIFIED",
+    "merged": false,
+    "deployed": false,
+    "promoted": false
   }
 }
