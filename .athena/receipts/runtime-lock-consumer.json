@@ -35,13 +35,23 @@
       "tests": 7
     },
     "expanded_targeted_tests": {
-      "verdict": "PENDING_HOSTED_CONFIRMATION",
-      "tests": 8
+      "verdict": "PASS",
+      "tests": 8,
+      "python": "3.12",
+      "verified_head": "8eb80a30302400f5ab5fc8b21b6ea790a256ce4a",
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30235825452",
+      "job_id": 89883343816
     },
-    "repository_wide_ci": "HOLD[LEGACY_DEPENDENCY_AND_FIXTURE_SCHEMA_DEBT]",
+    "repository_wide_ci": {
+      "verdict": "HOLD[LEGACY_DEPENDENCY_AND_FIXTURE_SCHEMA_DEBT]",
+      "passed": 190,
+      "failed": 177,
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30235825452",
+      "note": "All eight P06 federation tests passed in the hosted run."
+    },
     "remote_source_equality": "PASS",
     "frozen_data_equality": "PASS",
-    "registration_present": "PASS_BY_SOURCE_INSPECTION",
+    "registration_present": "PASS",
     "resource_versions": 14,
     "exact_identifiers": 56,
     "active_edges": 26,
