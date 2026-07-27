@@ -1,0 +1,127 @@
+{
+  "schema": "athena.xnav-w15-capsule-replay-authority-ingress/v1",
+  "phase": "KC144.XNAV.W15",
+  "observed_at": "2026-07-27T07:39:43Z",
+  "verdict": "PASS_OPAQUE_CAPSULE_REPLAY_2_OF_2__PASS_STRUCTURAL_INGRESS_AUTHORITY_UNVERIFIED",
+  "predecessor": {
+    "phase": "KC144.XNAV.W14",
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 10,
+    "runtime_branch": "agent/w11-source-mount-consumer",
+    "runtime_head": "deab5f44f2942326b415a50daa722ce565210540",
+    "w14_receipt_blob": "0ad54a3a4f5f79c5ba8291e3d6a52f30315f6de3",
+    "w14_verdict": "PASS_MEMORY_DIGEST_CAPSULE_COMPLETE__ENDPOINT_BINDING_READY_AUTHORITY_PENDING",
+    "capsule_set_digest": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f"
+  },
+  "capsule_blind_replay": {
+    "schema": "athena.capsule-blind-replay-ingress/v1",
+    "data_path": "MCP/data/w15_blind_replay_ingress.json",
+    "data_blob_sha": "0fb3985178b1d062c32671dbfe0910078086b04d",
+    "runtime_path": "MCP/crystal_108d/capsule_replay_ingress.py",
+    "runtime_blob_sha": "dcd067d58fa4324eb129f3996c1a151dda9b39af",
+    "test_path": "tests/test_w15_capsule_replay_ingress.py",
+    "test_blob_sha": "dfd1a5d91e3f50fe6783d3fa0c9f19f83d49d63b",
+    "challenge_set_digest": "sha256:753b5056a6e54c369caa4c99be2e0717b7b32d6eee66646385938d7e8115c39f",
+    "challenge_count": 2,
+    "passed": 2,
+    "failed": 0,
+    "input_fields": [
+      "capsule_id"
+    ],
+    "withheld_request_fields": [
+      "station",
+      "rid",
+      "aid",
+      "file_id",
+      "drive_revision_id",
+      "tab_id",
+      "half_open_range",
+      "literal",
+      "full_sha256"
+    ],
+    "challenges": [
+      {
+        "challenge_id": "W15-BR-F07-001",
+        "capsule_id": "mcap:sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+        "packet_digest": "sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+        "exact_packet_reconstructed": true
+      },
+      {
+        "challenge_id": "W15-BR-M09-001",
+        "capsule_id": "mcap:sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+        "packet_digest": "sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+        "exact_packet_reconstructed": true
+      }
+    ],
+    "fuzzy_substitution_used": false,
+    "current_conversation_used": false,
+    "live_google_drive_used": false,
+    "internal_recall_claimed": false,
+    "classification": "OPAQUE_EXTERNAL_CAPSULE_REPLAY"
+  },
+  "authority_packet_ingress": {
+    "schema": "athena.authority-packet-ingress/v1",
+    "activation_packet_schema": "athena.persistent-host-activation-packet/v1",
+    "canonical_activation_pull_request": 11,
+    "canonical_activation_head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+    "canonical_compiler_blob": "d909005110ce56e6f2810a323992d8f70c973cc5",
+    "allowed_states": [
+      "UNRESOLVED",
+      "AUTHORIZED_FOR_LIVE_WITNESS"
+    ],
+    "unresolved_template_result": "HOLD_AUTHORITY_INPUTS_UNRESOLVED",
+    "authorized_shape_fixture_result": "PASS_STRUCTURAL_AUTHORITY_PACKET_INGRESS_NOT_DISPATCHED",
+    "authorized_shape_fixture_is_live_authority": false,
+    "live_authority_packet_submitted": false,
+    "live_authority_packet_digest": null,
+    "authorized_endpoint": null,
+    "provider_evidence": null,
+    "submitted_packets_persisted": false,
+    "external_authority_verified": false,
+    "provider_evidence_fetched": false,
+    "secret_value_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contact_capability": false,
+    "endpoint_contacted": false,
+    "dispatch_allowed": false,
+    "runtime_can_promote": false,
+    "ic10_required": true,
+    "remaining_external_gates": [
+      "independent provider evidence verification",
+      "canonical PR #11 activation compiler",
+      "protected bearer secret provisioning",
+      "protected live-witness job",
+      "three-sample persistent witness",
+      "control-plane admission",
+      "IC10 review"
+    ]
+  },
+  "cross_navigation": {
+    "opaque_capsule_id_to_full_source_packet": "PASS_2_OF_2",
+    "full_source_packet_to_capsule_id": "PASS_SHA256_CANONICAL_RETURN",
+    "authority_packet_to_structural_status": "PASS_NONPERSISTENT_NONNETWORKED",
+    "structural_status_to_external_authority": "NOT_ESTABLISHED",
+    "external_authority_to_endpoint_dispatch": "NOT_EXECUTED",
+    "state": "SOURCE_REPLAY_CLOSED__AUTHORITY_EVIDENCE_AND_ENDPOINT_OPEN"
+  },
+  "admission_law": {
+    "formula": "REPLAY_PASS iff input=capsule_id only and SHA256(reconstructed_packet)=capsule_digest and W14 literal/capsule/set checks pass",
+    "structural_validity_does_not_imply_external_authority": true,
+    "external_authority_does_not_imply_secret_provisioning": true,
+    "secret_provisioning_does_not_imply_persistent_witness": true,
+    "persistent_witness_does_not_imply_promotion": true
+  },
+  "boundaries": {
+    "no_internal_recall_claim": true,
+    "no_live_google_drive_read": true,
+    "no_live_authority_packet_claim": true,
+    "no_provider_evidence_claim": true,
+    "no_secret_material_recorded": true,
+    "no_external_endpoint_contact": true,
+    "no_persistent_witness": true,
+    "no_merge": true,
+    "no_deployment": true,
+    "no_promotion": true
+  },
+  "successor": "KC144.XNAV.W16::REPLAY-LEDGER-AND-EXTERNAL-AUTHORITY-EVIDENCE-ADJUNCTION"
+}
