@@ -32,7 +32,6 @@ jobs:
           ref: ${{ env.SOURCE_COMMIT }}
           path: source
           fetch-depth: 1
-          persist-credentials: false
 
       - name: Verify frozen source identity and authority boundary
         run: |
