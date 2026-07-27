@@ -183,13 +183,17 @@
     "branch": "agent/w12-unify-source-mount-p10-activation",
     "base_head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
     "source_mount_consumer_head": "8c7c2bd7081cbc6b17ea8ab9c2b7520b54f06288",
-    "control_integration_head": "473ea6d4e30f78a7147a9b453382637a244200fe",
+    "control_integration_head": "dfc3166b4bd7c1c4ce95ad3194f7e2b4cbc982c7",
     "live_provider_return": "PASS_LIVE_PROVIDER_RETURN_NO_DRIFT",
     "internal_blind_recall": "HOLD_COLD_RECALL_EXACT_TUPLES_NOT_RECOVERED",
     "activation_packet": "UNRESOLVED",
     "persistent_endpoint": "HOLD_AUTHORITY_INPUTS_UNRESOLVED",
     "merged": false,
     "deployed": false,
-    "promoted": false
+    "promoted": false,
+    "control_integration_branch": "agent/w12-unify-f07-m09-p12",
+    "control_integration_base": "ad3644e927c03c8caa88ded9a4a7560726941b6b",
+    "p12_claim_spans_preserved": 19,
+    "p12_active_alignments_preserved": 14
   }
 }
