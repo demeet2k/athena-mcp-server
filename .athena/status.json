@@ -101,13 +101,15 @@
     "persistent_witness": null,
     "hosted_validation": {
       "verdict": "PASS_PROVIDER_NEUTRAL_READINESS_ENDPOINT_PENDING",
-      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238982516",
-      "job_id": 89892123128,
-      "artifact_id": 8642572350,
-      "artifact_digest": "sha256:a51068a62a7b6d509cbdcd991b9345b15930e06142725498930db9c3751aefb4",
-      "workflow_execution_commit": "a4a53eecce92d921d0cf068dd94873be1dc07b3d",
-      "receipt_id": "endpoint-readiness:sha256:d2703810cb26c0234209138fadbb2e1d0568163de05efd4196851a507c00baf3",
-      "local_tests": "PASS[6/6]"
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30239056139",
+      "job_id": 89892318417,
+      "artifact_id": 8642591990,
+      "artifact_digest": "sha256:b816be0232313e1777c1ad924662f2a8f8fe874963283f19077cf254b9695ced",
+      "workflow_execution_commit": "12dc1a48a22c2e194403fabeff873aa890ca9543",
+      "receipt_id": "endpoint-readiness:sha256:4347556ed5769464155f6bdbe2a070e9fed79de4dc122fb7248eba82269249c7",
+      "local_tests": "PASS[6/6]",
+      "one_shot_trigger_commit": "5d1a676295188727fbc9415b5d1d7e967f1c5685",
+      "workflow_trigger": "pull_request.opened or workflow_dispatch"
     }
   }
 }
