@@ -98,6 +98,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w23-promotion-execution-handoff.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w23-promotion-execution-handoff-hardening.json >/dev/null
+          python -m json.tool \
             .athena/receipts/w24-execution-deployment-rollback-readback.json >/dev/null
           python -m json.tool \
             .athena/receipts/w25-persistent-promotion-settlement.json >/dev/null

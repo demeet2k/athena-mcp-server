@@ -5,6 +5,7 @@ from __future__ import annotations
 import base64
 from copy import deepcopy
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 import sys
@@ -40,10 +41,17 @@ from crystal_108d.promotion_execution_handoff import (  # noqa: E402
 
 
 DATA = ROOT / "MCP" / "data" / "w23_promotion_execution_handoff.json"
+HARDENING_RECEIPT = (
+    ROOT
+    / ".athena"
+    / "receipts"
+    / "w23-promotion-execution-handoff-hardening.json"
+)
+WORKFLOW = (
+    ROOT / ".github" / "workflows" / "w23-promotion-execution-handoff.yml"
+)
 POLICY = "sha256:" + "a" * 64
 PUBLISHED = "sha256:" + "9" * 64
-W22_COMMIT_RETURN = "sha256:" + "b" * 64
-W22_GIT_OBSERVATION = "sha256:" + "c" * 64
 REGISTRY_RESPONSE = "sha256:" + "d" * 64
 ROLE_NAMES = {
     "challenge": "FRESHNESS_ISSUER",
@@ -65,6 +73,14 @@ SEEDS = {
     name: bytes([index]) * 32
     for index, name in enumerate(ROLE_NAMES, 1)
 }
+
+W22_SPEC = importlib.util.spec_from_file_location(
+    "w23_w22_test_helpers",
+    ROOT / "tests" / "test_w22_independent_authority_return.py",
+)
+assert W22_SPEC and W22_SPEC.loader
+w22 = importlib.util.module_from_spec(W22_SPEC)
+W22_SPEC.loader.exec_module(w22)
 
 
 def _private(name: str) -> Ed25519PrivateKey:
@@ -149,7 +165,16 @@ def _snapshot() -> tuple[dict, dict[str, dict], dict[str, dict]]:
 
 
 def _gate() -> FrozenPromotionExecutionHandoff:
-    return FrozenPromotionExecutionHandoff.from_snapshot(_snapshot()[0])
+    return FrozenPromotionExecutionHandoff.from_snapshot(
+        _snapshot()[0],
+        w22._gate(),
+    )
+
+
+def _w22_records() -> tuple[dict, dict]:
+    commit_return = w22._commit_return()
+    observation = w22._observation(commit_return)
+    return commit_return, observation
 
 
 def _custody() -> dict:
@@ -264,6 +289,7 @@ def _decision(
     challenge = challenge or _challenge()
     publication = publication or _publication(challenge)
     observation = observation or _observation(challenge, publication)
+    w22_commit_return, w22_git_observation = _w22_records()
     _, sources, revisions = _snapshot()
     value = {
         "schema": DECISION_SCHEMA,
@@ -273,8 +299,12 @@ def _decision(
         "challenge_digest": challenge["challenge_digest"],
         "publication_proof_digest": publication["proof_digest"],
         "publication_observation_digest": observation["observation_digest"],
-        "w22_commit_return_digest": W22_COMMIT_RETURN,
-        "w22_git_observation_digest": W22_GIT_OBSERVATION,
+        "w22_commit_return_digest": w22_commit_return["return_digest"],
+        "w22_git_observation_digest": w22_git_observation[
+            "observation_digest"
+        ],
+        "w22_commit_return": w22_commit_return,
+        "w22_git_observation": w22_git_observation,
         "target": deepcopy(challenge["target"]),
         "decision": decision,
         "decided_at": (
@@ -376,6 +406,19 @@ def test_production_w23_is_empty_and_unpublished_fail_closed() -> None:
     assert status["execution_observed"] is False
 
 
+def test_production_status_pins_non_authoritative_w22_control_admission() -> None:
+    status = FrozenPromotionExecutionHandoff.load().status()
+    assert status["w22_control_head"] == (
+        "754e90aa67714e3ae3cd7ad107ffd8b3aed40b67"
+    )
+    assert status["w22_control_receipt_id"] == (
+        "w22-control-admission:sha256:"
+        "a477c25821788c72c843e539c51624e781d6c79a449f6aa8c28b65cb4dbb7290"
+    )
+    assert status["w22_control_protocol_admitted"] is True
+    assert status["w22_control_receipt_grants_production_authority"] is False
+
+
 def test_complete_six_role_path_authorizes_but_never_executes() -> None:
     result = _closure()
     assert result["status"].startswith(
@@ -429,6 +472,24 @@ def test_workflow_local_w22_image_is_explicitly_unpublished() -> None:
 @pytest.mark.parametrize(
     ("field", "replacement"),
     [
+        ("target_ref", "refs/heads/main"),
+        ("target_environment", "staging"),
+    ],
+)
+def test_target_requires_exact_production_scope(
+    field: str, replacement: str
+) -> None:
+    challenge = _challenge()
+    challenge["target"][field] = replacement
+    challenge = _sign(challenge, "challenge", "challenge_digest")
+    result = _gate().inspect_freshness_challenge(json.dumps(challenge))
+    assert result["freshness_challenge_verified"] is False
+    assert "exact W22 runtime" in result["error"]
+
+
+@pytest.mark.parametrize(
+    ("field", "replacement"),
+    [
         ("w22_head", "1" * 40),
         ("w22_tree", "2" * 40),
         ("w22_sole_parent", "3" * 40),
@@ -462,6 +523,20 @@ def test_publication_requires_immutable_registry_reference() -> None:
         json.dumps(challenge), json.dumps(publication)
     )
     assert result["artifact_publication_proved"] is False
+
+
+def test_publication_rejects_unrelated_registry_namespace() -> None:
+    challenge = _challenge()
+    publication = _publication(challenge)
+    publication["immutable_reference"] = (
+        "attacker.invalid/repository@" + publication["manifest_digest"]
+    )
+    publication = _sign(publication, "publisher", "proof_digest")
+    result = _gate().inspect_publication_proof(
+        json.dumps(challenge), json.dumps(publication)
+    )
+    assert result["artifact_publication_proved"] is False
+    assert "immutable registry reference" in result["error"]
 
 
 @pytest.mark.parametrize(
@@ -522,6 +597,92 @@ def test_policy_decision_after_challenge_expiry_rejected() -> None:
     assert "freshness window" in result["error"]
 
 
+def test_policy_quorum_cannot_agree_on_fabricated_w22_digests() -> None:
+    challenge, publication, observation, policy_a, policy_b = _records()
+    for name, decision in (("policy_a", policy_a), ("policy_b", policy_b)):
+        decision["w22_commit_return_digest"] = "sha256:" + "1" * 64
+        decision["w22_git_observation_digest"] = "sha256:" + "2" * 64
+        _sign(decision, name, "decision_digest")
+    result = _gate().evaluate_quorum(
+        *(
+            json.dumps(value)
+            for value in (
+                challenge,
+                publication,
+                observation,
+                policy_a,
+                policy_b,
+            )
+        )
+    )
+    assert result["promotion_quorum_satisfied"] is False
+    assert "verified W22 return evidence" in result["error"]
+
+
+def test_policy_quorum_rejects_tampered_embedded_w22_return() -> None:
+    challenge, publication, observation, policy_a, policy_b = _records()
+    for name, decision in (("policy_a", policy_a), ("policy_b", policy_b)):
+        decision["w22_commit_return"]["transaction_digest"] = (
+            "sha256:" + "8" * 64
+        )
+        _sign(decision, name, "decision_digest")
+    result = _gate().evaluate_quorum(
+        *(
+            json.dumps(value)
+            for value in (
+                challenge,
+                publication,
+                observation,
+                policy_a,
+                policy_b,
+            )
+        )
+    )
+    assert result["promotion_quorum_satisfied"] is False
+    assert "W22 signed return evidence" in result["error"]
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    ["unknown", "boundary", "contract"],
+)
+def test_readdressed_snapshot_cannot_mutate_frozen_policy(mutation: str) -> None:
+    snapshot, _, _ = _snapshot()
+    if mutation == "unknown":
+        snapshot["unexpected_execution_claim"] = True
+    elif mutation == "boundary":
+        snapshot["boundaries"]["execution_authorized"] = True
+    else:
+        snapshot["execution_contract"]["runtime_can_authorize_execution"] = True
+    snapshot["contract_digest"] = _digest(
+        {
+            key: value
+            for key, value in snapshot.items()
+            if key != "contract_digest"
+        }
+    )
+    with pytest.raises(PromotionExecutionHandoffError):
+        FrozenPromotionExecutionHandoff.from_snapshot(snapshot, w22._gate())
+
+
+def test_authority_revision_cannot_cross_governance_repository() -> None:
+    snapshot, _, revisions = _snapshot()
+    revisions["challenge"]["repository"] = "attacker/governance"
+    revisions["challenge"]["revision_digest"] = _digest(
+        _addressed(revisions["challenge"], "revision_digest")
+    )
+    snapshot["authority_registry"]["revisions"] = list(revisions.values())
+    snapshot["contract_digest"] = _digest(
+        {
+            key: value
+            for key, value in snapshot.items()
+            if key != "contract_digest"
+        }
+    )
+    with pytest.raises(PromotionExecutionHandoffError):
+        FrozenPromotionExecutionHandoff.from_snapshot(snapshot, w22._gate())
+
+
 @pytest.mark.parametrize(
     "field",
     ["authority_id", "key_id", "public_key_base64", "fingerprint"],
@@ -553,7 +714,7 @@ def test_all_six_roles_require_disjoint_identity_and_keys(field: str) -> None:
         {key: value for key, value in snapshot.items() if key != "contract_digest"}
     )
     with pytest.raises(PromotionExecutionHandoffError):
-        FrozenPromotionExecutionHandoff.from_snapshot(snapshot)
+        FrozenPromotionExecutionHandoff.from_snapshot(snapshot, w22._gate())
 
 
 def test_caller_supplied_unpinned_execution_key_rejected() -> None:
@@ -617,6 +778,32 @@ def test_unsigned_handoff_compilation_never_issues_signature() -> None:
     assert result["handoff_template"]["signature"]["value"] == "REQUIRED"
 
 
+@pytest.mark.parametrize(
+    ("authorized_at", "execution_expires_at"),
+    [
+        ("2026-07-27T00:59:00Z", "2026-07-27T01:10:00Z"),
+        ("2026-07-27T01:07:30Z", "2026-07-27T01:20:00Z"),
+        ("2027-07-28T00:00:00Z", "2027-07-28T00:01:00Z"),
+    ],
+)
+def test_handoff_compiler_rejects_invalid_authority_chronology(
+    authorized_at: str,
+    execution_expires_at: str,
+) -> None:
+    records = _records()
+    _, sources, revisions = _snapshot()
+    result = _gate().compile_execution_handoff(
+        *(json.dumps(value) for value in records),
+        sources["execution"]["source_digest"],
+        revisions["execution"]["revision_digest"],
+        authorized_at,
+        execution_expires_at,
+        "nonce.execution.0001",
+    )
+    assert result["execution_handoff_compiled"] is False
+    assert "window predates policy" in result["error"]
+
+
 def test_duplicate_json_members_rejected() -> None:
     challenge = json.dumps(_challenge()).replace(
         '"challenge_id":',
@@ -625,6 +812,60 @@ def test_duplicate_json_members_rejected() -> None:
     )
     result = _gate().inspect_freshness_challenge(challenge)
     assert "duplicate JSON member" in result["error"]
+
+
+def test_hardening_receipt_is_content_addressed_and_nonclaiming() -> None:
+    receipt = json.loads(HARDENING_RECEIPT.read_text(encoding="utf-8"))
+    expected = "w23-execution-handoff-hardening:" + _digest(
+        {
+            key: value
+            for key, value in receipt.items()
+            if key != "receipt_id"
+        }
+    )
+    assert receipt["receipt_id"] == expected
+    assert receipt["lineage"]["w23_predecessor_head"] == (
+        "3061598cd050aa6b8ad8b647e86c2295acb54228"
+    )
+    assert receipt["contract"]["contract_digest"] == (
+        "sha256:3630dd1c67a19865c5c2e24b757f93e8c7a070439a329e70f22f281a72f53613"
+    )
+    assert receipt["contract"]["production_authority_source_count"] == 0
+    assert receipt["contract"]["production_authority_revision_count"] == 0
+    assert receipt["boundaries"]["promotion_hold_active"] is True
+    assert all(
+        receipt["boundaries"][field] is False
+        for field in (
+            "production_authority_source_pinned",
+            "production_authority_revision_pinned",
+            "freshness_challenge_returned",
+            "artifact_publication_proved",
+            "artifact_publication_observed",
+            "w22_signed_return_evidence_verified",
+            "promotion_quorum_satisfied",
+            "execution_handoff_compiled",
+            "execution_authorized",
+            "execution_observed",
+            "promotion_executed",
+            "workflow_dispatched",
+            "endpoint_contacted",
+            "deployment_claimed",
+            "merge_claimed",
+            "promotion_claimed",
+        )
+    )
+
+
+def test_w23_workflow_remains_manual_read_only_and_secret_free() -> None:
+    workflow = WORKFLOW.read_text(encoding="utf-8")
+    assert "workflow_dispatch:" in workflow
+    assert "\npush:" not in workflow
+    assert "\npull_request:" not in workflow
+    assert "permissions:\n  contents: read" in workflow
+    assert "secrets." not in workflow
+    assert "environment:" not in workflow
+    assert "deploy" not in workflow.lower()
+    assert "github-token" not in workflow.lower()
 
 
 def test_registration_has_twelve_tools_and_resource() -> None:

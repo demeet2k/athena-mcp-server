@@ -16,7 +16,6 @@ from __future__ import annotations
 
 import base64
 from copy import deepcopy
-from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -24,6 +23,7 @@ import re
 from typing import Any
 
 from .independent_authority_return import (
+    FrozenIndependentAuthorityReturn,
     _addressed,
     _bounded,
     _canonical_bytes,
@@ -74,6 +74,12 @@ W22_RECEIPT = (
 W22_LOCAL_IMAGE = (
     "sha256:485381472ad090768cf6033072a5617f09a9b3d1bd820a1be47dc5e244e1831d"
 )
+W22_CONTROL_HEAD = "754e90aa67714e3ae3cd7ad107ffd8b3aed40b67"
+W22_CONTROL_RECEIPT = (
+    "w22-control-admission:sha256:"
+    "a477c25821788c72c843e539c51624e781d6c79a449f6aa8c28b65cb4dbb7290"
+)
+CANONICAL_REGISTRY_NAMESPACE = "ghcr.io/demeet2k/athena-mcp"
 
 ROLES = {
     "FRESHNESS_ISSUER": "promotion.challenge",
@@ -189,6 +195,8 @@ DECISION_FIELDS = {
     "publication_observation_digest",
     "w22_commit_return_digest",
     "w22_git_observation_digest",
+    "w22_commit_return",
+    "w22_git_observation",
     "target",
     "decision",
     "decided_at",
@@ -254,6 +262,8 @@ def _source(value: Any) -> dict[str, Any]:
     }
     if normalized["schema"] != SOURCE_SCHEMA or normalized["role"] not in ROLES:
         raise ValueError("authority source schema/role mismatch")
+    if normalized["governance_repository"] != "demeet2k/Athena":
+        raise ValueError("authority source governance repository mismatch")
     if normalized["source_digest"] != _digest(
         _addressed(normalized, "source_digest")
     ):
@@ -307,6 +317,13 @@ def _revision(value: Any) -> dict[str, Any]:
     }
     if normalized["schema"] != REVISION_SCHEMA or normalized["role"] not in ROLES:
         raise ValueError("authority revision schema/role mismatch")
+    if (
+        normalized["repository"] != "demeet2k/Athena"
+        or not normalized["ref"].startswith("refs/heads/authority-")
+        or not normalized["path"].startswith(".athena/authorities/")
+        or ".." in normalized["path"]
+    ):
+        raise ValueError("authority revision governance coordinates mismatch")
     if normalized["scope"]["operation"] != ROLES[normalized["role"]]:
         raise ValueError("authority revision capability mismatch")
     if _fingerprint(normalized["public_key_base64"]) != normalized["fingerprint"]:
@@ -366,6 +383,8 @@ def _target(value: Any) -> dict[str, Any]:
     if (
         result["runtime_repository"] != "demeet2k/athena-mcp-server"
         or result["runtime_head"] != W22_HEAD
+        or result["target_environment"] != "kc144-production"
+        or result["target_ref"] != "refs/heads/production"
     ):
         raise ValueError("target must bind exact W22 runtime")
     if result["published_image_digest"] == W22_LOCAL_IMAGE:
@@ -417,8 +436,13 @@ def _negative() -> dict[str, bool]:
 class FrozenPromotionExecutionHandoff:
     """Frozen authority-empty W23 verifier."""
 
-    def __init__(self, snapshot: dict[str, Any]):
+    def __init__(
+        self,
+        snapshot: dict[str, Any],
+        w22_gate: FrozenIndependentAuthorityReturn,
+    ):
         self.snapshot = deepcopy(snapshot)
+        self.w22_gate = w22_gate
         try:
             self._validate_snapshot()
         except PromotionExecutionHandoffError:
@@ -428,46 +452,139 @@ class FrozenPromotionExecutionHandoff:
 
     @classmethod
     def load(cls) -> "FrozenPromotionExecutionHandoff":
-        return cls(_strict_loads(DATA_PATH.read_text(encoding="utf-8")))
+        return cls(
+            _strict_loads(DATA_PATH.read_text(encoding="utf-8")),
+            FrozenIndependentAuthorityReturn.load(),
+        )
 
     @classmethod
     def from_snapshot(
-        cls, snapshot: dict[str, Any]
+        cls,
+        snapshot: dict[str, Any],
+        w22_gate: FrozenIndependentAuthorityReturn | None = None,
     ) -> "FrozenPromotionExecutionHandoff":
-        return cls(snapshot)
+        return cls(
+            snapshot,
+            w22_gate
+            if w22_gate is not None
+            else FrozenIndependentAuthorityReturn.load(),
+        )
 
     def _validate_snapshot(self) -> None:
+        expected_top_level = {
+            "schema",
+            "phase",
+            "predecessor",
+            "control_predecessor_observation",
+            "w22_control_protocol_observation",
+            "execution_contract",
+            "authority_registry",
+            "freshness_challenge_ledger",
+            "publication_proof_ledger",
+            "execution_authorization_ledger",
+            "boundaries",
+            "successor",
+            "contract_digest",
+        }
+        if set(self.snapshot) != expected_top_level:
+            raise PromotionExecutionHandoffError("W23 top-level shape mismatch")
         if self.snapshot.get("schema") != SCHEMA or self.snapshot.get("phase") != PHASE:
             raise PromotionExecutionHandoffError("W23 schema/phase mismatch")
-        predecessor = self.snapshot["predecessor"]
-        if {
-            "w22_head": predecessor.get("w22_head"),
-            "w22_tree": predecessor.get("w22_tree"),
-            "w22_sole_parent": predecessor.get("w22_sole_parent"),
-            "w22_contract_digest": predecessor.get("w22_contract_digest"),
-            "w22_receipt_id": predecessor.get("w22_receipt_id"),
-        } != {
+        predecessor = {
+            "runtime_repository": "demeet2k/athena-mcp-server",
+            "runtime_pull_request": 13,
+            "branch": "agent/w15-reconcile-capsule-deep-hardening",
             "w22_head": W22_HEAD,
             "w22_tree": W22_TREE,
             "w22_sole_parent": W22_PARENT,
             "w22_contract_digest": W22_CONTRACT,
             "w22_receipt_id": W22_RECEIPT,
-        }:
+            "w22_p07_run_id": 30299076295,
+            "w22_p08_run_id": 30299076622,
+            "w22_stdio_receipt_id": (
+                "mcp-host:sha256:"
+                "96b616d064712bfb4dbed958325eabe7c6865a0f5f763d8de2807f6a9505b35e"
+            ),
+            "w22_candidate_receipt_id": (
+                "p08-candidate:sha256:"
+                "efbea5248e35e4a3342480cb830bd8a3dbb696e89dc245ad0c3e8ff8fd8d9f9c"
+            ),
+            "w22_workflow_local_image_id": W22_LOCAL_IMAGE,
+            "w22_image_published": False,
+            "w22_artifact_id": 8665844055,
+            "w22_artifact_digest": (
+                "sha256:"
+                "9e4f886066b5c66d9a433f2ad80d4a65b1bd6bb5d29f0465fb784b70dd99b17b"
+            ),
+        }
+        if self.snapshot["predecessor"] != predecessor:
             raise PromotionExecutionHandoffError("W22 predecessor mismatch")
-        if predecessor.get("w22_image_published") is not False:
-            raise PromotionExecutionHandoffError(
-                "W22 workflow-local image must remain unpublished"
-            )
-        control = self.snapshot["control_predecessor_observation"]
-        if (
-            control.get("head")
-            != "b74bb6caea37569bc2c050c060bcc35641dd068e"
-            or control.get("grants_production_authority") is not False
-        ):
+        if self.snapshot["control_predecessor_observation"] != {
+            "repository": "demeet2k/Athena",
+            "pull_request": 18,
+            "branch": "agent/w21-admit-ledger-commit-promotion-handoff",
+            "head": "b74bb6caea37569bc2c050c060bcc35641dd068e",
+            "base": "78bfbbbfc41cfc402235793afdcd5b190e71ba5b",
+            "receipt_id": (
+                "w21-control-admission:sha256:"
+                "78742031032e1f01a35b8ea711280b0069d8d5bfff71d59cfe517734195fc0fc"
+            ),
+            "grants_production_authority": False,
+            "hosted_runner_status": "HOLD[PLATFORM_OBSTRUCTION_BEFORE_FIRST_STEP]",
+        }:
             raise PromotionExecutionHandoffError("control observation mismatch")
+        if self.snapshot["w22_control_protocol_observation"] != {
+            "repository": "demeet2k/Athena",
+            "pull_request": 20,
+            "branch": "agent/w22-admit-independent-authority-return",
+            "head": W22_CONTROL_HEAD,
+            "base": "b74bb6caea37569bc2c050c060bcc35641dd068e",
+            "receipt_id": W22_CONTROL_RECEIPT,
+            "protocol_admission_observed": True,
+            "grants_production_authority": False,
+            "hosted_runner_status": "HOLD[PLATFORM_OBSTRUCTION_BEFORE_FIRST_STEP]",
+        }:
+            raise PromotionExecutionHandoffError(
+                "W22 control protocol observation mismatch"
+            )
+        if self.snapshot["execution_contract"] != {
+            "authority_source_schema": SOURCE_SCHEMA,
+            "authority_revision_schema": REVISION_SCHEMA,
+            "freshness_challenge_schema": CHALLENGE_SCHEMA,
+            "publication_proof_schema": PUBLICATION_SCHEMA,
+            "publication_observation_schema": OBSERVATION_SCHEMA,
+            "promotion_policy_decision_schema": DECISION_SCHEMA,
+            "quorum_certificate_schema": QUORUM_SCHEMA,
+            "execution_handoff_schema": HANDOFF_SCHEMA,
+            "execution_authorization_schema": AUTHORIZATION_SCHEMA,
+            "roles": list(ROLES),
+            "required_promotion_policy_quorum": "2_OF_2",
+            "hold_dominates": True,
+            "freshness_challenge_required": True,
+            "independent_publication_observation_required": True,
+            "w22_signed_return_evidence_required": True,
+            "w22_control_protocol_admission_pinned": True,
+            "canonical_registry_namespace": CANONICAL_REGISTRY_NAMESPACE,
+            "authorization_template_must_follow_policy_decisions": True,
+            "successor_must_enforce_authorization_expiry_and_replay": True,
+            "unpublished_target_execution_allowed": False,
+            "workflow_local_image_is_publication_proof": False,
+            "self_supplied_sources_revisions_or_keys_allowed": False,
+            "cross_role_identity_or_key_overlap_allowed": False,
+            "runtime_can_publish": False,
+            "runtime_can_authorize_execution": False,
+            "runtime_can_execute_or_promote": False,
+        }:
+            raise PromotionExecutionHandoffError("W23 execution contract drift")
         registry = self.snapshot["authority_registry"]
         if set(registry) != {"sources", "revisions"}:
             raise PromotionExecutionHandoffError("authority registry shape mismatch")
+        if not isinstance(registry["sources"], list) or not isinstance(
+            registry["revisions"], list
+        ):
+            raise PromotionExecutionHandoffError(
+                "authority registry coordinates must be arrays"
+            )
         self.sources: dict[str, dict[str, Any]] = {}
         self.revisions: dict[str, dict[str, Any]] = {}
         identity_roles: dict[str, str] = {}
@@ -490,6 +607,10 @@ class FrozenPromotionExecutionHandoff:
             if source is None or source["role"] != revision["role"]:
                 raise PromotionExecutionHandoffError(
                     "revision source unpinned or role-mismatched"
+                )
+            if revision["repository"] != source["governance_repository"]:
+                raise PromotionExecutionHandoffError(
+                    "revision governance repository does not bind source"
                 )
             if revision["revision_digest"] in self.revisions:
                 raise PromotionExecutionHandoffError("duplicate authority revision")
@@ -522,6 +643,38 @@ class FrozenPromotionExecutionHandoff:
                 raise PromotionExecutionHandoffError(
                     f"checked-in production {name} must remain empty"
                 )
+        expected_boundaries = {
+            "w22_custody_pinned": True,
+            "w22_image_published": False,
+            "w22_control_protocol_admitted": True,
+            "w22_control_receipt_grants_production_authority": False,
+            "production_authority_source_count": len(self.sources),
+            "production_authority_revision_count": len(self.revisions),
+            "freshness_challenge_returned": False,
+            "artifact_publication_proved": False,
+            "artifact_publication_observed": False,
+            "w22_signed_return_evidence_verified": False,
+            "promotion_policy_a_returned": False,
+            "promotion_policy_b_returned": False,
+            "promotion_quorum_satisfied": False,
+            "promotion_hold_active": True,
+            "execution_handoff_compiled": False,
+            "execution_authorized": False,
+            "execution_observed": False,
+            "promotion_executed": False,
+            "workflow_dispatched": False,
+            "endpoint_contacted": False,
+            "deployment_claimed": False,
+            "merge_claimed": False,
+            "promotion_claimed": False,
+        }
+        if self.snapshot["boundaries"] != expected_boundaries:
+            raise PromotionExecutionHandoffError("W23 boundary drift")
+        if self.snapshot["successor"] != (
+            "KC144.XNAV.W24::RETURN-OBSERVED-PROMOTION-EXECUTION-"
+            "DEPLOYMENT-AND-ROLLBACK-READBACK"
+        ):
+            raise PromotionExecutionHandoffError("W23 successor drift")
         expected = _digest(
             {
                 key: value
@@ -573,6 +726,7 @@ class FrozenPromotionExecutionHandoff:
                 "freshness_challenge_verified": False,
                 "artifact_publication_proved": False,
                 "artifact_publication_observed": False,
+                "w22_signed_return_evidence_verified": False,
                 "promotion_policy_a_verified": False,
                 "promotion_policy_b_verified": False,
                 "promotion_quorum_satisfied": False,
@@ -597,6 +751,10 @@ class FrozenPromotionExecutionHandoff:
                 "w22_receipt_id": W22_RECEIPT,
                 "w22_workflow_local_image_id": W22_LOCAL_IMAGE,
                 "w22_image_published": False,
+                "w22_control_head": W22_CONTROL_HEAD,
+                "w22_control_receipt_id": W22_CONTROL_RECEIPT,
+                "w22_control_protocol_admitted": True,
+                "w22_control_receipt_grants_production_authority": False,
                 "authority_source_count": len(self.sources),
                 "authority_revision_count": len(self.revisions),
                 "freshness_challenge_count": 0,
@@ -605,6 +763,7 @@ class FrozenPromotionExecutionHandoff:
                 "freshness_challenge_verified": False,
                 "artifact_publication_proved": False,
                 "artifact_publication_observed": False,
+                "w22_signed_return_evidence_verified": False,
                 "promotion_policy_a_verified": False,
                 "promotion_policy_b_verified": False,
                 "promotion_quorum_satisfied": False,
@@ -744,10 +903,12 @@ class FrozenPromotionExecutionHandoff:
             != proof["target"]["published_image_digest"]
         ):
             raise ValueError("publication proof does not bind challenge target")
-        expected_suffix = "@" + proof["manifest_digest"]
+        expected_reference = (
+            CANONICAL_REGISTRY_NAMESPACE + "@" + proof["manifest_digest"]
+        )
         if (
             proof["registry"] != "ghcr.io"
-            or not proof["immutable_reference"].endswith(expected_suffix)
+            or proof["immutable_reference"] != expected_reference
         ):
             raise ValueError("publication proof lacks immutable registry reference")
         published = _timestamp(proof["published_at"], "publication.published_at")
@@ -961,6 +1122,56 @@ class FrozenPromotionExecutionHandoff:
         decision["signature"] = _signature(
             decision["signature"], "decision.signature"
         )
+        commit_result = self.w22_gate.inspect_ledger_commit_return(
+            json.dumps(
+                decision["w22_commit_return"],
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            ),
+            json.dumps(
+                decision["w22_git_observation"],
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            ),
+        )
+        if not (
+            commit_result.get("ledger_commit_return_verified")
+            and commit_result.get("git_commit_observed")
+            and commit_result.get("ledger_entry_committed")
+        ):
+            raise ValueError(
+                "policy decision W22 signed return evidence is not verified"
+            )
+        w22_commit, _ = self.w22_gate._commit_return(
+            json.dumps(
+                decision["w22_commit_return"],
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+        )
+        w22_observation, _ = self.w22_gate._observation(
+            json.dumps(
+                decision["w22_git_observation"],
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            ),
+            w22_commit,
+        )
+        decision["w22_commit_return"] = w22_commit
+        decision["w22_git_observation"] = w22_observation
+        if (
+            decision["w22_commit_return_digest"]
+            != w22_commit["return_digest"]
+            or decision["w22_git_observation_digest"]
+            != w22_observation["observation_digest"]
+        ):
+            raise ValueError(
+                "policy decision does not bind verified W22 return evidence"
+            )
         expected = {
             "challenge_digest": challenge["challenge_digest"],
             "publication_proof_digest": proof["proof_digest"],
@@ -1025,6 +1236,7 @@ class FrozenPromotionExecutionHandoff:
                     "freshness_challenge_verified": True,
                     "artifact_publication_proved": True,
                     "artifact_publication_observed": True,
+                    "w22_signed_return_evidence_verified": True,
                     "promotion_policy_a_verified": (
                         policy_role == "PROMOTION_POLICY_A"
                     ),
@@ -1088,6 +1300,22 @@ class FrozenPromotionExecutionHandoff:
                 raise ValueError(
                     f"promotion-policy authorities disagree on {field}"
                 )
+        if (
+            policy_a["w22_commit_return"] != policy_b["w22_commit_return"]
+            or policy_a["w22_git_observation"]
+            != policy_b["w22_git_observation"]
+        ):
+            raise ValueError(
+                "promotion-policy authorities disagree on W22 return evidence"
+            )
+        occurrence_ids = {
+            proof["occurrence_id"],
+            observation["occurrence_id"],
+            policy_a["occurrence_id"],
+            policy_b["occurrence_id"],
+        }
+        if len(occurrence_ids) != 4:
+            raise ValueError("publication and policy occurrence axes overlap")
         fingerprints = {
             publisher["fingerprint"],
             observer["fingerprint"],
@@ -1163,6 +1391,7 @@ class FrozenPromotionExecutionHandoff:
                     "freshness_challenge_verified": True,
                     "artifact_publication_proved": True,
                     "artifact_publication_observed": True,
+                    "w22_signed_return_evidence_verified": True,
                     "promotion_policy_a_verified": True,
                     "promotion_policy_b_verified": True,
                     "promotion_quorum_satisfied": satisfied,
@@ -1205,6 +1434,13 @@ class FrozenPromotionExecutionHandoff:
             return quorum
         try:
             challenge, _ = self._challenge(challenge_json)
+            _, _, _, policy_a, policy_b = self._quorum(
+                challenge_json,
+                publication_json,
+                observation_json,
+                policy_a_json,
+                policy_b_json,
+            )
             _, revision = self._authority(
                 _sha(execution_source_digest, "execution_source_digest"),
                 _sha(execution_revision_digest, "execution_revision_digest"),
@@ -1218,13 +1454,21 @@ class FrozenPromotionExecutionHandoff:
             )
             start = _timestamp(authorized_at, "authorized_at")
             end = _timestamp(execution_expires_at, "execution_expires_at")
+            last_policy = max(
+                _timestamp(policy_a["decided_at"], "policy_a.decided_at"),
+                _timestamp(policy_b["decided_at"], "policy_b.decided_at"),
+            )
             if not (
-                start < end
+                last_policy <= start < end
                 and end
                 <= _timestamp(challenge["expires_at"], "challenge.expires_at")
+                and _timestamp(revision["valid_from"], "revision.valid_from")
+                <= start
+                <= _timestamp(revision["valid_until"], "revision.valid_until")
             ):
                 raise ValueError(
-                    "execution authorization window exceeds freshness challenge"
+                    "execution authorization window predates policy or exceeds "
+                    "challenge/authority validity"
                 )
             template = {
                 "schema": AUTHORIZATION_SCHEMA,
@@ -1274,6 +1518,7 @@ class FrozenPromotionExecutionHandoff:
                     "freshness_challenge_verified": True,
                     "artifact_publication_proved": True,
                     "artifact_publication_observed": True,
+                    "w22_signed_return_evidence_verified": True,
                     "promotion_policy_a_verified": True,
                     "promotion_policy_b_verified": True,
                     "promotion_quorum_satisfied": True,
@@ -1394,6 +1639,28 @@ class FrozenPromotionExecutionHandoff:
                 <= _timestamp(challenge["expires_at"], "challenge.expires_at")
             ):
                 raise ValueError("execution authorization outside freshness window")
+            upstream_occurrences = {
+                policy_a["occurrence_id"],
+                policy_b["occurrence_id"],
+            }
+            _, proof, observation, _, _ = self._quorum(
+                challenge_json,
+                publication_json,
+                observation_json,
+                policy_a_json,
+                policy_b_json,
+            )
+            upstream_occurrences.update(
+                {proof["occurrence_id"], observation["occurrence_id"]}
+            )
+            if authorization["occurrence_id"] in upstream_occurrences:
+                raise ValueError(
+                    "execution authorization occurrence axis overlaps evidence"
+                )
+            if authorization["nonce"] == challenge["nonce"]:
+                raise ValueError(
+                    "execution authorization nonce axis overlaps challenge"
+                )
             _, revision = self._authority(
                 authorization["source_digest"],
                 authorization["revision_digest"],
@@ -1427,6 +1694,7 @@ class FrozenPromotionExecutionHandoff:
                     "freshness_challenge_verified": True,
                     "artifact_publication_proved": True,
                     "artifact_publication_observed": True,
+                    "w22_signed_return_evidence_verified": True,
                     "promotion_policy_a_verified": True,
                     "promotion_policy_b_verified": True,
                     "promotion_quorum_satisfied": True,
@@ -1460,6 +1728,11 @@ class FrozenPromotionExecutionHandoff:
                 "hold_dominates": True,
                 "unpublished_target_execution_allowed": False,
                 "w22_workflow_local_image_is_published": False,
+                "w22_control_protocol_admitted": True,
+                "w22_control_receipt_grants_production_authority": False,
+                "w22_signed_return_evidence_required": True,
+                "canonical_registry_namespace": CANONICAL_REGISTRY_NAMESPACE,
+                "successor_must_enforce_authorization_expiry_and_replay": True,
                 "execution_receipt_required": True,
             },
             _negative(),
