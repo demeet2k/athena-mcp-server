@@ -97,3 +97,33 @@ at least 20 seconds apart. Every sample must independently preserve:
 The resulting receipt spans at least 40 seconds and records no bearer value.
 Provider evidence and repeated observations prove a persistent boundary only;
 they do not authorize merge or IC10 promotion.
+## Activation handoff packet
+
+The live workflow no longer accepts a loose set of provider fields. A single
+`athena.persistent-host-activation-packet/v1` object binds the authorized
+provider, account scope, deployment, target, endpoint, authorization, protected
+secret-store reference, exact immutable lineage, and fixed witness plan.
+
+`deploy/p10/activation-packet.example.json` is intentionally
+`UNRESOLVED`. Every authority-dependent field is `null`, live-witness
+authorization is false, and the template cannot compile into executable
+handoff artifacts.
+
+After an authorized operator supplies a complete secret-free packet, the
+workflow's default preflight compiles and uploads only:
+
+- `p10-target.json`;
+- `p10-provider-evidence.json`; and
+- `p10-activation-handoff.json`.
+
+Preflight does not contact the endpoint and emits
+`PASS_AUTHORIZED_WITNESS_HANDOFF_NOT_EXECUTED`. The separate
+`execute_live_witness` switch defaults to false. Setting it true still
+requires approval through the protected `p10-persistent-host` environment
+and the separately stored `ATHENA_P10_BEARER_TOKEN`.
+
+The packet cannot weaken the three-sample / 20-second / 40-second observation
+window, alter the exact source or image, record secret material, claim merge or
+promotion, remove reciprocal return, remove the explicit
+`athena-108d-v1` fallback, or bypass IC10.
+
