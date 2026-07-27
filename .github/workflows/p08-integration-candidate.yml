@@ -88,6 +88,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w18-provider-trust-convergence.json >/dev/null
           python -m json.tool \
+            .athena/receipts/w19-provider-admission-execution-gate.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m json.tool \
             MCP/data/w14_memory_digest_capsules.json >/dev/null
@@ -103,6 +105,8 @@ jobs:
             MCP/data/w18_provider_adapter_witness_return.json >/dev/null
           python -m json.tool \
             MCP/data/w18_provider_trust_registry.json >/dev/null
+          python -m json.tool \
+            MCP/data/w19_provider_admission_execution.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
             MCP/crystal_108d/source_mounts.py \
@@ -113,6 +117,7 @@ jobs:
             MCP/crystal_108d/evidence_provenance_gate.py \
             MCP/crystal_108d/provider_adapter_witness_return.py \
             MCP/crystal_108d/provider_trust_anchor.py \
+            MCP/crystal_108d/provider_admission_execution.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
@@ -151,6 +156,7 @@ jobs:
               tests/test_w18_provider_adapter_witness_return.py \
               tests/test_w18_provider_trust_anchor.py \
               tests/test_w18_provider_trust_convergence.py \
+              tests/test_w19_provider_admission_execution.py \
               -q
 
       - name: Build immutable candidate image

@@ -1,0 +1,74 @@
+{
+  "schema": "athena.xnav-w19-authorized-provider-admission-execution/v1",
+  "phase": "KC144.XNAV.W19",
+  "predecessor": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 13,
+    "branch": "agent/w15-reconcile-capsule-deep-hardening",
+    "w18_head": "46f394bf4b99cbc1254da1d3250f418d42012be2",
+    "w18_tree": "db96274c1b4b0283542cce0bdadd05a3a7f505b8",
+    "w18_ordered_parents": [
+      "49f2449e159fdef82b60722f35f302290934a468",
+      "5eece82829abb7eba87943548e89b6c04179ef40"
+    ],
+    "w18_crypto_contract_digest": "sha256:0f7f62e6e0ea83d6ee89d961ca880254cd1535ff40c794b81a1f46a1f3bfb571",
+    "w18_unified_return_contract_digest": "sha256:fd00f6463d512004e0900c9d01a5735f6ba77de27849a9e7c094852fa1474a23",
+    "w18_convergence_receipt_id": "w18-convergence:sha256:b557b74a14c16f3c2cfe578a35dbef19382586a508043fae6c178692f531e525"
+  },
+  "admission_registry": {
+    "schema": "athena.provider-admission-registry/v1",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "authority_signature_algorithm": "ed25519",
+    "authority_signature_encoding": "base64",
+    "admission_authorities": [],
+    "admitted_adapters": []
+  },
+  "admission_policy": {
+    "request_schema": "athena.provider-adapter-admission-request/v1",
+    "decision_schema": "athena.provider-adapter-admission-decision/v1",
+    "self_supplied_admission_authorities_allowed": false,
+    "self_supplied_provider_keys_are_trusted": false,
+    "exact_w18_parent_required": true,
+    "exact_provider_identity_required": true,
+    "provider_public_key_fingerprint_required": true,
+    "external_authorization_binding_required": true,
+    "authority_signature_required": true,
+    "authority_commit_pin_required": true,
+    "production_admission_authority_count": 0,
+    "production_provider_adapter_count": 0,
+    "runtime_can_mutate_registry": false
+  },
+  "persistent_execution": {
+    "workflow_path": ".github/workflows/p10-host-readiness.yml",
+    "workflow_ref_policy": "EXACT_CANDIDATE_HEAD_REQUIRED",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "sample_count": 3,
+    "interval_seconds": 20,
+    "minimum_span_seconds": 40,
+    "execute_live_witness_default": false,
+    "runtime_dispatch_capability": "NONE",
+    "runtime_accepts_secret_material": false,
+    "runtime_can_promote": false,
+    "ic10_required": true
+  },
+  "boundaries": {
+    "production_admission_authority_pinned": false,
+    "production_provider_adapter_admitted": false,
+    "production_provider_trust_anchor_pinned": false,
+    "provider_return_signature_verified": false,
+    "authorization_externally_verified": false,
+    "protected_environment_approved": false,
+    "bearer_secret_available_at_job_runtime": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "persistent_witness_return_persisted": false,
+    "control_plane_admitted": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false
+  },
+  "successor": "KC144.XNAV.W20::VERIFIED-PERSISTENT-WITNESS-RETURN-AND-CONTROL-PLANE-ADMISSION",
+  "contract_digest": "sha256:a77da43c64540ffc56d6905000c0aba6f36a2ef91a7e03c125b78608914448a5"
+}
