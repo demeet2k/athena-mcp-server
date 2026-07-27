@@ -1,0 +1,265 @@
+name: Validate W17 provenance and protected dispatch gate
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      activation_packet_json:
+        description: Strict secret-free activation packet JSON
+        required: true
+        type: string
+      provider_evidence_json:
+        description: Independently retrievable provider evidence JSON
+        required: true
+        type: string
+      provenance_envelope_json:
+        description: Digest- and workflow-bound W17 provenance envelope JSON
+        required: true
+        type: string
+      execute_live_witness:
+        description: Enter the protected environment and contact the endpoint
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  contract-tests:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact W17 candidate
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Install exact test dependencies
+        run: |
+          python -m pip install \
+            "mcp[cli]==1.28.1" \
+            "pytest>=8.0,<9"
+
+      - name: Validate W17 contracts
+        run: |
+          python -m json.tool \
+            deploy/w17/evidence-provenance.example.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w17-evidence-provenance-dispatch-gate.json \
+            >/dev/null
+          python -m py_compile \
+            MCP/crystal_108d/evidence_provenance_gate.py
+          PYTHONPATH=MCP python -m \
+            crystal_108d.evidence_provenance_gate \
+            check-template \
+            deploy/w17/evidence-provenance.example.json
+          python -m pytest \
+            tests/test_w17_evidence_provenance_gate.py \
+            tests/test_registration.py \
+            -q
+          git diff --check \
+            97f7bdc917a29fe1f54192fdcd37e3704be736cd...HEAD
+
+  provenance-preflight:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact dispatched W17 head
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Materialize secret-free submitted contracts
+        env:
+          ATHENA_ACTIVATION_PACKET_JSON: ${{ inputs.activation_packet_json }}
+          ATHENA_PROVIDER_EVIDENCE_JSON: ${{ inputs.provider_evidence_json }}
+          ATHENA_PROVENANCE_ENVELOPE_JSON: ${{ inputs.provenance_envelope_json }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          values = {
+              "w17-activation-packet.json": "ATHENA_ACTIVATION_PACKET_JSON",
+              "w17-provider-evidence.json": "ATHENA_PROVIDER_EVIDENCE_JSON",
+              "w17-provenance-envelope.json": "ATHENA_PROVENANCE_ENVELOPE_JSON",
+          }
+          for path, variable in values.items():
+              Path(path).write_text(
+                  os.environ[variable] + "\n",
+                  encoding="utf-8",
+              )
+          PY
+
+      - name: Validate structural provenance without network contact
+        run: |
+          PYTHONPATH=MCP python -m \
+            crystal_108d.evidence_provenance_gate \
+            preflight \
+            w17-activation-packet.json \
+            w17-provider-evidence.json \
+            w17-provenance-envelope.json \
+            --output w17-provenance-preflight.json
+
+      - name: Upload non-secret preflight
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: w17-provenance-preflight-${{ github.sha }}
+          path: |
+            w17-activation-packet.json
+            w17-provider-evidence.json
+            w17-provenance-envelope.json
+            w17-provenance-preflight.json
+          if-no-files-found: error
+          retention-days: 90
+
+  protected-dispatch:
+    needs: provenance-preflight
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      inputs.execute_live_witness == true
+    environment: p10-persistent-host
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Check out exact dispatched W17 head
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Install pinned live-witness dependencies
+        run: |
+          python -m pip install \
+            "mcp[cli]==1.28.1" \
+            "httpx==0.28.1" \
+            "starlette==0.48.0" \
+            "uvicorn==0.35.0"
+
+      - name: Rematerialize and revalidate submitted contracts
+        env:
+          ATHENA_ACTIVATION_PACKET_JSON: ${{ inputs.activation_packet_json }}
+          ATHENA_PROVIDER_EVIDENCE_JSON: ${{ inputs.provider_evidence_json }}
+          ATHENA_PROVENANCE_ENVELOPE_JSON: ${{ inputs.provenance_envelope_json }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          values = {
+              "w17-activation-packet.json": "ATHENA_ACTIVATION_PACKET_JSON",
+              "w17-provider-evidence.json": "ATHENA_PROVIDER_EVIDENCE_JSON",
+              "w17-provenance-envelope.json": "ATHENA_PROVENANCE_ENVELOPE_JSON",
+          }
+          for path, variable in values.items():
+              Path(path).write_text(
+                  os.environ[variable] + "\n",
+                  encoding="utf-8",
+              )
+          PY
+          PYTHONPATH=MCP python -m \
+            crystal_108d.evidence_provenance_gate \
+            preflight \
+            w17-activation-packet.json \
+            w17-provider-evidence.json \
+            w17-provenance-envelope.json \
+            --output w17-provenance-preflight.json
+          python -m scripts.p10_activation_packet \
+            w17-activation-packet.json \
+            --target-out w17-target.json \
+            --evidence-out w17-derived-evidence.json \
+            --receipt-out w17-activation-handoff.json
+
+      - name: Fetch and bind independent provider evidence
+        env:
+          ATHENA_W17_PROTECTED_ENVIRONMENT: p10-persistent-host
+        run: |
+          PYTHONPATH=MCP python -m \
+            crystal_108d.evidence_provenance_gate \
+            fetch \
+            w17-activation-packet.json \
+            w17-provider-evidence.json \
+            w17-provenance-envelope.json \
+            --output w17-live-provenance-witness.json \
+            --timeout 30
+
+      - name: Emit run-scoped protected dispatch permit
+        env:
+          ATHENA_W17_PROTECTED_ENVIRONMENT: p10-persistent-host
+          ATHENA_W17_EXECUTE_LIVE_WITNESS: "true"
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_MCP_BEARER_TOKEN }}
+        run: |
+          PYTHONPATH=MCP python -m \
+            crystal_108d.evidence_provenance_gate \
+            authorize \
+            w17-activation-packet.json \
+            w17-provider-evidence.json \
+            w17-provenance-envelope.json \
+            w17-live-provenance-witness.json \
+            --output w17-dispatch-permit.json
+
+      - name: Execute exact three-sample persistent endpoint witness
+        env:
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_MCP_BEARER_TOKEN }}
+        run: |
+          python -m scripts.p10_persistent_observation_window \
+            w17-target.json \
+            --provider-evidence w17-provider-evidence.json \
+            --output w17-persistent-witness.json \
+            --samples 3 \
+            --interval 20 \
+            --per-sample-timeout 180
+
+      - name: Verify secret-free nonpromotional receipts
+        env:
+          ATHENA_MCP_BEARER_TOKEN: ${{ secrets.ATHENA_MCP_BEARER_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          token = os.environ["ATHENA_MCP_BEARER_TOKEN"]
+          paths = tuple(Path(".").glob("w17-*.json"))
+          assert paths
+          for path in paths:
+              content = path.read_text(encoding="utf-8")
+              assert token not in content
+              json.loads(content)
+          permit = json.loads(
+              Path("w17-dispatch-permit.json").read_text(encoding="utf-8")
+          )
+          witness = json.loads(
+              Path("w17-persistent-witness.json").read_text(encoding="utf-8")
+          )
+          assert permit["dispatch_allowed"] is True
+          assert permit["secret_material_recorded"] is False
+          assert permit["runtime_can_promote"] is False
+          assert witness["verdict"] == "PASS_PERSISTENT_HTTPS_WITNESS"
+          assert witness["authority"]["persistent_endpoint_witnessed"] is True
+          assert witness["promotion_ready"] is False
+          assert witness["promotion_claimed"] is False
+          assert witness["merge_claimed"] is False
+          PY
+
+      - name: Upload non-secret provenance, permit, and endpoint witness
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: w17-protected-witness-${{ github.sha }}
+          path: |
+            w17-activation-handoff.json
+            w17-target.json
+            w17-provider-evidence.json
+            w17-provenance-envelope.json
+            w17-provenance-preflight.json
+            w17-live-provenance-witness.json
+            w17-dispatch-permit.json
+            w17-persistent-witness.json
+          if-no-files-found: error
+          retention-days: 90
