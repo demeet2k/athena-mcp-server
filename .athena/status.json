@@ -16,7 +16,7 @@
     "p07_http_package": ".athena/receipts/p07-host-package.json",
     "p08_reconciled_candidate": ".athena/receipts/p08-integration-candidate.json",
     "p09_oci_publication": ".athena/receipts/p09-oci-publication.json",
-    "p10_endpoint_readiness": null
+    "p10_endpoint_readiness": ".athena/receipts/p10-endpoint-readiness.json"
   },
   "p08_candidate": {
     "commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
@@ -98,6 +98,16 @@
     "secret_store_ref": null,
     "bearer_secret_provisioned": false,
     "provider_evidence": null,
-    "persistent_witness": null
+    "persistent_witness": null,
+    "hosted_validation": {
+      "verdict": "PASS_PROVIDER_NEUTRAL_READINESS_ENDPOINT_PENDING",
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30238982516",
+      "job_id": 89892123128,
+      "artifact_id": 8642572350,
+      "artifact_digest": "sha256:a51068a62a7b6d509cbdcd991b9345b15930e06142725498930db9c3751aefb4",
+      "workflow_execution_commit": "a4a53eecce92d921d0cf068dd94873be1dc07b3d",
+      "receipt_id": "endpoint-readiness:sha256:d2703810cb26c0234209138fadbb2e1d0568163de05efd4196851a507c00baf3",
+      "local_tests": "PASS[6/6]"
+    }
   }
 }
