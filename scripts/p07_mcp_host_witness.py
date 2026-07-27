@@ -251,7 +251,9 @@ def _build_receipt(observation: dict[str, Any]) -> dict[str, Any]:
         ),
         "observed_at": now,
         "repository": repository,
-        "witnessed_commit": os.environ.get("GITHUB_SHA"),
+        "witnessed_commit": os.environ.get(
+            "WITNESSED_COMMIT", os.environ.get("GITHUB_SHA")
+        ),
         "deployment": {
             "class": "github-actions-ephemeral-stdio",
             "transport": "stdio",
