@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Check out witnessed commit
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
@@ -24,9 +26,13 @@ jobs:
           cache: pip
 
       - name: Install MCP runtime
-        run: python -m pip install --upgrade pip && python -m pip install -e ".[test]"
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "mcp[cli]>=1.0.0" "pytest>=8.0"
 
       - name: Launch live stdio host and capture P07 witness
+        env:
+          WITNESSED_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           python scripts/p07_mcp_host_witness.py \
             --output p07-mcp-host-witness.json \
