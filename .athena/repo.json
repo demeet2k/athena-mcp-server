@@ -18,11 +18,12 @@
   ],
   "imports": [
     "athena.repo.control@git:3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
-    "athena.federation.v2.reference@git:1b177fa2e3a4860487497210dcfbc122a287d693"
+    "athena.federation.release-candidate@KC144.MYC.P05.RC1"
   ],
   "coordinates": [
     "athena://resource/athena.repo.runtime-mcp@federation-consumer-0.1.0",
     "athena://federation-v2",
+    "github://demeet2k/Athena@13cda0bed07a881d42446e3a282eb1ba84ea9b45/crystal/v2/release-candidate.json",
     "github://demeet2k/Athena@1b177fa2e3a4860487497210dcfbc122a287d693/crystal/v2/repositories.lock.json",
     "github://demeet2k/athena-mcp-server@0ee038011295873ba037a3cac25de18544439293/README.md"
   ],
