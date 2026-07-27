@@ -4,21 +4,26 @@
   "role": "runtime",
   "authority_domain": "runtime-navigation",
   "default_branch": "master",
-  "release": "contract-proposal-0.1.0",
+  "release": "federation-consumer-0.1.0",
   "manifest_cid": null,
   "entrypoints": [
-    "README.md"
+    "README.md",
+    "MCP/athena_mcp_server.py",
+    "MCP/crystal_108d/federation_v2.py"
   ],
-  "build": null,
-  "test": null,
+  "build": "python -m py_compile MCP/crystal_108d/federation_v2.py",
+  "test": "python -m unittest -v tests/test_federation_v2.py",
   "exports": [
-    "athena.repo.runtime-mcp@contract-proposal-0.1.0"
+    "athena.repo.runtime-mcp@federation-consumer-0.1.0"
   ],
   "imports": [
-    "athena.repo.control@git:3d33fbcd6248fc2dc2991fbbab5e93a7eb184246"
+    "athena.repo.control@git:3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+    "athena.federation.v2.reference@git:1b177fa2e3a4860487497210dcfbc122a287d693"
   ],
   "coordinates": [
-    "athena://resource/athena.repo.runtime-mcp@contract-proposal-0.1.0",
+    "athena://resource/athena.repo.runtime-mcp@federation-consumer-0.1.0",
+    "athena://federation-v2",
+    "github://demeet2k/Athena@1b177fa2e3a4860487497210dcfbc122a287d693/crystal/v2/repositories.lock.json",
     "github://demeet2k/athena-mcp-server@0ee038011295873ba037a3cac25de18544439293/README.md"
   ],
   "return": {
