@@ -1,0 +1,38 @@
+{
+  "schema": "athena.persistent-mcp-candidate/v1",
+  "phase": "P08",
+  "seed": "KC144.MYC.SKELETON.P08::PERSISTENT-MCP-ENDPOINT-AND-PROMOTION-READINESS",
+  "verdict": "CANDIDATE_RECONCILED_VERIFICATION_PENDING",
+  "repository": "demeet2k/athena-mcp-server",
+  "branch": "agent/p08-persistent-mcp-candidate",
+  "integration_merge_commit": "e705aaed854b3c17f0f5323a9f299d1a2257f8a7",
+  "parents": {
+    "hosted_runtime_receipt_head": "3b32a648e41edc75f7a8d048e84a35948cff3a4c",
+    "persistent_http_package_head": "2f79ddf0f513777b121290c44bd53e1d63d27d7f",
+    "common_predecessor": "d27e47eb95c730838b46a5a59dcb474340d0e4ba"
+  },
+  "included_evidence": {
+    "ephemeral_host_receipt": ".athena/receipts/p07-mcp-host-witness.json",
+    "http_package_receipt": ".athena/receipts/p07-host-package.json",
+    "http_package_release": "athena-mcp-host-p07-rc3"
+  },
+  "verification": {
+    "workflow": ".github/workflows/p08-integration-candidate.yml",
+    "exact_candidate_head": "resolved_by_workflow",
+    "status": "PENDING",
+    "artifact": null
+  },
+  "deployment": {
+    "persistent_endpoint": null,
+    "secret_provisioned": false,
+    "persistent_witness": null
+  },
+  "authority": {
+    "runtime_can_promote": false,
+    "control_plane_admission_required": true,
+    "promotion_claimed": false,
+    "merge_claimed": false
+  },
+  "next_gate": "Verify the exact combined head, then deploy that immutable image to an authorized persistent HTTPS MCP host and replay the live probe.",
+  "successor_seed": "KC144.MYC.SKELETON.P08::AUTHORIZED-HTTPS-HOST-AND-PERSISTENT-WITNESS"
+}
