@@ -9,11 +9,12 @@
   "successor": {
     "rid": "athena.repo.runtime-mcp",
     "vid": "federation-consumer-0.1.0",
-    "implementation_commit": "13ce0f18ed4e99c0aaf0a3f64c41c9d65e690bed",
-    "frozen_control_snapshot": "1b177fa2e3a4860487497210dcfbc122a287d693"
+    "implementation_commit": "fcee64462306e35409eade9016bb3a4140ca57e3",
+    "frozen_control_snapshot": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+    "release_candidate": "KC144.MYC.P05.RC1"
   },
   "method": "additive-runtime-bridge-with-explicit-v1-fallback",
-  "status": "IMPLEMENTED_NOT_DEPLOYED",
+  "status": "P06_IMPLEMENTED_NOT_DEPLOYED",
   "receipt": ".athena/receipts/runtime-lock-consumer.json",
   "rollback": "Select the predecessor commit; the existing 108D runtime remains intact.",
   "preserves": [
