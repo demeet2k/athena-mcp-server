@@ -1,0 +1,196 @@
+name: Validate P08 persistent MCP candidate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integration-candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CANDIDATE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - name: Check out exact candidate
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Verify both admitted parents
+        run: |
+          git merge-base --is-ancestor \
+            3b32a648e41edc75f7a8d048e84a35948cff3a4c \
+            "$CANDIDATE_COMMIT"
+          git merge-base --is-ancestor \
+            2f79ddf0f513777b121290c44bd53e1d63d27d7f \
+            "$CANDIDATE_COMMIT"
+          test "$(git show -s --format=%P e705aaed854b3c17f0f5323a9f299d1a2257f8a7)" = \
+            "3b32a648e41edc75f7a8d048e84a35948cff3a4c 2f79ddf0f513777b121290c44bd53e1d63d27d7f"
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install runtime verification dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            "mcp[cli]>=1.28.0,<2" \
+            "pytest>=8.0" \
+            "starlette>=0.48,<2" \
+            "uvicorn>=0.35,<1"
+
+      - name: Validate receipts and Python surfaces
+        run: |
+          python -m json.tool \
+            .athena/receipts/p07-mcp-host-witness.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/p07-host-package.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/p08-integration-candidate.json >/dev/null
+          python -m py_compile \
+            MCP/athena_http_server.py \
+            MCP/http_security.py \
+            scripts/host_attestation.py \
+            scripts/probe_mcp_host.py \
+            scripts/p07_mcp_host_witness.py
+
+      - name: Run fail-closed HTTP boundary tests
+        run: python -m unittest tests.test_http_host -v
+
+      - name: Capture exact-head MCP stdio witness
+        env:
+          WITNESSED_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          python scripts/p07_mcp_host_witness.py \
+            --output p08-stdio-witness.json \
+            --timeout 120
+
+      - name: Run federation and registration regressions
+        run: |
+          ATHENA_ROOT="$GITHUB_WORKSPACE" \
+            python -m pytest \
+              tests/test_federation_v2.py \
+              tests/test_registration.py \
+              -q
+
+      - name: Build immutable candidate image
+        run: |
+          docker build -f Dockerfile.mcp \
+            --build-arg ATHENA_BUILD_COMMIT="$CANDIDATE_COMMIT" \
+            -t athena-mcp:p08 .
+          docker image inspect athena-mcp:p08 > p08-image.json
+
+      - name: Smoke-test container attestation
+        run: |
+          docker run --rm -d \
+            --name athena-p08 \
+            -e ATHENA_MCP_BEARER_TOKEN=0123456789abcdef0123456789abcdef \
+            -p 18080:8080 \
+            athena-mcp:p08
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from pathlib import Path
+          from urllib.request import urlopen
+
+          candidate = os.environ["CANDIDATE_COMMIT"]
+          last_error = None
+          for _ in range(30):
+              try:
+                  with urlopen("http://127.0.0.1:18080/healthz", timeout=2) as response:
+                      health = json.load(response)
+                  assert health["status"] == "ready"
+                  assert health["deployed_commit"] == candidate
+                  assert health["commit_attested"] is True
+                  assert health["commit_source"] == "build-locked-file"
+                  assert health["promotion_ready"] is False
+                  Path("p08-health.json").write_text(
+                      json.dumps(health, indent=2, sort_keys=True) + "\n",
+                      encoding="utf-8",
+                  )
+                  break
+              except Exception as error:
+                  last_error = error
+                  time.sleep(1)
+          else:
+              raise RuntimeError(f"container did not become ready: {last_error}")
+          PY
+
+      - name: Stop candidate container
+        if: always()
+        run: docker stop athena-p08 2>/dev/null || true
+
+      - name: Assemble immutable candidate witness
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          candidate = os.environ["CANDIDATE_COMMIT"]
+          stdio = json.loads(Path("p08-stdio-witness.json").read_text())
+          health = json.loads(Path("p08-health.json").read_text())
+          image = json.loads(Path("p08-image.json").read_text())[0]
+          body = {
+              "schema": "athena.persistent-mcp-candidate-witness/v1",
+              "phase": "P08",
+              "verdict": "PASS_RECONCILED_CANDIDATE_NOT_DEPLOYED",
+              "candidate_commit": candidate,
+              "integration_merge_commit": "e705aaed854b3c17f0f5323a9f299d1a2257f8a7",
+              "parents": [
+                  "3b32a648e41edc75f7a8d048e84a35948cff3a4c",
+                  "2f79ddf0f513777b121290c44bd53e1d63d27d7f",
+              ],
+              "stdio_witness": {
+                  "receipt_id": stdio["receipt_id"],
+                  "verdict": stdio["verdict"],
+                  "witnessed_commit": stdio["witnessed_commit"],
+                  "checks": stdio["checks"],
+              },
+              "container": {
+                  "image_id": image["Id"],
+                  "health": health,
+                  "published": False,
+                  "persistent_endpoint": False,
+              },
+              "promotion_claimed": False,
+              "merge_claimed": False,
+              "next_gate": (
+                  "Deploy this exact immutable image to an authorized HTTPS MCP "
+                  "host and replay scripts/probe_mcp_host.py."
+              ),
+          }
+          canonical = json.dumps(
+              body, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+          ).encode("utf-8")
+          witness = {
+              "receipt_id": "p08-candidate:sha256:"
+              + hashlib.sha256(canonical).hexdigest(),
+              **body,
+          }
+          Path("p08-integration-witness.json").write_text(
+              json.dumps(witness, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(witness, indent=2, sort_keys=True))
+          PY
+
+      - name: Upload immutable candidate witness
+        uses: actions/upload-artifact@v4
+        with:
+          name: p08-integration-witness-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            p08-integration-witness.json
+            p08-stdio-witness.json
+            p08-health.json
+          if-no-files-found: error
+          retention-days: 90
