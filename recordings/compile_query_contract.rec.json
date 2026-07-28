@@ -1,0 +1,31 @@
+{
+  "external_witness": false,
+  "function_name": "CompileQueryContract",
+  "headers": {
+    "authorization": "REDACTED"
+  },
+  "provider": {
+    "model": "redacted",
+    "name": "RECORDED_FIXTURE",
+    "request_id": "redacted"
+  },
+  "recorded": true,
+  "recording_id": "REC-QUERY-CONTRACT-001",
+  "request": {
+    "known_addresses": ["H06", "B21", "I06", "I09", "M12"],
+    "raw_query": "Search sources, execute the route, audit contradictions, and return."
+  },
+  "response": {
+    "authority_effect": "NONE",
+    "claim_ceiling": "RESEARCH_ONLY",
+    "exact_addresses": [6, 43, 86, 89, 144],
+    "intents": ["SOURCE_GROUNDING", "EXECUTION", "AUDIT", "RETURN"],
+    "literal": "Search sources, execute the route, audit contradictions, and return.",
+    "query_id": "Q-REC-001",
+    "requires_audit": true,
+    "requires_execution": true,
+    "requires_sources": true,
+    "route_budget": 24
+  },
+  "schema": "KC144-BAML-RECORDING-1"
+}
