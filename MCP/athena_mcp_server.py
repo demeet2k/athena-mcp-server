@@ -166,6 +166,12 @@ from crystal_108d.next_octave_authority_quorum import (
 )
 register_next_octave_authority_quorum(mcp)
 
+# ── Ω whole-crystal convergence, defect tensor, and structural autofill ─
+from crystal_108d.whole_crystal_autofill import (
+    register_whole_crystal_autofill,
+)
+register_whole_crystal_autofill(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

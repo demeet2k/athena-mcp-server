@@ -1,0 +1,237 @@
+{
+  "schema": "athena.kc144-whole-crystal-autofill/v1",
+  "plane": "KC144.XNAV.OMEGA",
+  "title": "WHOLE-CRYSTAL-CONVERGENCE-DEFECT-TENSOR-AND-STRUCTURAL-AUTOFILL",
+  "predecessor": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 13,
+    "runtime_head": "07bbea3a715dc9c8d040d53d2625a4e4592d6e6c",
+    "runtime_tree": "b1f5c2157225a8307c6f87670dfeb25523d13807",
+    "runtime_receipt_id": "w32-next-octave-authority-quorum:sha256:570b8997f000937f56a6f18e29d51aecf80b54a8648e31743724e91466ed65c5",
+    "control_repository": "demeet2k/Athena",
+    "control_pull_request": 28,
+    "control_head": "31ea9c23a5997bd8511b1e8daa2e16a1a8633846",
+    "control_tree": "1941a5d36bea6fbcddc3a9dc3b55b7e158ec474a",
+    "control_receipt_id": "w32-next-octave-authority-quorum-control-admission:sha256:8b6df05625189bd10e3d3e30dd1380413e5f340d7d2a88b293d6389c8cc90f27"
+  },
+  "coordinate_law": {
+    "rows": 12,
+    "columns": 12,
+    "station_count": 144,
+    "gid_formula": "12*(row-1)+column",
+    "theta_formula": "2.5*(gid-1)",
+    "octave_scale_formula": "2**octave"
+  },
+  "autofill_law": {
+    "structural_gaps": "GENERATE_FROM_EXACT_SCHEMA",
+    "generated_mark": "GENERATED_STRUCTURAL",
+    "semantic_gaps": "WITHHOLD_AS_AMBIG",
+    "empirical_gaps": "FORBID_AUTOFILL",
+    "authority_gaps": "FORBID_AUTOFILL",
+    "fixed_point_rule": "F[n+1]=F[n]∪READY_STRUCTURAL(F[n])",
+    "required_fill_receipt_fields": [
+      "generator",
+      "neighbors",
+      "invariants",
+      "alternatives",
+      "losses",
+      "rejection_tests"
+    ]
+  },
+  "propositions": [
+    {
+      "proposition_id": "P01_COORDINATE_BIJECTION",
+      "class": "STRUCTURAL",
+      "statement": "The physical atlas is the immutable 12x12 GID bijection; rotations and octaves are projections and do not renumber stations.",
+      "autofill_policy": "FORCED"
+    },
+    {
+      "proposition_id": "P02_WHOLE_NEXT",
+      "class": "STRUCTURAL",
+      "statement": "NEXT executes every dependency-ready pairwise lock-disjoint local action until the recomputed genuine barrier.",
+      "autofill_policy": "FORCED"
+    },
+    {
+      "proposition_id": "P03_SOURCE_NEUTRAL_OBJECT",
+      "class": "STRUCTURAL",
+      "statement": "One semantic object remains separate from its internal, Drive, runtime-Git, and control-Git manifestations.",
+      "autofill_policy": "FORCED"
+    },
+    {
+      "proposition_id": "P04_AUTOFILL_BOUNDARY",
+      "class": "STRUCTURAL",
+      "statement": "Exact schemas may generate marked structural cells; semantics remain ambiguous and evidence or authority cannot be symmetry-filled.",
+      "autofill_policy": "FORCED"
+    },
+    {
+      "proposition_id": "P05_W32_VERIFIER_STATE",
+      "class": "STRUCTURAL",
+      "statement": "The live runtime and control Git bodies close W32 as a verifier-only protocol and preserve a blocked W33 external handoff.",
+      "autofill_policy": "FORCED"
+    },
+    {
+      "proposition_id": "P06_AUTHORITY_BARRIER",
+      "class": "AUTHORITY",
+      "statement": "All authority, registry, vote, quorum-event, merge, deployment, endpoint, image-publication, promotion, and production-effect counts remain zero.",
+      "autofill_policy": "FORBIDDEN"
+    },
+    {
+      "proposition_id": "P07_HIGHER_OCTAVE_GEOMETRY",
+      "class": "STRUCTURAL",
+      "statement": "Higher octaves are parent-qualified projections with scale 2^o; the physical 144-address body remains invariant.",
+      "autofill_policy": "FORCED"
+    },
+    {
+      "proposition_id": "P08_RETURN_AND_REPLAY",
+      "class": "STRUCTURAL",
+      "statement": "Every generated transformation preserves a replay pointer, explicit loss account, M12 return, and exact successor seed.",
+      "autofill_policy": "FORCED"
+    }
+  ],
+  "manifestations": [
+    {
+      "surface": "INTERNAL_CONTINUITY",
+      "source_id": "INTERNAL::KC144::WHOLE-CRYSTAL-CONTINUITY",
+      "locator": "personal-context://kc144/whole-crystal-next",
+      "revision": "CONTEXT_RETRIEVED_2026-07-27",
+      "retrieval_state": "RETRIEVED",
+      "claim_ceiling": "USER_CONSTRAINT_AND_PRIOR_STATE_ONLY",
+      "proposition_states": {
+        "P01_COORDINATE_BIJECTION": "EXACT",
+        "P02_WHOLE_NEXT": "EXACT",
+        "P03_SOURCE_NEUTRAL_OBJECT": "EXACT",
+        "P04_AUTOFILL_BOUNDARY": "DERIVED",
+        "P05_W32_VERIFIER_STATE": "DERIVED",
+        "P06_AUTHORITY_BARRIER": "EXACT",
+        "P07_HIGHER_OCTAVE_GEOMETRY": "EXACT",
+        "P08_RETURN_AND_REPLAY": "EXACT"
+      }
+    },
+    {
+      "surface": "GOOGLE_DRIVE",
+      "source_id": "DRIVE::KC144::CONVERGENCE-CORPUS",
+      "locator": [
+        "https://docs.google.com/document/d/1W8xbIikYnTpc-R3mTfo3WYVrYVdMfJ0wu99swbaVVFg/edit",
+        "https://docs.google.com/document/d/1XXxKYMvzl0F7yLJP3cUcqKUMF0oA6EhHV9S5I-ux_OU/edit",
+        "https://docs.google.com/document/d/11VVblXBKX95NFjwvt16KG2ziKSRuEj0lBfOyfZ4MWXM/edit",
+        "https://docs.google.com/document/d/1yAJ2xrm2WIVae-OJVUfifiNYQpivIjvlBDXPvZAE12U/edit",
+        "https://docs.google.com/document/d/1HpnTWMAYAuso4LlAYx8-Qc8mryofKgqZsNgLC8aysHs/edit"
+      ],
+      "revision": [
+        "AIroW368R71-Ad_xJEGbJmRNsqs4WQxwQuvBbzFhHoelNXy5_2ckRM2hiphQNq3qEYuT87e3Ss1Hh4KxVisHNSEEkY-yElHdblLR6w3SOyU",
+        "AIroW37PEPaK538-hOKr_FowuqOTKiBg686UFpggpk4FOHeha2OVG8jTQyTUZO-lNAdEvDTtRyyQrw2C1pTkad5v4Sf7MrHJscvoJVvi654",
+        "AIroW36rKzB89E2j0vYNEI0kkLK2sIdUpdh74eJpHofu-9GDdQ4yY1CO3_gkV4LWwoYJIoCsqY-cd0lgYCS-BIpuu1cIvI7AKeTc1lvGRKI",
+        "AIroW35tG14aUtLNmZbipiz5F6ebuVEyXzWHXDemD2CikN01yi_HScMwPsP32ZO_oYpgLqkJp-ajwowpuThstUUDmiZu6xINbfeRZqgz6G8",
+        "AIroW37X0abtW843yq4NlE4tWVC8EhC3ShL5V2dKJUIBUDncWil3h034FnkhhTJxNTyDSGsos-j1VJnrCm8YvhrY4ICxyca4jz7WMCxX8_0"
+      ],
+      "retrieval_state": "RETRIEVED",
+      "claim_ceiling": "RETRIEVED_SOURCE_DECLARATIONS_NOT_INDEPENDENT_AUTHORITY",
+      "proposition_states": {
+        "P01_COORDINATE_BIJECTION": "EXACT",
+        "P02_WHOLE_NEXT": "EXACT",
+        "P03_SOURCE_NEUTRAL_OBJECT": "EXACT",
+        "P04_AUTOFILL_BOUNDARY": "EXACT",
+        "P05_W32_VERIFIER_STATE": "DERIVED",
+        "P06_AUTHORITY_BARRIER": "EXACT",
+        "P07_HIGHER_OCTAVE_GEOMETRY": "EXACT",
+        "P08_RETURN_AND_REPLAY": "EXACT"
+      }
+    },
+    {
+      "surface": "GITHUB_RUNTIME",
+      "source_id": "GIT::demeet2k/athena-mcp-server::PR13@W32",
+      "locator": "https://github.com/demeet2k/athena-mcp-server/pull/13",
+      "revision": "07bbea3a715dc9c8d040d53d2625a4e4592d6e6c",
+      "retrieval_state": "RETRIEVED",
+      "claim_ceiling": "OPEN_DRAFT_UNMERGED_RUNTIME_VERIFIER",
+      "proposition_states": {
+        "P01_COORDINATE_BIJECTION": "ABSENT",
+        "P02_WHOLE_NEXT": "ABSENT",
+        "P03_SOURCE_NEUTRAL_OBJECT": "LOCATOR_ONLY",
+        "P04_AUTOFILL_BOUNDARY": "ABSENT",
+        "P05_W32_VERIFIER_STATE": "EXACT",
+        "P06_AUTHORITY_BARRIER": "EXACT",
+        "P07_HIGHER_OCTAVE_GEOMETRY": "DERIVED",
+        "P08_RETURN_AND_REPLAY": "EXACT"
+      }
+    },
+    {
+      "surface": "GITHUB_CONTROL",
+      "source_id": "GIT::demeet2k/Athena::PR28@W32",
+      "locator": "https://github.com/demeet2k/Athena/pull/28",
+      "revision": "31ea9c23a5997bd8511b1e8daa2e16a1a8633846",
+      "retrieval_state": "RETRIEVED",
+      "claim_ceiling": "OPEN_DRAFT_UNMERGED_CONTROL_ADMISSION",
+      "proposition_states": {
+        "P01_COORDINATE_BIJECTION": "ABSENT",
+        "P02_WHOLE_NEXT": "ABSENT",
+        "P03_SOURCE_NEUTRAL_OBJECT": "LOCATOR_ONLY",
+        "P04_AUTOFILL_BOUNDARY": "ABSENT",
+        "P05_W32_VERIFIER_STATE": "EXACT",
+        "P06_AUTHORITY_BARRIER": "EXACT",
+        "P07_HIGHER_OCTAVE_GEOMETRY": "DERIVED",
+        "P08_RETURN_AND_REPLAY": "EXACT"
+      }
+    }
+  ],
+  "production_counts": {
+    "authority_sources": 0,
+    "authority_revisions": 0,
+    "registry_charters": 0,
+    "authority_admissions": 0,
+    "ic10_quorum_votes": 0,
+    "ic10_quorum_observations": 0,
+    "published_images": 0,
+    "persistent_endpoints": 0,
+    "merges": 0,
+    "deployments": 0,
+    "promotions": 0
+  },
+  "barriers": [
+    {
+      "barrier_id": "B01_W33_EXTERNAL_AUTHORITY_RETURN",
+      "class": "EXTERNAL_AUTHORITY",
+      "observed": 0,
+      "required": "complete source-backed registry commit plus quorum-bound handoff",
+      "autofillable": false
+    },
+    {
+      "barrier_id": "B02_CONVERSATION_BODY_BINDING",
+      "class": "SOURCE_BODY",
+      "observed": "0/144",
+      "required": "retrieved historical conversation bodies",
+      "autofillable": false
+    },
+    {
+      "barrier_id": "B03_DRIVE_CONTENT_HASH_COMPLETION",
+      "class": "SOURCE_VERSION",
+      "observed": "1/251 in frozen P31 snapshot",
+      "required": "current content hashes and source versions",
+      "autofillable": false
+    },
+    {
+      "barrier_id": "B04_RECURSIVE_GITHUB_TREE_COMPLETENESS",
+      "class": "SOURCE_GRAPH",
+      "observed": "CONNECTOR_GAP_RETAINED",
+      "required": "recursive immutable tree evidence",
+      "autofillable": false
+    },
+    {
+      "barrier_id": "B05_REAL_OUTCOME_INTAKE",
+      "class": "EMPIRICAL",
+      "observed": 0,
+      "required": "real versioned consented outcome events",
+      "autofillable": false
+    },
+    {
+      "barrier_id": "B06_EXTERNAL_CALIBRATION_AND_HELD_OUT_BENCHMARK",
+      "class": "INDEPENDENT_VALIDATION",
+      "observed": 0,
+      "required": "externally calibrated threshold and held-out benchmark",
+      "autofillable": false
+    }
+  ],
+  "successor": "KC144.XNAV.W33::RETURN-NEXT-OCTAVE-AUTHORITY-REGISTRY-COMMIT-AND-ISSUE-FIRST-QUORUM-BOUND-EXECUTION-HANDOFF",
+  "successor_source_status": "PRESERVED_EXPLICIT_W32_SUCCESSOR__EXTERNALLY_BLOCKED",
+  "contract_digest": "sha256:33d431f4147bf197f7a317d25c9a86f63ec554d7466d259c38365ac96214ca5e"
+}

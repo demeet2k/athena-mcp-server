@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 293, f"Expected 293 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 300, f"Expected 300 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 53, f"Expected 53 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 55, f"Expected 55 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -313,6 +313,20 @@ class TestRegistration:
         missing = expected - tools
         assert not missing, f"Missing W32 authority/quorum tools: {missing}"
 
+    def test_whole_crystal_autofill_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "athena_whole_crystal_autofill_status",
+            "inspect_athena_whole_crystal_source_lattice",
+            "inspect_athena_whole_crystal_defect_tensor",
+            "inspect_athena_whole_crystal_cell",
+            "compile_athena_whole_crystal_fixed_point",
+            "inspect_athena_whole_crystal_genuine_barriers",
+            "explain_athena_whole_crystal_autofill_law",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing whole-crystal autofill tools: {missing}"
+
     def test_resources_present(self):
         resources = set(self.mcp._resource_manager._resources.keys())
         expected = {
@@ -328,6 +342,8 @@ class TestRegistration:
             "athena://hologram-rosetta",
             "athena://angel-geometry",
             "athena://inverse-seed",
+            "athena://whole-crystal-convergence-lattice",
+            "athena://whole-crystal-structural-fixed-point",
             "athena://inverse-octave",
             "athena://mycelium",
             "athena://node-registry",

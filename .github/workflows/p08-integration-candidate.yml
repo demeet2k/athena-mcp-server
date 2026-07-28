@@ -114,6 +114,8 @@ jobs:
           python -m json.tool \
             .athena/receipts/w32-next-octave-authority-quorum.json >/dev/null
           python -m json.tool \
+            .athena/receipts/whole-crystal-convergence-autofill.json >/dev/null
+          python -m json.tool \
             MCP/data/w11_source_mounts.json >/dev/null
           python -m json.tool \
             MCP/data/w14_memory_digest_capsules.json >/dev/null
@@ -150,6 +152,8 @@ jobs:
           python -m json.tool \
             MCP/data/w32_next_octave_authority_quorum.json >/dev/null
           python -m json.tool \
+            MCP/data/whole_crystal_autofill.json >/dev/null
+          python -m json.tool \
             tests/fixtures/w20_control_protocol_admission.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
@@ -171,6 +175,7 @@ jobs:
             MCP/crystal_108d/control_ledger_ic10_review.py \
             MCP/crystal_108d/five_wave_review_closure.py \
             MCP/crystal_108d/next_octave_authority_quorum.py \
+            MCP/crystal_108d/whole_crystal_autofill.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
@@ -185,6 +190,7 @@ jobs:
             scripts/w26_control_ledger_ic10_review.py \
             scripts/w27_w31_five_wave_closure.py \
             scripts/w32_next_octave_authority_quorum.py
+          python -m py_compile scripts/whole_crystal_autofill.py
           python scripts/w19_provider_admission.py --check-snapshot
           python scripts/w20_persistent_return_ic10.py --check-snapshot
           python scripts/w21_ledger_commit_promotion_handoff.py --check-snapshot
@@ -195,6 +201,8 @@ jobs:
           python scripts/w26_control_ledger_ic10_review.py --check-snapshot
           python scripts/w27_w31_five_wave_closure.py --check-snapshot
           python scripts/w32_next_octave_authority_quorum.py --check-snapshot
+          python scripts/whole_crystal_autofill.py --status
+          python scripts/whole_crystal_autofill.py --fixed-point
 
       - name: Run fail-closed HTTP boundary tests
         run: python -m unittest tests.test_http_host -v
@@ -239,6 +247,7 @@ jobs:
               tests/test_w26_control_ledger_ic10_review.py \
               tests/test_w27_w31_five_wave_closure.py \
               tests/test_w32_next_octave_authority_quorum.py \
+              tests/test_whole_crystal_autofill.py \
               -q
 
       - name: Build immutable candidate image
