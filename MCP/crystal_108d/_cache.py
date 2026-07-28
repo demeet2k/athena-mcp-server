@@ -22,6 +22,7 @@ JSON data. Every save automatically:
 
 import json
 import logging
+import zlib
 from pathlib import Path
 from typing import Any, Optional
 
@@ -77,6 +78,7 @@ _ALL_JSON_FILES = [
     "kc27_runtime_closure.json",
 ]
 
+
 class JsonCache:
     """Lazy-loading, single-instance JSON cache with .qshr fallback.
 
@@ -114,13 +116,34 @@ class JsonCache:
                 self._data = self._load_from_qshr()
             else:
                 raise FileNotFoundError(
-                    f"Neither {self._path.name} nor {self._qshr_path.name} found in {DATA_DIR}")
+                    f"Neither {self._path.name} nor {self._qshr_path.name} found in {DATA_DIR}"
+                )
         return self._data
 
+    @staticmethod
+    def _is_legacy_zlib(data: bytes) -> bool:
+        """Return whether *data* has a valid RFC 1950 zlib header.
+
+        Early ``.qshr`` graph artifacts were stored as direct zlib streams
+        before the QSHR container magic was introduced. Header validation is
+        deliberately strict so arbitrary corrupt data is not guessed as zlib.
+        """
+        if len(data) < 2:
+            return False
+        cmf, flg = data[0], data[1]
+        return (cmf & 0x0F) == 8 and (cmf >> 4) <= 7 and ((cmf << 8) + flg) % 31 == 0
+
     def _load_from_qshr(self) -> dict | list:
-        """Decompress a .qshr file and return the JSON data."""
+        """Decompress a current QSHR container or a legacy zlib JSON stream."""
+        compressed = self._qshr_path.read_bytes()
+        if self._is_legacy_zlib(compressed):
+            _log.info("Loading legacy zlib-backed .qshr file: %s", self._qshr_path.name)
+            raw = zlib.decompress(compressed)
+            return json.loads(raw.decode("utf-8"))
+
         from .qshrink_pipeline import decompress_json
-        return decompress_json(self._qshr_path.read_bytes())
+
+        return decompress_json(compressed)
 
     def crystal_meta(self) -> Optional[Any]:
         """Return embedded CrystalWeightMeta from .qshr without decompressing payload.
@@ -217,27 +240,3 @@ class JsonCache:
     def reset(self) -> None:
         """Clear the cache so the next ``load()`` re-reads from disk."""
         self._data = None
-
-    def __repr__(self) -> str:
-        status = "loaded" if self._data is not None else "not loaded"
-        qshr = " +qshr" if self._qshr_path.exists() else ""
-        return f"JsonCache({self._path.name!r}, {status}{qshr})"
-
-def validate_all() -> dict[str, bool]:
-    """Attempt to load every known JSON data file.
-
-    Returns a dict mapping filename → True/False.
-    """
-    results: dict[str, bool] = {}
-    for fname in _ALL_JSON_FILES:
-        try:
-            cache = JsonCache(fname)
-            data = cache.load()
-            # Basic structural check: most files have a "meta" key
-            if isinstance(data, dict) and "meta" not in data:
-                results[fname] = True  # some files may legitimately lack meta
-            else:
-                results[fname] = True
-        except Exception:
-            results[fname] = False
-    return results
