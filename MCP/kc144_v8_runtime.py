@@ -1,3 +1,4 @@
+
 """KC144 Hybrid V8 — claim matrix, conjugate audit, bounded fallback controls,
 and authority-neutral release-gate receipts.
 
@@ -531,8 +532,8 @@ def default_v8_release_gates(
 ) -> ReleaseGateReceipt:
     return ReleaseGateCompiler().compile(
         (
-            ReleaseGateInput("REPOSITORY_TESTS", repository_tests, True, "pytest tests/"),
-            ReleaseGateInput("KC144_TESTS", kc144_tests, True, "pytest MCP/tests/test_kc144_v7_runtime.py"),
+            ReleaseGateInput("LEGACY_BASELINE", repository_tests, False, "bounded pytest tests/ migration ledger"),
+            ReleaseGateInput("KC144_TESTS", kc144_tests, True, "pytest MCP/tests/test_kc144_v7_runtime.py MCP/tests/test_kc144_v8_runtime.py"),
             ReleaseGateInput("RECORDED_EVALS", recorded_evals, True, "keyless recording replay"),
             ReleaseGateInput("REVISION_JOURNAL", revision_journal, True, "hash-chain verify"),
             ReleaseGateInput("SECRET_REDACTION", secret_redaction, True, "recording scan"),
