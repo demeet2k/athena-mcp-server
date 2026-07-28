@@ -10,10 +10,15 @@ on:
   pull_request:
     branches: [master, main]
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   kc144-release:
     name: KC144 V7+V8 (${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
@@ -48,44 +53,42 @@ jobs:
           if-no-files-found: error
 
   legacy-baseline:
-    name: Legacy baseline diagnostic (${{ matrix.python-version }})
+    name: Legacy baseline diagnostic
     runs-on: ubuntu-latest
+    timeout-minutes: 6
     continue-on-error: true
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.12"
 
       - name: Install legacy-suite dependencies
         run: |
           python -m pip install --upgrade pip
           pip install "mcp[cli]>=1.0.0,<2" pytest numpy
 
-      - name: Run complete historical suite
+      - name: Run bounded historical suite
         env:
           ATHENA_ROOT: ${{ github.workspace }}
         run: |
           set -o pipefail
-          pytest tests/ -v --tb=short 2>&1 | tee legacy-tests-${{ matrix.python-version }}.log
+          timeout 180s pytest tests/ -v --tb=short 2>&1 | tee legacy-tests.log
 
       - name: Upload legacy migration ledger
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: legacy-baseline-python-${{ matrix.python-version }}
-          path: legacy-tests-${{ matrix.python-version }}.log
+          name: legacy-baseline
+          path: legacy-tests.log
           if-no-files-found: warn
 
   baml-contract:
     name: Native BAML contract (optional)
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4
