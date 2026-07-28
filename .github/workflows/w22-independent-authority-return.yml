@@ -1,0 +1,99 @@
+name: Validate W22 independent authority returns
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Verify commit only or complete promotion-policy closure
+        required: true
+        default: closure
+        type: choice
+        options:
+          - commit
+          - promotion
+          - closure
+      commit_return_b64:
+        description: Base64 exact W22 ledger-commit return JSON
+        required: true
+        type: string
+      git_observation_b64:
+        description: Base64 exact W22 independent Git observation JSON
+        required: true
+        type: string
+      promotion_return_b64:
+        description: Base64 exact W22 promotion-policy return JSON
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-independent-returns:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact requested ref
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verification dependencies
+        run: python -m pip install "cryptography>=44,<48"
+
+      - name: Validate frozen production-empty snapshot
+        run: python scripts/w22_independent_authority_return.py --check-snapshot
+
+      - name: Decode bounded non-secret return records
+        env:
+          COMMIT_RETURN_B64: ${{ inputs.commit_return_b64 }}
+          GIT_OBSERVATION_B64: ${{ inputs.git_observation_b64 }}
+          PROMOTION_RETURN_B64: ${{ inputs.promotion_return_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          values = {
+              "commit-return.json": ("COMMIT_RETURN_B64", True),
+              "git-observation.json": ("GIT_OBSERVATION_B64", True),
+              "promotion-return.json": ("PROMOTION_RETURN_B64", False),
+          }
+          root = Path("w22-input")
+          root.mkdir()
+          for name, (variable, required) in values.items():
+              encoded = os.environ.get(variable, "")
+              if not encoded and not required:
+                  continue
+              decoded = base64.b64decode(encoded, validate=True)
+              if len(decoded) > 262144:
+                  raise ValueError(f"{name} exceeds bounded input size")
+              (root / name).write_bytes(decoded)
+          PY
+
+      - name: Verify coordinate-specific returns
+        env:
+          MODE: ${{ inputs.mode }}
+        run: |
+          args=(
+            --mode "$MODE"
+            --commit-return w22-input/commit-return.json
+            --git-observation w22-input/git-observation.json
+            --output w22-independent-authority-return-preflight.json
+          )
+          if [ "$MODE" != "commit" ]; then
+            args+=(--promotion-return w22-input/promotion-return.json)
+          fi
+          python scripts/w22_independent_authority_return.py "${args[@]}"
+
+      - name: Upload non-secret validation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: w22-independent-return-preflight-${{ github.sha }}
+          path: w22-independent-authority-return-preflight.json
+          if-no-files-found: error
+          retention-days: 30

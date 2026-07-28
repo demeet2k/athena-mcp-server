@@ -1,0 +1,99 @@
+{
+  "schema": "athena.control-w20-runtime-persistent-return-ic10-admission/v1",
+  "receipt_id": "w20-control-admission:sha256:4f110f3e44d4dfda3ae30262a6c2baacb4cd16d9091245c6c3f7ba8bb6222c10",
+  "phase": "KC144.XNAV.W20",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "verdict": "PASS_W20_PERSISTENT_RETURN_LEDGER_IC10_PROTOCOL_ADMITTED__HOLD_EXTERNAL_WITNESS_CONTROL_REVIEW_AND_LEDGER_COMMIT",
+  "control": {
+    "repository": "demeet2k/Athena",
+    "pull_request": 17,
+    "branch": "agent/w20-admit-persistent-return-ic10",
+    "predecessor_pull_request": 16,
+    "predecessor_head": "b53e07bb4f889cfa126c3ef106fb55752603f0fe",
+    "predecessor_state": "P14_FULL_SOURCE_CLAIM_COVERAGE_PROVIDER_REPLAY_BOUNDED_RETENTION_HELD",
+    "exact_source_coverage": "13/14",
+    "retained_defect": "source.gdoc.athena-core-v7.r4",
+    "canonical_successor": "KC144.MYC.SKELETON.P15::PROVIDER-SNAPSHOT-ESCROW-AND-CONTENT-ADDRESSED-SOURCE-MIRRORS",
+    "p14_rewritten": false,
+    "w18_control_rewritten": false,
+    "w19_control_rewritten": false
+  },
+  "runtime": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 13,
+    "branch": "agent/w15-reconcile-capsule-deep-hardening",
+    "exact_head": "772564d48618b3b35276baadd87cf36ce4db46fa",
+    "exact_tree": "74920d59e26e0a7b594d54866b6e375ef04e2aad",
+    "sole_parent": "7863692262529d7e1effbd73eb8abfc3126ac484",
+    "contract_digest": "sha256:c896d030fd8ac2d5392e1d47e53bebcb24f244c2fdd8a9851cfc210a4a0002a7",
+    "runtime_receipt_id": "w20-return-ic10:sha256:1a4616d28442825dac1a0ec5a63644ffc74536efc4ec939f71371e40d84b717a",
+    "draft": true,
+    "merged": false
+  },
+  "exact_head_validation": {
+    "witnessed_head": "772564d48618b3b35276baadd87cf36ce4db46fa",
+    "p07": {
+      "run_id": 30257976032,
+      "host_boundary_job_id": 89950936675,
+      "container_job_id": 89950936725,
+      "status": "PASS"
+    },
+    "p08": {
+      "run_id": 30257975940,
+      "job_id": 89950936471,
+      "status": "PASS",
+      "tests_passed": 151,
+      "tools_count": 221,
+      "resources_count": 39
+    },
+    "stdio_receipt": "mcp-host:sha256:cc35cd217e0f27c0f6746e79819202bf5eaf3eb533cb48692b29f4610fc2bfd6",
+    "candidate_receipt": "p08-candidate:sha256:10291f6159c9add92da6a2d04891d51f8fe363c7bb3c4c3d1bfc028f11a86dd0",
+    "image_id": "sha256:173e0e922b13e895aca498db7ec66cf0dd324349265511cfbf59069a3d9f3612",
+    "artifact_id": 8649703728,
+    "artifact_digest": "sha256:12d1e22da97c9a70e93b323ba3c89cc2993811d71f94f9cc86bf6e2c97d65247",
+    "image_published": false,
+    "persistent_external_endpoint_witness": false
+  },
+  "protocol": {
+    "persistent_witness_schema": "athena.persistent-mcp-witness/v2",
+    "control_admission_schema": "athena.persistent-witness-control-admission/v1",
+    "ledger_schema": "athena.persistent-witness-return-ledger/v1",
+    "ledger_entry_schema": "athena.persistent-witness-return-ledger-entry/v1",
+    "ic10_packet_schema": "athena.ic10-review-packet/v1",
+    "ic10_decision_schema": "athena.ic10-nonpromotional-review/v1",
+    "sample_count": 3,
+    "interval_seconds": 20,
+    "minimum_span_seconds": 40,
+    "production_control_authority_count": 0,
+    "production_ic10_reviewer_count": 0,
+    "production_ledger_entry_count": 0,
+    "self_supplied_control_keys_allowed": false,
+    "self_supplied_reviewer_keys_allowed": false,
+    "content_addressed_external_persistence_required": true,
+    "runtime_can_mutate_ledger": false,
+    "runtime_can_promote": false
+  },
+  "authority": {
+    "production_control_authority_pinned": false,
+    "production_ic10_reviewer_pinned": false,
+    "provider_adapter_control_admitted": false,
+    "provider_return_signature_verified": false,
+    "execution_authorization_verified": false,
+    "persistent_witness_validated": false,
+    "external_persistence_attestation_verified": false,
+    "control_plane_witness_admitted": false,
+    "ledger_entry_committed": false,
+    "ic10_review_recorded": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "control_plane_admission_recorded": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "runtime_can_promote": false
+  },
+  "successors": {
+    "control": "KC144.MYC.SKELETON.P15::PROVIDER-SNAPSHOT-ESCROW-AND-CONTENT-ADDRESSED-SOURCE-MIRRORS",
+    "xnav": "KC144.XNAV.W21::COMMIT-ADMITTED-WITNESS-LEDGER-ENTRY-AND-PROMOTION-AUTHORITY-HANDOFF"
+  }
+}

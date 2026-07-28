@@ -72,6 +72,106 @@ register_108d_resources(mcp)
 from crystal_108d.federation_v2 import register_federation_v2
 register_federation_v2(mcp)
 
+# ── Frozen KC144 Docs-source coordinate mounts ─────────────────────
+from crystal_108d.source_mounts import register_source_mounts
+register_source_mounts(mcp)
+
+# ── W14 content-addressed memory capsules and endpoint gate ────────
+from crystal_108d.memory_digest_capsules import register_memory_digest_capsules
+register_memory_digest_capsules(mcp)
+
+# ── W15 opaque capsule replay and authority-packet ingress ─────────
+from crystal_108d.capsule_replay_ingress import register_capsule_replay_ingress
+register_capsule_replay_ingress(mcp)
+
+# ── W16 typed replay lanes and capsule-index repair ─────────────────
+from crystal_108d.capsule_index_repair import register_capsule_index_repair
+register_capsule_index_repair(mcp)
+
+# ── W16 replay ledger and authority-evidence adjunction ────────────
+from crystal_108d.replay_authority_ledger import register_replay_authority_ledger
+register_replay_authority_ledger(mcp)
+
+# ── W17 evidence provenance and protected-dispatch decision gate ───
+from crystal_108d.evidence_provenance_gate import register_evidence_provenance_gate
+register_evidence_provenance_gate(mcp)
+
+# ── W18 provider-adapter and persistent-witness return contract ────
+from crystal_108d.provider_adapter_witness_return import (
+    register_provider_adapter_witness_return,
+)
+register_provider_adapter_witness_return(mcp)
+
+# ── W18 provider trust-anchor and persistent-witness return gate ────
+from crystal_108d.provider_trust_anchor import register_provider_trust_anchor
+register_provider_trust_anchor(mcp)
+
+# ── W19 control-signed provider admission and execution gate ───────
+from crystal_108d.provider_admission_execution import (
+    register_provider_admission_execution,
+)
+register_provider_admission_execution(mcp)
+
+# ── W20 persistent-return ledger candidate and IC10 review gate ─────
+from crystal_108d.persistent_return_ic10 import (
+    register_persistent_return_ic10,
+)
+register_persistent_return_ic10(mcp)
+
+# ── W21 ledger commit and promotion-authority handoff ───────────────
+from crystal_108d.ledger_commit_promotion_handoff import (
+    register_ledger_commit_promotion_handoff,
+)
+register_ledger_commit_promotion_handoff(mcp)
+
+# ── W22 independent source/revision/occurrence authority returns ────
+from crystal_108d.independent_authority_return import (
+    register_independent_authority_return,
+)
+register_independent_authority_return(mcp)
+
+# ── W23 publication quorum and execution-authority handoff ─────────
+from crystal_108d.promotion_execution_handoff import (
+    register_promotion_execution_handoff,
+)
+register_promotion_execution_handoff(mcp)
+
+# ── W24 execution/deployment/rollback return readback ───────────────
+from crystal_108d.execution_deployment_rollback_readback import (
+    register_execution_deployment_rollback_readback,
+)
+register_execution_deployment_rollback_readback(mcp)
+
+# ── W25 persistent return and promotion-settlement verification ─────
+from crystal_108d.persistent_promotion_settlement import (
+    register_persistent_promotion_settlement,
+)
+register_persistent_promotion_settlement(mcp)
+
+# ── W26 control-ledger settlement return and independent IC10 review ─
+from crystal_108d.control_ledger_ic10_review import (
+    register_control_ledger_ic10_review,
+)
+register_control_ledger_ic10_review(mcp)
+
+# ── W27-W31 dependency-closed five-wave review/settlement lattice ───
+from crystal_108d.five_wave_review_closure import (
+    register_five_wave_review_closure,
+)
+register_five_wave_review_closure(mcp)
+
+# ── W32 next-octave authority registry and independent IC10 quorum ──
+from crystal_108d.next_octave_authority_quorum import (
+    register_next_octave_authority_quorum,
+)
+register_next_octave_authority_quorum(mcp)
+
+# ── Ω whole-crystal convergence, defect tensor, and structural autofill ─
+from crystal_108d.whole_crystal_autofill import (
+    register_whole_crystal_autofill,
+)
+register_whole_crystal_autofill(mcp)
+
 # ══════════════════════════════════════════════════════════════════════
 #  HELPERS
 # ══════════════════════════════════════════════════════════════════════

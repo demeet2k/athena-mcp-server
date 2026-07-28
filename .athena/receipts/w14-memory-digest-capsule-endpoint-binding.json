@@ -1,0 +1,104 @@
+{
+  "schema": "athena.xnav-w14-memory-digest-endpoint-binding/v1",
+  "phase": "KC144.XNAV.W14",
+  "observed_at": "2026-07-27T07:21:10Z",
+  "verdict": "PASS_MEMORY_DIGEST_CAPSULE_COMPLETE__ENDPOINT_BINDING_READY_AUTHORITY_PENDING",
+  "predecessor": {
+    "phase": "KC144.XNAV.W13",
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 10,
+    "runtime_branch": "agent/w11-source-mount-consumer",
+    "runtime_head": "99d898b048b2014840b449bb353a7e0f00cb3513",
+    "w13_receipt_blob": "3de3f6d18fdd3ff7d35b12babbbbf766c08c2cc8",
+    "w13_verdict": "PARTIAL_PASS_GLOBAL_MEMORY_RECALL__PASS_ENDPOINT_HANDOFF_READY_AUTHORITY_PENDING"
+  },
+  "memory_digest_capsule": {
+    "schema": "athena.memory-digest-capsules/v1",
+    "data_path": "MCP/data/w14_memory_digest_capsules.json",
+    "data_blob_sha": "79f570ea679577bfe2d8262a3ae3a782616f3655",
+    "runtime_path": "MCP/crystal_108d/memory_digest_capsules.py",
+    "runtime_blob_sha": "706bbcaf8bd5a7b9ecafeee32a05c5262c7b6d68",
+    "test_path": "tests/test_w14_memory_digest_capsules.py",
+    "test_blob_sha": "f9330281a7a8150be7d97efc4144a8df2de801e7",
+    "capsule_set_digest": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "capsule_count": 2,
+    "capsules": [
+      {
+        "station": "F07",
+        "rid": "rid:kc144:gid050:f07:analytic-branch-cover",
+        "capsule_id": "mcap:sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+        "literal_sha256": "9ff39e3f43c43e077fff00ef05fb40da64440a4af49eeb83f63011cd10b15939"
+      },
+      {
+        "station": "M09",
+        "rid": "rid:kc144:gid141:m09:path-signature",
+        "capsule_id": "mcap:sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+        "literal_sha256": "b2dbee4215f51bcf76d251a49bbf150bfd6125f52b3e49c41303d7fb41e73b80"
+      }
+    ],
+    "strict_possible_field_count": 14,
+    "conversation_memory_exact_field_count": 10,
+    "persisted_file_memory_exact_field_count": 12,
+    "capsule_assisted_exact_field_count": 14,
+    "capsule_assisted_exact_recovery_ratio": 1.0,
+    "capsule_assisted_is_internal_recall": false,
+    "capsule_assisted_is_live_provider_read": false,
+    "full_packet_reconstruction_mode": "EXTERNAL_CONTENT_ADDRESSED_MEMORY_COMPLETION",
+    "raw_google_docs_body_committed": false
+  },
+  "endpoint_binding": {
+    "schema": "athena.authorized-endpoint-binding-link/v1",
+    "state": "ENDPOINT_BINDING_AUTHORITY_PENDING",
+    "canonical_runtime_pull_request": 11,
+    "pull_request_url": "https://github.com/demeet2k/athena-mcp-server/pull/11",
+    "branch": "agent/p10-activation-handoff",
+    "head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+    "activation_packet_schema": "athena.persistent-host-activation-packet/v1",
+    "authority_packet_digest": null,
+    "authorized_endpoint": null,
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_P10_BEARER_TOKEN",
+    "unresolved_authority_input_count": 13,
+    "witness_plan": {
+      "samples": 3,
+      "interval_seconds": 20,
+      "minimum_span_seconds": 40,
+      "execute_live_witness_default": false
+    },
+    "binding_ready": true,
+    "binding_complete": false,
+    "activation_packet_compilable_now": false,
+    "dispatch_allowed": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "secret_material_embedded": false,
+    "persistent_deployment_claimed": false,
+    "promotion_claimed": false
+  },
+  "cross_navigation": {
+    "internal_global_self_to_capsule": "PARTIAL_MEMORY_QUERY_PLUS_EXACT_EXTERNAL_CAPSULE",
+    "capsule_to_google_docs_self": "EXACT_FROZEN_COORDINATE_AND_LITERAL_DIGEST",
+    "capsule_to_git_runtime_self": "EXECUTABLE_DIGEST_VERIFICATION",
+    "git_runtime_self_to_endpoint_self": "BINDING_INTERFACE_READY_AUTHORITY_UNBOUND",
+    "endpoint_self_to_git_runtime_self": "NOT_EXECUTED",
+    "state": "THREE_SURFACES_EXACT_DIGEST_CAPSULED__FOURTH_SURFACE_AUTHORITY_PENDING"
+  },
+  "admission_law": {
+    "formula": "VALID_ROUTE(i,j) iff required_fields(i,j) complete and digests agree and route_identity preserved and authority(j) satisfied",
+    "memory_completion_does_not_imply_endpoint_authority": true,
+    "semantic_equivalence_does_not_imply_route_equivalence": true,
+    "content_digest_does_not_imply_source_currentness": true,
+    "binding_readiness_does_not_imply_dispatch_authority": true
+  },
+  "boundaries": {
+    "no_hidden_weight_claim": true,
+    "no_unassisted_internal_cold_recall_claim": true,
+    "no_live_google_drive_read_by_runtime": true,
+    "no_secret_material_recorded": true,
+    "no_external_endpoint_contact": true,
+    "no_merge": true,
+    "no_deployment": true,
+    "no_promotion": true
+  },
+  "successor": "KC144.XNAV.W15::CAPSULE-BLIND-REPLAY-AND-AUTHORITY-PACKET-INGRESS"
+}

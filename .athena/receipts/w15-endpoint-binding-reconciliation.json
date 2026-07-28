@@ -1,0 +1,39 @@
+{
+  "schema": "athena.xnav-w15-endpoint-binding-reconciliation/v1",
+  "phase": "KC144.XNAV.W15.R1",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "verdict": "PASS_BINDING_METADATA_RECONCILED__READY_AWAITING_AUTHORIZED_TARGET",
+  "historical_w14": {
+    "receipt_path": ".athena/receipts/w14-memory-digest-capsule-endpoint-binding.json",
+    "receipt_blob_sha": "0ad54a3a4f5f79c5ba8291e3d6a52f30315f6de3",
+    "activation_head": "7e7df38602834e88150450ed5bdbe24b8822c2ac",
+    "protected_secret_name": "ATHENA_P10_BEARER_TOKEN",
+    "rewritten": false
+  },
+  "reconciled_live_binding": {
+    "data_path": "MCP/data/w14_memory_digest_capsules.json",
+    "data_blob_sha": "7b4692297f65c861eb566b873ea3277391cd3a26",
+    "capsule_set_digest": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "capsule_set_digest_changed": false,
+    "activation_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "activation_template_blob": "409cf48b944b3cc5eabbb5d6b38806d3fd41afc9",
+    "readiness_receipt_blob": "2d5e368f8c1bded50a980c118b86a33f93111055",
+    "deep_hardening_receipt_blob": "8a1c60bb994c049978fde7e9db35a8f9096db57a",
+    "workflow_blob": "f65201299bf9bcb3648a0448206dde638950ba9a",
+    "activation_tests_blob": "b941ffd12655e6d78e7cbb9844f5e70ad48b8270",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "deep_hardening_verdict": "READY_AWAITING_AUTHORIZED_TARGET"
+  },
+  "authority": {
+    "activation_packet": "UNRESOLVED",
+    "authority_inputs_unresolved": 13,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "secret_recorded": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "ic10_required": true
+  },
+  "successor": "KC144.XNAV.W16::CAPSULE-INDEX-REPAIR-AND-AUTHORIZED-WITNESS-INGRESS"
+}

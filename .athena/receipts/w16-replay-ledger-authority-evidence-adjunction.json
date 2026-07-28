@@ -1,0 +1,88 @@
+{
+  "schema": "athena.xnav-w16-replay-ledger-authority-evidence-adjunction/v1",
+  "phase": "KC144.XNAV.W16",
+  "title": "REPLAY-LEDGER-AND-EXTERNAL-AUTHORITY-EVIDENCE-ADJUNCTION",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "verdict": "PASS_REPLAY_LEDGER_2_OF_2__PASS_STRUCTURAL_PACKET_EVIDENCE_ADJUNCTION_EXTERNAL_AUTHORITY_UNVERIFIED",
+  "lineage": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 13,
+    "implementation_parent": "6f29ceb87838f03aa65cf25bf82a8e99ec955d6f",
+    "w15_opaque_replay_origin_pull_request": 10,
+    "w15_opaque_replay_origin_head": "44d3d8c7675302ff9679cda0fdaca2144de57dae",
+    "activation_handoff_pull_request": 11,
+    "activation_handoff_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "canonical_hardening_head": "b4e24de38788ecdf30f43514ece279d1270b998b",
+    "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+    "runtime_p09_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+    "image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2"
+  },
+  "replay_ledger": {
+    "row_count": 2,
+    "opaque_replay_pass_count": 2,
+    "genesis_digest": "sha256:753b5056a6e54c369caa4c99be2e0717b7b32d6eee66646385938d7e8115c39f",
+    "capsule_set_root": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "row_digests": [
+      "sha256:26f8e6bd6c15dbce4c048268c131eb7e7da48deba2211b9512f9b614d0db5013",
+      "sha256:8c546a1b1b1855f0beb640db8a39d4f4d68e5bad618153fd3161a27769cbf4b2"
+    ],
+    "ledger_root": "sha256:4ae7fe2b2f390c876ca333cf5719b97797175d369997ce77f3329c47df0f316a",
+    "accepted_replay_request_coordinate": "capsule_id",
+    "station_rid_aid_aliases_allowed": false,
+    "fuzzy_resolution_allowed": false,
+    "internal_recall_claimed": false,
+    "live_google_docs_read_by_runtime": false
+  },
+  "authority_evidence_adjunction": {
+    "activation_packet_schema": "athena.persistent-host-activation-packet/v1",
+    "provider_evidence_schema": "athena.provider-deployment-evidence/v1",
+    "synthetic_fixture_structural_result": "PASS_STRUCTURAL_PACKET_EVIDENCE_ADJUNCTION_NOT_EXTERNALLY_WITNESSED",
+    "synthetic_fixture_adjunction_digest": "sha256:3d46b448882d608a3666a15fd5502aeba7e3b36f018792dabe023314bd5923b6",
+    "submitted_evidence_class": "UNVERIFIED_EXTERNAL_ASSERTION",
+    "authority_inputs_unresolved": 13,
+    "activation_packet_present_in_repository": false,
+    "provider_evidence_present_in_repository": false,
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "samples": 3,
+    "minimum_observed_interval_seconds": 20,
+    "minimum_observed_span_seconds": 40,
+    "submitted_inputs_persisted": false,
+    "provider_evidence_fetched": false,
+    "external_evidence_verified": false,
+    "authorization_externally_verified": false,
+    "secret_material_accepted": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "dispatch_allowed": false
+  },
+  "runtime_surfaces": {
+    "tools": [
+      "athena_replay_authority_ledger_status",
+      "read_athena_replay_ledger_row",
+      "verify_athena_replay_authority_ledger",
+      "replay_athena_capsule_from_ledger",
+      "inspect_athena_authority_evidence_adjunction"
+    ],
+    "resources": [
+      "athena://replay-authority-ledger",
+      "athena://authority-evidence-adjunction"
+    ]
+  },
+  "validation": {
+    "python_compile": "PASS",
+    "direct_contract_exercises": 6,
+    "direct_contract_result": "PASS_W16_DIRECT_CONTRACTS_6_OF_6",
+    "hosted_exact_head": "PENDING_AT_RECEIPT_CREATION"
+  },
+  "authority": {
+    "secret_recorded": false,
+    "external_endpoint_claimed": false,
+    "merge_claimed": false,
+    "deployment_claimed": false,
+    "promotion_claimed": false,
+    "ic10_required": true
+  },
+  "cross_navigation_state": "SOURCE_REPLAY_AND_LEDGER_CLOSED__EXTERNAL_AUTHORITY_WITNESS_OPEN",
+  "successor": "KC144.XNAV.W17::EVIDENCE-PROVENANCE-WITNESS-AND-PROTECTED-DISPATCH-GATE"
+}

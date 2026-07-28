@@ -1,0 +1,145 @@
+{
+  "schema": "athena.replay-ledger-capsule-index/v1",
+  "phase": "KC144.XNAV.W16",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "verdict": "PASS_CAPSULE_INDEX_REPAIRED__PASS_REPLAY_LANES_TYPED__READY_STRUCTURAL_INGRESS_AUTHORITY_UNVERIFIED",
+  "predecessors": {
+    "reconciled_runtime": {
+      "pull_request": 13,
+      "head": "6f29ceb87838f03aa65cf25bf82a8e99ec955d6f"
+    },
+    "alternate_replay": {
+      "pull_request": 10,
+      "head": "44d3d8c7675302ff9679cda0fdaca2144de57dae"
+    },
+    "deep_activation": {
+      "pull_request": 11,
+      "head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c"
+    },
+    "control_snapshot": {
+      "repository": "demeet2k/Athena",
+      "pull_request": 11,
+      "head": "5073ebd7a45a783d1d0a004e1efc0434bb28729b"
+    },
+    "live_control_observed": {
+      "repository": "demeet2k/Athena",
+      "head": "1df31a619dac25694352cc4346b4bab711e4c7de",
+      "state": "P14_PROVIDER_REFETCH_VERIFIED_SOURCE_COVERAGE_13_OF_14_REVISION_DRIFT_HELD"
+    }
+  },
+  "capsule_set_digest": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+  "capsule_index": [
+    {
+      "capsule_id": "mcap:sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+      "packet_digest": "sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+      "station": "F07",
+      "rid": "rid:kc144:gid050:f07:analytic-branch-cover",
+      "aid": "KC144.V1::GID050::F07::ANALYTIC_BRANCH_COVER",
+      "file_id": "1fWBHqWuFXHucyHxnTobngr3vmaWkRmlP-zyn7jOm3_w",
+      "revision_id": "34",
+      "tab_id": "t.0",
+      "half_open_range": [
+        48973,
+        48998
+      ],
+      "literal_sha256": "9ff39e3f43c43e077fff00ef05fb40da64440a4af49eeb83f63011cd10b15939"
+    },
+    {
+      "capsule_id": "mcap:sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+      "packet_digest": "sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+      "station": "M09",
+      "rid": "rid:kc144:gid141:m09:path-signature",
+      "aid": "KC144.V1::GID141::M09::PATH_SIGNATURE",
+      "file_id": "1Ct84ETWyBLa9uBXkmsJBBrLSQ6nzVIz_NSBDlph_kA4",
+      "revision_id": "92",
+      "tab_id": "t.0",
+      "half_open_range": [
+        366356,
+        366385
+      ],
+      "literal_sha256": "b2dbee4215f51bcf76d251a49bbf150bfd6125f52b3e49c41303d7fb41e73b80"
+    }
+  ],
+  "replay_ledger": [
+    {
+      "event_id": "W14-HISTORICAL-MEASUREMENT",
+      "channel": "HISTORICAL_CONTEXT_AND_PERSISTED_FILE_MEASUREMENT",
+      "conversation_memory_exact_fields": 10,
+      "persisted_file_memory_exact_fields": 12,
+      "external_capsule_exact_fields": 14,
+      "possible_fields": 14,
+      "rewritten": false
+    },
+    {
+      "event_id": "W15-UNCUED-CONTEXT-REPLAY",
+      "channel": "UNCUED_PERSONAL_CONTEXT_THEN_PERSISTED_FILES",
+      "conversation_memory_exact_fields": 0,
+      "persisted_file_memory_exact_fields": 10,
+      "external_capsule_exact_fields": 14,
+      "possible_fields": 14,
+      "verdict": "HOLD_UNCUED_FULL_PACKET_NOT_RECOVERED",
+      "rewritten": false
+    },
+    {
+      "event_id": "W15-OPAQUE-CAPSULE-REPLAY",
+      "channel": "OPAQUE_EXTERNAL_CONTENT_ADDRESSED_CAPSULE",
+      "input_fields": [
+        "capsule_id"
+      ],
+      "challenge_count": 2,
+      "passed": 2,
+      "failed": 0,
+      "exact_external_packet_fields": 14,
+      "possible_fields": 14,
+      "internal_recall_claimed": false,
+      "live_provider_read": false
+    }
+  ],
+  "index_repair": {
+    "missing_fields_observed_in_w15_persisted_file_replay": [
+      "F07.rid",
+      "F07.tab_id",
+      "M09.rid",
+      "M09.tab_id"
+    ],
+    "repair_source": "W14_EXTERNAL_CONTENT_ADDRESSED_CAPSULE_INDEX",
+    "exact_fields_reconstructed_per_object": 7,
+    "exact_fields_reconstructed_total": 14,
+    "conversation_memory_measurement_rewritten": false,
+    "persisted_file_memory_measurement_rewritten": false,
+    "repair_is_internal_recall": false,
+    "repair_is_live_provider_read": false
+  },
+  "authority_ingress": {
+    "canonical_activation_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "authority_inputs_unresolved": 13,
+    "structural_packet_inspection_ready": true,
+    "external_authority_verified": false,
+    "provider_evidence_fetched": false,
+    "secret_value_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "dispatch_allowed": false,
+    "persistent_witness_executed": false,
+    "runtime_can_promote": false
+  },
+  "boundaries": {
+    "historical_measurements_collapsed": false,
+    "external_capsule_is_internal_memory": false,
+    "structural_validity_is_external_authority": false,
+    "control_p14_rewritten": false,
+    "old_w14_lineage_rewritten": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "merge_claimed": false,
+    "deployment_claimed": false,
+    "promotion_claimed": false
+  },
+  "successors": {
+    "control": "KC144.MYC.SKELETON.P15::RETAINED-R4-BYTE-RECOVERY-OR-EXPLICIT-REMOUNT-AND-COVERAGE-CLOSURE",
+    "xnav": "KC144.XNAV.W17::EXTERNAL-AUTHORITY-EVIDENCE-AND-PROTECTED-PERSISTENT-WITNESS"
+  },
+  "ledger_digest": "sha256:5e95cfc3abc537b7108451c38c90cf9a4d99e39068e72c818343a4224fac2a35"
+}

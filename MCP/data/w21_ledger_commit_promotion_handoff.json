@@ -1,0 +1,101 @@
+{
+  "schema": "athena.xnav-w21-ledger-commit-promotion-handoff/v1",
+  "phase": "KC144.XNAV.W21",
+  "predecessor": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 13,
+    "branch": "agent/w15-reconcile-capsule-deep-hardening",
+    "w20_head": "772564d48618b3b35276baadd87cf36ce4db46fa",
+    "w20_tree": "74920d59e26e0a7b594d54866b6e375ef04e2aad",
+    "w20_contract_digest": "sha256:c896d030fd8ac2d5392e1d47e53bebcb24f244c2fdd8a9851cfc210a4a0002a7",
+    "w20_runtime_receipt_id": "w20-return-ic10:sha256:1a4616d28442825dac1a0ec5a63644ffc74536efc4ec939f71371e40d84b717a",
+    "w20_p07_run_id": 30257976032,
+    "w20_p08_run_id": 30257975940,
+    "w20_stdio_receipt_id": "mcp-host:sha256:cc35cd217e0f27c0f6746e79819202bf5eaf3eb533cb48692b29f4610fc2bfd6",
+    "w20_candidate_receipt_id": "p08-candidate:sha256:10291f6159c9add92da6a2d04891d51f8fe363c7bb3c4c3d1bfc028f11a86dd0"
+  },
+  "control_protocol_observation": {
+    "repository": "demeet2k/Athena",
+    "pull_request": 17,
+    "branch": "agent/w20-admit-persistent-return-ic10",
+    "head": "78bfbbbfc41cfc402235793afdcd5b190e71ba5b",
+    "base": "b53e07bb4f889cfa126c3ef106fb55752603f0fe",
+    "receipt_id": "w20-control-admission:sha256:4f110f3e44d4dfda3ae30262a6c2baacb4cd16d9091245c6c3f7ba8bb6222c10",
+    "receipt_schema": "athena.control-w20-runtime-persistent-return-ic10-admission/v1",
+    "runtime_head": "772564d48618b3b35276baadd87cf36ce4db46fa",
+    "runtime_tree": "74920d59e26e0a7b594d54866b6e375ef04e2aad",
+    "verdict": "PASS_W20_PERSISTENT_RETURN_LEDGER_IC10_PROTOCOL_ADMITTED__HOLD_EXTERNAL_WITNESS_CONTROL_REVIEW_AND_LEDGER_COMMIT",
+    "hosted_runner_status": "HOLD[PLATFORM_OBSTRUCTION_BEFORE_FIRST_STEP]",
+    "grants_production_authority": false
+  },
+  "ledger_commit_contract": {
+    "ledger_schema": "athena.persistent-witness-return-ledger/v1",
+    "ledger_entry_schema": "athena.persistent-witness-return-ledger-entry/v1",
+    "transaction_schema": "athena.w21-ledger-commit-transaction/v1",
+    "authorization_schema": "athena.w21-ledger-commit-authorization/v1",
+    "commit_receipt_schema": "athena.w21-ledger-commit-occurrence/v1",
+    "append_only": true,
+    "hash_chained": true,
+    "exact_sequence_required": true,
+    "exact_previous_root_required": true,
+    "exact_next_root_required": true,
+    "separate_commit_authority_signature_required": true,
+    "signed_commit_occurrence_required": true,
+    "self_supplied_authority_keys_allowed": false,
+    "runtime_can_mutate_ledger": false
+  },
+  "committed_ledger": {
+    "schema": "athena.persistent-witness-return-ledger/v1",
+    "entry_schema": "athena.persistent-witness-return-ledger-entry/v1",
+    "entries": []
+  },
+  "commit_authority_registry": {
+    "schema": "athena.w21-authority-registry/v1",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "signature_algorithm": "ed25519",
+    "signature_encoding": "base64",
+    "authorities": []
+  },
+  "promotion_authority_registry": {
+    "schema": "athena.w21-authority-registry/v1",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "signature_algorithm": "ed25519",
+    "signature_encoding": "base64",
+    "authorities": []
+  },
+  "promotion_contract": {
+    "packet_schema": "athena.w21-promotion-authority-handoff/v1",
+    "decision_schema": "athena.w21-promotion-authority-decision/v1",
+    "allowed_decisions": [
+      "AUTHORIZE_PROMOTION",
+      "HOLD_PROMOTION"
+    ],
+    "committed_ledger_entry_required": true,
+    "ic10_evidence_admission_required": true,
+    "separate_promotion_authority_signature_required": true,
+    "promotion_execution_receipt_required": true,
+    "self_supplied_authority_keys_allowed": false,
+    "runtime_can_mutate_promotion_registry": false,
+    "runtime_can_promote": false
+  },
+  "boundaries": {
+    "w20_control_protocol_admission_observed": true,
+    "w20_control_receipt_grants_production_authority": false,
+    "production_control_authority_pinned": false,
+    "production_ic10_reviewer_pinned": false,
+    "production_commit_authority_pinned": false,
+    "production_promotion_authority_pinned": false,
+    "persistent_witness_validated": false,
+    "control_plane_witness_admitted": false,
+    "ic10_review_recorded": false,
+    "ledger_commit_authorized": false,
+    "ledger_entry_committed": false,
+    "promotion_authorized": false,
+    "promotion_executed": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false
+  },
+  "successor": "KC144.XNAV.W22::RETURN-INDEPENDENT-LEDGER-COMMIT-AND-PROMOTION-AUTHORITY-DECISIONS",
+  "contract_digest": "sha256:9e68dc7c16ea75ac5c4f6445999ec8831f678e01b24b6cfa380c5097fbaf3e18"
+}

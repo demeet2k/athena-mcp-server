@@ -1,0 +1,97 @@
+{
+  "schema": "athena.xnav-w18-provider-trust-convergence/v1",
+  "receipt_id": "w18-convergence:sha256:b557b74a14c16f3c2cfe578a35dbef19382586a508043fae6c178692f531e525",
+  "phase": "KC144.XNAV.W18",
+  "title": "PROVIDER-RETURN-TOPOLOGY-AND-PINNED-CRYPTO-VERIFIER-CONVERGENCE",
+  "authored_at": "2026-07-27T09:30:00Z",
+  "verdict": "PASS_APPEND_ONLY_W18_CONVERGENCE__HOLD_PROVIDER_ADMISSION_AND_PERSISTENT_WITNESS",
+  "lineage": {
+    "common_w17_parent": "9ac6f97f1065280d027d13a43d8c9d68770184bd",
+    "structural_return_parent": "49f2449e159fdef82b60722f35f302290934a468",
+    "pinned_crypto_parent": "5eece82829abb7eba87943548e89b6c04179ef40",
+    "merge_parent_order": [
+      "49f2449e159fdef82b60722f35f302290934a468",
+      "5eece82829abb7eba87943548e89b6c04179ef40"
+    ],
+    "structural_parent_contract_digest": "sha256:0f251936a6e466f5afc8d074670260cc9748b6a6099f36862f6e23bda842ec9a",
+    "pinned_crypto_contract_digest": "sha256:0f7f62e6e0ea83d6ee89d961ca880254cd1535ff40c794b81a1f46a1f3bfb571",
+    "unified_return_contract_digest": "sha256:fd00f6463d512004e0900c9d01a5735f6ba77de27849a9e7c094852fa1474a23",
+    "append_only": true,
+    "sibling_rewritten": false
+  },
+  "combined_contract": {
+    "provider_adapter_profile_schema": "athena.provider-adapter-profile/v1",
+    "provider_trust_receipt_schema": "athena.provider-trust-verification-receipt/v1",
+    "persistent_witness_return_schema": "athena.persistent-mcp-witness-return/v1",
+    "provider_registry_schema": "athena.provider-trust-registry/v1",
+    "provider_return_schema": "athena.provider-signed-return/v1",
+    "signature_algorithm": "ed25519",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "production_adapter_count": 0,
+    "production_trust_anchor_count": 0,
+    "self_supplied_trust_anchors_allowed": false,
+    "runtime_can_mutate_registry": false,
+    "structural_return_topology_ready": true,
+    "detached_signature_verifier_ready": true
+  },
+  "sibling_hosted_evidence": {
+    "structural_return": {
+      "head": "49f2449e159fdef82b60722f35f302290934a468",
+      "p07_run_id": 30252971249,
+      "p08_run_id": 30252971117,
+      "p08_job_id": 89935005830,
+      "tests_passed": 108,
+      "tools_count": 203,
+      "resources_count": 36,
+      "stdio_receipt": "mcp-host:sha256:75555e6fdf0a5619f4aca1dc3e5e29643685d85f653aaba66d5a5b949ffb5323",
+      "candidate_receipt": "p08-candidate:sha256:66a22e9db4585ead0cfb4016a0d53579b30fcbe1dd87fcdee40b4bd21dc19804",
+      "artifact_id": 8647744540,
+      "artifact_digest": "sha256:8d7c6df69a8bfed31d9469cdf22bbc5e2d16f25a16dbc032d8901827c52d4c9d"
+    },
+    "pinned_crypto": {
+      "head": "5eece82829abb7eba87943548e89b6c04179ef40",
+      "p07_run_id": 30252774288,
+      "p08_run_id": 30252774234,
+      "p08_job_id": 89934367075,
+      "tests_passed": 106,
+      "tools_count": 201,
+      "resources_count": 36,
+      "stdio_receipt": "mcp-host:sha256:3f2aa0e3c5e07a204fcff73f3cff11097e2576e951311a0d0bf84d356943b2e6",
+      "candidate_receipt": "p08-candidate:sha256:aa97828b9164e1fd22cdce3bcfe83988613653ade879eaf21e7eb51451b933f5",
+      "artifact_id": 8647669199,
+      "artifact_digest": "sha256:69955d962fa990c3164330bebc7db77c479b575520f1f5e643f534d3c01904b1"
+    }
+  },
+  "validation": {
+    "python_compile": "PASS",
+    "combined_regression_result": "PASS_120_OF_120",
+    "registered_tools": 207,
+    "tool_inventory_digest": "sha256:93405cce42ba83ac981b8c5afb2964ef3966f8ae886bcce42148238892c15133",
+    "registered_resources": 37,
+    "resource_inventory_digest": "sha256:3c4f9392d7b795c486119a8ebb8a7d224549b3da99c790cd59e17ce500106688",
+    "hosted_exact_convergence_head": "PENDING_AT_RECEIPT_CREATION"
+  },
+  "boundaries": {
+    "provider_selected": false,
+    "production_provider_adapter_admitted": false,
+    "production_trust_anchor_pinned": false,
+    "provider_return_signature_verified": false,
+    "authorization_externally_verified": false,
+    "live_provider_fetch_executed": false,
+    "submitted_inputs_persisted": false,
+    "secret_material_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "workflow_dispatched": false,
+    "persistent_witness_executed": false,
+    "persistent_witness_return_persisted": false,
+    "control_plane_admitted": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "runtime_can_promote": false,
+    "ic10_required": true
+  },
+  "cross_navigation_state": "W18_STRUCTURAL_RETURN_AND_PINNED_CRYPTO_VERIFIER_CONVERGED__AUTHORIZED_PROVIDER_ADMISSION_AND_PERSISTENT_WITNESS_OPEN",
+  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-AND-PERSISTENT-WITNESS-EXECUTION"
+}

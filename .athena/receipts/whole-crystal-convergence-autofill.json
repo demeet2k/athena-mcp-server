@@ -1,0 +1,122 @@
+{
+  "schema": "athena.kc144-whole-crystal-autofill-receipt/v1",
+  "receipt_id": "whole-crystal-convergence-autofill:sha256:d2742b6efbcd9234113e2c54423d895381c86be3f7aacb36b60a773eb9eef3b2",
+  "plane": "KC144.XNAV.OMEGA",
+  "title": "WHOLE-CRYSTAL-CONVERGENCE-DEFECT-TENSOR-AND-STRUCTURAL-AUTOFILL",
+  "authored_at": "2026-07-28T00:30:00Z",
+  "verdict": "PASS_OMEGA_WHOLE_CRYSTAL_STRUCTURAL_FIXED_POINT__HOLD_W33_EXTERNAL_AUTHORITY_RETURN",
+  "source_boundaries": {
+    "internal": "retrieved user constraints and continuity; no hidden transcript or model-state claim",
+    "drive": "five live Google Docs read with exact document and revision identifiers; source declarations are not independent authority",
+    "github_runtime": "open draft unmerged PR 13 at exact W32 head",
+    "github_control": "open draft unmerged PR 28 at exact W32 head",
+    "p31_frozen_snapshot": "routing witness only; current source bodies were read through their owning connectors"
+  },
+  "source_coordinates": {
+    "drive_documents": [
+      {
+        "id": "1W8xbIikYnTpc-R3mTfo3WYVrYVdMfJ0wu99swbaVVFg",
+        "revision": "AIroW368R71-Ad_xJEGbJmRNsqs4WQxwQuvBbzFhHoelNXy5_2ckRM2hiphQNq3qEYuT87e3Ss1Hh4KxVisHNSEEkY-yElHdblLR6w3SOyU"
+      },
+      {
+        "id": "1XXxKYMvzl0F7yLJP3cUcqKUMF0oA6EhHV9S5I-ux_OU",
+        "revision": "AIroW37PEPaK538-hOKr_FowuqOTKiBg686UFpggpk4FOHeha2OVG8jTQyTUZO-lNAdEvDTtRyyQrw2C1pTkad5v4Sf7MrHJscvoJVvi654"
+      },
+      {
+        "id": "11VVblXBKX95NFjwvt16KG2ziKSRuEj0lBfOyfZ4MWXM",
+        "revision": "AIroW36rKzB89E2j0vYNEI0kkLK2sIdUpdh74eJpHofu-9GDdQ4yY1CO3_gkV4LWwoYJIoCsqY-cd0lgYCS-BIpuu1cIvI7AKeTc1lvGRKI"
+      },
+      {
+        "id": "1yAJ2xrm2WIVae-OJVUfifiNYQpivIjvlBDXPvZAE12U",
+        "revision": "AIroW35tG14aUtLNmZbipiz5F6ebuVEyXzWHXDemD2CikN01yi_HScMwPsP32ZO_oYpgLqkJp-ajwowpuThstUUDmiZu6xINbfeRZqgz6G8"
+      },
+      {
+        "id": "1HpnTWMAYAuso4LlAYx8-Qc8mryofKgqZsNgLC8aysHs",
+        "revision": "AIroW37X0abtW843yq4NlE4tWVC8EhC3ShL5V2dKJUIBUDncWil3h034FnkhhTJxNTyDSGsos-j1VJnrCm8YvhrY4ICxyca4jz7WMCxX8_0"
+      }
+    ],
+    "runtime": {
+      "repository": "demeet2k/athena-mcp-server",
+      "pull_request": 13,
+      "head": "07bbea3a715dc9c8d040d53d2625a4e4592d6e6c",
+      "tree": "b1f5c2157225a8307c6f87670dfeb25523d13807",
+      "w32_receipt": "w32-next-octave-authority-quorum:sha256:570b8997f000937f56a6f18e29d51aecf80b54a8648e31743724e91466ed65c5"
+    },
+    "control": {
+      "repository": "demeet2k/Athena",
+      "pull_request": 28,
+      "head": "31ea9c23a5997bd8511b1e8daa2e16a1a8633846",
+      "tree": "1941a5d36bea6fbcddc3a9dc3b55b7e158ec474a",
+      "w32_receipt": "w32-next-octave-authority-quorum-control-admission:sha256:8b6df05625189bd10e3d3e30dd1380413e5f340d7d2a88b293d6389c8cc90f27"
+    }
+  },
+  "mathematical_closure": {
+    "contract_digest": "sha256:33d431f4147bf197f7a317d25c9a86f63ec554d7466d259c38365ac96214ca5e",
+    "convergence_lattice_digest": "sha256:b586c859b65c98c6ecb01f10b515c7aca9f805f0606a00d093591fb2384fee43",
+    "defect_tensor_digest": "sha256:9dcc329070e9eaecb041b203f347dbeca328dc04af415b8016afe4e23d4be2ce",
+    "defect_tensor_shape": [
+      4,
+      8,
+      5,
+      2
+    ],
+    "zero_defect_tensor_cells": 80,
+    "nonzero_defect_tensor_cells": 240,
+    "fixed_point_rule": "F[n+1]=F[n]∪READY_STRUCTURAL(F[n])",
+    "fixed_point_iterations": 1,
+    "station_cells": 144,
+    "forced_structural_fields": 1440,
+    "withheld_nonstructural_fields": 576,
+    "cell_root": "sha256:1f5b50ccf674d5fc68ec652fe4e373eaa06ef782e10fb4f1431ad1bf047f99d2",
+    "closure_digest": "sha256:6a4d197b8f62c907ff6be4ab9e172343d904b2346a2f07ae57e37c134f8dc2ff"
+  },
+  "routing_receipts": {
+    "classic_harness": "a2225af5bb884f725c5fae73a8f75cbc",
+    "p31_release": "KC144.P31::db5a6446ce54cf4bc53515be",
+    "p31_archive_sha256": "77629d53ef00c970cf115d7cbf94d5e4c9b97928814a702ada8d3f883212d091",
+    "p31_replay": "REPLAY::d1a4365000a6d4b38108b823dc7b3cdf",
+    "p31_heart_receipt_digest": "ef089d33ec31fa62e6d2dcc2ee8ba311",
+    "p31_envelope_digest": "1da7128559cf1be06de426ca386b2494",
+    "entry": "KC144.V1::GID006::H06",
+    "nexus": "KC144.V1::GID003::H03",
+    "source_ledger": "KC144.V1::GID005::H05",
+    "route_ledger": "KC144.V1::GID141::M09",
+    "return": "KC144.V1::GID144::M12"
+  },
+  "production_counts": {
+    "authority_sources": 0,
+    "authority_revisions": 0,
+    "registry_charters": 0,
+    "authority_admissions": 0,
+    "ic10_quorum_votes": 0,
+    "ic10_quorum_observations": 0,
+    "published_images": 0,
+    "persistent_endpoints": 0,
+    "merges": 0,
+    "deployments": 0,
+    "promotions": 0
+  },
+  "nonclaims": {
+    "semantic_payload_generated": false,
+    "empirical_evidence_generated": false,
+    "authority_generated": false,
+    "ic10_vote_generated": false,
+    "registry_opened": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "image_published": false,
+    "merged": false,
+    "deployed": false,
+    "promoted": false,
+    "production_effect_claimed": false
+  },
+  "genuine_barriers": [
+    "B01_W33_EXTERNAL_AUTHORITY_RETURN",
+    "B02_CONVERSATION_BODY_BINDING",
+    "B03_DRIVE_CONTENT_HASH_COMPLETION",
+    "B04_RECURSIVE_GITHUB_TREE_COMPLETENESS",
+    "B05_REAL_OUTCOME_INTAKE",
+    "B06_EXTERNAL_CALIBRATION_AND_HELD_OUT_BENCHMARK"
+  ],
+  "successor": "KC144.XNAV.W33::RETURN-NEXT-OCTAVE-AUTHORITY-REGISTRY-COMMIT-AND-ISSUE-FIRST-QUORUM-BOUND-EXECUTION-HANDOFF"
+}

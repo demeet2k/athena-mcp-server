@@ -1,0 +1,83 @@
+{
+  "schema": "athena.xnav-w18-provider-adapter-trust-anchor/v1",
+  "receipt_id": "w18-provider-trust:sha256:6bb7286a78d8db9f01277fe3fa989012be06034c25db3370092c71b5c17feca0",
+  "phase": "KC144.XNAV.W18",
+  "title": "PROVIDER-ADAPTER-TRUST-ANCHOR-AND-PERSISTENT-WITNESS-RETURN",
+  "authored_at": "2026-07-27T09:20:00Z",
+  "verdict": "PASS_PINNED_CRYPTO_VERIFIER_AND_EMPTY_PRODUCTION_REGISTRY__HOLD_PROVIDER_ADMISSION_AND_PERSISTENT_WITNESS",
+  "lineage": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_parent_pull_request": 13,
+    "implementation_parent": "9ac6f97f1065280d027d13a43d8c9d68770184bd",
+    "w17_contract_digest": "sha256:8b8476b7e2b29a2c9bc59f9e2d25f85d8d39c31c73a16f7c1adbc61648aaa274",
+    "w17_receipt_id": "w17-provenance-gate:sha256:615fed4366cd2e06bc7773df8aa632f7a005c8ba25dda8728def9a59a0b95913",
+    "w16_ledger_root": "sha256:4ae7fe2b2f390c876ca333cf5719b97797175d369997ce77f3329c47df0f316a"
+  },
+  "registry": {
+    "contract_digest": "sha256:0f7f62e6e0ea83d6ee89d961ca880254cd1535ff40c794b81a1f46a1f3bfb571",
+    "registry_schema": "athena.provider-trust-registry/v1",
+    "adapter_protocol": "athena.provider-adapter/ed25519-detached/v1",
+    "provider_return_schema": "athena.provider-signed-return/v1",
+    "signature_algorithm": "ed25519",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "production_adapter_count": 0,
+    "production_trust_anchor_count": 0,
+    "self_supplied_trust_anchors_allowed": false,
+    "runtime_can_mutate_registry": false,
+    "crypto_verifier_ready": true
+  },
+  "persistent_witness_return": {
+    "workflow_path": ".github/workflows/p10-host-readiness.yml",
+    "workflow_ref_policy": "EXACT_CANDIDATE_HEAD_REQUIRED",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "samples": 3,
+    "interval_seconds": 20,
+    "minimum_span_seconds": 40,
+    "execute_live_witness_default": false,
+    "runtime_dispatch_capability": "NONE",
+    "dispatch_allowed": false
+  },
+  "runtime_surfaces": {
+    "tools": [
+      "athena_w18_provider_trust_status",
+      "build_athena_w18_provider_return_template",
+      "inspect_athena_w18_provider_signed_return",
+      "evaluate_athena_w18_persistent_witness_return"
+    ],
+    "resources": [
+      "athena://w18-provider-trust-anchor"
+    ]
+  },
+  "validation": {
+    "python_compile": "PASS",
+    "direct_contract_result": "PASS_W18_CRYPTO_TARGETS_8_OF_8",
+    "expanded_p08_regression_result": "PASS_120_OF_120",
+    "registration_result": "PASS",
+    "registered_tools": 207,
+    "tool_inventory_digest": "sha256:93405cce42ba83ac981b8c5afb2964ef3966f8ae886bcce42148238892c15133",
+    "registered_resources": 37,
+    "resource_inventory_digest": "sha256:3c4f9392d7b795c486119a8ebb8a7d224549b3da99c790cd59e17ce500106688",
+    "hosted_exact_head": "PENDING_AT_RECEIPT_CREATION"
+  },
+  "boundaries": {
+    "production_provider_adapter_admitted": false,
+    "production_trust_anchor_pinned": false,
+    "provider_return_signature_verified": false,
+    "authorization_externally_verified": false,
+    "live_provider_fetch_executed": false,
+    "submitted_inputs_persisted": false,
+    "secret_material_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "workflow_dispatched": false,
+    "persistent_witness_executed": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "runtime_can_promote": false,
+    "ic10_required": true
+  },
+  "cross_navigation_state": "W17_PROVENANCE_SCHEMA_AND_W18_CRYPTO_VERIFIER_CLOSED__PROVIDER_ADMISSION_AND_PERSISTENT_WITNESS_OPEN",
+  "successor": "KC144.XNAV.W19::AUTHORIZED-PROVIDER-ADAPTER-ADMISSION-AND-PERSISTENT-WITNESS-EXECUTION"
+}

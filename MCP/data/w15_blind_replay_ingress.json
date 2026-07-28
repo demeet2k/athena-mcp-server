@@ -1,0 +1,123 @@
+{
+  "schema": "athena.capsule-blind-replay-ingress/v1",
+  "phase": "KC144.XNAV.W15",
+  "frozen_at": "2026-07-27T07:39:43Z",
+  "challenge_set_digest": "sha256:753b5056a6e54c369caa4c99be2e0717b7b32d6eee66646385938d7e8115c39f",
+  "predecessor": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 10,
+    "runtime_head": "deab5f44f2942326b415a50daa722ce565210540",
+    "w14_receipt": {
+      "path": ".athena/receipts/w14-memory-digest-capsule-endpoint-binding.json",
+      "blob_sha": "0ad54a3a4f5f79c5ba8291e3d6a52f30315f6de3",
+      "verdict": "PASS_MEMORY_DIGEST_CAPSULE_COMPLETE__ENDPOINT_BINDING_READY_AUTHORITY_PENDING"
+    },
+    "capsule_set_digest": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f"
+  },
+  "blind_replay": {
+    "input_fields": [
+      "capsule_id"
+    ],
+    "withheld_request_fields": [
+      "station",
+      "rid",
+      "aid",
+      "file_id",
+      "drive_revision_id",
+      "tab_id",
+      "half_open_range",
+      "literal",
+      "full_sha256"
+    ],
+    "request_uses_current_conversation": false,
+    "request_uses_live_google_drive": false,
+    "request_uses_fuzzy_lookup": false,
+    "replay_source": "W14_EXTERNAL_CONTENT_ADDRESSED_CAPSULE",
+    "internal_recall_claimed": false,
+    "challenges": [
+      {
+        "challenge_id": "W15-BR-F07-001",
+        "capsule_id": "mcap:sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+        "expected_packet_digest": "sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a"
+      },
+      {
+        "challenge_id": "W15-BR-M09-001",
+        "capsule_id": "mcap:sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+        "expected_packet_digest": "sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b"
+      }
+    ]
+  },
+  "authority_ingress": {
+    "schema": "athena.authority-packet-ingress/v1",
+    "activation_packet_schema": "athena.persistent-host-activation-packet/v1",
+    "canonical_activation_handoff": {
+      "repository": "demeet2k/athena-mcp-server",
+      "pull_request": 11,
+      "branch": "agent/p10-activation-handoff",
+      "head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+      "compiler_blob": "10fa34bd3a0f14dc9201ddcfbcdf6d2a5c57bbdd",
+      "template_blob": "409cf48b944b3cc5eabbb5d6b38806d3fd41afc9",
+      "readiness_receipt_blob": "2d5e368f8c1bded50a980c118b86a33f93111055",
+      "deep_hardening_receipt_blob": "8a1c60bb994c049978fde7e9db35a8f9096db57a",
+      "workflow_blob": "f65201299bf9bcb3648a0448206dde638950ba9a"
+    },
+    "allowed_states": [
+      "UNRESOLVED",
+      "AUTHORIZED_FOR_LIVE_WITNESS"
+    ],
+    "immutable_lineage": {
+      "canonical_hardening_head": "b4e24de38788ecdf30f43514ece279d1270b998b",
+      "source_commit": "52d0e2abf282aee5f8bf233521989bc2c8969989",
+      "runtime_p09_head": "9731b24c5963b75821b381b4562aa51baa55196c",
+      "image": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2"
+    },
+    "witness_plan": {
+      "environment": "p10-persistent-host",
+      "secret_name": "ATHENA_MCP_BEARER_TOKEN",
+      "sample_count": 3,
+      "interval_seconds": 20,
+      "minimum_span_seconds": 40
+    },
+    "persistence_classes": [
+      "managed-service",
+      "orchestrated-service",
+      "self-hosted-service"
+    ],
+    "unresolved_authority_inputs": [
+      "provider.id",
+      "provider.account_scope",
+      "provider.deployment_id",
+      "provider.deployment_observed_at",
+      "provider.evidence_url",
+      "target.id",
+      "target.endpoint",
+      "target.persistence_class",
+      "target.secret_store_ref",
+      "authorization.ref",
+      "authorization.actor",
+      "authorization.authorized_at",
+      "protected bearer secret provisioning"
+    ],
+    "submitted_packets_persisted": false,
+    "external_authority_verified_by_ingress": false,
+    "provider_evidence_fetched_by_ingress": false,
+    "secret_value_accepted": false,
+    "secret_material_recorded": false,
+    "endpoint_contact_capability": false,
+    "dispatch_allowed": false,
+    "runtime_can_promote": false,
+    "ic10_required": true
+  },
+  "boundaries": {
+    "opaque_capsule_replay_is_internal_memory": false,
+    "opaque_capsule_replay_is_live_provider_read": false,
+    "structural_authority_validation_is_external_authority_verification": false,
+    "authority_packet_storage_claimed": false,
+    "secret_material_recorded": false,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false,
+    "merge_claimed": false,
+    "persistent_deployment_claimed": false,
+    "promotion_claimed": false
+  }
+}

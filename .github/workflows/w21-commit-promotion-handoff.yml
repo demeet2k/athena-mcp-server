@@ -1,0 +1,98 @@
+name: Validate W21 commit and promotion authority returns
+
+on:
+  workflow_dispatch:
+    inputs:
+      transaction_b64:
+        description: Base64 exact W21 ledger transaction JSON
+        required: true
+        type: string
+      authorization_b64:
+        description: Base64 signed commit authorization JSON
+        required: true
+        type: string
+      commit_receipt_b64:
+        description: Base64 signed commit occurrence JSON
+        required: true
+        type: string
+      promotion_packet_b64:
+        description: Base64 exact promotion handoff JSON
+        required: true
+        type: string
+      promotion_decision_b64:
+        description: Base64 signed promotion authority decision JSON
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-authority-returns:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact requested ref
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verification dependencies
+        run: |
+          python -m pip install \
+            "cryptography>=44,<48" \
+            "pytest>=8.0"
+
+      - name: Validate frozen production-empty snapshot
+        run: python scripts/w21_ledger_commit_promotion_handoff.py --check-snapshot
+
+      - name: Decode bounded authority records
+        env:
+          TRANSACTION_B64: ${{ inputs.transaction_b64 }}
+          AUTHORIZATION_B64: ${{ inputs.authorization_b64 }}
+          COMMIT_RECEIPT_B64: ${{ inputs.commit_receipt_b64 }}
+          PROMOTION_PACKET_B64: ${{ inputs.promotion_packet_b64 }}
+          PROMOTION_DECISION_B64: ${{ inputs.promotion_decision_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          values = {
+              "transaction.json": "TRANSACTION_B64",
+              "authorization.json": "AUTHORIZATION_B64",
+              "commit-receipt.json": "COMMIT_RECEIPT_B64",
+              "promotion-packet.json": "PROMOTION_PACKET_B64",
+              "promotion-decision.json": "PROMOTION_DECISION_B64",
+          }
+          root = Path("w21-input")
+          root.mkdir()
+          for name, variable in values.items():
+              encoded = os.environ[variable]
+              decoded = base64.b64decode(encoded, validate=True)
+              if len(decoded) > 262144:
+                  raise ValueError(f"{name} exceeds bounded input size")
+              (root / name).write_bytes(decoded)
+          PY
+
+      - name: Verify commit and promotion decision closure
+        run: |
+          python scripts/w21_ledger_commit_promotion_handoff.py \
+            --transaction w21-input/transaction.json \
+            --authorization w21-input/authorization.json \
+            --commit-receipt w21-input/commit-receipt.json \
+            --promotion-packet w21-input/promotion-packet.json \
+            --promotion-decision w21-input/promotion-decision.json \
+            --output w21-commit-promotion-preflight.json
+
+      - name: Upload non-secret validation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: w21-commit-promotion-preflight-${{ github.sha }}
+          path: w21-commit-promotion-preflight.json
+          if-no-files-found: error
+          retention-days: 30

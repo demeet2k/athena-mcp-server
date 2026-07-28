@@ -1,0 +1,135 @@
+{
+  "schema": "athena.runtime-source-mounts/v1",
+  "snapshot_id": "KC144.XNAV.W11::F07-M09-SOURCE-MOUNTS",
+  "frozen_at": "2026-07-27T05:40:00Z",
+  "control": {
+    "repository": "demeet2k/Athena",
+    "branch": "agent/w10-f07-m09-source-mount-v2",
+    "commit": "bb611ff94134dd630e3471a0eff29dd6d79b3288",
+    "pull_request": 7,
+    "imports_lock": {
+      "path": ".athena/imports.lock.json",
+      "blob_sha": "77073e6270f85f23a6f9f7bbd46cdb33b46852f0"
+    },
+    "return_receipt": {
+      "path": ".athena/receipts/w11-git-docs-return-replay.json",
+      "blob_sha": "66cdac86bee16af57fe244204e575871b0d856a0",
+      "verdict": "PASS_R3_SOURCE_RETURN_CURRENT_REVISION"
+    },
+    "integration_candidate": {
+      "repository": "demeet2k/Athena",
+      "branch": "agent/w12-unify-f07-m09-p12",
+      "commit": "dfc3166b4bd7c1c4ce95ad3194f7e2b4cbc982c7",
+      "base_head": "ad3644e927c03c8caa88ded9a4a7560726941b6b",
+      "source_mount_origin_head": "bb611ff94134dd630e3471a0eff29dd6d79b3288",
+      "p11_source_packets_preserved": 14,
+      "imports_lock_blob_preserved": "77073e6270f85f23a6f9f7bbd46cdb33b46852f0",
+      "relation": "STACKED_CANDIDATE_NOT_MERGED",
+      "p12_claim_spans_preserved": 19,
+      "p12_active_alignments_preserved": 14
+    }
+  },
+  "runtime_base": {
+    "repository": "demeet2k/athena-mcp-server",
+    "branch": "agent/p09-published-mcp-image",
+    "commit": "9731b24c5963b75821b381b4562aa51baa55196c",
+    "published_oci": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+    "published_oci_changed": false
+  },
+  "mounts": [
+    {
+      "rid": "rid:kc144:gid050:f07:analytic-branch-cover",
+      "aid": "KC144.V1::GID050::F07::ANALYTIC_BRANCH_COVER",
+      "gid": 50,
+      "grid": "R05C02",
+      "station": "F07",
+      "role": "SHEET_CUT_MONODROMY_PATH_DEPENDENT_RETURN",
+      "control_object": {
+        "path": "nodes/GID050/F07/object.json",
+        "blob_sha": "d1c79fb80bda9a5343be8c5593ae5f6d3fbb0630"
+      },
+      "control_routes": {
+        "path": "nodes/GID050/F07/routes.ndjson",
+        "blob_sha": "300c877ab5088aa906ac5ab54f8723d9981d0a49"
+      },
+      "source": {
+        "provider": "google-drive",
+        "file_id": "1fWBHqWuFXHucyHxnTobngr3vmaWkRmlP-zyn7jOm3_w",
+        "revision_id": "34",
+        "observed_revision_token": "AIroW36BcsKcv7fTaduUQMAZNW7a7N7OMJiZKRhq4F2GkBLYmUu_IEqt5U1u-2611EzhFfdsnqyDBQcmiW4CYFaWPLuWVtkFHRI1GYQU8eo",
+        "tab_id": "t.0",
+        "range": {
+          "start": 48973,
+          "end": 48998,
+          "interval": "half-open"
+        },
+        "literal": "FORWARD_ADDR::⟨0,s₂,[β₁]⟩",
+        "literal_sha256": "9ff39e3f43c43e077fff00ef05fb40da64440a4af49eeb83f63011cd10b15939",
+        "return_locator": "gdoc://1fWBHqWuFXHucyHxnTobngr3vmaWkRmlP-zyn7jOm3_w@34/t.0/[48973,48998)"
+      },
+      "route_identity": {
+        "forward_address": "<0,s2,[beta1]>",
+        "forward_lift": "s2->s3",
+        "return_address": "<0,s3,[beta1^-1]>",
+        "return_lift": "s3->s2",
+        "monodromy_beta1": "(23)",
+        "path_class_noncollapse": [
+          "[beta1] != [beta1^3]",
+          "equal monodromy does not imply equal path class"
+        ],
+        "bridge_target": "KC144.V1::GID141::M09::PATH_SIGNATURE",
+        "bridge_boundary": "structural-analogy-not-literal-identification"
+      }
+    },
+    {
+      "rid": "rid:kc144:gid141:m09:path-signature",
+      "aid": "KC144.V1::GID141::M09::PATH_SIGNATURE",
+      "gid": 141,
+      "station": "M09",
+      "role": "SEMANTIC_STABILITY_AND_ROUTE_PLURALITY_WITNESS",
+      "control_object": {
+        "path": "nodes/GID141/M09/object.json",
+        "blob_sha": "5a9c995f5f7682eeffc975f978c35447d403cb25"
+      },
+      "control_routes": {
+        "path": "nodes/GID141/M09/routes.ndjson",
+        "blob_sha": "a0e7f7559abbda8362f4006e8fef4c536ca83180"
+      },
+      "source": {
+        "provider": "google-drive",
+        "file_id": "1Ct84ETWyBLa9uBXkmsJBBrLSQ6nzVIz_NSBDlph_kA4",
+        "revision_id": "92",
+        "tab_id": "t.0",
+        "range": {
+          "start": 366356,
+          "end": 366385,
+          "interval": "half-open"
+        },
+        "literal": "A hidden hash is insufficient",
+        "literal_sha256": "b2dbee4215f51bcf76d251a49bbf150bfd6125f52b3e49c41303d7fb41e73b80",
+        "return_locator": "gdoc://1Ct84ETWyBLa9uBXkmsJBBrLSQ6nzVIz_NSBDlph_kA4@92/t.0/[366356,366385)"
+      },
+      "route_identity": {
+        "semantic_fingerprint": "5f8704459c19a6e222af54cd97dfe478a8b748a30dfda7bded87445028354371",
+        "route_fingerprints": {
+          "W02": "c8aa08c6fe22bc88f6fede3d08d32e8b7b1a6547e9d0133c3725321747eb2dc6",
+          "W03": "80f48a752271f995e4643cfcfd061fba3ae51830ef860aa8d66cb536fb790d5d"
+        },
+        "semantic_equivalence": true,
+        "route_equivalence": false,
+        "exact_trace_replay": false,
+        "return_mode": "candidate-set",
+        "return_unique": false
+      }
+    }
+  ],
+  "boundaries": {
+    "raw_docs_body_committed": false,
+    "live_provider_verification_external_to_runtime": true,
+    "live_provider_checked_by_runtime": false,
+    "internal_cold_replay_claimed": false,
+    "persistent_deployment_claimed": false,
+    "promotion_claimed": false,
+    "hidden_weights_inspected": false
+  }
+}

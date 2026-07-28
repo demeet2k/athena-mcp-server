@@ -1,0 +1,110 @@
+{
+  "schema": "athena.live-provider-return-witness/v1",
+  "phase": "KC144.XNAV.W12",
+  "verdict": "PASS_LIVE_PROVIDER_RETURN_NO_DRIFT",
+  "replayed_at": "2026-07-27T06:50:09Z",
+  "runtime_candidate": {
+    "repository": "demeet2k/athena-mcp-server",
+    "branch": "agent/w11-source-mount-consumer",
+    "witnessed_head": "d5a9559d4c0955269ed72d74e9963052abcca210",
+    "pull_request": 10,
+    "source_snapshot": {
+      "path": "MCP/data/w11_source_mounts.json",
+      "blob_sha": "04f5bc099897ea5d7b338bd17406c604421d3a0f"
+    },
+    "consumer": {
+      "path": "MCP/crystal_108d/source_mounts.py",
+      "blob_sha": "2e220d58a550bfad47e00c3c75d239c185276efe"
+    }
+  },
+  "control_source": {
+    "repository": "demeet2k/Athena",
+    "branch": "agent/w10-f07-m09-source-mount-v2",
+    "commit": "bb611ff94134dd630e3471a0eff29dd6d79b3288",
+    "pull_request": 7,
+    "imports_lock_blob": "77073e6270f85f23a6f9f7bbd46cdb33b46852f0"
+  },
+  "returns": [
+    {
+      "rid": "rid:kc144:gid050:f07:analytic-branch-cover",
+      "provider": "google-drive",
+      "file_id": "1fWBHqWuFXHucyHxnTobngr3vmaWkRmlP-zyn7jOm3_w",
+      "title": "KC144 :: 10-",
+      "expected_drive_revision_id": "34",
+      "current_drive_revision_id": "34",
+      "previous_docs_api_revision_token": "AIroW36BcsKcv7fTaduUQMAZNW7a7N7OMJiZKRhq4F2GkBLYmUu_IEqt5U1u-2611EzhFfdsnqyDBQcmiW4CYFaWPLuWVtkFHRI1GYQU8eo",
+      "current_docs_api_revision_token": "AIroW36fW5k2D3J2OrLHjiViSOR6xWAXUbi63bftZKbuhju3pyKciUHItlNW8LcFofkOQc9meHwiJKhk9BoF58XwsEvd0JsrNL2BJIH6GHo",
+      "docs_api_revision_token_rotated": true,
+      "tab_id": "t.0",
+      "expected_range": {
+        "start": 48973,
+        "end": 48998,
+        "interval": "half-open"
+      },
+      "current_range": {
+        "start": 48973,
+        "end": 48998,
+        "interval": "half-open"
+      },
+      "matched_text": "FORWARD_ADDR::⟨0,s₂,[β₁]⟩",
+      "literal_sha256": "9ff39e3f43c43e077fff00ef05fb40da64440a4af49eeb83f63011cd10b15939",
+      "file_id_match": true,
+      "drive_revision_match": true,
+      "tab_match": true,
+      "range_match": true,
+      "literal_match": true,
+      "digest_match": true,
+      "return_grade": "R3-live-provider-witness"
+    },
+    {
+      "rid": "rid:kc144:gid141:m09:path-signature",
+      "provider": "google-drive",
+      "file_id": "1Ct84ETWyBLa9uBXkmsJBBrLSQ6nzVIz_NSBDlph_kA4",
+      "title": "144 posts - crystal",
+      "expected_drive_revision_id": "92",
+      "current_drive_revision_id": "92",
+      "current_docs_api_revision_token": "AIroW37fzGx-assWe_M3EvVwzV_pYJcfbctyjEb6szcEoKl-8npjUYGpNHslbRSCmXICIIkzhJ5aGpn4YBMX4pEM1qAJy4_yoigOUZ_VANo",
+      "tab_id": "t.0",
+      "expected_range": {
+        "start": 366356,
+        "end": 366385,
+        "interval": "half-open"
+      },
+      "current_range": {
+        "start": 366356,
+        "end": 366385,
+        "interval": "half-open"
+      },
+      "matched_text": "A hidden hash is insufficient",
+      "literal_sha256": "b2dbee4215f51bcf76d251a49bbf150bfd6125f52b3e49c41303d7fb41e73b80",
+      "file_id_match": true,
+      "drive_revision_match": true,
+      "tab_match": true,
+      "range_match": true,
+      "literal_match": true,
+      "digest_match": true,
+      "return_grade": "R3-live-provider-witness"
+    }
+  ],
+  "aggregate": {
+    "exact_returns": 2,
+    "attempted_returns": 2,
+    "stable_coordinate_drift_count": 0,
+    "digest_mismatch_count": 0,
+    "provider_result": "2_OF_2_EXACT",
+    "token_law": "Docs API revision-token rotation is not content drift when stable Drive revision, range, literal, and digest remain invariant."
+  },
+  "boundaries": {
+    "provider_check_executed_externally_to_runtime": true,
+    "runtime_network_read_added": false,
+    "raw_docs_body_committed": false,
+    "internal_cold_replay_claimed": false,
+    "persistent_https_endpoint_claimed": false,
+    "persistent_deployment_claimed": false,
+    "promotion_claimed": false,
+    "published_oci_changed": false,
+    "hidden_weights_inspected": false
+  },
+  "preserved_p09_oci": "ghcr.io/demeet2k/athena-mcp-server@sha256:31458783d4aeb28e0a4036cb4fab39a2f2bc1f4ef6e3025d126c78a865162ad2",
+  "successor": "KC144.XNAV.W13::BLIND-INTERNAL-RECALL-AND-ENDPOINT-AUTHORIZATION-GATE"
+}

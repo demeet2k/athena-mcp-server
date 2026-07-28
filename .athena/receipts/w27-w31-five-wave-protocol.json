@@ -1,0 +1,105 @@
+{
+  "schema": "athena.xnav-w27-w31-five-wave-protocol-receipt/v1",
+  "receipt_id": "w27-w31-five-wave-protocol:sha256:4e6e5fd1ff809bbe71d35d5619aa2036c50c22e8568c0a97650c7e696c2782dc",
+  "batch": "KC144.XNAV.W27-W31",
+  "title": "DEPENDENCY-CLOSED-INDEPENDENT-IC10-DECISION-THROUGH-NEXT-OCTAVE-HANDOFF-PROTOCOL",
+  "authored_at": "2026-07-28T00:15:00Z",
+  "verdict": "PASS_FIVE_WAVE_PROTOCOL_COMPILED__HOLD_ALL_PRODUCTION_EFFECTS_PENDING_COMPLETE_EXTERNAL_SIGNED_BUNDLE",
+  "predecessor": {
+    "runtime_head": "32e350bf8ac6b0d96635e8fe4cdc0c10b65cfb7f",
+    "runtime_tree": "589450b79fd331aa4871389bc5e0f4519619139a",
+    "w26_contract_digest": "sha256:5128940d6a95f8d8a2def5cfe8f93d26a9db1bbbebd33387e47f9e4b0a8d6efc",
+    "w26_runtime_receipt_id": "w26-control-ledger-ic10-review:sha256:55c30bb8bdead838782254939b2dbb03cf76383403c434e5ff88799ca3a7b851",
+    "control_head": "9e74586ba82a606835551638c5c9d77baf0e228e",
+    "control_tree": "8ace2fd0db2470679cff96742a526dc4943cd775",
+    "w26_control_receipt_id": "w26-control-ledger-ic10-review-admission:sha256:ee3583e373def53438898be964ab898a8e747fc127d2b8c9ce8ae2a8e729be17"
+  },
+  "protocol": {
+    "contract_digest": "sha256:22c14aa524e66888d360f090785bca79b1c626aa9e98b50cea21c9488f0b397d",
+    "wave_count": 5,
+    "waves": [
+      {
+        "wave": 27,
+        "phase": "KC144.XNAV.W27",
+        "title": "RETURN-INDEPENDENT-IC10-DECISION-AND-CLOSE-CONTROL-LEDGER-REVIEW",
+        "role_count": 4,
+        "record_count": 4
+      },
+      {
+        "wave": 28,
+        "phase": "KC144.XNAV.W28",
+        "title": "CONTROL-ADMIT-INDEPENDENT-IC10-DECISION-AND-ISSUE-TYPED-PROMOTION-DISPOSITION",
+        "role_count": 4,
+        "record_count": 4
+      },
+      {
+        "wave": 29,
+        "phase": "KC144.XNAV.W29",
+        "title": "RETURN-DISPOSITION-CONSUMPTION-AND-IMMUTABLE-PUBLICATION-OR-DENIAL-READBACK",
+        "role_count": 4,
+        "record_count": 4
+      },
+      {
+        "wave": 30,
+        "phase": "KC144.XNAV.W30",
+        "title": "RETURN-ENDPOINT-HEALTH-ROLLBACK-RETENTION-AND-PERSISTENCE-WITNESSES",
+        "role_count": 4,
+        "record_count": 4
+      },
+      {
+        "wave": 31,
+        "phase": "KC144.XNAV.W31",
+        "title": "CONTROL-RECONCILE-FINAL-SETTLEMENT-AND-ISSUE-NEXT-OCTAVE-HANDOFF",
+        "role_count": 4,
+        "record_count": 4
+      }
+    ],
+    "allowed_decisions": [
+      "APPROVED",
+      "REJECTED_ROLLED_BACK",
+      "HOLD"
+    ],
+    "new_roles": 20,
+    "total_cross_wave_roles": 45,
+    "new_records": 20,
+    "total_records_from_w25": 44,
+    "partial_admission_allowed": false,
+    "strict_outer_json_required": true,
+    "canonical_provenance_required": true,
+    "total_chronology_required": true,
+    "decision_consistency_required": true,
+    "identity_key_axis_and_nonce_disjointness_required": true
+  },
+  "production_counts": {
+    "authority_sources": 0,
+    "authority_revisions": 0,
+    "w27_records": 0,
+    "w28_records": 0,
+    "w29_records": 0,
+    "w30_records": 0,
+    "w31_records": 0
+  },
+  "authority_and_nonclaims": {
+    "external_signed_bundle_verified": false,
+    "independent_ic10_decision_returned": false,
+    "control_review_closed": false,
+    "promotion_disposition_issued": false,
+    "promotion_disposition_consumed": false,
+    "immutable_publication_observed": false,
+    "persistent_endpoint_observed": false,
+    "final_settlement_reconciled": false,
+    "next_octave_handoff_observed": false,
+    "runtime_mutated_authority_registry": false,
+    "runtime_mutated_control_ledger": false,
+    "runtime_issued_decision_or_disposition": false,
+    "runtime_published_artifact": false,
+    "runtime_activated_endpoint": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "image_published": false,
+    "merged": false,
+    "deployed": false,
+    "promoted": false
+  },
+  "successor": "KC144.XNAV.W32::OPEN-NEXT-OCTAVE-AUTHORITY-REGISTRY-AND-INDEPENDENT-IC10-QUORUM-GATE"
+}

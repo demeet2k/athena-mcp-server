@@ -1,0 +1,77 @@
+name: Validate W32 next-octave authority and IC10 quorum
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      w32_bundle_b64:
+        description: Base64 exact non-secret W31-to-W32 signed bundle JSON
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-next-octave-authority-quorum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verifier dependencies
+        run: python -m pip install --disable-pip-version-check cryptography pytest
+
+      - name: Verify frozen production-empty W32 snapshot
+        run: python scripts/w32_next_octave_authority_quorum.py --check-snapshot
+
+      - name: Run W32 direct tests
+        run: python -m pytest tests/test_w32_next_octave_authority_quorum.py -q
+
+      - name: Decode bounded non-secret W32 bundle
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.w32_bundle_b64 != '' }}
+        env:
+          W32_BUNDLE_B64: ${{ inputs.w32_bundle_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          decoded = base64.b64decode(
+              os.environ["W32_BUNDLE_B64"], validate=True
+          )
+          if len(decoded) > 1048576:
+              raise ValueError("W32 bundle exceeds bounded input size")
+          Path("w32-next-octave-authority-quorum-bundle.json").write_bytes(
+              decoded
+          )
+          PY
+
+      - name: Verify complete W31-to-W32 signed evidence
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.w32_bundle_b64 != '' }}
+        env:
+          VERIFIER_HEAD: ${{ github.sha }}
+        run: |
+          tree="$(git rev-parse HEAD^{tree})"
+          python scripts/w32_next_octave_authority_quorum.py \
+            --bundle w32-next-octave-authority-quorum-bundle.json \
+            --verifier-head "$VERIFIER_HEAD" \
+            --verifier-tree "$tree" \
+            --verifier-ref refs/heads/agent/w15-reconcile-capsule-deep-hardening \
+            --output w32-next-octave-authority-quorum-preflight.json
+
+      - name: Upload bounded W32 preflight
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.w32_bundle_b64 != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: w32-next-octave-authority-quorum-${{ github.sha }}
+          path: w32-next-octave-authority-quorum-preflight.json
+          if-no-files-found: error
+          retention-days: 14

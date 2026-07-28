@@ -1,0 +1,113 @@
+{
+  "schema": "athena.xnav-w15-capsule-blind-replay-ingress/v1",
+  "phase": "KC144.XNAV.W15",
+  "observed_at": "2026-07-27 America/Los_Angeles",
+  "verdict": "HOLD_UNCUED_FULL_PACKET_NOT_RECOVERED__PASS_PARENT_LINEAGES_RECONCILED__READY_AWAITING_AUTHORIZED_TARGET",
+  "blind_replay": {
+    "probe_surface": "personal-context-global-memory",
+    "current_conversation_access": false,
+    "supplied_object_names": false,
+    "supplied_station_labels": false,
+    "supplied_rids": false,
+    "supplied_provider_coordinates": false,
+    "supplied_revisions": false,
+    "supplied_tabs": false,
+    "supplied_ranges": false,
+    "supplied_literals": false,
+    "supplied_hashes": false,
+    "supplied_repositories": false,
+    "supplied_commits": false,
+    "supplied_pull_requests": false,
+    "supplied_file_paths": false,
+    "current_google_drive_search_used": false,
+    "current_github_search_used": false,
+    "field_universe_per_object": [
+      "rid",
+      "file_id",
+      "drive_revision_id",
+      "tab_id",
+      "half_open_range",
+      "literal",
+      "full_sha256"
+    ],
+    "object_count": 2,
+    "possible_fields": 14,
+    "conversation_memory": {
+      "exact_packet_fields": 0,
+      "recovery_ratio": 0,
+      "recovered_nonpacket_context": [
+        "two station labels",
+        "capsule-set root",
+        "truncated per-object capsule identifiers"
+      ],
+      "complete_packet_recovered": false,
+      "verdict": "HOLD_SUMMARY_ONLY_NO_EXACT_PACKET"
+    },
+    "persisted_file_memory": {
+      "exact_packet_fields": 10,
+      "recovery_ratio": 0.7142857143,
+      "exact_fields_per_object": [
+        "file_id",
+        "drive_revision_id",
+        "half_open_range",
+        "literal",
+        "full_sha256"
+      ],
+      "missing_fields": [
+        "F07.rid",
+        "F07.tab_id",
+        "M09.rid",
+        "M09.tab_id"
+      ],
+      "complete_packet_recovered": false,
+      "verdict": "PARTIAL_PACKET_10_OF_14"
+    },
+    "full_packet_verdict": "HOLD_UNCUED_FULL_PACKET_NOT_RECOVERED",
+    "historical_w13_measurement_rewritten": false,
+    "hidden_weight_recall_claimed": false
+  },
+  "external_capsule_ground_truth": {
+    "source_head": "deab5f44f2942326b415a50daa722ce565210540",
+    "source_pull_request": 10,
+    "receipt": ".athena/receipts/w14-memory-digest-capsule-endpoint-binding.json",
+    "capsule_set_root": "sha256:9b4133f88aa397823eac35a143da9f12b38a09e38142a49ba48426687244c31f",
+    "f07_capsule": "mcap:sha256:8797b945fb1ba77897f7b29076282c222a3e792122575d3562bb332a70c5fc3a",
+    "m09_capsule": "mcap:sha256:d89fbf78b35777cc55b1ad0e3518f1868cc2d4cce6ab78b62747b2291f9dfb0b",
+    "explicit_external_packet_fields": 14,
+    "external_packet_complete": true,
+    "internal_recall": false,
+    "live_provider_read_during_blind_probe": false
+  },
+  "parent_reconciliation": {
+    "branch": "agent/w15-reconcile-capsule-deep-hardening",
+    "activation_hardening_head": "8bc9072fe2fa9ac9b2998653c7656ae92428be4c",
+    "executable_capsule_head": "deab5f44f2942326b415a50daa722ce565210540",
+    "prior_return_closure_head": "9a36bf46600f64b519c24252ec32fa078211b614",
+    "deep_activation_hardening_preserved": true,
+    "source_mount_runtime_preserved": true,
+    "executable_digest_capsule_preserved": true,
+    "append_only_return_receipts_preserved": true,
+    "old_pr12_history_rewritten": false
+  },
+  "endpoint_authority": {
+    "verdict": "READY_AWAITING_AUTHORIZED_TARGET",
+    "activation_packet": "UNRESOLVED",
+    "protected_environment": "p10-persistent-host",
+    "protected_secret_name": "ATHENA_MCP_BEARER_TOKEN",
+    "authority_inputs_unresolved": 13,
+    "samples": 3,
+    "minimum_observed_interval_seconds": 20,
+    "minimum_observed_span_seconds": 40,
+    "endpoint_contacted": false,
+    "persistent_witness_executed": false
+  },
+  "authority": {
+    "secret_recorded": false,
+    "external_endpoint_claimed": false,
+    "merge_claimed": false,
+    "deployment_claimed": false,
+    "promotion_claimed": false,
+    "ic10_required": true
+  },
+  "successor": "KC144.XNAV.W16::CAPSULE-INDEX-REPAIR-AND-AUTHORIZED-WITNESS-INGRESS"
+}

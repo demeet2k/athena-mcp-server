@@ -1,0 +1,91 @@
+{
+  "schema": "athena.xnav-w22-independent-authority-return/v1",
+  "phase": "KC144.XNAV.W22",
+  "predecessor": {
+    "runtime_repository": "demeet2k/athena-mcp-server",
+    "runtime_pull_request": 13,
+    "branch": "agent/w15-reconcile-capsule-deep-hardening",
+    "w21_head": "929cfe6762a989f9595551d654b94ecc01320910",
+    "w21_tree": "1a4c72a3694ee3cc2f2699d0f23c2e74920762a0",
+    "w21_sole_parent": "772564d48618b3b35276baadd87cf36ce4db46fa",
+    "w21_contract_digest": "sha256:9e68dc7c16ea75ac5c4f6445999ec8831f678e01b24b6cfa380c5097fbaf3e18",
+    "w21_receipt_id": "w21-commit-handoff:sha256:4e2af32863274f977caf93be4fd719229a78ff5298f996c2f8f64762eae72c15",
+    "w21_p07_run_id": 30296636927,
+    "w21_p08_run_id": 30296637797,
+    "w21_stdio_receipt_id": "mcp-host:sha256:f1b79c367c1abb8efec2237712cd92df9fa88c436c9064edbf939ac6a989f0cd",
+    "w21_candidate_receipt_id": "p08-candidate:sha256:8fd709384b08299930eaae245d5d7057373199ebdab8228b61a9171fb9097a2d",
+    "w21_candidate_image_id": "sha256:416200170040c9d8ab938998dc89242e44a021b5dce743affd01694308857b47"
+  },
+  "control_protocol_observation": {
+    "repository": "demeet2k/Athena",
+    "pull_request": 18,
+    "branch": "agent/w21-admit-ledger-commit-promotion-handoff",
+    "head": "b74bb6caea37569bc2c050c060bcc35641dd068e",
+    "base": "78bfbbbfc41cfc402235793afdcd5b190e71ba5b",
+    "receipt_id": "w21-control-admission:sha256:78742031032e1f01a35b8ea711280b0069d8d5bfff71d59cfe517734195fc0fc",
+    "verdict": "PASS_W21_LEDGER_COMMIT_PROMOTION_HANDOFF_PROTOCOL_ADMITTED__HOLD_PRODUCTION_WITNESS_IC10_COMMIT_AND_PROMOTION_RETURNS",
+    "hosted_runner_status": "HOLD[PLATFORM_OBSTRUCTION_BEFORE_FIRST_STEP]",
+    "grants_production_authority": false
+  },
+  "coordinate_contract": {
+    "law": "SOURCE != REVISION != OCCURRENCE; CUSTODY != AUTHORITY; AUTHORIZATION != COMMIT; PROMOTION DECISION != PROMOTION EXECUTION",
+    "source_schema": "athena.w22-authority-source/v1",
+    "revision_schema": "athena.w22-authority-revision/v1",
+    "ledger_commit_return_schema": "athena.w22-ledger-commit-return/v1",
+    "promotion_decision_return_schema": "athena.w22-promotion-decision-return/v1",
+    "git_observation_schema": "athena.w22-git-commit-observation/v1",
+    "candidate_schema": "athena.w22-return-admission-candidate/v1",
+    "correction_schema": "athena.w22-correction-forward/v1",
+    "ledger_entry_schema": "athena.w22-return-ledger-entry/v1",
+    "canonicalization": "KC144.CANON.JSON.V1",
+    "signature_algorithm": "ed25519",
+    "signature_encoding": "base64",
+    "duplicate_json_members_allowed": false,
+    "self_supplied_sources_revisions_or_keys_allowed": false,
+    "cross_role_identity_or_key_overlap_allowed": false,
+    "append_only": true,
+    "correction_forward_only": true
+  },
+  "authority_source_registry": {
+    "sources": [],
+    "revisions": []
+  },
+  "admitted_return_ledger": {
+    "entries": []
+  },
+  "w21_limitations_corrected_forward": [
+    "STANDALONE_PROMOTION_PACKET_CANNOT_ASSERT_LEDGER_COMMIT",
+    "AUTHORITY_ID_SEPARATION_REPLACED_BY_ROLE_AND_KEY_DISJOINTNESS",
+    "COMMIT_AUTHORITY_CANNOT_REATTEST_IC10_FACTS",
+    "SIGNED_COMMIT_ATTESTATION_DISTINGUISHED_FROM_GIT_OBSERVATION",
+    "HOLD_PROMOTION_NEVER_OPENS_EXECUTION",
+    "DUPLICATE_JSON_MEMBERS_REJECTED",
+    "BOUNDARY_KEY_COLLISIONS_REJECTED",
+    "TARGET_SCOPE_TIME_REPLAY_AND_POLICY_BINDINGS_REQUIRED"
+  ],
+  "boundaries": {
+    "w21_custody_pinned": true,
+    "w21_control_protocol_observation_pinned": true,
+    "w21_control_receipt_grants_production_authority": false,
+    "production_authority_source_count": 0,
+    "production_authority_revision_count": 0,
+    "production_return_ledger_entry_count": 0,
+    "ledger_commit_return_verified": false,
+    "git_commit_observed": false,
+    "ledger_entry_committed": false,
+    "promotion_decision_return_verified": false,
+    "promotion_authorized": false,
+    "promotion_execution_authorized": false,
+    "promotion_executed": false,
+    "workflow_dispatched": false,
+    "endpoint_contacted": false,
+    "deployment_claimed": false,
+    "merge_claimed": false,
+    "promotion_claimed": false,
+    "runtime_can_mutate_registry": false,
+    "runtime_can_mutate_return_ledger": false,
+    "runtime_can_execute_or_promote": false
+  },
+  "successor": "KC144.XNAV.W23::CONTROL-ADMIT-INDEPENDENT-AUTHORITY-RETURNS-AND-ISSUE-COORDINATE-SPECIFIC-PROMOTION-EXECUTION-HANDOFF",
+  "contract_digest": "sha256:d826fa73b55d4bd93dbb251d12147de40a530c9e89413f9ef9730341d13a7a02"
+}

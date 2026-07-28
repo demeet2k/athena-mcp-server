@@ -42,6 +42,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install \
             "mcp[cli]>=1.28.0,<2" \
+            "cryptography>=44,<48" \
             "pytest>=8.0" \
             "starlette>=0.48,<2" \
             "uvicorn>=0.35,<1"
@@ -54,12 +55,154 @@ jobs:
             .athena/receipts/p07-host-package.json >/dev/null
           python -m json.tool \
             .athena/receipts/p08-integration-candidate.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w11-source-mount-consumer.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w12-live-provider-return.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w13-blind-memory-and-endpoint-gate.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w14-memory-digest-capsule-endpoint-binding.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w12-cross-lineage-unification.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w14-memory-digest-capsule.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w14-control-return-closure.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w15-capsule-blind-replay-ingress.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w15-endpoint-binding-reconciliation.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w16-replay-ledger-authority-evidence-adjunction.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w15-capsule-blind-replay-authority-ingress.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w16-capsule-index-repair-authorized-witness-ingress.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w17-evidence-provenance-protected-dispatch-gate.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w18-provider-adapter-persistent-witness-return.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w18-provider-adapter-trust-anchor.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w18-provider-trust-convergence.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w19-provider-admission-execution-gate.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w20-persistent-return-ic10-gate.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w21-ledger-commit-promotion-handoff.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w22-independent-authority-return.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w23-promotion-execution-handoff.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w23-promotion-execution-handoff-hardening.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w24-execution-deployment-rollback-readback.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w24-execution-deployment-rollback-readback-hardening.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w25-persistent-promotion-settlement.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w25-persistent-promotion-settlement-hardening.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w26-control-ledger-ic10-review.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w27-w31-five-wave-protocol.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/w32-next-octave-authority-quorum.json >/dev/null
+          python -m json.tool \
+            .athena/receipts/whole-crystal-convergence-autofill.json >/dev/null
+          python -m json.tool \
+            MCP/data/w11_source_mounts.json >/dev/null
+          python -m json.tool \
+            MCP/data/w14_memory_digest_capsules.json >/dev/null
+          python -m json.tool \
+            MCP/data/w16_replay_authority_ledger.json >/dev/null
+          python -m json.tool \
+            MCP/data/w15_blind_replay_ingress.json >/dev/null
+          python -m json.tool \
+            MCP/data/w16_replay_ledger.json >/dev/null
+          python -m json.tool \
+            MCP/data/w17_evidence_provenance_gate.json >/dev/null
+          python -m json.tool \
+            MCP/data/w18_provider_adapter_witness_return.json >/dev/null
+          python -m json.tool \
+            MCP/data/w18_provider_trust_registry.json >/dev/null
+          python -m json.tool \
+            MCP/data/w19_provider_admission_execution.json >/dev/null
+          python -m json.tool \
+            MCP/data/w20_persistent_return_ic10.json >/dev/null
+          python -m json.tool \
+            MCP/data/w21_ledger_commit_promotion_handoff.json >/dev/null
+          python -m json.tool \
+            MCP/data/w22_independent_authority_return.json >/dev/null
+          python -m json.tool \
+            MCP/data/w23_promotion_execution_handoff.json >/dev/null
+          python -m json.tool \
+            MCP/data/w24_execution_deployment_rollback_readback.json >/dev/null
+          python -m json.tool \
+            MCP/data/w25_persistent_promotion_settlement.json >/dev/null
+          python -m json.tool \
+            MCP/data/w26_control_ledger_ic10_review.json >/dev/null
+          python -m json.tool \
+            MCP/data/w27_w31_five_wave_closure.json >/dev/null
+          python -m json.tool \
+            MCP/data/w32_next_octave_authority_quorum.json >/dev/null
+          python -m json.tool \
+            MCP/data/whole_crystal_autofill.json >/dev/null
+          python -m json.tool \
+            tests/fixtures/w20_control_protocol_admission.json >/dev/null
           python -m py_compile \
             MCP/athena_http_server.py \
+            MCP/crystal_108d/source_mounts.py \
+            MCP/crystal_108d/memory_digest_capsules.py \
+            MCP/crystal_108d/replay_authority_ledger.py \
+            MCP/crystal_108d/capsule_replay_ingress.py \
+            MCP/crystal_108d/capsule_index_repair.py \
+            MCP/crystal_108d/evidence_provenance_gate.py \
+            MCP/crystal_108d/provider_adapter_witness_return.py \
+            MCP/crystal_108d/provider_trust_anchor.py \
+            MCP/crystal_108d/provider_admission_execution.py \
+            MCP/crystal_108d/persistent_return_ic10.py \
+            MCP/crystal_108d/ledger_commit_promotion_handoff.py \
+            MCP/crystal_108d/independent_authority_return.py \
+            MCP/crystal_108d/promotion_execution_handoff.py \
+            MCP/crystal_108d/execution_deployment_rollback_readback.py \
+            MCP/crystal_108d/persistent_promotion_settlement.py \
+            MCP/crystal_108d/control_ledger_ic10_review.py \
+            MCP/crystal_108d/five_wave_review_closure.py \
+            MCP/crystal_108d/next_octave_authority_quorum.py \
+            MCP/crystal_108d/whole_crystal_autofill.py \
             MCP/http_security.py \
             scripts/host_attestation.py \
             scripts/probe_mcp_host.py \
-            scripts/p07_mcp_host_witness.py
+            scripts/p07_mcp_host_witness.py \
+            scripts/w19_provider_admission.py \
+            scripts/w20_persistent_return_ic10.py \
+            scripts/w21_ledger_commit_promotion_handoff.py \
+            scripts/w22_independent_authority_return.py \
+            scripts/w23_promotion_execution_handoff.py \
+            scripts/w24_execution_deployment_rollback_readback.py \
+            scripts/w25_persistent_promotion_settlement.py \
+            scripts/w26_control_ledger_ic10_review.py \
+            scripts/w27_w31_five_wave_closure.py \
+            scripts/w32_next_octave_authority_quorum.py
+          python -m py_compile scripts/whole_crystal_autofill.py
+          python scripts/w19_provider_admission.py --check-snapshot
+          python scripts/w20_persistent_return_ic10.py --check-snapshot
+          python scripts/w21_ledger_commit_promotion_handoff.py --check-snapshot
+          python scripts/w22_independent_authority_return.py --check-snapshot
+          python scripts/w23_promotion_execution_handoff.py --check-snapshot
+          python scripts/w24_execution_deployment_rollback_readback.py --check-snapshot
+          python scripts/w25_persistent_promotion_settlement.py --check-snapshot
+          python scripts/w26_control_ledger_ic10_review.py --check-snapshot
+          python scripts/w27_w31_five_wave_closure.py --check-snapshot
+          python scripts/w32_next_octave_authority_quorum.py --check-snapshot
+          python scripts/whole_crystal_autofill.py --status
+          python scripts/whole_crystal_autofill.py --fixed-point
 
       - name: Run fail-closed HTTP boundary tests
         run: python -m unittest tests.test_http_host -v
@@ -78,6 +221,33 @@ jobs:
             python -m pytest \
               tests/test_federation_v2.py \
               tests/test_registration.py \
+              tests/test_w11_source_mounts.py \
+              tests/test_w12_live_provider_receipt.py \
+              tests/test_w13_memory_endpoint_gate.py \
+              tests/test_w14_memory_digest_capsules.py \
+              tests/test_w12_cross_lineage_unification.py \
+              tests/test_w14_memory_digest_capsule.py \
+              tests/test_w14_control_return_closure.py \
+              tests/test_w15_capsule_blind_replay.py \
+              tests/test_w15_endpoint_binding_reconciliation.py \
+              tests/test_w16_replay_authority_ledger.py \
+              tests/test_w15_capsule_replay_ingress.py \
+              tests/test_w16_capsule_index_repair.py \
+              tests/test_w17_evidence_provenance_gate.py \
+              tests/test_w18_provider_adapter_witness_return.py \
+              tests/test_w18_provider_trust_anchor.py \
+              tests/test_w18_provider_trust_convergence.py \
+              tests/test_w19_provider_admission_execution.py \
+              tests/test_w20_persistent_return_ic10.py \
+              tests/test_w21_ledger_commit_promotion_handoff.py \
+              tests/test_w22_independent_authority_return.py \
+              tests/test_w23_promotion_execution_handoff.py \
+              tests/test_w24_execution_deployment_rollback_readback.py \
+              tests/test_w25_persistent_promotion_settlement.py \
+              tests/test_w26_control_ledger_ic10_review.py \
+              tests/test_w27_w31_five_wave_closure.py \
+              tests/test_w32_next_octave_authority_quorum.py \
+              tests/test_whole_crystal_autofill.py \
               -q
 
       - name: Build immutable candidate image

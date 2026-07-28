@@ -1,0 +1,120 @@
+name: Validate W23 promotion execution handoff
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Verify 2-of-2 quorum or signed execution handoff
+        required: true
+        default: quorum
+        type: choice
+        options:
+          - quorum
+          - handoff
+          - closure
+      challenge_b64:
+        description: Base64 exact signed freshness challenge JSON
+        required: true
+        type: string
+      publication_b64:
+        description: Base64 exact immutable publication proof JSON
+        required: true
+        type: string
+      observation_b64:
+        description: Base64 exact independent publication observation JSON
+        required: true
+        type: string
+      policy_a_b64:
+        description: Base64 exact promotion-policy A decision JSON
+        required: true
+        type: string
+      policy_b_b64:
+        description: Base64 exact promotion-policy B decision JSON
+        required: true
+        type: string
+      authorization_b64:
+        description: Base64 exact execution authorization JSON
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-promotion-execution-handoff:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact requested ref
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verification dependencies
+        run: python -m pip install "cryptography>=44,<48"
+
+      - name: Validate frozen production-empty snapshot
+        run: python scripts/w23_promotion_execution_handoff.py --check-snapshot
+
+      - name: Decode bounded non-secret authority records
+        env:
+          CHALLENGE_B64: ${{ inputs.challenge_b64 }}
+          PUBLICATION_B64: ${{ inputs.publication_b64 }}
+          OBSERVATION_B64: ${{ inputs.observation_b64 }}
+          POLICY_A_B64: ${{ inputs.policy_a_b64 }}
+          POLICY_B_B64: ${{ inputs.policy_b_b64 }}
+          AUTHORIZATION_B64: ${{ inputs.authorization_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          values = {
+              "challenge.json": ("CHALLENGE_B64", True),
+              "publication.json": ("PUBLICATION_B64", True),
+              "observation.json": ("OBSERVATION_B64", True),
+              "policy-a.json": ("POLICY_A_B64", True),
+              "policy-b.json": ("POLICY_B_B64", True),
+              "authorization.json": ("AUTHORIZATION_B64", False),
+          }
+          root = Path("w23-input")
+          root.mkdir()
+          for name, (variable, required) in values.items():
+              encoded = os.environ.get(variable, "")
+              if not encoded and not required:
+                  continue
+              decoded = base64.b64decode(encoded, validate=True)
+              if len(decoded) > 262144:
+                  raise ValueError(f"{name} exceeds bounded input size")
+              (root / name).write_bytes(decoded)
+          PY
+
+      - name: Verify coordinate-specific handoff
+        env:
+          MODE: ${{ inputs.mode }}
+        run: |
+          args=(
+            --mode "$MODE"
+            --challenge w23-input/challenge.json
+            --publication w23-input/publication.json
+            --observation w23-input/observation.json
+            --policy-a w23-input/policy-a.json
+            --policy-b w23-input/policy-b.json
+            --output w23-promotion-execution-handoff-preflight.json
+          )
+          if [ "$MODE" != "quorum" ]; then
+            args+=(--authorization w23-input/authorization.json)
+          fi
+          python scripts/w23_promotion_execution_handoff.py "${args[@]}"
+
+      - name: Upload non-secret validation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: w23-promotion-execution-handoff-${{ github.sha }}
+          path: w23-promotion-execution-handoff-preflight.json
+          if-no-files-found: error
+          retention-days: 30

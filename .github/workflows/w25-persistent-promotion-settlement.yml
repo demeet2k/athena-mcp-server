@@ -1,0 +1,79 @@
+name: Validate W25 persistent promotion settlement
+
+on:
+  workflow_dispatch:
+    inputs:
+      settlement_bundle_b64:
+        description: Base64 exact non-secret W25 settlement-bundle JSON
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-settlement-bundle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact requested ref
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Require canonical verifier ref
+        env:
+          VERIFIER_REF: ${{ github.ref }}
+        run: |
+          test "$VERIFIER_REF" = \
+            "refs/heads/agent/w15-reconcile-capsule-deep-hardening"
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verification dependencies
+        run: python -m pip install "cryptography>=44,<48"
+
+      - name: Validate frozen production-empty snapshot
+        run: |
+          python scripts/w25_persistent_promotion_settlement.py \
+            --check-snapshot
+
+      - name: Decode bounded non-secret settlement bundle
+        env:
+          SETTLEMENT_BUNDLE_B64: ${{ inputs.settlement_bundle_b64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          decoded = base64.b64decode(
+              os.environ["SETTLEMENT_BUNDLE_B64"], validate=True
+          )
+          if len(decoded) > 1048576:
+              raise ValueError("W25 bundle exceeds bounded input size")
+          Path("w25-settlement-bundle.json").write_bytes(decoded)
+          PY
+
+      - name: Verify coordinate-specific settlement closure
+        env:
+          VERIFIER_HEAD: ${{ github.sha }}
+          VERIFIER_REF: ${{ github.ref }}
+        run: |
+          python scripts/w25_persistent_promotion_settlement.py \
+            --bundle w25-settlement-bundle.json \
+            --verifier-head "$VERIFIER_HEAD" \
+            --verifier-tree "$(git rev-parse HEAD^{tree})" \
+            --verifier-ref "$VERIFIER_REF" \
+            --output w25-persistent-promotion-settlement-preflight.json
+
+      - name: Upload non-secret validation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: w25-settlement-preflight-${{ github.sha }}
+          path: w25-persistent-promotion-settlement-preflight.json
+          if-no-files-found: error
+          retention-days: 30
