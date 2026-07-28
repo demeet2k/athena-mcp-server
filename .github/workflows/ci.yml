@@ -31,29 +31,20 @@ jobs:
           pip install "mcp[cli]>=1.0.0" pytest numpy
 
       - name: Run repository tests
-        id: repository_tests
-        continue-on-error: true
         env:
           ATHENA_ROOT: ${{ github.workspace }}
         run: |
-          set +e
-          pytest tests/ -v --tb=short --maxfail=1 > repository-tests-${{ matrix.python-version }}.log 2>&1
-          status=$?
-          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
-          exit 0
+          set -o pipefail
+          pytest tests/ -v --tb=short --maxfail=1 2>&1 | tee repository-tests-${{ matrix.python-version }}.log
 
-      - name: Run KC144 V7 tests
-        id: kc144_tests
-        continue-on-error: true
+      - name: Run KC144 V7 and V8 tests
+        if: always()
         env:
           ATHENA_ROOT: ${{ github.workspace }}
           PYTHONPATH: ${{ github.workspace }}/MCP
         run: |
-          set +e
-          pytest MCP/tests/test_kc144_v7_runtime.py -v --tb=short --maxfail=1 > kc144-tests-${{ matrix.python-version }}.log 2>&1
-          status=$?
-          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
-          exit 0
+          set -o pipefail
+          pytest MCP/tests/test_kc144_v7_runtime.py MCP/tests/test_kc144_v8_runtime.py -v --tb=short --maxfail=1 2>&1 | tee kc144-tests-${{ matrix.python-version }}.log
 
       - name: Upload diagnostic logs
         if: always()
@@ -63,12 +54,4 @@ jobs:
           path: |
             repository-tests-${{ matrix.python-version }}.log
             kc144-tests-${{ matrix.python-version }}.log
-          if-no-files-found: error
-
-      - name: Enforce test results
-        if: always()
-        run: |
-          echo "repository_exit=${{ steps.repository_tests.outputs.exit_code }}"
-          echo "kc144_exit=${{ steps.kc144_tests.outputs.exit_code }}"
-          test "${{ steps.repository_tests.outputs.exit_code }}" = "0"
-          test "${{ steps.kc144_tests.outputs.exit_code }}" = "0"
+          if-no-files-found: warn
