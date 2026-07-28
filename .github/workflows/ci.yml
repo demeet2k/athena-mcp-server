@@ -35,7 +35,7 @@ jobs:
           ATHENA_ROOT: ${{ github.workspace }}
         run: |
           set -o pipefail
-          pytest tests/ -v --tb=short --maxfail=1 2>&1 | tee repository-tests-${{ matrix.python-version }}.log
+          pytest tests/ -v --tb=short 2>&1 | tee repository-tests-${{ matrix.python-version }}.log
 
       - name: Run KC144 V7 and V8 tests
         if: always()
@@ -44,7 +44,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/MCP
         run: |
           set -o pipefail
-          pytest MCP/tests/test_kc144_v7_runtime.py MCP/tests/test_kc144_v8_runtime.py -v --tb=short --maxfail=1 2>&1 | tee kc144-tests-${{ matrix.python-version }}.log
+          pytest MCP/tests/test_kc144_v7_runtime.py MCP/tests/test_kc144_v8_runtime.py -v --tb=short 2>&1 | tee kc144-tests-${{ matrix.python-version }}.log
 
       - name: Upload diagnostic logs
         if: always()
