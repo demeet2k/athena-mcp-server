@@ -14,6 +14,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.12", "3.13"]
     steps:
@@ -29,7 +30,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install "mcp[cli]>=1.0.0" pytest
 
-      - name: Run tests
+      - name: Run repository tests
         env:
           ATHENA_ROOT: ${{ github.workspace }}
-        run: pytest tests/ -v
+        run: pytest tests/ -v --tb=short --maxfail=1
+
+      - name: Run KC144 V7 tests
+        env:
+          ATHENA_ROOT: ${{ github.workspace }}
+          PYTHONPATH: ${{ github.workspace }}/MCP
+        run: pytest MCP/tests/test_kc144_v7_runtime.py -v --tb=short --maxfail=1
