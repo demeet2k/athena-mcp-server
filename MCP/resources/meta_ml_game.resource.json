@@ -1,0 +1,27 @@
+{
+  "resource_id": "athena://meta-ml-game/v1",
+  "title": "Athena Meta Machine Learning Game",
+  "description": "Read-only goal registry plus evidence-gated experiment proposal surface.",
+  "authority": "demeet2k/Athena:agent/athena-git-brain-v2",
+  "goal_registry": "goal-registry://athena/meta-ml-game/144@1.0.0",
+  "resources": [
+    "meta_ml_game/goals",
+    "meta_ml_game/domains",
+    "meta_ml_game/sources",
+    "meta_ml_game/constitution"
+  ],
+  "tools": [
+    {"name":"meta_ml_list_goals","side_effect":"none","returns":"filtered goal records"},
+    {"name":"meta_ml_next_quest","side_effect":"none","returns":"highest-priority lawful goal"},
+    {"name":"meta_ml_propose_experiment","side_effect":"writes proposal receipt only","returns":"sandbox experiment plan"},
+    {"name":"meta_ml_score_episode","side_effect":"writes evidence receipt","returns":"multi-objective score and defects"},
+    {"name":"meta_ml_promote_policy","side_effect":"candidate policy update","requires":["independent witnesses","rollback receipt","safety and privacy gates"]}
+  ],
+  "forbidden": [
+    "foundation model weight mutation",
+    "source truth mutation",
+    "synthetic penalty quota",
+    "private raw data exposure",
+    "self-certification"
+  ]
+}
