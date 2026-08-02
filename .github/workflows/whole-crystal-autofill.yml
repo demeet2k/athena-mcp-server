@@ -10,7 +10,7 @@ permissions:
 jobs:
   validate-whole-crystal-autofill:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,3 +37,6 @@ jobs:
 
       - name: Run direct MMLG2 adversarial acceptance
         run: python -m pytest tests/test_meta_ml_game_v2_mcp.py -q
+
+      - name: Run direct MMLG3 Guild Hall acceptance
+        run: python -m pytest tests/test_meta_ml_game_v3_guild_hall.py -q

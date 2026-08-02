@@ -30,11 +30,11 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 312, f"Expected 312 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 323, f"Expected 323 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 58, f"Expected 58 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 62, f"Expected 62 resources, got {len(resources)}: {sorted(resources.keys())}"
 
     def test_mmlg_v2_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -56,6 +56,29 @@ class TestRegistration:
         }
         missing = expected - resources
         assert not missing, f"Missing MMLG.2 resources: {missing}"
+
+    def test_mmlg_v3_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "mmlg3_status", "mmlg3_quests_list", "mmlg3_quest_get",
+            "mmlg3_quest_claim", "mmlg3_observation_ingest",
+            "mmlg3_observations_list", "mmlg3_letter_search_plan",
+            "mmlg3_canary_compile", "mmlg3_return_compile",
+            "mmlg3_quest_rollback", "mmlg3_receipts_verify",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing MMLG.3 tools: {missing}"
+
+    def test_mmlg_v3_resources_present(self):
+        resources = set(self.mcp._resource_manager._resources.keys())
+        expected = {
+            "athena://meta-ml-game/v3/guild-hall/projection",
+            "athena://meta-ml-game/v3/guild-hall/quest-board",
+            "athena://meta-ml-game/v3/source-adapters",
+            "athena://meta-ml-game/v3/status",
+        }
+        missing = expected - resources
+        assert not missing, f"Missing MMLG.3 resources: {missing}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
@@ -398,6 +421,10 @@ class TestRegistration:
             "athena://w31-protocol",
             "athena://w32-next-octave-authority-quorum",
             "athena://w32-independent-ic10-quorum",
+            "athena://meta-ml-game/v3/guild-hall/projection",
+            "athena://meta-ml-game/v3/guild-hall/quest-board",
+            "athena://meta-ml-game/v3/source-adapters",
+            "athena://meta-ml-game/v3/status",
         }
         missing = expected - resources
         assert not missing, f"Missing resources: {missing}"
