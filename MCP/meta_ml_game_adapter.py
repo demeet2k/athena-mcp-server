@@ -1,8 +1,9 @@
-"""Read-only adapter for the Athena Meta Machine Learning Game.
+"""Read-only MCP adapter for the Athena Meta Machine Learning Game.
 
-The authoritative registry remains in demeet2k/Athena on branch
-agent/athena-git-brain-v2. Set ATHENA_META_ML_ROOT to a checkout of that repo.
-This adapter never mutates source truth or foundation-model weights.
+The authoritative registry remains in ``demeet2k/Athena`` on branch
+``agent/athena-git-brain-v2``. Set ``ATHENA_META_ML_ROOT`` to a checkout of
+that repository. This adapter never mutates source truth, user objectives, or
+foundation-model weights.
 """
 from __future__ import annotations
 
@@ -98,7 +99,54 @@ def resource_summary(root: str | Path | None = None) -> dict[str, Any]:
         ],
         "constitution": load_constitution(root),
         "write_boundary": (
-            "Read-only adapter. Experiment and promotion writes require the Athena "
-            "control-plane witness gates."
+            "Read-only adapter. Experiment and promotion writes require the "
+            "Athena control-plane witness gates."
         ),
     }
+
+
+def register_meta_ml_tools(mcp) -> None:
+    """Install three read-only Meta-ML tools on a FastMCP server."""
+
+    @mcp.tool()
+    def meta_ml_list_goals(
+        domain_id: str = "",
+        status: str = "",
+        query: str = "",
+    ) -> str:
+        """List or search the 144 governed improvement quests."""
+        return json.dumps(
+            list_goals(
+                domain_id=domain_id or None,
+                status=status or None,
+                query=query or None,
+            ),
+            indent=2,
+            ensure_ascii=False,
+        )
+
+    @mcp.tool()
+    def meta_ml_next_quest(signals_json: str = "{}") -> str:
+        """Select the highest-priority lawful quest from optional signal values."""
+        signals = json.loads(signals_json or "{}")
+        return json.dumps(next_quest(signals), indent=2, ensure_ascii=False)
+
+    @mcp.tool()
+    def meta_ml_goal(goal_id: str) -> str:
+        """Return one exact Meta-ML quest by MLG-G001 through MLG-G144."""
+        matches = [goal for goal in load_goals() if goal["id"] == goal_id]
+        if not matches:
+            return json.dumps({"error": "GOAL_NOT_FOUND", "goal_id": goal_id})
+        return json.dumps(matches[0], indent=2, ensure_ascii=False)
+
+
+def register_meta_ml_resources(mcp) -> None:
+    """Install stable Meta-ML resources on a FastMCP server."""
+
+    @mcp.resource("athena://meta-ml-game/v1")
+    def meta_ml_game_resource() -> str:
+        return json.dumps(resource_summary(), indent=2, ensure_ascii=False)
+
+    @mcp.resource("athena://meta-ml-game/goals")
+    def meta_ml_goals_resource() -> str:
+        return json.dumps(load_goals(), indent=2, ensure_ascii=False)
