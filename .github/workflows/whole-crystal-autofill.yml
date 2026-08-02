@@ -34,3 +34,6 @@ jobs:
 
       - name: Verify MCP registration
         run: python -m pytest tests/test_registration.py -q
+
+      - name: Run direct MMLG2 adversarial acceptance
+        run: python -m pytest tests/test_meta_ml_game_v2_mcp.py -q
