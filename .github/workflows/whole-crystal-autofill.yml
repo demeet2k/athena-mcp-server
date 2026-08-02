@@ -1,6 +1,9 @@
 name: Validate KC144 whole-crystal structural autofill
 
 on:
+  push:
+    branches:
+      - agent/meta-harness-3-guild-hall-144
   pull_request:
   workflow_dispatch:
 
