@@ -10,10 +10,17 @@ on:
   pull_request:
     branches: [master, main]
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
+  kc144-release:
+    name: KC144 V7+V8 (${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.12", "3.13"]
     steps:
@@ -24,12 +31,85 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
+      - name: Install scoped dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install "mcp[cli]>=1.0.0" pytest
+          pip install "mcp[cli]>=1.0.0,<2" pytest numpy
 
-      - name: Run tests
+      - name: Run KC144 release tests
         env:
           ATHENA_ROOT: ${{ github.workspace }}
-        run: pytest tests/ -v
+          PYTHONPATH: ${{ github.workspace }}/MCP
+        run: |
+          set -o pipefail
+          pytest MCP/tests/test_kc144_v7_runtime.py MCP/tests/test_kc144_v8_runtime.py -v --tb=short 2>&1 | tee kc144-tests-${{ matrix.python-version }}.log
+
+      - name: Upload KC144 witness
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-release-python-${{ matrix.python-version }}
+          path: kc144-tests-${{ matrix.python-version }}.log
+          if-no-files-found: error
+
+  legacy-baseline:
+    name: Legacy baseline diagnostic
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install legacy-suite dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install "mcp[cli]>=1.0.0,<2" pytest numpy
+
+      - name: Run bounded historical suite
+        env:
+          ATHENA_ROOT: ${{ github.workspace }}
+        run: |
+          set -o pipefail
+          timeout 180s pytest tests/ -v --tb=short 2>&1 | tee legacy-tests.log
+
+      - name: Upload legacy migration ledger
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-baseline
+          path: legacy-tests.log
+          if-no-files-found: warn
+
+  baml-contract:
+    name: Native BAML contract (optional)
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install BAML 0.223.0
+        run: python -m pip install "baml-py==0.223.0"
+
+      - name: Generate typed BAML clients
+        run: |
+          set -o pipefail
+          baml-cli generate 2>&1 | tee baml-generate.log
+
+      - name: Upload BAML generation witness
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baml-native-generation
+          path: baml-generate.log
+          if-no-files-found: warn

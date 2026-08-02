@@ -1,5 +1,16 @@
 {
-  "meta": {"type": "live_lock_registry", "version": "2.0"},
+  "meta": {
+    "type": "live_lock_registry",
+    "version": "2.1",
+    "canonical_key": "locks",
+    "compatibility_alias": "classes"
+  },
+  "classes": [
+    {"id": "SHELL", "scope": "single crystal shell"},
+    {"id": "FACE", "scope": "single shell face"},
+    {"id": "FILE", "scope": "single persisted artifact"},
+    {"id": "GLOBAL", "scope": "whole-registry mutation"}
+  ],
   "locks": [],
   "max_concurrent": 4,
   "timeout_seconds": 300,
