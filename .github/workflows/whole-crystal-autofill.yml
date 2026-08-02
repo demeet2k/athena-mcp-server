@@ -21,7 +21,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install verifier dependencies
-        run: python -m pip install --disable-pip-version-check mcp cryptography pytest
+        run: python -m pip install --disable-pip-version-check "mcp<2" cryptography pytest
 
       - name: Verify frozen source and law ledger
         run: python scripts/whole_crystal_autofill.py --status
