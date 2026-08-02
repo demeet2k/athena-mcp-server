@@ -30,11 +30,32 @@ class TestRegistration:
 
     def test_tool_count(self):
         tools = self.mcp._tool_manager._tools
-        assert len(tools) == 300, f"Expected 300 tools, got {len(tools)}: {sorted(tools.keys())}"
+        assert len(tools) == 312, f"Expected 312 tools, got {len(tools)}: {sorted(tools.keys())}"
 
     def test_resource_count(self):
         resources = self.mcp._resource_manager._resources
-        assert len(resources) == 55, f"Expected 55 resources, got {len(resources)}: {sorted(resources.keys())}"
+        assert len(resources) == 58, f"Expected 58 resources, got {len(resources)}: {sorted(resources.keys())}"
+
+    def test_mmlg_v2_tools_present(self):
+        tools = set(self.mcp._tool_manager._tools.keys())
+        expected = {
+            "mmlg_status", "mmlg_goals_list", "mmlg_goal_get",
+            "mmlg_goal_next", "mmlg_episode_start", "mmlg_episode_observe",
+            "mmlg_episode_score", "mmlg_episode_advance", "mmlg_episode_rollback",
+            "mmlg_defects_list", "mmlg_receipts_verify", "mmlg_successor_compile",
+        }
+        missing = expected - tools
+        assert not missing, f"Missing MMLG.2 tools: {missing}"
+
+    def test_mmlg_v2_resources_present(self):
+        resources = set(self.mcp._resource_manager._resources.keys())
+        expected = {
+            "athena://meta-ml-game/v2/goal-index",
+            "athena://meta-ml-game/v2/status",
+            "athena://meta-ml-game/v2/constitution",
+        }
+        missing = expected - resources
+        assert not missing, f"Missing MMLG.2 resources: {missing}"
 
     def test_core_tools_present(self):
         tools = set(self.mcp._tool_manager._tools.keys())
