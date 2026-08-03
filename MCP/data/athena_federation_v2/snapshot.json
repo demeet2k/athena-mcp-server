@@ -1,0 +1,27 @@
+{
+  "schema": "athena.runtime-federation-snapshot/v2",
+  "source_repository": "demeet2k/Athena",
+  "source_commit": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+  "release_candidate": "KC144.MYC.P05.RC1",
+  "release_candidate_path": "crystal/v2/release-candidate.json",
+  "canonical_parent_head": "1b177fa2e3a4860487497210dcfbc122a287d693",
+  "selected_contract_lineage": "git-brain-v2",
+  "release": "v2-proposal-0.1.0",
+  "resource_versions": 14,
+  "identifiers": 56,
+  "edges": 26,
+  "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+  "promotion_authority": false,
+  "fallback": "athena-108d-v1",
+  "release_candidate_blob": "c52d8153c725f4b8d585746292958a0005fb2fe0",
+  "cold_replay": {
+    "path": ".athena/receipts/p05-cold-replay.json",
+    "vendored_path": "MCP/data/athena_federation_v2/p05-cold-replay.json",
+    "blob": "9ead2227dde84a4072194e134d5f4187f5f98735",
+    "phase_verdict": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+    "canonical_passed": 10,
+    "alternate_passed": 0,
+    "alternate_checked": 11
+  },
+  "promotion_ready": false
+}

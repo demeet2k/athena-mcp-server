@@ -1,0 +1,25 @@
+{
+  "schema": "athena.repository-migration/v2",
+  "migration_id": "migration.athena.repo.runtime-mcp.federation-v2",
+  "predecessor": {
+    "state": "repository-without-athena-v2-contract",
+    "commit": "0ee038011295873ba037a3cac25de18544439293"
+  },
+  "successor": {
+    "rid": "athena.repo.runtime-mcp",
+    "vid": "contract-proposal-0.1.0",
+    "contract_commit": "e2d6c0b445774e49eb2c914bb57bc38f01e63cc0"
+  },
+  "method": "additive-contract-overlay",
+  "status": "PROPOSED_NOT_PROMOTED",
+  "receipt": ".athena/receipts/contract-proposal.json",
+  "rollback": "Select the predecessor commit; do not rewrite either history.",
+  "preserves": [
+    "repository content",
+    "repository history",
+    "authority boundary"
+  ],
+  "defects": [
+    "Federation promotion and merge remain separate decisions."
+  ]
+}

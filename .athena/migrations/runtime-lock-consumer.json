@@ -1,0 +1,32 @@
+{
+  "schema": "athena.repository-migration/v2",
+  "migration_id": "migration.athena.repo.runtime-mcp.lock-consumer",
+  "predecessor": {
+    "rid": "athena.repo.runtime-mcp",
+    "vid": "contract-proposal-0.1.0",
+    "commit": "84297571eb84057cdcad4453ddf1642e2dc0c1b8"
+  },
+  "successor": {
+    "rid": "athena.repo.runtime-mcp",
+    "vid": "federation-consumer-0.1.0",
+    "implementation_commit": "9316373a488267423a4a71ab146de47983745b16",
+    "frozen_control_snapshot": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+    "release_candidate": "KC144.MYC.P05.RC1",
+    "cutover_receipt": ".athena/receipts/p06-runtime-cutover.json"
+  },
+  "method": "additive-runtime-bridge-with-explicit-v1-fallback",
+  "status": "P06_IMPLEMENTED_NOT_DEPLOYED",
+  "receipt": ".athena/receipts/runtime-lock-consumer.json",
+  "rollback": "Select predecessor commit 0ee038011295873ba037a3cac25de18544439293; the existing 108D runtime remains intact.",
+  "preserves": [
+    "existing MCP tools and resources",
+    "repository history",
+    "control-plane authority boundary",
+    "legacy v1 resource availability"
+  ],
+  "defects": [
+    "MCP host deployment of this branch is not yet witnessed.",
+    "The repository-wide hosted test suite contains legacy dependency and fixture-schema failures outside the P06 federation surface.",
+    "Runtime route receipts remain witnesses until admitted by the control plane."
+  ]
+}

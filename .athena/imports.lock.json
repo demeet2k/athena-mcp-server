@@ -1,0 +1,36 @@
+{
+  "schema": "athena.import-lock/v2",
+  "federation_release": "v2-proposal-0.1.0",
+  "imports": [
+    {
+      "rid": "athena.repo.control",
+      "vid": "git:3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+      "source": "github://demeet2k/Athena@3d33fbcd6248fc2dc2991fbbab5e93a7eb184246/.athena/repo.json",
+      "source_version": "git:3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+      "federation_release": "v2-proposal-0.1.0",
+      "availability": "available"
+    },
+    {
+      "rid": "athena.federation.release-candidate",
+      "vid": "KC144.MYC.P05.RC1",
+      "source": "github://demeet2k/Athena@13cda0bed07a881d42446e3a282eb1ba84ea9b45/crystal/v2/release-candidate.json",
+      "source_version": "git:13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+      "source_blob": "c52d8153c725f4b8d585746292958a0005fb2fe0",
+      "canonical_lock_parent": "git:1b177fa2e3a4860487497210dcfbc122a287d693",
+      "federation_release": "v2-proposal-0.1.0",
+      "selected_contract_lineage": "git-brain-v2",
+      "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+      "availability": "vendored-and-verified"
+    },
+    {
+      "rid": "athena.federation.cold-replay",
+      "vid": "KC144.MYC.P05.COLD-REPLAY",
+      "source": "github://demeet2k/Athena@13cda0bed07a881d42446e3a282eb1ba84ea9b45/.athena/receipts/p05-cold-replay.json",
+      "source_version": "git:13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+      "source_blob": "9ead2227dde84a4072194e134d5f4187f5f98735",
+      "verdict": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+      "alternate_verdict": "QUARANTINED[0_OF_11_EXACT_RETURN_CLOSURES]",
+      "availability": "vendored-and-verified"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "athena.runtime-lock-consumer-receipt/v2",
+  "repository": "demeet2k/athena-mcp-server",
+  "resource": "athena.repo.runtime-mcp@federation-consumer-0.1.0",
+  "verdict": "PASS_LOCAL_NOT_DEPLOYED",
+  "implementation_commit": "9316373a488267423a4a71ab146de47983745b16",
+  "cutover_receipt_commit": "518390fb4c3eb3cad2f8aa5536edb910477a61b7",
+  "frozen_source": {
+    "repository": "demeet2k/Athena",
+    "commit": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+    "release": "v2-proposal-0.1.0",
+    "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+    "release_candidate": "KC144.MYC.P05.RC1",
+    "release_candidate_blob": "c52d8153c725f4b8d585746292958a0005fb2fe0",
+    "cold_replay_blob": "9ead2227dde84a4072194e134d5f4187f5f98735",
+    "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
+    "selected_contract_lineage": "git-brain-v2"
+  },
+  "checked": [
+    "MCP/crystal_108d/federation_v2.py",
+    "MCP/data/athena_federation_v2/snapshot.json",
+    "MCP/data/athena_federation_v2/release-candidate.json",
+    "MCP/data/athena_federation_v2/p05-cold-replay.json",
+    "MCP/data/athena_federation_v2/federation.json",
+    "MCP/data/athena_federation_v2/repositories.lock.json",
+    "MCP/data/athena_federation_v2/edges.jsonl",
+    "MCP/athena_mcp_server.py",
+    "tests/test_federation_v2.py",
+    "tests/test_registration.py",
+    ".athena/receipts/p06-runtime-cutover.json"
+  ],
+  "verification": {
+    "previous_targeted_local_tests": {
+      "verdict": "PASS",
+      "tests": 7
+    },
+    "expanded_targeted_tests": {
+      "verdict": "PASS",
+      "tests": 8,
+      "python": "3.12",
+      "verified_head": "8eb80a30302400f5ab5fc8b21b6ea790a256ce4a",
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30235825452",
+      "job_id": 89883343816
+    },
+    "repository_wide_ci": {
+      "verdict": "HOLD[LEGACY_DEPENDENCY_AND_FIXTURE_SCHEMA_DEBT]",
+      "passed": 190,
+      "failed": 177,
+      "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30235825452",
+      "note": "All eight P06 federation tests passed in the hosted run."
+    },
+    "remote_source_equality": "PASS",
+    "frozen_data_equality": "PASS",
+    "registration_present": "PASS",
+    "resource_versions": 14,
+    "exact_identifiers": 56,
+    "active_edges": 26,
+    "p05_release_candidate": "PASS",
+    "p05_cold_replay": "PASS[10/10]"
+  },
+  "invariants": {
+    "existing_runtime_removed": false,
+    "fuzzy_identity_matching": false,
+    "v1_fallback_explicit": true,
+    "answer_provenance_emitted": true,
+    "return_plan_required_by_default": true,
+    "rollback_explicit": true,
+    "deployment_witness": null,
+    "runtime_has_promotion_authority": false,
+    "promotion_claimed": false
+  },
+  "next": "Deploy the exact P06 runtime proposal in an MCP host, capture live v2 and v1 receipts, then admit that witnessed commit through the control plane."
+}

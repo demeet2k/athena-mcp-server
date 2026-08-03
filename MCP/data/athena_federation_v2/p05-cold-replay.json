@@ -1,0 +1,261 @@
+{
+  "schema": "athena.cold-replay-receipt/v2",
+  "receipt_id": "KC144.MYC.SKELETON.P05::FEDERATION-RELEASE-AND-COLD-REPLAY-CLOSURE",
+  "observed_at": "2026-07-27T03:39:56Z",
+  "release_candidate": "crystal/v2/release-candidate.json",
+  "replay_method": {
+    "carrier": "GitHub exact commit and blob resolution",
+    "checked_paths": [
+      ".athena/repo.json",
+      ".athena/imports.lock.json",
+      ".athena/edges.jsonl",
+      ".athena/status.json",
+      "RETURN.md"
+    ],
+    "canonical_gates": [
+      "exact commit resolves",
+      "manifest repository and rid match",
+      "control import equals 3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+      "two witnessed edges exist",
+      "every return edge resolves exactly within the contract",
+      "promotion boundary remains false",
+      "human return surface exists"
+    ],
+    "alternate_gates": [
+      "exact commit resolves",
+      "manifest repository matches",
+      "registry import equals 43479f458079ce52ce9323c46566b7f9982323fd",
+      "declared return edge resolves exactly in the union of repository and registry edges",
+      "typed status boundary exists",
+      "human return surface exists"
+    ]
+  },
+  "inventory_reconciliation": {
+    "observed": 12,
+    "control": 1,
+    "computational_satellites": 10,
+    "excluded_profile": 1,
+    "verdict": "PASS"
+  },
+  "canonical_replay": {
+    "lineage": "git-brain-v2",
+    "checked": 10,
+    "passed": 10,
+    "failed": 0,
+    "verdict": "PASS",
+    "contracts": [
+      {
+        "repository": "demeet2k/athena-mcp-server",
+        "commit": "84297571eb84057cdcad4453ddf1642e2dc0c1b8",
+        "blobs": {
+          "manifest": "e6c28b6dc7cbe034b175f20f5a224854982cdc90",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "65d2c7bbee51aaacc70b0a2631a39c54902d92a7",
+          "status": "6daf1a7b1a2eeb9825f06fabefa2e57daed4d2a6",
+          "return": "53b086c33373651b292e6c836b890cad585c22cc"
+        }
+      },
+      {
+        "repository": "demeet2k/q-shrink",
+        "commit": "5c97c1ad0a5d0665185b5107a802f5d6b43e7d56",
+        "blobs": {
+          "manifest": "06d7d9fce3637b9f37cf87d47af9b61dbbb71fe3",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "229cf592785707331ca9f827a00ca2fc2774ac10",
+          "status": "1fd00ccea0e3b1952c3aa9f6d0c26b432fe20584",
+          "return": "74bbbd4801f6d4b8d004ae01edd64c23dc34c90b"
+        }
+      },
+      {
+        "repository": "demeet2k/manuscript-being",
+        "commit": "646df884562a0b5f29d3c9b990bfae775373ac79",
+        "blobs": {
+          "manifest": "242ec602623e5d416f77e04fa65c1a2e3f25062b",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "40f3fd9174fa54637aed644e39f317f3db209391",
+          "status": "7fc80966c0f2a1a8e02b0e4e62dfc20dc314396e",
+          "return": "f85126ef7e9a1f72368be547f8e7ab4e0912329e"
+        }
+      },
+      {
+        "repository": "demeet2k/manscript-being",
+        "commit": "643024b6110d253e1b9c50c3d5faa175e3f2a4f4",
+        "blobs": {
+          "manifest": "95d5d91ae50da5a53dbb598a472c712780b39b5f",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "ac615466c9971b34c02534ab846af7c02332a623",
+          "status": "0c7d602950296c90cee2581cdcdc27764324c25c",
+          "return": "0f94c6f275b4b65641da13d40d3bf1dc638922cf"
+        }
+      },
+      {
+        "repository": "demeet2k/athena-square-earth",
+        "commit": "446f447e081d356c9d844c06be36ce1a08351aea",
+        "blobs": {
+          "manifest": "6c4067d7339a5116cdcaaa2d6abb1b759386613f",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "4685dbae7a90a0f01b5fdabc6dca199c8819e70a",
+          "status": "d9ad377cf776e68aaafeabc2302854719f893945",
+          "return": "96d5c94372300aa527283c22d171bbd126b9a07f"
+        }
+      },
+      {
+        "repository": "demeet2k/athena-flower-fire",
+        "commit": "daa995f3f353a01746414cfbdc1ec26a58b4ac6f",
+        "blobs": {
+          "manifest": "40773084345bab5d39d9d8f1e0d74fbe1f3c67af",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "3571e0ad15da8b743ee48b9fbd8a0385d1b0f5c4",
+          "status": "f93a2be93a4a880838e27c0d69798c31574ab6bd",
+          "return": "b00d32fa9886dcad9ebb06dd51bce0799c7082d4"
+        }
+      },
+      {
+        "repository": "demeet2k/athena-cloud-water",
+        "commit": "ac00c860b59ec2c9cd541f049343465aae19d82c",
+        "blobs": {
+          "manifest": "e8a04a762cf939696e9b63dd09f7071c497b0b41",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "6f8910ab44cc09f65d7f558929e7bbac0d7437d7",
+          "status": "aed9228abe3b1c58c8e9f4e46f3a8deb25f0ef11",
+          "return": "56f1f3f8cf84efd2e5982c3fa90b7f7aa7b10f35"
+        }
+      },
+      {
+        "repository": "demeet2k/athena-fractal-air",
+        "commit": "531bfdd8188e5b1ea55caaab515b168c2963c78a",
+        "blobs": {
+          "manifest": "7f10289eb0b90147132fb9d686d6465b8a86e311",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "fbc924e17dcb450c5634d340cc47d8f343d7d28b",
+          "status": "520185b9d5aa9ebd9f761b21fac981cbc683c3bf",
+          "return": "07c716577a6e045c9a6b3c1132dbbfbd98ab2ffa"
+        }
+      },
+      {
+        "repository": "demeet2k/autoresearch",
+        "commit": "ac2b4be3112177d432868e9bd6f68da44206437d",
+        "blobs": {
+          "manifest": "e4bf1c9fa6ad97562b4199683104f325359dc535",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "890dbd9c9809bcebf7832dc38b2e49d50d229278",
+          "status": "f04a7d8cb2966a94349f8026f311cbdfb127b4c9",
+          "return": "275c25daa284f8225bb3c02fe089498c248b8779"
+        }
+      },
+      {
+        "repository": "demeet2k/guild-hall",
+        "commit": "4e29559ec344eaf6a386be9b96a59fcc07a09547",
+        "blobs": {
+          "manifest": "a6da646853a6a5387630a6e946d8b1a7eb6096a4",
+          "imports": "9d31b81e0a41864ce898f243144ae7c52d6d279a",
+          "edges": "56f6596b4f49a36766202c8e417f6d1e9db57137",
+          "status": "65878e7bf3b24bd728ae26c943908d62f779ce1a",
+          "return": "42a5668a7be9b0b8dc2cce3b6f29fec3e78e7dbe"
+        }
+      }
+    ]
+  },
+  "alternate_replay": {
+    "lineage": "p04-portal-overlay",
+    "registry_commit": "43479f458079ce52ce9323c46566b7f9982323fd",
+    "registry_edge_blob": "f3444a76f4f2658a1a50a2171752099e911fef84",
+    "registry_edge_count": 5,
+    "checked": 11,
+    "passed": 0,
+    "failed": 11,
+    "verdict": "FAIL",
+    "contracts": [
+      {
+        "repository": "demeet2k/athena-mcp-server",
+        "commit": "eb0a145bd665226420df5a143f6cc8ec9856530e",
+        "edge_blob": "fcf866ed92e191c053d226508de900a962e9ae09",
+        "return_blob": "6c7f92763f3bee2650f2abb95d07171b33d6d08c",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-athena-mcp-server"]
+      },
+      {
+        "repository": "demeet2k/q-shrink",
+        "commit": "d78f35f46f445bb666ad480aea63a4eee832e6a5",
+        "edge_blob": "040c5c2ebbf869538d8b7950dbac181b1439d72c",
+        "return_blob": "2dbf60163cb6c4de51294d7eaab8eb2d3d4572b8",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-q-shrink"]
+      },
+      {
+        "repository": "demeet2k/manuscript-being",
+        "commit": "3d764727b1f3de0979dff8449a49a146f9104b47",
+        "edge_blob": "b6bb7ff133adeec44cd875cdf2183971ac00a6ad",
+        "return_blob": "5f4a40295455c9f414ff3f3489074d250555d451",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-manuscript-being"]
+      },
+      {
+        "repository": "demeet2k/manscript-being",
+        "commit": "44d801c35ac46b2a424d74104c3d08a5b3cb168c",
+        "edge_blob": "6cffad6eb7ffdf1f84bfe7124fca7df843fa5917",
+        "return_blob": "d31d7af6927dfc0f445251a41aadc321cfcf9bd5",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-manscript-being"]
+      },
+      {
+        "repository": "demeet2k/athena-square-earth",
+        "commit": "7949d1e53622d8153acf83e1c919583ad810e8ae",
+        "edge_blob": "538e5b0a616b1ee453b1b5cd8a67128df9fbea09",
+        "return_blob": "5cfa7c2ff021946139e760bc6cd229f5e33df0e3",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-athena-square-earth"]
+      },
+      {
+        "repository": "demeet2k/athena-flower-fire",
+        "commit": "f57facee720edbd9ed300aa15996bf54350cd682",
+        "edge_blob": "c665f234f40b670a7e58a418aea461692557df47",
+        "return_blob": "3c3b99612835e2a35b5ec9246371f3d636f6198a",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-athena-flower-fire"]
+      },
+      {
+        "repository": "demeet2k/athena-cloud-water",
+        "commit": "2a0aa0f05a2815af23a53902911e2da3c07a3b67",
+        "edge_blob": "662992f5e7ae37dd5d510789c1e68492ea5439cf",
+        "return_blob": "2e648dbad95f0316cce7041972a2d9369ad08235",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-athena-cloud-water"]
+      },
+      {
+        "repository": "demeet2k/athena-fractal-air",
+        "commit": "9bf1d9d38277b1d8681efeeadabcf5666361ee03",
+        "edge_blob": "cfe51cd7ef5edca2c45e16147f39e2703a063cbe",
+        "return_blob": "9f40f5ec6fbd57a549011346a86200b1e1c1deb6",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-athena-fractal-air"]
+      },
+      {
+        "repository": "demeet2k/autoresearch",
+        "commit": "fa1830acb93dc1878b65935b0c3e1d8324500064",
+        "edge_blob": "018f10a98b7b49052aacb0eacb56486a1dde2424",
+        "return_blob": "0a9d548a1ca7378321629e2e5a02c246a775b280",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-autoresearch"]
+      },
+      {
+        "repository": "demeet2k/guild-hall",
+        "commit": "4341a31a98b47ec62923252293aa64a0d8d607e1",
+        "edge_blob": "dc7fd47c3e2a111449912dbd611498bc4903f2dc",
+        "return_blob": null,
+        "defects": [
+          "RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-guild-hall",
+          "RETURN_SURFACE_MISSING"
+        ]
+      },
+      {
+        "repository": "demeet2k/demeet2k",
+        "commit": "8245dadca775e3152be86cf4016382045cebe40e",
+        "edge_blob": "3f9c6f8593bd99eca08e7d41a5b05cbf1d490a08",
+        "return_blob": "93e24e5c7242810ca84ecfe9223c063ab56221d7",
+        "defects": ["RETURN_EDGE_UNRESOLVED:portal:athena->demeet2k-demeet2k"]
+      }
+    ]
+  },
+  "adjudication": {
+    "canonical_lineage": "git-brain-v2",
+    "alternate_lineage": "QUARANTINE[p04-portal-overlay]",
+    "rule": "A Merkle-valid lock does not imply routable identity or exact return closure.",
+    "preservation": "No branch or pull request is deleted, merged, or rewritten.",
+    "profile_boundary": "demeet2k/demeet2k remains EXCLUDED[NONCOMPUTATIONAL]."
+  },
+  "phase_verdict": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+  "promotion_verdict": "HOLD[SATELLITE_PRS_UNMERGED,RUNTIME_LOCK_CONSUMPTION_UNWITNESSED,HOSTED_RUNNER_ADMISSION_OBSTRUCTED,FULL_SOURCE_SPAN_LINEAGE_INCOMPLETE]",
+  "successor_seed": "KC144.MYC.SKELETON.P06::RUNTIME-LOCK-CONSUMPTION-AND-DUAL-RUN-CUTOVER"
+}

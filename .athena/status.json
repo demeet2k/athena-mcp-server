@@ -1,0 +1,46 @@
+{
+  "schema": "athena.repo-status/v2",
+  "state": "P07_EPHEMERAL_MCP_HOST_WITNESSED_NOT_PROMOTED",
+  "role": "runtime",
+  "base_commit": "0ee038011295873ba037a3cac25de18544439293",
+  "contract_control_commit": "3d33fbcd6248fc2dc2991fbbab5e93a7eb184246",
+  "frozen_snapshot_commit": "13cda0bed07a881d42446e3a282eb1ba84ea9b45",
+  "federation_release": "v2-proposal-0.1.0",
+  "runtime_release": "federation-consumer-0.1.0",
+  "graph_digest": "sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1",
+  "release_candidate": "KC144.MYC.P05.RC1",
+  "cold_replay": "PASS[CANONICAL_COLD_REPLAY_10_OF_10]",
+  "p06_cutover_receipt": ".athena/receipts/p06-runtime-cutover.json",
+  "p07_host_witness": ".athena/receipts/p07-mcp-host-witness.json",
+  "witnessed_commit": "bb0950312024ef8b5c7856806c362ef020f73b3f",
+  "host_witness": {
+    "verdict": "PASS_LIVE_EPHEMERAL_MCP_HOST",
+    "class": "github-actions-ephemeral-stdio",
+    "transport": "stdio",
+    "workflow_run": "https://github.com/demeet2k/athena-mcp-server/actions/runs/30236620236",
+    "job_id": 89885523004,
+    "artifact_id": 8641830348,
+    "artifact_digest": "sha256:afa81e726da3bfabd876f21b42d3919caf15a2678d227009187f575d270551e5",
+    "receipt_id": "mcp-host:sha256:63f478e7dc3356322a43b8c77456c10e410a876e404655dd92be833f9c1a7d6c",
+    "persistent_endpoint": false
+  },
+  "hosted_regressions": {
+    "passed": 14,
+    "failed": 0,
+    "python": "3.12",
+    "mcp_sdk": "1.28.1"
+  },
+  "v1_fallback": true,
+  "deployment_witness": "ephemeral-stdio",
+  "persistent_deployment": false,
+  "promotion_ready": false,
+  "open_defects": [
+    "No persistent externally addressable MCP endpoint has been deployed.",
+    "The repository-wide hosted test suite contains legacy dependency and fixture-schema failures outside the P07 federation surface.",
+    "Runtime promotion remains control-plane governed and is not claimed by this witness."
+  ],
+  "next_gate": "Deploy the witnessed runtime at a persistent MCP endpoint and replay the P07 tool/resource witness against that endpoint before promotion.",
+  "canonical_lock_parent": "1b177fa2e3a4860487497210dcfbc122a287d693",
+  "selected_contract_lineage": "git-brain-v2",
+  "successor_seed": "KC144.MYC.SKELETON.P08::PERSISTENT-MCP-ENDPOINT-AND-PROMOTION-READINESS"
+}

@@ -5,7 +5,7 @@
 
 # Athena MCP Server — 108D Crystal Hologram Distributed Brain
 
-**81 tools** · **23 resources** · **42 data files** · **4 element servers** · **8 brain nodes** · **14,112 mycelium shards** · **41,653 edges** · **17 metro lines** · **HPRO v1 CODE_KEY addressing** · Python 3.12+
+**84 tools** · **25 resources** · **42 data files** · **4 element servers** · **8 brain nodes** · **14,112 mycelium shards** · **41,653 edges** · **17 metro lines** · **HPRO v1 CODE_KEY addressing** · Python 3.12+
 
 An [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that exposes the entire Athena nervous system — a 108-dimensional crystal hologram organism — as a distributed algorithmic brain with 4 element-specific lobes, a Guild Hall social coordination organ, and a manuscript-being main brain, all connected by weighted bridges.
 
@@ -20,6 +20,26 @@ Seven mediums, one organism:
 
 ---
 
+## Frozen Federation v2 Bridge
+
+This server now consumes a checked-in, immutable snapshot of the Athena control
+plane instead of inferring repository relationships from README links or names.
+
+- `athena_federation_status` reports the exact release, source commit, graph
+  digest, and active fallback.
+- `resolve_athena_identity` resolves only exact RIDs, canonical URIs, GitHub
+  locators, and registered AMC projections.
+- `route_athena_federation` compiles witnessed cross-repository routes together
+  with their reverse return plan.
+- Existing 108D resources remain available through an explicit
+  `athena-108d-v1` fallback. Every response says which runtime answered.
+- `KC144.MYC.P05.RC1` is verified as the selected `git-brain-v2` release candidate before the graph is loaded.
+- The vendored lock is verified at load time against 14 resource versions,
+  56 exact identifiers, 26 typed edges, and graph digest
+  `sha256:82a3f9e2369394f39080b795476342688b95e35dcfcda3fe6a8be0212618d8d1`.
+
+---
+
 ## Quick Start
 
 ```bash
@@ -30,7 +50,7 @@ cd athena-mcp-server
 # Install
 pip install "mcp[cli]>=1.0.0"
 
-# Run the unified server (all 81 tools)
+# Run the unified server (all 84 tools)
 python MCP/athena_mcp_server.py
 
 # Or run a single element lobe
@@ -336,10 +356,12 @@ Regenerate the graph: `python -X utf8 MCP/generate_graph.py`
 
 ---
 
-## Resource Catalog (23 resources)
+## Resource Catalog (25 resources)
 
 | URI | Description |
 |-----|-------------|
+| `athena://federation-v2` | Frozen federation release, digest, and runtime provenance |
+| `athena://federation-v2/lock` | Exact repository lock consumed by this process |
 | `athena://status` | System overview |
 | `athena://board` | Realtime board state |
 | `athena://loop` | Current loop state |
