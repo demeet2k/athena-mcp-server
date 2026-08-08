@@ -1,0 +1,53 @@
+{
+  "artifact": "ATHENA.STEERING.CAMPAIGN.COLD.BOOT.SPEC.V1",
+  "status": "CANDIDATE",
+  "parent_issue": "demeet2k/Athena#189",
+  "acceptance_rung": 7,
+  "purpose": "Allow a fresh agent to discover and resume Campaign V3 from durable Git/runtime state without a chat-supplied campaign ID, branch ID, loop ID, state digest or checkpoint.",
+  "discovery_root": "prompts/rehydration_campaigns/RHC-*/state.json",
+  "campaign_qualification": [
+    "shared_frontier_verified",
+    "ATHENA.REHYDRATION.CAMPAIGN.V2 artifact identity",
+    "campaign state digest integrity",
+    "campaign checkpoint is ancestor of current Git HEAD",
+    "campaign verify() returns PASS",
+    "at least one branch source.kind is STEERING_LEDGER_RESIDUAL"
+  ],
+  "branch_selection": [
+    "consider only steering branches in active-width states",
+    "zero active branches returns DISCOVERED_NO_ACTIVE_STEERING_BRANCH",
+    "more than one active branch returns HOLD_AMBIGUOUS_BRANCH",
+    "one unbound branch returns DISCOVERED_UNBOUND_BRANCH",
+    "one bound branch delegates discovered coordinates to fresh_resume_branch"
+  ],
+  "identity_ambiguity": [
+    "zero valid steering campaigns returns HOLD_NO_VALID_STEERING_CAMPAIGN",
+    "more than one valid steering campaign returns HOLD_AMBIGUOUS_CAMPAIGN",
+    "the cold boot never picks a scalar winner from ambiguous durable state"
+  ],
+  "observed_current_repository_boundary": {
+    "branch_at_design": "agent/steering-campaign-v3-selective-satisfaction",
+    "head_at_design": "aec1483881e84f1ee9f300da51b231814b4e5db0",
+    "campaign_root_contents_lookup": "404 Not Found",
+    "interpretation": "Campaign V3 libraries exist on the branch, but no durable RHC campaign instance is present there yet; real cold resume therefore remains HOLD_NO_CAMPAIGN until a campaign is explicitly started and returned to Git."
+  },
+  "non_mutations": [
+    "does not create a campaign",
+    "does not claim a branch",
+    "does not bind a loop",
+    "does not choose among multiple active steering branches",
+    "does not execute a steering action",
+    "does not infer hidden campaign state from chat"
+  ],
+  "laws": [
+    "COLD_BOOT != CHAT_MEMORY",
+    "DISCOVERY != CLAIM",
+    "AMBIGUOUS_CAMPAIGN => HOLD",
+    "AMBIGUOUS_BRANCH => HOLD",
+    "CAMPAIGN_STATE_DIGEST_REQUIRED",
+    "CAMPAIGN_REPLAY_PASS_REQUIRED",
+    "CHECKPOINT_ANCESTRY_REQUIRED",
+    "NO_DURABLE_CAMPAIGN != EMPTY_WORLD",
+    "COLD_RESUME != EXECUTION_AUTHORITY"
+  ]
+}
