@@ -18,7 +18,7 @@ Runtime root: one composed `Server`.
 
 `OMEGA = current accessible whole-state projection`
 
-`PROMOTION = exact-head local predicates + external CI/smoke attestations`.
+`PROMOTION.2 = exact-head caller-bound readiness + separate trusted-host qualification`.
 
 Canonical authority RPCs remain `athena_claim_*`.
 
@@ -27,6 +27,10 @@ Collective science-shadow replication/falsification remains `athena_discovery_cl
 `athena_claim_* != athena_discovery_claim_*`.
 
 V12 model posterior, graph candidate, causal-policy estimate, EVSI and optimization output has no implicit Y1 mutation path.
+
+`CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`.
+
+`ATTESTED_READY != QUALIFIED`.
 
 ## 2. Unified ladder
 
@@ -145,7 +149,7 @@ Above the exact threshold it uses a deterministic greedy fallback with **no opti
 
 `OPTIMIZATION_PLAN != EXECUTION`.
 
-## 10. No self-training / no semantic laundering
+## 10. No self-training / no semantic laundering / no self-qualification
 
 Forbidden transitions include:
 
@@ -159,11 +163,15 @@ Forbidden transitions include:
 
 `chance plan -> resource execution`
 
-`model/science-shadow result -> Y1 authority`.
+`model/science-shadow result -> Y1 authority`
 
-General law:
+`caller CI/smoke packet -> trusted QUALIFIED`.
+
+General laws:
 
 `MODEL_OUTPUT --X--> OBSERVATION_OR_AUTHORITY_WITHOUT_EXTERNAL_WITNESS`.
+
+`CALLER_ATTESTATION --X--> QUALIFIED_WITHOUT_TRUSTED_VERIFIER`.
 
 ## 11. State and transaction domains
 
@@ -177,9 +185,11 @@ V11 GP observed-row CAS remains local model-state protection.
 
 V12 finite hyperposteriors, BMA predictions, structural candidates, causal-policy estimates and resource plans are read-only/model-state computations and do not collapse these domains.
 
+PROMOTION.2 trusted verification is a separate trust plane and is not another semantic/Git/topology write domain.
+
 ## 12. Live architecture and SURFACE.2
 
-`ATHENA.RUNTIME.UNIFIED.7` advertises `COLLECTIVE_JOINT_V12`, preserves compatibility with `.1` through `.6`, and includes V12 invariants/unresolved boundaries.
+`ATHENA.RUNTIME.UNIFIED.7` advertises `COLLECTIVE_JOINT_V12`, preserves compatibility with `.1` through `.6`, and includes V12 invariants/unresolved boundaries plus PROMOTION.2 trust separation.
 
 SURFACE.2 requires the seven V12 tools and `athena://collective/v12` resource. Deleting V12 from discovery therefore fails local promotion readiness rather than appearing as harmless extra-surface drift.
 
@@ -201,32 +211,44 @@ Use V12 only when at least one of the following materially changes the action:
 
 Higher numeric sophistication never grants higher semantic authority.
 
-## 14. CI / promotion contract
+## 14. CI / PROMOTION.2 trust contract
 
 Release gate:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-The critical-invariant job names V12 explicitly and runs constructive, adversarial and unified authority tests.
+The critical-invariant job names V12 explicitly and runs constructive, adversarial and unified authority tests. Repository documentation consistency is itself a critical invariant. PROMOTION.2 tests separately enforce caller/trusted-verifier separation.
 
-Repository documentation consistency is itself a critical invariant.
+A green Actions run proves the exact tested Git head passed the configured workflow. It does **not** fabricate a runtime trusted PROMRUN and does not prove real-world model correctness.
 
-`CI_PASS != LIVE_PROMRUN`.
+MCP-visible `athena_promotion_evaluate` may reach:
 
-A green Actions run proves the exact tested Git head passed the configured workflow; it does not fabricate a runtime PROMRUN record and does not prove real-world model correctness.
+`ATTESTED_READY`
 
-Final canonical promotion requires the exact master head, not merely the feature-branch head, to pass all gates after merge.
+when local Server/SURFACE/COMPOSITION/configured-Git gates and caller-bound CI/smoke packets pass on the same exact head.
+
+`QUALIFIED`
+
+additionally requires a host-internal trusted verifier receipt binding that head plus the exact CI and smoke references. The ordinary MCP input schema does not expose that receipt, so an MCP caller cannot self-mint qualification.
+
+Historical PROMOTION.1 receipts remain versioned/replayable under V1 semantics but are separated from current PROMOTION.2 trusted qualification.
+
+`CI_PASS != LIVE_TRUSTED_PROMRUN`.
+
+Final canonical brain promotion requires the exact master head, not merely the feature-branch head, to pass all repository gates after ancestry reconciliation. The canonical brain may cite the external GitHub CI witness, but it must not claim a runtime `QUALIFIED` receipt unless the trusted host verifier actually produced one.
 
 ## 15. External control-plane boundary
 
-GitHub branch protection, repository settings/description, tags, Releases, PR state and merge state are **external control-plane state**. They must be read or changed with GitHub control-plane capabilities.
+GitHub branch protection, repository settings/description, tags, Releases, PR/merge state and the trusted promotion-verifier bridge are **external control-plane state**. They must be read or changed with actual GitHub/host control-plane capabilities.
 
 `RUNTIME_CI != GITHUB_CONTROL_PLANE_STATE`.
 
-No runtime resource, OMEGA snapshot, SELFTEST or PROMOTION predicate may claim an external setting was changed without an actual control-plane witness.
+No runtime resource, OMEGA snapshot, SELFTEST, caller attestation or `ATTESTED_READY` receipt may claim an external setting was changed or trusted verification occurred without an actual control-plane witness.
 
 ## 16. Residual frontier
 
-`UNRESOLVED_EXTERNAL_CONTROL_PLANE` remains a valid state when required GitHub control-plane capabilities are unavailable.
+`UNRESOLVED_EXTERNAL_CONTROL_PLANE` remains a valid state when required GitHub/host control-plane capabilities are unavailable.
 
 Technical V13 residuals include continuous GP hyperparameter Bayes, scalable sparse/variational GP inference, full FCI/RFCI, calibrated PAG uncertainty, longitudinal TMLE/dynamic regimes, general off-policy causal policy value, joint long-horizon GP/POMDP experimental design, correlated/distributionally robust chance constraints, and dynamic stochastic resource control.
+
+The trusted external promotion verifier itself remains a separate unresolved control-plane bridge until such a host verifier is actually implemented and witnessed.
