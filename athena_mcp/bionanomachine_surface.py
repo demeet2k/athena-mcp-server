@@ -11,22 +11,32 @@ from .mythic_computation_surface import (
     MYTHIC_COMPUTATION_TOOL_NAMES,
     MYTHIC_COMPUTATION_RESOURCE_URIS,
 )
+from .mythic_strata_surface import (
+    MythicStrataSurface,
+    MYTHIC_STRATA_RESOURCES,
+    MYTHIC_STRATA_TOOLS,
+    MYTHIC_STRATA_TOOL_NAMES,
+    MYTHIC_STRATA_RESOURCE_URIS,
+)
 
-# Compatibility seam: AorDevelopmentSurface already composes this extension bundle.
-# Preserve the MCK tool/resource union exactly while switching only the BNMK runtime
-# behind the stable six-tool ABI to the tested source-backed V2 implementation.
-BIONANOMACHINE_TOOLS=list(BIONANO_TOOLS)+list(MYTHIC_COMPUTATION_TOOLS)
-BIONANOMACHINE_RESOURCES=[BIONANO_RESOURCE]+list(MYTHIC_COMPUTATION_RESOURCES)
-BIONANOMACHINE_TOOL_NAMES=set(BIONANO_TOOL_NAMES)|set(MYTHIC_COMPUTATION_TOOL_NAMES)
-BIONANOMACHINE_RESOURCE_URIS={BIONANO_RESOURCE['uri']}|set(MYTHIC_COMPUTATION_RESOURCE_URIS)
+# Compatibility seam: preserve the tested source-backed BNMK V2 runtime behind the
+# stable six-tool ABI while composing the independent MCK V1 + strata surfaces.
+# No surface receives authority from the others merely by sharing this dispatcher.
+BIONANOMACHINE_TOOLS=list(BIONANO_TOOLS)+list(MYTHIC_COMPUTATION_TOOLS)+list(MYTHIC_STRATA_TOOLS)
+BIONANOMACHINE_RESOURCES=[BIONANO_RESOURCE]+list(MYTHIC_COMPUTATION_RESOURCES)+list(MYTHIC_STRATA_RESOURCES)
+BIONANOMACHINE_TOOL_NAMES=set(BIONANO_TOOL_NAMES)|set(MYTHIC_COMPUTATION_TOOL_NAMES)|set(MYTHIC_STRATA_TOOL_NAMES)
+BIONANOMACHINE_RESOURCE_URIS={BIONANO_RESOURCE['uri']}|set(MYTHIC_COMPUTATION_RESOURCE_URIS)|set(MYTHIC_STRATA_RESOURCE_URIS)
 
 
 class BionanomachineSurface:
     def __init__(self):
         self.runtime=EvidenceBionanomachineRuntime()
         self.mck=MythicComputationSurface()
+        self.strata=MythicStrataSurface()
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        handled,value=self.strata.call_tool(name,args)
+        if handled:return True,value
         handled,value=self.mck.call_tool(name,args)
         if handled:return True,value
         r=self.runtime
@@ -39,6 +49,8 @@ class BionanomachineSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri in MYTHIC_STRATA_RESOURCE_URIS:
+            return self.strata.read_resource(uri)
         if uri in MYTHIC_COMPUTATION_RESOURCE_URIS:
             return self.mck.read_resource(uri)
         if uri!=BIONANO_RESOURCE['uri']:raise KeyError(uri)
@@ -66,4 +78,5 @@ class BionanomachineSurface:
         result={}
         result.update(self.runtime.benchmark())
         result.update(self.mck.benchmark())
+        result['mck_strata']=self.strata.benchmark()
         return result
