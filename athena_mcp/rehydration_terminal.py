@@ -18,15 +18,48 @@ def _nonempty_list(value: Any) -> list:
 
 
 def evaluate_terminal_request(runtime: RehydrationLoopRuntime, loop_id: str, completion: dict) -> dict:
-    """Evaluate a terminal request as a closure claim, never as self-authenticating truth."""
+    """Evaluate a terminal request as a closure claim, never as self-authenticating truth.
+
+    This evaluator is deliberately self-sufficient because it is used both by the
+    mutating advance path and by standalone successor preview. Closure therefore
+    cannot rely on a later core validator to add missing observation/pass checks.
+    """
 
     state, _ = runtime._read_state(loop_id)
     reasons: list[str] = []
 
     if str(completion.get("status") or "").upper() != "SUCCEEDED":
         reasons.append("TERMINAL_STATUS_NOT_SUCCEEDED")
+    if completion.get("observed") is not True:
+        reasons.append("TERMINAL_COMPLETION_NOT_OBSERVED")
+    if not _nonempty_text(completion.get("summary")):
+        reasons.append("TERMINAL_SUMMARY_MISSING")
     if completion.get("hard_hold"):
         reasons.append("HARD_HOLD_IS_NOT_SUCCESSFUL_CLOSURE")
+
+    required_passes = [
+        _nonempty_text(x)
+        for x in _nonempty_list((state.get("depth_policy") or {}).get("required_passes"))
+        if _nonempty_text(x)
+    ]
+    pass_rows = _nonempty_list(completion.get("passes"))
+    seen_passes: set[str] = set()
+    malformed_passes = False
+    for row in pass_rows:
+        if not isinstance(row, dict):
+            malformed_passes = True
+            continue
+        kind = _nonempty_text(row.get("kind"))
+        summary = _nonempty_text(row.get("summary"))
+        if not kind or not summary:
+            malformed_passes = True
+            continue
+        seen_passes.add(kind)
+    if malformed_passes:
+        reasons.append("TERMINAL_PASSES_MALFORMED")
+    missing_passes = [kind for kind in required_passes if kind not in seen_passes]
+    if missing_passes:
+        reasons.append("TERMINAL_REQUIRED_PASSES_MISSING:" + "|".join(missing_passes))
 
     residuals = [row for row in _nonempty_list(completion.get("residuals")) if _nonempty_text(row)]
     if residuals:
@@ -106,11 +139,15 @@ def evaluate_terminal_request(runtime: RehydrationLoopRuntime, loop_id: str, com
         "status": "ACCEPTED" if accepted else "REJECTED_CONTINUE",
         "requested_terminal": True,
         "reasons": reasons,
+        "required_passes": required_passes,
+        "observed_passes": sorted(seen_passes),
         "declared_stop_conditions": stop_conditions,
         "observed_stop_results": stop_results,
         "terminal_evidence": evidence,
         "laws": [
             "TERMINAL_REQUEST != TERMINAL_VERDICT",
+            "PREDICTION != OBSERVATION",
+            "REQUIRED_PASS_NAME != OBSERVED_PASS_RECEIPT",
             "KNOWN_RESIDUAL => CONTINUE",
             "STOP_CONDITION_TEXT != OBSERVED_STOP_WITNESS",
             "REJECTED_TERMINAL => SELF_STEER_SUCCESSOR_NOT_HUMAN_REENTRY",
