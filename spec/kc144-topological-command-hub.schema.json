@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "athena.kc144.topological-command-hub.schema/v1",
+  "type": "object",
+  "required": ["id", "version", "census_equation", "coordinates", "math", "seats", "graphs", "organs", "datasets", "readiness", "communication", "return", "manifest_digest"],
+  "properties": {
+    "id": {"const": "KC144.TOPOLOGICAL.COMMAND.HUB.1.0.0"},
+    "version": {"const": "1.0.0"},
+    "census_equation": {"const": "6+16+21+37+10+15+27+12=144"},
+    "coordinates": {"type": "array", "minItems": 16},
+    "math": {"type": "array", "minItems": 15},
+    "seats": {"type": "array", "minItems": 144, "maxItems": 144},
+    "graphs": {"type": "array", "minItems": 7},
+    "organs": {"type": "array", "minItems": 30},
+    "datasets": {"type": "array", "minItems": 19},
+    "readiness": {"type": "object", "required": ["athena_ready", "gates"]},
+    "communication": {"type": "object", "required": ["nodes", "edges", "digest"]},
+    "return": {"type": "object"},
+    "manifest_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}
