@@ -5,6 +5,7 @@ from .frontier_claim import (
     install_frontier_claim_extension,
 )
 from .frontier_claim_idempotency import install_frontier_claim_idempotency
+from .frontier_claim_internal_compat import install_frontier_claim_internal_compat
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
 from .prompt_runtime import PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 
@@ -14,6 +15,7 @@ from .prompt_runtime import PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 # wrapper and dispatch's canonical prompt-tool union without rewriting __init__.
 install_frontier_claim_extension(FrontierRuntime, FRONTIER_TOOLS)
 install_frontier_claim_idempotency(FrontierClaimRuntime, FRONTIER_CLAIM_TOOLS)
+install_frontier_claim_internal_compat(FrontierClaimRuntime)
 FRONTIER_TOOL_NAMES.update(FRONTIER_CLAIM_TOOL_NAMES)
 for _tool in FRONTIER_CLAIM_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
