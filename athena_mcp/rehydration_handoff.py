@@ -91,6 +91,37 @@ class RehydrationHandoffRuntime:
         include_full_prompt_on_change: bool = True,
         include_frontier_on_change: bool = True,
     ) -> dict:
+        before = self.derive(loop_id)
+        current_digest = before.get("handoff_digest")
+        if current_digest != expected_handoff_digest:
+            return {
+                "artifact": ARTIFACT,
+                "status": "STALE_HANDOFF_HOLD",
+                "expected_handoff_digest": expected_handoff_digest,
+                "current_handoff_digest": current_digest,
+                "detail": before,
+                "durable_return": False,
+                "laws": ["HANDOFF_DIGEST_MISMATCH => HOLD"],
+            }
+        if before.get("status") != "HANDOFF_READY":
+            state, _ = self.loop._read_state(loop_id)
+            remote = (state.get("source") or {}).get("remote") or "origin"
+            fallback = self.loop.resume(
+                loop_id,
+                include_prompt=True,
+                shared_remote_mode=shared_remote_mode,
+                remote=remote,
+            )
+            return {
+                "artifact": ARTIFACT,
+                "status": before.get("status"),
+                "handoff_digest": expected_handoff_digest,
+                "handoff": before.get("handoff"),
+                "fallback": fallback,
+                "durable_return": False,
+                "laws": before.get("laws") or [],
+            }
+
         core = self.core.consume(
             loop_id=loop_id,
             expected_baton_digest=expected_handoff_digest,
