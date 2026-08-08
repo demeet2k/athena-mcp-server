@@ -56,7 +56,21 @@
       "properties": {
         "op": {"enum": ["IDENTITY", "SET", "ADD", "MUL"]},
         "operand": {}
-      }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"op": {"const": "IDENTITY"}}, "required": ["op"]},
+          "then": {"properties": {"operand": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"op": {"enum": ["ADD", "MUL"]}}, "required": ["op"]},
+          "then": {"required": ["operand"], "properties": {"operand": {"type": "number"}}}
+        },
+        {
+          "if": {"properties": {"op": {"const": "SET"}}, "required": ["op"]},
+          "then": {"required": ["operand"]}
+        }
+      ]
     },
     "operator": {
       "type": "object",
