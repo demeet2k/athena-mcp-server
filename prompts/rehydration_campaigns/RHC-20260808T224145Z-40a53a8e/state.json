@@ -16,14 +16,21 @@
       "created_at": "2026-08-08T22:41:45.513071+00:00",
       "depth": 0,
       "evidence_refs": [],
-      "loop": null,
+      "loop": {
+        "chain_digest": "9c94793ea9a73d374d5861334719c9be8851d5561278633f31e6ce8be323fc80",
+        "checkpoint_head": "ccaad34e464a002b8f663b30bdda18ad3130f1b0",
+        "loop_id": "RHL-20260808T224150Z-15bdb1d9",
+        "state_digest": "1a34435f0daca2458ed9d48df7a3f58a7b38894021e0ce6adc474b422ba69506",
+        "status": "ACTIVE",
+        "step_index": 0
+      },
       "parent_branch_id": null,
       "routing_score": null,
       "source": null,
-      "status": "CLAIMED",
+      "status": "ACTIVE",
       "successor_baton": null,
       "task": "Commit one bounded synthetic material witness and return a successor",
-      "updated_at": "2026-08-08T22:41:48.171352+00:00"
+      "updated_at": "2026-08-08T22:41:52.526183+00:00"
     }
   },
   "budget": {
@@ -33,13 +40,13 @@
     "max_width": 1
   },
   "campaign_id": "RHC-20260808T224145Z-40a53a8e",
-  "chain_digest": "afb1d5cbab430ba8c30b61184db57006738135720def229430fd5fc7c51aefe9",
+  "chain_digest": "3c0fc04763e595f7a46e74ea1509eaf64c08086abdc17684c7bbf44d8f5166b1",
   "created_at": "2026-08-08T22:41:45.513085+00:00",
   "goal": "Observe one privacy-safe Campaign V3 branch binding to an explicit V1 loop",
-  "logical_clock": 1,
-  "previous_chain_digest": "30cea21a2845a78f7193c889e514bb8710147698ae55999bc798c167e12add20",
+  "logical_clock": 2,
+  "previous_chain_digest": "afb1d5cbab430ba8c30b61184db57006738135720def229430fd5fc7c51aefe9",
   "reconciliations": [],
-  "state_digest": "9219c70f2f78e42bc08114f2fb7a7d00621ed40c9af119d864f33b7f5a6a12a5",
+  "state_digest": "8d1303b278ee1a27150bad84e80ea3f3c356b62f806faca1519520d69e22145c",
   "status": "ACTIVE",
-  "updated_at": "2026-08-08T22:41:48.171363+00:00"
+  "updated_at": "2026-08-08T22:41:52.526194+00:00"
 }
