@@ -16,6 +16,11 @@ from .orchestration_hug_protocol import HUG_RESOURCE,HUG_TOOLS
 from .orchestration_gap_protocol import GAP_RESOURCE,GAP_TOOLS
 from .orchestration_field_protocol import FIELD_RESOURCE,FIELD_TOOLS
 from .aor_collective_transport_protocol import TRANSPORT_RESOURCE,TRANSPORT_TOOLS
+from .cycle_protocol import CYCLE_RESOURCE,CYCLE_TOOLS
+from .state_foundation_protocol import STATE_FOUNDATION_RESOURCES,STATE_FOUNDATION_TOOLS
+from .self_test_protocol import SELF_TEST_RESOURCE,SELF_TEST_TOOLS
+from .startup_health_protocol import STARTUP_HEALTH_RESOURCE,STARTUP_HEALTH_TOOLS
+from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_TOOLS
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS
 from .promotion_protocol import PROMOTION_RESOURCE,PROMOTION_TOOLS
 
@@ -32,22 +37,12 @@ BASE_REQUIRED={
 def _names(tools):return {tool['name'] for tool in tools}
 
 REQUIRED_TOOLS={
- 'base':BASE_REQUIRED,
- 'collective_v1':_names(COLLECTIVE_TOOLS),
- 'collective_growth':_names(COLLECTIVE_GROWTH_TOOLS),
- 'collective_v2':_names(COLLECTIVE_V2_TOOLS),
- 'aor_core':_names(AOR_TOOLS)|_names(ROBUSTNESS_TOOLS),
- 'branch':_names(BRANCH_TOOLS),
- 'authority':_names(AUTHORITY_TOOLS),
- 'equivalence':_names(EQUIVALENCE_TOOLS),
- 'extraction':_names(EXTRACTION_TOOLS),
- 'retrieval':_names(RETRIEVAL_TOOLS),
- 'hug':_names(HUG_TOOLS),
- 'gap':_names(GAP_TOOLS),
- 'field':_names(FIELD_TOOLS),
- 'transport':_names(TRANSPORT_TOOLS),
- 'surface':_names(SURFACE_TOOLS),
- 'promotion':_names(PROMOTION_TOOLS),
+ 'base':BASE_REQUIRED,'collective_v1':_names(COLLECTIVE_TOOLS),'collective_growth':_names(COLLECTIVE_GROWTH_TOOLS),'collective_v2':_names(COLLECTIVE_V2_TOOLS),
+ 'aor_core':_names(AOR_TOOLS)|_names(ROBUSTNESS_TOOLS),'branch':_names(BRANCH_TOOLS),'authority':_names(AUTHORITY_TOOLS),
+ 'equivalence':_names(EQUIVALENCE_TOOLS),'extraction':_names(EXTRACTION_TOOLS),'retrieval':_names(RETRIEVAL_TOOLS),'hug':_names(HUG_TOOLS),'gap':_names(GAP_TOOLS),
+ 'field':_names(FIELD_TOOLS),'transport':_names(TRANSPORT_TOOLS),'cycle':_names(CYCLE_TOOLS),'state_foundation':_names(STATE_FOUNDATION_TOOLS),
+ 'self_test':_names(SELF_TEST_TOOLS),'startup':_names(STARTUP_HEALTH_TOOLS),'manifest':_names(UNIFIED_MANIFEST_TOOLS),
+ 'surface':_names(SURFACE_TOOLS),'promotion':_names(PROMOTION_TOOLS),
 }
 
 REQUIRED_RESOURCES={
@@ -55,9 +50,11 @@ REQUIRED_RESOURCES={
  'collective':{'athena://collective/runtime','athena://collective/growth','athena://collective/v2'},
  'aor_core':{'athena://orchestration/law','athena://orchestration/recent','athena://orchestration/robustness','athena://branches','athena://authority'},
  'development':{EQUIVALENCE_RESOURCE['uri'],EXTRACTION_RESOURCE['uri'],RETRIEVAL_RESOURCE['uri'],HUG_RESOURCE['uri'],GAP_RESOURCE['uri'],FIELD_RESOURCE['uri']},
- 'transport':{TRANSPORT_RESOURCE['uri']},
- 'surface':{SURFACE_RESOURCE['uri']},
- 'promotion':{PROMOTION_RESOURCE['uri']},
+ 'transport':{TRANSPORT_RESOURCE['uri']},'cycle':{CYCLE_RESOURCE['uri']},
+ 'state_foundation':{resource['uri'] for resource in STATE_FOUNDATION_RESOURCES},
+ 'self_test':{SELF_TEST_RESOURCE['uri']},'startup':{STARTUP_HEALTH_RESOURCE['uri']},
+ 'manifest':{resource['uri'] for resource in UNIFIED_MANIFEST_RESOURCES},
+ 'surface':{SURFACE_RESOURCE['uri']},'promotion':{PROMOTION_RESOURCE['uri']},
 }
 
 
@@ -69,11 +66,10 @@ def _flatten(groups):
 
 def contract_manifest()->Dict[str,Any]:
     return {
-        'version':SURFACE_VERSION,
-        'required_tools':{k:sorted(v) for k,v in REQUIRED_TOOLS.items()},
+        'version':SURFACE_VERSION,'required_tools':{k:sorted(v) for k,v in REQUIRED_TOOLS.items()},
         'required_resources':{k:sorted(v) for k,v in REQUIRED_RESOURCES.items()},
         'tool_count':len(_flatten(REQUIRED_TOOLS)),'resource_count':len(_flatten(REQUIRED_RESOURCES)),
-        'law':'the promoted unified runtime must preserve every mature base + Collective + AOR + transport + governance surface unless an explicit versioned supersession/migration changes this contract',
+        'law':'promoted unified runtime must preserve every mature base + Collective + AOR + FIELD/transport/CYCLE + state-foundation + startup/self-test + live-manifest + governance surface unless explicit versioned supersession/migration changes this contract',
     }
 
 
@@ -83,9 +79,4 @@ def audit_surface(tool_names:Iterable[str],resource_uris:Iterable[str])->Dict[st
     for group in sorted(set(REQUIRED_TOOLS)|set(REQUIRED_RESOURCES)):
         mt=sorted(REQUIRED_TOOLS.get(group,set())-tools);mr=sorted(REQUIRED_RESOURCES.get(group,set())-resources)
         groups[group]={'status':'PASS' if not mt and not mr else 'FAIL','missing_tools':mt,'missing_resources':mr}
-    return {
-        'version':SURFACE_VERSION,'status':'PASS' if not missing_tools and not missing_resources else 'FAIL',
-        'missing_tools':missing_tools,'missing_resources':missing_resources,
-        'extra_tools':sorted(tools-req_tools),'extra_resources':sorted(resources-req_resources),
-        'groups':groups,'observed_tool_count':len(tools),'observed_resource_count':len(resources),
-    }
+    return {'version':SURFACE_VERSION,'status':'PASS' if not missing_tools and not missing_resources else 'FAIL','missing_tools':missing_tools,'missing_resources':missing_resources,'extra_tools':sorted(tools-req_tools),'extra_resources':sorted(resources-req_resources),'groups':groups,'observed_tool_count':len(tools),'observed_resource_count':len(resources)}
