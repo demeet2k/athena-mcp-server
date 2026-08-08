@@ -29,7 +29,7 @@ LIFE_AGENT_ENTER_TOOL = {
 
 LIFE_RESOLVE_TOOL = {
     "name": "athena_life_resolve",
-    "description": "Resolve one public CLEAR, FAIL_CLEAR, or typed HOLD attempt through Stay-in-Game Life Loop V1.",
+    "description": "Resolve one public CLEAR, FAIL_CLEAR, or typed HOLD attempt through the hardened Stay-in-Game Life Loop V1 reducer.",
     "inputSchema": {
         "type": "object",
         "properties": {
@@ -45,26 +45,48 @@ LIFE_RESOLVE_TOOL = {
 CAMPAIGN_LIFE_BIND_TOOL = {
     "name": "athena_campaign_life_bind",
     "description": (
-        "Bind Stay-in-Game Life Loop V1 continuation metadata around an already-bound Campaign V3 loop. "
-        "This grants no execution or scheduler authority and executes no work."
+        "Compile one non-authoritative Campaign V3 Life quest packet from a residual pulse, frozen clear-condition contract, "
+        "and bound RESEED_ANCHOR_V1. Compilation executes no work, consumes no life or anchor, and issues no reward."
     ),
     "inputSchema": {
         "type": "object",
         "properties": {
-            "bound_receipt": {"type": "object"},
+            "pulse": {"type": "object"},
+            "residual_step": {"type": "integer", "minimum": 1},
+            "campaign_id": {"type": "string", "minLength": 1},
+            "branch_id": {"type": "string", "minLength": 1},
+            "agent_coordinate_name": {"type": "string", "minLength": 1},
             "quest_id": {"type": "string", "minLength": 1},
             "quest_version": {"type": "string", "minLength": 1},
-            "clear_condition_digest": {"type": "string", "minLength": 1},
+            "clear_conditions": {
+                "type": "array",
+                "minItems": 1,
+                "items": {"type": "string", "minLength": 1},
+            },
             "reseed_anchor": {"type": "object"},
-            "extra_life_reward_eligibility": {"type": "boolean"},
+            "extra_life_reward_candidate": {
+                "type": "object",
+                "properties": {
+                    "requested": {"type": "boolean"},
+                    "candidate_id": {"type": "string", "minLength": 1},
+                    "evidence_refs": {
+                        "type": "array",
+                        "items": {"type": "string", "minLength": 1},
+                    },
+                },
+                "additionalProperties": False,
+            },
         },
         "required": [
-            "bound_receipt",
+            "pulse",
+            "residual_step",
+            "campaign_id",
+            "branch_id",
+            "agent_coordinate_name",
             "quest_id",
             "quest_version",
-            "clear_condition_digest",
+            "clear_conditions",
             "reseed_anchor",
-            "extra_life_reward_eligibility",
         ],
         "additionalProperties": False,
     },
@@ -82,8 +104,8 @@ STAY_IN_GAME_LIFE_LOOP_RESOURCE = {
     "uri": "athena://stay-in-game-life-loop/v1",
     "name": "ATHENA Stay-in-Game Life Loop V1",
     "description": (
-        "Public logical-life continuation law over Campaign V3 and RESEED_ANCHOR_V1. "
-        "No product/model/provider counter reset authority."
+        "Public logical-life continuation reducer plus Campaign V3 Life packet compiler membrane. "
+        "No product/model/provider counter reset or scheduler authority."
     ),
     "mimeType": "application/json",
 }
