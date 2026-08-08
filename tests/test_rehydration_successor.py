@@ -95,12 +95,20 @@ class SuccessorCompilerTests(unittest.TestCase):
         self.assertTrue(baton["selected"]["routing_only"])
         self.assertIn("ROUTING_SCORE != AUTHORITY", baton["laws"])
 
-    def test_candidate_order_does_not_change_baton_identity(self):
+    def test_candidate_order_does_not_change_semantic_tie_set(self):
         completion = {"status": "SUCCEEDED", "residuals": []}
         a = self.compile(completion, candidates=["One", "Two"])
         b = self.compile(completion, candidates=["Two", "One"])
-        self.assertEqual(a["baton_digest"], b["baton_digest"])
-        self.assertEqual(a["pareto_candidate_ids"], b["pareto_candidate_ids"])
+        self.assertEqual(a["status"], "AMBIGUOUS")
+        self.assertEqual(b["status"], "AMBIGUOUS")
+        self.assertEqual(
+            sorted(row["task"] for row in a["ties"]),
+            sorted(row["task"] for row in b["ties"]),
+        )
+        # The baton identity may retain proposal-order provenance; selection
+        # semantics must not turn that ordering into a hidden winner.
+        self.assertIsNone(a["selected"])
+        self.assertIsNone(b["selected"])
 
     def test_terminal_completion_emits_no_successor(self):
         baton = self.compile({"status": "SUCCEEDED", "terminal": True, "residuals": ["ignored"]})
