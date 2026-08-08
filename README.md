@@ -6,7 +6,7 @@ Core law: one canonical state, explicit versions, exact ancestry, stale-write re
 
 ## Runtime cycle
 
-`HYDRATE → RECONSTRUCT → JSPACE → SCALE → KC144/POLYATLAS → CUT/MAXDEV → COLLECTIVE PLAN → BUILD → QUORUM/VERIFY → FINALIZE_OUTPUT → VERIFY → CONDITIONAL COMMIT → GLOBAL DIFFUSION`
+`HYDRATE → RECONSTRUCT → JSPACE → SCALE → KC144/POLYATLAS → CUT/MAXDEV → COLLECTIVE PLAN → DEMAND ALLOCATE → BUILD/BRIDGE → QUORUM/VERIFY → HEALTH/RESTRUCTURE → LIFECYCLE → FINALIZE_OUTPUT → VERIFY → CONDITIONAL COMMIT → GLOBAL DIFFUSION`
 
 ## Identity
 
@@ -59,6 +59,20 @@ MCP tools:
 Resource: `athena://collective/runtime`.
 
 Specification: `spec/COLLECTIVE_RUNTIME.md`.
+
+## Collective Growth Operators V1
+
+The growth layer turns the controller into an active organizational metabolism:
+
+- `athena_collective_allocate` — scarce workers follow demand × capability fit × available capacity;
+- `athena_bridge_account` — interfaces/infrastructure must repay build + maintenance + locked-capacity cost;
+- `athena_collective_restructure` — FISSION/FUSE/HOLD from coordination, contagion, cohesion, complementarity and duplication pressure;
+- `athena_dependency_alarm` — weighted, decaying failure/change waves only along explicit dependency/influence edges;
+- `athena_artifact_lifecycle` — KEEP_ACTIVE / KEEP_REFERENCE / DORMANT / QUARANTINE / PRUNE_REFERENCE while preserving required lineage.
+
+Resource: `athena://collective/growth`.
+
+Specification: `spec/COLLECTIVE_GROWTH.md`.
 
 ## Run
 
