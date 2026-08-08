@@ -31,7 +31,7 @@ class MetadataConsistencyTests(unittest.TestCase):
                 'athena_uncertainty_decompose','athena_dual_control_plan','athena_belief_register','athena_decision_evi',
                 'athena_gaussian_belief_register','athena_decision_evpi','athena_causal_aipw','athena_structure_partial',
                 'athena_gp_register','athena_gp_predict','athena_pc_stable_discover','athena_causal_tmle_binary','athena_sensitivity_evalue','athena_pomdp_solve','athena_evidence_dependence_fit',
-                'athena_gp_hyperfit','athena_gp_decision_evsi','athena_latent_admg_project','athena_causal_tmle_stacked','athena_sensitivity_rr_surface','athena_bapomdp_solve','athena_evidence_dependence_interval',
+                'athena_gp_hyperfit','athena_gp_decision_evsi','athena_latent_project_admg','athena_causal_tmle_ensemble','athena_sensitivity_rr_surface','athena_bapomdp_solve','athena_evidence_dependence_interval',
                 'athena_discovery_claim_register','athena_discovery_claim_witness','athena_discovery_claim_state',
                 'athena_claim_register','athena_claim_state','athena_claim_promote',
             ):
