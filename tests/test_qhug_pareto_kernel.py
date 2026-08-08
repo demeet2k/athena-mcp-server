@@ -1,6 +1,8 @@
 import unittest
 
 from athena_mcp.qhug_pareto_kernel import analyze_kernel,solve_kernel,verify_decomposition
+from athena_mcp.qhug_pareto_kernel_protocol import QHUG_PARETO_KERNEL_TOOL_NAMES,QHUG_PARETO_KERNEL_RESOURCE
+from athena_mcp.qhug_pareto_kernel_surface import QhugParetoKernelSurface
 
 
 PATCHES=[
@@ -57,6 +59,21 @@ class QhugKernelTests(unittest.TestCase):
         self.assertEqual(out['width_upper_bound'],1)
         self.assertEqual(out['clique_lower_bound'],1)
         self.assertTrue(out['exact_treewidth_certified'])
+
+    def test_mcp_surface_exports_all_tools(self):
+        self.assertEqual(QHUG_PARETO_KERNEL_TOOL_NAMES,{
+            'athena_qhug_kernel_analyze','athena_qhug_pareto_solve','athena_qhug_decomposition_verify'
+        })
+        surface=QhugParetoKernelSurface()
+        handled,out=surface.call_tool('athena_qhug_kernel_analyze',SPEC)
+        self.assertTrue(handled)
+        self.assertEqual(out['raw_candidate_count'],8192)
+
+    def test_resource_describes_fail_closed_boundary(self):
+        surface=QhugParetoKernelSurface()
+        resource=surface.read_resource(QHUG_PARETO_KERNEL_RESOURCE['uri'])
+        self.assertEqual(resource['version'],'QHUG.PARETO-KERNEL.23.2')
+        self.assertTrue(any('verified junction' in x for x in resource['boundaries']))
 
 
 if __name__=='__main__':unittest.main()
