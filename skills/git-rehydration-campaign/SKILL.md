@@ -41,8 +41,8 @@ Alternative paths:
 ```text
 ACTIVE → BLOCKED
 WITNESSED/BLOCKED → EXPANDED
-WITNESSED/BLOCKED → SUPERSEDED
-CLAIMED → OPEN      (release)
+WITNESSED/BLOCKED → SUPERSEDED   (explicit only)
+CLAIMED → OPEN                   (release)
 ```
 
 ## Successor expansion
@@ -130,11 +130,15 @@ summary
 evidence_refs
 ```
 
-Nonselected WITNESSED/BLOCKED alternatives become `SUPERSEDED`, preserving their history.
+Supersession is explicit. Only IDs listed in `supersede_branch_ids` may move from `WITNESSED`/`BLOCKED` to `SUPERSEDED`. Unmentioned branches remain untouched. This prevents one local decision from silently erasing an independent exploration branch.
 
 A nonterminal reconciliation enters `RECONCILED`; this means the exploration decision is recorded but does **not** mean code was merged.
 
-A terminal campaign may become `COMPLETE` only if it carries an observed integration witness with an exact Git head.
+A terminal campaign may become `COMPLETE` only when:
+
+- it carries an observed integration witness;
+- the witness Git head equals the currently observed Git head;
+- no unselected, unsuperseded branch remains in an active frontier state.
 
 ```text
 RECONCILED != GIT_MERGED
@@ -158,7 +162,7 @@ Campaign verification checks:
 - current state digest;
 - sequential event chain;
 - branch identity and valid states;
-- parent/depth consistency;
+- parent/depth consistency, including root depth zero;
 - max depth;
 - max total branch count;
 - active frontier width at every depth;
@@ -170,12 +174,15 @@ Campaign verification checks:
 
 V2 is intentionally introduced as an additive runtime library/harness with tests and a machine-readable contract before MCP surface promotion. This prevents the stable V1/V1.1 tool membranes from changing merely because the campaign graph is structurally plausible.
 
+There is also an explicit promotion hold: campaign and sibling-loop coordination commits live in the same Git history as branch work. Before MCP promotion, V1 substantive-work accounting must exclude `prompts/rehydration/**` and `prompts/rehydration_campaigns/**` coordination-only changes so control-plane commits cannot satisfy a work-progress gate by themselves.
+
 ## Laws
 
 - `CAMPAIGN_BRANCH != BACKGROUND_WORKER`.
 - `AMBIGUITY MAY EXPAND INTO BOUNDED BRANCHES`.
 - `WIDTH/DEPTH/BRANCH BUDGETS FAIL CLOSED`.
 - `BRANCH_ROUTING != AUTHORITY`.
+- `UNMENTIONED BRANCH != SUPERSEDED BRANCH`.
 - `RECONCILIATION != GIT_MERGE`.
 - `CAMPAIGN COMPLETE REQUIRES OBSERVED INTEGRATION WITNESS`.
 - `CAMPAIGN VERIFY != BRANCH WORK TRUTH`.
