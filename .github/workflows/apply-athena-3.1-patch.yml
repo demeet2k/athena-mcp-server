@@ -38,7 +38,7 @@ jobs:
           test -f athena_mcp/deployment.py
           test -f athena_mcp/http_host.py
           test -f deploy/kubernetes/athena.yaml.tmpl
-          test -f .github/workflows/deploy-image.yml
+          test -f .github/workflows/release.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
