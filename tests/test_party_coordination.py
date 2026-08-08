@@ -175,15 +175,37 @@ class PartyCoordinationTests(unittest.TestCase):
         self.assertIn('NEED_WITNESSED_RESULT_POST',early['hold_reasons'])
 
         self.tool('athena_party_board_post',{
-            'post_id':'post.result',
+            'post_id':'post.result-analysis',
             'party_id':'PARTY.TEST',
             'agent':'agent.alpha',
             'kind':'RESULT',
             'channel_ref':'issue://party-test',
-            'body':'analysis and implementation integrated',
-            'goal_refs':['goal.analysis','goal.code'],
-            'claim_refs':['claim.analysis','claim.code'],
-            'witness_ref':'test://integration',
+            'body':'analysis integrated',
+            'goal_refs':['goal.analysis'],
+            'claim_refs':['claim.analysis'],
+            'witness_ref':'test://analysis',
+        })
+        partial=self.tool('athena_party_observe',{
+            'observation_id':'OBS.PARTIAL',
+            'party_id':'PARTY.TEST',
+            'observer':'observer.meta',
+            'base_xp':100,
+            'advanced_goal_ids':['goal.analysis','goal.code'],
+            'witness_ref':'obs://partial',
+        })
+        self.assertEqual(partial['status'],'HOLD')
+        self.assertIn('ADVANCED_GOALS_LACK_RESULT_WITNESS',partial['hold_reasons'])
+
+        self.tool('athena_party_board_post',{
+            'post_id':'post.result-code',
+            'party_id':'PARTY.TEST',
+            'agent':'agent.beta',
+            'kind':'RESULT',
+            'channel_ref':'issue://party-test',
+            'body':'implementation integrated',
+            'goal_refs':['goal.code'],
+            'claim_refs':['claim.code'],
+            'witness_ref':'test://code',
         })
         award=self.tool('athena_party_observe',{
             'observation_id':'OBS.SUCCESS',
