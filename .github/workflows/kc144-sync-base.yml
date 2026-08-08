@@ -14,58 +14,128 @@ concurrency:
   group: kc144-authoritative-base-sync
   cancel-in-progress: false
 
+env:
+  KC144_BASE_SHA: fa898653fe3f9c60bd41630118a9a1b99454c1b3
+  KC144_PACK_SHA256: 312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d
+
 jobs:
   synchronize:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           ref: agent/kc144-topological-command-hub
           fetch-depth: 0
-      - name: Merge base with explicit FIELD conflict policy
+
+      - name: Merge frozen base with explicit semantic conflict policy
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "athena-kc144-bot"
           git config user.email "athena-kc144-bot@users.noreply.github.com"
-          git fetch origin agent/aor-collective-unified
+          git cat-file -e "${KC144_BASE_SHA}^{commit}" 2>/dev/null || git fetch origin "${KC144_BASE_SHA}"
+          test "$(git cat-file -t "${KC144_BASE_SHA}")" = commit
+          git rev-parse HEAD > /tmp/kc144-head-before-merge.txt
+          git merge-base HEAD "${KC144_BASE_SHA}" > /tmp/kc144-common-ancestor.txt
+
           set +e
-          git merge --no-ff --no-commit origin/agent/aor-collective-unified
+          git merge --no-ff --no-commit "${KC144_BASE_SHA}"
           merge_rc=$?
           set -e
           mapfile -t conflicts < <(git diff --name-only --diff-filter=U | sort)
+          printf '%s\n' "${conflicts[@]}" > /tmp/kc144-conflicts.txt
           expected=(
+            athena_mcp/aor_development_surface.py
+            athena_mcp/orchestration_field/__init__.py
+            athena_mcp/orchestration_field/compiler.py
+            athena_mcp/orchestration_field/ledger.py
+            athena_mcp/orchestration_field_protocol.py
+            pyproject.toml
+          )
+          if (( merge_rc == 0 )); then
+            echo "Expected a six-path semantic conflict set, but merge completed cleanly"
+            exit 1
+          fi
+          if [[ "${conflicts[*]}" != "${expected[*]}" ]]; then
+            printf 'Unexpected conflicts:\n%s\n' "${conflicts[*]}"
+            git merge --abort
+            exit 1
+          fi
+          test "$(git rev-parse MERGE_HEAD)" = "${KC144_BASE_SHA}"
+
+          field_paths=(
             athena_mcp/orchestration_field/__init__.py
             athena_mcp/orchestration_field/compiler.py
             athena_mcp/orchestration_field/ledger.py
             athena_mcp/orchestration_field_protocol.py
           )
-          if (( merge_rc != 0 )); then
-            if [[ "${conflicts[*]}" != "${expected[*]}" ]]; then
-              printf 'Unexpected conflicts:\n%s\n' "${conflicts[*]}"
-              git merge --abort
-              exit 1
-            fi
-            for path in "${expected[@]}"; do
-              git checkout --ours -- "$path"
-              git add "$path"
-            done
-          elif (( ${#conflicts[@]} != 0 )); then
-            printf 'Merge reported success but unresolved paths remain:\n%s\n' "${conflicts[*]}"
-            exit 1
-          fi
+          for path in "${field_paths[@]}"; do
+            git checkout --ours -- "$path"
+            git add "$path"
+          done
+
+          # The authoritative base owns the expanded transport/integrity/CYCLE
+          # composition. FIELD remains the tested KC144 implementation above.
+          git checkout --theirs -- athena_mcp/aor_development_surface.py
+          git add athena_mcp/aor_development_surface.py
+
+          # Semantic package merge: latest base identity + KC144 outer server and
+          # immutable embedded registry carrier.
+          cat > pyproject.toml <<'EOF'
+          [build-system]
+          requires = ["setuptools>=70"]
+          build-backend = "setuptools.build_meta"
+
+          [project]
+          name = "athena-canonical-mcp"
+          version = "2.5.0"
+          description = "Canonical KC144/JSPACE/SCALE developmental control, causal experimental science, active discovery/stochastic control, and digest-bound topological command substrate"
+          requires-python = ">=3.11"
+          dependencies = []
+
+          [project.scripts]
+          athena-mcp = "athena_mcp.hub_server:main"
+
+          [tool.setuptools.packages.find]
+          include = ["athena_mcp*"]
+
+          [tool.setuptools.package-data]
+          athena_mcp = ["data/*.xz"]
+          EOF
+          sed -i 's/^          //' pyproject.toml
+          git add pyproject.toml
+
           test -z "$(git diff --name-only --diff-filter=U)"
           test -f tests/test_field_unified.py
+          test -f tests/test_collective_v6_unified.py
+          test -f athena_mcp/cycle.py
+          test -f athena_mcp/runtime_integrity_surface.py
+          test -f athena_mcp/aor_collective_transport.py
+          grep -q 'AorCollectiveTransportSurface' athena_mcp/aor_development_surface.py
+          grep -q 'RuntimeIntegritySurface' athena_mcp/aor_development_surface.py
+          grep -q 'OmegaCycleRuntime' athena_mcp/aor_development_surface.py
+          python - <<'PY'
+          import tomllib
+          from pathlib import Path
+          data = tomllib.loads(Path('pyproject.toml').read_text())
+          assert data['project']['version'] == '2.5.0'
+          assert data['project']['scripts']['athena-mcp'] == 'athena_mcp.hub_server:main'
+          assert 'data/*.xz' in data['tool']['setuptools']['package-data']['athena_mcp']
+          PY
+
       - name: Install merged package
         run: python -m pip install --disable-pip-version-check -e .
+
       - name: Compile merged surfaces
         run: python -m compileall -q athena_mcp scripts tests
+
       - name: Run complete merged test suite
         shell: bash
         run: |
           set -euo pipefail
           python -m unittest discover -s tests -v 2>&1 | tee /tmp/kc144-base-sync-tests.log
+
       - name: Run merged MCP composition smoke
         shell: bash
         run: |
@@ -80,9 +150,12 @@ jobs:
               tools = server.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']
               names = {item['name'] for item in tools}
               required = {
+                  'athena_cycle_start',
+                  'athena_cycle_state',
                   'athena_field_compile',
-                  'athena_field_run',
                   'athena_field_get',
+                  'athena_field_replay',
+                  'athena_field_recent',
                   'athena_kc144_registry_verify',
                   'athena_kc144_registry_cross_search',
                   'athena_kc144_registry_source_bundle',
@@ -91,9 +164,15 @@ jobs:
               }
               missing = sorted(required - names)
               assert not missing, missing
+              assert len(names) >= 114, len(names)
               verified = server.call_tool('athena_kc144_registry_verify', {'deep': True})
               assert verified['status'] == 'PASS', verified
-              field = server.call_tool('athena_field_compile', {'seed_ref':'seed://base-sync-smoke','module_outputs':{},'persist':False})
+              assert verified['pack_sha256'] == '312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d'
+              field = server.call_tool('athena_field_compile', {
+                  'seed_ref':'seed://base-sync-smoke',
+                  'module_outputs':{},
+                  'persist':False,
+              })
               assert field['version'] == 'FIELD.1', field
               frontier = server.call_tool('athena_kc144_completion_frontier', {})
               assert frontier['frontier'][0]['task_id'] == 'TASK.000', frontier
@@ -102,10 +181,12 @@ jobs:
                   'tool_count':len(names),
                   'registry_pack_sha256':verified['pack_sha256'],
                   'field_version':field['version'],
+                  'cycle_surface':'CYCLE.1',
                   'frontier':frontier['frontier'][0]['task_id'],
               }, sort_keys=True))
               server.store.close()
           PY
+
       - name: Write base-sync resolution receipt
         shell: bash
         env:
@@ -117,43 +198,67 @@ jobs:
           import json
           import os
           import re
-          import subprocess
           from pathlib import Path
 
           tests = Path('/tmp/kc144-base-sync-tests.log').read_text()
-          smoke = Path('/tmp/kc144-base-sync-smoke.json').read_text()
+          smoke_text = Path('/tmp/kc144-base-sync-smoke.json').read_text()
+          smoke = json.loads(smoke_text.strip().splitlines()[-1])
           match = re.search(r'Ran (\d+) tests', tests)
           if not match:
               raise SystemExit('test count missing')
+          conflicts = [line for line in Path('/tmp/kc144-conflicts.txt').read_text().splitlines() if line]
           receipt = {
-              'version': 'ATHENA.KC144.BASE.SYNC.RECEIPT.1',
+              'version': 'ATHENA.KC144.BASE.SYNC.RECEIPT.2',
               'status': 'PASS',
               'branch': 'agent/kc144-topological-command-hub',
-              'head_before_merge': os.environ['GITHUB_SHA_VALUE'],
-              'base_commit': subprocess.check_output(['git','rev-parse','origin/agent/aor-collective-unified'], text=True).strip(),
-              'merge_base': subprocess.check_output(['git','merge-base','HEAD','origin/agent/aor-collective-unified'], text=True).strip(),
+              'head_before_merge': Path('/tmp/kc144-head-before-merge.txt').read_text().strip(),
+              'workflow_trigger_sha': os.environ['GITHUB_SHA_VALUE'],
+              'base_commit': os.environ['KC144_BASE_SHA'],
+              'common_ancestor_before_merge': Path('/tmp/kc144-common-ancestor.txt').read_text().strip(),
+              'merge_head': os.popen('git rev-parse MERGE_HEAD').read().strip(),
               'github_run_id': os.environ['GITHUB_RUN_ID_VALUE'],
               'test_count': int(match.group(1)),
+              'mcp_tool_count': smoke['tool_count'],
               'tests_log_sha256': hashlib.sha256(tests.encode()).hexdigest(),
-              'smoke_log_sha256': hashlib.sha256(smoke.encode()).hexdigest(),
+              'smoke_log_sha256': hashlib.sha256(smoke_text.encode()).hexdigest(),
+              'observed_conflicts': conflicts,
               'conflict_resolution': {
-                  'policy': 'retain tested KC144 FIELD implementation; import authoritative base FIELD tests',
-                  'ours_paths': [
+                  'retain_kc144_field_paths': [
                       'athena_mcp/orchestration_field/__init__.py',
                       'athena_mcp/orchestration_field/compiler.py',
                       'athena_mcp/orchestration_field/ledger.py',
                       'athena_mcp/orchestration_field_protocol.py',
                   ],
-                  'imported_base_test': 'tests/test_field_unified.py',
+                  'adopt_base_composition_path': 'athena_mcp/aor_development_surface.py',
+                  'semantic_merge_path': 'pyproject.toml',
+                  'semantic_merge_contract': {
+                      'base_version': '2.5.0',
+                      'entrypoint': 'athena_mcp.hub_server:main',
+                      'package_data': ['data/*.xz'],
+                  },
               },
-              'registry_pack_sha256': '312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d',
-              'gates': ['EXPECTED_CONFLICT_SET','FIELD_BASE_TEST_IMPORTED','PACKAGE_INSTALL','COMPILEALL','MERGED_UNITTEST_DISCOVERY','MERGED_MCP_SMOKE'],
-              'authority_boundary': 'This receipt certifies the synchronized branch workspace and merge commit. Pull-request review and post-merge target-branch CI remain separate gates.',
+              'registry_pack_sha256': os.environ['KC144_PACK_SHA256'],
+              'field_version': smoke['field_version'],
+              'cycle_surface': smoke['cycle_surface'],
+              'completion_frontier_probe': smoke['frontier'],
+              'gates': [
+                  'FROZEN_BASE_SHA',
+                  'EXACT_CONFLICT_SET',
+                  'SEMANTIC_CONFLICT_RESOLUTION',
+                  'BASE_FIELD_AND_V6_TESTS_IMPORTED',
+                  'PACKAGE_INSTALL',
+                  'COMPILEALL',
+                  'MERGED_UNITTEST_DISCOVERY',
+                  'DEEP_REGISTRY_VERIFY',
+                  'MERGED_MCP_COMPOSITION_SMOKE',
+              ],
+              'authority_boundary': 'This receipt certifies the exact synchronized branch merge candidate. Pull-request review, GitHub mergeability calculation, and post-merge target-branch validation remain distinct gates.',
           }
           path = Path('receipts/kc144_base_sync_receipt.json')
           path.parent.mkdir(parents=True, exist_ok=True)
           path.write_text(json.dumps(receipt, sort_keys=True, indent=2) + '\n')
           PY
+
       - name: Commit synchronized merge and retire workflow
         shell: bash
         run: |
@@ -162,4 +267,6 @@ jobs:
           git add -A
           git commit -m "merge(kc144): synchronize authoritative AOR collective base"
           test "$(git rev-list --parents -n 1 HEAD | wc -w)" -eq 3
+          git merge-base --is-ancestor "${KC144_BASE_SHA}" HEAD
+          git show -s --format=%P HEAD | grep -q "${KC144_BASE_SHA}"
           git push origin HEAD:agent/kc144-topological-command-hub
