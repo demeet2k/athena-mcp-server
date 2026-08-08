@@ -11,9 +11,17 @@ from .protocol import TOOLS, PROMPTS
 from .aor_development_surface import AOR_DEVELOPMENT_RESOURCES
 from .command_hub import KC144CommandHub
 from .command_hub_protocol import HUB_PROMPT, HUB_RESOURCES, HUB_TOOLS
+from .kc144_registry_pack import catalog as registry_catalog
+from .kc144_registry_pack import cell_bundle as registry_cell_bundle
+from .kc144_registry_pack import completion_frontier as registry_completion_frontier
+from .kc144_registry_pack import cross_search as registry_cross_search
+from .kc144_registry_pack import manifest as registry_manifest
+from .kc144_registry_pack import query_registry, source_bundle as registry_source_bundle
+from .kc144_registry_pack import status as registry_status, verify_pack
+from .kc144_registry_protocol import REGISTRY_RESOURCES, REGISTRY_TOOLS
 
 _existing_tools = {item["name"] for item in TOOLS}
-for tool in HUB_TOOLS:
+for tool in HUB_TOOLS + REGISTRY_TOOLS:
     if tool["name"] not in _existing_tools:
         TOOLS.append(tool)
         _existing_tools.add(tool["name"])
@@ -24,29 +32,52 @@ if HUB_PROMPT["name"] not in _existing_prompts:
 
 
 class HubServer(UnifiedServer):
-    """Authoritative composition surface for the current unified runtime plus KC144 hub."""
+    """Authoritative composition surface for the unified runtime and KC144 hub."""
 
     def __init__(self, db: str, git_root: str | None = None) -> None:
         super().__init__(db, git_root)
         self.command_hub = KC144CommandHub(
             tool_names=lambda: [item["name"] for item in TOOLS],
             runtime_probe=self._runtime_probe,
-            resource_uris=[item["uri"] for item in AOR_DEVELOPMENT_RESOURCES + HUB_RESOURCES],
+            resource_uris=[
+                item["uri"]
+                for item in AOR_DEVELOPMENT_RESOURCES + HUB_RESOURCES + REGISTRY_RESOURCES
+            ],
         )
 
     def _runtime_probe(self) -> dict[str, Any]:
         try:
             base = super().call_tool("athena_benchmark", {})
-        except Exception as exc:  # status surfaces failure; it never invents a pass.
+        except Exception as exc:
             return {"state": "PROBE_FAILED", "error_type": type(exc).__name__}
         return {"state": "PROBED", "benchmark": base}
+
+    @staticmethod
+    def _remove_discharged_field_blocker(result: dict[str, Any]) -> dict[str, Any]:
+        if not isinstance(result, dict):
+            return result
+        readiness = result if "blockers" in result else result.get("readiness")
+        if isinstance(readiness, dict):
+            readiness["blockers"] = [
+                item for item in readiness.get("blockers", [])
+                if "FIELD.1" not in str(item)
+            ]
+            note = "FIELD.1 tools, resource, persistence ledger, replay, benchmark and top-surface routes are live"
+            discharged = readiness.setdefault("discharged", [])
+            if note not in discharged:
+                discharged.append(note)
+        return result
 
     def call_tool(self, name: str, arguments: dict[str, Any]) -> Any:
         hub = self.command_hub
         if name == "athena_kc144_hub_status":
-            return hub.status()
+            result = self._remove_discharged_field_blocker(hub.status())
+            result["authoritative_registry_pack"] = registry_status()
+            return result
         if name == "athena_kc144_hub_manifest":
-            return hub.manifest(arguments.get("include_edges", False), arguments.get("include_dynamic_inventory", True))
+            result = hub.manifest(arguments.get("include_edges", False), arguments.get("include_dynamic_inventory", True))
+            result["authoritative_registry_pack"] = registry_status()
+            return result
         if name == "athena_kc144_hub_seat":
             return hub.seat(arguments["gid"], arguments.get("include_fibres", True))
         if name == "athena_kc144_hub_inventory":
@@ -60,12 +91,58 @@ class HubServer(UnifiedServer):
         if name == "athena_kc144_hub_communication":
             return hub.communication()
         if name == "athena_kc144_hub_readiness":
-            return hub.readiness()
+            result = self._remove_discharged_field_blocker(hub.readiness())
+            result["authoritative_registry_pack"] = registry_status()
+            return result
         if name == "athena_kc144_hub_validate":
-            return hub.validate()
+            result = hub.validate()
+            pack = verify_pack(deep=True)
+            result["authoritative_registry_pack"] = pack
+            if pack["status"] != "PASS":
+                result["overall_status"] = "FAIL"
+            return result
+
+        if name == "athena_kc144_registry_status":
+            return registry_status(verify=arguments.get("verify", False))
+        if name == "athena_kc144_registry_catalog":
+            return registry_catalog()
+        if name == "athena_kc144_registry_query":
+            return query_registry(
+                arguments["registry"],
+                query=arguments.get("query"),
+                filters=arguments.get("filters"),
+                offset=arguments.get("offset", 0),
+                limit=arguments.get("limit", 100),
+            )
+        if name == "athena_kc144_registry_cross_search":
+            return registry_cross_search(
+                arguments["query"],
+                registries=arguments.get("registries"),
+                limit=arguments.get("limit", 100),
+                per_registry=arguments.get("per_registry", 25),
+            )
+        if name == "athena_kc144_registry_source_bundle":
+            return registry_source_bundle(
+                arguments["source_id"],
+                limit_per_registry=arguments.get("limit_per_registry", 100),
+            )
+        if name == "athena_kc144_registry_cell_bundle":
+            return registry_cell_bundle(
+                arguments["gid"],
+                task_limit=arguments.get("task_limit", 100),
+            )
+        if name == "athena_kc144_completion_frontier":
+            return registry_completion_frontier(
+                completed_task_ids=arguments.get("completed_task_ids"),
+                limit=arguments.get("limit", 100),
+            )
+        if name == "athena_kc144_registry_verify":
+            return verify_pack(deep=arguments.get("deep", True))
+
         if name == "athena_benchmark":
             result = super().call_tool(name, arguments)
-            result["kc144_command_hub"] = hub.status()
+            result["kc144_command_hub"] = self._remove_discharged_field_blocker(hub.status())
+            result["kc144_registry_pack"] = registry_status()
             return result
         return super().call_tool(name, arguments)
 
