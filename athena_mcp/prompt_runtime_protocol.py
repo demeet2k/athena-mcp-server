@@ -2,15 +2,16 @@ PROMPT_RUNTIME_TOOLS = [
     {
         "name": "athena_prompt_hydrate",
         "description": (
-            "Hydrate the configured Athena Git prompt brain at one exact clean HEAD. Returns profile, ordered module paths, "
-            "per-body digests, revision-bound source capsule, matching scoped overlays and prompt/runtime changes since an optional prior HEAD. "
-            "Fails explicitly when ATHENA_GIT_ROOT, manifest bodies or clean HEAD binding are unavailable."
+            "Hydrate the configured Athena Git prompt brain at one exact clean HEAD. Returns profile, deterministic task-sensitive module selection, "
+            "per-body digests, revision-bound source capsule, explicit frontier refs, matching scoped overlays and prompt/runtime changes since an optional prior HEAD. "
+            "Fails explicitly when ATHENA_GIT_ROOT, manifest bodies, dependency/order laws or clean HEAD binding are unavailable."
         ),
         "inputSchema": {
             "type": "object",
             "properties": {
                 "profile": {"type": "string", "minLength": 1},
                 "scope": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": True},
+                "task": {"type": "string", "minLength": 1},
                 "include_text": {"type": "boolean"},
                 "since_git_head": {"type": "string", "minLength": 1},
             },
@@ -20,16 +21,33 @@ PROMPT_RUNTIME_TOOLS = [
     {
         "name": "athena_prompt_compile",
         "description": (
-            "Compile a deterministic repository prompt addendum from manifest -> policy -> ordered selected modules -> applicable ACTIVE_SCOPED overlays. "
-            "The result includes exact Git HEAD, stack/source-capsule digests and explicit authority ceiling. An optional task overlay is ephemeral and never written."
+            "Compile a deterministic repository prompt addendum from profile/active modules + mandatory modules + task-selector matches + dependency closure, "
+            "then strict unique order -> policy/modules -> applicable ACTIVE_SCOPED overlays. The result includes exact Git HEAD, selection reasons, "
+            "frontier refs, stack/source-capsule digests and authority ceiling. An optional task overlay is ephemeral and never written."
         ),
         "inputSchema": {
             "type": "object",
             "properties": {
                 "profile": {"type": "string", "minLength": 1},
                 "scope": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": True},
+                "task": {"type": "string", "minLength": 1},
                 "task_overlay": {"type": "string", "minLength": 1},
                 "since_git_head": {"type": "string", "minLength": 1},
+            },
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "athena_prompt_freshness",
+        "description": (
+            "Compare a caller's last hydrated Git HEAD with the current clean Athena brain HEAD. Returns ancestry relation, material prompt/frontier file changes, "
+            "affected scope and a typed rehydration requirement. This is an invalidation detector only; it performs no fetch, mutation, push or promotion."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "required": ["last_git_head"],
+            "properties": {
+                "last_git_head": {"type": "string", "minLength": 1},
             },
             "additionalProperties": False,
         },

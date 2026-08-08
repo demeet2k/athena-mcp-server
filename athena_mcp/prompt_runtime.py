@@ -7,12 +7,17 @@ from .prompt_runtime_git import PromptRuntimeGit
 from .prompt_runtime_promotion import PromptRuntimePromotionMixin
 from .prompt_runtime_proposal import PromptRuntimeProposalMixin
 from .prompt_runtime_records import PromptRuntimeRecordsMixin
+from .prompt_runtime_selection import PromptRuntimeSelectionMixin
 from .prompt_runtime_types import AUTHORITY_LAW, PROMPT_RESOURCE_URI, PROMPT_RUNTIME_VERSION
 
 
 class PromptRuntimeSurface(
-    PromptRuntimePromotionMixin, PromptRuntimeProposalMixin, PromptRuntimeCompileMixin,
-    PromptRuntimeRecordsMixin, PromptRuntimeGit
+    PromptRuntimePromotionMixin,
+    PromptRuntimeProposalMixin,
+    PromptRuntimeSelectionMixin,
+    PromptRuntimeCompileMixin,
+    PromptRuntimeRecordsMixin,
+    PromptRuntimeGit,
 ):
     """Executable Git-brain prompt runtime under an explicit authority ceiling."""
 
@@ -44,9 +49,11 @@ class PromptRuntimeSurface(
             "profile": snapshot["profile"],
             "stack_digest": snapshot["stack_digest"],
             "source_capsule_digest": snapshot["source_capsule"]["capsule_digest"],
+            "frontier_refs": snapshot.get("frontier_refs"),
             "tool_contract": [
                 "athena_prompt_hydrate",
                 "athena_prompt_compile",
+                "athena_prompt_freshness",
                 "athena_prompt_propose",
                 "athena_prompt_experiment",
                 "athena_prompt_activate",
@@ -59,6 +66,7 @@ class PromptRuntimeSurface(
                 "host instruction mutation",
                 "automatic push/deploy",
                 "experiment-to-observation fabrication",
+                "filename-inferred goal or pressure authority",
             ],
         }
 
@@ -69,6 +77,7 @@ class PromptRuntimeSurface(
                 scope=args.get("scope"),
                 include_text=bool(args.get("include_text", False)),
                 since_git_head=args.get("since_git_head"),
+                task=args.get("task"),
             )
         if name == "athena_prompt_compile":
             return True, self.compile(
@@ -76,7 +85,10 @@ class PromptRuntimeSurface(
                 scope=args.get("scope"),
                 task_overlay=args.get("task_overlay"),
                 since_git_head=args.get("since_git_head"),
+                task=args.get("task"),
             )
+        if name == "athena_prompt_freshness":
+            return True, self.freshness(last_git_head=args["last_git_head"])
         if name == "athena_prompt_propose":
             return True, self.propose(
                 expected_git_head=args["expected_git_head"],
@@ -132,10 +144,21 @@ class PromptRuntimeSurface(
             raise KeyError(uri)
         payload = self.status()
         payload["laws"] = {
-            "freshness": "expected_git_head == current_git_head else STALE_GIT_HEAD",
-            "composition": "manifest -> policy -> ordered selected modules -> matching ACTIVE_SCOPED overlays -> ephemeral task overlay",
-            "source_binding": "every compiled Git body carries exact HEAD + digest; snippets are not accepted as bodies",
-            "promotion": "candidate + passed witnessed experiments + evidence + explicit authority witness; history remains",
+            "freshness": (
+                "expected_git_head == current_git_head for mutation; last_git_head != current or material prompt/frontier diff -> rehydrate before consequential action"
+            ),
+            "composition": (
+                "manifest profile/active modules + mandatory modules + task-selector matches + dependency closure -> strict unique order -> policy/modules -> matching ACTIVE_SCOPED overlays -> ephemeral task overlay"
+            ),
+            "source_binding": (
+                "every compiled Git body carries exact HEAD + digest; snippets are not accepted as bodies"
+            ),
+            "frontier_refs": (
+                "goal/pressure/work references are returned only when explicitly declared by active state; absent declarations remain UNDECLARED"
+            ),
+            "promotion": (
+                "candidate + passed witnessed experiments + evidence + explicit authority witness; history remains"
+            ),
             "authority": AUTHORITY_LAW,
         }
         return payload
@@ -147,4 +170,5 @@ class PromptRuntimeSurface(
             "prompt_runtime_status": status.get("status"),
             "prompt_runtime_stack_digest": status.get("stack_digest"),
             "prompt_runtime_head": (status.get("git") or {}).get("head"),
+            "prompt_runtime_frontier_status": (status.get("frontier_refs") or {}).get("status"),
         }
