@@ -13,7 +13,9 @@ def call(science, core, name, a):
     if name=='athena_transition_predict': return science.transition_predict(a['action_id'],a['context'],a.get('prior_strength',5.0))
     if name=='athena_rollout_learned': return science.rollout_learned(a['initial_context'],a['trajectories'],a.get('discount',.95),a.get('uncertainty_alpha',1.0),a.get('prior_strength',5.0))
     if name=='athena_schedule_multiperiod': return science.schedule_multiperiod(a['tasks'],a['workers'],a.get('horizon',12),a.get('budget'),a.get('beam_width',128),a.get('scope','global'),a.get('discount',.97))
-    if name=='athena_witness_cell': return science.execute_witness_cell(a['regression_ref'],a.get('timeout_s',20.0),a.get('memory_mb',512),a.get('cpu_s',10),a.get('actor','agent'))
+    if name=='athena_witness_cell':
+        science._REGRESSION_REF=science.ecology._REGRESSION_REF
+        return science.execute_witness_cell(a['regression_ref'],a.get('timeout_s',20.0),a.get('memory_mb',512),a.get('cpu_s',10),a.get('actor','agent'))
     if name=='athena_regime_geometry_observe': return science.regime_geometry_observe(a['signals'],a['reward'],a.get('cluster_id'),a.get('domain'),a.get('weight',1.0))
     if name=='athena_regime_geometry_resolve': return science.regime_geometry_resolve(a['signals'],a.get('top_k',5),a.get('domain'))
     if name=='athena_pareto_frontier': return science.pareto_frontier(a['candidates'],a.get('directions'),a.get('epsilon',0.0),a.get('robust',False))
