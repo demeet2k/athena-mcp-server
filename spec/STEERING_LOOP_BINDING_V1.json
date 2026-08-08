@@ -1,0 +1,65 @@
+{
+  "artifact": "ATHENA.STEERING.CAMPAIGN.LOOP.BINDING.CONTRACT.V1",
+  "status": "CANDIDATE_BINDING_TRANSACTION",
+  "purpose": "Bind one evidence-qualified Campaign V3 residual branch to one explicit Git-persisted RehydrationLoop V1 without treating campaign coordination as scheduler execution authority.",
+  "preconditions": [
+    "pulse compilation status = RESIDUAL_CANDIDATES",
+    "candidate_id exists and standing = CAMPAIGN_CANDIDATE_NOT_EXECUTION_AUTHORITY",
+    "binding expected Git head equals compilation/current campaign Git head",
+    "any candidate required_operation remains actually exposed at binding time",
+    "campaign_id/branch_id/expected_campaign_digest identify the current campaign lease target"
+  ],
+  "transaction": [
+    "verify pre-lease Git head",
+    "claim internal campaign branch lease",
+    "record post-lease Git head and new campaign digest",
+    "require campaign lease commit to advance Git head",
+    "start RehydrationLoop V1 with expected_git_head = post-lease Git head",
+    "record loop_id/state_digest/checkpoint head",
+    "bind campaign branch to exact loop identity/state through current campaign digest",
+    "record post-bind Git head and binding receipt"
+  ],
+  "git_address_law": {
+    "sequence": "H_pre_lease -> H_post_lease -> H_post_loop_start -> H_post_bind",
+    "critical_invariant": "loop expected_git_head = H_post_lease",
+    "reason": "campaign lease itself is durable causal Git state; reusing the compilation/pre-lease head would be stale"
+  },
+  "success": {
+    "status": "BOUND",
+    "standing": "BOUND_LOOP_NOT_WORK_EXECUTED",
+    "execution_authority_granted": false,
+    "work_executed": false,
+    "next": "RESUME_EXPLICIT_LOOP_AND_EXECUTE_ONE_LAWFUL_CYCLE"
+  },
+  "failure_recovery": {
+    "campaign_lease_failure": "HOLD_CAMPAIGN_LEASE_FAILED; no loop created",
+    "campaign_lease_no_head_advance": "HOLD_CAMPAIGN_LEASE_RECEIPT",
+    "loop_start_failure_after_lease": "HOLD_LOOP_START_FAILED; branch remains leased and requires explicit release/recovery",
+    "loop_receipt_missing_or_head_mismatch": "HOLD_LOOP_START_RECEIPT",
+    "campaign_bind_failure_after_loop_start": "HOLD_CAMPAIGN_BIND_FAILED; reuse/rebind existing loop after fresh resume; duplicate loop start forbidden",
+    "unexposed_required_operation": "HOLD before campaign lease"
+  },
+  "compatibility": {
+    "campaign_api": "internal requalified RehydrationCampaignRuntime methods; no public campaign dispatcher required",
+    "loop_api": "current RehydrationLoopRuntime.start",
+    "method_parameter_adaptation": "narrow signature adapter permits harmless historical parameter naming differences but requires all semantic slots"
+  },
+  "firewalls": [
+    "CAMPAIGN_BRANCH_LEASE != SCHEDULER_CLAIM",
+    "CAMPAIGN_BINDING != WORK_EXECUTION",
+    "BOUND_LOOP != OBSERVED_SUCCESS",
+    "UNEXPOSED_REQUIRED_OPERATION => HOLD",
+    "FEATURE_BRANCH != CURRENT_RUNTIME_EXPOSURE",
+    "POST_LEASE_HEAD != PRE_LEASE_HEAD",
+    "LOOP_START_USES_POST_LEASE_HEAD",
+    "DUPLICATE_LOOP_ON_BIND_FAILURE = FORBIDDEN",
+    "MATERIAL_WORK_REQUIRES_LATER_EXPLICIT_LOOP_CYCLE"
+  ],
+  "non_goals": [
+    "execute the campaign task during binding",
+    "obtain provider/scheduler claim authority",
+    "register public campaign tools",
+    "turn campaign lease into execution permission",
+    "claim task success from loop creation"
+  ]
+}
