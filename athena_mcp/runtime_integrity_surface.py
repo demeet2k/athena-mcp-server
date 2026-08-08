@@ -13,7 +13,7 @@ from .state_foundation_protocol import STATE_FOUNDATION_RESOURCES,STATE_FOUNDATI
 from .state_foundation_surface import StateFoundationSurface
 from .surface_contract import audit_surface,contract_manifest
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS,SURFACE_TOOL_NAMES
-from .unified_manifest import build_unified_manifest,maxdev_law
+from .unified_manifest import UNIFIED_MANIFEST_VERSION,build_unified_manifest,maxdev_law
 from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_RESOURCE_URIS,UNIFIED_MANIFEST_TOOLS,UNIFIED_MANIFEST_TOOL_NAMES
 
 INTEGRITY_TOOLS=(
@@ -94,5 +94,5 @@ class RuntimeIntegritySurface:
 
     def benchmark(self):
         result={};result.update(self.promotion.benchmark());result.update(self.state_foundation.benchmark())
-        result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']='ATHENA.RUNTIME.UNIFIED.1'
+        result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=UNIFIED_MANIFEST_VERSION
         return result
