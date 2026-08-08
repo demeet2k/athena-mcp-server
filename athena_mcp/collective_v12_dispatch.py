@@ -1,7 +1,14 @@
 from __future__ import annotations
 
+from .collective_robust import CollectiveRobustRuntime
+from .collective_v13_dispatch import call as call_v13
+from .collective_v13_protocol import COLLECTIVE_V13_TOOLS
+
+V13_NAMES={t['name'] for t in COLLECTIVE_V13_TOOLS}
+
 
 def call(joint,name,a):
+    if name in V13_NAMES:return call_v13(CollectiveRobustRuntime(joint),name,a)
     if name=='athena_gp_hyperposterior': return joint.gp_hyperposterior(a['context_key'],a.get('candidates'))
     if name=='athena_gp_bma_predict': return joint.gp_bma_predict(a['context_key'],a['features'],a.get('candidates'),a.get('include_observation_noise',True))
     if name=='athena_gp_sparse_predict': return joint.gp_sparse_predict(a['context_key'],a['features'],a.get('inducing_count',16),a.get('include_observation_noise',True))
