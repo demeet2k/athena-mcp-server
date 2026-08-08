@@ -6,16 +6,18 @@ from .frontier_claim import (
 )
 from .frontier_claim_idempotency import install_frontier_claim_idempotency
 from .frontier_claim_internal_compat import install_frontier_claim_internal_compat
+from .frontier_claim_provider import install_frontier_claim_provider
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
 from .prompt_runtime import PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 
-# Additive claim-preparation registration. server.py imports this module after
+# Additive claim/provider registration. server.py imports this module after
 # package initialization and before dispatch is loaded, so mutating the existing
 # tool lists/sets in place is visible to both the already-installed frontier
 # wrapper and dispatch's canonical prompt-tool union without rewriting __init__.
 install_frontier_claim_extension(FrontierRuntime, FRONTIER_TOOLS)
 install_frontier_claim_idempotency(FrontierClaimRuntime, FRONTIER_CLAIM_TOOLS)
 install_frontier_claim_internal_compat(FrontierClaimRuntime)
+install_frontier_claim_provider(FrontierClaimRuntime, FRONTIER_CLAIM_TOOLS)
 FRONTIER_TOOL_NAMES.update(FRONTIER_CLAIM_TOOL_NAMES)
 for _tool in FRONTIER_CLAIM_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
