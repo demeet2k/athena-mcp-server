@@ -65,6 +65,56 @@ class AgentBootstrapConsistencyTests(unittest.TestCase):
             packet["laws"],
         )
 
+    def test_live_session_refresh_advances_comparison_checkpoint(self):
+        class DummyRollingRuntime:
+            def __init__(self):
+                self._sessions = {
+                    "session-a": {
+                        "address": {"git_head": "g0"},
+                        "task": "work",
+                    }
+                }
+
+            def bootstrap(self, *args, **kwargs):
+                return {
+                    "frontier": {
+                        "status": "HYDRATED",
+                        "frontier_digest": "f1",
+                        "ready_work": [],
+                    },
+                    "next_frontier": {},
+                    "laws": [],
+                }
+
+            def refresh(self, *args, **kwargs):
+                self._sessions["transient"] = {
+                    "address": {"git_head": "g1"},
+                    "task": "work",
+                }
+                return {
+                    "status": "BOOTSTRAPPED",
+                    "session_id": "transient",
+                    "address": {"git_head": "g1"},
+                    "frontier": {
+                        "status": "HYDRATED",
+                        "frontier_digest": "f1",
+                        "ready_work": [],
+                    },
+                    "refresh": {
+                        "changed": {"git_head": True},
+                    },
+                    "laws": [],
+                }
+
+        install_bootstrap_consistency(DummyRollingRuntime)
+        runtime = DummyRollingRuntime()
+        packet = runtime.refresh(session_id="session-a")
+        self.assertEqual(packet["session_id"], "session-a")
+        self.assertTrue(packet["refresh"]["session_checkpoint_advanced"])
+        self.assertEqual(runtime._sessions["session-a"]["address"]["git_head"], "g1")
+        self.assertNotIn("transient", runtime._sessions)
+        self.assertIn("LIVE_SESSION_REFRESH_ADVANCES_PRIOR_ADDRESS", packet["laws"])
+
 
 if __name__ == "__main__":
     unittest.main()
