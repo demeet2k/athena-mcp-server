@@ -4,9 +4,9 @@ import hashlib
 import json
 from typing import Any
 
+from . import protocol as _protocol
 from .agent_bootstrap import AGENT_BOOT_TOOLS, AGENT_BOOT_TOOL_NAMES, AgentBootstrapRuntime
 from .prompt_runtime import PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
-from . import protocol as _protocol
 
 ARTIFACT = "OPERATIONAL_BASIS_V1"
 TOOL_NAME = "athena_operational_basis"
@@ -30,6 +30,13 @@ LAWS = [
     "CAPABILITY_NEGOTIATION != SELF_AUTHORIZATION",
 ]
 
+_CONTROL_PREFIXES = (
+    "athena_agent_",
+    "athena_prompt_",
+    "athena_frontier_",
+    "athena_rehydration_",
+)
+
 
 def _canonical(value: Any) -> bytes:
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
@@ -43,6 +50,16 @@ def _sha(value: Any) -> str:
     else:
         raw = _canonical(value)
     return hashlib.sha256(raw).hexdigest()
+
+
+def _is_control_operation(name: str) -> bool:
+    return bool(
+        name == TOOL_NAME
+        or name.startswith(_CONTROL_PREFIXES)
+        or "campaign" in name
+        or "epoch" in name
+        or "rollover" in name
+    )
 
 
 def _capability_class(name: str) -> str:
@@ -72,16 +89,18 @@ def _effect(name: str, capability_class: str) -> str:
         return "READ_ONLY"
     if capability_class == "PROMPT":
         suffix = name.removeprefix("athena_prompt_")
-        if suffix in {"hydrate", "compile", "freshness", "remote_status", "remote_sync"}:
+        if suffix in {"hydrate", "compile", "freshness", "remote_status"}:
             return "READ_ONLY"
+        if suffix == "sync":
+            return "BOUNDED_GIT_SYNC"
+        if suffix == "publish":
+            return "BOUNDED_PROVIDER_WRITE"
         if suffix in {"propose", "experiment"}:
             return "REPOSITORY_CANDIDATE_WRITE"
         if suffix == "activate":
             return "SCOPED_RUNTIME_WRITE"
         if suffix == "promote":
             return "CANONICAL_PROMOTION_GATED_WRITE"
-        if suffix == "remote_publish":
-            return "BOUNDED_PROVIDER_WRITE"
         return "UNKNOWN"
     if capability_class == "FRONTIER_READ_SELECT":
         return "READ_ONLY"
@@ -105,19 +124,15 @@ def _effect(name: str, capability_class: str) -> str:
 
 
 def _authority(effect: str, capability_class: str) -> str:
-    if effect == "READ_ONLY":
-        return "OBSERVATION_ONLY"
-    if effect == "REPOSITORY_CANDIDATE_WRITE":
-        return "CANDIDATE_REPOSITORY_WRITE"
-    if effect == "SCOPED_RUNTIME_WRITE":
-        return "SCOPED_PROMPT_RUNTIME_WRITE"
-    if effect == "CANONICAL_PROMOTION_GATED_WRITE":
-        return "CANONICAL_PROMOTION_GATED"
-    if effect == "BOUNDED_PROVIDER_WRITE":
-        return "BOUNDED_PROVIDER_WRITE"
-    if effect == "BOUNDED_RUNTIME_WRITE":
-        return "BOUNDED_RUNTIME_WRITE"
-    return "UNCLASSIFIED_HOLD" if capability_class == "UNCLASSIFIED" else "UNKNOWN_HOLD"
+    return {
+        "READ_ONLY": "OBSERVATION_ONLY",
+        "BOUNDED_GIT_SYNC": "BOUNDED_LOCAL_FAST_FORWARD",
+        "REPOSITORY_CANDIDATE_WRITE": "CANDIDATE_REPOSITORY_WRITE",
+        "SCOPED_RUNTIME_WRITE": "SCOPED_PROMPT_RUNTIME_WRITE",
+        "CANONICAL_PROMOTION_GATED_WRITE": "CANONICAL_PROMOTION_GATED",
+        "BOUNDED_PROVIDER_WRITE": "BOUNDED_PROVIDER_WRITE",
+        "BOUNDED_RUNTIME_WRITE": "BOUNDED_RUNTIME_WRITE",
+    }.get(effect, "UNCLASSIFIED_HOLD" if capability_class == "UNCLASSIFIED" else "UNKNOWN_HOLD")
 
 
 def _component(capability_class: str) -> str:
@@ -144,7 +159,10 @@ def _freshness_dependencies(capability_class: str, name: str) -> list[str]:
             "sched_contract_digest", "issue_pressure_digest", "operational_basis_digest",
         ]
     if capability_class == "PROMPT":
-        return ["git_head", "prompt_stack_digest"]
+        deps = ["git_head", "prompt_stack_digest"]
+        if name in {"athena_prompt_remote_status", "athena_prompt_sync", "athena_prompt_publish"}:
+            deps.append("shared_remote_witness")
+        return deps
     if capability_class == "FRONTIER_READ_SELECT":
         return ["frontier_source_head", "frontier_digest", "sched_contract_digest"]
     if capability_class == "CLAIM_EXECUTION":
@@ -161,7 +179,7 @@ def _freshness_dependencies(capability_class: str, name: str) -> list[str]:
 
 def _preconditions(capability_class: str, effect: str) -> list[str]:
     result = ["operation is currently registered"]
-    if capability_class == "UNCLASSIFIED":
+    if capability_class == "UNCLASSIFIED" or effect == "UNKNOWN":
         result.append("semantic classification required before automatic selection")
     if effect != "READ_ONLY":
         result.append("caller authority and operation-specific freshness/preconditions must pass")
@@ -175,6 +193,7 @@ def _preconditions(capability_class: str, effect: str) -> list[str]:
 def _rollback(effect: str) -> str:
     return {
         "READ_ONLY": "NOT_REQUIRED_READ_ONLY",
+        "BOUNDED_GIT_SYNC": "FAST_FORWARD_ONLY; REHYDRATE_FROM_SHARED_FRONTIER",
         "REPOSITORY_CANDIDATE_WRITE": "REVERT_OR_RETIRE_CANDIDATE_DESCENDANT",
         "SCOPED_RUNTIME_WRITE": "DEACTIVATE_OR_ROLL_BACK_SCOPED_OVERLAY",
         "CANONICAL_PROMOTION_GATED_WRITE": "REVERT_AS_NEW_CAUSAL_EVENT",
@@ -192,6 +211,7 @@ def _descriptor(tool: dict) -> dict:
         "description": tool.get("description"),
         "inputSchema": tool.get("inputSchema"),
     }
+    auto_select = capability_class != "UNCLASSIFIED" and effect == "READ_ONLY"
     return {
         "operation": name,
         "capability_class": capability_class,
@@ -203,24 +223,29 @@ def _descriptor(tool: dict) -> dict:
         "replayability": effect == "READ_ONLY",
         "rollback_or_compensation": _rollback(effect),
         "current_exposure": True,
-        "auto_select": capability_class != "UNCLASSIFIED" and effect == "READ_ONLY",
+        "auto_select": auto_select,
         "source_witness": {
-            "surface": "PROMPT_RUNTIME_TOOLS",
+            "surface": "PROTOCOL_TOOLS_CONTROL_FILTER",
             "tool_schema_digest": _sha(schema_basis),
         },
     }
 
 
-def build_operational_basis() -> dict:
-    """Derive the semantic capability basis from the live registered control surface."""
-
+def _registered_control_tools() -> dict[str, dict]:
     by_name: dict[str, dict] = {}
-    for tool in PROMPT_RUNTIME_TOOLS:
+    for tool in _protocol.TOOLS:
         if not isinstance(tool, dict):
             continue
         name = str(tool.get("name") or "")
-        if name and name in PROMPT_RUNTIME_TOOL_NAMES:
+        if name and _is_control_operation(name):
             by_name[name] = tool
+    return by_name
+
+
+def build_operational_basis() -> dict:
+    """Derive semantic capability descriptors from the live MCP registration surface."""
+
+    by_name = _registered_control_tools()
     descriptors = [_descriptor(by_name[name]) for name in sorted(by_name)]
     unclassified = [
         {
@@ -230,14 +255,14 @@ def build_operational_basis() -> dict:
             "auto_select": False,
         }
         for row in descriptors
-        if row["capability_class"] == "UNCLASSIFIED"
+        if row["capability_class"] == "UNCLASSIFIED" or row["effect"] == "UNKNOWN"
     ]
     runtime_identity = {
         "name": _protocol.SERVER_INFO.get("name"),
         "version": _protocol.SERVER_INFO.get("version"),
     }
     source_witness = {
-        "surface": "PROMPT_RUNTIME_TOOLS",
+        "surface": "PROTOCOL_TOOLS_CONTROL_FILTER",
         "registered_count": len(descriptors),
         "registered_names_digest": _sha([row["operation"] for row in descriptors]),
         "registered_schema_digest": _sha([
@@ -264,7 +289,7 @@ def build_operational_basis() -> dict:
 
 
 def install() -> None:
-    """Install the additive basis operation and bind its digest into AGENT_BOOT_V1."""
+    """Install the read-side basis operation and bind its digest into AGENT_BOOT_V1."""
 
     if TOOL_NAME not in AGENT_BOOT_TOOL_NAMES:
         AGENT_BOOT_TOOLS.append(dict(OPERATIONAL_BASIS_TOOL))
@@ -333,8 +358,7 @@ def install() -> None:
 
 
 def main(argv=None):
-    # The official console entrypoint installs capability discovery before
-    # dispatch imports its prompt/control-plane tool sets.
+    # Install before server/dispatch imports finish constructing the dynamic MCP surface.
     install()
     from .server import main as server_main
 
