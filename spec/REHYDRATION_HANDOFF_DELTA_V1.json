@@ -86,6 +86,6 @@
     "HEAD_CHANGE => REHYDRATE",
     "FRONTIER_INTERPRETATION_WITNESS_MISSING => REFRESH_BEFORE_SCHEDULER_ACTION"
   ],
-  "target_metric": "successor_delta_prompt_chars / full_rehydration_prompt_chars",
-  "optimization_goal": "reduce successor context cost while preserving verified causal continuity and fail-closed freshness"
+  "target_metric": "handoff_delta_prompt_chars / full_rehydration_prompt_chars",
+  "optimization_goal": "reduce handoff context cost while preserving verified causal continuity and fail-closed freshness"
 }
