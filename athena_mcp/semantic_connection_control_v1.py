@@ -221,9 +221,16 @@ def _apply_edge(state: SemanticState, edge: EdgeOperator) -> tuple[SemanticState
         return None, f"SOURCE_MISMATCH:{edge.edge_id}:{state.coordinate}!={edge.source}"
 
     delete_fields = {op.field for op in edge.operations if op.op == "DELETE"}
-    if not delete_fields.issubset(edge.typed_loss):
-        missing = sorted(delete_fields - edge.typed_loss)
+    typed_loss = set(edge.typed_loss)
+    if not delete_fields.issubset(typed_loss):
+        missing = sorted(delete_fields - typed_loss)
         return None, f"UNTYPED_DELETE:{edge.edge_id}:{','.join(missing)}"
+    phantom_loss = sorted(typed_loss - delete_fields)
+    if phantom_loss:
+        return None, f"UNEXECUTED_TYPED_LOSS:{edge.edge_id}:{','.join(phantom_loss)}"
+    missing_loss_source = sorted(field_name for field_name in delete_fields if field_name not in state.values)
+    if missing_loss_source:
+        return None, f"LOSS_SOURCE_MISSING:{edge.edge_id}:{','.join(missing_loss_source)}"
 
     values = _deepcopy_json(dict(state.values))
     for operation in edge.operations:
@@ -231,9 +238,10 @@ def _apply_edge(state: SemanticState, edge: EdgeOperator) -> tuple[SemanticState
         if not ok:
             return None, f"{reason}:{edge.edge_id}"
 
-    # Declared irreversible loss remains in the state even if a later edge writes
-    # a syntactically identical value. This records that identity was not preserved.
-    irreversible = frozenset(set(state.irreversible_loss) | set(edge.typed_loss))
+    # V1 irreversible loss is deletion-backed: every loss marker corresponds to a
+    # field that actually existed and was deleted on this execution. The marker
+    # survives even if a later edge syntactically reintroduces the same value.
+    irreversible = frozenset(set(state.irreversible_loss) | typed_loss)
     provenance = state.provenance + (f"EDGE::{edge.edge_id}",) + edge.provenance
     return (
         SemanticState(
