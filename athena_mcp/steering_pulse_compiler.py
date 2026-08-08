@@ -8,6 +8,8 @@ PULSE_ARTIFACT = "ATHENA.STEERING.LEDGER.PULSE.V1"
 COMPILED_ARTIFACT = "ATHENA.STEERING.PULSE.COMPILED.V1"
 COORDINATE_ARTIFACT = "ATHENA.LIMINAL.OPERATIONAL.COORDINATE.V1"
 DELTA_ARTIFACT = "ATHENA.LIMINAL.OPERATIONAL.DELTA.V1"
+PARENT_LIMINAL_SCHEMA = "ATHENA.LIMINAL.RUNTIME.v1"
+CAMPAIGN_PROJECTION = "CAMPAIGN_V3_LOSSY_PROJECTION"
 
 DISPOSITIONS = {"SATISFIED", "SUPERSEDED", "DEFERRED", "RESIDUAL", "HOLD"}
 EXPECTED_TAGS = ["I", "I", "I", "I", "M", "M", "M", "L", "L", "L"]
@@ -88,6 +90,10 @@ def make_liminal_coordinate(
         "navigator_id": _nonempty(navigator_id, "navigator_id"),
         "axes": axes,
         "metric": "CATEGORICAL_HAMMING",
+        "parent_chart": {
+            "schema": PARENT_LIMINAL_SCHEMA,
+            "relationship": CAMPAIGN_PROJECTION,
+        },
         "standing": "PUBLIC_OPERATIONAL_TELEMETRY_ONLY",
         "laws": [
             "COORDINATE != PRIVATE_REASONING",
@@ -96,6 +102,8 @@ def make_liminal_coordinate(
             "ROUTING_COORDINATE != EXECUTION_AUTHORITY",
             "GIT_STATE != WORLD_TRUTH",
             "UNKNOWN != ZERO",
+            "CAMPAIGN_COORDINATE != FULL_PARENT_LIMINAL_TUPLE",
+            "PROJECTION_LOSS_MUST_REMAIN_EXPLICIT",
         ],
     }
 

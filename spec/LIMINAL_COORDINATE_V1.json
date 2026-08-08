@@ -2,7 +2,7 @@
   "artifact": "ATHENA.LIMINAL.OPERATIONAL.COORDINATE.SPEC.V1",
   "status": "CANDIDATE",
   "purpose": "Make campaign position and movement replayable from public operational state without persisting private reasoning.",
-  "navigator_id_example": "SOL-LIM-189-NAV01",
+  "navigator_id_example": "ATHENA.LIMINAL.AGENT.GPT56SOL.CHAT.Q189.CAMPAIGN-V3.H6-6CD447DC",
   "space": {
     "symbol": "Lambda_op",
     "axes": [
@@ -55,6 +55,34 @@
     "DIGEST_IDENTITY != AUTHORITY",
     "ROUTING_COORDINATE != EXECUTION_AUTHORITY",
     "GIT_STATE != WORLD_TRUTH",
-    "UNKNOWN != ZERO"
-  ]
+    "UNKNOWN != ZERO",
+    "CAMPAIGN_COORDINATE != FULL_PARENT_LIMINAL_TUPLE",
+    "PROJECTION_LOSS_MUST_REMAIN_EXPLICIT",
+    "PULSE_INDEX != PARENT_MONOTONIC_STEP_N"
+  ],
+  "canonical_parent_chart": {
+    "repository": "demeet2k/Athena",
+    "path": "coordinates/LIMINAL_RUNTIME.v1.json",
+    "schema": "ATHENA.LIMINAL.RUNTIME.v1",
+    "observed_head": "6cd447dc09c830104ba460bc0ffcf1219970c6d0",
+    "relationship": "CAMPAIGN_V3_LOSSY_PROJECTION",
+    "projection_note": "The campaign chart compresses task-relevant public state for pulse routing; it does not replace the parent chart's native Git/tree/surface/operator/object/version/time/KC144/return coordinates."
+  },
+  "projection": {
+    "git_head": "parent H",
+    "phase": "parent P",
+    "prompt_digest": "derived digest of prompt object/version witnesses carried through parent O/V lineage",
+    "frontier_digest": "derived digest of frontier object/version witnesses carried through parent O/V lineage",
+    "operational_basis_digest": "derived digest over current execution-surface/operator descriptors associated with parent S/X/O/V",
+    "issue_pressure_digest": "derived digest over current issue-pressure object/version witnesses associated with parent O/V/E",
+    "source_bundle_digest": "derived digest over source object/version/provenance witnesses associated with parent O/V/E",
+    "pulse_index": "campaign curriculum coordinate; not identical to parent monotonic N",
+    "authority": "task-local authority standing projected from public evidence/standing; it never grants authority",
+    "loss": [
+      "parent RID/AID retained as run metadata rather than hashed position axis",
+      "TR, S, X, O, V, N, K, T and R are not individually represented in the compact coordinate",
+      "one compact coordinate may correspond to multiple distinct parent-chart positions",
+      "Hamming distance measures compact-axis change only, not semantic or physical distance"
+    ]
+  }
 }
