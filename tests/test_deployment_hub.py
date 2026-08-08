@@ -56,7 +56,7 @@ class DeploymentHubTests(unittest.TestCase):
         }
         self.assertIn("athena://deployment", uris)
         readiness = self.server.call_tool("athena_kc144_hub_readiness", {})
-        self.assertIn("ORGAN.DEPLOYMENT1", readiness["runtime_overlay"]["live"])
+        self.assertIn("ORGAN.DEPLOYMENT1", readiness["progress_delta"]["live_organs"])
 
     def test_manifest_and_prompt_are_composed(self):
         manifest = self.server.handle(
