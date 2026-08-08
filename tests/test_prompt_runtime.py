@@ -86,6 +86,27 @@ class PromptRuntimeTests(unittest.TestCase):
         math = runtime.compile(task="deep math graph proof", profile="BUILD", include_text=False)
         self.assertIn("crystal_navigation", math["selected_modules"])
 
+    def test_prompt_digest_is_content_coordinate_not_repository_clock(self):
+        runtime = self._runtime()
+        first = runtime.compile(task="general", profile="MAXDEV", include_text=False)
+
+        _write(runtime.git.root, "runtime/frontier-state.json", '{"pressure":1}\n')
+        _run(runtime.git.root, "add", ".")
+        _run(runtime.git.root, "commit", "-m", "unrelated runtime frontier change")
+        second = runtime.compile(task="general", profile="MAXDEV", include_text=False)
+
+        self.assertNotEqual(first["git_head"], second["git_head"])
+        self.assertEqual(first["prompt_stack_digest"], second["prompt_stack_digest"])
+        self.assertIn("excluding git_head", second["prompt_stack_digest_basis"])
+
+        _write(runtime.git.root, "prompts/modules/SELF_ENGINEERING.md", "SELF V2\n")
+        _run(runtime.git.root, "add", ".")
+        _run(runtime.git.root, "commit", "-m", "actual prompt policy change")
+        third = runtime.compile(task="general", profile="MAXDEV", include_text=False)
+
+        self.assertNotEqual(second["git_head"], third["git_head"])
+        self.assertNotEqual(second["prompt_stack_digest"], third["prompt_stack_digest"])
+
     @patch.dict(os.environ, {"ATHENA_GIT_AUTOPUSH": "0"})
     def test_proposal_is_cas_guarded_and_does_not_auto_activate(self):
         runtime = self._runtime()

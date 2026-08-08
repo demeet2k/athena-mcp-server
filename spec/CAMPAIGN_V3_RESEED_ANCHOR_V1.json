@@ -1,0 +1,82 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.RESEED.ANCHOR.BRIDGE.V1",
+  "status": "CANDIDATE",
+  "parent_pressure": "demeet2k/Athena#189",
+  "acceptance_rung": 8,
+  "canonical_anchor_contract": {
+    "schema_version": "ATHENA.RESEED_ANCHOR.V1",
+    "athena_source_head": "9c369d8c9cbcb7463469bcbbfd93597bffec0275",
+    "schema_path": "schemas/reseed_anchor_v1.schema.json",
+    "schema_blob": "6d9f2da5bd900239dcce01d455123675202f3b09",
+    "script_path": "scripts/reseed_anchor_v1.py",
+    "script_blob": "8eb274cc8d7f966e8778da5677fa0207233ae39b"
+  },
+  "purpose": "Compile a strict public-state ATHENA.RESEED_ANCHOR.V1 object from tamper-evident current Campaign V3 state without persisting it, resetting platform counters, minting execution authority, or self-certifying Campaign success.",
+  "inputs": [
+    "canonical Campaign V3 pulse + pulse_digest",
+    "campaign id/state digest/checkpoint",
+    "optional loop id/state digest",
+    "anchor/run/agent identity",
+    "monotonic reseed epoch and optional parent anchor",
+    "ref-scoped current Git positions",
+    "prompt and issue-pressure digests",
+    "durable returns",
+    "witness/readback identifiers",
+    "continuation value class + successor/typed stop",
+    "reverse route",
+    "optional extra version pins",
+    "pulse-100 then-current rehydration witness flag"
+  ],
+  "compiled_anchor": {
+    "schema_version": "ATHENA.RESEED_ANCHOR.V1",
+    "pulse_age_after": 0,
+    "platform_counter_reset_claimed": false,
+    "git_positions": "ref-scoped and duplicate-free",
+    "target_versions": [
+      "campaign_v3.ledger_digest",
+      "campaign_v3.pulse_digest",
+      "campaign_v3.pulse_index",
+      "campaign_v3.campaign_id",
+      "campaign_v3.campaign_state_digest",
+      "campaign_v3.campaign_checkpoint_head",
+      "campaign_v3.loop_id when present",
+      "campaign_v3.loop_state_digest when present"
+    ],
+    "satisfied_work": "derived only from SATISFIED/SUPERSEDED current dispositions while preserving historical text",
+    "residuals": "derived only from RESIDUAL current dispositions",
+    "holds": "pulse holds + explicitly supplied external holds"
+  },
+  "continuation_law": {
+    "positive_classes": ["POSITIVE", "CONTINUE_POSITIVE_FRONTIER"],
+    "positive_requires": ["no holds", "explicit selected_successor"],
+    "positive_stop_class": "CONTINUE_POSITIVE_FRONTIER",
+    "nonpositive_class": "NONPOSITIVE",
+    "nonpositive_requires": ["selected_successor=null", "typed non-success stop class"],
+    "forbidden_for_bounded_campaign": "SUCCESS_CLOSED"
+  },
+  "terminus_law": {
+    "pulse_100_requires_then_current_rehydration": true,
+    "pulse_100_does_not_imply_campaign_success": true,
+    "pulse_100_positive_frontier_requires_explicit_successor": true,
+    "nonpositive_after_then_current_rehydration_may_emit_typed_non-success_stop": true
+  },
+  "firewalls": [
+    "RESEED_ANCHOR != PLATFORM_RESET",
+    "RESEED_ANCHOR != EXECUTION_AUTHORITY",
+    "BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE",
+    "PULSE_100 != SUCCESS_CLOSED",
+    "POSITIVE_FRONTIER + HOLD => INVALID",
+    "NONPOSITIVE_FRONTIER + SUCCESSOR => INVALID",
+    "DURABLE_RETURN_REQUIRED",
+    "WITNESS_REQUIRED",
+    "REF_SCOPED_GIT_COORDINATES_REQUIRED",
+    "PRIVATE_CHAIN_OF_THOUGHT != RESEED_STATE"
+  ],
+  "promotion_boundary": {
+    "cross_repo_contract_change": "Athena reseed schema/script blob drift requires requalification",
+    "fresh_exact_head_ci": "REQUIRED",
+    "anchor_persistence": "SEPARATE_EFFECT",
+    "real_pulse_100_witness": "SEPARATE_ACCEPTANCE",
+    "campaign_success": "HOLD"
+  }
+}

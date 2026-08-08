@@ -1,0 +1,153 @@
+{
+  "artifact": "ATHENA.AGENT.BOOT.V1",
+  "coordinate": "ATHENA.KC144::GITΩ::AGENT-BOOT::V1",
+  "purpose": "Cold-start or refresh one agent from a shared-fresh prompt policy, replayable SCHED frontier, fresh read-only GitHub issue pressure, sibling activity, and independently versioned rehydration continuation state without using prior chat memory as executable state.",
+  "authority_ceiling": "routing and reconstruction only; below scheduler claim/execution authority, evidence, prompt promotion, merge, release, billing, and user authority",
+  "tools": [
+    "athena_agent_bootstrap",
+    "athena_agent_refresh"
+  ],
+  "address": {
+    "git_head": "repository causal/provenance coordinate observed after the selected boot-level shared Git freshness membrane",
+    "prompt_stack_digest": "content identity of selected prompt policy/modules/overlays",
+    "frontier_source_head": "exact shared SCHED source commit reduced into the packet",
+    "frontier_digest": "portable reduced scheduler-content identity under the pinned interpretation contract",
+    "sched_contract_digest": "identity of the scheduler interpretation contract used by the reduction",
+    "issue_pressure_digest": "content identity of the bounded relevant read-only GitHub issue-pressure projection",
+    "sibling_state_digest": "content identity of observed claim/event-lag/recent-durable sibling telemetry",
+    "rehydration_continuation_digest": "independent identity of active-loop set, selected continuation loop, handoff digest and hydration mode",
+    "composite_digest_law": "hash the coordinate identities; do not replace or conflate the individual coordinates"
+  },
+  "shared_freshness": {
+    "antibody": "BOOT-003",
+    "law": "BOOT_SYNC_SHARED_GIT_BEFORE_COMPOSITE_SNAPSHOT",
+    "ordering": [
+      "sync current named Git branch",
+      "compose prompt/frontier/issue/sibling world snapshot",
+      "compose continuation/handoff snapshot"
+    ],
+    "REQUIRED": "failed, dirty, ahead, diverged, or otherwise unverified shared Git state yields BOOTSTRAP_HOLD with BOOTSTRAP_SHARED_FRONTIER_HOLD; never return a false shared-current packet",
+    "BEST_EFFORT": "attempt shared sync first and preserve explicit unverified standing when a shared witness is unavailable",
+    "DISABLED": "allow local/offline reconstruction while making no shared-current claim",
+    "continuation_default": "unless explicitly overridden, continuation_shared_remote_mode inherits the boot shared_remote_mode",
+    "refresh_inheritance": "live-session refresh remembers and reuses the selected boot shared_remote_mode before recomputing the composite packet",
+    "separation": "world-state freshness and continuation freshness remain distinct coordinates even when they consult the same remote"
+  },
+  "packet_fields": [
+    "agent_id",
+    "session_id",
+    "task",
+    "prompt",
+    "frontier",
+    "issue_pressure",
+    "siblings",
+    "continuation",
+    "execution_surface",
+    "contract_digest",
+    "witnesses",
+    "next_frontier",
+    "holds",
+    "return_contract",
+    "address",
+    "composite_digest"
+  ],
+  "continuation": {
+    "source": "canonical shared-fresh ATHENA.REHYDRATION.LOOP.V1 index plus ATHENA.REHYDRATION.HANDOFF.DELTA.V1",
+    "zero_active_loops": "NO_ACTIVE_CONTINUATION is lawful and does not hold generic bootstrap",
+    "one_active_loop": "derive its current handoff delta",
+    "multiple_active_loops": "CONTINUATION_AMBIGUOUS_HOLD unless continuation_loop_id is explicit",
+    "explicit_loop": "must exist and remain ACTIVE",
+    "routing_successor": "transport receipt-bound WHAT-NEXT context from the canonical routing successor without re-scoring it",
+    "standing": "CONTINUATION_CONTEXT_ONLY",
+    "laws": [
+      "WORLD_STATE != CONTINUATION_STATE",
+      "CONTINUATION_STATE != EXECUTION_AUTHORIZATION",
+      "WHAT_NEXT != WHAT_TO_REHYDRATE",
+      "MULTIPLE_ACTIVE_LOOPS => AMBIGUITY_HOLD_UNLESS_EXPLICIT_LOOP",
+      "NO_ACTIVE_LOOP != CONTINUATION_FAILURE"
+    ]
+  },
+  "issue_pressure": {
+    "provider": "GitHub Issues API GET only",
+    "stored_body_form": "SHA-256 digest, not issue body text",
+    "standing": "PRESSURE_ONLY",
+    "ranking_inputs": ["task-term overlap", "title", "labels", "body", "P0/blocking/incident markers"],
+    "freshness_witness": ["repo", "retrieved_at", "http_status", "etag", "authenticated boolean"],
+    "secret_law": "OAuth/PAT/token material comes only from runtime environment and is never emitted or persisted"
+  },
+  "siblings": {
+    "sources": [
+      "frontier claims",
+      "fixed claim-path/event-lag suppression",
+      "recent durable Git commits"
+    ],
+    "address_coordinate": "sibling_state_digest",
+    "law": "sibling state is provider/Git observation, never private chain-of-thought"
+  },
+  "selection": {
+    "source": "only EVENT_REDUCED ready_work already present in the exact returned frontier packet",
+    "binding": "NEXT_FRONTIER_SELECTION_BOUND_TO_RETURNED_FRONTIER_DIGEST",
+    "unique_nondominated": "SELECTED",
+    "multiple_nondominated": "PARETO_HOLD",
+    "none": "NO_REPLAYABLE_READY_WORK",
+    "frontier_hold": "FRONTIER_HOLD",
+    "law": "issue pressure may influence routing context but may never manufacture scheduler readiness"
+  },
+  "refresh": {
+    "inputs": ["live session_id", "explicit prior_address"],
+    "missing_session_and_address": "SESSION_NOT_FOUND_HOLD",
+    "changed_coordinate_output": "changed",
+    "dependency_cones": {
+      "git_head_or_prompt_stack_digest": "prompt_policy",
+      "frontier_source_head_or_frontier_digest_or_sched_contract_digest": "scheduler_frontier",
+      "issue_pressure_digest": "issue_pressure_routing",
+      "sibling_state_digest": "sibling_state",
+      "rehydration_continuation_digest": "rehydration_handoff"
+    },
+    "law": "shared-sync first, then recompute changed coordinates and affected dependency cones; a handoff-only change must not force prompt/frontier/issue refresh"
+  },
+  "execution_surface": {
+    "standing": "OBSERVED_TOOL_SURFACE",
+    "law": "ISSUE_OR_DESIGN_ASSERTION != EXPOSED_EXECUTION_TOOL",
+    "claim_authority": "derive from actually registered frontier tools; never infer from issue prose or continuation state"
+  },
+  "cold_process_acceptance": {
+    "required_for_issue_160_closure": true,
+    "process_boundary": "actual independent python -m athena_mcp stdio JSON-RPC processes with isolated SQLite DBs and clones",
+    "shared_channels": ["shared bare Git remote", "read-only hermetic issue-provider fixture"],
+    "forbidden_shortcut": "no session object, prompt text, handoff packet, or chat-memory state may be copied between agents",
+    "required_story": [
+      "prep MCP publishes first durable rehydration transition and exits",
+      "two later cold MCPs independently reconstruct identical shared address and handoff identity",
+      "one cold MCP publishes the next verified transition",
+      "the sibling observes continuation change only through its own athena_agent_refresh",
+      "a third cold MCP independently reconstructs the sibling's refreshed shared address"
+    ]
+  },
+  "failure_policy": {
+    "shared_git_unverified_required": "BOOTSTRAP_HOLD",
+    "issue_provider_unavailable": "BOOTSTRAP_HOLD",
+    "frontier_remote_unverified": "BOOTSTRAP_HOLD",
+    "scheduler_contract_drift": "BOOTSTRAP_HOLD",
+    "multiple_active_continuations": "CONTINUATION_AMBIGUOUS_HOLD",
+    "requested_continuation_missing_or_inactive": "BOOTSTRAP_HOLD",
+    "missing_prior_refresh_state": "SESSION_NOT_FOUND_HOLD",
+    "unknown": "preserve uncertainty; UNKNOWN != ZERO"
+  },
+  "laws": [
+    "BOOT_PACKET != HIGHER_AUTHORITY",
+    "ISSUE_PRESSURE != EVIDENCE",
+    "ISSUE_PRESSURE != SCHED_READY",
+    "ISSUE_BODY != EXECUTABLE_STATE",
+    "ISSUE_PRIORITY != EXECUTION_AUTHORIZATION",
+    "WORLD_STATE != CONTINUATION_STATE",
+    "CONTINUATION_STATE != EXECUTION_AUTHORIZATION",
+    "WHAT_NEXT != WHAT_TO_REHYDRATE",
+    "SESSION_DIGEST != CANONICAL_TRUTH",
+    "SIBLING_TELEMETRY != PRIVATE_REASONING",
+    "ONE_CALL_BOOT != SKIP_FRESHNESS",
+    "BOOT_SYNC_SHARED_GIT_BEFORE_COMPOSITE_SNAPSHOT",
+    "LOCAL_BOOT_VIEW != SHARED_CURRENT_BOOT_VIEW",
+    "NEXT_FRONTIER_SELECTION_BOUND_TO_RETURNED_FRONTIER_DIGEST"
+  ]
+}

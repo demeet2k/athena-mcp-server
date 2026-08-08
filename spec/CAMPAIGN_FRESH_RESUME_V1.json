@@ -1,0 +1,74 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.FRESH.RESUME.SPEC.V1",
+  "status": "CANDIDATE",
+  "parent_issue": "demeet2k/Athena#189",
+  "acceptance_rung": 4,
+  "purpose": "Compose shared-frontier freshness, campaign checkpoint identity, bound V1 loop integrity/replay, branch-loop alignment and successor handoff into one read-only cold-resume receipt.",
+  "inputs": [
+    "campaign_id",
+    "branch_id",
+    "expected_state_digest",
+    "expected_checkpoint_head",
+    "shared_remote_mode",
+    "remote"
+  ],
+  "algorithm": [
+    "read and validate the expected campaign state",
+    "require the campaign state path to be at expected_checkpoint_head",
+    "refresh shared Git state and require shared_frontier_verified",
+    "re-read campaign state after refresh and HOLD if state/checkpoint moved",
+    "require campaign checkpoint ancestry to current Git HEAD",
+    "resolve the selected branch and require a bound V1 loop",
+    "resume the bound loop without emitting its self-prompt",
+    "replay-verify the full loop receipt/prompt/chain history",
+    "require loop checkpoint ancestry to current Git HEAD",
+    "compare campaign-stored loop identity to freshly observed loop identity",
+    "return SYNC_BRANCH_REQUIRED on any bound-loop drift rather than mutating",
+    "surface HANDOFF_AVAILABLE only for an aligned COMPLETE loop with a valid successor baton"
+  ],
+  "status_lattice": {
+    "progress": [
+      "ALIGNED_ACTIVE",
+      "SYNC_BRANCH_REQUIRED",
+      "HANDOFF_AVAILABLE",
+      "ALIGNED_COMPLETE_NO_HANDOFF",
+      "ALIGNED_TERMINAL_HOLD"
+    ],
+    "holds": [
+      "HOLD_CAMPAIGN_READ",
+      "HOLD_CAMPAIGN_STATE",
+      "HOLD_CAMPAIGN_CHECKPOINT",
+      "HOLD_SHARED_FRESHNESS",
+      "HOLD_CAMPAIGN_READ_AFTER_SYNC",
+      "HOLD_CAMPAIGN_STATE_MOVED",
+      "HOLD_CAMPAIGN_ANCESTRY",
+      "HOLD_BRANCH_MISSING",
+      "HOLD_NO_BOUND_LOOP",
+      "HOLD_LOOP_READ",
+      "HOLD_LOOP_INTEGRITY",
+      "HOLD_LOOP_VERIFY",
+      "HOLD_LOOP_READ_AFTER_VERIFY",
+      "HOLD_LOOP_ANCESTRY",
+      "HOLD_LOOP_STATUS"
+    ]
+  },
+  "non_mutations": [
+    "does not claim a branch",
+    "does not bind a loop",
+    "does not call campaign sync_branch",
+    "does not advance a loop",
+    "does not reconcile a campaign",
+    "does not execute a steering-ledger action",
+    "does not mint scheduler readiness or execution authority"
+  ],
+  "laws": [
+    "FRESH_RESUME != EXECUTION_AUTHORITY",
+    "BOUND_LOOP != FRESH_LOOP",
+    "LOCAL_INTEGRITY_PASS != SHARED_FRONTIER_FRESHNESS",
+    "LOOP_DRIFT => SYNC_BRANCH_REQUIRED",
+    "HANDOFF_AVAILABLE != CLAIM",
+    "TERMINAL_LOOP != CAMPAIGN_SUCCESS",
+    "REMOTE_SYNC != TARGET_EXECUTION_AUTHORITY",
+    "READBACK != MUTATION"
+  ]
+}
