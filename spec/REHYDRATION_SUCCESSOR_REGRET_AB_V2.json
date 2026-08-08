@@ -1,0 +1,65 @@
+{
+  "artifact": "ATHENA.REHYDRATION.SUCCESSOR.REGRET.AB.V2",
+  "status": "EXPERIMENTAL_READ_ONLY",
+  "purpose": "Compare canonical V1 successor routing with a bounded-simplex minimax-regret and one-step value-of-computation analysis over the exact same V1 Pareto candidates.",
+  "canonical_source": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
+  "tool": "athena_rehydration_successor_regret_compare",
+  "routing_authority": "NONE_ADDED",
+  "candidate_contract": {
+    "collector": "canonical V1 SuccessorCompiler",
+    "v2_input": "exact V1 pareto_candidate_ids subset",
+    "mutation": "none"
+  },
+  "preference_geometry": {
+    "dimensions": [
+      "utility",
+      "dependency_unblocking",
+      "uncertainty_reduction",
+      "novelty",
+      "risk",
+      "cost",
+      "repetition"
+    ],
+    "carrier": "box-constrained simplex",
+    "support": "exact descending residual allocation",
+    "support_complexity": "O(7 log 7)",
+    "frontier_complexity": "O(n^2 * 7 log 7)"
+  },
+  "calibration": {
+    "point": "normalized oriented magnitude of the V1 signed routing weights",
+    "law": "radius=0 must reproduce V1 selection/tie semantics",
+    "tie_unit_repair": "V2 tie epsilon equals V1 tie epsilon divided by total oriented V1 weight magnitude",
+    "failure": "CALIBRATION_FAILURE_HOLD"
+  },
+  "sensitivity": {
+    "default_radii": [0.0, 0.02, 0.05, 0.1, 0.2, 1.0],
+    "observables": [
+      "largest_tested_stable_radius",
+      "first_semantic_change_radius",
+      "minimax_regret",
+      "active_rival_id",
+      "witness_weights",
+      "regret_dimensions"
+    ]
+  },
+  "value_of_computation": {
+    "form": "VOC_1(m)=R0-E[R_after_m]-lambda^T c(m)",
+    "pruning_bound": "VOC_1(m) <= R0-lambda^T c(m)",
+    "nonpositive": "STOP_COMPUTING",
+    "authority_required": "OUTSIDE_INFORMATION_VOC"
+  },
+  "laws": [
+    "READ_ONLY_AB != AUTO_ROUTING_MUTATION",
+    "V2_CONSUMES_V1_PARETO_SET",
+    "RADIUS_ZERO_MUST_REPRODUCE_V1_SEMANTICS",
+    "ROUTING_ANALYSIS != EVIDENCE",
+    "ROUTING_ANALYSIS != AUTHORITY",
+    "AUTHORITY_REQUIRED_QUERY != INFORMATION_VOC",
+    "NONPOSITIVE_VOC => STOP_OPTIONAL_COMPUTATION"
+  ],
+  "promotion_boundary": {
+    "automatic_successor_routing": "UNCHANGED",
+    "behavioral_gain": "NOT_YET_WITNESSED",
+    "production_adoption": "HOLD"
+  }
+}
