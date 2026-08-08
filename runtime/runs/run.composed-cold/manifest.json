@@ -1,0 +1,26 @@
+{
+  "schema_version": "RUN_MANIFEST_V1",
+  "run_id": "run.composed-cold",
+  "objective_ref": "objective.composed-cold",
+  "artifact_target": "artifact.md",
+  "policy_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "work_class": "PROJECT_WORK",
+  "nodes": [
+    {
+      "node_id": "build-a",
+      "role_capability": "builder",
+      "depends_on": [],
+      "max_attempts": 1,
+      "not_before_pulse": 0,
+      "claim_path": "runtime/runs/run.composed-cold/claims/build-a.json"
+    },
+    {
+      "node_id": "build-b",
+      "role_capability": "builder",
+      "depends_on": [],
+      "max_attempts": 1,
+      "not_before_pulse": 0,
+      "claim_path": "runtime/runs/run.composed-cold/claims/build-b.json"
+    }
+  ]
+}
