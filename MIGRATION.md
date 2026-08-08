@@ -1,6 +1,6 @@
-# ATHENA Unified Migration Law — v3.0 / Collective V1–V11
+# ATHENA Unified Migration Law — v3.1 / Collective V1–V12
 
-This repository has passed through historical active-tree reset, AOR×Collective constitutional braid, parallel Collective successor development, and explicit ancestry repair. Migration therefore distinguishes **content**, **runtime integration**, **release identity**, **verification**, **authority**, **control-plane state**, and **Git ancestry**.
+This repository has passed through historical active-tree reset, AOR×Collective constitutional braid, parallel Collective successor development, explicit ancestry repair, and repository-brain consistency repair. Migration therefore distinguishes **content**, **runtime integration**, **release identity**, **verification**, **authority**, **control-plane state**, and **Git ancestry**.
 
 `UNKNOWN / LEGACY != GARBAGE`
 
@@ -22,17 +22,17 @@ This repository has passed through historical active-tree reset, AOR×Collective
 
 Current release identity:
 
-`athena-canonical-mcp 3.0.0`
+`athena-canonical-mcp 3.1.0`
 
 Live runtime brain:
 
-`ATHENA.RUNTIME.UNIFIED.6`
+`ATHENA.RUNTIME.UNIFIED.7`
 
 One composed runtime contains:
 
 - base CCR/JSPACE/SCALE/KC144/polycoordinate/crystal/Git substrate;
 - Collective V1 + Growth V1 + Memory V2 + Learning V3 + Ecology V4;
-- lazy Science V5 + Discovery V6 + Dual-Control V7 + Belief V8 + Continuous Inference V9 + Probabilistic V10 + Adaptive V11;
+- lazy Science V5 + Discovery V6 + Dual-Control V7 + Belief V8 + Continuous Inference V9 + Probabilistic V10 + Adaptive V11 + Joint V12;
 - AOR.3 + branch evolution + Y1 authority;
 - EQ.1 / SX.1 / RAG.1 / HUG.ABI.1 / GAP.1 / FIELD.1;
 - typed AOR×Collective transport;
@@ -41,7 +41,7 @@ One composed runtime contains:
 - SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.1 predicates;
 - exact final-emission verification.
 
-## 2. Historical reset boundary
+## 2. Historical reset and ancestry boundary
 
 Pre-rebuild repository state remains in Git history. Legacy existence does not make a file canonical.
 
@@ -49,35 +49,17 @@ Legacy admission remains:
 
 `DISCOVER → HASH → CLASSIFY → CCR SEARCH → OID/VID → SOURCE → KC144 → JSPACE → SCALE → TEST/EVIDENCE → STATUS`.
 
-Do not bulk-copy unclassified historical folders into the active runtime.
+A newer green successor must preserve the current master ancestry, including the post-V11 repository-brain consistency merge/repair, rather than replacing master with an older otherwise-green snapshot.
 
 ## 3. Database migration — SCHEMA.2
 
-Schema adoption is additive and receipt-bearing.
+Schema adoption remains additive and receipt-bearing. Unknown legacy tables/rows survive unless an explicitly authorized migration owns them. Future schema versions fail closed rather than silently downgrading.
 
-### v1 — inventory modular schema
+V12 itself adds no new persistent SQL table: its hyperposterior/BMA/PAG/g-formula/chance-control results are read-only computation surfaces over existing state and caller inputs. This is intentional; `NO_NEW_TABLE != NO_NEW_CAPABILITY`.
 
-The first migration records existing modular tables/components without destructive rebuild.
+## 4. Claim namespace / authority firewall
 
-### v2 — RECONRUN expected-ref contract
-
-Intermediate databases may contain `reconstruction_runs` without `expected_refs_json`. V2 performs explicit additive column migration. Named-column inserts prevent logical field meaning from depending on physical SQLite column order after `ALTER TABLE`.
-
-Verification checks critical tables **and columns**. Future schema versions fail closed instead of silently downgrading.
-
-Unknown legacy tables/rows survive unless an explicitly authorized migration owns them.
-
-## 4. Restart continuity
-
-Persistent ledgers expected to survive close/reopen include AORRUN, FIELDRUN, TRANSPORTRUN, RECONRUN, CYCLE/CYCLEEV, PROMRUN when actually created, migration receipts, Collective observations/calibration/model state, and V11 GP-hyperfit journals.
-
-A CYCLE halted in `WAITING_*` resumes at the frozen phase without replaying fictional work.
-
-## 5. Claim namespace migration — authority firewall
-
-A prior Collective lineage reused `athena_claim_*` names for science-shadow replication/falsification while AOR Y1 already used those names for canonical authority. The unified runtime does **not** preserve that collision.
-
-Canonical Y1:
+Canonical Y1 remains:
 
 - `athena_claim_register`
 - `athena_claim_state`
@@ -85,7 +67,7 @@ Canonical Y1:
 - `athena_claim_challenge`
 - `athena_claim_resolve_canonical_challenge`.
 
-Science-shadow replication/falsification:
+Science-shadow replication/falsification remains:
 
 - `athena_discovery_claim_register`
 - `athena_discovery_claim_witness`
@@ -99,205 +81,168 @@ never:
 
 `SCIENCE_SHADOW --implicit RPC alias--> Y1 mutation`.
 
-V7–V11 evidence-diversity/dependence/adaptation operators may consume science-shadow evidence but cannot mutate Y1 by adjacency.
+V7–V12 evidence/model/control operators may consume or produce science-shadow/model state but cannot mutate Y1 by adjacency.
 
-## 6. Introspection / observer-effect migration
+## 5. Introspection / observer-effect law
 
-V3 runtime metering remains for operational tools. Canonical introspection is excluded from self-metering:
-
-- OMEGA state;
-- schema status/plan/verify;
-- SELFTEST / STARTUP / SURFACE;
-- runtime manifest/MAXDEV;
-- benchmark/Git status;
-- reconstruction reads/verifies.
-
-Law:
+Canonical introspection remains non-self-metering. OMEGA, schema status/verify, SELFTEST, STARTUP, SURFACE, runtime manifest/MAXDEV, benchmark/Git status and reconstruction reads must not change the state they are inspecting merely by observation.
 
 `OBSERVE(OMEGA) != MUTATE(OMEGA)`.
 
-## 7. AOR + Collective migration law
+## 6. Runtime surface integration rule
 
-Do not merge AOR and Collective through an untyped score.
-
-- AOR determines developmental eligibility/frontier;
-- Collective determines execution/science/inference/control/adaptation organization;
-- model predictions, beliefs, credits, plans, graphs, intervals, and hyperparameter candidates remain model/organizational state;
-- Y1 remains canonical claim authority;
-- cross-organ transport is explicit and replayable.
-
-Core separations:
-
-`pheromone != evidence`
-
-`consensus != authority`
-
-`posterior != truth`
-
-`belief != canonical truth`
-
-`EIG / EVSI != evidence`
-
-`simulation / policy != execution`
-
-`model graph != canonical JSPACE graph`
-
-`discovery shadow != Y1 authority`.
-
-## 8. Runtime surface migration rule
-
-A module is not integrated merely because its file exists. Integration requires:
+A file is not a live organ merely because it exists. Integration requires:
 
 1. tool schema advertised;
 2. dispatcher route exists;
-3. runtime organ initialized or explicitly classified lazy;
+3. organ resident or explicitly classified lazy;
 4. resource surface exists where applicable;
 5. SURFACE.2 requires it;
-6. COMPOSITION.2 correctly classifies resident versus lazy surfaces;
+6. COMPOSITION.2 correctly classifies resident versus lazy state;
 7. constructive/adversarial/unified regression witnesses exist;
-8. CI has a critical stage when constitutionally important;
-9. smoke exercises representative cross-layer behavior;
+8. CI has a dedicated critical stage when constitutionally important;
+9. smoke crosses representative behavior;
 10. manifest and OMEGA describe it;
-11. repository documentation and current operating spec agree with the live artifact.
+11. README/ARCHITECTURE/MIGRATION/current unified spec agree with the live artifact.
 
-The final requirement is enforced by `test_documentation_consistency.py` so repository-brain drift becomes CI-visible.
+`test_documentation_consistency.py` makes repository-brain drift CI-visible.
 
-## 9. V6 → V7
+## 7. V6 → V11 preserved migrations
 
-V7 extends V6 with uncertainty decomposition, prequential intervals, state-dependent transitions, scenario evaluation, bounded dual control, extended supplied-DAG identification, and replication-diversity/design geometry.
+The existing progression is preserved without reinterpretation:
 
-Required boundaries: association skeleton != causal DAG; scenario != observed future; dual-control output is PLAN_ONLY; replication effective-N != formal independence.
+- V7 adds bounded dual-control/extended causal/replication geometry;
+- V8 adds finite model belief/EVI;
+- V9 adds Gaussian-linear parameter belief, EVPI/EVSI and AIPW;
+- V10 adds fixed-kernel exact GP, bounded PC-stable, binary TMLE, E-value, finite POMDP and externally labelled dependence calibration;
+- V11 adds finite-grid GP hyperfit with observed-row CAS, GP decision EVSI, supplied-DAG latent ADMG projection, stacked nuisance TMLE, RR sensitivity surface, finite-model BAPOMDP and dependence intervals.
 
-## 10. V7 → V8
+Historical states remain typed as the layer that generated them. No V10 GP point prediction is relabelled as V12 BMA prediction; no V11 hyperfit winner is automatically treated as a finite-grid posterior.
 
-V8 adds persistent finite hypothesis beliefs and decision layers.
+## 8. V11 → V12 — fixed winners to joint bounded uncertainty
 
-`belief update requires explicit observation likelihood`
+V12 is a **joint-uncertainty extension**, not a license to promote model mixtures into truth.
 
-never:
+### Finite GP hyperparameter posterior
 
-`EVI / policy / design → belief observation`.
+V11 can rank/apply one finite-grid hyperparameter winner. V12 `athena_gp_hyperposterior` instead normalizes the entire visible candidate set:
 
-Bootstrap structure and spectral evidence geometry remain hypothesis/diagnostic surfaces; no canonical JSPACE/Y1 mutation.
+`w_i ∝ prior_i * exp(log p(y|X,theta_i))`.
 
-## 11. V8 → V9
+`FINITE_GRID_HYPERPOSTERIOR != CONTINUOUS_HYPERPARAMETER_BAYES`.
 
-V9 adds Gaussian-linear beliefs, Monte-Carlo EVPI/EVSI, multistage finite-belief policy, AIPW, robustness probes, partial graphs, and dependence probabilities.
+Existing V11 hyperfit receipts remain model-selection receipts and are not retroactively converted into posterior priors.
 
-Required boundaries: Gaussian-linear posterior != general continuous Bayes; AIPW != identification proof; partial graph != FCI/PAG/CPDAG theorem; dependence probability != formal independence proof.
+### Bayesian-model-averaged GP prediction
 
-## 12. V9 → V10
+V12 `athena_gp_bma_predict` combines model means and retains both within-model and between-model uncertainty:
 
-V10 adds bounded probabilistic operators while retaining earlier authority/state firewalls.
+`Var = E[Var(Y|M)] + Var(E[Y|M])`.
 
-### GP
+`BMA_GP_POSTERIOR != WORLD_TRUTH`.
 
-Stored observations enter only through `athena_gp_observe`; prediction never self-trains. Exactness is conditional on stored rows and declared fixed RBF hyperparameters.
+A historical fixed-GP prediction remains a fixed-GP prediction.
 
-### PC-stable
+### Deterministic subset GP approximation
 
-Bounded Gaussian/linear CI search produces structural hypothesis only; no JSPACE write.
+`athena_gp_sparse_predict` selects a farthest-point subset of current GP observations and returns explicit query-level error relative to the exact bounded current GP reference.
 
-### TMLE
+`SUBSET_GP_APPROXIMATION != FULL_GP_POSTERIOR`.
 
-Binary treatment/outcome scope; latent-confounding risk fails closed; estimate does not prove identification assumptions.
+Do not migrate this surface into a claim of sparse variational GP or inducing-point optimality.
 
-### E-value
+### BMA GP decision EVSI
 
-Standard risk-ratio sensitivity metric; not a universal hidden-confounding theorem.
+`athena_gp_bma_decision_evsi` hypothetically updates both finite model weights and within-model GP action means under simulated measurements. It remains `DESIGN_ONLY`.
 
-### finite POMDP
+`BMA_GP_EVSI != OBSERVATION`.
 
-Exact certificate only after complete supplied finite bounded search; truncation removes certification; policy remains PLAN_ONLY.
+No hypothetical sample becomes an observation or hyperparameter update.
 
-### evidence dependence
+### Bounded PAG candidate
 
-Fit only from externally labelled examples; prediction creates no labels.
+V12 `athena_pag_candidate_discover` adds a new observed-data structural hypothesis surface using bounded Gaussian CI tests, separation sets, collider arrowheads and limited endpoint propagation.
 
-## 13. V10 → V11
+Existing V9 partial graphs, V10 PC-stable graphs and V11 supplied-DAG latent projections remain distinct objects.
 
-V11 is an **adaptive extension**, not a license to collapse model state into truth.
+`BOUNDED_PAG_CANDIDATE != FCI_RFCI_PAG_THEOREM`.
 
-### GP hyperparameter adaptation
+No call creates canonical JSPACE causal edges.
 
-`athena_gp_hyperfit` searches a finite declared RBF hyperparameter grid by exact Gaussian log marginal likelihood. Default is DESIGN_ONLY. Application requires `apply=true` and exact `expected_observation_count` CAS.
+### Two-timepoint parametric g-formula
 
-`MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`.
+V12 adds a static two-timepoint binary treatment-regime estimator over `A1 → L1 → A2 → Y` with optional baseline covariates.
 
-### GP decision EVSI
+`TWO_TIMEPOINT_GFORMULA != LONGITUDINAL_TMLE_OR_IDENTIFICATION_PROOF`.
 
-`athena_gp_decision_evsi` values hypothetical measurements through conditional-Gaussian Monte Carlo downstream decision improvement. No hypothetical sample becomes a GP observation.
+Sequential exchangeability, positivity, consistency and nuisance-model correctness remain explicit assumptions. Declared latent-confounding risk fails closed.
 
-`GP_DECISION_EVSI != OBSERVATION`.
+Historical cross-sectional TMLE/AIPW results are not reclassified as longitudinal policy values.
 
-### supplied-DAG latent projection
+### Chance-constrained resource selection
 
-`athena_latent_project_admg` transforms a caller-supplied acyclic DAG plus declared latent/observed nodes into a restricted observed ADMG. It is not observational causal discovery and writes no JSPACE edges.
+V12 models candidate resource consumption using explicit mean/std packets and the assumption of independent Gaussian consumptions within each resource dimension.
 
-### stacked TMLE
+Small finite candidate sets are exhaustively enumerated under one-sided Gaussian bounds:
 
-`athena_causal_tmle_ensemble` keeps binary treatment/outcome scope and declared identification assumptions while using a bounded validation-weighted nuisance library. Latent-confounding risk fails closed.
+`mu_r(S)+z_(1-alpha)sigma_r(S) <= B_r`.
 
-### RR sensitivity surface
+Exact certificate:
 
-`athena_sensitivity_rr_surface` computes the caller-declared two-dimensional bias-factor grid. It is sensitivity geometry, not a universal hidden-confounder bound.
+`EXACT_ENUMERATION_UNDER_DECLARED_INDEPENDENT_GAUSSIAN_RESOURCE_MODEL`.
 
-### finite-model BAPOMDP
+Above the exact threshold, fallback is explicitly greedy with no optimality certificate.
 
-`athena_bapomdp_solve` adds a static uncertain model index to finite hidden state. Exact certification applies only to the supplied finite model/state/action/observation tree and bounded horizon after complete search. Node truncation returns no exact certificate.
+`GAUSSIAN_INDEPENDENT_CHANCE_CERTIFICATE != DISTRIBUTION_FREE_RESOURCE_GUARANTEE`.
 
-### dependence uncertainty
+No returned allocation executes resources by itself.
 
-`athena_evidence_dependence_interval` uses Laplace/Hessian logit uncertainty around a fitted externally-labelled V10 dependence model. Interval reads create no labels and do not guarantee calibrated coverage.
+## 9. OMEGA / manifest migration
 
-## 14. OMEGA / manifest migration
-
-OMEGA remains a versioned whole-state projection ABI while contents expand. V1–V4 are resident; V5–V11 are explicit lazy surfaces.
+OMEGA remains a versioned whole-state projection ABI while contents expand. V1–V4 are resident; V5–V12 are explicit lazy surfaces.
 
 Current live architecture artifact:
 
-`ATHENA.RUNTIME.UNIFIED.6`
+`ATHENA.RUNTIME.UNIFIED.7`
 
-Compatibility retains `.1` through `.5`.
+Compatibility retains `.1` through `.6`.
 
-Model-layer additions must update OMEGA metadata, manifest layers/invariants/unresolved boundary, MAXDEV law, SURFACE requirements, resource list/read handlers, tests, smoke, and repository-brain documentation.
+Model-layer additions must update OMEGA/manifest metadata, layers/invariants/unresolved boundary, MAXDEV law, SURFACE requirements, resource list/read handlers, tests, smoke, CI, and repository-brain documentation.
 
-## 15. CI migration
+## 10. CI migration
 
 Unified gate:
 
 `syntax ∧ unit ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants include schema/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, **documentation/repository-brain consistency**, V6↔Y1 firewall, V7, V8/V9, V10, V11, AOR×Collective transport, and promotion predicate.
+Critical invariants include schema/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, **V12 constructive/adversarial/unified authority tests**, AOR×Collective transport, and promotion predicate.
 
-Smoke runs only after the first three jobs pass and spans V6→V11 plus AOR/state/CYCLE/final-emission paths in one process.
+Smoke runs only after the first three jobs pass and spans V6→V12 plus AOR/state/CYCLE/final-emission paths in one process.
 
-## 16. Parallel-lineage repair law
+## 11. Parallel-lineage repair law
 
 When AOR constitutional and Collective successor branches evolve in parallel, successor code is braided into the constitutional substrate rather than replacing it.
-
-Governing loop:
 
 `GREEN_UNIFIED_n → FETCH(master) → DELTA → BRAID → FOUR_GATE_CI → FETCH(master) → {stable: merge-lineage, moved: recurse}`.
 
 Never reuse qualification evidence from an older head.
 
-## 17. Git ancestry migration
+## 12. Git ancestry / merge law
 
-Copying current-master files is not lineage reconciliation. A true braid requires a commit whose parent graph contains both qualified unified ancestry and the exact live base. After that ancestry change, all four CI jobs run again on the new SHA.
+Copying current-master files is not lineage reconciliation. A true braid preserves the relevant parent graph. Before final merge, confirm current master has not advanced incompatibly. If it has, merge/reconcile that ancestry into the V12 candidate and rerun all four gates.
 
-PR-head fast-forward is preferred over force when the historical PR head is an ancestor of the qualified repair line. Merge through GitHub remains a separate witnessed control-plane action.
+The final merged master SHA must independently pass syntax, unit, critical invariants and dependent smoke. Feature-branch success alone does not qualify the master release.
 
-## 18. Post-merge verification
+## 13. Promotion semantics
 
-The merged master head must independently pass syntax, full unit, all critical invariants, and dependent smoke. PR-head success does not qualify the merge SHA.
+PROMOTION.1 is a runtime ledger/predicate distinct from GitHub CI. Predicate tests prove behavior; they do **not** fabricate a live PROMRUN.
 
-A later documentation or control-plane repair is a new head and must requalify again.
+`CI PASS != LIVE PROMRUN`.
 
-## 19. Promotion semantics
+A private canonical-brain pin may be updated only after the exact final public runtime master head is verified and read back.
 
-PROMOTION.1 is a runtime ledger/predicate distinct from GitHub CI. Predicate tests prove behavior; they do **not** fabricate a live PROMRUN. A live qualification receipt may be claimed only when the runtime actually creates, persists, verifies, and replays that receipt for the exact head.
+## 14. External GitHub control-plane boundary
 
-## 20. External GitHub control-plane boundary
+Branch protection, repository description/settings, tags, Releases, PR state and merge state are not runtime state. They must be queried/changed using GitHub control-plane capabilities. Absence of a capability is an unresolved infrastructure constraint, not permission to claim the setting changed.
 
-Branch protection, repository description/settings, tags, and Releases are not runtime state. They must be queried/changed using GitHub control-plane capabilities. Absence of a connector or CLI permission is an unresolved infrastructure constraint, not permission to claim the setting changed.
+`RUNTIME STATE != GITHUB CONTROL-PLANE STATE`.
