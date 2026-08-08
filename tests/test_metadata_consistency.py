@@ -13,16 +13,16 @@ class MetadataConsistencyTests(unittest.TestCase):
         project=tomllib.loads((root/'pyproject.toml').read_text())['project']
         self.assertEqual(project['version'],SERVER_INFO['version'])
         self.assertEqual(project['name'],SERVER_INFO['name'])
-        self.assertEqual(project['version'],'2.8.0')
+        self.assertEqual(project['version'],'2.9.0')
         description=project['description'].lower()
-        for phrase in ('belief-state','continuous','causal'):
+        for phrase in ('nonlinear probabilistic','causal','finite belief'):
             self.assertIn(phrase,description)
 
     def test_v5_v10_and_claim_namespaces_are_exposed_without_collision(self):
         with tempfile.NamedTemporaryFile(suffix='.db') as f:
             srv=Server(f.name)
             init=srv.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
-            self.assertEqual(init['serverInfo']['version'],'2.8.0')
+            self.assertEqual(init['serverInfo']['version'],'2.9.0')
             tools=srv.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']
             names=[x['name'] for x in tools]
             self.assertEqual(len(names),len(set(names)),'tool registry must not contain duplicate RPC names')
