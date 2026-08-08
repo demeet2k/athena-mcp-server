@@ -7,6 +7,7 @@ from typing import Any, Dict, Iterable, List, Mapping, Optional
 from .orchestration_explain import decision_explanation, measurement_requests, pareto_successor_frontier
 from .orchestration_gate import promotion_gate
 from .orchestration_graph import candidate_id, dependency_graph
+from .orchestration_metric import calibration_requests, contract_summary, formula_calibration, normalize_item
 from .orchestration_score import (
     REWARD_NEGATIVE,
     REWARD_POSITIVE,
@@ -32,8 +33,8 @@ EDGE_TYPES = (
 
 RUN_STAGES = (
     "reconstruct", "extract", "retrieve", "hug", "graph", "gap", "compile",
-    "measure", "test", "observe", "repair", "retest", "verify", "reward",
-    "reallocate", "output", "successor", "replay",
+    "measure", "calibrate", "test", "observe", "repair", "retest", "verify",
+    "reward", "reallocate", "output", "successor", "replay",
 )
 
 TEST_BRANCHES = ("main", "counter", "edge", "fail")
@@ -46,9 +47,10 @@ def _numeric_positive(value: Any) -> bool:
     except (TypeError, ValueError): return False
 
 
-def _allocation(item: Mapping[str, Any], reward: Mapping[str, Any], gate: Mapping[str, Any], dep: Mapping[str, Any]) -> List[str]:
+def _allocation(item: Mapping[str, Any], reward: Mapping[str, Any], reward_calibration: Mapping[str, Any], gate: Mapping[str, Any], dep: Mapping[str, Any]) -> List[str]:
     if not dep.get("ready", True): return ["resolve_dependency"]
     if gate.get("status") == "BLOCKED": return ["branch", "repair", "retest"]
+    if not reward_calibration.get("ranking_allowed", True): return ["calibrate_metrics"]
     if reward.get("status") != "KNOWN": return ["measure"]
     value = float(reward["value"])
     if value > 0: return ["deepen", "replicate", "braid"]
@@ -56,24 +58,46 @@ def _allocation(item: Mapping[str, Any], reward: Mapping[str, Any], gate: Mappin
     return ["retain", "measure"]
 
 
-def _candidate_row(item: Mapping[str, Any], index: int, dep: Mapping[str, Any]) -> Dict[str, Any]:
-    ident = candidate_id(item, index)
-    frontier = frontier_score(item); successor = successor_score(item); reward = reward_score(item); gate = promotion_gate(item)
-    unresolved = not bool(item.get("resolved", False))
-    rankable_frontier = dep.get("ready", True) and gate["status"] == "PASS" and frontier["status"] == "KNOWN"
-    rankable_successor = unresolved and dep.get("ready", True) and gate["status"] == "PASS" and successor["status"] == "KNOWN"
+def _candidate_row(raw_item: Mapping[str, Any], scoring_item: Mapping[str, Any], calibration_report: Mapping[str, Any], index: int, dep: Mapping[str, Any]) -> Dict[str, Any]:
+    ident = candidate_id(raw_item, index)
+    frontier = frontier_score(scoring_item)
+    successor = successor_score(scoring_item)
+    reward = reward_score(scoring_item)
+    gate = promotion_gate(raw_item)
+    calibration = {
+        "frontier": formula_calibration(calibration_report, "frontier"),
+        "successor": formula_calibration(calibration_report, "successor"),
+        "reward": formula_calibration(calibration_report, "reward"),
+    }
+    unresolved = not bool(raw_item.get("resolved", False))
+    rankable_frontier = (
+        dep.get("ready", True)
+        and gate["status"] == "PASS"
+        and calibration["frontier"]["ranking_allowed"]
+        and frontier["status"] == "KNOWN"
+    )
+    rankable_successor = (
+        unresolved
+        and dep.get("ready", True)
+        and gate["status"] == "PASS"
+        and calibration["successor"]["ranking_allowed"]
+        and successor["status"] == "KNOWN"
+    )
     unknown = sorted(set(frontier.get("missing", []) + successor.get("missing", []) + reward.get("missing", [])))
     return {
         "id": ident,
         "resolved": not unresolved,
         "dependency": dep,
         "gate": gate,
+        "metric_calibration": calibration,
+        "metric_report": dict(calibration_report),
         "scores": {"frontier": frontier, "successor": successor, "reward": reward},
         "rankable_frontier": rankable_frontier,
         "rankable_successor": rankable_successor,
         "unknown_metrics": unknown,
-        "allocation": _allocation(item, reward, gate, dep),
-        "source": dict(item),
+        "allocation": _allocation(raw_item, reward, calibration["reward"], gate, dep),
+        "source": dict(raw_item),
+        "scoring_source": dict(scoring_item),
     }
 
 
@@ -82,7 +106,8 @@ def _frontier_sort(row: Mapping[str, Any]):
 
 
 def _successor_sort(row: Mapping[str, Any]):
-    score = row["scores"]["successor"]; frontier = row["scores"]["frontier"]
+    score = row["scores"]["successor"]
+    frontier = row["scores"]["frontier"]
     sv = float(score["value"]) if score.get("status") == "KNOWN" else 0.0
     fv = float(frontier["value"]) if frontier.get("status") == "KNOWN" else 0.0
     return (0 if score.get("status") == "KNOWN" else 1, -sv, -fv, str(row["id"]))
@@ -102,54 +127,78 @@ def orchestration_law() -> Dict[str, Any]:
         "graph": {"edge_types": list(EDGE_TYPES), "dependency_law": "ready iff prerequisites exist+resolved and candidate is not in an unresolved dependency cycle"},
         "coordinates": {"fiber": list(COORDINATE_FIBER), "law": "coordinate != identity; UNKNOWN is preserved; required coordinate gaps block promotion"},
         "unknown_law": "UNKNOWN != 0; incomplete required formulas are non-rankable and route to measurement",
-        "gap_law": "grow = argmax(severity * leverage * information_gain / cost) over KNOWN residual scores",
-        "frontier_law": "F = argmax(readiness * gain * independence * bridge / cost) over dependency-ready gate-passing KNOWN candidates",
-        "successor_law": "next = argmax_unresolved(delta_j * information_gain * bridge * option_value / cost) over dependency-ready gate-passing KNOWN candidates",
-        "pareto_law": "preserve all successor candidates not dominated on delta_j, information_gain, bridge, option_value and cost",
+        "metric_law": "cross-candidate arithmetic is performed on one declared basis; x'=(x-offset)/abs(scale). strict basis blocks formulas with uncalibrated/invalid operands; non-strict basis exposes WARN_RAW",
+        "gap_law": "grow = argmax(severity * leverage * information_gain / cost) over KNOWN calibration-allowed residual scores",
+        "frontier_law": "F = argmax(readiness * gain * independence * bridge / cost) over dependency-ready gate-passing KNOWN calibration-allowed candidates",
+        "successor_law": "next = argmax_unresolved(delta_j * information_gain * bridge * option_value / cost) over dependency-ready gate-passing KNOWN calibration-allowed candidates",
+        "pareto_law": "preserve all successor candidates not dominated on the same scoring basis over delta_j, information_gain, bridge, option_value and cost",
         "reward": {"positive": list(REWARD_POSITIVE), "negative": list(REWARD_NEGATIVE)},
         "test": {"branches": list(TEST_BRANCHES), "claim_requires": ["procedure", "observation", "result", "witness"]},
         "transaction": {"stages": ["attempt", "action", "commit?", "receipt", "verify", "rollback?"], "persisted_claim_requires": ["commit", "receipt", "verify"], "fake_success": False},
-        "allocation": {"high_reward": ["deepen", "replicate", "braid"], "low_reward_duplicate": ["hibernate"], "unknown_reward": ["measure"], "dependency_blocked": ["resolve_dependency"], "gate_blocked": ["branch", "repair", "retest"], "hibernate_is_erase": False},
+        "allocation": {"high_reward": ["deepen", "replicate", "braid"], "low_reward_duplicate": ["hibernate"], "unknown_reward": ["measure"], "uncalibrated_strict_reward": ["calibrate_metrics"], "dependency_blocked": ["resolve_dependency"], "gate_blocked": ["branch", "repair", "retest"], "hibernate_is_erase": False},
         "budget_law": "P* = argmax_|P|<=B(development + extraction + graph + coordinates + evidence + replay + navigation + successor)",
     }
 
 
-def compile_orchestration(seed: Any, candidates: Optional[Iterable[Mapping[str, Any]]] = None, residuals: Optional[Iterable[Mapping[str, Any]]] = None, budget: Optional[Mapping[str, Any]] = None) -> Dict[str, Any]:
+def compile_orchestration(
+    seed: Any,
+    candidates: Optional[Iterable[Mapping[str, Any]]] = None,
+    residuals: Optional[Iterable[Mapping[str, Any]]] = None,
+    budget: Optional[Mapping[str, Any]] = None,
+    metric_contract: Optional[Mapping[str, Any]] = None,
+) -> Dict[str, Any]:
     source_candidates = [dict(item) for item in (candidates or [])]
-    unique: Dict[str, Dict[str, Any]] = {}; duplicate_ids: List[str] = []
+    unique: Dict[str, Dict[str, Any]] = {}
+    duplicate_ids: List[str] = []
     for index, item in enumerate(source_candidates):
         ident = candidate_id(item, index)
-        if ident in unique: duplicate_ids.append(ident); continue
+        if ident in unique:
+            duplicate_ids.append(ident)
+            continue
         unique[ident] = item
     source_candidates = list(unique.values())
 
     dep_graph = dependency_graph(source_candidates)
     rows = []
-    for index, item in enumerate(source_candidates):
-        ident = candidate_id(item, index)
-        rows.append(_candidate_row(item, index, dep_graph["readiness"].get(ident, {"ready": True, "blockers": []})))
+    calibration_plan = []
+    for index, raw_item in enumerate(source_candidates):
+        ident = candidate_id(raw_item, index)
+        scoring_item, calibration_report = normalize_item(raw_item, metric_contract)
+        row = _candidate_row(raw_item, scoring_item, calibration_report, index, dep_graph["readiness"].get(ident, {"ready": True, "blockers": []}))
+        rows.append(row)
+        calibration_plan.extend(calibration_requests(ident, calibration_report))
 
     frontier = sorted(rows, key=_frontier_sort)
     executable_frontier = [row for row in frontier if row["rankable_frontier"]]
     successor_frontier = sorted((row for row in rows if row["rankable_successor"]), key=_successor_sort)
     measurement_frontier = [row for row in frontier if row["unknown_metrics"]]
+    calibration_frontier = [row for row in frontier if any((row["metric_calibration"][name]["status"] == "BLOCKED") for name in ("frontier", "successor", "reward"))]
     measurement_plan = measurement_requests(frontier)
     pareto_ids = pareto_successor_frontier(successor_frontier)
 
     residual_rows = []
-    for index, item in enumerate(residuals or []):
-        item = dict(item); ident = str(item.get("id") or item.get("name") or f"residual:{index:04d}")
-        residual_rows.append({"id": ident, "score": residual_score(item), "source": item})
+    for index, raw_item in enumerate(residuals or []):
+        raw_item = dict(raw_item)
+        ident = str(raw_item.get("id") or raw_item.get("name") or f"residual:{index:04d}")
+        scoring_item, calibration_report = normalize_item(raw_item, metric_contract)
+        calibration = formula_calibration(calibration_report, "residual")
+        residual_rows.append({"id": ident, "score": residual_score(scoring_item), "metric_calibration": calibration, "metric_report": calibration_report, "source": raw_item, "scoring_source": scoring_item})
+        for request in calibration_requests(ident, calibration_report):
+            if request["formula"] == "residual":
+                calibration_plan.append(request)
     residual_frontier = sorted(residual_rows, key=lambda row: rank_key(row["score"], row["id"]))
-    known_residuals = [row for row in residual_frontier if row["score"]["status"] == "KNOWN"]
+    known_residuals = [row for row in residual_frontier if row["score"]["status"] == "KNOWN" and row["metric_calibration"]["ranking_allowed"]]
 
     next_id = successor_frontier[0]["id"] if successor_frontier else None
     explanation = decision_explanation(frontier, next_id)
+    metric_summary = contract_summary(metric_contract)
     decision = {
+        "metric_basis": metric_summary,
         "executable_frontier": [row["id"] for row in executable_frontier],
         "successor_frontier": [row["id"] for row in successor_frontier],
         "pareto_successor_frontier": pareto_ids,
         "measurement_frontier": [row["id"] for row in measurement_frontier],
+        "calibration_frontier": [row["id"] for row in calibration_frontier],
         "grow": known_residuals[0]["id"] if known_residuals else None,
         "next": next_id,
         "dependency_cycles": dep_graph["cycles"],
@@ -159,6 +208,7 @@ def compile_orchestration(seed: Any, candidates: Optional[Iterable[Mapping[str, 
         "kernel": AOR_VERSION,
         "seed": seed,
         "budget": dict(budget or {}),
+        "metric_contract": metric_summary,
         "law": orchestration_law(),
         "extraction_plan": [{"transform": transform, "seed": seed} for transform in TRANSFORMS],
         "candidate_dedup": {"mode": "explicit_identity_only", "duplicate_ids": duplicate_ids},
@@ -169,11 +219,13 @@ def compile_orchestration(seed: Any, candidates: Optional[Iterable[Mapping[str, 
         "pareto_successor_frontier": pareto_ids,
         "measurement_frontier": measurement_frontier,
         "measurement_plan": measurement_plan,
+        "calibration_frontier": calibration_frontier,
+        "calibration_plan": sorted(calibration_plan, key=lambda x: (not x["strict_block"], x["candidate"], x["formula"])),
         "residual_frontier": residual_frontier,
         "grow": known_residuals[0] if known_residuals else None,
         "next": successor_frontier[0] if successor_frontier else None,
         "decision_explanation": explanation,
-        "return": {"required": ["result", "math", "graph", "coordinates", "evidence", "residuals", "witnesses", "delta", "next"], "missing_witness": "downgrade", "missing_coordinate": "repair_before_promotion", "unknown_metric": "measure_not_zero", "dependency_blocked": "resolve_dependency", "error": ["rollback", "branch"], "high_residual": "continue"},
+        "return": {"required": ["result", "math", "graph", "coordinates", "evidence", "residuals", "witnesses", "delta", "next"], "missing_witness": "downgrade", "missing_coordinate": "repair_before_promotion", "unknown_metric": "measure_not_zero", "uncalibrated_metric": "calibrate_before_ranking_when_strict", "dependency_blocked": "resolve_dependency", "error": ["rollback", "branch"], "high_residual": "continue"},
     }
     result["decision_digest"] = _decision_digest(decision)
     return result
