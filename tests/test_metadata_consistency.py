@@ -13,14 +13,16 @@ class MetadataConsistencyTests(unittest.TestCase):
         project=tomllib.loads((root/'pyproject.toml').read_text())['project']
         self.assertEqual(project['version'],SERVER_INFO['version'])
         self.assertEqual(project['name'],SERVER_INFO['name'])
-        self.assertEqual(project['version'],'2.5.0')
-        self.assertIn('discovery',project['description'].lower())
+        self.assertEqual(project['version'],'2.8.0')
+        description=project['description'].lower()
+        for phrase in ('belief-state','continuous','causal'):
+            self.assertIn(phrase,description)
 
-    def test_v5_v6_and_claim_namespaces_are_exposed_without_collision(self):
+    def test_v5_v9_and_claim_namespaces_are_exposed_without_collision(self):
         with tempfile.NamedTemporaryFile(suffix='.db') as f:
             srv=Server(f.name)
             init=srv.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
-            self.assertEqual(init['serverInfo']['version'],'2.5.0')
+            self.assertEqual(init['serverInfo']['version'],'2.8.0')
             tools=srv.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']
             names=[x['name'] for x in tools]
             self.assertEqual(len(names),len(set(names)),'tool registry must not contain duplicate RPC names')
@@ -28,6 +30,9 @@ class MetadataConsistencyTests(unittest.TestCase):
                 'athena_bandit_select','athena_topology_project_jspace',
                 'athena_bayes_predict','athena_experiment_design','athena_schedule_multiperiod','athena_pareto_frontier','athena_projection_compensate',
                 'athena_ood_score','athena_nonlinear_predict','athena_causal_identify','athena_mpc_plan','athena_schedule_certified',
+                'athena_uncertainty_decompose','athena_dual_control_plan','athena_replication_independence',
+                'athena_belief_register','athena_decision_evi','athena_evidence_spectral',
+                'athena_gaussian_belief_register','athena_decision_evpi','athena_decision_evsi','athena_causal_aipw','athena_structure_partial','athena_evidence_dependence_probability',
                 'athena_discovery_claim_register','athena_discovery_claim_witness','athena_discovery_claim_state',
                 'athena_claim_register','athena_claim_state','athena_claim_promote',
             ):
@@ -38,10 +43,13 @@ class MetadataConsistencyTests(unittest.TestCase):
             self.assertNotEqual(by_name['athena_claim_register']['inputSchema'],by_name['athena_discovery_claim_register']['inputSchema'])
 
             uris={x['uri'] for x in srv.handle({'jsonrpc':'2.0','id':3,'method':'resources/list'})['result']['resources']}
-            for uri in ('athena://collective/v4','athena://collective/v5','athena://collective/v6','athena://authority'):
+            for uri in ('athena://collective/v4','athena://collective/v5','athena://collective/v6','athena://collective/v7','athena://collective/v8','athena://collective/v9','athena://authority'):
                 self.assertIn(uri,uris)
             v6=srv.handle({'jsonrpc':'2.0','id':4,'method':'resources/read','params':{'uri':'athena://collective/v6'}})
             self.assertIn('result',v6);text=v6['result']['contents'][0]['text'];self.assertIn('athena_discovery_claim_',text);self.assertIn('athena_claim_',text)
+            for uri in ('athena://collective/v8','athena://collective/v9','athena://authority'):
+                text=srv.handle({'jsonrpc':'2.0','id':5,'method':'resources/read','params':{'uri':uri}})['result']['contents'][0]['text']
+                self.assertIn('authority' if uri=='athena://authority' else 'boundary',text)
             srv.store.close()
 
 
