@@ -9,9 +9,11 @@ from .stack_server import STACK_LAYERS,STACK_VERSION,StackServer,stack_manifest
 from .orchestration_field import FieldLedger
 from .orchestration_field_protocol import FIELD_RESOURCE,FIELD_TOOLS
 from .orchestration_field_surface import FIELD_TOOL_NAMES,call_field_tool,field_resource_value
+from .surface_contract import audit_surface,contract_manifest
+from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS,SURFACE_TOOL_NAMES
 from .validate import validate
 
-FIELD_STACK_VERSION="AOR.STACK.3+FIELD.1"
+FIELD_STACK_VERSION="AOR.STACK.3+FIELD.1+AOR.3.2"
 
 
 def field_stack_manifest():
@@ -23,53 +25,84 @@ def field_stack_manifest():
             "server":"FieldServer",
             "role":"provenance-preserving module-residual/action-candidate assembly; generated metrics remain unmeasured",
             "epistemic_status":"EXECUTABLE_ASSEMBLY_NOT_IDEA_OR_METRIC_GENERATOR",
-        }
+        },
+        {
+            "index":len(base["layers"])+1,
+            "name":"ROBUSTNESS1",
+            "server":"FieldServer/base surface",
+            "role":"persisted AORRUN successor rank-sensitivity certificate",
+            "epistemic_status":"RANK_SENSITIVITY_NOT_TRUTH_PROBABILITY",
+        },
+        {
+            "index":len(base["layers"])+2,
+            "name":"SURFACE1",
+            "server":"FieldServer",
+            "role":"mature-organ discovery contract and anti-regression audit",
+            "epistemic_status":"DISCOVERY_COMPOSITION_AUDIT",
+        },
     ]
     return {
         **base,
         "version":FIELD_STACK_VERSION,
         "layers":layers,
         "default_candidate":"FieldServer",
+        "promotion_gate":"athena_surface_audit.status == PASS and full CI + smoke PASS on exact head",
     }
 
 
 class FieldServer(StackServer):
-    """Top staged AOR composition candidate: StackServer + FIELD.1.
+    """Promoted fully composed ATHENA runtime candidate.
 
-    This class is intentionally not the package default until the whole-suite
-    regression/promotion gate is witnessed on the exact head.
+    Server chain: base -> authority -> equivalence/extraction -> retrieval -> HUG
+    -> GAP -> stack -> FIELD, while base also carries branch evolution, AORRUN,
+    robustness, transforms, emissions, sessions and Git CAS.
     """
     def __init__(self,db,git_root=None):
         super().__init__(db,git_root)
         self.field=FieldLedger(self.core)
         self._field_tools={tool["name"]:tool for tool in FIELD_TOOLS}
+        self._surface_tools={tool["name"]:tool for tool in SURFACE_TOOLS}
+
+    def _discovered_surface(self):
+        tools=self.handle({"jsonrpc":"2.0","id":"surface-tools","method":"tools/list"})["result"]["tools"]
+        resources=self.handle({"jsonrpc":"2.0","id":"surface-resources","method":"resources/list"})["result"]["resources"]
+        return [tool["name"] for tool in tools],[resource["uri"] for resource in resources]
+
+    def surface_audit(self):
+        tool_names,resource_uris=self._discovered_surface()
+        return audit_surface(tool_names,resource_uris)
 
     def call_tool(self,name,args):
         if name in FIELD_TOOL_NAMES:return call_field_tool(self.field,name,args)
+        if name=="athena_surface_audit":return self.surface_audit()
         if name=="athena_benchmark":
-            result=super().call_tool(name,args);result.update(self.field.benchmark());return result
+            result=super().call_tool(name,args);result.update(self.field.benchmark());result["surface_audit"]=self.surface_audit()["status"];return result
         return super().call_tool(name,args)
 
     def handle(self,message):
         method=message.get("method");params=message.get("params") or {};mid=message.get("id")
         if method=="tools/list":
-            base=super().handle(message);tools=list(base["result"]["tools"])+list(FIELD_TOOLS)
+            base=super().handle(message);tools=list(base["result"]["tools"])+list(FIELD_TOOLS)+list(SURFACE_TOOLS)
             base["result"]["tools"]=sorted({tool["name"]:tool for tool in tools}.values(),key=lambda x:x["name"]);return base
-        if method=="tools/call" and params.get("name") in FIELD_TOOL_NAMES:
-            name=params["name"];args=params.get("arguments") or {}
+        if method=="tools/call" and params.get("name") in FIELD_TOOL_NAMES|SURFACE_TOOL_NAMES:
+            name=params["name"];args=params.get("arguments") or {};tool_map={**self._field_tools,**self._surface_tools}
             if not self.rate.allow(name):return self.result(mid,{"content":[{"type":"text","text":"Rate limit exceeded; retry later."}],"isError":True})
             try:
-                validate(self._field_tools[name]["inputSchema"],args);value=self.call_tool(name,args)
+                validate(tool_map[name]["inputSchema"],args);value=self.call_tool(name,args)
                 return self.result(mid,{"content":[{"type":"text","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}],"structuredContent":value,"isError":False})
             except (ValueError,KeyError) as exc:
                 return self.result(mid,{"content":[{"type":"text","text":str(exc)}],"isError":True})
         if method=="resources/list":
             base=super().handle(message);resources=list(base["result"]["resources"])
-            if FIELD_RESOURCE["uri"] not in {r["uri"] for r in resources}:resources.append(FIELD_RESOURCE)
+            for resource in (FIELD_RESOURCE,SURFACE_RESOURCE):
+                if resource["uri"] not in {r["uri"] for r in resources}:resources.append(resource)
             base["result"]["resources"]=resources;return base
         if method=="resources/read" and params.get("uri")==FIELD_RESOURCE["uri"]:
             value=field_resource_value(self.field)
             return self.result(mid,{"contents":[{"uri":FIELD_RESOURCE["uri"],"mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
+        if method=="resources/read" and params.get("uri")==SURFACE_RESOURCE["uri"]:
+            tools,resources=self._discovered_surface();value={"contract":contract_manifest(),"audit":audit_surface(tools,resources)}
+            return self.result(mid,{"contents":[{"uri":SURFACE_RESOURCE["uri"],"mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
         if method=="resources/read" and params.get("uri")=="athena://stack":
             value=field_stack_manifest()
             return self.result(mid,{"contents":[{"uri":"athena://stack","mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
@@ -79,6 +112,7 @@ class FieldServer(StackServer):
                 content=messages[0].get("content",{})
                 content["text"]=content.get("text","")+"""
 19 FIELD/PHI: `Phi=maxSX(q,B,C,eco{K,H,S,a,Z})` is not a license for a magic idea generator. FIELD.1 assembles actual unresolved work emitted by SX.1, RAG.1, Y.1, GAP.1, HUG.ABI.1, branch REVIEW and AOR measurement/calibration into typed action candidates with exact source receipts and dependency edges. Generated actions are `metric_state=UNMEASURED`; do not invent readiness/gain/cost/DeltaJ/etc. Exact identical action signatures may merge provenance. If explicit measurements disagree on an exact action, mark `metric_state=CONFLICT`, strip disputed AOR operands and route to remeasurement/adjudication. Preserve ecosystem constraints as data, then hand FIELD candidates to AOR only after lawful measurement/calibration/gating. Persist exact module inputs and candidate/provenance graph as FIELDRUN for replay.
+20 SURFACE/PROMOTION: the package default may claim a mature organ only when the composed runtime exposes it under ATHENA.SURFACE.1. `athena_surface_audit.status=PASS` plus exact-head CI/smoke is the promotion gate. A new organ extends the surface; it does not silently replace unrelated tools/resources. Robustness certificates remain post-decision rank sensitivity bound to AORRUN decision_digest, not hidden NEXT score terms.
 """
             return base
         return super().handle(message)
