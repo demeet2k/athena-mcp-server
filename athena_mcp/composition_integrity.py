@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, Iterable, Mapping
 
-COMPOSITION_VERSION="ATHENA.COMPOSITION.1"
+COMPOSITION_VERSION="ATHENA.COMPOSITION.1+PROMOTION.1"
 
 EXPECTED_MRO=(
     "FieldServer","StackServer","GapServer","HugServer","RetrievalServer",
@@ -19,6 +19,7 @@ REQUIRED_ORGANS={
     "hug":("hug",),
     "gap":("gap",),
     "field":("field",),
+    "promotion":("promotion",),
 }
 
 READ_ONLY_PROBES={
@@ -28,6 +29,7 @@ READ_ONLY_PROBES={
     "hug":("athena_hug_list",{}),
     "gap":("athena_gap_recent",{}),
     "field":("athena_field_recent",{}),
+    "promotion":("athena_promotion_recent",{}),
 }
 
 
