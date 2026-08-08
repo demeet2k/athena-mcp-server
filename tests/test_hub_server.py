@@ -32,7 +32,7 @@ class HubServerTests(unittest.TestCase):
                 "athena_kc144_registry_verify",
             ):
                 self.assertIn(name, names)
-            self.assertNotIn("athena_promotion_evaluate", names)
+            self.assertIn("athena_promotion_evaluate", names)
 
             resources = server.handle({"jsonrpc": "2.0", "id": 2, "method": "resources/list"})["result"]["resources"]
             uris = {item["uri"] for item in resources}
@@ -51,7 +51,7 @@ class HubServerTests(unittest.TestCase):
                 "athena://kc144/completion/frontier",
             ):
                 self.assertIn(uri, uris)
-            self.assertNotIn("athena://promotion", uris)
+            self.assertIn("athena://promotion", uris)
 
             reply = server.handle({"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "athena_kc144_hub_validate", "arguments": {}}})
             payload = json.loads(reply["result"]["content"][0]["text"])
@@ -65,7 +65,7 @@ class HubServerTests(unittest.TestCase):
             self.assertEqual(overlay["ORGAN.GAP1"]["state"], "LIVE_UNIFIED")
             self.assertEqual(overlay["ORGAN.FIELD1"]["state"], "LIVE_UNIFIED")
             self.assertTrue(overlay["ORGAN.FIELD1"]["surface_pass"])
-            self.assertFalse(overlay["ORGAN.PROMOTION1"]["surface_pass"])
+            self.assertTrue(overlay["ORGAN.PROMOTION1"]["surface_pass"])
 
             inventory_reply = server.handle({"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "athena_kc144_hub_inventory", "arguments": {"kind": "RESOURCE", "limit": 5000}}})
             inventory = json.loads(inventory_reply["result"]["content"][0]["text"])
