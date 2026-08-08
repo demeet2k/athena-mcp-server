@@ -300,7 +300,7 @@ class AgentBootstrapColdProcessContinuationTests(unittest.TestCase):
                 names = mcp.tool_names()
                 self.assertIn("athena_rehydration_start", names)
                 self.assertIn("athena_rehydration_advance", names)
-                self.assertIn("athena_prompt_remote_publish", names)
+                self.assertIn("athena_prompt_publish", names)
                 start = mcp.tool(
                     "athena_rehydration_start",
                     {
@@ -341,7 +341,7 @@ class AgentBootstrapColdProcessContinuationTests(unittest.TestCase):
                 )
                 first_checkpoint = first["checkpoint_head"]
                 published = mcp.tool(
-                    "athena_prompt_remote_publish",
+                    "athena_prompt_publish",
                     {"expected_git_head": first_checkpoint, "remote": "origin"},
                 )
                 self.assertTrue(published.get("shared_frontier_verified"), published)
@@ -409,7 +409,7 @@ class AgentBootstrapColdProcessContinuationTests(unittest.TestCase):
                 )
                 second_checkpoint = second["checkpoint_head"]
                 published_second = mcp_a.tool(
-                    "athena_prompt_remote_publish",
+                    "athena_prompt_publish",
                     {"expected_git_head": second_checkpoint, "remote": "origin"},
                 )
                 self.assertTrue(published_second.get("shared_frontier_verified"), published_second)
