@@ -81,7 +81,32 @@ class PromptRemoteTests(unittest.TestCase):
         self.assertEqual(state["status"], "AHEAD_LOCAL")
         self.assertFalse(state["shared_frontier_verified"])
 
-    def test_divergence_fails_closed_without_auto_merge(self):
+    def test_publish_closes_local_to_shared_loop_and_sibling_can_receive(self):
+        remote, local, sibling = self._fixture()
+        _write(local, "prompts/learned.md", "agent learning\n")
+        _run(local, "add", ".")
+        _run(local, "commit", "-m", "agent learning")
+        local_head = _run(local, "rev-parse", "HEAD")
+
+        published = remote.publish(local_head)
+        self.assertEqual(published["status"], "PUBLISHED_SHARED")
+        self.assertTrue(published["shared_frontier_verified"])
+
+        _run(sibling, "pull", "--ff-only", "origin", "master")
+        self.assertEqual(_run(sibling, "rev-parse", "HEAD"), local_head)
+        self.assertEqual((sibling / "prompts" / "learned.md").read_text(), "agent learning\n")
+
+    def test_publish_rejects_stale_expected_head(self):
+        remote, local, _ = self._fixture()
+        stale = _run(local, "rev-parse", "HEAD")
+        _write(local, "prompts/new.md", "new\n")
+        _run(local, "add", ".")
+        _run(local, "commit", "-m", "new")
+        state = remote.publish(stale)
+        self.assertEqual(state["status"], "STALE_LOCAL_HEAD_HOLD")
+        self.assertFalse(state["shared_frontier_verified"])
+
+    def test_divergence_fails_closed_without_auto_merge_or_push(self):
         remote, local, sibling = self._fixture()
         _write(local, "prompts/local.md", "local\n")
         _run(local, "add", ".")
@@ -98,15 +123,25 @@ class PromptRemoteTests(unittest.TestCase):
         self.assertFalse(state["shared_frontier_verified"])
         self.assertEqual(_run(local, "rev-parse", "HEAD"), local_head)
 
-    def test_dirty_worktree_holds_before_fetch_or_merge(self):
+        publish = remote.publish(local_head)
+        self.assertEqual(publish["status"], "PUBLISH_HOLD_DIVERGED_HOLD")
+        self.assertFalse(publish["shared_frontier_verified"])
+        self.assertEqual(_run(local, "rev-parse", "HEAD"), local_head)
+
+    def test_dirty_worktree_holds_before_fetch_merge_or_publish(self):
         remote, local, _ = self._fixture()
         _write(local, "prompts/dirty.md", "dirty\n")
-        state = remote.sync()
-        self.assertEqual(state["status"], "DIRTY_WORKTREE_HOLD")
-        self.assertFalse(state["shared_frontier_verified"])
+        sync = remote.sync()
+        self.assertEqual(sync["status"], "DIRTY_WORKTREE_HOLD")
+        self.assertFalse(sync["shared_frontier_verified"])
+        publish = remote.publish(_run(local, "rev-parse", "HEAD"))
+        self.assertEqual(publish["status"], "DIRTY_WORKTREE_HOLD")
+        self.assertFalse(publish["shared_frontier_verified"])
 
     def test_remote_tool_surface_is_explicit(self):
-        self.assertEqual(PROMPT_REMOTE_TOOL_NAMES, {"athena_prompt_remote_status", "athena_prompt_sync"})
+        self.assertEqual(PROMPT_REMOTE_TOOL_NAMES, {
+            "athena_prompt_remote_status", "athena_prompt_sync", "athena_prompt_publish"
+        })
 
 
 if __name__ == "__main__":
