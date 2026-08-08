@@ -11,8 +11,9 @@
 8. COLLECTIVE MEMORY V2 — persistent pheromones, typed JSPACE invalidation, observed-RGO calibration, topology CAS/rollback, failure antibodies.
 9. COLLECTIVE LEARNING V3 — measured resource metabolism, bounded rollbackable learned policy, counterfactuals, elder authority, antibody evolution, multiscale pheromones.
 10. COLLECTIVE ECOLOGY V4 — task regimes, contextual-UCB experiment selection, causal-confidence credit/residual, worker budget scheduling, learned diffusion, executable regression witnesses, uncertainty-banded rollouts, topology→JSPACE recovery sagas.
-11. COLLECTIVE SCIENCE V5 — full-covariance contextual uncertainty + empirical interval calibration, active information-gain experiment design, factorial interaction and delayed credit, learned transition dynamics, multi-period scheduling, stronger constrained witness cells, learned regime geometry, Pareto-front organization search, and projection-edge compensation algebra.
-12. Runtime — hydrate, conditional writes, telemetry, adoption, replayable sessions, exact final emission.
+11. COLLECTIVE SCIENCE V5 — full-covariance contextual uncertainty + empirical interval calibration, information-gain experiment design, factorial interaction/delayed credit, learned transition dynamics, multi-period scheduling, stronger constrained witness cells, learned regime geometry, Pareto-front search, projection-edge compensation.
+12. COLLECTIVE DISCOVERY V6 — degree-2 nonlinear Bayesian lift + empirical OOD geometry, factor-space experiment generation, supplied-DAG back-door identification, higher-order factorial contrasts, multivariate transition covariance, receding-horizon MPC, exact small-model schedule certification, fail-closed namespace witness capsules, Pareto experiment selection, and replication/falsification science shadows.
+13. Runtime — hydrate, conditional writes, telemetry, adoption, replayable sessions, exact final emission.
 
 ## Objective hierarchy
 
@@ -30,27 +31,30 @@ V3: `explicit observed reward -> bounded versioned policy update -> rollbackable
 
 V4: `context + regime + arm history -> <mean,uncertainty,UCB>` plus `outcome -> <credit,causal confidence,residual>`.
 
-V5: `correlated context -> <posterior mean,covariance,calibrated interval>`; `hypotheses + candidate experiments -> expected information gain`; `observed factorial/delayed outcomes -> identified/qualified credit`; `observed action transitions -> shrinkage transition model`; `candidate organizations -> non-dominated Pareto frontier`.
+V5: `correlated context -> <posterior mean,covariance,calibrated interval>`; `hypotheses + candidate experiments -> expected information gain`; `factorial/delayed outcomes -> qualified credit`; `observed transitions -> shrinkage dynamics`; `candidate organizations -> Pareto frontier`.
+
+V6: `raw context -> <nonlinear basis, empirical OOD pressure>`; `hypotheses + finite factor space -> generated experiment frontier`; `supplied causal DAG -> conditional back-door adjustment sets`; `observed transition vectors -> multivariate delta covariance`; `model + uncertainty -> receding-horizon plan`; `small fully declared schedule -> exact finite-model certificate`; `claim -> independent replication/falsification witness graph`.
 
 ## Current developmental metabolism
 
 `HYDRATE`
-`-> MEMORY/ANTIBODY/ELDER`
-`-> COARSE+LEARNED REGIME`
-`-> BAYES/CALIBRATION`
+`-> MEMORY/ANTIBODY/ELDER/SCIENCE-SHADOW`
+`-> COARSE+LEARNED REGIME + OOD`
+`-> BAYES/CALIBRATION/NONLINEAR BASIS`
 `-> LIVE HYPOTHESES`
-`-> ACTIVE EXPERIMENT DESIGN`
-`-> PARETO FRONTIER`
+`-> GENERATE/RANK EXPERIMENTS`
+`-> CONDITIONAL CAUSAL IDENTIFICATION`
+`-> PARETO EXPERIMENT FRONTIER`
 `-> COLLECTIVE PLAN`
-`-> MULTIPERIOD RESOURCE SCHEDULE`
+`-> CERTIFIED/HEURISTIC MULTIPERIOD SCHEDULE`
 `-> EXECUTE/METER`
 `-> QUORUM/FALSIFICATION/WITNESS`
 `-> OBSERVE`
-`-> DIRECT/INTERACTION/DELAYED CREDIT`
+`-> DIRECT/HIGHER-INTERACTION/DELAYED CREDIT`
 `-> BAYES/BANDIT/POLICY UPDATE`
-`-> TRANSITION MODEL UPDATE`
-`-> LEARNED-TRANSITION ROLLOUT`
-`-> PHEROMONE/DIFFUSION/IMMUNE/ELDER`
+`-> MULTIVARIATE TRANSITION UPDATE`
+`-> MPC REPLAN`
+`-> PHEROMONE/DIFFUSION/IMMUNE/ELDER/REPLICATION UPDATE`
 `-> JSPACE/TOPOLOGY/PROJECTION/COMPENSATION`
 `-> LIFECYCLE`
 `-> FINALIZE/VERIFY/COMMIT`.
@@ -61,70 +65,79 @@ V5: `correlated context -> <posterior mean,covariance,calibrated interval>`; `hy
 - Git state: expected Git HEAD;
 - topology state: expected topology version;
 - V3 learned policy: expected policy version;
-- V4/V5 bandit/Bayesian/transition state: observational predictive evidence only, never semantic authority;
-- causal-credit state: attribution evidence, with identification class and residual rather than hidden causal promotion;
+- V4–V6 statistical/control state: observational predictive/design evidence only, never semantic authority;
+- causal-identification state: a theorem/query result relative to a supplied graph/assumption surface, never independent proof that the supplied graph is true;
+- science-shadow replication/falsification state: evidence-navigation metadata, never a hidden canonical-object mutation;
 - diffusion/pheromone: routing priors, not dependency truth;
-- learned regimes: transfer neighborhoods, not object identity;
-- Pareto front: tradeoff set, not a canonical single winner;
+- learned regimes/OOD: transfer/calibration neighborhoods, not semantic identity or truth labels;
+- Pareto surfaces: tradeoff/experiment sets, not a canonical single winner;
 - projection/compensation: semantic recovery operations with separate Git consequences.
 
-## Bayesian/calibration boundary
+## Nonlinear/OOD boundary
 
-V5 full-covariance contextual state uses
+V6 transparently applies a degree-2 polynomial feature lift over the V5 full-covariance Bayesian model. This captures squares/pair interactions in the predictive basis but is not labeled a GP, neural posterior or universal function approximator.
 
-`A = λI + Σwφφᵀ`, `θ̂=A⁻¹b`, `Σ=A⁻¹`.
+An independent empirical context distribution tracks raw features. Ridge-regularized Mahalanobis distance plus unseen-feature pressure produces OOD state. OOD inflates inherited predictive intervals and reduces transfer confidence; it is not evidence that a factual claim is false.
 
-Predictive intervals are calibrated only from retained **pre-update** predictions and later observations. Empirical coverage can widen/narrow interval scale, but does not prove the underlying reward model is correct or transport calibration across distribution shift.
+`NONLINEAR_BASIS != UNIVERSAL_INFERENCE`; `OOD_SCORE != FACTUAL_FALSEHOOD`.
 
-`POSTERIOR != TRUTH` and `COVERAGE_CALIBRATION != MODEL_VALIDITY`.
+## Experiment-generation boundary
 
-## Active experiment boundary
+V6 generates only the finite Cartesian product of caller-declared factor levels. Hypothesis likelihoods are derived only from supplied `base_p + factor_effects`; the runtime does not invent causal mechanisms to fill missing models. Candidate cost/risk/feasibility/ethics are carried into V5 EIG ranking.
 
-For explicit hypotheses and caller-supplied outcome likelihoods, V5 ranks candidate experiments by expected entropy reduction adjusted by feasibility/cost/risk. Ethics remains a hard eligibility gate.
+Generated experiments remain `DESIGN_ONLY`.
 
-`EXPECTED_INFORMATION_GAIN != EVIDENCE` and `DESIGN != RESULT`.
+## Conditional causal-identification boundary
 
-## Causal boundary
+V6 back-door search removes treatment out-edges, excludes treatment descendants, then tests d-separation in the moralized relevant ancestral graph. A returned adjustment set is valid only relative to the supplied DAG, observed-node declaration, causal semantics and confounding assumptions.
 
-V4 one-step intervention credit retains causal confidence/residual. V5 additionally supports:
+Explicit latent-confounding risk blocks promotion.
 
-- main present-vs-absent contrasts;
-- pairwise `μ11-μ10-μ01+μ00` interactions only when all four cells exist;
-- delayed `ΔY × causal_confidence × discount^delay` credit.
+`IDENTIFIED_BACKDOOR_UNDER_DAG != CAUSE_PROVEN_IN_REALITY`.
 
-A missing factorial cell remains `UNIDENTIFIED`; a numerical interaction is not promoted to causal without design confidence. Temporal delay alone never proves cause.
+## Higher-order interaction boundary
 
-## Transition/rollout boundary
+For order `k<=4`, all `2^k` binary factorial cells are required. The inclusion-exclusion contrast is not computed when a cell is missing. Numerical contrasts remain associational unless design confidence supplies identification support.
 
-V5 learns action-conditioned feature deltas with shrinkage toward zero. Unobserved features remain unchanged/unknown. Learned-transition rollouts remain `SIMULATE_ONLY` and cannot train their own model.
+## Transition/MPC boundary
 
-`TRANSITION_MODEL != WORLD_TRUTH`; `ROLLOUT != EXECUTION`.
+V6 reconstructs multivariate empirical action-conditioned delta covariance directly from measured V5 before/after rows, with shrinkage toward no change while evidence is sparse. Unseen actions/features remain unmodeled.
+
+MPC uses this surface for bounded receding-horizon planning. The lawful loop is:
+
+`PLAN_H -> EXECUTE_FIRST_AUTHORIZED_ACTION -> OBSERVE_REAL_NEXT_STATE -> UPDATE -> REPLAN`.
+
+MPC never creates transition observations itself.
+
+`STOCHASTIC_TRANSITION_MODEL != WORLD_TRUTH`; `MPC_PLAN != EXECUTION`.
 
 ## Resource/scheduling boundary
 
-Automatically observable: MCP tool calls and wall time.
+Automatically observable: MCP tool calls and wall time. Optional caller-observable dimensions include tokens, compute, retrieval, storage, attention, CPU/GPU time, energy, memory and network bytes. Unknown dimensions remain `UNKNOWN`, never zero.
 
-Caller-observable optional dimensions include tokens, compute, retrieval, storage, attention, CPU/GPU time, energy, memory and network bytes.
+V5 provides bounded beam scheduling. V6 can exhaustively enumerate small fully declared finite schedules and issue `EXACT_ENUMERATION_CERTIFIED` only when enumeration finishes before the node bound. If search truncates, task count exceeds the exact limit, or a supplied constrained budget dimension is missing from any task cost model, the exact certificate is removed.
 
-Unknown dimensions remain `UNKNOWN`, never zero.
-
-V5 multi-period scheduling respects explicit dependencies, durations, worker capacity, horizon and known budgets through bounded beam search. It deliberately returns no global optimality proof.
+A certificate proves optimality only inside the declared finite scheduling model.
 
 ## Witness boundary
 
-V5 witness cells execute repository-owned unittest references only and add Python isolation, sanitized environment, temporary HOME, timeout, Python socket denial, and POSIX resource limits where available. They are stronger process cells, but not OS/VM-level hermetic sandboxes.
+V5 witness cells are process-constrained but non-hermetic. V6's stronger capsule requires Linux bubblewrap. When unavailable it fails closed with `HERMETIC_UNAVAILABLE` and executes nothing; it never silently falls back.
+
+When bubblewrap is used, `hermetic=true` means the declared mount/network namespace isolation ran. It is not a kernel/interpreter/native-runtime security proof.
+
+## Pareto experiment boundary
+
+V6 treats interval-valued objective candidates as robustly dominated only when one candidate's worst-case vector dominates another candidate's best-case vector across all directed objectives. The interval-possible frontier may be prioritized by uncertainty for measurement. That selection remains an experiment-selection surface, not a universal value ordering.
+
+## Replication/falsification boundary
+
+Science-shadow claims are separate from canonical objects. TEST/REPLICATION/FALSIFIER witnesses carry result, confidence, actor/evidence and explicit `independence_key`. States such as `REPLICATED_SUPPORT`, `FALSIFICATION_SIGNAL` and `CONTESTED` route future verification but cannot silently modify the canonical registry.
 
 ## Projection/compensation boundary
 
-V4 projection remains a cross-store recovery saga:
+V4 projection remains a cross-store recovery saga. V5 adds a narrow semantic inverse for active projection-owned edges under semantic-head CAS. Git compensation remains separate; history is never erased.
 
-`PREPARED -> SEMANTIC_APPLIED -> GIT_COMMITTED? -> COMPLETED`
-
-with `ABORTED` before semantic effects and `COMPENSATION_REQUIRED` after partial effects.
-
-V5 adds a narrow semantic inverse: active edges whose parsed attributes contain the exact projection ID can be retracted under current semantic-head CAS, with `COMPENSATE_EDGE` events. The saga may become `COMPENSATED`. If a Git commit exists, Git compensation remains separately required; V5 does not rewrite Git history automatically.
-
-## Non-negotiable science firewall
+## Non-negotiable discovery firewall
 
 - identity != coordinate
 - tested != current != canonical != integrated
@@ -133,26 +146,29 @@ V5 adds a narrow semantic inverse: active edges whose parsed attributes contain 
 - prediction != observation
 - posterior != truth
 - calibration != model validity
+- nonlinear basis != universal inference
+- OOD score != factual falsehood
 - expected information gain != evidence
-- experiment design != experiment result
-- counterfactual != observation
-- UCB != truth
-- bandit/Bayesian prediction != reward
+- generated/design experiment != result
+- back-door set != causal truth outside supplied DAG/assumptions
 - association != causation
 - attribution != causal proof
-- missing factorial contrast != zero interaction
+- missing factorial cell != zero interaction
+- higher-order contrast != causal interaction without identification
 - temporal delay != causation
 - learned policy != canonical truth
 - learned regime != semantic identity
 - transition model != world truth
-- rollout != execution/commit
-- bounded schedule != global optimum
+- MPC plan != execution
+- rollout != execution/commit/training observation
+- bounded/certified schedule claims are scoped to the declared search/model
 - diffusion posterior != causal path
 - pheromone != authority
 - elder != oracle
 - regression pass != universal proof
-- witness cell != hermetic sandbox
-- Pareto frontier != single best action
+- witness cell/capsule != kernel/VM security proof
+- Pareto frontier/experiment selection != single best action
+- replication/falsification state != canonical truth
 - projection saga != atomic transaction
 - semantic compensation != Git rollback
 - local success != global authority
@@ -166,4 +182,6 @@ V5 adds a narrow semantic inverse: active edges whose parsed attributes contain 
 
 `COLLECTIVE_ECOLOGY=<RG,X,CR,WS,DF,RW,RO,PS,L>`
 
-`COLLECTIVE_SCIENCE=<BY,CAL,ED,IX,DL,TR,SC,WC,RG,PF,CP,L>`.
+`COLLECTIVE_SCIENCE=<BY,CAL,ED,IX,DL,TR,SC,WC,RG,PF,CP,L>`
+
+`COLLECTIVE_DISCOVERY=<NL,OOD,EG,CI,HI,TD,MPC,CS,HC,PB,RF,L>`.
