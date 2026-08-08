@@ -1,7 +1,14 @@
 from __future__ import annotations
 
+from .collective_joint import CollectiveJointRuntime
+from .collective_v12_dispatch import call as call_v12
+from .collective_v12_protocol import COLLECTIVE_V12_TOOLS
+
+V12_NAMES={t['name'] for t in COLLECTIVE_V12_TOOLS}
+
 
 def call(adaptive,name,a):
+    if name in V12_NAMES: return call_v12(CollectiveJointRuntime(adaptive),name,a)
     if name=='athena_gp_hyperfit': return adaptive.gp_hyperfit(a['context_key'],a.get('length_scales'),a.get('signal_variances'),a.get('noise_variances'),a.get('apply',False),a.get('expected_observation_count'))
     if name=='athena_gp_decision_evsi': return adaptive.gp_decision_evsi(a['context_key'],a['actions'],a['experiments'],a.get('samples',300),a.get('seed',0),a.get('cost_weight',1.0),a.get('risk_weight',1.0))
     if name=='athena_latent_project_admg': return adaptive.latent_project_admg(a['edges'],a['latent_nodes'],a.get('observed_nodes'))
