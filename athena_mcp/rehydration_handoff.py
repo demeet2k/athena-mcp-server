@@ -9,7 +9,7 @@ ARTIFACT = "ATHENA.REHYDRATION.HANDOFF.DELTA.V1"
 
 _STATUS_MAP = {
     "BATON_READY": "HANDOFF_READY",
-    "SUCCESSOR_READY": "HANDOFF_SUCCESSOR_READY",
+    "SUCCESSOR_READY": "HANDOFF_RESUME_READY",
     "STALE_BATON_HOLD": "STALE_HANDOFF_HOLD",
     "STALE_BATON_AFTER_SYNC_HOLD": "STALE_HANDOFF_AFTER_SYNC_HOLD",
     "NO_TRANSITION_FULL_REHYDRATE_REQUIRED": "NO_TRANSITION_FULL_REHYDRATE_REQUIRED",
@@ -62,7 +62,7 @@ class RehydrationHandoffRuntime:
         core = self.core.derive(loop_id)
         packet = core.get("baton")
         routing = self._routing_successor(loop_id, core) if isinstance(packet, dict) else None
-        result = {
+        return {
             "artifact": ARTIFACT,
             "status": self._map_status(core.get("status")),
             "loop_id": loop_id,
@@ -81,7 +81,6 @@ class RehydrationHandoffRuntime:
                 "ROUTING_SUCCESSOR_IF_PRESENT_IS_RECEIPT_BOUND_CONTEXT",
             ],
         }
-        return result
 
     def consume(
         self,
@@ -105,6 +104,13 @@ class RehydrationHandoffRuntime:
         result["status"] = self._map_status(core.get("status"))
         result["handoff_digest"] = core.get("baton_digest") or expected_handoff_digest
         result.pop("baton_digest", None)
+        if "successor_prompt" in result:
+            result["handoff_prompt"] = result.pop("successor_prompt")
+        compression = result.get("compression")
+        if isinstance(compression, dict) and "successor_delta_prompt_chars" in compression:
+            compression = dict(compression)
+            compression["handoff_delta_prompt_chars"] = compression.pop("successor_delta_prompt_chars")
+            result["compression"] = compression
         result["routing_successor"] = derived.get("routing_successor")
         result["routing_successor_bound_by"] = derived.get("routing_successor_bound_by")
         laws = list(result.get("laws") or [])
