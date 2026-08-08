@@ -36,6 +36,7 @@ LAWS=[
     "UNTYPED_LOSS_TEXT != TYPED_FEATURE_COVERAGE",
     "STRING_INVARIANT_RETENTION != SEMANTIC_INVARIANT_VALIDATION",
     "EXPECTED_CLASS != RAW_EDGE_SUPPORT",
+    "TRANSPORT_OPERATION != INDEPENDENT_LAWFULNESS_VERDICT",
 ]
 
 
@@ -163,6 +164,8 @@ def _distance(start:Dict[str,Any],end:Dict[str,Any],required_prov:List[str],ledg
     elif covered:
         unaccounted_loss=len(changed-covered)
     else:
+        # Frozen V0 loss entries are prose, not dimension-typed coverage claims.
+        # Preserve uncertainty instead of allowing arbitrary string count to erase drift.
         unaccounted_loss=None
     return {**base,"unaccounted_loss":unaccounted_loss}
 
@@ -221,7 +224,7 @@ class MythicHolonomyRuntime:
                 layers[layer["layer_id"]]=layer
         return families,layers
 
-    def _lawful_transport_edges(self,cases:List[Dict[str,Any]])->Dict[str,set]:
+    def _frozen_transport_edges(self,cases:List[Dict[str,Any]])->Dict[str,set]:
         """Raw support graph comes from frozen transport operations, never expected_class."""
         edges:Dict[str,set]={}
         for case in cases:
@@ -303,7 +306,7 @@ class MythicHolonomyRuntime:
                 return {"allowed":False,"status":receipt["status"],"receipts":receipts,"provenance":_uniq(provenance),"loss_ledger":_uniq(losses),"invariant_ledger":_uniq(invariants)}
         return {"allowed":True,"status":"COMPOSED","receipts":receipts,"provenance":_uniq(provenance),"loss_ledger":_uniq(losses),"invariant_ledger":_uniq(invariants),"end_layer":layers[path[-1]]}
 
-    def _a2(self,case:Dict[str,Any],layers:Dict[str,Dict[str,Any]],lawful_edges:Dict[str,set])->Dict[str,Any]:
+    def _a2(self,case:Dict[str,Any],layers:Dict[str,Dict[str,Any]],transport_edges:Dict[str,set])->Dict[str,Any]:
         op=case["operation"];path=list(case["path"])
         if op=="SEMANTIC_EQUIVALENCE":
             receipt,_=self._transport(layers[path[0]],layers[path[-1]],case,"SEMANTIC_EQUIVALENCE")
@@ -313,7 +316,7 @@ class MythicHolonomyRuntime:
             canonical_edges=list(zip(path,path[1:]))
             permuted=[path[0],path[-1]]+path[1:-1] if len(path)>=3 else list(reversed(path))
             permuted_edges=list(zip(permuted,permuted[1:]))
-            evidence_edges=set(lawful_edges.get(str(case.get("family_id") or ""),set()))
+            evidence_edges=set(transport_edges.get(str(case.get("family_id") or ""),set()))
             canonical_supported=bool(canonical_edges) and all(edge in evidence_edges for edge in canonical_edges)
             permuted_supported=bool(permuted_edges) and all(edge in evidence_edges for edge in permuted_edges)
             order_sensitive=(permuted!=path) and canonical_supported and not permuted_supported
@@ -396,7 +399,8 @@ class MythicHolonomyRuntime:
         return {
             "arm":arm,"cases":len(cases),"expected_class_passed":expected_pass,
             "false_equivalence_claims":false_eq,"lawful_bridges_retained":lawful_retained,
-            "lawful_bridge_total":len(lawful),"false_holds_on_lawful_transport":false_holds,
+            "lawful_bridge_total":len(lawful),"transport_case_total":len(lawful),"transport_membership_basis":"OPERATION_SEMANTIC_TRANSPORT",
+            "false_holds_on_lawful_transport":false_holds,
             "standing_amplification_violations":standing_violations,
             "authority_minting_violations":authority_violations,"composed_paths":composed_n,
             "composed_paths_with_provenance":prov_ok,
@@ -421,10 +425,10 @@ class MythicHolonomyRuntime:
                 if lid not in layers:missing.append(f"layer:{lid}")
         if missing:
             return {"version":HOLONOMY_VERSION,"status":"HOLD_UNRESOLVED_PACKET_REFERENCES","errors":_uniq(missing),"authority":"NONE","laws":list(LAWS)}
-        lawful_edges=self._lawful_transport_edges(cases)
+        transport_edges=self._frozen_transport_edges(cases)
         a0=[self._attach_assay(c,self._a0(c,layers)) for c in cases]
         a1=[self._attach_assay(c,self._a1(c,layers)) for c in cases]
-        a2=[self._attach_assay(c,self._a2(c,layers,lawful_edges)) for c in cases]
+        a2=[self._attach_assay(c,self._a2(c,layers,transport_edges)) for c in cases]
         return {
             "version":HOLONOMY_VERSION,"status":"HELD_OUT_PACKET_EVALUATED",
             "source_packet_ref":source_packet_ref,"source_packet_blob_sha":source_packet_blob_sha,
