@@ -28,7 +28,7 @@ def _evidence_kernel(machine_id:str,row:int)->Dict[str,Any]:
         result[facet]={
             'terms':[facet],
             'roles':[FACET_PURPOSE[facet]],
-            'claims':[{'
+            'claims':[{
                 'text':profile[facet],
                 'status':'PRIMARY_SUPPORTED_MECHANISM_SYNTHESIS',
                 'source_ids':[source_id],
