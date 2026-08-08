@@ -39,6 +39,20 @@ from .rehydration_successor import install_successor_extension
 # completion schema extensions are part of the same PromptRuntime surface.
 install_successor_extension(RehydrationLoopRuntime, REHYDRATION_TOOLS, REHYDRATION_TOOL_NAMES)
 
+# The compatibility membrane makes omission tri-state: AUTO when no explicit
+# next_task exists, preserve existing V1 next_task otherwise. Keep the exposed
+# schema text synchronized with that runtime law.
+for _tool in REHYDRATION_TOOLS:
+    if _tool.get("name") != "athena_rehydration_advance":
+        continue
+    _completion_schema = (((_tool.get("inputSchema") or {}).get("properties") or {}).get("completion") or {})
+    _completion_props = _completion_schema.setdefault("properties", {})
+    if "self_steer" in _completion_props:
+        _completion_props["self_steer"]["description"] = (
+            "Optional. Omitted=AUTO: steer only when next_task is absent; an explicit V1 next_task is preserved. "
+            "true forces successor compilation; false disables it."
+        )
+
 # Backward-compatibility law: an existing V1 caller that explicitly supplied a
 # next_task keeps that routing decision unless it explicitly opts into
 # self_steer=true. Omission means AUTO only when successor choice was left open.
