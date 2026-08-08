@@ -19,10 +19,11 @@ class CollectiveV12UnifiedTests(unittest.TestCase):
         payload=self.rpc('resources/read',{'uri':'athena://collective/v12'})['result']['contents'][0]['text']
         self.assertIn('COLLECTIVE_RUNTIME_V12',payload)
         self.assertIn('Y1 authority',payload)
-        self.assertIn('bounded PAG candidate',payload)
+        self.assertIn('PAG candidate',payload)
+        self.assertIn('full FCI/PAG truth',payload)
 
     def test_v12_model_outputs_cannot_mutate_y1_or_jspace(self):
-        claim=self.tool('athena_claim_register',{'claim_id':'Y.V12','source_ref':'test://v12'})
+        self.tool('athena_claim_register',{'claim_id':'Y.V12','source_ref':'test://v12'})
         before_claim=self.tool('athena_claim_state',{'claim_id':'Y.V12'})
         before_edges=len(self.server.store.rows('SELECT * FROM edges'))
         rows=[]
@@ -32,8 +33,11 @@ class CollectiveV12UnifiedTests(unittest.TestCase):
         after_edges=len(self.server.store.rows('SELECT * FROM edges'))
         after_claim=self.tool('athena_claim_state',{'claim_id':'Y.V12'})
         self.assertEqual(before_edges,after_edges)
-        self.assertEqual(before_claim['stage'],after_claim['stage'])
+        self.assertEqual(before_claim['y'],after_claim['y'])
+        self.assertEqual(before_claim['status'],after_claim['status'])
         self.assertEqual(before_claim['claim_id'],after_claim['claim_id'])
+        self.assertEqual(after_claim['y'],'?')
+        self.assertEqual(after_claim['status'],'ACTIVE')
 
     def test_surface_contract_requires_v12(self):
         audit=self.tool('athena_surface_audit',{'run_probes':True})
