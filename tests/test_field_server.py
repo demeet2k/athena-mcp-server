@@ -84,22 +84,22 @@ class FieldServerTests(unittest.TestCase):
         self.assertEqual(manifest['layers'][:len(prior['layers'])],prior['layers'])
         field_index=len(prior['layers'])
         self.assertEqual(manifest['layers'][field_index]['name'],'FIELD1');self.assertEqual(manifest['layers'][field_index]['index'],field_index)
-        self.assertEqual([layer['name'] for layer in manifest['layers'][field_index+1:]],['ROBUSTNESS1','SURFACE1'])
+        self.assertEqual([layer['name'] for layer in manifest['layers'][field_index+1:]],['ROBUSTNESS1','SURFACE1','COMPOSITION1'])
         self.assertEqual(manifest['default_candidate'],'FieldServer')
         resource=json.loads(self.rpc('resources/read',{'uri':'athena://stack'})['result']['contents'][0]['text'])
         self.assertEqual(resource['version'],FIELD_STACK_VERSION);self.assertEqual(resource['layers'][field_index]['name'],'FIELD1')
-        self.assertEqual(resource['layers'][-1]['name'],'SURFACE1')
+        self.assertEqual(resource['layers'][-1]['name'],'COMPOSITION1')
         self.assertTrue(any('QHUG' in item for item in resource['unresolved']))
 
     def test_field_resource_benchmark_and_prompt(self):
         self.tool('athena_field_compile',{'seed_ref':'seed://r','module_outputs':{'branches':[{'branch_id':'BR.1','basis_id':'B.1','state':'REVIEW','ewma':0.2,'last_trigger_ref':'gap'}]}})
         payload=json.loads(self.rpc('resources/read',{'uri':'athena://field'})['result']['contents'][0]['text'])
         self.assertEqual(payload['law']['version'],'FIELD.1');self.assertEqual(payload['benchmark']['field_runs'],1)
-        bench=self.tool('athena_benchmark',{});self.assertEqual(bench['field_runs'],1);self.assertEqual(bench['surface_audit'],'PASS')
+        bench=self.tool('athena_benchmark',{});self.assertEqual(bench['field_runs'],1);self.assertEqual(bench['surface_audit'],'PASS');self.assertEqual(bench['composition_audit'],'PASS')
         for key in ['gap_runs','hug_implementations','retrieval_runs','extraction_runs','equivalence_pairs','authority_claims','branches','orchestration_runs']:
             self.assertIn(key,bench)
         prompt=self.rpc('prompts/get',{'name':'athena_maxdev','arguments':{'agent':'A','task':'T'}})['result']['messages'][0]['content']['text']
-        self.assertIn('19 FIELD/PHI:',prompt);self.assertIn('metric_state=UNMEASURED',prompt);self.assertIn('metric_state=CONFLICT',prompt);self.assertIn('20 SURFACE/PROMOTION:',prompt)
+        self.assertIn('19 FIELD/PHI:',prompt);self.assertIn('metric_state=UNMEASURED',prompt);self.assertIn('metric_state=CONFLICT',prompt);self.assertIn('20 SURFACE/PROMOTION:',prompt);self.assertIn('21 COMPOSITION/ABI:',prompt)
 
 
 if __name__=='__main__':unittest.main()
