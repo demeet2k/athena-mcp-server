@@ -17,8 +17,8 @@ class MythicHolonomyAlchemyHardeningTests(unittest.TestCase):
             case["expected_class"]="DELIBERATELY_WRONG"
         _,layers_before=self.runtime._index(PACKET)
         _,layers_after=self.runtime._index(altered)
-        edges_before=self.runtime._lawful_transport_edges(PACKET["cases"])
-        edges_after=self.runtime._lawful_transport_edges(altered["cases"])
+        edges_before=self.runtime._frozen_transport_edges(PACKET["cases"])
+        edges_after=self.runtime._frozen_transport_edges(altered["cases"])
         self.assertEqual(edges_before,edges_after)
         for before,after in zip(PACKET["cases"],altered["cases"]):
             self.assertEqual(self.runtime._a0(before,layers_before),self.runtime._a0(after,layers_after))
@@ -85,6 +85,8 @@ class MythicHolonomyAlchemyHardeningTests(unittest.TestCase):
     def test_complete_metric_surface_exposes_unknowns_instead_of_scalarizing(self):
         summary=self.result["arms"]["A2_COMPOSED_HOLONOMY"]["summary"]
         self.assertEqual(summary["lawful_bridge_total"],7)
+        self.assertEqual(summary["transport_case_total"],7)
+        self.assertEqual(summary["transport_membership_basis"],"OPERATION_SEMANTIC_TRANSPORT")
         self.assertEqual(summary["lawful_bridges_retained"],7)
         self.assertEqual(summary["false_holds_on_lawful_transport"],0)
         self.assertEqual(summary["path_order_sensitive_cases"],1)
@@ -94,6 +96,7 @@ class MythicHolonomyAlchemyHardeningTests(unittest.TestCase):
         self.assertGreater(summary["projection_assumption_receipts"],0)
         self.assertEqual(self.result["scalarization"],"DISABLED_V0")
         self.assertIn("STRING_INVARIANT_RETENTION != SEMANTIC_INVARIANT_VALIDATION",self.result["laws"])
+        self.assertIn("TRANSPORT_OPERATION != INDEPENDENT_LAWFULNESS_VERDICT",self.result["laws"])
 
 
 if __name__=="__main__":
