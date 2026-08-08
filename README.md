@@ -1,6 +1,6 @@
 # ATHENA Canonical MCP v3.1 — AΩR × Collective V1–V12 Unified Runtime
 
-ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, joint world-model uncertainty, restart-safe whole-state projection, and exact-head qualification.
+ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, joint world-model uncertainty, restart-safe whole-state projection, and exact-head promotion readiness with a separate trusted qualification boundary.
 
 Current executable coordinates:
 
@@ -11,7 +11,7 @@ Current executable coordinates:
 - authority: Y1 `athena_claim_*`;
 - science-shadow evidence namespace: `athena_discovery_claim_*`;
 - state foundation: `SCHEMA.2 / OMEGA.1 / RECON.1`;
-- governance: `SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.1`;
+- governance: `SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2`;
 - external gate: `syntax ∧ unit ∧ critical-invariants ∧ dependent-smoke`.
 
 ## Constitutional braid
@@ -28,7 +28,7 @@ Current executable coordinates:
 
 `CYCLE = resumable fail-closed developmental metabolism`
 
-`PROMOTION = exact-head local predicates + external attestations`
+`PROMOTION.2 = exact-head local gates + caller-bound attestations + separate trusted host qualification`
 
 Core firewalls:
 
@@ -42,7 +42,9 @@ Core firewalls:
 - `POSTERIOR / BELIEF / GP PREDICTION != CANONICAL TRUTH OR OBSERVATION`;
 - `MODEL_GRAPH != CANONICAL_JSPACE_GRAPH`;
 - `semantic VID CAS != Git HEAD CAS != topology-version CAS`;
-- `athena_claim_* != athena_discovery_claim_*`.
+- `athena_claim_* != athena_discovery_claim_*`;
+- `CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`;
+- `ATTESTED_READY != QUALIFIED`.
 
 ## Runtime cycle
 
@@ -63,6 +65,8 @@ A stale write in one domain must not mutate either of the other two. Topology→
 V11 additionally has a local GP observed-row CAS for hyperparameter application. V12 model-averaging, structural-candidate, causal-policy and resource-planning calls are read-only with respect to these canonical domains.
 
 Canonical authority uses `athena_claim_*` with typed `? → + → ! → #` progression. Discovery/replication science-shadow state uses `athena_discovery_claim_*`. A model or science-shadow result can affect Y1 only through an explicit witnessed evidence/authority route.
+
+PROMOTION.2 adds a separate trust plane. `athena_promotion_evaluate` can bind exact-head caller CI/smoke packets and reach `ATTESTED_READY`, but the MCP schema exposes no field capable of supplying the trusted host-verifier receipt required for `QUALIFIED`. Historical PROMOTION.1 receipts remain replayable under their original semantics but are counted separately from current trusted qualification.
 
 ## AOR developmental cortex
 
@@ -217,7 +221,7 @@ Coordinate: `COLLECTIVE_JOINT=<HP,BM,SG,PG,LC,JV,CC,L>`.
 - **SELFTEST.1 / STARTUP.1** — local health/readiness without pretending to external qualification;
 - **SURFACE.2** — required base + Collective V1–V12 + AOR + state/governance tool/resource union;
 - **COMPOSITION.2** — one composed Server, resident organs, and correctly-classified lazy V5–V12 surfaces;
-- **PROMOTION.1** — exact-head qualification predicate requiring matching external CI/smoke attestations.
+- **PROMOTION.2** — caller-bound exact-head CI/smoke packets may reach `ATTESTED_READY`; `QUALIFIED` additionally requires a host-internal trusted verifier receipt. Historical PROMOTION.1 receipts remain versioned/replayable.
 
 Live machine-readable architecture:
 
@@ -231,15 +235,15 @@ The repository gate is deliberately independent:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, V12, AOR×Collective transport, and promotion predicate.
+Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, V12, AOR×Collective transport, and PROMOTION.2 trust/exact-head predicates.
 
-Smoke is withheld until syntax, unit, and critical gates pass. The one-process smoke spans V6→V12 plus schema/SELFTEST, AOR, fail-closed CYCLE/HUG, model/JSPACE/Y1 nonmutation probes, and final emission verification.
+Smoke is withheld until syntax, unit, and critical gates pass. The one-process smoke spans V6→V12 plus schema/SELFTEST, AOR, fail-closed CYCLE/HUG, model/JSPACE/Y1 nonmutation probes, PROMOTION.2 caller-bound readiness, and final emission verification.
 
-A green head is still not a live `PROMRUN`; the runtime promotion ledger is a separate state surface.
+A green head is still not a live trusted `PROMRUN`: caller packets can establish `ATTESTED_READY`, while trusted `QUALIFIED` state requires the separate host verifier bridge.
 
 ## External control-plane boundary
 
-GitHub branch protection, repository metadata, tags, Releases, PR state and merge state are **external control-plane state**. Their presence or absence is never inferred from runtime CI, OMEGA, or PROMOTION predicates. They must be queried and changed through GitHub control-plane capabilities when available.
+GitHub branch protection, repository metadata, tags, Releases, PR state, merge state, and the trusted promotion-verifier bridge are **external control-plane state**. Their presence or absence is never inferred from runtime CI, OMEGA, caller promotion packets, or PROMOTION.2 readiness. They must be queried and changed through trusted GitHub/host control-plane capabilities when available.
 
 ## Run
 
