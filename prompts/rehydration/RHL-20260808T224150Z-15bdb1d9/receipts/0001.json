@@ -1,30 +1,13 @@
 {
   "actor": "cold-loop-worker",
-  "artifact": "ATHENA.REHYDRATION.LOOP.V1",
-  "base_head": "7f05be8a3f96ab0dd5887f04e74f92a220cd8eb1",
-  "budget": {
-    "max_no_progress": 2,
-    "max_prompt_chars": 32000,
-    "max_steps": 3
-  },
+  "artifact": "ATHENA.REHYDRATION.RECEIPT.V1",
   "chain_digest": "0ccdea1dba8e465c7d0375085a68ad97446a82b5271af387558323a69b5a5d66",
-  "checkpoint_parent_head": "e381fe7db40726a9cc44e1d3e3409b4a218b5aa1",
-  "created_at": "2026-08-08T22:41:50.325941+00:00",
-  "current_prompt_digest": "e9cfe6eabb831463e8781996de35c67f766ee13bcedb715c5b6440e479ba34a3",
-  "current_prompt_path": "prompts/rehydration/RHL-20260808T224150Z-15bdb1d9/prompts/0001.md",
-  "depth_policy": {
-    "mode": "standard",
-    "required_passes": [
-      "reconstruct",
-      "execute",
-      "verify"
-    ]
-  },
-  "frontier_digest": null,
-  "frontier_source_head": null,
-  "frontier_status": "DISABLED",
-  "goal": "Produce an observed durable step-4 loop-binding witness",
-  "last_completion": {
+  "changed_paths": [
+    "acceptance/campaign-v3-step4-material.json",
+    "prompts/rehydration_campaigns/RHC-20260808T224145Z-40a53a8e/events/0002-loop_bound.json",
+    "prompts/rehydration_campaigns/RHC-20260808T224145Z-40a53a8e/state.json"
+  ],
+  "completion": {
     "evidence_refs": [
       "305c9cf4525b6346fabd0b1431cec0931484e71c",
       "e381fe7db40726a9cc44e1d3e3409b4a218b5aa1",
@@ -79,28 +62,26 @@
       }
     ]
   },
-  "last_progress_fingerprint": "6d2c55bd0e61985b59a50a87cc6a696b1d917d9cbe54faefd552d55e689dd90d",
-  "last_work_head": "e381fe7db40726a9cc44e1d3e3409b4a218b5aa1",
+  "created_at": "2026-08-08T22:41:56.131148+00:00",
+  "expected_checkpoint_head": "ccaad34e464a002b8f663b30bdda18ad3130f1b0",
+  "frontier_digest": null,
   "loop_id": "RHL-20260808T224150Z-15bdb1d9",
-  "no_progress_count": 0,
+  "material_work_paths": [
+    "acceptance/campaign-v3-step4-material.json",
+    "prompts/rehydration_campaigns/RHC-20260808T224145Z-40a53a8e/events/0002-loop_bound.json",
+    "prompts/rehydration_campaigns/RHC-20260808T224145Z-40a53a8e/state.json"
+  ],
+  "next_status": "ACTIVE",
+  "no_progress": false,
   "previous_chain_digest": "9c94793ea9a73d374d5861334719c9be8851d5561278633f31e6ce8be323fc80",
-  "profile": "BUILD",
+  "previous_prompt_digest": "29340b8b5508f6761429354fdbac2ded7fd8c62174448fdede871c68a71da019",
+  "previous_state_digest": "1a34435f0daca2458ed9d48df7a3f58a7b38894021e0ce6adc474b422ba69506",
+  "progress_fingerprint": "6d2c55bd0e61985b59a50a87cc6a696b1d917d9cbe54faefd552d55e689dd90d",
+  "prompt_digest": "e9cfe6eabb831463e8781996de35c67f766ee13bcedb715c5b6440e479ba34a3",
+  "prompt_path": "prompts/rehydration/RHL-20260808T224150Z-15bdb1d9/prompts/0001.md",
   "prompt_stack_digest": "3c8128aa77f329f0604255f5507c779d18068a017d9a7259b5b719b64fffbe7c",
-  "receipt_paths": [
-    "prompts/rehydration/RHL-20260808T224150Z-15bdb1d9/receipts/0001.json"
-  ],
-  "source": {
-    "fetch": true,
-    "remote": "origin",
-    "source_ref": "agent/campaign-v3-loop-bind-target-r2-1a90f44",
-    "use_frontier": false
-  },
+  "receipt_digest": "7359f3866cd769d920d55028cc4319c947588cdfdf0884641e8e4b349236aa73",
   "state_digest": "81cafbb04c1f55a3f8b27ae1d0704f06c455be4eea0a66c26bbe83747ad47b77",
-  "status": "ACTIVE",
   "step_index": 1,
-  "stop_conditions": [
-    "Do not consume or publish private Athena #177/#185 source text"
-  ],
-  "task": "Rehydrate the then-current campaign state and decide the next lawful pulse without disclosing private source text.",
-  "updated_at": "2026-08-08T22:41:56.130904+00:00"
+  "work_head": "e381fe7db40726a9cc44e1d3e3409b4a218b5aa1"
 }
