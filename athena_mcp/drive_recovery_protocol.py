@@ -1,6 +1,6 @@
 RECOVERY_RESOURCE = {
     "uri": "athena://recovery/google-docs/v1",
-    "name": "Revision-bound Google Docs organ recovery registry V2-compatible resource",
+    "name": "Revision-bound Google Docs organ recovery registry V3-compatible resource",
     "mimeType": "application/json",
 }
 
