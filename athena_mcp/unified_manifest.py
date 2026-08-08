@@ -86,7 +86,8 @@ BRAID_LAW = (
     "AOR chooses developmental frontier/WHAT; Collective V1-V7 organizes HOW scarce "
     "execution/science/control capacity is used; Y1 governs canonical claim authority; "
     "EQ1 governs witnessed collapse; SYSTEM.UPGRADE.1 governs witnessed whole-runtime "
-    "state transitions and exact-head release qualification. Consensus, pheromone, reward, "
+    "state transitions and exact-head release qualification. "
+    "consensus/pheromone/reward are never typed authority or evidence; "
     "model posterior/replication shadow are also never typed authority or evidence; "
     "source repetition is never authority by itself."
 )
