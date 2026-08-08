@@ -4,6 +4,7 @@ import hashlib
 import json
 from typing import Any, Dict, Iterable, List, Mapping, Optional
 
+from .orchestration_budget import allocate_budget
 from .orchestration_explain import decision_explanation, measurement_requests, pareto_successor_frontier
 from .orchestration_gate import promotion_gate
 from .orchestration_graph import candidate_id, dependency_graph
@@ -34,7 +35,7 @@ EDGE_TYPES = (
 RUN_STAGES = (
     "reconstruct", "extract", "retrieve", "hug", "graph", "gap", "compile",
     "measure", "calibrate", "test", "observe", "repair", "retest", "verify",
-    "reward", "reallocate", "output", "successor", "replay",
+    "reward", "reallocate", "allocate_budget", "output", "successor", "replay",
 )
 
 TEST_BRANCHES = ("main", "counter", "edge", "fail")
@@ -71,7 +72,8 @@ def _candidate_row(raw_item: Mapping[str, Any], scoring_item: Mapping[str, Any],
     }
     unresolved = not bool(raw_item.get("resolved", False))
     rankable_frontier = (
-        dep.get("ready", True)
+        unresolved
+        and dep.get("ready", True)
         and gate["status"] == "PASS"
         and calibration["frontier"]["ranking_allowed"]
         and frontier["status"] == "KNOWN"
@@ -129,14 +131,15 @@ def orchestration_law() -> Dict[str, Any]:
         "unknown_law": "UNKNOWN != 0; incomplete required formulas are non-rankable and route to measurement",
         "metric_law": "cross-candidate arithmetic is performed on one declared basis; x'=(x-offset)/abs(scale). strict basis blocks formulas with uncalibrated/invalid operands; non-strict basis exposes WARN_RAW",
         "gap_law": "grow = argmax(severity * leverage * information_gain / cost) over KNOWN calibration-allowed residual scores",
-        "frontier_law": "F = argmax(readiness * gain * independence * bridge / cost) over dependency-ready gate-passing KNOWN calibration-allowed candidates",
-        "successor_law": "next = argmax_unresolved(delta_j * information_gain * bridge * option_value / cost) over dependency-ready gate-passing KNOWN calibration-allowed candidates",
+        "frontier_law": "F = argmax(readiness * gain * independence * bridge / cost) over unresolved dependency-ready gate-passing KNOWN calibration-allowed candidates",
+        "successor_law": "next = highest successor score among budget-allocated unresolved dependency-ready gate-passing KNOWN calibration-allowed candidates when budget constraints are active",
         "pareto_law": "preserve all successor candidates not dominated on the same scoring basis over delta_j, information_gain, bridge, option_value and cost",
+        "budget_law": "resource allocation maximizes sum(readiness*gain*independence*bridge) subject to raw resource_cost/cost capacity and max_branches; exact enumeration for <=18 costed candidates, otherwise explicitly heuristic greedy density",
         "reward": {"positive": list(REWARD_POSITIVE), "negative": list(REWARD_NEGATIVE)},
         "test": {"branches": list(TEST_BRANCHES), "claim_requires": ["procedure", "observation", "result", "witness"]},
         "transaction": {"stages": ["attempt", "action", "commit?", "receipt", "verify", "rollback?"], "persisted_claim_requires": ["commit", "receipt", "verify"], "fake_success": False},
         "allocation": {"high_reward": ["deepen", "replicate", "braid"], "low_reward_duplicate": ["hibernate"], "unknown_reward": ["measure"], "uncalibrated_strict_reward": ["calibrate_metrics"], "dependency_blocked": ["resolve_dependency"], "gate_blocked": ["branch", "repair", "retest"], "hibernate_is_erase": False},
-        "budget_law": "P* = argmax_|P|<=B(development + extraction + graph + coordinates + evidence + replay + navigation + successor)",
+        "carrier_budget_law": "P* = argmax_|P|<=B(development + extraction + graph + coordinates + evidence + replay + navigation + successor)",
     }
 
 
@@ -176,6 +179,16 @@ def compile_orchestration(
     measurement_plan = measurement_requests(frontier)
     pareto_ids = pareto_successor_frontier(successor_frontier)
 
+    allocation_plan = allocate_budget(executable_frontier, budget)
+    budget_active = bool((budget or {}).get("total_cost") is not None or (budget or {}).get("max_branches") is not None)
+    if allocation_plan.get("status") == "INVALID_BUDGET":
+        budgeted_successor_frontier = []
+    elif budget_active:
+        allocated_ids = set(allocation_plan.get("selected", []))
+        budgeted_successor_frontier = [row for row in successor_frontier if row["id"] in allocated_ids]
+    else:
+        budgeted_successor_frontier = successor_frontier
+
     residual_rows = []
     for index, raw_item in enumerate(residuals or []):
         raw_item = dict(raw_item)
@@ -189,13 +202,15 @@ def compile_orchestration(
     residual_frontier = sorted(residual_rows, key=lambda row: rank_key(row["score"], row["id"]))
     known_residuals = [row for row in residual_frontier if row["score"]["status"] == "KNOWN" and row["metric_calibration"]["ranking_allowed"]]
 
-    next_id = successor_frontier[0]["id"] if successor_frontier else None
+    next_id = budgeted_successor_frontier[0]["id"] if budgeted_successor_frontier else None
     explanation = decision_explanation(frontier, next_id)
     metric_summary = contract_summary(metric_contract)
     decision = {
         "metric_basis": metric_summary,
+        "budget_allocation": {k: allocation_plan.get(k) for k in ("status","solver","optimality","capacity","max_branches","selected","used","remaining","utility")},
         "executable_frontier": [row["id"] for row in executable_frontier],
         "successor_frontier": [row["id"] for row in successor_frontier],
+        "budgeted_successor_frontier": [row["id"] for row in budgeted_successor_frontier],
         "pareto_successor_frontier": pareto_ids,
         "measurement_frontier": [row["id"] for row in measurement_frontier],
         "calibration_frontier": [row["id"] for row in calibration_frontier],
@@ -208,6 +223,7 @@ def compile_orchestration(
         "kernel": AOR_VERSION,
         "seed": seed,
         "budget": dict(budget or {}),
+        "allocation_plan": allocation_plan,
         "metric_contract": metric_summary,
         "law": orchestration_law(),
         "extraction_plan": [{"transform": transform, "seed": seed} for transform in TRANSFORMS],
@@ -216,6 +232,7 @@ def compile_orchestration(
         "frontier": frontier,
         "executable_frontier": executable_frontier,
         "successor_frontier": successor_frontier,
+        "budgeted_successor_frontier": budgeted_successor_frontier,
         "pareto_successor_frontier": pareto_ids,
         "measurement_frontier": measurement_frontier,
         "measurement_plan": measurement_plan,
@@ -223,9 +240,9 @@ def compile_orchestration(
         "calibration_plan": sorted(calibration_plan, key=lambda x: (not x["strict_block"], x["candidate"], x["formula"])),
         "residual_frontier": residual_frontier,
         "grow": known_residuals[0] if known_residuals else None,
-        "next": successor_frontier[0] if successor_frontier else None,
+        "next": budgeted_successor_frontier[0] if budgeted_successor_frontier else None,
         "decision_explanation": explanation,
-        "return": {"required": ["result", "math", "graph", "coordinates", "evidence", "residuals", "witnesses", "delta", "next"], "missing_witness": "downgrade", "missing_coordinate": "repair_before_promotion", "unknown_metric": "measure_not_zero", "uncalibrated_metric": "calibrate_before_ranking_when_strict", "dependency_blocked": "resolve_dependency", "error": ["rollback", "branch"], "high_residual": "continue"},
+        "return": {"required": ["result", "math", "graph", "coordinates", "evidence", "residuals", "witnesses", "delta", "next"], "missing_witness": "downgrade", "missing_coordinate": "repair_before_promotion", "unknown_metric": "measure_not_zero", "uncalibrated_metric": "calibrate_before_ranking_when_strict", "dependency_blocked": "resolve_dependency", "invalid_budget": "block_budgeted_successor", "error": ["rollback", "branch"], "high_residual": "continue"},
     }
     result["decision_digest"] = _decision_digest(decision)
     return result
