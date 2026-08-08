@@ -8,6 +8,7 @@ from .validate import validate
 from .bootstrap import bootstrap
 from .git_backend import GitBackend, GitStaleHead, GitStateError
 from .crystal_runtime import CrystalRuntime
+from .orchestration_runtime import OrchestrationRuntime
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
 
@@ -21,7 +22,7 @@ class RateLimiter:
 
 class Server:
     def __init__(self,db,git_root=None):
-        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.rate=RateLimiter()
+        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.orchestration=OrchestrationRuntime(self.core); self.rate=RateLimiter()
         self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'), autocommit=False)
     def result(self,id,result): return {"jsonrpc":"2.0","id":id,"result":result}
     def error(self,id,code,msg,data=None):
@@ -43,6 +44,9 @@ class Server:
         if name=='athena_pending_mutations': return c.pending_mutations(a['agent'])
         if name=='athena_adopt_mutation': return c.adopt_mutation(a['agent'],a['mutation_id'])
         if name=='athena_hydrate': return c.hydrate(a.get('agent'))
+        if name=='athena_orchestrate': return self.orchestration.compile(a['seed'],a.get('candidates'),a.get('residuals'),a.get('budget'),a.get('actor','agent'),a.get('task',''),a.get('session_id'),a.get('persist',True))
+        if name=='athena_orchestration_get': return self.orchestration.get(a['run_id'])
+        if name=='athena_orchestration_replay': return self.orchestration.replay(a['run_id'])
         if name=='athena_session_start': return c.session_start(a['agent'],a['task'],self.git.head() if self.git.enabled else None)
         if name=='athena_session_end':
             gh=self.git.head() if self.git.enabled else None
@@ -65,7 +69,7 @@ class Server:
         if name=='athena_finalize_output': return self.crystal.finalize_output(semantic=a['semantic'],text=a['text'],native_locator=a['native_locator'],agent=a['agent'],task=a['task'],seq=a['seq'],expected_vid=a.get('expected_vid'),carrier=a.get('carrier','text/plain'),edges=a.get('edges'),hyperedges=a.get('hyperedges'),math_objects=a.get('math_objects'),coordinates=a.get('coordinates'),cut_lm=a.get('cut_lm'),evidence=a.get('evidence'),scale_promotions=a.get('scale_promotions'),session_id=a.get('session_id'),ephemeris=a.get('ephemeris'),status=a.get('status','CRYSTALLIZED'))
         if name=='athena_verify_emission': return self.crystal.verify_emission(a['envelope_id'],a.get('visible_text'))
         if name=='athena_benchmark':
-            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); return r
+            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r.update(self.orchestration.benchmark()); r['git']=self.git.status(); return r
         raise KeyError(name)
     def handle(self,m):
         from .dispatch import handle
