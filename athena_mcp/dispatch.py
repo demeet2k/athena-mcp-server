@@ -22,9 +22,10 @@ from .collective_robust import CollectiveRobustRuntime
 from .collective_v6_protocol import CLAIM_NAMESPACE_LAW
 from .unified_manifest import build_unified_manifest,maxdev_law
 from .prompt_runtime import PromptRuntime,PROMPT_RUNTIME_TOOLS,PROMPT_RUNTIME_TOOL_NAMES
+from .prompt_remote import PromptRemoteSync,PROMPT_REMOTE_TOOLS,PROMPT_REMOTE_TOOL_NAMES
 
 _existing_prompt_tool_names={t['name'] for t in TOOLS}
-for _tool in PROMPT_RUNTIME_TOOLS:
+for _tool in PROMPT_RUNTIME_TOOLS+PROMPT_REMOTE_TOOLS:
     if _tool['name'] not in _existing_prompt_tool_names:
         TOOLS.append(_tool);_existing_prompt_tool_names.add(_tool['name'])
 
@@ -32,7 +33,7 @@ NON_SELF_METERING={
     'athena_omega_state','athena_schema_status','athena_schema_plan','athena_schema_verify',
     'athena_self_test','athena_startup_health','athena_surface_audit','athena_runtime_manifest','athena_maxdev_law',
     'athena_benchmark','athena_git_status','athena_reconstruction_get','athena_reconstruction_verify','athena_reconstruction_recent',
-    'athena_prompt_hydrate','athena_prompt_compile','athena_prompt_freshness',
+    'athena_prompt_hydrate','athena_prompt_compile','athena_prompt_freshness','athena_prompt_remote_status',
 }
 
 def _meter(server,name,started,status):
@@ -55,6 +56,12 @@ def _prompt_runtime(server):
         runtime=PromptRuntime(server.git);server.prompt_runtime=runtime
     return runtime
 
+def _prompt_remote(server):
+    remote=getattr(server,'prompt_remote',None)
+    if remote is None:
+        remote=PromptRemoteSync(server.git);server.prompt_remote=remote
+    return remote
+
 
 def handle(server,m):
     mid=m.get('id');method=m.get('method');params=m.get('params') or {}
@@ -72,7 +79,9 @@ def handle(server,m):
             td=next((t for t in TOOLS if t['name']==name),None)
             if td is None:raise KeyError(name)
             validate(td['inputSchema'],args)
-            value=_prompt_runtime(server).call_tool(name,args) if name in PROMPT_RUNTIME_TOOL_NAMES else server.call_tool(name,args)
+            if name in PROMPT_RUNTIME_TOOL_NAMES:value=_prompt_runtime(server).call_tool(name,args)
+            elif name in PROMPT_REMOTE_TOOL_NAMES:value=_prompt_remote(server).call_tool(name,args)
+            else:value=server.call_tool(name,args)
             _meter(server,name,started,'OK')
             return server.result(mid,{'content':[{'type':'text','text':json.dumps(value,ensure_ascii=False,sort_keys=True)}],'structuredContent':value,'isError':False})
         except StaleTarget as e:
@@ -125,7 +134,10 @@ def handle(server,m):
         if uri in AOR_DEVELOPMENT_RESOURCE_URIS:val=server.aor_development.read_resource(uri)
         elif uri=='athena://manifest':val=build_unified_manifest(server)
         elif uri=='athena://prompt/runtime':
-            pr=_prompt_runtime(server);val=pr.hydrate(include_text=False) if pr.available else {'status':'UNAVAILABLE','reason':'configured ATHENA_GIT_ROOT does not contain prompts/PROMPT.manifest.json'}
+            pr=_prompt_runtime(server)
+            if pr.available:
+                val=pr.hydrate(include_text=False);val['remote_frontier']=_prompt_remote(server).status(fetch=False)
+            else:val={'status':'UNAVAILABLE','reason':'configured ATHENA_GIT_ROOT does not contain prompts/PROMPT.manifest.json'}
         elif uri=='athena://kc144/stations':val=json.loads(station_manifest())
         elif uri=='athena://state/head':val=c.s.head('global') or {}
         elif uri=='athena://registry':val=c.s.rows('SELECT * FROM objects ORDER BY canonical_name')
@@ -166,8 +178,9 @@ def handle(server,m):
         pr=_prompt_runtime(server)
         if pr.available:
             compiled=pr.compile(task=task,profile='MAXDEV',include_text=True)
-            text=compiled['compiled_text']+'\n[CURRENT TASK]\nAGENT='+str(agent)+'\nTASK='+str(task)+'\nPROMPT_STACK_DIGEST='+compiled['prompt_stack_digest']+'\nGIT_HEAD='+str(compiled['git_head'])
-            desc='Git-compiled ATHENA MAXDEV runtime addendum with exact prompt-stack ancestry'
+            remote=_prompt_remote(server).status(fetch=False)
+            text=compiled['compiled_text']+'\n[CURRENT TASK]\nAGENT='+str(agent)+'\nTASK='+str(task)+'\nPROMPT_STACK_DIGEST='+compiled['prompt_stack_digest']+'\nGIT_HEAD='+str(compiled['git_head'])+'\nREMOTE_FRONTIER_STATUS='+str(remote.get('status'))+'\nSHARED_FRONTIER_VERIFIED='+str(remote.get('shared_frontier_verified',False))
+            desc='Git-compiled ATHENA MAXDEV runtime addendum with exact prompt-stack ancestry and explicit local/remote frontier state'
         else:
             text='ATHENA UNIFIED AOR×COLLECTIVE V13 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
             desc='Fallback unified AOR/Y1 developmental cortex × Collective V1–V13 cycle; Git prompt runtime unavailable'
