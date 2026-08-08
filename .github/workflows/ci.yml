@@ -29,9 +29,9 @@ jobs:
           from pathlib import Path
           s=Path('/tmp/athena-tests.log').read_text(errors='replace')
           marker='======================================================================'
-          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-180:])
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-220:])
           failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
-          print(failure[:24000])
+          print(failure[:28000])
           PY
             )
             echo "::error title=ATHENA full-suite traceback::$msg"
@@ -62,12 +62,26 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
       - name: Release metadata and RPC namespace uniqueness
         run: python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
-      - name: V6 discovery/Y1 authority namespace firewall
-        run: python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
-      - name: V7 dual-control causal and replication boundaries
-        run: python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
-      - name: V8-V9 belief inference and authority boundaries
-        run: python -m unittest discover -s tests -p 'test_collective_v8_v9_unified.py' -v
+      - name: V6 upstream scientific diagnostics and unified Y1 firewall
+        run: |
+          python -m unittest discover -s tests -p 'test_00_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_00a_collective_v6_assertion_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
+      - name: V7 upstream dual-control suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v7.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
+      - name: V8-V9 upstream belief inference suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v8.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_v9_unified.py' -v
       - name: V10 probabilistic constructive adversarial and authority boundaries
         run: |
           python -m unittest discover -s tests -p 'test_collective_v10.py' -v
