@@ -29,6 +29,7 @@ jobs:
         id: canary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONPATH: .
           CANDIDATE_HEAD: 1a90f44cbbdbdcacc64544a8ddabf52711f48fbc
           TARGET_BRANCH: agent/campaign-v3-loop-bind-target-1a90f44
           TARGET_SEED_HEAD: b7ca865d55bec63474b4aed3f3013c7d73d8db37
