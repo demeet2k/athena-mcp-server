@@ -37,7 +37,7 @@ class UnifiedManifestTests(unittest.TestCase):
         self.assertEqual(unresolved['LONGITUDINAL_CAUSAL_POLICY']['status'],'UNRESOLVED_OPTIONAL_RESEARCH')
         self.assertEqual(unresolved['STOCHASTIC_RESOURCE_CONTROL']['status'],'UNRESOLVED_OPTIONAL_RESEARCH')
         self.assertEqual(unresolved['EXTERNAL_PROMOTION_VERIFIER']['status'],'UNRESOLVED_CONTROL_PLANE_BRIDGE')
-        self.assertIn('ATTESTED_READY',manifest['promotion']);self.assertIn('QUALIFIED',manifest['promotion']);self.assertIn('caller-mintable verifier',manifest['promotion'])
+        self.assertIn('ATTESTED_READY',manifest['promotion']);self.assertIn('QUALIFIED',manifest['promotion']);self.assertIn('recreating self-qualification',manifest['promotion'])
         self.assertEqual(manifest['schema']['target'],2);self.assertEqual(manifest['startup']['status'],'DEGRADED_SCHEMA')
 
     def test_manifest_updates_live_schema_state_after_migration(self):
