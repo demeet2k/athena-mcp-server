@@ -1,0 +1,67 @@
+{
+  "artifact": "ATHENA.REHYDRATION.CAMPAIGN.V2",
+  "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION-CAMPAIGN::V2",
+  "purpose": "Preserve and coordinate multiple lawful rehydration branches under explicit width/depth/branch budgets without pretending that campaign branches are background workers or merge authority.",
+  "authority_ceiling": "coordination only; below branch protection, merge, release, source mutation, evidence promotion, and user authority",
+  "composition": {
+    "branch_work_runtime": "ATHENA.REHYDRATION.LOOP.V1",
+    "successor_source": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
+    "campaign_state": "Git-persisted append-only event chain plus current branch projection"
+  },
+  "campaign_states": ["ACTIVE", "RECONCILED", "COMPLETE", "ABORTED"],
+  "branch_states": ["OPEN", "CLAIMED", "ACTIVE", "WITNESSED", "BLOCKED", "EXPANDED", "ACCEPTED", "SUPERSEDED"],
+  "budgets": {
+    "max_width": {"minimum": 1, "maximum": 16},
+    "max_depth": {"minimum": 1, "maximum": 32},
+    "max_branches": {"minimum": 1, "maximum": 256},
+    "lease_steps": {"minimum": 1, "maximum": 32}
+  },
+  "operations": {
+    "start": "create one bounded campaign graph from an exact Git head",
+    "claim": "assign a logical-clock lease to one branch",
+    "release": "return a claimed branch to OPEN",
+    "bind_loop": "bind a claimed branch to an exact V1 loop state/checkpoint",
+    "sync_branch": "project the bound loop state into campaign branch state",
+    "expand": "materialize SELECTED or AMBIGUOUS successor baton candidates as child branches subject to budgets",
+    "reconcile": "record an observed selection among WITNESSED branches",
+    "resume": "return the full current branch frontier and campaign state",
+    "verify": "verify event-chain, topology, branch-budget, depth and width invariants"
+  },
+  "expansion": {
+    "SELECTED": "one child branch",
+    "AMBIGUOUS": "one child per retained tie unless caller supplies selected_candidate_ids",
+    "NO_SUCCESSOR": "no child",
+    "TERMINAL": "no child",
+    "width_overflow": "HOLD_WIDTH without state mutation",
+    "branch_budget_overflow": "HOLD_BRANCH_BUDGET without state mutation",
+    "depth_overflow": "HOLD_DEPTH without state mutation"
+  },
+  "lease_model": {
+    "clock": "campaign logical_clock",
+    "purpose": "prevent duplicate branch ownership without depending on wall-clock truth",
+    "law": "CLAIMED_BRANCH != ACTIVE_WORKER; work exists only when an explicit agent executes it"
+  },
+  "reconciliation": {
+    "eligible": "only WITNESSED branches may become ACCEPTED",
+    "nonselected_witnessed_or_blocked": "SUPERSEDED",
+    "nonterminal_result": "RECONCILED",
+    "terminal_result": "COMPLETE only with observed integration_witness.git_head",
+    "law": "RECONCILED != GIT_MERGED unless an external Git integration witness is supplied"
+  },
+  "persistence": {
+    "root": "prompts/rehydration_campaigns/<campaign_id>",
+    "state": "state.json",
+    "events": "events/<sequence>-<event>.json",
+    "batons": "batons/<sequence>-<baton_digest>.json",
+    "digests": ["state_digest", "event_digest", "chain_digest"]
+  },
+  "laws": [
+    "CAMPAIGN_BRANCH != BACKGROUND_WORKER",
+    "AMBIGUITY MAY EXPAND INTO BOUNDED BRANCHES",
+    "WIDTH/DEPTH/BRANCH BUDGETS FAIL CLOSED",
+    "BRANCH_ROUTING != AUTHORITY",
+    "RECONCILIATION != GIT_MERGE",
+    "CAMPAIGN COMPLETE REQUIRES OBSERVED INTEGRATION WITNESS",
+    "CAMPAIGN VERIFY != BRANCH WORK TRUTH"
+  ]
+}
