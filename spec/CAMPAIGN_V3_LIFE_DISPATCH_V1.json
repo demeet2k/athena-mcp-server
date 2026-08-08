@@ -1,0 +1,89 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.LIFE.DISPATCH.CONTRACT.V1",
+  "status": "CANDIDATE",
+  "parent_pressure": "demeet2k/Athena#278",
+  "runtime_base": "demeet2k/athena-mcp-server@28b1e0dfe96d5bb2af84a66dcd36608a9d8de493",
+  "life_policy_source": {
+    "repo": "demeet2k/Athena",
+    "head": "60a7bc798412088977d7ab9adf16a0e7dca3a1c9",
+    "script_blob": "c6f35cf39d9f25333ee0c748b5e4bacedbb544a1",
+    "standing": "MERGED_HARDENED_EXACT_SOURCE_TESTED"
+  },
+  "purpose": "Bind Stay-In-Game Life Loop V1 into the existing Campaign V3 lease/start/bind plus observed Rehydration completion membrane without creating scheduler/provider authority or treating legitimate GTC stops as played failures.",
+  "binding_fields": {
+    "LIFE_POLICY": "STAY_IN_GAME_LIFE_LOOP_V1",
+    "CLEAR_CONDITION_DIGEST": "sha256 over the ordered frozen clear-condition identifiers",
+    "RESEED_ANCHOR": "strict renewable ATHENA.RESEED_ANCHOR.V1 object",
+    "EXTRA_LIFE_REWARD_ELIGIBILITY": "explicit boolean frozen before observed result"
+  },
+  "transaction": [
+    "validate renewable reseed anchor before campaign mutation",
+    "call existing bind_current_pulse_branch_to_loop transaction unchanged",
+    "only after BOUND freeze life-policy fields and seed exactly three base lives",
+    "execute the already-bound loop through existing explicit rehydration invocation",
+    "consume only observed public completion, hard-gate result, frozen clear-condition outcomes and witnesses",
+    "apply GTC stop/hold membrane before played CLEAR/FAIL_CLEAR classification",
+    "consume exactly one life only for coherent executed witnessed FAIL_CLEAR",
+    "require renewable reseed anchor for any nonterminal failed-play continuation",
+    "bind reseed anchor to exact agent and quest version",
+    "compare anchor git_positions against current failed-play git positions",
+    "consume each successful reseed anchor digest once so replay cannot mint retries"
+  ],
+  "gtc_law": {
+    "SUCCESS_CLOSED": "zero life; terminal GTC stop",
+    "NO_POSITIVE_FRONTIER": "zero life; terminal GTC stop",
+    "PREMATURE_MODEL_STOP": "zero life; diagnostic stop, never converted into FAIL_CLEAR",
+    "typed_holds": "zero life",
+    "contradictory_or_unobserved_receipt": "zero life and HOLD",
+    "played_failed_clear": "exactly one life"
+  },
+  "life_economy": {
+    "base_lives": 3,
+    "extra_life_bank_cap": 9,
+    "reward_delta": 1,
+    "reward_requires": ["verified=true", "self_scored=false", "nonempty witnesses", "unique receipt_id"],
+    "global_reset_scope": "ATHENA logical global_game_age + registered local_loop_age only",
+    "platform_counter_reset_claimed": false
+  },
+  "authority_firewalls": [
+    "CAMPAIGN_BINDING != WORK_EXECUTION",
+    "LIFE_POLICY_BINDING != SCHEDULER_AUTHORITY",
+    "GTC_STOP != PLAYED_FAILURE",
+    "HOLD != PLAYED_FAILURE",
+    "EXTRA_LIFE != PLATFORM_QUOTA",
+    "LOGICAL_GLOBAL_GAME_AGE_RESET != TOKEN_CONTEXT_USAGE_RUNTIME_RESET",
+    "SELF_SCORED_REWARD != EXTRA_LIFE",
+    "CANDIDATE_SOURCE_PIN != CANONICAL_PROMOTION"
+  ],
+  "acceptance": [
+    "existing Campaign V3 binder is reused rather than replaced",
+    "invalid life anchor blocks before campaign mutation",
+    "failed campaign binding creates no life world",
+    "bound agent starts with exactly three base lives",
+    "dispatch receipt is digest sealed and tamper evident",
+    "clear-condition identifiers are frozen into an ordered digest",
+    "verified eligible reward can mint at most one extra life per unique receipt",
+    "ineligible/self-scored/unwitnessed reward cannot mint an extra life",
+    "coherent executed witnessed FAIL_CLEAR consumes exactly one life",
+    "third failed clear without extras ends game",
+    "earned extra life can prevent default exhaustion and trigger logical global reseed",
+    "EVIDENCE_HOLD and other typed holds consume zero lives",
+    "NO_POSITIVE_FRONTIER and SUCCESS_CLOSED consume zero lives",
+    "PREMATURE_MODEL_STOP is not treated as a played failure",
+    "unplayed, unobserved, contradictory or unwitnessed completion consumes zero lives",
+    "invalid reseed anchor after a played failure consumes the life but cannot fabricate continuation",
+    "all outputs preserve platform_counter_reset_claimed=false",
+    "replayed reseed anchor burns the played-failure life but cannot reseed twice",
+    "stale or missing current Git-position witness burns the played-failure life but cannot reseed",
+    "anchor subject mismatch blocks before campaign mutation",
+    "exact repository tests pass before promotion consideration"
+  ],
+  "promotion_boundary": {
+    "public_tool_registration": "NONE",
+    "background_worker": "NONE",
+    "provider_claim": "NONE",
+    "canonical_life_policy_promotion": "HOLD",
+    "behavioral_gtc_gain": "UNKNOWN",
+    "required_next_evidence": "exact-source repository test/readback, then observed real campaign integration receipt"
+  }
+}
