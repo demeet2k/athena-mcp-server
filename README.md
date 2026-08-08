@@ -1,18 +1,20 @@
 # ATHENA Canonical MCP v3.2 — AΩR × Collective V1–V13 Unified Runtime
 
-ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, joint world-model uncertainty, robust continuous-domain approximations, longitudinal policy inference, restart-safe whole-state projection, and exact-head promotion readiness with a separate trusted qualification boundary.
+ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, joint world-model uncertainty, robust continuous-domain approximations, longitudinal policy inference, restart-safe whole-state projection, and exact-head promotion with independent host-bound GitHub qualification.
 
 Current executable coordinates:
 
 - package: `athena-canonical-mcp 3.2.0`;
-- live architecture: `ATHENA.RUNTIME.UNIFIED.8`;
+- live architecture: `ATHENA.RUNTIME.UNIFIED.9`;
 - runtime class: one composed `Server`;
 - Collective ladder: V1–V13;
 - authority: Y1 `athena_claim_*`;
 - science-shadow evidence namespace: `athena_discovery_claim_*`;
 - state foundation: `SCHEMA.2 / OMEGA.1 / RECON.1`;
 - governance: `SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2`;
-- external gate: `syntax ∧ unit ∧ critical-invariants ∧ dependent-smoke`.
+- trusted external verifier: `GITHUB_PROMOTION_VERIFIER.1`;
+- readiness gate: `syntax ∧ unit ∧ critical-invariants ∧ smoke`;
+- trusted qualification gate: `readiness → promotion-qualification`.
 
 ## Constitutional braid
 
@@ -28,7 +30,9 @@ Current executable coordinates:
 
 `CYCLE = resumable fail-closed developmental metabolism`
 
-`PROMOTION.2 = exact-head local gates + caller-bound attestations + separate trusted host qualification`
+`PROMOTION.2 = caller-bound exact-head readiness + separate trusted qualification`
+
+`GITHUB_PROMOTION_VERIFIER.1 = host-bound independent GitHub Actions verification`
 
 Core firewalls:
 
@@ -44,7 +48,8 @@ Core firewalls:
 - `semantic VID CAS != Git HEAD CAS != topology-version CAS`;
 - `athena_claim_* != athena_discovery_claim_*`;
 - `CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`;
-- `ATTESTED_READY != QUALIFIED`.
+- `ATTESTED_READY != QUALIFIED`;
+- `CHECKS_FROM_DIFFERENT_SUITES_OR_RUNS != ONE_TRUSTED_QUALIFICATION`.
 
 ## Runtime cycle
 
@@ -66,7 +71,9 @@ V11 has a local GP observed-row CAS for explicit hyperparameter application. V12
 
 Canonical authority uses `athena_claim_*` with typed `? → + → ! → #` progression. Discovery/replication science-shadow state uses `athena_discovery_claim_*`. A model or science-shadow result can affect Y1 only through an explicit witnessed evidence/authority route.
 
-PROMOTION.2 adds a separate trust plane. `athena_promotion_evaluate` can bind exact-head caller CI/smoke packets and reach `ATTESTED_READY`, but the MCP schema exposes no field capable of supplying the trusted host-verifier receipt required for `QUALIFIED`. Historical PROMOTION.1 receipts remain replayable under their original semantics but are counted separately from current trusted qualification.
+PROMOTION.2 adds a separate trust plane. `athena_promotion_evaluate` can bind exact-head caller CI/smoke packets and reach `ATTESTED_READY`, but the MCP schema exposes no field capable of supplying the trusted verifier receipt required for `QUALIFIED`. Historical PROMOTION.1 receipts remain replayable under their original semantics but are counted separately from current trusted qualification.
+
+`athena_promotion_verify_github` is the host-bound trusted route. The caller supplies the target Git SHA plus ordinary actor/persistence/timeout controls; repository, API base, current Actions run, trusted app, token, required checks and trusted-verifier packet remain host-controlled.
 
 ## AOR developmental cortex
 
@@ -164,29 +171,45 @@ Resource: `athena://collective/v13`. Specs: `spec/COLLECTIVE_RUNTIME_V13.md`, `s
 - **SELFTEST.1 / STARTUP.1** — local health/readiness only;
 - **SURFACE.2** — required base + Collective V1–V13 + AOR + governance union;
 - **COMPOSITION.2** — one composed Server, resident organs and lazy V5–V13 classification;
-- **PROMOTION.2** — exact-head caller-bound packets may reach `ATTESTED_READY`; trusted `QUALIFIED` requires a genuinely host-internal verifier receipt.
+- **PROMOTION.2** — exact-head caller-bound packets may reach `ATTESTED_READY`; trusted `QUALIFIED` requires an independent verifier receipt;
+- **GITHUB_PROMOTION_VERIFIER.1** — independently fetches host-trusted GitHub check-runs and binds one coherent exact-head Actions suite into PROMOTION.2.
 
 Live machine-readable architecture:
 
-- `athena://manifest` and `athena://runtime/unified-manifest` → `ATHENA.RUNTIME.UNIFIED.8`;
-- `athena://runtime/maxdev` and `athena_maxdev_law` → V13 MAXDEV law;
+- `athena://manifest` and `athena://runtime/unified-manifest` → `ATHENA.RUNTIME.UNIFIED.9`;
+- `athena://runtime/maxdev` and `athena_maxdev_law` → V13 MAXDEV law with trusted GitHub promotion;
+- `athena://promotion` → PROMOTION.2 ledger plus verifier configuration/version;
 - `athena://collective/v5` … `athena://collective/v13` → lazy bounded science/control/adaptation/joint/robust layers.
+
+## Trusted promotion topology
+
+Caller-bound readiness remains available through `athena_promotion_evaluate`, but caller packets never create trusted qualification.
+
+`athena_promotion_verify_github(git_head)` independently verifies the host-configured repository. It requires exact-head rows from the trusted `github-actions` app and, when running inside Actions, binds to the current host run ID. Required checks are fixed:
+
+`{syntax, unit, critical-invariants, smoke}`.
+
+All four must be `completed/success` within **one check-suite**. Checks from different suites or Actions runs are never spliced. Failed verification creates no PROMRUN.
 
 ## CI constitution
 
-Repository gate:
+Runtime readiness remains four independent jobs:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, V12, V13 constructive/adversarial/unified authority tests, AOR×Collective transport, and PROMOTION.2 trust/exact-head predicates.
+Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, GitHub verifier adversarial tests, V6↔Y1 firewall, V7, V8/V9, V10, V11, V12, V13 constructive/adversarial/unified authority tests, AOR×Collective transport, and PROMOTION.2 trust/exact-head predicates.
 
 Smoke is withheld until syntax, unit, and critical gates pass. The one-process smoke crosses V13's QMC/FITC/joint-design/FCI-lite/longitudinal/robust-resource surfaces plus state/AOR/fail-closed CYCLE, final emission verification and PROMOTION.2 caller-bound readiness.
 
-`CI_PASS != LIVE_TRUSTED_PROMRUN`.
+A fifth dependent job, `promotion-qualification`, runs only after all four readiness jobs pass. It checks out the exact PR head or push SHA, binds host repository/API/run identity, creates and replays a trusted `QUALIFIED` PROMRUN, and uploads `promotion-receipt-<sha>`.
+
+The receipt artifact is evidence for that exact CI head; it does not automatically populate an unrelated long-lived runtime database.
 
 ## External control-plane boundary
 
-GitHub branch protection, repository metadata, tags, Releases, PR/merge state, and the trusted promotion-verifier bridge are external control-plane state. They are never inferred from OMEGA, SELFTEST, caller witness packets or GitHub Actions success. V13 intentionally does not expose a caller-mintable trusted verifier.
+The GitHub verifier **reads** trusted Actions/check state. GitHub branch protection, repository metadata/settings, tags, Releases, PR/merge state and other administrative controls remain separate external state. They are never inferred from OMEGA, SELFTEST, caller witness packets, `ATTESTED_READY`, or even a trusted PROMRUN.
+
+Non-GitHub CI providers require separate trusted host verifier implementations rather than caller assertions.
 
 ## Run
 
