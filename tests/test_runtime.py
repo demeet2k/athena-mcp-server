@@ -6,6 +6,7 @@ from athena_mcp.server import Server
 from athena_mcp.orchestration import TRANSFORMS, compile_orchestration
 
 BASE_METRICS={'readiness':1,'gain':2,'independence':1,'bridge':1,'cost':1,'delta_j':2,'information_gain':1,'option_value':1,'evidence':1,'connection':1,'replay':1,'navigation':1,'reconstruction':1,'implementation':1,'novelty':1,'duplicate':0,'fake':0,'bloat':0,'unsupported':0,'unhandled_contradiction':0,'coordinate_loss':0}
+SUCCESSOR_CONTRACT={'basis_id':'AOR.TEST.V1','strict':True,'metrics':{'delta_j':{'scale':2,'unit':'normalized-delta'},'information_gain':{'scale':1},'bridge':{'scale':1},'option_value':{'scale':1},'cost':{'scale':1}}}
 
 class RuntimeTests(unittest.TestCase):
  def test_registry_stale_text_simplex(self):
@@ -35,6 +36,13 @@ class RuntimeTests(unittest.TestCase):
  def test_pareto_frontier_and_decision_explanation(self):
   a={'id':'a',**BASE_METRICS}; b={'id':'b',**{**BASE_METRICS,'delta_j':1,'information_gain':2}}; c={'id':'c',**{**BASE_METRICS,'delta_j':1,'information_gain':1,'cost':2}}
   out=compile_orchestration('seed',[a,b,c]); self.assertEqual(out['next']['id'],'a'); self.assertEqual(out['pareto_successor_frontier'],['a','b']); self.assertEqual(out['decision_explanation']['selected'],'a'); rejected={x['candidate']:x['reasons'] for x in out['decision_explanation']['rejected']}; self.assertIn('tie_broken_by_frontier_then_id',rejected['b']); self.assertIn('lower_successor_score',rejected['c'])
+ def test_strict_metric_contract_blocks_uncalibrated_successor(self):
+  contract={'basis_id':'STRICT.MISSING.OPTION','strict':True,'metrics':{'delta_j':{'scale':1},'information_gain':{'scale':1},'bridge':{'scale':1},'cost':{'scale':1}}}
+  out=compile_orchestration('seed',[{'id':'x',**BASE_METRICS}],metric_contract=contract); self.assertIsNone(out['next']); row=out['frontier'][0]; self.assertEqual(row['metric_calibration']['successor']['status'],'BLOCKED'); self.assertFalse(row['rankable_successor']); req=next(x for x in out['calibration_plan'] if x['candidate']=='x' and x['formula']=='successor'); self.assertTrue(req['strict_block']); self.assertIn('option_value',req['metrics']); self.assertIn('metric_calibration_blocked',out['decision_explanation']['rejected'][0]['reasons'])
+ def test_metric_contract_normalizes_successor_and_replay_basis(self):
+  out=compile_orchestration('seed',[{'id':'x',**BASE_METRICS}],metric_contract=SUCCESSOR_CONTRACT); self.assertEqual(out['next']['id'],'x'); row=out['frontier'][0]; self.assertEqual(row['scoring_source']['delta_j'],1.0); self.assertEqual(row['metric_calibration']['successor']['status'],'CALIBRATED'); self.assertEqual(out['metric_contract']['basis_id'],'AOR.TEST.V1')
+  with tempfile.NamedTemporaryFile(suffix='.db') as f:
+   srv=Server(f.name); run=srv.call_tool('athena_orchestrate',{'seed':'s','candidates':[{'id':'x',**BASE_METRICS}],'metric_contract':SUCCESSOR_CONTRACT,'actor':'A1','task':'basis'}); replay=srv.call_tool('athena_orchestration_replay',{'run_id':run['run_id']}); self.assertTrue(replay['match']); self.assertEqual(replay['stored_metric_basis']['basis_id'],'AOR.TEST.V1'); self.assertEqual(replay['stored_metric_basis'],replay['recomputed_metric_basis']); srv.store.close()
  def test_aor_persist_get_replay_and_benchmark(self):
   with tempfile.NamedTemporaryFile(suffix='.db') as f:
    srv=Server(f.name); run=srv.call_tool('athena_orchestrate',{'seed':'s','candidates':[{'id':'x',**BASE_METRICS}],'actor':'A1','task':'route'}); self.assertTrue(run['persisted']); self.assertTrue(run['run_id'].startswith('AORRUN.')); stored=srv.call_tool('athena_orchestration_get',{'run_id':run['run_id']}); self.assertEqual(stored['decision_digest'],run['decision_digest']); replay=srv.call_tool('athena_orchestration_replay',{'run_id':run['run_id']}); self.assertTrue(replay['match']); self.assertEqual(replay['status'],'REPLAY_MATCH'); self.assertEqual(replay['stored_pareto'],replay['recomputed_pareto']); bench=srv.call_tool('athena_benchmark',{}); self.assertEqual(bench['orchestration_runs'],1); self.assertEqual(bench['replay_match_rate'],1.0); srv.store.close()
