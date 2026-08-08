@@ -142,6 +142,41 @@ class SemanticConnectionControlV1Tests(unittest.TestCase):
         self.assertEqual(result.standing, UNKNOWN)
         self.assertTrue(result.reason.startswith("UNTYPED_DELETE:bad:signal"))
 
+    def test_typed_loss_without_executed_delete_is_unknown(self):
+        initial = SemanticState("A", {"signal": "alpha"})
+        operators = {
+            "phantom": EdgeOperator(
+                "phantom",
+                "A",
+                "A",
+                typed_loss=frozenset({"signal"}),
+            ),
+        }
+
+        result = compose_closed_route(initial, ["phantom"], operators)
+
+        self.assertEqual(result.standing, UNKNOWN)
+        self.assertEqual(result.reason, "UNEXECUTED_TYPED_LOSS:phantom:signal")
+        self.assertIsNone(result.residue)
+
+    def test_delete_of_absent_feature_cannot_mint_loss_residue(self):
+        initial = SemanticState("A", {"x": 1})
+        operators = {
+            "phantom-delete": EdgeOperator(
+                "phantom-delete",
+                "A",
+                "A",
+                operations=(FieldOperation("signal", "DELETE"),),
+                typed_loss=frozenset({"signal"}),
+            ),
+        }
+
+        result = compose_closed_route(initial, ["phantom-delete"], operators)
+
+        self.assertEqual(result.standing, UNKNOWN)
+        self.assertEqual(result.reason, "LOSS_SOURCE_MISSING:phantom-delete:signal")
+        self.assertIsNone(result.residue)
+
     def test_expected_class_mutation_cannot_change_raw_transport_behavior(self):
         initial = SemanticState("S", {"x": 1})
         operators = {"id": EdgeOperator("id", "S", "S")}
