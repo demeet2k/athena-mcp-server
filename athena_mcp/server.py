@@ -11,7 +11,8 @@ from .collective_runtime import CollectiveRuntime
 from .collective_growth import CollectiveGrowthRuntime
 from .collective_memory import CollectiveMemoryRuntime
 from .orchestration_branch import BranchLedger
-from .orchestration_runtime import OrchestrationRuntime
+from .orchestration_authority import AuthorityLedger
+from .orchestration_authority_runtime import AuthorityOrchestrationRuntime
 from .orchestration_robustness import successor_robustness,elasticity_packet
 from .orchestration import orchestration_law
 
@@ -21,10 +22,11 @@ from .collective_growth_protocol import COLLECTIVE_GROWTH_TOOLS
 from .collective_v2_protocol import COLLECTIVE_V2_TOOLS
 from .aor_protocol import AOR_TOOLS
 from .orchestration_branch_protocol import BRANCH_TOOLS
+from .orchestration_authority_protocol import AUTHORITY_TOOLS
 from .orchestration_robustness_protocol import ROBUSTNESS_TOOLS
 
 _existing_tool_names={t['name'] for t in TOOLS}
-for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+AOR_TOOLS+BRANCH_TOOLS+ROBUSTNESS_TOOLS:
+for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+AOR_TOOLS+BRANCH_TOOLS+AUTHORITY_TOOLS+ROBUSTNESS_TOOLS:
     if tool['name'] not in _existing_tool_names:
         TOOLS.append(tool);_existing_tool_names.add(tool['name'])
 
@@ -40,7 +42,7 @@ class Server:
     def __init__(self,db,git_root=None):
         self.store=Store(db);self.core=AthenaCore(self.store);bootstrap(self.core);self.crystal=CrystalRuntime(self.core)
         self.collective=CollectiveRuntime();self.collective_growth=CollectiveGrowthRuntime();self.collective_memory=CollectiveMemoryRuntime(self.store,self.collective,self.collective_growth)
-        self.branches=BranchLedger(self.core);self.orchestration=OrchestrationRuntime(self.core,self.branches);self.rate=RateLimiter();self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'),autocommit=False)
+        self.branches=BranchLedger(self.core);self.authority=AuthorityLedger(self.core);self.orchestration=AuthorityOrchestrationRuntime(self.core,self.branches,self.authority);self.rate=RateLimiter();self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'),autocommit=False)
     def result(self,id,result):return {'jsonrpc':'2.0','id':id,'result':result}
     def error(self,id,code,msg,data=None):
         e={'code':code,'message':msg}
@@ -71,6 +73,12 @@ class Server:
         if name=='athena_branch_state':return self.branches.state(a['branch_id'],a.get('basis_id'))
         if name=='athena_branch_list':return self.branches.list(a.get('status'),a.get('limit',100))
         if name=='athena_branch_review':return self.branches.review(a['branch_id'],a['basis_id'],a['trigger'],a.get('actor','agent'))
+        if name=='athena_claim_register':return self.authority.register(a['claim_id'],a['source_ref'],a.get('actor','agent'))
+        if name=='athena_claim_state':return self.authority.state(a['claim_id'])
+        if name=='athena_claim_list':return self.authority.list(a.get('y'),a.get('status'),a.get('limit',100))
+        if name=='athena_claim_promote':return self.authority.promote(a['claim_id'],a['target_y'],a.get('evidence'),a.get('test'),a.get('canonical_authority'),a.get('actor','agent'))
+        if name=='athena_claim_challenge':return self.authority.challenge(a['claim_id'],a['witness'],a['reason'],a.get('actor','agent'))
+        if name=='athena_claim_resolve_canonical_challenge':return self.authority.resolve_canonical_challenge(a['claim_id'],a['decision'],a['authority'],a.get('actor','agent'))
         if name=='athena_session_start':return c.session_start(a['agent'],a['task'],self.git.head() if self.git.enabled else None)
         if name=='athena_session_end':
             gh=self.git.head() if self.git.enabled else None;result=c.session_end(a['session_id'],a['summary'],gh)
@@ -112,7 +120,7 @@ class Server:
         if name=='athena_failure_antibody_register':return self.collective_memory.register_failure_antibody(a['signature'],a.get('trigger'),a.get('detector'),a.get('repair'),a.get('evidence'),a.get('regression_refs'),a.get('scope','global'),a.get('actor','agent'))
         if name=='athena_failure_antibody_match':return self.collective_memory.match_failure_antibodies(a['event'],a.get('tags'),a.get('scope'),a.get('threshold',0.35),a.get('limit',10),a.get('record_hits',True))
         if name=='athena_benchmark':
-            r=c.benchmark();r.update(self.crystal.benchmark_extension());r.update(self.branches.benchmark());r.update(self.orchestration.benchmark());r['git']=self.git.status();r['collective_runtime']=self.collective.describe()['version'];r['collective_growth']=self.collective_growth.describe()['version'];r['collective_memory']=self.collective_memory.describe();r['aor_law']=orchestration_law()['version'];return r
+            r=c.benchmark();r.update(self.crystal.benchmark_extension());r.update(self.branches.benchmark());r.update(self.authority.benchmark());r.update(self.orchestration.benchmark());r['git']=self.git.status();r['collective_runtime']=self.collective.describe()['version'];r['collective_growth']=self.collective_growth.describe()['version'];r['collective_memory']=self.collective_memory.describe();r['aor_law']=orchestration_law()['version'];return r
         raise KeyError(name)
     def handle(self,m):
         from .dispatch import handle
