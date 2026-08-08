@@ -110,8 +110,11 @@ class SuccessorCompilerTests(unittest.TestCase):
         self.assertIsNone(a["selected"])
         self.assertIsNone(b["selected"])
 
-    def test_terminal_completion_emits_no_successor(self):
-        baton = self.compile({"status": "SUCCEEDED", "terminal": True, "residuals": ["ignored"]})
+    def test_terminal_completion_emits_no_successor_after_closure_gate(self):
+        # The compiler is a lower layer and assumes terminality has already passed
+        # the runtime closure gate. Therefore its terminal fixture must not contain
+        # residual work that the gate would have forced to continue.
+        baton = self.compile({"status": "SUCCEEDED", "terminal": True, "residuals": []})
         self.assertEqual(baton["status"], "TERMINAL")
         self.assertEqual(baton["candidates"], [])
         self.assertIsNone(baton["selected"])

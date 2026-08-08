@@ -175,12 +175,12 @@ class RehydrationLoopTests(unittest.TestCase):
         self.assertEqual(advanced["step_index"], 1)
         self.assertIn("feature.txt", advanced["material_work_paths"])
 
-        resumed = runtime.resume(started["loop_id"])
+        resumed = runtime.resume(started["loop_id"], shared_remote_mode="DISABLED")
         self.assertEqual(resumed["status"], "RESUMED")
         self.assertEqual(resumed["step_index"], 1)
         self.assertIn("Harden the feature", resumed["compiled_self_prompt"])
 
-        verified = runtime.verify(started["loop_id"])
+        verified = runtime.verify(started["loop_id"], shared_remote_mode="DISABLED")
         self.assertEqual(verified["status"], "PASS", verified)
         self.assertEqual(verified["step_count"], 1)
 
@@ -261,7 +261,7 @@ class RehydrationLoopTests(unittest.TestCase):
         )
         self.assertEqual(second["status"], "HOLD_NO_PROGRESS")
         self.assertTrue(second["terminal"])
-        self.assertEqual(runtime.verify(started["loop_id"])["status"], "PASS")
+        self.assertEqual(runtime.verify(started["loop_id"], shared_remote_mode="DISABLED")["status"], "PASS")
 
     def test_stale_checkpoint_and_tampered_prompt_fail_closed(self):
         runtime, root = self._runtime()
@@ -313,10 +313,21 @@ class RehydrationLoopTests(unittest.TestCase):
             expected_checkpoint_head=started["checkpoint_head"],
             expected_state_digest=started["state_digest"],
             expected_prompt_digest=started["prompt_digest"],
-            completion=_completion(terminal=True, next_task=None),
+            completion=_completion(
+                terminal=True,
+                next_task=None,
+                residuals=[],
+                terminal_evidence={
+                    "goal_satisfied": True,
+                    "remaining_material_work": False,
+                    "reason": "all declared work and acceptance checks are complete",
+                    "evidence_refs": ["git://feature.txt", "test://unit"],
+                },
+            ),
             shared_remote_mode="DISABLED",
         )
         self.assertEqual(final["status"], "COMPLETE")
+        self.assertEqual(final["terminal_gate"]["status"], "ACCEPTED")
         with self.assertRaisesRegex(ValueError, "terminal"):
             runtime.advance(
                 loop_id=started["loop_id"],
@@ -327,7 +338,7 @@ class RehydrationLoopTests(unittest.TestCase):
                 allow_no_git_change=True,
                 shared_remote_mode="DISABLED",
             )
-        index = runtime.index()
+        index = runtime.index(shared_remote_mode="DISABLED")
         self.assertEqual(index["count"], 1)
         self.assertEqual(index["loops"][0]["status"], "COMPLETE")
 
