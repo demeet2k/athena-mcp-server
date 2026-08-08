@@ -45,6 +45,40 @@ if not getattr(PromptRuntime, "_athena_content_digest_v1_registered", False):
     PromptRuntime.compile = _prompt_compile_content_digest
     PromptRuntime._athena_content_digest_v1_registered = True
 
+# Frontier identity is a reduced-content coordinate, not a checkout, branch,
+# fetch-status or repository-clock coordinate. Source head and remote witness are
+# independent siblings. Include every runtime path actually available so replay
+# provenance is complete while environment metadata cannot perturb the digest.
+if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
+    _frontier_source_with_local_fallback = FrontierRuntime._source
+    _frontier_hydrate_with_environment_digest = FrontierRuntime.hydrate
+
+    def _frontier_source_requires_requested_remote_ref(self, source_ref, remote="origin", fetch=True):
+        result = _frontier_source_with_local_fallback(self, source_ref, remote, fetch)
+        if fetch and self._remote_exists(remote) and result.get("remote_checked"):
+            required = f"refs/remotes/{remote}/{source_ref}"
+            if result.get("resolved_ref") != required:
+                result["remote_checked"] = False
+                result["fetch_error"] = f"requested remote source ref unavailable after fetch: {required}"
+        return result
+
+    def _frontier_hydrate_content_digest(self, *args, **kwargs):
+        packet = _frontier_hydrate_with_environment_digest(self, *args, **kwargs)
+        packet["generated_from"] = self._paths(packet["source_head"], "runtime/queue", "runtime/runs")
+        keys = (
+            "generated_from", "objectives", "runs", "pressures", "ready_work",
+            "claims", "residuals", "source_coverage", "authority", "sched_contract", "laws"
+        )
+        digest_basis = {key: packet.get(key) for key in keys}
+        payload = json.dumps(digest_basis, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+        packet["frontier_digest"] = hashlib.sha256(payload).hexdigest()
+        packet["frontier_digest_basis"] = "reduced runtime content plus pinned SCHED interpretation contract; excludes source_head/ref, local checkout identity, remote witness and prompt_stack_digest"
+        return packet
+
+    FrontierRuntime._source = _frontier_source_requires_requested_remote_ref
+    FrontierRuntime.hydrate = _frontier_hydrate_content_digest
+    FrontierRuntime._athena_content_digest_v1_registered = True
+
 for _tool in FRONTIER_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
