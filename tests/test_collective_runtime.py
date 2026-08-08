@@ -1,5 +1,7 @@
+import tempfile
 import unittest
 from athena_mcp.collective_runtime import CollectiveRuntime
+from athena_mcp.server import Server
 
 
 class CollectiveRuntimeTests(unittest.TestCase):
@@ -47,6 +49,19 @@ class CollectiveRuntimeTests(unittest.TestCase):
         h = self.r.health({"context_saturation":.95,"error_rate":.5,"reserve_fraction":.01,"evidence_quality":.3})
         self.assertEqual(h["status"], "RED")
         self.assertGreaterEqual(h["critical_count"], 2)
+
+    def test_mcp_discovery_call_and_resource(self):
+        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+            srv = Server(f.name)
+            names = [x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']]
+            for name in ('athena_collective_plan','athena_collective_evaluate','athena_collective_quorum','athena_stigmergy_update','athena_collective_health'):
+                self.assertIn(name, names)
+            call = srv.handle({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'athena_collective_plan','arguments':{'signals':{'uncertainty':.95,'volatility':.9,'divisibility':.8,'coupling':.1,'innovation':.9},'max_workers':12}}})
+            self.assertFalse(call['result']['isError'])
+            self.assertEqual(call['result']['structuredContent']['form'], 'SWARM')
+            resource = srv.handle({'jsonrpc':'2.0','id':3,'method':'resources/read','params':{'uri':'athena://collective/runtime'}})
+            self.assertIn('COLLECTIVE_RUNTIME_V1', resource['result']['contents'][0]['text'])
+            srv.store.close()
 
 
 if __name__ == "__main__":
