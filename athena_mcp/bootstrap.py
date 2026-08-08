@@ -1,3 +1,10 @@
+from .operational_basis import install as install_operational_basis
+
+# Server imports this module on every canonical startup. Install the additive
+# read-side capability basis before dispatch constructs its final tools surface,
+# without changing the frozen v3.2.0 distribution entrypoint.
+install_operational_basis()
+
 GENESIS=[
 ('TOOL','IDENTITY','RESOLVE','CAPABILITY','CANONICAL_SIGNATURE',{'need':'functional signature'},{'oid':'string','cid':'string','canonical_name':'string'}),
 ('TOOL','NAVIGATION','RESOLVE','OBJECT','KC144_JSPACE',{'identifier':'OID|CID|name'},{'coordinate':'polycoordinate','edges':'graph'}),
