@@ -4,7 +4,7 @@ import unittest
 
 import athena_mcp
 from athena_mcp import agent_bootstrap as _boot
-from athena_mcp.capability_basis import BASIS_ADDRESS_KEY if False else derive_operational_basis
+from athena_mcp.capability_basis import derive_operational_basis
 from athena_mcp.git_backend import GitBackend
 from athena_mcp.prompt_runtime import PROMPT_RUNTIME_TOOL_NAMES
 
