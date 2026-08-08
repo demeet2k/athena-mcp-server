@@ -166,12 +166,12 @@ class SystemUpgradeTests(unittest.TestCase):
         )
         self.assertIn("INVALID_WITNESS", json.dumps(invalid))
 
-        blocked = plan["frontier"]["blocked"][0]
+        blocked_task_id = "TASK.001"
         dependency_error = self.tool(
             "athena_system_upgrade_observe",
             {
                 "run_id": plan["run_id"],
-                "task_id": blocked["task_id"],
+                "task_id": blocked_task_id,
                 "expected_state_digest": plan["state_digest"],
                 "witness": self.task_witness(),
             },
