@@ -116,6 +116,27 @@ def _semantic_history_program(dst: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
+def _seed_chart(
+    crystal: Any,
+    *,
+    chart_id: str,
+    value: Mapping[str, Any],
+    arm: str,
+    seed_event: str,
+) -> None:
+    """Register a synthetic chart through the same native coordinate path as #129."""
+    crystal._put_coordinate(
+        f"AQ001C::CHART_SEED::{arm}",
+        chart_id,
+        {
+            "status": "PARTIAL",
+            "family": "AQ001C_SYNTHETIC_GAUGE_CHART",
+            "value": dict(value),
+        },
+        seed_event,
+    )
+
+
 def _register_edge(crystal: Any, src: str, dst: str, program: Mapping[str, Any], arm: str) -> None:
     crystal.register_transform(
         src,
@@ -154,6 +175,19 @@ def _run_loop(
         state["previous_layer"] = s0
     if "path_trace" in state:
         state["path_trace"] = f"LAYER::{s0}"
+
+    seed_event = crystal._event(
+        "AQ001C_GAUGE_CHART_SEED",
+        ACTOR,
+        {
+            "artifact": ARTIFACT,
+            "arm": arm,
+            "charts": [s0, sa],
+            "standing": "SYNTHETIC_GAUGE_CONTROL_NOT_SOURCE_EVIDENCE",
+        },
+    )
+    _seed_chart(crystal, chart_id=s0, value=_endpoint_state(start_layer), arm=arm, seed_event=seed_event)
+    _seed_chart(crystal, chart_id=sa, value=_endpoint_state(alias_layer), arm=arm, seed_event=seed_event)
 
     _register_edge(crystal, s0, sa, program_factory(s0, alias_layer), arm)
     _register_edge(crystal, sa, s0, program_factory(sa, start_layer), arm)
@@ -234,6 +268,24 @@ def run_semantic_twin_gauge(crystal: Any) -> dict[str, Any]:
     )
 
     control_chart = "AQ001C.CONTROL.S0"
+    control_state = _endpoint_state({**start, "layer_id": control_chart})
+    control_seed_event = crystal._event(
+        "AQ001C_GAUGE_CHART_SEED",
+        ACTOR,
+        {
+            "artifact": ARTIFACT,
+            "arm": "SAME_LAYER_NATIVE_IDENTITY_CONTROL",
+            "charts": [control_chart],
+            "standing": "SYNTHETIC_GAUGE_CONTROL_NOT_SOURCE_EVIDENCE",
+        },
+    )
+    _seed_chart(
+        crystal,
+        chart_id=control_chart,
+        value=control_state,
+        arm="SAME_LAYER_NATIVE_IDENTITY_CONTROL",
+        seed_event=control_seed_event,
+    )
     _register_edge(
         crystal,
         control_chart,
@@ -241,7 +293,6 @@ def run_semantic_twin_gauge(crystal: Any) -> dict[str, Any]:
         {"op": "identity"},
         "SAME_LAYER_NATIVE_IDENTITY_CONTROL",
     )
-    control_state = _endpoint_state({**start, "layer_id": control_chart})
     control = crystal.apply_transform_route(
         "AQ001C::CONTROL",
         [control_chart, control_chart, control_chart],
