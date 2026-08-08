@@ -10,6 +10,17 @@
     "v2_input": "exact V1 pareto_candidate_ids subset",
     "mutation": "none"
   },
+  "freshness_membrane": {
+    "antibody": "AB-001",
+    "law": "LOCAL_AB_PREVIEW != SHARED_CURRENT_AB_PREVIEW",
+    "default_mode": "REQUIRED",
+    "required_flow": "shared Git sync -> verify current stored/computed/expected loop state digest -> apply witnessed terminal closure gate -> run V1/V2 analysis",
+    "unverified_remote": "REHYDRATION_SUCCESSOR_REGRET_COMPARE_SHARED_FRONTIER_HOLD",
+    "stale_expected_state": "STALE_SUCCESSOR_REGRET_COMPARE",
+    "tampered_state": "TAMPERED_SUCCESSOR_REGRET_COMPARE_STATE_HOLD",
+    "disabled_mode": "LOCAL_ONLY_UNVERIFIED",
+    "reuse": "extends the canonical successor preview membrane instead of creating a second freshness implementation"
+  },
   "preference_geometry": {
     "dimensions": [
       "utility",
@@ -48,14 +59,22 @@
     "nonpositive": "STOP_COMPUTING",
     "authority_required": "OUTSIDE_INFORMATION_VOC"
   },
+  "known_residuals": [
+    "V1 source-heuristic routing metrics are still point values; point heuristic != observed certainty",
+    "production behavioral gain has not been witnessed",
+    "automatic successor execution remains V1"
+  ],
   "laws": [
     "READ_ONLY_AB != AUTO_ROUTING_MUTATION",
     "V2_CONSUMES_V1_PARETO_SET",
     "RADIUS_ZERO_MUST_REPRODUCE_V1_SEMANTICS",
+    "LOCAL_AB_PREVIEW != SHARED_CURRENT_AB_PREVIEW",
+    "STALE_AB_PREVIEW => REHYDRATE_BEFORE_ANALYSIS",
     "ROUTING_ANALYSIS != EVIDENCE",
     "ROUTING_ANALYSIS != AUTHORITY",
     "AUTHORITY_REQUIRED_QUERY != INFORMATION_VOC",
-    "NONPOSITIVE_VOC => STOP_OPTIONAL_COMPUTATION"
+    "NONPOSITIVE_VOC => STOP_OPTIONAL_COMPUTATION",
+    "V1_HEURISTIC_POINT_METRIC != OBSERVED_CERTAINTY"
   ],
   "promotion_boundary": {
     "automatic_successor_routing": "UNCHANGED",
