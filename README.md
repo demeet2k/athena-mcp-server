@@ -1,219 +1,211 @@
-# ATHENA Canonical MCP v2.3 — Executable Polycoordinate Crystal + Collective Ecology Runtime
+# ATHENA Canonical MCP v2.4 — Polycoordinate Crystal + Causal Experimental Collective Runtime
 
-A from-first-principles ATHENA Git/MCP nervous substrate.
-
-Core law: one canonical state, explicit versions, exact ancestry, stale-write rejection, typed JSPACE graph/hypergraph, SCALE, KC144, open-world coordinate atlas, mathematical-object registry, executable transform calculus, public liminal telemetry, exact final-emission bytes, lossless RETURN, and a cost-aware collective-intelligence ecology with persistent memory, bounded learning, uncertainty-aware exploration and explicit causal/evidential boundaries.
+ATHENA's executable Git/MCP nervous substrate: canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, and a layered collective-intelligence runtime that now extends from organization through memory, bounded learning, uncertainty-aware ecology, and causal experimental science.
 
 ## Runtime cycle
 
-`HYDRATE → MEMORY/ANTIBODY/ELDER QUERY → REGIME → BUDGET/POLICY/POSTERIOR STATE → JSPACE → SCALE → KC144/POLYATLAS → CUT/MAXDEV → COLLECTIVE PLAN → RGO CALIBRATE → UCB EXPERIMENT SELECT → OPTIONAL ROLLOUT → BUDGET-AWARE SCHEDULE → EXECUTE/METER → QUORUM/VERIFY → OBSERVE → CAUSAL-CREDIT SURFACE → BANDIT/POLICY/WORKER-COST UPDATE → ADAPTIVE PHEROMONE/ANTIBODY/ELDER UPDATE → JSPACE ALARM/TOPOLOGY CAS/OPTIONAL PROJECTION SAGA → LIFECYCLE → FINALIZE_OUTPUT → VERIFY → CONDITIONAL COMMIT → GLOBAL DIFFUSION`
+`HYDRATE → RECONSTRUCT → MEMORY/ANTIBODY/ELDER → COARSE+LEARNED REGIME → BAYES/CALIBRATION → LIVE HYPOTHESES → EIG EXPERIMENT DESIGN → PARETO FRONTIER → COLLECTIVE PLAN → MULTIPERIOD BUDGET SCHEDULE → EXECUTE/METER → QUORUM/FALSIFY/WITNESS → OBSERVE → MAIN/INTERACTION/DELAYED CREDIT → BAYES/BANDIT/POLICY UPDATE → TRANSITION UPDATE/ROLLOUT → PHEROMONE/DIFFUSION/IMMUNE/ELDER → JSPACE/TOPOLOGY/PROJECTION/COMPENSATION → LIFECYCLE → FINALIZE/VERIFY → CONDITIONAL COMMIT → REATTACK`
 
-## Identity
+## Authority
+
+- semantic state: expected-VID / semantic-head CAS;
+- Git state: expected-Git-head CAS;
+- collective topology: expected-topology-version CAS;
+- learned V3 policy: expected-policy-version CAS;
+- topology→JSPACE uses a recovery saga, not a fictional SQLite+Git distributed transaction;
+- V5 semantic compensation only retracts currently active edges owned by the exact projection and never pretends to rewrite Git history.
 
 `SID != OID != MID != VID != CID != EID != CRYS != ENV`.
 
-## Authority / stale state
+## Exact visible output
 
-Semantic CAS: `expected VID == current VID` else `STALE_TARGET`.
+`athena_finalize_output` crystallizes the body, derives the header, assembles the exact visible envelope, creates an emission manifestation, indexes every visible lexeme, and returns bytes that can be verified by `athena_verify_emission`.
 
-Git CAS: `expected Git HEAD == current Git HEAD` else `STALE_GIT_HEAD`.
+Coordinate lists are navigation only. `LOOKUP != DERIVATION`; measured holonomy is promoted only for all-derivational routes.
 
-Collective topology CAS: `expected topology version == current topology version` else `STALE_TOPOLOGY`.
+---
 
-Learned organization policy CAS: `expected policy version == current policy version` else `STALE_POLICY`.
+## Collective Runtime V1 — organization
 
-Topology-to-JSPACE projection is a recoverable saga over separate semantic/Git stores; it is explicitly **not** represented as one atomic distributed transaction.
+HIVE/SWARM/PACK/FLOCK/HERD/POD selection, dynamic worker width, role allocation, bounded-neighbor topology, protected reserve, evidence-sensitive quorum/cross-inhibition, advisory stigmergy and homeostasis.
 
-## Exact visible text
+Resource: `athena://collective/runtime`  
+Spec: `spec/COLLECTIVE_RUNTIME.md`
 
-Body, derived header, and final visible emission are separate manifestations. Final emission tokens use:
+Core law: `MAX_GROWTH != MAX_ACTIVITY` and `MAX_INTEGRATION != MAX_CONNECTIVITY`.
 
-`KC144.G###.R##.C##/OID:.../VID:.../MID:.../P:#####/S:#####/T:#######/C:#########-#########`.
+## Collective Growth V1 — metabolism
 
-## Coordinate synesthesia
+Demand-sensitive allocation, living-bridge economics, FISSION/FUSE/HOLD pressure, dependency alarm transport and lineage-preserving artifact lifecycle.
 
-A coordinate list is not navigation. Transform modes separate `LOOKUP` from derivational operations. The runtime measures:
+Resource: `athena://collective/growth`  
+Spec: `spec/COLLECTIVE_GROWTH.md`
 
-- `rho_nav` registered navigation density,
-- `rho_exec` executable transform density,
-- `rho_der` genuine derivational density.
+## Collective Runtime V2 — persistent organizational memory
 
-Closed-loop holonomy is auto-measured only when every edge is derivational.
+Database-backed pheromone field; typed JSPACE invalidation compiler; predicted-vs-observed RGO calibration; versioned topology CAS/rollback; reusable failure antibodies containing detector, repair, evidence and regression references.
 
-## Collective Runtime V1
+Resource: `athena://collective/v2`  
+Spec: `spec/COLLECTIVE_RUNTIME_V2.md`
 
-The collective layer converts hive/swarm/pack/flock/herd/pod design priors into explicit control laws rather than decorative metaphors.
+## Collective Runtime V3 — bounded empirical adaptation
 
-Core laws:
+Observed budget memory; rollbackable regularized learned policy; simulate-only one-step counterfactual ranking; evidence-backed elder authority; empirical antibody families/expiry; multiscale pheromones across token→artifact→module→domain→system.
 
-- `MAX_GROWTH != MAX_ACTIVITY`;
-- `MAX_INTEGRATION != MAX_CONNECTIVITY`;
-- `CONSENSUS_SCORE != EVIDENCE_SCORE`;
-- preserve reserve capacity;
-- stop adding workers when marginal output no longer exceeds marginal coordination cost;
-- prefer strong modules plus sparse bridges to all-to-all connectivity;
-- pair recruitment with inhibition, contradiction routing and attractor evaporation.
+Resource: `athena://collective/v3`  
+Spec: `spec/COLLECTIVE_RUNTIME_V3.md`
 
-MCP tools:
+## Collective Runtime V4 — uncertainty-aware experimental ecology
 
-- `athena_collective_plan` — select collective form, right-size active workers, allocate roles/topology/reserve, and emit `COLLECTIVE=<F,R,N,D,Q,C,O,H,L>`;
-- `athena_collective_evaluate` — explicit cost/output vectors and return-on-group-organization;
-- `athena_collective_quorum` — evidence-sensitive commitment with cross-inhibition;
-- `athena_stigmergy_update` — reinforcement plus decay of artifact/routing priority;
-- `athena_collective_health` — homeostatic overload detection and corrective actions.
-
-Resource: `athena://collective/runtime`.
-
-Specification: `spec/COLLECTIVE_RUNTIME.md`.
-
-## Collective Growth Operators V1
-
-- `athena_collective_allocate` — scarce workers follow demand × capability fit × available capacity;
-- `athena_bridge_account` — infrastructure must repay build + maintenance + locked-capacity cost;
-- `athena_collective_restructure` — FISSION/FUSE/HOLD from coordination, contagion, cohesion, complementarity and duplication pressure;
-- `athena_dependency_alarm` — weighted decaying alarm waves over explicit influence/dependency edges;
-- `athena_artifact_lifecycle` — KEEP_ACTIVE / KEEP_REFERENCE / DORMANT / QUARANTINE / PRUNE_REFERENCE while preserving required lineage.
-
-Resource: `athena://collective/growth`.
-
-Specification: `spec/COLLECTIVE_GROWTH.md`.
-
-## Collective Runtime V2 — Persistent Organizational Memory
-
-V2 promotes the highest-value advisory residuals into durable control state while preserving semantic/Git authority.
-
-- `athena_pheromone_reinforce` / `athena_pheromone_field` — database-backed stigmergic priority with reinforcement and evaporation;
-- `athena_jspace_alarm` — typed JSPACE relations become bounded invalidation transport; unknown relation orientation is ignored rather than fabricated;
-- `athena_rgo_observe` / `athena_rgo_calibrate` — predicted-vs-observed RGO calibration;
-- `athena_topology_get` / `athena_topology_apply` / `athena_topology_rollback` — versioned topology CAS, lineage-preserving FISSION/FUSE and rollback witnesses;
-- `athena_failure_antibody_register` / `athena_failure_antibody_match` — detector + repair + evidence + regression/replay memory.
-
-Resource: `athena://collective/v2`.
-
-Specification: `spec/COLLECTIVE_RUNTIME_V2.md`.
-
-## Collective Runtime V3 — Self-Learning Collective Ecology
-
-V3 converts persistent memory into bounded empirical adaptation.
-
-### ΩBUDGET
-
-- `athena_budget_record` persists observable resource measurements;
-- `athena_budget_summary` aggregates them plus MCP tool-call wall time automatically metered by dispatch;
-- unavailable token/compute dimensions remain UNKNOWN.
-
-### ΩPOLICY
-
-- `athena_policy_state` / `athena_policy_score` expose a bounded learned organization policy;
-- `athena_policy_update` requires explicit observed reward and current expected policy version;
-- coefficients are bounded, regularized, and learned with a sample-count-decaying step size;
-- `athena_policy_rollback` restores a prior before-state as a new witnessed version.
-
-### ΩCOUNTERFACTUAL
-
-- `athena_counterfactual_simulate` ranks candidate organizations using deterministic RGO, V2 calibration, V3 policy reliability, risk and budget pressure;
-- result is always `SIMULATE_ONLY`.
-
-### ΩELDER
-
-- `athena_elder_observe` accumulates measured reuse/prediction/repair/regression/generalization outcomes with contradiction penalty;
-- `athena_elder_rank` exposes defeasible longitudinal authority;
-- age, repetition or popularity alone confer no seniority.
-
-### ΩIMMUNE++
-
-- `athena_antibody_record_outcome` records repair/regression outcomes and false positives;
-- `athena_antibody_evolve` creates variants with family/parent lineage and optional expiry;
-- `athena_antibody_select` combines semantic match with empirical reliability and status.
-
-### ΩPHEROMONE^N
-
-- `athena_pheromone_multiscale_reinforce` propagates reinforcement over declared `token → artifact → module → domain → system` coordinates with fixed distance attenuation;
-- `athena_pheromone_multiscale_field` returns the resulting persistent scale fiber.
-
-Resource: `athena://collective/v3`.
-
-Specification: `spec/COLLECTIVE_RUNTIME_V3.md`.
-
-## Collective Runtime V4 — Uncertainty-Aware Experimental Ecology
-
-V4 attacks the next limiting factor: **how to explore, attribute, schedule and project without allowing the learning system to certify its own assumptions**.
-
-### ΩREGIME + ΩBANDIT
-
-- `athena_regime_resolve` maps observable task signals into an interpretable collective/task regime;
-- `athena_bandit_select` uses a diagonal contextual-UCB approximation with local-regime posterior, reliability-weighted GLOBAL transfer, explicit uncertainty bands, and the V3 policy only as a prior when evidence is sparse;
-- `athena_bandit_observe` updates posteriors only from explicit observed reward.
-
-Law: `UCB != TRUTH`; exploration value can select an experiment without raising factual confidence.
+### ΩREGIME / ΩBANDIT
+Deterministic task regimes plus diagonal contextual-UCB selection with local evidence, bounded cross-regime transfer, explicit uncertainty, and V3 policy prior. Only explicit observed reward updates the posterior.
 
 ### ΩCREDIT
-
-- `athena_credit_assign` decomposes an observed outcome across interventions while carrying design-dependent causal confidence and preserving unattributed residual;
-- `athena_credit_summary` exposes intervention credit history.
-
-Randomization, control groups, direct measurement, isolation, replication and explicit counterfactuals increase causal confidence. Weak designs remain `ASSOCIATIONAL`; they are not relabeled causal because a learner wants a reward signal.
+Design-dependent causal confidence, intervention credit and preserved unattributed residual.
 
 ### ΩSCHEDULER
-
-- `athena_worker_cost_observe` stores observable per-worker resources, budget pressure, useful output and empirical efficiency;
-- `athena_budget_schedule` combines demand × capability fit × availability × measured efficiency while enforcing known budget feasibility;
-- missing constrained costs are marked UNKNOWN and penalized for uncertainty rather than treated as free.
-
-V4 additionally accepts observable CPU/GPU/energy/memory/network dimensions when callers can actually measure them.
+Measured per-worker cost/efficiency and one-step budget-aware allocation. `UNKNOWN_COST != ZERO_COST`.
 
 ### ΩDIFFUSION
-
-- `athena_diffusion_observe` records observed cross-scale transfer utility plus evidence/causal-confidence metadata;
-- `athena_diffusion_matrix` returns shrinkage-learned token/artifact/module/domain/system coefficients;
-- `athena_pheromone_adaptive_reinforce` uses those coefficients for subsequent multiscale reinforcement.
-
-Learned coefficients remain shrunk toward V3 distance priors until evidence accumulates.
+Shrinkage-learned scale-to-scale pheromone transfer utility with causal confidence stored separately from routing usefulness.
 
 ### ΩREGRESSION
-
-- `athena_antibody_execute_regressions` can execute stored repository-owned Python unittest witnesses of the exact form `tests/...py::TestCase::test_method`;
-- traversal, shell syntax and arbitrary commands are rejected;
-- execution uses `shell=False`, isolated Python mode and a hard timeout;
-- pass/fail can feed the antibody evolution record.
-
-This is a deliberately restricted repository subprocess, not an OS-level hermetic security sandbox.
+Restricted repository-owned unittest execution; no arbitrary commands; not claimed OS-hermetic.
 
 ### ΩROLLOUT
-
-- `athena_rollout_simulate` evaluates explicit multi-step organization trajectories;
-- each step exposes expected/lower/upper utility using counterfactual baseline plus empirical bandit information;
-- only explicit `context_delta` values change simulated state;
-- result is always `SIMULATE_ONLY`.
+Explicit-transition multi-step simulate-only organization trajectories.
 
 ### ΩPROJECTION
+Topology→JSPACE plan/preflight/saga with `ABORTED` vs `COMPENSATION_REQUIRED` recovery states.
 
-- `athena_projection_prepare` derives and journals a topology→JSPACE structural projection plan;
-- `athena_projection_status` exposes its recovery state;
-- `athena_topology_project_jspace` performs topology-version + semantic-head + optional Git-head preflight, deduplicates structural edges, writes provenance attributes, and optionally checkpoints Git;
-- failures before semantic writes become `ABORTED`; failures after partial semantic application become `COMPENSATION_REQUIRED`.
+Resource: `athena://collective/v4`  
+Spec: `spec/COLLECTIVE_RUNTIME_V4.md`
 
-This is intentionally a recovery **saga**, because SQLite semantic state and Git are separate stores. V4 does not claim impossible atomic rollback across them.
+---
 
-Resource: `athena://collective/v4`.
+# Collective Runtime V5 — Causal Experimental Operating System
 
-Specification: `spec/COLLECTIVE_RUNTIME_V4.md`.
+V5 converts the V4 experiment selector into a stronger scientific operating layer while retaining every evidence firewall.
 
-### V4 learning firewall
+## ΩBAYES — correlated uncertainty
 
-- `EXPLORATION_SCORE != EVIDENCE`
-- `ASSOCIATION != CAUSATION`
-- `COUNTERFACTUAL != OBSERVATION`
-- `BANDIT_PREDICTION != REWARD`
-- `REGIME_TRANSFER != IDENTITY`
-- `UNKNOWN_COST != ZERO_COST`
-- `DIFFUSION_POSTERIOR != CAUSAL_PATH`
-- `REGRESSION_PASS != UNIVERSAL_PROOF`
-- `ROLLOUT != COMMIT`
-- `PROJECTION_SAGA != ATOMIC_TRANSACTION`
+- `athena_bayes_predict`
+- `athena_bayes_observe`
+- `athena_uncertainty_calibrate`
+
+V5 maintains a full ridge precision matrix
+
+`A = λI + Σ w φφᵀ`
+
+with
+
+`θ̂ = A⁻¹b`
+
+and predictive leverage
+
+`h(φ)=φᵀA⁻¹φ`.
+
+Unlike the V4 diagonal bandit, correlated feature uncertainty is retained through the returned posterior covariance matrix. Every observation stores its **pre-update** interval so empirical coverage calibration cannot cheat by measuring the posterior after learning the answer.
+
+`POSTERIOR != TRUTH` and `COVERAGE_CALIBRATION != MODEL_VALIDITY`.
+
+## ΩDESIGN — active hypothesis discrimination
+
+- `athena_experiment_design`
+
+For caller-supplied hypotheses/priors and binary outcome likelihoods, V5 computes expected posterior entropy and expected information gain. Cost, risk, feasibility and an explicit ethics gate modify eligibility/ranking. Missing likelihoods remain `INCOMPLETE_PREDICTIONS`; unethical candidates remain `ETHICS_BLOCK` even when maximally informative.
+
+Results are always `DESIGN_ONLY`.
+
+`EXPECTED_INFORMATION_GAIN != EVIDENCE` and `DESIGN != RESULT`.
+
+## ΩINTERACTION / ΩDELAY — stronger causal credit
+
+- `athena_interaction_credit`
+- `athena_delayed_credit_record`
+- `athena_delayed_credit_summary`
+
+Main effects use present-vs-absent contrasts. Pair interactions use the full 2×2 contrast
+
+`μ11 - μ10 - μ01 + μ00`.
+
+If any factorial cell is missing the effect remains `UNIDENTIFIED`; numerical contrasts are not promoted to causal without adequate design confidence.
+
+Delayed credit is explicitly
+
+`ΔY × causal_confidence × discount^delay`.
+
+Temporal delay alone never identifies cause.
+
+## ΩTRANSITION — learned organization dynamics
+
+- `athena_transition_observe`
+- `athena_transition_predict`
+- `athena_rollout_learned`
+
+Observed action-conditioned context deltas are stored as weighted sufficient statistics and shrunk toward zero until evidence accumulates. Unseen features remain unchanged/unknown rather than fabricated. Learned-transition rollouts expose uncertainty-banded discounted return and are always `SIMULATE_ONLY`.
+
+`TRANSITION_MODEL != WORLD_TRUTH` and `ROLLOUT != EXECUTION`.
+
+## ΩSCHEDULE — finite-horizon operating schedule
+
+- `athena_schedule_multiperiod`
+
+V5 schedules bounded task sets across time while respecting explicit dependencies, durations, worker capability/capacity, horizon, deadlines and observable resource budgets. It uses bounded beam search and explicitly returns
+
+`BOUNDED_BEAM_SEARCH_NO_GLOBAL_OPTIMALITY_PROOF`.
+
+## ΩCELL — stronger witness isolation
+
+- `athena_witness_cell`
+
+The witness grammar remains repository-owned Python unittests only. V5 adds isolated Python mode, sanitized environment/temp HOME, `shell=False`, timeout, Python socket denial, and POSIX CPU/address-space/file-size/fd limits when available. The result reports the exact isolation controls actually applied.
+
+It is deliberately **not** labeled OS-hermetic.
+
+## ΩREGIME-GEOMETRY
+
+- `athena_regime_geometry_observe`
+- `athena_regime_geometry_resolve`
+
+Weighted task-signal centroids create evidence-backed transfer neighborhoods around the coarse V4 regime partition. Learned regime geometry is routing context, never semantic identity.
+
+## ΩPARETO
+
+- `athena_pareto_frontier`
+
+V5 computes the exact finite non-dominated frontier for caller-supplied metrics/directions. Optional interval-robust mode requires worst-case dominance against the competitor's best-case values. Crowd distance provides a frontier-diversity surface rather than inventing one scalar winner.
+
+## ΩCOMPENSATION
+
+- `athena_projection_compensate`
+
+V5 supplies a real inverse for the narrow semantic side effect of V4 projection: active edges bearing the exact projection ID. Compensation is semantic-head-CAS protected, emits compensation events, retracts only projection-owned active edges, leaves unrelated edges intact, and surfaces whether separate Git compensation remains necessary.
+
+`SEMANTIC_COMPENSATION != GIT_ROLLBACK`.
+
+Resource: `athena://collective/v5`  
+Spec: `spec/COLLECTIVE_RUNTIME_V5.md`
+
+## V5 science firewall
+
+- `POSTERIOR != TRUTH`
+- `CALIBRATION != VALIDITY`
+- `EIG != EVIDENCE`
+- `DESIGN != RESULT`
+- `INTERACTION != CAUSATION WITHOUT IDENTIFICATION`
+- `DELAY != CAUSATION`
+- `TRANSITION_MODEL != WORLD`
+- `ROLLOUT != EXECUTION`
+- `BOUNDED_SCHEDULE != GLOBAL_OPTIMUM`
+- `WITNESS_CELL != HERMETIC_SANDBOX`
+- `LEARNED_REGIME != IDENTITY`
+- `PARETO_FRONTIER != SINGLE_BEST`
+- `SEMANTIC_COMPENSATION != GIT_ROLLBACK`
 
 ## Run
 
 `python -m athena_mcp --db ./state/athena.db`
 
+MCP server package: `athena-canonical-mcp 2.4.0`  
 MCP protocol revision: `2025-11-25`.
